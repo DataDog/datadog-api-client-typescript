@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A list of current AWS services for which Datadog offers automatic log collection.
+ */
+
 export class AWSLogsServicesRequest {
   /**
    * Your AWS Account ID without dashes.
@@ -20,14 +26,7 @@ export class AWSLogsServicesRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
       type: "string",
@@ -40,7 +39,7 @@ export class AWSLogsServicesRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSLogsServicesRequest.attributeTypeMap;
   }
 

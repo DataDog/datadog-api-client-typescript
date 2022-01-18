@@ -10,6 +10,11 @@
 
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { FullApplicationKey } from "./FullApplicationKey";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response for retrieving an application key.
+ */
 
 export class ApplicationKeyResponse {
   "data"?: FullApplicationKey;
@@ -20,14 +25,7 @@ export class ApplicationKeyResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "FullApplicationKey",
@@ -38,7 +36,7 @@ export class ApplicationKeyResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyResponse.attributeTypeMap;
   }
 

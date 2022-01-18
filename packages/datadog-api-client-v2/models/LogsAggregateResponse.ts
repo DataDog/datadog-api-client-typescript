@@ -10,6 +10,11 @@
 
 import { LogsAggregateResponseData } from "./LogsAggregateResponseData";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The response object for the logs aggregate API endpoint
+ */
 
 export class LogsAggregateResponse {
   "data"?: LogsAggregateResponseData;
@@ -17,14 +22,7 @@ export class LogsAggregateResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "LogsAggregateResponseData",
@@ -35,7 +33,7 @@ export class LogsAggregateResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateResponse.attributeTypeMap;
   }
 

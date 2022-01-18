@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of netflow events indexed for each hour for a given organization.
+ */
+
 export class UsageNetworkFlowsHour {
   /**
    * The hour for the usage.
@@ -20,29 +26,20 @@ export class UsageNetworkFlowsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     indexedEventsCount: {
       baseName: "indexed_events_count",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageNetworkFlowsHour.attributeTypeMap;
   }
 

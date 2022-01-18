@@ -8,41 +8,17 @@
  * Do not edit the class manually.
  */
 
-export class SyntheticsBasicAuth {
-  /**
-   * Password to use for the basic authentication.
-   */
-  "password": string;
-  /**
-   * Username to use for the basic authentication.
-   */
-  "username": string;
+import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
+import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
+import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
+import { UnparsedObject } from "./ObjectSerializer";
 
-  "unparsedObject"?: any;
+/**
+ * Object to handle basic authentication when performing the test.
+ */
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
-    password: {
-      baseName: "password",
-      type: "string",
-      required: true,
-    },
-    username: {
-      baseName: "username",
-      type: "string",
-      required: true,
-    },
-  };
-
-  static getAttributeTypeMap() {
-    return SyntheticsBasicAuth.attributeTypeMap;
-  }
-
-  public constructor() {}
-}
+export type SyntheticsBasicAuth =
+  | SyntheticsBasicAuthNTLM
+  | SyntheticsBasicAuthSigv4
+  | SyntheticsBasicAuthWeb
+  | UnparsedObject;

@@ -9,27 +9,25 @@
  */
 
 import { MetricVolumes } from "./MetricVolumes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response object which includes a single metric's volume.
+ */
 
 export class MetricVolumesResponse {
   "data"?: MetricVolumes;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "MetricVolumes",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricVolumesResponse.attributeTypeMap;
   }
 

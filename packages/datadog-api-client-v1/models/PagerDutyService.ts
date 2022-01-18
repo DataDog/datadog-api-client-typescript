@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The PagerDuty service that is available for integration with Datadog.
+ */
+
 export class PagerDutyService {
   /**
    * Your service key in PagerDuty.
@@ -20,14 +26,7 @@ export class PagerDutyService {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     serviceKey: {
       baseName: "service_key",
       type: "string",
@@ -40,7 +39,7 @@ export class PagerDutyService {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return PagerDutyService.attributeTypeMap;
   }
 

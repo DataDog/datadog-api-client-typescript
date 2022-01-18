@@ -9,6 +9,11 @@
  */
 
 import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response Object that includes your query and the list of metrics retrieved.
+ */
 
 export class MetricsQueryResponse {
   /**
@@ -50,14 +55,7 @@ export class MetricsQueryResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
       baseName: "error",
       type: "string",
@@ -65,7 +63,6 @@ export class MetricsQueryResponse {
     fromDate: {
       baseName: "from_date",
       type: "number",
-
       format: "int64",
     },
     groupBy: {
@@ -95,12 +92,11 @@ export class MetricsQueryResponse {
     toDate: {
       baseName: "to_date",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsQueryResponse.attributeTypeMap;
   }
 

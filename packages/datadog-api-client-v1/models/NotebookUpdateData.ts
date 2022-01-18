@@ -10,6 +10,11 @@
 
 import { NotebookResourceType } from "./NotebookResourceType";
 import { NotebookUpdateDataAttributes } from "./NotebookUpdateDataAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The data for a notebook update request.
+ */
 
 export class NotebookUpdateData {
   "attributes": NotebookUpdateDataAttributes;
@@ -17,14 +22,7 @@ export class NotebookUpdateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "NotebookUpdateDataAttributes",
@@ -37,7 +35,7 @@ export class NotebookUpdateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookUpdateData.attributeTypeMap;
   }
 

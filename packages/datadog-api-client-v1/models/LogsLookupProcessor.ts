@@ -9,6 +9,11 @@
  */
 
 import { LogsLookupProcessorType } from "./LogsLookupProcessorType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Use the Lookup Processor to define a mapping between a log attribute and a human readable value saved in the processors mapping table. For example, you can use the Lookup Processor to map an internal service ID into a human readable service name. Alternatively, you could also use it to check if the MAC address that just attempted to connect to the production environment belongs to your list of stolen machines.
+ */
 
 export class LogsLookupProcessor {
   /**
@@ -39,14 +44,7 @@ export class LogsLookupProcessor {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     defaultLookup: {
       baseName: "default_lookup",
       type: "string",
@@ -81,7 +79,7 @@ export class LogsLookupProcessor {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsLookupProcessor.attributeTypeMap;
   }
 

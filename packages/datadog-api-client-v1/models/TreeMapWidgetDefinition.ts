@@ -13,15 +13,20 @@ import { TreeMapGroupBy } from "./TreeMapGroupBy";
 import { TreeMapSizeBy } from "./TreeMapSizeBy";
 import { TreeMapWidgetDefinitionType } from "./TreeMapWidgetDefinitionType";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The treemap visualization found on the Host Dashboards comes from the output of `ps auxww`. This is not continuously run on your hosts. Instead, it’s run once on Agent start/restart. The treemap is only supported for process data on a single host dashboard — this may not be reused in other dashboards or for other metrics.
+ */
 
 export class TreeMapWidgetDefinition {
-  "colorBy": TreeMapColorBy;
-  "groupBy": TreeMapGroupBy;
+  "colorBy"?: TreeMapColorBy;
+  "groupBy"?: TreeMapGroupBy;
   /**
    * List of top list widget requests.
    */
   "requests": Array<TreeMapWidgetRequest>;
-  "sizeBy": TreeMapSizeBy;
+  "sizeBy"?: TreeMapSizeBy;
   /**
    * Title of your widget.
    */
@@ -30,23 +35,14 @@ export class TreeMapWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     colorBy: {
       baseName: "color_by",
       type: "TreeMapColorBy",
-      required: true,
     },
     groupBy: {
       baseName: "group_by",
       type: "TreeMapGroupBy",
-      required: true,
     },
     requests: {
       baseName: "requests",
@@ -56,7 +52,6 @@ export class TreeMapWidgetDefinition {
     sizeBy: {
       baseName: "size_by",
       type: "TreeMapSizeBy",
-      required: true,
     },
     title: {
       baseName: "title",
@@ -69,7 +64,7 @@ export class TreeMapWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return TreeMapWidgetDefinition.attributeTypeMap;
   }
 

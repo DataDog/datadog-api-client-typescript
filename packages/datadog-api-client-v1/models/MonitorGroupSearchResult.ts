@@ -9,6 +9,11 @@
  */
 
 import { MonitorOverallStates } from "./MonitorOverallStates";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A single monitor group search result.
+ */
 
 export class MonitorGroupSearchResult {
   /**
@@ -39,14 +44,7 @@ export class MonitorGroupSearchResult {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     group: {
       baseName: "group",
       type: "string",
@@ -58,19 +56,16 @@ export class MonitorGroupSearchResult {
     lastNodataTs: {
       baseName: "last_nodata_ts",
       type: "number",
-
       format: "int64",
     },
     lastTriggeredTs: {
       baseName: "last_triggered_ts",
       type: "number",
-
       format: "int64",
     },
     monitorId: {
       baseName: "monitor_id",
       type: "number",
-
       format: "int64",
     },
     monitorName: {
@@ -83,7 +78,7 @@ export class MonitorGroupSearchResult {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorGroupSearchResult.attributeTypeMap;
   }
 

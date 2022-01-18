@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of a full application key.
+ */
+
 export class FullApplicationKeyAttributes {
   /**
    * Creation date of the application key.
@@ -25,17 +31,14 @@ export class FullApplicationKeyAttributes {
    * Name of the application key.
    */
   "name"?: string;
+  /**
+   * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
+   */
+  "scopes"?: Array<string>;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
       type: "string",
@@ -52,9 +55,13 @@ export class FullApplicationKeyAttributes {
       baseName: "name",
       type: "string",
     },
+    scopes: {
+      baseName: "scopes",
+      type: "Array<string>",
+    },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FullApplicationKeyAttributes.attributeTypeMap;
   }
 

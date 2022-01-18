@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Define computation for a log query.
+ */
+
 export class LogsQueryCompute {
   /**
    * The aggregation method.
@@ -24,14 +30,7 @@ export class LogsQueryCompute {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "string",
@@ -44,12 +43,11 @@ export class LogsQueryCompute {
     interval: {
       baseName: "interval",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsQueryCompute.attributeTypeMap;
   }
 

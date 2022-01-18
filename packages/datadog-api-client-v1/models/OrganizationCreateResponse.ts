@@ -12,6 +12,11 @@ import { ApiKey } from "./ApiKey";
 import { ApplicationKey } from "./ApplicationKey";
 import { Organization } from "./Organization";
 import { User } from "./User";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response object for an organization creation.
+ */
 
 export class OrganizationCreateResponse {
   "apiKey"?: ApiKey;
@@ -21,14 +26,7 @@ export class OrganizationCreateResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
       type: "ApiKey",
@@ -47,7 +45,7 @@ export class OrganizationCreateResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationCreateResponse.attributeTypeMap;
   }
 

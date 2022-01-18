@@ -1,3 +1,4 @@
+CloudWorkloadSecurityApi.md
 DashboardListsApi.md
 IncidentServicesApi.md
 IncidentTeamsApi.md
@@ -13,6 +14,7 @@ RolesApi.md
 SecurityMonitoringApi.md
 ServiceAccountsApi.md
 UsersApi.md
+apis/CloudWorkloadSecurityApi.ts
 apis/DashboardListsApi.ts
 apis/IncidentServicesApi.ts
 apis/IncidentTeamsApi.ts
@@ -59,6 +61,19 @@ models/ApplicationKeyUpdateData.ts
 models/ApplicationKeyUpdateRequest.ts
 models/ApplicationKeysSort.ts
 models/ApplicationKeysType.ts
+models/CloudWorkloadSecurityAgentRuleAttributes.ts
+models/CloudWorkloadSecurityAgentRuleCreateAttributes.ts
+models/CloudWorkloadSecurityAgentRuleCreateData.ts
+models/CloudWorkloadSecurityAgentRuleCreateRequest.ts
+models/CloudWorkloadSecurityAgentRuleCreatorAttributes.ts
+models/CloudWorkloadSecurityAgentRuleData.ts
+models/CloudWorkloadSecurityAgentRuleResponse.ts
+models/CloudWorkloadSecurityAgentRuleType.ts
+models/CloudWorkloadSecurityAgentRuleUpdateAttributes.ts
+models/CloudWorkloadSecurityAgentRuleUpdateData.ts
+models/CloudWorkloadSecurityAgentRuleUpdateRequest.ts
+models/CloudWorkloadSecurityAgentRuleUpdaterAttributes.ts
+models/CloudWorkloadSecurityAgentRulesListResponse.ts
 models/ContentEncoding.ts
 models/Creator.ts
 models/DashboardListAddItemsRequest.ts
@@ -278,6 +293,9 @@ models/RelationshipToUsers.ts
 models/ResponseMetaAttributes.ts
 models/Role.ts
 models/RoleAttributes.ts
+models/RoleClone.ts
+models/RoleCloneAttributes.ts
+models/RoleCloneRequest.ts
 models/RoleCreateAttributes.ts
 models/RoleCreateData.ts
 models/RoleCreateRequest.ts
@@ -331,7 +349,6 @@ models/SecurityMonitoringRuleSeverity.ts
 models/SecurityMonitoringRuleTypeCreate.ts
 models/SecurityMonitoringRuleTypeRead.ts
 models/SecurityMonitoringRuleUpdatePayload.ts
-models/SecurityMonitoringRuntimeAgentRule.ts
 models/SecurityMonitoringSignal.ts
 models/SecurityMonitoringSignalAttributes.ts
 models/SecurityMonitoringSignalListRequest.ts

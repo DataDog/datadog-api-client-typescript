@@ -10,6 +10,11 @@
 
 import { WidgetDefinition } from "./WidgetDefinition";
 import { WidgetLayout } from "./WidgetLayout";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Information about widget.  **Note**: The `layout` property is required for widgets in dashboards with `free` `layout_type`.       For the **new dashboard layout**, the `layout` property depends on the `reflow_type` of the dashboard.       - If `reflow_type` is `fixed`, `layout` is required.       - If `reflow_type` is `auto`, `layout` should not be set.
+ */
 
 export class Widget {
   "definition": WidgetDefinition;
@@ -21,14 +26,7 @@ export class Widget {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
       type: "WidgetDefinition",
@@ -37,7 +35,6 @@ export class Widget {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     layout: {
@@ -46,7 +43,7 @@ export class Widget {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Widget.attributeTypeMap;
   }
 

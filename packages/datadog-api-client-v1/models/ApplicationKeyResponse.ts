@@ -9,27 +9,25 @@
  */
 
 import { ApplicationKey } from "./ApplicationKey";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An application key response.
+ */
 
 export class ApplicationKeyResponse {
   "applicationKey"?: ApplicationKey;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     applicationKey: {
       baseName: "application_key",
       type: "ApplicationKey",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyResponse.attributeTypeMap;
   }
 

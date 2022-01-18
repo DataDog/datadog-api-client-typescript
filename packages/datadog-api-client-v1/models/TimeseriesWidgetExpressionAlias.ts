@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Define an expression alias.
+ */
+
 export class TimeseriesWidgetExpressionAlias {
   /**
    * Expression alias.
@@ -20,14 +26,7 @@ export class TimeseriesWidgetExpressionAlias {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aliasName: {
       baseName: "alias_name",
       type: "string",
@@ -39,7 +38,7 @@ export class TimeseriesWidgetExpressionAlias {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return TimeseriesWidgetExpressionAlias.attributeTypeMap;
   }
 

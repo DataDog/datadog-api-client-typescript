@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The process query to use in the widget.
+ */
+
 export class ProcessQueryDefinition {
   /**
    * List of processes.
@@ -28,14 +34,7 @@ export class ProcessQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     filterBy: {
       baseName: "filter_by",
       type: "Array<string>",
@@ -43,7 +42,6 @@ export class ProcessQueryDefinition {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int64",
     },
     metric: {
@@ -57,7 +55,7 @@ export class ProcessQueryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessQueryDefinition.attributeTypeMap;
   }
 

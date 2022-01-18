@@ -10,6 +10,11 @@
 
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { PartialApplicationKey } from "./PartialApplicationKey";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response for a list of application keys.
+ */
 
 export class ListApplicationKeysResponse {
   /**
@@ -23,14 +28,7 @@ export class ListApplicationKeysResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<PartialApplicationKey>",
@@ -41,7 +39,7 @@ export class ListApplicationKeysResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ListApplicationKeysResponse.attributeTypeMap;
   }
 

@@ -10,6 +10,11 @@
 
 import { WidgetLineType } from "./WidgetLineType";
 import { WidgetLineWidth } from "./WidgetLineWidth";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Define request widget style.
+ */
 
 export class WidgetRequestStyle {
   "lineType"?: WidgetLineType;
@@ -21,14 +26,7 @@ export class WidgetRequestStyle {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     lineType: {
       baseName: "line_type",
       type: "WidgetLineType",
@@ -43,7 +41,7 @@ export class WidgetRequestStyle {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetRequestStyle.attributeTypeMap;
   }
 

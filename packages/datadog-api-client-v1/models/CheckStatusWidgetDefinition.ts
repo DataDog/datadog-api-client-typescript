@@ -12,6 +12,11 @@ import { CheckStatusWidgetDefinitionType } from "./CheckStatusWidgetDefinitionTy
 import { WidgetGrouping } from "./WidgetGrouping";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Check status shows the current status or number of results for any check performed.
+ */
 
 export class CheckStatusWidgetDefinition {
   /**
@@ -45,14 +50,7 @@ export class CheckStatusWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     check: {
       baseName: "check",
       type: "string",
@@ -98,7 +96,7 @@ export class CheckStatusWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return CheckStatusWidgetDefinition.attributeTypeMap;
   }
 

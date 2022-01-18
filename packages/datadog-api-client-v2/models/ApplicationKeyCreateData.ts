@@ -10,6 +10,11 @@
 
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeysType } from "./ApplicationKeysType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object used to create an application key.
+ */
 
 export class ApplicationKeyCreateData {
   "attributes": ApplicationKeyCreateAttributes;
@@ -17,14 +22,7 @@ export class ApplicationKeyCreateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "ApplicationKeyCreateAttributes",
@@ -37,7 +35,7 @@ export class ApplicationKeyCreateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyCreateData.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The Slack channel configuration.
+ */
 
 export class SlackIntegrationChannel {
   "display"?: SlackIntegrationChannelDisplay;
@@ -19,14 +24,7 @@ export class SlackIntegrationChannel {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     display: {
       baseName: "display",
       type: "SlackIntegrationChannelDisplay",
@@ -37,7 +35,7 @@ export class SlackIntegrationChannel {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SlackIntegrationChannel.attributeTypeMap;
   }
 

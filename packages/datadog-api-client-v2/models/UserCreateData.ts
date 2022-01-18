@@ -11,6 +11,11 @@
 import { UserCreateAttributes } from "./UserCreateAttributes";
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object to create a user.
+ */
 
 export class UserCreateData {
   "attributes": UserCreateAttributes;
@@ -19,14 +24,7 @@ export class UserCreateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "UserCreateAttributes",
@@ -43,7 +41,7 @@ export class UserCreateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserCreateData.attributeTypeMap;
   }
 

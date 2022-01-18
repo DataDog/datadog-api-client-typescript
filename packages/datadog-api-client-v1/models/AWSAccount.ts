@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Returns the AWS account associated with this integration.
+ */
+
 export class AWSAccount {
   /**
    * Your AWS access key ID. Only required if your AWS account is a GovCloud or China account.
@@ -56,14 +62,7 @@ export class AWSAccount {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accessKeyId: {
       baseName: "access_key_id",
       type: "string",
@@ -110,7 +109,7 @@ export class AWSAccount {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSAccount.attributeTypeMap;
   }
 

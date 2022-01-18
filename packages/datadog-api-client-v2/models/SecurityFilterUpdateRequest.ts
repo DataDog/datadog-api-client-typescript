@@ -9,20 +9,18 @@
  */
 
 import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The new security filter body.
+ */
 
 export class SecurityFilterUpdateRequest {
   "data": SecurityFilterUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "SecurityFilterUpdateData",
@@ -30,7 +28,7 @@ export class SecurityFilterUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityFilterUpdateRequest.attributeTypeMap;
   }
 

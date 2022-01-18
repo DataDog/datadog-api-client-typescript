@@ -11,6 +11,12 @@
 import { HTTPMethod } from "./HTTPMethod";
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
+import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the Synthetic test request.
+ */
 
 export class SyntheticsTestRequest {
   /**
@@ -60,6 +66,7 @@ export class SyntheticsTestRequest {
    * Port to use when performing the test.
    */
   "port"?: number;
+  "proxy"?: SyntheticsTestRequestProxy;
   /**
    * Query to use for the test.
    */
@@ -83,14 +90,7 @@ export class SyntheticsTestRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     allowInsecure: {
       baseName: "allow_insecure",
       type: "boolean",
@@ -114,7 +114,6 @@ export class SyntheticsTestRequest {
     dnsServerPort: {
       baseName: "dnsServerPort",
       type: "number",
-
       format: "int32",
     },
     followRedirects: {
@@ -144,14 +143,16 @@ export class SyntheticsTestRequest {
     numberOfPackets: {
       baseName: "numberOfPackets",
       type: "number",
-
       format: "int32",
     },
     port: {
       baseName: "port",
       type: "number",
-
       format: "int64",
+    },
+    proxy: {
+      baseName: "proxy",
+      type: "SyntheticsTestRequestProxy",
     },
     query: {
       baseName: "query",
@@ -168,7 +169,6 @@ export class SyntheticsTestRequest {
     timeout: {
       baseName: "timeout",
       type: "number",
-
       format: "double",
     },
     url: {
@@ -177,7 +177,7 @@ export class SyntheticsTestRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestRequest.attributeTypeMap;
   }
 

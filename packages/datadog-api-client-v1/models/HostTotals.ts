@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Total number of host currently monitored by Datadog.
+ */
+
 export class HostTotals {
   /**
    * Total number of active host (UP and ???) reporting to Datadog.
@@ -20,29 +26,20 @@ export class HostTotals {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     totalActive: {
       baseName: "total_active",
       type: "number",
-
       format: "int64",
     },
     totalUp: {
       baseName: "total_up",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostTotals.attributeTypeMap;
   }
 

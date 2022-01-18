@@ -11,6 +11,11 @@
 import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsStatus } from "./SyntheticsStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Wrapper object that contains the details of a batch.
+ */
 
 export class SyntheticsBatchDetailsData {
   "metadata"?: SyntheticsCIBatchMetadata;
@@ -22,14 +27,7 @@ export class SyntheticsBatchDetailsData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
       baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
@@ -44,7 +42,7 @@ export class SyntheticsBatchDetailsData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBatchDetailsData.attributeTypeMap;
   }
 

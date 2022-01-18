@@ -10,6 +10,11 @@
 
 import { NotebookCreateDataAttributes } from "./NotebookCreateDataAttributes";
 import { NotebookResourceType } from "./NotebookResourceType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The data for a notebook create request.
+ */
 
 export class NotebookCreateData {
   "attributes": NotebookCreateDataAttributes;
@@ -17,14 +22,7 @@ export class NotebookCreateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "NotebookCreateDataAttributes",
@@ -37,7 +35,7 @@ export class NotebookCreateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookCreateData.attributeTypeMap;
   }
 

@@ -1,23 +1,11 @@
 repos:
   - repo: local
     hooks:
-      - id: generated
-        name: Do not commit generated files
-        language: fail
-        entry: Unstage generated files with 'git reset --' command
-        files: "^packages/datadog-api-client-v[1-9].*"
-        verbose: true
-      - id: generated-features
-        name: Do not commit generated feature files
-        language: fail
-        entry: Unstage generated files with 'git reset --' command
-        files: "^features/v[1-9][0-9]*/.*.feature$"
-        verbose: true
       - id: generate
         name: Generate
         language: node
         entry: make
-        files: "^.generator/.*"
+        files: '^(\.generator/.*|\.pre-commit-config\.yaml|package\.json|yarn\.lock|\.eslintrc\.js|Makefile)'
         pass_filenames: false
       - id: lint
         name: Lint
@@ -25,3 +13,12 @@ repos:
         entry: yarn run lint:fix
         stages: [manual]
         pass_filenames: false
+      - id: openapi-generator
+        name: OpenAPI-generator
+        language: node
+        entry: bash -c "cd .generator && openapi-generator-cli generate"
+        files: "^.generator/.*"
+        stages: [manual]
+        pass_filenames: false
+        additional_dependencies:
+          - "@openapitools/openapi-generator-cli"

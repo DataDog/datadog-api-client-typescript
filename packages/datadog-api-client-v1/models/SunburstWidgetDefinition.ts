@@ -14,6 +14,11 @@ import { SunburstWidgetRequest } from "./SunburstWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Sunbursts are spot on to highlight how groups contribute to the total of a query.
+ */
 
 export class SunburstWidgetDefinition {
   /**
@@ -43,14 +48,7 @@ export class SunburstWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
@@ -91,7 +89,7 @@ export class SunburstWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SunburstWidgetDefinition.attributeTypeMap;
   }
 

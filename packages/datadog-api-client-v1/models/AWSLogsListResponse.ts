@@ -9,6 +9,11 @@
  */
 
 import { AWSLogsLambda } from "./AWSLogsLambda";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A list of all Datadog-AWS logs integrations available in your Datadog organization.
+ */
 
 export class AWSLogsListResponse {
   /**
@@ -26,14 +31,7 @@ export class AWSLogsListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
       type: "string",
@@ -48,7 +46,7 @@ export class AWSLogsListResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSLogsListResponse.attributeTypeMap;
   }
 

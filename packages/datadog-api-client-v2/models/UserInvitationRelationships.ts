@@ -9,20 +9,18 @@
  */
 
 import { RelationshipToUser } from "./RelationshipToUser";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Relationships data for user invitation.
+ */
 
 export class UserInvitationRelationships {
   "user": RelationshipToUser;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     user: {
       baseName: "user",
       type: "RelationshipToUser",
@@ -30,7 +28,7 @@ export class UserInvitationRelationships {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserInvitationRelationships.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsGlobalVariableParserType } from "./SyntheticsGlobalVariableParserType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Details of the parser to use for the global variable.
+ */
 
 export class SyntheticsVariableParser {
   "type": SyntheticsGlobalVariableParserType;
@@ -19,14 +24,7 @@ export class SyntheticsVariableParser {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
       type: "SyntheticsGlobalVariableParserType",
@@ -38,7 +36,7 @@ export class SyntheticsVariableParser {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsVariableParser.attributeTypeMap;
   }
 

@@ -12,6 +12,11 @@ import { LogsListRequestPage } from "./LogsListRequestPage";
 import { LogsQueryFilter } from "./LogsQueryFilter";
 import { LogsQueryOptions } from "./LogsQueryOptions";
 import { LogsSort } from "./LogsSort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The request for a logs list.
+ */
 
 export class LogsListRequest {
   "filter"?: LogsQueryFilter;
@@ -21,14 +26,7 @@ export class LogsListRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
       type: "LogsQueryFilter",
@@ -47,7 +45,7 @@ export class LogsListRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListRequest.attributeTypeMap;
   }
 

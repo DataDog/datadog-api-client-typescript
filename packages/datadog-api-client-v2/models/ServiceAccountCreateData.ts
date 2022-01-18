@@ -11,6 +11,11 @@
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object to create a service account User.
+ */
 
 export class ServiceAccountCreateData {
   "attributes": ServiceAccountCreateAttributes;
@@ -19,14 +24,7 @@ export class ServiceAccountCreateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "ServiceAccountCreateAttributes",
@@ -43,7 +41,7 @@ export class ServiceAccountCreateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceAccountCreateData.attributeTypeMap;
   }
 

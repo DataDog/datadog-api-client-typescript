@@ -10,6 +10,11 @@
 
 import { LogsArchiveDestinationAzureType } from "./LogsArchiveDestinationAzureType";
 import { LogsArchiveIntegrationAzure } from "./LogsArchiveIntegrationAzure";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The Azure archive destination.
+ */
 
 export class LogsArchiveDestinationAzure {
   /**
@@ -33,14 +38,7 @@ export class LogsArchiveDestinationAzure {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     container: {
       baseName: "container",
       type: "string",
@@ -71,7 +69,7 @@ export class LogsArchiveDestinationAzure {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveDestinationAzure.attributeTypeMap;
   }
 

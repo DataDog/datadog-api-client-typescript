@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The style to apply to the widget.
+ */
+
 export class HostMapWidgetDefinitionStyle {
   /**
    * Max value to use to color the map.
@@ -28,14 +34,7 @@ export class HostMapWidgetDefinitionStyle {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     fillMax: {
       baseName: "fill_max",
       type: "string",
@@ -54,7 +53,7 @@ export class HostMapWidgetDefinitionStyle {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostMapWidgetDefinitionStyle.attributeTypeMap;
   }
 

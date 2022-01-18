@@ -9,6 +9,11 @@
  */
 
 import { UsageProfilingHour } from "./UsageProfilingHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of profiled hosts for each hour for a given organization.
+ */
 
 export class UsageProfilingResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageProfilingResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageProfilingHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageProfilingResponse.attributeTypeMap;
   }
 

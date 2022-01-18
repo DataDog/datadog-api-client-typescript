@@ -9,27 +9,25 @@
  */
 
 import { RelationshipToUser } from "./RelationshipToUser";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Resources related to the application key.
+ */
 
 export class ApplicationKeyRelationships {
   "ownedBy"?: RelationshipToUser;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     ownedBy: {
       baseName: "owned_by",
       type: "RelationshipToUser",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyRelationships.attributeTypeMap;
   }
 

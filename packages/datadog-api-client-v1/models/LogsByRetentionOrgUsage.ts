@@ -9,6 +9,11 @@
  */
 
 import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Indexed logs usage by retention for a single organization.
+ */
 
 export class LogsByRetentionOrgUsage {
   /**
@@ -18,21 +23,14 @@ export class LogsByRetentionOrgUsage {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<LogsRetentionSumUsage>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsByRetentionOrgUsage.attributeTypeMap;
   }
 

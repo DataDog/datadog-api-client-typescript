@@ -9,27 +9,25 @@
  */
 
 import { ApiKey } from "./ApiKey";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An API key with its associated metadata.
+ */
 
 export class ApiKeyResponse {
   "apiKey"?: ApiKey;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
       type: "ApiKey",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApiKeyResponse.attributeTypeMap;
   }
 

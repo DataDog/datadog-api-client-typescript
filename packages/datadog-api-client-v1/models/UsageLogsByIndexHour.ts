@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of indexed logs for each hour and index for a given organization.
+ */
+
 export class UsageLogsByIndexHour {
   /**
    * The total number of indexed logs for the queried hour.
@@ -32,24 +38,15 @@ export class UsageLogsByIndexHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     eventCount: {
       baseName: "event_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     indexId: {
@@ -63,12 +60,11 @@ export class UsageLogsByIndexHour {
     retention: {
       baseName: "retention",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLogsByIndexHour.attributeTypeMap;
   }
 

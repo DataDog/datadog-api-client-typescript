@@ -11,6 +11,11 @@
 import { LogsAggregateSortType } from "./LogsAggregateSortType";
 import { LogsAggregationFunction } from "./LogsAggregationFunction";
 import { LogsSortOrder } from "./LogsSortOrder";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A sort rule
+ */
 
 export class LogsAggregateSort {
   "aggregation"?: LogsAggregationFunction;
@@ -23,14 +28,7 @@ export class LogsAggregateSort {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "LogsAggregationFunction",
@@ -49,7 +47,7 @@ export class LogsAggregateSort {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateSort.attributeTypeMap;
   }
 

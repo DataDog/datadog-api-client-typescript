@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Description of the CI provider.
+ */
+
 export class SyntheticsCIBatchMetadataProvider {
   /**
    * Name of the CI provider.
@@ -16,21 +22,14 @@ export class SyntheticsCIBatchMetadataProvider {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadataProvider.attributeTypeMap;
   }
 

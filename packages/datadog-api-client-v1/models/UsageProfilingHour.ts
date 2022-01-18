@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The number of profiled hosts for each hour for a given organization.
+ */
+
 export class UsageProfilingHour {
   /**
    * Get average number of container agents for that hour.
@@ -24,35 +30,25 @@ export class UsageProfilingHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     avgContainerAgentCount: {
       baseName: "avg_container_agent_count",
       type: "number",
-
       format: "int64",
     },
     hostCount: {
       baseName: "host_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageProfilingHour.attributeTypeMap;
   }
 

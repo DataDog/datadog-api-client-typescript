@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Custom links help you connect a data value to a URL, like a Datadog page or your AWS console.
+ */
+
 export class WidgetCustomLink {
   /**
    * The flag for toggling context menu link visibility.
@@ -28,14 +34,7 @@ export class WidgetCustomLink {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     isHidden: {
       baseName: "is_hidden",
       type: "boolean",
@@ -54,7 +53,7 @@ export class WidgetCustomLink {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetCustomLink.attributeTypeMap;
   }
 

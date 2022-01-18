@@ -12,6 +12,11 @@ import { Creator } from "./Creator";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
+ */
 
 export class SLOResponseData {
   /**
@@ -64,24 +69,15 @@ export class SLOResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     configuredAlertIds: {
       baseName: "configured_alert_ids",
       type: "Array<number>",
-
       format: "int64",
     },
     createdAt: {
       baseName: "created_at",
       type: "number",
-
       format: "int64",
     },
     creator: {
@@ -103,13 +99,11 @@ export class SLOResponseData {
     modifiedAt: {
       baseName: "modified_at",
       type: "number",
-
       format: "int64",
     },
     monitorIds: {
       baseName: "monitor_ids",
       type: "Array<number>",
-
       format: "int64",
     },
     monitorTags: {
@@ -138,7 +132,7 @@ export class SLOResponseData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOResponseData.attributeTypeMap;
   }
 

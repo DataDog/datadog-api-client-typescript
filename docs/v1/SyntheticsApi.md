@@ -216,6 +216,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         allowInsecure: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -243,6 +244,12 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         noSavingResponseBody: true,
         numberOfPackets: 0,
         port: 1,
+        proxy: {
+          headers: {
+            key: "key_example",
+          },
+          url: "https://example.com",
+        },
         query: {},
         servername: "servername_example",
         shouldTrackHops: true,
@@ -252,7 +259,14 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       steps: [
         {
           allowFailure: true,
-          assertions: [],
+          assertions: [
+            {
+              operator: "contains",
+              property: "property_example",
+              target: null,
+              type: "statusCode",
+            },
+          ],
           extractedValues: [
             {
               field: "content-type",
@@ -265,11 +279,12 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             },
           ],
           isCritical: true,
-          name: "name_example",
+          name: "Example step name",
           request: {
             allowInsecure: true,
             basicAuth: {
               password: "",
+              type: "web",
               username: "",
             },
             body: "body_example",
@@ -297,11 +312,21 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             noSavingResponseBody: true,
             numberOfPackets: 0,
             port: 1,
+            proxy: {
+              headers: {
+                key: "key_example",
+              },
+              url: "https://example.com",
+            },
             query: {},
             servername: "servername_example",
             shouldTrackHops: true,
             timeout: 3.14,
             url: "https://example.com",
+          },
+          retry: {
+            count: 1,
+            interval: 3.14,
           },
           subtype: "http",
         },
@@ -309,7 +334,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     },
     locations: ["aws:eu-west-3"],
     message: "Notification message",
-    name: "Test name",
+    name: "Example test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -397,7 +422,14 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   // SyntheticsBrowserTest | Details of the test to create.
   body: {
     config: {
-      assertions: [],
+      assertions: [
+        {
+          operator: "contains",
+          property: "property_example",
+          target: null,
+          type: "statusCode",
+        },
+      ],
       configVariables: [
         {
           example: "example_example",
@@ -411,6 +443,7 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         allowInsecure: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -438,6 +471,12 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         noSavingResponseBody: true,
         numberOfPackets: 0,
         port: 1,
+        proxy: {
+          headers: {
+            key: "key_example",
+          },
+          url: "https://example.com",
+        },
         query: {},
         servername: "servername_example",
         shouldTrackHops: true,
@@ -455,9 +494,9 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         },
       ],
     },
-    locations: ["locations_example"],
+    locations: ["example-location"],
     message: "",
-    name: "name_example",
+    name: "Example test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -1604,6 +1643,7 @@ let params: v1.SyntheticsApiTriggerCITestsRequest = {
         allowInsecureCertificates: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -1803,6 +1843,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
         allowInsecure: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -1830,6 +1871,12 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
         noSavingResponseBody: true,
         numberOfPackets: 0,
         port: 1,
+        proxy: {
+          headers: {
+            key: "key_example",
+          },
+          url: "https://example.com",
+        },
         query: {},
         servername: "servername_example",
         shouldTrackHops: true,
@@ -1839,7 +1886,14 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
       steps: [
         {
           allowFailure: true,
-          assertions: [],
+          assertions: [
+            {
+              operator: "contains",
+              property: "property_example",
+              target: null,
+              type: "statusCode",
+            },
+          ],
           extractedValues: [
             {
               field: "content-type",
@@ -1852,11 +1906,12 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
             },
           ],
           isCritical: true,
-          name: "name_example",
+          name: "Example step name",
           request: {
             allowInsecure: true,
             basicAuth: {
               password: "",
+              type: "web",
               username: "",
             },
             body: "body_example",
@@ -1884,11 +1939,21 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
             noSavingResponseBody: true,
             numberOfPackets: 0,
             port: 1,
+            proxy: {
+              headers: {
+                key: "key_example",
+              },
+              url: "https://example.com",
+            },
             query: {},
             servername: "servername_example",
             shouldTrackHops: true,
             timeout: 3.14,
             url: "https://example.com",
+          },
+          retry: {
+            count: 1,
+            interval: 3.14,
           },
           subtype: "http",
         },
@@ -1896,7 +1961,7 @@ let params: v1.SyntheticsApiUpdateAPITestRequest = {
     },
     locations: ["aws:eu-west-3"],
     message: "Notification message",
-    name: "Test name",
+    name: "Example test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
@@ -1987,7 +2052,14 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
   // SyntheticsBrowserTest | New test details to be saved.
   body: {
     config: {
-      assertions: [],
+      assertions: [
+        {
+          operator: "contains",
+          property: "property_example",
+          target: null,
+          type: "statusCode",
+        },
+      ],
       configVariables: [
         {
           example: "example_example",
@@ -2001,6 +2073,7 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         allowInsecure: true,
         basicAuth: {
           password: "",
+          type: "web",
           username: "",
         },
         body: "body_example",
@@ -2028,6 +2101,12 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         noSavingResponseBody: true,
         numberOfPackets: 0,
         port: 1,
+        proxy: {
+          headers: {
+            key: "key_example",
+          },
+          url: "https://example.com",
+        },
         query: {},
         servername: "servername_example",
         shouldTrackHops: true,
@@ -2045,9 +2124,9 @@ let params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         },
       ],
     },
-    locations: ["locations_example"],
+    locations: ["example-location"],
     message: "",
-    name: "name_example",
+    name: "Example test name",
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,

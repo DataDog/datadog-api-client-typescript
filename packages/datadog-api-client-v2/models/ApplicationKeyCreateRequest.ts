@@ -9,20 +9,18 @@
  */
 
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Request used to create an application key.
+ */
 
 export class ApplicationKeyCreateRequest {
   "data": ApplicationKeyCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "ApplicationKeyCreateData",
@@ -30,7 +28,7 @@ export class ApplicationKeyCreateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyCreateRequest.attributeTypeMap;
   }
 

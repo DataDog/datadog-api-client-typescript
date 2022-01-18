@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Subscription definition.
+ */
+
 export class OrganizationSubscription {
   /**
    * The subscription type. Types available are `trial`, `free`, and `pro`.
@@ -16,21 +22,14 @@ export class OrganizationSubscription {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationSubscription.attributeTypeMap;
   }
 

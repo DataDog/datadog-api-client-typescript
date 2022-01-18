@@ -11,6 +11,11 @@
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the extra options for a Synthetic test.
+ */
 
 export class SyntheticsTestOptions {
   /**
@@ -62,14 +67,7 @@ export class SyntheticsTestOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     acceptSelfSigned: {
       baseName: "accept_self_signed",
       type: "boolean",
@@ -93,13 +91,11 @@ export class SyntheticsTestOptions {
     minFailureDuration: {
       baseName: "min_failure_duration",
       type: "number",
-
       format: "int64",
     },
     minLocationFailed: {
       baseName: "min_location_failed",
       type: "number",
-
       format: "int64",
     },
     monitorName: {
@@ -113,7 +109,6 @@ export class SyntheticsTestOptions {
     monitorPriority: {
       baseName: "monitor_priority",
       type: "number",
-
       format: "int32",
     },
     noScreenshot: {
@@ -127,12 +122,11 @@ export class SyntheticsTestOptions {
     tickEvery: {
       baseName: "tick_every",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestOptions.attributeTypeMap;
   }
 

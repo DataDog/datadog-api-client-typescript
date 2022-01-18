@@ -1,6 +1,10 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer } from "../configuration";
+import {
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
@@ -57,14 +61,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.addReadRoleToArchive"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -77,17 +75,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -118,14 +110,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.createLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -138,17 +124,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -182,28 +162,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.deleteLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -237,28 +203,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.getLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -280,28 +232,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.getLogsArchiveOrder"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -336,28 +274,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.listArchiveReadRoles"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -379,28 +303,14 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.listLogsArchives"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -444,14 +354,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.removeRoleFromArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -464,17 +368,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -517,14 +415,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.updateLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -537,17 +429,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -578,14 +464,8 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.updateLogsArchiveOrder"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -598,17 +478,11 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }

@@ -10,6 +10,11 @@
 
 import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 import { APIKeysType } from "./APIKeysType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object used to update an API key.
+ */
 
 export class APIKeyUpdateData {
   "attributes": APIKeyUpdateAttributes;
@@ -21,14 +26,7 @@ export class APIKeyUpdateData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "APIKeyUpdateAttributes",
@@ -46,7 +44,7 @@ export class APIKeyUpdateData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return APIKeyUpdateData.attributeTypeMap;
   }
 

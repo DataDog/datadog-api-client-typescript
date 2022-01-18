@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The S3 Archive's integration destination.
+ */
+
 export class LogsArchiveIntegrationS3 {
   /**
    * The account ID for the integration.
@@ -20,14 +26,7 @@ export class LogsArchiveIntegrationS3 {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
       type: "string",
@@ -40,7 +39,7 @@ export class LogsArchiveIntegrationS3 {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveIntegrationS3.attributeTypeMap;
   }
 

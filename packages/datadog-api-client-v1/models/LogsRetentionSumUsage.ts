@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing indexed logs usage grouped by retention period and summed.
+ */
+
 export class LogsRetentionSumUsage {
   /**
    * Total indexed logs for this retention period.
@@ -28,30 +34,20 @@ export class LogsRetentionSumUsage {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     logsIndexedLogsUsageSum: {
       baseName: "logs_indexed_logs_usage_sum",
       type: "number",
-
       format: "int64",
     },
     logsLiveIndexedLogsUsageSum: {
       baseName: "logs_live_indexed_logs_usage_sum",
       type: "number",
-
       format: "int64",
     },
     logsRehydratedIndexedLogsUsageSum: {
       baseName: "logs_rehydrated_indexed_logs_usage_sum",
       type: "number",
-
       format: "int64",
     },
     retention: {
@@ -60,7 +56,7 @@ export class LogsRetentionSumUsage {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsRetentionSumUsage.attributeTypeMap;
   }
 

@@ -11,6 +11,11 @@
 import { Creator } from "./Creator";
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
 import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponseAttributesModifier";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attribute object associated with the SLO correction.
+ */
 
 export class SLOCorrectionResponseAttributes {
   "category"?: SLOCorrectionCategory;
@@ -55,14 +60,7 @@ export class SLOCorrectionResponseAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     category: {
       baseName: "category",
       type: "SLOCorrectionCategory",
@@ -70,7 +68,6 @@ export class SLOCorrectionResponseAttributes {
     createdAt: {
       baseName: "created_at",
       type: "number",
-
       format: "int64",
     },
     creator: {
@@ -84,19 +81,16 @@ export class SLOCorrectionResponseAttributes {
     duration: {
       baseName: "duration",
       type: "number",
-
       format: "int64",
     },
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "number",
-
       format: "int64",
     },
     modifier: {
@@ -114,7 +108,6 @@ export class SLOCorrectionResponseAttributes {
     start: {
       baseName: "start",
       type: "number",
-
       format: "int64",
     },
     timezone: {
@@ -123,7 +116,7 @@ export class SLOCorrectionResponseAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionResponseAttributes.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { SunburstWidgetLegendInlineAutomaticType } from "./SunburstWidgetLegendInlineAutomaticType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Configuration of inline or automatic legends.
+ */
 
 export class SunburstWidgetLegendInlineAutomatic {
   /**
@@ -23,14 +28,7 @@ export class SunburstWidgetLegendInlineAutomatic {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hidePercent: {
       baseName: "hide_percent",
       type: "boolean",
@@ -46,7 +44,7 @@ export class SunburstWidgetLegendInlineAutomatic {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SunburstWidgetLegendInlineAutomatic.attributeTypeMap;
   }
 

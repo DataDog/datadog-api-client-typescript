@@ -10,6 +10,11 @@
 
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsType } from "./PermissionsType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Permission object.
+ */
 
 export class Permission {
   "attributes"?: PermissionAttributes;
@@ -21,14 +26,7 @@ export class Permission {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "PermissionAttributes",
@@ -44,7 +42,7 @@ export class Permission {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Permission.attributeTypeMap;
   }
 

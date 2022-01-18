@@ -1224,6 +1224,12 @@
       "type": "safe"
     }
   },
+  "GetHourlyUsageAttribution": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "GetIncidentManagement": {
     "tag": "Usage Metering",
     "undo": {
@@ -1261,6 +1267,12 @@
     }
   },
   "GetUsageLogsByIndex": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetMonthlyUsageAttribution": {
     "tag": "Usage Metering",
     "undo": {
       "type": "safe"

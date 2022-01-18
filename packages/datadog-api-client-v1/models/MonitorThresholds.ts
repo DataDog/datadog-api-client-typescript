@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of the different monitor threshold available.
+ */
+
 export class MonitorThresholds {
   /**
    * The monitor `CRITICAL` threshold.
@@ -36,53 +42,40 @@ export class MonitorThresholds {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     critical: {
       baseName: "critical",
       type: "number",
-
       format: "double",
     },
     criticalRecovery: {
       baseName: "critical_recovery",
       type: "number",
-
       format: "double",
     },
     ok: {
       baseName: "ok",
       type: "number",
-
       format: "double",
     },
     unknown: {
       baseName: "unknown",
       type: "number",
-
       format: "double",
     },
     warning: {
       baseName: "warning",
       type: "number",
-
       format: "double",
     },
     warningRecovery: {
       baseName: "warning_recovery",
       type: "number",
-
       format: "double",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorThresholds.attributeTypeMap;
   }
 

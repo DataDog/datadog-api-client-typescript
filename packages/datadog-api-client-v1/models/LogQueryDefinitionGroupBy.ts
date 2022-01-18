@@ -9,6 +9,11 @@
  */
 
 import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Defined items in the group.
+ */
 
 export class LogQueryDefinitionGroupBy {
   /**
@@ -23,14 +28,7 @@ export class LogQueryDefinitionGroupBy {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
       baseName: "facet",
       type: "string",
@@ -39,7 +37,6 @@ export class LogQueryDefinitionGroupBy {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int64",
     },
     sort: {
@@ -48,7 +45,7 @@ export class LogQueryDefinitionGroupBy {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogQueryDefinitionGroupBy.attributeTypeMap;
   }
 

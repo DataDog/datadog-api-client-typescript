@@ -15,6 +15,11 @@ import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetAggregator } from "./WidgetAggregator";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated query value widget.
+ */
 
 export class QueryValueWidgetRequest {
   "aggregator"?: WidgetAggregator;
@@ -47,14 +52,7 @@ export class QueryValueWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
       baseName: "aggregator",
       type: "WidgetAggregator",
@@ -117,7 +115,7 @@ export class QueryValueWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return QueryValueWidgetRequest.attributeTypeMap;
   }
 

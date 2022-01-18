@@ -9,6 +9,11 @@
  */
 
 import { AccessRole } from "./AccessRole";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Create, edit, and disable users.
+ */
 
 export class User {
   "accessRole"?: AccessRole;
@@ -39,14 +44,7 @@ export class User {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accessRole: {
       baseName: "access_role",
       type: "AccessRole",
@@ -58,13 +56,11 @@ export class User {
     email: {
       baseName: "email",
       type: "string",
-
       format: "email",
     },
     handle: {
       baseName: "handle",
       type: "string",
-
       format: "email",
     },
     icon: {
@@ -81,7 +77,7 @@ export class User {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return User.attributeTypeMap;
   }
 

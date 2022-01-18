@@ -9,27 +9,25 @@
  */
 
 import { LogsArchiveOrderDefinition } from "./LogsArchiveOrderDefinition";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A ordered list of archive IDs.
+ */
 
 export class LogsArchiveOrder {
   "data"?: LogsArchiveOrderDefinition;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "LogsArchiveOrderDefinition",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveOrder.attributeTypeMap;
   }
 

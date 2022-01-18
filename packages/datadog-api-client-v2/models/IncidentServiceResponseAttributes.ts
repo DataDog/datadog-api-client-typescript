@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The incident service's attributes from a response.
+ */
+
 export class IncidentServiceResponseAttributes {
   /**
    * Timestamp of when the incident service was created.
@@ -24,24 +30,15 @@ export class IncidentServiceResponseAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     name: {
@@ -50,7 +47,7 @@ export class IncidentServiceResponseAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentServiceResponseAttributes.attributeTypeMap;
   }
 

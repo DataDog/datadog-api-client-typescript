@@ -11,6 +11,11 @@
 import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
 import { SyntheticsGlobalVariableParseTestOptions } from "./SyntheticsGlobalVariableParseTestOptions";
 import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Synthetics global variable.
+ */
 
 export class SyntheticsGlobalVariable {
   "attributes"?: SyntheticsGlobalVariableAttributes;
@@ -23,7 +28,7 @@ export class SyntheticsGlobalVariable {
    */
   "id"?: string;
   /**
-   * Name of the global variable.
+   * Name of the global variable. Unique across Synthetics global variables.
    */
   "name": string;
   "parseTestOptions"?: SyntheticsGlobalVariableParseTestOptions;
@@ -39,14 +44,7 @@ export class SyntheticsGlobalVariable {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "SyntheticsGlobalVariableAttributes",
@@ -85,7 +83,7 @@ export class SyntheticsGlobalVariable {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGlobalVariable.attributeTypeMap;
   }
 

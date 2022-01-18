@@ -42,10 +42,6 @@ let params: v2.MetricsApiCreateTagConfigurationRequest = {
             space: "sum",
             time: "sum",
           },
-          {
-            space: "sum",
-            time: "sum",
-          },
         ],
         includePercentiles: true,
         metricType: "count",
@@ -447,10 +443,6 @@ let params: v2.MetricsApiUpdateTagConfigurationRequest = {
     data: {
       attributes: {
         aggregations: [
-          {
-            space: "sum",
-            time: "sum",
-          },
           {
             space: "sum",
             time: "sum",

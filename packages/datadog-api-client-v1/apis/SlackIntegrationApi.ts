@@ -1,6 +1,10 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer } from "../configuration";
+import {
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
@@ -52,14 +56,8 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.createSlackIntegrationChannel"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -72,17 +70,11 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -131,28 +123,14 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.getSlackIntegrationChannel"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -187,28 +165,14 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.getSlackIntegrationChannels"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -257,28 +221,14 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.removeSlackIntegrationChannel"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -336,14 +286,8 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "SlackIntegrationApi.updateSlackIntegrationChannel"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -356,17 +300,11 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }

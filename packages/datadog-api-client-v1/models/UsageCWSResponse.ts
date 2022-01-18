@@ -9,6 +9,11 @@
  */
 
 import { UsageCWSHour } from "./UsageCWSHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the Cloud Workload Security usage for each hour for a given organization.
+ */
 
 export class UsageCWSResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageCWSResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageCWSHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCWSResponse.attributeTypeMap;
   }
 

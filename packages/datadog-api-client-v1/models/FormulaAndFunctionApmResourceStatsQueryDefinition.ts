@@ -10,6 +10,11 @@
 
 import { FormulaAndFunctionApmResourceStatName } from "./FormulaAndFunctionApmResourceStatName";
 import { FormulaAndFunctionApmResourceStatsDataSource } from "./FormulaAndFunctionApmResourceStatsDataSource";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * APM resource stats query using formulas and functions.
+ */
 
 export class FormulaAndFunctionApmResourceStatsQueryDefinition {
   "dataSource": FormulaAndFunctionApmResourceStatsDataSource;
@@ -49,14 +54,7 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     dataSource: {
       baseName: "data_source",
       type: "FormulaAndFunctionApmResourceStatsDataSource",
@@ -104,7 +102,7 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionApmResourceStatsQueryDefinition.attributeTypeMap;
   }
 

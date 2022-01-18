@@ -8,30 +8,36 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes used to update an application Key.
+ */
+
 export class ApplicationKeyUpdateAttributes {
   /**
    * Name of the application key.
    */
-  "name": string;
+  "name"?: string;
+  /**
+   * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
+   */
+  "scopes"?: Array<string>;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
       type: "string",
-      required: true,
+    },
+    scopes: {
+      baseName: "scopes",
+      type: "Array<string>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyUpdateAttributes.attributeTypeMap;
   }
 

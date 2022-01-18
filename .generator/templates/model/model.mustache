@@ -5,7 +5,7 @@
 import { {{classname}} } from './{{filename}}{{extensionForDeno}}';
 {{/tsImports}}
 import { HttpFile } from '../http/http{{extensionForDeno}}';
-import { ObjectSerializer, UnparsedObject } from './ObjectSerializer';
+import { AttributeTypeMap, UnparsedObject } from './ObjectSerializer';
 
 {{#description}}
 /**
@@ -26,19 +26,19 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
     'unparsedObject'?:any;
 
     {{^isArray}}
-    static readonly attributeTypeMap: {[key: string]: {baseName: string, type: string, required?: boolean, format?: string}} = {
+    static readonly attributeTypeMap: AttributeTypeMap = {
         {{#vars}}
         "{{name}}": {
             "baseName": "{{baseName}}",
-            "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",
-            {{#required}}"required": {{required}},{{/required}}
-            {{#dataFormat}}"format": "{{.}}",{{/dataFormat}}
+            "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",{{#required}}
+            "required": {{required}},{{/required}}{{#dataFormat}}
+            "format": "{{.}}",{{/dataFormat}}
         }{{^-last}},
         {{/-last}}
         {{/vars}}
     };
 
-    static getAttributeTypeMap() {
+    static getAttributeTypeMap(): AttributeTypeMap {
         {{#parent}}
         return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);
         {{/parent}}

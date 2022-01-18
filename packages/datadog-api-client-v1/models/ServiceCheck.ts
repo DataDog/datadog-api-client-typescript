@@ -9,6 +9,11 @@
  */
 
 import { ServiceCheckStatus } from "./ServiceCheckStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An object containing service check and status.
+ */
 
 export class ServiceCheck {
   /**
@@ -35,14 +40,7 @@ export class ServiceCheck {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     check: {
       baseName: "check",
       type: "string",
@@ -70,12 +68,11 @@ export class ServiceCheck {
     timestamp: {
       baseName: "timestamp",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceCheck.attributeTypeMap;
   }
 

@@ -9,20 +9,18 @@
  */
 
 import { WidgetLiveSpan } from "./WidgetLiveSpan";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Relative timeframe.
+ */
 
 export class NotebookRelativeTime {
   "liveSpan": WidgetLiveSpan;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     liveSpan: {
       baseName: "live_span",
       type: "WidgetLiveSpan",
@@ -30,7 +28,7 @@ export class NotebookRelativeTime {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookRelativeTime.attributeTypeMap;
   }
 

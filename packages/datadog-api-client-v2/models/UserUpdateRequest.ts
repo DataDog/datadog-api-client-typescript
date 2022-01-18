@@ -9,20 +9,18 @@
  */
 
 import { UserUpdateData } from "./UserUpdateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Update a user.
+ */
 
 export class UserUpdateRequest {
   "data": UserUpdateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "UserUpdateData",
@@ -30,7 +28,7 @@ export class UserUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserUpdateRequest.attributeTypeMap;
   }
 

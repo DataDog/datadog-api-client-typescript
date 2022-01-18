@@ -10,6 +10,11 @@
 
 import { User } from "./User";
 import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing information about a single user.
+ */
 
 export class UserResponse {
   "data"?: User;
@@ -20,14 +25,7 @@ export class UserResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "User",
@@ -38,7 +36,7 @@ export class UserResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserResponse.attributeTypeMap;
   }
 

@@ -16,6 +16,18 @@ import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
+import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
+import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
+import { CloudWorkloadSecurityAgentRuleCreateRequest } from "./CloudWorkloadSecurityAgentRuleCreateRequest";
+import { CloudWorkloadSecurityAgentRuleCreatorAttributes } from "./CloudWorkloadSecurityAgentRuleCreatorAttributes";
+import { CloudWorkloadSecurityAgentRuleData } from "./CloudWorkloadSecurityAgentRuleData";
+import { CloudWorkloadSecurityAgentRuleResponse } from "./CloudWorkloadSecurityAgentRuleResponse";
+import { CloudWorkloadSecurityAgentRuleUpdateAttributes } from "./CloudWorkloadSecurityAgentRuleUpdateAttributes";
+import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurityAgentRuleUpdateData";
+import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./CloudWorkloadSecurityAgentRuleUpdateRequest";
+import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
+import { CloudWorkloadSecurityAgentRulesListResponse } from "./CloudWorkloadSecurityAgentRulesListResponse";
 import { Creator } from "./Creator";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
@@ -185,6 +197,9 @@ import { RelationshipToUsers } from "./RelationshipToUsers";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
+import { RoleClone } from "./RoleClone";
+import { RoleCloneAttributes } from "./RoleCloneAttributes";
+import { RoleCloneRequest } from "./RoleCloneRequest";
 import { RoleCreateAttributes } from "./RoleCreateAttributes";
 import { RoleCreateData } from "./RoleCreateData";
 import { RoleCreateRequest } from "./RoleCreateRequest";
@@ -223,7 +238,6 @@ import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
 import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
-import { SecurityMonitoringRuntimeAgentRule } from "./SecurityMonitoringRuntimeAgentRule";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
 import { SecurityMonitoringSignalListRequest } from "./SecurityMonitoringSignalListRequest";
@@ -296,6 +310,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   ContentEncoding: ["gzip", "deflate"],
   DashboardType: [
     "custom_timeboard",
@@ -424,6 +439,29 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  CloudWorkloadSecurityAgentRuleAttributes:
+    CloudWorkloadSecurityAgentRuleAttributes,
+  CloudWorkloadSecurityAgentRuleCreateAttributes:
+    CloudWorkloadSecurityAgentRuleCreateAttributes,
+  CloudWorkloadSecurityAgentRuleCreateData:
+    CloudWorkloadSecurityAgentRuleCreateData,
+  CloudWorkloadSecurityAgentRuleCreateRequest:
+    CloudWorkloadSecurityAgentRuleCreateRequest,
+  CloudWorkloadSecurityAgentRuleCreatorAttributes:
+    CloudWorkloadSecurityAgentRuleCreatorAttributes,
+  CloudWorkloadSecurityAgentRuleData: CloudWorkloadSecurityAgentRuleData,
+  CloudWorkloadSecurityAgentRuleResponse:
+    CloudWorkloadSecurityAgentRuleResponse,
+  CloudWorkloadSecurityAgentRuleUpdateAttributes:
+    CloudWorkloadSecurityAgentRuleUpdateAttributes,
+  CloudWorkloadSecurityAgentRuleUpdateData:
+    CloudWorkloadSecurityAgentRuleUpdateData,
+  CloudWorkloadSecurityAgentRuleUpdateRequest:
+    CloudWorkloadSecurityAgentRuleUpdateRequest,
+  CloudWorkloadSecurityAgentRuleUpdaterAttributes:
+    CloudWorkloadSecurityAgentRuleUpdaterAttributes,
+  CloudWorkloadSecurityAgentRulesListResponse:
+    CloudWorkloadSecurityAgentRulesListResponse,
   Creator: Creator,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
@@ -602,6 +640,9 @@ const typeMap: { [index: string]: any } = {
   ResponseMetaAttributes: ResponseMetaAttributes,
   Role: Role,
   RoleAttributes: RoleAttributes,
+  RoleClone: RoleClone,
+  RoleCloneAttributes: RoleCloneAttributes,
+  RoleCloneRequest: RoleCloneRequest,
   RoleCreateAttributes: RoleCreateAttributes,
   RoleCreateData: RoleCreateData,
   RoleCreateRequest: RoleCreateRequest,
@@ -640,7 +681,6 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleQueryCreate: SecurityMonitoringRuleQueryCreate,
   SecurityMonitoringRuleResponse: SecurityMonitoringRuleResponse,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
-  SecurityMonitoringRuntimeAgentRule: SecurityMonitoringRuntimeAgentRule,
   SecurityMonitoringSignal: SecurityMonitoringSignal,
   SecurityMonitoringSignalAttributes: SecurityMonitoringSignalAttributes,
   SecurityMonitoringSignalListRequest: SecurityMonitoringSignalListRequest,
@@ -715,7 +755,7 @@ const oneOfMap: { [index: string]: string[] } = {
 };
 
 export class ObjectSerializer {
-  public static serialize(data: any, type: string, format: string) {
+  public static serialize(data: any, type: string, format: string): any {
     if (data == undefined) {
       return data;
     } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
@@ -816,7 +856,7 @@ export class ObjectSerializer {
     }
   }
 
-  public static deserialize(data: any, type: string, format = "") {
+  public static deserialize(data: any, type: string, format = ""): any {
     if (data == undefined) {
       return data;
     } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
@@ -937,9 +977,13 @@ export class ObjectSerializer {
     let selectedMediaType: string | undefined = undefined;
     let selectedRank = -Infinity;
     for (const mediaType of normalMediaTypes) {
-      if (supportedMediaTypes[mediaType!] > selectedRank) {
+      if (mediaType === undefined) {
+        continue;
+      }
+      const supported = supportedMediaTypes[mediaType];
+      if (supported !== undefined && supported > selectedRank) {
         selectedMediaType = mediaType;
-        selectedRank = supportedMediaTypes[mediaType!];
+        selectedRank = supported;
       }
     }
 
@@ -949,7 +993,7 @@ export class ObjectSerializer {
       );
     }
 
-    return selectedMediaType!;
+    return selectedMediaType;
   }
 
   /**
@@ -970,7 +1014,7 @@ export class ObjectSerializer {
   /**
    * Parse data from a string according to the given media type
    */
-  public static parse(rawData: string, mediaType: string | undefined) {
+  public static parse(rawData: string, mediaType: string | undefined): any {
     try {
       return JSON.parse(rawData);
     } catch (error) {
@@ -986,3 +1030,12 @@ export class UnparsedObject {
     this.unparsedObject = data;
   }
 }
+
+export type AttributeTypeMap = {
+  [key: string]: {
+    baseName: string;
+    type: string;
+    required?: boolean;
+    format?: string;
+  };
+};

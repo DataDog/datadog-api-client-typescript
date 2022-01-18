@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A response list of all service level objective deleted.
+ */
+
 export class SLODeleteResponse {
   /**
    * An array containing the ID of the deleted service level objective object.
@@ -20,14 +26,7 @@ export class SLODeleteResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<string>",
@@ -38,7 +37,7 @@ export class SLODeleteResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLODeleteResponse.attributeTypeMap;
   }
 

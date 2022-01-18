@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The list of current AWS services for which Datadog offers automatic log collection.
+ */
+
 export class AWSLogsListServicesResponse {
   /**
    * Key value in returned object.
@@ -20,14 +26,7 @@ export class AWSLogsListServicesResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -38,7 +37,7 @@ export class AWSLogsListServicesResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSLogsListServicesResponse.attributeTypeMap;
   }
 

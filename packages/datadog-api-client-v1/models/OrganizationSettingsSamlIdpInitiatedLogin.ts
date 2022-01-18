@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Has one property enabled (boolean).
+ */
+
 export class OrganizationSettingsSamlIdpInitiatedLogin {
   /**
    * Whether SAML IdP initiated login is enabled, learn more in the [SAML documentation](https://docs.datadoghq.com/account_management/saml/#idp-initiated-login).
@@ -16,21 +22,14 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     enabled: {
       baseName: "enabled",
       type: "boolean",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationSettingsSamlIdpInitiatedLogin.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the device used to perform the Synthetic test.
+ */
 
 export class SyntheticsDevice {
   /**
@@ -31,14 +36,7 @@ export class SyntheticsDevice {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     height: {
       baseName: "height",
       type: "number",
@@ -67,7 +65,7 @@ export class SyntheticsDevice {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsDevice.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { AWSNamespace } from "./AWSNamespace";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A tag filter.
+ */
 
 export class AWSTagFilter {
   "namespace"?: AWSNamespace;
@@ -19,14 +24,7 @@ export class AWSTagFilter {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     namespace: {
       baseName: "namespace",
       type: "AWSNamespace",
@@ -37,7 +35,7 @@ export class AWSTagFilter {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSTagFilter.attributeTypeMap;
   }
 

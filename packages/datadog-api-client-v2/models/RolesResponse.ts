@@ -10,6 +10,11 @@
 
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { Role } from "./Role";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing information about multiple roles.
+ */
 
 export class RolesResponse {
   /**
@@ -20,14 +25,7 @@ export class RolesResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<Role>",
@@ -38,7 +36,7 @@ export class RolesResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RolesResponse.attributeTypeMap;
   }
 

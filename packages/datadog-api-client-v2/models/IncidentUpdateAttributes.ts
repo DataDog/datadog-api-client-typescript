@@ -10,6 +10,11 @@
 
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The incident's attributes for an update request.
+ */
 
 export class IncidentUpdateAttributes {
   /**
@@ -51,18 +56,10 @@ export class IncidentUpdateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customerImpactEnd: {
       baseName: "customer_impact_end",
       type: "Date",
-
       format: "date-time",
     },
     customerImpactScope: {
@@ -72,7 +69,6 @@ export class IncidentUpdateAttributes {
     customerImpactStart: {
       baseName: "customer_impact_start",
       type: "Date",
-
       format: "date-time",
     },
     customerImpacted: {
@@ -82,7 +78,6 @@ export class IncidentUpdateAttributes {
     detected: {
       baseName: "detected",
       type: "Date",
-
       format: "date-time",
     },
     fields: {
@@ -96,7 +91,6 @@ export class IncidentUpdateAttributes {
     resolved: {
       baseName: "resolved",
       type: "Date",
-
       format: "date-time",
     },
     title: {
@@ -105,7 +99,7 @@ export class IncidentUpdateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentUpdateAttributes.attributeTypeMap;
   }
 

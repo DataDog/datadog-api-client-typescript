@@ -9,6 +9,11 @@
  */
 
 import { User } from "./User";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Array of Datadog users for a given organization.
+ */
 
 export class UserListResponse {
   /**
@@ -18,21 +23,14 @@ export class UserListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     users: {
       baseName: "users",
       type: "Array<User>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserListResponse.attributeTypeMap;
   }
 

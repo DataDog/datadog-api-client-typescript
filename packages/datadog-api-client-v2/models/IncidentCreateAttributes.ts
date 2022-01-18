@@ -11,6 +11,11 @@
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentTimelineCellCreateAttributes } from "./IncidentTimelineCellCreateAttributes";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The incident's attributes for a create request.
+ */
 
 export class IncidentCreateAttributes {
   /**
@@ -36,14 +41,7 @@ export class IncidentCreateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customerImpacted: {
       baseName: "customer_impacted",
       type: "boolean",
@@ -68,7 +66,7 @@ export class IncidentCreateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentCreateAttributes.attributeTypeMap;
   }
 

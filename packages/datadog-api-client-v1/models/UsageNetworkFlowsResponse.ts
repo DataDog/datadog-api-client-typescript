@@ -9,6 +9,11 @@
  */
 
 import { UsageNetworkFlowsHour } from "./UsageNetworkFlowsHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of netflow events indexed for each hour for a given organization.
+ */
 
 export class UsageNetworkFlowsResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageNetworkFlowsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageNetworkFlowsHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageNetworkFlowsResponse.attributeTypeMap;
   }
 

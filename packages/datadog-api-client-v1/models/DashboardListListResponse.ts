@@ -9,6 +9,11 @@
  */
 
 import { DashboardList } from "./DashboardList";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Information on your dashboard lists.
+ */
 
 export class DashboardListListResponse {
   /**
@@ -18,21 +23,14 @@ export class DashboardListListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     dashboardLists: {
       baseName: "dashboard_lists",
       type: "Array<DashboardList>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardListListResponse.attributeTypeMap;
   }
 

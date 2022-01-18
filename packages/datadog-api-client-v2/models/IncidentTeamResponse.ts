@@ -10,6 +10,11 @@
 
 import { IncidentTeamIncludedItems } from "./IncidentTeamIncludedItems";
 import { IncidentTeamResponseData } from "./IncidentTeamResponseData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with an incident team payload.
+ */
 
 export class IncidentTeamResponse {
   "data": IncidentTeamResponseData;
@@ -20,14 +25,7 @@ export class IncidentTeamResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "IncidentTeamResponseData",
@@ -39,7 +37,7 @@ export class IncidentTeamResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentTeamResponse.attributeTypeMap;
   }
 

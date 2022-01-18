@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of a partial application key.
+ */
+
 export class PartialApplicationKeyAttributes {
   /**
    * Creation date of the application key.
@@ -21,17 +27,14 @@ export class PartialApplicationKeyAttributes {
    * Name of the application key.
    */
   "name"?: string;
+  /**
+   * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
+   */
+  "scopes"?: Array<string>;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
       type: "string",
@@ -44,9 +47,13 @@ export class PartialApplicationKeyAttributes {
       baseName: "name",
       type: "string",
     },
+    scopes: {
+      baseName: "scopes",
+      type: "Array<string>",
+    },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return PartialApplicationKeyAttributes.attributeTypeMap;
   }
 

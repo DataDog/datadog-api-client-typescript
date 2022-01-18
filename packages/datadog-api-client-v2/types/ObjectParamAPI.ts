@@ -1,3 +1,4 @@
+import { HttpFile } from "../http/http";
 import { Configuration } from "../configuration";
 
 import { APIKeyCreateRequest } from "../models/APIKeyCreateRequest";
@@ -9,6 +10,10 @@ import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateReque
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
+import { CloudWorkloadSecurityAgentRuleCreateRequest } from "../models/CloudWorkloadSecurityAgentRuleCreateRequest";
+import { CloudWorkloadSecurityAgentRuleResponse } from "../models/CloudWorkloadSecurityAgentRuleResponse";
+import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
+import { CloudWorkloadSecurityAgentRulesListResponse } from "../models/CloudWorkloadSecurityAgentRulesListResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
 import { DashboardListAddItemsRequest } from "../models/DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "../models/DashboardListAddItemsResponse";
@@ -59,6 +64,7 @@ import { QuerySortOrder } from "../models/QuerySortOrder";
 import { RelationshipToPermission } from "../models/RelationshipToPermission";
 import { RelationshipToRole } from "../models/RelationshipToRole";
 import { RelationshipToUser } from "../models/RelationshipToUser";
+import { RoleCloneRequest } from "../models/RoleCloneRequest";
 import { RoleCreateRequest } from "../models/RoleCreateRequest";
 import { RoleCreateResponse } from "../models/RoleCreateResponse";
 import { RoleResponse } from "../models/RoleResponse";
@@ -85,6 +91,152 @@ import { UserInvitationsResponse } from "../models/UserInvitationsResponse";
 import { UserResponse } from "../models/UserResponse";
 import { UserUpdateRequest } from "../models/UserUpdateRequest";
 import { UsersResponse } from "../models/UsersResponse";
+
+import { ObservableCloudWorkloadSecurityApi } from "./ObservableAPI";
+import {
+  CloudWorkloadSecurityApiRequestFactory,
+  CloudWorkloadSecurityApiResponseProcessor,
+} from "../apis/CloudWorkloadSecurityApi";
+
+export interface CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest {
+  /**
+   * The definition of the new Agent rule.
+   * @type CloudWorkloadSecurityAgentRuleCreateRequest
+   * @memberof CloudWorkloadSecurityApicreateCloudWorkloadSecurityAgentRule
+   */
+  body: CloudWorkloadSecurityAgentRuleCreateRequest;
+}
+
+export interface CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest {
+  /**
+   * The ID of the Agent rule.
+   * @type string
+   * @memberof CloudWorkloadSecurityApideleteCloudWorkloadSecurityAgentRule
+   */
+  agentRuleId: string;
+}
+
+export interface CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest {
+  /**
+   * The ID of the Agent rule.
+   * @type string
+   * @memberof CloudWorkloadSecurityApigetCloudWorkloadSecurityAgentRule
+   */
+  agentRuleId: string;
+}
+
+export interface CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleRequest {
+  /**
+   * The ID of the Agent rule.
+   * @type string
+   * @memberof CloudWorkloadSecurityApiupdateCloudWorkloadSecurityAgentRule
+   */
+  agentRuleId: string;
+  /**
+   * New definition of the Agent rule.
+   * @type CloudWorkloadSecurityAgentRuleUpdateRequest
+   * @memberof CloudWorkloadSecurityApiupdateCloudWorkloadSecurityAgentRule
+   */
+  body: CloudWorkloadSecurityAgentRuleUpdateRequest;
+}
+
+export class ObjectCloudWorkloadSecurityApi {
+  private api: ObservableCloudWorkloadSecurityApi;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: CloudWorkloadSecurityApiRequestFactory,
+    responseProcessor?: CloudWorkloadSecurityApiResponseProcessor
+  ) {
+    this.api = new ObservableCloudWorkloadSecurityApi(
+      configuration,
+      requestFactory,
+      responseProcessor
+    );
+  }
+
+  /**
+   * Create a new Agent rule with the given parameters.
+   * Create a Cloud Workload Security Agent rule
+   * @param param the request object
+   */
+  public createCloudWorkloadSecurityAgentRule(
+    param: CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
+    return this.api
+      .createCloudWorkloadSecurityAgentRule(param.body, options)
+      .toPromise();
+  }
+
+  /**
+   * Delete a specific Agent rule.
+   * Delete a Cloud Workload Security Agent rule
+   * @param param the request object
+   */
+  public deleteCloudWorkloadSecurityAgentRule(
+    param: CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    return this.api
+      .deleteCloudWorkloadSecurityAgentRule(param.agentRuleId, options)
+      .toPromise();
+  }
+
+  /**
+   * The download endpoint generates a Cloud Workload Security policy file from your currently active Cloud Workload Security rules, and downloads them as a .policy file. This file can then be deployed to your agents to update the policy running in your environment.
+   * Get the latest Cloud Workload Security policy
+   * @param param the request object
+   */
+  public downloadCloudWorkloadPolicyFile(
+    options?: Configuration
+  ): Promise<HttpFile> {
+    return this.api.downloadCloudWorkloadPolicyFile(options).toPromise();
+  }
+
+  /**
+   * Get the details of a specific Agent rule.
+   * Get a Cloud Workload Security Agent rule
+   * @param param the request object
+   */
+  public getCloudWorkloadSecurityAgentRule(
+    param: CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
+    return this.api
+      .getCloudWorkloadSecurityAgentRule(param.agentRuleId, options)
+      .toPromise();
+  }
+
+  /**
+   * Get the list of Agent rules.
+   * Get all Cloud Workload Security Agent rules
+   * @param param the request object
+   */
+  public listCloudWorkloadSecurityAgentRules(
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentRulesListResponse> {
+    return this.api.listCloudWorkloadSecurityAgentRules(options).toPromise();
+  }
+
+  /**
+   * Update a specific Agent rule. Returns the Agent rule object when the request is successful.
+   * Update a Cloud Workload Security Agent rule
+   * @param param the request object
+   */
+  public updateCloudWorkloadSecurityAgentRule(
+    param: CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
+    return this.api
+      .updateCloudWorkloadSecurityAgentRule(
+        param.agentRuleId,
+        param.body,
+        options
+      )
+      .toPromise();
+  }
+}
 
 import { ObservableDashboardListsApi } from "./ObservableAPI";
 import {
@@ -573,7 +725,7 @@ export interface IncidentsApiCreateIncidentRequest {
 
 export interface IncidentsApiDeleteIncidentRequest {
   /**
-   * The UUID the incident.
+   * The UUID of the incident.
    * @type string
    * @memberof IncidentsApideleteIncident
    */
@@ -582,7 +734,7 @@ export interface IncidentsApiDeleteIncidentRequest {
 
 export interface IncidentsApiGetIncidentRequest {
   /**
-   * The UUID the incident.
+   * The UUID of the incident.
    * @type string
    * @memberof IncidentsApigetIncident
    */
@@ -618,7 +770,7 @@ export interface IncidentsApiListIncidentsRequest {
 
 export interface IncidentsApiUpdateIncidentRequest {
   /**
-   * The UUID the incident.
+   * The UUID of the incident.
    * @type string
    * @memberof IncidentsApiupdateIncident
    */
@@ -2092,6 +2244,21 @@ export interface RolesApiAddUserToRoleRequest {
   body: RelationshipToUser;
 }
 
+export interface RolesApiCloneRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   * @memberof RolesApicloneRole
+   */
+  roleId: string;
+  /**
+   *
+   * @type RoleCloneRequest
+   * @memberof RolesApicloneRole
+   */
+  body: RoleCloneRequest;
+}
+
 export interface RolesApiCreateRoleRequest {
   /**
    *
@@ -2274,6 +2441,18 @@ export class ObjectRolesApi {
     return this.api
       .addUserToRole(param.roleId, param.body, options)
       .toPromise();
+  }
+
+  /**
+   * Clone an existing role
+   * Create a new role by cloning an existing role
+   * @param param the request object
+   */
+  public cloneRole(
+    param: RolesApiCloneRoleRequest,
+    options?: Configuration
+  ): Promise<RoleResponse> {
+    return this.api.cloneRole(param.roleId, param.body, options).toPromise();
   }
 
   /**

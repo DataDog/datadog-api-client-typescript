@@ -9,6 +9,11 @@
  */
 
 import { MonitorStateGroup } from "./MonitorStateGroup";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Wrapper object with the different monitor states.
+ */
 
 export class MonitorState {
   /**
@@ -18,21 +23,14 @@ export class MonitorState {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     groups: {
       baseName: "groups",
       type: "{ [key: string]: MonitorStateGroup; }",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorState.attributeTypeMap;
   }
 

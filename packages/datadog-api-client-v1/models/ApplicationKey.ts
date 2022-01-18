@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An application key with its associated metadata.
+ */
+
 export class ApplicationKey {
   /**
    * Hash of an application key.
@@ -24,14 +30,7 @@ export class ApplicationKey {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hash: {
       baseName: "hash",
       type: "string",
@@ -46,7 +45,7 @@ export class ApplicationKey {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKey.attributeTypeMap;
   }
 

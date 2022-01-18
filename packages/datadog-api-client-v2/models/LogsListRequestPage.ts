@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Paging attributes for listing logs.
+ */
+
 export class LogsListRequestPage {
   /**
    * List following results with a cursor provided in the previous query.
@@ -20,14 +26,7 @@ export class LogsListRequestPage {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
       baseName: "cursor",
       type: "string",
@@ -35,12 +34,11 @@ export class LogsListRequestPage {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int32",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListRequestPage.attributeTypeMap;
   }
 

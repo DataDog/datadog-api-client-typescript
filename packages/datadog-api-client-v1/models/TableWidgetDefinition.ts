@@ -14,6 +14,11 @@ import { TableWidgetRequest } from "./TableWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.
+ */
 
 export class TableWidgetDefinition {
   /**
@@ -39,14 +44,7 @@ export class TableWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
       type: "Array<WidgetCustomLink>",
@@ -83,7 +81,7 @@ export class TableWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return TableWidgetDefinition.attributeTypeMap;
   }
 

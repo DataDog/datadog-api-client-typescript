@@ -10,6 +10,11 @@
 
 import { SyntheticsPrivateLocationSecretsAuthentication } from "./SyntheticsPrivateLocationSecretsAuthentication";
 import { SyntheticsPrivateLocationSecretsConfigDecryption } from "./SyntheticsPrivateLocationSecretsConfigDecryption";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Secrets for the private location. Only present in the response when creating the private location.
+ */
 
 export class SyntheticsPrivateLocationSecrets {
   "authentication"?: SyntheticsPrivateLocationSecretsAuthentication;
@@ -17,14 +22,7 @@ export class SyntheticsPrivateLocationSecrets {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     authentication: {
       baseName: "authentication",
       type: "SyntheticsPrivateLocationSecretsAuthentication",
@@ -35,7 +33,7 @@ export class SyntheticsPrivateLocationSecrets {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsPrivateLocationSecrets.attributeTypeMap;
   }
 

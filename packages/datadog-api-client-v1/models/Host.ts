@@ -10,6 +10,11 @@
 
 import { HostMeta } from "./HostMeta";
 import { HostMetrics } from "./HostMetrics";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object representing a host.
+ */
 
 export class Host {
   /**
@@ -65,14 +70,7 @@ export class Host {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aliases: {
       baseName: "aliases",
       type: "Array<string>",
@@ -92,7 +90,6 @@ export class Host {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     isMuted: {
@@ -102,7 +99,6 @@ export class Host {
     lastReportedTime: {
       baseName: "last_reported_time",
       type: "number",
-
       format: "int64",
     },
     meta: {
@@ -116,7 +112,6 @@ export class Host {
     muteTimeout: {
       baseName: "mute_timeout",
       type: "number",
-
       format: "int64",
     },
     name: {
@@ -137,7 +132,7 @@ export class Host {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Host.attributeTypeMap;
   }
 

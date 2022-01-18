@@ -9,6 +9,11 @@
  */
 
 import { Permission } from "./Permission";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Payload with API-returned permissions.
+ */
 
 export class PermissionsResponse {
   /**
@@ -18,21 +23,14 @@ export class PermissionsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<Permission>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return PermissionsResponse.attributeTypeMap;
   }
 

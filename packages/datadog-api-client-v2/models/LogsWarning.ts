@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A warning message indicating something that went wrong with the query
+ */
+
 export class LogsWarning {
   /**
    * A unique code for this type of warning
@@ -24,14 +30,7 @@ export class LogsWarning {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
       baseName: "code",
       type: "string",
@@ -46,7 +45,7 @@ export class LogsWarning {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsWarning.attributeTypeMap;
   }
 

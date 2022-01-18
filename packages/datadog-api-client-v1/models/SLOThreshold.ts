@@ -9,6 +9,11 @@
  */
 
 import { SLOTimeframe } from "./SLOTimeframe";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * SLO thresholds (target and optionally warning) for a single time window.
+ */
 
 export class SLOThreshold {
   /**
@@ -31,14 +36,7 @@ export class SLOThreshold {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     target: {
       baseName: "target",
       type: "number",
@@ -57,7 +55,6 @@ export class SLOThreshold {
     warning: {
       baseName: "warning",
       type: "number",
-
       format: "double",
     },
     warningDisplay: {
@@ -66,7 +63,7 @@ export class SLOThreshold {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOThreshold.attributeTypeMap;
   }
 

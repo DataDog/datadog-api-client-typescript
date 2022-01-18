@@ -17,6 +17,11 @@ import { WidgetCompareTo } from "./WidgetCompareTo";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetOrderBy } from "./WidgetOrderBy";
 import { WidgetSort } from "./WidgetSort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated change widget.
+ */
 
 export class ChangeWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -55,14 +60,7 @@ export class ChangeWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
@@ -137,7 +135,7 @@ export class ChangeWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ChangeWidgetRequest.attributeTypeMap;
   }
 

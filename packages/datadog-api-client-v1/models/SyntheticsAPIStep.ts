@@ -11,7 +11,13 @@
 import { SyntheticsAPIStepSubtype } from "./SyntheticsAPIStepSubtype";
 import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
+import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The steps used in a Synthetics multistep API test.
+ */
 
 export class SyntheticsAPIStep {
   /**
@@ -21,7 +27,7 @@ export class SyntheticsAPIStep {
   /**
    * Array of assertions used for the test.
    */
-  "assertions"?: Array<SyntheticsAssertion>;
+  "assertions": Array<SyntheticsAssertion>;
   /**
    * Array of values to parse and save as variables from the response.
    */
@@ -33,20 +39,14 @@ export class SyntheticsAPIStep {
   /**
    * The name of the step.
    */
-  "name"?: string;
-  "request"?: SyntheticsTestRequest;
-  "subtype"?: SyntheticsAPIStepSubtype;
+  "name": string;
+  "request": SyntheticsTestRequest;
+  "retry"?: SyntheticsTestOptionsRetry;
+  "subtype": SyntheticsAPIStepSubtype;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     allowFailure: {
       baseName: "allowFailure",
       type: "boolean",
@@ -54,6 +54,7 @@ export class SyntheticsAPIStep {
     assertions: {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
+      required: true,
     },
     extractedValues: {
       baseName: "extractedValues",
@@ -66,18 +67,25 @@ export class SyntheticsAPIStep {
     name: {
       baseName: "name",
       type: "string",
+      required: true,
     },
     request: {
       baseName: "request",
       type: "SyntheticsTestRequest",
+      required: true,
+    },
+    retry: {
+      baseName: "retry",
+      type: "SyntheticsTestOptionsRetry",
     },
     subtype: {
       baseName: "subtype",
       type: "SyntheticsAPIStepSubtype",
+      required: true,
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPIStep.attributeTypeMap;
   }
 

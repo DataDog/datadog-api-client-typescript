@@ -10,6 +10,11 @@
 
 import { EventAlertType } from "./EventAlertType";
 import { EventPriority } from "./EventPriority";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object representing an event.
+ */
 
 export class EventCreateRequest {
   /**
@@ -29,14 +34,6 @@ export class EventCreateRequest {
    * Host name to associate with the event. Any tags associated with the host are also applied to this event.
    */
   "host"?: string;
-  /**
-   * Integer ID of the event.
-   */
-  "id"?: number;
-  /**
-   * Payload of the event.
-   */
-  "payload"?: string;
   "priority"?: EventPriority;
   /**
    * ID of the parent event. Must be sent as an integer (that is no quotes).
@@ -58,21 +55,10 @@ export class EventCreateRequest {
    * The event title.
    */
   "title": string;
-  /**
-   * URL of the event.
-   */
-  "url"?: string;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregationKey: {
       baseName: "aggregation_key",
       type: "string",
@@ -84,7 +70,6 @@ export class EventCreateRequest {
     dateHappened: {
       baseName: "date_happened",
       type: "number",
-
       format: "int64",
     },
     deviceName: {
@@ -95,16 +80,6 @@ export class EventCreateRequest {
       baseName: "host",
       type: "string",
     },
-    id: {
-      baseName: "id",
-      type: "number",
-
-      format: "int64",
-    },
-    payload: {
-      baseName: "payload",
-      type: "string",
-    },
     priority: {
       baseName: "priority",
       type: "EventPriority",
@@ -112,7 +87,6 @@ export class EventCreateRequest {
     relatedEventId: {
       baseName: "related_event_id",
       type: "number",
-
       format: "int64",
     },
     sourceTypeName: {
@@ -133,13 +107,9 @@ export class EventCreateRequest {
       type: "string",
       required: true,
     },
-    url: {
-      baseName: "url",
-      type: "string",
-    },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return EventCreateRequest.attributeTypeMap;
   }
 

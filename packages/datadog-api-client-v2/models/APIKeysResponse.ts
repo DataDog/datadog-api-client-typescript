@@ -10,6 +10,11 @@
 
 import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
 import { PartialAPIKey } from "./PartialAPIKey";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response for a list of API keys.
+ */
 
 export class APIKeysResponse {
   /**
@@ -23,14 +28,7 @@ export class APIKeysResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<PartialAPIKey>",
@@ -41,7 +39,7 @@ export class APIKeysResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return APIKeysResponse.attributeTypeMap;
   }
 

@@ -96,11 +96,16 @@ import { HostMapWidgetDefinition } from "./HostMapWidgetDefinition";
 import { HostMapWidgetDefinitionRequests } from "./HostMapWidgetDefinitionRequests";
 import { HostMapWidgetDefinitionStyle } from "./HostMapWidgetDefinitionStyle";
 import { HostMeta } from "./HostMeta";
+import { HostMetaInstallMethod } from "./HostMetaInstallMethod";
 import { HostMetrics } from "./HostMetrics";
 import { HostMuteResponse } from "./HostMuteResponse";
 import { HostMuteSettings } from "./HostMuteSettings";
 import { HostTags } from "./HostTags";
 import { HostTotals } from "./HostTotals";
+import { HourlyUsageAttributionBody } from "./HourlyUsageAttributionBody";
+import { HourlyUsageAttributionMetadata } from "./HourlyUsageAttributionMetadata";
+import { HourlyUsageAttributionPagination } from "./HourlyUsageAttributionPagination";
+import { HourlyUsageAttributionResponse } from "./HourlyUsageAttributionResponse";
 import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
 import { IPPrefixesAPI } from "./IPPrefixesAPI";
 import { IPPrefixesAPM } from "./IPPrefixesAPM";
@@ -188,6 +193,11 @@ import { MonitorSummaryWidgetDefinition } from "./MonitorSummaryWidgetDefinition
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
 import { MonitorThresholds } from "./MonitorThresholds";
 import { MonitorUpdateRequest } from "./MonitorUpdateRequest";
+import { MonthlyUsageAttributionBody } from "./MonthlyUsageAttributionBody";
+import { MonthlyUsageAttributionMetadata } from "./MonthlyUsageAttributionMetadata";
+import { MonthlyUsageAttributionPagination } from "./MonthlyUsageAttributionPagination";
+import { MonthlyUsageAttributionResponse } from "./MonthlyUsageAttributionResponse";
+import { MonthlyUsageAttributionValues } from "./MonthlyUsageAttributionValues";
 import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
 import { NotebookAbsoluteTime } from "./NotebookAbsoluteTime";
 import { NotebookAuthor } from "./NotebookAuthor";
@@ -299,7 +309,9 @@ import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultSho
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
-import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
+import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
+import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
+import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
 import { SyntheticsBatchDetails } from "./SyntheticsBatchDetails";
 import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
 import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
@@ -356,6 +368,7 @@ import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
+import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
 import { SyntheticsTiming } from "./SyntheticsTiming";
 import { SyntheticsTriggerBody } from "./SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestLocation } from "./SyntheticsTriggerCITestLocation";
@@ -596,6 +609,22 @@ const enumsMap: { [key: string]: any[] } = {
   HTTPMethod: ["GET", "POST", "PATCH", "PUT", "DELETE", "HEAD", "OPTIONS"],
   HeatMapWidgetDefinitionType: ["heatmap"],
   HostMapWidgetDefinitionType: ["hostmap"],
+  HourlyUsageAttributionUsageType: [
+    "api_usage",
+    "apm_host_usage",
+    "browser_usage",
+    "container_usage",
+    "custom_timeseries_usage",
+    "fargate_usage",
+    "functions_usage",
+    "indexed_logs_usage",
+    "infra_host_usage",
+    "invocations_usage",
+    "npm_host_usage",
+    "profiled_container_usage",
+    "profiled_host_usage",
+    "snmp_usage",
+  ],
   IFrameWidgetDefinitionType: ["iframe"],
   ImageWidgetDefinitionType: ["image"],
   ListStreamColumnWidth: ["auto", "compact", "full"],
@@ -656,6 +685,38 @@ const enumsMap: { [key: string]: any[] } = {
     "slo alert",
     "event-v2 alert",
     "audit alert",
+    "ci-pipelines alert",
+  ],
+  MonthlyUsageAttributionSupportedMetrics: [
+    "api_usage",
+    "api_percentage",
+    "apm_host_usage",
+    "apm_host_percentage",
+    "browser_usage",
+    "browser_percentage",
+    "container_usage",
+    "container_percentage",
+    "custom_timeseries_usage",
+    "custom_timeseries_percentage",
+    "fargate_usage",
+    "fargate_percentage",
+    "functions_usage",
+    "functions_percentage",
+    "indexed_logs_usage",
+    "indexed_logs_percentage",
+    "infra_host_usage",
+    "infra_host_percentage",
+    "invocations_usage",
+    "invocations_percentage",
+    "npm_host_usage",
+    "npm_host_percentage",
+    "profiled_container_usage",
+    "profiled_container_percentage",
+    "profiled_host_usage",
+    "profiled_host_percentage",
+    "snmp_usage",
+    "snmp_percentage",
+    "*",
   ],
   NoteWidgetDefinitionType: ["note"],
   NotebookCellResourceType: ["notebook_cells"],
@@ -728,6 +789,9 @@ const enumsMap: { [key: string]: any[] } = {
     "networkHop",
     "receivedMessage",
   ],
+  SyntheticsBasicAuthNTLMType: ["ntlm"],
+  SyntheticsBasicAuthSigv4Type: ["sigv4"],
+  SyntheticsBasicAuthWebType: ["web"],
   SyntheticsBrowserErrorType: ["network", "js"],
   SyntheticsBrowserTestType: ["browser"],
   SyntheticsBrowserVariableType: [
@@ -1122,11 +1186,16 @@ const typeMap: { [index: string]: any } = {
   HostMapWidgetDefinitionRequests: HostMapWidgetDefinitionRequests,
   HostMapWidgetDefinitionStyle: HostMapWidgetDefinitionStyle,
   HostMeta: HostMeta,
+  HostMetaInstallMethod: HostMetaInstallMethod,
   HostMetrics: HostMetrics,
   HostMuteResponse: HostMuteResponse,
   HostMuteSettings: HostMuteSettings,
   HostTags: HostTags,
   HostTotals: HostTotals,
+  HourlyUsageAttributionBody: HourlyUsageAttributionBody,
+  HourlyUsageAttributionMetadata: HourlyUsageAttributionMetadata,
+  HourlyUsageAttributionPagination: HourlyUsageAttributionPagination,
+  HourlyUsageAttributionResponse: HourlyUsageAttributionResponse,
   IFrameWidgetDefinition: IFrameWidgetDefinition,
   IPPrefixesAPI: IPPrefixesAPI,
   IPPrefixesAPM: IPPrefixesAPM,
@@ -1214,6 +1283,11 @@ const typeMap: { [index: string]: any } = {
   MonitorThresholdWindowOptions: MonitorThresholdWindowOptions,
   MonitorThresholds: MonitorThresholds,
   MonitorUpdateRequest: MonitorUpdateRequest,
+  MonthlyUsageAttributionBody: MonthlyUsageAttributionBody,
+  MonthlyUsageAttributionMetadata: MonthlyUsageAttributionMetadata,
+  MonthlyUsageAttributionPagination: MonthlyUsageAttributionPagination,
+  MonthlyUsageAttributionResponse: MonthlyUsageAttributionResponse,
+  MonthlyUsageAttributionValues: MonthlyUsageAttributionValues,
   NoteWidgetDefinition: NoteWidgetDefinition,
   NotebookAbsoluteTime: NotebookAbsoluteTime,
   NotebookAuthor: NotebookAuthor,
@@ -1329,7 +1403,9 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
-  SyntheticsBasicAuth: SyntheticsBasicAuth,
+  SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
+  SyntheticsBasicAuthSigv4: SyntheticsBasicAuthSigv4,
+  SyntheticsBasicAuthWeb: SyntheticsBasicAuthWeb,
   SyntheticsBatchDetails: SyntheticsBatchDetails,
   SyntheticsBatchDetailsData: SyntheticsBatchDetailsData,
   SyntheticsBatchResult: SyntheticsBatchResult,
@@ -1394,6 +1470,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestRequest: SyntheticsTestRequest,
   SyntheticsTestRequestCertificate: SyntheticsTestRequestCertificate,
   SyntheticsTestRequestCertificateItem: SyntheticsTestRequestCertificateItem,
+  SyntheticsTestRequestProxy: SyntheticsTestRequestProxy,
   SyntheticsTiming: SyntheticsTiming,
   SyntheticsTriggerBody: SyntheticsTriggerBody,
   SyntheticsTriggerCITestLocation: SyntheticsTriggerCITestLocation,
@@ -1582,6 +1659,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsAssertionJSONPathTarget",
     "SyntheticsAssertionTarget",
   ],
+  SyntheticsBasicAuth: [
+    "SyntheticsBasicAuthNTLM",
+    "SyntheticsBasicAuthSigv4",
+    "SyntheticsBasicAuthWeb",
+  ],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
     "AlertValueWidgetDefinition",
@@ -1616,7 +1698,7 @@ const oneOfMap: { [index: string]: string[] } = {
 };
 
 export class ObjectSerializer {
-  public static serialize(data: any, type: string, format: string) {
+  public static serialize(data: any, type: string, format: string): any {
     if (data == undefined) {
       return data;
     } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
@@ -1717,7 +1799,7 @@ export class ObjectSerializer {
     }
   }
 
-  public static deserialize(data: any, type: string, format = "") {
+  public static deserialize(data: any, type: string, format = ""): any {
     if (data == undefined) {
       return data;
     } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
@@ -1838,9 +1920,13 @@ export class ObjectSerializer {
     let selectedMediaType: string | undefined = undefined;
     let selectedRank = -Infinity;
     for (const mediaType of normalMediaTypes) {
-      if (supportedMediaTypes[mediaType!] > selectedRank) {
+      if (mediaType === undefined) {
+        continue;
+      }
+      const supported = supportedMediaTypes[mediaType];
+      if (supported !== undefined && supported > selectedRank) {
         selectedMediaType = mediaType;
-        selectedRank = supportedMediaTypes[mediaType!];
+        selectedRank = supported;
       }
     }
 
@@ -1850,7 +1936,7 @@ export class ObjectSerializer {
       );
     }
 
-    return selectedMediaType!;
+    return selectedMediaType;
   }
 
   /**
@@ -1871,7 +1957,7 @@ export class ObjectSerializer {
   /**
    * Parse data from a string according to the given media type
    */
-  public static parse(rawData: string, mediaType: string | undefined) {
+  public static parse(rawData: string, mediaType: string | undefined): any {
     try {
       return JSON.parse(rawData);
     } catch (error) {
@@ -1887,3 +1973,12 @@ export class UnparsedObject {
     this.unparsedObject = data;
   }
 }
+
+export type AttributeTypeMap = {
+  [key: string]: {
+    baseName: string;
+    type: string;
+    required?: boolean;
+    format?: string;
+  };
+};

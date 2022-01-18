@@ -9,6 +9,11 @@
  */
 
 import { AWSNamespace } from "./AWSNamespace";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The objects used to set an AWS tag filter.
+ */
 
 export class AWSTagFilterCreateRequest {
   /**
@@ -23,14 +28,7 @@ export class AWSTagFilterCreateRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
       type: "string",
@@ -45,7 +43,7 @@ export class AWSTagFilterCreateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSTagFilterCreateRequest.attributeTypeMap;
   }
 

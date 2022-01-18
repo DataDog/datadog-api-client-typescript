@@ -9,20 +9,18 @@
  */
 
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Create a service account.
+ */
 
 export class ServiceAccountCreateRequest {
   "data": ServiceAccountCreateData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "ServiceAccountCreateData",
@@ -30,7 +28,7 @@ export class ServiceAccountCreateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceAccountCreateRequest.attributeTypeMap;
   }
 

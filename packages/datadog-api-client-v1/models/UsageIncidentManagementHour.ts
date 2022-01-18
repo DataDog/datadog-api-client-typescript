@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Incident management usage for a given organization for a given hour.
+ */
+
 export class UsageIncidentManagementHour {
   /**
    * The hour for the usage.
@@ -20,29 +26,20 @@ export class UsageIncidentManagementHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     monthlyActiveUsers: {
       baseName: "monthly_active_users",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageIncidentManagementHour.attributeTypeMap;
   }
 

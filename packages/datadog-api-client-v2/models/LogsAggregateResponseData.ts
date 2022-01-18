@@ -9,6 +9,11 @@
  */
 
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The query results
+ */
 
 export class LogsAggregateResponseData {
   /**
@@ -18,21 +23,14 @@ export class LogsAggregateResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     buckets: {
       baseName: "buckets",
       type: "Array<LogsAggregateBucket>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateResponseData.attributeTypeMap;
   }
 

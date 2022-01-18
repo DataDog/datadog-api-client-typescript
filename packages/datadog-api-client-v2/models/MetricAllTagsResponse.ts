@@ -9,27 +9,25 @@
  */
 
 import { MetricAllTags } from "./MetricAllTags";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response object that includes a single metric's indexed tags.
+ */
 
 export class MetricAllTagsResponse {
   "data"?: MetricAllTags;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "MetricAllTags",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricAllTagsResponse.attributeTypeMap;
   }
 

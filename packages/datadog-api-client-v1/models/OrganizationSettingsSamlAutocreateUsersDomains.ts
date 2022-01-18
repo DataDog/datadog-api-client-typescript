@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
+ */
+
 export class OrganizationSettingsSamlAutocreateUsersDomains {
   /**
    * List of domains where the SAML automated user creation is enabled.
@@ -20,14 +26,7 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     domains: {
       baseName: "domains",
       type: "Array<string>",
@@ -38,7 +37,7 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationSettingsSamlAutocreateUsersDomains.attributeTypeMap;
   }
 

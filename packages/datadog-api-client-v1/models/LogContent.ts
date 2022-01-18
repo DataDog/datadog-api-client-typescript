@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * JSON object containing all log attributes and their associated values.
+ */
+
 export class LogContent {
   /**
    * JSON object of attributes from your log.
@@ -36,14 +42,7 @@ export class LogContent {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "{ [key: string]: any; }",
@@ -63,18 +62,16 @@ export class LogContent {
     tags: {
       baseName: "tags",
       type: "Array<any>",
-
       format: "string",
     },
     timestamp: {
       baseName: "timestamp",
       type: "Date",
-
       format: "date-time",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogContent.attributeTypeMap;
   }
 

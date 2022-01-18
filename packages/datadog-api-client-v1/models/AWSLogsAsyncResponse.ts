@@ -9,6 +9,11 @@
  */
 
 import { AWSLogsAsyncError } from "./AWSLogsAsyncError";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A list of all Datadog-AWS logs integrations available in your Datadog organization.
+ */
 
 export class AWSLogsAsyncResponse {
   /**
@@ -22,14 +27,7 @@ export class AWSLogsAsyncResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
       baseName: "errors",
       type: "Array<AWSLogsAsyncError>",
@@ -40,7 +38,7 @@ export class AWSLogsAsyncResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return AWSLogsAsyncResponse.attributeTypeMap;
   }
 

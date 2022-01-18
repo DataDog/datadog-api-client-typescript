@@ -12,6 +12,11 @@ import { EventStreamWidgetDefinitionType } from "./EventStreamWidgetDefinitionTy
 import { WidgetEventSize } from "./WidgetEventSize";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.
+ */
 
 export class EventStreamWidgetDefinition {
   "eventSize"?: WidgetEventSize;
@@ -37,14 +42,7 @@ export class EventStreamWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     eventSize: {
       baseName: "event_size",
       type: "WidgetEventSize",
@@ -81,7 +79,7 @@ export class EventStreamWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return EventStreamWidgetDefinition.attributeTypeMap;
   }
 

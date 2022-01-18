@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The number of indexed logs for each hour for a given organization broken down by retention period.
+ */
+
 export class UsageLogsByRetentionHour {
   /**
    * Total logs indexed with this retention period during a given hour.
@@ -28,30 +34,20 @@ export class UsageLogsByRetentionHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     indexedEventsCount: {
       baseName: "indexed_events_count",
       type: "number",
-
       format: "int64",
     },
     liveIndexedEventsCount: {
       baseName: "live_indexed_events_count",
       type: "number",
-
       format: "int64",
     },
     rehydratedIndexedEventsCount: {
       baseName: "rehydrated_indexed_events_count",
       type: "number",
-
       format: "int64",
     },
     retention: {
@@ -60,7 +56,7 @@ export class UsageLogsByRetentionHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLogsByRetentionHour.attributeTypeMap;
   }
 

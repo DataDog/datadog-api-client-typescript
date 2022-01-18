@@ -9,6 +9,11 @@
  */
 
 import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A relationship reference for an integration metadata object.
+ */
 
 export class RelationshipToIncidentIntegrationMetadataData {
   /**
@@ -19,14 +24,7 @@ export class RelationshipToIncidentIntegrationMetadataData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -39,7 +37,7 @@ export class RelationshipToIncidentIntegrationMetadataData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToIncidentIntegrationMetadataData.attributeTypeMap;
   }
 

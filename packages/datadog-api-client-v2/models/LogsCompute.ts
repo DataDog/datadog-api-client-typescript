@@ -10,6 +10,11 @@
 
 import { LogsAggregationFunction } from "./LogsAggregationFunction";
 import { LogsComputeType } from "./LogsComputeType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A compute rule to compute metrics or timeseries
+ */
 
 export class LogsCompute {
   "aggregation": LogsAggregationFunction;
@@ -25,14 +30,7 @@ export class LogsCompute {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "LogsAggregationFunction",
@@ -52,7 +50,7 @@ export class LogsCompute {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsCompute.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorResponseData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response of monitor IDs that can or can't be safely deleted.
+ */
 
 export class CheckCanDeleteMonitorResponse {
   "data": CheckCanDeleteMonitorResponseData;
@@ -19,14 +24,7 @@ export class CheckCanDeleteMonitorResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "CheckCanDeleteMonitorResponseData",
@@ -38,7 +36,7 @@ export class CheckCanDeleteMonitorResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return CheckCanDeleteMonitorResponse.attributeTypeMap;
   }
 

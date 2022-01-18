@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Axis controls for the widget.
+ */
+
 export class WidgetAxis {
   /**
    * True includes zero.
@@ -32,14 +38,7 @@ export class WidgetAxis {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     includeZero: {
       baseName: "include_zero",
       type: "boolean",
@@ -62,7 +61,7 @@ export class WidgetAxis {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetAxis.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+ */
 
 export class DowntimeChild {
   /**
@@ -75,14 +80,7 @@ export class DowntimeChild {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     active: {
       baseName: "active",
       type: "boolean",
@@ -90,13 +88,11 @@ export class DowntimeChild {
     canceled: {
       baseName: "canceled",
       type: "number",
-
       format: "int64",
     },
     creatorId: {
       baseName: "creator_id",
       type: "number",
-
       format: "int32",
     },
     disabled: {
@@ -106,19 +102,16 @@ export class DowntimeChild {
     downtimeType: {
       baseName: "downtime_type",
       type: "number",
-
       format: "int32",
     },
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     message: {
@@ -128,7 +121,6 @@ export class DowntimeChild {
     monitorId: {
       baseName: "monitor_id",
       type: "number",
-
       format: "int64",
     },
     monitorTags: {
@@ -138,7 +130,6 @@ export class DowntimeChild {
     parentId: {
       baseName: "parent_id",
       type: "number",
-
       format: "int64",
     },
     recurrence: {
@@ -152,7 +143,6 @@ export class DowntimeChild {
     start: {
       baseName: "start",
       type: "number",
-
       format: "int64",
     },
     timezone: {
@@ -162,12 +152,11 @@ export class DowntimeChild {
     updaterId: {
       baseName: "updater_id",
       type: "number",
-
       format: "int32",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DowntimeChild.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Pagination object.
+ */
+
 export class Pagination {
   /**
    * Total count.
@@ -20,29 +26,20 @@ export class Pagination {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     totalCount: {
       baseName: "total_count",
       type: "number",
-
       format: "int64",
     },
     totalFilteredCount: {
       baseName: "total_filtered_count",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Pagination.attributeTypeMap;
   }
 

@@ -12,6 +12,11 @@ import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attributes of a notebook `heatmap` cell.
+ */
 
 export class NotebookHeatMapCellAttributes {
   "definition": HeatMapWidgetDefinition;
@@ -21,14 +26,7 @@ export class NotebookHeatMapCellAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
       type: "HeatMapWidgetDefinition",
@@ -48,7 +46,7 @@ export class NotebookHeatMapCellAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookHeatMapCellAttributes.attributeTypeMap;
   }
 

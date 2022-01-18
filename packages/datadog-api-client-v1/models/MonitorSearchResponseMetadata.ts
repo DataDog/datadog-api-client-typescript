@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Metadata about the response.
+ */
+
 export class MonitorSearchResponseMetadata {
   /**
    * The page to start paginating from.
@@ -28,41 +34,30 @@ export class MonitorSearchResponseMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
       baseName: "page",
       type: "number",
-
       format: "int64",
     },
     pageCount: {
       baseName: "page_count",
       type: "number",
-
       format: "int64",
     },
     perPage: {
       baseName: "per_page",
       type: "number",
-
       format: "int64",
     },
     totalCount: {
       baseName: "total_count",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSearchResponseMetadata.attributeTypeMap;
   }
 

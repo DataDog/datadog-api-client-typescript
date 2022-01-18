@@ -15,6 +15,11 @@ import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * IP ranges.
+ */
 
 export class IPRanges {
   "agents"?: IPPrefixesAgents;
@@ -35,14 +40,7 @@ export class IPRanges {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     agents: {
       baseName: "agents",
       type: "IPPrefixesAgents",
@@ -74,7 +72,6 @@ export class IPRanges {
     version: {
       baseName: "version",
       type: "number",
-
       format: "int64",
     },
     webhooks: {
@@ -83,7 +80,7 @@ export class IPRanges {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IPRanges.attributeTypeMap;
   }
 

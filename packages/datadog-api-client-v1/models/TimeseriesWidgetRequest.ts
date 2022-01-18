@@ -16,6 +16,11 @@ import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAli
 import { WidgetDisplayType } from "./WidgetDisplayType";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated timeseries widget.
+ */
 
 export class TimeseriesWidgetRequest {
   "apmQuery"?: LogQueryDefinition;
@@ -53,14 +58,7 @@ export class TimeseriesWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
       type: "LogQueryDefinition",
@@ -131,7 +129,7 @@ export class TimeseriesWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return TimeseriesWidgetRequest.attributeTypeMap;
   }
 

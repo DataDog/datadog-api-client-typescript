@@ -1,4 +1,4 @@
-import { ResponseContext, RequestContext } from "../http/http";
+import { ResponseContext, RequestContext, HttpFile } from "../http/http";
 import { Configuration } from "../configuration";
 import { Observable, of, from as from_ } from "../rxjsStub";
 import { mergeMap, map } from "../rxjsStub";
@@ -11,6 +11,10 @@ import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateReque
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
+import { CloudWorkloadSecurityAgentRuleCreateRequest } from "../models/CloudWorkloadSecurityAgentRuleCreateRequest";
+import { CloudWorkloadSecurityAgentRuleResponse } from "../models/CloudWorkloadSecurityAgentRuleResponse";
+import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
+import { CloudWorkloadSecurityAgentRulesListResponse } from "../models/CloudWorkloadSecurityAgentRulesListResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
 import { DashboardListAddItemsRequest } from "../models/DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "../models/DashboardListAddItemsResponse";
@@ -61,6 +65,7 @@ import { QuerySortOrder } from "../models/QuerySortOrder";
 import { RelationshipToPermission } from "../models/RelationshipToPermission";
 import { RelationshipToRole } from "../models/RelationshipToRole";
 import { RelationshipToUser } from "../models/RelationshipToUser";
+import { RoleCloneRequest } from "../models/RoleCloneRequest";
 import { RoleCreateRequest } from "../models/RoleCreateRequest";
 import { RoleCreateResponse } from "../models/RoleCreateResponse";
 import { RoleResponse } from "../models/RoleResponse";
@@ -87,6 +92,278 @@ import { UserInvitationsResponse } from "../models/UserInvitationsResponse";
 import { UserResponse } from "../models/UserResponse";
 import { UserUpdateRequest } from "../models/UserUpdateRequest";
 import { UsersResponse } from "../models/UsersResponse";
+
+import {
+  CloudWorkloadSecurityApiRequestFactory,
+  CloudWorkloadSecurityApiResponseProcessor,
+} from "../apis/CloudWorkloadSecurityApi";
+export class ObservableCloudWorkloadSecurityApi {
+  private requestFactory: CloudWorkloadSecurityApiRequestFactory;
+  private responseProcessor: CloudWorkloadSecurityApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: CloudWorkloadSecurityApiRequestFactory,
+    responseProcessor?: CloudWorkloadSecurityApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory ||
+      new CloudWorkloadSecurityApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new CloudWorkloadSecurityApiResponseProcessor();
+  }
+
+  /**
+   * Create a new Agent rule with the given parameters.
+   * Create a Cloud Workload Security Agent rule
+   * @param body The definition of the new Agent rule.
+   */
+  public createCloudWorkloadSecurityAgentRule(
+    body: CloudWorkloadSecurityAgentRuleCreateRequest,
+    _options?: Configuration
+  ): Observable<CloudWorkloadSecurityAgentRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createCloudWorkloadSecurityAgentRule(body, _options);
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.createCloudWorkloadSecurityAgentRule(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Delete a specific Agent rule.
+   * Delete a Cloud Workload Security Agent rule
+   * @param agentRuleId The ID of the Agent rule.
+   */
+  public deleteCloudWorkloadSecurityAgentRule(
+    agentRuleId: string,
+    _options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteCloudWorkloadSecurityAgentRule(
+        agentRuleId,
+        _options
+      );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.deleteCloudWorkloadSecurityAgentRule(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * The download endpoint generates a Cloud Workload Security policy file from your currently active Cloud Workload Security rules, and downloads them as a .policy file. This file can then be deployed to your agents to update the policy running in your environment.
+   * Get the latest Cloud Workload Security policy
+   */
+  public downloadCloudWorkloadPolicyFile(
+    _options?: Configuration
+  ): Observable<HttpFile> {
+    const requestContextPromise =
+      this.requestFactory.downloadCloudWorkloadPolicyFile(_options);
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.downloadCloudWorkloadPolicyFile(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get the details of a specific Agent rule.
+   * Get a Cloud Workload Security Agent rule
+   * @param agentRuleId The ID of the Agent rule.
+   */
+  public getCloudWorkloadSecurityAgentRule(
+    agentRuleId: string,
+    _options?: Configuration
+  ): Observable<CloudWorkloadSecurityAgentRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCloudWorkloadSecurityAgentRule(
+        agentRuleId,
+        _options
+      );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getCloudWorkloadSecurityAgentRule(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get the list of Agent rules.
+   * Get all Cloud Workload Security Agent rules
+   */
+  public listCloudWorkloadSecurityAgentRules(
+    _options?: Configuration
+  ): Observable<CloudWorkloadSecurityAgentRulesListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCloudWorkloadSecurityAgentRules(_options);
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.listCloudWorkloadSecurityAgentRules(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Update a specific Agent rule. Returns the Agent rule object when the request is successful.
+   * Update a Cloud Workload Security Agent rule
+   * @param agentRuleId The ID of the Agent rule.
+   * @param body New definition of the Agent rule.
+   */
+  public updateCloudWorkloadSecurityAgentRule(
+    agentRuleId: string,
+    body: CloudWorkloadSecurityAgentRuleUpdateRequest,
+    _options?: Configuration
+  ): Observable<CloudWorkloadSecurityAgentRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateCloudWorkloadSecurityAgentRule(
+        agentRuleId,
+        body,
+        _options
+      );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.updateCloudWorkloadSecurityAgentRule(rsp)
+            )
+          );
+        })
+      );
+  }
+}
 
 import {
   DashboardListsApiRequestFactory,
@@ -850,7 +1127,7 @@ export class ObservableIncidentsApi {
   /**
    * Deletes an existing incident from the users organization.
    * Delete an existing incident
-   * @param incidentId The UUID the incident.
+   * @param incidentId The UUID of the incident.
    */
   public deleteIncident(
     incidentId: string,
@@ -892,7 +1169,7 @@ export class ObservableIncidentsApi {
   /**
    * Get the details of an incident by `incident_id`.
    * Get the details of an incident
-   * @param incidentId The UUID the incident.
+   * @param incidentId The UUID of the incident.
    * @param include Specifies which types of related objects should be included in the response.
    */
   public getIncident(
@@ -985,7 +1262,7 @@ export class ObservableIncidentsApi {
   /**
    * Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
    * Update an existing incident
-   * @param incidentId The UUID the incident.
+   * @param incidentId The UUID of the incident.
    * @param body Incident Payload.
    */
   public updateIncident(
@@ -3107,6 +3384,49 @@ export class ObservableRolesApi {
             map((rsp: ResponseContext) =>
               this.responseProcessor.addUserToRole(rsp)
             )
+          );
+        })
+      );
+  }
+  /**
+   * Clone an existing role
+   * Create a new role by cloning an existing role
+   * @param roleId The ID of the role.
+   * @param body
+   */
+  public cloneRole(
+    roleId: string,
+    body: RoleCloneRequest,
+    _options?: Configuration
+  ): Observable<RoleResponse> {
+    const requestContextPromise = this.requestFactory.cloneRole(
+      roleId,
+      body,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) => this.responseProcessor.cloneRole(rsp))
           );
         })
       );

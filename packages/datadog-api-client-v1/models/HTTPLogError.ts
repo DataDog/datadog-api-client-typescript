@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Invalid query performed.
+ */
+
 export class HTTPLogError {
   /**
    * Error code.
@@ -20,14 +26,7 @@ export class HTTPLogError {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
       baseName: "code",
       type: "number",
@@ -41,7 +40,7 @@ export class HTTPLogError {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HTTPLogError.attributeTypeMap;
   }
 

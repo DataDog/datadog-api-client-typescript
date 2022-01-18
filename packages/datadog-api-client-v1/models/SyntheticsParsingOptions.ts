@@ -10,6 +10,11 @@
 
 import { SyntheticsGlobalVariableParseTestOptionsType } from "./SyntheticsGlobalVariableParseTestOptionsType";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Parsing options for variables to extract.
+ */
 
 export class SyntheticsParsingOptions {
   /**
@@ -25,14 +30,7 @@ export class SyntheticsParsingOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     field: {
       baseName: "field",
       type: "string",
@@ -51,7 +49,7 @@ export class SyntheticsParsingOptions {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsParsingOptions.attributeTypeMap;
   }
 

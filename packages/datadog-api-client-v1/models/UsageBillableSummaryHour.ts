@@ -9,6 +9,11 @@
  */
 
 import { UsageBillableSummaryKeys } from "./UsageBillableSummaryKeys";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with monthly summary of data billed by Datadog.
+ */
 
 export class UsageBillableSummaryHour {
   /**
@@ -43,14 +48,7 @@ export class UsageBillableSummaryHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     billingPlan: {
       baseName: "billing_plan",
       type: "string",
@@ -58,13 +56,11 @@ export class UsageBillableSummaryHour {
     endDate: {
       baseName: "end_date",
       type: "Date",
-
       format: "date-time",
     },
     numOrgs: {
       baseName: "num_orgs",
       type: "number",
-
       format: "int64",
     },
     orgName: {
@@ -78,13 +74,11 @@ export class UsageBillableSummaryHour {
     ratioInMonth: {
       baseName: "ratio_in_month",
       type: "number",
-
       format: "double",
     },
     startDate: {
       baseName: "start_date",
       type: "Date",
-
       format: "date-time",
     },
     usage: {
@@ -93,7 +87,7 @@ export class UsageBillableSummaryHour {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageBillableSummaryHour.attributeTypeMap;
   }
 

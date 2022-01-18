@@ -9,6 +9,11 @@
  */
 
 import { Series } from "./Series";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The metrics' payload.
+ */
 
 export class MetricsPayload {
   /**
@@ -18,14 +23,7 @@ export class MetricsPayload {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     series: {
       baseName: "series",
       type: "Array<Series>",
@@ -33,7 +31,7 @@ export class MetricsPayload {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsPayload.attributeTypeMap;
   }
 

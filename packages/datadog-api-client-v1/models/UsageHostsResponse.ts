@@ -9,6 +9,11 @@
  */
 
 import { UsageHostHour } from "./UsageHostHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Host usage response.
+ */
 
 export class UsageHostsResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageHostsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageHostHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageHostsResponse.attributeTypeMap;
   }
 

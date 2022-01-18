@@ -9,6 +9,11 @@
  */
 
 import { LogsIndex } from "./LogsIndex";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object with all Index configurations for a given organization.
+ */
 
 export class LogsIndexListResponse {
   /**
@@ -18,21 +23,14 @@ export class LogsIndexListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     indexes: {
       baseName: "indexes",
       type: "Array<LogsIndex>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsIndexListResponse.attributeTypeMap;
   }
 

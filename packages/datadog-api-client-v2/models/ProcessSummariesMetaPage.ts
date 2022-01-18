@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Paging attributes.
+ */
+
 export class ProcessSummariesMetaPage {
   /**
    * The cursor used to get the next results, if any. To make the next request, use the same parameters with the addition of the `page[cursor]`.
@@ -20,14 +26,7 @@ export class ProcessSummariesMetaPage {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
       baseName: "after",
       type: "string",
@@ -35,12 +34,11 @@ export class ProcessSummariesMetaPage {
     size: {
       baseName: "size",
       type: "number",
-
       format: "int32",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessSummariesMetaPage.attributeTypeMap;
   }
 

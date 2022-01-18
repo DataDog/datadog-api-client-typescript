@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Type of aggregation performed in the monitor query.
+ */
+
 export class MonitorOptionsAggregation {
   /**
    * Group to break down the monitor on.
@@ -24,14 +30,7 @@ export class MonitorOptionsAggregation {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     groupBy: {
       baseName: "group_by",
       type: "string",
@@ -46,7 +45,7 @@ export class MonitorOptionsAggregation {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorOptionsAggregation.attributeTypeMap;
   }
 

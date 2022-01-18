@@ -1,6 +1,10 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer } from "../configuration";
+import {
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
@@ -43,14 +47,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardsApi.createDashboard"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -63,22 +61,12 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["AuthZ"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -112,33 +100,15 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardsApi.deleteDashboard"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["AuthZ"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -169,14 +139,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardsApi.deleteDashboards"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -189,22 +153,12 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["AuthZ"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -238,33 +192,15 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardsApi.getDashboard"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["AuthZ"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -273,9 +209,11 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
    * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
    * Get all dashboards
    * @param filterShared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
+   * @param filterDeleted When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
    */
   public async listDashboards(
     filterShared?: boolean,
+    filterDeleted?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -288,7 +226,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardsApi.listDashboards"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -298,29 +236,19 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(filterShared, "boolean", "")
       );
     }
-
-    // Header Params
-
-    // Form Params
-
-    // Body Params
-
-    let authMethod = null;
-    // Apply auth methods
-    authMethod = _config.authMethods["AuthZ"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
+    if (filterDeleted !== undefined) {
+      requestContext.setQueryParam(
+        "filter[deleted]",
+        ObjectSerializer.serialize(filterDeleted, "boolean", "")
+      );
     }
+
     // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -351,14 +279,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardsApi.restoreDashboards"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -371,22 +293,12 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["AuthZ"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -429,14 +341,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "DashboardsApi.updateDashboard"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
-    requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-
-    // Header Params
-
-    // Form Params
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -449,22 +355,12 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     );
     requestContext.setBody(serializedBody);
 
-    let authMethod = null;
     // Apply auth methods
-    authMethod = _config.authMethods["AuthZ"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["apiKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
-    // Apply auth methods
-    authMethod = _config.authMethods["appKeyAuth"];
-    if (authMethod) {
-      await authMethod.applySecurityAuthentication(requestContext);
-    }
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }

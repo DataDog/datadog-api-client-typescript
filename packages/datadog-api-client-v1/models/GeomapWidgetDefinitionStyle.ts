@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The style to apply to the widget.
+ */
+
 export class GeomapWidgetDefinitionStyle {
   /**
    * The color palette to apply to the widget.
@@ -20,14 +26,7 @@ export class GeomapWidgetDefinitionStyle {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     palette: {
       baseName: "palette",
       type: "string",
@@ -40,7 +39,7 @@ export class GeomapWidgetDefinitionStyle {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return GeomapWidgetDefinitionStyle.attributeTypeMap;
   }
 

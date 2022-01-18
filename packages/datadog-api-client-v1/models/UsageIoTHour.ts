@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * IoT usage for a given organization for a given hour.
+ */
+
 export class UsageIoTHour {
   /**
    * The hour for the usage.
@@ -20,29 +26,20 @@ export class UsageIoTHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     iotDeviceCount: {
       baseName: "iot_device_count",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageIoTHour.attributeTypeMap;
   }
 

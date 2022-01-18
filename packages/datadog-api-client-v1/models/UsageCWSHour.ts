@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Cloud Workload Security usage for a given organization for a given hour.
+ */
+
 export class UsageCWSHour {
   /**
    * The total number of Cloud Workload Security container hours from the start of the given hour’s month until the given hour.
@@ -21,38 +27,44 @@ export class UsageCWSHour {
    * The hour for the usage.
    */
   "hour"?: Date;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cwsContainerCount: {
       baseName: "cws_container_count",
       type: "number",
-
       format: "int64",
     },
     cwsHostCount: {
       baseName: "cws_host_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCWSHour.attributeTypeMap;
   }
 

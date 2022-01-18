@@ -9,27 +9,25 @@
  */
 
 import { NotebookResponseData } from "./NotebookResponseData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The description of a notebook response.
+ */
 
 export class NotebookResponse {
   "data"?: NotebookResponseData;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "NotebookResponseData",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookResponse.attributeTypeMap;
   }
 

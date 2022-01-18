@@ -9,6 +9,11 @@
  */
 
 import { MonitorOverallStates } from "./MonitorOverallStates";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Monitor state for a single group.
+ */
 
 export class MonitorStateGroup {
   /**
@@ -35,36 +40,25 @@ export class MonitorStateGroup {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     lastNodataTs: {
       baseName: "last_nodata_ts",
       type: "number",
-
       format: "int64",
     },
     lastNotifiedTs: {
       baseName: "last_notified_ts",
       type: "number",
-
       format: "int64",
     },
     lastResolvedTs: {
       baseName: "last_resolved_ts",
       type: "number",
-
       format: "int64",
     },
     lastTriggeredTs: {
       baseName: "last_triggered_ts",
       type: "number",
-
       format: "int64",
     },
     name: {
@@ -77,7 +71,7 @@ export class MonitorStateGroup {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorStateGroup.attributeTypeMap;
   }
 

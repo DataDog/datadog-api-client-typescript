@@ -9,6 +9,11 @@
  */
 
 import { UsageRumUnitsHour } from "./UsageRumUnitsHour";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing the number of RUM Units for each hour for a given organization.
+ */
 
 export class UsageRumUnitsResponse {
   /**
@@ -18,21 +23,14 @@ export class UsageRumUnitsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
       type: "Array<UsageRumUnitsHour>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageRumUnitsResponse.attributeTypeMap;
   }
 

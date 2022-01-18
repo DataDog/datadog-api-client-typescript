@@ -12,6 +12,11 @@ import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsBrowserVariable } from "./SyntheticsBrowserVariable";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Configuration object for a Synthetic browser test.
+ */
 
 export class SyntheticsBrowserTestConfig {
   /**
@@ -34,14 +39,7 @@ export class SyntheticsBrowserTestConfig {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     assertions: {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
@@ -66,7 +64,7 @@ export class SyntheticsBrowserTestConfig {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTestConfig.attributeTypeMap;
   }
 

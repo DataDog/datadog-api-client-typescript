@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An array of service level objective objects.
+ */
+
 export class CheckCanDeleteSLOResponseData {
   /**
    * An array of of SLO IDs that can be safely deleted.
@@ -16,21 +22,14 @@ export class CheckCanDeleteSLOResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     ok: {
       baseName: "ok",
       type: "Array<string>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return CheckCanDeleteSLOResponseData.attributeTypeMap;
   }
 

@@ -10,6 +10,11 @@
 
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A response with one or more service level objective.
+ */
 
 export class SLOListResponse {
   /**
@@ -24,14 +29,7 @@ export class SLOListResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<ServiceLevelObjective>",
@@ -46,7 +44,7 @@ export class SLOListResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOListResponse.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing a summary of indexed logs usage by retention period for a single month.
+ */
 
 export class LogsByRetentionMonthlyUsage {
   /**
@@ -22,18 +27,10 @@ export class LogsByRetentionMonthlyUsage {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     date: {
       baseName: "date",
       type: "string",
-
       format: "datetime",
     },
     usage: {
@@ -42,7 +39,7 @@ export class LogsByRetentionMonthlyUsage {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsByRetentionMonthlyUsage.attributeTypeMap;
   }
 

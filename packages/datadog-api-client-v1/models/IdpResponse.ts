@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The IdP response object.
+ */
+
 export class IdpResponse {
   /**
    * Identity provider response.
@@ -16,14 +22,7 @@ export class IdpResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
       baseName: "message",
       type: "string",
@@ -31,7 +30,7 @@ export class IdpResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IdpResponse.attributeTypeMap;
   }
 

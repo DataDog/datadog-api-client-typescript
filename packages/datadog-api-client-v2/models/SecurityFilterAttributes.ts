@@ -10,6 +10,11 @@
 
 import { SecurityFilterExclusionFilterResponse } from "./SecurityFilterExclusionFilterResponse";
 import { SecurityFilterFilteredDataType } from "./SecurityFilterFilteredDataType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object describing a security filter.
+ */
 
 export class SecurityFilterAttributes {
   /**
@@ -40,14 +45,7 @@ export class SecurityFilterAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     exclusionFilters: {
       baseName: "exclusion_filters",
       type: "Array<SecurityFilterExclusionFilterResponse>",
@@ -75,12 +73,11 @@ export class SecurityFilterAttributes {
     version: {
       baseName: "version",
       type: "number",
-
       format: "int32",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityFilterAttributes.attributeTypeMap;
   }
 

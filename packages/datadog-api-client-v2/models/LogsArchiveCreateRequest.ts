@@ -9,27 +9,25 @@
  */
 
 import { LogsArchiveCreateRequestDefinition } from "./LogsArchiveCreateRequestDefinition";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The logs archive.
+ */
 
 export class LogsArchiveCreateRequest {
   "data"?: LogsArchiveCreateRequestDefinition;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "LogsArchiveCreateRequestDefinition",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveCreateRequest.attributeTypeMap;
   }
 

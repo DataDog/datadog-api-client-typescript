@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing the definition of a metric's ingested and indexed volume.
+ */
+
 export class MetricIngestedIndexedVolumeAttributes {
   /**
    * Indexed volume for the given metric.
@@ -20,29 +26,20 @@ export class MetricIngestedIndexedVolumeAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     indexedVolume: {
       baseName: "indexed_volume",
       type: "number",
-
       format: "int64",
     },
     ingestedVolume: {
       baseName: "ingested_volume",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricIngestedIndexedVolumeAttributes.attributeTypeMap;
   }
 

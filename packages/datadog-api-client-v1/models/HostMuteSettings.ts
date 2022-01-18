@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Combination of settings to mute a host.
+ */
+
 export class HostMuteSettings {
   /**
    * POSIX timestamp in seconds when the host is unmuted. If omitted, the host remains muted until explicitly unmuted.
@@ -24,18 +30,10 @@ export class HostMuteSettings {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
       baseName: "end",
       type: "number",
-
       format: "int64",
     },
     message: {
@@ -48,7 +46,7 @@ export class HostMuteSettings {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostMuteSettings.attributeTypeMap;
   }
 

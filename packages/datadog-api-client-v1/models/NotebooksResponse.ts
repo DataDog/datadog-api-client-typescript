@@ -10,6 +10,11 @@
 
 import { NotebooksResponseData } from "./NotebooksResponseData";
 import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Notebooks get all response.
+ */
 
 export class NotebooksResponse {
   /**
@@ -20,14 +25,7 @@ export class NotebooksResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<NotebooksResponseData>",
@@ -38,7 +36,7 @@ export class NotebooksResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebooksResponse.attributeTypeMap;
   }
 

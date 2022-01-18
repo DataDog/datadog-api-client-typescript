@@ -9,27 +9,25 @@
  */
 
 import { Pagination } from "./Pagination";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing meta attributes of response.
+ */
 
 export class ResponseMetaAttributes {
   "page"?: Pagination;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
       baseName: "page",
       type: "Pagination",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ResponseMetaAttributes.attributeTypeMap;
   }
 

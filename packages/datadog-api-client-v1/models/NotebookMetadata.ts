@@ -9,6 +9,11 @@
  */
 
 import { NotebookMetadataType } from "./NotebookMetadataType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Metadata associated with the notebook.
+ */
 
 export class NotebookMetadata {
   /**
@@ -23,14 +28,7 @@ export class NotebookMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     isTemplate: {
       baseName: "is_template",
       type: "boolean",
@@ -45,7 +43,7 @@ export class NotebookMetadata {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookMetadata.attributeTypeMap;
   }
 

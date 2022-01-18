@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsCITest } from "./SyntheticsCITest";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the synthetics tests to trigger.
+ */
 
 export class SyntheticsCITestBody {
   /**
@@ -18,21 +23,14 @@ export class SyntheticsCITestBody {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
       baseName: "tests",
       type: "Array<SyntheticsCITest>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCITestBody.attributeTypeMap;
   }
 

@@ -11,6 +11,11 @@
 import { LogQueryDefinitionGroupBy } from "./LogQueryDefinitionGroupBy";
 import { LogQueryDefinitionSearch } from "./LogQueryDefinitionSearch";
 import { LogsQueryCompute } from "./LogsQueryCompute";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The log query.
+ */
 
 export class LogQueryDefinition {
   "compute"?: LogsQueryCompute;
@@ -30,14 +35,7 @@ export class LogQueryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
       baseName: "compute",
       type: "LogsQueryCompute",
@@ -60,7 +58,7 @@ export class LogQueryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogQueryDefinition.attributeTypeMap;
   }
 

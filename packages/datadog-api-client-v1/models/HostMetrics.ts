@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Host Metrics collected.
+ */
+
 export class HostMetrics {
   /**
    * The percent of CPU used (everything but idle).
@@ -24,35 +30,25 @@ export class HostMetrics {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cpu: {
       baseName: "cpu",
       type: "number",
-
       format: "double",
     },
     iowait: {
       baseName: "iowait",
       type: "number",
-
       format: "double",
     },
     load: {
       baseName: "load",
       type: "number",
-
       format: "double",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return HostMetrics.attributeTypeMap;
   }
 

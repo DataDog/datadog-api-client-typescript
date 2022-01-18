@@ -9,6 +9,11 @@
  */
 
 import { DashboardResourceType } from "./DashboardResourceType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Dashboard bulk action request data.
+ */
 
 export class DashboardBulkActionData {
   /**
@@ -19,14 +24,7 @@ export class DashboardBulkActionData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "string",
@@ -39,7 +37,7 @@ export class DashboardBulkActionData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardBulkActionData.attributeTypeMap;
   }
 

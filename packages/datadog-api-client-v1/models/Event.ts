@@ -10,6 +10,11 @@
 
 import { EventAlertType } from "./EventAlertType";
 import { EventPriority } from "./EventPriority";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object representing an event.
+ */
 
 export class Event {
   "alertType"?: EventAlertType;
@@ -61,14 +66,7 @@ export class Event {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     alertType: {
       baseName: "alert_type",
       type: "EventAlertType",
@@ -76,7 +74,6 @@ export class Event {
     dateHappened: {
       baseName: "date_happened",
       type: "number",
-
       format: "int64",
     },
     deviceName: {
@@ -90,7 +87,6 @@ export class Event {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     idStr: {
@@ -127,7 +123,7 @@ export class Event {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return Event.attributeTypeMap;
   }
 

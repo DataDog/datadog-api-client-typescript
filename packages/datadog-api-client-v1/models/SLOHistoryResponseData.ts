@@ -14,6 +14,11 @@ import { SLOHistorySLIData } from "./SLOHistorySLIData";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { SLOTypeNumeric } from "./SLOTypeNumeric";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An array of service level objective objects.
+ */
 
 export class SLOHistoryResponseData {
   /**
@@ -47,18 +52,10 @@ export class SLOHistoryResponseData {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     fromTs: {
       baseName: "from_ts",
       type: "number",
-
       format: "int64",
     },
     groupBy: {
@@ -88,7 +85,6 @@ export class SLOHistoryResponseData {
     toTs: {
       baseName: "to_ts",
       type: "number",
-
       format: "int64",
     },
     type: {
@@ -101,7 +97,7 @@ export class SLOHistoryResponseData {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryResponseData.attributeTypeMap;
   }
 

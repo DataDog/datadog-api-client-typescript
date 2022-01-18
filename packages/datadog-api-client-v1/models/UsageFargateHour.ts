@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of Fargate tasks run and hourly usage.
+ */
+
 export class UsageFargateHour {
   /**
    * The average profiled task count for Fargate Profiling.
@@ -32,24 +38,15 @@ export class UsageFargateHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     avgProfiledFargateTasks: {
       baseName: "avg_profiled_fargate_tasks",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     orgName: {
@@ -63,12 +60,11 @@ export class UsageFargateHour {
     tasksCount: {
       baseName: "tasks_count",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageFargateHour.attributeTypeMap;
   }
 

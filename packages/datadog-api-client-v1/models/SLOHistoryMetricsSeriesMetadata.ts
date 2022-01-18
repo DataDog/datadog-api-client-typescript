@@ -9,6 +9,11 @@
  */
 
 import { SLOHistoryMetricsSeriesMetadataUnit } from "./SLOHistoryMetricsSeriesMetadataUnit";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Query metadata.
+ */
 
 export class SLOHistoryMetricsSeriesMetadata {
   /**
@@ -38,14 +43,7 @@ export class SLOHistoryMetricsSeriesMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggr: {
       baseName: "aggr",
       type: "string",
@@ -61,7 +59,6 @@ export class SLOHistoryMetricsSeriesMetadata {
     queryIndex: {
       baseName: "query_index",
       type: "number",
-
       format: "int64",
     },
     scope: {
@@ -74,7 +71,7 @@ export class SLOHistoryMetricsSeriesMetadata {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryMetricsSeriesMetadata.attributeTypeMap;
   }
 

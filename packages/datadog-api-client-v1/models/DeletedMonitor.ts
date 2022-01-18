@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response from the delete monitor call.
+ */
+
 export class DeletedMonitor {
   /**
    * ID of the deleted monitor.
@@ -16,23 +22,15 @@ export class DeletedMonitor {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     deletedMonitorId: {
       baseName: "deleted_monitor_id",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DeletedMonitor.attributeTypeMap;
   }
 

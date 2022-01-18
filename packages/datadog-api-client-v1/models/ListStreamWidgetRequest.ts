@@ -11,6 +11,11 @@
 import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { ListStreamResponseFormat } from "./ListStreamResponseFormat";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated list stream widget.
+ */
 
 export class ListStreamWidgetRequest {
   /**
@@ -22,14 +27,7 @@ export class ListStreamWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
       baseName: "columns",
       type: "Array<ListStreamColumn>",
@@ -47,7 +45,7 @@ export class ListStreamWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ListStreamWidgetRequest.attributeTypeMap;
   }
 

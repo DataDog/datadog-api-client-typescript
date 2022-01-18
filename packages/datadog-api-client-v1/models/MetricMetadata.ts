@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object with all metric related metadata.
+ */
+
 export class MetricMetadata {
   /**
    * Metric description.
@@ -40,14 +46,7 @@ export class MetricMetadata {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
       baseName: "description",
       type: "string",
@@ -67,7 +66,6 @@ export class MetricMetadata {
     statsdInterval: {
       baseName: "statsd_interval",
       type: "number",
-
       format: "int64",
     },
     type: {
@@ -80,7 +78,7 @@ export class MetricMetadata {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricMetadata.attributeTypeMap;
   }
 

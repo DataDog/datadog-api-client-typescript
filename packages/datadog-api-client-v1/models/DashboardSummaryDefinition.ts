@@ -9,6 +9,11 @@
  */
 
 import { DashboardLayoutType } from "./DashboardLayoutType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Dashboard definition.
+ */
 
 export class DashboardSummaryDefinition {
   /**
@@ -47,14 +52,7 @@ export class DashboardSummaryDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     authorHandle: {
       baseName: "author_handle",
       type: "string",
@@ -62,7 +60,6 @@ export class DashboardSummaryDefinition {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     description: {
@@ -84,7 +81,6 @@ export class DashboardSummaryDefinition {
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     title: {
@@ -97,7 +93,7 @@ export class DashboardSummaryDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardSummaryDefinition.attributeTypeMap;
   }
 

@@ -9,6 +9,11 @@
  */
 
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of objects used to group by.
+ */
 
 export class FormulaAndFunctionEventQueryGroupBy {
   /**
@@ -23,14 +28,7 @@ export class FormulaAndFunctionEventQueryGroupBy {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
       baseName: "facet",
       type: "string",
@@ -39,7 +37,6 @@ export class FormulaAndFunctionEventQueryGroupBy {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int64",
     },
     sort: {
@@ -48,7 +45,7 @@ export class FormulaAndFunctionEventQueryGroupBy {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionEventQueryGroupBy.attributeTypeMap;
   }
 

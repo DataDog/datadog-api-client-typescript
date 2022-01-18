@@ -13,17 +13,22 @@ import { SyntheticsBrowserTestType } from "./SyntheticsBrowserTestType";
 import { SyntheticsStep } from "./SyntheticsStep";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing details about a Synthetic browser test.
+ */
 
 export class SyntheticsBrowserTest {
-  "config"?: SyntheticsBrowserTestConfig;
+  "config": SyntheticsBrowserTestConfig;
   /**
    * Array of locations used to run the test.
    */
-  "locations"?: Array<string>;
+  "locations": Array<string>;
   /**
    * Notification message associated with the test. Message can either be text or an empty string.
    */
-  "message": string;
+  "message"?: string;
   /**
    * The associated monitor ID.
    */
@@ -31,8 +36,8 @@ export class SyntheticsBrowserTest {
   /**
    * Name of the test.
    */
-  "name"?: string;
-  "options"?: SyntheticsTestOptions;
+  "name": string;
+  "options": SyntheticsTestOptions;
   /**
    * The public ID of the test.
    */
@@ -46,44 +51,39 @@ export class SyntheticsBrowserTest {
    * Array of tags attached to the test.
    */
   "tags"?: Array<string>;
-  "type"?: SyntheticsBrowserTestType;
+  "type": SyntheticsBrowserTestType;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
       type: "SyntheticsBrowserTestConfig",
+      required: true,
     },
     locations: {
       baseName: "locations",
       type: "Array<string>",
+      required: true,
     },
     message: {
       baseName: "message",
       type: "string",
-      required: true,
     },
     monitorId: {
       baseName: "monitor_id",
       type: "number",
-
       format: "int64",
     },
     name: {
       baseName: "name",
       type: "string",
+      required: true,
     },
     options: {
       baseName: "options",
       type: "SyntheticsTestOptions",
+      required: true,
     },
     publicId: {
       baseName: "public_id",
@@ -104,10 +104,11 @@ export class SyntheticsBrowserTest {
     type: {
       baseName: "type",
       type: "SyntheticsBrowserTestType",
+      required: true,
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTest.attributeTypeMap;
   }
 

@@ -1,6 +1,6 @@
 // TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
-import {Configuration, getServer } from '../configuration{{extensionForDeno}}';
+import {Configuration, getServer, applySecurityAuthentication} from '../configuration{{extensionForDeno}}';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
 import { logger } from "../../../index";
 {{#platforms}}
@@ -66,25 +66,36 @@ export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
 
         // Make Request Context
         const requestContext = getServer(_config, '{{classname}}.{{nickname}}').makeRequestContext(localVarPath, HttpMethod.{{httpMethod}});
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+        {{#hasProduces}}
+        {{#produces}}
+        {{#-first}}requestContext.setHeaderParam("Accept", "{{{mediaType}}}");{{/-first}}
+        {{/produces}}
+        {{/hasProduces}}
+        {{^hasProduces}}
+        requestContext.setHeaderParam("Accept", "application/json");
+        {{/hasProduces}}
         requestContext.setHttpConfig(_config.httpConfig);
+        {{#queryParams}}
+        {{#-first}}
 
         // Query Params
-        {{#queryParams}}
+        {{/-first}}
         if ({{paramName}} !== undefined) {
             requestContext.setQueryParam("{{baseName}}", ObjectSerializer.serialize({{paramName}}, "{{{dataType}}}", "{{dataFormat}}"));
         }
         {{/queryParams}}
+        {{#headerParams}}
+        {{#-first}}
 
         // Header Params
-        {{#headerParams}}
+        {{/-first}}
         if ({{paramName}} !== undefined) {
             requestContext.setHeaderParam("{{baseName}}", ObjectSerializer.serialize({{paramName}}, "{{{dataType}}}", "{{dataFormat}}"));
         }
         {{/headerParams}}
+        {{#hasFormParams}}
 
         // Form Params
-        {{#hasFormParams}}
         let localVarFormParams = new FormData();
         {{/hasFormParams}}
 
@@ -124,9 +135,9 @@ export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
         {{#hasFormParams}}
         requestContext.setBody(localVarFormParams);
         {{/hasFormParams}}
+        {{#bodyParam}}
 
         // Body Params
-        {{#bodyParam}}
         const contentType = ObjectSerializer.getPreferredMediaType([{{#consumes}}
             "{{{mediaType}}}"{{^-last}},{{/-last}}
         {{/consumes}}]);
@@ -137,17 +148,11 @@ export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
         );
         requestContext.setBody(serializedBody);
         {{/bodyParam}}
-
         {{#hasAuthMethods}}
-        let authMethod = null;
-        {{/hasAuthMethods}}
-        {{#authMethods}}
+
         // Apply auth methods
-        authMethod = _config.authMethods["{{name}}"]
-        if (authMethod) {
-            await authMethod.applySecurityAuthentication(requestContext);
-        }
-        {{/authMethods}}
+        applySecurityAuthentication(_config, requestContext, [{{#authMethods}}"{{name}}"{{^-last}}, {{/-last}}{{/authMethods}}]);
+        {{/hasAuthMethods}}
 
         return requestContext;
     }

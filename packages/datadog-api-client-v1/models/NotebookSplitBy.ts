@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing how to split the graph to display multiple visualizations per request.
+ */
+
 export class NotebookSplitBy {
   /**
    * Keys to split on.
@@ -20,14 +26,7 @@ export class NotebookSplitBy {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     keys: {
       baseName: "keys",
       type: "Array<string>",
@@ -40,7 +39,7 @@ export class NotebookSplitBy {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookSplitBy.attributeTypeMap;
   }
 

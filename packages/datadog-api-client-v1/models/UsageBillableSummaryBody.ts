@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response with properties for each aggregated usage type.
+ */
+
 export class UsageBillableSummaryBody {
   /**
    * The total account usage.
@@ -40,48 +46,35 @@ export class UsageBillableSummaryBody {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     accountBillableUsage: {
       baseName: "account_billable_usage",
       type: "number",
-
       format: "int64",
     },
     elapsedUsageHours: {
       baseName: "elapsed_usage_hours",
       type: "number",
-
       format: "int64",
     },
     firstBillableUsageHour: {
       baseName: "first_billable_usage_hour",
       type: "Date",
-
       format: "date-time",
     },
     lastBillableUsageHour: {
       baseName: "last_billable_usage_hour",
       type: "Date",
-
       format: "date-time",
     },
     orgBillableUsage: {
       baseName: "org_billable_usage",
       type: "number",
-
       format: "int64",
     },
     percentageInAccount: {
       baseName: "percentage_in_account",
       type: "number",
-
       format: "double",
     },
     usageUnit: {
@@ -90,7 +83,7 @@ export class UsageBillableSummaryBody {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageBillableSummaryBody.attributeTypeMap;
   }
 

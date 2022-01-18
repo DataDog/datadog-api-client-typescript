@@ -13,6 +13,11 @@ import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
 import { MonitorThresholds } from "./MonitorThresholds";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * List of options associated with your monitor.
+ */
 
 export class MonitorOptions {
   "aggregation"?: MonitorOptionsAggregation;
@@ -105,14 +110,7 @@ export class MonitorOptions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "MonitorOptionsAggregation",
@@ -132,7 +130,6 @@ export class MonitorOptions {
     evaluationDelay: {
       baseName: "evaluation_delay",
       type: "number",
-
       format: "int64",
     },
     groupbySimpleMonitor: {
@@ -150,31 +147,26 @@ export class MonitorOptions {
     minFailureDuration: {
       baseName: "min_failure_duration",
       type: "number",
-
       format: "int64",
     },
     minLocationFailed: {
       baseName: "min_location_failed",
       type: "number",
-
       format: "int64",
     },
     newGroupDelay: {
       baseName: "new_group_delay",
       type: "number",
-
       format: "int64",
     },
     newHostDelay: {
       baseName: "new_host_delay",
       type: "number",
-
       format: "int64",
     },
     noDataTimeframe: {
       baseName: "no_data_timeframe",
       type: "number",
-
       format: "int64",
     },
     notifyAudit: {
@@ -188,13 +180,11 @@ export class MonitorOptions {
     renotifyInterval: {
       baseName: "renotify_interval",
       type: "number",
-
       format: "int64",
     },
     renotifyOccurrences: {
       baseName: "renotify_occurrences",
       type: "number",
-
       format: "int64",
     },
     renotifyStatuses: {
@@ -208,7 +198,6 @@ export class MonitorOptions {
     silenced: {
       baseName: "silenced",
       type: "{ [key: string]: number; }",
-
       format: "int64",
     },
     syntheticsCheckId: {
@@ -226,12 +215,11 @@ export class MonitorOptions {
     timeoutH: {
       baseName: "timeout_h",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorOptions.attributeTypeMap;
   }
 

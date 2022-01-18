@@ -10,6 +10,11 @@
 
 import { SyntheticsBrowserTestResultShortResult } from "./SyntheticsBrowserTestResultShortResult";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object with the results of a single Synthetic browser test.
+ */
 
 export class SyntheticsBrowserTestResultShort {
   /**
@@ -29,18 +34,10 @@ export class SyntheticsBrowserTestResultShort {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     checkTime: {
       baseName: "check_time",
       type: "number",
-
       format: "double",
     },
     probeDc: {
@@ -61,7 +58,7 @@ export class SyntheticsBrowserTestResultShort {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTestResultShort.attributeTypeMap;
   }
 

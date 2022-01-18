@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The number of synthetics tests run for each hour for a given organization.
+ */
+
 export class UsageSyntheticsHour {
   /**
    * Contains the number of Synthetics API tests run.
@@ -20,29 +26,20 @@ export class UsageSyntheticsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     checkCallsCount: {
       baseName: "check_calls_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSyntheticsHour.attributeTypeMap;
   }
 

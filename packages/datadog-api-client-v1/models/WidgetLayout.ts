@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The layout for a widget on a `free` or **new dashboard layout** dashboard.
+ */
+
 export class WidgetLayout {
   /**
    * The height of the widget. Should be a non-negative integer.
@@ -32,14 +38,7 @@ export class WidgetLayout {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     height: {
       baseName: "height",
       type: "number",
@@ -70,7 +69,7 @@ export class WidgetLayout {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetLayout.attributeTypeMap;
   }
 

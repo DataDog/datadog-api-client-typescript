@@ -9,6 +9,11 @@
  */
 
 import { SyntheticsStepType } from "./SyntheticsStepType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The steps used in a Synthetics browser test.
+ */
 
 export class SyntheticsStep {
   /**
@@ -31,14 +36,7 @@ export class SyntheticsStep {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     allowFailure: {
       baseName: "allowFailure",
       type: "boolean",
@@ -54,7 +52,6 @@ export class SyntheticsStep {
     timeout: {
       baseName: "timeout",
       type: "number",
-
       format: "int64",
     },
     type: {
@@ -63,7 +60,7 @@ export class SyntheticsStep {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsStep.attributeTypeMap;
   }
 

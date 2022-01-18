@@ -8,13 +8,31 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of RUM Sessions recorded for each hour for a given organization.
+ */
+
 export class UsageRumSessionsHour {
   /**
    * The hour for the usage.
    */
   "hour"?: Date;
   /**
-   * Contains the number of RUM Sessions.
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
+  /**
+   * Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).
+   */
+  "replaySessionCount"?: number;
+  /**
+   * Contains the number of browser RUM Lite Sessions.
    */
   "sessionCount"?: number;
   /**
@@ -28,41 +46,43 @@ export class UsageRumSessionsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
+    },
+    replaySessionCount: {
+      baseName: "replay_session_count",
+      type: "number",
+      format: "int64",
     },
     sessionCount: {
       baseName: "session_count",
       type: "number",
-
       format: "int64",
     },
     sessionCountAndroid: {
       baseName: "session_count_android",
       type: "number",
-
       format: "int64",
     },
     sessionCountIos: {
       baseName: "session_count_ios",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageRumSessionsHour.attributeTypeMap;
   }
 

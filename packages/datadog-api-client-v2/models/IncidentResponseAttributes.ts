@@ -10,6 +10,11 @@
 
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The incident's attributes from a response.
+ */
 
 export class IncidentResponseAttributes {
   /**
@@ -87,30 +92,20 @@ export class IncidentResponseAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     customerImpactDuration: {
       baseName: "customer_impact_duration",
       type: "number",
-
       format: "int64",
     },
     customerImpactEnd: {
       baseName: "customer_impact_end",
       type: "Date",
-
       format: "date-time",
     },
     customerImpactScope: {
@@ -120,7 +115,6 @@ export class IncidentResponseAttributes {
     customerImpactStart: {
       baseName: "customer_impact_start",
       type: "Date",
-
       format: "date-time",
     },
     customerImpacted: {
@@ -130,7 +124,6 @@ export class IncidentResponseAttributes {
     detected: {
       baseName: "detected",
       type: "Date",
-
       format: "date-time",
     },
     fields: {
@@ -140,7 +133,6 @@ export class IncidentResponseAttributes {
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     notificationHandles: {
@@ -154,37 +146,31 @@ export class IncidentResponseAttributes {
     publicId: {
       baseName: "public_id",
       type: "number",
-
       format: "int64",
     },
     resolved: {
       baseName: "resolved",
       type: "Date",
-
       format: "date-time",
     },
     timeToDetect: {
       baseName: "time_to_detect",
       type: "number",
-
       format: "int64",
     },
     timeToInternalResponse: {
       baseName: "time_to_internal_response",
       type: "number",
-
       format: "int64",
     },
     timeToRepair: {
       baseName: "time_to_repair",
       type: "number",
-
       format: "int64",
     },
     timeToResolve: {
       baseName: "time_to_resolve",
       type: "number",
-
       format: "int64",
     },
     title: {
@@ -194,7 +180,7 @@ export class IncidentResponseAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentResponseAttributes.attributeTypeMap;
   }
 

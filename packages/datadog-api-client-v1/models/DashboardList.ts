@@ -9,6 +9,11 @@
  */
 
 import { Creator } from "./Creator";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Your Datadog Dashboards.
+ */
 
 export class DashboardList {
   "author"?: Creator;
@@ -43,14 +48,7 @@ export class DashboardList {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     author: {
       baseName: "author",
       type: "Creator",
@@ -58,19 +56,16 @@ export class DashboardList {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     dashboardCount: {
       baseName: "dashboard_count",
       type: "number",
-
       format: "int64",
     },
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     isFavorite: {
@@ -80,7 +75,6 @@ export class DashboardList {
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     name: {
@@ -94,7 +88,7 @@ export class DashboardList {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardList.attributeTypeMap;
   }
 

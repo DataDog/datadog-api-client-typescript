@@ -9,6 +9,11 @@
  */
 
 import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Compute options.
+ */
 
 export class FormulaAndFunctionEventQueryDefinitionCompute {
   "aggregation": FormulaAndFunctionEventAggregation;
@@ -23,14 +28,7 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "FormulaAndFunctionEventAggregation",
@@ -39,7 +37,6 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
     interval: {
       baseName: "interval",
       type: "number",
-
       format: "int64",
     },
     metric: {
@@ -48,7 +45,7 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
   }
 

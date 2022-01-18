@@ -10,6 +10,11 @@
 
 import { UsageCustomReportsData } from "./UsageCustomReportsData";
 import { UsageCustomReportsMeta } from "./UsageCustomReportsMeta";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response containing available custom reports.
+ */
 
 export class UsageCustomReportsResponse {
   /**
@@ -20,14 +25,7 @@ export class UsageCustomReportsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<UsageCustomReportsData>",
@@ -38,7 +36,7 @@ export class UsageCustomReportsResponse {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCustomReportsResponse.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of the created role.
+ */
+
 export class RoleCreateAttributes {
   /**
    * Creation time of the role.
@@ -24,24 +30,15 @@ export class RoleCreateAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     name: {
@@ -51,7 +48,7 @@ export class RoleCreateAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RoleCreateAttributes.attributeTypeMap;
   }
 

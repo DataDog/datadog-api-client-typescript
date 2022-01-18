@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of the global variable.
+ */
+
 export class SyntheticsGlobalVariableAttributes {
   /**
    * List of role identifiers that can be pulled from the Roles API.
@@ -16,21 +22,14 @@ export class SyntheticsGlobalVariableAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     restrictedRoles: {
       baseName: "restricted_roles",
       type: "Array<string>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGlobalVariableAttributes.attributeTypeMap;
   }
 

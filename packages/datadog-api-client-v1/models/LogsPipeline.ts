@@ -10,6 +10,11 @@
 
 import { LogsFilter } from "./LogsFilter";
 import { LogsProcessor } from "./LogsProcessor";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Pipelines and processors operate on incoming logs, parsing and transforming them into structured attributes for easier querying.  **Note**: These endpoints are only available for admin users. Make sure to use an application key created by an admin.
+ */
 
 export class LogsPipeline {
   "filter"?: LogsFilter;
@@ -40,14 +45,7 @@ export class LogsPipeline {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
       type: "LogsFilter",
@@ -79,7 +77,7 @@ export class LogsPipeline {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsPipeline.attributeTypeMap;
   }
 

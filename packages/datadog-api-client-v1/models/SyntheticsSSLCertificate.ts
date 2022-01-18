@@ -10,6 +10,11 @@
 
 import { SyntheticsSSLCertificateIssuer } from "./SyntheticsSSLCertificateIssuer";
 import { SyntheticsSSLCertificateSubject } from "./SyntheticsSSLCertificateSubject";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing the SSL certificate used for a Synthetic test.
+ */
 
 export class SyntheticsSSLCertificate {
   /**
@@ -57,14 +62,7 @@ export class SyntheticsSSLCertificate {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     cipher: {
       baseName: "cipher",
       type: "string",
@@ -72,7 +70,6 @@ export class SyntheticsSSLCertificate {
     exponent: {
       baseName: "exponent",
       type: "number",
-
       format: "double",
     },
     extKeyUsage: {
@@ -110,18 +107,16 @@ export class SyntheticsSSLCertificate {
     validFrom: {
       baseName: "validFrom",
       type: "Date",
-
       format: "date-time",
     },
     validTo: {
       baseName: "validTo",
       type: "Date",
-
       format: "date-time",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsSSLCertificate.attributeTypeMap;
   }
 

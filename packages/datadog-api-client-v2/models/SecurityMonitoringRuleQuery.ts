@@ -9,10 +9,13 @@
  */
 
 import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRuleQueryAggregation";
-import { SecurityMonitoringRuntimeAgentRule } from "./SecurityMonitoringRuntimeAgentRule";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Query for matching rule.
+ */
 
 export class SecurityMonitoringRuleQuery {
-  "agentRule"?: SecurityMonitoringRuntimeAgentRule;
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
    * Field for which the cardinality is measured. Sent as an array.
@@ -37,18 +40,7 @@ export class SecurityMonitoringRuleQuery {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
-    agentRule: {
-      baseName: "agentRule",
-      type: "SecurityMonitoringRuntimeAgentRule",
-    },
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
@@ -75,7 +67,7 @@ export class SecurityMonitoringRuleQuery {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleQuery.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response from the delete dashboard call.
+ */
+
 export class DashboardDeleteResponse {
   /**
    * ID of the deleted dashboard.
@@ -16,21 +22,14 @@ export class DashboardDeleteResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     deletedDashboardId: {
       baseName: "deleted_dashboard_id",
       type: "string",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardDeleteResponse.attributeTypeMap;
   }
 

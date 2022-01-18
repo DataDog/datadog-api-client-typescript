@@ -9,6 +9,11 @@
  */
 
 import { MetricsAndMetricTagConfigurations } from "./MetricsAndMetricTagConfigurations";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Response object that includes metrics and metric tag configurations.
+ */
 
 export class MetricsAndMetricTagConfigurationsResponse {
   /**
@@ -18,21 +23,14 @@ export class MetricsAndMetricTagConfigurationsResponse {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<MetricsAndMetricTagConfigurations>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsAndMetricTagConfigurationsResponse.attributeTypeMap;
   }
 

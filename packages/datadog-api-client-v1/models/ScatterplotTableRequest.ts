@@ -11,6 +11,11 @@
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Scatterplot request containing formulas and functions.
+ */
 
 export class ScatterplotTableRequest {
   /**
@@ -25,14 +30,7 @@ export class ScatterplotTableRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     formulas: {
       baseName: "formulas",
       type: "Array<ScatterplotWidgetFormula>",
@@ -47,7 +45,7 @@ export class ScatterplotTableRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterplotTableRequest.attributeTypeMap;
   }
 

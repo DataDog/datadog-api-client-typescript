@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing the ordered list of pipeline IDs.
+ */
+
 export class LogsPipelinesOrder {
   /**
    * Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.
@@ -16,14 +22,7 @@ export class LogsPipelinesOrder {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     pipelineIds: {
       baseName: "pipeline_ids",
       type: "Array<string>",
@@ -31,7 +30,7 @@ export class LogsPipelinesOrder {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsPipelinesOrder.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The number of analyzed logs for each hour for a given organization.
+ */
+
 export class UsageAnalyzedLogsHour {
   /**
    * Contains the number of analyzed logs.
@@ -20,29 +26,20 @@ export class UsageAnalyzedLogsHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     analyzedLogs: {
       baseName: "analyzed_logs",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAnalyzedLogsHour.attributeTypeMap;
   }
 

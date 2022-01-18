@@ -10,6 +10,11 @@
 
 import { Creator } from "./Creator";
 import { DashboardType } from "./DashboardType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A dashboard within a list.
+ */
 
 export class DashboardListItem {
   "author"?: Creator;
@@ -57,14 +62,7 @@ export class DashboardListItem {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     author: {
       baseName: "author",
       type: "Creator",
@@ -72,7 +70,6 @@ export class DashboardListItem {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     icon: {
@@ -99,13 +96,11 @@ export class DashboardListItem {
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     popularity: {
       baseName: "popularity",
       type: "number",
-
       format: "int32",
     },
     title: {
@@ -123,7 +118,7 @@ export class DashboardListItem {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardListItem.attributeTypeMap;
   }
 

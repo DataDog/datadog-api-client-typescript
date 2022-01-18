@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Set of rules for the grok parser.
+ */
+
 export class LogsGrokParserRules {
   /**
    * List of match rules for the grok parser, separated by a new line.
@@ -20,14 +26,7 @@ export class LogsGrokParserRules {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     matchRules: {
       baseName: "match_rules",
       type: "string",
@@ -39,7 +38,7 @@ export class LogsGrokParserRules {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGrokParserRules.attributeTypeMap;
   }
 

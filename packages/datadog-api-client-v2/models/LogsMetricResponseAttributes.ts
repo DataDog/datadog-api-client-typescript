@@ -11,6 +11,11 @@
 import { LogsMetricResponseCompute } from "./LogsMetricResponseCompute";
 import { LogsMetricResponseFilter } from "./LogsMetricResponseFilter";
 import { LogsMetricResponseGroupBy } from "./LogsMetricResponseGroupBy";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object describing a Datadog log-based metric.
+ */
 
 export class LogsMetricResponseAttributes {
   "compute"?: LogsMetricResponseCompute;
@@ -22,14 +27,7 @@ export class LogsMetricResponseAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
       baseName: "compute",
       type: "LogsMetricResponseCompute",
@@ -44,7 +42,7 @@ export class LogsMetricResponseAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricResponseAttributes.attributeTypeMap;
   }
 

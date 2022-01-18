@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * PagerDuty service object key.
+ */
+
 export class PagerDutyServiceKey {
   /**
    * Your service key in PagerDuty.
@@ -16,14 +22,7 @@ export class PagerDutyServiceKey {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     serviceKey: {
       baseName: "service_key",
       type: "string",
@@ -31,7 +30,7 @@ export class PagerDutyServiceKey {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return PagerDutyServiceKey.attributeTypeMap;
   }
 

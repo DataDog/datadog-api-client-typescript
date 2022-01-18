@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Attributes of user object returned by the API.
+ */
+
 export class UserAttributes {
   /**
    * Creation time of the user.
@@ -56,18 +62,10 @@ export class UserAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
       type: "Date",
-
       format: "date-time",
     },
     disabled: {
@@ -89,7 +87,6 @@ export class UserAttributes {
     modifiedAt: {
       baseName: "modified_at",
       type: "Date",
-
       format: "date-time",
     },
     name: {
@@ -114,7 +111,7 @@ export class UserAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserAttributes.attributeTypeMap;
   }
 

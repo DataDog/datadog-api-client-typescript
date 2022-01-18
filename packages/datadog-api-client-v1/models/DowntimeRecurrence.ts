@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An object defining the recurrence of the downtime.
+ */
+
 export class DowntimeRecurrence {
   /**
    * How often to repeat as an integer. For example, to repeat every 3 days, select a type of `days` and a period of `3`.
@@ -36,18 +42,10 @@ export class DowntimeRecurrence {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     period: {
       baseName: "period",
       type: "number",
-
       format: "int32",
     },
     rrule: {
@@ -61,13 +59,11 @@ export class DowntimeRecurrence {
     untilDate: {
       baseName: "until_date",
       type: "number",
-
       format: "int64",
     },
     untilOccurrences: {
       baseName: "until_occurrences",
       type: "number",
-
       format: "int32",
     },
     weekDays: {
@@ -76,7 +72,7 @@ export class DowntimeRecurrence {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return DowntimeRecurrence.attributeTypeMap;
   }
 

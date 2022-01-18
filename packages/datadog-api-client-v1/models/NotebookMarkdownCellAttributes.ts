@@ -9,20 +9,18 @@
  */
 
 import { NotebookMarkdownCellDefinition } from "./NotebookMarkdownCellDefinition";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attributes of a notebook `markdown` cell.
+ */
 
 export class NotebookMarkdownCellAttributes {
   "definition": NotebookMarkdownCellDefinition;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
       type: "NotebookMarkdownCellDefinition",
@@ -30,7 +28,7 @@ export class NotebookMarkdownCellAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookMarkdownCellAttributes.attributeTypeMap;
   }
 

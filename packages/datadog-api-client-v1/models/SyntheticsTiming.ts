@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object containing all metrics and their values collected for a Synthetic API test. Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
+ */
+
 export class SyntheticsTiming {
   /**
    * The duration in millisecond of the DNS lookup.
@@ -48,71 +54,55 @@ export class SyntheticsTiming {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     dns: {
       baseName: "dns",
       type: "number",
-
       format: "double",
     },
     download: {
       baseName: "download",
       type: "number",
-
       format: "double",
     },
     firstByte: {
       baseName: "firstByte",
       type: "number",
-
       format: "double",
     },
     handshake: {
       baseName: "handshake",
       type: "number",
-
       format: "double",
     },
     redirect: {
       baseName: "redirect",
       type: "number",
-
       format: "double",
     },
     ssl: {
       baseName: "ssl",
       type: "number",
-
       format: "double",
     },
     tcp: {
       baseName: "tcp",
       type: "number",
-
       format: "double",
     },
     total: {
       baseName: "total",
       type: "number",
-
       format: "double",
     },
     wait: {
       baseName: "wait",
       type: "number",
-
       format: "double",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTiming.attributeTypeMap;
   }
 

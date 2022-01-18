@@ -13,6 +13,11 @@ import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
 import { MonitorType } from "./MonitorType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object describing a monitor update request.
+ */
 
 export class MonitorUpdateRequest {
   /**
@@ -67,18 +72,10 @@ export class MonitorUpdateRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
       type: "Date",
-
       format: "date-time",
     },
     creator: {
@@ -88,13 +85,11 @@ export class MonitorUpdateRequest {
     deleted: {
       baseName: "deleted",
       type: "Date",
-
       format: "date-time",
     },
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     message: {
@@ -104,7 +99,6 @@ export class MonitorUpdateRequest {
     modified: {
       baseName: "modified",
       type: "Date",
-
       format: "date-time",
     },
     multi: {
@@ -126,7 +120,6 @@ export class MonitorUpdateRequest {
     priority: {
       baseName: "priority",
       type: "number",
-
       format: "int64",
     },
     query: {
@@ -151,7 +144,7 @@ export class MonitorUpdateRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorUpdateRequest.attributeTypeMap;
   }
 

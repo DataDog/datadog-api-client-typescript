@@ -10,6 +10,11 @@
 
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
 import { MetricDistinctVolumeType } from "./MetricDistinctVolumeType";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Object for a single metric's distinct volume.
+ */
 
 export class MetricDistinctVolume {
   "attributes"?: MetricDistinctVolumeAttributes;
@@ -21,14 +26,7 @@ export class MetricDistinctVolume {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
       type: "MetricDistinctVolumeAttributes",
@@ -43,7 +41,7 @@ export class MetricDistinctVolume {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return MetricDistinctVolume.attributeTypeMap;
   }
 

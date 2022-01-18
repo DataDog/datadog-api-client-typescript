@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Synthetics location.
+ */
+
 export class SyntheticsTriggerCITestLocation {
   /**
    * Unique identifier of the location.
@@ -20,18 +26,10 @@ export class SyntheticsTriggerCITestLocation {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
       type: "number",
-
       format: "int64",
     },
     name: {
@@ -40,7 +38,7 @@ export class SyntheticsTriggerCITestLocation {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTriggerCITestLocation.attributeTypeMap;
   }
 

@@ -12,6 +12,11 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * An updated geomap widget.
+ */
 
 export class GeomapWidgetRequest {
   /**
@@ -33,14 +38,7 @@ export class GeomapWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     formulas: {
       baseName: "formulas",
       type: "Array<WidgetFormula>",
@@ -71,7 +69,7 @@ export class GeomapWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return GeomapWidgetRequest.attributeTypeMap;
   }
 

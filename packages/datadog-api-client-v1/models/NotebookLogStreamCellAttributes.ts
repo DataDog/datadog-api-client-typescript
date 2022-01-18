@@ -11,6 +11,11 @@
 import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The attributes of a notebook `log_stream` cell.
+ */
 
 export class NotebookLogStreamCellAttributes {
   "definition": LogStreamWidgetDefinition;
@@ -19,14 +24,7 @@ export class NotebookLogStreamCellAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
       type: "LogStreamWidgetDefinition",
@@ -42,7 +40,7 @@ export class NotebookLogStreamCellAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookLogStreamCellAttributes.attributeTypeMap;
   }
 

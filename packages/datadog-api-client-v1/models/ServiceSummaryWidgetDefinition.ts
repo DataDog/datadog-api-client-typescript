@@ -13,6 +13,11 @@ import { WidgetServiceSummaryDisplayFormat } from "./WidgetServiceSummaryDisplay
 import { WidgetSizeFormat } from "./WidgetSizeFormat";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards.
+ */
 
 export class ServiceSummaryWidgetDefinition {
   "displayFormat"?: WidgetServiceSummaryDisplayFormat;
@@ -67,14 +72,7 @@ export class ServiceSummaryWidgetDefinition {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     displayFormat: {
       baseName: "display_format",
       type: "WidgetServiceSummaryDisplayFormat",
@@ -145,7 +143,7 @@ export class ServiceSummaryWidgetDefinition {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceSummaryWidgetDefinition.attributeTypeMap;
   }
 

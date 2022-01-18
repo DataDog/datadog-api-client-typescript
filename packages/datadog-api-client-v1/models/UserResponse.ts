@@ -9,27 +9,25 @@
  */
 
 import { User } from "./User";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * A Datadog User.
+ */
 
 export class UserResponse {
   "user"?: User;
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     user: {
       baseName: "user",
       type: "User",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UserResponse.attributeTypeMap;
   }
 

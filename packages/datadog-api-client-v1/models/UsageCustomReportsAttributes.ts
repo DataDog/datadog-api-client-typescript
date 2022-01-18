@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The response containing attributes for custom reports.
+ */
+
 export class UsageCustomReportsAttributes {
   /**
    * The date the specified custom report was computed.
@@ -32,14 +38,7 @@ export class UsageCustomReportsAttributes {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     computedOn: {
       baseName: "computed_on",
       type: "string",
@@ -51,7 +50,6 @@ export class UsageCustomReportsAttributes {
     size: {
       baseName: "size",
       type: "number",
-
       format: "int64",
     },
     startDate: {
@@ -64,7 +62,7 @@ export class UsageCustomReportsAttributes {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCustomReportsAttributes.attributeTypeMap;
   }
 

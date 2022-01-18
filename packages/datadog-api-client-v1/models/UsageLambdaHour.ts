@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Number of lambda functions and sum of the invocations of all lambda functions for each hour for a given organization.
+ */
+
 export class UsageLambdaHour {
   /**
    * Contains the number of different functions for each region and AWS account.
@@ -24,35 +30,25 @@ export class UsageLambdaHour {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     funcCount: {
       baseName: "func_count",
       type: "number",
-
       format: "int64",
     },
     hour: {
       baseName: "hour",
       type: "Date",
-
       format: "date-time",
     },
     invocationsSum: {
       baseName: "invocations_sum",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLambdaHour.attributeTypeMap;
   }
 

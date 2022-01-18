@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * The object containing information about the pages of the list of SLOs.
+ */
+
 export class SLOListResponseMetadataPage {
   /**
    * The total number of resources that could be retrieved ignoring the parameters and filters in the request.
@@ -20,29 +26,20 @@ export class SLOListResponseMetadataPage {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     totalCount: {
       baseName: "total_count",
       type: "number",
-
       format: "int64",
     },
     totalFilteredCount: {
       baseName: "total_filtered_count",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SLOListResponseMetadataPage.attributeTypeMap;
   }
 

@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Pagination metadata returned by the API.
+ */
+
 export class NotebooksResponsePage {
   /**
    * The total number of notebooks that would be returned if the request was not filtered by `start` and `count` parameters.
@@ -20,29 +26,20 @@ export class NotebooksResponsePage {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     totalCount: {
       baseName: "total_count",
       type: "number",
-
       format: "int64",
     },
     totalFilteredCount: {
       baseName: "total_filtered_count",
       type: "number",
-
       format: "int64",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return NotebooksResponsePage.attributeTypeMap;
   }
 

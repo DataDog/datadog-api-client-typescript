@@ -8,6 +8,12 @@
  * Do not edit the class manually.
  */
 
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Composed target for `validatesJSONPath` operator.
+ */
+
 export class SyntheticsAssertionJSONPathTargetTarget {
   /**
    * The JSON path to assert.
@@ -24,14 +30,7 @@ export class SyntheticsAssertionJSONPathTargetTarget {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     jsonPath: {
       baseName: "jsonPath",
       type: "string",
@@ -46,7 +45,7 @@ export class SyntheticsAssertionJSONPathTargetTarget {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAssertionJSONPathTargetTarget.attributeTypeMap;
   }
 

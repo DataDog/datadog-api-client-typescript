@@ -9,6 +9,11 @@
  */
 
 import { RelationshipToPermissionData } from "./RelationshipToPermissionData";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Relationship to multiple permissions objects.
+ */
 
 export class RelationshipToPermissions {
   /**
@@ -18,21 +23,14 @@ export class RelationshipToPermissions {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
       type: "Array<RelationshipToPermissionData>",
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToPermissions.attributeTypeMap;
   }
 

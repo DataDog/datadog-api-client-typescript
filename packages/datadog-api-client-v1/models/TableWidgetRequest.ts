@@ -18,6 +18,11 @@ import { WidgetAggregator } from "./WidgetAggregator";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSort } from "./WidgetSort";
+import { AttributeTypeMap } from "./ObjectSerializer";
+
+/**
+ * Updated table widget.
+ */
 
 export class TableWidgetRequest {
   "aggregator"?: WidgetAggregator;
@@ -63,14 +68,7 @@ export class TableWidgetRequest {
 
   "unparsedObject"?: any;
 
-  static readonly attributeTypeMap: {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
-  } = {
+  static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
       baseName: "aggregator",
       type: "WidgetAggregator",
@@ -106,7 +104,6 @@ export class TableWidgetRequest {
     limit: {
       baseName: "limit",
       type: "number",
-
       format: "int64",
     },
     logQuery: {
@@ -151,7 +148,7 @@ export class TableWidgetRequest {
     },
   };
 
-  static getAttributeTypeMap() {
+  static getAttributeTypeMap(): AttributeTypeMap {
     return TableWidgetRequest.attributeTypeMap;
   }
 
