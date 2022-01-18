@@ -209,9 +209,11 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
    * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
    * Get all dashboards
    * @param filterShared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
+   * @param filterDeleted When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
    */
   public async listDashboards(
     filterShared?: boolean,
+    filterDeleted?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -232,6 +234,12 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[shared]",
         ObjectSerializer.serialize(filterShared, "boolean", "")
+      );
+    }
+    if (filterDeleted !== undefined) {
+      requestContext.setQueryParam(
+        "filter[deleted]",
+        ObjectSerializer.serialize(filterDeleted, "boolean", "")
       );
     }
 
