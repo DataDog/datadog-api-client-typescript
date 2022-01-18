@@ -27,7 +27,7 @@ export class SyntheticsAPIStep {
   /**
    * Array of assertions used for the test.
    */
-  "assertions"?: Array<SyntheticsAssertion>;
+  "assertions": Array<SyntheticsAssertion>;
   /**
    * Array of values to parse and save as variables from the response.
    */
@@ -39,10 +39,10 @@ export class SyntheticsAPIStep {
   /**
    * The name of the step.
    */
-  "name"?: string;
-  "request"?: SyntheticsTestRequest;
+  "name": string;
+  "request": SyntheticsTestRequest;
   "retry"?: SyntheticsTestOptionsRetry;
-  "subtype"?: SyntheticsAPIStepSubtype;
+  "subtype": SyntheticsAPIStepSubtype;
 
   "unparsedObject"?: any;
 
@@ -54,6 +54,7 @@ export class SyntheticsAPIStep {
     assertions: {
       baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
+      required: true,
     },
     extractedValues: {
       baseName: "extractedValues",
@@ -66,10 +67,12 @@ export class SyntheticsAPIStep {
     name: {
       baseName: "name",
       type: "string",
+      required: true,
     },
     request: {
       baseName: "request",
       type: "SyntheticsTestRequest",
+      required: true,
     },
     retry: {
       baseName: "retry",
@@ -78,6 +81,7 @@ export class SyntheticsAPIStep {
     subtype: {
       baseName: "subtype",
       type: "SyntheticsAPIStepSubtype",
+      required: true,
     },
   };
 
