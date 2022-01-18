@@ -11,7 +11,9 @@
 export type SecurityMonitoringRuleDetectionMethod =
   | typeof THRESHOLD
   | typeof NEW_VALUE
-  | typeof ANOMALY_DETECTION;
+  | typeof ANOMALY_DETECTION
+  | typeof NO_DATA;
 export const THRESHOLD = "threshold";
 export const NEW_VALUE = "new_value";
 export const ANOMALY_DETECTION = "anomaly_detection";
+export const NO_DATA = "no_data";

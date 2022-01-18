@@ -387,6 +387,7 @@ const enumsMap: { [key: string]: any[] } = {
     "threshold",
     "new_value",
     "anomaly_detection",
+    "no_data",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
     0, 60, 300, 600, 900, 1800, 3600, 7200,
