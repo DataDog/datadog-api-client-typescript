@@ -27,6 +27,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       body: body as any,
       headers: headers,
       compress: compress,
+      signal: request.getHttpConfig().signal,
     }).then((resp: any) => {
       const headers: { [name: string]: string } = {};
       resp.headers.forEach((value: string, name: string) => {
