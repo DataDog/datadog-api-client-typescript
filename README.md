@@ -92,6 +92,37 @@ const configurationOpts = {
 const configuration = v1.createConfiguration(configurationOpts);
 ```
 
+### Adding timeout to requests
+
+To add timeout or other mechanism to cancel requests, you need an abort
+controller, for example the one implemented by
+[abort-controller](https://www.npmjs.com/package/abort-controller). You can
+then pass the `signal method to the HTTP configuration options:
+
+```typescript
+import { v1 } from '@datadog/datadog-api-client';
+import AbortController from 'abort-controller';
+
+const controller = new AbortController();
+const timeout = setTimeout(
+  () => { controller.abort(); },
+  1000,
+);
+const configurationOpts = {
+  httpConfig: {
+    signal: controller.signal
+  },
+};
+
+const configuration = v1.createConfiguration(configurationOpts);
+
+const apiInstance = new v1.MonitorsApi(configuration);
+apiInstance.listMonitors().then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error)).finally(() => clearTimeout(timeout));
+```
+
+
 ## Documentation
 
 Documentation for API endpoints can be found under the docs subdirectories, in [v1](/docs/v1/)
