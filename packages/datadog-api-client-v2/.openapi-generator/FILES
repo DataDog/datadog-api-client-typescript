@@ -346,6 +346,7 @@ models/SecurityMonitoringRuleQueryAggregation.ts
 models/SecurityMonitoringRuleQueryCreate.ts
 models/SecurityMonitoringRuleResponse.ts
 models/SecurityMonitoringRuleSeverity.ts
+models/SecurityMonitoringRuleThirdPartyOptions.ts
 models/SecurityMonitoringRuleTypeCreate.ts
 models/SecurityMonitoringRuleTypeRead.ts
 models/SecurityMonitoringRuleUpdatePayload.ts

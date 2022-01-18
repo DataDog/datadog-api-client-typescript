@@ -13,6 +13,7 @@ import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRule
 import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
+import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
@@ -25,6 +26,7 @@ export class SecurityMonitoringRuleOptions {
   "keepAlive"?: SecurityMonitoringRuleKeepAlive;
   "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
+  "thirdPartyRuleOptions"?: SecurityMonitoringRuleThirdPartyOptions;
 
   "unparsedObject"?: any;
 
@@ -48,6 +50,10 @@ export class SecurityMonitoringRuleOptions {
     newValueOptions: {
       baseName: "newValueOptions",
       type: "SecurityMonitoringRuleNewValueOptions",
+    },
+    thirdPartyRuleOptions: {
+      baseName: "thirdPartyRuleOptions",
+      type: "SecurityMonitoringRuleThirdPartyOptions",
     },
   };
 

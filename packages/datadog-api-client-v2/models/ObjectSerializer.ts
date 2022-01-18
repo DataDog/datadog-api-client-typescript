@@ -237,6 +237,7 @@ import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
 import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
+import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
@@ -387,6 +388,7 @@ const enumsMap: { [key: string]: any[] } = {
     "threshold",
     "new_value",
     "anomaly_detection",
+    "third_party",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
     0, 60, 300, 600, 900, 1800, 3600, 7200,
@@ -405,6 +407,7 @@ const enumsMap: { [key: string]: any[] } = {
     "sum",
     "max",
     "new_value",
+    "none",
   ],
   SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
   SecurityMonitoringRuleTypeCreate: ["log_detection", "workload_security"],
@@ -680,6 +683,8 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleQuery: SecurityMonitoringRuleQuery,
   SecurityMonitoringRuleQueryCreate: SecurityMonitoringRuleQueryCreate,
   SecurityMonitoringRuleResponse: SecurityMonitoringRuleResponse,
+  SecurityMonitoringRuleThirdPartyOptions:
+    SecurityMonitoringRuleThirdPartyOptions,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
   SecurityMonitoringSignal: SecurityMonitoringSignal,
   SecurityMonitoringSignalAttributes: SecurityMonitoringSignalAttributes,

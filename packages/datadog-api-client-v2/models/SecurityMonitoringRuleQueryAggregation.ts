@@ -13,9 +13,11 @@ export type SecurityMonitoringRuleQueryAggregation =
   | typeof CARDINALITY
   | typeof SUM
   | typeof MAX
-  | typeof NEW_VALUE;
+  | typeof NEW_VALUE
+  | typeof NONE;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const SUM = "sum";
 export const MAX = "max";
 export const NEW_VALUE = "new_value";
+export const NONE = "none";
