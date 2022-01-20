@@ -31,11 +31,15 @@ function wrap(method: any) {
               "error.msg": violations,
             });
           }
+          return responseContext;
+        });
+
+        response.promise.finally(() => {
           if (callback) {
             callback()
           }
-          return responseContext;
         });
+
         return response;
       }
     );
