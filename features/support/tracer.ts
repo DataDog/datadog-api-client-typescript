@@ -12,7 +12,7 @@ function wrap(method: any) {
     return tracer.trace(
       "fetch",
       { type: "http", resource: request.getUrl() },
-      (span: any, callback) => {
+      (span: any, callback: () => void) => {
         const spanId = span.context().toSpanId();
         const traceId = span.context().toTraceId();
         request.setHeaderParam("x-datadog-parent-id", spanId);
