@@ -114,6 +114,8 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
+      listSecurityMonitoringSignals: false,
+      searchSecurityMonitoringSignals: false,
       createIncidentService: false,
       deleteIncidentService: false,
       getIncidentService: false,
@@ -134,8 +136,6 @@ export function createConfiguration(
       listTagConfigurationByName: false,
       listTagConfigurations: false,
       updateTagConfiguration: false,
-      listSecurityMonitoringSignals: false,
-      searchSecurityMonitoringSignals: false,
     },
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
     middleware: conf.middleware || (conf.debug ? [new DebugMiddleWare()] : []),

@@ -91,6 +91,218 @@ import { UserInvitationsResponse } from "../models/UserInvitationsResponse";
 import { UserResponse } from "../models/UserResponse";
 import { UserUpdateRequest } from "../models/UserUpdateRequest";
 import { UsersResponse } from "../models/UsersResponse";
+import { ObservableCloudSIEMApi } from "./ObservableAPI";
+
+import {
+  CloudSIEMApiRequestFactory,
+  CloudSIEMApiResponseProcessor,
+} from "../apis/CloudSIEMApi";
+export class PromiseCloudSIEMApi {
+  private api: ObservableCloudSIEMApi;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: CloudSIEMApiRequestFactory,
+    responseProcessor?: CloudSIEMApiResponseProcessor
+  ) {
+    this.api = new ObservableCloudSIEMApi(
+      configuration,
+      requestFactory,
+      responseProcessor
+    );
+  }
+
+  /**
+   * Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+   * Create a security filter
+   * @param body The definition of the new security filter.
+   */
+  public createSecurityFilter(
+    body: SecurityFilterCreateRequest,
+    _options?: Configuration
+  ): Promise<SecurityFilterResponse> {
+    const result = this.api.createSecurityFilter(body, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Create a detection rule.
+   * Create a detection rule
+   * @param body
+   */
+  public createSecurityMonitoringRule(
+    body: SecurityMonitoringRuleCreatePayload,
+    _options?: Configuration
+  ): Promise<SecurityMonitoringRuleResponse> {
+    const result = this.api.createSecurityMonitoringRule(body, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Delete a specific security filter.
+   * Delete a security filter
+   * @param securityFilterId The ID of the security filter.
+   */
+  public deleteSecurityFilter(
+    securityFilterId: string,
+    _options?: Configuration
+  ): Promise<void> {
+    const result = this.api.deleteSecurityFilter(securityFilterId, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Delete an existing rule. Default rules cannot be deleted.
+   * Delete an existing rule
+   * @param ruleId The ID of the rule.
+   */
+  public deleteSecurityMonitoringRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<void> {
+    const result = this.api.deleteSecurityMonitoringRule(ruleId, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+   * Get a security filter
+   * @param securityFilterId The ID of the security filter.
+   */
+  public getSecurityFilter(
+    securityFilterId: string,
+    _options?: Configuration
+  ): Promise<SecurityFilterResponse> {
+    const result = this.api.getSecurityFilter(securityFilterId, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Get a rule's details.
+   * Get a rule's details
+   * @param ruleId The ID of the rule.
+   */
+  public getSecurityMonitoringRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<SecurityMonitoringRuleResponse> {
+    const result = this.api.getSecurityMonitoringRule(ruleId, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Get the list of configured security filters with their definitions.
+   * Get all security filters
+   */
+  public listSecurityFilters(
+    _options?: Configuration
+  ): Promise<SecurityFiltersResponse> {
+    const result = this.api.listSecurityFilters(_options);
+    return result.toPromise();
+  }
+
+  /**
+   * List rules.
+   * List rules
+   * @param pageSize Size for a given page.
+   * @param pageNumber Specific page number to return.
+   */
+  public listSecurityMonitoringRules(
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<SecurityMonitoringListRulesResponse> {
+    const result = this.api.listSecurityMonitoringRules(
+      pageSize,
+      pageNumber,
+      _options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
+   * Get a quick list of security signals
+   * @param filterQuery The search query for security signals.
+   * @param filterFrom The minimum timestamp for requested security signals.
+   * @param filterTo The maximum timestamp for requested security signals.
+   * @param sort The order of the security signals in results.
+   * @param pageCursor A list of results using the cursor provided in the previous query.
+   * @param pageLimit The maximum number of security signals in the response.
+   */
+  public listSecurityMonitoringSignals(
+    filterQuery?: string,
+    filterFrom?: Date,
+    filterTo?: Date,
+    sort?: SecurityMonitoringSignalsSort,
+    pageCursor?: string,
+    pageLimit?: number,
+    _options?: Configuration
+  ): Promise<SecurityMonitoringSignalsListResponse> {
+    const result = this.api.listSecurityMonitoringSignals(
+      filterQuery,
+      filterFrom,
+      filterTo,
+      sort,
+      pageCursor,
+      pageLimit,
+      _options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
+   * Get a list of security signals
+   * @param body
+   */
+  public searchSecurityMonitoringSignals(
+    body?: SecurityMonitoringSignalListRequest,
+    _options?: Configuration
+  ): Promise<SecurityMonitoringSignalsListResponse> {
+    const result = this.api.searchSecurityMonitoringSignals(body, _options);
+    return result.toPromise();
+  }
+
+  /**
+   * Update a specific security filter. Returns the security filter object when the request is successful.
+   * Update a security filter
+   * @param securityFilterId The ID of the security filter.
+   * @param body New definition of the security filter.
+   */
+  public updateSecurityFilter(
+    securityFilterId: string,
+    body: SecurityFilterUpdateRequest,
+    _options?: Configuration
+  ): Promise<SecurityFilterResponse> {
+    const result = this.api.updateSecurityFilter(
+      securityFilterId,
+      body,
+      _options
+    );
+    return result.toPromise();
+  }
+
+  /**
+   * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
+   * Update an existing rule
+   * @param ruleId The ID of the rule.
+   * @param body
+   */
+  public updateSecurityMonitoringRule(
+    ruleId: string,
+    body: SecurityMonitoringRuleUpdatePayload,
+    _options?: Configuration
+  ): Promise<SecurityMonitoringRuleResponse> {
+    const result = this.api.updateSecurityMonitoringRule(
+      ruleId,
+      body,
+      _options
+    );
+    return result.toPromise();
+  }
+}
+
 import { ObservableCloudWorkloadSecurityApi } from "./ObservableAPI";
 
 import {
@@ -1628,218 +1840,6 @@ export class PromiseRolesApi {
     _options?: Configuration
   ): Promise<RoleUpdateResponse> {
     const result = this.api.updateRole(roleId, body, _options);
-    return result.toPromise();
-  }
-}
-
-import { ObservableSecurityMonitoringApi } from "./ObservableAPI";
-
-import {
-  SecurityMonitoringApiRequestFactory,
-  SecurityMonitoringApiResponseProcessor,
-} from "../apis/SecurityMonitoringApi";
-export class PromiseSecurityMonitoringApi {
-  private api: ObservableSecurityMonitoringApi;
-
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: SecurityMonitoringApiRequestFactory,
-    responseProcessor?: SecurityMonitoringApiResponseProcessor
-  ) {
-    this.api = new ObservableSecurityMonitoringApi(
-      configuration,
-      requestFactory,
-      responseProcessor
-    );
-  }
-
-  /**
-   * Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
-   * Create a security filter
-   * @param body The definition of the new security filter.
-   */
-  public createSecurityFilter(
-    body: SecurityFilterCreateRequest,
-    _options?: Configuration
-  ): Promise<SecurityFilterResponse> {
-    const result = this.api.createSecurityFilter(body, _options);
-    return result.toPromise();
-  }
-
-  /**
-   * Create a detection rule.
-   * Create a detection rule
-   * @param body
-   */
-  public createSecurityMonitoringRule(
-    body: SecurityMonitoringRuleCreatePayload,
-    _options?: Configuration
-  ): Promise<SecurityMonitoringRuleResponse> {
-    const result = this.api.createSecurityMonitoringRule(body, _options);
-    return result.toPromise();
-  }
-
-  /**
-   * Delete a specific security filter.
-   * Delete a security filter
-   * @param securityFilterId The ID of the security filter.
-   */
-  public deleteSecurityFilter(
-    securityFilterId: string,
-    _options?: Configuration
-  ): Promise<void> {
-    const result = this.api.deleteSecurityFilter(securityFilterId, _options);
-    return result.toPromise();
-  }
-
-  /**
-   * Delete an existing rule. Default rules cannot be deleted.
-   * Delete an existing rule
-   * @param ruleId The ID of the rule.
-   */
-  public deleteSecurityMonitoringRule(
-    ruleId: string,
-    _options?: Configuration
-  ): Promise<void> {
-    const result = this.api.deleteSecurityMonitoringRule(ruleId, _options);
-    return result.toPromise();
-  }
-
-  /**
-   * Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
-   * Get a security filter
-   * @param securityFilterId The ID of the security filter.
-   */
-  public getSecurityFilter(
-    securityFilterId: string,
-    _options?: Configuration
-  ): Promise<SecurityFilterResponse> {
-    const result = this.api.getSecurityFilter(securityFilterId, _options);
-    return result.toPromise();
-  }
-
-  /**
-   * Get a rule's details.
-   * Get a rule's details
-   * @param ruleId The ID of the rule.
-   */
-  public getSecurityMonitoringRule(
-    ruleId: string,
-    _options?: Configuration
-  ): Promise<SecurityMonitoringRuleResponse> {
-    const result = this.api.getSecurityMonitoringRule(ruleId, _options);
-    return result.toPromise();
-  }
-
-  /**
-   * Get the list of configured security filters with their definitions.
-   * Get all security filters
-   */
-  public listSecurityFilters(
-    _options?: Configuration
-  ): Promise<SecurityFiltersResponse> {
-    const result = this.api.listSecurityFilters(_options);
-    return result.toPromise();
-  }
-
-  /**
-   * List rules.
-   * List rules
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   */
-  public listSecurityMonitoringRules(
-    pageSize?: number,
-    pageNumber?: number,
-    _options?: Configuration
-  ): Promise<SecurityMonitoringListRulesResponse> {
-    const result = this.api.listSecurityMonitoringRules(
-      pageSize,
-      pageNumber,
-      _options
-    );
-    return result.toPromise();
-  }
-
-  /**
-   * The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
-   * Get a quick list of security signals
-   * @param filterQuery The search query for security signals.
-   * @param filterFrom The minimum timestamp for requested security signals.
-   * @param filterTo The maximum timestamp for requested security signals.
-   * @param sort The order of the security signals in results.
-   * @param pageCursor A list of results using the cursor provided in the previous query.
-   * @param pageLimit The maximum number of security signals in the response.
-   */
-  public listSecurityMonitoringSignals(
-    filterQuery?: string,
-    filterFrom?: Date,
-    filterTo?: Date,
-    sort?: SecurityMonitoringSignalsSort,
-    pageCursor?: string,
-    pageLimit?: number,
-    _options?: Configuration
-  ): Promise<SecurityMonitoringSignalsListResponse> {
-    const result = this.api.listSecurityMonitoringSignals(
-      filterQuery,
-      filterFrom,
-      filterTo,
-      sort,
-      pageCursor,
-      pageLimit,
-      _options
-    );
-    return result.toPromise();
-  }
-
-  /**
-   * Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
-   * Get a list of security signals
-   * @param body
-   */
-  public searchSecurityMonitoringSignals(
-    body?: SecurityMonitoringSignalListRequest,
-    _options?: Configuration
-  ): Promise<SecurityMonitoringSignalsListResponse> {
-    const result = this.api.searchSecurityMonitoringSignals(body, _options);
-    return result.toPromise();
-  }
-
-  /**
-   * Update a specific security filter. Returns the security filter object when the request is successful.
-   * Update a security filter
-   * @param securityFilterId The ID of the security filter.
-   * @param body New definition of the security filter.
-   */
-  public updateSecurityFilter(
-    securityFilterId: string,
-    body: SecurityFilterUpdateRequest,
-    _options?: Configuration
-  ): Promise<SecurityFilterResponse> {
-    const result = this.api.updateSecurityFilter(
-      securityFilterId,
-      body,
-      _options
-    );
-    return result.toPromise();
-  }
-
-  /**
-   * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
-   * Update an existing rule
-   * @param ruleId The ID of the rule.
-   * @param body
-   */
-  public updateSecurityMonitoringRule(
-    ruleId: string,
-    body: SecurityMonitoringRuleUpdatePayload,
-    _options?: Configuration
-  ): Promise<SecurityMonitoringRuleResponse> {
-    const result = this.api.updateSecurityMonitoringRule(
-      ruleId,
-      body,
-      _options
-    );
     return result.toPromise();
   }
 }
