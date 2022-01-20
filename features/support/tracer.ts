@@ -17,7 +17,18 @@ function wrap(method: any) {
         const traceId = span.context().toTraceId();
         request.setHeaderParam("x-datadog-parent-id", spanId);
         request.setHeaderParam("x-datadog-trace-id", traceId);
-        request.setHeaderParam("x-datadog-origin", 'ciapp-test');
+        request.setHeaderParam("x-datadog-origin", "ciapp-test");
+        request.setHeaderParam("x-datadog-sampling-priority", 1);
+        request.setHeaderParam("x-datadog-sampled", 1);
+        span.addTags({
+          "http.headers": JSON.stringify({
+            "x-datadog-parent-id": request.headers["x-datadog-parent-id"],
+            "x-datadog-trace-id": request.headers["x-datadog-trace-id"],
+            "x-datadog-origin": request.headers["x-datadog-origin"],
+            "x-datadog-sampling-priority": request.headers["x-datadog-sampling-priority"],
+            "x-datadog-sampled": request.headers["x-datadog-sampled"],
+          })
+        })
         const response = method(request);
 
         response.promise = response.promise.then((responseContext: any) => {
