@@ -27,7 +27,7 @@ import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSigna
 /**
  * no description
  */
-export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
+export class CloudSIEMApiRequestFactory extends BaseAPIRequestFactory {
   /**
    * Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
    * Create a security filter
@@ -53,7 +53,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.createSecurityFilter"
+      "CloudSIEMApi.createSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -103,7 +103,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.createSecurityMonitoringRule"
+      "CloudSIEMApi.createSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -161,7 +161,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.deleteSecurityFilter"
+      "CloudSIEMApi.deleteSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -203,7 +203,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.deleteSecurityMonitoringRule"
+      "CloudSIEMApi.deleteSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -246,7 +246,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.getSecurityFilter"
+      "CloudSIEMApi.getSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -288,7 +288,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.getSecurityMonitoringRule"
+      "CloudSIEMApi.getSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -319,7 +319,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.listSecurityFilters"
+      "CloudSIEMApi.listSecurityFilters"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -353,7 +353,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.listSecurityMonitoringRules"
+      "CloudSIEMApi.listSecurityMonitoringRules"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -416,7 +416,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.listSecurityMonitoringSignals"
+      "CloudSIEMApi.listSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -493,7 +493,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.searchSecurityMonitoringSignals"
+      "CloudSIEMApi.searchSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -560,7 +560,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.updateSecurityFilter"
+      "CloudSIEMApi.updateSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -622,7 +622,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.updateSecurityMonitoringRule"
+      "CloudSIEMApi.updateSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -653,7 +653,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 }
 
-export class SecurityMonitoringApiResponseProcessor {
+export class CloudSIEMApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects

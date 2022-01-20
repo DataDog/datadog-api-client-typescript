@@ -5,7 +5,7 @@
 import { v2 } from "@datadog/datadog-api-client";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
 apiInstance
   .listSecurityFilters()

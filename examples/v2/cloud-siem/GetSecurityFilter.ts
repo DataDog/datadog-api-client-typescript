@@ -5,12 +5,12 @@
 import { v2 } from "@datadog/datadog-api-client";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
 // there is a valid "security_filter" in the system
 let SECURITY_FILTER_DATA_ID = process.env.SECURITY_FILTER_DATA_ID as string;
 
-let params: v2.SecurityMonitoringApiGetSecurityFilterRequest = {
+let params: v2.CloudSIEMApiGetSecurityFilterRequest = {
   securityFilterId: SECURITY_FILTER_DATA_ID,
 };
 

@@ -1,21 +1,21 @@
-# datadog-api-client.v2.SecurityMonitoringApi
+# datadog-api-client.v2.CloudSIEMApi
 
 All URIs are relative to *https://api.datadoghq.com*
 
-| Method                                                                                          | HTTP request                                                                               | Description                          |
-| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------ |
-| [**createSecurityFilter**](SecurityMonitoringApi.md#createSecurityFilter)                       | **POST** /api/v2/security_monitoring/configuration/security_filters                        | Create a security filter             |
-| [**createSecurityMonitoringRule**](SecurityMonitoringApi.md#createSecurityMonitoringRule)       | **POST** /api/v2/security_monitoring/rules                                                 | Create a detection rule              |
-| [**deleteSecurityFilter**](SecurityMonitoringApi.md#deleteSecurityFilter)                       | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter             |
-| [**deleteSecurityMonitoringRule**](SecurityMonitoringApi.md#deleteSecurityMonitoringRule)       | **DELETE** /api/v2/security_monitoring/rules/{rule_id}                                     | Delete an existing rule              |
-| [**getSecurityFilter**](SecurityMonitoringApi.md#getSecurityFilter)                             | **GET** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}    | Get a security filter                |
-| [**getSecurityMonitoringRule**](SecurityMonitoringApi.md#getSecurityMonitoringRule)             | **GET** /api/v2/security_monitoring/rules/{rule_id}                                        | Get a rule&#39;s details             |
-| [**listSecurityFilters**](SecurityMonitoringApi.md#listSecurityFilters)                         | **GET** /api/v2/security_monitoring/configuration/security_filters                         | Get all security filters             |
-| [**listSecurityMonitoringRules**](SecurityMonitoringApi.md#listSecurityMonitoringRules)         | **GET** /api/v2/security_monitoring/rules                                                  | List rules                           |
-| [**listSecurityMonitoringSignals**](SecurityMonitoringApi.md#listSecurityMonitoringSignals)     | **GET** /api/v2/security_monitoring/signals                                                | Get a quick list of security signals |
-| [**searchSecurityMonitoringSignals**](SecurityMonitoringApi.md#searchSecurityMonitoringSignals) | **POST** /api/v2/security_monitoring/signals/search                                        | Get a list of security signals       |
-| [**updateSecurityFilter**](SecurityMonitoringApi.md#updateSecurityFilter)                       | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}  | Update a security filter             |
-| [**updateSecurityMonitoringRule**](SecurityMonitoringApi.md#updateSecurityMonitoringRule)       | **PUT** /api/v2/security_monitoring/rules/{rule_id}                                        | Update an existing rule              |
+| Method                                                                                 | HTTP request                                                                               | Description                          |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------ |
+| [**createSecurityFilter**](CloudSIEMApi.md#createSecurityFilter)                       | **POST** /api/v2/security_monitoring/configuration/security_filters                        | Create a security filter             |
+| [**createSecurityMonitoringRule**](CloudSIEMApi.md#createSecurityMonitoringRule)       | **POST** /api/v2/security_monitoring/rules                                                 | Create a detection rule              |
+| [**deleteSecurityFilter**](CloudSIEMApi.md#deleteSecurityFilter)                       | **DELETE** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id} | Delete a security filter             |
+| [**deleteSecurityMonitoringRule**](CloudSIEMApi.md#deleteSecurityMonitoringRule)       | **DELETE** /api/v2/security_monitoring/rules/{rule_id}                                     | Delete an existing rule              |
+| [**getSecurityFilter**](CloudSIEMApi.md#getSecurityFilter)                             | **GET** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}    | Get a security filter                |
+| [**getSecurityMonitoringRule**](CloudSIEMApi.md#getSecurityMonitoringRule)             | **GET** /api/v2/security_monitoring/rules/{rule_id}                                        | Get a rule&#39;s details             |
+| [**listSecurityFilters**](CloudSIEMApi.md#listSecurityFilters)                         | **GET** /api/v2/security_monitoring/configuration/security_filters                         | Get all security filters             |
+| [**listSecurityMonitoringRules**](CloudSIEMApi.md#listSecurityMonitoringRules)         | **GET** /api/v2/security_monitoring/rules                                                  | List rules                           |
+| [**listSecurityMonitoringSignals**](CloudSIEMApi.md#listSecurityMonitoringSignals)     | **GET** /api/v2/security_monitoring/signals                                                | Get a quick list of security signals |
+| [**searchSecurityMonitoringSignals**](CloudSIEMApi.md#searchSecurityMonitoringSignals) | **POST** /api/v2/security_monitoring/signals/search                                        | Get a list of security signals       |
+| [**updateSecurityFilter**](CloudSIEMApi.md#updateSecurityFilter)                       | **PATCH** /api/v2/security_monitoring/configuration/security_filters/{security_filter_id}  | Update a security filter             |
+| [**updateSecurityMonitoringRule**](CloudSIEMApi.md#updateSecurityMonitoringRule)       | **PUT** /api/v2/security_monitoring/rules/{rule_id}                                        | Update an existing rule              |
 
 ## **createSecurityFilter**
 
@@ -33,9 +33,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiCreateSecurityFilterRequest = {
+let params: v2.CloudSIEMApiCreateSecurityFilterRequest = {
   // SecurityFilterCreateRequest | The definition of the new security filter.
   body: {
     data: {
@@ -110,9 +110,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
+let params: v2.CloudSIEMApiCreateSecurityMonitoringRuleRequest = {
   // SecurityMonitoringRuleCreatePayload
   body: {
     cases: [
@@ -132,7 +132,7 @@ let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
     hasExtendedTitle: true,
     isEnabled: true,
     message: "",
-    name: "My security monitoring rule.",
+    name: "My Cloud SIEM rule.",
     options: {
       detectionMethod: "threshold",
       evaluationWindow: 0,
@@ -211,9 +211,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiDeleteSecurityFilterRequest = {
+let params: v2.CloudSIEMApiDeleteSecurityFilterRequest = {
   // string | The ID of the security filter.
   securityFilterId: "security_filter_id_example",
 };
@@ -271,9 +271,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest = {
+let params: v2.CloudSIEMApiDeleteSecurityMonitoringRuleRequest = {
   // string | The ID of the rule.
   ruleId: "rule_id_example",
 };
@@ -334,9 +334,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiGetSecurityFilterRequest = {
+let params: v2.CloudSIEMApiGetSecurityFilterRequest = {
   // string | The ID of the security filter.
   securityFilterId: "security_filter_id_example",
 };
@@ -394,9 +394,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiGetSecurityMonitoringRuleRequest = {
+let params: v2.CloudSIEMApiGetSecurityMonitoringRuleRequest = {
   // string | The ID of the rule.
   ruleId: "rule_id_example",
 };
@@ -453,7 +453,7 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
 apiInstance
   .listSecurityFilters()
@@ -505,9 +505,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiListSecurityMonitoringRulesRequest = {
+let params: v2.CloudSIEMApiListSecurityMonitoringRulesRequest = {
   // number | Size for a given page. (optional)
   pageSize: 10,
   // number | Specific page number to return. (optional)
@@ -569,9 +569,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {
+let params: v2.CloudSIEMApiListSecurityMonitoringSignalsRequest = {
   // string | The search query for security signals. (optional)
   filterQuery: "security:attack status:high",
   // Date | The minimum timestamp for requested security signals. (optional)
@@ -647,9 +647,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {
+let params: v2.CloudSIEMApiSearchSecurityMonitoringSignalsRequest = {
   // SecurityMonitoringSignalListRequest (optional)
   body: {
     filter: {
@@ -720,9 +720,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiUpdateSecurityFilterRequest = {
+let params: v2.CloudSIEMApiUpdateSecurityFilterRequest = {
   // string | The ID of the security filter.
   securityFilterId: "security_filter_id_example",
   // SecurityFilterUpdateRequest | New definition of the security filter.
@@ -804,9 +804,9 @@ import { v2 } from "@datadog/datadog-api-client";
 import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.CloudSIEMApi(configuration);
 
-let params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
+let params: v2.CloudSIEMApiUpdateSecurityMonitoringRuleRequest = {
   // string | The ID of the rule.
   ruleId: "rule_id_example",
   // SecurityMonitoringRuleUpdatePayload

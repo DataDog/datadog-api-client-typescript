@@ -94,6 +94,546 @@ import { UserUpdateRequest } from "../models/UserUpdateRequest";
 import { UsersResponse } from "../models/UsersResponse";
 
 import {
+  CloudSIEMApiRequestFactory,
+  CloudSIEMApiResponseProcessor,
+} from "../apis/CloudSIEMApi";
+export class ObservableCloudSIEMApi {
+  private requestFactory: CloudSIEMApiRequestFactory;
+  private responseProcessor: CloudSIEMApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: CloudSIEMApiRequestFactory,
+    responseProcessor?: CloudSIEMApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new CloudSIEMApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new CloudSIEMApiResponseProcessor();
+  }
+
+  /**
+   * Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+   * Create a security filter
+   * @param body The definition of the new security filter.
+   */
+  public createSecurityFilter(
+    body: SecurityFilterCreateRequest,
+    _options?: Configuration
+  ): Observable<SecurityFilterResponse> {
+    const requestContextPromise = this.requestFactory.createSecurityFilter(
+      body,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.createSecurityFilter(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Create a detection rule.
+   * Create a detection rule
+   * @param body
+   */
+  public createSecurityMonitoringRule(
+    body: SecurityMonitoringRuleCreatePayload,
+    _options?: Configuration
+  ): Observable<SecurityMonitoringRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringRule(body, _options);
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.createSecurityMonitoringRule(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Delete a specific security filter.
+   * Delete a security filter
+   * @param securityFilterId The ID of the security filter.
+   */
+  public deleteSecurityFilter(
+    securityFilterId: string,
+    _options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise = this.requestFactory.deleteSecurityFilter(
+      securityFilterId,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.deleteSecurityFilter(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Delete an existing rule. Default rules cannot be deleted.
+   * Delete an existing rule
+   * @param ruleId The ID of the rule.
+   */
+  public deleteSecurityMonitoringRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringRule(ruleId, _options);
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.deleteSecurityMonitoringRule(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+   * Get a security filter
+   * @param securityFilterId The ID of the security filter.
+   */
+  public getSecurityFilter(
+    securityFilterId: string,
+    _options?: Configuration
+  ): Observable<SecurityFilterResponse> {
+    const requestContextPromise = this.requestFactory.getSecurityFilter(
+      securityFilterId,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getSecurityFilter(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get a rule's details.
+   * Get a rule's details
+   * @param ruleId The ID of the rule.
+   */
+  public getSecurityMonitoringRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Observable<SecurityMonitoringRuleResponse> {
+    const requestContextPromise = this.requestFactory.getSecurityMonitoringRule(
+      ruleId,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getSecurityMonitoringRule(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get the list of configured security filters with their definitions.
+   * Get all security filters
+   */
+  public listSecurityFilters(
+    _options?: Configuration
+  ): Observable<SecurityFiltersResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityFilters(_options);
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.listSecurityFilters(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * List rules.
+   * List rules
+   * @param pageSize Size for a given page.
+   * @param pageNumber Specific page number to return.
+   */
+  public listSecurityMonitoringRules(
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Observable<SecurityMonitoringListRulesResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringRules(
+        pageSize,
+        pageNumber,
+        _options
+      );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.listSecurityMonitoringRules(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
+   * Get a quick list of security signals
+   * @param filterQuery The search query for security signals.
+   * @param filterFrom The minimum timestamp for requested security signals.
+   * @param filterTo The maximum timestamp for requested security signals.
+   * @param sort The order of the security signals in results.
+   * @param pageCursor A list of results using the cursor provided in the previous query.
+   * @param pageLimit The maximum number of security signals in the response.
+   */
+  public listSecurityMonitoringSignals(
+    filterQuery?: string,
+    filterFrom?: Date,
+    filterTo?: Date,
+    sort?: SecurityMonitoringSignalsSort,
+    pageCursor?: string,
+    pageLimit?: number,
+    _options?: Configuration
+  ): Observable<SecurityMonitoringSignalsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringSignals(
+        filterQuery,
+        filterFrom,
+        filterTo,
+        sort,
+        pageCursor,
+        pageLimit,
+        _options
+      );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.listSecurityMonitoringSignals(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
+   * Get a list of security signals
+   * @param body
+   */
+  public searchSecurityMonitoringSignals(
+    body?: SecurityMonitoringSignalListRequest,
+    _options?: Configuration
+  ): Observable<SecurityMonitoringSignalsListResponse> {
+    const requestContextPromise =
+      this.requestFactory.searchSecurityMonitoringSignals(body, _options);
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.searchSecurityMonitoringSignals(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Update a specific security filter. Returns the security filter object when the request is successful.
+   * Update a security filter
+   * @param securityFilterId The ID of the security filter.
+   * @param body New definition of the security filter.
+   */
+  public updateSecurityFilter(
+    securityFilterId: string,
+    body: SecurityFilterUpdateRequest,
+    _options?: Configuration
+  ): Observable<SecurityFilterResponse> {
+    const requestContextPromise = this.requestFactory.updateSecurityFilter(
+      securityFilterId,
+      body,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.updateSecurityFilter(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
+   * Update an existing rule
+   * @param ruleId The ID of the rule.
+   * @param body
+   */
+  public updateSecurityMonitoringRule(
+    ruleId: string,
+    body: SecurityMonitoringRuleUpdatePayload,
+    _options?: Configuration
+  ): Observable<SecurityMonitoringRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateSecurityMonitoringRule(ruleId, body, _options);
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.updateSecurityMonitoringRule(rsp)
+            )
+          );
+        })
+      );
+  }
+}
+
+import {
   CloudWorkloadSecurityApiRequestFactory,
   CloudWorkloadSecurityApiResponseProcessor,
 } from "../apis/CloudWorkloadSecurityApi";
@@ -3864,546 +4404,6 @@ export class ObservableRolesApi {
           return middlewarePostObservable.pipe(
             map((rsp: ResponseContext) =>
               this.responseProcessor.updateRole(rsp)
-            )
-          );
-        })
-      );
-  }
-}
-
-import {
-  SecurityMonitoringApiRequestFactory,
-  SecurityMonitoringApiResponseProcessor,
-} from "../apis/SecurityMonitoringApi";
-export class ObservableSecurityMonitoringApi {
-  private requestFactory: SecurityMonitoringApiRequestFactory;
-  private responseProcessor: SecurityMonitoringApiResponseProcessor;
-  private configuration: Configuration;
-
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: SecurityMonitoringApiRequestFactory,
-    responseProcessor?: SecurityMonitoringApiResponseProcessor
-  ) {
-    this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new SecurityMonitoringApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new SecurityMonitoringApiResponseProcessor();
-  }
-
-  /**
-   * Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
-   * Create a security filter
-   * @param body The definition of the new security filter.
-   */
-  public createSecurityFilter(
-    body: SecurityFilterCreateRequest,
-    _options?: Configuration
-  ): Observable<SecurityFilterResponse> {
-    const requestContextPromise = this.requestFactory.createSecurityFilter(
-      body,
-      _options
-    );
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.createSecurityFilter(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * Create a detection rule.
-   * Create a detection rule
-   * @param body
-   */
-  public createSecurityMonitoringRule(
-    body: SecurityMonitoringRuleCreatePayload,
-    _options?: Configuration
-  ): Observable<SecurityMonitoringRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.createSecurityMonitoringRule(body, _options);
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.createSecurityMonitoringRule(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * Delete a specific security filter.
-   * Delete a security filter
-   * @param securityFilterId The ID of the security filter.
-   */
-  public deleteSecurityFilter(
-    securityFilterId: string,
-    _options?: Configuration
-  ): Observable<void> {
-    const requestContextPromise = this.requestFactory.deleteSecurityFilter(
-      securityFilterId,
-      _options
-    );
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.deleteSecurityFilter(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * Delete an existing rule. Default rules cannot be deleted.
-   * Delete an existing rule
-   * @param ruleId The ID of the rule.
-   */
-  public deleteSecurityMonitoringRule(
-    ruleId: string,
-    _options?: Configuration
-  ): Observable<void> {
-    const requestContextPromise =
-      this.requestFactory.deleteSecurityMonitoringRule(ruleId, _options);
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.deleteSecurityMonitoringRule(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
-   * Get a security filter
-   * @param securityFilterId The ID of the security filter.
-   */
-  public getSecurityFilter(
-    securityFilterId: string,
-    _options?: Configuration
-  ): Observable<SecurityFilterResponse> {
-    const requestContextPromise = this.requestFactory.getSecurityFilter(
-      securityFilterId,
-      _options
-    );
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.getSecurityFilter(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * Get a rule's details.
-   * Get a rule's details
-   * @param ruleId The ID of the rule.
-   */
-  public getSecurityMonitoringRule(
-    ruleId: string,
-    _options?: Configuration
-  ): Observable<SecurityMonitoringRuleResponse> {
-    const requestContextPromise = this.requestFactory.getSecurityMonitoringRule(
-      ruleId,
-      _options
-    );
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.getSecurityMonitoringRule(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * Get the list of configured security filters with their definitions.
-   * Get all security filters
-   */
-  public listSecurityFilters(
-    _options?: Configuration
-  ): Observable<SecurityFiltersResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSecurityFilters(_options);
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.listSecurityFilters(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * List rules.
-   * List rules
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   */
-  public listSecurityMonitoringRules(
-    pageSize?: number,
-    pageNumber?: number,
-    _options?: Configuration
-  ): Observable<SecurityMonitoringListRulesResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSecurityMonitoringRules(
-        pageSize,
-        pageNumber,
-        _options
-      );
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.listSecurityMonitoringRules(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
-   * Get a quick list of security signals
-   * @param filterQuery The search query for security signals.
-   * @param filterFrom The minimum timestamp for requested security signals.
-   * @param filterTo The maximum timestamp for requested security signals.
-   * @param sort The order of the security signals in results.
-   * @param pageCursor A list of results using the cursor provided in the previous query.
-   * @param pageLimit The maximum number of security signals in the response.
-   */
-  public listSecurityMonitoringSignals(
-    filterQuery?: string,
-    filterFrom?: Date,
-    filterTo?: Date,
-    sort?: SecurityMonitoringSignalsSort,
-    pageCursor?: string,
-    pageLimit?: number,
-    _options?: Configuration
-  ): Observable<SecurityMonitoringSignalsListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSecurityMonitoringSignals(
-        filterQuery,
-        filterFrom,
-        filterTo,
-        sort,
-        pageCursor,
-        pageLimit,
-        _options
-      );
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.listSecurityMonitoringSignals(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
-   * Get a list of security signals
-   * @param body
-   */
-  public searchSecurityMonitoringSignals(
-    body?: SecurityMonitoringSignalListRequest,
-    _options?: Configuration
-  ): Observable<SecurityMonitoringSignalsListResponse> {
-    const requestContextPromise =
-      this.requestFactory.searchSecurityMonitoringSignals(body, _options);
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.searchSecurityMonitoringSignals(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * Update a specific security filter. Returns the security filter object when the request is successful.
-   * Update a security filter
-   * @param securityFilterId The ID of the security filter.
-   * @param body New definition of the security filter.
-   */
-  public updateSecurityFilter(
-    securityFilterId: string,
-    body: SecurityFilterUpdateRequest,
-    _options?: Configuration
-  ): Observable<SecurityFilterResponse> {
-    const requestContextPromise = this.requestFactory.updateSecurityFilter(
-      securityFilterId,
-      body,
-      _options
-    );
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.updateSecurityFilter(rsp)
-            )
-          );
-        })
-      );
-  }
-  /**
-   * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
-   * Update an existing rule
-   * @param ruleId The ID of the rule.
-   * @param body
-   */
-  public updateSecurityMonitoringRule(
-    ruleId: string,
-    body: SecurityMonitoringRuleUpdatePayload,
-    _options?: Configuration
-  ): Observable<SecurityMonitoringRuleResponse> {
-    const requestContextPromise =
-      this.requestFactory.updateSecurityMonitoringRule(ruleId, body, _options);
-
-    // build promise chain
-    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
-    for (const middleware of this.configuration.middleware) {
-      middlewarePreObservable = middlewarePreObservable.pipe(
-        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
-      );
-    }
-
-    return middlewarePreObservable
-      .pipe(
-        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
-      )
-      .pipe(
-        mergeMap((response: ResponseContext) => {
-          let middlewarePostObservable = of(response);
-          for (const middleware of this.configuration.middleware) {
-            middlewarePostObservable = middlewarePostObservable.pipe(
-              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
-            );
-          }
-          return middlewarePostObservable.pipe(
-            map((rsp: ResponseContext) =>
-              this.responseProcessor.updateSecurityMonitoringRule(rsp)
             )
           );
         })
