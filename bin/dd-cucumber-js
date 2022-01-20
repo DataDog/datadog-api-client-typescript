@@ -1,14 +1,6 @@
 #!/usr/bin/env node
 
 if (process.env.DD_AGENT_HOST != undefined) {
-    const tracer = require('dd-trace/ci/init');
-    tracer.use('http', {
-        client: {
-            headers: ['x-datadog-trace-id', 'x-datadog-parent-id', 'x-datadog-origin', 'x-datadog-sampling-priority', 'x-datadog-sampled', 'x-datadog-tags']
-        },
-        server: {
-            headers: ['x-datadog-trace-id', 'x-datadog-parent-id', 'x-datadog-origin', 'x-datadog-sampling-priority', 'x-datadog-sampled', 'x-datadog-tags']
-        }
-    })
+    require('dd-trace/ci/init');
 }
 require('@cucumber/cucumber/lib/cli/run.js').default();
