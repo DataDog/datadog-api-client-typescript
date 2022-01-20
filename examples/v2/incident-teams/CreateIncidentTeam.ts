@@ -13,7 +13,7 @@ let params: v2.IncidentTeamsApiCreateIncidentTeamRequest = {
     data: {
       type: "teams",
       attributes: {
-        name: "Example-Create_a_new_incident_team_returns_CREATED_response",
+        name: "Test-Example-Create_a_new_incident_team_returns_CREATED_response",
       },
     },
   },

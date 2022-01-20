@@ -17,7 +17,7 @@ let params: v2.UsersApiCreateServiceAccountRequest = {
       attributes: {
         name: "Test API Client",
         email:
-          "Example-Create_a_service_account_returns_OK_response@datadoghq.com",
+          "Test-Example-Create_a_service_account_returns_OK_response@datadoghq.com",
         serviceAccount: true,
       },
       relationships: {

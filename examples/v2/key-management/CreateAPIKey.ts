@@ -12,7 +12,7 @@ let params: v2.KeyManagementApiCreateAPIKeyRequest = {
     data: {
       type: "api_keys",
       attributes: {
-        name: "Example-Create_an_API_key_returns_Created_response",
+        name: "Test-Example-Create_an_API_key_returns_Created_response",
       },
     },
   },

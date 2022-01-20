@@ -17,7 +17,7 @@ let params: v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
       attributes: {
         category: "Scheduled Maintenance",
         description:
-          "Example-Create_an_SLO_correction_with_rrule_returns_OK_response",
+          "Test-Example-Create_an_SLO_correction_with_rrule_returns_OK_response",
         sloId: SLO_DATA_0_ID,
         start: new Date().getTime() / 1000,
         duration: 3600,

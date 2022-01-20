@@ -14,7 +14,7 @@ let params: v2.RolesApiCloneRoleRequest = {
   body: {
     data: {
       attributes: {
-        name: "Example-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response clone",
+        name: "Test-Example-Create_a_new_role_by_cloning_an_existing_role_returns_OK_response clone",
       },
       type: "roles",
     },

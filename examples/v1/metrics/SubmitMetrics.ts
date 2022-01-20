@@ -14,7 +14,7 @@ let params: v1.MetricsApiSubmitMetricsRequest = {
         metric: "system.load.1",
         type: "gauge",
         points: [[new Date().getTime() / 1000, 1.1]],
-        tags: ["test:ExampleSubmitmetricsreturnsPayloadacceptedresponse"],
+        tags: ["test:TestExampleSubmitmetricsreturnsPayloadacceptedresponse"],
       },
     ],
   },

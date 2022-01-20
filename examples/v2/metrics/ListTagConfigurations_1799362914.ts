@@ -10,7 +10,7 @@ const apiInstance = new v2.MetricsApi(configuration);
 
 let params: v2.MetricsApiListTagConfigurationsRequest = {
   filterTags:
-    "ExampleListtagconfigurationswithatagfilterreturnsSuccessresponse",
+    "TestExampleListtagconfigurationswithatagfilterreturnsSuccessresponse",
 };
 
 apiInstance

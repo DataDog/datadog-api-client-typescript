@@ -11,7 +11,7 @@ let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     layoutType: "ordered",
     title:
-      "Example-Create_a_new_dashboard_returns_OK_response with Profile Metrics Query",
+      "Test-Example-Create_a_new_dashboard_returns_OK_response with Profile Metrics Query",
     widgets: [
       {
         definition: {

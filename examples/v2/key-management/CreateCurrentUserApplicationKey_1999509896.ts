@@ -12,7 +12,7 @@ let params: v2.KeyManagementApiCreateCurrentUserApplicationKeyRequest = {
     data: {
       type: "application_keys",
       attributes: {
-        name: "Example-Create_an_Application_key_for_current_user_returns_Created_response",
+        name: "Test-Example-Create_an_Application_key_for_current_user_returns_Created_response",
       },
     },
   },

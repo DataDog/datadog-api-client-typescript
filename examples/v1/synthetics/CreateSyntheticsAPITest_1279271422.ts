@@ -45,7 +45,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     },
     locations: ["aws:us-east-2"],
     message: "BDD test payload: synthetics_api_test_multi_step_payload.json",
-    name: "Example-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response",
+    name: "Test-Example-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response",
     options: {
       acceptSelfSigned: false,
       allowInsecure: true,
@@ -53,7 +53,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       minFailureDuration: 10,
       minLocationFailed: 1,
       monitorName:
-        "Example-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response",
+        "Test-Example-Create_an_API_test_with_multi_subtype_returns_OK_Returns_the_created_test_details_response",
       monitorPriority: 5,
       retry: {
         count: 3,

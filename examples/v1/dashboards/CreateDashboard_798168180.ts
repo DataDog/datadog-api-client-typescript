@@ -9,7 +9,8 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title: "Example-Create_a_new_dashboard_with_apm_dependency_stats_widget",
+    title:
+      "Test-Example-Create_a_new_dashboard_with_apm_dependency_stats_widget",
     widgets: [
       {
         definition: {

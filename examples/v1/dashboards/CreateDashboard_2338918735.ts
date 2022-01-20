@@ -11,7 +11,7 @@ let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     layoutType: "ordered",
     title:
-      "Example-Create_a_new_dashboard_with_list_stream_widget with list_stream widget",
+      "Test-Example-Create_a_new_dashboard_with_list_stream_widget with list_stream widget",
     widgets: [
       {
         definition: {

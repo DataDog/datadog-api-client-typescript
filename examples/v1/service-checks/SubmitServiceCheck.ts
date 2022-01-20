@@ -13,7 +13,9 @@ let params: v1.ServiceChecksApiSubmitServiceCheckRequest = {
       check: "app.ok",
       hostName: "host",
       status: 0,
-      tags: ["test:ExampleSubmitaServiceCheckreturnsPayloadacceptedresponse"],
+      tags: [
+        "test:TestExampleSubmitaServiceCheckreturnsPayloadacceptedresponse",
+      ],
     },
   ],
 };

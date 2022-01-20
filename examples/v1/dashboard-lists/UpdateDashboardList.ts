@@ -12,7 +12,7 @@ let DASHBOARD_LIST_ID = parseInt(process.env.DASHBOARD_LIST_ID as string);
 
 let params: v1.DashboardListsApiUpdateDashboardListRequest = {
   body: {
-    name: "updated Example-Update_a_dashboard_list_returns_OK_response",
+    name: "updated Test-Example-Update_a_dashboard_list_returns_OK_response",
   },
   listId: DASHBOARD_LIST_ID,
 };

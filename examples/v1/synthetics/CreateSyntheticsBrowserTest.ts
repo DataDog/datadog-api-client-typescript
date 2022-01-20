@@ -27,7 +27,7 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
     },
     locations: ["aws:us-east-2"],
     message: "Test message",
-    name: "Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response",
+    name: "Test-Example-Create_a_browser_test_returns_OK_Returns_the_created_test_details_response",
     options: {
       acceptSelfSigned: false,
       allowInsecure: true,

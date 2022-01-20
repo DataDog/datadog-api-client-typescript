@@ -9,7 +9,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title: "Example-Create_a_new_dashboard_with_servicemap_widget",
+    title: "Test-Example-Create_a_new_dashboard_with_servicemap_widget",
     description: "",
     widgets: [
       {

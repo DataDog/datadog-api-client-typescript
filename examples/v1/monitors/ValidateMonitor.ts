@@ -9,11 +9,11 @@ const apiInstance = new v1.MonitorsApi(configuration);
 
 let params: v1.MonitorsApiValidateMonitorRequest = {
   body: {
-    name: "Example-Validate_a_monitor_returns_OK_response",
+    name: "Test-Example-Validate_a_monitor_returns_OK_response",
     type: "log alert",
     query: `logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2`,
     message: "some message Notify: @hipchat-channel",
-    tags: ["test:examplevalidateamonitorreturnsokresponse", "env:ci"],
+    tags: ["test:testexamplevalidateamonitorreturnsokresponse", "env:ci"],
     priority: 3,
     options: {
       enableLogsSample: true,

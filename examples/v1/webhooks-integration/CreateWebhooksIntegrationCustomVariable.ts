@@ -11,7 +11,7 @@ let params: v1.WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequ
   {
     body: {
       isSecret: true,
-      name: "EXAMPLECREATEACUSTOMVARIABLERETURNSOKRESPONSE",
+      name: "TESTEXAMPLECREATEACUSTOMVARIABLERETURNSOKRESPONSE",
       value: "CUSTOM_VARIABLE_VALUE",
     },
   };

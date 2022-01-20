@@ -12,7 +12,7 @@ let DOWNTIME_ID = parseInt(process.env.DOWNTIME_ID as string);
 
 let params: v1.DowntimesApiUpdateDowntimeRequest = {
   body: {
-    message: "Example-Update_a_downtime_returns_OK_response-updated",
+    message: "Test-Example-Update_a_downtime_returns_OK_response-updated",
   },
   downtimeId: DOWNTIME_ID,
 };

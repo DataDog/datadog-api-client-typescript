@@ -9,7 +9,7 @@ const apiInstance = new v1.DashboardListsApi(configuration);
 
 let params: v1.DashboardListsApiCreateDashboardListRequest = {
   body: {
-    name: "Example-Create_a_dashboard_list_returns_OK_response",
+    name: "Test-Example-Create_a_dashboard_list_returns_OK_response",
   },
 };
 

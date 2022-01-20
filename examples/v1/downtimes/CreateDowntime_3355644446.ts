@@ -12,10 +12,10 @@ let MONITOR_ID = parseInt(process.env.MONITOR_ID as string);
 
 let params: v1.DowntimesApiCreateDowntimeRequest = {
   body: {
-    message: "Example-Schedule_a_monitor_downtime_returns_OK_response",
+    message: "Test-Example-Schedule_a_monitor_downtime_returns_OK_response",
     start: new Date().getTime() / 1000,
     timezone: "Etc/UTC",
-    scope: ["test:examplescheduleamonitordowntimereturnsokresponse"],
+    scope: ["test:testexamplescheduleamonitordowntimereturnsokresponse"],
     monitorId: MONITOR_ID,
   },
 };

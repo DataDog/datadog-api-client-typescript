@@ -12,7 +12,7 @@ let SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
 
 let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title: "Example-Create_a_new_dashboard_with_slo_widget",
+    title: "Test-Example-Create_a_new_dashboard_with_slo_widget",
     description: "",
     widgets: [
       {

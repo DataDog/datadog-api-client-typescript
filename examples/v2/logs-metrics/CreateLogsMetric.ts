@@ -10,7 +10,7 @@ const apiInstance = new v2.LogsMetricsApi(configuration);
 let params: v2.LogsMetricsApiCreateLogsMetricRequest = {
   body: {
     data: {
-      id: "Example-Create_a_log_based_metric_returns_OK_response",
+      id: "Test-Example-Create_a_log_based_metric_returns_OK_response",
       type: "logs_metrics",
       attributes: {
         compute: {

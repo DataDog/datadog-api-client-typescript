@@ -9,7 +9,7 @@ const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
   body: {
-    name: "Example-Create_a_detection_rule_returns_OK_response",
+    name: "Test-Example-Create_a_detection_rule_returns_OK_response",
     queries: [
       {
         query: "@test:true",

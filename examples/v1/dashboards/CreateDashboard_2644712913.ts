@@ -11,7 +11,7 @@ let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     layoutType: "ordered",
     title:
-      "Example-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator with QVW Percentile Aggregator",
+      "Test-Example-Create_a_new_dashboard_with_a_query_value_widget_using_the_percentile_aggregator with QVW Percentile Aggregator",
     widgets: [
       {
         definition: {

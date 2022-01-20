@@ -11,7 +11,7 @@ let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     layoutType: "ordered",
     title:
-      "Example-Create_a_new_dashboard_with_funnel_widget with funnel widget",
+      "Test-Example-Create_a_new_dashboard_with_funnel_widget with funnel widget",
     widgets: [
       {
         definition: {

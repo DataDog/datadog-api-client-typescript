@@ -11,7 +11,7 @@ let params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     layoutType: "ordered",
     title:
-      "Example-Create_a_new_dashboard_with_an_audit_logs_query with Audit Logs Query",
+      "Test-Example-Create_a_new_dashboard_with_an_audit_logs_query with Audit Logs Query",
     widgets: [
       {
         definition: {

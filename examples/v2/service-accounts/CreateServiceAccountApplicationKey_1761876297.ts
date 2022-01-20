@@ -15,7 +15,7 @@ let params: v2.ServiceAccountsApiCreateServiceAccountApplicationKeyRequest = {
   body: {
     data: {
       attributes: {
-        name: "Example-Create_an_app_key_for_this_service_account_returns_Created_response",
+        name: "Test-Example-Create_an_app_key_for_this_service_account_returns_Created_response",
       },
       type: "application_keys",
     },
