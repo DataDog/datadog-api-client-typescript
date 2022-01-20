@@ -60,14 +60,18 @@
     "jest-coverage": "jest --no-cache --coverage"
   },
   "dependencies": {
+    "@types/buffer-from": "^1.1.0",
     "@types/node": "*",
     "@types/node-fetch": "^2.5.7",
+    "@types/pako": "^1.0.3",
     "btoa": "^1.2.1",
+    "buffer-from": "^1.1.2",
     "durations": "^3.4.2",
     "es6-promise": "^4.2.4",
     "form-data": "^3.0.0",
     "loglevel": "^1.7.1",
     "node-fetch": "^2.6.0",
+    "pako": "^2.0.4",
     "url-parse": "^1.4.3"
   },
   "resolutions": {

@@ -1,7 +1,8 @@
 import { HttpLibrary, RequestContext, ResponseContext } from "./http";
 import { from, Observable } from "../rxjsStub";
 import fetch from "node-fetch";
-import * as zlib from "zlib";
+import pako from "pako";
+import bufferFrom from "buffer-from";
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public send(request: RequestContext): Observable<ResponseContext> {
@@ -16,9 +17,9 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     const headers = request.getHeaders();
     if (typeof body === "string") {
       if (headers["Content-Encoding"] == "gzip") {
-        body = zlib.gzipSync(body);
+        body = bufferFrom(pako.gzip(body).buffer);
       } else if (headers["Content-Encoding"] == "deflate") {
-        body = zlib.deflateSync(body);
+        body = bufferFrom(pako.deflate(body).buffer);
       }
     }
 

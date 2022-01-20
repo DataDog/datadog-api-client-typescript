@@ -8,7 +8,8 @@ import fetch from "node-fetch";
 import "whatwg-fetch";
 {{/browser}}
 {{/platforms}}
-import * as zlib from "zlib";
+import pako from "pako";
+import bufferFrom from "buffer-from";
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
 
@@ -24,9 +25,9 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         let headers = request.getHeaders();
         if (typeof body === "string") {
             if (headers["Content-Encoding"] == "gzip") {
-                body = zlib.gzipSync(body);
+                body = bufferFrom(pako.gzip(body).buffer);
             } else if (headers["Content-Encoding"] == "deflate") {
-                body = zlib.deflateSync(body);
+                body = bufferFrom(pako.deflate(body).buffer);
             }
         }
 
