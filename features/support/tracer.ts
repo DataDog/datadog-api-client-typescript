@@ -12,7 +12,7 @@ function wrap(method: any) {
     return tracer.trace(
       "fetch",
       { type: "http", resource: request.getUrl() },
-      (span: any, callback: () => void) => {
+      (span: any, callback: ((error?: Error | undefined) => string) | undefined) => {
         const spanId = span.context().toSpanId();
         const traceId = span.context().toTraceId();
         request.setHeaderParam("x-datadog-parent-id", spanId);
@@ -31,7 +31,9 @@ function wrap(method: any) {
               "error.msg": violations,
             });
           }
-          callback()
+          if (callback) {
+            callback()
+          }
           return responseContext;
         });
         return response;
