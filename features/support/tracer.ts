@@ -12,15 +12,15 @@ function wrap(method: any) {
     return tracer.trace(
       "fetch",
       { type: "http", resource: request.getUrl() },
-      (span: any, callback: ((error?: Error | undefined) => string) | undefined) => {
+      (span: any, callback?: (error?: Error) => string) => {
         const spanId = span.context().toSpanId();
         const traceId = span.context().toTraceId();
         request.setHeaderParam("x-datadog-parent-id", spanId);
         request.setHeaderParam("x-datadog-trace-id", traceId);
         // These headers are required to prevent the continuation of the trace from being dropped
         request.setHeaderParam("x-datadog-origin", "ciapp-test");
-        request.setHeaderParam("x-datadog-sampling-priority", 1);
-        request.setHeaderParam("x-datadog-sampled", 1);
+        request.setHeaderParam("x-datadog-sampling-priority", "1");
+        request.setHeaderParam("x-datadog-sampled", "1");
         const response = method(request);
 
         response.promise = response.promise.then((responseContext: any) => {
