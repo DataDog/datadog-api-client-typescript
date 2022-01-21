@@ -16,6 +16,18 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 
 export class UsageCloudSecurityPostureManagementHour {
   /**
+   * The number of Cloud Security Posture Management Azure app services hosts during a given hour.
+   */
+  "aasHostCount"?: number;
+  /**
+   * The number of Cloud Security Posture Management Azure hosts during a given hour.
+   */
+  "azureHostCount"?: number;
+  /**
+   * The number of Cloud Security Posture Management hosts during a given hour.
+   */
+  "complianceHostCount"?: number;
+  /**
    * The total number of Cloud Security Posture Management containers during a given hour.
    */
   "containerCount"?: number;
@@ -39,15 +51,30 @@ export class UsageCloudSecurityPostureManagementHour {
   "unparsedObject"?: any;
 
   static readonly attributeTypeMap: AttributeTypeMap = {
+    aasHostCount: {
+      baseName: "aas_host_count",
+      type: "number",
+      format: "double",
+    },
+    azureHostCount: {
+      baseName: "azure_host_count",
+      type: "number",
+      format: "double",
+    },
+    complianceHostCount: {
+      baseName: "compliance_host_count",
+      type: "number",
+      format: "double",
+    },
     containerCount: {
       baseName: "container_count",
       type: "number",
-      format: "int64",
+      format: "double",
     },
     hostCount: {
       baseName: "host_count",
       type: "number",
-      format: "int64",
+      format: "double",
     },
     hour: {
       baseName: "hour",
