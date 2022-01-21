@@ -1,5 +1,60 @@
 # CHANGELOG
 
+## 1.0.0-beta.7 / 2022-01-21
+
+* [Added] Add `filter[deleted]` parameter for searching recently deleted dashboards. See [#479](https://github.com/DataDog/datadog-api-client-typescript/pull/479).
+* [Added] Expose new signal configuration for timeout. See [#484](https://github.com/DataDog/datadog-api-client-typescript/pull/484).
+* [Added] Add support for authentication and proxy options in Synthetics. See [#443](https://github.com/DataDog/datadog-api-client-typescript/pull/443).
+* [Added] Support formulas and functions in Treemap Widget. See [#473](https://github.com/DataDog/datadog-api-client-typescript/pull/473).
+* [Added] Add Cloud Workload Security Agent Rules API. See [#460](https://github.com/DataDog/datadog-api-client-typescript/pull/460).
+* [Added] Add `offset` and `limit` parameters to usage listing endpoint. See [#466](https://github.com/DataDog/datadog-api-client-typescript/pull/466).
+* [Added] Add monthly usage attribution API spec. See [#452](https://github.com/DataDog/datadog-api-client-typescript/pull/452).
+* [Added] Add missing hosts metadata fields. See [#447](https://github.com/DataDog/datadog-api-client-typescript/pull/447).
+* [Added] Add `replay_session_count ` and update documentation for `rum_session_count`. See [#465](https://github.com/DataDog/datadog-api-client-typescript/pull/465).
+* [Added] Add retry options for a step in Synthetics multistep test. See [#455](https://github.com/DataDog/datadog-api-client-typescript/pull/455).
+* [Added] Document `author_name` in dashboard response. See [#453](https://github.com/DataDog/datadog-api-client-typescript/pull/453).
+* [Added] Add organization metadata for RUM sessions usage and expose `rum_browser_and_mobile_session_count`. See [#448](https://github.com/DataDog/datadog-api-client-typescript/pull/448).
+* [Added] Add endpoint to retrieve hourly usage attribution. See [#426](https://github.com/DataDog/datadog-api-client-typescript/pull/426).
+* [Added] Add support for scoped application keys. See [#408](https://github.com/DataDog/datadog-api-client-typescript/pull/408).
+* [Added] Add endpoint for cloning roles. See [#434](https://github.com/DataDog/datadog-api-client-typescript/pull/434).
+* [Added] Add organization metadata for audit logs, CWS, CSPM, DBM. See [#440](https://github.com/DataDog/datadog-api-client-typescript/pull/440).
+* [Added] Add `ci-pipelines alert` to monitors enum. See [#433](https://github.com/DataDog/datadog-api-client-typescript/pull/433).
+* [Added] Add support for sunburst widget in dashboard. See [#438](https://github.com/DataDog/datadog-api-client-typescript/pull/438).
+* [Added] Add Limit Note for Hourly Requests. See [#403](https://github.com/DataDog/datadog-api-client-typescript/pull/403).
+* [Added] Add support for unstable operations. See [#402](https://github.com/DataDog/datadog-api-client-typescript/pull/402).
+* [Added] Expose estimated logs usage in Usage Attribution API. See [#404](https://github.com/DataDog/datadog-api-client-typescript/pull/404).
+* [Added] Add endpoint to get corrections applied to an SLO. See [#386](https://github.com/DataDog/datadog-api-client-typescript/pull/386).
+* [Added] Expose `public_id` and `org_name` in Usage API response. See [#390](https://github.com/DataDog/datadog-api-client-typescript/pull/390).
+* [Added] Document query in `MonitorSearchResult`. See [#387](https://github.com/DataDog/datadog-api-client-typescript/pull/387).
+* [Added] Add 429 error responses. See [#371](https://github.com/DataDog/datadog-api-client-typescript/pull/371).
+* [Added] Add support for profiled Fargate tasks in Usage API. See [#368](https://github.com/DataDog/datadog-api-client-typescript/pull/368).
+* [Added] Add support for `websocket` synthetics tests. See [#369](https://github.com/DataDog/datadog-api-client-typescript/pull/369).
+* [Added] Add support for Synthetics UDP API tests. See [#363](https://github.com/DataDog/datadog-api-client-typescript/pull/363).
+* [Added] Add trigger synthetics tests endpoint. See [#337](https://github.com/DataDog/datadog-api-client-typescript/pull/337).
+* [Added] Add RUM Units to usage metering API. See [#357](https://github.com/DataDog/datadog-api-client-typescript/pull/357).
+* [Added] Add formulas and functions support to change widget. See [#263](https://github.com/DataDog/datadog-api-client-typescript/pull/263).
+* [Added] Add support for Azure `automute` option. See [#343](https://github.com/DataDog/datadog-api-client-typescript/pull/343).
+* [Added] Add v2 intake endpoint. See [#336](https://github.com/DataDog/datadog-api-client-typescript/pull/336).
+* [Fixed] Clarify required fields for `SyntheticsAPIStep`, `SyntheticsAPITest`, and `SyntheticsBrowserTest`. See [#367](https://github.com/DataDog/datadog-api-client-typescript/pull/367).
+* [Fixed] Fixes to Cloud Workload Security API. See [#477](https://github.com/DataDog/datadog-api-client-typescript/pull/477).
+* [Fixed] Make downtime weekdays nullable. See [#457](https://github.com/DataDog/datadog-api-client-typescript/pull/457).
+* [Fixed] Fix a typo in an incident field attribute description. See [#415](https://github.com/DataDog/datadog-api-client-typescript/pull/415).
+* [Fixed] Fix `SecurityMonitoringSignal.attributes.tags` type. See [#417](https://github.com/DataDog/datadog-api-client-typescript/pull/417).
+* [Fixed] Allow null in required field. See [#421](https://github.com/DataDog/datadog-api-client-typescript/pull/421).
+* [Fixed] Be more resilient to plain text errors. See [#399](https://github.com/DataDog/datadog-api-client-typescript/pull/399).
+* [Fixed] Fix monitor `timeout_h` example and limits. See [#382](https://github.com/DataDog/datadog-api-client-typescript/pull/382).
+* [Fixed] Remove event title length constraint. See [#379](https://github.com/DataDog/datadog-api-client-typescript/pull/379).
+* [Fixed] Mark `batch_id` in Synthetics Trigger CI response as nullable. See [#373](https://github.com/DataDog/datadog-api-client-typescript/pull/373).
+* [Fixed] SLO Correction attributes `rrule` and `duration` can be nullable. See [#365](https://github.com/DataDog/datadog-api-client-typescript/pull/365).
+* [Fixed] Change `UsageNetworkFlowsHour.indexed_event_count` to match actual API. See [#362](https://github.com/DataDog/datadog-api-client-typescript/pull/362).
+* [Fixed] Fix type for `ratio_in_month` in usage metering. See [#352](https://github.com/DataDog/datadog-api-client-typescript/pull/352).
+* [Changed] Use pako for compressing payloads. See [#487](https://github.com/DataDog/datadog-api-client-typescript/pull/487).
+* [Changed] Remove read only fields in `EventCreateRequest`. See [#475](https://github.com/DataDog/datadog-api-client-typescript/pull/475).
+* [Changed] Change pagination arguments for querying usage attribution. See [#451](https://github.com/DataDog/datadog-api-client-typescript/pull/451).
+* [Changed] Fix required target in Synthetics assertions and type in step results. See [#366](https://github.com/DataDog/datadog-api-client-typescript/pull/366).
+* [Deprecated] Remove session counts from RUM units response. See [#429](https://github.com/DataDog/datadog-api-client-typescript/pull/429).
+* [Removed] Remove deprecated AgentRule field in Security Rules API for CWS. See [#446](https://github.com/DataDog/datadog-api-client-typescript/pull/446).
+
 ## 1.0.0-beta.6 / 2021-11-03
 
 * [Added] Added `available_values` property to template variables schema. See [#258](https://github.com/DataDog/datadog-api-client-typescript/pull/258).
