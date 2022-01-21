@@ -5,17 +5,19 @@ import { {{classname}}{{#hasEnums}}{{#vars}}{{#isEnum}}, {{classname}}{{enumName
 {{/models}}
 import { logger } from "../../../index";
 
-/* tslint:disable:no-unused-variable */
-let primitives = [
-                    "string",
-                    "boolean",
-                    "double",
-                    "integer",
-                    "long",
-                    "float",
-                    "number",
-                    "any"
-                 ];
+const primitives = [
+    "string",
+    "boolean",
+    "double",
+    "integer",
+    "long",
+    "float",
+    "number",
+    "any"
+];
+
+const ARRAY_PREFIX = "Array<";
+const MAP_PREFIX = "{ [key: string]: ";
 
 const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/json": Infinity,
@@ -40,7 +42,7 @@ const enumsMap: {[key: string]: any[]} = {
     {{/models}}
 };
 
-let typeMap: {[index: string]: any} = {
+const typeMap: {[index: string]: any} = {
     {{#models}}
         {{#model}}
             {{^isEnum}}
@@ -52,7 +54,7 @@ let typeMap: {[index: string]: any} = {
     {{/models}}
 }
 
-let oneOfMap: {[index: string]: string[]} = {
+const oneOfMap: {[index: string]: string[]} = {
   {{#models}}{{#model}}{{#oneOf}}{{#-first}}"{{classname}}": [{{/-first}}"{{{.}}}"{{^-last}}, {{/-last}}{{#-last}}],
   {{/-last}}{{/oneOf}}{{/model}}{{/models}}
 };
@@ -61,24 +63,22 @@ export class ObjectSerializer {
     public static serialize(data: any, type: string, format: string): any {
         if (data == undefined) {
             return data;
-        } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+        } else if (primitives.includes(type.toLowerCase())) {
             return data;
-        } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
-            let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
-            subType = subType.substring(0, subType.length - 1); // Type> => Type
-            let transformedData: any[] = [];
-            for (let index in data) {
-                let date = data[index];
-                transformedData.push(ObjectSerializer.serialize(date, subType, format));
+        } else if (type.startsWith(ARRAY_PREFIX)) {
+            // Array<Type> => Type
+            const subType: string = type.substring(ARRAY_PREFIX.length, type.length - 1);
+            const transformedData: any[] = [];
+            for (const element of data) {
+                transformedData.push(ObjectSerializer.serialize(element, subType, format));
             }
             return transformedData;
-        } else if (type.lastIndexOf("{ [key: string]: ", 0) === 0) { // string.startsWith pre es6
-            let subType: string = type.replace("{ [key: string]: ", ""); // { [key: string]: Type; } => Type; }
-            subType = subType.substring(0, subType.length - 3); // Type; } => Type
-            let transformedData: { [key: string]: any } = {};
-            for (let k in data) {
-                let date = data[k]
-                transformedData[k] = ObjectSerializer.serialize(date, subType, format);
+        } else if (type.startsWith(MAP_PREFIX)) {
+            // { [key: string]: Type; } => Type
+            const subType: string = type.substring(MAP_PREFIX.length, type.length - 3);
+            const transformedData: { [key: string]: any } = {};
+            for (const key in data) {
+                transformedData[key] = ObjectSerializer.serialize(data[key], subType, format);
             }
             return transformedData;
         } else if (type === "Date") {
@@ -86,7 +86,7 @@ export class ObjectSerializer {
                 return data;
             }
             if (format == "date") {
-                let month = data.getMonth()+1
+                let month = data.getMonth() + 1
                 month = month < 10 ? "0" + month.toString() : month.toString()
                 let day = data.getDate();
                 day = day < 10 ? "0" + day.toString() : day.toString();
@@ -103,8 +103,8 @@ export class ObjectSerializer {
                 throw new TypeError(`unknown enum value '${data}'`)
             }
             if (oneOfMap[type]) {
-                let oneOfs: any[] = [];
-                for(let oneOf of oneOfMap[type]) {
+                const oneOfs: any[] = [];
+                for (const oneOf of oneOfMap[type]) {
                     try {
                         oneOfs.push(ObjectSerializer.serialize(data, oneOf, format));
                     } catch (e) {
@@ -120,12 +120,16 @@ export class ObjectSerializer {
                 return oneOfs[0];
             }
 
-            // get the map for the correct type.
-            let attributesMap = typeMap[type].getAttributeTypeMap();
-            let instance: {[index: string]: any} = {};
+            if (!typeMap[type]) { // dont know the type
+                throw new TypeError(`unknown type '${type}'`);
+            }
 
-            for (let attributeName in attributesMap) {
-                let attributeObj = attributesMap[attributeName];
+            // get the map for the correct type.
+            const attributesMap = typeMap[type].getAttributeTypeMap();
+            const instance: {[index: string]: any} = {};
+
+            for (const attributeName in attributesMap) {
+                const attributeObj = attributesMap[attributeName];
                 instance[attributeObj.baseName] = ObjectSerializer.serialize(data[attributeName], attributeObj.type, attributeObj.format);
 
                 // check for required properties
@@ -144,24 +148,22 @@ export class ObjectSerializer {
     public static deserialize(data: any, type: string, format: string = ""): any {
         if (data == undefined) {
             return data;
-        } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+        } else if (primitives.includes(type.toLowerCase())) {
             return data;
-        } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
-            let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
-            subType = subType.substring(0, subType.length - 1); // Type> => Type
-            let transformedData: any[] = [];
-            for (let index in data) {
-                let date = data[index];
-                transformedData.push(ObjectSerializer.deserialize(date, subType, format));
+        } else if (type.startsWith(ARRAY_PREFIX)) {
+            // Array<Type> => Type
+            const subType: string = type.substring(ARRAY_PREFIX.length, type.length - 1);
+            const transformedData: any[] = [];
+            for (const element of data) {
+                transformedData.push(ObjectSerializer.deserialize(element, subType, format));
             }
             return transformedData;
-        } else if (type.lastIndexOf("{ [key: string]: ", 0) === 0) { // string.startsWith pre es6
-            let subType: string = type.replace("{ [key: string]: ", ""); // { [key: string]: Type; } => Type; }
-            subType = subType.substring(0, subType.length - 3); // Type; } => Type
-            let transformedData: { [key: string]: any } = {};
-            for (let k in data) {
-                let date = data[k]
-                transformedData[k] = ObjectSerializer.deserialize(date, subType, format);
+        } else if (type.startsWith(MAP_PREFIX)) {
+            // { [key: string]: Type; } => Type
+            const subType: string = type.substring(MAP_PREFIX.length, type.length - 3);
+            const transformedData: { [key: string]: any } = {};
+            for (const key in data) {
+                transformedData[key] = ObjectSerializer.deserialize(data[key], subType, format);
             }
             return transformedData;
         } else if (type === "Date") {
@@ -172,10 +174,10 @@ export class ObjectSerializer {
             }
 
             if (oneOfMap[type]) {
-                let oneOfs: any[] = [];
-                for(let oneOf of oneOfMap[type]) {
+                const oneOfs: any[] = [];
+                for (const oneOf of oneOfMap[type]) {
                     try {
-                        let d = ObjectSerializer.deserialize(data, oneOf, format);
+                        const d = ObjectSerializer.deserialize(data, oneOf, format);
                         if (d?.unparsedObject === undefined) {
                             oneOfs.push(d);
                         }
@@ -194,11 +196,11 @@ export class ObjectSerializer {
                 throw new TypeError(`unknown type '${type}'`);
             }
 
-            let instance = new typeMap[type]();
-            let attributesMap = typeMap[type].getAttributeTypeMap();
+            const instance = new typeMap[type]();
+            const attributesMap = typeMap[type].getAttributeTypeMap();
 
-            for (let attributeName in attributesMap) {
-                let attributeObj = attributesMap[attributeName];
+            for (const attributeName in attributesMap) {
+                const attributeObj = attributesMap[attributeName];
                 instance[attributeName] = ObjectSerializer.deserialize(data[attributeObj.baseName], attributeObj.type, attributeObj.format);
 
                 // check for required properties

@@ -271,7 +271,6 @@ import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersResponse } from "./UsersResponse";
 import { logger } from "../../../index";
 
-/* tslint:disable:no-unused-variable */
 const primitives = [
   "string",
   "boolean",
@@ -282,6 +281,9 @@ const primitives = [
   "number",
   "any",
 ];
+
+const ARRAY_PREFIX = "Array<";
+const MAP_PREFIX = "{ [key: string]: ";
 
 const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/json": Infinity,
@@ -758,26 +760,34 @@ export class ObjectSerializer {
   public static serialize(data: any, type: string, format: string): any {
     if (data == undefined) {
       return data;
-    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+    } else if (primitives.includes(type.toLowerCase())) {
       return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      // string.startsWith pre es6
-      let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
-      subType = subType.substring(0, subType.length - 1); // Type> => Type
+    } else if (type.startsWith(ARRAY_PREFIX)) {
+      // Array<Type> => Type
+      const subType: string = type.substring(
+        ARRAY_PREFIX.length,
+        type.length - 1
+      );
       const transformedData: any[] = [];
-      for (const index in data) {
-        const date = data[index];
-        transformedData.push(ObjectSerializer.serialize(date, subType, format));
+      for (const element of data) {
+        transformedData.push(
+          ObjectSerializer.serialize(element, subType, format)
+        );
       }
       return transformedData;
-    } else if (type.lastIndexOf("{ [key: string]: ", 0) === 0) {
-      // string.startsWith pre es6
-      let subType: string = type.replace("{ [key: string]: ", ""); // { [key: string]: Type; } => Type; }
-      subType = subType.substring(0, subType.length - 3); // Type; } => Type
+    } else if (type.startsWith(MAP_PREFIX)) {
+      // { [key: string]: Type; } => Type
+      const subType: string = type.substring(
+        MAP_PREFIX.length,
+        type.length - 3
+      );
       const transformedData: { [key: string]: any } = {};
-      for (const k in data) {
-        const date = data[k];
-        transformedData[k] = ObjectSerializer.serialize(date, subType, format);
+      for (const key in data) {
+        transformedData[key] = ObjectSerializer.serialize(
+          data[key],
+          subType,
+          format
+        );
       }
       return transformedData;
     } else if (type === "Date") {
@@ -823,6 +833,11 @@ export class ObjectSerializer {
         return oneOfs[0];
       }
 
+      if (!typeMap[type]) {
+        // dont know the type
+        throw new TypeError(`unknown type '${type}'`);
+      }
+
       // get the map for the correct type.
       const attributesMap = typeMap[type].getAttributeTypeMap();
       const instance: { [index: string]: any } = {};
@@ -859,29 +874,31 @@ export class ObjectSerializer {
   public static deserialize(data: any, type: string, format = ""): any {
     if (data == undefined) {
       return data;
-    } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
+    } else if (primitives.includes(type.toLowerCase())) {
       return data;
-    } else if (type.lastIndexOf("Array<", 0) === 0) {
-      // string.startsWith pre es6
-      let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
-      subType = subType.substring(0, subType.length - 1); // Type> => Type
+    } else if (type.startsWith(ARRAY_PREFIX)) {
+      // Array<Type> => Type
+      const subType: string = type.substring(
+        ARRAY_PREFIX.length,
+        type.length - 1
+      );
       const transformedData: any[] = [];
-      for (const index in data) {
-        const date = data[index];
+      for (const element of data) {
         transformedData.push(
-          ObjectSerializer.deserialize(date, subType, format)
+          ObjectSerializer.deserialize(element, subType, format)
         );
       }
       return transformedData;
-    } else if (type.lastIndexOf("{ [key: string]: ", 0) === 0) {
-      // string.startsWith pre es6
-      let subType: string = type.replace("{ [key: string]: ", ""); // { [key: string]: Type; } => Type; }
-      subType = subType.substring(0, subType.length - 3); // Type; } => Type
+    } else if (type.startsWith(MAP_PREFIX)) {
+      // { [key: string]: Type; } => Type
+      const subType: string = type.substring(
+        MAP_PREFIX.length,
+        type.length - 3
+      );
       const transformedData: { [key: string]: any } = {};
-      for (const k in data) {
-        const date = data[k];
-        transformedData[k] = ObjectSerializer.deserialize(
-          date,
+      for (const key in data) {
+        transformedData[key] = ObjectSerializer.deserialize(
+          data[key],
           subType,
           format
         );
