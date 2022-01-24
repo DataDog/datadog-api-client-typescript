@@ -162,6 +162,7 @@ import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdate
 import { MetricTagConfigurationUpdateRequest } from "./MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
+import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { Pagination } from "./Pagination";
@@ -605,6 +606,7 @@ const typeMap: { [index: string]: any } = {
   MetricVolumesResponse: MetricVolumesResponse,
   MetricsAndMetricTagConfigurationsResponse:
     MetricsAndMetricTagConfigurationsResponse,
+  NullableRelationshipToUser: NullableRelationshipToUser,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
   Pagination: Pagination,

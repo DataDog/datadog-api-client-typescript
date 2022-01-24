@@ -19,32 +19,32 @@ Create an incident.
 ### Example
 
 ```typescript
-import { v2 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v2 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
-let params: v2.IncidentsApiCreateIncidentRequest = {
+let params:v2.IncidentsApiCreateIncidentRequest = {
   // IncidentCreateRequest | Incident payload.
   body: {
     data: {
       attributes: {
         customerImpacted: false,
         fields: {
-          key: {
-            type: "dropdown",
-            value: "SEV-1",
-          },
+          "key": {
+    type: "dropdown",
+    value: "SEV-1",
+  },
         },
         initialCells: [
           {
-            cellType: "markdown",
-            content: {
-              content: "An example timeline cell message.",
-            },
-            important: false,
-          },
+    cellType: "markdown",
+    content: {
+      content: "An example timeline cell message.",
+    },
+    important: false,
+  },
         ],
         notificationHandles: [
           {
@@ -55,11 +55,8 @@ let params: v2.IncidentsApiCreateIncidentRequest = {
         title: "A test incident title",
       },
       relationships: {
-        commander: {
-          data: {
-            id: "00000000-0000-0000-0000-000000000000",
-            type: "users",
-          },
+        commanderUser: {
+          data: ,
         },
       },
       type: "incidents",
@@ -67,14 +64,9 @@ let params: v2.IncidentsApiCreateIncidentRequest = {
   },
 };
 
-apiInstance
-  .createIncident(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.createIncident(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
 
 ### Parameters
@@ -313,29 +305,29 @@ Updates an incident. Provide only the attributes that should be updated as this 
 ### Example
 
 ```typescript
-import { v2 } from "@datadog/datadog-api-client";
-import * as fs from "fs";
+import { v2 } from '@datadog/datadog-api-client';
+import * as fs from 'fs';
 
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.IncidentsApi(configuration);
 
-let params: v2.IncidentsApiUpdateIncidentRequest = {
+let params:v2.IncidentsApiUpdateIncidentRequest = {
   // string | The UUID of the incident.
   incidentId: "incident_id_example",
   // IncidentUpdateRequest | Incident Payload.
   body: {
     data: {
       attributes: {
-        customerImpactEnd: new Date("1970-01-01T00:00:00.00Z"),
+        customerImpactEnd: new Date('1970-01-01T00:00:00.00Z'),
         customerImpactScope: "Example customer impact scope",
-        customerImpactStart: new Date("1970-01-01T00:00:00.00Z"),
+        customerImpactStart: new Date('1970-01-01T00:00:00.00Z'),
         customerImpacted: false,
-        detected: new Date("1970-01-01T00:00:00.00Z"),
+        detected: new Date('1970-01-01T00:00:00.00Z'),
         fields: {
-          key: {
-            type: "dropdown",
-            value: "SEV-1",
-          },
+          "key": {
+    type: "dropdown",
+    value: "SEV-1",
+  },
         },
         notificationHandles: [
           {
@@ -343,16 +335,13 @@ let params: v2.IncidentsApiUpdateIncidentRequest = {
             handle: "@test.user@test.com",
           },
         ],
-        resolved: new Date("1970-01-01T00:00:00.00Z"),
+        resolved: new Date('1970-01-01T00:00:00.00Z'),
         title: "A test incident title",
       },
       id: "00000000-0000-0000-0000-000000000000",
       relationships: {
         commanderUser: {
-          data: {
-            id: "00000000-0000-0000-0000-000000000000",
-            type: "users",
-          },
+          data: ,
         },
         createdByUser: {
           data: {
@@ -386,14 +375,9 @@ let params: v2.IncidentsApiUpdateIncidentRequest = {
   },
 };
 
-apiInstance
-  .updateIncident(params)
-  .then((data: any) => {
-    console.log(
-      "API called successfully. Returned data: " + JSON.stringify(data)
-    );
-  })
-  .catch((error: any) => console.error(error));
+apiInstance.updateIncident(params).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+}).catch((error:any) => console.error(error));
 ```
 
 ### Parameters

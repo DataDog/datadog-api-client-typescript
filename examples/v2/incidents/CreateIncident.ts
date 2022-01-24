@@ -9,7 +9,6 @@ configuration.unstableOperations["createIncident"] = true;
 const apiInstance = new v2.IncidentsApi(configuration);
 
 // there is a valid "user" in the system
-let USER_DATA_ID = process.env.USER_DATA_ID as string;
 
 let params: v2.IncidentsApiCreateIncidentRequest = {
   body: {
@@ -26,11 +25,8 @@ let params: v2.IncidentsApiCreateIncidentRequest = {
         },
       },
       relationships: {
-        commander: {
-          data: {
-            type: "users",
-            id: USER_DATA_ID,
-          },
+        commanderUser: {
+          data: {},
         },
       },
     },
