@@ -83,7 +83,7 @@ export interface ConfigurationParameters {
  * @param conf partial configuration
  */
 export function createConfiguration(conf: ConfigurationParameters = {}): Configuration {
-    if (process.env.DD_SITE) {
+    if (process !== undefined && process.env.DD_SITE) {
         let serverConf = server1.getConfiguration();
         server1.setVariables({"site": process.env.DD_SITE} as (typeof serverConf));
         for (const op in operationServers) {
@@ -96,7 +96,7 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
     {{#isApiKey}}
     {{#isKeyInHeader}}
 
-    if (!("{{name}}" in authMethods) && process.env.{{vendorExtensions.x-env-name}}) {
+    if (!("{{name}}" in authMethods) && process !== undefined && process.env.{{vendorExtensions.x-env-name}}) {
         authMethods["{{name}}"] = process.env.{{vendorExtensions.x-env-name}};
     }
     {{/isKeyInHeader}}
