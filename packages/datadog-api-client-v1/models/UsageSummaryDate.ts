@@ -77,6 +77,14 @@ export class UsageSummaryDate {
    */
   "containerHwm"?: number;
   /**
+   * Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current date for all organizations.
+   */
+  "cspmAasHostTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for all organizations.
+   */
+  "cspmAzureHostTop99p"?: number;
+  /**
    * Shows the average number of Cloud Security Posture Management containers over all hours in the current date for all organizations.
    */
   "cspmContainerAvg"?: number;
@@ -312,6 +320,16 @@ export class UsageSummaryDate {
     },
     containerHwm: {
       baseName: "container_hwm",
+      type: "number",
+      format: "int64",
+    },
+    cspmAasHostTop99p: {
+      baseName: "cspm_aas_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    cspmAzureHostTop99p: {
+      baseName: "cspm_azure_host_top99p",
       type: "number",
       format: "int64",
     },
