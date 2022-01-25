@@ -2,7 +2,7 @@ import {HttpLibrary, RequestContext, ResponseContext} from './http{{extensionFor
 import { from, Observable } from {{#useRxJS}}'rxjs'{{/useRxJS}}{{^useRxJS}}'../rxjsStub{{extensionForDeno}}'{{/useRxJS}};
 {{#platforms}}
 {{#node}}
-import fetch from "node-fetch";
+import fetch from "cross-fetch";
 {{/node}}
 {{#browser}}
 import "whatwg-fetch";
@@ -31,11 +31,19 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
             }
         }
 
+        if (!headers["Accept-Encoding"]) {
+            if (compress) {
+                headers["Accept-Encoding"] = "gzip,deflate";
+            } else {
+                // We need to enforce it otherwise node-fetch will set a default
+                headers["Accept-Encoding"] = "identity";
+            }
+        }
+
         const resultPromise = fetch(request.getUrl(), {
             method: method,
             body: body as any,
             headers: headers,
-            compress: compress,
             signal: request.getHttpConfig().signal,
             {{#platforms}}
             {{#browser}}
