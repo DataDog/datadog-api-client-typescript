@@ -1,6 +1,6 @@
 import { HttpLibrary, RequestContext, ResponseContext } from "./http";
 import { from, Observable } from "../rxjsStub";
-import fetch from "node-fetch";
+import fetch from "cross-fetch";
 import pako from "pako";
 import bufferFrom from "buffer-from";
 
@@ -23,11 +23,19 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       }
     }
 
+    if (!headers["Accept-Encoding"]) {
+      if (compress) {
+        headers["Accept-Encoding"] = "gzip,deflate";
+      } else {
+        // We need to enforce it otherwise node-fetch will set a default
+        headers["Accept-Encoding"] = "identity";
+      }
+    }
+
     const resultPromise = fetch(request.getUrl(), {
       method: method,
       body: body as any,
       headers: headers,
-      compress: compress,
       signal: request.getHttpConfig().signal,
     }).then((resp: any) => {
       const headers: { [name: string]: string } = {};
