@@ -25,9 +25,9 @@ export type WidgetPalette =
   | typeof WHITE_ON_RED
   | typeof WHITE_ON_YELLOW
   | typeof YELLOW_ON_WHITE
-  | typeof BlackOnLightYellow
-  | typeof BlackOnLightGreen
-  | typeof BlackOnLightRed;
+  | typeof BLACK_ON_LIGHT_YELLOW
+  | typeof BLACK_ON_LIGHT_GREEN
+  | typeof BLACK_ON_LIGHT_RED;
 export const BLUE = "blue";
 export const CUSTOM_BACKGROUND = "custom_bg";
 export const CUSTOM_IMAGE = "custom_image";
@@ -44,6 +44,6 @@ export const GREEN_ON_WHITE = "green_on_white";
 export const WHITE_ON_RED = "white_on_red";
 export const WHITE_ON_YELLOW = "white_on_yellow";
 export const YELLOW_ON_WHITE = "yellow_on_white";
-export const BlackOnLightYellow = "black_on_light_yellow";
-export const BlackOnLightGreen = "black_on_light_green";
-export const BlackOnLightRed = "black_on_light_red";
+export const BLACK_ON_LIGHT_YELLOW = "black_on_light_yellow";
+export const BLACK_ON_LIGHT_GREEN = "black_on_light_green";
+export const BLACK_ON_LIGHT_RED = "black_on_light_red";
