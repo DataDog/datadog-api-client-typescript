@@ -23,6 +23,14 @@ export class UsageIndexedSpansHour {
    * Contains the number of spans indexed.
    */
   "indexedEventsCount"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
   "unparsedObject"?: any;
 
@@ -36,6 +44,14 @@ export class UsageIndexedSpansHour {
       baseName: "indexed_events_count",
       type: "number",
       format: "int64",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
   };
 

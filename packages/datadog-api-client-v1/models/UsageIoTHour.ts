@@ -23,6 +23,14 @@ export class UsageIoTHour {
    * The total number of IoT devices during a given hour.
    */
   "iotDeviceCount"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
   "unparsedObject"?: any;
 
@@ -36,6 +44,14 @@ export class UsageIoTHour {
       baseName: "iot_device_count",
       type: "number",
       format: "int64",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
   };
 

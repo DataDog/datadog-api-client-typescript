@@ -27,6 +27,14 @@ export class UsageProfilingHour {
    * The hour for the usage.
    */
   "hour"?: Date;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
   "unparsedObject"?: any;
 
@@ -45,6 +53,14 @@ export class UsageProfilingHour {
       baseName: "hour",
       type: "Date",
       format: "date-time",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
   };
 

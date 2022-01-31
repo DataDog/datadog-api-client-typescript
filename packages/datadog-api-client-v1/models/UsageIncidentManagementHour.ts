@@ -23,6 +23,14 @@ export class UsageIncidentManagementHour {
    * Contains the total number monthly active users from the start of the given hour's month until the given hour.
    */
   "monthlyActiveUsers"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
   "unparsedObject"?: any;
 
@@ -36,6 +44,14 @@ export class UsageIncidentManagementHour {
       baseName: "monthly_active_users",
       type: "number",
       format: "int64",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
   };
 
