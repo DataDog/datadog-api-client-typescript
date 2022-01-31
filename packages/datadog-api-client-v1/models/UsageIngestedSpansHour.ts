@@ -23,6 +23,14 @@ export class UsageIngestedSpansHour {
    * Contains the total number of bytes ingested during a given hour.
    */
   "ingestedEventsBytes"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
   "unparsedObject"?: any;
 
@@ -36,6 +44,14 @@ export class UsageIngestedSpansHour {
       baseName: "ingested_events_bytes",
       type: "number",
       format: "int64",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
   };
 
