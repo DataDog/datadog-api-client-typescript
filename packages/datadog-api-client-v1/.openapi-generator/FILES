@@ -478,6 +478,8 @@ models/SyntheticsAPITestResultFullCheck.ts
 models/SyntheticsAPITestResultShort.ts
 models/SyntheticsAPITestResultShortResult.ts
 models/SyntheticsAPITestType.ts
+models/SyntheticsApiTestFailureCode.ts
+models/SyntheticsApiTestResultFailure.ts
 models/SyntheticsAssertion.ts
 models/SyntheticsAssertionJSONPathOperator.ts
 models/SyntheticsAssertionJSONPathTarget.ts
@@ -499,7 +501,9 @@ models/SyntheticsBrowserError.ts
 models/SyntheticsBrowserErrorType.ts
 models/SyntheticsBrowserTest.ts
 models/SyntheticsBrowserTestConfig.ts
+models/SyntheticsBrowserTestFailureCode.ts
 models/SyntheticsBrowserTestResultData.ts
+models/SyntheticsBrowserTestResultFailure.ts
 models/SyntheticsBrowserTestResultFull.ts
 models/SyntheticsBrowserTestResultFullCheck.ts
 models/SyntheticsBrowserTestResultShort.ts
@@ -523,7 +527,6 @@ models/SyntheticsDeleteTestsResponse.ts
 models/SyntheticsDeletedTest.ts
 models/SyntheticsDevice.ts
 models/SyntheticsDeviceID.ts
-models/SyntheticsErrorCode.ts
 models/SyntheticsGetAPITestLatestResultsResponse.ts
 models/SyntheticsGetBrowserTestLatestResultsResponse.ts
 models/SyntheticsGlobalVariable.ts
