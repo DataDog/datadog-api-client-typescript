@@ -306,6 +306,7 @@ import { SyntheticsAPITestResultFull } from "./SyntheticsAPITestResultFull";
 import { SyntheticsAPITestResultFullCheck } from "./SyntheticsAPITestResultFullCheck";
 import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
 import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
+import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure";
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
@@ -319,6 +320,7 @@ import { SyntheticsBrowserError } from "./SyntheticsBrowserError";
 import { SyntheticsBrowserTest } from "./SyntheticsBrowserTest";
 import { SyntheticsBrowserTestConfig } from "./SyntheticsBrowserTestConfig";
 import { SyntheticsBrowserTestResultData } from "./SyntheticsBrowserTestResultData";
+import { SyntheticsBrowserTestResultFailure } from "./SyntheticsBrowserTestResultFailure";
 import { SyntheticsBrowserTestResultFull } from "./SyntheticsBrowserTestResultFull";
 import { SyntheticsBrowserTestResultFullCheck } from "./SyntheticsBrowserTestResultFullCheck";
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
@@ -758,6 +760,34 @@ const enumsMap: { [key: string]: any[] } = {
   SunburstWidgetLegendTableType: ["table", "none"],
   SyntheticsAPIStepSubtype: ["http"],
   SyntheticsAPITestType: ["api"],
+  SyntheticsApiTestFailureCode: [
+    "BODY_TOO_LARGE",
+    "DENIED",
+    "TOO_MANY_REDIRECTS",
+    "AUTHENTICATION_ERROR",
+    "DECRYPTION",
+    "INVALID_CHAR_IN_HEADER",
+    "HEADER_TOO_LARGE",
+    "HEADERS_INCOMPATIBLE_CONTENT_LENGTH",
+    "INVALID_REQUEST",
+    "REQUIRES_UPDATE",
+    "UNESCAPED_CHARACTERS_IN_REQUEST_PATH",
+    "MALFORMED_RESPONSE",
+    "INCORRECT_ASSERTION",
+    "CONNREFUSED",
+    "CONNRESET",
+    "DNS",
+    "HOSTUNREACH",
+    "NETUNREACH",
+    "TIMEOUT",
+    "SSL",
+    "OCSP",
+    "INVALID_TEST",
+    "TUNNEL",
+    "WEBSOCKET",
+    "UNKNOWN",
+    "INTERNAL_ERROR",
+  ],
   SyntheticsAssertionJSONPathOperator: ["validatesJSONPath"],
   SyntheticsAssertionOperator: [
     "contains",
@@ -795,6 +825,41 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
   SyntheticsBasicAuthWebType: ["web"],
   SyntheticsBrowserErrorType: ["network", "js"],
+  SyntheticsBrowserTestFailureCode: [
+    "API_REQUEST_FAILURE",
+    "ASSERTION_FAILURE",
+    "DOWNLOAD_FILE_TOO_LARGE",
+    "ELEMENT_NOT_INTERACTABLE",
+    "EMAIL_VARIABLE_NOT_DEFINED",
+    "EVALUATE_JAVASCRIPT",
+    "EVALUATE_JAVASCRIPT_CONTEXT",
+    "EXTRACT_VARIABLE",
+    "FORBIDDEN_URL",
+    "FRAME_DETACHED",
+    "INCONSISTENCIES",
+    "INTERNAL_ERROR",
+    "INVALID_TYPE_TEXT_DELAY",
+    "INVALID_URL",
+    "INVALID_VARIABLE_PATTERN",
+    "INVISIBLE_ELEMENT",
+    "LOCATE_ELEMENT",
+    "NAVIGATE_TO_LINK",
+    "OPEN_URL",
+    "PRESS_KEY",
+    "SERVER_CERTIFICATE",
+    "SELECT_OPTION",
+    "STEP_TIMEOUT",
+    "SUB_TEST_NOT_PASSED",
+    "TEST_TIMEOUT",
+    "TOO_MANY_HTTP_REQUESTS",
+    "UNAVAILABLE_BROWSER",
+    "UNKNOWN",
+    "UNSUPPORTED_AUTH_SCHEMA",
+    "UPLOAD_FILES_ELEMENT_TYPE",
+    "UPLOAD_FILES_DIALOG",
+    "UPLOAD_FILES_DYNAMIC_ELEMENT",
+    "UPLOAD_FILES_NAME",
+  ],
   SyntheticsBrowserTestType: ["browser"],
   SyntheticsBrowserVariableType: [
     "element",
@@ -833,15 +898,6 @@ const enumsMap: { [key: string]: any[] } = {
     "edge.laptop_large",
     "edge.tablet",
     "edge.mobile_small",
-  ],
-  SyntheticsErrorCode: [
-    "NO_ERROR",
-    "UNKNOWN",
-    "DNS",
-    "SSL",
-    "TIMEOUT",
-    "DENIED",
-    "INCORRECT_ASSERTION",
   ],
   SyntheticsGlobalVariableParseTestOptionsType: ["http_body", "http_header"],
   SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
@@ -1401,6 +1457,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAPITestResultFullCheck: SyntheticsAPITestResultFullCheck,
   SyntheticsAPITestResultShort: SyntheticsAPITestResultShort,
   SyntheticsAPITestResultShortResult: SyntheticsAPITestResultShortResult,
+  SyntheticsApiTestResultFailure: SyntheticsApiTestResultFailure,
   SyntheticsAssertionJSONPathTarget: SyntheticsAssertionJSONPathTarget,
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
@@ -1415,6 +1472,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsBrowserTest: SyntheticsBrowserTest,
   SyntheticsBrowserTestConfig: SyntheticsBrowserTestConfig,
   SyntheticsBrowserTestResultData: SyntheticsBrowserTestResultData,
+  SyntheticsBrowserTestResultFailure: SyntheticsBrowserTestResultFailure,
   SyntheticsBrowserTestResultFull: SyntheticsBrowserTestResultFull,
   SyntheticsBrowserTestResultFullCheck: SyntheticsBrowserTestResultFullCheck,
   SyntheticsBrowserTestResultShort: SyntheticsBrowserTestResultShort,
