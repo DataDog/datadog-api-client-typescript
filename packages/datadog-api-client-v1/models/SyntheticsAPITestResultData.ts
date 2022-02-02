@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsErrorCode } from "./SyntheticsErrorCode";
+import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure";
 import { SyntheticsSSLCertificate } from "./SyntheticsSSLCertificate";
 import { SyntheticsTestProcessStatus } from "./SyntheticsTestProcessStatus";
 import { SyntheticsTiming } from "./SyntheticsTiming";
@@ -20,12 +20,8 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 
 export class SyntheticsAPITestResultData {
   "cert"?: SyntheticsSSLCertificate;
-  "errorCode"?: SyntheticsErrorCode;
-  /**
-   * The API test error message.
-   */
-  "errorMessage"?: string;
   "eventType"?: SyntheticsTestProcessStatus;
+  "failure"?: SyntheticsApiTestResultFailure;
   /**
    * The API test HTTP status code.
    */
@@ -55,17 +51,13 @@ export class SyntheticsAPITestResultData {
       baseName: "cert",
       type: "SyntheticsSSLCertificate",
     },
-    errorCode: {
-      baseName: "errorCode",
-      type: "SyntheticsErrorCode",
-    },
-    errorMessage: {
-      baseName: "errorMessage",
-      type: "string",
-    },
     eventType: {
       baseName: "eventType",
       type: "SyntheticsTestProcessStatus",
+    },
+    failure: {
+      baseName: "failure",
+      type: "SyntheticsApiTestResultFailure",
     },
     httpStatusCode: {
       baseName: "httpStatusCode",

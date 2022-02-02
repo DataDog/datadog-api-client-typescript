@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { SyntheticsBrowserTestResultFailure } from "./SyntheticsBrowserTestResultFailure";
 import { SyntheticsDevice } from "./SyntheticsDevice";
 import { SyntheticsStepDetail } from "./SyntheticsStepDetail";
 import { AttributeTypeMap } from "./ObjectSerializer";
@@ -34,6 +35,7 @@ export class SyntheticsBrowserTestResultData {
    * Error returned for the browser test.
    */
   "error"?: string;
+  "failure"?: SyntheticsBrowserTestResultFailure;
   /**
    * Whether or not the browser test was conducted.
    */
@@ -82,6 +84,10 @@ export class SyntheticsBrowserTestResultData {
     error: {
       baseName: "error",
       type: "string",
+    },
+    failure: {
+      baseName: "failure",
+      type: "SyntheticsBrowserTestResultFailure",
     },
     passed: {
       baseName: "passed",
