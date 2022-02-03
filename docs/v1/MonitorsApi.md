@@ -287,6 +287,32 @@ let params: v1.MonitorsApiCreateMonitorRequest = {
         warningRecovery: 3.14,
       },
       timeoutH: 1,
+      variables: [
+        {
+          compute: {
+            aggregation: "avg",
+            interval: 60000,
+            metric: "@duration",
+          },
+          dataSource: "rum",
+          groupBy: [
+            {
+              facet: "status",
+              limit: 10,
+              sort: {
+                aggregation: "avg",
+                metric: "metric_example",
+                order: "desc",
+              },
+            },
+          ],
+          indexes: ["days-3", "days-7"],
+          name: "query_errors",
+          search: {
+            query: "service:query",
+          },
+        },
+      ],
     },
     priority: 1,
     query: "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
@@ -741,6 +767,32 @@ let params: v1.MonitorsApiUpdateMonitorRequest = {
         warningRecovery: 3.14,
       },
       timeoutH: 1,
+      variables: [
+        {
+          compute: {
+            aggregation: "avg",
+            interval: 60000,
+            metric: "@duration",
+          },
+          dataSource: "rum",
+          groupBy: [
+            {
+              facet: "status",
+              limit: 10,
+              sort: {
+                aggregation: "avg",
+                metric: "metric_example",
+                order: "desc",
+              },
+            },
+          ],
+          indexes: ["days-3", "days-7"],
+          name: "query_errors",
+          search: {
+            query: "service:query",
+          },
+        },
+      ],
     },
     priority: 1,
     query: "query_example",
@@ -848,6 +900,32 @@ let params: v1.MonitorsApiValidateMonitorRequest = {
         warningRecovery: 3.14,
       },
       timeoutH: 1,
+      variables: [
+        {
+          compute: {
+            aggregation: "avg",
+            interval: 60000,
+            metric: "@duration",
+          },
+          dataSource: "rum",
+          groupBy: [
+            {
+              facet: "status",
+              limit: 10,
+              sort: {
+                aggregation: "avg",
+                metric: "metric_example",
+                order: "desc",
+              },
+            },
+          ],
+          indexes: ["days-3", "days-7"],
+          name: "query_errors",
+          search: {
+            query: "service:query",
+          },
+        },
+      ],
     },
     priority: 1,
     query: "avg(last_5m):sum:system.net.bytes_rcvd{host:host0} > 100",
