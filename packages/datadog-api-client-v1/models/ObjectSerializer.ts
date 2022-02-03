@@ -177,6 +177,11 @@ import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
 import { MetricsQueryResponse } from "./MetricsQueryResponse";
 import { MetricsQueryUnit } from "./MetricsQueryUnit";
 import { Monitor } from "./Monitor";
+import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
+import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
+import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
+import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
+import { MonitorFormulaAndFunctionEventQueryGroupBySort } from "./MonitorFormulaAndFunctionEventQueryGroupBySort";
 import { MonitorGroupSearchResponse } from "./MonitorGroupSearchResponse";
 import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCounts";
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
@@ -664,6 +669,21 @@ const enumsMap: { [key: string]: any[] } = {
     "firefox.tablet",
     "firefox.mobile_small",
   ],
+  MonitorFormulaAndFunctionEventAggregation: [
+    "count",
+    "cardinality",
+    "median",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+  ],
+  MonitorFormulaAndFunctionEventsDataSource: ["rum"],
   MonitorOverallStates: [
     "Alert",
     "Ignored",
@@ -1325,6 +1345,16 @@ const typeMap: { [index: string]: any } = {
   MetricsQueryResponse: MetricsQueryResponse,
   MetricsQueryUnit: MetricsQueryUnit,
   Monitor: Monitor,
+  MonitorFormulaAndFunctionEventQueryDefinition:
+    MonitorFormulaAndFunctionEventQueryDefinition,
+  MonitorFormulaAndFunctionEventQueryDefinitionCompute:
+    MonitorFormulaAndFunctionEventQueryDefinitionCompute,
+  MonitorFormulaAndFunctionEventQueryDefinitionSearch:
+    MonitorFormulaAndFunctionEventQueryDefinitionSearch,
+  MonitorFormulaAndFunctionEventQueryGroupBy:
+    MonitorFormulaAndFunctionEventQueryGroupBy,
+  MonitorFormulaAndFunctionEventQueryGroupBySort:
+    MonitorFormulaAndFunctionEventQueryGroupBySort,
   MonitorGroupSearchResponse: MonitorGroupSearchResponse,
   MonitorGroupSearchResponseCounts: MonitorGroupSearchResponseCounts,
   MonitorGroupSearchResult: MonitorGroupSearchResult,
@@ -1680,6 +1710,9 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsTraceRemapper",
     "LogsURLParser",
     "LogsUserAgentParser",
+  ],
+  MonitorFormulaAndFunctionQueryDefinition: [
+    "MonitorFormulaAndFunctionEventQueryDefinition",
   ],
   NotebookCellCreateRequestAttributes: [
     "NotebookDistributionCellAttributes",
