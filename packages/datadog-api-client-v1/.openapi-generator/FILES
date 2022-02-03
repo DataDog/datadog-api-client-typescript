@@ -309,6 +309,14 @@ models/MetricsQueryResponse.ts
 models/MetricsQueryUnit.ts
 models/Monitor.ts
 models/MonitorDeviceID.ts
+models/MonitorFormulaAndFunctionEventAggregation.ts
+models/MonitorFormulaAndFunctionEventQueryDefinition.ts
+models/MonitorFormulaAndFunctionEventQueryDefinitionCompute.ts
+models/MonitorFormulaAndFunctionEventQueryDefinitionSearch.ts
+models/MonitorFormulaAndFunctionEventQueryGroupBy.ts
+models/MonitorFormulaAndFunctionEventQueryGroupBySort.ts
+models/MonitorFormulaAndFunctionEventsDataSource.ts
+models/MonitorFormulaAndFunctionQueryDefinition.ts
 models/MonitorGroupSearchResponse.ts
 models/MonitorGroupSearchResponseCounts.ts
 models/MonitorGroupSearchResult.ts
