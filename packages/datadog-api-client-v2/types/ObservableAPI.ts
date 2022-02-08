@@ -11,6 +11,11 @@ import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateReque
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
+import { AuthNMappingCreateRequest } from "../models/AuthNMappingCreateRequest";
+import { AuthNMappingResponse } from "../models/AuthNMappingResponse";
+import { AuthNMappingUpdateRequest } from "../models/AuthNMappingUpdateRequest";
+import { AuthNMappingsResponse } from "../models/AuthNMappingsResponse";
+import { AuthNMappingsSort } from "../models/AuthNMappingsSort";
 import { CloudWorkloadSecurityAgentRuleCreateRequest } from "../models/CloudWorkloadSecurityAgentRuleCreateRequest";
 import { CloudWorkloadSecurityAgentRuleResponse } from "../models/CloudWorkloadSecurityAgentRuleResponse";
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
@@ -92,6 +97,254 @@ import { UserInvitationsResponse } from "../models/UserInvitationsResponse";
 import { UserResponse } from "../models/UserResponse";
 import { UserUpdateRequest } from "../models/UserUpdateRequest";
 import { UsersResponse } from "../models/UsersResponse";
+
+import {
+  AuthNMappingsApiRequestFactory,
+  AuthNMappingsApiResponseProcessor,
+} from "../apis/AuthNMappingsApi";
+export class ObservableAuthNMappingsApi {
+  private requestFactory: AuthNMappingsApiRequestFactory;
+  private responseProcessor: AuthNMappingsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: AuthNMappingsApiRequestFactory,
+    responseProcessor?: AuthNMappingsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new AuthNMappingsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new AuthNMappingsApiResponseProcessor();
+  }
+
+  /**
+   * Create an AuthN Mapping.
+   * Create an AuthN Mapping
+   * @param body
+   */
+  public createAuthNMapping(
+    body: AuthNMappingCreateRequest,
+    _options?: Configuration
+  ): Observable<AuthNMappingResponse> {
+    const requestContextPromise = this.requestFactory.createAuthNMapping(
+      body,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.createAuthNMapping(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Delete an AuthN Mapping specified by AuthN Mapping UUID.
+   * Delete an AuthN Mapping
+   * @param authnMappingId The UUID of the AuthN Mapping.
+   */
+  public deleteAuthNMapping(
+    authnMappingId: string,
+    _options?: Configuration
+  ): Observable<void> {
+    const requestContextPromise = this.requestFactory.deleteAuthNMapping(
+      authnMappingId,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.deleteAuthNMapping(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Get an AuthN Mapping specified by the AuthN Mapping UUID.
+   * Get an AuthN Mapping by UUID
+   * @param authnMappingId The UUID of the AuthN Mapping.
+   */
+  public getAuthNMapping(
+    authnMappingId: string,
+    _options?: Configuration
+  ): Observable<AuthNMappingResponse> {
+    const requestContextPromise = this.requestFactory.getAuthNMapping(
+      authnMappingId,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.getAuthNMapping(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * List all AuthN Mappings in the org.
+   * List all AuthN Mappings
+   * @param pageSize Size for a given page.
+   * @param pageNumber Specific page number to return.
+   * @param sort Sort AuthN Mappings depending on the given field.
+   * @param include
+   * @param filter Filter all mappings by the given string.
+   */
+  public listAuthNMappings(
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: AuthNMappingsSort,
+    include?: Array<string>,
+    filter?: string,
+    _options?: Configuration
+  ): Observable<AuthNMappingsResponse> {
+    const requestContextPromise = this.requestFactory.listAuthNMappings(
+      pageSize,
+      pageNumber,
+      sort,
+      include,
+      filter,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.listAuthNMappings(rsp)
+            )
+          );
+        })
+      );
+  }
+  /**
+   * Edit an AuthN Mapping.
+   * Edit an AuthN Mapping
+   * @param authnMappingId The UUID of the AuthN Mapping.
+   * @param body
+   */
+  public updateAuthNMapping(
+    authnMappingId: string,
+    body: AuthNMappingUpdateRequest,
+    _options?: Configuration
+  ): Observable<AuthNMappingResponse> {
+    const requestContextPromise = this.requestFactory.updateAuthNMapping(
+      authnMappingId,
+      body,
+      _options
+    );
+
+    // build promise chain
+    let middlewarePreObservable = from_<RequestContext>(requestContextPromise);
+    for (const middleware of this.configuration.middleware) {
+      middlewarePreObservable = middlewarePreObservable.pipe(
+        mergeMap((ctx: RequestContext) => middleware.pre(ctx))
+      );
+    }
+
+    return middlewarePreObservable
+      .pipe(
+        mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))
+      )
+      .pipe(
+        mergeMap((response: ResponseContext) => {
+          let middlewarePostObservable = of(response);
+          for (const middleware of this.configuration.middleware) {
+            middlewarePostObservable = middlewarePostObservable.pipe(
+              mergeMap((rsp: ResponseContext) => middleware.post(rsp))
+            );
+          }
+          return middlewarePostObservable.pipe(
+            map((rsp: ResponseContext) =>
+              this.responseProcessor.updateAuthNMapping(rsp)
+            )
+          );
+        })
+      );
+  }
+}
 
 import {
   CloudWorkloadSecurityApiRequestFactory,
