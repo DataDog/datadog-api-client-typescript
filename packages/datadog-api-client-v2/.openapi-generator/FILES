@@ -1,3 +1,4 @@
+AuthNMappingsApi.md
 CloudWorkloadSecurityApi.md
 DashboardListsApi.md
 IncidentServicesApi.md
@@ -14,6 +15,7 @@ RolesApi.md
 SecurityMonitoringApi.md
 ServiceAccountsApi.md
 UsersApi.md
+apis/AuthNMappingsApi.ts
 apis/CloudWorkloadSecurityApi.ts
 apis/DashboardListsApi.ts
 apis/IncidentServicesApi.ts
@@ -61,6 +63,22 @@ models/ApplicationKeyUpdateData.ts
 models/ApplicationKeyUpdateRequest.ts
 models/ApplicationKeysSort.ts
 models/ApplicationKeysType.ts
+models/AuthNMapping.ts
+models/AuthNMappingAttributes.ts
+models/AuthNMappingCreateAttributes.ts
+models/AuthNMappingCreateData.ts
+models/AuthNMappingCreateRelationships.ts
+models/AuthNMappingCreateRequest.ts
+models/AuthNMappingIncluded.ts
+models/AuthNMappingRelationships.ts
+models/AuthNMappingResponse.ts
+models/AuthNMappingUpdate.ts
+models/AuthNMappingUpdateAttributes.ts
+models/AuthNMappingUpdateRelationships.ts
+models/AuthNMappingUpdateRequest.ts
+models/AuthNMappingsResponse.ts
+models/AuthNMappingsSort.ts
+models/AuthNMappingsType.ts
 models/CloudWorkloadSecurityAgentRuleAttributes.ts
 models/CloudWorkloadSecurityAgentRuleCreateAttributes.ts
 models/CloudWorkloadSecurityAgentRuleCreateData.ts
@@ -287,6 +305,8 @@ models/RelationshipToPermissions.ts
 models/RelationshipToRole.ts
 models/RelationshipToRoleData.ts
 models/RelationshipToRoles.ts
+models/RelationshipToSAMLAssertionAttribute.ts
+models/RelationshipToSAMLAssertionAttributeData.ts
 models/RelationshipToUser.ts
 models/RelationshipToUserData.ts
 models/RelationshipToUsers.ts
@@ -312,6 +332,9 @@ models/RoleUpdateResponseData.ts
 models/RolesResponse.ts
 models/RolesSort.ts
 models/RolesType.ts
+models/SAMLAssertionAttribute.ts
+models/SAMLAssertionAttributeAttributes.ts
+models/SAMLAssertionAttributesType.ts
 models/SecurityFilter.ts
 models/SecurityFilterAttributes.ts
 models/SecurityFilterCreateAttributes.ts

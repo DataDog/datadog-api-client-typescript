@@ -10,6 +10,11 @@ import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateReque
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
+import { AuthNMappingCreateRequest } from "../models/AuthNMappingCreateRequest";
+import { AuthNMappingResponse } from "../models/AuthNMappingResponse";
+import { AuthNMappingUpdateRequest } from "../models/AuthNMappingUpdateRequest";
+import { AuthNMappingsResponse } from "../models/AuthNMappingsResponse";
+import { AuthNMappingsSort } from "../models/AuthNMappingsSort";
 import { CloudWorkloadSecurityAgentRuleCreateRequest } from "../models/CloudWorkloadSecurityAgentRuleCreateRequest";
 import { CloudWorkloadSecurityAgentRuleResponse } from "../models/CloudWorkloadSecurityAgentRuleResponse";
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
@@ -91,6 +96,176 @@ import { UserInvitationsResponse } from "../models/UserInvitationsResponse";
 import { UserResponse } from "../models/UserResponse";
 import { UserUpdateRequest } from "../models/UserUpdateRequest";
 import { UsersResponse } from "../models/UsersResponse";
+
+import { ObservableAuthNMappingsApi } from "./ObservableAPI";
+import {
+  AuthNMappingsApiRequestFactory,
+  AuthNMappingsApiResponseProcessor,
+} from "../apis/AuthNMappingsApi";
+
+export interface AuthNMappingsApiCreateAuthNMappingRequest {
+  /**
+   *
+   * @type AuthNMappingCreateRequest
+   * @memberof AuthNMappingsApicreateAuthNMapping
+   */
+  body: AuthNMappingCreateRequest;
+}
+
+export interface AuthNMappingsApiDeleteAuthNMappingRequest {
+  /**
+   * The UUID of the AuthN Mapping.
+   * @type string
+   * @memberof AuthNMappingsApideleteAuthNMapping
+   */
+  authnMappingId: string;
+}
+
+export interface AuthNMappingsApiGetAuthNMappingRequest {
+  /**
+   * The UUID of the AuthN Mapping.
+   * @type string
+   * @memberof AuthNMappingsApigetAuthNMapping
+   */
+  authnMappingId: string;
+}
+
+export interface AuthNMappingsApiListAuthNMappingsRequest {
+  /**
+   * Size for a given page.
+   * @type number
+   * @memberof AuthNMappingsApilistAuthNMappings
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   * @memberof AuthNMappingsApilistAuthNMappings
+   */
+  pageNumber?: number;
+  /**
+   * Sort AuthN Mappings depending on the given field.
+   * @type AuthNMappingsSort
+   * @memberof AuthNMappingsApilistAuthNMappings
+   */
+  sort?: AuthNMappingsSort;
+  /**
+   *
+   * @type Array&lt;string&gt;
+   * @memberof AuthNMappingsApilistAuthNMappings
+   */
+  include?: Array<string>;
+  /**
+   * Filter all mappings by the given string.
+   * @type string
+   * @memberof AuthNMappingsApilistAuthNMappings
+   */
+  filter?: string;
+}
+
+export interface AuthNMappingsApiUpdateAuthNMappingRequest {
+  /**
+   * The UUID of the AuthN Mapping.
+   * @type string
+   * @memberof AuthNMappingsApiupdateAuthNMapping
+   */
+  authnMappingId: string;
+  /**
+   *
+   * @type AuthNMappingUpdateRequest
+   * @memberof AuthNMappingsApiupdateAuthNMapping
+   */
+  body: AuthNMappingUpdateRequest;
+}
+
+export class ObjectAuthNMappingsApi {
+  private api: ObservableAuthNMappingsApi;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: AuthNMappingsApiRequestFactory,
+    responseProcessor?: AuthNMappingsApiResponseProcessor
+  ) {
+    this.api = new ObservableAuthNMappingsApi(
+      configuration,
+      requestFactory,
+      responseProcessor
+    );
+  }
+
+  /**
+   * Create an AuthN Mapping.
+   * Create an AuthN Mapping
+   * @param param the request object
+   */
+  public createAuthNMapping(
+    param: AuthNMappingsApiCreateAuthNMappingRequest,
+    options?: Configuration
+  ): Promise<AuthNMappingResponse> {
+    return this.api.createAuthNMapping(param.body, options).toPromise();
+  }
+
+  /**
+   * Delete an AuthN Mapping specified by AuthN Mapping UUID.
+   * Delete an AuthN Mapping
+   * @param param the request object
+   */
+  public deleteAuthNMapping(
+    param: AuthNMappingsApiDeleteAuthNMappingRequest,
+    options?: Configuration
+  ): Promise<void> {
+    return this.api
+      .deleteAuthNMapping(param.authnMappingId, options)
+      .toPromise();
+  }
+
+  /**
+   * Get an AuthN Mapping specified by the AuthN Mapping UUID.
+   * Get an AuthN Mapping by UUID
+   * @param param the request object
+   */
+  public getAuthNMapping(
+    param: AuthNMappingsApiGetAuthNMappingRequest,
+    options?: Configuration
+  ): Promise<AuthNMappingResponse> {
+    return this.api.getAuthNMapping(param.authnMappingId, options).toPromise();
+  }
+
+  /**
+   * List all AuthN Mappings in the org.
+   * List all AuthN Mappings
+   * @param param the request object
+   */
+  public listAuthNMappings(
+    param: AuthNMappingsApiListAuthNMappingsRequest = {},
+    options?: Configuration
+  ): Promise<AuthNMappingsResponse> {
+    return this.api
+      .listAuthNMappings(
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.include,
+        param.filter,
+        options
+      )
+      .toPromise();
+  }
+
+  /**
+   * Edit an AuthN Mapping.
+   * Edit an AuthN Mapping
+   * @param param the request object
+   */
+  public updateAuthNMapping(
+    param: AuthNMappingsApiUpdateAuthNMappingRequest,
+    options?: Configuration
+  ): Promise<AuthNMappingResponse> {
+    return this.api
+      .updateAuthNMapping(param.authnMappingId, param.body, options)
+      .toPromise();
+  }
+}
 
 import { ObservableCloudWorkloadSecurityApi } from "./ObservableAPI";
 import {

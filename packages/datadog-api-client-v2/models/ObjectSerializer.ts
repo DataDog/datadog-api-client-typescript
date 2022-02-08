@@ -16,6 +16,19 @@ import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { AuthNMapping } from "./AuthNMapping";
+import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
+import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
+import { AuthNMappingCreateData } from "./AuthNMappingCreateData";
+import { AuthNMappingCreateRelationships } from "./AuthNMappingCreateRelationships";
+import { AuthNMappingCreateRequest } from "./AuthNMappingCreateRequest";
+import { AuthNMappingRelationships } from "./AuthNMappingRelationships";
+import { AuthNMappingResponse } from "./AuthNMappingResponse";
+import { AuthNMappingUpdate } from "./AuthNMappingUpdate";
+import { AuthNMappingUpdateAttributes } from "./AuthNMappingUpdateAttributes";
+import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
+import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
+import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
@@ -191,6 +204,8 @@ import { RelationshipToPermissions } from "./RelationshipToPermissions";
 import { RelationshipToRole } from "./RelationshipToRole";
 import { RelationshipToRoleData } from "./RelationshipToRoleData";
 import { RelationshipToRoles } from "./RelationshipToRoles";
+import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
+import { RelationshipToSAMLAssertionAttributeData } from "./RelationshipToSAMLAssertionAttributeData";
 import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
@@ -214,6 +229,8 @@ import { RoleUpdateRequest } from "./RoleUpdateRequest";
 import { RoleUpdateResponse } from "./RoleUpdateResponse";
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
+import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
+import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -312,6 +329,21 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  AuthNMappingsSort: [
+    "created_at",
+    "-created_at",
+    "role_id",
+    "-role_id",
+    "saml_assertion_attribute_id",
+    "-saml_assertion_attribute_id",
+    "role.name",
+    "-role.name",
+    "saml_assertion_attribute.attribute_key",
+    "-saml_assertion_attribute.attribute_key",
+    "saml_assertion_attribute.attribute_value",
+    "-saml_assertion_attribute.attribute_value",
+  ],
+  AuthNMappingsType: ["authn_mappings"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   ContentEncoding: ["gzip", "deflate"],
   DashboardType: [
@@ -382,6 +414,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-user_count",
   ],
   RolesType: ["roles"],
+  SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
@@ -441,6 +474,19 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  AuthNMapping: AuthNMapping,
+  AuthNMappingAttributes: AuthNMappingAttributes,
+  AuthNMappingCreateAttributes: AuthNMappingCreateAttributes,
+  AuthNMappingCreateData: AuthNMappingCreateData,
+  AuthNMappingCreateRelationships: AuthNMappingCreateRelationships,
+  AuthNMappingCreateRequest: AuthNMappingCreateRequest,
+  AuthNMappingRelationships: AuthNMappingRelationships,
+  AuthNMappingResponse: AuthNMappingResponse,
+  AuthNMappingUpdate: AuthNMappingUpdate,
+  AuthNMappingUpdateAttributes: AuthNMappingUpdateAttributes,
+  AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
+  AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
+  AuthNMappingsResponse: AuthNMappingsResponse,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
   CloudWorkloadSecurityAgentRuleCreateAttributes:
@@ -636,6 +682,9 @@ const typeMap: { [index: string]: any } = {
   RelationshipToRole: RelationshipToRole,
   RelationshipToRoleData: RelationshipToRoleData,
   RelationshipToRoles: RelationshipToRoles,
+  RelationshipToSAMLAssertionAttribute: RelationshipToSAMLAssertionAttribute,
+  RelationshipToSAMLAssertionAttributeData:
+    RelationshipToSAMLAssertionAttributeData,
   RelationshipToUser: RelationshipToUser,
   RelationshipToUserData: RelationshipToUserData,
   RelationshipToUsers: RelationshipToUsers,
@@ -659,6 +708,8 @@ const typeMap: { [index: string]: any } = {
   RoleUpdateResponse: RoleUpdateResponse,
   RoleUpdateResponseData: RoleUpdateResponseData,
   RolesResponse: RolesResponse,
+  SAMLAssertionAttribute: SAMLAssertionAttribute,
+  SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -724,6 +775,7 @@ const typeMap: { [index: string]: any } = {
 const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User"],
   ApplicationKeyResponseIncludedItem: ["Role", "User"],
+  AuthNMappingIncluded: ["Role", "SAMLAssertionAttribute"],
   IncidentFieldAttributes: [
     "IncidentFieldAttributesMultipleValue",
     "IncidentFieldAttributesSingleValue",
