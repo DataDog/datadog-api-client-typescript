@@ -8,7 +8,8 @@ const v2 =
 const v2Send = v2.prototype.send;
 
 function wrap(method: any) {
-  function send(request: any): any {
+  function send(this: any, request: any): any {
+    const instance = this;
     return tracer.trace(
       "fetch",
       { type: "http", resource: request.getUrl() },
@@ -21,7 +22,7 @@ function wrap(method: any) {
         request.setHeaderParam("x-datadog-origin", "ciapp-test");
         request.setHeaderParam("x-datadog-sampling-priority", "1");
         request.setHeaderParam("x-datadog-sampled", "1");
-        const response = method(request);
+        const response = method.apply(instance, [request]);
 
         response.then((responseContext: any) => {
           const violations = responseContext.headers["sl-violations"];
