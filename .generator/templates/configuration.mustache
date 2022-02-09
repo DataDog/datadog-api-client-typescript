@@ -113,6 +113,7 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
         httpConfig: conf.httpConfig || {},
         debug: conf.debug
     };
+    configuration.httpApi.debug = configuration.debug;
     return configuration;
 }
 

@@ -133,6 +133,7 @@ export function createConfiguration(
     httpConfig: conf.httpConfig || {},
     debug: conf.debug,
   };
+  configuration.httpApi.debug = configuration.debug;
   return configuration;
 }
 

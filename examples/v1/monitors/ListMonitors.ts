@@ -4,7 +4,7 @@
 
 import { v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = v1.createConfiguration({debug: true});
 const apiInstance = new v1.MonitorsApi(configuration);
 
 apiInstance

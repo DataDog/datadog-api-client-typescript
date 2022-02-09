@@ -237,5 +237,6 @@ export class ResponseContext {
 }
 
 export interface HttpLibrary {
+  debug?: boolean;
   send(request: RequestContext): Promise<ResponseContext>;
 }
