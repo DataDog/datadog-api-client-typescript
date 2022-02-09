@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -24,16 +23,7 @@ import { RolesResponse } from "../models/RolesResponse";
 import { RolesSort } from "../models/RolesSort";
 import { UsersResponse } from "../models/UsersResponse";
 
-/**
- * no description
- */
 export class RolesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Adds a permission to a role.
-   * Grant permission to a role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async addPermissionToRole(
     roleId: string,
     body: RelationshipToPermission,
@@ -90,12 +80,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Adds a user to a role.
-   * Add a user to a role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async addUserToRole(
     roleId: string,
     body: RelationshipToUser,
@@ -152,12 +136,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Clone an existing role
-   * Create a new role by cloning an existing role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async cloneRole(
     roleId: string,
     body: RoleCloneRequest,
@@ -214,11 +192,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create a new role for your organization.
-   * Create role
-   * @param body
-   */
   public async createRole(
     body: RoleCreateRequest,
     _options?: Configuration
@@ -264,11 +237,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Disables a role.
-   * Delete role
-   * @param roleId The ID of the role.
-   */
   public async deleteRole(
     roleId: string,
     _options?: Configuration
@@ -306,11 +274,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a role in the organization specified by the role’s `role_id`.
-   * Get a role
-   * @param roleId The ID of the role.
-   */
   public async getRole(
     roleId: string,
     _options?: Configuration
@@ -348,10 +311,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns a list of all permissions, including name, description, and ID.
-   * List permissions
-   */
   public async listPermissions(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -378,11 +337,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns a list of all permissions for a single role.
-   * List permissions for a role
-   * @param roleId The ID of the role.
-   */
   public async listRolePermissions(
     roleId: string,
     _options?: Configuration
@@ -420,15 +374,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Gets all users of a role.
-   * Get all users of a role
-   * @param roleId The ID of the role.
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;.
-   * @param filter Filter all users by the given string. Defaults to no filtering.
-   */
   public async listRoleUsers(
     roleId: string,
     pageSize?: number,
@@ -496,14 +441,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns all roles, including their names and IDs.
-   * List roles
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;.
-   * @param filter Filter all roles by the given string.
-   */
   public async listRoles(
     pageSize?: number,
     pageNumber?: number,
@@ -560,12 +497,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Removes a permission from a role.
-   * Revoke permission
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async removePermissionFromRole(
     roleId: string,
     body: RelationshipToPermission,
@@ -622,12 +553,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Removes a user from a role.
-   * Remove a user from a role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async removeUserFromRole(
     roleId: string,
     body: RelationshipToUser,
@@ -684,12 +609,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit a role. Can only be used with application keys belonging to administrators.
-   * Update a role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async updateRole(
     roleId: string,
     body: RoleUpdateRequest,

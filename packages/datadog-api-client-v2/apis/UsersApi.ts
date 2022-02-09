@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -22,15 +21,7 @@ import { UserResponse } from "../models/UserResponse";
 import { UserUpdateRequest } from "../models/UserUpdateRequest";
 import { UsersResponse } from "../models/UsersResponse";
 
-/**
- * no description
- */
 export class UsersApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a service account for your organization.
-   * Create a service account
-   * @param body
-   */
   public async createServiceAccount(
     body: ServiceAccountCreateRequest,
     _options?: Configuration
@@ -75,11 +66,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create a user for your organization.
-   * Create a user
-   * @param body
-   */
   public async createUser(
     body: UserCreateRequest,
     _options?: Configuration
@@ -125,11 +111,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Disable a user. Can only be used with an application key belonging to an administrator user.
-   * Disable a user
-   * @param userId The ID of the user.
-   */
   public async disableUser(
     userId: string,
     _options?: Configuration
@@ -167,11 +148,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns a single user invitation by its UUID.
-   * Get a user invitation
-   * @param userInvitationUuid The UUID of the user invitation.
-   */
   public async getInvitation(
     userInvitationUuid: string,
     _options?: Configuration
@@ -210,11 +186,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a user in the organization specified by the user’s `user_id`.
-   * Get user details
-   * @param userId The ID of the user.
-   */
   public async getUser(
     userId: string,
     _options?: Configuration
@@ -252,11 +223,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a user organization. Returns the user information and all organizations joined by this user.
-   * Get a user organization
-   * @param userId The ID of the user.
-   */
   public async listUserOrganizations(
     userId: string,
     _options?: Configuration
@@ -294,11 +260,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a user permission set. Returns a list of the user’s permissions granted by the associated user's roles.
-   * Get a user permissions
-   * @param userId The ID of the user.
-   */
   public async listUserPermissions(
     userId: string,
     _options?: Configuration
@@ -336,16 +297,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
-   * List all users
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;.
-   * @param sortDir Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;.
-   * @param filter Filter all users by the given string. Defaults to no filtering.
-   * @param filterStatus Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.
-   */
   public async listUsers(
     pageSize?: number,
     pageNumber?: number,
@@ -416,11 +367,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Sends emails to one or more users inviting them to join the organization.
-   * Send invitation emails
-   * @param body
-   */
   public async sendInvitations(
     body: UserInvitationsRequest,
     _options?: Configuration
@@ -466,12 +412,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit a user. Can only be used with an application key belonging to an administrator user.
-   * Update a user
-   * @param userId The ID of the user.
-   * @param body
-   */
   public async updateUser(
     userId: string,
     body: UserUpdateRequest,

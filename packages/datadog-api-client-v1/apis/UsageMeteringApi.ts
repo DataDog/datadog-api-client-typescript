@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -53,18 +52,7 @@ import { UsageSyntheticsResponse } from "../models/UsageSyntheticsResponse";
 import { UsageTimeseriesResponse } from "../models/UsageTimeseriesResponse";
 import { UsageTopAvgMetricsResponse } from "../models/UsageTopAvgMetricsResponse";
 
-/**
- * no description
- */
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Get daily custom reports.
-   * Get the list of available daily custom reports
-   * @param pageSize The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.
-   * @param pageNumber The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;.
-   * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;.
-   * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-   */
   public async getDailyCustomReports(
     pageSize?: number,
     pageNumber?: number,
@@ -129,15 +117,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get Hourly Usage Attribution.
-   * Get Hourly Usage Attribution
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param usageType Usage type to retrieve.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   * @param nextRecordId List following results with a next_record_id provided in the previous query.
-   * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
-   */
   public async getHourlyUsageAttribution(
     startHr: Date,
     usageType: HourlyUsageAttributionUsageType,
@@ -229,12 +208,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for incident management.
-   * Get hourly usage for incident management
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getIncidentManagement(
     startHr: Date,
     endHr?: Date,
@@ -287,12 +260,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for ingested spans.
-   * Get hourly usage for ingested spans
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getIngestedSpans(
     startHr: Date,
     endHr?: Date,
@@ -345,14 +312,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get monthly custom reports.
-   * Get the list of available monthly custom reports
-   * @param pageSize The number of files to return in the response &#x60;[default&#x3D;60].&#x60;
-   * @param pageNumber The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;.
-   * @param sortDir The direction to sort by: &#x60;[desc, asc]&#x60;.
-   * @param sort The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
-   */
   public async getMonthlyCustomReports(
     pageSize?: number,
     pageNumber?: number,
@@ -419,17 +378,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get Monthly Usage Attribution.
-   * Get Monthly Usage Attribution
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
-   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
-   * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
-   * @param sortName The field to sort by.
-   * @param tagBreakdownKeys Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
-   * @param nextRecordId List following results with a next_record_id provided in the previous query.
-   */
   public async getMonthlyUsageAttribution(
     startMonth: Date,
     fields: MonthlyUsageAttributionSupportedMetrics,
@@ -539,11 +487,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get specified daily custom reports.
-   * Get specified daily custom reports
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
-   */
   public async getSpecifiedDailyCustomReports(
     reportId: string,
     _options?: Configuration
@@ -591,11 +534,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get specified monthly custom reports.
-   * Get specified monthly custom reports
-   * @param reportId Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
-   */
   public async getSpecifiedMonthlyCustomReports(
     reportId: string,
     _options?: Configuration
@@ -643,12 +581,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for analyzed logs (Security Monitoring).
-   * Get hourly usage for analyzed logs
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageAnalyzedLogs(
     startHr: Date,
     endHr?: Date,
@@ -701,18 +633,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get Usage Attribution.
-   * Get Usage Attribution
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-   * @param fields Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
-   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
-   * @param sortDirection The direction to sort by: &#x60;[desc, asc]&#x60;.
-   * @param sortName The field to sort by.
-   * @param includeDescendants Include child org usage in the response. Defaults to false.
-   * @param offset Number of records to skip before beginning to return.
-   * @param limit Maximum number of records to be returned.
-   */
   public async getUsageAttribution(
     startMonth: Date,
     fields: UsageAttributionSupportedMetrics,
@@ -823,12 +743,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for audit logs.
-   * Get hourly usage for audit logs
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageAuditLogs(
     startHr: Date,
     endHr?: Date,
@@ -881,11 +795,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get billable usage across your account.
-   * Get billable usage across your account
-   * @param month Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
-   */
   public async getUsageBillableSummary(
     month?: Date,
     _options?: Configuration
@@ -924,12 +833,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for Cloud Workload Security.
-   * Get hourly usage for Cloud Workload Security
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageCWS(
     startHr: Date,
     endHr?: Date,
@@ -982,12 +885,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for Cloud Security Posture Management (CSPM).
-   * Get hourly usage for CSPM
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageCloudSecurityPostureManagement(
     startHr: Date,
     endHr?: Date,
@@ -1040,12 +937,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for Database Monitoring
-   * Get hourly usage for Database Monitoring
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageDBM(
     startHr: Date,
     endHr?: Date,
@@ -1098,12 +989,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for [Fargate](https://docs.datadoghq.com/integrations/ecs_fargate/).
-   * Get hourly usage for Fargate
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageFargate(
     startHr: Date,
     endHr?: Date,
@@ -1156,12 +1041,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for hosts and containers.
-   * Get hourly usage for hosts and containers
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageHosts(
     startHr: Date,
     endHr?: Date,
@@ -1214,12 +1093,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for indexed spans.
-   * Get hourly usage for indexed spans
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageIndexedSpans(
     startHr: Date,
     endHr?: Date,
@@ -1272,12 +1145,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for IoT.
-   * Get hourly usage for IoT
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageInternetOfThings(
     startHr: Date,
     endHr?: Date,
@@ -1330,12 +1197,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for lambda.
-   * Get hourly usage for Lambda
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageLambda(
     startHr: Date,
     endHr?: Date,
@@ -1388,12 +1249,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for logs.
-   * Get hourly usage for Logs
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageLogs(
     startHr: Date,
     endHr?: Date,
@@ -1446,13 +1301,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for logs by index.
-   * Get hourly usage for Logs by Index
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   * @param indexName Comma-separated list of log index names.
-   */
   public async getUsageLogsByIndex(
     startHr: Date,
     endHr?: Date,
@@ -1512,12 +1360,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for indexed logs by retention period.
-   * Get hourly logs usage by retention
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageLogsByRetention(
     startHr: Date,
     endHr?: Date,
@@ -1570,12 +1412,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for network flows.
-   * Get hourly usage for Network Flows
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageNetworkFlows(
     startHr: Date,
     endHr?: Date,
@@ -1628,12 +1464,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for network hosts.
-   * Get hourly usage for Network Hosts
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageNetworkHosts(
     startHr: Date,
     endHr?: Date,
@@ -1686,12 +1516,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for profiled hosts.
-   * Get hourly usage for profiled hosts
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageProfiling(
     startHr: Date,
     endHr?: Date,
@@ -1744,13 +1568,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Sessions.
-   * Get hourly usage for RUM Sessions
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   * @param type RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
-   */
   public async getUsageRumSessions(
     startHr: Date,
     endHr?: Date,
@@ -1810,12 +1627,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for [RUM](https://docs.datadoghq.com/real_user_monitoring/) Units.
-   * Get hourly usage for RUM Units
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageRumUnits(
     startHr: Date,
     endHr?: Date,
@@ -1868,12 +1679,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for Sensitive Data Scanner.
-   * Get hourly usage for Sensitive Data Scanner
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageSDS(
     startHr: Date,
     endHr?: Date,
@@ -1926,12 +1731,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for SNMP devices.
-   * Get hourly usage for SNMP devices
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   */
   public async getUsageSNMP(
     startHr: Date,
     endHr?: Date,
@@ -1984,13 +1783,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get usage across your multi-org account. You must have the multi-org feature enabled.
-   * Get usage across your multi-org account
-   * @param startMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
-   * @param endMonth Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
-   * @param includeOrgDetails Include usage summaries for each sub-org.
-   */
   public async getUsageSummary(
     startMonth: Date,
     endMonth?: Date,
@@ -2050,12 +1842,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for [Synthetics checks](https://docs.datadoghq.com/synthetics/).
-   * Get hourly usage for Synthetics Checks
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageSynthetics(
     startHr: Date,
     endHr?: Date,
@@ -2108,12 +1894,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for [synthetics API checks](https://docs.datadoghq.com/synthetics/).
-   * Get hourly usage for Synthetics API Checks
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageSyntheticsAPI(
     startHr: Date,
     endHr?: Date,
@@ -2166,12 +1946,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for synthetics browser checks.
-   * Get hourly usage for Synthetics Browser Checks
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageSyntheticsBrowser(
     startHr: Date,
     endHr?: Date,
@@ -2224,12 +1998,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get hourly usage for [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/).
-   * Get hourly usage for custom metrics
-   * @param startHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
-   * @param endHr Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
-   */
   public async getUsageTimeseries(
     startHr: Date,
     endHr?: Date,
@@ -2282,15 +2050,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/) by hourly average. Use the month parameter to get a month-to-date data resolution or use the day parameter to get a daily resolution. One of the two is required, and only one of the two is allowed.
-   * Get all custom metrics by hourly average
-   * @param month Datetime in ISO-8601 format, UTC, precise to month: [YYYY-MM] for usage beginning at this hour. (Either month or day should be specified, but not both)
-   * @param day Datetime in ISO-8601 format, UTC, precise to day: [YYYY-MM-DD] for usage beginning at this hour. (Either month or day should be specified, but not both)
-   * @param names Comma-separated list of metric names.
-   * @param limit Maximum number of results to return (between 1 and 5000) - defaults to 500 results if limit not specified.
-   * @param nextRecordId List following results with a next_record_id provided in the previous query.
-   */
   public async getUsageTopAvgMetrics(
     month?: Date,
     day?: Date,

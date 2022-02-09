@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory } from "./baseapi";
 import {
   Configuration,
@@ -13,20 +12,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ProcessSummariesResponse } from "../models/ProcessSummariesResponse";
 
-/**
- * no description
- */
 export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Get all processes for your organization.
-   * Get all processes
-   * @param search String to search processes by.
-   * @param tags Comma-separated list of tags to filter processes by.
-   * @param from Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the &#x60;to&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
-   * @param to Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the &#x60;from&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
-   * @param pageLimit Maximum number of results returned.
-   * @param pageCursor String to query the next page of results. This key is provided with each valid response from the API in &#x60;meta.page.after&#x60;.
-   */
   public async listProcesses(
     search?: string,
     tags?: string,

@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -18,16 +17,7 @@ import { LogsArchives } from "../models/LogsArchives";
 import { RelationshipToRole } from "../models/RelationshipToRole";
 import { RolesResponse } from "../models/RolesResponse";
 
-/**
- * no description
- */
 export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
-   * Grant role to an archive
-   * @param archiveId The ID of the archive.
-   * @param body
-   */
   public async addReadRoleToArchive(
     archiveId: string,
     body: RelationshipToRole,
@@ -84,11 +74,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create an archive in your organization.
-   * Create an archive
-   * @param body The definition of the new archive.
-   */
   public async createLogsArchive(
     body: LogsArchiveCreateRequest,
     _options?: Configuration
@@ -133,11 +118,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a given archive from your organization.
-   * Delete an archive
-   * @param archiveId The ID of the archive.
-   */
   public async deleteLogsArchive(
     archiveId: string,
     _options?: Configuration
@@ -174,11 +154,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a specific archive from your organization.
-   * Get an archive
-   * @param archiveId The ID of the archive.
-   */
   public async getLogsArchive(
     archiveId: string,
     _options?: Configuration
@@ -216,10 +191,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the current order of your archives. This endpoint takes no JSON arguments.
-   * Get archive order
-   */
   public async getLogsArchiveOrder(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -246,11 +217,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns all read roles a given archive is restricted to.
-   * List read roles for an archive
-   * @param archiveId The ID of the archive.
-   */
   public async listArchiveReadRoles(
     archiveId: string,
     _options?: Configuration
@@ -289,10 +255,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of configured logs archives with their definitions.
-   * Get all archives
-   */
   public async listLogsArchives(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -319,12 +281,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
-   * Revoke role from an archive
-   * @param archiveId The ID of the archive.
-   * @param body
-   */
   public async removeRoleFromArchive(
     archiveId: string,
     body: RelationshipToRole,
@@ -381,12 +337,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a given archive configuration.  **Note**: Using this method updates your archive configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
-   * Update an archive
-   * @param archiveId The ID of the archive.
-   * @param body New definition of the archive.
-   */
   public async updateLogsArchive(
     archiveId: string,
     body: LogsArchiveCreateRequest,
@@ -442,11 +392,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change the structure and content of the data processed by other archives.  **Note**: Using the `PUT` method updates your archive's order by replacing the current order with the new one.
-   * Update archive order
-   * @param body An object containing the new ordered list of archive IDs.
-   */
   public async updateLogsArchiveOrder(
     body: LogsArchiveOrder,
     _options?: Configuration

@@ -1,10 +1,4 @@
 import { HttpLibrary, HttpConfiguration, RequestContext } from "./http/http";
-import {
-  DebugMiddleWare,
-  Middleware,
-  PromiseMiddleware,
-  PromiseMiddlewareWrapper,
-} from "./middleware";
 import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch";
 import {
   BaseServerConfiguration,
@@ -23,7 +17,6 @@ export interface Configuration {
   readonly serverIndex: number;
   readonly operationServerIndices: { [name: string]: number };
   readonly httpApi: HttpLibrary;
-  readonly middleware: Middleware[];
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
   readonly debug: boolean | undefined;
@@ -51,14 +44,6 @@ export interface ConfigurationParameters {
    */
   httpApi?: HttpLibrary;
   /**
-   * The middlewares which will be applied to requests and responses
-   */
-  middleware?: Middleware[];
-  /**
-   * Configures all middlewares using the promise api instead of observables (which Middleware uses)
-   */
-  promiseMiddleware?: PromiseMiddleware[];
-  /**
    * Configuration for the available authentication methods
    */
   authMethods?: AuthMethodsConfiguration;
@@ -80,8 +65,6 @@ export interface ConfigurationParameters {
  *    - serverIndex: 0
  *    - operationServerIndices: {}
  *    - httpApi: IsomorphicFetchHttpLibrary
- *    - middleware: []
- *    - promiseMiddleware: []
  *    - authMethods: {}
  *    - httpConfig: {}
  *    - debug: false
@@ -138,16 +121,10 @@ export function createConfiguration(
       getUsageAttribution: false,
     },
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
-    middleware: conf.middleware || (conf.debug ? [new DebugMiddleWare()] : []),
     authMethods: configureAuthMethods(authMethods),
     httpConfig: conf.httpConfig || {},
     debug: conf.debug,
   };
-  if (conf.promiseMiddleware) {
-    conf.promiseMiddleware.forEach((m) =>
-      configuration.middleware.push(new PromiseMiddlewareWrapper(m))
-    );
-  }
   return configuration;
 }
 

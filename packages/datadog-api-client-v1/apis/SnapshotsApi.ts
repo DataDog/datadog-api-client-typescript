@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -13,20 +12,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GraphSnapshot } from "../models/GraphSnapshot";
 
-/**
- * no description
- */
 export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is available.
-   * Take graph snapshots
-   * @param start The POSIX timestamp of the start of the query.
-   * @param end The POSIX timestamp of the end of the query.
-   * @param metricQuery The metric query.
-   * @param eventQuery A query that adds event bands to the graph.
-   * @param graphDef A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
-   * @param title A title for the graph. If no title is specified, the graph does not have a title.
-   */
   public async getGraphSnapshot(
     start: number,
     end: number,

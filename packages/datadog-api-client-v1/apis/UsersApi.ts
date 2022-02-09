@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -16,15 +15,7 @@ import { UserDisableResponse } from "../models/UserDisableResponse";
 import { UserListResponse } from "../models/UserListResponse";
 import { UserResponse } from "../models/UserResponse";
 
-/**
- * no description
- */
 export class UsersApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a user for your organization.  **Note**: Users can only be created with the admin access role if application keys belong to administrators.
-   * Create a user
-   * @param body User object that needs to be created.
-   */
   public async createUser(
     body: User,
     _options?: Configuration
@@ -70,11 +61,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
-   * Disable a user
-   * @param userHandle The handle of the user.
-   */
   public async disableUser(
     userHandle: string,
     _options?: Configuration
@@ -111,11 +97,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a user's details.
-   * Get user details
-   * @param userHandle The ID of the user.
-   */
   public async getUser(
     userHandle: string,
     _options?: Configuration
@@ -152,10 +133,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all users for your organization.
-   * List all users
-   */
   public async listUsers(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
@@ -180,12 +157,6 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
-   * Update a user
-   * @param userHandle The ID of the user.
-   * @param body Description of the update.
-   */
   public async updateUser(
     userHandle: string,
     body: User,

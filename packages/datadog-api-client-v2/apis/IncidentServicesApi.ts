@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -18,15 +17,7 @@ import { IncidentServiceResponse } from "../models/IncidentServiceResponse";
 import { IncidentServiceUpdateRequest } from "../models/IncidentServiceUpdateRequest";
 import { IncidentServicesResponse } from "../models/IncidentServicesResponse";
 
-/**
- * no description
- */
 export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Creates a new incident service.
-   * Create a new incident service
-   * @param body Incident Service Payload.
-   */
   public async createIncidentService(
     body: IncidentServiceCreateRequest,
     _options?: Configuration
@@ -77,11 +68,6 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Deletes an existing incident service.
-   * Delete an existing incident service
-   * @param serviceId The ID of the incident service.
-   */
   public async deleteIncidentService(
     serviceId: string,
     _options?: Configuration
@@ -124,12 +110,6 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get details of an incident service. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
-   * Get details of an incident service
-   * @param serviceId The ID of the incident service.
-   * @param include Specifies which types of related objects should be included in the response.
-   */
   public async getIncidentService(
     serviceId: string,
     include?: IncidentRelatedObject,
@@ -181,14 +161,6 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
-   * Get a list of all incident services
-   * @param include Specifies which types of related objects should be included in the response.
-   * @param pageSize Size for a given page.
-   * @param pageOffset Specific offset to use as the beginning of the returned page.
-   * @param filter A search query that filters services by name.
-   */
   public async listIncidentServices(
     include?: IncidentRelatedObject,
     pageSize?: number,
@@ -250,12 +222,6 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
-   * Update an existing incident service
-   * @param serviceId The ID of the incident service.
-   * @param body Incident Service Payload.
-   */
   public async updateIncidentService(
     serviceId: string,
     body: IncidentServiceUpdateRequest,

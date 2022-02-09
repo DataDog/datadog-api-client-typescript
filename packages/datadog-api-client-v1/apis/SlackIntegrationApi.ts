@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -13,16 +12,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { SlackIntegrationChannel } from "../models/SlackIntegrationChannel";
 
-/**
- * no description
- */
 export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Add a channel to your Datadog-Slack integration.
-   * Create a Slack integration channel
-   * @param accountName Your Slack account name.
-   * @param body Payload describing Slack channel to be created
-   */
   public async createSlackIntegrationChannel(
     accountName: string,
     body: SlackIntegrationChannel,
@@ -79,12 +69,6 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a channel configured for your Datadog-Slack integration.
-   * Get a Slack integration channel
-   * @param accountName Your Slack account name.
-   * @param channelName The name of the Slack channel being operated on.
-   */
   public async getSlackIntegrationChannel(
     accountName: string,
     channelName: string,
@@ -135,11 +119,6 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a list of all channels configured for your Datadog-Slack integration.
-   * Get all channels in a Slack integration
-   * @param accountName Your Slack account name.
-   */
   public async getSlackIntegrationChannels(
     accountName: string,
     _options?: Configuration
@@ -177,12 +156,6 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Remove a channel from your Datadog-Slack integration.
-   * Remove a Slack integration channel
-   * @param accountName Your Slack account name.
-   * @param channelName The name of the Slack channel being operated on.
-   */
   public async removeSlackIntegrationChannel(
     accountName: string,
     channelName: string,
@@ -233,13 +206,6 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a channel used in your Datadog-Slack integration.
-   * Update a Slack integration channel
-   * @param accountName Your Slack account name.
-   * @param channelName The name of the Slack channel being operated on.
-   * @param body Payload describing fields and values to be updated.
-   */
   public async updateSlackIntegrationChannel(
     accountName: string,
     channelName: string,

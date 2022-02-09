@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -16,15 +15,7 @@ import { LogsMetricResponse } from "../models/LogsMetricResponse";
 import { LogsMetricUpdateRequest } from "../models/LogsMetricUpdateRequest";
 import { LogsMetricsResponse } from "../models/LogsMetricsResponse";
 
-/**
- * no description
- */
 export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a metric based on your ingested logs in your organization. Returns the log-based metric object from the request body when the request is successful.
-   * Create a log-based metric
-   * @param body The definition of the new log-based metric.
-   */
   public async createLogsMetric(
     body: LogsMetricCreateRequest,
     _options?: Configuration
@@ -69,11 +60,6 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a specific log-based metric from your organization.
-   * Delete a log-based metric
-   * @param metricId The name of the log-based metric.
-   */
   public async deleteLogsMetric(
     metricId: string,
     _options?: Configuration
@@ -110,11 +96,6 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a specific log-based metric from your organization.
-   * Get a log-based metric
-   * @param metricId The name of the log-based metric.
-   */
   public async getLogsMetric(
     metricId: string,
     _options?: Configuration
@@ -152,10 +133,6 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of configured log-based metrics with their definitions.
-   * Get all log-based metrics
-   */
   public async listLogsMetrics(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -182,12 +159,6 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a specific log-based metric from your organization. Returns the log-based metric object from the request body when the request is successful.
-   * Update a log-based metric
-   * @param metricId The name of the log-based metric.
-   * @param body New definition of the log-based metric.
-   */
   public async updateLogsMetric(
     metricId: string,
     body: LogsMetricUpdateRequest,

@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -14,15 +13,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
 import { ServiceCheck } from "../models/ServiceCheck";
 
-/**
- * no description
- */
 export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Submit a list of Service Checks.  **Notes**: - A valid API key is required. - Service checks can be submitted up to 10 minutes in the past.
-   * Submit a Service Check
-   * @param body Service Check request body.
-   */
   public async submitServiceCheck(
     body: Array<ServiceCheck>,
     _options?: Configuration

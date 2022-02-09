@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -17,15 +16,7 @@ import { LogsIndexListResponse } from "../models/LogsIndexListResponse";
 import { LogsIndexUpdateRequest } from "../models/LogsIndexUpdateRequest";
 import { LogsIndexesOrder } from "../models/LogsIndexesOrder";
 
-/**
- * no description
- */
 export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Creates a new index. Returns the Index object passed in the request body when the request is successful.
-   * Create an index
-   * @param body Object containing the new index.
-   */
   public async createLogsIndex(
     body: LogsIndex,
     _options?: Configuration
@@ -70,11 +61,6 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get one log index from your organization. This endpoint takes no JSON arguments.
-   * Get an index
-   * @param name Name of the log index.
-   */
   public async getLogsIndex(
     name: string,
     _options?: Configuration
@@ -111,10 +97,6 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the current order of your log indexes. This endpoint takes no JSON arguments.
-   * Get indexes order
-   */
   public async getLogsIndexOrder(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -141,10 +123,6 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * The Index object describes the configuration of a log index. This endpoint returns an array of the `LogIndex` objects of your organization.
-   * Get all indexes
-   */
   public async listLogIndexes(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -171,12 +149,6 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the `PUT` method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
-   * Update an index
-   * @param name Name of the log index.
-   * @param body Object containing the new &#x60;LogsIndexUpdateRequest&#x60;.
-   */
   public async updateLogsIndex(
     name: string,
     body: LogsIndexUpdateRequest,
@@ -232,11 +204,6 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
-   * Update indexes order
-   * @param body Object containing the new ordered list of index names
-   */
   public async updateLogsIndexOrder(
     body: LogsIndexesOrder,
     _options?: Configuration

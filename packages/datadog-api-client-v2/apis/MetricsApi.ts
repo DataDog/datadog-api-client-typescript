@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -20,16 +19,7 @@ import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigur
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 
-/**
- * no description
- */
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
-   * Create a tag configuration
-   * @param metricName The name of the metric.
-   * @param body
-   */
   public async createTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationCreateRequest,
@@ -96,11 +86,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
-   * Delete a tag configuration
-   * @param metricName The name of the metric.
-   */
   public async deleteTagConfiguration(
     metricName: string,
     _options?: Configuration
@@ -144,11 +129,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns the tag configuration for the given metric name.
-   * List tag configuration by name
-   * @param metricName The name of the metric.
-   */
   public async listTagConfigurationByName(
     metricName: string,
     _options?: Configuration
@@ -192,16 +172,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
-   * List tag configurations
-   * @param filterConfigured Filter metrics that have configured tags.
-   * @param filterTagsConfigured Filter tag configurations by configured tags.
-   * @param filterMetricType Filter tag configurations by metric type.
-   * @param filterIncludePercentiles Filter distributions with additional percentile aggregations enabled or disabled.
-   * @param filterTags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
-   * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
-   */
   public async listTagConfigurations(
     filterConfigured?: boolean,
     filterTagsConfigured?: string,
@@ -281,11 +251,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * View indexed tag key-value pairs for a given metric name.
-   * List tags by metric name
-   * @param metricName The name of the metric.
-   */
   public async listTagsByMetricName(
     metricName: string,
     _options?: Configuration
@@ -323,11 +288,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
-   * List distinct metric volumes by metric name
-   * @param metricName The name of the metric.
-   */
   public async listVolumesByMetricName(
     metricName: string,
     _options?: Configuration
@@ -365,12 +325,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
-   * Update a tag configuration
-   * @param metricName The name of the metric.
-   * @param body
-   */
   public async updateTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationUpdateRequest,

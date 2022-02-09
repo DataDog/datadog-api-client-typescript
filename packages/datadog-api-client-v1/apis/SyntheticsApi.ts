@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -32,15 +31,7 @@ import { SyntheticsTriggerBody } from "../models/SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestsResponse } from "../models/SyntheticsTriggerCITestsResponse";
 import { SyntheticsUpdateTestPauseStatusPayload } from "../models/SyntheticsUpdateTestPauseStatusPayload";
 
-/**
- * no description
- */
 export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a Synthetics global variable.
-   * Create a global variable
-   * @param body Details of the global variable to create.
-   */
   public async createGlobalVariable(
     body: SyntheticsGlobalVariable,
     _options?: Configuration
@@ -86,11 +77,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create a new Synthetics private location.
-   * Create a private location
-   * @param body Details of the private location to create.
-   */
   public async createPrivateLocation(
     body: SyntheticsPrivateLocation,
     _options?: Configuration
@@ -136,11 +122,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create a Synthetic API test.
-   * Create an API test
-   * @param body Details of the test to create.
-   */
   public async createSyntheticsAPITest(
     body: SyntheticsAPITest,
     _options?: Configuration
@@ -186,11 +167,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create a Synthetic browser test.
-   * Create a browser test
-   * @param body Details of the test to create.
-   */
   public async createSyntheticsBrowserTest(
     body: SyntheticsBrowserTest,
     _options?: Configuration
@@ -236,11 +212,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a Synthetics global variable.
-   * Delete a global variable
-   * @param variableId The ID of the global variable.
-   */
   public async deleteGlobalVariable(
     variableId: string,
     _options?: Configuration
@@ -278,11 +249,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a Synthetics private location.
-   * Delete a private location
-   * @param locationId The ID of the private location.
-   */
   public async deletePrivateLocation(
     locationId: string,
     _options?: Configuration
@@ -321,11 +287,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete multiple Synthetic tests by ID.
-   * Delete tests
-   * @param body Public ID list of the Synthetic tests to be deleted.
-   */
   public async deleteTests(
     body: SyntheticsDeleteTestsPayload,
     _options?: Configuration
@@ -371,12 +332,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit a Synthetics global variable.
-   * Edit a global variable
-   * @param variableId The ID of the global variable.
-   * @param body Details of the global variable to update.
-   */
   public async editGlobalVariable(
     variableId: string,
     body: SyntheticsGlobalVariable,
@@ -433,11 +388,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the detailed configuration associated with a Synthetic API test.
-   * Get an API test
-   * @param publicId The public ID of the test to get details from.
-   */
   public async getAPITest(
     publicId: string,
     _options?: Configuration
@@ -475,14 +425,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the last 50 test results summaries for a given Synthetics API test.
-   * Get an API test's latest results summaries
-   * @param publicId The public ID of the test for which to search results for.
-   * @param fromTs Timestamp in milliseconds from which to start querying results.
-   * @param toTs Timestamp in milliseconds up to which to query results.
-   * @param probeDc Locations for which to query results.
-   */
   public async getAPITestLatestResults(
     publicId: string,
     fromTs?: number,
@@ -543,12 +485,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a specific full result from a given (API) Synthetic test.
-   * Get an API test result
-   * @param publicId The public ID of the API test to which the target result belongs.
-   * @param resultId The ID of the result to get.
-   */
   public async getAPITestResult(
     publicId: string,
     resultId: string,
@@ -594,11 +530,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the detailed configuration (including steps) associated with a Synthetic browser test.
-   * Get a browser test
-   * @param publicId The public ID of the test to get details from.
-   */
   public async getBrowserTest(
     publicId: string,
     _options?: Configuration
@@ -636,14 +567,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the last 50 test results summaries for a given Synthetics Browser test.
-   * Get a browser test's latest results summaries
-   * @param publicId The public ID of the browser test for which to search results for.
-   * @param fromTs Timestamp in milliseconds from which to start querying results.
-   * @param toTs Timestamp in milliseconds up to which to query results.
-   * @param probeDc Locations for which to query results.
-   */
   public async getBrowserTestLatestResults(
     publicId: string,
     fromTs?: number,
@@ -705,12 +628,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a specific full result from a given (browser) Synthetic test.
-   * Get a browser test result
-   * @param publicId The public ID of the browser test to which the target result belongs.
-   * @param resultId The ID of the result to get.
-   */
   public async getBrowserTestResult(
     publicId: string,
     resultId: string,
@@ -756,11 +673,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the detailed configuration of a global variable.
-   * Get a global variable
-   * @param variableId The ID of the global variable.
-   */
   public async getGlobalVariable(
     variableId: string,
     _options?: Configuration
@@ -798,11 +710,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a Synthetics private location.
-   * Get a private location
-   * @param locationId The ID of the private location.
-   */
   public async getPrivateLocation(
     locationId: string,
     _options?: Configuration
@@ -841,11 +748,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a batch's updated details.
-   * Get details of batch
-   * @param batchId The ID of the batch.
-   */
   public async getSyntheticsCIBatch(
     batchId: string,
     _options?: Configuration
@@ -883,11 +785,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the detailed configuration associated with a Synthetics test.
-   * Get a test configuration
-   * @param publicId The public ID of the test to get details from.
-   */
   public async getTest(
     publicId: string,
     _options?: Configuration
@@ -925,10 +822,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of all Synthetics global variables.
-   * Get all global variables
-   */
   public async listGlobalVariables(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -955,10 +848,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of public and private locations available for Synthetic tests. No arguments required.
-   * Get all locations (public and private)
-   */
   public async listLocations(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -985,10 +874,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of all Synthetic tests.
-   * Get the list of all tests
-   */
   public async listTests(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
@@ -1013,11 +898,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Trigger a set of Synthetics tests for continuous integration.
-   * Trigger tests from CI/CD pipelines
-   * @param body Details of the test to trigger.
-   */
   public async triggerCITests(
     body: SyntheticsCITestBody,
     _options?: Configuration
@@ -1063,11 +943,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Trigger a set of Synthetics tests.
-   * Trigger Synthetics tests
-   * @param body The identifiers of the tests to trigger.
-   */
   public async triggerTests(
     body: SyntheticsTriggerBody,
     _options?: Configuration
@@ -1113,12 +988,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit the configuration of a Synthetic API test.
-   * Edit an API test
-   * @param publicId The public ID of the test to get details from.
-   * @param body New test details to be saved.
-   */
   public async updateAPITest(
     publicId: string,
     body: SyntheticsAPITest,
@@ -1175,12 +1044,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit the configuration of a Synthetic browser test.
-   * Edit a browser test
-   * @param publicId The public ID of the test to get details from.
-   * @param body New test details to be saved.
-   */
   public async updateBrowserTest(
     publicId: string,
     body: SyntheticsBrowserTest,
@@ -1237,12 +1100,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit a Synthetics private location.
-   * Edit a private location
-   * @param locationId The ID of the private location.
-   * @param body Details of the private location to be updated.
-   */
   public async updatePrivateLocation(
     locationId: string,
     body: SyntheticsPrivateLocation,
@@ -1300,12 +1157,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Pause or start a Synthetics test by changing the status.
-   * Pause or start a test
-   * @param publicId The public ID of the Synthetic test to update.
-   * @param body Status to set the given Synthetic test to.
-   */
   public async updateTestPauseStatus(
     publicId: string,
     body: SyntheticsUpdateTestPauseStatusPayload,

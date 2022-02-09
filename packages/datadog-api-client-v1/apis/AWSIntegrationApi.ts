@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -19,15 +18,7 @@ import { AWSTagFilterCreateRequest } from "../models/AWSTagFilterCreateRequest";
 import { AWSTagFilterDeleteRequest } from "../models/AWSTagFilterDeleteRequest";
 import { AWSTagFilterListResponse } from "../models/AWSTagFilterListResponse";
 
-/**
- * no description
- */
 export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a Datadog-Amazon Web Services integration. Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
-   * Create an AWS integration
-   * @param body AWS Request Object
-   */
   public async createAWSAccount(
     body: AWSAccount,
     _options?: Configuration
@@ -72,11 +63,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Set an AWS tag filter.
-   * Set an AWS tag filter
-   * @param body Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
-   */
   public async createAWSTagFilter(
     body: AWSTagFilterCreateRequest,
     _options?: Configuration
@@ -121,11 +107,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Generate a new AWS external ID for a given AWS account ID and role name pair.
-   * Generate a new external ID
-   * @param body Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
-   */
   public async createNewAWSExternalID(
     body: AWSAccount,
     _options?: Configuration
@@ -170,11 +151,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
-   * Delete an AWS integration
-   * @param body AWS request object
-   */
   public async deleteAWSAccount(
     body: AWSAccountDeleteRequest,
     _options?: Configuration
@@ -219,11 +195,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a tag filtering entry.
-   * Delete a tag filtering entry
-   * @param body Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace.
-   */
   public async deleteAWSTagFilter(
     body: AWSTagFilterDeleteRequest,
     _options?: Configuration
@@ -268,13 +239,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all Datadog-AWS integrations available in your Datadog organization.
-   * List all AWS integrations
-   * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
-   * @param roleName Only return AWS accounts that matches this role_name.
-   * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
-   */
   public async listAWSAccounts(
     accountId?: string,
     roleName?: string,
@@ -323,11 +287,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all AWS tag filters.
-   * Get all AWS tag filters
-   * @param accountId Only return AWS filters that matches this &#x60;account_id&#x60;.
-   */
   public async listAWSTagFilters(
     accountId: string,
     _options?: Configuration
@@ -369,10 +328,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
-   * List namespace rules
-   */
   public async listAvailableAWSNamespaces(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -398,14 +353,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a Datadog-Amazon Web Services integration.
-   * Update an AWS integration
-   * @param body AWS request object
-   * @param accountId Only return AWS accounts that matches this &#x60;account_id&#x60;.
-   * @param roleName Only return AWS accounts that match this &#x60;role_name&#x60;. Required if &#x60;account_id&#x60; is specified.
-   * @param accessKeyId Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified.
-   */
   public async updateAWSAccount(
     body: AWSAccount,
     accountId?: string,

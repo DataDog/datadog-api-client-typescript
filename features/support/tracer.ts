@@ -23,7 +23,7 @@ function wrap(method: any) {
         request.setHeaderParam("x-datadog-sampled", "1");
         const response = method(request);
 
-        response.promise = response.promise.then((responseContext: any) => {
+        response.then((responseContext: any) => {
           const violations = responseContext.headers["sl-violations"];
           if (violations != undefined) {
             span.addTags({
@@ -34,7 +34,7 @@ function wrap(method: any) {
           return responseContext;
         });
 
-        response.promise.finally(() => {
+        response.finally(() => {
           if (callback) {
             callback()
           }

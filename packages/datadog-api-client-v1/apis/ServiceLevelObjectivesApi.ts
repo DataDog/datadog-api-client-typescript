@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -23,15 +22,7 @@ import { SLOTimeframe } from "../models/SLOTimeframe";
 import { ServiceLevelObjective } from "../models/ServiceLevelObjective";
 import { ServiceLevelObjectiveRequest } from "../models/ServiceLevelObjectiveRequest";
 
-/**
- * no description
- */
 export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
-   * Check if SLOs can be safely deleted
-   * @param ids A comma separated list of the IDs of the service level objectives objects.
-   */
   public async checkCanDeleteSLO(
     ids: string,
     _options?: Configuration
@@ -73,11 +64,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
-  /**
-   * Create a service level objective object.
-   * Create an SLO object
-   * @param body Service level objective request object.
-   */
   public async createSLO(
     body: ServiceLevelObjectiveRequest,
     _options?: Configuration
@@ -122,12 +108,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
-  /**
-   * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
-   * Delete an SLO
-   * @param sloId The ID of the service level objective.
-   * @param force Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
-   */
   public async deleteSLO(
     sloId: string,
     force?: string,
@@ -173,11 +153,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
-  /**
-   * Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
-   * Bulk Delete SLO Timeframes
-   * @param body Delete multiple service level objective objects request body.
-   */
   public async deleteSLOTimeframeInBulk(
     body: { [key: string]: Array<SLOTimeframe> },
     _options?: Configuration
@@ -226,12 +201,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
-  /**
-   * Get a service level objective object.
-   * Get an SLO's details
-   * @param sloId The ID of the service level objective object.
-   * @param withConfiguredAlertIds Get the IDs of SLO monitors that reference this SLO.
-   */
   public async getSLO(
     sloId: string,
     withConfiguredAlertIds?: boolean,
@@ -278,11 +247,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
-  /**
-   * Get corrections applied to an SLO
-   * Get Corrections For an SLO
-   * @param sloId The ID of the service level objective object.
-   */
   public async getSLOCorrections(
     sloId: string,
     _options?: Configuration
@@ -325,15 +289,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
-  /**
-   * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
-   * Get an SLO's history
-   * @param sloId The ID of the service level objective object.
-   * @param fromTs The &#x60;from&#x60; timestamp for the query window in epoch seconds.
-   * @param toTs The &#x60;to&#x60; timestamp for the query window in epoch seconds.
-   * @param target The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
-   * @param applyCorrection Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected.
-   */
   public async getSLOHistory(
     sloId: string,
     fromTs: number,
@@ -420,16 +375,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
-  /**
-   * Get a list of service level objective objects for your organization.
-   * Get all SLOs
-   * @param ids A comma separated list of the IDs of the service level objectives objects.
-   * @param query The query string to filter results based on SLO names.
-   * @param tagsQuery The query string to filter results based on a single SLO tag.
-   * @param metricsQuery The query string to filter results based on SLO numerator and denominator.
-   * @param limit The number of SLOs to return in the response.
-   * @param offset The specific offset to use as the beginning of the returned response.
-   */
   public async listSLOs(
     ids?: string,
     query?: string,
@@ -500,12 +445,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     return requestContext;
   }
 
-  /**
-   * Update the specified service level objective object.
-   * Update an SLO
-   * @param sloId The ID of the service level objective object.
-   * @param body The edited service level objective request object.
-   */
   public async updateSLO(
     sloId: string,
     body: ServiceLevelObjective,

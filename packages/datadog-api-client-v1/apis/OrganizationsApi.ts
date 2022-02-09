@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -24,15 +23,7 @@ import { OrganizationCreateResponse } from "../models/OrganizationCreateResponse
 import { OrganizationListResponse } from "../models/OrganizationListResponse";
 import { OrganizationResponse } from "../models/OrganizationResponse";
 
-/**
- * no description
- */
 export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `api_key.key`, and `application_key.hash` provided in the response.
-   * Create a child organization
-   * @param body Organization object that needs to be created
-   */
   public async createChildOrg(
     body: OrganizationCreateBody,
     _options?: Configuration
@@ -77,11 +68,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get organization information.
-   * Get organization information
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
-   */
   public async getOrg(
     publicId: string,
     _options?: Configuration
@@ -118,10 +104,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List your managed organizations.
-   * List your managed organizations
-   */
   public async listOrgs(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
@@ -145,12 +127,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update your organization.
-   * Update your organization
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating within.
-   * @param body
-   */
   public async updateOrg(
     publicId: string,
     body: Organization,
@@ -206,12 +182,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
-   * Upload IdP metadata
-   * @param publicId The &#x60;public_id&#x60; of the organization you are operating with
-   * @param idpFile The path to the XML metadata file you wish to upload.
-   */
   public async uploadIdPForOrg(
     publicId: string,
     idpFile: HttpFile,

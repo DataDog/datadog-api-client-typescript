@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -15,15 +14,7 @@ import { PagerDutyService } from "../models/PagerDutyService";
 import { PagerDutyServiceKey } from "../models/PagerDutyServiceKey";
 import { PagerDutyServiceName } from "../models/PagerDutyServiceName";
 
-/**
- * no description
- */
 export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a new service object in the PagerDuty integration.
-   * Create a new service object
-   * @param body Create a new service object request body.
-   */
   public async createPagerDutyIntegrationService(
     body: PagerDutyService,
     _options?: Configuration
@@ -68,11 +59,6 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     return requestContext;
   }
 
-  /**
-   * Delete a single service object in the Datadog-PagerDuty integration.
-   * Delete a single service object
-   * @param serviceName The service name
-   */
   public async deletePagerDutyIntegrationService(
     serviceName: string,
     _options?: Configuration
@@ -110,11 +96,6 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     return requestContext;
   }
 
-  /**
-   * Get service name in the Datadog-PagerDuty integration.
-   * Get a single service object
-   * @param serviceName The service name.
-   */
   public async getPagerDutyIntegrationService(
     serviceName: string,
     _options?: Configuration
@@ -152,12 +133,6 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     return requestContext;
   }
 
-  /**
-   * Update a single service object in the Datadog-PagerDuty integration.
-   * Update a single service object
-   * @param serviceName The service name
-   * @param body Update an existing service object request body.
-   */
   public async updatePagerDutyIntegrationService(
     serviceName: string,
     body: PagerDutyServiceKey,

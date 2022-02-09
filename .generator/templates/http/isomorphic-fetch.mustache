@@ -1,5 +1,4 @@
 import {HttpLibrary, RequestContext, ResponseContext} from './http{{extensionForDeno}}';
-import { from, Observable } from {{#useRxJS}}'rxjs'{{/useRxJS}}{{^useRxJS}}'../rxjsStub{{extensionForDeno}}'{{/useRxJS}};
 {{#platforms}}
 {{#node}}
 import fetch from "cross-fetch";
@@ -13,7 +12,7 @@ import bufferFrom from "buffer-from";
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
 
-    public send(request: RequestContext): Observable<ResponseContext> {
+    public send(request: RequestContext): Promise<ResponseContext> {
         let method = request.getHttpMethod().toString();
         let body = request.getBody();
 
@@ -73,7 +72,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
             return new ResponseContext(resp.status, headers, body);
         });
 
-        return from<Promise<ResponseContext>>(resultPromise);
+        return resultPromise;
 
     }
 }

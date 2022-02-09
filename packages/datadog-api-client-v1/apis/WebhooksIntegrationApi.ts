@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -17,15 +16,7 @@ import { WebhooksIntegrationCustomVariableResponse } from "../models/WebhooksInt
 import { WebhooksIntegrationCustomVariableUpdateRequest } from "../models/WebhooksIntegrationCustomVariableUpdateRequest";
 import { WebhooksIntegrationUpdateRequest } from "../models/WebhooksIntegrationUpdateRequest";
 
-/**
- * no description
- */
 export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Creates an endpoint with the name `<WEBHOOK_NAME>`.
-   * Create a webhooks integration
-   * @param body Create a webhooks integration request body.
-   */
   public async createWebhooksIntegration(
     body: WebhooksIntegration,
     _options?: Configuration
@@ -70,11 +61,6 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  /**
-   * Creates an endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
-   * Create a custom variable
-   * @param body Define a custom variable request body.
-   */
   public async createWebhooksIntegrationCustomVariable(
     body: WebhooksIntegrationCustomVariable,
     _options?: Configuration
@@ -120,11 +106,6 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  /**
-   * Deletes the endpoint with the name `<WEBHOOK NAME>`.
-   * Delete a webhook
-   * @param webhookName The name of the webhook.
-   */
   public async deleteWebhooksIntegration(
     webhookName: string,
     _options?: Configuration
@@ -162,11 +143,6 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  /**
-   * Deletes the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
-   * Delete a custom variable
-   * @param customVariableName The name of the custom variable.
-   */
   public async deleteWebhooksIntegrationCustomVariable(
     customVariableName: string,
     _options?: Configuration
@@ -204,11 +180,6 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  /**
-   * Gets the content of the webhook with the name `<WEBHOOK_NAME>`.
-   * Get a webhook integration
-   * @param webhookName The name of the webhook.
-   */
   public async getWebhooksIntegration(
     webhookName: string,
     _options?: Configuration
@@ -246,11 +217,6 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  /**
-   * Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.  If the custom variable is secret, the value does not return in the response payload.
-   * Get a custom variable
-   * @param customVariableName The name of the custom variable.
-   */
   public async getWebhooksIntegrationCustomVariable(
     customVariableName: string,
     _options?: Configuration
@@ -288,12 +254,6 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  /**
-   * Updates the endpoint with the name `<WEBHOOK_NAME>`.
-   * Update a webhook
-   * @param webhookName The name of the webhook.
-   * @param body Update an existing Datadog-Webhooks integration.
-   */
   public async updateWebhooksIntegration(
     webhookName: string,
     body: WebhooksIntegrationUpdateRequest,
@@ -350,12 +310,6 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
-  /**
-   * Updates the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
-   * Update a custom variable
-   * @param customVariableName The name of the custom variable.
-   * @param body Update an existing custom variable request body.
-   */
   public async updateWebhooksIntegrationCustomVariable(
     customVariableName: string,
     body: WebhooksIntegrationCustomVariableUpdateRequest,

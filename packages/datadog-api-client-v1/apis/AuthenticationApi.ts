@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory } from "./baseapi";
 import {
   Configuration,
@@ -13,14 +12,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AuthenticationValidationResponse } from "../models/AuthenticationValidationResponse";
 
-/**
- * no description
- */
 export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
-   * Validate API key
-   */
   public async validate(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 

@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -24,15 +23,7 @@ import { SecurityMonitoringSignalListRequest } from "../models/SecurityMonitorin
 import { SecurityMonitoringSignalsListResponse } from "../models/SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSignalsSort";
 
-/**
- * no description
- */
 export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
-   * Create a security filter
-   * @param body The definition of the new security filter.
-   */
   public async createSecurityFilter(
     body: SecurityFilterCreateRequest,
     _options?: Configuration
@@ -79,11 +70,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create a detection rule.
-   * Create a detection rule
-   * @param body
-   */
   public async createSecurityMonitoringRule(
     body: SecurityMonitoringRuleCreatePayload,
     _options?: Configuration
@@ -133,11 +119,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a specific security filter.
-   * Delete a security filter
-   * @param securityFilterId The ID of the security filter.
-   */
   public async deleteSecurityFilter(
     securityFilterId: string,
     _options?: Configuration
@@ -176,11 +157,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete an existing rule. Default rules cannot be deleted.
-   * Delete an existing rule
-   * @param ruleId The ID of the rule.
-   */
   public async deleteSecurityMonitoringRule(
     ruleId: string,
     _options?: Configuration
@@ -218,11 +194,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
-   * Get a security filter
-   * @param securityFilterId The ID of the security filter.
-   */
   public async getSecurityFilter(
     securityFilterId: string,
     _options?: Configuration
@@ -261,11 +232,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a rule's details.
-   * Get a rule's details
-   * @param ruleId The ID of the rule.
-   */
   public async getSecurityMonitoringRule(
     ruleId: string,
     _options?: Configuration
@@ -303,10 +269,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of configured security filters with their definitions.
-   * Get all security filters
-   */
   public async listSecurityFilters(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -334,12 +296,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List rules.
-   * List rules
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   */
   public async listSecurityMonitoringRules(
     pageSize?: number,
     pageNumber?: number,
@@ -382,16 +338,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
-   * Get a quick list of security signals
-   * @param filterQuery The search query for security signals.
-   * @param filterFrom The minimum timestamp for requested security signals.
-   * @param filterTo The maximum timestamp for requested security signals.
-   * @param sort The order of the security signals in results.
-   * @param pageCursor A list of results using the cursor provided in the previous query.
-   * @param pageLimit The maximum number of security signals in the response.
-   */
   public async listSecurityMonitoringSignals(
     filterQuery?: string,
     filterFrom?: Date,
@@ -469,11 +415,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
-   * Get a list of security signals
-   * @param body
-   */
   public async searchSecurityMonitoringSignals(
     body?: SecurityMonitoringSignalListRequest,
     _options?: Configuration
@@ -523,12 +464,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a specific security filter. Returns the security filter object when the request is successful.
-   * Update a security filter
-   * @param securityFilterId The ID of the security filter.
-   * @param body New definition of the security filter.
-   */
   public async updateSecurityFilter(
     securityFilterId: string,
     body: SecurityFilterUpdateRequest,
@@ -586,12 +521,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
-   * Update an existing rule
-   * @param ruleId The ID of the rule.
-   * @param body
-   */
   public async updateSecurityMonitoringRule(
     ruleId: string,
     body: SecurityMonitoringRuleUpdatePayload,

@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -15,15 +14,7 @@ import { DashboardList } from "../models/DashboardList";
 import { DashboardListDeleteResponse } from "../models/DashboardListDeleteResponse";
 import { DashboardListListResponse } from "../models/DashboardListListResponse";
 
-/**
- * no description
- */
 export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create an empty dashboard list.
-   * Create a dashboard list
-   * @param body Create a dashboard list request body.
-   */
   public async createDashboardList(
     body: DashboardList,
     _options?: Configuration
@@ -69,11 +60,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a dashboard list.
-   * Delete a dashboard list
-   * @param listId ID of the dashboard list to delete.
-   */
   public async deleteDashboardList(
     listId: number,
     _options?: Configuration
@@ -111,11 +97,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Fetch an existing dashboard list's definition.
-   * Get a dashboard list
-   * @param listId ID of the dashboard list to fetch.
-   */
   public async getDashboardList(
     listId: number,
     _options?: Configuration
@@ -153,10 +134,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Fetch all of your existing dashboard list definitions.
-   * Get all dashboard lists
-   */
   public async listDashboardLists(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -183,12 +160,6 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update the name of a dashboard list.
-   * Update a dashboard list
-   * @param listId ID of the dashboard list to update.
-   * @param body Update a dashboard list request body.
-   */
   public async updateDashboardList(
     listId: number,
     body: DashboardList,

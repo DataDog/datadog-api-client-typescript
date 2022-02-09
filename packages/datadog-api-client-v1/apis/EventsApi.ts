@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -17,15 +16,7 @@ import { EventListResponse } from "../models/EventListResponse";
 import { EventPriority } from "../models/EventPriority";
 import { EventResponse } from "../models/EventResponse";
 
-/**
- * no description
- */
 export class EventsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
-   * Post an event
-   * @param body Event request object
-   */
   public async createEvent(
     body: EventCreateRequest,
     _options?: Configuration
@@ -67,11 +58,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
-   * Get an event
-   * @param eventId The ID of the event.
-   */
   public async getEvent(
     eventId: number,
     _options?: Configuration
@@ -109,18 +95,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
-   * Query the event stream
-   * @param start POSIX timestamp.
-   * @param end POSIX timestamp.
-   * @param priority Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
-   * @param sources A comma separated string of sources.
-   * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
-   * @param unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60;
-   * @param excludeAggregate Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default.
-   * @param page By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60;
-   */
   public async listEvents(
     start: number,
     end: number,

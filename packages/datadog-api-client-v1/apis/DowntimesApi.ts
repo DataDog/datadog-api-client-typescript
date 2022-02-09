@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -15,15 +14,7 @@ import { CancelDowntimesByScopeRequest } from "../models/CancelDowntimesByScopeR
 import { CanceledDowntimesIds } from "../models/CanceledDowntimesIds";
 import { Downtime } from "../models/Downtime";
 
-/**
- * no description
- */
 export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Cancel a downtime.
-   * Cancel a downtime
-   * @param downtimeId ID of the downtime to cancel.
-   */
   public async cancelDowntime(
     downtimeId: number,
     _options?: Configuration
@@ -61,11 +52,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete all downtimes that match the scope of `X`.
-   * Cancel downtimes by scope
-   * @param body Scope to cancel downtimes for.
-   */
   public async cancelDowntimesByScope(
     body: CancelDowntimesByScopeRequest,
     _options?: Configuration
@@ -111,11 +97,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Schedule a downtime.
-   * Schedule a downtime
-   * @param body Schedule a downtime request body.
-   */
   public async createDowntime(
     body: Downtime,
     _options?: Configuration
@@ -161,11 +142,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get downtime detail by `downtime_id`.
-   * Get a downtime
-   * @param downtimeId ID of the downtime to fetch.
-   */
   public async getDowntime(
     downtimeId: number,
     _options?: Configuration
@@ -203,11 +179,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all scheduled downtimes.
-   * Get all downtimes
-   * @param currentOnly Only return downtimes that are active when the request is made.
-   */
   public async listDowntimes(
     currentOnly?: boolean,
     _options?: Configuration
@@ -243,11 +214,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all active downtimes for the specified monitor.
-   * Get all downtimes for a monitor
-   * @param monitorId The id of the monitor
-   */
   public async listMonitorDowntimes(
     monitorId: number,
     _options?: Configuration
@@ -285,12 +251,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a single downtime by `downtime_id`.
-   * Update a downtime
-   * @param downtimeId ID of the downtime to update.
-   * @param body Update a downtime request body.
-   */
   public async updateDowntime(
     downtimeId: number,
     body: Downtime,

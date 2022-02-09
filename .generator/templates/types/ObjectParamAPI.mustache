@@ -14,7 +14,6 @@ import { {{{ classname }}} } from '../models/{{{ classFilename }}}{{extensionFor
 {{#apis}}
 
 {{#operations}}
-import { Observable{{classname}} } from "./ObservableAPI{{extensionForDeno}}";
 import { {{classname}}RequestFactory, {{classname}}ResponseProcessor} from "../apis/{{classname}}{{extensionForDeno}}";
 
 {{#operation}}
@@ -24,7 +23,6 @@ export interface {{classname}}{{operationIdCamelCase}}Request {
     /**
      * {{description}}
      * @type {{dataType}}
-     * @memberof {{classname}}{{nickname}}
      */
     {{paramName}}{{^required}}?{{/required}}: {{{dataType}}}
     {{/allParams}}
@@ -33,10 +31,15 @@ export interface {{classname}}{{operationIdCamelCase}}Request {
 {{/hasParams}}
 {{/operation}}
 export class Object{{classname}} {
-    private api: Observable{{classname}}
+
+    private requestFactory: {{classname}}RequestFactory;
+    private responseProcessor: {{classname}}ResponseProcessor;
+    private configuration: Configuration;
 
     public constructor(configuration: Configuration, requestFactory?: {{classname}}RequestFactory, responseProcessor?: {{classname}}ResponseProcessor) {
-        this.api = new Observable{{classname}}(configuration, requestFactory, responseProcessor);
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new {{classname}}RequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new {{classname}}ResponseProcessor();
     }
 
 {{#operation}}
@@ -44,13 +47,15 @@ export class Object{{classname}} {
      {{#notes}}
      * {{&notes}}
      {{/notes}}
-     {{#summary}}
-     * {{&summary}}
-     {{/summary}}
-     * @param param the request object
+     * @param param The request object
      */
     public {{nickname}}({{#hasParams}}param: {{classname}}{{operationIdCamelCase}}Request{{^requiredParams}} = {}{{/requiredParams}}, {{/hasParams}}options?: Configuration): {{#useRxJS}}Observable{{/useRxJS}}{{^useRxJS}}Promise{{/useRxJS}}<{{{returnType}}}{{^returnType}}void{{/returnType}}> {
-        return this.api.{{nickname}}({{#allParams}}param.{{paramName}}, {{/allParams}} options){{^useRxJS}}.toPromise(){{/useRxJS}};
+        const requestContextPromise = this.requestFactory.{{nickname}}({{#allParams}}param.{{paramName}}, {{/allParams}}options);
+        return requestContextPromise.then(requestContext => {
+                return this.configuration.httpApi.send(requestContext).then(responseContext => {
+                        return this.responseProcessor.{{nickname}}(responseContext);
+                });
+        });
     }
 
 {{/operation}}

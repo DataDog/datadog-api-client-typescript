@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -19,15 +18,7 @@ import { MetricsListResponse } from "../models/MetricsListResponse";
 import { MetricsPayload } from "../models/MetricsPayload";
 import { MetricsQueryResponse } from "../models/MetricsQueryResponse";
 
-/**
- * no description
- */
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Get metadata about a specific metric.
-   * Get metric metadata
-   * @param metricName Name of the metric for which to get metadata.
-   */
   public async getMetricMetadata(
     metricName: string,
     _options?: Configuration
@@ -65,13 +56,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of actively reporting metrics from a given time until now.
-   * Get active metrics list
-   * @param from Seconds since the Unix epoch.
-   * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
-   * @param tagFilter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
-   */
   public async listActiveMetrics(
     from: number,
     host?: string,
@@ -128,11 +112,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Search for metrics from the last 24 hours in Datadog.
-   * Search metrics
-   * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
-   */
   public async listMetrics(
     q: string,
     _options?: Configuration
@@ -175,13 +154,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Query timeseries points.
-   * Query timeseries points
-   * @param from Start of the queried time period, seconds since the Unix epoch.
-   * @param to End of the queried time period, seconds since the Unix epoch.
-   * @param query Query string.
-   */
   public async queryMetrics(
     from: number,
     to: number,
@@ -252,12 +224,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
-   * Submit metrics
-   * @param body
-   * @param contentEncoding HTTP header used to compress the media-type.
-   */
   public async submitMetrics(
     body: MetricsPayload,
     contentEncoding?: MetricContentEncoding,
@@ -307,12 +273,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
-   * Edit metric metadata
-   * @param metricName Name of the metric for which to edit metadata.
-   * @param body New metadata.
-   */
   public async updateMetricMetadata(
     metricName: string,
     body: MetricMetadata,

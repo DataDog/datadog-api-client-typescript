@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -16,15 +15,7 @@ import { HostMuteResponse } from "../models/HostMuteResponse";
 import { HostMuteSettings } from "../models/HostMuteSettings";
 import { HostTotals } from "../models/HostTotals";
 
-/**
- * no description
- */
 export class HostsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
-   * Get the total number of active hosts
-   * @param from Number of seconds from which you want to get total number of active hosts.
-   */
   public async getHostTotals(
     from?: number,
     _options?: Configuration
@@ -60,18 +51,6 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
-   * Get all hosts for your organization
-   * @param filter String to filter search results.
-   * @param sortField Sort hosts by this field.
-   * @param sortDir Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;.
-   * @param start Host result to start search from.
-   * @param count Number of hosts to return. Max 1000.
-   * @param from Number of seconds since UNIX epoch from which you want to search your hosts.
-   * @param includeMutedHostsData Include information on the muted status of hosts and when the mute expires.
-   * @param includeHostsMetadata Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
-   */
   public async listHosts(
     filter?: string,
     sortField?: string,
@@ -156,12 +135,6 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Mute a host.
-   * Mute a host
-   * @param hostName Name of the host to mute.
-   * @param body Mute a host request body.
-   */
   public async muteHost(
     hostName: string,
     body: HostMuteSettings,
@@ -217,11 +190,6 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Unmutes a host. This endpoint takes no JSON arguments.
-   * Unmute a host
-   * @param hostName Name of the host to unmute.
-   */
   public async unmuteHost(
     hostName: string,
     _options?: Configuration

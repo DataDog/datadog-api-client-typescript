@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
 import {Configuration, getServer, applySecurityAuthentication} from '../configuration{{extensionForDeno}}';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
@@ -20,26 +19,12 @@ import { {{classname}} } from '..{{filename}}{{extensionForDeno}}';
 {{/imports}}
 {{#operations}}
 
-/**
- * {{{description}}}{{^description}}no description{{/description}}
- */
 {{#useInversify}}
 @injectable()
 {{/useInversify}}
 export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
 
     {{#operation}}
-    /**
-     {{#notes}}
-     * {{&notes}}
-     {{/notes}}
-     {{#summary}}
-     * {{&summary}}
-     {{/summary}}
-     {{#allParams}}
-     * @param {{paramName}} {{description}}
-     {{/allParams}}
-     */
     public async {{nickname}}({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}_options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
         {{#vendorExtensions.x-unstable}}

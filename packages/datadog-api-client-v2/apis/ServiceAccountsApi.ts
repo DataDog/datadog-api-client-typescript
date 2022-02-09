@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -18,16 +17,7 @@ import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
 import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
 
-/**
- * no description
- */
 export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create an application key for this service account.
-   * Create an application key for this service account
-   * @param serviceAccountId The ID of the service account.
-   * @param body
-   */
   public async createServiceAccountApplicationKey(
     serviceAccountId: string,
     body: ApplicationKeyCreateRequest,
@@ -84,12 +74,6 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete an application key owned by this service account.
-   * Delete an application key for this service account
-   * @param serviceAccountId The ID of the service account.
-   * @param appKeyId The ID of the application key.
-   */
   public async deleteServiceAccountApplicationKey(
     serviceAccountId: string,
     appKeyId: string,
@@ -140,12 +124,6 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get an application key owned by this service account.
-   * Get one application key for this service account
-   * @param serviceAccountId The ID of the service account.
-   * @param appKeyId The ID of the application key.
-   */
   public async getServiceAccountApplicationKey(
     serviceAccountId: string,
     appKeyId: string,
@@ -196,17 +174,6 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all application keys available for this service account.
-   * List application keys for this service account
-   * @param serviceAccountId The ID of the service account.
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
-   * @param filter Filter application keys by the specified string.
-   * @param filterCreatedAtStart Only include application keys created on or after the specified date.
-   * @param filterCreatedAtEnd Only include application keys created on or before the specified date.
-   */
   public async listServiceAccountApplicationKeys(
     serviceAccountId: string,
     pageSize?: number,
@@ -288,13 +255,6 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit an application key owned by this service account.
-   * Edit an application key for this service account
-   * @param serviceAccountId The ID of the service account.
-   * @param appKeyId The ID of the application key.
-   * @param body
-   */
   public async updateServiceAccountApplicationKey(
     serviceAccountId: string,
     appKeyId: string,

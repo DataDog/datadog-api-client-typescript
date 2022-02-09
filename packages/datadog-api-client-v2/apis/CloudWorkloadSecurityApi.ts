@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -21,15 +20,7 @@ import { CloudWorkloadSecurityAgentRuleResponse } from "../models/CloudWorkloadS
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "../models/CloudWorkloadSecurityAgentRulesListResponse";
 
-/**
- * no description
- */
 export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a new Agent rule with the given parameters.
-   * Create a Cloud Workload Security Agent rule
-   * @param body The definition of the new Agent rule.
-   */
   public async createCloudWorkloadSecurityAgentRule(
     body: CloudWorkloadSecurityAgentRuleCreateRequest,
     _options?: Configuration
@@ -79,11 +70,6 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     return requestContext;
   }
 
-  /**
-   * Delete a specific Agent rule.
-   * Delete a Cloud Workload Security Agent rule
-   * @param agentRuleId The ID of the Agent rule.
-   */
   public async deleteCloudWorkloadSecurityAgentRule(
     agentRuleId: string,
     _options?: Configuration
@@ -121,10 +107,6 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     return requestContext;
   }
 
-  /**
-   * The download endpoint generates a Cloud Workload Security policy file from your currently active Cloud Workload Security rules, and downloads them as a .policy file. This file can then be deployed to your agents to update the policy running in your environment.
-   * Get the latest Cloud Workload Security policy
-   */
   public async downloadCloudWorkloadPolicyFile(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -152,11 +134,6 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     return requestContext;
   }
 
-  /**
-   * Get the details of a specific Agent rule.
-   * Get a Cloud Workload Security Agent rule
-   * @param agentRuleId The ID of the Agent rule.
-   */
   public async getCloudWorkloadSecurityAgentRule(
     agentRuleId: string,
     _options?: Configuration
@@ -194,10 +171,6 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     return requestContext;
   }
 
-  /**
-   * Get the list of Agent rules.
-   * Get all Cloud Workload Security Agent rules
-   */
   public async listCloudWorkloadSecurityAgentRules(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -224,12 +197,6 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     return requestContext;
   }
 
-  /**
-   * Update a specific Agent rule. Returns the Agent rule object when the request is successful.
-   * Update a Cloud Workload Security Agent rule
-   * @param agentRuleId The ID of the Agent rule.
-   * @param body New definition of the Agent rule.
-   */
   public async updateCloudWorkloadSecurityAgentRule(
     agentRuleId: string,
     body: CloudWorkloadSecurityAgentRuleUpdateRequest,

@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -17,15 +16,7 @@ import { DashboardDeleteResponse } from "../models/DashboardDeleteResponse";
 import { DashboardRestoreRequest } from "../models/DashboardRestoreRequest";
 import { DashboardSummary } from "../models/DashboardSummary";
 
-/**
- * no description
- */
 export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended. Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
-   * Create a new dashboard
-   * @param body Create a dashboard request body.
-   */
   public async createDashboard(
     body: Dashboard,
     _options?: Configuration
@@ -71,11 +62,6 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a dashboard using the specified ID.
-   * Delete a dashboard
-   * @param dashboardId The ID of the dashboard.
-   */
   public async deleteDashboard(
     dashboardId: string,
     _options?: Configuration
@@ -113,11 +99,6 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
-   * Delete dashboards
-   * @param body Delete dashboards request body.
-   */
   public async deleteDashboards(
     body: DashboardBulkDeleteRequest,
     _options?: Configuration
@@ -163,11 +144,6 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a dashboard using the specified ID.
-   * Get a dashboard
-   * @param dashboardId The ID of the dashboard.
-   */
   public async getDashboard(
     dashboardId: string,
     _options?: Configuration
@@ -205,12 +181,6 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
-   * Get all dashboards
-   * @param filterShared When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
-   * @param filterDeleted When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
-   */
   public async listDashboards(
     filterShared?: boolean,
     filterDeleted?: boolean,
@@ -253,11 +223,6 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
-   * Restore deleted dashboards
-   * @param body Restore dashboards request body.
-   */
   public async restoreDashboards(
     body: DashboardRestoreRequest,
     _options?: Configuration
@@ -303,12 +268,6 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a dashboard using the specified ID.
-   * Update a dashboard
-   * @param dashboardId The ID of the dashboard.
-   * @param body Update Dashboard request body.
-   */
   public async updateDashboard(
     dashboardId: string,
     body: Dashboard,

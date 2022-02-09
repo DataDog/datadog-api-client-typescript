@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -17,15 +16,7 @@ import { SLOCorrectionListResponse } from "../models/SLOCorrectionListResponse";
 import { SLOCorrectionResponse } from "../models/SLOCorrectionResponse";
 import { SLOCorrectionUpdateRequest } from "../models/SLOCorrectionUpdateRequest";
 
-/**
- * no description
- */
 export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create an SLO Correction.
-   * Create an SLO correction
-   * @param body Create an SLO Correction
-   */
   public async createSLOCorrection(
     body: SLOCorrectionCreateRequest,
     _options?: Configuration
@@ -75,11 +66,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     return requestContext;
   }
 
-  /**
-   * Permanently delete the specified SLO correction object.
-   * Delete an SLO correction
-   * @param sloCorrectionId The ID of the SLO correction object.
-   */
   public async deleteSLOCorrection(
     sloCorrectionId: string,
     _options?: Configuration
@@ -121,11 +107,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     return requestContext;
   }
 
-  /**
-   * Get an SLO correction.
-   * Get an SLO correction for an SLO
-   * @param sloCorrectionId The ID of the SLO correction object.
-   */
   public async getSLOCorrection(
     sloCorrectionId: string,
     _options?: Configuration
@@ -167,10 +148,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     return requestContext;
   }
 
-  /**
-   * Get all Service Level Objective corrections.
-   * Get all SLO corrections
-   */
   public async listSLOCorrection(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -201,12 +178,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     return requestContext;
   }
 
-  /**
-   * Update the specified SLO correction object object.
-   * Update an SLO correction
-   * @param sloCorrectionId The ID of the SLO correction object.
-   * @param body The edited SLO correction object.
-   */
   public async updateSLOCorrection(
     sloCorrectionId: string,
     body: SLOCorrectionUpdateRequest,

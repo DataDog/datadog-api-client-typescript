@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory } from "./baseapi";
 import { Configuration, getServer } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
@@ -9,14 +8,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IPRanges } from "../models/IPRanges";
 
-/**
- * no description
- */
 export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Get information about Datadog IP ranges.
-   * List IP Ranges
-   */
   public async getIPRanges(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 

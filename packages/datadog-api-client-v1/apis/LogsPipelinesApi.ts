@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -15,15 +14,7 @@ import { LogsAPIErrorResponse } from "../models/LogsAPIErrorResponse";
 import { LogsPipeline } from "../models/LogsPipeline";
 import { LogsPipelinesOrder } from "../models/LogsPipelinesOrder";
 
-/**
- * no description
- */
 export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a pipeline in your organization.
-   * Create a pipeline
-   * @param body Definition of the new pipeline.
-   */
   public async createLogsPipeline(
     body: LogsPipeline,
     _options?: Configuration
@@ -68,11 +59,6 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
-   * Delete a pipeline
-   * @param pipelineId ID of the pipeline to delete.
-   */
   public async deleteLogsPipeline(
     pipelineId: string,
     _options?: Configuration
@@ -109,11 +95,6 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
-   * Get a pipeline
-   * @param pipelineId ID of the pipeline to get.
-   */
   public async getLogsPipeline(
     pipelineId: string,
     _options?: Configuration
@@ -151,10 +132,6 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the current order of your pipelines. This endpoint takes no JSON arguments.
-   * Get pipeline order
-   */
   public async getLogsPipelineOrder(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -181,10 +158,6 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all pipelines from your organization. This endpoint takes no JSON arguments.
-   * Get all pipelines
-   */
   public async listLogsPipelines(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -211,12 +184,6 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
-   * Update a pipeline
-   * @param pipelineId ID of the pipeline to delete.
-   * @param body New definition of the pipeline.
-   */
   public async updateLogsPipeline(
     pipelineId: string,
     body: LogsPipeline,
@@ -272,11 +239,6 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the `PUT` method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
-   * Update pipeline order
-   * @param body Object containing the new ordered list of pipeline IDs.
-   */
   public async updateLogsPipelineOrder(
     body: LogsPipelinesOrder,
     _options?: Configuration

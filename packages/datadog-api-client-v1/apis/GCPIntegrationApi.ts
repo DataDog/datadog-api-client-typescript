@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -13,15 +12,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GCPAccount } from "../models/GCPAccount";
 
-/**
- * no description
- */
 export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a Datadog-GCP integration.
-   * Create a GCP integration
-   * @param body Create a Datadog-GCP integration.
-   */
   public async createGCPIntegration(
     body: GCPAccount,
     _options?: Configuration
@@ -66,11 +57,6 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a given Datadog-GCP integration.
-   * Delete a GCP integration
-   * @param body Delete a given Datadog-GCP integration.
-   */
   public async deleteGCPIntegration(
     body: GCPAccount,
     _options?: Configuration
@@ -115,10 +101,6 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all Datadog-GCP integrations configured in your Datadog account.
-   * List all GCP integrations
-   */
   public async listGCPIntegration(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -144,11 +126,6 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `project_id` and `client_email`, however these fields cannot be updated. If you need to update these fields, delete and use the create (`POST`) endpoint. The unspecified fields will keep their original values.
-   * Update a GCP integration
-   * @param body Update a Datadog-GCP integration.
-   */
   public async updateGCPIntegration(
     body: GCPAccount,
     _options?: Configuration

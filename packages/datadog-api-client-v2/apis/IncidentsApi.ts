@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -18,15 +17,7 @@ import { IncidentResponse } from "../models/IncidentResponse";
 import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
 import { IncidentsResponse } from "../models/IncidentsResponse";
 
-/**
- * no description
- */
 export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create an incident.
-   * Create an incident
-   * @param body Incident payload.
-   */
   public async createIncident(
     body: IncidentCreateRequest,
     _options?: Configuration
@@ -77,11 +68,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Deletes an existing incident from the users organization.
-   * Delete an existing incident
-   * @param incidentId The UUID of the incident.
-   */
   public async deleteIncident(
     incidentId: string,
     _options?: Configuration
@@ -124,12 +110,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the details of an incident by `incident_id`.
-   * Get the details of an incident
-   * @param incidentId The UUID of the incident.
-   * @param include Specifies which types of related objects should be included in the response.
-   */
   public async getIncident(
     incidentId: string,
     include?: Array<IncidentRelatedObject>,
@@ -181,13 +161,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all incidents for the user's organization.
-   * Get a list of incidents
-   * @param include Specifies which types of related objects should be included in the response.
-   * @param pageSize Size for a given page.
-   * @param pageOffset Specific offset to use as the beginning of the returned page.
-   */
   public async listIncidents(
     include?: Array<IncidentRelatedObject>,
     pageSize?: number,
@@ -242,12 +215,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
-   * Update an existing incident
-   * @param incidentId The UUID of the incident.
-   * @param body Incident Payload.
-   */
   public async updateIncident(
     incidentId: string,
     body: IncidentUpdateRequest,

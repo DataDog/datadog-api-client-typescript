@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -18,15 +17,7 @@ import { ApplicationKey } from "../models/ApplicationKey";
 import { ApplicationKeyListResponse } from "../models/ApplicationKeyListResponse";
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 
-/**
- * no description
- */
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Creates an API key with a given name.
-   * Create an API key
-   * @param body
-   */
   public async createAPIKey(
     body: ApiKey,
     _options?: Configuration
@@ -71,11 +62,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create an application key with a given name.
-   * Create an application key
-   * @param body
-   */
   public async createApplicationKey(
     body: ApplicationKey,
     _options?: Configuration
@@ -120,11 +106,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a given API key.
-   * Delete an API key
-   * @param key The specific API key you are working with.
-   */
   public async deleteAPIKey(
     key: string,
     _options?: Configuration
@@ -161,11 +142,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a given application key.
-   * Delete an application key
-   * @param key The specific APP key you are working with.
-   */
   public async deleteApplicationKey(
     key: string,
     _options?: Configuration
@@ -202,11 +178,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a given API key.
-   * Get API key
-   * @param key The specific API key you are working with.
-   */
   public async getAPIKey(
     key: string,
     _options?: Configuration
@@ -243,11 +214,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a given application key.
-   * Get an application key
-   * @param key The specific APP key you are working with.
-   */
   public async getApplicationKey(
     key: string,
     _options?: Configuration
@@ -284,10 +250,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all API keys available for your account.
-   * Get all API keys
-   */
   public async listAPIKeys(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
@@ -311,10 +273,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all application keys available for your Datadog account.
-   * Get all application keys
-   */
   public async listApplicationKeys(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -340,12 +298,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit an API key name.
-   * Edit an API key
-   * @param key The specific API key you are working with.
-   * @param body
-   */
   public async updateAPIKey(
     key: string,
     body: ApiKey,
@@ -401,12 +353,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit an application key name.
-   * Edit an application key
-   * @param key The specific APP key you are working with.
-   * @param body
-   */
   public async updateApplicationKey(
     key: string,
     body: ApplicationKey,
