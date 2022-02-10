@@ -763,3 +763,236 @@ export class DashboardsApiResponseProcessor {
     );
   }
 }
+
+export interface DashboardsApiCreateDashboardRequest {
+  /**
+   * Create a dashboard request body.
+   * @type Dashboard
+   */
+  body: Dashboard;
+}
+
+export interface DashboardsApiDeleteDashboardRequest {
+  /**
+   * The ID of the dashboard.
+   * @type string
+   */
+  dashboardId: string;
+}
+
+export interface DashboardsApiDeleteDashboardsRequest {
+  /**
+   * Delete dashboards request body.
+   * @type DashboardBulkDeleteRequest
+   */
+  body: DashboardBulkDeleteRequest;
+}
+
+export interface DashboardsApiGetDashboardRequest {
+  /**
+   * The ID of the dashboard.
+   * @type string
+   */
+  dashboardId: string;
+}
+
+export interface DashboardsApiListDashboardsRequest {
+  /**
+   * When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
+   * @type boolean
+   */
+  filterShared?: boolean;
+  /**
+   * When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
+   * @type boolean
+   */
+  filterDeleted?: boolean;
+}
+
+export interface DashboardsApiRestoreDashboardsRequest {
+  /**
+   * Restore dashboards request body.
+   * @type DashboardRestoreRequest
+   */
+  body: DashboardRestoreRequest;
+}
+
+export interface DashboardsApiUpdateDashboardRequest {
+  /**
+   * The ID of the dashboard.
+   * @type string
+   */
+  dashboardId: string;
+  /**
+   * Update Dashboard request body.
+   * @type Dashboard
+   */
+  body: Dashboard;
+}
+
+export class DashboardsApi {
+  private requestFactory: DashboardsApiRequestFactory;
+  private responseProcessor: DashboardsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: DashboardsApiRequestFactory,
+    responseProcessor?: DashboardsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new DashboardsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new DashboardsApiResponseProcessor();
+  }
+
+  /**
+   * Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended. Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
+   * @param param The request object
+   */
+  public createDashboard(
+    param: DashboardsApiCreateDashboardRequest,
+    options?: Configuration
+  ): Promise<Dashboard> {
+    const requestContextPromise = this.requestFactory.createDashboard(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createDashboard(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a dashboard using the specified ID.
+   * @param param The request object
+   */
+  public deleteDashboard(
+    param: DashboardsApiDeleteDashboardRequest,
+    options?: Configuration
+  ): Promise<DashboardDeleteResponse> {
+    const requestContextPromise = this.requestFactory.deleteDashboard(
+      param.dashboardId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteDashboard(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete dashboards using the specified IDs. If there are any failures, no dashboards will be deleted (partial success is not allowed).
+   * @param param The request object
+   */
+  public deleteDashboards(
+    param: DashboardsApiDeleteDashboardsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteDashboards(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteDashboards(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a dashboard using the specified ID.
+   * @param param The request object
+   */
+  public getDashboard(
+    param: DashboardsApiGetDashboardRequest,
+    options?: Configuration
+  ): Promise<Dashboard> {
+    const requestContextPromise = this.requestFactory.getDashboard(
+      param.dashboardId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getDashboard(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
+   * @param param The request object
+   */
+  public listDashboards(
+    param: DashboardsApiListDashboardsRequest = {},
+    options?: Configuration
+  ): Promise<DashboardSummary> {
+    const requestContextPromise = this.requestFactory.listDashboards(
+      param.filterShared,
+      param.filterDeleted,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listDashboards(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Restore dashboards using the specified IDs. If there are any failures, no dashboards will be restored (partial success is not allowed).
+   * @param param The request object
+   */
+  public restoreDashboards(
+    param: DashboardsApiRestoreDashboardsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.restoreDashboards(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.restoreDashboards(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a dashboard using the specified ID.
+   * @param param The request object
+   */
+  public updateDashboard(
+    param: DashboardsApiUpdateDashboardRequest,
+    options?: Configuration
+  ): Promise<Dashboard> {
+    const requestContextPromise = this.requestFactory.updateDashboard(
+      param.dashboardId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateDashboard(responseContext);
+        });
+    });
+  }
+}

@@ -7,29 +7,6 @@ export{{#platforms}}{{#deno}} type{{/deno}}{{/platforms}} { Configuration } from
 export * from "./apis/exception{{extensionForDeno}}";
 export * from "./servers{{extensionForDeno}}";
 
-{{#useObjectParameters}}
-export { {{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}{{#hasParams}}{{classname}}{{operationIdCamelCase}}Request, {{/hasParams}}{{/operation}}Object{{classname}} as {{classname}}{{^-last}}, {{/-last}} {{/operations}}{{/apis}}{{/apiInfo}}} from './types/ObjectParamAPI{{extensionForDeno}}';
-{{/useObjectParameters}}
-{{^useObjectParameters}}
-{{#useRxJS}}
-export { {{#apiInfo}}{{#apis}}{{#operations}}Observable{{classname}} as {{classname}}{{^-last}}, {{/-last}} {{/operations}}{{/apis}}{{/apiInfo}}} from './types/ObservableAPI{{extensionForDeno}}';
-{{/useRxJS}}
-{{^useRxJS}}
-export { {{#apiInfo}}{{#apis}}{{#operations}}Promise{{classname}} as {{classname}}{{^-last}}, {{/-last}} {{/operations}}{{/apis}}{{/apiInfo}}} from './types/PromiseAPI{{extensionForDeno}}';
-{{/useRxJS}}
-{{/useObjectParameters}}
-
-{{#useInversify}}
-export * from "./services/index{{extensionForDeno}}";
-{{#useObjectParameters}}
-export { {{#apiInfo}}{{#apis}}{{#operations}}AbstractObject{{classname}} as Abstract{{classname}}{{^-last}}, {{/-last}} {{/operations}}{{/apis}}{{/apiInfo}}} from './services/ObjectParamAPI';
-{{/useObjectParameters}}
-{{^useObjectParameters}}
-{{#useRxJS}}
-export { {{#apiInfo}}{{#apis}}{{#operations}}AbstractObservable{{classname}} as Abstract{{classname}}{{^-last}}, {{/-last}} {{/operations}}{{/apis}}{{/apiInfo}}} from './services/ObservableAPI{{extensionForDeno}}';
-{{/useRxJS}}
-{{^useRxJS}}
-export { {{#apiInfo}}{{#apis}}{{#operations}}AbstractPromise{{classname}} as Abstract{{classname}}{{^-last}}, {{/-last}} {{/operations}}{{/apis}}{{/apiInfo}}} from './services/PromiseAPI{{extensionForDeno}}';
-{{/useRxJS}}
-{{/useObjectParameters}}
-{{/useInversify}}
+{{#apiInfo}}{{#apis}}
+export { {{#operations}}{{#operation}}{{#hasParams}}{{classname}}{{operationIdCamelCase}}Request, {{/hasParams}}{{/operation}}{{classname}}{{^-last}}, {{/-last}} {{/operations}}} from './apis/{{classname}}';
+{{/apis}}{{/apiInfo}}

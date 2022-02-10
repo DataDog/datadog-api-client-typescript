@@ -711,3 +711,210 @@ export class LogsPipelinesApiResponseProcessor {
     );
   }
 }
+
+export interface LogsPipelinesApiCreateLogsPipelineRequest {
+  /**
+   * Definition of the new pipeline.
+   * @type LogsPipeline
+   */
+  body: LogsPipeline;
+}
+
+export interface LogsPipelinesApiDeleteLogsPipelineRequest {
+  /**
+   * ID of the pipeline to delete.
+   * @type string
+   */
+  pipelineId: string;
+}
+
+export interface LogsPipelinesApiGetLogsPipelineRequest {
+  /**
+   * ID of the pipeline to get.
+   * @type string
+   */
+  pipelineId: string;
+}
+
+export interface LogsPipelinesApiUpdateLogsPipelineRequest {
+  /**
+   * ID of the pipeline to delete.
+   * @type string
+   */
+  pipelineId: string;
+  /**
+   * New definition of the pipeline.
+   * @type LogsPipeline
+   */
+  body: LogsPipeline;
+}
+
+export interface LogsPipelinesApiUpdateLogsPipelineOrderRequest {
+  /**
+   * Object containing the new ordered list of pipeline IDs.
+   * @type LogsPipelinesOrder
+   */
+  body: LogsPipelinesOrder;
+}
+
+export class LogsPipelinesApi {
+  private requestFactory: LogsPipelinesApiRequestFactory;
+  private responseProcessor: LogsPipelinesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: LogsPipelinesApiRequestFactory,
+    responseProcessor?: LogsPipelinesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new LogsPipelinesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new LogsPipelinesApiResponseProcessor();
+  }
+
+  /**
+   * Create a pipeline in your organization.
+   * @param param The request object
+   */
+  public createLogsPipeline(
+    param: LogsPipelinesApiCreateLogsPipelineRequest,
+    options?: Configuration
+  ): Promise<LogsPipeline> {
+    const requestContextPromise = this.requestFactory.createLogsPipeline(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLogsPipeline(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
+   * @param param The request object
+   */
+  public deleteLogsPipeline(
+    param: LogsPipelinesApiDeleteLogsPipelineRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteLogsPipeline(
+      param.pipelineId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLogsPipeline(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
+   * @param param The request object
+   */
+  public getLogsPipeline(
+    param: LogsPipelinesApiGetLogsPipelineRequest,
+    options?: Configuration
+  ): Promise<LogsPipeline> {
+    const requestContextPromise = this.requestFactory.getLogsPipeline(
+      param.pipelineId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLogsPipeline(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the current order of your pipelines. This endpoint takes no JSON arguments.
+   * @param param The request object
+   */
+  public getLogsPipelineOrder(
+    options?: Configuration
+  ): Promise<LogsPipelinesOrder> {
+    const requestContextPromise =
+      this.requestFactory.getLogsPipelineOrder(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLogsPipelineOrder(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all pipelines from your organization. This endpoint takes no JSON arguments.
+   * @param param The request object
+   */
+  public listLogsPipelines(
+    options?: Configuration
+  ): Promise<Array<LogsPipeline>> {
+    const requestContextPromise =
+      this.requestFactory.listLogsPipelines(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLogsPipelines(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * @param param The request object
+   */
+  public updateLogsPipeline(
+    param: LogsPipelinesApiUpdateLogsPipelineRequest,
+    options?: Configuration
+  ): Promise<LogsPipeline> {
+    const requestContextPromise = this.requestFactory.updateLogsPipeline(
+      param.pipelineId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLogsPipeline(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the `PUT` method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
+   * @param param The request object
+   */
+  public updateLogsPipelineOrder(
+    param: LogsPipelinesApiUpdateLogsPipelineOrderRequest,
+    options?: Configuration
+  ): Promise<LogsPipelinesOrder> {
+    const requestContextPromise = this.requestFactory.updateLogsPipelineOrder(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLogsPipelineOrder(
+            responseContext
+          );
+        });
+    });
+  }
+}

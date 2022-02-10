@@ -556,3 +556,163 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     );
   }
 }
+
+export interface ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest {
+  /**
+   * Create an SLO Correction
+   * @type SLOCorrectionCreateRequest
+   */
+  body: SLOCorrectionCreateRequest;
+}
+
+export interface ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest {
+  /**
+   * The ID of the SLO correction object.
+   * @type string
+   */
+  sloCorrectionId: string;
+}
+
+export interface ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest {
+  /**
+   * The ID of the SLO correction object.
+   * @type string
+   */
+  sloCorrectionId: string;
+}
+
+export interface ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest {
+  /**
+   * The ID of the SLO correction object.
+   * @type string
+   */
+  sloCorrectionId: string;
+  /**
+   * The edited SLO correction object.
+   * @type SLOCorrectionUpdateRequest
+   */
+  body: SLOCorrectionUpdateRequest;
+}
+
+export class ServiceLevelObjectiveCorrectionsApi {
+  private requestFactory: ServiceLevelObjectiveCorrectionsApiRequestFactory;
+  private responseProcessor: ServiceLevelObjectiveCorrectionsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ServiceLevelObjectiveCorrectionsApiRequestFactory,
+    responseProcessor?: ServiceLevelObjectiveCorrectionsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory ||
+      new ServiceLevelObjectiveCorrectionsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor ||
+      new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
+  }
+
+  /**
+   * Create an SLO Correction.
+   * @param param The request object
+   */
+  public createSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest,
+    options?: Configuration
+  ): Promise<SLOCorrectionResponse> {
+    const requestContextPromise = this.requestFactory.createSLOCorrection(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSLOCorrection(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Permanently delete the specified SLO correction object.
+   * @param param The request object
+   */
+  public deleteSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteSLOCorrection(
+      param.sloCorrectionId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSLOCorrection(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get an SLO correction.
+   * @param param The request object
+   */
+  public getSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest,
+    options?: Configuration
+  ): Promise<SLOCorrectionResponse> {
+    const requestContextPromise = this.requestFactory.getSLOCorrection(
+      param.sloCorrectionId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSLOCorrection(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all Service Level Objective corrections.
+   * @param param The request object
+   */
+  public listSLOCorrection(
+    options?: Configuration
+  ): Promise<SLOCorrectionListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSLOCorrection(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSLOCorrection(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the specified SLO correction object object.
+   * @param param The request object
+   */
+  public updateSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest,
+    options?: Configuration
+  ): Promise<SLOCorrectionResponse> {
+    const requestContextPromise = this.requestFactory.updateSLOCorrection(
+      param.sloCorrectionId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSLOCorrection(responseContext);
+        });
+    });
+  }
+}

@@ -162,3 +162,80 @@ export class SnapshotsApiResponseProcessor {
     );
   }
 }
+
+export interface SnapshotsApiGetGraphSnapshotRequest {
+  /**
+   * The POSIX timestamp of the start of the query.
+   * @type number
+   */
+  start: number;
+  /**
+   * The POSIX timestamp of the end of the query.
+   * @type number
+   */
+  end: number;
+  /**
+   * The metric query.
+   * @type string
+   */
+  metricQuery?: string;
+  /**
+   * A query that adds event bands to the graph.
+   * @type string
+   */
+  eventQuery?: string;
+  /**
+   * A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
+   * @type string
+   */
+  graphDef?: string;
+  /**
+   * A title for the graph. If no title is specified, the graph does not have a title.
+   * @type string
+   */
+  title?: string;
+}
+
+export class SnapshotsApi {
+  private requestFactory: SnapshotsApiRequestFactory;
+  private responseProcessor: SnapshotsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: SnapshotsApiRequestFactory,
+    responseProcessor?: SnapshotsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new SnapshotsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new SnapshotsApiResponseProcessor();
+  }
+
+  /**
+   * Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is available.
+   * @param param The request object
+   */
+  public getGraphSnapshot(
+    param: SnapshotsApiGetGraphSnapshotRequest,
+    options?: Configuration
+  ): Promise<GraphSnapshot> {
+    const requestContextPromise = this.requestFactory.getGraphSnapshot(
+      param.start,
+      param.end,
+      param.metricQuery,
+      param.eventQuery,
+      param.graphDef,
+      param.title,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getGraphSnapshot(responseContext);
+        });
+    });
+  }
+}

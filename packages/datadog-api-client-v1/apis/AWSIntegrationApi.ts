@@ -997,3 +997,303 @@ export class AWSIntegrationApiResponseProcessor {
     );
   }
 }
+
+export interface AWSIntegrationApiCreateAWSAccountRequest {
+  /**
+   * AWS Request Object
+   * @type AWSAccount
+   */
+  body: AWSAccount;
+}
+
+export interface AWSIntegrationApiCreateAWSTagFilterRequest {
+  /**
+   * Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
+   * @type AWSTagFilterCreateRequest
+   */
+  body: AWSTagFilterCreateRequest;
+}
+
+export interface AWSIntegrationApiCreateNewAWSExternalIDRequest {
+  /**
+   * Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
+   * @type AWSAccount
+   */
+  body: AWSAccount;
+}
+
+export interface AWSIntegrationApiDeleteAWSAccountRequest {
+  /**
+   * AWS request object
+   * @type AWSAccountDeleteRequest
+   */
+  body: AWSAccountDeleteRequest;
+}
+
+export interface AWSIntegrationApiDeleteAWSTagFilterRequest {
+  /**
+   * Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace.
+   * @type AWSTagFilterDeleteRequest
+   */
+  body: AWSTagFilterDeleteRequest;
+}
+
+export interface AWSIntegrationApiListAWSAccountsRequest {
+  /**
+   * Only return AWS accounts that matches this &#x60;account_id&#x60;.
+   * @type string
+   */
+  accountId?: string;
+  /**
+   * Only return AWS accounts that matches this role_name.
+   * @type string
+   */
+  roleName?: string;
+  /**
+   * Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+   * @type string
+   */
+  accessKeyId?: string;
+}
+
+export interface AWSIntegrationApiListAWSTagFiltersRequest {
+  /**
+   * Only return AWS filters that matches this &#x60;account_id&#x60;.
+   * @type string
+   */
+  accountId: string;
+}
+
+export interface AWSIntegrationApiUpdateAWSAccountRequest {
+  /**
+   * AWS request object
+   * @type AWSAccount
+   */
+  body: AWSAccount;
+  /**
+   * Only return AWS accounts that matches this &#x60;account_id&#x60;.
+   * @type string
+   */
+  accountId?: string;
+  /**
+   * Only return AWS accounts that match this &#x60;role_name&#x60;. Required if &#x60;account_id&#x60; is specified.
+   * @type string
+   */
+  roleName?: string;
+  /**
+   * Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified.
+   * @type string
+   */
+  accessKeyId?: string;
+}
+
+export class AWSIntegrationApi {
+  private requestFactory: AWSIntegrationApiRequestFactory;
+  private responseProcessor: AWSIntegrationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: AWSIntegrationApiRequestFactory,
+    responseProcessor?: AWSIntegrationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new AWSIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new AWSIntegrationApiResponseProcessor();
+  }
+
+  /**
+   * Create a Datadog-Amazon Web Services integration. Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
+   * @param param The request object
+   */
+  public createAWSAccount(
+    param: AWSIntegrationApiCreateAWSAccountRequest,
+    options?: Configuration
+  ): Promise<AWSAccountCreateResponse> {
+    const requestContextPromise = this.requestFactory.createAWSAccount(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAWSAccount(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Set an AWS tag filter.
+   * @param param The request object
+   */
+  public createAWSTagFilter(
+    param: AWSIntegrationApiCreateAWSTagFilterRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.createAWSTagFilter(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAWSTagFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Generate a new AWS external ID for a given AWS account ID and role name pair.
+   * @param param The request object
+   */
+  public createNewAWSExternalID(
+    param: AWSIntegrationApiCreateNewAWSExternalIDRequest,
+    options?: Configuration
+  ): Promise<AWSAccountCreateResponse> {
+    const requestContextPromise = this.requestFactory.createNewAWSExternalID(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createNewAWSExternalID(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a Datadog-AWS integration matching the specified `account_id` and `role_name parameters`.
+   * @param param The request object
+   */
+  public deleteAWSAccount(
+    param: AWSIntegrationApiDeleteAWSAccountRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.deleteAWSAccount(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAWSAccount(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a tag filtering entry.
+   * @param param The request object
+   */
+  public deleteAWSTagFilter(
+    param: AWSIntegrationApiDeleteAWSTagFilterRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.deleteAWSTagFilter(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAWSTagFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all Datadog-AWS integrations available in your Datadog organization.
+   * @param param The request object
+   */
+  public listAWSAccounts(
+    param: AWSIntegrationApiListAWSAccountsRequest = {},
+    options?: Configuration
+  ): Promise<AWSAccountListResponse> {
+    const requestContextPromise = this.requestFactory.listAWSAccounts(
+      param.accountId,
+      param.roleName,
+      param.accessKeyId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAWSAccounts(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all AWS tag filters.
+   * @param param The request object
+   */
+  public listAWSTagFilters(
+    param: AWSIntegrationApiListAWSTagFiltersRequest,
+    options?: Configuration
+  ): Promise<AWSTagFilterListResponse> {
+    const requestContextPromise = this.requestFactory.listAWSTagFilters(
+      param.accountId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAWSTagFilters(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
+   * @param param The request object
+   */
+  public listAvailableAWSNamespaces(
+    options?: Configuration
+  ): Promise<Array<string>> {
+    const requestContextPromise =
+      this.requestFactory.listAvailableAWSNamespaces(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAvailableAWSNamespaces(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a Datadog-Amazon Web Services integration.
+   * @param param The request object
+   */
+  public updateAWSAccount(
+    param: AWSIntegrationApiUpdateAWSAccountRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.updateAWSAccount(
+      param.body,
+      param.accountId,
+      param.roleName,
+      param.accessKeyId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAWSAccount(responseContext);
+        });
+    });
+  }
+}

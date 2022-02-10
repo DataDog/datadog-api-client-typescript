@@ -474,3 +474,185 @@ export class HostsApiResponseProcessor {
     );
   }
 }
+
+export interface HostsApiGetHostTotalsRequest {
+  /**
+   * Number of seconds from which you want to get total number of active hosts.
+   * @type number
+   */
+  from?: number;
+}
+
+export interface HostsApiListHostsRequest {
+  /**
+   * String to filter search results.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Sort hosts by this field.
+   * @type string
+   */
+  sortField?: string;
+  /**
+   * Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;.
+   * @type string
+   */
+  sortDir?: string;
+  /**
+   * Host result to start search from.
+   * @type number
+   */
+  start?: number;
+  /**
+   * Number of hosts to return. Max 1000.
+   * @type number
+   */
+  count?: number;
+  /**
+   * Number of seconds since UNIX epoch from which you want to search your hosts.
+   * @type number
+   */
+  from?: number;
+  /**
+   * Include information on the muted status of hosts and when the mute expires.
+   * @type boolean
+   */
+  includeMutedHostsData?: boolean;
+  /**
+   * Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
+   * @type boolean
+   */
+  includeHostsMetadata?: boolean;
+}
+
+export interface HostsApiMuteHostRequest {
+  /**
+   * Name of the host to mute.
+   * @type string
+   */
+  hostName: string;
+  /**
+   * Mute a host request body.
+   * @type HostMuteSettings
+   */
+  body: HostMuteSettings;
+}
+
+export interface HostsApiUnmuteHostRequest {
+  /**
+   * Name of the host to unmute.
+   * @type string
+   */
+  hostName: string;
+}
+
+export class HostsApi {
+  private requestFactory: HostsApiRequestFactory;
+  private responseProcessor: HostsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: HostsApiRequestFactory,
+    responseProcessor?: HostsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new HostsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new HostsApiResponseProcessor();
+  }
+
+  /**
+   * This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
+   * @param param The request object
+   */
+  public getHostTotals(
+    param: HostsApiGetHostTotalsRequest = {},
+    options?: Configuration
+  ): Promise<HostTotals> {
+    const requestContextPromise = this.requestFactory.getHostTotals(
+      param.from,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getHostTotals(responseContext);
+        });
+    });
+  }
+
+  /**
+   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
+   * @param param The request object
+   */
+  public listHosts(
+    param: HostsApiListHostsRequest = {},
+    options?: Configuration
+  ): Promise<HostListResponse> {
+    const requestContextPromise = this.requestFactory.listHosts(
+      param.filter,
+      param.sortField,
+      param.sortDir,
+      param.start,
+      param.count,
+      param.from,
+      param.includeMutedHostsData,
+      param.includeHostsMetadata,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listHosts(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Mute a host.
+   * @param param The request object
+   */
+  public muteHost(
+    param: HostsApiMuteHostRequest,
+    options?: Configuration
+  ): Promise<HostMuteResponse> {
+    const requestContextPromise = this.requestFactory.muteHost(
+      param.hostName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.muteHost(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Unmutes a host. This endpoint takes no JSON arguments.
+   * @param param The request object
+   */
+  public unmuteHost(
+    param: HostsApiUnmuteHostRequest,
+    options?: Configuration
+  ): Promise<HostMuteResponse> {
+    const requestContextPromise = this.requestFactory.unmuteHost(
+      param.hostName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.unmuteHost(responseContext);
+        });
+    });
+  }
+}

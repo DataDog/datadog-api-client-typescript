@@ -532,3 +532,160 @@ export class LogsMetricsApiResponseProcessor {
     );
   }
 }
+
+export interface LogsMetricsApiCreateLogsMetricRequest {
+  /**
+   * The definition of the new log-based metric.
+   * @type LogsMetricCreateRequest
+   */
+  body: LogsMetricCreateRequest;
+}
+
+export interface LogsMetricsApiDeleteLogsMetricRequest {
+  /**
+   * The name of the log-based metric.
+   * @type string
+   */
+  metricId: string;
+}
+
+export interface LogsMetricsApiGetLogsMetricRequest {
+  /**
+   * The name of the log-based metric.
+   * @type string
+   */
+  metricId: string;
+}
+
+export interface LogsMetricsApiUpdateLogsMetricRequest {
+  /**
+   * The name of the log-based metric.
+   * @type string
+   */
+  metricId: string;
+  /**
+   * New definition of the log-based metric.
+   * @type LogsMetricUpdateRequest
+   */
+  body: LogsMetricUpdateRequest;
+}
+
+export class LogsMetricsApi {
+  private requestFactory: LogsMetricsApiRequestFactory;
+  private responseProcessor: LogsMetricsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: LogsMetricsApiRequestFactory,
+    responseProcessor?: LogsMetricsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new LogsMetricsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new LogsMetricsApiResponseProcessor();
+  }
+
+  /**
+   * Create a metric based on your ingested logs in your organization. Returns the log-based metric object from the request body when the request is successful.
+   * @param param The request object
+   */
+  public createLogsMetric(
+    param: LogsMetricsApiCreateLogsMetricRequest,
+    options?: Configuration
+  ): Promise<LogsMetricResponse> {
+    const requestContextPromise = this.requestFactory.createLogsMetric(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLogsMetric(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a specific log-based metric from your organization.
+   * @param param The request object
+   */
+  public deleteLogsMetric(
+    param: LogsMetricsApiDeleteLogsMetricRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteLogsMetric(
+      param.metricId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLogsMetric(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific log-based metric from your organization.
+   * @param param The request object
+   */
+  public getLogsMetric(
+    param: LogsMetricsApiGetLogsMetricRequest,
+    options?: Configuration
+  ): Promise<LogsMetricResponse> {
+    const requestContextPromise = this.requestFactory.getLogsMetric(
+      param.metricId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLogsMetric(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the list of configured log-based metrics with their definitions.
+   * @param param The request object
+   */
+  public listLogsMetrics(
+    options?: Configuration
+  ): Promise<LogsMetricsResponse> {
+    const requestContextPromise = this.requestFactory.listLogsMetrics(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLogsMetrics(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a specific log-based metric from your organization. Returns the log-based metric object from the request body when the request is successful.
+   * @param param The request object
+   */
+  public updateLogsMetric(
+    param: LogsMetricsApiUpdateLogsMetricRequest,
+    options?: Configuration
+  ): Promise<LogsMetricResponse> {
+    const requestContextPromise = this.requestFactory.updateLogsMetric(
+      param.metricId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLogsMetric(responseContext);
+        });
+    });
+  }
+}

@@ -863,3 +863,268 @@ export class MetricsApiResponseProcessor {
     );
   }
 }
+
+export interface MetricsApiCreateTagConfigurationRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+  /**
+   *
+   * @type MetricTagConfigurationCreateRequest
+   */
+  body: MetricTagConfigurationCreateRequest;
+}
+
+export interface MetricsApiDeleteTagConfigurationRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiListTagConfigurationByNameRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiListTagConfigurationsRequest {
+  /**
+   * Filter metrics that have configured tags.
+   * @type boolean
+   */
+  filterConfigured?: boolean;
+  /**
+   * Filter tag configurations by configured tags.
+   * @type string
+   */
+  filterTagsConfigured?: string;
+  /**
+   * Filter tag configurations by metric type.
+   * @type MetricTagConfigurationMetricTypes
+   */
+  filterMetricType?: MetricTagConfigurationMetricTypes;
+  /**
+   * Filter distributions with additional percentile aggregations enabled or disabled.
+   * @type boolean
+   */
+  filterIncludePercentiles?: boolean;
+  /**
+   * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+   * @type string
+   */
+  filterTags?: string;
+  /**
+   * The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
+   * @type number
+   */
+  windowSeconds?: number;
+}
+
+export interface MetricsApiListTagsByMetricNameRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiListVolumesByMetricNameRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiUpdateTagConfigurationRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+  /**
+   *
+   * @type MetricTagConfigurationUpdateRequest
+   */
+  body: MetricTagConfigurationUpdateRequest;
+}
+
+export class MetricsApi {
+  private requestFactory: MetricsApiRequestFactory;
+  private responseProcessor: MetricsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: MetricsApiRequestFactory,
+    responseProcessor?: MetricsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new MetricsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new MetricsApiResponseProcessor();
+  }
+
+  /**
+   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public createTagConfiguration(
+    param: MetricsApiCreateTagConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricTagConfigurationResponse> {
+    const requestContextPromise = this.requestFactory.createTagConfiguration(
+      param.metricName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createTagConfiguration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public deleteTagConfiguration(
+    param: MetricsApiDeleteTagConfigurationRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteTagConfiguration(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTagConfiguration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns the tag configuration for the given metric name.
+   * @param param The request object
+   */
+  public listTagConfigurationByName(
+    param: MetricsApiListTagConfigurationByNameRequest,
+    options?: Configuration
+  ): Promise<MetricTagConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.listTagConfigurationByName(param.metricName, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagConfigurationByName(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
+   * @param param The request object
+   */
+  public listTagConfigurations(
+    param: MetricsApiListTagConfigurationsRequest = {},
+    options?: Configuration
+  ): Promise<MetricsAndMetricTagConfigurationsResponse> {
+    const requestContextPromise = this.requestFactory.listTagConfigurations(
+      param.filterConfigured,
+      param.filterTagsConfigured,
+      param.filterMetricType,
+      param.filterIncludePercentiles,
+      param.filterTags,
+      param.windowSeconds,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagConfigurations(responseContext);
+        });
+    });
+  }
+
+  /**
+   * View indexed tag key-value pairs for a given metric name.
+   * @param param The request object
+   */
+  public listTagsByMetricName(
+    param: MetricsApiListTagsByMetricNameRequest,
+    options?: Configuration
+  ): Promise<MetricAllTagsResponse> {
+    const requestContextPromise = this.requestFactory.listTagsByMetricName(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagsByMetricName(responseContext);
+        });
+    });
+  }
+
+  /**
+   * View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
+   * @param param The request object
+   */
+  public listVolumesByMetricName(
+    param: MetricsApiListVolumesByMetricNameRequest,
+    options?: Configuration
+  ): Promise<MetricVolumesResponse> {
+    const requestContextPromise = this.requestFactory.listVolumesByMetricName(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listVolumesByMetricName(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public updateTagConfiguration(
+    param: MetricsApiUpdateTagConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricTagConfigurationResponse> {
+    const requestContextPromise = this.requestFactory.updateTagConfiguration(
+      param.metricName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateTagConfiguration(responseContext);
+        });
+    });
+  }
+}

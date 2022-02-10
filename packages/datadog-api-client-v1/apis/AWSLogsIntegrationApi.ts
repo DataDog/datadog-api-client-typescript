@@ -719,3 +719,208 @@ export class AWSLogsIntegrationApiResponseProcessor {
     );
   }
 }
+
+export interface AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest {
+  /**
+   * Check AWS Log Lambda Async request body.
+   * @type AWSAccountAndLambdaRequest
+   */
+  body: AWSAccountAndLambdaRequest;
+}
+
+export interface AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest {
+  /**
+   * Check AWS Logs Async Services request body.
+   * @type AWSLogsServicesRequest
+   */
+  body: AWSLogsServicesRequest;
+}
+
+export interface AWSLogsIntegrationApiCreateAWSLambdaARNRequest {
+  /**
+   * AWS Log Lambda Async request body.
+   * @type AWSAccountAndLambdaRequest
+   */
+  body: AWSAccountAndLambdaRequest;
+}
+
+export interface AWSLogsIntegrationApiDeleteAWSLambdaARNRequest {
+  /**
+   * Delete AWS Lambda ARN request body.
+   * @type AWSAccountAndLambdaRequest
+   */
+  body: AWSAccountAndLambdaRequest;
+}
+
+export interface AWSLogsIntegrationApiEnableAWSLogServicesRequest {
+  /**
+   * Enable AWS Log Services request body.
+   * @type AWSLogsServicesRequest
+   */
+  body: AWSLogsServicesRequest;
+}
+
+export class AWSLogsIntegrationApi {
+  private requestFactory: AWSLogsIntegrationApiRequestFactory;
+  private responseProcessor: AWSLogsIntegrationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: AWSLogsIntegrationApiRequestFactory,
+    responseProcessor?: AWSLogsIntegrationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new AWSLogsIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new AWSLogsIntegrationApiResponseProcessor();
+  }
+
+  /**
+   * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.  - Returns a status of 'created' when it's checking if the Lambda exists in the account. - Returns a status of 'waiting' while checking. - Returns a status of 'checked and ok' if the Lambda exists. - Returns a status of 'error' if the Lambda does not exist.
+   * @param param The request object
+   */
+  public checkAWSLogsLambdaAsync(
+    param: AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest,
+    options?: Configuration
+  ): Promise<AWSLogsAsyncResponse> {
+    const requestContextPromise = this.requestFactory.checkAWSLogsLambdaAsync(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.checkAWSLogsLambdaAsync(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Test if permissions are present to add log-forwarding triggers for the given services and AWS account. Input is the same as for `EnableAWSLogServices`. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.  - Returns a status of `created` when it's checking if the permissions exists   in the AWS account. - Returns a status of `waiting` while checking. - Returns a status of `checked and ok` if the Lambda exists. - Returns a status of `error` if the Lambda does not exist.
+   * @param param The request object
+   */
+  public checkAWSLogsServicesAsync(
+    param: AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest,
+    options?: Configuration
+  ): Promise<AWSLogsAsyncResponse> {
+    const requestContextPromise = this.requestFactory.checkAWSLogsServicesAsync(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.checkAWSLogsServicesAsync(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Attach the Lambda ARN of the Lambda created for the Datadog-AWS log collection to your AWS account ID to enable log collection.
+   * @param param The request object
+   */
+  public createAWSLambdaARN(
+    param: AWSLogsIntegrationApiCreateAWSLambdaARNRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.createAWSLambdaARN(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAWSLambdaARN(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a Datadog-AWS logs configuration by removing the specific Lambda ARN associated with a given AWS account.
+   * @param param The request object
+   */
+  public deleteAWSLambdaARN(
+    param: AWSLogsIntegrationApiDeleteAWSLambdaARNRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.deleteAWSLambdaARN(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAWSLambdaARN(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Enable automatic log collection for a list of services. This should be run after running `CreateAWSLambdaARN` to save the configuration.
+   * @param param The request object
+   */
+  public enableAWSLogServices(
+    param: AWSLogsIntegrationApiEnableAWSLogServicesRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.enableAWSLogServices(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.enableAWSLogServices(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all Datadog-AWS Logs integrations configured in your Datadog account.
+   * @param param The request object
+   */
+  public listAWSLogsIntegrations(
+    options?: Configuration
+  ): Promise<Array<AWSLogsListResponse>> {
+    const requestContextPromise =
+      this.requestFactory.listAWSLogsIntegrations(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAWSLogsIntegrations(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the list of current AWS services that Datadog offers automatic log collection. Use returned service IDs with the services parameter for the Enable an AWS service log collection API endpoint.
+   * @param param The request object
+   */
+  public listAWSLogsServices(
+    options?: Configuration
+  ): Promise<Array<AWSLogsListServicesResponse>> {
+    const requestContextPromise =
+      this.requestFactory.listAWSLogsServices(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAWSLogsServices(responseContext);
+        });
+    });
+  }
+}

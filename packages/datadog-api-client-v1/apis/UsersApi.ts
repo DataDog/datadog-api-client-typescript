@@ -537,3 +537,158 @@ export class UsersApiResponseProcessor {
     );
   }
 }
+
+export interface UsersApiCreateUserRequest {
+  /**
+   * User object that needs to be created.
+   * @type User
+   */
+  body: User;
+}
+
+export interface UsersApiDisableUserRequest {
+  /**
+   * The handle of the user.
+   * @type string
+   */
+  userHandle: string;
+}
+
+export interface UsersApiGetUserRequest {
+  /**
+   * The ID of the user.
+   * @type string
+   */
+  userHandle: string;
+}
+
+export interface UsersApiUpdateUserRequest {
+  /**
+   * The ID of the user.
+   * @type string
+   */
+  userHandle: string;
+  /**
+   * Description of the update.
+   * @type User
+   */
+  body: User;
+}
+
+export class UsersApi {
+  private requestFactory: UsersApiRequestFactory;
+  private responseProcessor: UsersApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: UsersApiRequestFactory,
+    responseProcessor?: UsersApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new UsersApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new UsersApiResponseProcessor();
+  }
+
+  /**
+   * Create a user for your organization.  **Note**: Users can only be created with the admin access role if application keys belong to administrators.
+   * @param param The request object
+   */
+  public createUser(
+    param: UsersApiCreateUserRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.createUser(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createUser(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
+   * @param param The request object
+   */
+  public disableUser(
+    param: UsersApiDisableUserRequest,
+    options?: Configuration
+  ): Promise<UserDisableResponse> {
+    const requestContextPromise = this.requestFactory.disableUser(
+      param.userHandle,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.disableUser(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a user's details.
+   * @param param The request object
+   */
+  public getUser(
+    param: UsersApiGetUserRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.getUser(
+      param.userHandle,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUser(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all users for your organization.
+   * @param param The request object
+   */
+  public listUsers(options?: Configuration): Promise<UserListResponse> {
+    const requestContextPromise = this.requestFactory.listUsers(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listUsers(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
+   * @param param The request object
+   */
+  public updateUser(
+    param: UsersApiUpdateUserRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.updateUser(
+      param.userHandle,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateUser(responseContext);
+        });
+    });
+  }
+}

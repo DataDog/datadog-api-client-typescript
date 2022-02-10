@@ -627,3 +627,211 @@ export class SlackIntegrationApiResponseProcessor {
     );
   }
 }
+
+export interface SlackIntegrationApiCreateSlackIntegrationChannelRequest {
+  /**
+   * Your Slack account name.
+   * @type string
+   */
+  accountName: string;
+  /**
+   * Payload describing Slack channel to be created
+   * @type SlackIntegrationChannel
+   */
+  body: SlackIntegrationChannel;
+}
+
+export interface SlackIntegrationApiGetSlackIntegrationChannelRequest {
+  /**
+   * Your Slack account name.
+   * @type string
+   */
+  accountName: string;
+  /**
+   * The name of the Slack channel being operated on.
+   * @type string
+   */
+  channelName: string;
+}
+
+export interface SlackIntegrationApiGetSlackIntegrationChannelsRequest {
+  /**
+   * Your Slack account name.
+   * @type string
+   */
+  accountName: string;
+}
+
+export interface SlackIntegrationApiRemoveSlackIntegrationChannelRequest {
+  /**
+   * Your Slack account name.
+   * @type string
+   */
+  accountName: string;
+  /**
+   * The name of the Slack channel being operated on.
+   * @type string
+   */
+  channelName: string;
+}
+
+export interface SlackIntegrationApiUpdateSlackIntegrationChannelRequest {
+  /**
+   * Your Slack account name.
+   * @type string
+   */
+  accountName: string;
+  /**
+   * The name of the Slack channel being operated on.
+   * @type string
+   */
+  channelName: string;
+  /**
+   * Payload describing fields and values to be updated.
+   * @type SlackIntegrationChannel
+   */
+  body: SlackIntegrationChannel;
+}
+
+export class SlackIntegrationApi {
+  private requestFactory: SlackIntegrationApiRequestFactory;
+  private responseProcessor: SlackIntegrationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: SlackIntegrationApiRequestFactory,
+    responseProcessor?: SlackIntegrationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new SlackIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new SlackIntegrationApiResponseProcessor();
+  }
+
+  /**
+   * Add a channel to your Datadog-Slack integration.
+   * @param param The request object
+   */
+  public createSlackIntegrationChannel(
+    param: SlackIntegrationApiCreateSlackIntegrationChannelRequest,
+    options?: Configuration
+  ): Promise<SlackIntegrationChannel> {
+    const requestContextPromise =
+      this.requestFactory.createSlackIntegrationChannel(
+        param.accountName,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSlackIntegrationChannel(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a channel configured for your Datadog-Slack integration.
+   * @param param The request object
+   */
+  public getSlackIntegrationChannel(
+    param: SlackIntegrationApiGetSlackIntegrationChannelRequest,
+    options?: Configuration
+  ): Promise<SlackIntegrationChannel> {
+    const requestContextPromise =
+      this.requestFactory.getSlackIntegrationChannel(
+        param.accountName,
+        param.channelName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSlackIntegrationChannel(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a list of all channels configured for your Datadog-Slack integration.
+   * @param param The request object
+   */
+  public getSlackIntegrationChannels(
+    param: SlackIntegrationApiGetSlackIntegrationChannelsRequest,
+    options?: Configuration
+  ): Promise<Array<SlackIntegrationChannel>> {
+    const requestContextPromise =
+      this.requestFactory.getSlackIntegrationChannels(
+        param.accountName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSlackIntegrationChannels(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Remove a channel from your Datadog-Slack integration.
+   * @param param The request object
+   */
+  public removeSlackIntegrationChannel(
+    param: SlackIntegrationApiRemoveSlackIntegrationChannelRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.removeSlackIntegrationChannel(
+        param.accountName,
+        param.channelName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeSlackIntegrationChannel(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a channel used in your Datadog-Slack integration.
+   * @param param The request object
+   */
+  public updateSlackIntegrationChannel(
+    param: SlackIntegrationApiUpdateSlackIntegrationChannelRequest,
+    options?: Configuration
+  ): Promise<SlackIntegrationChannel> {
+    const requestContextPromise =
+      this.requestFactory.updateSlackIntegrationChannel(
+        param.accountName,
+        param.channelName,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSlackIntegrationChannel(
+            responseContext
+          );
+        });
+    });
+  }
+}

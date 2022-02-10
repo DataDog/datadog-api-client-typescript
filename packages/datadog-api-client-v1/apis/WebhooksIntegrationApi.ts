@@ -904,3 +904,283 @@ export class WebhooksIntegrationApiResponseProcessor {
     );
   }
 }
+
+export interface WebhooksIntegrationApiCreateWebhooksIntegrationRequest {
+  /**
+   * Create a webhooks integration request body.
+   * @type WebhooksIntegration
+   */
+  body: WebhooksIntegration;
+}
+
+export interface WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequest {
+  /**
+   * Define a custom variable request body.
+   * @type WebhooksIntegrationCustomVariable
+   */
+  body: WebhooksIntegrationCustomVariable;
+}
+
+export interface WebhooksIntegrationApiDeleteWebhooksIntegrationRequest {
+  /**
+   * The name of the webhook.
+   * @type string
+   */
+  webhookName: string;
+}
+
+export interface WebhooksIntegrationApiDeleteWebhooksIntegrationCustomVariableRequest {
+  /**
+   * The name of the custom variable.
+   * @type string
+   */
+  customVariableName: string;
+}
+
+export interface WebhooksIntegrationApiGetWebhooksIntegrationRequest {
+  /**
+   * The name of the webhook.
+   * @type string
+   */
+  webhookName: string;
+}
+
+export interface WebhooksIntegrationApiGetWebhooksIntegrationCustomVariableRequest {
+  /**
+   * The name of the custom variable.
+   * @type string
+   */
+  customVariableName: string;
+}
+
+export interface WebhooksIntegrationApiUpdateWebhooksIntegrationRequest {
+  /**
+   * The name of the webhook.
+   * @type string
+   */
+  webhookName: string;
+  /**
+   * Update an existing Datadog-Webhooks integration.
+   * @type WebhooksIntegrationUpdateRequest
+   */
+  body: WebhooksIntegrationUpdateRequest;
+}
+
+export interface WebhooksIntegrationApiUpdateWebhooksIntegrationCustomVariableRequest {
+  /**
+   * The name of the custom variable.
+   * @type string
+   */
+  customVariableName: string;
+  /**
+   * Update an existing custom variable request body.
+   * @type WebhooksIntegrationCustomVariableUpdateRequest
+   */
+  body: WebhooksIntegrationCustomVariableUpdateRequest;
+}
+
+export class WebhooksIntegrationApi {
+  private requestFactory: WebhooksIntegrationApiRequestFactory;
+  private responseProcessor: WebhooksIntegrationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: WebhooksIntegrationApiRequestFactory,
+    responseProcessor?: WebhooksIntegrationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new WebhooksIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new WebhooksIntegrationApiResponseProcessor();
+  }
+
+  /**
+   * Creates an endpoint with the name `<WEBHOOK_NAME>`.
+   * @param param The request object
+   */
+  public createWebhooksIntegration(
+    param: WebhooksIntegrationApiCreateWebhooksIntegrationRequest,
+    options?: Configuration
+  ): Promise<WebhooksIntegration> {
+    const requestContextPromise = this.requestFactory.createWebhooksIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createWebhooksIntegration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Creates an endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
+   * @param param The request object
+   */
+  public createWebhooksIntegrationCustomVariable(
+    param: WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequest,
+    options?: Configuration
+  ): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const requestContextPromise =
+      this.requestFactory.createWebhooksIntegrationCustomVariable(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createWebhooksIntegrationCustomVariable(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Deletes the endpoint with the name `<WEBHOOK NAME>`.
+   * @param param The request object
+   */
+  public deleteWebhooksIntegration(
+    param: WebhooksIntegrationApiDeleteWebhooksIntegrationRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteWebhooksIntegration(
+      param.webhookName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteWebhooksIntegration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Deletes the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
+   * @param param The request object
+   */
+  public deleteWebhooksIntegrationCustomVariable(
+    param: WebhooksIntegrationApiDeleteWebhooksIntegrationCustomVariableRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteWebhooksIntegrationCustomVariable(
+        param.customVariableName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteWebhooksIntegrationCustomVariable(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Gets the content of the webhook with the name `<WEBHOOK_NAME>`.
+   * @param param The request object
+   */
+  public getWebhooksIntegration(
+    param: WebhooksIntegrationApiGetWebhooksIntegrationRequest,
+    options?: Configuration
+  ): Promise<WebhooksIntegration> {
+    const requestContextPromise = this.requestFactory.getWebhooksIntegration(
+      param.webhookName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getWebhooksIntegration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.  If the custom variable is secret, the value does not return in the response payload.
+   * @param param The request object
+   */
+  public getWebhooksIntegrationCustomVariable(
+    param: WebhooksIntegrationApiGetWebhooksIntegrationCustomVariableRequest,
+    options?: Configuration
+  ): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const requestContextPromise =
+      this.requestFactory.getWebhooksIntegrationCustomVariable(
+        param.customVariableName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getWebhooksIntegrationCustomVariable(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Updates the endpoint with the name `<WEBHOOK_NAME>`.
+   * @param param The request object
+   */
+  public updateWebhooksIntegration(
+    param: WebhooksIntegrationApiUpdateWebhooksIntegrationRequest,
+    options?: Configuration
+  ): Promise<WebhooksIntegration> {
+    const requestContextPromise = this.requestFactory.updateWebhooksIntegration(
+      param.webhookName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateWebhooksIntegration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Updates the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
+   * @param param The request object
+   */
+  public updateWebhooksIntegrationCustomVariable(
+    param: WebhooksIntegrationApiUpdateWebhooksIntegrationCustomVariableRequest,
+    options?: Configuration
+  ): Promise<WebhooksIntegrationCustomVariableResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateWebhooksIntegrationCustomVariable(
+        param.customVariableName,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateWebhooksIntegrationCustomVariable(
+            responseContext
+          );
+        });
+    });
+  }
+}

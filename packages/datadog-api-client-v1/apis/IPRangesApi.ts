@@ -73,3 +73,36 @@ export class IPRangesApiResponseProcessor {
     );
   }
 }
+
+export class IPRangesApi {
+  private requestFactory: IPRangesApiRequestFactory;
+  private responseProcessor: IPRangesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: IPRangesApiRequestFactory,
+    responseProcessor?: IPRangesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new IPRangesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new IPRangesApiResponseProcessor();
+  }
+
+  /**
+   * Get information about Datadog IP ranges.
+   * @param param The request object
+   */
+  public getIPRanges(options?: Configuration): Promise<IPRanges> {
+    const requestContextPromise = this.requestFactory.getIPRanges(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIPRanges(responseContext);
+        });
+    });
+  }
+}

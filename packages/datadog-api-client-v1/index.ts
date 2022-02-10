@@ -16,24 +16,37 @@ export {
   AWSIntegrationApiListAWSAccountsRequest,
   AWSIntegrationApiListAWSTagFiltersRequest,
   AWSIntegrationApiUpdateAWSAccountRequest,
-  ObjectAWSIntegrationApi as AWSIntegrationApi,
+  AWSIntegrationApi,
+} from "./apis/AWSIntegrationApi";
+
+export {
   AWSLogsIntegrationApiCheckAWSLogsLambdaAsyncRequest,
   AWSLogsIntegrationApiCheckAWSLogsServicesAsyncRequest,
   AWSLogsIntegrationApiCreateAWSLambdaARNRequest,
   AWSLogsIntegrationApiDeleteAWSLambdaARNRequest,
   AWSLogsIntegrationApiEnableAWSLogServicesRequest,
-  ObjectAWSLogsIntegrationApi as AWSLogsIntegrationApi,
-  ObjectAuthenticationApi as AuthenticationApi,
+  AWSLogsIntegrationApi,
+} from "./apis/AWSLogsIntegrationApi";
+
+export { AuthenticationApi } from "./apis/AuthenticationApi";
+
+export {
   AzureIntegrationApiCreateAzureIntegrationRequest,
   AzureIntegrationApiDeleteAzureIntegrationRequest,
   AzureIntegrationApiUpdateAzureHostFiltersRequest,
   AzureIntegrationApiUpdateAzureIntegrationRequest,
-  ObjectAzureIntegrationApi as AzureIntegrationApi,
+  AzureIntegrationApi,
+} from "./apis/AzureIntegrationApi";
+
+export {
   DashboardListsApiCreateDashboardListRequest,
   DashboardListsApiDeleteDashboardListRequest,
   DashboardListsApiGetDashboardListRequest,
   DashboardListsApiUpdateDashboardListRequest,
-  ObjectDashboardListsApi as DashboardListsApi,
+  DashboardListsApi,
+} from "./apis/DashboardListsApi";
+
+export {
   DashboardsApiCreateDashboardRequest,
   DashboardsApiDeleteDashboardRequest,
   DashboardsApiDeleteDashboardsRequest,
@@ -41,7 +54,10 @@ export {
   DashboardsApiListDashboardsRequest,
   DashboardsApiRestoreDashboardsRequest,
   DashboardsApiUpdateDashboardRequest,
-  ObjectDashboardsApi as DashboardsApi,
+  DashboardsApi,
+} from "./apis/DashboardsApi";
+
+export {
   DowntimesApiCancelDowntimeRequest,
   DowntimesApiCancelDowntimesByScopeRequest,
   DowntimesApiCreateDowntimeRequest,
@@ -49,21 +65,34 @@ export {
   DowntimesApiListDowntimesRequest,
   DowntimesApiListMonitorDowntimesRequest,
   DowntimesApiUpdateDowntimeRequest,
-  ObjectDowntimesApi as DowntimesApi,
+  DowntimesApi,
+} from "./apis/DowntimesApi";
+
+export {
   EventsApiCreateEventRequest,
   EventsApiGetEventRequest,
   EventsApiListEventsRequest,
-  ObjectEventsApi as EventsApi,
+  EventsApi,
+} from "./apis/EventsApi";
+
+export {
   GCPIntegrationApiCreateGCPIntegrationRequest,
   GCPIntegrationApiDeleteGCPIntegrationRequest,
   GCPIntegrationApiUpdateGCPIntegrationRequest,
-  ObjectGCPIntegrationApi as GCPIntegrationApi,
+  GCPIntegrationApi,
+} from "./apis/GCPIntegrationApi";
+
+export {
   HostsApiGetHostTotalsRequest,
   HostsApiListHostsRequest,
   HostsApiMuteHostRequest,
   HostsApiUnmuteHostRequest,
-  ObjectHostsApi as HostsApi,
-  ObjectIPRangesApi as IPRangesApi,
+  HostsApi,
+} from "./apis/HostsApi";
+
+export { IPRangesApi } from "./apis/IPRangesApi";
+
+export {
   KeyManagementApiCreateAPIKeyRequest,
   KeyManagementApiCreateApplicationKeyRequest,
   KeyManagementApiDeleteAPIKeyRequest,
@@ -72,28 +101,43 @@ export {
   KeyManagementApiGetApplicationKeyRequest,
   KeyManagementApiUpdateAPIKeyRequest,
   KeyManagementApiUpdateApplicationKeyRequest,
-  ObjectKeyManagementApi as KeyManagementApi,
+  KeyManagementApi,
+} from "./apis/KeyManagementApi";
+
+export {
   LogsApiListLogsRequest,
   LogsApiSubmitLogRequest,
-  ObjectLogsApi as LogsApi,
+  LogsApi,
+} from "./apis/LogsApi";
+
+export {
   LogsIndexesApiCreateLogsIndexRequest,
   LogsIndexesApiGetLogsIndexRequest,
   LogsIndexesApiUpdateLogsIndexRequest,
   LogsIndexesApiUpdateLogsIndexOrderRequest,
-  ObjectLogsIndexesApi as LogsIndexesApi,
+  LogsIndexesApi,
+} from "./apis/LogsIndexesApi";
+
+export {
   LogsPipelinesApiCreateLogsPipelineRequest,
   LogsPipelinesApiDeleteLogsPipelineRequest,
   LogsPipelinesApiGetLogsPipelineRequest,
   LogsPipelinesApiUpdateLogsPipelineRequest,
   LogsPipelinesApiUpdateLogsPipelineOrderRequest,
-  ObjectLogsPipelinesApi as LogsPipelinesApi,
+  LogsPipelinesApi,
+} from "./apis/LogsPipelinesApi";
+
+export {
   MetricsApiGetMetricMetadataRequest,
   MetricsApiListActiveMetricsRequest,
   MetricsApiListMetricsRequest,
   MetricsApiQueryMetricsRequest,
   MetricsApiSubmitMetricsRequest,
   MetricsApiUpdateMetricMetadataRequest,
-  ObjectMetricsApi as MetricsApi,
+  MetricsApi,
+} from "./apis/MetricsApi";
+
+export {
   MonitorsApiCheckCanDeleteMonitorRequest,
   MonitorsApiCreateMonitorRequest,
   MonitorsApiDeleteMonitorRequest,
@@ -103,30 +147,48 @@ export {
   MonitorsApiSearchMonitorsRequest,
   MonitorsApiUpdateMonitorRequest,
   MonitorsApiValidateMonitorRequest,
-  ObjectMonitorsApi as MonitorsApi,
+  MonitorsApi,
+} from "./apis/MonitorsApi";
+
+export {
   NotebooksApiCreateNotebookRequest,
   NotebooksApiDeleteNotebookRequest,
   NotebooksApiGetNotebookRequest,
   NotebooksApiListNotebooksRequest,
   NotebooksApiUpdateNotebookRequest,
-  ObjectNotebooksApi as NotebooksApi,
+  NotebooksApi,
+} from "./apis/NotebooksApi";
+
+export {
   OrganizationsApiCreateChildOrgRequest,
   OrganizationsApiGetOrgRequest,
   OrganizationsApiUpdateOrgRequest,
   OrganizationsApiUploadIdPForOrgRequest,
-  ObjectOrganizationsApi as OrganizationsApi,
+  OrganizationsApi,
+} from "./apis/OrganizationsApi";
+
+export {
   PagerDutyIntegrationApiCreatePagerDutyIntegrationServiceRequest,
   PagerDutyIntegrationApiDeletePagerDutyIntegrationServiceRequest,
   PagerDutyIntegrationApiGetPagerDutyIntegrationServiceRequest,
   PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest,
-  ObjectPagerDutyIntegrationApi as PagerDutyIntegrationApi,
+  PagerDutyIntegrationApi,
+} from "./apis/PagerDutyIntegrationApi";
+
+export {
   ServiceChecksApiSubmitServiceCheckRequest,
-  ObjectServiceChecksApi as ServiceChecksApi,
+  ServiceChecksApi,
+} from "./apis/ServiceChecksApi";
+
+export {
   ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest,
-  ObjectServiceLevelObjectiveCorrectionsApi as ServiceLevelObjectiveCorrectionsApi,
+  ServiceLevelObjectiveCorrectionsApi,
+} from "./apis/ServiceLevelObjectiveCorrectionsApi";
+
+export {
   ServiceLevelObjectivesApiCheckCanDeleteSLORequest,
   ServiceLevelObjectivesApiCreateSLORequest,
   ServiceLevelObjectivesApiDeleteSLORequest,
@@ -136,15 +198,24 @@ export {
   ServiceLevelObjectivesApiGetSLOHistoryRequest,
   ServiceLevelObjectivesApiListSLOsRequest,
   ServiceLevelObjectivesApiUpdateSLORequest,
-  ObjectServiceLevelObjectivesApi as ServiceLevelObjectivesApi,
+  ServiceLevelObjectivesApi,
+} from "./apis/ServiceLevelObjectivesApi";
+
+export {
   SlackIntegrationApiCreateSlackIntegrationChannelRequest,
   SlackIntegrationApiGetSlackIntegrationChannelRequest,
   SlackIntegrationApiGetSlackIntegrationChannelsRequest,
   SlackIntegrationApiRemoveSlackIntegrationChannelRequest,
   SlackIntegrationApiUpdateSlackIntegrationChannelRequest,
-  ObjectSlackIntegrationApi as SlackIntegrationApi,
+  SlackIntegrationApi,
+} from "./apis/SlackIntegrationApi";
+
+export {
   SnapshotsApiGetGraphSnapshotRequest,
-  ObjectSnapshotsApi as SnapshotsApi,
+  SnapshotsApi,
+} from "./apis/SnapshotsApi";
+
+export {
   SyntheticsApiCreateGlobalVariableRequest,
   SyntheticsApiCreatePrivateLocationRequest,
   SyntheticsApiCreateSyntheticsAPITestRequest,
@@ -169,13 +240,19 @@ export {
   SyntheticsApiUpdateBrowserTestRequest,
   SyntheticsApiUpdatePrivateLocationRequest,
   SyntheticsApiUpdateTestPauseStatusRequest,
-  ObjectSyntheticsApi as SyntheticsApi,
+  SyntheticsApi,
+} from "./apis/SyntheticsApi";
+
+export {
   TagsApiCreateHostTagsRequest,
   TagsApiDeleteHostTagsRequest,
   TagsApiGetHostTagsRequest,
   TagsApiListHostTagsRequest,
   TagsApiUpdateHostTagsRequest,
-  ObjectTagsApi as TagsApi,
+  TagsApi,
+} from "./apis/TagsApi";
+
+export {
   UsageMeteringApiGetDailyCustomReportsRequest,
   UsageMeteringApiGetHourlyUsageAttributionRequest,
   UsageMeteringApiGetIncidentManagementRequest,
@@ -212,12 +289,18 @@ export {
   UsageMeteringApiGetUsageSyntheticsBrowserRequest,
   UsageMeteringApiGetUsageTimeseriesRequest,
   UsageMeteringApiGetUsageTopAvgMetricsRequest,
-  ObjectUsageMeteringApi as UsageMeteringApi,
+  UsageMeteringApi,
+} from "./apis/UsageMeteringApi";
+
+export {
   UsersApiCreateUserRequest,
   UsersApiDisableUserRequest,
   UsersApiGetUserRequest,
   UsersApiUpdateUserRequest,
-  ObjectUsersApi as UsersApi,
+  UsersApi,
+} from "./apis/UsersApi";
+
+export {
   WebhooksIntegrationApiCreateWebhooksIntegrationRequest,
   WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequest,
   WebhooksIntegrationApiDeleteWebhooksIntegrationRequest,
@@ -226,5 +309,5 @@ export {
   WebhooksIntegrationApiGetWebhooksIntegrationCustomVariableRequest,
   WebhooksIntegrationApiUpdateWebhooksIntegrationRequest,
   WebhooksIntegrationApiUpdateWebhooksIntegrationCustomVariableRequest,
-  ObjectWebhooksIntegrationApi as WebhooksIntegrationApi,
-} from "./types/ObjectParamAPI";
+  WebhooksIntegrationApi,
+} from "./apis/WebhooksIntegrationApi";

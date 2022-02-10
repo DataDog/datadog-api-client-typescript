@@ -652,3 +652,247 @@ export class ServiceAccountsApiResponseProcessor {
     );
   }
 }
+
+export interface ServiceAccountsApiCreateServiceAccountApplicationKeyRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   *
+   * @type ApplicationKeyCreateRequest
+   */
+  body: ApplicationKeyCreateRequest;
+}
+
+export interface ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   * The ID of the application key.
+   * @type string
+   */
+  appKeyId: string;
+}
+
+export interface ServiceAccountsApiGetServiceAccountApplicationKeyRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   * The ID of the application key.
+   * @type string
+   */
+  appKeyId: string;
+}
+
+export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * @type ApplicationKeysSort
+   */
+  sort?: ApplicationKeysSort;
+  /**
+   * Filter application keys by the specified string.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Only include application keys created on or after the specified date.
+   * @type string
+   */
+  filterCreatedAtStart?: string;
+  /**
+   * Only include application keys created on or before the specified date.
+   * @type string
+   */
+  filterCreatedAtEnd?: string;
+}
+
+export interface ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest {
+  /**
+   * The ID of the service account.
+   * @type string
+   */
+  serviceAccountId: string;
+  /**
+   * The ID of the application key.
+   * @type string
+   */
+  appKeyId: string;
+  /**
+   *
+   * @type ApplicationKeyUpdateRequest
+   */
+  body: ApplicationKeyUpdateRequest;
+}
+
+export class ServiceAccountsApi {
+  private requestFactory: ServiceAccountsApiRequestFactory;
+  private responseProcessor: ServiceAccountsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ServiceAccountsApiRequestFactory,
+    responseProcessor?: ServiceAccountsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new ServiceAccountsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new ServiceAccountsApiResponseProcessor();
+  }
+
+  /**
+   * Create an application key for this service account.
+   * @param param The request object
+   */
+  public createServiceAccountApplicationKey(
+    param: ServiceAccountsApiCreateServiceAccountApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise =
+      this.requestFactory.createServiceAccountApplicationKey(
+        param.serviceAccountId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createServiceAccountApplicationKey(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an application key owned by this service account.
+   * @param param The request object
+   */
+  public deleteServiceAccountApplicationKey(
+    param: ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteServiceAccountApplicationKey(
+        param.serviceAccountId,
+        param.appKeyId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteServiceAccountApplicationKey(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get an application key owned by this service account.
+   * @param param The request object
+   */
+  public getServiceAccountApplicationKey(
+    param: ServiceAccountsApiGetServiceAccountApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<PartialApplicationKeyResponse> {
+    const requestContextPromise =
+      this.requestFactory.getServiceAccountApplicationKey(
+        param.serviceAccountId,
+        param.appKeyId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getServiceAccountApplicationKey(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List all application keys available for this service account.
+   * @param param The request object
+   */
+  public listServiceAccountApplicationKeys(
+    param: ServiceAccountsApiListServiceAccountApplicationKeysRequest,
+    options?: Configuration
+  ): Promise<ListApplicationKeysResponse> {
+    const requestContextPromise =
+      this.requestFactory.listServiceAccountApplicationKeys(
+        param.serviceAccountId,
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.filter,
+        param.filterCreatedAtStart,
+        param.filterCreatedAtEnd,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listServiceAccountApplicationKeys(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Edit an application key owned by this service account.
+   * @param param The request object
+   */
+  public updateServiceAccountApplicationKey(
+    param: ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<PartialApplicationKeyResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateServiceAccountApplicationKey(
+        param.serviceAccountId,
+        param.appKeyId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateServiceAccountApplicationKey(
+            responseContext
+          );
+        });
+    });
+  }
+}

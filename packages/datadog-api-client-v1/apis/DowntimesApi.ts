@@ -745,3 +745,230 @@ export class DowntimesApiResponseProcessor {
     );
   }
 }
+
+export interface DowntimesApiCancelDowntimeRequest {
+  /**
+   * ID of the downtime to cancel.
+   * @type number
+   */
+  downtimeId: number;
+}
+
+export interface DowntimesApiCancelDowntimesByScopeRequest {
+  /**
+   * Scope to cancel downtimes for.
+   * @type CancelDowntimesByScopeRequest
+   */
+  body: CancelDowntimesByScopeRequest;
+}
+
+export interface DowntimesApiCreateDowntimeRequest {
+  /**
+   * Schedule a downtime request body.
+   * @type Downtime
+   */
+  body: Downtime;
+}
+
+export interface DowntimesApiGetDowntimeRequest {
+  /**
+   * ID of the downtime to fetch.
+   * @type number
+   */
+  downtimeId: number;
+}
+
+export interface DowntimesApiListDowntimesRequest {
+  /**
+   * Only return downtimes that are active when the request is made.
+   * @type boolean
+   */
+  currentOnly?: boolean;
+}
+
+export interface DowntimesApiListMonitorDowntimesRequest {
+  /**
+   * The id of the monitor
+   * @type number
+   */
+  monitorId: number;
+}
+
+export interface DowntimesApiUpdateDowntimeRequest {
+  /**
+   * ID of the downtime to update.
+   * @type number
+   */
+  downtimeId: number;
+  /**
+   * Update a downtime request body.
+   * @type Downtime
+   */
+  body: Downtime;
+}
+
+export class DowntimesApi {
+  private requestFactory: DowntimesApiRequestFactory;
+  private responseProcessor: DowntimesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: DowntimesApiRequestFactory,
+    responseProcessor?: DowntimesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new DowntimesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new DowntimesApiResponseProcessor();
+  }
+
+  /**
+   * Cancel a downtime.
+   * @param param The request object
+   */
+  public cancelDowntime(
+    param: DowntimesApiCancelDowntimeRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.cancelDowntime(
+      param.downtimeId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.cancelDowntime(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete all downtimes that match the scope of `X`.
+   * @param param The request object
+   */
+  public cancelDowntimesByScope(
+    param: DowntimesApiCancelDowntimesByScopeRequest,
+    options?: Configuration
+  ): Promise<CanceledDowntimesIds> {
+    const requestContextPromise = this.requestFactory.cancelDowntimesByScope(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.cancelDowntimesByScope(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Schedule a downtime.
+   * @param param The request object
+   */
+  public createDowntime(
+    param: DowntimesApiCreateDowntimeRequest,
+    options?: Configuration
+  ): Promise<Downtime> {
+    const requestContextPromise = this.requestFactory.createDowntime(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createDowntime(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get downtime detail by `downtime_id`.
+   * @param param The request object
+   */
+  public getDowntime(
+    param: DowntimesApiGetDowntimeRequest,
+    options?: Configuration
+  ): Promise<Downtime> {
+    const requestContextPromise = this.requestFactory.getDowntime(
+      param.downtimeId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getDowntime(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all scheduled downtimes.
+   * @param param The request object
+   */
+  public listDowntimes(
+    param: DowntimesApiListDowntimesRequest = {},
+    options?: Configuration
+  ): Promise<Array<Downtime>> {
+    const requestContextPromise = this.requestFactory.listDowntimes(
+      param.currentOnly,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listDowntimes(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all active downtimes for the specified monitor.
+   * @param param The request object
+   */
+  public listMonitorDowntimes(
+    param: DowntimesApiListMonitorDowntimesRequest,
+    options?: Configuration
+  ): Promise<Array<Downtime>> {
+    const requestContextPromise = this.requestFactory.listMonitorDowntimes(
+      param.monitorId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listMonitorDowntimes(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a single downtime by `downtime_id`.
+   * @param param The request object
+   */
+  public updateDowntime(
+    param: DowntimesApiUpdateDowntimeRequest,
+    options?: Configuration
+  ): Promise<Downtime> {
+    const requestContextPromise = this.requestFactory.updateDowntime(
+      param.downtimeId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateDowntime(responseContext);
+        });
+    });
+  }
+}

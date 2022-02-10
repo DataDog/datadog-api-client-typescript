@@ -523,3 +523,155 @@ export class AzureIntegrationApiResponseProcessor {
     );
   }
 }
+
+export interface AzureIntegrationApiCreateAzureIntegrationRequest {
+  /**
+   * Create a Datadog-Azure integration for your Datadog account request body.
+   * @type AzureAccount
+   */
+  body: AzureAccount;
+}
+
+export interface AzureIntegrationApiDeleteAzureIntegrationRequest {
+  /**
+   * Delete a given Datadog-Azure integration request body.
+   * @type AzureAccount
+   */
+  body: AzureAccount;
+}
+
+export interface AzureIntegrationApiUpdateAzureHostFiltersRequest {
+  /**
+   * Update a Datadog-Azure integration&#39;s host filters request body.
+   * @type AzureAccount
+   */
+  body: AzureAccount;
+}
+
+export interface AzureIntegrationApiUpdateAzureIntegrationRequest {
+  /**
+   * Update a Datadog-Azure integration request body.
+   * @type AzureAccount
+   */
+  body: AzureAccount;
+}
+
+export class AzureIntegrationApi {
+  private requestFactory: AzureIntegrationApiRequestFactory;
+  private responseProcessor: AzureIntegrationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: AzureIntegrationApiRequestFactory,
+    responseProcessor?: AzureIntegrationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new AzureIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new AzureIntegrationApiResponseProcessor();
+  }
+
+  /**
+   * Create a Datadog-Azure integration.  Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the `PUT` method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
+   * @param param The request object
+   */
+  public createAzureIntegration(
+    param: AzureIntegrationApiCreateAzureIntegrationRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.createAzureIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAzureIntegration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a given Datadog-Azure integration from your Datadog account.
+   * @param param The request object
+   */
+  public deleteAzureIntegration(
+    param: AzureIntegrationApiDeleteAzureIntegrationRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.deleteAzureIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAzureIntegration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all Datadog-Azure integrations configured in your Datadog account.
+   * @param param The request object
+   */
+  public listAzureIntegration(
+    options?: Configuration
+  ): Promise<Array<AzureAccount>> {
+    const requestContextPromise =
+      this.requestFactory.listAzureIntegration(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAzureIntegration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the defined list of host filters for a given Datadog-Azure integration.
+   * @param param The request object
+   */
+  public updateAzureHostFilters(
+    param: AzureIntegrationApiUpdateAzureHostFiltersRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.updateAzureHostFilters(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAzureHostFilters(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
+   * @param param The request object
+   */
+  public updateAzureIntegration(
+    param: AzureIntegrationApiUpdateAzureIntegrationRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.updateAzureIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAzureIntegration(responseContext);
+        });
+    });
+  }
+}

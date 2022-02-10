@@ -18,30 +18,45 @@ export {
   CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleRequest,
-  ObjectCloudWorkloadSecurityApi as CloudWorkloadSecurityApi,
+  CloudWorkloadSecurityApi,
+} from "./apis/CloudWorkloadSecurityApi";
+
+export {
   DashboardListsApiCreateDashboardListItemsRequest,
   DashboardListsApiDeleteDashboardListItemsRequest,
   DashboardListsApiGetDashboardListItemsRequest,
   DashboardListsApiUpdateDashboardListItemsRequest,
-  ObjectDashboardListsApi as DashboardListsApi,
+  DashboardListsApi,
+} from "./apis/DashboardListsApi";
+
+export {
   IncidentServicesApiCreateIncidentServiceRequest,
   IncidentServicesApiDeleteIncidentServiceRequest,
   IncidentServicesApiGetIncidentServiceRequest,
   IncidentServicesApiListIncidentServicesRequest,
   IncidentServicesApiUpdateIncidentServiceRequest,
-  ObjectIncidentServicesApi as IncidentServicesApi,
+  IncidentServicesApi,
+} from "./apis/IncidentServicesApi";
+
+export {
   IncidentTeamsApiCreateIncidentTeamRequest,
   IncidentTeamsApiDeleteIncidentTeamRequest,
   IncidentTeamsApiGetIncidentTeamRequest,
   IncidentTeamsApiListIncidentTeamsRequest,
   IncidentTeamsApiUpdateIncidentTeamRequest,
-  ObjectIncidentTeamsApi as IncidentTeamsApi,
+  IncidentTeamsApi,
+} from "./apis/IncidentTeamsApi";
+
+export {
   IncidentsApiCreateIncidentRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiGetIncidentRequest,
   IncidentsApiListIncidentsRequest,
   IncidentsApiUpdateIncidentRequest,
-  ObjectIncidentsApi as IncidentsApi,
+  IncidentsApi,
+} from "./apis/IncidentsApi";
+
+export {
   KeyManagementApiCreateAPIKeyRequest,
   KeyManagementApiCreateCurrentUserApplicationKeyRequest,
   KeyManagementApiDeleteAPIKeyRequest,
@@ -56,12 +71,18 @@ export {
   KeyManagementApiUpdateAPIKeyRequest,
   KeyManagementApiUpdateApplicationKeyRequest,
   KeyManagementApiUpdateCurrentUserApplicationKeyRequest,
-  ObjectKeyManagementApi as KeyManagementApi,
+  KeyManagementApi,
+} from "./apis/KeyManagementApi";
+
+export {
   LogsApiAggregateLogsRequest,
   LogsApiListLogsRequest,
   LogsApiListLogsGetRequest,
   LogsApiSubmitLogRequest,
-  ObjectLogsApi as LogsApi,
+  LogsApi,
+} from "./apis/LogsApi";
+
+export {
   LogsArchivesApiAddReadRoleToArchiveRequest,
   LogsArchivesApiCreateLogsArchiveRequest,
   LogsArchivesApiDeleteLogsArchiveRequest,
@@ -70,12 +91,18 @@ export {
   LogsArchivesApiRemoveRoleFromArchiveRequest,
   LogsArchivesApiUpdateLogsArchiveRequest,
   LogsArchivesApiUpdateLogsArchiveOrderRequest,
-  ObjectLogsArchivesApi as LogsArchivesApi,
+  LogsArchivesApi,
+} from "./apis/LogsArchivesApi";
+
+export {
   LogsMetricsApiCreateLogsMetricRequest,
   LogsMetricsApiDeleteLogsMetricRequest,
   LogsMetricsApiGetLogsMetricRequest,
   LogsMetricsApiUpdateLogsMetricRequest,
-  ObjectLogsMetricsApi as LogsMetricsApi,
+  LogsMetricsApi,
+} from "./apis/LogsMetricsApi";
+
+export {
   MetricsApiCreateTagConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiListTagConfigurationByNameRequest,
@@ -83,9 +110,15 @@ export {
   MetricsApiListTagsByMetricNameRequest,
   MetricsApiListVolumesByMetricNameRequest,
   MetricsApiUpdateTagConfigurationRequest,
-  ObjectMetricsApi as MetricsApi,
+  MetricsApi,
+} from "./apis/MetricsApi";
+
+export {
   ProcessesApiListProcessesRequest,
-  ObjectProcessesApi as ProcessesApi,
+  ProcessesApi,
+} from "./apis/ProcessesApi";
+
+export {
   RolesApiAddPermissionToRoleRequest,
   RolesApiAddUserToRoleRequest,
   RolesApiCloneRoleRequest,
@@ -98,7 +131,10 @@ export {
   RolesApiRemovePermissionFromRoleRequest,
   RolesApiRemoveUserFromRoleRequest,
   RolesApiUpdateRoleRequest,
-  ObjectRolesApi as RolesApi,
+  RolesApi,
+} from "./apis/RolesApi";
+
+export {
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
@@ -110,13 +146,19 @@ export {
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
-  ObjectSecurityMonitoringApi as SecurityMonitoringApi,
+  SecurityMonitoringApi,
+} from "./apis/SecurityMonitoringApi";
+
+export {
   ServiceAccountsApiCreateServiceAccountApplicationKeyRequest,
   ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest,
   ServiceAccountsApiGetServiceAccountApplicationKeyRequest,
   ServiceAccountsApiListServiceAccountApplicationKeysRequest,
   ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest,
-  ObjectServiceAccountsApi as ServiceAccountsApi,
+  ServiceAccountsApi,
+} from "./apis/ServiceAccountsApi";
+
+export {
   UsersApiCreateServiceAccountRequest,
   UsersApiCreateUserRequest,
   UsersApiDisableUserRequest,
@@ -127,5 +169,5 @@ export {
   UsersApiListUsersRequest,
   UsersApiSendInvitationsRequest,
   UsersApiUpdateUserRequest,
-  ObjectUsersApi as UsersApi,
-} from "./types/ObjectParamAPI";
+  UsersApi,
+} from "./apis/UsersApi";

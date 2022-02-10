@@ -606,3 +606,176 @@ export class LogsIndexesApiResponseProcessor {
     );
   }
 }
+
+export interface LogsIndexesApiCreateLogsIndexRequest {
+  /**
+   * Object containing the new index.
+   * @type LogsIndex
+   */
+  body: LogsIndex;
+}
+
+export interface LogsIndexesApiGetLogsIndexRequest {
+  /**
+   * Name of the log index.
+   * @type string
+   */
+  name: string;
+}
+
+export interface LogsIndexesApiUpdateLogsIndexRequest {
+  /**
+   * Name of the log index.
+   * @type string
+   */
+  name: string;
+  /**
+   * Object containing the new &#x60;LogsIndexUpdateRequest&#x60;.
+   * @type LogsIndexUpdateRequest
+   */
+  body: LogsIndexUpdateRequest;
+}
+
+export interface LogsIndexesApiUpdateLogsIndexOrderRequest {
+  /**
+   * Object containing the new ordered list of index names
+   * @type LogsIndexesOrder
+   */
+  body: LogsIndexesOrder;
+}
+
+export class LogsIndexesApi {
+  private requestFactory: LogsIndexesApiRequestFactory;
+  private responseProcessor: LogsIndexesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: LogsIndexesApiRequestFactory,
+    responseProcessor?: LogsIndexesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new LogsIndexesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new LogsIndexesApiResponseProcessor();
+  }
+
+  /**
+   * Creates a new index. Returns the Index object passed in the request body when the request is successful.
+   * @param param The request object
+   */
+  public createLogsIndex(
+    param: LogsIndexesApiCreateLogsIndexRequest,
+    options?: Configuration
+  ): Promise<LogsIndex> {
+    const requestContextPromise = this.requestFactory.createLogsIndex(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLogsIndex(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get one log index from your organization. This endpoint takes no JSON arguments.
+   * @param param The request object
+   */
+  public getLogsIndex(
+    param: LogsIndexesApiGetLogsIndexRequest,
+    options?: Configuration
+  ): Promise<LogsIndex> {
+    const requestContextPromise = this.requestFactory.getLogsIndex(
+      param.name,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLogsIndex(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the current order of your log indexes. This endpoint takes no JSON arguments.
+   * @param param The request object
+   */
+  public getLogsIndexOrder(options?: Configuration): Promise<LogsIndexesOrder> {
+    const requestContextPromise =
+      this.requestFactory.getLogsIndexOrder(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLogsIndexOrder(responseContext);
+        });
+    });
+  }
+
+  /**
+   * The Index object describes the configuration of a log index. This endpoint returns an array of the `LogIndex` objects of your organization.
+   * @param param The request object
+   */
+  public listLogIndexes(
+    options?: Configuration
+  ): Promise<LogsIndexListResponse> {
+    const requestContextPromise = this.requestFactory.listLogIndexes(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLogIndexes(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the `PUT` method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * @param param The request object
+   */
+  public updateLogsIndex(
+    param: LogsIndexesApiUpdateLogsIndexRequest,
+    options?: Configuration
+  ): Promise<LogsIndex> {
+    const requestContextPromise = this.requestFactory.updateLogsIndex(
+      param.name,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLogsIndex(responseContext);
+        });
+    });
+  }
+
+  /**
+   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
+   * @param param The request object
+   */
+  public updateLogsIndexOrder(
+    param: LogsIndexesApiUpdateLogsIndexOrderRequest,
+    options?: Configuration
+  ): Promise<LogsIndexesOrder> {
+    const requestContextPromise = this.requestFactory.updateLogsIndexOrder(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLogsIndexOrder(responseContext);
+        });
+    });
+  }
+}

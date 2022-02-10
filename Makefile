@@ -2,8 +2,7 @@
 all: .generator .env
 	@rm -rf packages/datadog-api-client-v*/models
 	@pre-commit run --all-files --hook-stage=manual openapi-generator || true
-	@rm packages/datadog-api-client-v*/types/PromiseAPI.ts
-	@rm packages/datadog-api-client-v*/types/ObservableAPI.ts
+	@rm -rf packages/datadog-api-client-v*/types/
 	@rm packages/datadog-api-client-v*/middleware.ts
 	@rm packages/datadog-api-client-v*/rxjsStub.ts
 	@mkdir -p docs/v1 docs/v2

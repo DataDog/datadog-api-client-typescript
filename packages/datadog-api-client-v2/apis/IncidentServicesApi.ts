@@ -673,3 +673,196 @@ export class IncidentServicesApiResponseProcessor {
     );
   }
 }
+
+export interface IncidentServicesApiCreateIncidentServiceRequest {
+  /**
+   * Incident Service Payload.
+   * @type IncidentServiceCreateRequest
+   */
+  body: IncidentServiceCreateRequest;
+}
+
+export interface IncidentServicesApiDeleteIncidentServiceRequest {
+  /**
+   * The ID of the incident service.
+   * @type string
+   */
+  serviceId: string;
+}
+
+export interface IncidentServicesApiGetIncidentServiceRequest {
+  /**
+   * The ID of the incident service.
+   * @type string
+   */
+  serviceId: string;
+  /**
+   * Specifies which types of related objects should be included in the response.
+   * @type IncidentRelatedObject
+   */
+  include?: IncidentRelatedObject;
+}
+
+export interface IncidentServicesApiListIncidentServicesRequest {
+  /**
+   * Specifies which types of related objects should be included in the response.
+   * @type IncidentRelatedObject
+   */
+  include?: IncidentRelatedObject;
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific offset to use as the beginning of the returned page.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * A search query that filters services by name.
+   * @type string
+   */
+  filter?: string;
+}
+
+export interface IncidentServicesApiUpdateIncidentServiceRequest {
+  /**
+   * The ID of the incident service.
+   * @type string
+   */
+  serviceId: string;
+  /**
+   * Incident Service Payload.
+   * @type IncidentServiceUpdateRequest
+   */
+  body: IncidentServiceUpdateRequest;
+}
+
+export class IncidentServicesApi {
+  private requestFactory: IncidentServicesApiRequestFactory;
+  private responseProcessor: IncidentServicesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: IncidentServicesApiRequestFactory,
+    responseProcessor?: IncidentServicesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new IncidentServicesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new IncidentServicesApiResponseProcessor();
+  }
+
+  /**
+   * Creates a new incident service.
+   * @param param The request object
+   */
+  public createIncidentService(
+    param: IncidentServicesApiCreateIncidentServiceRequest,
+    options?: Configuration
+  ): Promise<IncidentServiceResponse> {
+    const requestContextPromise = this.requestFactory.createIncidentService(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentService(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Deletes an existing incident service.
+   * @param param The request object
+   */
+  public deleteIncidentService(
+    param: IncidentServicesApiDeleteIncidentServiceRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncidentService(
+      param.serviceId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentService(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get details of an incident service. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
+   * @param param The request object
+   */
+  public getIncidentService(
+    param: IncidentServicesApiGetIncidentServiceRequest,
+    options?: Configuration
+  ): Promise<IncidentServiceResponse> {
+    const requestContextPromise = this.requestFactory.getIncidentService(
+      param.serviceId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentService(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all incident services uploaded for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident services.
+   * @param param The request object
+   */
+  public listIncidentServices(
+    param: IncidentServicesApiListIncidentServicesRequest = {},
+    options?: Configuration
+  ): Promise<IncidentServicesResponse> {
+    const requestContextPromise = this.requestFactory.listIncidentServices(
+      param.include,
+      param.pageSize,
+      param.pageOffset,
+      param.filter,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentServices(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Updates an existing incident service. Only provide the attributes which should be updated as this request is a partial update.
+   * @param param The request object
+   */
+  public updateIncidentService(
+    param: IncidentServicesApiUpdateIncidentServiceRequest,
+    options?: Configuration
+  ): Promise<IncidentServiceResponse> {
+    const requestContextPromise = this.requestFactory.updateIncidentService(
+      param.serviceId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentService(responseContext);
+        });
+    });
+  }
+}

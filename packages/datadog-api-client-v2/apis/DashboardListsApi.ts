@@ -507,3 +507,161 @@ export class DashboardListsApiResponseProcessor {
     );
   }
 }
+
+export interface DashboardListsApiCreateDashboardListItemsRequest {
+  /**
+   * ID of the dashboard list to add items to.
+   * @type number
+   */
+  dashboardListId: number;
+  /**
+   * Dashboards to add to the dashboard list.
+   * @type DashboardListAddItemsRequest
+   */
+  body: DashboardListAddItemsRequest;
+}
+
+export interface DashboardListsApiDeleteDashboardListItemsRequest {
+  /**
+   * ID of the dashboard list to delete items from.
+   * @type number
+   */
+  dashboardListId: number;
+  /**
+   * Dashboards to delete from the dashboard list.
+   * @type DashboardListDeleteItemsRequest
+   */
+  body: DashboardListDeleteItemsRequest;
+}
+
+export interface DashboardListsApiGetDashboardListItemsRequest {
+  /**
+   * ID of the dashboard list to get items from.
+   * @type number
+   */
+  dashboardListId: number;
+}
+
+export interface DashboardListsApiUpdateDashboardListItemsRequest {
+  /**
+   * ID of the dashboard list to update items from.
+   * @type number
+   */
+  dashboardListId: number;
+  /**
+   * New dashboards of the dashboard list.
+   * @type DashboardListUpdateItemsRequest
+   */
+  body: DashboardListUpdateItemsRequest;
+}
+
+export class DashboardListsApi {
+  private requestFactory: DashboardListsApiRequestFactory;
+  private responseProcessor: DashboardListsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: DashboardListsApiRequestFactory,
+    responseProcessor?: DashboardListsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new DashboardListsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new DashboardListsApiResponseProcessor();
+  }
+
+  /**
+   * Add dashboards to an existing dashboard list.
+   * @param param The request object
+   */
+  public createDashboardListItems(
+    param: DashboardListsApiCreateDashboardListItemsRequest,
+    options?: Configuration
+  ): Promise<DashboardListAddItemsResponse> {
+    const requestContextPromise = this.requestFactory.createDashboardListItems(
+      param.dashboardListId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createDashboardListItems(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete dashboards from an existing dashboard list.
+   * @param param The request object
+   */
+  public deleteDashboardListItems(
+    param: DashboardListsApiDeleteDashboardListItemsRequest,
+    options?: Configuration
+  ): Promise<DashboardListDeleteItemsResponse> {
+    const requestContextPromise = this.requestFactory.deleteDashboardListItems(
+      param.dashboardListId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteDashboardListItems(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Fetch the dashboard list’s dashboard definitions.
+   * @param param The request object
+   */
+  public getDashboardListItems(
+    param: DashboardListsApiGetDashboardListItemsRequest,
+    options?: Configuration
+  ): Promise<DashboardListItems> {
+    const requestContextPromise = this.requestFactory.getDashboardListItems(
+      param.dashboardListId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getDashboardListItems(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update dashboards of an existing dashboard list.
+   * @param param The request object
+   */
+  public updateDashboardListItems(
+    param: DashboardListsApiUpdateDashboardListItemsRequest,
+    options?: Configuration
+  ): Promise<DashboardListUpdateItemsResponse> {
+    const requestContextPromise = this.requestFactory.updateDashboardListItems(
+      param.dashboardListId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateDashboardListItems(
+            responseContext
+          );
+        });
+    });
+  }
+}

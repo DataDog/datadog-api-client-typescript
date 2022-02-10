@@ -628,3 +628,226 @@ export class NotebooksApiResponseProcessor {
     );
   }
 }
+
+export interface NotebooksApiCreateNotebookRequest {
+  /**
+   * The JSON description of the notebook you want to create.
+   * @type NotebookCreateRequest
+   */
+  body: NotebookCreateRequest;
+}
+
+export interface NotebooksApiDeleteNotebookRequest {
+  /**
+   * Unique ID, assigned when you create the notebook.
+   * @type number
+   */
+  notebookId: number;
+}
+
+export interface NotebooksApiGetNotebookRequest {
+  /**
+   * Unique ID, assigned when you create the notebook.
+   * @type number
+   */
+  notebookId: number;
+}
+
+export interface NotebooksApiListNotebooksRequest {
+  /**
+   * Return notebooks created by the given &#x60;author_handle&#x60;.
+   * @type string
+   */
+  authorHandle?: string;
+  /**
+   * Return notebooks not created by the given &#x60;author_handle&#x60;.
+   * @type string
+   */
+  excludeAuthorHandle?: string;
+  /**
+   * The index of the first notebook you want returned.
+   * @type number
+   */
+  start?: number;
+  /**
+   * The number of notebooks to be returned.
+   * @type number
+   */
+  count?: number;
+  /**
+   * Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;.
+   * @type string
+   */
+  sortField?: string;
+  /**
+   * Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.
+   * @type string
+   */
+  sortDir?: string;
+  /**
+   * Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.
+   * @type string
+   */
+  query?: string;
+  /**
+   * Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.
+   * @type boolean
+   */
+  includeCells?: boolean;
+  /**
+   * True value returns only template notebooks. Default is false (returns only non-template notebooks).
+   * @type boolean
+   */
+  isTemplate?: boolean;
+  /**
+   * If type is provided, returns only notebooks with that metadata type. Default does not have type filtering.
+   * @type string
+   */
+  type?: string;
+}
+
+export interface NotebooksApiUpdateNotebookRequest {
+  /**
+   * Unique ID, assigned when you create the notebook.
+   * @type number
+   */
+  notebookId: number;
+  /**
+   * Update notebook request body.
+   * @type NotebookUpdateRequest
+   */
+  body: NotebookUpdateRequest;
+}
+
+export class NotebooksApi {
+  private requestFactory: NotebooksApiRequestFactory;
+  private responseProcessor: NotebooksApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: NotebooksApiRequestFactory,
+    responseProcessor?: NotebooksApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new NotebooksApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new NotebooksApiResponseProcessor();
+  }
+
+  /**
+   * Create a notebook using the specified options.
+   * @param param The request object
+   */
+  public createNotebook(
+    param: NotebooksApiCreateNotebookRequest,
+    options?: Configuration
+  ): Promise<NotebookResponse> {
+    const requestContextPromise = this.requestFactory.createNotebook(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createNotebook(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a notebook using the specified ID.
+   * @param param The request object
+   */
+  public deleteNotebook(
+    param: NotebooksApiDeleteNotebookRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteNotebook(
+      param.notebookId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteNotebook(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a notebook using the specified notebook ID.
+   * @param param The request object
+   */
+  public getNotebook(
+    param: NotebooksApiGetNotebookRequest,
+    options?: Configuration
+  ): Promise<NotebookResponse> {
+    const requestContextPromise = this.requestFactory.getNotebook(
+      param.notebookId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getNotebook(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook `name` or author `handle`.
+   * @param param The request object
+   */
+  public listNotebooks(
+    param: NotebooksApiListNotebooksRequest = {},
+    options?: Configuration
+  ): Promise<NotebooksResponse> {
+    const requestContextPromise = this.requestFactory.listNotebooks(
+      param.authorHandle,
+      param.excludeAuthorHandle,
+      param.start,
+      param.count,
+      param.sortField,
+      param.sortDir,
+      param.query,
+      param.includeCells,
+      param.isTemplate,
+      param.type,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listNotebooks(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a notebook using the specified ID.
+   * @param param The request object
+   */
+  public updateNotebook(
+    param: NotebooksApiUpdateNotebookRequest,
+    options?: Configuration
+  ): Promise<NotebookResponse> {
+    const requestContextPromise = this.requestFactory.updateNotebook(
+      param.notebookId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateNotebook(responseContext);
+        });
+    });
+  }
+}

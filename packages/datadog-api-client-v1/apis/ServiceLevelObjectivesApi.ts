@@ -1109,3 +1109,357 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     );
   }
 }
+
+export interface ServiceLevelObjectivesApiCheckCanDeleteSLORequest {
+  /**
+   * A comma separated list of the IDs of the service level objectives objects.
+   * @type string
+   */
+  ids: string;
+}
+
+export interface ServiceLevelObjectivesApiCreateSLORequest {
+  /**
+   * Service level objective request object.
+   * @type ServiceLevelObjectiveRequest
+   */
+  body: ServiceLevelObjectiveRequest;
+}
+
+export interface ServiceLevelObjectivesApiDeleteSLORequest {
+  /**
+   * The ID of the service level objective.
+   * @type string
+   */
+  sloId: string;
+  /**
+   * Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
+   * @type string
+   */
+  force?: string;
+}
+
+export interface ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest {
+  /**
+   * Delete multiple service level objective objects request body.
+   * @type { [key: string]: Array&lt;SLOTimeframe&gt;; }
+   */
+  body: { [key: string]: Array<SLOTimeframe> };
+}
+
+export interface ServiceLevelObjectivesApiGetSLORequest {
+  /**
+   * The ID of the service level objective object.
+   * @type string
+   */
+  sloId: string;
+  /**
+   * Get the IDs of SLO monitors that reference this SLO.
+   * @type boolean
+   */
+  withConfiguredAlertIds?: boolean;
+}
+
+export interface ServiceLevelObjectivesApiGetSLOCorrectionsRequest {
+  /**
+   * The ID of the service level objective object.
+   * @type string
+   */
+  sloId: string;
+}
+
+export interface ServiceLevelObjectivesApiGetSLOHistoryRequest {
+  /**
+   * The ID of the service level objective object.
+   * @type string
+   */
+  sloId: string;
+  /**
+   * The &#x60;from&#x60; timestamp for the query window in epoch seconds.
+   * @type number
+   */
+  fromTs: number;
+  /**
+   * The &#x60;to&#x60; timestamp for the query window in epoch seconds.
+   * @type number
+   */
+  toTs: number;
+  /**
+   * The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
+   * @type number
+   */
+  target?: number;
+  /**
+   * Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected.
+   * @type boolean
+   */
+  applyCorrection?: boolean;
+}
+
+export interface ServiceLevelObjectivesApiListSLOsRequest {
+  /**
+   * A comma separated list of the IDs of the service level objectives objects.
+   * @type string
+   */
+  ids?: string;
+  /**
+   * The query string to filter results based on SLO names.
+   * @type string
+   */
+  query?: string;
+  /**
+   * The query string to filter results based on a single SLO tag.
+   * @type string
+   */
+  tagsQuery?: string;
+  /**
+   * The query string to filter results based on SLO numerator and denominator.
+   * @type string
+   */
+  metricsQuery?: string;
+  /**
+   * The number of SLOs to return in the response.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * The specific offset to use as the beginning of the returned response.
+   * @type number
+   */
+  offset?: number;
+}
+
+export interface ServiceLevelObjectivesApiUpdateSLORequest {
+  /**
+   * The ID of the service level objective object.
+   * @type string
+   */
+  sloId: string;
+  /**
+   * The edited service level objective request object.
+   * @type ServiceLevelObjective
+   */
+  body: ServiceLevelObjective;
+}
+
+export class ServiceLevelObjectivesApi {
+  private requestFactory: ServiceLevelObjectivesApiRequestFactory;
+  private responseProcessor: ServiceLevelObjectivesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ServiceLevelObjectivesApiRequestFactory,
+    responseProcessor?: ServiceLevelObjectivesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory ||
+      new ServiceLevelObjectivesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new ServiceLevelObjectivesApiResponseProcessor();
+  }
+
+  /**
+   * Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
+   * @param param The request object
+   */
+  public checkCanDeleteSLO(
+    param: ServiceLevelObjectivesApiCheckCanDeleteSLORequest,
+    options?: Configuration
+  ): Promise<CheckCanDeleteSLOResponse> {
+    const requestContextPromise = this.requestFactory.checkCanDeleteSLO(
+      param.ids,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.checkCanDeleteSLO(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a service level objective object.
+   * @param param The request object
+   */
+  public createSLO(
+    param: ServiceLevelObjectivesApiCreateSLORequest,
+    options?: Configuration
+  ): Promise<SLOListResponse> {
+    const requestContextPromise = this.requestFactory.createSLO(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSLO(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
+   * @param param The request object
+   */
+  public deleteSLO(
+    param: ServiceLevelObjectivesApiDeleteSLORequest,
+    options?: Configuration
+  ): Promise<SLODeleteResponse> {
+    const requestContextPromise = this.requestFactory.deleteSLO(
+      param.sloId,
+      param.force,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSLO(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
+   * @param param The request object
+   */
+  public deleteSLOTimeframeInBulk(
+    param: ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest,
+    options?: Configuration
+  ): Promise<SLOBulkDeleteResponse> {
+    const requestContextPromise = this.requestFactory.deleteSLOTimeframeInBulk(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSLOTimeframeInBulk(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a service level objective object.
+   * @param param The request object
+   */
+  public getSLO(
+    param: ServiceLevelObjectivesApiGetSLORequest,
+    options?: Configuration
+  ): Promise<SLOResponse> {
+    const requestContextPromise = this.requestFactory.getSLO(
+      param.sloId,
+      param.withConfiguredAlertIds,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSLO(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get corrections applied to an SLO
+   * @param param The request object
+   */
+  public getSLOCorrections(
+    param: ServiceLevelObjectivesApiGetSLOCorrectionsRequest,
+    options?: Configuration
+  ): Promise<SLOCorrectionListResponse> {
+    const requestContextPromise = this.requestFactory.getSLOCorrections(
+      param.sloId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSLOCorrections(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
+   * @param param The request object
+   */
+  public getSLOHistory(
+    param: ServiceLevelObjectivesApiGetSLOHistoryRequest,
+    options?: Configuration
+  ): Promise<SLOHistoryResponse> {
+    const requestContextPromise = this.requestFactory.getSLOHistory(
+      param.sloId,
+      param.fromTs,
+      param.toTs,
+      param.target,
+      param.applyCorrection,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSLOHistory(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a list of service level objective objects for your organization.
+   * @param param The request object
+   */
+  public listSLOs(
+    param: ServiceLevelObjectivesApiListSLOsRequest = {},
+    options?: Configuration
+  ): Promise<SLOListResponse> {
+    const requestContextPromise = this.requestFactory.listSLOs(
+      param.ids,
+      param.query,
+      param.tagsQuery,
+      param.metricsQuery,
+      param.limit,
+      param.offset,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSLOs(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the specified service level objective object.
+   * @param param The request object
+   */
+  public updateSLO(
+    param: ServiceLevelObjectivesApiUpdateSLORequest,
+    options?: Configuration
+  ): Promise<SLOListResponse> {
+    const requestContextPromise = this.requestFactory.updateSLO(
+      param.sloId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSLO(responseContext);
+        });
+    });
+  }
+}

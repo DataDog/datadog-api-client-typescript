@@ -552,3 +552,164 @@ export class OrganizationsApiResponseProcessor {
     );
   }
 }
+
+export interface OrganizationsApiCreateChildOrgRequest {
+  /**
+   * Organization object that needs to be created
+   * @type OrganizationCreateBody
+   */
+  body: OrganizationCreateBody;
+}
+
+export interface OrganizationsApiGetOrgRequest {
+  /**
+   * The &#x60;public_id&#x60; of the organization you are operating within.
+   * @type string
+   */
+  publicId: string;
+}
+
+export interface OrganizationsApiUpdateOrgRequest {
+  /**
+   * The &#x60;public_id&#x60; of the organization you are operating within.
+   * @type string
+   */
+  publicId: string;
+  /**
+   *
+   * @type Organization
+   */
+  body: Organization;
+}
+
+export interface OrganizationsApiUploadIdPForOrgRequest {
+  /**
+   * The &#x60;public_id&#x60; of the organization you are operating with
+   * @type string
+   */
+  publicId: string;
+  /**
+   * The path to the XML metadata file you wish to upload.
+   * @type HttpFile
+   */
+  idpFile: HttpFile;
+}
+
+export class OrganizationsApi {
+  private requestFactory: OrganizationsApiRequestFactory;
+  private responseProcessor: OrganizationsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: OrganizationsApiRequestFactory,
+    responseProcessor?: OrganizationsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new OrganizationsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new OrganizationsApiResponseProcessor();
+  }
+
+  /**
+   * Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `api_key.key`, and `application_key.hash` provided in the response.
+   * @param param The request object
+   */
+  public createChildOrg(
+    param: OrganizationsApiCreateChildOrgRequest,
+    options?: Configuration
+  ): Promise<OrganizationCreateResponse> {
+    const requestContextPromise = this.requestFactory.createChildOrg(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createChildOrg(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get organization information.
+   * @param param The request object
+   */
+  public getOrg(
+    param: OrganizationsApiGetOrgRequest,
+    options?: Configuration
+  ): Promise<OrganizationResponse> {
+    const requestContextPromise = this.requestFactory.getOrg(
+      param.publicId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getOrg(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List your managed organizations.
+   * @param param The request object
+   */
+  public listOrgs(options?: Configuration): Promise<OrganizationListResponse> {
+    const requestContextPromise = this.requestFactory.listOrgs(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listOrgs(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update your organization.
+   * @param param The request object
+   */
+  public updateOrg(
+    param: OrganizationsApiUpdateOrgRequest,
+    options?: Configuration
+  ): Promise<OrganizationResponse> {
+    const requestContextPromise = this.requestFactory.updateOrg(
+      param.publicId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateOrg(responseContext);
+        });
+    });
+  }
+
+  /**
+   * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
+   * @param param The request object
+   */
+  public uploadIdPForOrg(
+    param: OrganizationsApiUploadIdPForOrgRequest,
+    options?: Configuration
+  ): Promise<IdpResponse> {
+    const requestContextPromise = this.requestFactory.uploadIdPForOrg(
+      param.publicId,
+      param.idpFile,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.uploadIdPForOrg(responseContext);
+        });
+    });
+  }
+}

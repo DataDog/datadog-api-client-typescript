@@ -148,3 +148,80 @@ export class ProcessesApiResponseProcessor {
     );
   }
 }
+
+export interface ProcessesApiListProcessesRequest {
+  /**
+   * String to search processes by.
+   * @type string
+   */
+  search?: string;
+  /**
+   * Comma-separated list of tags to filter processes by.
+   * @type string
+   */
+  tags?: string;
+  /**
+   * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the &#x60;to&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
+   * @type number
+   */
+  from?: number;
+  /**
+   * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the &#x60;from&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
+   * @type number
+   */
+  to?: number;
+  /**
+   * Maximum number of results returned.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * String to query the next page of results. This key is provided with each valid response from the API in &#x60;meta.page.after&#x60;.
+   * @type string
+   */
+  pageCursor?: string;
+}
+
+export class ProcessesApi {
+  private requestFactory: ProcessesApiRequestFactory;
+  private responseProcessor: ProcessesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ProcessesApiRequestFactory,
+    responseProcessor?: ProcessesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new ProcessesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new ProcessesApiResponseProcessor();
+  }
+
+  /**
+   * Get all processes for your organization.
+   * @param param The request object
+   */
+  public listProcesses(
+    param: ProcessesApiListProcessesRequest = {},
+    options?: Configuration
+  ): Promise<ProcessSummariesResponse> {
+    const requestContextPromise = this.requestFactory.listProcesses(
+      param.search,
+      param.tags,
+      param.from,
+      param.to,
+      param.pageLimit,
+      param.pageCursor,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listProcesses(responseContext);
+        });
+    });
+  }
+}

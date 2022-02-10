@@ -645,3 +645,196 @@ export class CloudWorkloadSecurityApiResponseProcessor {
     );
   }
 }
+
+export interface CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest {
+  /**
+   * The definition of the new Agent rule.
+   * @type CloudWorkloadSecurityAgentRuleCreateRequest
+   */
+  body: CloudWorkloadSecurityAgentRuleCreateRequest;
+}
+
+export interface CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest {
+  /**
+   * The ID of the Agent rule.
+   * @type string
+   */
+  agentRuleId: string;
+}
+
+export interface CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest {
+  /**
+   * The ID of the Agent rule.
+   * @type string
+   */
+  agentRuleId: string;
+}
+
+export interface CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleRequest {
+  /**
+   * The ID of the Agent rule.
+   * @type string
+   */
+  agentRuleId: string;
+  /**
+   * New definition of the Agent rule.
+   * @type CloudWorkloadSecurityAgentRuleUpdateRequest
+   */
+  body: CloudWorkloadSecurityAgentRuleUpdateRequest;
+}
+
+export class CloudWorkloadSecurityApi {
+  private requestFactory: CloudWorkloadSecurityApiRequestFactory;
+  private responseProcessor: CloudWorkloadSecurityApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: CloudWorkloadSecurityApiRequestFactory,
+    responseProcessor?: CloudWorkloadSecurityApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory ||
+      new CloudWorkloadSecurityApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new CloudWorkloadSecurityApiResponseProcessor();
+  }
+
+  /**
+   * Create a new Agent rule with the given parameters.
+   * @param param The request object
+   */
+  public createCloudWorkloadSecurityAgentRule(
+    param: CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createCloudWorkloadSecurityAgentRule(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCloudWorkloadSecurityAgentRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a specific Agent rule.
+   * @param param The request object
+   */
+  public deleteCloudWorkloadSecurityAgentRule(
+    param: CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteCloudWorkloadSecurityAgentRule(
+        param.agentRuleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCloudWorkloadSecurityAgentRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * The download endpoint generates a Cloud Workload Security policy file from your currently active Cloud Workload Security rules, and downloads them as a .policy file. This file can then be deployed to your agents to update the policy running in your environment.
+   * @param param The request object
+   */
+  public downloadCloudWorkloadPolicyFile(
+    options?: Configuration
+  ): Promise<HttpFile> {
+    const requestContextPromise =
+      this.requestFactory.downloadCloudWorkloadPolicyFile(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.downloadCloudWorkloadPolicyFile(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the details of a specific Agent rule.
+   * @param param The request object
+   */
+  public getCloudWorkloadSecurityAgentRule(
+    param: CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCloudWorkloadSecurityAgentRule(
+        param.agentRuleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCloudWorkloadSecurityAgentRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get the list of Agent rules.
+   * @param param The request object
+   */
+  public listCloudWorkloadSecurityAgentRules(
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentRulesListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCloudWorkloadSecurityAgentRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCloudWorkloadSecurityAgentRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a specific Agent rule. Returns the Agent rule object when the request is successful.
+   * @param param The request object
+   */
+  public updateCloudWorkloadSecurityAgentRule(
+    param: CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleRequest,
+    options?: Configuration
+  ): Promise<CloudWorkloadSecurityAgentRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateCloudWorkloadSecurityAgentRule(
+        param.agentRuleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCloudWorkloadSecurityAgentRule(
+            responseContext
+          );
+        });
+    });
+  }
+}

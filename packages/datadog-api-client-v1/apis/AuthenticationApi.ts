@@ -95,3 +95,38 @@ export class AuthenticationApiResponseProcessor {
     );
   }
 }
+
+export class AuthenticationApi {
+  private requestFactory: AuthenticationApiRequestFactory;
+  private responseProcessor: AuthenticationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: AuthenticationApiRequestFactory,
+    responseProcessor?: AuthenticationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new AuthenticationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new AuthenticationApiResponseProcessor();
+  }
+
+  /**
+   * Check if the API key (not the APP key) is valid. If invalid, a 403 is returned.
+   * @param param The request object
+   */
+  public validate(
+    options?: Configuration
+  ): Promise<AuthenticationValidationResponse> {
+    const requestContextPromise = this.requestFactory.validate(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.validate(responseContext);
+        });
+    });
+  }
+}

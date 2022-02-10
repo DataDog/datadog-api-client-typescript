@@ -1101,3 +1101,347 @@ export class UsersApiResponseProcessor {
     );
   }
 }
+
+export interface UsersApiCreateServiceAccountRequest {
+  /**
+   *
+   * @type ServiceAccountCreateRequest
+   */
+  body: ServiceAccountCreateRequest;
+}
+
+export interface UsersApiCreateUserRequest {
+  /**
+   *
+   * @type UserCreateRequest
+   */
+  body: UserCreateRequest;
+}
+
+export interface UsersApiDisableUserRequest {
+  /**
+   * The ID of the user.
+   * @type string
+   */
+  userId: string;
+}
+
+export interface UsersApiGetInvitationRequest {
+  /**
+   * The UUID of the user invitation.
+   * @type string
+   */
+  userInvitationUuid: string;
+}
+
+export interface UsersApiGetUserRequest {
+  /**
+   * The ID of the user.
+   * @type string
+   */
+  userId: string;
+}
+
+export interface UsersApiListUserOrganizationsRequest {
+  /**
+   * The ID of the user.
+   * @type string
+   */
+  userId: string;
+}
+
+export interface UsersApiListUserPermissionsRequest {
+  /**
+   * The ID of the user.
+   * @type string
+   */
+  userId: string;
+}
+
+export interface UsersApiListUsersRequest {
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;.
+   * @type QuerySortOrder
+   */
+  sortDir?: QuerySortOrder;
+  /**
+   * Filter all users by the given string. Defaults to no filtering.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.
+   * @type string
+   */
+  filterStatus?: string;
+}
+
+export interface UsersApiSendInvitationsRequest {
+  /**
+   *
+   * @type UserInvitationsRequest
+   */
+  body: UserInvitationsRequest;
+}
+
+export interface UsersApiUpdateUserRequest {
+  /**
+   * The ID of the user.
+   * @type string
+   */
+  userId: string;
+  /**
+   *
+   * @type UserUpdateRequest
+   */
+  body: UserUpdateRequest;
+}
+
+export class UsersApi {
+  private requestFactory: UsersApiRequestFactory;
+  private responseProcessor: UsersApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: UsersApiRequestFactory,
+    responseProcessor?: UsersApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new UsersApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new UsersApiResponseProcessor();
+  }
+
+  /**
+   * Create a service account for your organization.
+   * @param param The request object
+   */
+  public createServiceAccount(
+    param: UsersApiCreateServiceAccountRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.createServiceAccount(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createServiceAccount(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a user for your organization.
+   * @param param The request object
+   */
+  public createUser(
+    param: UsersApiCreateUserRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.createUser(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createUser(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Disable a user. Can only be used with an application key belonging to an administrator user.
+   * @param param The request object
+   */
+  public disableUser(
+    param: UsersApiDisableUserRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.disableUser(
+      param.userId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.disableUser(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a single user invitation by its UUID.
+   * @param param The request object
+   */
+  public getInvitation(
+    param: UsersApiGetInvitationRequest,
+    options?: Configuration
+  ): Promise<UserInvitationResponse> {
+    const requestContextPromise = this.requestFactory.getInvitation(
+      param.userInvitationUuid,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getInvitation(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a user in the organization specified by the user’s `user_id`.
+   * @param param The request object
+   */
+  public getUser(
+    param: UsersApiGetUserRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.getUser(
+      param.userId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUser(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a user organization. Returns the user information and all organizations joined by this user.
+   * @param param The request object
+   */
+  public listUserOrganizations(
+    param: UsersApiListUserOrganizationsRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.listUserOrganizations(
+      param.userId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listUserOrganizations(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a user permission set. Returns a list of the user’s permissions granted by the associated user's roles.
+   * @param param The request object
+   */
+  public listUserPermissions(
+    param: UsersApiListUserPermissionsRequest,
+    options?: Configuration
+  ): Promise<PermissionsResponse> {
+    const requestContextPromise = this.requestFactory.listUserPermissions(
+      param.userId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listUserPermissions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
+   * @param param The request object
+   */
+  public listUsers(
+    param: UsersApiListUsersRequest = {},
+    options?: Configuration
+  ): Promise<UsersResponse> {
+    const requestContextPromise = this.requestFactory.listUsers(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.sortDir,
+      param.filter,
+      param.filterStatus,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listUsers(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Sends emails to one or more users inviting them to join the organization.
+   * @param param The request object
+   */
+  public sendInvitations(
+    param: UsersApiSendInvitationsRequest,
+    options?: Configuration
+  ): Promise<UserInvitationsResponse> {
+    const requestContextPromise = this.requestFactory.sendInvitations(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.sendInvitations(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit a user. Can only be used with an application key belonging to an administrator user.
+   * @param param The request object
+   */
+  public updateUser(
+    param: UsersApiUpdateUserRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.updateUser(
+      param.userId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateUser(responseContext);
+        });
+    });
+  }
+}
