@@ -10,3 +10,9 @@ export * from "./servers{{extensionForDeno}}";
 {{#apiInfo}}{{#apis}}
 export { {{#operations}}{{#operation}}{{#hasParams}}{{classname}}{{operationIdCamelCase}}Request, {{/hasParams}}{{/operation}}{{classname}}{{^-last}}, {{/-last}} {{/operations}}} from './apis/{{classname}}';
 {{/apis}}{{/apiInfo}}
+
+{{#models}}
+{{#model}}
+export { {{classname}} } from './models/{{{ classFilename }}}';
+{{/model}}
+{{/models}}
