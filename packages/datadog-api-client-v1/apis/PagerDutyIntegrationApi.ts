@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -15,15 +14,7 @@ import { PagerDutyService } from "../models/PagerDutyService";
 import { PagerDutyServiceKey } from "../models/PagerDutyServiceKey";
 import { PagerDutyServiceName } from "../models/PagerDutyServiceName";
 
-/**
- * no description
- */
 export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a new service object in the PagerDuty integration.
-   * Create a new service object
-   * @param body Create a new service object request body.
-   */
   public async createPagerDutyIntegrationService(
     body: PagerDutyService,
     _options?: Configuration
@@ -68,11 +59,6 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     return requestContext;
   }
 
-  /**
-   * Delete a single service object in the Datadog-PagerDuty integration.
-   * Delete a single service object
-   * @param serviceName The service name
-   */
   public async deletePagerDutyIntegrationService(
     serviceName: string,
     _options?: Configuration
@@ -110,11 +96,6 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     return requestContext;
   }
 
-  /**
-   * Get service name in the Datadog-PagerDuty integration.
-   * Get a single service object
-   * @param serviceName The service name.
-   */
   public async getPagerDutyIntegrationService(
     serviceName: string,
     _options?: Configuration
@@ -152,12 +133,6 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     return requestContext;
   }
 
-  /**
-   * Update a single service object in the Datadog-PagerDuty integration.
-   * Update a single service object
-   * @param serviceName The service name
-   * @param body Update an existing service object request body.
-   */
   public async updatePagerDutyIntegrationService(
     serviceName: string,
     body: PagerDutyServiceKey,
@@ -464,5 +439,158 @@ export class PagerDutyIntegrationApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface PagerDutyIntegrationApiCreatePagerDutyIntegrationServiceRequest {
+  /**
+   * Create a new service object request body.
+   * @type PagerDutyService
+   */
+  body: PagerDutyService;
+}
+
+export interface PagerDutyIntegrationApiDeletePagerDutyIntegrationServiceRequest {
+  /**
+   * The service name
+   * @type string
+   */
+  serviceName: string;
+}
+
+export interface PagerDutyIntegrationApiGetPagerDutyIntegrationServiceRequest {
+  /**
+   * The service name.
+   * @type string
+   */
+  serviceName: string;
+}
+
+export interface PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest {
+  /**
+   * The service name
+   * @type string
+   */
+  serviceName: string;
+  /**
+   * Update an existing service object request body.
+   * @type PagerDutyServiceKey
+   */
+  body: PagerDutyServiceKey;
+}
+
+export class PagerDutyIntegrationApi {
+  private requestFactory: PagerDutyIntegrationApiRequestFactory;
+  private responseProcessor: PagerDutyIntegrationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: PagerDutyIntegrationApiRequestFactory,
+    responseProcessor?: PagerDutyIntegrationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory ||
+      new PagerDutyIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new PagerDutyIntegrationApiResponseProcessor();
+  }
+
+  /**
+   * Create a new service object in the PagerDuty integration.
+   * @param param The request object
+   */
+  public createPagerDutyIntegrationService(
+    param: PagerDutyIntegrationApiCreatePagerDutyIntegrationServiceRequest,
+    options?: Configuration
+  ): Promise<PagerDutyServiceName> {
+    const requestContextPromise =
+      this.requestFactory.createPagerDutyIntegrationService(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createPagerDutyIntegrationService(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete a single service object in the Datadog-PagerDuty integration.
+   * @param param The request object
+   */
+  public deletePagerDutyIntegrationService(
+    param: PagerDutyIntegrationApiDeletePagerDutyIntegrationServiceRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deletePagerDutyIntegrationService(
+        param.serviceName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deletePagerDutyIntegrationService(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get service name in the Datadog-PagerDuty integration.
+   * @param param The request object
+   */
+  public getPagerDutyIntegrationService(
+    param: PagerDutyIntegrationApiGetPagerDutyIntegrationServiceRequest,
+    options?: Configuration
+  ): Promise<PagerDutyServiceName> {
+    const requestContextPromise =
+      this.requestFactory.getPagerDutyIntegrationService(
+        param.serviceName,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getPagerDutyIntegrationService(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a single service object in the Datadog-PagerDuty integration.
+   * @param param The request object
+   */
+  public updatePagerDutyIntegrationService(
+    param: PagerDutyIntegrationApiUpdatePagerDutyIntegrationServiceRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.updatePagerDutyIntegrationService(
+        param.serviceName,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updatePagerDutyIntegrationService(
+            responseContext
+          );
+        });
+    });
   }
 }

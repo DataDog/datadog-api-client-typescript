@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -14,17 +13,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { HostTags } from "../models/HostTags";
 import { TagToHosts } from "../models/TagToHosts";
 
-/**
- * no description
- */
 export class TagsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
-   * Add tags to a host
-   * @param hostName This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.
-   * @param body Update host tags request body.
-   * @param source The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
-   */
   public async createHostTags(
     hostName: string,
     body: HostTags,
@@ -89,12 +78,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * This endpoint allows you to remove all user-assigned tags for a single host.
-   * Remove host tags
-   * @param hostName This endpoint allows you to remove all user-assigned tags for a single host.
-   * @param source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
-   */
   public async deleteHostTags(
     hostName: string,
     source?: string,
@@ -140,12 +123,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Return the list of tags that apply to a given host.
-   * Get host tags
-   * @param hostName When specified, filters list of tags to those tags with the specified source.
-   * @param source Source to filter.
-   */
   public async getHostTags(
     hostName: string,
     source?: string,
@@ -191,11 +168,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Return a mapping of tags to hosts for your whole infrastructure.
-   * Get Tags
-   * @param source When specified, filters host list to those tags with the specified source.
-   */
   public async listHostTags(
     source?: string,
     _options?: Configuration
@@ -231,13 +203,6 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
-   * Update host tags
-   * @param hostName This endpoint allows you to update/replace all in an integration source with those supplied in the request.
-   * @param body Add tags to host
-   * @param source The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
-   */
   public async updateHostTags(
     hostName: string,
     body: HostTags,
@@ -602,5 +567,204 @@ export class TagsApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface TagsApiCreateHostTagsRequest {
+  /**
+   * This endpoint allows you to add new tags to a host, optionally specifying where the tags came from.
+   * @type string
+   */
+  hostName: string;
+  /**
+   * Update host tags request body.
+   * @type HostTags
+   */
+  body: HostTags;
+  /**
+   * The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * @type string
+   */
+  source?: string;
+}
+
+export interface TagsApiDeleteHostTagsRequest {
+  /**
+   * This endpoint allows you to remove all user-assigned tags for a single host.
+   * @type string
+   */
+  hostName: string;
+  /**
+   * The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * @type string
+   */
+  source?: string;
+}
+
+export interface TagsApiGetHostTagsRequest {
+  /**
+   * When specified, filters list of tags to those tags with the specified source.
+   * @type string
+   */
+  hostName: string;
+  /**
+   * Source to filter.
+   * @type string
+   */
+  source?: string;
+}
+
+export interface TagsApiListHostTagsRequest {
+  /**
+   * When specified, filters host list to those tags with the specified source.
+   * @type string
+   */
+  source?: string;
+}
+
+export interface TagsApiUpdateHostTagsRequest {
+  /**
+   * This endpoint allows you to update/replace all in an integration source with those supplied in the request.
+   * @type string
+   */
+  hostName: string;
+  /**
+   * Add tags to host
+   * @type HostTags
+   */
+  body: HostTags;
+  /**
+   * The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+   * @type string
+   */
+  source?: string;
+}
+
+export class TagsApi {
+  private requestFactory: TagsApiRequestFactory;
+  private responseProcessor: TagsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: TagsApiRequestFactory,
+    responseProcessor?: TagsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new TagsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new TagsApiResponseProcessor();
+  }
+
+  /**
+   * This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
+   * @param param The request object
+   */
+  public createHostTags(
+    param: TagsApiCreateHostTagsRequest,
+    options?: Configuration
+  ): Promise<HostTags> {
+    const requestContextPromise = this.requestFactory.createHostTags(
+      param.hostName,
+      param.body,
+      param.source,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createHostTags(responseContext);
+        });
+    });
+  }
+
+  /**
+   * This endpoint allows you to remove all user-assigned tags for a single host.
+   * @param param The request object
+   */
+  public deleteHostTags(
+    param: TagsApiDeleteHostTagsRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteHostTags(
+      param.hostName,
+      param.source,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteHostTags(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Return the list of tags that apply to a given host.
+   * @param param The request object
+   */
+  public getHostTags(
+    param: TagsApiGetHostTagsRequest,
+    options?: Configuration
+  ): Promise<HostTags> {
+    const requestContextPromise = this.requestFactory.getHostTags(
+      param.hostName,
+      param.source,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getHostTags(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Return a mapping of tags to hosts for your whole infrastructure.
+   * @param param The request object
+   */
+  public listHostTags(
+    param: TagsApiListHostTagsRequest = {},
+    options?: Configuration
+  ): Promise<TagToHosts> {
+    const requestContextPromise = this.requestFactory.listHostTags(
+      param.source,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listHostTags(responseContext);
+        });
+    });
+  }
+
+  /**
+   * This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
+   * @param param The request object
+   */
+  public updateHostTags(
+    param: TagsApiUpdateHostTagsRequest,
+    options?: Configuration
+  ): Promise<HostTags> {
+    const requestContextPromise = this.requestFactory.updateHostTags(
+      param.hostName,
+      param.body,
+      param.source,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateHostTags(responseContext);
+        });
+    });
   }
 }

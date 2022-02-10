@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -18,15 +17,7 @@ import { IncidentTeamResponse } from "../models/IncidentTeamResponse";
 import { IncidentTeamUpdateRequest } from "../models/IncidentTeamUpdateRequest";
 import { IncidentTeamsResponse } from "../models/IncidentTeamsResponse";
 
-/**
- * no description
- */
 export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Creates a new incident team.
-   * Create a new incident team
-   * @param body Incident Team Payload.
-   */
   public async createIncidentTeam(
     body: IncidentTeamCreateRequest,
     _options?: Configuration
@@ -77,11 +68,6 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Deletes an existing incident team.
-   * Delete an existing incident team
-   * @param teamId The ID of the incident team.
-   */
   public async deleteIncidentTeam(
     teamId: string,
     _options?: Configuration
@@ -124,12 +110,6 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get details of an incident team. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
-   * Get details of an incident team
-   * @param teamId The ID of the incident team.
-   * @param include Specifies which types of related objects should be included in the response.
-   */
   public async getIncidentTeam(
     teamId: string,
     include?: IncidentRelatedObject,
@@ -181,14 +161,6 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
-   * Get a list of all incident teams
-   * @param include Specifies which types of related objects should be included in the response.
-   * @param pageSize Size for a given page.
-   * @param pageOffset Specific offset to use as the beginning of the returned page.
-   * @param filter A search query that filters teams by name.
-   */
   public async listIncidentTeams(
     include?: IncidentRelatedObject,
     pageSize?: number,
@@ -250,12 +222,6 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
-   * Update an existing incident team
-   * @param teamId The ID of the incident team.
-   * @param body Incident Team Payload.
-   */
   public async updateIncidentTeam(
     teamId: string,
     body: IncidentTeamUpdateRequest,
@@ -705,5 +671,198 @@ export class IncidentTeamsApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface IncidentTeamsApiCreateIncidentTeamRequest {
+  /**
+   * Incident Team Payload.
+   * @type IncidentTeamCreateRequest
+   */
+  body: IncidentTeamCreateRequest;
+}
+
+export interface IncidentTeamsApiDeleteIncidentTeamRequest {
+  /**
+   * The ID of the incident team.
+   * @type string
+   */
+  teamId: string;
+}
+
+export interface IncidentTeamsApiGetIncidentTeamRequest {
+  /**
+   * The ID of the incident team.
+   * @type string
+   */
+  teamId: string;
+  /**
+   * Specifies which types of related objects should be included in the response.
+   * @type IncidentRelatedObject
+   */
+  include?: IncidentRelatedObject;
+}
+
+export interface IncidentTeamsApiListIncidentTeamsRequest {
+  /**
+   * Specifies which types of related objects should be included in the response.
+   * @type IncidentRelatedObject
+   */
+  include?: IncidentRelatedObject;
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific offset to use as the beginning of the returned page.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * A search query that filters teams by name.
+   * @type string
+   */
+  filter?: string;
+}
+
+export interface IncidentTeamsApiUpdateIncidentTeamRequest {
+  /**
+   * The ID of the incident team.
+   * @type string
+   */
+  teamId: string;
+  /**
+   * Incident Team Payload.
+   * @type IncidentTeamUpdateRequest
+   */
+  body: IncidentTeamUpdateRequest;
+}
+
+export class IncidentTeamsApi {
+  private requestFactory: IncidentTeamsApiRequestFactory;
+  private responseProcessor: IncidentTeamsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: IncidentTeamsApiRequestFactory,
+    responseProcessor?: IncidentTeamsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new IncidentTeamsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new IncidentTeamsApiResponseProcessor();
+  }
+
+  /**
+   * Creates a new incident team.
+   * @param param The request object
+   */
+  public createIncidentTeam(
+    param: IncidentTeamsApiCreateIncidentTeamRequest,
+    options?: Configuration
+  ): Promise<IncidentTeamResponse> {
+    const requestContextPromise = this.requestFactory.createIncidentTeam(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncidentTeam(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Deletes an existing incident team.
+   * @param param The request object
+   */
+  public deleteIncidentTeam(
+    param: IncidentTeamsApiDeleteIncidentTeamRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncidentTeam(
+      param.teamId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncidentTeam(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get details of an incident team. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
+   * @param param The request object
+   */
+  public getIncidentTeam(
+    param: IncidentTeamsApiGetIncidentTeamRequest,
+    options?: Configuration
+  ): Promise<IncidentTeamResponse> {
+    const requestContextPromise = this.requestFactory.getIncidentTeam(
+      param.teamId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncidentTeam(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all incident teams for the requesting user's organization. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
+   * @param param The request object
+   */
+  public listIncidentTeams(
+    param: IncidentTeamsApiListIncidentTeamsRequest = {},
+    options?: Configuration
+  ): Promise<IncidentTeamsResponse> {
+    const requestContextPromise = this.requestFactory.listIncidentTeams(
+      param.include,
+      param.pageSize,
+      param.pageOffset,
+      param.filter,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentTeams(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Updates an existing incident team. Only provide the attributes which should be updated as this request is a partial update.
+   * @param param The request object
+   */
+  public updateIncidentTeam(
+    param: IncidentTeamsApiUpdateIncidentTeamRequest,
+    options?: Configuration
+  ): Promise<IncidentTeamResponse> {
+    const requestContextPromise = this.requestFactory.updateIncidentTeam(
+      param.teamId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentTeam(responseContext);
+        });
+    });
   }
 }
