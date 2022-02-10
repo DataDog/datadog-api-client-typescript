@@ -9,6 +9,12 @@ export * from "./servers";
 
 export { PromiseMiddleware as Middleware } from "./middleware";
 export {
+  AuthNMappingsApiCreateAuthNMappingRequest,
+  AuthNMappingsApiDeleteAuthNMappingRequest,
+  AuthNMappingsApiGetAuthNMappingRequest,
+  AuthNMappingsApiListAuthNMappingsRequest,
+  AuthNMappingsApiUpdateAuthNMappingRequest,
+  ObjectAuthNMappingsApi as AuthNMappingsApi,
   CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
