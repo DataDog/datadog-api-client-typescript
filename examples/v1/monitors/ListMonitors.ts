@@ -3,14 +3,13 @@
  */
 
 import { v1 } from "@datadog/datadog-api-client";
-import { Monitor } from "@datadog/datadog-api-client/models;
 
 const configuration = v1.createConfiguration({debug: true});
 const apiInstance = new v1.MonitorsApi(configuration);
 
 apiInstance
   .listMonitors()
-  .then((data: Monitor[]) => {
+  .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
