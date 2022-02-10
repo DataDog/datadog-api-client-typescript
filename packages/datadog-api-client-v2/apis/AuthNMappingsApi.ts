@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -17,15 +16,7 @@ import { AuthNMappingUpdateRequest } from "../models/AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "../models/AuthNMappingsResponse";
 import { AuthNMappingsSort } from "../models/AuthNMappingsSort";
 
-/**
- * no description
- */
 export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create an AuthN Mapping.
-   * Create an AuthN Mapping
-   * @param body
-   */
   public async createAuthNMapping(
     body: AuthNMappingCreateRequest,
     _options?: Configuration
@@ -71,11 +62,6 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete an AuthN Mapping specified by AuthN Mapping UUID.
-   * Delete an AuthN Mapping
-   * @param authnMappingId The UUID of the AuthN Mapping.
-   */
   public async deleteAuthNMapping(
     authnMappingId: string,
     _options?: Configuration
@@ -113,11 +99,6 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get an AuthN Mapping specified by the AuthN Mapping UUID.
-   * Get an AuthN Mapping by UUID
-   * @param authnMappingId The UUID of the AuthN Mapping.
-   */
   public async getAuthNMapping(
     authnMappingId: string,
     _options?: Configuration
@@ -155,15 +136,6 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all AuthN Mappings in the org.
-   * List all AuthN Mappings
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort Sort AuthN Mappings depending on the given field.
-   * @param include
-   * @param filter Filter all mappings by the given string.
-   */
   public async listAuthNMappings(
     pageSize?: number,
     pageNumber?: number,
@@ -227,12 +199,6 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit an AuthN Mapping.
-   * Edit an AuthN Mapping
-   * @param authnMappingId The UUID of the AuthN Mapping.
-   * @param body
-   */
   public async updateAuthNMapping(
     authnMappingId: string,
     body: AuthNMappingUpdateRequest,
@@ -621,5 +587,198 @@ export class AuthNMappingsApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface AuthNMappingsApiCreateAuthNMappingRequest {
+  /**
+   *
+   * @type AuthNMappingCreateRequest
+   */
+  body: AuthNMappingCreateRequest;
+}
+
+export interface AuthNMappingsApiDeleteAuthNMappingRequest {
+  /**
+   * The UUID of the AuthN Mapping.
+   * @type string
+   */
+  authnMappingId: string;
+}
+
+export interface AuthNMappingsApiGetAuthNMappingRequest {
+  /**
+   * The UUID of the AuthN Mapping.
+   * @type string
+   */
+  authnMappingId: string;
+}
+
+export interface AuthNMappingsApiListAuthNMappingsRequest {
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Sort AuthN Mappings depending on the given field.
+   * @type AuthNMappingsSort
+   */
+  sort?: AuthNMappingsSort;
+  /**
+   *
+   * @type Array&lt;string&gt;
+   */
+  include?: Array<string>;
+  /**
+   * Filter all mappings by the given string.
+   * @type string
+   */
+  filter?: string;
+}
+
+export interface AuthNMappingsApiUpdateAuthNMappingRequest {
+  /**
+   * The UUID of the AuthN Mapping.
+   * @type string
+   */
+  authnMappingId: string;
+  /**
+   *
+   * @type AuthNMappingUpdateRequest
+   */
+  body: AuthNMappingUpdateRequest;
+}
+
+export class AuthNMappingsApi {
+  private requestFactory: AuthNMappingsApiRequestFactory;
+  private responseProcessor: AuthNMappingsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: AuthNMappingsApiRequestFactory,
+    responseProcessor?: AuthNMappingsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new AuthNMappingsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new AuthNMappingsApiResponseProcessor();
+  }
+
+  /**
+   * Create an AuthN Mapping.
+   * @param param The request object
+   */
+  public createAuthNMapping(
+    param: AuthNMappingsApiCreateAuthNMappingRequest,
+    options?: Configuration
+  ): Promise<AuthNMappingResponse> {
+    const requestContextPromise = this.requestFactory.createAuthNMapping(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAuthNMapping(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an AuthN Mapping specified by AuthN Mapping UUID.
+   * @param param The request object
+   */
+  public deleteAuthNMapping(
+    param: AuthNMappingsApiDeleteAuthNMappingRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteAuthNMapping(
+      param.authnMappingId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAuthNMapping(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get an AuthN Mapping specified by the AuthN Mapping UUID.
+   * @param param The request object
+   */
+  public getAuthNMapping(
+    param: AuthNMappingsApiGetAuthNMappingRequest,
+    options?: Configuration
+  ): Promise<AuthNMappingResponse> {
+    const requestContextPromise = this.requestFactory.getAuthNMapping(
+      param.authnMappingId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAuthNMapping(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all AuthN Mappings in the org.
+   * @param param The request object
+   */
+  public listAuthNMappings(
+    param: AuthNMappingsApiListAuthNMappingsRequest = {},
+    options?: Configuration
+  ): Promise<AuthNMappingsResponse> {
+    const requestContextPromise = this.requestFactory.listAuthNMappings(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.include,
+      param.filter,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAuthNMappings(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit an AuthN Mapping.
+   * @param param The request object
+   */
+  public updateAuthNMapping(
+    param: AuthNMappingsApiUpdateAuthNMappingRequest,
+    options?: Configuration
+  ): Promise<AuthNMappingResponse> {
+    const requestContextPromise = this.requestFactory.updateAuthNMapping(
+      param.authnMappingId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAuthNMapping(responseContext);
+        });
+    });
   }
 }

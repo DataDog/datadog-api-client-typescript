@@ -13,7 +13,10 @@ export {
   AuthNMappingsApiGetAuthNMappingRequest,
   AuthNMappingsApiListAuthNMappingsRequest,
   AuthNMappingsApiUpdateAuthNMappingRequest,
-  ObjectAuthNMappingsApi as AuthNMappingsApi,
+  AuthNMappingsApi,
+} from "./apis/AuthNMappingsApi";
+
+export {
   CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
@@ -196,6 +199,22 @@ export { ApplicationKeyUpdateData } from "./models/ApplicationKeyUpdateData";
 export { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
 export { ApplicationKeysSort } from "./models/ApplicationKeysSort";
 export { ApplicationKeysType } from "./models/ApplicationKeysType";
+export { AuthNMapping } from "./models/AuthNMapping";
+export { AuthNMappingAttributes } from "./models/AuthNMappingAttributes";
+export { AuthNMappingCreateAttributes } from "./models/AuthNMappingCreateAttributes";
+export { AuthNMappingCreateData } from "./models/AuthNMappingCreateData";
+export { AuthNMappingCreateRelationships } from "./models/AuthNMappingCreateRelationships";
+export { AuthNMappingCreateRequest } from "./models/AuthNMappingCreateRequest";
+export { AuthNMappingIncluded } from "./models/AuthNMappingIncluded";
+export { AuthNMappingRelationships } from "./models/AuthNMappingRelationships";
+export { AuthNMappingResponse } from "./models/AuthNMappingResponse";
+export { AuthNMappingUpdateAttributes } from "./models/AuthNMappingUpdateAttributes";
+export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
+export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
+export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
+export { AuthNMappingsResponse } from "./models/AuthNMappingsResponse";
+export { AuthNMappingsSort } from "./models/AuthNMappingsSort";
+export { AuthNMappingsType } from "./models/AuthNMappingsType";
 export { CloudWorkloadSecurityAgentRuleAttributes } from "./models/CloudWorkloadSecurityAgentRuleAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./models/CloudWorkloadSecurityAgentRuleCreateAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateData } from "./models/CloudWorkloadSecurityAgentRuleCreateData";
@@ -421,6 +440,8 @@ export { RelationshipToPermissions } from "./models/RelationshipToPermissions";
 export { RelationshipToRole } from "./models/RelationshipToRole";
 export { RelationshipToRoleData } from "./models/RelationshipToRoleData";
 export { RelationshipToRoles } from "./models/RelationshipToRoles";
+export { RelationshipToSAMLAssertionAttribute } from "./models/RelationshipToSAMLAssertionAttribute";
+export { RelationshipToSAMLAssertionAttributeData } from "./models/RelationshipToSAMLAssertionAttributeData";
 export { RelationshipToUser } from "./models/RelationshipToUser";
 export { RelationshipToUserData } from "./models/RelationshipToUserData";
 export { RelationshipToUsers } from "./models/RelationshipToUsers";
@@ -446,6 +467,9 @@ export { RoleUpdateResponseData } from "./models/RoleUpdateResponseData";
 export { RolesResponse } from "./models/RolesResponse";
 export { RolesSort } from "./models/RolesSort";
 export { RolesType } from "./models/RolesType";
+export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
+export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
+export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
 export { SecurityFilter } from "./models/SecurityFilter";
 export { SecurityFilterAttributes } from "./models/SecurityFilterAttributes";
 export { SecurityFilterCreateAttributes } from "./models/SecurityFilterCreateAttributes";
