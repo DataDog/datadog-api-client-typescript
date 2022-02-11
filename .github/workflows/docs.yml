@@ -23,7 +23,7 @@ jobs:
       - name: Build documentation
         run: |
           yarn install
-          yarn run typedoc --out docs --readme README.md .
+          yarn run typedoc --out docs --readme README.md --name datadog-api-client-typescript .
 
       - name: Compress docs
         run: tar czf docs.tar.gz docs
