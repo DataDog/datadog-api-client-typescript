@@ -45,6 +45,15 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
     },
     tags: ["testing:browser"],
     type: "browser",
+    steps: [
+      {
+        allowFailure: false,
+        isCritical: true,
+        name: "Refresh page",
+        params: {},
+        type: "refresh",
+      },
+    ],
   },
 };
 
