@@ -421,7 +421,7 @@
   resolved "https://registry.npmjs.org/@cucumber/tag-expressions/-/tag-expressions-3.0.1.tgz"
   integrity sha512-OGCXaJ1BQXmQ5b9pw+JYsBGumK2/LPZiLmbj1o1JFVeSNs2PY8WPQFSyXrskhrHz5Nd/6lYg7lvGMtFHOncC4w==
 
-"@datadog/native-appsec@^0.8.0":
+"@datadog/native-appsec@^0.8.1":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@datadog/native-appsec/-/native-appsec-0.8.1.tgz#50cb6ef2e75ea13cd9e837e64971deff3673c638"
   integrity sha512-0jewxGPoRxFd/UYY5+9uisTsTfctwRZy19fU5wo+psejhlxflDnupSDamtnr0nF72s4dbX1z1uAwGWGkuxnV3Q==
@@ -1811,12 +1811,12 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-dd-trace@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/dd-trace/-/dd-trace-2.0.0.tgz#2c17569bc25fa6dbe39878ee5110ceb41f4708fe"
-  integrity sha512-Iy2ziJJsfWdSQfYwsOoQWtmedf0m18RK452Fvp4vW1wahAcjzFQbkaOlO6bj85KVrpIF1dnrak8Og7GJQkL2aw==
+dd-trace@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/dd-trace/-/dd-trace-2.1.1.tgz#42c5d035512d1a65aa9a3f7881dfb3a72f642c0b"
+  integrity sha512-zV8npDF1fHtnf4GPu/FStV7q7df8NK7FyKAzIrsqtdq/ZXbpGZ1dqm2Pfd4g66vODAjjMIBwEAN6j7IydDZEgQ==
   dependencies:
-    "@datadog/native-appsec" "^0.8.0"
+    "@datadog/native-appsec" "^0.8.1"
     "@datadog/native-metrics" "^1.1.0"
     "@datadog/pprof" "^0.3.0"
     "@datadog/sketches-js" "^1.0.4"
