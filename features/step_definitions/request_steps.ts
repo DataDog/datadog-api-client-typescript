@@ -130,7 +130,7 @@ When("the request is sent", async function (this: World) {
       );
     }
   } catch (error) {
-    this.response = error.body;
+    this.response = error;
     logger.debug(error);
     if (this.requestContext === undefined) {
       throw error;
