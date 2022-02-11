@@ -20,8 +20,14 @@ export class AuthNMappingRelationships {
   "role"?: RelationshipToRole;
   "samlAssertionAttribute"?: RelationshipToSAMLAssertionAttribute;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     role: {
       baseName: "role",
@@ -33,6 +39,9 @@ export class AuthNMappingRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AuthNMappingRelationships.attributeTypeMap;
   }

@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class AuthNMappingUpdateRequest {
   "data": AuthNMappingUpdateData;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -28,6 +34,9 @@ export class AuthNMappingUpdateRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AuthNMappingUpdateRequest.attributeTypeMap;
   }

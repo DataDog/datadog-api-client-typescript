@@ -48,8 +48,14 @@ export class OrganizationAttributes {
    */
   "url"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
@@ -87,6 +93,9 @@ export class OrganizationAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationAttributes.attributeTypeMap;
   }

@@ -70,8 +70,14 @@ export class ServiceSummaryWidgetDefinition {
   "titleSize"?: string;
   "type": ServiceSummaryWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     displayFormat: {
       baseName: "display_format",
@@ -143,6 +149,9 @@ export class ServiceSummaryWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceSummaryWidgetDefinition.attributeTypeMap;
   }

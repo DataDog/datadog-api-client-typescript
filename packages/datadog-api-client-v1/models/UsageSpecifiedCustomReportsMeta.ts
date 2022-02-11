@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class UsageSpecifiedCustomReportsMeta {
   "page"?: UsageSpecifiedCustomReportsPage;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
       baseName: "page",
@@ -27,6 +33,9 @@ export class UsageSpecifiedCustomReportsMeta {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSpecifiedCustomReportsMeta.attributeTypeMap;
   }

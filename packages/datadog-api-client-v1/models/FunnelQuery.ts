@@ -26,8 +26,14 @@ export class FunnelQuery {
    */
   "steps": Array<any>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dataSource: {
       baseName: "data_source",
@@ -46,6 +52,9 @@ export class FunnelQuery {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FunnelQuery.attributeTypeMap;
   }

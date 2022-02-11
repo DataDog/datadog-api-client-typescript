@@ -24,8 +24,14 @@ export class GeomapWidgetDefinitionStyle {
    */
   "paletteFlip": boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     palette: {
       baseName: "palette",
@@ -39,6 +45,9 @@ export class GeomapWidgetDefinitionStyle {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return GeomapWidgetDefinitionStyle.attributeTypeMap;
   }

@@ -20,8 +20,14 @@ export class NotebookCreateData {
   "attributes": NotebookCreateDataAttributes;
   "type": NotebookResourceType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -35,6 +41,9 @@ export class NotebookCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookCreateData.attributeTypeMap;
   }

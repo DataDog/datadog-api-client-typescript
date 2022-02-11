@@ -46,8 +46,14 @@ export class SLOCorrectionCreateRequestAttributes {
    */
   "timezone"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     category: {
       baseName: "category",
@@ -89,6 +95,9 @@ export class SLOCorrectionCreateRequestAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionCreateRequestAttributes.attributeTypeMap;
   }

@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class IncidentServicesResponseMeta {
   "pagination"?: IncidentServicesResponseMetaPagination;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     pagination: {
       baseName: "pagination",
@@ -27,6 +33,9 @@ export class IncidentServicesResponseMeta {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentServicesResponseMeta.attributeTypeMap;
   }

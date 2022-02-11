@@ -22,8 +22,14 @@ export class SyntheticsVariableParser {
    */
   "value"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
@@ -36,6 +42,9 @@ export class SyntheticsVariableParser {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsVariableParser.attributeTypeMap;
   }

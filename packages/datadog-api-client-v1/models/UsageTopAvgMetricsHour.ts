@@ -30,8 +30,14 @@ export class UsageTopAvgMetricsHour {
    */
   "metricName"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     avgMetricHour: {
       baseName: "avg_metric_hour",
@@ -53,6 +59,9 @@ export class UsageTopAvgMetricsHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTopAvgMetricsHour.attributeTypeMap;
   }

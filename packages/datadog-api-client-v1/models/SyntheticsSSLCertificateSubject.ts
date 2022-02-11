@@ -44,8 +44,14 @@ export class SyntheticsSSLCertificateSubject {
    */
   "altName"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     C: {
       baseName: "C",
@@ -77,6 +83,9 @@ export class SyntheticsSSLCertificateSubject {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsSSLCertificateSubject.attributeTypeMap;
   }

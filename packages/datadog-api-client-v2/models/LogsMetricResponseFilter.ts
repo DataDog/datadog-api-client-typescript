@@ -20,8 +20,14 @@ export class LogsMetricResponseFilter {
    */
   "query"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
@@ -29,6 +35,9 @@ export class LogsMetricResponseFilter {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricResponseFilter.attributeTypeMap;
   }

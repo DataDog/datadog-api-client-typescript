@@ -48,8 +48,14 @@ export class ProcessSummaryAttributes {
    */
   "user"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cmdline: {
       baseName: "cmdline",
@@ -87,6 +93,9 @@ export class ProcessSummaryAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessSummaryAttributes.attributeTypeMap;
   }

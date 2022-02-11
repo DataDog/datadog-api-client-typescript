@@ -40,8 +40,14 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
    */
   "shortName"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     family: {
       baseName: "family",
@@ -71,6 +77,9 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryMetricsSeriesMetadataUnit.attributeTypeMap;
   }

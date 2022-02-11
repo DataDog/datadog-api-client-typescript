@@ -20,8 +20,14 @@ export class UserInvitationData {
   "relationships": UserInvitationRelationships;
   "type": UserInvitationsType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     relationships: {
       baseName: "relationships",
@@ -35,6 +41,9 @@ export class UserInvitationData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserInvitationData.attributeTypeMap;
   }

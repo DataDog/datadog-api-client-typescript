@@ -24,8 +24,14 @@ export class AuthNMappingCreateAttributes {
    */
   "attributeValue"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributeKey: {
       baseName: "attribute_key",
@@ -37,6 +43,9 @@ export class AuthNMappingCreateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AuthNMappingCreateAttributes.attributeTypeMap;
   }

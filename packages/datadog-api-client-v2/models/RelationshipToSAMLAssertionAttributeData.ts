@@ -22,8 +22,14 @@ export class RelationshipToSAMLAssertionAttributeData {
   "id": number;
   "type": SAMLAssertionAttributesType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -38,6 +44,9 @@ export class RelationshipToSAMLAssertionAttributeData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToSAMLAssertionAttributeData.attributeTypeMap;
   }

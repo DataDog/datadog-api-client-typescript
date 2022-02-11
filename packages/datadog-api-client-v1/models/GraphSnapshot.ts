@@ -28,8 +28,14 @@ export class GraphSnapshot {
    */
   "snapshotUrl"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     graphDef: {
       baseName: "graph_def",
@@ -45,6 +51,9 @@ export class GraphSnapshot {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return GraphSnapshot.attributeTypeMap;
   }

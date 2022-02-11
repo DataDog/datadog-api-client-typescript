@@ -21,8 +21,14 @@ export class AWSAccountListResponse {
    */
   "accounts"?: Array<AWSAccount>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accounts: {
       baseName: "accounts",
@@ -30,6 +36,9 @@ export class AWSAccountListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSAccountListResponse.attributeTypeMap;
   }

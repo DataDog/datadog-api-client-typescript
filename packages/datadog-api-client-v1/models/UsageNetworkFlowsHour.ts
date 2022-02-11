@@ -24,8 +24,14 @@ export class UsageNetworkFlowsHour {
    */
   "indexedEventsCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
@@ -39,6 +45,9 @@ export class UsageNetworkFlowsHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageNetworkFlowsHour.attributeTypeMap;
   }

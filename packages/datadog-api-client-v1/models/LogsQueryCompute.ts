@@ -28,8 +28,14 @@ export class LogsQueryCompute {
    */
   "interval"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
@@ -47,6 +53,9 @@ export class LogsQueryCompute {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsQueryCompute.attributeTypeMap;
   }

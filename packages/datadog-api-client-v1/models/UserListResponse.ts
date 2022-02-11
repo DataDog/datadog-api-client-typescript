@@ -21,8 +21,14 @@ export class UserListResponse {
    */
   "users"?: Array<User>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     users: {
       baseName: "users",
@@ -30,6 +36,9 @@ export class UserListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserListResponse.attributeTypeMap;
   }

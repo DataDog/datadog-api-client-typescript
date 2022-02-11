@@ -20,8 +20,14 @@ export class LogsAggregateRequestPage {
    */
   "cursor"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
       baseName: "cursor",
@@ -29,6 +35,9 @@ export class LogsAggregateRequestPage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateRequestPage.attributeTypeMap;
   }

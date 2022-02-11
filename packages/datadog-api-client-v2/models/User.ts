@@ -26,8 +26,14 @@ export class User {
   "relationships"?: UserResponseRelationships;
   "type"?: UsersType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -47,6 +53,9 @@ export class User {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return User.attributeTypeMap;
   }

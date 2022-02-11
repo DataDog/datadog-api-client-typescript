@@ -36,8 +36,14 @@ export class UsageLogsByIndexHour {
    */
   "retention"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     eventCount: {
       baseName: "event_count",
@@ -64,6 +70,9 @@ export class UsageLogsByIndexHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLogsByIndexHour.attributeTypeMap;
   }

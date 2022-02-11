@@ -30,8 +30,14 @@ export class LogsServiceRemapper {
   "sources": Array<string>;
   "type": LogsServiceRemapperType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     isEnabled: {
       baseName: "is_enabled",
@@ -53,6 +59,9 @@ export class LogsServiceRemapper {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsServiceRemapper.attributeTypeMap;
   }

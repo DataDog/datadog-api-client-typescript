@@ -23,8 +23,14 @@ export class ProcessSummariesResponse {
   "data"?: Array<ProcessSummary>;
   "meta"?: ProcessSummariesMeta;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -36,6 +42,9 @@ export class ProcessSummariesResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessSummariesResponse.attributeTypeMap;
   }

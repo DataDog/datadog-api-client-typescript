@@ -33,8 +33,14 @@ export class LogQueryDefinition {
   "multiCompute"?: Array<LogsQueryCompute>;
   "search"?: LogQueryDefinitionSearch;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
       baseName: "compute",
@@ -58,6 +64,9 @@ export class LogQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogQueryDefinition.attributeTypeMap;
   }

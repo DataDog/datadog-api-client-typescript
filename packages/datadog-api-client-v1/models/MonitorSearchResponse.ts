@@ -25,8 +25,14 @@ export class MonitorSearchResponse {
    */
   "monitors"?: Array<MonitorSearchResult>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     counts: {
       baseName: "counts",
@@ -42,6 +48,9 @@ export class MonitorSearchResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSearchResponse.attributeTypeMap;
   }

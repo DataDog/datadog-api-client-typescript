@@ -22,8 +22,14 @@ export class DashboardListItemRequest {
   "id": string;
   "type": DashboardType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -37,6 +43,9 @@ export class DashboardListItemRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardListItemRequest.attributeTypeMap;
   }

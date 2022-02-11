@@ -21,8 +21,14 @@ export class UsageFargateResponse {
    */
   "usage"?: Array<UsageFargateHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
@@ -30,6 +36,9 @@ export class UsageFargateResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageFargateResponse.attributeTypeMap;
   }

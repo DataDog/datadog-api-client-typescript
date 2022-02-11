@@ -48,8 +48,14 @@ export class SyntheticsBatchResult {
   "testPublicId"?: string;
   "testType"?: SyntheticsTestDetailsType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
       baseName: "device",
@@ -95,6 +101,9 @@ export class SyntheticsBatchResult {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBatchResult.attributeTypeMap;
   }

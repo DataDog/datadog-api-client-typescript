@@ -36,8 +36,14 @@ export class AlertGraphWidgetDefinition {
   "type": AlertGraphWidgetDefinitionType;
   "vizType": WidgetVizType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alertId: {
       baseName: "alert_id",
@@ -72,6 +78,9 @@ export class AlertGraphWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AlertGraphWidgetDefinition.attributeTypeMap;
   }

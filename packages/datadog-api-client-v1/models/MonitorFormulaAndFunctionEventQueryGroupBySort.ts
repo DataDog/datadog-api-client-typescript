@@ -24,8 +24,14 @@ export class MonitorFormulaAndFunctionEventQueryGroupBySort {
   "metric"?: string;
   "order"?: QuerySortOrder;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
@@ -42,6 +48,9 @@ export class MonitorFormulaAndFunctionEventQueryGroupBySort {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorFormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
   }

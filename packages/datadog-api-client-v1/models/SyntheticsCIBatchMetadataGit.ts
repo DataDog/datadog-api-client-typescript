@@ -24,8 +24,14 @@ export class SyntheticsCIBatchMetadataGit {
    */
   "commitSha"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     branch: {
       baseName: "branch",
@@ -37,6 +43,9 @@ export class SyntheticsCIBatchMetadataGit {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadataGit.attributeTypeMap;
   }

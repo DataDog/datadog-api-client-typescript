@@ -36,8 +36,14 @@ export class LogsGrokParser {
   "source": string;
   "type": LogsGrokParserType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     grok: {
       baseName: "grok",
@@ -68,6 +74,9 @@ export class LogsGrokParser {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGrokParser.attributeTypeMap;
   }

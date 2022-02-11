@@ -36,8 +36,14 @@ export class UsageCWSHour {
    */
   "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cwsContainerCount: {
       baseName: "cws_container_count",
@@ -64,6 +70,9 @@ export class UsageCWSHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCWSHour.attributeTypeMap;
   }

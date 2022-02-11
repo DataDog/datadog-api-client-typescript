@@ -28,8 +28,14 @@ export class ApplicationKey {
    */
   "owner"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hash: {
       baseName: "hash",
@@ -45,6 +51,9 @@ export class ApplicationKey {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKey.attributeTypeMap;
   }

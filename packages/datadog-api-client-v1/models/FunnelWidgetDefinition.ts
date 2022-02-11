@@ -35,8 +35,14 @@ export class FunnelWidgetDefinition {
   "titleSize"?: string;
   "type": FunnelWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     requests: {
       baseName: "requests",
@@ -66,6 +72,9 @@ export class FunnelWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FunnelWidgetDefinition.attributeTypeMap;
   }

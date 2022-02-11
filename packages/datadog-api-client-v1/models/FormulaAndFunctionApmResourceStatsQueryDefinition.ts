@@ -52,8 +52,14 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
   "service": string;
   "stat": FormulaAndFunctionApmResourceStatName;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dataSource: {
       baseName: "data_source",
@@ -102,6 +108,9 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionApmResourceStatsQueryDefinition.attributeTypeMap;
   }

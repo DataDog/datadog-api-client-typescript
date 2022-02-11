@@ -21,8 +21,14 @@ export class UsageBillableSummaryResponse {
    */
   "usage"?: Array<UsageBillableSummaryHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
@@ -30,6 +36,9 @@ export class UsageBillableSummaryResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageBillableSummaryResponse.attributeTypeMap;
   }

@@ -22,8 +22,14 @@ export class SlackIntegrationChannel {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     display: {
       baseName: "display",
@@ -35,6 +41,9 @@ export class SlackIntegrationChannel {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SlackIntegrationChannel.attributeTypeMap;
   }

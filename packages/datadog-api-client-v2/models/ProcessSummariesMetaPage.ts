@@ -24,8 +24,14 @@ export class ProcessSummariesMetaPage {
    */
   "size"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
       baseName: "after",
@@ -38,6 +44,9 @@ export class ProcessSummariesMetaPage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessSummariesMetaPage.attributeTypeMap;
   }

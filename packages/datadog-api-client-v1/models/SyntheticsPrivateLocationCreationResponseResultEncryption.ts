@@ -24,8 +24,14 @@ export class SyntheticsPrivateLocationCreationResponseResultEncryption {
    */
   "key"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -37,6 +43,9 @@ export class SyntheticsPrivateLocationCreationResponseResultEncryption {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsPrivateLocationCreationResponseResultEncryption.attributeTypeMap;
   }

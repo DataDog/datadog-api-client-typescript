@@ -24,8 +24,14 @@ export class MonitorGroupSearchResponseCounts {
    */
   "type"?: Array<any>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     status: {
       baseName: "status",
@@ -37,6 +43,9 @@ export class MonitorGroupSearchResponseCounts {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorGroupSearchResponseCounts.attributeTypeMap;
   }

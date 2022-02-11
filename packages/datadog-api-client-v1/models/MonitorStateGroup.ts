@@ -38,8 +38,14 @@ export class MonitorStateGroup {
   "name"?: string;
   "status"?: MonitorOverallStates;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     lastNodataTs: {
       baseName: "last_nodata_ts",
@@ -71,6 +77,9 @@ export class MonitorStateGroup {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorStateGroup.attributeTypeMap;
   }

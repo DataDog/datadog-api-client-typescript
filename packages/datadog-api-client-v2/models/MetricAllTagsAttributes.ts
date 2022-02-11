@@ -20,8 +20,14 @@ export class MetricAllTagsAttributes {
    */
   "tags"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tags: {
       baseName: "tags",
@@ -29,6 +35,9 @@ export class MetricAllTagsAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricAllTagsAttributes.attributeTypeMap;
   }

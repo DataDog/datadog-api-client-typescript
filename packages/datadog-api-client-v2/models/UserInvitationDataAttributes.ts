@@ -32,8 +32,14 @@ export class UserInvitationDataAttributes {
    */
   "uuid"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
@@ -55,6 +61,9 @@ export class UserInvitationDataAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserInvitationDataAttributes.attributeTypeMap;
   }

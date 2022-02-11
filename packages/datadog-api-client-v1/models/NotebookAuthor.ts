@@ -52,8 +52,14 @@ export class NotebookAuthor {
    */
   "verified"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
@@ -94,6 +100,9 @@ export class NotebookAuthor {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookAuthor.attributeTypeMap;
   }

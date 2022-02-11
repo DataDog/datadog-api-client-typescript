@@ -28,8 +28,14 @@ export class UsageLambdaHour {
    */
   "invocationsSum"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     funcCount: {
       baseName: "func_count",
@@ -48,6 +54,9 @@ export class UsageLambdaHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLambdaHour.attributeTypeMap;
   }

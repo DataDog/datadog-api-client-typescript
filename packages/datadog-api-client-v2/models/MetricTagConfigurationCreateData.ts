@@ -24,8 +24,14 @@ export class MetricTagConfigurationCreateData {
   "id": string;
   "type": MetricTagConfigurationType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -43,6 +49,9 @@ export class MetricTagConfigurationCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricTagConfigurationCreateData.attributeTypeMap;
   }

@@ -36,8 +36,14 @@ export class LogsListRequest {
   "startAt"?: string;
   "time": LogsListRequestTime;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     index: {
       baseName: "index",
@@ -67,6 +73,9 @@ export class LogsListRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListRequest.attributeTypeMap;
   }

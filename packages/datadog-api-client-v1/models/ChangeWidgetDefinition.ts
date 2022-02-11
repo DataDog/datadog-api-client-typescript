@@ -40,8 +40,14 @@ export class ChangeWidgetDefinition {
   "titleSize"?: string;
   "type": ChangeWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
@@ -75,6 +81,9 @@ export class ChangeWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ChangeWidgetDefinition.attributeTypeMap;
   }

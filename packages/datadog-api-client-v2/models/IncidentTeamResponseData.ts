@@ -26,8 +26,14 @@ export class IncidentTeamResponseData {
   "relationships"?: IncidentTeamRelationships;
   "type"?: IncidentTeamType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -47,6 +53,9 @@ export class IncidentTeamResponseData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentTeamResponseData.attributeTypeMap;
   }

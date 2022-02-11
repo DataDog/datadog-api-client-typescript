@@ -50,8 +50,14 @@ export class SLOHistoryResponseData {
   "type"?: SLOType;
   "typeId"?: SLOTypeNumeric;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     fromTs: {
       baseName: "from_ts",
@@ -97,6 +103,9 @@ export class SLOHistoryResponseData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryResponseData.attributeTypeMap;
   }

@@ -33,8 +33,14 @@ export class SyntheticsAPITestConfig {
    */
   "steps"?: Array<SyntheticsAPIStep>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     assertions: {
       baseName: "assertions",
@@ -54,6 +60,9 @@ export class SyntheticsAPITestConfig {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITestConfig.attributeTypeMap;
   }

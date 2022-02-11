@@ -36,8 +36,14 @@ export class UsageCustomReportsAttributes {
    */
   "tags"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     computedOn: {
       baseName: "computed_on",
@@ -62,6 +68,9 @@ export class UsageCustomReportsAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCustomReportsAttributes.attributeTypeMap;
   }

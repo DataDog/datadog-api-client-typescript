@@ -20,8 +20,14 @@ export class SecurityMonitoringSignalsListResponseMetaPage {
    */
   "after"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
       baseName: "after",
@@ -29,6 +35,9 @@ export class SecurityMonitoringSignalsListResponseMetaPage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalsListResponseMetaPage.attributeTypeMap;
   }

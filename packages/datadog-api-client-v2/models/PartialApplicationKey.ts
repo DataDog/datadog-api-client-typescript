@@ -26,8 +26,14 @@ export class PartialApplicationKey {
   "relationships"?: ApplicationKeyRelationships;
   "type"?: ApplicationKeysType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -47,6 +53,9 @@ export class PartialApplicationKey {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return PartialApplicationKey.attributeTypeMap;
   }

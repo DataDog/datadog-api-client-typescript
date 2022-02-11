@@ -20,8 +20,14 @@ export class AWSAccountCreateResponse {
    */
   "externalId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     externalId: {
       baseName: "external_id",
@@ -29,6 +35,9 @@ export class AWSAccountCreateResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSAccountCreateResponse.attributeTypeMap;
   }

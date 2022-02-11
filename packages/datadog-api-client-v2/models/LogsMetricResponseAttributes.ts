@@ -25,8 +25,14 @@ export class LogsMetricResponseAttributes {
    */
   "groupBy"?: Array<LogsMetricResponseGroupBy>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
       baseName: "compute",
@@ -42,6 +48,9 @@ export class LogsMetricResponseAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricResponseAttributes.attributeTypeMap;
   }

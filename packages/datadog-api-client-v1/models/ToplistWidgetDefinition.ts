@@ -40,8 +40,14 @@ export class ToplistWidgetDefinition {
   "titleSize"?: string;
   "type": ToplistWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
@@ -75,6 +81,9 @@ export class ToplistWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ToplistWidgetDefinition.attributeTypeMap;
   }

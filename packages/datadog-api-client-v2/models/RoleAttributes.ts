@@ -32,8 +32,14 @@ export class RoleAttributes {
    */
   "userCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
@@ -56,6 +62,9 @@ export class RoleAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RoleAttributes.attributeTypeMap;
   }

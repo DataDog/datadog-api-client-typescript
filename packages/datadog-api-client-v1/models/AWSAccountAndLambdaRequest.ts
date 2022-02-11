@@ -24,8 +24,14 @@ export class AWSAccountAndLambdaRequest {
    */
   "lambdaArn": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
@@ -39,6 +45,9 @@ export class AWSAccountAndLambdaRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSAccountAndLambdaRequest.attributeTypeMap;
   }

@@ -24,8 +24,14 @@ export class UsageSyntheticsBrowserHour {
    */
   "hour"?: Date;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     browserCheckCallsCount: {
       baseName: "browser_check_calls_count",
@@ -39,6 +45,9 @@ export class UsageSyntheticsBrowserHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSyntheticsBrowserHour.attributeTypeMap;
   }

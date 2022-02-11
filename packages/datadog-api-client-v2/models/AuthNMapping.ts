@@ -31,8 +31,14 @@ export class AuthNMapping {
   "relationships"?: AuthNMappingRelationships;
   "type": AuthNMappingsType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -58,6 +64,9 @@ export class AuthNMapping {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AuthNMapping.attributeTypeMap;
   }

@@ -28,8 +28,14 @@ export class SyntheticsParsingOptions {
   "parser"?: SyntheticsVariableParser;
   "type"?: SyntheticsGlobalVariableParseTestOptionsType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     field: {
       baseName: "field",
@@ -49,6 +55,9 @@ export class SyntheticsParsingOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsParsingOptions.attributeTypeMap;
   }

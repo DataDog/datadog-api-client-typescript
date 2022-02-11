@@ -32,8 +32,14 @@ export class WidgetCustomLink {
    */
   "overrideLabel"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     isHidden: {
       baseName: "is_hidden",
@@ -53,6 +59,9 @@ export class WidgetCustomLink {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetCustomLink.attributeTypeMap;
   }

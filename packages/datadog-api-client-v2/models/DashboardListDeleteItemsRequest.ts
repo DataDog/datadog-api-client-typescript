@@ -21,8 +21,14 @@ export class DashboardListDeleteItemsRequest {
    */
   "dashboards"?: Array<DashboardListItemRequest>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dashboards: {
       baseName: "dashboards",
@@ -30,6 +36,9 @@ export class DashboardListDeleteItemsRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardListDeleteItemsRequest.attributeTypeMap;
   }

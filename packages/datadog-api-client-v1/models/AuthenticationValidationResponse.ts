@@ -20,8 +20,14 @@ export class AuthenticationValidationResponse {
    */
   "valid"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     valid: {
       baseName: "valid",
@@ -29,6 +35,9 @@ export class AuthenticationValidationResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AuthenticationValidationResponse.attributeTypeMap;
   }

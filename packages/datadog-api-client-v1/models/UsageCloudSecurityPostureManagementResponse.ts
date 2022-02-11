@@ -21,8 +21,14 @@ export class UsageCloudSecurityPostureManagementResponse {
    */
   "usage"?: Array<UsageCloudSecurityPostureManagementHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
@@ -30,6 +36,9 @@ export class UsageCloudSecurityPostureManagementResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCloudSecurityPostureManagementResponse.attributeTypeMap;
   }

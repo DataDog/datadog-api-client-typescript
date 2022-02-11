@@ -34,8 +34,14 @@ export class SyntheticsPrivateLocation {
    */
   "tags": Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
       baseName: "description",
@@ -62,6 +68,9 @@ export class SyntheticsPrivateLocation {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsPrivateLocation.attributeTypeMap;
   }

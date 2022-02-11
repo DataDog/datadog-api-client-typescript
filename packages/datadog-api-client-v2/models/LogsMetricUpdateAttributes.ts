@@ -23,8 +23,14 @@ export class LogsMetricUpdateAttributes {
    */
   "groupBy"?: Array<LogsMetricGroupBy>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
@@ -36,6 +42,9 @@ export class LogsMetricUpdateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricUpdateAttributes.attributeTypeMap;
   }

@@ -24,8 +24,14 @@ export class SLOListResponseMetadataPage {
    */
   "totalFilteredCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     totalCount: {
       baseName: "total_count",
@@ -39,6 +45,9 @@ export class SLOListResponseMetadataPage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOListResponseMetadataPage.attributeTypeMap;
   }

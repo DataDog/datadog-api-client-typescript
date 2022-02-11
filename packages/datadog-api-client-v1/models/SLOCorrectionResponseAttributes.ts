@@ -58,8 +58,14 @@ export class SLOCorrectionResponseAttributes {
    */
   "timezone"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     category: {
       baseName: "category",
@@ -116,6 +122,9 @@ export class SLOCorrectionResponseAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionResponseAttributes.attributeTypeMap;
   }

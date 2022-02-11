@@ -23,8 +23,14 @@ export class UsageTopAvgMetricsResponse {
    */
   "usage"?: Array<UsageTopAvgMetricsHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
       baseName: "metadata",
@@ -36,6 +42,9 @@ export class UsageTopAvgMetricsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTopAvgMetricsResponse.attributeTypeMap;
   }

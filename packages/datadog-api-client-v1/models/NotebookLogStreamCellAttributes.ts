@@ -22,8 +22,14 @@ export class NotebookLogStreamCellAttributes {
   "graphSize"?: NotebookGraphSize;
   "time"?: NotebookCellTime;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
@@ -40,6 +46,9 @@ export class NotebookLogStreamCellAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookLogStreamCellAttributes.attributeTypeMap;
   }

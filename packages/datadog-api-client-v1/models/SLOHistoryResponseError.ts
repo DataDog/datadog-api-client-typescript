@@ -20,8 +20,14 @@ export class SLOHistoryResponseError {
    */
   "error"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
       baseName: "error",
@@ -29,6 +35,9 @@ export class SLOHistoryResponseError {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryResponseError.attributeTypeMap;
   }

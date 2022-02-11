@@ -34,8 +34,14 @@ export class LogsGeoIPParser {
   "target": string;
   "type": LogsGeoIPParserType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     isEnabled: {
       baseName: "is_enabled",
@@ -62,6 +68,9 @@ export class LogsGeoIPParser {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGeoIPParser.attributeTypeMap;
   }

@@ -21,8 +21,14 @@ export class OrganizationListResponse {
    */
   "orgs"?: Array<Organization>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     orgs: {
       baseName: "orgs",
@@ -30,6 +36,9 @@ export class OrganizationListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationListResponse.attributeTypeMap;
   }

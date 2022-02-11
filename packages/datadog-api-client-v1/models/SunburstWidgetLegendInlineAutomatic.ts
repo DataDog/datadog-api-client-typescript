@@ -26,8 +26,14 @@ export class SunburstWidgetLegendInlineAutomatic {
   "hideValue"?: boolean;
   "type": SunburstWidgetLegendInlineAutomaticType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hidePercent: {
       baseName: "hide_percent",
@@ -44,6 +50,9 @@ export class SunburstWidgetLegendInlineAutomatic {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SunburstWidgetLegendInlineAutomatic.attributeTypeMap;
   }

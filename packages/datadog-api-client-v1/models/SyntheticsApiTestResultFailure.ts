@@ -22,8 +22,14 @@ export class SyntheticsApiTestResultFailure {
    */
   "message"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
       baseName: "code",
@@ -35,6 +41,9 @@ export class SyntheticsApiTestResultFailure {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsApiTestResultFailure.attributeTypeMap;
   }

@@ -26,8 +26,14 @@ export class ScatterplotWidgetFormula {
    */
   "formula": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alias: {
       baseName: "alias",
@@ -45,6 +51,9 @@ export class ScatterplotWidgetFormula {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterplotWidgetFormula.attributeTypeMap;
   }

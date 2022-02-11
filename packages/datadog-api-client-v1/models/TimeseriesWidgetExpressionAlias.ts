@@ -24,8 +24,14 @@ export class TimeseriesWidgetExpressionAlias {
    */
   "expression": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aliasName: {
       baseName: "alias_name",
@@ -38,6 +44,9 @@ export class TimeseriesWidgetExpressionAlias {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return TimeseriesWidgetExpressionAlias.attributeTypeMap;
   }

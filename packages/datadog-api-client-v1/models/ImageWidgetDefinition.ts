@@ -42,8 +42,14 @@ export class ImageWidgetDefinition {
   "urlDarkTheme"?: string;
   "verticalAlign"?: WidgetVerticalAlign;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hasBackground: {
       baseName: "has_background",
@@ -85,6 +91,9 @@ export class ImageWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ImageWidgetDefinition.attributeTypeMap;
   }

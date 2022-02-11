@@ -67,8 +67,14 @@ export class SyntheticsCITest {
    */
   "variables"?: { [key: string]: string };
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     allowInsecureCertificates: {
       baseName: "allowInsecureCertificates",
@@ -129,6 +135,9 @@ export class SyntheticsCITest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCITest.attributeTypeMap;
   }

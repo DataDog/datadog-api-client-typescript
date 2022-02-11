@@ -38,8 +38,14 @@ export class Organization {
   "settings"?: OrganizationSettings;
   "subscription"?: OrganizationSubscription;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     billing: {
       baseName: "billing",
@@ -71,6 +77,9 @@ export class Organization {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Organization.attributeTypeMap;
   }

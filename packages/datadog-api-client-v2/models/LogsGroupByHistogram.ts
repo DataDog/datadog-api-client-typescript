@@ -28,8 +28,14 @@ export class LogsGroupByHistogram {
    */
   "min": number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     interval: {
       baseName: "interval",
@@ -51,6 +57,9 @@ export class LogsGroupByHistogram {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGroupByHistogram.attributeTypeMap;
   }

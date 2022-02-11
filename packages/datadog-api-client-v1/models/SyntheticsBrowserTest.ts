@@ -53,8 +53,14 @@ export class SyntheticsBrowserTest {
   "tags"?: Array<string>;
   "type": SyntheticsBrowserTestType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
@@ -108,6 +114,9 @@ export class SyntheticsBrowserTest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTest.attributeTypeMap;
   }

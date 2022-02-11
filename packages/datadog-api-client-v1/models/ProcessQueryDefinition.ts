@@ -32,8 +32,14 @@ export class ProcessQueryDefinition {
    */
   "searchBy"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filterBy: {
       baseName: "filter_by",
@@ -55,6 +61,9 @@ export class ProcessQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessQueryDefinition.attributeTypeMap;
   }

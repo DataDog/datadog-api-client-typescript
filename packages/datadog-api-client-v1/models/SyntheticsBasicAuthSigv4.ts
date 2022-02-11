@@ -38,8 +38,14 @@ export class SyntheticsBasicAuthSigv4 {
   "sessionToken"?: string;
   "type": SyntheticsBasicAuthSigv4Type;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accessKey: {
       baseName: "accessKey",
@@ -70,6 +76,9 @@ export class SyntheticsBasicAuthSigv4 {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBasicAuthSigv4.attributeTypeMap;
   }

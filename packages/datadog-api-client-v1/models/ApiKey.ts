@@ -32,8 +32,14 @@ export class ApiKey {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
@@ -53,6 +59,9 @@ export class ApiKey {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApiKey.attributeTypeMap;
   }

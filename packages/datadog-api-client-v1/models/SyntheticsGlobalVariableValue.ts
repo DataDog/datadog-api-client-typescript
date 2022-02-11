@@ -24,8 +24,14 @@ export class SyntheticsGlobalVariableValue {
    */
   "value"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     secure: {
       baseName: "secure",
@@ -37,6 +43,9 @@ export class SyntheticsGlobalVariableValue {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGlobalVariableValue.attributeTypeMap;
   }

@@ -21,8 +21,14 @@ export class SyntheticsTriggerBody {
    */
   "tests": Array<SyntheticsTriggerTest>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
       baseName: "tests",
@@ -31,6 +37,9 @@ export class SyntheticsTriggerBody {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTriggerBody.attributeTypeMap;
   }

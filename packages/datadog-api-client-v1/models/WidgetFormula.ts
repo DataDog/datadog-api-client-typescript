@@ -33,8 +33,14 @@ export class WidgetFormula {
   "formula": string;
   "limit"?: WidgetFormulaLimit;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alias: {
       baseName: "alias",
@@ -59,6 +65,9 @@ export class WidgetFormula {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetFormula.attributeTypeMap;
   }

@@ -28,8 +28,14 @@ export class IncidentServicesResponseMetaPagination {
    */
   "size"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     nextOffset: {
       baseName: "next_offset",
@@ -48,6 +54,9 @@ export class IncidentServicesResponseMetaPagination {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentServicesResponseMetaPagination.attributeTypeMap;
   }

@@ -22,8 +22,14 @@ export class RelationshipToRoleData {
   "id"?: string;
   "type"?: RolesType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -35,6 +41,9 @@ export class RelationshipToRoleData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToRoleData.attributeTypeMap;
   }

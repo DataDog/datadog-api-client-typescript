@@ -34,8 +34,14 @@ export class DistributionWidgetRequest {
   "securityQuery"?: LogQueryDefinition;
   "style"?: WidgetStyle;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
@@ -83,6 +89,9 @@ export class DistributionWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DistributionWidgetRequest.attributeTypeMap;
   }

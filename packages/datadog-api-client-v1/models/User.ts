@@ -42,8 +42,14 @@ export class User {
    */
   "verified"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accessRole: {
       baseName: "access_role",
@@ -77,6 +83,9 @@ export class User {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return User.attributeTypeMap;
   }

@@ -176,8 +176,14 @@ export class UsageAttributionValues {
    */
   "snmpUsage"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiPercentage: {
       baseName: "api_percentage",
@@ -381,6 +387,9 @@ export class UsageAttributionValues {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionValues.attributeTypeMap;
   }

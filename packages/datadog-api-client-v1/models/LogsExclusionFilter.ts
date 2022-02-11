@@ -24,8 +24,14 @@ export class LogsExclusionFilter {
    */
   "sampleRate": number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
@@ -39,6 +45,9 @@ export class LogsExclusionFilter {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsExclusionFilter.attributeTypeMap;
   }

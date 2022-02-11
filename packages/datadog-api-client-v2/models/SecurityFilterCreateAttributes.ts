@@ -35,8 +35,14 @@ export class SecurityFilterCreateAttributes {
    */
   "query": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     exclusionFilters: {
       baseName: "exclusion_filters",
@@ -65,6 +71,9 @@ export class SecurityFilterCreateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityFilterCreateAttributes.attributeTypeMap;
   }

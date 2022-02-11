@@ -58,8 +58,14 @@ export class ChangeWidgetRequest {
    */
   "showPresent"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
@@ -135,6 +141,9 @@ export class ChangeWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ChangeWidgetRequest.attributeTypeMap;
   }

@@ -44,8 +44,14 @@ export class MetricMetadata {
    */
   "unit"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
       baseName: "description",
@@ -78,6 +84,9 @@ export class MetricMetadata {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricMetadata.attributeTypeMap;
   }

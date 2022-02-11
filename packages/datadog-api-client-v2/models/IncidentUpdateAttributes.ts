@@ -54,8 +54,14 @@ export class IncidentUpdateAttributes {
    */
   "title"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customerImpactEnd: {
       baseName: "customer_impact_end",
@@ -99,6 +105,9 @@ export class IncidentUpdateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentUpdateAttributes.attributeTypeMap;
   }

@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class AuthNMappingUpdateRelationships {
   "role"?: RelationshipToRole;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     role: {
       baseName: "role",
@@ -27,6 +33,9 @@ export class AuthNMappingUpdateRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AuthNMappingUpdateRelationships.attributeTypeMap;
   }

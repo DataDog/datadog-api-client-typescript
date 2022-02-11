@@ -22,8 +22,14 @@ export class DashboardBulkActionData {
   "id": string;
   "type": DashboardResourceType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -37,6 +43,9 @@ export class DashboardBulkActionData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardBulkActionData.attributeTypeMap;
   }

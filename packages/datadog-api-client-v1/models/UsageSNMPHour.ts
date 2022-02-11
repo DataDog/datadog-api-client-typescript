@@ -32,8 +32,14 @@ export class UsageSNMPHour {
    */
   "snmpDevices"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
@@ -55,6 +61,9 @@ export class UsageSNMPHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSNMPHour.attributeTypeMap;
   }

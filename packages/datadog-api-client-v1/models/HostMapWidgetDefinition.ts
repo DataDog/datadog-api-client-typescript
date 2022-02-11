@@ -59,8 +59,14 @@ export class HostMapWidgetDefinition {
   "titleSize"?: string;
   "type": HostMapWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
@@ -118,6 +124,9 @@ export class HostMapWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostMapWidgetDefinition.attributeTypeMap;
   }

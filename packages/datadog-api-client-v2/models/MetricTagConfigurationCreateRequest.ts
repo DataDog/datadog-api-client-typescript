@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class MetricTagConfigurationCreateRequest {
   "data": MetricTagConfigurationCreateData;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -28,6 +34,9 @@ export class MetricTagConfigurationCreateRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricTagConfigurationCreateRequest.attributeTypeMap;
   }

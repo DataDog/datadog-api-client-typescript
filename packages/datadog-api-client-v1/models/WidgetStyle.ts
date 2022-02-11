@@ -20,8 +20,14 @@ export class WidgetStyle {
    */
   "palette"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     palette: {
       baseName: "palette",
@@ -29,6 +35,9 @@ export class WidgetStyle {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetStyle.attributeTypeMap;
   }
