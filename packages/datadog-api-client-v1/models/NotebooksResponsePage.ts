@@ -24,8 +24,14 @@ export class NotebooksResponsePage {
    */
   "totalFilteredCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     totalCount: {
       baseName: "total_count",
@@ -39,6 +45,9 @@ export class NotebooksResponsePage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebooksResponsePage.attributeTypeMap;
   }

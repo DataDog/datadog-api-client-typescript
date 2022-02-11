@@ -42,8 +42,14 @@ export class LogsLookupProcessor {
   "target": string;
   "type": LogsLookupProcessorType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     defaultLookup: {
       baseName: "default_lookup",
@@ -79,6 +85,9 @@ export class LogsLookupProcessor {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsLookupProcessor.attributeTypeMap;
   }

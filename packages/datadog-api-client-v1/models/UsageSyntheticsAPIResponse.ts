@@ -21,8 +21,14 @@ export class UsageSyntheticsAPIResponse {
    */
   "usage"?: Array<UsageSyntheticsAPIHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
@@ -30,6 +36,9 @@ export class UsageSyntheticsAPIResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSyntheticsAPIResponse.attributeTypeMap;
   }

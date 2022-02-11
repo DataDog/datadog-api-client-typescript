@@ -24,8 +24,14 @@ export class SecurityFilterExclusionFilterResponse {
    */
   "query"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
@@ -37,6 +43,9 @@ export class SecurityFilterExclusionFilterResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityFilterExclusionFilterResponse.attributeTypeMap;
   }

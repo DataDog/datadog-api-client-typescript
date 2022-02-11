@@ -23,8 +23,14 @@ export class SLOHistoryResponse {
    */
   "errors"?: Array<SLOHistoryResponseError>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -36,6 +42,9 @@ export class SLOHistoryResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryResponse.attributeTypeMap;
   }

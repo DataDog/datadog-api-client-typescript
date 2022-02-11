@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -14,15 +13,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
 import { ServiceCheck } from "../models/ServiceCheck";
 
-/**
- * no description
- */
 export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Submit a list of Service Checks.  **Notes**: - A valid API key is required. - Service checks can be submitted up to 10 minutes in the past.
-   * Submit a Service Check
-   * @param body Service Check request body.
-   */
   public async submitServiceCheck(
     body: Array<ServiceCheck>,
     _options?: Configuration
@@ -144,5 +135,52 @@ export class ServiceChecksApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface ServiceChecksApiSubmitServiceCheckRequest {
+  /**
+   * Service Check request body.
+   * @type Array&lt;ServiceCheck&gt;
+   */
+  body: Array<ServiceCheck>;
+}
+
+export class ServiceChecksApi {
+  private requestFactory: ServiceChecksApiRequestFactory;
+  private responseProcessor: ServiceChecksApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ServiceChecksApiRequestFactory,
+    responseProcessor?: ServiceChecksApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new ServiceChecksApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new ServiceChecksApiResponseProcessor();
+  }
+
+  /**
+   * Submit a list of Service Checks.  **Notes**: - A valid API key is required. - Service checks can be submitted up to 10 minutes in the past.
+   * @param param The request object
+   */
+  public submitServiceCheck(
+    param: ServiceChecksApiSubmitServiceCheckRequest,
+    options?: Configuration
+  ): Promise<IntakePayloadAccepted> {
+    const requestContextPromise = this.requestFactory.submitServiceCheck(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.submitServiceCheck(responseContext);
+        });
+    });
   }
 }

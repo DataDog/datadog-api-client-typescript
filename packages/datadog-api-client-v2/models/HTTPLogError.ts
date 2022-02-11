@@ -28,8 +28,14 @@ export class HTTPLogError {
    */
   "title"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     detail: {
       baseName: "detail",
@@ -45,6 +51,9 @@ export class HTTPLogError {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HTTPLogError.attributeTypeMap;
   }

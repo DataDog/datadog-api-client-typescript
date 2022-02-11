@@ -33,7 +33,7 @@ let params:v1.MonitorsApiGetMonitorRequest = {
   monitorId: 1,
 };
 
-apiInstance.getMonitor(params).then((data:any) => {
+apiInstance.getMonitor(params).then((data: v1.Monitor) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 
@@ -117,16 +117,14 @@ const configurationOpts = {
 const configuration = v1.createConfiguration(configurationOpts);
 
 const apiInstance = new v1.MonitorsApi(configuration);
-apiInstance.listMonitors().then((data:any) => {
+apiInstance.listMonitors().then((data: v1.Monitor[]) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error)).finally(() => clearTimeout(timeout));
 ```
 
-
 ## Documentation
 
-Documentation for API endpoints can be found under the docs subdirectories, in [v1](/docs/v1/)
-and [v2](/docs/v2/).
+Documentation for API endpoints can be found in in [Github pages][github pages].
 
 ## Contributing
 
@@ -142,3 +140,5 @@ support@datadoghq.com
 ## License
 
 [Apache License, v2.0](LICENSE)
+
+[github pages]: https://datadoghq.dev/datadog-api-client-typescript/

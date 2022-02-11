@@ -36,8 +36,14 @@ export class FullApplicationKeyAttributes {
    */
   "scopes"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
@@ -61,6 +67,9 @@ export class FullApplicationKeyAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FullApplicationKeyAttributes.attributeTypeMap;
   }

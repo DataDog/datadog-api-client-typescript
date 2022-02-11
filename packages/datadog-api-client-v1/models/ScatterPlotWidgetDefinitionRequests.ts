@@ -21,8 +21,14 @@ export class ScatterPlotWidgetDefinitionRequests {
   "x"?: ScatterPlotRequest;
   "y"?: ScatterPlotRequest;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     table: {
       baseName: "table",
@@ -38,6 +44,9 @@ export class ScatterPlotWidgetDefinitionRequests {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
   }

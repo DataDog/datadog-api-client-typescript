@@ -25,8 +25,14 @@ export class MonitorGroupSearchResponse {
   "groups"?: Array<MonitorGroupSearchResult>;
   "metadata"?: MonitorSearchResponseMetadata;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     counts: {
       baseName: "counts",
@@ -42,6 +48,9 @@ export class MonitorGroupSearchResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorGroupSearchResponse.attributeTypeMap;
   }

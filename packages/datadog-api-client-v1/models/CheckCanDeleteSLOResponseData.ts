@@ -20,8 +20,14 @@ export class CheckCanDeleteSLOResponseData {
    */
   "ok"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     ok: {
       baseName: "ok",
@@ -29,6 +35,9 @@ export class CheckCanDeleteSLOResponseData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return CheckCanDeleteSLOResponseData.attributeTypeMap;
   }

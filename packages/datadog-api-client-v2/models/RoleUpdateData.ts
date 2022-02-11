@@ -24,8 +24,14 @@ export class RoleUpdateData {
   "id": string;
   "type": RolesType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -44,6 +50,9 @@ export class RoleUpdateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RoleUpdateData.attributeTypeMap;
   }

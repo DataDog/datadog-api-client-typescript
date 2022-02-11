@@ -24,8 +24,14 @@ export class UserResponseRelationships {
   "otherUsers"?: RelationshipToUsers;
   "roles"?: RelationshipToRoles;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     org: {
       baseName: "org",
@@ -45,6 +51,9 @@ export class UserResponseRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserResponseRelationships.attributeTypeMap;
   }

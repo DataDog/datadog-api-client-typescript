@@ -51,8 +51,14 @@ export class SLOWidgetDefinition {
    */
   "viewType": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     globalTimeTarget: {
       baseName: "global_time_target",
@@ -98,6 +104,9 @@ export class SLOWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOWidgetDefinition.attributeTypeMap;
   }

@@ -40,8 +40,14 @@ export class DowntimeRecurrence {
    */
   "weekDays"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     period: {
       baseName: "period",
@@ -72,6 +78,9 @@ export class DowntimeRecurrence {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DowntimeRecurrence.attributeTypeMap;
   }

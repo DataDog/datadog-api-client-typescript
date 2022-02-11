@@ -32,8 +32,14 @@ export class UsageTimeseriesHour {
    */
   "numCustomTimeseries"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
@@ -57,6 +63,9 @@ export class UsageTimeseriesHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTimeseriesHour.attributeTypeMap;
   }

@@ -28,8 +28,14 @@ export class HostMuteSettings {
    */
   "override"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
       baseName: "end",
@@ -46,6 +52,9 @@ export class HostMuteSettings {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostMuteSettings.attributeTypeMap;
   }

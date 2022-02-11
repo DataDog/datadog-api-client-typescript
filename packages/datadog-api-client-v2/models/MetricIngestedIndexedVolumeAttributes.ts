@@ -24,8 +24,14 @@ export class MetricIngestedIndexedVolumeAttributes {
    */
   "ingestedVolume"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     indexedVolume: {
       baseName: "indexed_volume",
@@ -39,6 +45,9 @@ export class MetricIngestedIndexedVolumeAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricIngestedIndexedVolumeAttributes.attributeTypeMap;
   }

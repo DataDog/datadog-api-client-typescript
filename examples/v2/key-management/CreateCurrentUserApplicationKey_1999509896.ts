@@ -20,7 +20,7 @@ let params: v2.KeyManagementApiCreateCurrentUserApplicationKeyRequest = {
 
 apiInstance
   .createCurrentUserApplicationKey(params)
-  .then((data: any) => {
+  .then((data: v2.ApplicationKeyResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -28,8 +28,14 @@ export class LogsArchiveDestinationGCS {
   "path"?: string;
   "type": LogsArchiveDestinationGCSType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     bucket: {
       baseName: "bucket",
@@ -52,6 +58,9 @@ export class LogsArchiveDestinationGCS {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveDestinationGCS.attributeTypeMap;
   }

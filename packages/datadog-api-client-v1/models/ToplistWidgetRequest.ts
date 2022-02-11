@@ -50,8 +50,14 @@ export class ToplistWidgetRequest {
   "securityQuery"?: LogQueryDefinition;
   "style"?: WidgetRequestStyle;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
@@ -115,6 +121,9 @@ export class ToplistWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ToplistWidgetRequest.attributeTypeMap;
   }

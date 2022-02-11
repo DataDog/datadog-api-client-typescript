@@ -81,8 +81,14 @@ export class SyntheticsStepDetail {
    */
   "warnings"?: Array<SyntheticsStepDetailWarning>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     browserErrors: {
       baseName: "browserErrors",
@@ -157,6 +163,9 @@ export class SyntheticsStepDetail {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsStepDetail.attributeTypeMap;
   }

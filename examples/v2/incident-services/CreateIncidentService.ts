@@ -21,7 +21,7 @@ let params: v2.IncidentServicesApiCreateIncidentServiceRequest = {
 
 apiInstance
   .createIncidentService(params)
-  .then((data: any) => {
+  .then((data: v2.IncidentServiceResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

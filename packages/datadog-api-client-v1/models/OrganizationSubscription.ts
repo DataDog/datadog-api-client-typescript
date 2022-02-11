@@ -20,8 +20,14 @@ export class OrganizationSubscription {
    */
   "type"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
@@ -29,6 +35,9 @@ export class OrganizationSubscription {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationSubscription.attributeTypeMap;
   }

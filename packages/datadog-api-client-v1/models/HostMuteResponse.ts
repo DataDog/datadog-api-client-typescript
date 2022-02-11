@@ -32,8 +32,14 @@ export class HostMuteResponse {
    */
   "message"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     action: {
       baseName: "action",
@@ -54,6 +60,9 @@ export class HostMuteResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostMuteResponse.attributeTypeMap;
   }

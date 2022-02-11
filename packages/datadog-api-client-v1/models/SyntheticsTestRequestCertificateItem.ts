@@ -28,8 +28,14 @@ export class SyntheticsTestRequestCertificateItem {
    */
   "updatedAt"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     content: {
       baseName: "content",
@@ -45,6 +51,9 @@ export class SyntheticsTestRequestCertificateItem {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestRequestCertificateItem.attributeTypeMap;
   }

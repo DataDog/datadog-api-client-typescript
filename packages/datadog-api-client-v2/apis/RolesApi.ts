@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -24,16 +23,7 @@ import { RolesResponse } from "../models/RolesResponse";
 import { RolesSort } from "../models/RolesSort";
 import { UsersResponse } from "../models/UsersResponse";
 
-/**
- * no description
- */
 export class RolesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Adds a permission to a role.
-   * Grant permission to a role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async addPermissionToRole(
     roleId: string,
     body: RelationshipToPermission,
@@ -90,12 +80,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Adds a user to a role.
-   * Add a user to a role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async addUserToRole(
     roleId: string,
     body: RelationshipToUser,
@@ -152,12 +136,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Clone an existing role
-   * Create a new role by cloning an existing role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async cloneRole(
     roleId: string,
     body: RoleCloneRequest,
@@ -214,11 +192,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create a new role for your organization.
-   * Create role
-   * @param body
-   */
   public async createRole(
     body: RoleCreateRequest,
     _options?: Configuration
@@ -264,11 +237,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Disables a role.
-   * Delete role
-   * @param roleId The ID of the role.
-   */
   public async deleteRole(
     roleId: string,
     _options?: Configuration
@@ -306,11 +274,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a role in the organization specified by the role’s `role_id`.
-   * Get a role
-   * @param roleId The ID of the role.
-   */
   public async getRole(
     roleId: string,
     _options?: Configuration
@@ -348,10 +311,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns a list of all permissions, including name, description, and ID.
-   * List permissions
-   */
   public async listPermissions(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -378,11 +337,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns a list of all permissions for a single role.
-   * List permissions for a role
-   * @param roleId The ID of the role.
-   */
   public async listRolePermissions(
     roleId: string,
     _options?: Configuration
@@ -420,15 +374,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Gets all users of a role.
-   * Get all users of a role
-   * @param roleId The ID of the role.
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;.
-   * @param filter Filter all users by the given string. Defaults to no filtering.
-   */
   public async listRoleUsers(
     roleId: string,
     pageSize?: number,
@@ -496,14 +441,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns all roles, including their names and IDs.
-   * List roles
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;.
-   * @param filter Filter all roles by the given string.
-   */
   public async listRoles(
     pageSize?: number,
     pageNumber?: number,
@@ -560,12 +497,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Removes a permission from a role.
-   * Revoke permission
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async removePermissionFromRole(
     roleId: string,
     body: RelationshipToPermission,
@@ -622,12 +553,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Removes a user from a role.
-   * Remove a user from a role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async removeUserFromRole(
     roleId: string,
     body: RelationshipToUser,
@@ -684,12 +609,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit a role. Can only be used with application keys belonging to administrators.
-   * Update a role
-   * @param roleId The ID of the role.
-   * @param body
-   */
   public async updateRole(
     roleId: string,
     body: RoleUpdateRequest,
@@ -1608,5 +1527,468 @@ export class RolesApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface RolesApiAddPermissionToRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   *
+   * @type RelationshipToPermission
+   */
+  body: RelationshipToPermission;
+}
+
+export interface RolesApiAddUserToRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   *
+   * @type RelationshipToUser
+   */
+  body: RelationshipToUser;
+}
+
+export interface RolesApiCloneRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   *
+   * @type RoleCloneRequest
+   */
+  body: RoleCloneRequest;
+}
+
+export interface RolesApiCreateRoleRequest {
+  /**
+   *
+   * @type RoleCreateRequest
+   */
+  body: RoleCreateRequest;
+}
+
+export interface RolesApiDeleteRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+}
+
+export interface RolesApiGetRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+}
+
+export interface RolesApiListRolePermissionsRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+}
+
+export interface RolesApiListRoleUsersRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;.
+   * @type string
+   */
+  sort?: string;
+  /**
+   * Filter all users by the given string. Defaults to no filtering.
+   * @type string
+   */
+  filter?: string;
+}
+
+export interface RolesApiListRolesRequest {
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;.
+   * @type RolesSort
+   */
+  sort?: RolesSort;
+  /**
+   * Filter all roles by the given string.
+   * @type string
+   */
+  filter?: string;
+}
+
+export interface RolesApiRemovePermissionFromRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   *
+   * @type RelationshipToPermission
+   */
+  body: RelationshipToPermission;
+}
+
+export interface RolesApiRemoveUserFromRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   *
+   * @type RelationshipToUser
+   */
+  body: RelationshipToUser;
+}
+
+export interface RolesApiUpdateRoleRequest {
+  /**
+   * The ID of the role.
+   * @type string
+   */
+  roleId: string;
+  /**
+   *
+   * @type RoleUpdateRequest
+   */
+  body: RoleUpdateRequest;
+}
+
+export class RolesApi {
+  private requestFactory: RolesApiRequestFactory;
+  private responseProcessor: RolesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: RolesApiRequestFactory,
+    responseProcessor?: RolesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new RolesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new RolesApiResponseProcessor();
+  }
+
+  /**
+   * Adds a permission to a role.
+   * @param param The request object
+   */
+  public addPermissionToRole(
+    param: RolesApiAddPermissionToRoleRequest,
+    options?: Configuration
+  ): Promise<PermissionsResponse> {
+    const requestContextPromise = this.requestFactory.addPermissionToRole(
+      param.roleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addPermissionToRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Adds a user to a role.
+   * @param param The request object
+   */
+  public addUserToRole(
+    param: RolesApiAddUserToRoleRequest,
+    options?: Configuration
+  ): Promise<UsersResponse> {
+    const requestContextPromise = this.requestFactory.addUserToRole(
+      param.roleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addUserToRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Clone an existing role
+   * @param param The request object
+   */
+  public cloneRole(
+    param: RolesApiCloneRoleRequest,
+    options?: Configuration
+  ): Promise<RoleResponse> {
+    const requestContextPromise = this.requestFactory.cloneRole(
+      param.roleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.cloneRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new role for your organization.
+   * @param param The request object
+   */
+  public createRole(
+    param: RolesApiCreateRoleRequest,
+    options?: Configuration
+  ): Promise<RoleCreateResponse> {
+    const requestContextPromise = this.requestFactory.createRole(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Disables a role.
+   * @param param The request object
+   */
+  public deleteRole(
+    param: RolesApiDeleteRoleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteRole(
+      param.roleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a role in the organization specified by the role’s `role_id`.
+   * @param param The request object
+   */
+  public getRole(
+    param: RolesApiGetRoleRequest,
+    options?: Configuration
+  ): Promise<RoleResponse> {
+    const requestContextPromise = this.requestFactory.getRole(
+      param.roleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a list of all permissions, including name, description, and ID.
+   * @param param The request object
+   */
+  public listPermissions(
+    options?: Configuration
+  ): Promise<PermissionsResponse> {
+    const requestContextPromise = this.requestFactory.listPermissions(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listPermissions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a list of all permissions for a single role.
+   * @param param The request object
+   */
+  public listRolePermissions(
+    param: RolesApiListRolePermissionsRequest,
+    options?: Configuration
+  ): Promise<PermissionsResponse> {
+    const requestContextPromise = this.requestFactory.listRolePermissions(
+      param.roleId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRolePermissions(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Gets all users of a role.
+   * @param param The request object
+   */
+  public listRoleUsers(
+    param: RolesApiListRoleUsersRequest,
+    options?: Configuration
+  ): Promise<UsersResponse> {
+    const requestContextPromise = this.requestFactory.listRoleUsers(
+      param.roleId,
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRoleUsers(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns all roles, including their names and IDs.
+   * @param param The request object
+   */
+  public listRoles(
+    param: RolesApiListRolesRequest = {},
+    options?: Configuration
+  ): Promise<RolesResponse> {
+    const requestContextPromise = this.requestFactory.listRoles(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRoles(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Removes a permission from a role.
+   * @param param The request object
+   */
+  public removePermissionFromRole(
+    param: RolesApiRemovePermissionFromRoleRequest,
+    options?: Configuration
+  ): Promise<PermissionsResponse> {
+    const requestContextPromise = this.requestFactory.removePermissionFromRole(
+      param.roleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removePermissionFromRole(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Removes a user from a role.
+   * @param param The request object
+   */
+  public removeUserFromRole(
+    param: RolesApiRemoveUserFromRoleRequest,
+    options?: Configuration
+  ): Promise<UsersResponse> {
+    const requestContextPromise = this.requestFactory.removeUserFromRole(
+      param.roleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeUserFromRole(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit a role. Can only be used with application keys belonging to administrators.
+   * @param param The request object
+   */
+  public updateRole(
+    param: RolesApiUpdateRoleRequest,
+    options?: Configuration
+  ): Promise<RoleUpdateResponse> {
+    const requestContextPromise = this.requestFactory.updateRole(
+      param.roleId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateRole(responseContext);
+        });
+    });
   }
 }

@@ -15,7 +15,7 @@ let params: v2.MetricsApiListTagConfigurationsRequest = {
 
 apiInstance
   .listTagConfigurations(params)
-  .then((data: any) => {
+  .then((data: v2.MetricsAndMetricTagConfigurationsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -25,8 +25,14 @@ export class SecurityMonitoringSignalsListResponse {
   "links"?: SecurityMonitoringSignalsListResponseLinks;
   "meta"?: SecurityMonitoringSignalsListResponseMeta;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -42,6 +48,9 @@ export class SecurityMonitoringSignalsListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalsListResponse.attributeTypeMap;
   }

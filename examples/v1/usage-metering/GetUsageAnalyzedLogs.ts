@@ -14,7 +14,7 @@ let params: v1.UsageMeteringApiGetUsageAnalyzedLogsRequest = {
 
 apiInstance
   .getUsageAnalyzedLogs(params)
-  .then((data: any) => {
+  .then((data: v1.UsageAnalyzedLogsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

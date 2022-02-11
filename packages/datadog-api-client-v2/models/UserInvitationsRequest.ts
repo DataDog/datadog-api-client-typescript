@@ -21,8 +21,14 @@ export class UserInvitationsRequest {
    */
   "data": Array<UserInvitationData>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -31,6 +37,9 @@ export class UserInvitationsRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserInvitationsRequest.attributeTypeMap;
   }

@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -18,15 +17,7 @@ import { ApplicationKey } from "../models/ApplicationKey";
 import { ApplicationKeyListResponse } from "../models/ApplicationKeyListResponse";
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 
-/**
- * no description
- */
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Creates an API key with a given name.
-   * Create an API key
-   * @param body
-   */
   public async createAPIKey(
     body: ApiKey,
     _options?: Configuration
@@ -71,11 +62,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create an application key with a given name.
-   * Create an application key
-   * @param body
-   */
   public async createApplicationKey(
     body: ApplicationKey,
     _options?: Configuration
@@ -120,11 +106,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a given API key.
-   * Delete an API key
-   * @param key The specific API key you are working with.
-   */
   public async deleteAPIKey(
     key: string,
     _options?: Configuration
@@ -161,11 +142,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a given application key.
-   * Delete an application key
-   * @param key The specific APP key you are working with.
-   */
   public async deleteApplicationKey(
     key: string,
     _options?: Configuration
@@ -202,11 +178,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a given API key.
-   * Get API key
-   * @param key The specific API key you are working with.
-   */
   public async getAPIKey(
     key: string,
     _options?: Configuration
@@ -243,11 +214,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a given application key.
-   * Get an application key
-   * @param key The specific APP key you are working with.
-   */
   public async getApplicationKey(
     key: string,
     _options?: Configuration
@@ -284,10 +250,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all API keys available for your account.
-   * Get all API keys
-   */
   public async listAPIKeys(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
@@ -311,10 +273,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all application keys available for your Datadog account.
-   * Get all application keys
-   */
   public async listApplicationKeys(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -340,12 +298,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit an API key name.
-   * Edit an API key
-   * @param key The specific API key you are working with.
-   * @param body
-   */
   public async updateAPIKey(
     key: string,
     body: ApiKey,
@@ -401,12 +353,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit an application key name.
-   * Edit an application key
-   * @param key The specific APP key you are working with.
-   * @param body
-   */
   public async updateApplicationKey(
     key: string,
     body: ApplicationKey,
@@ -1114,5 +1060,300 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface KeyManagementApiCreateAPIKeyRequest {
+  /**
+   *
+   * @type ApiKey
+   */
+  body: ApiKey;
+}
+
+export interface KeyManagementApiCreateApplicationKeyRequest {
+  /**
+   *
+   * @type ApplicationKey
+   */
+  body: ApplicationKey;
+}
+
+export interface KeyManagementApiDeleteAPIKeyRequest {
+  /**
+   * The specific API key you are working with.
+   * @type string
+   */
+  key: string;
+}
+
+export interface KeyManagementApiDeleteApplicationKeyRequest {
+  /**
+   * The specific APP key you are working with.
+   * @type string
+   */
+  key: string;
+}
+
+export interface KeyManagementApiGetAPIKeyRequest {
+  /**
+   * The specific API key you are working with.
+   * @type string
+   */
+  key: string;
+}
+
+export interface KeyManagementApiGetApplicationKeyRequest {
+  /**
+   * The specific APP key you are working with.
+   * @type string
+   */
+  key: string;
+}
+
+export interface KeyManagementApiUpdateAPIKeyRequest {
+  /**
+   * The specific API key you are working with.
+   * @type string
+   */
+  key: string;
+  /**
+   *
+   * @type ApiKey
+   */
+  body: ApiKey;
+}
+
+export interface KeyManagementApiUpdateApplicationKeyRequest {
+  /**
+   * The specific APP key you are working with.
+   * @type string
+   */
+  key: string;
+  /**
+   *
+   * @type ApplicationKey
+   */
+  body: ApplicationKey;
+}
+
+export class KeyManagementApi {
+  private requestFactory: KeyManagementApiRequestFactory;
+  private responseProcessor: KeyManagementApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: KeyManagementApiRequestFactory,
+    responseProcessor?: KeyManagementApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new KeyManagementApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new KeyManagementApiResponseProcessor();
+  }
+
+  /**
+   * Creates an API key with a given name.
+   * @param param The request object
+   */
+  public createAPIKey(
+    param: KeyManagementApiCreateAPIKeyRequest,
+    options?: Configuration
+  ): Promise<ApiKeyResponse> {
+    const requestContextPromise = this.requestFactory.createAPIKey(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAPIKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create an application key with a given name.
+   * @param param The request object
+   */
+  public createApplicationKey(
+    param: KeyManagementApiCreateApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.createApplicationKey(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createApplicationKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a given API key.
+   * @param param The request object
+   */
+  public deleteAPIKey(
+    param: KeyManagementApiDeleteAPIKeyRequest,
+    options?: Configuration
+  ): Promise<ApiKeyResponse> {
+    const requestContextPromise = this.requestFactory.deleteAPIKey(
+      param.key,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAPIKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a given application key.
+   * @param param The request object
+   */
+  public deleteApplicationKey(
+    param: KeyManagementApiDeleteApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.deleteApplicationKey(
+      param.key,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteApplicationKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a given API key.
+   * @param param The request object
+   */
+  public getAPIKey(
+    param: KeyManagementApiGetAPIKeyRequest,
+    options?: Configuration
+  ): Promise<ApiKeyResponse> {
+    const requestContextPromise = this.requestFactory.getAPIKey(
+      param.key,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAPIKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a given application key.
+   * @param param The request object
+   */
+  public getApplicationKey(
+    param: KeyManagementApiGetApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.getApplicationKey(
+      param.key,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getApplicationKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all API keys available for your account.
+   * @param param The request object
+   */
+  public listAPIKeys(options?: Configuration): Promise<ApiKeyListResponse> {
+    const requestContextPromise = this.requestFactory.listAPIKeys(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAPIKeys(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all application keys available for your Datadog account.
+   * @param param The request object
+   */
+  public listApplicationKeys(
+    options?: Configuration
+  ): Promise<ApplicationKeyListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listApplicationKeys(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listApplicationKeys(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit an API key name.
+   * @param param The request object
+   */
+  public updateAPIKey(
+    param: KeyManagementApiUpdateAPIKeyRequest,
+    options?: Configuration
+  ): Promise<ApiKeyResponse> {
+    const requestContextPromise = this.requestFactory.updateAPIKey(
+      param.key,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAPIKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit an application key name.
+   * @param param The request object
+   */
+  public updateApplicationKey(
+    param: KeyManagementApiUpdateApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.updateApplicationKey(
+      param.key,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateApplicationKey(responseContext);
+        });
+    });
   }
 }

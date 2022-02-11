@@ -31,7 +31,7 @@ let params: v2.ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest = {
 
 apiInstance
   .updateServiceAccountApplicationKey(params)
-  .then((data: any) => {
+  .then((data: v2.PartialApplicationKeyResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

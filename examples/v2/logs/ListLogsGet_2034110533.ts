@@ -17,7 +17,7 @@ let params: v2.LogsApiListLogsGetRequest = {
 
 apiInstance
   .listLogsGet(params)
-  .then((data: any) => {
+  .then((data: v2.LogsListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

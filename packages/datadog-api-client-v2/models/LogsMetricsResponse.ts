@@ -21,8 +21,14 @@ export class LogsMetricsResponse {
    */
   "data"?: Array<LogsMetricResponseData>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -30,6 +36,9 @@ export class LogsMetricsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricsResponse.attributeTypeMap;
   }

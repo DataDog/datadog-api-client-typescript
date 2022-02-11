@@ -34,8 +34,14 @@ export class SyntheticsStep {
   "timeout"?: number;
   "type"?: SyntheticsStepType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     allowFailure: {
       baseName: "allowFailure",
@@ -60,6 +66,9 @@ export class SyntheticsStep {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsStep.attributeTypeMap;
   }

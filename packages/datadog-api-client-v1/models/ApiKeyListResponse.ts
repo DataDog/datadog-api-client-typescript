@@ -21,8 +21,14 @@ export class ApiKeyListResponse {
    */
   "apiKeys"?: Array<ApiKey>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKeys: {
       baseName: "api_keys",
@@ -30,6 +36,9 @@ export class ApiKeyListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApiKeyListResponse.attributeTypeMap;
   }

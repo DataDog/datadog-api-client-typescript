@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -22,15 +21,7 @@ import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateReque
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
 
-/**
- * no description
- */
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create an API key.
-   * Create an API key
-   * @param body
-   */
   public async createAPIKey(
     body: APIKeyCreateRequest,
     _options?: Configuration
@@ -75,11 +66,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create an application key for current user
-   * Create an application key for current user
-   * @param body
-   */
   public async createCurrentUserApplicationKey(
     body: ApplicationKeyCreateRequest,
     _options?: Configuration
@@ -124,11 +110,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete an API key.
-   * Delete an API key
-   * @param apiKeyId The ID of the API key.
-   */
   public async deleteAPIKey(
     apiKeyId: string,
     _options?: Configuration
@@ -165,11 +146,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete an application key
-   * Delete an application key
-   * @param appKeyId The ID of the application key.
-   */
   public async deleteApplicationKey(
     appKeyId: string,
     _options?: Configuration
@@ -206,11 +182,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete an application key owned by current user
-   * Delete an application key owned by current user
-   * @param appKeyId The ID of the application key.
-   */
   public async deleteCurrentUserApplicationKey(
     appKeyId: string,
     _options?: Configuration
@@ -248,12 +219,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get an API key.
-   * Get API key
-   * @param apiKeyId The ID of the API key.
-   * @param include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
-   */
   public async getAPIKey(
     apiKeyId: string,
     include?: string,
@@ -299,12 +264,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get an application key for your org.
-   * Get an application key
-   * @param appKeyId The ID of the application key.
-   * @param include Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
-   */
   public async getApplicationKey(
     appKeyId: string,
     include?: string,
@@ -350,11 +309,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get an application key owned by current user
-   * Get one application key owned by current user
-   * @param appKeyId The ID of the application key.
-   */
   public async getCurrentUserApplicationKey(
     appKeyId: string,
     _options?: Configuration
@@ -392,19 +346,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all API keys available for your account.
-   * Get all API keys
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
-   * @param filter Filter API keys by the specified string.
-   * @param filterCreatedAtStart Only include API keys created on or after the specified date.
-   * @param filterCreatedAtEnd Only include API keys created on or before the specified date.
-   * @param filterModifiedAtStart Only include API keys modified on or after the specified date.
-   * @param filterModifiedAtEnd Only include API keys modified on or before the specified date.
-   * @param include Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
-   */
   public async listAPIKeys(
     pageSize?: number,
     pageNumber?: number,
@@ -495,16 +436,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all application keys available for your org
-   * Get all application keys
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
-   * @param filter Filter application keys by the specified string.
-   * @param filterCreatedAtStart Only include application keys created on or after the specified date.
-   * @param filterCreatedAtEnd Only include application keys created on or before the specified date.
-   */
   public async listApplicationKeys(
     pageSize?: number,
     pageNumber?: number,
@@ -574,16 +505,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all application keys available for current user
-   * Get all application keys owned by current user
-   * @param pageSize Size for a given page.
-   * @param pageNumber Specific page number to return.
-   * @param sort Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
-   * @param filter Filter application keys by the specified string.
-   * @param filterCreatedAtStart Only include application keys created on or after the specified date.
-   * @param filterCreatedAtEnd Only include application keys created on or before the specified date.
-   */
   public async listCurrentUserApplicationKeys(
     pageSize?: number,
     pageNumber?: number,
@@ -653,12 +574,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update an API key.
-   * Edit an API key
-   * @param apiKeyId The ID of the API key.
-   * @param body
-   */
   public async updateAPIKey(
     apiKeyId: string,
     body: APIKeyUpdateRequest,
@@ -714,12 +629,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit an application key
-   * Edit an application key
-   * @param appKeyId The ID of the application key.
-   * @param body
-   */
   public async updateApplicationKey(
     appKeyId: string,
     body: ApplicationKeyUpdateRequest,
@@ -775,12 +684,6 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit an application key owned by current user
-   * Edit an application key owned by current user
-   * @param appKeyId The ID of the application key.
-   * @param body
-   */
   public async updateCurrentUserApplicationKey(
     appKeyId: string,
     body: ApplicationKeyUpdateRequest,
@@ -1746,5 +1649,576 @@ export class KeyManagementApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface KeyManagementApiCreateAPIKeyRequest {
+  /**
+   *
+   * @type APIKeyCreateRequest
+   */
+  body: APIKeyCreateRequest;
+}
+
+export interface KeyManagementApiCreateCurrentUserApplicationKeyRequest {
+  /**
+   *
+   * @type ApplicationKeyCreateRequest
+   */
+  body: ApplicationKeyCreateRequest;
+}
+
+export interface KeyManagementApiDeleteAPIKeyRequest {
+  /**
+   * The ID of the API key.
+   * @type string
+   */
+  apiKeyId: string;
+}
+
+export interface KeyManagementApiDeleteApplicationKeyRequest {
+  /**
+   * The ID of the application key.
+   * @type string
+   */
+  appKeyId: string;
+}
+
+export interface KeyManagementApiDeleteCurrentUserApplicationKeyRequest {
+  /**
+   * The ID of the application key.
+   * @type string
+   */
+  appKeyId: string;
+}
+
+export interface KeyManagementApiGetAPIKeyRequest {
+  /**
+   * The ID of the API key.
+   * @type string
+   */
+  apiKeyId: string;
+  /**
+   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface KeyManagementApiGetApplicationKeyRequest {
+  /**
+   * The ID of the application key.
+   * @type string
+   */
+  appKeyId: string;
+  /**
+   * Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface KeyManagementApiGetCurrentUserApplicationKeyRequest {
+  /**
+   * The ID of the application key.
+   * @type string
+   */
+  appKeyId: string;
+}
+
+export interface KeyManagementApiListAPIKeysRequest {
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * @type APIKeysSort
+   */
+  sort?: APIKeysSort;
+  /**
+   * Filter API keys by the specified string.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Only include API keys created on or after the specified date.
+   * @type string
+   */
+  filterCreatedAtStart?: string;
+  /**
+   * Only include API keys created on or before the specified date.
+   * @type string
+   */
+  filterCreatedAtEnd?: string;
+  /**
+   * Only include API keys modified on or after the specified date.
+   * @type string
+   */
+  filterModifiedAtStart?: string;
+  /**
+   * Only include API keys modified on or before the specified date.
+   * @type string
+   */
+  filterModifiedAtEnd?: string;
+  /**
+   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+   * @type string
+   */
+  include?: string;
+}
+
+export interface KeyManagementApiListApplicationKeysRequest {
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * @type ApplicationKeysSort
+   */
+  sort?: ApplicationKeysSort;
+  /**
+   * Filter application keys by the specified string.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Only include application keys created on or after the specified date.
+   * @type string
+   */
+  filterCreatedAtStart?: string;
+  /**
+   * Only include application keys created on or before the specified date.
+   * @type string
+   */
+  filterCreatedAtEnd?: string;
+}
+
+export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * @type ApplicationKeysSort
+   */
+  sort?: ApplicationKeysSort;
+  /**
+   * Filter application keys by the specified string.
+   * @type string
+   */
+  filter?: string;
+  /**
+   * Only include application keys created on or after the specified date.
+   * @type string
+   */
+  filterCreatedAtStart?: string;
+  /**
+   * Only include application keys created on or before the specified date.
+   * @type string
+   */
+  filterCreatedAtEnd?: string;
+}
+
+export interface KeyManagementApiUpdateAPIKeyRequest {
+  /**
+   * The ID of the API key.
+   * @type string
+   */
+  apiKeyId: string;
+  /**
+   *
+   * @type APIKeyUpdateRequest
+   */
+  body: APIKeyUpdateRequest;
+}
+
+export interface KeyManagementApiUpdateApplicationKeyRequest {
+  /**
+   * The ID of the application key.
+   * @type string
+   */
+  appKeyId: string;
+  /**
+   *
+   * @type ApplicationKeyUpdateRequest
+   */
+  body: ApplicationKeyUpdateRequest;
+}
+
+export interface KeyManagementApiUpdateCurrentUserApplicationKeyRequest {
+  /**
+   * The ID of the application key.
+   * @type string
+   */
+  appKeyId: string;
+  /**
+   *
+   * @type ApplicationKeyUpdateRequest
+   */
+  body: ApplicationKeyUpdateRequest;
+}
+
+export class KeyManagementApi {
+  private requestFactory: KeyManagementApiRequestFactory;
+  private responseProcessor: KeyManagementApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: KeyManagementApiRequestFactory,
+    responseProcessor?: KeyManagementApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new KeyManagementApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new KeyManagementApiResponseProcessor();
+  }
+
+  /**
+   * Create an API key.
+   * @param param The request object
+   */
+  public createAPIKey(
+    param: KeyManagementApiCreateAPIKeyRequest,
+    options?: Configuration
+  ): Promise<APIKeyResponse> {
+    const requestContextPromise = this.requestFactory.createAPIKey(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAPIKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create an application key for current user
+   * @param param The request object
+   */
+  public createCurrentUserApplicationKey(
+    param: KeyManagementApiCreateCurrentUserApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise =
+      this.requestFactory.createCurrentUserApplicationKey(param.body, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createCurrentUserApplicationKey(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Delete an API key.
+   * @param param The request object
+   */
+  public deleteAPIKey(
+    param: KeyManagementApiDeleteAPIKeyRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteAPIKey(
+      param.apiKeyId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAPIKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an application key
+   * @param param The request object
+   */
+  public deleteApplicationKey(
+    param: KeyManagementApiDeleteApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteApplicationKey(
+      param.appKeyId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteApplicationKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an application key owned by current user
+   * @param param The request object
+   */
+  public deleteCurrentUserApplicationKey(
+    param: KeyManagementApiDeleteCurrentUserApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteCurrentUserApplicationKey(
+        param.appKeyId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCurrentUserApplicationKey(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get an API key.
+   * @param param The request object
+   */
+  public getAPIKey(
+    param: KeyManagementApiGetAPIKeyRequest,
+    options?: Configuration
+  ): Promise<APIKeyResponse> {
+    const requestContextPromise = this.requestFactory.getAPIKey(
+      param.apiKeyId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAPIKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get an application key for your org.
+   * @param param The request object
+   */
+  public getApplicationKey(
+    param: KeyManagementApiGetApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.getApplicationKey(
+      param.appKeyId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getApplicationKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get an application key owned by current user
+   * @param param The request object
+   */
+  public getCurrentUserApplicationKey(
+    param: KeyManagementApiGetCurrentUserApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise =
+      this.requestFactory.getCurrentUserApplicationKey(param.appKeyId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCurrentUserApplicationKey(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List all API keys available for your account.
+   * @param param The request object
+   */
+  public listAPIKeys(
+    param: KeyManagementApiListAPIKeysRequest = {},
+    options?: Configuration
+  ): Promise<APIKeysResponse> {
+    const requestContextPromise = this.requestFactory.listAPIKeys(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      param.filterCreatedAtStart,
+      param.filterCreatedAtEnd,
+      param.filterModifiedAtStart,
+      param.filterModifiedAtEnd,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAPIKeys(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all application keys available for your org
+   * @param param The request object
+   */
+  public listApplicationKeys(
+    param: KeyManagementApiListApplicationKeysRequest = {},
+    options?: Configuration
+  ): Promise<ListApplicationKeysResponse> {
+    const requestContextPromise = this.requestFactory.listApplicationKeys(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      param.filterCreatedAtStart,
+      param.filterCreatedAtEnd,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listApplicationKeys(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all application keys available for current user
+   * @param param The request object
+   */
+  public listCurrentUserApplicationKeys(
+    param: KeyManagementApiListCurrentUserApplicationKeysRequest = {},
+    options?: Configuration
+  ): Promise<ListApplicationKeysResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCurrentUserApplicationKeys(
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.filter,
+        param.filterCreatedAtStart,
+        param.filterCreatedAtEnd,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCurrentUserApplicationKeys(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update an API key.
+   * @param param The request object
+   */
+  public updateAPIKey(
+    param: KeyManagementApiUpdateAPIKeyRequest,
+    options?: Configuration
+  ): Promise<APIKeyResponse> {
+    const requestContextPromise = this.requestFactory.updateAPIKey(
+      param.apiKeyId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAPIKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit an application key
+   * @param param The request object
+   */
+  public updateApplicationKey(
+    param: KeyManagementApiUpdateApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.updateApplicationKey(
+      param.appKeyId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateApplicationKey(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit an application key owned by current user
+   * @param param The request object
+   */
+  public updateCurrentUserApplicationKey(
+    param: KeyManagementApiUpdateCurrentUserApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise =
+      this.requestFactory.updateCurrentUserApplicationKey(
+        param.appKeyId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateCurrentUserApplicationKey(
+            responseContext
+          );
+        });
+    });
   }
 }

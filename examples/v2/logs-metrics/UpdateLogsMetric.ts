@@ -26,7 +26,7 @@ let params: v2.LogsMetricsApiUpdateLogsMetricRequest = {
 
 apiInstance
   .updateLogsMetric(params)
-  .then((data: any) => {
+  .then((data: v2.LogsMetricResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

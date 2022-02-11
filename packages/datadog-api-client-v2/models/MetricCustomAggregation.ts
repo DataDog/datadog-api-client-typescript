@@ -20,8 +20,14 @@ export class MetricCustomAggregation {
   "space": MetricCustomSpaceAggregation;
   "time": MetricCustomTimeAggregation;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     space: {
       baseName: "space",
@@ -35,6 +41,9 @@ export class MetricCustomAggregation {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricCustomAggregation.attributeTypeMap;
   }

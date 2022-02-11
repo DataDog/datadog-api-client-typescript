@@ -26,8 +26,14 @@ export class SecurityMonitoringRuleOptions {
   "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     detectionMethod: {
       baseName: "detectionMethod",
@@ -51,6 +57,9 @@ export class SecurityMonitoringRuleOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleOptions.attributeTypeMap;
   }

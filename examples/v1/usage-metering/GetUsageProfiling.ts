@@ -14,7 +14,7 @@ let params: v1.UsageMeteringApiGetUsageProfilingRequest = {
 
 apiInstance
   .getUsageProfiling(params)
-  .then((data: any) => {
+  .then((data: v1.UsageProfilingResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

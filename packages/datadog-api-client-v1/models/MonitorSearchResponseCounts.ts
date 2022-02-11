@@ -32,8 +32,14 @@ export class MonitorSearchResponseCounts {
    */
   "type"?: Array<any>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     muted: {
       baseName: "muted",
@@ -53,6 +59,9 @@ export class MonitorSearchResponseCounts {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSearchResponseCounts.attributeTypeMap;
   }

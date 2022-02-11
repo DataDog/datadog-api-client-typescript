@@ -25,8 +25,14 @@ export class LogsByRetentionMonthlyUsage {
    */
   "usage"?: Array<LogsRetentionSumUsage>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     date: {
       baseName: "date",
@@ -39,6 +45,9 @@ export class LogsByRetentionMonthlyUsage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsByRetentionMonthlyUsage.attributeTypeMap;
   }

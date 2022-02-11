@@ -38,8 +38,14 @@ export class IPRanges {
   "version"?: number;
   "webhooks"?: IPPrefixesWebhooks;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agents: {
       baseName: "agents",
@@ -80,6 +86,9 @@ export class IPRanges {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IPRanges.attributeTypeMap;
   }

@@ -19,8 +19,14 @@ export class SyntheticsTestRequestCertificate {
   "cert"?: SyntheticsTestRequestCertificateItem;
   "key"?: SyntheticsTestRequestCertificateItem;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cert: {
       baseName: "cert",
@@ -32,6 +38,9 @@ export class SyntheticsTestRequestCertificate {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestRequestCertificate.attributeTypeMap;
   }

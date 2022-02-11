@@ -36,8 +36,14 @@ export class UsageProfilingHour {
    */
   "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     avgContainerAgentCount: {
       baseName: "avg_container_agent_count",
@@ -64,6 +70,9 @@ export class UsageProfilingHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageProfilingHour.attributeTypeMap;
   }

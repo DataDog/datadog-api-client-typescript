@@ -26,8 +26,14 @@ export class PartialAPIKey {
   "relationships"?: APIKeyRelationships;
   "type"?: APIKeysType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -47,6 +53,9 @@ export class PartialAPIKey {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return PartialAPIKey.attributeTypeMap;
   }

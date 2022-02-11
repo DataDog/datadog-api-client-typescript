@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class IncidentCreateRelationships {
   "commander": RelationshipToUser;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     commander: {
       baseName: "commander",
@@ -28,6 +34,9 @@ export class IncidentCreateRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentCreateRelationships.attributeTypeMap;
   }

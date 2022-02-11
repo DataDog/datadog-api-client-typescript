@@ -20,8 +20,14 @@ export class GeomapWidgetDefinitionView {
    */
   "focus": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     focus: {
       baseName: "focus",
@@ -30,6 +36,9 @@ export class GeomapWidgetDefinitionView {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return GeomapWidgetDefinitionView.attributeTypeMap;
   }

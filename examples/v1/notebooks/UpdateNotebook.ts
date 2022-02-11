@@ -78,7 +78,7 @@ y = 6;
 
 apiInstance
   .updateNotebook(params)
-  .then((data: any) => {
+  .then((data: v1.NotebookResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

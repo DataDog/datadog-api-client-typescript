@@ -16,7 +16,7 @@ let params: v1.SnapshotsApiGetGraphSnapshotRequest = {
 
 apiInstance
   .getGraphSnapshot(params)
-  .then((data: any) => {
+  .then((data: v1.GraphSnapshot) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

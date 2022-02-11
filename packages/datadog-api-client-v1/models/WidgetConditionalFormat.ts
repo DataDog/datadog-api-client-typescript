@@ -48,8 +48,14 @@ export class WidgetConditionalFormat {
    */
   "value": number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     comparator: {
       baseName: "comparator",
@@ -93,6 +99,9 @@ export class WidgetConditionalFormat {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetConditionalFormat.attributeTypeMap;
   }

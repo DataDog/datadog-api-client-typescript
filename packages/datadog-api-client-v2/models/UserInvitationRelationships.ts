@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class UserInvitationRelationships {
   "user": RelationshipToUser;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     user: {
       baseName: "user",
@@ -28,6 +34,9 @@ export class UserInvitationRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserInvitationRelationships.attributeTypeMap;
   }

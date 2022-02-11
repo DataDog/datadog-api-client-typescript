@@ -25,8 +25,14 @@ export class LogsAggregateBucket {
    */
   "computes"?: { [key: string]: LogsAggregateBucketValue };
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     by: {
       baseName: "by",
@@ -38,6 +44,9 @@ export class LogsAggregateBucket {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateBucket.attributeTypeMap;
   }

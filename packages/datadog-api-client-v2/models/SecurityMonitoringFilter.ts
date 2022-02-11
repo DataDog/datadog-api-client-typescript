@@ -22,8 +22,14 @@ export class SecurityMonitoringFilter {
    */
   "query"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     action: {
       baseName: "action",
@@ -35,6 +41,9 @@ export class SecurityMonitoringFilter {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringFilter.attributeTypeMap;
   }

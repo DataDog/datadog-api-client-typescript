@@ -46,8 +46,14 @@ export class HourlyUsageAttributionBody {
   "updatedAt"?: string;
   "usageType"?: HourlyUsageAttributionUsageType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
@@ -85,6 +91,9 @@ export class HourlyUsageAttributionBody {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HourlyUsageAttributionBody.attributeTypeMap;
   }

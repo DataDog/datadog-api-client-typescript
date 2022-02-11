@@ -20,8 +20,14 @@ export class DeletedMonitor {
    */
   "deletedMonitorId"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     deletedMonitorId: {
       baseName: "deleted_monitor_id",
@@ -30,6 +36,9 @@ export class DeletedMonitor {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DeletedMonitor.attributeTypeMap;
   }

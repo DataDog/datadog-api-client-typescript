@@ -46,8 +46,14 @@ export class SunburstWidgetDefinition {
   "titleSize"?: string;
   "type": SunburstWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
@@ -89,6 +95,9 @@ export class SunburstWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SunburstWidgetDefinition.attributeTypeMap;
   }

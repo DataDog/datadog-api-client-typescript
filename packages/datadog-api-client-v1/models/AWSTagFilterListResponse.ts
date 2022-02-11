@@ -21,8 +21,14 @@ export class AWSTagFilterListResponse {
    */
   "filters"?: Array<AWSTagFilter>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filters: {
       baseName: "filters",
@@ -30,6 +36,9 @@ export class AWSTagFilterListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSTagFilterListResponse.attributeTypeMap;
   }

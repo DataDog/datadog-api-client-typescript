@@ -28,8 +28,14 @@ export class WebhooksIntegrationCustomVariableResponse {
    */
   "value"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     isSecret: {
       baseName: "is_secret",
@@ -47,6 +53,9 @@ export class WebhooksIntegrationCustomVariableResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WebhooksIntegrationCustomVariableResponse.attributeTypeMap;
   }

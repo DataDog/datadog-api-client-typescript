@@ -24,8 +24,14 @@ export class Permission {
   "id"?: string;
   "type": PermissionsType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -42,6 +48,9 @@ export class Permission {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Permission.attributeTypeMap;
   }

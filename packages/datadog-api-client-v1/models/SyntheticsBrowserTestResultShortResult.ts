@@ -34,8 +34,14 @@ export class SyntheticsBrowserTestResultShortResult {
    */
   "stepCountTotal"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
       baseName: "device",
@@ -63,6 +69,9 @@ export class SyntheticsBrowserTestResultShortResult {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTestResultShortResult.attributeTypeMap;
   }

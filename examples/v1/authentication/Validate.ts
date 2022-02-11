@@ -9,7 +9,7 @@ const apiInstance = new v1.AuthenticationApi(configuration);
 
 apiInstance
   .validate()
-  .then((data: any) => {
+  .then((data: v1.AuthenticationValidationResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

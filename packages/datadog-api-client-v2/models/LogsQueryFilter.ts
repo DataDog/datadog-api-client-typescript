@@ -32,8 +32,14 @@ export class LogsQueryFilter {
    */
   "to"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
       baseName: "from",
@@ -53,6 +59,9 @@ export class LogsQueryFilter {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsQueryFilter.attributeTypeMap;
   }

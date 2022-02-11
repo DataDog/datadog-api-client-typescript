@@ -25,8 +25,14 @@ export class SyntheticsBatchDetailsData {
   "results"?: Array<SyntheticsBatchResult>;
   "status"?: SyntheticsStatus;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
       baseName: "metadata",
@@ -42,6 +48,9 @@ export class SyntheticsBatchDetailsData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBatchDetailsData.attributeTypeMap;
   }

@@ -32,8 +32,14 @@ export class LogsRetentionSumUsage {
    */
   "retention"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     logsIndexedLogsUsageSum: {
       baseName: "logs_indexed_logs_usage_sum",
@@ -56,6 +62,9 @@ export class LogsRetentionSumUsage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsRetentionSumUsage.attributeTypeMap;
   }

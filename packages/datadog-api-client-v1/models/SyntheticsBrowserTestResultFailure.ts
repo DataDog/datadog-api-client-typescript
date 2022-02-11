@@ -22,8 +22,14 @@ export class SyntheticsBrowserTestResultFailure {
    */
   "message"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
       baseName: "code",
@@ -35,6 +41,9 @@ export class SyntheticsBrowserTestResultFailure {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTestResultFailure.attributeTypeMap;
   }

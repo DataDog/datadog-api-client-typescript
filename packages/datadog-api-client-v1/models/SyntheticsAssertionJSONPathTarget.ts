@@ -26,8 +26,14 @@ export class SyntheticsAssertionJSONPathTarget {
   "target"?: SyntheticsAssertionJSONPathTargetTarget;
   "type": SyntheticsAssertionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     operator: {
       baseName: "operator",
@@ -49,6 +55,9 @@ export class SyntheticsAssertionJSONPathTarget {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAssertionJSONPathTarget.attributeTypeMap;
   }

@@ -65,8 +65,14 @@ export class SLOHistoryMonitor {
    */
   "uptime"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     errorBudgetRemaining: {
       baseName: "error_budget_remaining",
@@ -125,6 +131,9 @@ export class SLOHistoryMonitor {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryMonitor.attributeTypeMap;
   }

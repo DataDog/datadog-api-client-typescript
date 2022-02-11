@@ -10,7 +10,7 @@ const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
 apiInstance
   .listSLOCorrection()
-  .then((data: any) => {
+  .then((data: v1.SLOCorrectionListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

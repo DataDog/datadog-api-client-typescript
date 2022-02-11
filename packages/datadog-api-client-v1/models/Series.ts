@@ -40,8 +40,14 @@ export class Series {
    */
   "type"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     host: {
       baseName: "host",
@@ -73,6 +79,9 @@ export class Series {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Series.attributeTypeMap;
   }

@@ -32,8 +32,14 @@ export class ScatterPlotRequest {
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
       baseName: "aggregator",
@@ -77,6 +83,9 @@ export class ScatterPlotRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterPlotRequest.attributeTypeMap;
   }

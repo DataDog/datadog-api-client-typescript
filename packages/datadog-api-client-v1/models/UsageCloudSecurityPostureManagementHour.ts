@@ -48,8 +48,14 @@ export class UsageCloudSecurityPostureManagementHour {
    */
   "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aasHostCount: {
       baseName: "aas_host_count",
@@ -91,6 +97,9 @@ export class UsageCloudSecurityPostureManagementHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCloudSecurityPostureManagementHour.attributeTypeMap;
   }

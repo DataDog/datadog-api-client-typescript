@@ -25,8 +25,14 @@ export class EventListResponse {
    */
   "status"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     events: {
       baseName: "events",
@@ -38,6 +44,9 @@ export class EventListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return EventListResponse.attributeTypeMap;
   }

@@ -42,7 +42,7 @@ let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
 
 apiInstance
   .createSecurityMonitoringRule(params)
-  .then((data: any) => {
+  .then((data: v2.SecurityMonitoringRuleResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

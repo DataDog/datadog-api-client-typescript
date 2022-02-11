@@ -36,8 +36,14 @@ export class UsageSDSHour {
    */
   "totalScannedBytes"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
@@ -64,6 +70,9 @@ export class UsageSDSHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSDSHour.attributeTypeMap;
   }

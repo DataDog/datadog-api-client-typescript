@@ -21,8 +21,14 @@ export class MetricsAndMetricTagConfigurationsResponse {
    */
   "data"?: Array<MetricsAndMetricTagConfigurations>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -30,6 +36,9 @@ export class MetricsAndMetricTagConfigurationsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsAndMetricTagConfigurationsResponse.attributeTypeMap;
   }

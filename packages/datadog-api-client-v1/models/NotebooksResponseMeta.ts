@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class NotebooksResponseMeta {
   "page"?: NotebooksResponsePage;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
       baseName: "page",
@@ -27,6 +33,9 @@ export class NotebooksResponseMeta {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebooksResponseMeta.attributeTypeMap;
   }

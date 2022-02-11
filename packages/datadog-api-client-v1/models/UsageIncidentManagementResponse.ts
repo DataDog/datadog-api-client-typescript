@@ -21,8 +21,14 @@ export class UsageIncidentManagementResponse {
    */
   "usage"?: Array<UsageIncidentManagementHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
@@ -30,6 +36,9 @@ export class UsageIncidentManagementResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageIncidentManagementResponse.attributeTypeMap;
   }

@@ -20,8 +20,14 @@ export class LogQueryDefinitionSearch {
    */
   "query": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
@@ -30,6 +36,9 @@ export class LogQueryDefinitionSearch {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogQueryDefinitionSearch.attributeTypeMap;
   }

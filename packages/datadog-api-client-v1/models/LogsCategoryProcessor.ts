@@ -35,8 +35,14 @@ export class LogsCategoryProcessor {
   "target": string;
   "type": LogsCategoryProcessorType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     categories: {
       baseName: "categories",
@@ -63,6 +69,9 @@ export class LogsCategoryProcessor {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsCategoryProcessor.attributeTypeMap;
   }

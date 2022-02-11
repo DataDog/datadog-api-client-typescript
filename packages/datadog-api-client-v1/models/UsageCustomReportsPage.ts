@@ -20,8 +20,14 @@ export class UsageCustomReportsPage {
    */
   "totalCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     totalCount: {
       baseName: "total_count",
@@ -30,6 +36,9 @@ export class UsageCustomReportsPage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCustomReportsPage.attributeTypeMap;
   }

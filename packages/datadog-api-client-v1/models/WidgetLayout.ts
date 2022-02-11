@@ -36,8 +36,14 @@ export class WidgetLayout {
    */
   "y": number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     height: {
       baseName: "height",
@@ -69,6 +75,9 @@ export class WidgetLayout {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetLayout.attributeTypeMap;
   }

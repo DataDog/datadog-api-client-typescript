@@ -30,8 +30,14 @@ export class SyntheticsBrowserError {
   "status"?: number;
   "type": SyntheticsBrowserErrorType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
       baseName: "description",
@@ -55,6 +61,9 @@ export class SyntheticsBrowserError {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserError.attributeTypeMap;
   }

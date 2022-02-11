@@ -20,8 +20,14 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
    */
   "content"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     content: {
       baseName: "content",
@@ -29,6 +35,9 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentTimelineCellMarkdownCreateAttributesContent.attributeTypeMap;
   }

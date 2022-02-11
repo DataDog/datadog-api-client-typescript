@@ -88,8 +88,14 @@ export class SyntheticsTestRequest {
    */
   "url"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     allowInsecure: {
       baseName: "allow_insecure",
@@ -177,6 +183,9 @@ export class SyntheticsTestRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestRequest.attributeTypeMap;
   }

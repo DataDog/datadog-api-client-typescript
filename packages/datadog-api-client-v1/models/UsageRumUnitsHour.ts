@@ -36,8 +36,14 @@ export class UsageRumUnitsHour {
    */
   "rumUnits"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     browserRumUnits: {
       baseName: "browser_rum_units",
@@ -64,6 +70,9 @@ export class UsageRumUnitsHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageRumUnitsHour.attributeTypeMap;
   }

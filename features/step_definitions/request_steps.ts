@@ -109,7 +109,7 @@ When("the request is sent", async function (this: World) {
   // store request context from response processor
   Store((...args) => {
     this.requestContext = args[0];
-  })(apiInstance.api.responseProcessor);
+  })(apiInstance.responseProcessor);
   // example: await v1.IPRangesApi(v1.createConfiguration({authMethod: {...}})).getIPRanges({});
   try {
     if (Object.keys(this.opts).length) {
@@ -130,7 +130,7 @@ When("the request is sent", async function (this: World) {
       );
     }
   } catch (error) {
-    this.response = error.body;
+    this.response = error;
     logger.debug(error);
     if (this.requestContext === undefined) {
       throw error;

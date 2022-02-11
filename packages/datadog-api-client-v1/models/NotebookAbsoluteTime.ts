@@ -28,8 +28,14 @@ export class NotebookAbsoluteTime {
    */
   "start": Date;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
       baseName: "end",
@@ -49,6 +55,9 @@ export class NotebookAbsoluteTime {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookAbsoluteTime.attributeTypeMap;
   }

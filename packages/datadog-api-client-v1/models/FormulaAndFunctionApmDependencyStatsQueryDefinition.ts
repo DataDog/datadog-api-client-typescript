@@ -52,8 +52,14 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   "service": string;
   "stat": FormulaAndFunctionApmDependencyStatName;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dataSource: {
       baseName: "data_source",
@@ -104,6 +110,9 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionApmDependencyStatsQueryDefinition.attributeTypeMap;
   }

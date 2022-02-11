@@ -21,8 +21,14 @@ export class SyntheticsLocations {
    */
   "locations"?: Array<SyntheticsLocation>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     locations: {
       baseName: "locations",
@@ -30,6 +36,9 @@ export class SyntheticsLocations {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsLocations.attributeTypeMap;
   }

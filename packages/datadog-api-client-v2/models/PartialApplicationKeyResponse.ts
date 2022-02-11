@@ -23,8 +23,14 @@ export class PartialApplicationKeyResponse {
    */
   "included"?: Array<ApplicationKeyResponseIncludedItem>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -36,6 +42,9 @@ export class PartialApplicationKeyResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return PartialApplicationKeyResponse.attributeTypeMap;
   }

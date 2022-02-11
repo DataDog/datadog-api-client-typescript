@@ -24,8 +24,14 @@ export class LogsMetricCreateData {
   "id": string;
   "type": LogsMetricType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -44,6 +50,9 @@ export class LogsMetricCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricCreateData.attributeTypeMap;
   }

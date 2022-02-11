@@ -24,8 +24,14 @@ export class SyntheticsTestRequestProxy {
    */
   "url": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     headers: {
       baseName: "headers",
@@ -38,6 +44,9 @@ export class SyntheticsTestRequestProxy {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestRequestProxy.attributeTypeMap;
   }

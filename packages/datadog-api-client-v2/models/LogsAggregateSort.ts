@@ -26,8 +26,14 @@ export class LogsAggregateSort {
   "order"?: LogsSortOrder;
   "type"?: LogsAggregateSortType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
@@ -47,6 +53,9 @@ export class LogsAggregateSort {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateSort.attributeTypeMap;
   }

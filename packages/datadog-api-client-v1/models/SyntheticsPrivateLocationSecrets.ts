@@ -20,8 +20,14 @@ export class SyntheticsPrivateLocationSecrets {
   "authentication"?: SyntheticsPrivateLocationSecretsAuthentication;
   "configDecryption"?: SyntheticsPrivateLocationSecretsConfigDecryption;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     authentication: {
       baseName: "authentication",
@@ -33,6 +39,9 @@ export class SyntheticsPrivateLocationSecrets {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsPrivateLocationSecrets.attributeTypeMap;
   }

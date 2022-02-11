@@ -41,8 +41,14 @@ export class NotebookResponseDataAttributes {
   "status"?: NotebookStatus;
   "time": NotebookGlobalTime;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     author: {
       baseName: "author",
@@ -83,6 +89,9 @@ export class NotebookResponseDataAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookResponseDataAttributes.attributeTypeMap;
   }

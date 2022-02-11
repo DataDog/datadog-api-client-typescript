@@ -34,8 +34,14 @@ export class SyntheticsDevice {
    */
   "width": number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     height: {
       baseName: "height",
@@ -65,6 +71,9 @@ export class SyntheticsDevice {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsDevice.attributeTypeMap;
   }

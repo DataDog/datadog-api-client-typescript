@@ -20,8 +20,14 @@ export class CanceledDowntimesIds {
    */
   "cancelledIds"?: Array<number>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cancelledIds: {
       baseName: "cancelled_ids",
@@ -30,6 +36,9 @@ export class CanceledDowntimesIds {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return CanceledDowntimesIds.attributeTypeMap;
   }

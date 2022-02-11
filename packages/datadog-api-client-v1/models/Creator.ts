@@ -28,8 +28,14 @@ export class Creator {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
       baseName: "email",
@@ -45,6 +51,9 @@ export class Creator {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Creator.attributeTypeMap;
   }

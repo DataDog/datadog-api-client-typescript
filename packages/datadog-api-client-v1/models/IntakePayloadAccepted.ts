@@ -20,8 +20,14 @@ export class IntakePayloadAccepted {
    */
   "status"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     status: {
       baseName: "status",
@@ -29,6 +35,9 @@ export class IntakePayloadAccepted {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IntakePayloadAccepted.attributeTypeMap;
   }

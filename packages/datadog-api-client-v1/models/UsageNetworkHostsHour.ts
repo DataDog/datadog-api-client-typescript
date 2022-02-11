@@ -24,8 +24,14 @@ export class UsageNetworkHostsHour {
    */
   "hour"?: Date;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hostCount: {
       baseName: "host_count",
@@ -39,6 +45,9 @@ export class UsageNetworkHostsHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageNetworkHostsHour.attributeTypeMap;
   }

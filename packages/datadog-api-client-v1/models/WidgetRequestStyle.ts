@@ -24,8 +24,14 @@ export class WidgetRequestStyle {
    */
   "palette"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     lineType: {
       baseName: "line_type",
@@ -41,6 +47,9 @@ export class WidgetRequestStyle {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetRequestStyle.attributeTypeMap;
   }

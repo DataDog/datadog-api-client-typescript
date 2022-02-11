@@ -20,8 +20,14 @@ export class NotebookUpdateData {
   "attributes": NotebookUpdateDataAttributes;
   "type": NotebookResourceType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -35,6 +41,9 @@ export class NotebookUpdateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookUpdateData.attributeTypeMap;
   }

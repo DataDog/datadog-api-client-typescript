@@ -24,8 +24,14 @@ export class AWSLogsServicesRequest {
    */
   "services": Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
@@ -39,6 +45,9 @@ export class AWSLogsServicesRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSLogsServicesRequest.attributeTypeMap;
   }

@@ -48,8 +48,14 @@ export class UsageLogsHour {
    */
   "logsRehydratedIngestedBytes"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     billableIngestedBytes: {
       baseName: "billable_ingested_bytes",
@@ -93,6 +99,9 @@ export class UsageLogsHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLogsHour.attributeTypeMap;
   }

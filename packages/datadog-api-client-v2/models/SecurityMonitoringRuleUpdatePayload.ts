@@ -57,8 +57,14 @@ export class SecurityMonitoringRuleUpdatePayload {
    */
   "version"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cases: {
       baseName: "cases",
@@ -103,6 +109,9 @@ export class SecurityMonitoringRuleUpdatePayload {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleUpdatePayload.attributeTypeMap;
   }

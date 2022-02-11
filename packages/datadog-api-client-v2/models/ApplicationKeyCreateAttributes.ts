@@ -24,8 +24,14 @@ export class ApplicationKeyCreateAttributes {
    */
   "scopes"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
@@ -38,6 +44,9 @@ export class ApplicationKeyCreateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyCreateAttributes.attributeTypeMap;
   }

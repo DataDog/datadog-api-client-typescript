@@ -22,8 +22,14 @@ export class RelationshipToPermissionData {
   "id"?: string;
   "type"?: PermissionsType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -35,6 +41,9 @@ export class RelationshipToPermissionData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToPermissionData.attributeTypeMap;
   }

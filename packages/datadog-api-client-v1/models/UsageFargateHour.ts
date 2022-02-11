@@ -36,8 +36,14 @@ export class UsageFargateHour {
    */
   "tasksCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     avgProfiledFargateTasks: {
       baseName: "avg_profiled_fargate_tasks",
@@ -64,6 +70,9 @@ export class UsageFargateHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageFargateHour.attributeTypeMap;
   }

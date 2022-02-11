@@ -28,8 +28,14 @@ export class LogsAPIError {
    */
   "message"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
       baseName: "code",
@@ -45,6 +51,9 @@ export class LogsAPIError {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAPIError.attributeTypeMap;
   }

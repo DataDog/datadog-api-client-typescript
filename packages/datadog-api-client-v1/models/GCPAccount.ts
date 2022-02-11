@@ -68,8 +68,14 @@ export class GCPAccount {
    */
   "type"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     authProviderX509CertUrl: {
       baseName: "auth_provider_x509_cert_url",
@@ -125,6 +131,9 @@ export class GCPAccount {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return GCPAccount.attributeTypeMap;
   }

@@ -26,8 +26,14 @@ export class SLOBulkDeleteError {
   "message": string;
   "timeframe": SLOErrorTimeframe;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -46,6 +52,9 @@ export class SLOBulkDeleteError {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOBulkDeleteError.attributeTypeMap;
   }
