@@ -21,7 +21,9 @@ jobs:
           node-version: 14
 
       - name: Build documentation
-        run: yarn run typedoc --out docs --readme README.md .
+        run: |
+          yarn install
+          yarn run typedoc --out docs --readme README.md .
 
       - name: Compress docs
         run: tar czf docs.tar.gz docs
