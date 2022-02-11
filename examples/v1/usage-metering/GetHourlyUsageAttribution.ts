@@ -15,7 +15,7 @@ let params: v1.UsageMeteringApiGetHourlyUsageAttributionRequest = {
 
 apiInstance
   .getHourlyUsageAttribution(params)
-  .then((data: any) => {
+  .then((data: v1.HourlyUsageAttributionResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

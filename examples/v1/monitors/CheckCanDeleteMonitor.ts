@@ -16,7 +16,7 @@ let params: v1.MonitorsApiCheckCanDeleteMonitorRequest = {
 
 apiInstance
   .checkCanDeleteMonitor(params)
-  .then((data: any) => {
+  .then((data: v1.CheckCanDeleteMonitorResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

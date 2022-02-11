@@ -9,7 +9,7 @@ const apiInstance = new v1.MonitorsApi(configuration);
 
 apiInstance
   .listMonitors()
-  .then((data: any) => {
+  .then((data: v1.Monitor[]) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

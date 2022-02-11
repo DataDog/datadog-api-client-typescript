@@ -16,7 +16,7 @@ let params: v2.KeyManagementApiGetCurrentUserApplicationKeyRequest = {
 
 apiInstance
   .getCurrentUserApplicationKey(params)
-  .then((data: any) => {
+  .then((data: v2.ApplicationKeyResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

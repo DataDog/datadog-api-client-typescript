@@ -15,7 +15,7 @@ let params: v1.MetricsApiQueryMetricsRequest = {
 
 apiInstance
   .queryMetrics(params)
-  .then((data: any) => {
+  .then((data: v1.MetricsQueryResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

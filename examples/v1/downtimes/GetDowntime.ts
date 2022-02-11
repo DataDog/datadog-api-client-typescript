@@ -16,7 +16,7 @@ let params: v1.DowntimesApiGetDowntimeRequest = {
 
 apiInstance
   .getDowntime(params)
-  .then((data: any) => {
+  .then((data: v1.Downtime) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

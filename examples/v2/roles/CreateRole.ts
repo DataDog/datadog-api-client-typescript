@@ -20,7 +20,7 @@ let params: v2.RolesApiCreateRoleRequest = {
 
 apiInstance
   .createRole(params)
-  .then((data: any) => {
+  .then((data: v2.RoleCreateResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

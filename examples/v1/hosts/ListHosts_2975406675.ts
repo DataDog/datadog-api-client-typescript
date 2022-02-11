@@ -13,7 +13,7 @@ let params: v1.HostsApiListHostsRequest = {
 
 apiInstance
   .listHosts(params)
-  .then((data: any) => {
+  .then((data: v1.HostListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

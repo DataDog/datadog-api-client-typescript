@@ -13,7 +13,7 @@ let params: v1.UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest = {
 
 apiInstance
   .getUsageCloudSecurityPostureManagement(params)
-  .then((data: any) => {
+  .then((data: v1.UsageCloudSecurityPostureManagementResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

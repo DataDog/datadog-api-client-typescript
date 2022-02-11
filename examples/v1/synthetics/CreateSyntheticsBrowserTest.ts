@@ -50,7 +50,7 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
 
 apiInstance
   .createSyntheticsBrowserTest(params)
-  .then((data: any) => {
+  .then((data: v1.SyntheticsBrowserTest) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

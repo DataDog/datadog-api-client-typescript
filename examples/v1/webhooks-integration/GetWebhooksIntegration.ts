@@ -16,7 +16,7 @@ let params: v1.WebhooksIntegrationApiGetWebhooksIntegrationRequest = {
 
 apiInstance
   .getWebhooksIntegration(params)
-  .then((data: any) => {
+  .then((data: v1.WebhooksIntegration) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

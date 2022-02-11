@@ -16,7 +16,7 @@ let params: v2.UsersApiListUserPermissionsRequest = {
 
 apiInstance
   .listUserPermissions(params)
-  .then((data: any) => {
+  .then((data: v2.PermissionsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
