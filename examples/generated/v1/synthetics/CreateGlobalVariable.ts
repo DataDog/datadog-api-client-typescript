@@ -1,16 +1,14 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params:v1.SyntheticsApiCreateGlobalVariableRequest = {
+let params: v1.SyntheticsApiCreateGlobalVariableRequest = {
   // SyntheticsGlobalVariable | Details of the global variable to create.
   body: {
     attributes: {
-      restrictedRoles: [
-        "restrictedRoles_example",
-      ],
+      restrictedRoles: ["restrictedRoles_example"],
     },
     description: "Example description",
     name: "MY_VARIABLE",
@@ -23,7 +21,7 @@ let params:v1.SyntheticsApiCreateGlobalVariableRequest = {
       type: "http_body",
     },
     parseTestPublicId: "abc-def-123",
-    tags: ["team:front","test:workflow-1"],
+    tags: ["team:front", "test:workflow-1"],
     value: {
       secure: true,
       value: "example-value",
@@ -31,6 +29,11 @@ let params:v1.SyntheticsApiCreateGlobalVariableRequest = {
   },
 };
 
-apiInstance.createGlobalVariable(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .createGlobalVariable(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

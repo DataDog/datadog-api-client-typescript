@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsApi(configuration);
 
-let params:v1.LogsApiSubmitLogRequest = {
+let params: v1.LogsApiSubmitLogRequest = {
   // Array<HTTPLogItem> | Log to send (JSON format).
   body: [
     {
@@ -21,6 +21,11 @@ let params:v1.LogsApiSubmitLogRequest = {
   ddtags: "env:prod,user:my-user",
 };
 
-apiInstance.submitLog(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .submitLog(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

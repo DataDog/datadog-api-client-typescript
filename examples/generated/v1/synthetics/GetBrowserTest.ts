@@ -1,14 +1,19 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params:v1.SyntheticsApiGetBrowserTestRequest = {
+let params: v1.SyntheticsApiGetBrowserTestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
 };
 
-apiInstance.getBrowserTest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .getBrowserTest(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

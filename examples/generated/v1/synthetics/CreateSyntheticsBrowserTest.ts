@@ -1,20 +1,20 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
+let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   // SyntheticsBrowserTest | Details of the test to create.
   body: {
     config: {
       assertions: [
         {
-    operator: "contains",
-    property: "property_example",
-    target: null,
-    type: "statusCode",
-  },
+          operator: "contains",
+          property: "property_example",
+          target: null,
+          type: "statusCode",
+        },
       ],
       configVariables: [
         {
@@ -28,10 +28,10 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
       request: {
         allowInsecure: true,
         basicAuth: {
-    password: "",
-    type: "web",
-    username: "",
-  },
+          password: "",
+          type: "web",
+          username: "",
+        },
         body: "body_example",
         certificate: {
           cert: {
@@ -49,7 +49,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         dnsServerPort: 1,
         followRedirects: true,
         headers: {
-          "key": "key_example",
+          key: "key_example",
         },
         host: "host_example",
         message: "message_example",
@@ -59,7 +59,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         port: 1,
         proxy: {
           headers: {
-            "key": "key_example",
+            key: "key_example",
           },
           url: "https://example.com",
         },
@@ -86,9 +86,7 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
-      deviceIds: [
-        "laptop_large",
-      ],
+      deviceIds: ["laptop_large"],
       disableCors: true,
       followRedirects: true,
       minFailureDuration: 1,
@@ -115,13 +113,16 @@ let params:v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         type: "assertElementContent",
       },
     ],
-    tags: [
-      "tags_example",
-    ],
+    tags: ["tags_example"],
     type: "browser",
   },
 };
 
-apiInstance.createSyntheticsBrowserTest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .createSyntheticsBrowserTest(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

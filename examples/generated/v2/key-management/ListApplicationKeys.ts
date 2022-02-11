@@ -1,10 +1,10 @@
-import { v2 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v2 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let params:v2.KeyManagementApiListApplicationKeysRequest = {
+let params: v2.KeyManagementApiListApplicationKeysRequest = {
   // number | Size for a given page. (optional)
   pageSize: 10,
   // number | Specific page number to return. (optional)
@@ -19,6 +19,11 @@ let params:v2.KeyManagementApiListApplicationKeysRequest = {
   filterCreatedAtEnd: "2020-11-24T18:46:21+00:00",
 };
 
-apiInstance.listApplicationKeys(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listApplicationKeys(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

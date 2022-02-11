@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.NotebooksApi(configuration);
 
-let params:v1.NotebooksApiCreateNotebookRequest = {
+let params: v1.NotebooksApiCreateNotebookRequest = {
   // NotebookCreateRequest | The JSON description of the notebook you want to create.
   body: {
     data: {
@@ -12,12 +12,12 @@ let params:v1.NotebooksApiCreateNotebookRequest = {
         cells: [
           {
             attributes: {
-    definition: {
-      text: `# Example Header 
+              definition: {
+                text: `# Example Header 
 example content`,
-      type: "markdown",
-    },
-  },
+                type: "markdown",
+              },
+            },
             type: "notebook_cells",
           },
         ],
@@ -29,14 +29,19 @@ example content`,
         name: "Example Notebook",
         status: "published",
         time: {
-    liveSpan: "5m",
-  },
+          liveSpan: "5m",
+        },
       },
       type: "notebooks",
     },
   },
 };
 
-apiInstance.createNotebook(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .createNotebook(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

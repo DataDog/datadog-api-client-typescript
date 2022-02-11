@@ -1,10 +1,10 @@
-import { v2 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v2 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-let params:v2.MetricsApiListTagConfigurationsRequest = {
+let params: v2.MetricsApiListTagConfigurationsRequest = {
   // boolean | Filter metrics that have configured tags. (optional)
   filterConfigured: true,
   // string | Filter tag configurations by configured tags. (optional)
@@ -19,6 +19,11 @@ let params:v2.MetricsApiListTagConfigurationsRequest = {
   windowSeconds: 3600,
 };
 
-apiInstance.listTagConfigurations(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listTagConfigurations(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

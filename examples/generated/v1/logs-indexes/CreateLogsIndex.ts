@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsIndexesApi(configuration);
 
-let params:v1.LogsIndexesApiCreateLogsIndexRequest = {
+let params: v1.LogsIndexesApiCreateLogsIndexRequest = {
   // LogsIndex | Object containing the new index.
   body: {
     dailyLimit: 300000000,
@@ -26,6 +26,11 @@ let params:v1.LogsIndexesApiCreateLogsIndexRequest = {
   },
 };
 
-apiInstance.createLogsIndex(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .createLogsIndex(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

@@ -1,10 +1,10 @@
-import { v2 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v2 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.ProcessesApi(configuration);
 
-let params:v2.ProcessesApiListProcessesRequest = {
+let params: v2.ProcessesApiListProcessesRequest = {
   // string | String to search processes by. (optional)
   search: "search_example",
   // string | Comma-separated list of tags to filter processes by. (optional)
@@ -19,6 +19,11 @@ let params:v2.ProcessesApiListProcessesRequest = {
   pageCursor: "page[cursor]_example",
 };
 
-apiInstance.listProcesses(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listProcesses(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
