@@ -1,10 +1,10 @@
-import { v2 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v2 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsApi(configuration);
 
-let params:v2.LogsApiAggregateLogsRequest = {
+let params: v2.LogsApiAggregateLogsRequest = {
   // LogsAggregateRequest
   body: {
     compute: [
@@ -17,7 +17,7 @@ let params:v2.LogsApiAggregateLogsRequest = {
     ],
     filter: {
       from: "now-15m",
-      indexes: ["main","web"],
+      indexes: ["main", "web"],
       query: "service:web* AND @http.status_code:[200 TO 299]",
       to: "now",
     },
@@ -45,11 +45,17 @@ let params:v2.LogsApiAggregateLogsRequest = {
       timezone: "GMT",
     },
     page: {
-      cursor: "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
+      cursor:
+        "eyJzdGFydEF0IjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ==",
     },
   },
 };
 
-apiInstance.aggregateLogs(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .aggregateLogs(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

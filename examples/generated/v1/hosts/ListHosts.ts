@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.HostsApi(configuration);
 
-let params:v1.HostsApiListHostsRequest = {
+let params: v1.HostsApiListHostsRequest = {
   // string | String to filter search results. (optional)
   filter: "filter_example",
   // string | Sort hosts by this field. (optional)
@@ -23,6 +23,11 @@ let params:v1.HostsApiListHostsRequest = {
   includeHostsMetadata: true,
 };
 
-apiInstance.listHosts(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listHosts(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

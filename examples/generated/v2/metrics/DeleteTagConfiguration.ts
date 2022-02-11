@@ -1,14 +1,19 @@
-import { v2 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v2 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-let params:v2.MetricsApiDeleteTagConfigurationRequest = {
+let params: v2.MetricsApiDeleteTagConfigurationRequest = {
   // string | The name of the metric.
   metricName: "dist.http.endpoint.request",
 };
 
-apiInstance.deleteTagConfiguration(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .deleteTagConfiguration(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

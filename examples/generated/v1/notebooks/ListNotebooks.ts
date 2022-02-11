@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.NotebooksApi(configuration);
 
-let params:v1.NotebooksApiListNotebooksRequest = {
+let params: v1.NotebooksApiListNotebooksRequest = {
   // string | Return notebooks created by the given `author_handle`. (optional)
   authorHandle: "test@datadoghq.com",
   // string | Return notebooks not created by the given `author_handle`. (optional)
@@ -27,6 +27,11 @@ let params:v1.NotebooksApiListNotebooksRequest = {
   type: "investigation",
 };
 
-apiInstance.listNotebooks(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listNotebooks(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

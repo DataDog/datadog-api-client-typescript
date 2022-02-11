@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.EventsApi(configuration);
 
-let params:v1.EventsApiListEventsRequest = {
+let params: v1.EventsApiListEventsRequest = {
   // number | POSIX timestamp.
   start: 1,
   // number | POSIX timestamp.
@@ -23,6 +23,11 @@ let params:v1.EventsApiListEventsRequest = {
   page: 1,
 };
 
-apiInstance.listEvents(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listEvents(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

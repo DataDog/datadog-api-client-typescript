@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
-let params:v1.MonitorsApiUpdateMonitorRequest = {
+let params: v1.MonitorsApiUpdateMonitorRequest = {
   // number | The ID of the monitor.
   monitorId: 1,
   // MonitorUpdateRequest | Edit a monitor request body.
@@ -27,12 +27,10 @@ let params:v1.MonitorsApiUpdateMonitorRequest = {
       notifyNoData: false,
       renotifyInterval: 1,
       renotifyOccurrences: 1,
-      renotifyStatuses: [
-        "alert",
-      ],
+      renotifyStatuses: ["alert"],
       requireFullWindow: true,
       silenced: {
-        "key": 1,
+        key: 1,
       },
       syntheticsCheckId: "syntheticsCheckId_example",
       thresholdWindows: {
@@ -50,43 +48,44 @@ let params:v1.MonitorsApiUpdateMonitorRequest = {
       timeoutH: 1,
       variables: [
         {
-    compute: {
-      aggregation: "avg",
-      interval: 60000,
-      metric: "@duration",
-    },
-    dataSource: "rum",
-    groupBy: [
-      {
-        facet: "status",
-        limit: 10,
-        sort: {
-          aggregation: "avg",
-          metric: "metric_example",
-          order: "desc",
+          compute: {
+            aggregation: "avg",
+            interval: 60000,
+            metric: "@duration",
+          },
+          dataSource: "rum",
+          groupBy: [
+            {
+              facet: "status",
+              limit: 10,
+              sort: {
+                aggregation: "avg",
+                metric: "metric_example",
+                order: "desc",
+              },
+            },
+          ],
+          indexes: ["days-3", "days-7"],
+          name: "query_errors",
+          search: {
+            query: "service:query",
+          },
         },
-      },
-    ],
-    indexes: ["days-3","days-7"],
-    name: "query_errors",
-    search: {
-      query: "service:query",
-    },
-  },
       ],
     },
     priority: 1,
     query: "query_example",
-    restrictedRoles: [
-      "restrictedRoles_example",
-    ],
-    tags: [
-      "tags_example",
-    ],
+    restrictedRoles: ["restrictedRoles_example"],
+    tags: ["tags_example"],
     type: "query alert",
   },
 };
 
-apiInstance.updateMonitor(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .updateMonitor(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

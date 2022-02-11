@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let params:v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
+let params: v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
   // string | The ID of the service level objective object.
   sloId: "slo_id_example",
   // number | The `from` timestamp for the query window in epoch seconds.
@@ -17,6 +17,11 @@ let params:v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
   applyCorrection: true,
 };
 
-apiInstance.getSLOHistory(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .getSLOHistory(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

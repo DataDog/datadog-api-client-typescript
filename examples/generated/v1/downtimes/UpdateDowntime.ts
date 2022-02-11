@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
-let params:v1.DowntimesApiUpdateDowntimeRequest = {
+let params: v1.DowntimesApiUpdateDowntimeRequest = {
   // number | ID of the downtime to update.
   downtimeId: 123456,
   // Downtime | Update a downtime request body.
@@ -21,7 +21,7 @@ let params:v1.DowntimesApiUpdateDowntimeRequest = {
       type: "weeks",
       untilDate: 1447786293,
       untilOccurrences: 2,
-      weekDays: ["Mon","Tue"],
+      weekDays: ["Mon", "Tue"],
     },
     scope: ["env:staging"],
     start: 1412792983,
@@ -29,6 +29,11 @@ let params:v1.DowntimesApiUpdateDowntimeRequest = {
   },
 };
 
-apiInstance.updateDowntime(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .updateDowntime(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

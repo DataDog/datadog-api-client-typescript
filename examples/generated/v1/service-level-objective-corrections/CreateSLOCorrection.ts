@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
-let params:v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
+let params: v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
   // SLOCorrectionCreateRequest | Create an SLO Correction
   body: {
     data: {
@@ -23,6 +23,11 @@ let params:v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest = {
   },
 };
 
-apiInstance.createSLOCorrection(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .createSLOCorrection(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let params:v1.ServiceLevelObjectivesApiListSLOsRequest = {
+let params: v1.ServiceLevelObjectivesApiListSLOsRequest = {
   // string | A comma separated list of the IDs of the service level objectives objects. (optional)
   ids: "id1, id2, id3",
   // string | The query string to filter results based on SLO names. (optional)
@@ -19,6 +19,11 @@ let params:v1.ServiceLevelObjectivesApiListSLOsRequest = {
   offset: 1,
 };
 
-apiInstance.listSLOs(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .listSLOs(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

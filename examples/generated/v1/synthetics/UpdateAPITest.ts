@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params:v1.SyntheticsApiUpdateAPITestRequest = {
+let params: v1.SyntheticsApiUpdateAPITestRequest = {
   // string | The public ID of the test to get details from.
   publicId: "public_id_example",
   // SyntheticsAPITest | New test details to be saved.
@@ -12,11 +12,11 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
     config: {
       assertions: [
         {
-    operator: "contains",
-    property: "property_example",
-    target: null,
-    type: "statusCode",
-  },
+          operator: "contains",
+          property: "property_example",
+          target: null,
+          type: "statusCode",
+        },
       ],
       configVariables: [
         {
@@ -30,10 +30,10 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
       request: {
         allowInsecure: true,
         basicAuth: {
-    password: "",
-    type: "web",
-    username: "",
-  },
+          password: "",
+          type: "web",
+          username: "",
+        },
         body: "body_example",
         certificate: {
           cert: {
@@ -51,7 +51,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
         dnsServerPort: 1,
         followRedirects: true,
         headers: {
-          "key": "key_example",
+          key: "key_example",
         },
         host: "host_example",
         message: "message_example",
@@ -61,7 +61,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
         port: 1,
         proxy: {
           headers: {
-            "key": "key_example",
+            key: "key_example",
           },
           url: "https://example.com",
         },
@@ -76,11 +76,11 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
           allowFailure: true,
           assertions: [
             {
-    operator: "contains",
-    property: "property_example",
-    target: null,
-    type: "statusCode",
-  },
+              operator: "contains",
+              property: "property_example",
+              target: null,
+              type: "statusCode",
+            },
           ],
           extractedValues: [
             {
@@ -98,10 +98,10 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
           request: {
             allowInsecure: true,
             basicAuth: {
-    password: "",
-    type: "web",
-    username: "",
-  },
+              password: "",
+              type: "web",
+              username: "",
+            },
             body: "body_example",
             certificate: {
               cert: {
@@ -119,7 +119,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
             dnsServerPort: 1,
             followRedirects: true,
             headers: {
-              "key": "key_example",
+              key: "key_example",
             },
             host: "host_example",
             message: "message_example",
@@ -129,7 +129,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
             port: 1,
             proxy: {
               headers: {
-                "key": "key_example",
+                key: "key_example",
               },
               url: "https://example.com",
             },
@@ -153,9 +153,7 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
     options: {
       acceptSelfSigned: true,
       allowInsecure: true,
-      deviceIds: [
-        "laptop_large",
-      ],
+      deviceIds: ["laptop_large"],
       disableCors: true,
       followRedirects: true,
       minFailureDuration: 1,
@@ -179,6 +177,11 @@ let params:v1.SyntheticsApiUpdateAPITestRequest = {
   },
 };
 
-apiInstance.updateAPITest(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .updateAPITest(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

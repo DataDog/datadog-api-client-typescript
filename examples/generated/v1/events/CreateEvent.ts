@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.EventsApi(configuration);
 
-let params:v1.EventsApiCreateEventRequest = {
+let params: v1.EventsApiCreateEventRequest = {
   // EventCreateRequest | Event request object
   body: {
     aggregationKey: "aggregationKey_example",
@@ -21,6 +21,11 @@ let params:v1.EventsApiCreateEventRequest = {
   },
 };
 
-apiInstance.createEvent(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .createEvent(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

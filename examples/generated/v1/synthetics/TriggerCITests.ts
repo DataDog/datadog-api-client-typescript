@@ -1,33 +1,29 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params:v1.SyntheticsApiTriggerCITestsRequest = {
+let params: v1.SyntheticsApiTriggerCITestsRequest = {
   // SyntheticsCITestBody | Details of the test to trigger.
   body: {
     tests: [
       {
         allowInsecureCertificates: true,
         basicAuth: {
-    password: "",
-    type: "web",
-    username: "",
-  },
+          password: "",
+          type: "web",
+          username: "",
+        },
         body: "body_example",
         bodyType: "bodyType_example",
         cookies: "cookies_example",
-        deviceIds: [
-          "laptop_large",
-        ],
+        deviceIds: ["laptop_large"],
         followRedirects: true,
         headers: {
-          "key": "key_example",
+          key: "key_example",
         },
-        locations: [
-          "locations_example",
-        ],
+        locations: ["locations_example"],
         metadata: {
           ci: {
             pipeline: {
@@ -49,13 +45,18 @@ let params:v1.SyntheticsApiTriggerCITestsRequest = {
         },
         startUrl: "startUrl_example",
         variables: {
-          "key": "key_example",
+          key: "key_example",
         },
       },
     ],
   },
 };
 
-apiInstance.triggerCITests(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .triggerCITests(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));

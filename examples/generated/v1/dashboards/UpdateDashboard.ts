@@ -1,10 +1,10 @@
-import { v1 } from '@datadog/datadog-api-client';
-import * as fs from 'fs';
+import { v1 } from "@datadog/datadog-api-client";
+import * as fs from "fs";
 
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
-let params:v1.DashboardsApiUpdateDashboardRequest = {
+let params: v1.DashboardsApiUpdateDashboardRequest = {
   // string | The ID of the dashboard.
   dashboardId: "dashboard_id_example",
   // Dashboard | Update Dashboard request body.
@@ -12,13 +12,9 @@ let params:v1.DashboardsApiUpdateDashboardRequest = {
     description: "description_example",
     isReadOnly: false,
     layoutType: "ordered",
-    notifyList: [
-      "notifyList_example",
-    ],
+    notifyList: ["notifyList_example"],
     reflowType: "auto",
-    restrictedRoles: [
-      "restrictedRoles_example",
-    ],
+    restrictedRoles: ["restrictedRoles_example"],
     templateVariablePresets: [
       {
         name: "name_example",
@@ -32,7 +28,7 @@ let params:v1.DashboardsApiUpdateDashboardRequest = {
     ],
     templateVariables: [
       {
-        availableValues: ["my-host","host1","host2"],
+        availableValues: ["my-host", "host1", "host2"],
         _default: "my-host",
         name: "host1",
         prefix: "host",
@@ -42,16 +38,16 @@ let params:v1.DashboardsApiUpdateDashboardRequest = {
     widgets: [
       {
         definition: {
-    alertId: "",
-    time: {
-      liveSpan: "5m",
-    },
-    title: "title_example",
-    titleAlign: "center",
-    titleSize: "titleSize_example",
-    type: "alert_graph",
-    vizType: "timeseries",
-  },
+          alertId: "",
+          time: {
+            liveSpan: "5m",
+          },
+          title: "title_example",
+          titleAlign: "center",
+          titleSize: "titleSize_example",
+          type: "alert_graph",
+          vizType: "timeseries",
+        },
         id: 1,
         layout: {
           height: 0,
@@ -65,6 +61,11 @@ let params:v1.DashboardsApiUpdateDashboardRequest = {
   },
 };
 
-apiInstance.updateDashboard(params).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + JSON.stringify(data));
-}).catch((error:any) => console.error(error));
+apiInstance
+  .updateDashboard(params)
+  .then((data: any) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  })
+  .catch((error: any) => console.error(error));
