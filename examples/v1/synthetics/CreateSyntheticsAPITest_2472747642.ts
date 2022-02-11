@@ -54,7 +54,7 @@ let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
 
 apiInstance
   .createSyntheticsAPITest(params)
-  .then((data: any) => {
+  .then((data: v1.SyntheticsAPITest) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

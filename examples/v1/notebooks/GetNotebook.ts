@@ -16,7 +16,7 @@ let params: v1.NotebooksApiGetNotebookRequest = {
 
 apiInstance
   .getNotebook(params)
-  .then((data: any) => {
+  .then((data: v1.NotebookResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

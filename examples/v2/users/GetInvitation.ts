@@ -16,7 +16,7 @@ let params: v2.UsersApiGetInvitationRequest = {
 
 apiInstance
   .getInvitation(params)
-  .then((data: any) => {
+  .then((data: v2.UserInvitationResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

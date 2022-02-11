@@ -9,7 +9,7 @@ const apiInstance = new v2.CloudWorkloadSecurityApi(configuration);
 
 apiInstance
   .downloadCloudWorkloadPolicyFile()
-  .then((data: any) => {
+  .then((data: v2.HttpFile) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

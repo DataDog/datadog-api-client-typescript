@@ -20,7 +20,7 @@ let params: v1.ServiceChecksApiSubmitServiceCheckRequest = {
 
 apiInstance
   .submitServiceCheck(params)
-  .then((data: any) => {
+  .then((data: v1.IntakePayloadAccepted) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

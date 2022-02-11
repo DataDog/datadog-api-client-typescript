@@ -21,7 +21,7 @@ let params: v1.WebhooksIntegrationApiUpdateWebhooksIntegrationCustomVariableRequ
 
 apiInstance
   .updateWebhooksIntegrationCustomVariable(params)
-  .then((data: any) => {
+  .then((data: v1.WebhooksIntegrationCustomVariableResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

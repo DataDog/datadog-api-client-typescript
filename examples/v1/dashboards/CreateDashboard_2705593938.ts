@@ -51,7 +51,7 @@ let params: v1.DashboardsApiCreateDashboardRequest = {
 
 apiInstance
   .createDashboard(params)
-  .then((data: any) => {
+  .then((data: v1.Dashboard) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -14,7 +14,7 @@ let params: v1.UsageMeteringApiGetUsageInternetOfThingsRequest = {
 
 apiInstance
   .getUsageInternetOfThings(params)
-  .then((data: any) => {
+  .then((data: v1.UsageIoTResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

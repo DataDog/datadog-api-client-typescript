@@ -9,7 +9,7 @@ const apiInstance = new v2.LogsMetricsApi(configuration);
 
 apiInstance
   .listLogsMetrics()
-  .then((data: any) => {
+  .then((data: v2.LogsMetricsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

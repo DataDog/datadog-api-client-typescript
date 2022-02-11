@@ -17,7 +17,7 @@ let params: v2.UsersApiListUsersRequest = {
 
 apiInstance
   .listUsers(params)
-  .then((data: any) => {
+  .then((data: v2.UsersResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

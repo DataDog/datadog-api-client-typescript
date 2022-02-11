@@ -54,7 +54,7 @@ let params: v1.MonitorsApiCreateMonitorRequest = {
 
 apiInstance
   .createMonitor(params)
-  .then((data: any) => {
+  .then((data: v1.Monitor) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -15,7 +15,7 @@ let params: v2.ProcessesApiListProcessesRequest = {
 
 apiInstance
   .listProcesses(params)
-  .then((data: any) => {
+  .then((data: v2.ProcessSummariesResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

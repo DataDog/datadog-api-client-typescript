@@ -33,7 +33,7 @@ let params: v1.ServiceLevelObjectivesApiCreateSLORequest = {
 
 apiInstance
   .createSLO(params)
-  .then((data: any) => {
+  .then((data: v1.SLOListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
