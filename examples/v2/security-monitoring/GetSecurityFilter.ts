@@ -16,7 +16,7 @@ let params: v2.SecurityMonitoringApiGetSecurityFilterRequest = {
 
 apiInstance
   .getSecurityFilter(params)
-  .then((data: any) => {
+  .then((data: v2.SecurityFilterResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

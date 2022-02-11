@@ -15,7 +15,7 @@ let params: v1.UsageMeteringApiGetMonthlyUsageAttributionRequest = {
 
 apiInstance
   .getMonthlyUsageAttribution(params)
-  .then((data: any) => {
+  .then((data: v1.MonthlyUsageAttributionResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

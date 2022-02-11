@@ -25,7 +25,7 @@ let params: v2.RolesApiAddPermissionToRoleRequest = {
 
 apiInstance
   .addPermissionToRole(params)
-  .then((data: any) => {
+  .then((data: v2.PermissionsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

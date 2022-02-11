@@ -23,7 +23,7 @@ let params: v2.LogsMetricsApiCreateLogsMetricRequest = {
 
 apiInstance
   .createLogsMetric(params)
-  .then((data: any) => {
+  .then((data: v2.LogsMetricResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -18,7 +18,7 @@ let params: v1.DowntimesApiCancelDowntimesByScopeRequest = {
 
 apiInstance
   .cancelDowntimesByScope(params)
-  .then((data: any) => {
+  .then((data: v1.CanceledDowntimesIds) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

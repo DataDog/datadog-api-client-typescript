@@ -14,7 +14,7 @@ let params: v1.UsageMeteringApiGetUsageIndexedSpansRequest = {
 
 apiInstance
   .getUsageIndexedSpans(params)
-  .then((data: any) => {
+  .then((data: v1.UsageIndexedSpansResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

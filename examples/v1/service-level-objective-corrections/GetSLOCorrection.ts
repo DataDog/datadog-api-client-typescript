@@ -17,7 +17,7 @@ let params: v1.ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest = {
 
 apiInstance
   .getSLOCorrection(params)
-  .then((data: any) => {
+  .then((data: v1.SLOCorrectionResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

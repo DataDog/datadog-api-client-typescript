@@ -17,7 +17,7 @@ let params: v2.ServiceAccountsApiListServiceAccountApplicationKeysRequest = {
 
 apiInstance
   .listServiceAccountApplicationKeys(params)
-  .then((data: any) => {
+  .then((data: v2.ListApplicationKeysResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

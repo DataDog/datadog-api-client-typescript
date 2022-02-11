@@ -14,7 +14,7 @@ let params: v1.UsageMeteringApiGetIncidentManagementRequest = {
 
 apiInstance
   .getIncidentManagement(params)
-  .then((data: any) => {
+  .then((data: v1.UsageIncidentManagementResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

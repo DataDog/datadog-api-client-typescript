@@ -16,7 +16,7 @@ let params: v1.MonitorsApiDeleteMonitorRequest = {
 
 apiInstance
   .deleteMonitor(params)
-  .then((data: any) => {
+  .then((data: v1.DeletedMonitor) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

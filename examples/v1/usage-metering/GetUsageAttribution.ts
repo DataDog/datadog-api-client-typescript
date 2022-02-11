@@ -17,7 +17,7 @@ let params: v1.UsageMeteringApiGetUsageAttributionRequest = {
 
 apiInstance
   .getUsageAttribution(params)
-  .then((data: any) => {
+  .then((data: v1.UsageAttributionResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

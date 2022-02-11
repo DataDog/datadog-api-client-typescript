@@ -37,7 +37,7 @@ let params: v2.AuthNMappingsApiUpdateAuthNMappingRequest = {
 
 apiInstance
   .updateAuthNMapping(params)
-  .then((data: any) => {
+  .then((data: v2.AuthNMappingResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
