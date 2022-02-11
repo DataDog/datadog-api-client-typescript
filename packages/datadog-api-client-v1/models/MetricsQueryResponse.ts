@@ -53,8 +53,14 @@ export class MetricsQueryResponse {
    */
   "toDate"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
       baseName: "error",
@@ -96,6 +102,9 @@ export class MetricsQueryResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsQueryResponse.attributeTypeMap;
   }

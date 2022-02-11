@@ -63,8 +63,14 @@ export class MonitorSearchResult {
   "tags"?: Array<string>;
   "type"?: MonitorType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     classification: {
       baseName: "classification",
@@ -123,6 +129,9 @@ export class MonitorSearchResult {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSearchResult.attributeTypeMap;
   }

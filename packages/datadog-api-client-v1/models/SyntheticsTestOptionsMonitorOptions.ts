@@ -20,8 +20,14 @@ export class SyntheticsTestOptionsMonitorOptions {
    */
   "renotifyInterval"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     renotifyInterval: {
       baseName: "renotify_interval",
@@ -30,6 +36,9 @@ export class SyntheticsTestOptionsMonitorOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestOptionsMonitorOptions.attributeTypeMap;
   }

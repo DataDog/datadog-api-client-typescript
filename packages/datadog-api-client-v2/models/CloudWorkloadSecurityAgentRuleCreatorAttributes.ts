@@ -24,8 +24,14 @@ export class CloudWorkloadSecurityAgentRuleCreatorAttributes {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     handle: {
       baseName: "handle",
@@ -37,6 +43,9 @@ export class CloudWorkloadSecurityAgentRuleCreatorAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return CloudWorkloadSecurityAgentRuleCreatorAttributes.attributeTypeMap;
   }

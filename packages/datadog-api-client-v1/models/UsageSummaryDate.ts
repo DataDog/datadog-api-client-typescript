@@ -245,8 +245,14 @@ export class UsageSummaryDate {
    */
   "vsphereHostTop99p"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostTop99p: {
       baseName: "agent_host_top99p",
@@ -534,6 +540,9 @@ export class UsageSummaryDate {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSummaryDate.attributeTypeMap;
   }

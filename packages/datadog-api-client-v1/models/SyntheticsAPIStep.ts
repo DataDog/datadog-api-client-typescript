@@ -44,8 +44,14 @@ export class SyntheticsAPIStep {
   "retry"?: SyntheticsTestOptionsRetry;
   "subtype": SyntheticsAPIStepSubtype;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     allowFailure: {
       baseName: "allowFailure",
@@ -85,6 +91,9 @@ export class SyntheticsAPIStep {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPIStep.attributeTypeMap;
   }

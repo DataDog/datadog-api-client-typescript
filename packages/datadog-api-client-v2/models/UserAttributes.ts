@@ -60,8 +60,14 @@ export class UserAttributes {
    */
   "verified"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
@@ -111,6 +117,9 @@ export class UserAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserAttributes.attributeTypeMap;
   }

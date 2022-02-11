@@ -36,8 +36,14 @@ export class LogsArchiveDestinationAzure {
   "storageAccount": string;
   "type": LogsArchiveDestinationAzureType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     container: {
       baseName: "container",
@@ -69,6 +75,9 @@ export class LogsArchiveDestinationAzure {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveDestinationAzure.attributeTypeMap;
   }

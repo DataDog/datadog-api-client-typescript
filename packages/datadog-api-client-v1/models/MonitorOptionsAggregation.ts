@@ -28,8 +28,14 @@ export class MonitorOptionsAggregation {
    */
   "type"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     groupBy: {
       baseName: "group_by",
@@ -45,6 +51,9 @@ export class MonitorOptionsAggregation {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorOptionsAggregation.attributeTypeMap;
   }

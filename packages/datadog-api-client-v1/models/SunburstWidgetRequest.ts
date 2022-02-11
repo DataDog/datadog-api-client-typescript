@@ -43,8 +43,14 @@ export class SunburstWidgetRequest {
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
@@ -100,6 +106,9 @@ export class SunburstWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SunburstWidgetRequest.attributeTypeMap;
   }

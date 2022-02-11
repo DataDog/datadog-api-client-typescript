@@ -24,8 +24,14 @@ export class UsageCustomReportsData {
   "id"?: string;
   "type"?: UsageReportsType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -41,6 +47,9 @@ export class UsageCustomReportsData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageCustomReportsData.attributeTypeMap;
   }

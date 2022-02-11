@@ -34,8 +34,14 @@ export class SyntheticsBrowserVariable {
   "pattern"?: string;
   "type": SyntheticsBrowserVariableType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     example: {
       baseName: "example",
@@ -61,6 +67,9 @@ export class SyntheticsBrowserVariable {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserVariable.attributeTypeMap;
   }

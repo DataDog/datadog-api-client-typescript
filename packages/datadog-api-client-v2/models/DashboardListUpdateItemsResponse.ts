@@ -21,8 +21,14 @@ export class DashboardListUpdateItemsResponse {
    */
   "dashboards"?: Array<DashboardListItemResponse>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dashboards: {
       baseName: "dashboards",
@@ -30,6 +36,9 @@ export class DashboardListUpdateItemsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardListUpdateItemsResponse.attributeTypeMap;
   }

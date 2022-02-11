@@ -28,8 +28,14 @@ export class SecurityMonitoringSignalListRequestFilter {
    */
   "to"?: Date;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
       baseName: "from",
@@ -47,6 +53,9 @@ export class SecurityMonitoringSignalListRequestFilter {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalListRequestFilter.attributeTypeMap;
   }

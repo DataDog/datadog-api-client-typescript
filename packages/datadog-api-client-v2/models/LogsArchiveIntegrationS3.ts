@@ -24,8 +24,14 @@ export class LogsArchiveIntegrationS3 {
    */
   "roleName": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
@@ -39,6 +45,9 @@ export class LogsArchiveIntegrationS3 {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveIntegrationS3.attributeTypeMap;
   }

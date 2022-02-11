@@ -24,8 +24,14 @@ export class SyntheticsGlobalVariableParseTestOptions {
   "parser": SyntheticsVariableParser;
   "type": SyntheticsGlobalVariableParseTestOptionsType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     field: {
       baseName: "field",
@@ -43,6 +49,9 @@ export class SyntheticsGlobalVariableParseTestOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGlobalVariableParseTestOptions.attributeTypeMap;
   }

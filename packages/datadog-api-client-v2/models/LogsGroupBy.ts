@@ -32,8 +32,14 @@ export class LogsGroupBy {
   "sort"?: LogsAggregateSort;
   "total"?: LogsGroupByTotal;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
       baseName: "facet",
@@ -63,6 +69,9 @@ export class LogsGroupBy {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGroupBy.attributeTypeMap;
   }

@@ -55,8 +55,14 @@ export class SecurityMonitoringRuleCreatePayload {
   "tags"?: Array<string>;
   "type"?: SecurityMonitoringRuleTypeCreate;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cases: {
       baseName: "cases",
@@ -106,6 +112,9 @@ export class SecurityMonitoringRuleCreatePayload {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleCreatePayload.attributeTypeMap;
   }

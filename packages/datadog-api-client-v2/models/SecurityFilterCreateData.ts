@@ -20,8 +20,14 @@ export class SecurityFilterCreateData {
   "attributes": SecurityFilterCreateAttributes;
   "type": SecurityFilterType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -35,6 +41,9 @@ export class SecurityFilterCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityFilterCreateData.attributeTypeMap;
   }

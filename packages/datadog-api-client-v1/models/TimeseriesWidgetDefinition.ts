@@ -68,8 +68,14 @@ export class TimeseriesWidgetDefinition {
   "type": TimeseriesWidgetDefinitionType;
   "yaxis"?: WidgetAxis;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
@@ -135,6 +141,9 @@ export class TimeseriesWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return TimeseriesWidgetDefinition.attributeTypeMap;
   }

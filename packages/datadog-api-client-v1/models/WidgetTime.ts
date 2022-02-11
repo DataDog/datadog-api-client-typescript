@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class WidgetTime {
   "liveSpan"?: WidgetLiveSpan;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     liveSpan: {
       baseName: "live_span",
@@ -27,6 +33,9 @@ export class WidgetTime {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetTime.attributeTypeMap;
   }

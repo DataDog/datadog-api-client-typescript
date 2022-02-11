@@ -50,8 +50,14 @@ export class DashboardSummaryDefinition {
    */
   "url"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     authorHandle: {
       baseName: "author_handle",
@@ -93,6 +99,9 @@ export class DashboardSummaryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardSummaryDefinition.attributeTypeMap;
   }

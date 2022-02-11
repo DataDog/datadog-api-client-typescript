@@ -44,8 +44,14 @@ export class SyntheticsAPITestResultData {
   "responseSize"?: number;
   "timings"?: SyntheticsTiming;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cert: {
       baseName: "cert",
@@ -87,6 +93,9 @@ export class SyntheticsAPITestResultData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITestResultData.attributeTypeMap;
   }

@@ -20,8 +20,14 @@ export class APIErrorResponse {
    */
   "errors": Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
       baseName: "errors",
@@ -30,6 +36,9 @@ export class APIErrorResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return APIErrorResponse.attributeTypeMap;
   }

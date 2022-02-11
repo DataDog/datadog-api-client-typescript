@@ -72,8 +72,14 @@ export class UsageHostHour {
    */
   "vsphereHostCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostCount: {
       baseName: "agent_host_count",
@@ -147,6 +153,9 @@ export class UsageHostHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageHostHour.attributeTypeMap;
   }

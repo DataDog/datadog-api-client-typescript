@@ -28,8 +28,14 @@ export class SLOCorrectionResponseAttributesModifier {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
       baseName: "email",
@@ -45,6 +51,9 @@ export class SLOCorrectionResponseAttributesModifier {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionResponseAttributesModifier.attributeTypeMap;
   }

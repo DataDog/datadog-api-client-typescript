@@ -22,8 +22,14 @@ export class NotebookMarkdownCellDefinition {
   "text": string;
   "type": NotebookMarkdownCellDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     text: {
       baseName: "text",
@@ -37,6 +43,9 @@ export class NotebookMarkdownCellDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookMarkdownCellDefinition.attributeTypeMap;
   }

@@ -22,8 +22,14 @@ export class AuthNMappingCreateData {
   "relationships"?: AuthNMappingCreateRelationships;
   "type": AuthNMappingsType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -40,6 +46,9 @@ export class AuthNMappingCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AuthNMappingCreateData.attributeTypeMap;
   }

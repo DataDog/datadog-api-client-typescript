@@ -24,8 +24,14 @@ export class IPPrefixesLogs {
    */
   "prefixesIpv6"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     prefixesIpv4: {
       baseName: "prefixes_ipv4",
@@ -37,6 +43,9 @@ export class IPPrefixesLogs {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IPPrefixesLogs.attributeTypeMap;
   }

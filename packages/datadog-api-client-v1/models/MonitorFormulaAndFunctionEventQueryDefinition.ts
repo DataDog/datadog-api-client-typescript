@@ -35,8 +35,14 @@ export class MonitorFormulaAndFunctionEventQueryDefinition {
   "name": string;
   "search"?: MonitorFormulaAndFunctionEventQueryDefinitionSearch;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
       baseName: "compute",
@@ -67,6 +73,9 @@ export class MonitorFormulaAndFunctionEventQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorFormulaAndFunctionEventQueryDefinition.attributeTypeMap;
   }

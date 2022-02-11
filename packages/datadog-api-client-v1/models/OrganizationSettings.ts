@@ -46,8 +46,14 @@ export class OrganizationSettings {
   "samlLoginUrl"?: string;
   "samlStrictMode"?: OrganizationSettingsSamlStrictMode;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     privateWidgetShare: {
       baseName: "private_widget_share",
@@ -91,6 +97,9 @@ export class OrganizationSettings {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationSettings.attributeTypeMap;
   }

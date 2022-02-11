@@ -58,8 +58,14 @@ export class LogStreamWidgetDefinition {
   "titleSize"?: string;
   "type": LogStreamWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
       baseName: "columns",
@@ -116,6 +122,9 @@ export class LogStreamWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogStreamWidgetDefinition.attributeTypeMap;
   }

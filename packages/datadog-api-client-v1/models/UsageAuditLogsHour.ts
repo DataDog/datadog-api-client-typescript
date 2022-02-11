@@ -32,8 +32,14 @@ export class UsageAuditLogsHour {
    */
   "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
@@ -55,6 +61,9 @@ export class UsageAuditLogsHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAuditLogsHour.attributeTypeMap;
   }

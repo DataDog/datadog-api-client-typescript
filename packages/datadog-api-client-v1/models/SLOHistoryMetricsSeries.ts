@@ -30,8 +30,14 @@ export class SLOHistoryMetricsSeries {
    */
   "values": Array<number>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
       baseName: "count",
@@ -57,6 +63,9 @@ export class SLOHistoryMetricsSeries {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryMetricsSeries.attributeTypeMap;
   }

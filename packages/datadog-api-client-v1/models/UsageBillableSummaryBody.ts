@@ -44,8 +44,14 @@ export class UsageBillableSummaryBody {
    */
   "usageUnit"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accountBillableUsage: {
       baseName: "account_billable_usage",
@@ -83,6 +89,9 @@ export class UsageBillableSummaryBody {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageBillableSummaryBody.attributeTypeMap;
   }

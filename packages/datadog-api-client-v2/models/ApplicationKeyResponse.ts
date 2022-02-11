@@ -23,8 +23,14 @@ export class ApplicationKeyResponse {
    */
   "included"?: Array<ApplicationKeyResponseIncludedItem>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -36,6 +42,9 @@ export class ApplicationKeyResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyResponse.attributeTypeMap;
   }

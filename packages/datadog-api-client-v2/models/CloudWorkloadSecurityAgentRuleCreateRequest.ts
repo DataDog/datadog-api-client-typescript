@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class CloudWorkloadSecurityAgentRuleCreateRequest {
   "data": CloudWorkloadSecurityAgentRuleCreateData;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -28,6 +34,9 @@ export class CloudWorkloadSecurityAgentRuleCreateRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return CloudWorkloadSecurityAgentRuleCreateRequest.attributeTypeMap;
   }

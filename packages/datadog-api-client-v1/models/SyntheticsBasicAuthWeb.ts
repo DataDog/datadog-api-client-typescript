@@ -26,8 +26,14 @@ export class SyntheticsBasicAuthWeb {
    */
   "username": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     password: {
       baseName: "password",
@@ -46,6 +52,9 @@ export class SyntheticsBasicAuthWeb {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBasicAuthWeb.attributeTypeMap;
   }

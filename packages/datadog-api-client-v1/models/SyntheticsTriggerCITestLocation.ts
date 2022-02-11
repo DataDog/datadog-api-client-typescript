@@ -24,8 +24,14 @@ export class SyntheticsTriggerCITestLocation {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -38,6 +44,9 @@ export class SyntheticsTriggerCITestLocation {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTriggerCITestLocation.attributeTypeMap;
   }

@@ -28,8 +28,14 @@ export class UsersResponse {
   "included"?: Array<UserResponseIncludedItem>;
   "meta"?: ResponseMetaAttributes;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -45,6 +51,9 @@ export class UsersResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsersResponse.attributeTypeMap;
   }

@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class NotebookMarkdownCellAttributes {
   "definition": NotebookMarkdownCellDefinition;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
@@ -28,6 +34,9 @@ export class NotebookMarkdownCellAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookMarkdownCellAttributes.attributeTypeMap;
   }

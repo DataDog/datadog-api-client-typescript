@@ -20,8 +20,14 @@ export class LogsAggregateResponse {
   "data"?: LogsAggregateResponseData;
   "meta"?: LogsResponseMetadata;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -33,6 +39,9 @@ export class LogsAggregateResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateResponse.attributeTypeMap;
   }

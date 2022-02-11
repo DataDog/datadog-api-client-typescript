@@ -20,8 +20,14 @@ export class SyntheticsCIBatchMetadataCI {
   "pipeline"?: SyntheticsCIBatchMetadataPipeline;
   "provider"?: SyntheticsCIBatchMetadataProvider;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     pipeline: {
       baseName: "pipeline",
@@ -33,6 +39,9 @@ export class SyntheticsCIBatchMetadataCI {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadataCI.attributeTypeMap;
   }

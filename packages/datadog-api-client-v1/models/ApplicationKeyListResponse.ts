@@ -21,8 +21,14 @@ export class ApplicationKeyListResponse {
    */
   "applicationKeys"?: Array<ApplicationKey>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     applicationKeys: {
       baseName: "application_keys",
@@ -30,6 +36,9 @@ export class ApplicationKeyListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyListResponse.attributeTypeMap;
   }

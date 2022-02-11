@@ -21,8 +21,14 @@ export class MetricsPayload {
    */
   "series": Array<Series>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     series: {
       baseName: "series",
@@ -31,6 +37,9 @@ export class MetricsPayload {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsPayload.attributeTypeMap;
   }

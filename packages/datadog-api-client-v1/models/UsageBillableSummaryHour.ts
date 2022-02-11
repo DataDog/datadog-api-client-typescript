@@ -46,8 +46,14 @@ export class UsageBillableSummaryHour {
   "startDate"?: Date;
   "usage"?: UsageBillableSummaryKeys;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     billingPlan: {
       baseName: "billing_plan",
@@ -87,6 +93,9 @@ export class UsageBillableSummaryHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageBillableSummaryHour.attributeTypeMap;
   }

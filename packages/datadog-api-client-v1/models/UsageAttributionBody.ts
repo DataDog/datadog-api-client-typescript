@@ -42,8 +42,14 @@ export class UsageAttributionBody {
   "updatedAt"?: string;
   "values"?: UsageAttributionValues;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     month: {
       baseName: "month",
@@ -76,6 +82,9 @@ export class UsageAttributionBody {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionBody.attributeTypeMap;
   }

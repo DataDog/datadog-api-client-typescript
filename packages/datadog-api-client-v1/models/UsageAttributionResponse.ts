@@ -23,8 +23,14 @@ export class UsageAttributionResponse {
    */
   "usage"?: Array<UsageAttributionBody>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
       baseName: "metadata",
@@ -36,6 +42,9 @@ export class UsageAttributionResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionResponse.attributeTypeMap;
   }

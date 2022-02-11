@@ -22,8 +22,14 @@ export class RelationshipToIncidentPostmortemData {
   "id": string;
   "type": IncidentPostmortemType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -37,6 +43,9 @@ export class RelationshipToIncidentPostmortemData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToIncidentPostmortemData.attributeTypeMap;
   }

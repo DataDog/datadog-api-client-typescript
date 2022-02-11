@@ -50,8 +50,14 @@ export class SyntheticsAPITest {
   "tags"?: Array<string>;
   "type": SyntheticsAPITestType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
@@ -105,6 +111,9 @@ export class SyntheticsAPITest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITest.attributeTypeMap;
   }

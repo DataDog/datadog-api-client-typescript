@@ -28,8 +28,14 @@ export class HostMetrics {
    */
   "load"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cpu: {
       baseName: "cpu",
@@ -48,6 +54,9 @@ export class HostMetrics {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostMetrics.attributeTypeMap;
   }

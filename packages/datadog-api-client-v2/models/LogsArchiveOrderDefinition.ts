@@ -20,8 +20,14 @@ export class LogsArchiveOrderDefinition {
   "attributes": LogsArchiveOrderAttributes;
   "type": LogsArchiveOrderDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -35,6 +41,9 @@ export class LogsArchiveOrderDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveOrderDefinition.attributeTypeMap;
   }

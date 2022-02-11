@@ -28,8 +28,14 @@ export class IncidentsResponse {
   "included"?: Array<IncidentResponseIncludedItem>;
   "meta"?: IncidentServicesResponseMeta;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -46,6 +52,9 @@ export class IncidentsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentsResponse.attributeTypeMap;
   }

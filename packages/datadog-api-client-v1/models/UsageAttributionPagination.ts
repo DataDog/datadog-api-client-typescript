@@ -36,8 +36,14 @@ export class UsageAttributionPagination {
    */
   "totalNumberOfRecords"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     limit: {
       baseName: "limit",
@@ -64,6 +70,9 @@ export class UsageAttributionPagination {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionPagination.attributeTypeMap;
   }

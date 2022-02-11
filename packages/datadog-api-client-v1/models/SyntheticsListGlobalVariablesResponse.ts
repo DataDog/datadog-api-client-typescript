@@ -21,8 +21,14 @@ export class SyntheticsListGlobalVariablesResponse {
    */
   "variables"?: Array<SyntheticsGlobalVariable>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     variables: {
       baseName: "variables",
@@ -30,6 +36,9 @@ export class SyntheticsListGlobalVariablesResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsListGlobalVariablesResponse.attributeTypeMap;
   }

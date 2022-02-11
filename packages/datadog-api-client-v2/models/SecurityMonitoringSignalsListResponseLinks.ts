@@ -20,8 +20,14 @@ export class SecurityMonitoringSignalsListResponseLinks {
    */
   "next"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     next: {
       baseName: "next",
@@ -29,6 +35,9 @@ export class SecurityMonitoringSignalsListResponseLinks {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalsListResponseLinks.attributeTypeMap;
   }

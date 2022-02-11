@@ -20,8 +20,14 @@ export class IdpResponse {
    */
   "message": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
       baseName: "message",
@@ -30,6 +36,9 @@ export class IdpResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IdpResponse.attributeTypeMap;
   }

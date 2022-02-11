@@ -20,8 +20,14 @@ export class CheckCanDeleteMonitorResponseData {
    */
   "ok"?: Array<number>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     ok: {
       baseName: "ok",
@@ -30,6 +36,9 @@ export class CheckCanDeleteMonitorResponseData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return CheckCanDeleteMonitorResponseData.attributeTypeMap;
   }

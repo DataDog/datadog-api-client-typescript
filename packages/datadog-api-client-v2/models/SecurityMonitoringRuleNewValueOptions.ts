@@ -20,8 +20,14 @@ export class SecurityMonitoringRuleNewValueOptions {
   "forgetAfter"?: SecurityMonitoringRuleNewValueOptionsForgetAfter;
   "learningDuration"?: SecurityMonitoringRuleNewValueOptionsLearningDuration;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     forgetAfter: {
       baseName: "forgetAfter",
@@ -33,6 +39,9 @@ export class SecurityMonitoringRuleNewValueOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleNewValueOptions.attributeTypeMap;
   }

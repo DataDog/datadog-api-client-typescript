@@ -24,8 +24,14 @@ export class SAMLAssertionAttribute {
   "id": number;
   "type": SAMLAssertionAttributesType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -44,6 +50,9 @@ export class SAMLAssertionAttribute {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SAMLAssertionAttribute.attributeTypeMap;
   }

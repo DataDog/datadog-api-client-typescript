@@ -68,8 +68,14 @@ export class EventCreateResponse {
    */
   "url"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alertType: {
       baseName: "alert_type",
@@ -132,6 +138,9 @@ export class EventCreateResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return EventCreateResponse.attributeTypeMap;
   }

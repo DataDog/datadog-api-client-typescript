@@ -44,8 +44,14 @@ export class UsageRumSessionsHour {
    */
   "sessionCountIos"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
@@ -82,6 +88,9 @@ export class UsageRumSessionsHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageRumSessionsHour.attributeTypeMap;
   }

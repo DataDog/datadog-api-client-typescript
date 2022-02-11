@@ -23,8 +23,14 @@ export class UsageAttributionMetadata {
   "aggregates"?: Array<UsageAttributionAggregatesBody>;
   "pagination"?: UsageAttributionPagination;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregates: {
       baseName: "aggregates",
@@ -36,6 +42,9 @@ export class UsageAttributionMetadata {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionMetadata.attributeTypeMap;
   }

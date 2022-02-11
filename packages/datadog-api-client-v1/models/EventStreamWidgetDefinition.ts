@@ -40,8 +40,14 @@ export class EventStreamWidgetDefinition {
   "titleSize"?: string;
   "type": EventStreamWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     eventSize: {
       baseName: "event_size",
@@ -79,6 +85,9 @@ export class EventStreamWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return EventStreamWidgetDefinition.attributeTypeMap;
   }

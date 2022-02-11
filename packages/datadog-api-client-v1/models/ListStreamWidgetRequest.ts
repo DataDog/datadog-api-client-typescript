@@ -25,8 +25,14 @@ export class ListStreamWidgetRequest {
   "query": ListStreamQuery;
   "responseFormat": ListStreamResponseFormat;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
       baseName: "columns",
@@ -45,6 +51,9 @@ export class ListStreamWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ListStreamWidgetRequest.attributeTypeMap;
   }

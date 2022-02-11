@@ -21,8 +21,14 @@ export class IdpFormData {
    */
   "idpFile": HttpFile;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     idpFile: {
       baseName: "idp_file",
@@ -32,6 +38,9 @@ export class IdpFormData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IdpFormData.attributeTypeMap;
   }

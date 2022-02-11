@@ -43,8 +43,14 @@ export class GroupWidgetDefinition {
    */
   "widgets": Array<Widget>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     backgroundColor: {
       baseName: "background_color",
@@ -83,6 +89,9 @@ export class GroupWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return GroupWidgetDefinition.attributeTypeMap;
   }

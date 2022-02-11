@@ -21,8 +21,14 @@ export class DashboardBulkDeleteRequest {
    */
   "data": Array<DashboardBulkActionData>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -31,6 +37,9 @@ export class DashboardBulkDeleteRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardBulkDeleteRequest.attributeTypeMap;
   }

@@ -22,8 +22,14 @@ export class IFrameWidgetDefinition {
    */
   "url": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
@@ -37,6 +43,9 @@ export class IFrameWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IFrameWidgetDefinition.attributeTypeMap;
   }

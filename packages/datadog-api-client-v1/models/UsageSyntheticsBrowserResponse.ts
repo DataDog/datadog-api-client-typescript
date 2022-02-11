@@ -21,8 +21,14 @@ export class UsageSyntheticsBrowserResponse {
    */
   "usage"?: Array<UsageSyntheticsBrowserHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
@@ -30,6 +36,9 @@ export class UsageSyntheticsBrowserResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSyntheticsBrowserResponse.attributeTypeMap;
   }

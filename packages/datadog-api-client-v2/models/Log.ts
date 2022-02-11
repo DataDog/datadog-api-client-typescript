@@ -24,8 +24,14 @@ export class Log {
   "id"?: string;
   "type"?: LogType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -41,6 +47,9 @@ export class Log {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Log.attributeTypeMap;
   }

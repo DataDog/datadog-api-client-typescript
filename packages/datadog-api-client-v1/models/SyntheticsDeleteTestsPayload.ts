@@ -20,8 +20,14 @@ export class SyntheticsDeleteTestsPayload {
    */
   "publicIds"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     publicIds: {
       baseName: "public_ids",
@@ -29,6 +35,9 @@ export class SyntheticsDeleteTestsPayload {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsDeleteTestsPayload.attributeTypeMap;
   }

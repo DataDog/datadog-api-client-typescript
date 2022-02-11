@@ -22,8 +22,14 @@ export class RoleCreateData {
   "relationships"?: RoleRelationships;
   "type"?: RolesType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -40,6 +46,9 @@ export class RoleCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RoleCreateData.attributeTypeMap;
   }

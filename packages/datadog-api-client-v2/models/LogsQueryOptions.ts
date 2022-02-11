@@ -24,8 +24,14 @@ export class LogsQueryOptions {
    */
   "timezone"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     timeOffset: {
       baseName: "timeOffset",
@@ -38,6 +44,9 @@ export class LogsQueryOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsQueryOptions.attributeTypeMap;
   }

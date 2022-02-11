@@ -65,8 +65,14 @@ export class SyntheticsTestOptions {
    */
   "tickEvery"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     acceptSelfSigned: {
       baseName: "accept_self_signed",
@@ -126,6 +132,9 @@ export class SyntheticsTestOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestOptions.attributeTypeMap;
   }

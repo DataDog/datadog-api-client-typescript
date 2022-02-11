@@ -24,8 +24,14 @@ export class OrganizationCreateBody {
   "name": string;
   "subscription"?: OrganizationSubscription;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     billing: {
       baseName: "billing",
@@ -42,6 +48,9 @@ export class OrganizationCreateBody {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationCreateBody.attributeTypeMap;
   }

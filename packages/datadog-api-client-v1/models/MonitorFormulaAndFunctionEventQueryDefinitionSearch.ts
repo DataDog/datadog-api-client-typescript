@@ -20,8 +20,14 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
    */
   "query": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
@@ -30,6 +36,9 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorFormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
   }

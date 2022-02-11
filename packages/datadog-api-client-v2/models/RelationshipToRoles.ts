@@ -21,8 +21,14 @@ export class RelationshipToRoles {
    */
   "data"?: Array<RelationshipToRoleData>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -30,6 +36,9 @@ export class RelationshipToRoles {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToRoles.attributeTypeMap;
   }

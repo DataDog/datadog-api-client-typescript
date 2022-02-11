@@ -56,8 +56,14 @@ export class TimeseriesWidgetRequest {
   "securityQuery"?: LogQueryDefinition;
   "style"?: WidgetRequestStyle;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
@@ -129,6 +135,9 @@ export class TimeseriesWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return TimeseriesWidgetRequest.attributeTypeMap;
   }

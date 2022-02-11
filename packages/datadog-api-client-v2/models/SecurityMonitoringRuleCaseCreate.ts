@@ -30,8 +30,14 @@ export class SecurityMonitoringRuleCaseCreate {
   "notifications"?: Array<string>;
   "status": SecurityMonitoringRuleSeverity;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     condition: {
       baseName: "condition",
@@ -52,6 +58,9 @@ export class SecurityMonitoringRuleCaseCreate {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleCaseCreate.attributeTypeMap;
   }

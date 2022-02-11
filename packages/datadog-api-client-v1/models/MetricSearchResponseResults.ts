@@ -20,8 +20,14 @@ export class MetricSearchResponseResults {
    */
   "metrics"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metrics: {
       baseName: "metrics",
@@ -29,6 +35,9 @@ export class MetricSearchResponseResults {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricSearchResponseResults.attributeTypeMap;
   }

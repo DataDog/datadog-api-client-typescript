@@ -66,8 +66,14 @@ export class TableWidgetRequest {
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
       baseName: "aggregator",
@@ -148,6 +154,9 @@ export class TableWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return TableWidgetRequest.attributeTypeMap;
   }

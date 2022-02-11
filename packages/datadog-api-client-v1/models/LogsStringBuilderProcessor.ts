@@ -38,8 +38,14 @@ export class LogsStringBuilderProcessor {
   "template": string;
   "type": LogsStringBuilderProcessorType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     isEnabled: {
       baseName: "is_enabled",
@@ -70,6 +76,9 @@ export class LogsStringBuilderProcessor {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsStringBuilderProcessor.attributeTypeMap;
   }

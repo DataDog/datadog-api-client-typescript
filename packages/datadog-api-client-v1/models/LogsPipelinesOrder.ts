@@ -20,8 +20,14 @@ export class LogsPipelinesOrder {
    */
   "pipelineIds": Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     pipelineIds: {
       baseName: "pipeline_ids",
@@ -30,6 +36,9 @@ export class LogsPipelinesOrder {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsPipelinesOrder.attributeTypeMap;
   }

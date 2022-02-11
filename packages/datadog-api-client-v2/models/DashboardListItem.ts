@@ -60,8 +60,14 @@ export class DashboardListItem {
    */
   "url"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     author: {
       baseName: "author",
@@ -118,6 +124,9 @@ export class DashboardListItem {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardListItem.attributeTypeMap;
   }

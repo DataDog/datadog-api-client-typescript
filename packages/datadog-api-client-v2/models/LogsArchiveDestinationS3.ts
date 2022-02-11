@@ -28,8 +28,14 @@ export class LogsArchiveDestinationS3 {
   "path"?: string;
   "type": LogsArchiveDestinationS3Type;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     bucket: {
       baseName: "bucket",
@@ -52,6 +58,9 @@ export class LogsArchiveDestinationS3 {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveDestinationS3.attributeTypeMap;
   }

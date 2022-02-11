@@ -32,8 +32,14 @@ export class LogsAggregateRequest {
   "options"?: LogsQueryOptions;
   "page"?: LogsAggregateRequestPage;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
       baseName: "compute",
@@ -57,6 +63,9 @@ export class LogsAggregateRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateRequest.attributeTypeMap;
   }

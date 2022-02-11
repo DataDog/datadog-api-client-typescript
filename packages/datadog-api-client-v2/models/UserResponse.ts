@@ -23,8 +23,14 @@ export class UserResponse {
    */
   "included"?: Array<UserResponseIncludedItem>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -36,6 +42,9 @@ export class UserResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserResponse.attributeTypeMap;
   }

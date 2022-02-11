@@ -24,8 +24,14 @@ export class AWSLogsAsyncError {
    */
   "message"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
       baseName: "code",
@@ -37,6 +43,9 @@ export class AWSLogsAsyncError {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSLogsAsyncError.attributeTypeMap;
   }

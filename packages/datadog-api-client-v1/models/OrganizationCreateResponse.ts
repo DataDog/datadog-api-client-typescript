@@ -24,8 +24,14 @@ export class OrganizationCreateResponse {
   "org"?: Organization;
   "user"?: User;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
@@ -45,6 +51,9 @@ export class OrganizationCreateResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationCreateResponse.attributeTypeMap;
   }

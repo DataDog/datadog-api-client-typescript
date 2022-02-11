@@ -24,8 +24,14 @@ export class AWSLogsListServicesResponse {
    */
   "label"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -37,6 +43,9 @@ export class AWSLogsListServicesResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSLogsListServicesResponse.attributeTypeMap;
   }

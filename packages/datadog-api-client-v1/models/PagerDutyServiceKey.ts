@@ -20,8 +20,14 @@ export class PagerDutyServiceKey {
    */
   "serviceKey": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     serviceKey: {
       baseName: "service_key",
@@ -30,6 +36,9 @@ export class PagerDutyServiceKey {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return PagerDutyServiceKey.attributeTypeMap;
   }

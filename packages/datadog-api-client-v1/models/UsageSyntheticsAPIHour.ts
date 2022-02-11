@@ -24,8 +24,14 @@ export class UsageSyntheticsAPIHour {
    */
   "hour"?: Date;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     checkCallsCount: {
       baseName: "check_calls_count",
@@ -39,6 +45,9 @@ export class UsageSyntheticsAPIHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSyntheticsAPIHour.attributeTypeMap;
   }

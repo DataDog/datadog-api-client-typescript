@@ -29,8 +29,14 @@ export class HostListResponse {
    */
   "totalReturned"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hostList: {
       baseName: "host_list",
@@ -48,6 +54,9 @@ export class HostListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostListResponse.attributeTypeMap;
   }

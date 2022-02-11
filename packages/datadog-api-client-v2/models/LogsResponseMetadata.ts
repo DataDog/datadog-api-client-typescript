@@ -33,8 +33,14 @@ export class LogsResponseMetadata {
    */
   "warnings"?: Array<LogsWarning>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     elapsed: {
       baseName: "elapsed",
@@ -59,6 +65,9 @@ export class LogsResponseMetadata {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsResponseMetadata.attributeTypeMap;
   }

@@ -36,8 +36,14 @@ export class AuthNMappingAttributes {
    */
   "samlAssertionAttributeId"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributeKey: {
       baseName: "attribute_key",
@@ -64,6 +70,9 @@ export class AuthNMappingAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AuthNMappingAttributes.attributeTypeMap;
   }

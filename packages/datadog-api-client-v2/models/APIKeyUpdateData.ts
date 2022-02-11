@@ -24,8 +24,14 @@ export class APIKeyUpdateData {
   "id": string;
   "type": APIKeysType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -44,6 +50,9 @@ export class APIKeyUpdateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return APIKeyUpdateData.attributeTypeMap;
   }

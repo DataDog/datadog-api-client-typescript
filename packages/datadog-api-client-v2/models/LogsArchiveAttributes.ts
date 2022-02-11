@@ -36,8 +36,14 @@ export class LogsArchiveAttributes {
   "rehydrationTags"?: Array<string>;
   "state"?: LogsArchiveState;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     destination: {
       baseName: "destination",
@@ -68,6 +74,9 @@ export class LogsArchiveAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveAttributes.attributeTypeMap;
   }

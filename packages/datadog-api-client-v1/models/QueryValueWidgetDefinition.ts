@@ -53,8 +53,14 @@ export class QueryValueWidgetDefinition {
   "titleSize"?: string;
   "type": QueryValueWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     autoscale: {
       baseName: "autoscale",
@@ -105,6 +111,9 @@ export class QueryValueWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return QueryValueWidgetDefinition.attributeTypeMap;
   }

@@ -32,8 +32,14 @@ export class FreeTextWidgetDefinition {
   "textAlign"?: WidgetTextAlign;
   "type": FreeTextWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     color: {
       baseName: "color",
@@ -59,6 +65,9 @@ export class FreeTextWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FreeTextWidgetDefinition.attributeTypeMap;
   }

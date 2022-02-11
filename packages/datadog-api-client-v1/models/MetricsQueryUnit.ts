@@ -36,8 +36,14 @@ export class MetricsQueryUnit {
    */
   "shortName"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     family: {
       baseName: "family",
@@ -62,6 +68,9 @@ export class MetricsQueryUnit {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsQueryUnit.attributeTypeMap;
   }

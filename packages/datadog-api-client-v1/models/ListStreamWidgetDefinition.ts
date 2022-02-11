@@ -43,8 +43,14 @@ export class ListStreamWidgetDefinition {
   "titleSize"?: string;
   "type": ListStreamWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     legendSize: {
       baseName: "legend_size",
@@ -82,6 +88,9 @@ export class ListStreamWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ListStreamWidgetDefinition.attributeTypeMap;
   }

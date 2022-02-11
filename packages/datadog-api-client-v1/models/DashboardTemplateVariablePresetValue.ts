@@ -24,8 +24,14 @@ export class DashboardTemplateVariablePresetValue {
    */
   "value"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
@@ -37,6 +43,9 @@ export class DashboardTemplateVariablePresetValue {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardTemplateVariablePresetValue.attributeTypeMap;
   }

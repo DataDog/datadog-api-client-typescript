@@ -24,8 +24,14 @@ export class EventQueryDefinition {
    */
   "tagsExecution": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     search: {
       baseName: "search",
@@ -39,6 +45,9 @@ export class EventQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return EventQueryDefinition.attributeTypeMap;
   }
