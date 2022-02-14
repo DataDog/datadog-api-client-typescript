@@ -8,24 +8,21 @@
  * Do not edit the class manually.
  */
 
-import { FunnelSource } from "./FunnelSource";
-import { FunnelStep } from "./FunnelStep";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
- * Updated funnel widget.
+ * The funnel step.
  */
 
-export class FunnelQuery {
-  "dataSource": FunnelSource;
+export class FunnelStep {
   /**
-   * The widget query.
+   * The facet of the step.
    */
-  "queryString": string;
+  "facet": string;
   /**
-   * List of funnel steps.
+   * The value of the step.
    */
-  "steps": Array<FunnelStep>;
+  "value": string;
 
   /**
    * @ignore
@@ -36,19 +33,14 @@ export class FunnelQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "FunnelSource",
-      required: true,
-    },
-    queryString: {
-      baseName: "query_string",
+    facet: {
+      baseName: "facet",
       type: "string",
       required: true,
     },
-    steps: {
-      baseName: "steps",
-      type: "Array<FunnelStep>",
+    value: {
+      baseName: "value",
+      type: "string",
       required: true,
     },
   };
@@ -57,7 +49,7 @@ export class FunnelQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelQuery.attributeTypeMap;
+    return FunnelStep.attributeTypeMap;
   }
 
   public constructor() {}

@@ -420,6 +420,7 @@ export { FreeTextWidgetDefinitionType } from "./models/FreeTextWidgetDefinitionT
 export { FunnelQuery } from "./models/FunnelQuery";
 export { FunnelRequestType } from "./models/FunnelRequestType";
 export { FunnelSource } from "./models/FunnelSource";
+export { FunnelStep } from "./models/FunnelStep";
 export { FunnelWidgetDefinition } from "./models/FunnelWidgetDefinition";
 export { FunnelWidgetDefinitionType } from "./models/FunnelWidgetDefinitionType";
 export { FunnelWidgetRequest } from "./models/FunnelWidgetRequest";
