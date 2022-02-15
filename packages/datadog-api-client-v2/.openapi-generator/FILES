@@ -246,6 +246,16 @@ models/Metric.ts
 models/MetricAllTags.ts
 models/MetricAllTagsAttributes.ts
 models/MetricAllTagsResponse.ts
+models/MetricBulkConfigureTagsType.ts
+models/MetricBulkTagConfigCreate.ts
+models/MetricBulkTagConfigCreateAttributes.ts
+models/MetricBulkTagConfigCreateRequest.ts
+models/MetricBulkTagConfigDelete.ts
+models/MetricBulkTagConfigDeleteAttributes.ts
+models/MetricBulkTagConfigDeleteRequest.ts
+models/MetricBulkTagConfigResponse.ts
+models/MetricBulkTagConfigStatus.ts
+models/MetricBulkTagConfigStatusAttributes.ts
 models/MetricCustomAggregation.ts
 models/MetricCustomSpaceAggregation.ts
 models/MetricCustomTimeAggregation.ts
