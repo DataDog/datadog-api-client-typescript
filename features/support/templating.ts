@@ -55,6 +55,9 @@ function relativeTime(iso: boolean): any {
 function pathLookup(data: any, dottedPath: string): any {
   let result = data;
   for (const dotPath of dottedPath.split(".")) {
+    if (dotPath === "") {
+      continue;
+    }
     for (const part of dotPath.split("[")) {
       if (part.includes("]")) {
         const results = result as any[];

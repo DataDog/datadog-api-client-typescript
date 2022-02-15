@@ -106,7 +106,9 @@ export {
 } from "./apis/LogsMetricsApi";
 
 export {
+  MetricsApiCreateBulkTagsMetricsConfigurationRequest,
   MetricsApiCreateTagConfigurationRequest,
+  MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiListTagConfigurationByNameRequest,
   MetricsApiListTagConfigurationsRequest,
@@ -382,6 +384,16 @@ export { Metric } from "./models/Metric";
 export { MetricAllTags } from "./models/MetricAllTags";
 export { MetricAllTagsAttributes } from "./models/MetricAllTagsAttributes";
 export { MetricAllTagsResponse } from "./models/MetricAllTagsResponse";
+export { MetricBulkConfigureTagsType } from "./models/MetricBulkConfigureTagsType";
+export { MetricBulkTagConfigCreate } from "./models/MetricBulkTagConfigCreate";
+export { MetricBulkTagConfigCreateAttributes } from "./models/MetricBulkTagConfigCreateAttributes";
+export { MetricBulkTagConfigCreateRequest } from "./models/MetricBulkTagConfigCreateRequest";
+export { MetricBulkTagConfigDelete } from "./models/MetricBulkTagConfigDelete";
+export { MetricBulkTagConfigDeleteAttributes } from "./models/MetricBulkTagConfigDeleteAttributes";
+export { MetricBulkTagConfigDeleteRequest } from "./models/MetricBulkTagConfigDeleteRequest";
+export { MetricBulkTagConfigResponse } from "./models/MetricBulkTagConfigResponse";
+export { MetricBulkTagConfigStatus } from "./models/MetricBulkTagConfigStatus";
+export { MetricBulkTagConfigStatusAttributes } from "./models/MetricBulkTagConfigStatusAttributes";
 export { MetricCustomAggregation } from "./models/MetricCustomAggregation";
 export { MetricCustomSpaceAggregation } from "./models/MetricCustomSpaceAggregation";
 export { MetricCustomTimeAggregation } from "./models/MetricCustomTimeAggregation";
