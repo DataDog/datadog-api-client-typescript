@@ -76,6 +76,7 @@ import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMet
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
 import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
 import { FunnelQuery } from "./FunnelQuery";
+import { FunnelStep } from "./FunnelStep";
 import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
 import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
 import { GCPAccount } from "./GCPAccount";
@@ -1244,6 +1245,7 @@ const typeMap: { [index: string]: any } = {
     FormulaAndFunctionProcessQueryDefinition,
   FreeTextWidgetDefinition: FreeTextWidgetDefinition,
   FunnelQuery: FunnelQuery,
+  FunnelStep: FunnelStep,
   FunnelWidgetDefinition: FunnelWidgetDefinition,
   FunnelWidgetRequest: FunnelWidgetRequest,
   GCPAccount: GCPAccount,
