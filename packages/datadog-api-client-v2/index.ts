@@ -267,6 +267,8 @@ export { IncidentResponse } from "./models/IncidentResponse";
 export { IncidentResponseAttributes } from "./models/IncidentResponseAttributes";
 export { IncidentResponseData } from "./models/IncidentResponseData";
 export { IncidentResponseIncludedItem } from "./models/IncidentResponseIncludedItem";
+export { IncidentResponseMeta } from "./models/IncidentResponseMeta";
+export { IncidentResponseMetaPagination } from "./models/IncidentResponseMetaPagination";
 export { IncidentResponseRelationships } from "./models/IncidentResponseRelationships";
 export { IncidentServiceCreateAttributes } from "./models/IncidentServiceCreateAttributes";
 export { IncidentServiceCreateData } from "./models/IncidentServiceCreateData";
@@ -281,8 +283,6 @@ export { IncidentServiceUpdateAttributes } from "./models/IncidentServiceUpdateA
 export { IncidentServiceUpdateData } from "./models/IncidentServiceUpdateData";
 export { IncidentServiceUpdateRequest } from "./models/IncidentServiceUpdateRequest";
 export { IncidentServicesResponse } from "./models/IncidentServicesResponse";
-export { IncidentServicesResponseMeta } from "./models/IncidentServicesResponseMeta";
-export { IncidentServicesResponseMetaPagination } from "./models/IncidentServicesResponseMetaPagination";
 export { IncidentTeamCreateAttributes } from "./models/IncidentTeamCreateAttributes";
 export { IncidentTeamCreateData } from "./models/IncidentTeamCreateData";
 export { IncidentTeamCreateRequest } from "./models/IncidentTeamCreateRequest";

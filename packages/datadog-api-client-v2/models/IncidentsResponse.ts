@@ -10,7 +10,7 @@
 
 import { IncidentResponseData } from "./IncidentResponseData";
 import { IncidentResponseIncludedItem } from "./IncidentResponseIncludedItem";
-import { IncidentServicesResponseMeta } from "./IncidentServicesResponseMeta";
+import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
@@ -26,7 +26,7 @@ export class IncidentsResponse {
    * Included related resources that the user requested.
    */
   "included"?: Array<IncidentResponseIncludedItem>;
-  "meta"?: IncidentServicesResponseMeta;
+  "meta"?: IncidentResponseMeta;
 
   /**
    * @ignore
@@ -48,7 +48,7 @@ export class IncidentsResponse {
     },
     meta: {
       baseName: "meta",
-      type: "IncidentServicesResponseMeta",
+      type: "IncidentResponseMeta",
     },
   };
 
