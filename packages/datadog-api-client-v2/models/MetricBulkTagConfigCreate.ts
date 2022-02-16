@@ -8,24 +8,21 @@
  * Do not edit the class manually.
  */
 
-import { FunnelSource } from "./FunnelSource";
-import { FunnelStep } from "./FunnelStep";
+import { MetricBulkConfigureTagsType } from "./MetricBulkConfigureTagsType";
+import { MetricBulkTagConfigCreateAttributes } from "./MetricBulkTagConfigCreateAttributes";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
- * Updated funnel widget.
+ * Request object to bulk configure tags for metrics matching the given prefix.
  */
 
-export class FunnelQuery {
-  "dataSource": FunnelSource;
+export class MetricBulkTagConfigCreate {
+  "attributes"?: MetricBulkTagConfigCreateAttributes;
   /**
-   * The widget query.
+   * A text prefix to match against metric names.
    */
-  "queryString": string;
-  /**
-   * List of funnel steps.
-   */
-  "steps": Array<FunnelStep>;
+  "id": string;
+  "type": MetricBulkConfigureTagsType;
 
   /**
    * @ignore
@@ -36,19 +33,18 @@ export class FunnelQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "FunnelSource",
-      required: true,
+    attributes: {
+      baseName: "attributes",
+      type: "MetricBulkTagConfigCreateAttributes",
     },
-    queryString: {
-      baseName: "query_string",
+    id: {
+      baseName: "id",
       type: "string",
       required: true,
     },
-    steps: {
-      baseName: "steps",
-      type: "Array<FunnelStep>",
+    type: {
+      baseName: "type",
+      type: "MetricBulkConfigureTagsType",
       required: true,
     },
   };
@@ -57,7 +53,7 @@ export class FunnelQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelQuery.attributeTypeMap;
+    return MetricBulkTagConfigCreate.attributeTypeMap;
   }
 
   public constructor() {}

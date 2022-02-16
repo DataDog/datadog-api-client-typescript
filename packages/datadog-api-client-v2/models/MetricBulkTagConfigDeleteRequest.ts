@@ -8,24 +8,15 @@
  * Do not edit the class manually.
  */
 
-import { FunnelSource } from "./FunnelSource";
-import { FunnelStep } from "./FunnelStep";
+import { MetricBulkTagConfigDelete } from "./MetricBulkTagConfigDelete";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
- * Updated funnel widget.
+ * Wrapper object for a single bulk tag deletion request.
  */
 
-export class FunnelQuery {
-  "dataSource": FunnelSource;
-  /**
-   * The widget query.
-   */
-  "queryString": string;
-  /**
-   * List of funnel steps.
-   */
-  "steps": Array<FunnelStep>;
+export class MetricBulkTagConfigDeleteRequest {
+  "data": MetricBulkTagConfigDelete;
 
   /**
    * @ignore
@@ -36,19 +27,9 @@ export class FunnelQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    dataSource: {
-      baseName: "data_source",
-      type: "FunnelSource",
-      required: true,
-    },
-    queryString: {
-      baseName: "query_string",
-      type: "string",
-      required: true,
-    },
-    steps: {
-      baseName: "steps",
-      type: "Array<FunnelStep>",
+    data: {
+      baseName: "data",
+      type: "MetricBulkTagConfigDelete",
       required: true,
     },
   };
@@ -57,7 +38,7 @@ export class FunnelQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelQuery.attributeTypeMap;
+    return MetricBulkTagConfigDeleteRequest.attributeTypeMap;
   }
 
   public constructor() {}

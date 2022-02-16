@@ -159,6 +159,15 @@ import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
 import { MetricAllTagsResponse } from "./MetricAllTagsResponse";
+import { MetricBulkTagConfigCreate } from "./MetricBulkTagConfigCreate";
+import { MetricBulkTagConfigCreateAttributes } from "./MetricBulkTagConfigCreateAttributes";
+import { MetricBulkTagConfigCreateRequest } from "./MetricBulkTagConfigCreateRequest";
+import { MetricBulkTagConfigDelete } from "./MetricBulkTagConfigDelete";
+import { MetricBulkTagConfigDeleteAttributes } from "./MetricBulkTagConfigDeleteAttributes";
+import { MetricBulkTagConfigDeleteRequest } from "./MetricBulkTagConfigDeleteRequest";
+import { MetricBulkTagConfigResponse } from "./MetricBulkTagConfigResponse";
+import { MetricBulkTagConfigStatus } from "./MetricBulkTagConfigStatus";
+import { MetricBulkTagConfigStatusAttributes } from "./MetricBulkTagConfigStatusAttributes";
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricDistinctVolume } from "./MetricDistinctVolume";
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
@@ -394,6 +403,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsMetricType: ["logs_metrics"],
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
+  MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
   MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
   MetricDistinctVolumeType: ["distinct_metric_volumes"],
@@ -632,6 +642,15 @@ const typeMap: { [index: string]: any } = {
   MetricAllTags: MetricAllTags,
   MetricAllTagsAttributes: MetricAllTagsAttributes,
   MetricAllTagsResponse: MetricAllTagsResponse,
+  MetricBulkTagConfigCreate: MetricBulkTagConfigCreate,
+  MetricBulkTagConfigCreateAttributes: MetricBulkTagConfigCreateAttributes,
+  MetricBulkTagConfigCreateRequest: MetricBulkTagConfigCreateRequest,
+  MetricBulkTagConfigDelete: MetricBulkTagConfigDelete,
+  MetricBulkTagConfigDeleteAttributes: MetricBulkTagConfigDeleteAttributes,
+  MetricBulkTagConfigDeleteRequest: MetricBulkTagConfigDeleteRequest,
+  MetricBulkTagConfigResponse: MetricBulkTagConfigResponse,
+  MetricBulkTagConfigStatus: MetricBulkTagConfigStatus,
+  MetricBulkTagConfigStatusAttributes: MetricBulkTagConfigStatusAttributes,
   MetricCustomAggregation: MetricCustomAggregation,
   MetricDistinctVolume: MetricDistinctVolume,
   MetricDistinctVolumeAttributes: MetricDistinctVolumeAttributes,

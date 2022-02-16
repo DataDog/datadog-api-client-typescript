@@ -12,6 +12,9 @@ import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { MetricAllTagsResponse } from "../models/MetricAllTagsResponse";
+import { MetricBulkTagConfigCreateRequest } from "../models/MetricBulkTagConfigCreateRequest";
+import { MetricBulkTagConfigDeleteRequest } from "../models/MetricBulkTagConfigDeleteRequest";
+import { MetricBulkTagConfigResponse } from "../models/MetricBulkTagConfigResponse";
 import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigurationCreateRequest";
 import { MetricTagConfigurationMetricTypes } from "../models/MetricTagConfigurationMetricTypes";
 import { MetricTagConfigurationResponse } from "../models/MetricTagConfigurationResponse";
@@ -20,6 +23,51 @@ import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
+  public async createBulkTagsMetricsConfiguration(
+    body: MetricBulkTagConfigCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling createBulkTagsMetricsConfiguration."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/config/bulk-tags";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "MetricsApi.createBulkTagsMetricsConfiguration"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MetricBulkTagConfigCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationCreateRequest,
@@ -79,6 +127,51 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteBulkTagsMetricsConfiguration(
+    body: MetricBulkTagConfigDeleteRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling deleteBulkTagsMetricsConfiguration."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/config/bulk-tags";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "MetricsApi.deleteBulkTagsMetricsConfiguration"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MetricBulkTagConfigDeleteRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -397,6 +490,77 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createBulkTagsMetricsConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createBulkTagsMetricsConfiguration(
+    response: ResponseContext
+  ): Promise<MetricBulkTagConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("202", response.httpStatusCode)) {
+      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricBulkTagConfigResponse",
+        ""
+      ) as MetricBulkTagConfigResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricBulkTagConfigResponse",
+        ""
+      ) as MetricBulkTagConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createTagConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -454,6 +618,77 @@ export class MetricsApiResponseProcessor {
         "MetricTagConfigurationResponse",
         ""
       ) as MetricTagConfigurationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteBulkTagsMetricsConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteBulkTagsMetricsConfiguration(
+    response: ResponseContext
+  ): Promise<MetricBulkTagConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("202", response.httpStatusCode)) {
+      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricBulkTagConfigResponse",
+        ""
+      ) as MetricBulkTagConfigResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricBulkTagConfigResponse",
+        ""
+      ) as MetricBulkTagConfigResponse;
       return body;
     }
 
@@ -864,6 +1099,14 @@ export class MetricsApiResponseProcessor {
   }
 }
 
+export interface MetricsApiCreateBulkTagsMetricsConfigurationRequest {
+  /**
+   *
+   * @type MetricBulkTagConfigCreateRequest
+   */
+  body: MetricBulkTagConfigCreateRequest;
+}
+
 export interface MetricsApiCreateTagConfigurationRequest {
   /**
    * The name of the metric.
@@ -875,6 +1118,14 @@ export interface MetricsApiCreateTagConfigurationRequest {
    * @type MetricTagConfigurationCreateRequest
    */
   body: MetricTagConfigurationCreateRequest;
+}
+
+export interface MetricsApiDeleteBulkTagsMetricsConfigurationRequest {
+  /**
+   *
+   * @type MetricBulkTagConfigDeleteRequest
+   */
+  body: MetricBulkTagConfigDeleteRequest;
 }
 
 export interface MetricsApiDeleteTagConfigurationRequest {
@@ -973,6 +1224,30 @@ export class MetricsApi {
   }
 
   /**
+   * Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics. Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations. Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app. If multiple calls include the same metric, the last configuration applied (not by submit order) is used, do not expect deterministic ordering of concurrent calls. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public createBulkTagsMetricsConfiguration(
+    param: MetricsApiCreateBulkTagsMetricsConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricBulkTagConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.createBulkTagsMetricsConfiguration(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createBulkTagsMetricsConfiguration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
@@ -990,6 +1265,30 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createTagConfiguration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics. Metrics are selected by passing a metric name prefix. Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public deleteBulkTagsMetricsConfiguration(
+    param: MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricBulkTagConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.deleteBulkTagsMetricsConfiguration(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteBulkTagsMetricsConfiguration(
+            responseContext
+          );
         });
     });
   }
