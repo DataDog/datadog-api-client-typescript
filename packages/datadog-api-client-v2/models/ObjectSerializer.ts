@@ -69,6 +69,8 @@ import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseData } from "./IncidentResponseData";
+import { IncidentResponseMeta } from "./IncidentResponseMeta";
+import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 import { IncidentResponseRelationships } from "./IncidentResponseRelationships";
 import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
 import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
@@ -81,8 +83,6 @@ import { IncidentServiceUpdateAttributes } from "./IncidentServiceUpdateAttribut
 import { IncidentServiceUpdateData } from "./IncidentServiceUpdateData";
 import { IncidentServiceUpdateRequest } from "./IncidentServiceUpdateRequest";
 import { IncidentServicesResponse } from "./IncidentServicesResponse";
-import { IncidentServicesResponseMeta } from "./IncidentServicesResponseMeta";
-import { IncidentServicesResponseMetaPagination } from "./IncidentServicesResponseMetaPagination";
 import { IncidentTeamCreateAttributes } from "./IncidentTeamCreateAttributes";
 import { IncidentTeamCreateData } from "./IncidentTeamCreateData";
 import { IncidentTeamCreateRequest } from "./IncidentTeamCreateRequest";
@@ -548,6 +548,8 @@ const typeMap: { [index: string]: any } = {
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
   IncidentResponseData: IncidentResponseData,
+  IncidentResponseMeta: IncidentResponseMeta,
+  IncidentResponseMetaPagination: IncidentResponseMetaPagination,
   IncidentResponseRelationships: IncidentResponseRelationships,
   IncidentServiceCreateAttributes: IncidentServiceCreateAttributes,
   IncidentServiceCreateData: IncidentServiceCreateData,
@@ -560,9 +562,6 @@ const typeMap: { [index: string]: any } = {
   IncidentServiceUpdateData: IncidentServiceUpdateData,
   IncidentServiceUpdateRequest: IncidentServiceUpdateRequest,
   IncidentServicesResponse: IncidentServicesResponse,
-  IncidentServicesResponseMeta: IncidentServicesResponseMeta,
-  IncidentServicesResponseMetaPagination:
-    IncidentServicesResponseMetaPagination,
   IncidentTeamCreateAttributes: IncidentTeamCreateAttributes,
   IncidentTeamCreateData: IncidentTeamCreateData,
   IncidentTeamCreateRequest: IncidentTeamCreateRequest,

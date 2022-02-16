@@ -129,6 +129,8 @@ models/IncidentResponse.ts
 models/IncidentResponseAttributes.ts
 models/IncidentResponseData.ts
 models/IncidentResponseIncludedItem.ts
+models/IncidentResponseMeta.ts
+models/IncidentResponseMetaPagination.ts
 models/IncidentResponseRelationships.ts
 models/IncidentServiceCreateAttributes.ts
 models/IncidentServiceCreateData.ts
@@ -143,8 +145,6 @@ models/IncidentServiceUpdateAttributes.ts
 models/IncidentServiceUpdateData.ts
 models/IncidentServiceUpdateRequest.ts
 models/IncidentServicesResponse.ts
-models/IncidentServicesResponseMeta.ts
-models/IncidentServicesResponseMetaPagination.ts
 models/IncidentTeamCreateAttributes.ts
 models/IncidentTeamCreateData.ts
 models/IncidentTeamCreateRequest.ts

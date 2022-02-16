@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServicesResponseMeta } from "./IncidentServicesResponseMeta";
+import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentTeamIncludedItems } from "./IncidentTeamIncludedItems";
 import { IncidentTeamResponseData } from "./IncidentTeamResponseData";
 import { AttributeTypeMap } from "./ObjectSerializer";
@@ -26,7 +26,7 @@ export class IncidentTeamsResponse {
    * Included related resources which the user requested.
    */
   "included"?: Array<IncidentTeamIncludedItems>;
-  "meta"?: IncidentServicesResponseMeta;
+  "meta"?: IncidentResponseMeta;
 
   /**
    * @ignore
@@ -48,7 +48,7 @@ export class IncidentTeamsResponse {
     },
     meta: {
       baseName: "meta",
-      type: "IncidentServicesResponseMeta",
+      type: "IncidentResponseMeta",
     },
   };
 

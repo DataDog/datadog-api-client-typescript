@@ -8,15 +8,25 @@
  * Do not edit the class manually.
  */
 
-import { IncidentServicesResponseMetaPagination } from "./IncidentServicesResponseMetaPagination";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
- * The metadata object containing pagination metadata.
+ * Pagination properties.
  */
 
-export class IncidentServicesResponseMeta {
-  "pagination"?: IncidentServicesResponseMetaPagination;
+export class IncidentResponseMetaPagination {
+  /**
+   * The index of the first element in the next page of results. Equal to page size added to the current offset.
+   */
+  "nextOffset"?: number;
+  /**
+   * The index of the first element in the results.
+   */
+  "offset"?: number;
+  /**
+   * Maximum size of pages to return.
+   */
+  "size"?: number;
 
   /**
    * @ignore
@@ -27,9 +37,20 @@ export class IncidentServicesResponseMeta {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pagination: {
-      baseName: "pagination",
-      type: "IncidentServicesResponseMetaPagination",
+    nextOffset: {
+      baseName: "next_offset",
+      type: "number",
+      format: "int64",
+    },
+    offset: {
+      baseName: "offset",
+      type: "number",
+      format: "int64",
+    },
+    size: {
+      baseName: "size",
+      type: "number",
+      format: "int64",
     },
   };
 
@@ -37,7 +58,7 @@ export class IncidentServicesResponseMeta {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServicesResponseMeta.attributeTypeMap;
+    return IncidentResponseMetaPagination.attributeTypeMap;
   }
 
   public constructor() {}
