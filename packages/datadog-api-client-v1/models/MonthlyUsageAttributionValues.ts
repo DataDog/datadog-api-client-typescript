@@ -56,6 +56,14 @@ export class MonthlyUsageAttributionValues {
    */
   "customTimeseriesUsage"?: number;
   /**
+   * The percentage of estimated live indexed logs usage by tag(s). This field is in private beta.
+   */
+  "estimatedIndexedLogsPercentage"?: number;
+  /**
+   * The estimated live indexed logs usage by tag(s). This field is in private beta.
+   */
+  "estimatedIndexedLogsUsage"?: number;
+  /**
    * The percentage of Fargate usage by tags.
    */
   "fargatePercentage"?: number;
@@ -184,6 +192,16 @@ export class MonthlyUsageAttributionValues {
     },
     customTimeseriesUsage: {
       baseName: "custom_timeseries_usage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIndexedLogsPercentage: {
+      baseName: "estimated_indexed_logs_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIndexedLogsUsage: {
+      baseName: "estimated_indexed_logs_usage",
       type: "number",
       format: "double",
     },
