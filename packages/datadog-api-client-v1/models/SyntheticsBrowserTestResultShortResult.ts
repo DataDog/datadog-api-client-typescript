@@ -18,7 +18,7 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class SyntheticsBrowserTestResultShortResult {
   "device"?: SyntheticsDevice;
   /**
-   * Length in second of the browser test run.
+   * Length in milliseconds of the browser test run.
    */
   "duration"?: number;
   /**
