@@ -31,6 +31,14 @@ export class UsageTimeseriesHour {
    * Contains sum of non-aggregation custom metrics and custom metrics that are outputs for aggregations.
    */
   "numCustomTimeseries"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
   /**
    * @ignore
@@ -60,6 +68,14 @@ export class UsageTimeseriesHour {
       baseName: "num_custom_timeseries",
       type: "number",
       format: "int64",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
   };
 
