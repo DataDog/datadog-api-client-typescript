@@ -631,7 +631,7 @@ export interface AuthNMappingsApiListAuthNMappingsRequest {
    */
   sort?: AuthNMappingsSort;
   /**
-   *
+   * Include additional information in the response.
    * @type Array&lt;string&gt;
    */
   include?: Array<string>;
