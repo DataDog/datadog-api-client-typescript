@@ -108,6 +108,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
 
+      "application/json;simple",
+
       "application/logplex-1",
 
       "text/plain",
