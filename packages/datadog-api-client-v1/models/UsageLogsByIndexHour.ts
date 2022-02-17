@@ -32,6 +32,14 @@ export class UsageLogsByIndexHour {
    */
   "indexName"?: string;
   /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
+  /**
    * The retention period (in days) for this index ID.
    */
   "retention"?: number;
@@ -61,6 +69,14 @@ export class UsageLogsByIndexHour {
     },
     indexName: {
       baseName: "index_name",
+      type: "string",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
       type: "string",
     },
     retention: {

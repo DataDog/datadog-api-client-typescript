@@ -24,6 +24,14 @@ export class UsageLogsByRetentionHour {
    */
   "liveIndexedEventsCount"?: number;
   /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
+  /**
    * Rehydrated logs indexed with this retention period during a given hour.
    */
   "rehydratedIndexedEventsCount"?: number;
@@ -50,6 +58,14 @@ export class UsageLogsByRetentionHour {
       baseName: "live_indexed_events_count",
       type: "number",
       format: "int64",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
     rehydratedIndexedEventsCount: {
       baseName: "rehydrated_indexed_events_count",

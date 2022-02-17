@@ -27,6 +27,14 @@ export class UsageLambdaHour {
    * Contains the sum of invocations of all functions.
    */
   "invocationsSum"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
   /**
    * @ignore
@@ -51,6 +59,14 @@ export class UsageLambdaHour {
       baseName: "invocations_sum",
       type: "number",
       format: "int64",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
   };
 

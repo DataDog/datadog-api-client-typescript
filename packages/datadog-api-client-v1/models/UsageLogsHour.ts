@@ -47,6 +47,14 @@ export class UsageLogsHour {
    * Contains the number of rehydrated log bytes ingested (data available as of December 1, 2020).
    */
   "logsRehydratedIngestedBytes"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
   /**
    * @ignore
@@ -96,6 +104,14 @@ export class UsageLogsHour {
       baseName: "logs_rehydrated_ingested_bytes",
       type: "number",
       format: "int64",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
   };
 
