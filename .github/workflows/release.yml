@@ -59,7 +59,7 @@ jobs:
         with:
           node-version: 14
 
-      - name: Bump Gem version
+      - name: Bump version
         run: |
           git switch -c "${POST_RELEASE_BRANCH}"
           # TODO remove beta after 1.0.0 release
