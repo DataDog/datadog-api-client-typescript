@@ -22,8 +22,14 @@ export class IncidentFieldAttributesSingleValue {
    */
   "value"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
@@ -35,6 +41,9 @@ export class IncidentFieldAttributesSingleValue {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentFieldAttributesSingleValue.attributeTypeMap;
   }

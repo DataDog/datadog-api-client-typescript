@@ -41,8 +41,14 @@ export class AlertValueWidgetDefinition {
    */
   "unit"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alertId: {
       baseName: "alert_id",
@@ -81,6 +87,9 @@ export class AlertValueWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AlertValueWidgetDefinition.attributeTypeMap;
   }

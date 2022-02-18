@@ -44,8 +44,14 @@ export class ScatterPlotWidgetDefinition {
   "xaxis"?: WidgetAxis;
   "yaxis"?: WidgetAxis;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     colorByGroups: {
       baseName: "color_by_groups",
@@ -91,6 +97,9 @@ export class ScatterPlotWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterPlotWidgetDefinition.attributeTypeMap;
   }

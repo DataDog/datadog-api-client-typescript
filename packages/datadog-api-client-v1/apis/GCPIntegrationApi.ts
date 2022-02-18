@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -13,15 +12,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GCPAccount } from "../models/GCPAccount";
 
-/**
- * no description
- */
 export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create a Datadog-GCP integration.
-   * Create a GCP integration
-   * @param body Create a Datadog-GCP integration.
-   */
   public async createGCPIntegration(
     body: GCPAccount,
     _options?: Configuration
@@ -66,11 +57,6 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a given Datadog-GCP integration.
-   * Delete a GCP integration
-   * @param body Delete a given Datadog-GCP integration.
-   */
   public async deleteGCPIntegration(
     body: GCPAccount,
     _options?: Configuration
@@ -115,10 +101,6 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * List all Datadog-GCP integrations configured in your Datadog account.
-   * List all GCP integrations
-   */
   public async listGCPIntegration(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -144,11 +126,6 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `project_id` and `client_email`, however these fields cannot be updated. If you need to update these fields, delete and use the create (`POST`) endpoint. The unspecified fields will keep their original values.
-   * Update a GCP integration
-   * @param body Update a Datadog-GCP integration.
-   */
   public async updateGCPIntegration(
     body: GCPAccount,
     _options?: Configuration
@@ -439,5 +416,128 @@ export class GCPIntegrationApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface GCPIntegrationApiCreateGCPIntegrationRequest {
+  /**
+   * Create a Datadog-GCP integration.
+   * @type GCPAccount
+   */
+  body: GCPAccount;
+}
+
+export interface GCPIntegrationApiDeleteGCPIntegrationRequest {
+  /**
+   * Delete a given Datadog-GCP integration.
+   * @type GCPAccount
+   */
+  body: GCPAccount;
+}
+
+export interface GCPIntegrationApiUpdateGCPIntegrationRequest {
+  /**
+   * Update a Datadog-GCP integration.
+   * @type GCPAccount
+   */
+  body: GCPAccount;
+}
+
+export class GCPIntegrationApi {
+  private requestFactory: GCPIntegrationApiRequestFactory;
+  private responseProcessor: GCPIntegrationApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: GCPIntegrationApiRequestFactory,
+    responseProcessor?: GCPIntegrationApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new GCPIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new GCPIntegrationApiResponseProcessor();
+  }
+
+  /**
+   * Create a Datadog-GCP integration.
+   * @param param The request object
+   */
+  public createGCPIntegration(
+    param: GCPIntegrationApiCreateGCPIntegrationRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.createGCPIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createGCPIntegration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a given Datadog-GCP integration.
+   * @param param The request object
+   */
+  public deleteGCPIntegration(
+    param: GCPIntegrationApiDeleteGCPIntegrationRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.deleteGCPIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteGCPIntegration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all Datadog-GCP integrations configured in your Datadog account.
+   * @param param The request object
+   */
+  public listGCPIntegration(
+    options?: Configuration
+  ): Promise<Array<GCPAccount>> {
+    const requestContextPromise =
+      this.requestFactory.listGCPIntegration(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listGCPIntegration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a Datadog-GCP integrations host_filters and/or auto-mute. Requires a `project_id` and `client_email`, however these fields cannot be updated. If you need to update these fields, delete and use the create (`POST`) endpoint. The unspecified fields will keep their original values.
+   * @param param The request object
+   */
+  public updateGCPIntegration(
+    param: GCPIntegrationApiUpdateGCPIntegrationRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.updateGCPIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateGCPIntegration(responseContext);
+        });
+    });
   }
 }

@@ -36,8 +36,14 @@ export class UsageDBMHour {
    */
   "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dbmHostCount: {
       baseName: "dbm_host_count",
@@ -64,6 +70,9 @@ export class UsageDBMHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageDBMHour.attributeTypeMap;
   }

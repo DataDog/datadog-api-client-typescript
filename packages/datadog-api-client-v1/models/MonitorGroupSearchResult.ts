@@ -42,8 +42,14 @@ export class MonitorGroupSearchResult {
   "monitorName"?: string;
   "status"?: MonitorOverallStates;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     group: {
       baseName: "group",
@@ -78,6 +84,9 @@ export class MonitorGroupSearchResult {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorGroupSearchResult.attributeTypeMap;
   }

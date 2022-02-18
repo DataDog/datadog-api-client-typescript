@@ -34,8 +34,14 @@ export class SyntheticsBasicAuthNTLM {
    */
   "workstation"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     domain: {
       baseName: "domain",
@@ -60,6 +66,9 @@ export class SyntheticsBasicAuthNTLM {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBasicAuthNTLM.attributeTypeMap;
   }

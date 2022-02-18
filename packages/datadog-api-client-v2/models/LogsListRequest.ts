@@ -24,8 +24,14 @@ export class LogsListRequest {
   "page"?: LogsListRequestPage;
   "sort"?: LogsSort;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
@@ -45,6 +51,9 @@ export class LogsListRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListRequest.attributeTypeMap;
   }

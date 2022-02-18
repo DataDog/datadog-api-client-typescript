@@ -36,8 +36,14 @@ export class GeomapWidgetRequest {
   "rumQuery"?: LogQueryDefinition;
   "securityQuery"?: LogQueryDefinition;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     formulas: {
       baseName: "formulas",
@@ -69,6 +75,9 @@ export class GeomapWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return GeomapWidgetRequest.attributeTypeMap;
   }

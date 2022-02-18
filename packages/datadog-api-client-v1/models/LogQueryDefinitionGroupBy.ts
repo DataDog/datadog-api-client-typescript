@@ -26,8 +26,14 @@ export class LogQueryDefinitionGroupBy {
   "limit"?: number;
   "sort"?: LogQueryDefinitionGroupBySort;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
       baseName: "facet",
@@ -45,6 +51,9 @@ export class LogQueryDefinitionGroupBy {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogQueryDefinitionGroupBy.attributeTypeMap;
   }

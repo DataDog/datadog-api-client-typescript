@@ -26,8 +26,14 @@ export class MonitorFormulaAndFunctionEventQueryGroupBy {
   "limit"?: number;
   "sort"?: MonitorFormulaAndFunctionEventQueryGroupBySort;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
       baseName: "facet",
@@ -45,6 +51,9 @@ export class MonitorFormulaAndFunctionEventQueryGroupBy {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorFormulaAndFunctionEventQueryGroupBy.attributeTypeMap;
   }

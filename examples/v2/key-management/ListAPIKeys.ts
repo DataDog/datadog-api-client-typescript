@@ -17,7 +17,7 @@ let params: v2.KeyManagementApiListAPIKeysRequest = {
 
 apiInstance
   .listAPIKeys(params)
-  .then((data: any) => {
+  .then((data: v2.APIKeysResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

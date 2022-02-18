@@ -16,7 +16,7 @@ let params: v1.DashboardListsApiGetDashboardListRequest = {
 
 apiInstance
   .getDashboardList(params)
-  .then((data: any) => {
+  .then((data: v1.DashboardList) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class LogsAPIErrorResponse {
   "error"?: LogsAPIError;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
       baseName: "error",
@@ -27,6 +33,9 @@ export class LogsAPIErrorResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAPIErrorResponse.attributeTypeMap;
   }

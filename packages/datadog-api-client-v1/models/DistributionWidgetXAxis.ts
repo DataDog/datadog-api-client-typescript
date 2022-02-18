@@ -32,8 +32,14 @@ export class DistributionWidgetXAxis {
    */
   "scale"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     includeZero: {
       baseName: "include_zero",
@@ -53,6 +59,9 @@ export class DistributionWidgetXAxis {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DistributionWidgetXAxis.attributeTypeMap;
   }

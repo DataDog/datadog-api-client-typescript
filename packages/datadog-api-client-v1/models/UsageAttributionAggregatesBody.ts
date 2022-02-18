@@ -28,8 +28,14 @@ export class UsageAttributionAggregatesBody {
    */
   "value"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggType: {
       baseName: "agg_type",
@@ -46,6 +52,9 @@ export class UsageAttributionAggregatesBody {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageAttributionAggregatesBody.attributeTypeMap;
   }

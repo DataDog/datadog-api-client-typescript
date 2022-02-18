@@ -43,8 +43,14 @@ export class SLOHistoryMetrics {
    */
   "times": Array<number>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     denominator: {
       baseName: "denominator",
@@ -90,6 +96,9 @@ export class SLOHistoryMetrics {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryMetrics.attributeTypeMap;
   }

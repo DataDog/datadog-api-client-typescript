@@ -27,9 +27,23 @@ export class UsageLambdaHour {
    * Contains the sum of invocations of all functions.
    */
   "invocationsSum"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     funcCount: {
       baseName: "func_count",
@@ -46,8 +60,19 @@ export class UsageLambdaHour {
       type: "number",
       format: "int64",
     },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
+    },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLambdaHour.attributeTypeMap;
   }

@@ -25,7 +25,7 @@ let params: v2.RolesApiRemoveUserFromRoleRequest = {
 
 apiInstance
   .removeUserFromRole(params)
-  .then((data: any) => {
+  .then((data: v2.UsersResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

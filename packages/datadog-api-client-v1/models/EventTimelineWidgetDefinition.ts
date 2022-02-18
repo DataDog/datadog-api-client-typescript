@@ -38,8 +38,14 @@ export class EventTimelineWidgetDefinition {
   "titleSize"?: string;
   "type": EventTimelineWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
@@ -73,6 +79,9 @@ export class EventTimelineWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return EventTimelineWidgetDefinition.attributeTypeMap;
   }

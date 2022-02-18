@@ -24,8 +24,14 @@ export class SLODeleteResponse {
    */
   "errors"?: { [key: string]: string };
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -37,6 +43,9 @@ export class SLODeleteResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLODeleteResponse.attributeTypeMap;
   }

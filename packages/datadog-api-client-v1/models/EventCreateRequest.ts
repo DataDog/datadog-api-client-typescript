@@ -56,8 +56,14 @@ export class EventCreateRequest {
    */
   "title": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregationKey: {
       baseName: "aggregation_key",
@@ -109,6 +115,9 @@ export class EventCreateRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return EventCreateRequest.attributeTypeMap;
   }

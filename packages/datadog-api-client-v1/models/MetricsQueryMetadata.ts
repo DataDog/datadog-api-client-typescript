@@ -69,8 +69,14 @@ export class MetricsQueryMetadata {
    */
   "unit"?: Array<MetricsQueryUnit>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggr: {
       baseName: "aggr",
@@ -132,6 +138,9 @@ export class MetricsQueryMetadata {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricsQueryMetadata.attributeTypeMap;
   }

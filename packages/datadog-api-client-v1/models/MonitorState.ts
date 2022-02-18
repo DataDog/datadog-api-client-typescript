@@ -21,8 +21,14 @@ export class MonitorState {
    */
   "groups"?: { [key: string]: MonitorStateGroup };
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     groups: {
       baseName: "groups",
@@ -30,6 +36,9 @@ export class MonitorState {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorState.attributeTypeMap;
   }

@@ -33,8 +33,14 @@ export class HeatMapWidgetRequest {
   "securityQuery"?: LogQueryDefinition;
   "style"?: WidgetStyle;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apmQuery: {
       baseName: "apm_query",
@@ -78,6 +84,9 @@ export class HeatMapWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HeatMapWidgetRequest.attributeTypeMap;
   }

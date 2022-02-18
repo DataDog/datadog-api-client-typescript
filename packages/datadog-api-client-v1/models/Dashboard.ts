@@ -79,8 +79,14 @@ export class Dashboard {
    */
   "widgets": Array<Widget>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     authorHandle: {
       baseName: "author_handle",
@@ -153,6 +159,9 @@ export class Dashboard {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Dashboard.attributeTypeMap;
   }

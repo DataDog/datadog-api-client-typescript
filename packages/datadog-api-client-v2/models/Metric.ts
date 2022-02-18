@@ -22,8 +22,14 @@ export class Metric {
   "id"?: string;
   "type"?: MetricType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
@@ -35,6 +41,9 @@ export class Metric {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Metric.attributeTypeMap;
   }

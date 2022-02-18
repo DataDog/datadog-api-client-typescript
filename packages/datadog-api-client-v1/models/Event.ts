@@ -64,8 +64,14 @@ export class Event {
    */
   "url"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alertType: {
       baseName: "alert_type",
@@ -123,6 +129,9 @@ export class Event {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Event.attributeTypeMap;
   }

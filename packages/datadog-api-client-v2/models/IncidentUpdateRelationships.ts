@@ -24,8 +24,14 @@ export class IncidentUpdateRelationships {
   "lastModifiedByUser"?: RelationshipToUser;
   "postmortem"?: RelationshipToIncidentPostmortem;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     commanderUser: {
       baseName: "commander_user",
@@ -49,6 +55,9 @@ export class IncidentUpdateRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentUpdateRelationships.attributeTypeMap;
   }

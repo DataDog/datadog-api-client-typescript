@@ -32,8 +32,14 @@ export class SecurityMonitoringSignalAttributes {
    */
   "timestamp"?: Date;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -54,6 +60,9 @@ export class SecurityMonitoringSignalAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalAttributes.attributeTypeMap;
   }

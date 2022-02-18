@@ -35,8 +35,14 @@ export class FormulaAndFunctionEventQueryDefinition {
   "name": string;
   "search"?: FormulaAndFunctionEventQueryDefinitionSearch;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
       baseName: "compute",
@@ -67,6 +73,9 @@ export class FormulaAndFunctionEventQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionEventQueryDefinition.attributeTypeMap;
   }

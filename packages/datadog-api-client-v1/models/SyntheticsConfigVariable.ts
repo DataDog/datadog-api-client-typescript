@@ -34,8 +34,14 @@ export class SyntheticsConfigVariable {
   "pattern"?: string;
   "type": SyntheticsConfigVariableType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     example: {
       baseName: "example",
@@ -61,6 +67,9 @@ export class SyntheticsConfigVariable {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsConfigVariable.attributeTypeMap;
   }

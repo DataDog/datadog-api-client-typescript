@@ -22,8 +22,14 @@ export class LogsArchiveCreateRequestDefinition {
    */
   "type": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -36,6 +42,9 @@ export class LogsArchiveCreateRequestDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveCreateRequestDefinition.attributeTypeMap;
   }

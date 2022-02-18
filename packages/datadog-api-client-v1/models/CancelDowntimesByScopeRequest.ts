@@ -20,8 +20,14 @@ export class CancelDowntimesByScopeRequest {
    */
   "scope": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     scope: {
       baseName: "scope",
@@ -30,6 +36,9 @@ export class CancelDowntimesByScopeRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return CancelDowntimesByScopeRequest.attributeTypeMap;
   }

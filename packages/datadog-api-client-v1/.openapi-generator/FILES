@@ -175,6 +175,7 @@ models/FreeTextWidgetDefinitionType.ts
 models/FunnelQuery.ts
 models/FunnelRequestType.ts
 models/FunnelSource.ts
+models/FunnelStep.ts
 models/FunnelWidgetDefinition.ts
 models/FunnelWidgetDefinitionType.ts
 models/FunnelWidgetRequest.ts

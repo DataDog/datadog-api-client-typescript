@@ -20,8 +20,14 @@ export class LogsResponseMetadataPage {
    */
   "after"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
       baseName: "after",
@@ -29,6 +35,9 @@ export class LogsResponseMetadataPage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsResponseMetadataPage.attributeTypeMap;
   }

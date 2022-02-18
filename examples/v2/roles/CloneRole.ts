@@ -24,7 +24,7 @@ let params: v2.RolesApiCloneRoleRequest = {
 
 apiInstance
   .cloneRole(params)
-  .then((data: any) => {
+  .then((data: v2.RoleResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

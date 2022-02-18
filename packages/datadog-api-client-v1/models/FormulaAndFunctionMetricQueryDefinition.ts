@@ -28,8 +28,14 @@ export class FormulaAndFunctionMetricQueryDefinition {
    */
   "query": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
       baseName: "aggregator",
@@ -52,6 +58,9 @@ export class FormulaAndFunctionMetricQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionMetricQueryDefinition.attributeTypeMap;
   }

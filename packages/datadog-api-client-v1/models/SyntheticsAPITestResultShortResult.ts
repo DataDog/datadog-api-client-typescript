@@ -22,8 +22,14 @@ export class SyntheticsAPITestResultShortResult {
   "passed"?: boolean;
   "timings"?: SyntheticsTiming;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     passed: {
       baseName: "passed",
@@ -35,6 +41,9 @@ export class SyntheticsAPITestResultShortResult {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITestResultShortResult.attributeTypeMap;
   }

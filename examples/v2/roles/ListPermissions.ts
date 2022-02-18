@@ -9,7 +9,7 @@ const apiInstance = new v2.RolesApi(configuration);
 
 apiInstance
   .listPermissions()
-  .then((data: any) => {
+  .then((data: v2.PermissionsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

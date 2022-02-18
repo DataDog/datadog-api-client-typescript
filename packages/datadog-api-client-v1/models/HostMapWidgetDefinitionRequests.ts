@@ -19,8 +19,14 @@ export class HostMapWidgetDefinitionRequests {
   "fill"?: HostMapRequest;
   "size"?: HostMapRequest;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     fill: {
       baseName: "fill",
@@ -32,6 +38,9 @@ export class HostMapWidgetDefinitionRequests {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostMapWidgetDefinitionRequests.attributeTypeMap;
   }

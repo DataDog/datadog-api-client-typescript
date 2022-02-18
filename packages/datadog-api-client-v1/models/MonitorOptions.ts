@@ -113,8 +113,14 @@ export class MonitorOptions {
    */
   "variables"?: Array<MonitorFormulaAndFunctionQueryDefinition>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
@@ -228,6 +234,9 @@ export class MonitorOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorOptions.attributeTypeMap;
   }

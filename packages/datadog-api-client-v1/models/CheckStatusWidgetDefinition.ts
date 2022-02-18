@@ -48,8 +48,14 @@ export class CheckStatusWidgetDefinition {
   "titleSize"?: string;
   "type": CheckStatusWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     check: {
       baseName: "check",
@@ -96,6 +102,9 @@ export class CheckStatusWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return CheckStatusWidgetDefinition.attributeTypeMap;
   }

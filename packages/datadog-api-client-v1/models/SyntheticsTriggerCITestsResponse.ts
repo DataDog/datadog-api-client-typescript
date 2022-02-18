@@ -34,8 +34,14 @@ export class SyntheticsTriggerCITestsResponse {
    */
   "triggeredCheckIds"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     batchId: {
       baseName: "batch_id",
@@ -55,6 +61,9 @@ export class SyntheticsTriggerCITestsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTriggerCITestsResponse.attributeTypeMap;
   }

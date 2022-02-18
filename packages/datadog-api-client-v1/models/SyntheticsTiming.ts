@@ -52,8 +52,14 @@ export class SyntheticsTiming {
    */
   "wait"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dns: {
       baseName: "dns",
@@ -102,6 +108,9 @@ export class SyntheticsTiming {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTiming.attributeTypeMap;
   }

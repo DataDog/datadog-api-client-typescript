@@ -22,8 +22,14 @@ export class LogsCategoryProcessorCategory {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
@@ -35,6 +41,9 @@ export class LogsCategoryProcessorCategory {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsCategoryProcessorCategory.attributeTypeMap;
   }

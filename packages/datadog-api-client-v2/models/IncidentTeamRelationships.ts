@@ -19,8 +19,14 @@ export class IncidentTeamRelationships {
   "createdBy"?: RelationshipToUser;
   "lastModifiedBy"?: RelationshipToUser;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdBy: {
       baseName: "created_by",
@@ -32,6 +38,9 @@ export class IncidentTeamRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentTeamRelationships.attributeTypeMap;
   }

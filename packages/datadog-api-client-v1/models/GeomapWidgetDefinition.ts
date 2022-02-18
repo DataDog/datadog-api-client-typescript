@@ -44,8 +44,14 @@ export class GeomapWidgetDefinition {
   "type": GeomapWidgetDefinitionType;
   "view": GeomapWidgetDefinitionView;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
@@ -89,6 +95,9 @@ export class GeomapWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return GeomapWidgetDefinition.attributeTypeMap;
   }

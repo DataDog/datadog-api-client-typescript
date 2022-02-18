@@ -38,8 +38,14 @@ export class LogsURLParser {
   "target": string;
   "type": LogsURLParserType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     isEnabled: {
       baseName: "is_enabled",
@@ -70,6 +76,9 @@ export class LogsURLParser {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsURLParser.attributeTypeMap;
   }

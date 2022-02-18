@@ -24,8 +24,14 @@ export class ProcessSummary {
   "id"?: string;
   "type"?: ProcessSummaryType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -41,6 +47,9 @@ export class ProcessSummary {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ProcessSummary.attributeTypeMap;
   }

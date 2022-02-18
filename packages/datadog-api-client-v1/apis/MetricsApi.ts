@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -19,15 +18,7 @@ import { MetricsListResponse } from "../models/MetricsListResponse";
 import { MetricsPayload } from "../models/MetricsPayload";
 import { MetricsQueryResponse } from "../models/MetricsQueryResponse";
 
-/**
- * no description
- */
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Get metadata about a specific metric.
-   * Get metric metadata
-   * @param metricName Name of the metric for which to get metadata.
-   */
   public async getMetricMetadata(
     metricName: string,
     _options?: Configuration
@@ -65,13 +56,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of actively reporting metrics from a given time until now.
-   * Get active metrics list
-   * @param from Seconds since the Unix epoch.
-   * @param host Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
-   * @param tagFilter Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
-   */
   public async listActiveMetrics(
     from: number,
     host?: string,
@@ -128,11 +112,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Search for metrics from the last 24 hours in Datadog.
-   * Search metrics
-   * @param q Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
-   */
   public async listMetrics(
     q: string,
     _options?: Configuration
@@ -175,13 +154,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Query timeseries points.
-   * Query timeseries points
-   * @param from Start of the queried time period, seconds since the Unix epoch.
-   * @param to End of the queried time period, seconds since the Unix epoch.
-   * @param query Query string.
-   */
   public async queryMetrics(
     from: number,
     to: number,
@@ -252,12 +224,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
-   * Submit metrics
-   * @param body
-   * @param contentEncoding HTTP header used to compress the media-type.
-   */
   public async submitMetrics(
     body: MetricsPayload,
     contentEncoding?: MetricContentEncoding,
@@ -307,12 +273,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
-   * Edit metric metadata
-   * @param metricName Name of the metric for which to edit metadata.
-   * @param body New metadata.
-   */
   public async updateMetricMetadata(
     metricName: string,
     body: MetricMetadata,
@@ -770,5 +730,233 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface MetricsApiGetMetricMetadataRequest {
+  /**
+   * Name of the metric for which to get metadata.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiListActiveMetricsRequest {
+  /**
+   * Seconds since the Unix epoch.
+   * @type number
+   */
+  from: number;
+  /**
+   * Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+   * @type string
+   */
+  host?: string;
+  /**
+   * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+   * @type string
+   */
+  tagFilter?: string;
+}
+
+export interface MetricsApiListMetricsRequest {
+  /**
+   * Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
+   * @type string
+   */
+  q: string;
+}
+
+export interface MetricsApiQueryMetricsRequest {
+  /**
+   * Start of the queried time period, seconds since the Unix epoch.
+   * @type number
+   */
+  from: number;
+  /**
+   * End of the queried time period, seconds since the Unix epoch.
+   * @type number
+   */
+  to: number;
+  /**
+   * Query string.
+   * @type string
+   */
+  query: string;
+}
+
+export interface MetricsApiSubmitMetricsRequest {
+  /**
+   *
+   * @type MetricsPayload
+   */
+  body: MetricsPayload;
+  /**
+   * HTTP header used to compress the media-type.
+   * @type MetricContentEncoding
+   */
+  contentEncoding?: MetricContentEncoding;
+}
+
+export interface MetricsApiUpdateMetricMetadataRequest {
+  /**
+   * Name of the metric for which to edit metadata.
+   * @type string
+   */
+  metricName: string;
+  /**
+   * New metadata.
+   * @type MetricMetadata
+   */
+  body: MetricMetadata;
+}
+
+export class MetricsApi {
+  private requestFactory: MetricsApiRequestFactory;
+  private responseProcessor: MetricsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: MetricsApiRequestFactory,
+    responseProcessor?: MetricsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new MetricsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new MetricsApiResponseProcessor();
+  }
+
+  /**
+   * Get metadata about a specific metric.
+   * @param param The request object
+   */
+  public getMetricMetadata(
+    param: MetricsApiGetMetricMetadataRequest,
+    options?: Configuration
+  ): Promise<MetricMetadata> {
+    const requestContextPromise = this.requestFactory.getMetricMetadata(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMetricMetadata(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the list of actively reporting metrics from a given time until now.
+   * @param param The request object
+   */
+  public listActiveMetrics(
+    param: MetricsApiListActiveMetricsRequest,
+    options?: Configuration
+  ): Promise<MetricsListResponse> {
+    const requestContextPromise = this.requestFactory.listActiveMetrics(
+      param.from,
+      param.host,
+      param.tagFilter,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listActiveMetrics(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Search for metrics from the last 24 hours in Datadog.
+   * @param param The request object
+   */
+  public listMetrics(
+    param: MetricsApiListMetricsRequest,
+    options?: Configuration
+  ): Promise<MetricSearchResponse> {
+    const requestContextPromise = this.requestFactory.listMetrics(
+      param.q,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listMetrics(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Query timeseries points.
+   * @param param The request object
+   */
+  public queryMetrics(
+    param: MetricsApiQueryMetricsRequest,
+    options?: Configuration
+  ): Promise<MetricsQueryResponse> {
+    const requestContextPromise = this.requestFactory.queryMetrics(
+      param.from,
+      param.to,
+      param.query,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.queryMetrics(responseContext);
+        });
+    });
+  }
+
+  /**
+   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 20 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+   * @param param The request object
+   */
+  public submitMetrics(
+    param: MetricsApiSubmitMetricsRequest,
+    options?: Configuration
+  ): Promise<IntakePayloadAccepted> {
+    const requestContextPromise = this.requestFactory.submitMetrics(
+      param.body,
+      param.contentEncoding,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.submitMetrics(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Edit metadata of a specific metric. Find out more about [supported types](https://docs.datadoghq.com/developers/metrics).
+   * @param param The request object
+   */
+  public updateMetricMetadata(
+    param: MetricsApiUpdateMetricMetadataRequest,
+    options?: Configuration
+  ): Promise<MetricMetadata> {
+    const requestContextPromise = this.requestFactory.updateMetricMetadata(
+      param.metricName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateMetricMetadata(responseContext);
+        });
+    });
   }
 }

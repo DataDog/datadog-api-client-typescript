@@ -22,8 +22,14 @@ export class WidgetFieldSort {
   "column": string;
   "order": WidgetSort;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     column: {
       baseName: "column",
@@ -37,6 +43,9 @@ export class WidgetFieldSort {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetFieldSort.attributeTypeMap;
   }

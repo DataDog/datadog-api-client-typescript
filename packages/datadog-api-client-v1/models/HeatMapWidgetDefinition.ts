@@ -55,8 +55,14 @@ export class HeatMapWidgetDefinition {
   "type": HeatMapWidgetDefinitionType;
   "yaxis"?: WidgetAxis;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
@@ -106,6 +112,9 @@ export class HeatMapWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HeatMapWidgetDefinition.attributeTypeMap;
   }

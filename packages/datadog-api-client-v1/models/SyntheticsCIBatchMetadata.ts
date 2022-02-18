@@ -20,8 +20,14 @@ export class SyntheticsCIBatchMetadata {
   "ci"?: SyntheticsCIBatchMetadataCI;
   "git"?: SyntheticsCIBatchMetadataGit;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     ci: {
       baseName: "ci",
@@ -33,6 +39,9 @@ export class SyntheticsCIBatchMetadata {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadata.attributeTypeMap;
   }

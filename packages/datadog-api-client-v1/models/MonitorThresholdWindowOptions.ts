@@ -24,8 +24,14 @@ export class MonitorThresholdWindowOptions {
    */
   "triggerWindow"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     recoveryWindow: {
       baseName: "recovery_window",
@@ -37,6 +43,9 @@ export class MonitorThresholdWindowOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorThresholdWindowOptions.attributeTypeMap;
   }

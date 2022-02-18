@@ -9,6 +9,7 @@
  */
 
 import { FunnelSource } from "./FunnelSource";
+import { FunnelStep } from "./FunnelStep";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
@@ -24,10 +25,16 @@ export class FunnelQuery {
   /**
    * List of funnel steps.
    */
-  "steps": Array<any>;
+  "steps": Array<FunnelStep>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dataSource: {
       baseName: "data_source",
@@ -41,11 +48,14 @@ export class FunnelQuery {
     },
     steps: {
       baseName: "steps",
-      type: "Array<any>",
+      type: "Array<FunnelStep>",
       required: true,
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FunnelQuery.attributeTypeMap;
   }

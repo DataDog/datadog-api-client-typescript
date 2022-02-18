@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -18,15 +17,7 @@ import { IncidentResponse } from "../models/IncidentResponse";
 import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
 import { IncidentsResponse } from "../models/IncidentsResponse";
 
-/**
- * no description
- */
 export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create an incident.
-   * Create an incident
-   * @param body Incident payload.
-   */
   public async createIncident(
     body: IncidentCreateRequest,
     _options?: Configuration
@@ -77,11 +68,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Deletes an existing incident from the users organization.
-   * Delete an existing incident
-   * @param incidentId The UUID of the incident.
-   */
   public async deleteIncident(
     incidentId: string,
     _options?: Configuration
@@ -124,12 +110,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the details of an incident by `incident_id`.
-   * Get the details of an incident
-   * @param incidentId The UUID of the incident.
-   * @param include Specifies which types of related objects should be included in the response.
-   */
   public async getIncident(
     incidentId: string,
     include?: Array<IncidentRelatedObject>,
@@ -181,13 +161,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get all incidents for the user's organization.
-   * Get a list of incidents
-   * @param include Specifies which types of related objects should be included in the response.
-   * @param pageSize Size for a given page.
-   * @param pageOffset Specific offset to use as the beginning of the returned page.
-   */
   public async listIncidents(
     include?: Array<IncidentRelatedObject>,
     pageSize?: number,
@@ -242,12 +215,6 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
-   * Update an existing incident
-   * @param incidentId The UUID of the incident.
-   * @param body Incident Payload.
-   */
   public async updateIncident(
     incidentId: string,
     body: IncidentUpdateRequest,
@@ -697,5 +664,192 @@ export class IncidentsApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface IncidentsApiCreateIncidentRequest {
+  /**
+   * Incident payload.
+   * @type IncidentCreateRequest
+   */
+  body: IncidentCreateRequest;
+}
+
+export interface IncidentsApiDeleteIncidentRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+}
+
+export interface IncidentsApiGetIncidentRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Specifies which types of related objects should be included in the response.
+   * @type Array&lt;IncidentRelatedObject&gt;
+   */
+  include?: Array<IncidentRelatedObject>;
+}
+
+export interface IncidentsApiListIncidentsRequest {
+  /**
+   * Specifies which types of related objects should be included in the response.
+   * @type Array&lt;IncidentRelatedObject&gt;
+   */
+  include?: Array<IncidentRelatedObject>;
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific offset to use as the beginning of the returned page.
+   * @type number
+   */
+  pageOffset?: number;
+}
+
+export interface IncidentsApiUpdateIncidentRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Incident Payload.
+   * @type IncidentUpdateRequest
+   */
+  body: IncidentUpdateRequest;
+}
+
+export class IncidentsApi {
+  private requestFactory: IncidentsApiRequestFactory;
+  private responseProcessor: IncidentsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: IncidentsApiRequestFactory,
+    responseProcessor?: IncidentsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new IncidentsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new IncidentsApiResponseProcessor();
+  }
+
+  /**
+   * Create an incident.
+   * @param param The request object
+   */
+  public createIncident(
+    param: IncidentsApiCreateIncidentRequest,
+    options?: Configuration
+  ): Promise<IncidentResponse> {
+    const requestContextPromise = this.requestFactory.createIncident(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Deletes an existing incident from the users organization.
+   * @param param The request object
+   */
+  public deleteIncident(
+    param: IncidentsApiDeleteIncidentRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteIncident(
+      param.incidentId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the details of an incident by `incident_id`.
+   * @param param The request object
+   */
+  public getIncident(
+    param: IncidentsApiGetIncidentRequest,
+    options?: Configuration
+  ): Promise<IncidentResponse> {
+    const requestContextPromise = this.requestFactory.getIncident(
+      param.incidentId,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all incidents for the user's organization.
+   * @param param The request object
+   */
+  public listIncidents(
+    param: IncidentsApiListIncidentsRequest = {},
+    options?: Configuration
+  ): Promise<IncidentsResponse> {
+    const requestContextPromise = this.requestFactory.listIncidents(
+      param.include,
+      param.pageSize,
+      param.pageOffset,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidents(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Updates an incident. Provide only the attributes that should be updated as this request is a partial update.
+   * @param param The request object
+   */
+  public updateIncident(
+    param: IncidentsApiUpdateIncidentRequest,
+    options?: Configuration
+  ): Promise<IncidentResponse> {
+    const requestContextPromise = this.requestFactory.updateIncident(
+      param.incidentId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncident(responseContext);
+        });
+    });
   }
 }

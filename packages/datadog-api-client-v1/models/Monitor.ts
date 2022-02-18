@@ -70,8 +70,14 @@ export class Monitor {
   "tags"?: Array<string>;
   "type": MonitorType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
@@ -146,6 +152,9 @@ export class Monitor {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Monitor.attributeTypeMap;
   }

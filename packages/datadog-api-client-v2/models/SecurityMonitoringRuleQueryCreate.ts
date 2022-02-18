@@ -38,8 +38,14 @@ export class SecurityMonitoringRuleQueryCreate {
    */
   "query": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
@@ -68,6 +74,9 @@ export class SecurityMonitoringRuleQueryCreate {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleQueryCreate.attributeTypeMap;
   }

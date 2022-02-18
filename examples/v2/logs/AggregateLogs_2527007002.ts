@@ -27,7 +27,7 @@ let params: v2.LogsApiAggregateLogsRequest = {
 
 apiInstance
   .aggregateLogs(params)
-  .then((data: any) => {
+  .then((data: v2.LogsAggregateResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

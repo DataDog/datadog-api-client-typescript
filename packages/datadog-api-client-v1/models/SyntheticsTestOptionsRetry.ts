@@ -24,8 +24,14 @@ export class SyntheticsTestOptionsRetry {
    */
   "interval"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
       baseName: "count",
@@ -39,6 +45,9 @@ export class SyntheticsTestOptionsRetry {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestOptionsRetry.attributeTypeMap;
   }

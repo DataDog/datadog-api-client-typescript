@@ -23,9 +23,15 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
     '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}{{#required}}{{#isNullable}}|null{{/isNullable}}{{/required}};
 {{/vars}}
 
+    /**
+     * @ignore
+     */
     'unparsedObject'?:any;
 
     {{^isArray}}
+    /**
+     * @ignore
+     */
     static readonly attributeTypeMap: AttributeTypeMap = {
         {{#vars}}
         "{{name}}": {
@@ -38,6 +44,9 @@ export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
         {{/vars}}
     };
 
+    /**
+     * @ignore
+     */
     static getAttributeTypeMap(): AttributeTypeMap {
         {{#parent}}
         return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);

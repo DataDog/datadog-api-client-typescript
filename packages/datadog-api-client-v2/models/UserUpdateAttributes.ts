@@ -28,8 +28,14 @@ export class UserUpdateAttributes {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     disabled: {
       baseName: "disabled",
@@ -45,6 +51,9 @@ export class UserUpdateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserUpdateAttributes.attributeTypeMap;
   }

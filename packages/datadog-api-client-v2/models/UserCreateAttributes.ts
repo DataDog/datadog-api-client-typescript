@@ -28,8 +28,14 @@ export class UserCreateAttributes {
    */
   "title"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
       baseName: "email",
@@ -46,6 +52,9 @@ export class UserCreateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserCreateAttributes.attributeTypeMap;
   }

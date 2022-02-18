@@ -24,8 +24,14 @@ export class LogsListRequestPage {
    */
   "limit"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
       baseName: "cursor",
@@ -38,6 +44,9 @@ export class LogsListRequestPage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListRequestPage.attributeTypeMap;
   }

@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -13,6 +12,9 @@ import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { MetricAllTagsResponse } from "../models/MetricAllTagsResponse";
+import { MetricBulkTagConfigCreateRequest } from "../models/MetricBulkTagConfigCreateRequest";
+import { MetricBulkTagConfigDeleteRequest } from "../models/MetricBulkTagConfigDeleteRequest";
+import { MetricBulkTagConfigResponse } from "../models/MetricBulkTagConfigResponse";
 import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigurationCreateRequest";
 import { MetricTagConfigurationMetricTypes } from "../models/MetricTagConfigurationMetricTypes";
 import { MetricTagConfigurationResponse } from "../models/MetricTagConfigurationResponse";
@@ -20,16 +22,51 @@ import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigur
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 
-/**
- * no description
- */
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
-   * Create a tag configuration
-   * @param metricName The name of the metric.
-   * @param body
-   */
+  public async createBulkTagsMetricsConfiguration(
+    body: MetricBulkTagConfigCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling createBulkTagsMetricsConfiguration."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/config/bulk-tags";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "MetricsApi.createBulkTagsMetricsConfiguration"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MetricBulkTagConfigCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationCreateRequest,
@@ -96,11 +133,50 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
-   * Delete a tag configuration
-   * @param metricName The name of the metric.
-   */
+  public async deleteBulkTagsMetricsConfiguration(
+    body: MetricBulkTagConfigDeleteRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling deleteBulkTagsMetricsConfiguration."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/config/bulk-tags";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "MetricsApi.deleteBulkTagsMetricsConfiguration"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MetricBulkTagConfigDeleteRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteTagConfiguration(
     metricName: string,
     _options?: Configuration
@@ -144,11 +220,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns the tag configuration for the given metric name.
-   * List tag configuration by name
-   * @param metricName The name of the metric.
-   */
   public async listTagConfigurationByName(
     metricName: string,
     _options?: Configuration
@@ -192,16 +263,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
-   * List tag configurations
-   * @param filterConfigured Filter metrics that have configured tags.
-   * @param filterTagsConfigured Filter tag configurations by configured tags.
-   * @param filterMetricType Filter tag configurations by metric type.
-   * @param filterIncludePercentiles Filter distributions with additional percentile aggregations enabled or disabled.
-   * @param filterTags Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
-   * @param windowSeconds The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
-   */
   public async listTagConfigurations(
     filterConfigured?: boolean,
     filterTagsConfigured?: string,
@@ -281,11 +342,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * View indexed tag key-value pairs for a given metric name.
-   * List tags by metric name
-   * @param metricName The name of the metric.
-   */
   public async listTagsByMetricName(
     metricName: string,
     _options?: Configuration
@@ -323,11 +379,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
-   * List distinct metric volumes by metric name
-   * @param metricName The name of the metric.
-   */
   public async listVolumesByMetricName(
     metricName: string,
     _options?: Configuration
@@ -365,12 +416,6 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
-   * Update a tag configuration
-   * @param metricName The name of the metric.
-   * @param body
-   */
   public async updateTagConfiguration(
     metricName: string,
     body: MetricTagConfigurationUpdateRequest,
@@ -443,6 +488,77 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createBulkTagsMetricsConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createBulkTagsMetricsConfiguration(
+    response: ResponseContext
+  ): Promise<MetricBulkTagConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("202", response.httpStatusCode)) {
+      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricBulkTagConfigResponse",
+        ""
+      ) as MetricBulkTagConfigResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricBulkTagConfigResponse",
+        ""
+      ) as MetricBulkTagConfigResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createTagConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -500,6 +616,77 @@ export class MetricsApiResponseProcessor {
         "MetricTagConfigurationResponse",
         ""
       ) as MetricTagConfigurationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteBulkTagsMetricsConfiguration
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteBulkTagsMetricsConfiguration(
+    response: ResponseContext
+  ): Promise<MetricBulkTagConfigResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("202", response.httpStatusCode)) {
+      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricBulkTagConfigResponse",
+        ""
+      ) as MetricBulkTagConfigResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricBulkTagConfigResponse",
+        ""
+      ) as MetricBulkTagConfigResponse;
       return body;
     }
 
@@ -907,5 +1094,334 @@ export class MetricsApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface MetricsApiCreateBulkTagsMetricsConfigurationRequest {
+  /**
+   *
+   * @type MetricBulkTagConfigCreateRequest
+   */
+  body: MetricBulkTagConfigCreateRequest;
+}
+
+export interface MetricsApiCreateTagConfigurationRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+  /**
+   *
+   * @type MetricTagConfigurationCreateRequest
+   */
+  body: MetricTagConfigurationCreateRequest;
+}
+
+export interface MetricsApiDeleteBulkTagsMetricsConfigurationRequest {
+  /**
+   *
+   * @type MetricBulkTagConfigDeleteRequest
+   */
+  body: MetricBulkTagConfigDeleteRequest;
+}
+
+export interface MetricsApiDeleteTagConfigurationRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiListTagConfigurationByNameRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiListTagConfigurationsRequest {
+  /**
+   * Filter metrics that have configured tags.
+   * @type boolean
+   */
+  filterConfigured?: boolean;
+  /**
+   * Filter tag configurations by configured tags.
+   * @type string
+   */
+  filterTagsConfigured?: string;
+  /**
+   * Filter tag configurations by metric type.
+   * @type MetricTagConfigurationMetricTypes
+   */
+  filterMetricType?: MetricTagConfigurationMetricTypes;
+  /**
+   * Filter distributions with additional percentile aggregations enabled or disabled.
+   * @type boolean
+   */
+  filterIncludePercentiles?: boolean;
+  /**
+   * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+   * @type string
+   */
+  filterTags?: string;
+  /**
+   * The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
+   * @type number
+   */
+  windowSeconds?: number;
+}
+
+export interface MetricsApiListTagsByMetricNameRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiListVolumesByMetricNameRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
+export interface MetricsApiUpdateTagConfigurationRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+  /**
+   *
+   * @type MetricTagConfigurationUpdateRequest
+   */
+  body: MetricTagConfigurationUpdateRequest;
+}
+
+export class MetricsApi {
+  private requestFactory: MetricsApiRequestFactory;
+  private responseProcessor: MetricsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: MetricsApiRequestFactory,
+    responseProcessor?: MetricsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new MetricsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new MetricsApiResponseProcessor();
+  }
+
+  /**
+   * Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics. Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations. Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app. If multiple calls include the same metric, the last configuration applied (not by submit order) is used, do not expect deterministic ordering of concurrent calls. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public createBulkTagsMetricsConfiguration(
+    param: MetricsApiCreateBulkTagsMetricsConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricBulkTagConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.createBulkTagsMetricsConfiguration(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createBulkTagsMetricsConfiguration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public createTagConfiguration(
+    param: MetricsApiCreateTagConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricTagConfigurationResponse> {
+    const requestContextPromise = this.requestFactory.createTagConfiguration(
+      param.metricName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createTagConfiguration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics. Metrics are selected by passing a metric name prefix. Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public deleteBulkTagsMetricsConfiguration(
+    param: MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricBulkTagConfigResponse> {
+    const requestContextPromise =
+      this.requestFactory.deleteBulkTagsMetricsConfiguration(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteBulkTagsMetricsConfiguration(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public deleteTagConfiguration(
+    param: MetricsApiDeleteTagConfigurationRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteTagConfiguration(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTagConfiguration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns the tag configuration for the given metric name.
+   * @param param The request object
+   */
+  public listTagConfigurationByName(
+    param: MetricsApiListTagConfigurationByNameRequest,
+    options?: Configuration
+  ): Promise<MetricTagConfigurationResponse> {
+    const requestContextPromise =
+      this.requestFactory.listTagConfigurationByName(param.metricName, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagConfigurationByName(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
+   * @param param The request object
+   */
+  public listTagConfigurations(
+    param: MetricsApiListTagConfigurationsRequest = {},
+    options?: Configuration
+  ): Promise<MetricsAndMetricTagConfigurationsResponse> {
+    const requestContextPromise = this.requestFactory.listTagConfigurations(
+      param.filterConfigured,
+      param.filterTagsConfigured,
+      param.filterMetricType,
+      param.filterIncludePercentiles,
+      param.filterTags,
+      param.windowSeconds,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagConfigurations(responseContext);
+        });
+    });
+  }
+
+  /**
+   * View indexed tag key-value pairs for a given metric name.
+   * @param param The request object
+   */
+  public listTagsByMetricName(
+    param: MetricsApiListTagsByMetricNameRequest,
+    options?: Configuration
+  ): Promise<MetricAllTagsResponse> {
+    const requestContextPromise = this.requestFactory.listTagsByMetricName(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTagsByMetricName(responseContext);
+        });
+    });
+  }
+
+  /**
+   * View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
+   * @param param The request object
+   */
+  public listVolumesByMetricName(
+    param: MetricsApiListVolumesByMetricNameRequest,
+    options?: Configuration
+  ): Promise<MetricVolumesResponse> {
+    const requestContextPromise = this.requestFactory.listVolumesByMetricName(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listVolumesByMetricName(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+   * @param param The request object
+   */
+  public updateTagConfiguration(
+    param: MetricsApiUpdateTagConfigurationRequest,
+    options?: Configuration
+  ): Promise<MetricTagConfigurationResponse> {
+    const requestContextPromise = this.requestFactory.updateTagConfiguration(
+      param.metricName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateTagConfiguration(responseContext);
+        });
+    });
   }
 }

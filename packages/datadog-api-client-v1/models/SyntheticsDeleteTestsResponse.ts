@@ -21,8 +21,14 @@ export class SyntheticsDeleteTestsResponse {
    */
   "deletedTests"?: Array<SyntheticsDeletedTest>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     deletedTests: {
       baseName: "deleted_tests",
@@ -30,6 +36,9 @@ export class SyntheticsDeleteTestsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsDeleteTestsResponse.attributeTypeMap;
   }

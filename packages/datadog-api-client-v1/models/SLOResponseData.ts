@@ -67,8 +67,14 @@ export class SLOResponseData {
   "thresholds"?: Array<SLOThreshold>;
   "type"?: SLOType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     configuredAlertIds: {
       baseName: "configured_alert_ids",
@@ -132,6 +138,9 @@ export class SLOResponseData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOResponseData.attributeTypeMap;
   }

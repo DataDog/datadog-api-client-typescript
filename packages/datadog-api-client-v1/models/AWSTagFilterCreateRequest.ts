@@ -26,8 +26,14 @@ export class AWSTagFilterCreateRequest {
    */
   "tagFilterStr"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
@@ -43,6 +49,9 @@ export class AWSTagFilterCreateRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSTagFilterCreateRequest.attributeTypeMap;
   }

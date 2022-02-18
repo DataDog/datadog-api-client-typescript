@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class MetricSearchResponse {
   "results"?: MetricSearchResponseResults;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     results: {
       baseName: "results",
@@ -27,6 +33,9 @@ export class MetricSearchResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricSearchResponse.attributeTypeMap;
   }

@@ -28,8 +28,14 @@ export class HostMetaInstallMethod {
    */
   "toolVersion"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     installerVersion: {
       baseName: "installer_version",
@@ -45,6 +51,9 @@ export class HostMetaInstallMethod {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostMetaInstallMethod.attributeTypeMap;
   }

@@ -21,8 +21,14 @@ export class DashboardRestoreRequest {
    */
   "data": Array<DashboardBulkActionData>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -31,6 +37,9 @@ export class DashboardRestoreRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardRestoreRequest.attributeTypeMap;
   }

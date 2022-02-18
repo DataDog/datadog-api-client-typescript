@@ -28,8 +28,14 @@ export class CloudWorkloadSecurityAgentRuleUpdateAttributes {
    */
   "expression"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
       baseName: "description",
@@ -45,6 +51,9 @@ export class CloudWorkloadSecurityAgentRuleUpdateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return CloudWorkloadSecurityAgentRuleUpdateAttributes.attributeTypeMap;
   }

@@ -24,8 +24,14 @@ export class NotebookSplitBy {
    */
   "tags": Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     keys: {
       baseName: "keys",
@@ -39,6 +45,9 @@ export class NotebookSplitBy {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookSplitBy.attributeTypeMap;
   }

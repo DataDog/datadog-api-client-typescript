@@ -9,7 +9,7 @@ const apiInstance = new v1.DashboardListsApi(configuration);
 
 apiInstance
   .listDashboardLists()
-  .then((data: any) => {
+  .then((data: v1.DashboardListListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

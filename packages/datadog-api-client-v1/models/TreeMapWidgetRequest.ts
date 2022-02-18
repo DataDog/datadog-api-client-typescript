@@ -32,8 +32,14 @@ export class TreeMapWidgetRequest {
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   "responseFormat"?: FormulaAndFunctionResponseFormat;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     formulas: {
       baseName: "formulas",
@@ -53,6 +59,9 @@ export class TreeMapWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return TreeMapWidgetRequest.attributeTypeMap;
   }

@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -17,15 +16,7 @@ import { EventListResponse } from "../models/EventListResponse";
 import { EventPriority } from "../models/EventPriority";
 import { EventResponse } from "../models/EventResponse";
 
-/**
- * no description
- */
 export class EventsApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
-   * Post an event
-   * @param body Event request object
-   */
   public async createEvent(
     body: EventCreateRequest,
     _options?: Configuration
@@ -67,11 +58,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
-   * Get an event
-   * @param eventId The ID of the event.
-   */
   public async getEvent(
     eventId: number,
     _options?: Configuration
@@ -109,18 +95,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
-   * Query the event stream
-   * @param start POSIX timestamp.
-   * @param end POSIX timestamp.
-   * @param priority Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
-   * @param sources A comma separated string of sources.
-   * @param tags A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
-   * @param unaggregated Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60;
-   * @param excludeAggregate Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default.
-   * @param page By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60;
-   */
   public async listEvents(
     start: number,
     end: number,
@@ -398,5 +372,152 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface EventsApiCreateEventRequest {
+  /**
+   * Event request object
+   * @type EventCreateRequest
+   */
+  body: EventCreateRequest;
+}
+
+export interface EventsApiGetEventRequest {
+  /**
+   * The ID of the event.
+   * @type number
+   */
+  eventId: number;
+}
+
+export interface EventsApiListEventsRequest {
+  /**
+   * POSIX timestamp.
+   * @type number
+   */
+  start: number;
+  /**
+   * POSIX timestamp.
+   * @type number
+   */
+  end: number;
+  /**
+   * Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
+   * @type EventPriority
+   */
+  priority?: EventPriority;
+  /**
+   * A comma separated string of sources.
+   * @type string
+   */
+  sources?: string;
+  /**
+   * A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
+   * @type string
+   */
+  tags?: string;
+  /**
+   * Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60;
+   * @type boolean
+   */
+  unaggregated?: boolean;
+  /**
+   * Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default.
+   * @type boolean
+   */
+  excludeAggregate?: boolean;
+  /**
+   * By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60;
+   * @type number
+   */
+  page?: number;
+}
+
+export class EventsApi {
+  private requestFactory: EventsApiRequestFactory;
+  private responseProcessor: EventsApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: EventsApiRequestFactory,
+    responseProcessor?: EventsApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new EventsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new EventsApiResponseProcessor();
+  }
+
+  /**
+   * This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+   * @param param The request object
+   */
+  public createEvent(
+    param: EventsApiCreateEventRequest,
+    options?: Configuration
+  ): Promise<EventCreateResponse> {
+    const requestContextPromise = this.requestFactory.createEvent(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createEvent(responseContext);
+        });
+    });
+  }
+
+  /**
+   * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.
+   * @param param The request object
+   */
+  public getEvent(
+    param: EventsApiGetEventRequest,
+    options?: Configuration
+  ): Promise<EventResponse> {
+    const requestContextPromise = this.requestFactory.getEvent(
+      param.eventId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getEvent(responseContext);
+        });
+    });
+  }
+
+  /**
+   * The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
+   * @param param The request object
+   */
+  public listEvents(
+    param: EventsApiListEventsRequest,
+    options?: Configuration
+  ): Promise<EventListResponse> {
+    const requestContextPromise = this.requestFactory.listEvents(
+      param.start,
+      param.end,
+      param.priority,
+      param.sources,
+      param.tags,
+      param.unaggregated,
+      param.excludeAggregate,
+      param.page,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listEvents(responseContext);
+        });
+    });
   }
 }

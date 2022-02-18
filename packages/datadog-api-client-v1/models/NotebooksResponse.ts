@@ -23,8 +23,14 @@ export class NotebooksResponse {
   "data"?: Array<NotebooksResponseData>;
   "meta"?: NotebooksResponseMeta;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -36,6 +42,9 @@ export class NotebooksResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebooksResponse.attributeTypeMap;
   }

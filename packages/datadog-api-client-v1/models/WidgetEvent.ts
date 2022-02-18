@@ -24,8 +24,14 @@ export class WidgetEvent {
    */
   "tagsExecution"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     q: {
       baseName: "q",
@@ -38,6 +44,9 @@ export class WidgetEvent {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetEvent.attributeTypeMap;
   }

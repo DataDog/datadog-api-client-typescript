@@ -41,8 +41,14 @@ export class ServiceMapWidgetDefinition {
   "titleSize"?: string;
   "type": ServiceMapWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
@@ -77,6 +83,9 @@ export class ServiceMapWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceMapWidgetDefinition.attributeTypeMap;
   }

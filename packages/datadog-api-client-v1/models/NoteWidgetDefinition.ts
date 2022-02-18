@@ -48,8 +48,14 @@ export class NoteWidgetDefinition {
   "type": NoteWidgetDefinitionType;
   "verticalAlign"?: WidgetVerticalAlign;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     backgroundColor: {
       baseName: "background_color",
@@ -95,6 +101,9 @@ export class NoteWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NoteWidgetDefinition.attributeTypeMap;
   }

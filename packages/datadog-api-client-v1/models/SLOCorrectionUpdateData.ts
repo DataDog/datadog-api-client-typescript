@@ -20,8 +20,14 @@ export class SLOCorrectionUpdateData {
   "attributes"?: SLOCorrectionUpdateRequestAttributes;
   "type"?: SLOCorrectionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -33,6 +39,9 @@ export class SLOCorrectionUpdateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionUpdateData.attributeTypeMap;
   }

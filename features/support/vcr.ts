@@ -116,7 +116,8 @@ Before(function (
 
   // make sure that we are not recording APM traces
   if ((tracer as any)._tracer._url !== undefined) {
-    server.any((tracer as any)._tracer._url.href + "*").passthrough();
+    const url = (tracer as any)._tracer._url.href;
+    server.put(`${url}*`).passthrough();
   }
 
   // remove secrets from request headers before persisting

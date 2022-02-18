@@ -83,8 +83,14 @@ export class SecurityMonitoringRuleResponse {
    */
   "version"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cases: {
       baseName: "cases",
@@ -160,6 +166,9 @@ export class SecurityMonitoringRuleResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleResponse.attributeTypeMap;
   }

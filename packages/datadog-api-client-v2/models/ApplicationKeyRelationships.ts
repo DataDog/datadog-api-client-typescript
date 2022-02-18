@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class ApplicationKeyRelationships {
   "ownedBy"?: RelationshipToUser;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     ownedBy: {
       baseName: "owned_by",
@@ -27,6 +33,9 @@ export class ApplicationKeyRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyRelationships.attributeTypeMap;
   }

@@ -63,8 +63,14 @@ export class ServiceLevelObjective {
   "thresholds": Array<SLOThreshold>;
   "type": SLOType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
@@ -126,6 +132,9 @@ export class ServiceLevelObjective {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceLevelObjective.attributeTypeMap;
   }

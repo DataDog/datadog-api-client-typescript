@@ -30,8 +30,14 @@ export class SyntheticsTriggerCITestRunResult {
    */
   "resultId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
       baseName: "device",
@@ -52,6 +58,9 @@ export class SyntheticsTriggerCITestRunResult {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTriggerCITestRunResult.attributeTypeMap;
   }

@@ -20,8 +20,14 @@ export class SyntheticsCIBatchMetadataProvider {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
       baseName: "name",
@@ -29,6 +35,9 @@ export class SyntheticsCIBatchMetadataProvider {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadataProvider.attributeTypeMap;
   }

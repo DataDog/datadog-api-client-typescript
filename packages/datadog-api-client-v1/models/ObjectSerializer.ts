@@ -76,6 +76,7 @@ import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMet
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
 import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
 import { FunnelQuery } from "./FunnelQuery";
+import { FunnelStep } from "./FunnelStep";
 import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
 import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
 import { GCPAccount } from "./GCPAccount";
@@ -624,6 +625,7 @@ const enumsMap: { [key: string]: any[] } = {
     "browser_usage",
     "container_usage",
     "custom_timeseries_usage",
+    "estimated_indexed_logs_usage",
     "fargate_usage",
     "functions_usage",
     "indexed_logs_usage",
@@ -722,6 +724,8 @@ const enumsMap: { [key: string]: any[] } = {
     "container_percentage",
     "custom_timeseries_usage",
     "custom_timeseries_percentage",
+    "estimated_indexed_logs_usage",
+    "estimated_indexed_logs_percentage",
     "fargate_usage",
     "fargate_percentage",
     "functions_usage",
@@ -1007,6 +1011,8 @@ const enumsMap: { [key: string]: any[] } = {
     "lambda_invocations_percentage",
     "lambda_usage",
     "lambda_percentage",
+    "estimated_indexed_logs_usage",
+    "estimated_indexed_logs_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1244,6 +1250,7 @@ const typeMap: { [index: string]: any } = {
     FormulaAndFunctionProcessQueryDefinition,
   FreeTextWidgetDefinition: FreeTextWidgetDefinition,
   FunnelQuery: FunnelQuery,
+  FunnelStep: FunnelStep,
   FunnelWidgetDefinition: FunnelWidgetDefinition,
   FunnelWidgetRequest: FunnelWidgetRequest,
   GCPAccount: GCPAccount,

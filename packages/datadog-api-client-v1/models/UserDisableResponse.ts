@@ -20,8 +20,14 @@ export class UserDisableResponse {
    */
   "message"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
       baseName: "message",
@@ -29,6 +35,9 @@ export class UserDisableResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UserDisableResponse.attributeTypeMap;
   }

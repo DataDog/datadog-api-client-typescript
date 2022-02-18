@@ -48,8 +48,14 @@ export class AzureAccount {
    */
   "tenantName"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     automute: {
       baseName: "automute",
@@ -85,6 +91,9 @@ export class AzureAccount {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AzureAccount.attributeTypeMap;
   }

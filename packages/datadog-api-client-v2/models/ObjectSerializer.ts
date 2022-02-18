@@ -16,6 +16,19 @@ import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { AuthNMapping } from "./AuthNMapping";
+import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
+import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
+import { AuthNMappingCreateData } from "./AuthNMappingCreateData";
+import { AuthNMappingCreateRelationships } from "./AuthNMappingCreateRelationships";
+import { AuthNMappingCreateRequest } from "./AuthNMappingCreateRequest";
+import { AuthNMappingRelationships } from "./AuthNMappingRelationships";
+import { AuthNMappingResponse } from "./AuthNMappingResponse";
+import { AuthNMappingUpdateAttributes } from "./AuthNMappingUpdateAttributes";
+import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
+import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
+import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
+import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
@@ -56,6 +69,8 @@ import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseData } from "./IncidentResponseData";
+import { IncidentResponseMeta } from "./IncidentResponseMeta";
+import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 import { IncidentResponseRelationships } from "./IncidentResponseRelationships";
 import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
 import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
@@ -68,8 +83,6 @@ import { IncidentServiceUpdateAttributes } from "./IncidentServiceUpdateAttribut
 import { IncidentServiceUpdateData } from "./IncidentServiceUpdateData";
 import { IncidentServiceUpdateRequest } from "./IncidentServiceUpdateRequest";
 import { IncidentServicesResponse } from "./IncidentServicesResponse";
-import { IncidentServicesResponseMeta } from "./IncidentServicesResponseMeta";
-import { IncidentServicesResponseMetaPagination } from "./IncidentServicesResponseMetaPagination";
 import { IncidentTeamCreateAttributes } from "./IncidentTeamCreateAttributes";
 import { IncidentTeamCreateData } from "./IncidentTeamCreateData";
 import { IncidentTeamCreateRequest } from "./IncidentTeamCreateRequest";
@@ -146,6 +159,15 @@ import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
 import { MetricAllTagsResponse } from "./MetricAllTagsResponse";
+import { MetricBulkTagConfigCreate } from "./MetricBulkTagConfigCreate";
+import { MetricBulkTagConfigCreateAttributes } from "./MetricBulkTagConfigCreateAttributes";
+import { MetricBulkTagConfigCreateRequest } from "./MetricBulkTagConfigCreateRequest";
+import { MetricBulkTagConfigDelete } from "./MetricBulkTagConfigDelete";
+import { MetricBulkTagConfigDeleteAttributes } from "./MetricBulkTagConfigDeleteAttributes";
+import { MetricBulkTagConfigDeleteRequest } from "./MetricBulkTagConfigDeleteRequest";
+import { MetricBulkTagConfigResponse } from "./MetricBulkTagConfigResponse";
+import { MetricBulkTagConfigStatus } from "./MetricBulkTagConfigStatus";
+import { MetricBulkTagConfigStatusAttributes } from "./MetricBulkTagConfigStatusAttributes";
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricDistinctVolume } from "./MetricDistinctVolume";
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
@@ -191,6 +213,8 @@ import { RelationshipToPermissions } from "./RelationshipToPermissions";
 import { RelationshipToRole } from "./RelationshipToRole";
 import { RelationshipToRoleData } from "./RelationshipToRoleData";
 import { RelationshipToRoles } from "./RelationshipToRoles";
+import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
+import { RelationshipToSAMLAssertionAttributeData } from "./RelationshipToSAMLAssertionAttributeData";
 import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
@@ -214,6 +238,8 @@ import { RoleUpdateRequest } from "./RoleUpdateRequest";
 import { RoleUpdateResponse } from "./RoleUpdateResponse";
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
+import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
+import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -312,6 +338,21 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  AuthNMappingsSort: [
+    "created_at",
+    "-created_at",
+    "role_id",
+    "-role_id",
+    "saml_assertion_attribute_id",
+    "-saml_assertion_attribute_id",
+    "role.name",
+    "-role.name",
+    "saml_assertion_attribute.attribute_key",
+    "-saml_assertion_attribute.attribute_key",
+    "saml_assertion_attribute.attribute_value",
+    "-saml_assertion_attribute.attribute_value",
+  ],
+  AuthNMappingsType: ["authn_mappings"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   ContentEncoding: ["gzip", "deflate"],
   DashboardType: [
@@ -362,6 +403,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsMetricType: ["logs_metrics"],
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
+  MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
   MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
   MetricDistinctVolumeType: ["distinct_metric_volumes"],
@@ -382,6 +424,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-user_count",
   ],
   RolesType: ["roles"],
+  SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
@@ -441,6 +484,19 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  AuthNMapping: AuthNMapping,
+  AuthNMappingAttributes: AuthNMappingAttributes,
+  AuthNMappingCreateAttributes: AuthNMappingCreateAttributes,
+  AuthNMappingCreateData: AuthNMappingCreateData,
+  AuthNMappingCreateRelationships: AuthNMappingCreateRelationships,
+  AuthNMappingCreateRequest: AuthNMappingCreateRequest,
+  AuthNMappingRelationships: AuthNMappingRelationships,
+  AuthNMappingResponse: AuthNMappingResponse,
+  AuthNMappingUpdateAttributes: AuthNMappingUpdateAttributes,
+  AuthNMappingUpdateData: AuthNMappingUpdateData,
+  AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
+  AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
+  AuthNMappingsResponse: AuthNMappingsResponse,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
   CloudWorkloadSecurityAgentRuleCreateAttributes:
@@ -492,6 +548,8 @@ const typeMap: { [index: string]: any } = {
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
   IncidentResponseData: IncidentResponseData,
+  IncidentResponseMeta: IncidentResponseMeta,
+  IncidentResponseMetaPagination: IncidentResponseMetaPagination,
   IncidentResponseRelationships: IncidentResponseRelationships,
   IncidentServiceCreateAttributes: IncidentServiceCreateAttributes,
   IncidentServiceCreateData: IncidentServiceCreateData,
@@ -504,9 +562,6 @@ const typeMap: { [index: string]: any } = {
   IncidentServiceUpdateData: IncidentServiceUpdateData,
   IncidentServiceUpdateRequest: IncidentServiceUpdateRequest,
   IncidentServicesResponse: IncidentServicesResponse,
-  IncidentServicesResponseMeta: IncidentServicesResponseMeta,
-  IncidentServicesResponseMetaPagination:
-    IncidentServicesResponseMetaPagination,
   IncidentTeamCreateAttributes: IncidentTeamCreateAttributes,
   IncidentTeamCreateData: IncidentTeamCreateData,
   IncidentTeamCreateRequest: IncidentTeamCreateRequest,
@@ -586,6 +641,15 @@ const typeMap: { [index: string]: any } = {
   MetricAllTags: MetricAllTags,
   MetricAllTagsAttributes: MetricAllTagsAttributes,
   MetricAllTagsResponse: MetricAllTagsResponse,
+  MetricBulkTagConfigCreate: MetricBulkTagConfigCreate,
+  MetricBulkTagConfigCreateAttributes: MetricBulkTagConfigCreateAttributes,
+  MetricBulkTagConfigCreateRequest: MetricBulkTagConfigCreateRequest,
+  MetricBulkTagConfigDelete: MetricBulkTagConfigDelete,
+  MetricBulkTagConfigDeleteAttributes: MetricBulkTagConfigDeleteAttributes,
+  MetricBulkTagConfigDeleteRequest: MetricBulkTagConfigDeleteRequest,
+  MetricBulkTagConfigResponse: MetricBulkTagConfigResponse,
+  MetricBulkTagConfigStatus: MetricBulkTagConfigStatus,
+  MetricBulkTagConfigStatusAttributes: MetricBulkTagConfigStatusAttributes,
   MetricCustomAggregation: MetricCustomAggregation,
   MetricDistinctVolume: MetricDistinctVolume,
   MetricDistinctVolumeAttributes: MetricDistinctVolumeAttributes,
@@ -636,6 +700,9 @@ const typeMap: { [index: string]: any } = {
   RelationshipToRole: RelationshipToRole,
   RelationshipToRoleData: RelationshipToRoleData,
   RelationshipToRoles: RelationshipToRoles,
+  RelationshipToSAMLAssertionAttribute: RelationshipToSAMLAssertionAttribute,
+  RelationshipToSAMLAssertionAttributeData:
+    RelationshipToSAMLAssertionAttributeData,
   RelationshipToUser: RelationshipToUser,
   RelationshipToUserData: RelationshipToUserData,
   RelationshipToUsers: RelationshipToUsers,
@@ -659,6 +726,8 @@ const typeMap: { [index: string]: any } = {
   RoleUpdateResponse: RoleUpdateResponse,
   RoleUpdateResponseData: RoleUpdateResponseData,
   RolesResponse: RolesResponse,
+  SAMLAssertionAttribute: SAMLAssertionAttribute,
+  SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -724,6 +793,7 @@ const typeMap: { [index: string]: any } = {
 const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User"],
   ApplicationKeyResponseIncludedItem: ["Role", "User"],
+  AuthNMappingIncluded: ["Role", "SAMLAssertionAttribute"],
   IncidentFieldAttributes: [
     "IncidentFieldAttributesMultipleValue",
     "IncidentFieldAttributesSingleValue",

@@ -36,8 +36,14 @@ export class HTTPLogItem {
    */
   "service"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     ddsource: {
       baseName: "ddsource",
@@ -61,6 +67,9 @@ export class HTTPLogItem {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HTTPLogItem.attributeTypeMap;
   }

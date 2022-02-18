@@ -279,8 +279,14 @@ export class UsageSummaryResponse {
    */
   "vsphereHostTop99pSum"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostTop99pSum: {
       baseName: "agent_host_top99p_sum",
@@ -612,6 +618,9 @@ export class UsageSummaryResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSummaryResponse.attributeTypeMap;
   }

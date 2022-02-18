@@ -20,8 +20,14 @@ export class FunnelWidgetRequest {
   "query": FunnelQuery;
   "requestType": FunnelRequestType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
       baseName: "query",
@@ -35,6 +41,9 @@ export class FunnelWidgetRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FunnelWidgetRequest.attributeTypeMap;
   }

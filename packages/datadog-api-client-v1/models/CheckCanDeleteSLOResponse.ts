@@ -22,8 +22,14 @@ export class CheckCanDeleteSLOResponse {
    */
   "errors"?: { [key: string]: string };
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -35,6 +41,9 @@ export class CheckCanDeleteSLOResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return CheckCanDeleteSLOResponse.attributeTypeMap;
   }

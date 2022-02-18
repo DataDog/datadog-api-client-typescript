@@ -21,6 +21,10 @@ export class SyntheticsStep {
    */
   "allowFailure"?: boolean;
   /**
+   * A boolean to use in addition to `allowFailure` to determine if the test should be marked as failed when the step fails.
+   */
+  "isCritical"?: boolean;
+  /**
    * The name of the step.
    */
   "name"?: string;
@@ -34,11 +38,21 @@ export class SyntheticsStep {
   "timeout"?: number;
   "type"?: SyntheticsStepType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     allowFailure: {
       baseName: "allowFailure",
+      type: "boolean",
+    },
+    isCritical: {
+      baseName: "isCritical",
       type: "boolean",
     },
     name: {
@@ -60,6 +74,9 @@ export class SyntheticsStep {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsStep.attributeTypeMap;
   }

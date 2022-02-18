@@ -24,8 +24,14 @@ export class LogsAggregateBucketValueTimeseriesPoint {
    */
   "value"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     time: {
       baseName: "time",
@@ -38,6 +44,9 @@ export class LogsAggregateBucketValueTimeseriesPoint {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsAggregateBucketValueTimeseriesPoint.attributeTypeMap;
   }

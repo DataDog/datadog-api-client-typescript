@@ -25,8 +25,14 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
    */
   "results"?: Array<SyntheticsBrowserTestResultShort>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     lastTimestampFetched: {
       baseName: "last_timestamp_fetched",
@@ -39,6 +45,9 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGetBrowserTestLatestResultsResponse.attributeTypeMap;
   }

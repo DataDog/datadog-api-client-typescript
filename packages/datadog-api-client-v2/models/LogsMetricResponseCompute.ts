@@ -22,8 +22,14 @@ export class LogsMetricResponseCompute {
    */
   "path"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregationType: {
       baseName: "aggregation_type",
@@ -35,6 +41,9 @@ export class LogsMetricResponseCompute {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricResponseCompute.attributeTypeMap;
   }

@@ -14,7 +14,7 @@ let params: v1.UsageMeteringApiGetUsageSNMPRequest = {
 
 apiInstance
   .getUsageSNMP(params)
-  .then((data: any) => {
+  .then((data: v1.UsageSNMPResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

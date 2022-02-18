@@ -30,7 +30,7 @@ let params: v2.UsersApiSendInvitationsRequest = {
 
 apiInstance
   .sendInvitations(params)
-  .then((data: any) => {
+  .then((data: v2.UserInvitationsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

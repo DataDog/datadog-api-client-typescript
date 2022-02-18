@@ -26,8 +26,14 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    */
   "metric"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
@@ -45,6 +51,9 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorFormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
   }

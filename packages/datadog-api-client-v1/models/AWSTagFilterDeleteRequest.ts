@@ -22,8 +22,14 @@ export class AWSTagFilterDeleteRequest {
   "accountId"?: string;
   "namespace"?: AWSNamespace;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accountId: {
       baseName: "account_id",
@@ -35,6 +41,9 @@ export class AWSTagFilterDeleteRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSTagFilterDeleteRequest.attributeTypeMap;
   }

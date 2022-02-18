@@ -20,8 +20,14 @@ export class DashboardDeleteResponse {
    */
   "deletedDashboardId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     deletedDashboardId: {
       baseName: "deleted_dashboard_id",
@@ -29,6 +35,9 @@ export class DashboardDeleteResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardDeleteResponse.attributeTypeMap;
   }

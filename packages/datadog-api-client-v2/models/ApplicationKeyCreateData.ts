@@ -20,8 +20,14 @@ export class ApplicationKeyCreateData {
   "attributes": ApplicationKeyCreateAttributes;
   "type": ApplicationKeysType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -35,6 +41,9 @@ export class ApplicationKeyCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyCreateData.attributeTypeMap;
   }

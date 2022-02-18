@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class ApplicationKeyResponse {
   "applicationKey"?: ApplicationKey;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     applicationKey: {
       baseName: "application_key",
@@ -27,6 +33,9 @@ export class ApplicationKeyResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApplicationKeyResponse.attributeTypeMap;
   }

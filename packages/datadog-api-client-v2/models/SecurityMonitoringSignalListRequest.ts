@@ -22,8 +22,14 @@ export class SecurityMonitoringSignalListRequest {
   "page"?: SecurityMonitoringSignalListRequestPage;
   "sort"?: SecurityMonitoringSignalsSort;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
@@ -39,6 +45,9 @@ export class SecurityMonitoringSignalListRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalListRequest.attributeTypeMap;
   }

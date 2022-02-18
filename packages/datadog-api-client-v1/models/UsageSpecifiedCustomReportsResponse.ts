@@ -20,8 +20,14 @@ export class UsageSpecifiedCustomReportsResponse {
   "data"?: UsageSpecifiedCustomReportsData;
   "meta"?: UsageSpecifiedCustomReportsMeta;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -33,6 +39,9 @@ export class UsageSpecifiedCustomReportsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSpecifiedCustomReportsResponse.attributeTypeMap;
   }

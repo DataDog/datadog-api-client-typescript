@@ -23,8 +23,14 @@ export class SLOBulkDeleteResponse {
    */
   "errors"?: Array<SLOBulkDeleteError>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -36,6 +42,9 @@ export class SLOBulkDeleteResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOBulkDeleteResponse.attributeTypeMap;
   }

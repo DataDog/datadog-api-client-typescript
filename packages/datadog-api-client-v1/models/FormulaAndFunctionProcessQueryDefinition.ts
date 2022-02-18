@@ -46,8 +46,14 @@ export class FormulaAndFunctionProcessQueryDefinition {
    */
   "textFilter"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
       baseName: "aggregator",
@@ -91,6 +97,9 @@ export class FormulaAndFunctionProcessQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FormulaAndFunctionProcessQueryDefinition.attributeTypeMap;
   }

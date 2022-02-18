@@ -23,8 +23,14 @@ export class SLOCorrectionListResponse {
   "data"?: Array<SLOCorrection>;
   "meta"?: ResponseMetaAttributes;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -36,6 +42,9 @@ export class SLOCorrectionListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionListResponse.attributeTypeMap;
   }

@@ -26,8 +26,14 @@ export class ListStreamQuery {
    */
   "queryString": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dataSource: {
       baseName: "data_source",
@@ -45,6 +51,9 @@ export class ListStreamQuery {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ListStreamQuery.attributeTypeMap;
   }
