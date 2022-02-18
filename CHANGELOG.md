@@ -1,5 +1,41 @@
 # CHANGELOG
 
+## 1.0.0-beta.8 / 2022-02-18
+
+* Upgrade pollyjs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/496
+* Bump node-fetch from 2.6.1 to 2.6.7 by @dependabot in https://github.com/DataDog/datadog-api-client-typescript/pull/500
+* Sync OpenAPI specification with backend by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/499
+* Use cross-fetch instead of node-fetch by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/498
+* Add missing items to `x-enum-varnames` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/503
+* Add organization metadata to additional Usage API responses by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/504
+* Add synthetics test result failure field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/505
+* Sync OpenAPI specification with backend by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/507
+* Add support for formula and function in monitors by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/508
+* Add endpoint for managing SAML AuthN mappings by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/506
+* Refactor internal APIs by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/515
+* Document returned types in typescript by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/517
+* Document code using typedoc by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/519
+* Updates to the event migration note by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/511
+* Bump dd-trace to 2.1.1 by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/509
+* [Synthetics] Add `isCritical` to browser test steps by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/513
+* Fix funnel steps definition by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/521
+* [webhook] - skip terraform for webhook tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/523
+* Add metrics bulk-config endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/510
+* Set name in typedoc by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/520
+* Fix documentation for `duration` property in browser test's latest results by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/524
+* Extract incident meta object by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/525
+* Add support for "estimated usage attribution" by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/526
+* Sync OpenAPI specification with backend by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/527
+* Add missing type to `CloudWorkloadSecurityAgentRuleAttributes` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/529
+* Rework examples and spectral validation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/528
+* Add org metadata for all hourly usage endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/530
+* Add missing type to enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/531
+
+## New Contributors
+* @skarimo made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/509
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.0.0-beta.7...v1.0.0-beta.8
+
 ## 1.0.0-beta.7 / 2022-01-21
 
 * [Added] Add `filter[deleted]` parameter for searching recently deleted dashboards. See [#479](https://github.com/DataDog/datadog-api-client-typescript/pull/479).
