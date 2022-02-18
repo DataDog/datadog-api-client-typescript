@@ -281,6 +281,8 @@ models/MetricVolumes.ts
 models/MetricVolumesResponse.ts
 models/MetricsAndMetricTagConfigurations.ts
 models/MetricsAndMetricTagConfigurationsResponse.ts
+models/NullableRelationshipToUser.ts
+models/NullableRelationshipToUserData.ts
 models/ObjectSerializer.ts
 models/Organization.ts
 models/OrganizationAttributes.ts

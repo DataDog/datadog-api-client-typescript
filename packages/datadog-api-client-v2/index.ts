@@ -419,6 +419,8 @@ export { MetricVolumes } from "./models/MetricVolumes";
 export { MetricVolumesResponse } from "./models/MetricVolumesResponse";
 export { MetricsAndMetricTagConfigurations } from "./models/MetricsAndMetricTagConfigurations";
 export { MetricsAndMetricTagConfigurationsResponse } from "./models/MetricsAndMetricTagConfigurationsResponse";
+export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
+export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { Organization } from "./models/Organization";
 export { OrganizationAttributes } from "./models/OrganizationAttributes";
 export { OrganizationsType } from "./models/OrganizationsType";

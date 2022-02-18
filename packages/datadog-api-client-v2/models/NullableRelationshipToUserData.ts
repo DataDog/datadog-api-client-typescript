@@ -8,25 +8,19 @@
  * Do not edit the class manually.
  */
 
-import { SyntheticsAssertionOperator } from "./SyntheticsAssertionOperator";
-import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
+import { UsersType } from "./UsersType";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
- * An assertion which uses a simple target.
+ * Relationship to user object.
  */
 
-export class SyntheticsAssertionTarget {
-  "operator": SyntheticsAssertionOperator;
+export class NullableRelationshipToUserData {
   /**
-   * The associated assertion property.
+   * A unique identifier that represents the user.
    */
-  "property"?: string;
-  /**
-   * Value used by the operator.
-   */
-  "target": any | null;
-  "type": SyntheticsAssertionType;
+  "id": string;
+  "type": UsersType;
 
   /**
    * @ignore
@@ -37,23 +31,14 @@ export class SyntheticsAssertionTarget {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    operator: {
-      baseName: "operator",
-      type: "SyntheticsAssertionOperator",
-      required: true,
-    },
-    property: {
-      baseName: "property",
+    id: {
+      baseName: "id",
       type: "string",
-    },
-    target: {
-      baseName: "target",
-      type: "any",
       required: true,
     },
     type: {
       baseName: "type",
-      type: "SyntheticsAssertionType",
+      type: "UsersType",
       required: true,
     },
   };
@@ -62,7 +47,7 @@ export class SyntheticsAssertionTarget {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAssertionTarget.attributeTypeMap;
+    return NullableRelationshipToUserData.attributeTypeMap;
   }
 
   public constructor() {}
