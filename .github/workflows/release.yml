@@ -64,6 +64,7 @@ jobs:
           git switch -c "${POST_RELEASE_BRANCH}"
           # TODO remove beta after 1.0.0 release
           npm version --no-git-tag-version --preid beta prerelease
+          git commit -a -m "Bump version"
           git push -f --set-upstream origin "${POST_RELEASE_BRANCH}"
         env:
           POST_RELEASE_BRANCH: post-${{ github.head_ref }}
