@@ -8,15 +8,15 @@
  * Do not edit the class manually.
  */
 
-import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
+import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
- * The relationships the incident will have with other resources once created.
+ * Relationship to user.
  */
 
-export class IncidentCreateRelationships {
-  "commanderUser": NullableRelationshipToUser;
+export class NullableRelationshipToUser {
+  "data": NullableRelationshipToUserData | null;
 
   /**
    * @ignore
@@ -27,9 +27,9 @@ export class IncidentCreateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commanderUser: {
-      baseName: "commander_user",
-      type: "NullableRelationshipToUser",
+    data: {
+      baseName: "data",
+      type: "NullableRelationshipToUserData",
       required: true,
     },
   };
@@ -38,7 +38,7 @@ export class IncidentCreateRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentCreateRelationships.attributeTypeMap;
+    return NullableRelationshipToUser.attributeTypeMap;
   }
 
   public constructor() {}

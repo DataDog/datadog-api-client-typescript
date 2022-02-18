@@ -17,7 +17,7 @@ import { AttributeTypeMap } from "./ObjectSerializer";
  */
 
 export class LogsArchiveAttributes {
-  "destination": LogsArchiveDestination;
+  "destination": LogsArchiveDestination | null;
   /**
    * To store the tags in the archive, set the value \"true\". If it is set to \"false\", the tags will be deleted when the logs are sent to the archive.
    */

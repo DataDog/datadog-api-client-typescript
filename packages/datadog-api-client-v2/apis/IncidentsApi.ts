@@ -218,6 +218,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   public async updateIncident(
     incidentId: string,
     body: IncidentUpdateRequest,
+    include?: Array<IncidentRelatedObject>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -254,6 +255,14 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "Array<IncidentRelatedObject>", "")
+      );
+    }
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
@@ -725,6 +734,11 @@ export interface IncidentsApiUpdateIncidentRequest {
    * @type IncidentUpdateRequest
    */
   body: IncidentUpdateRequest;
+  /**
+   * Specifies which types of related objects should be included in the response.
+   * @type Array&lt;IncidentRelatedObject&gt;
+   */
+  include?: Array<IncidentRelatedObject>;
 }
 
 export class IncidentsApi {
@@ -842,6 +856,7 @@ export class IncidentsApi {
     const requestContextPromise = this.requestFactory.updateIncident(
       param.incidentId,
       param.body,
+      param.include,
       options
     );
     return requestContextPromise.then((requestContext) => {
