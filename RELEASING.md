@@ -23,12 +23,12 @@ The release process is controlled and run by GitHub Actions.
 ### Update Changelog
 
 1. Open [prepare release](https://github.com/DataDog/datadog-api-client-typescript/actions/workflows/prepare_release.yml) and click on `Run workflow` dropdown.
-1. Enter new version identifier in the `New version tag` input box (e.g. `v1.0.0-beta.9`).
+1. Enter new version identifier in the `New version number` input box (e.g. `1.0.0-beta.10`).
 1. Trigger the action by clicking on `Run workflow` button.
 
 ### Review
 
-1. Review the generated pull-request for `release/<New version tag>` branch.
+1. Review the generated pull-request for `release/<New version number>` branch.
 1. If everything is fine, merge the pull-request.
 1. Check that the [release](https://github.com/DataDog/datadog-api-client-typescript/actions/workflows/release.yml) action created new release on GitHub.
 
