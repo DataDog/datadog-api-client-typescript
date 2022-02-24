@@ -409,6 +409,8 @@ import { UsageBillableSummaryBody } from "./UsageBillableSummaryBody";
 import { UsageBillableSummaryHour } from "./UsageBillableSummaryHour";
 import { UsageBillableSummaryKeys } from "./UsageBillableSummaryKeys";
 import { UsageBillableSummaryResponse } from "./UsageBillableSummaryResponse";
+import { UsageCIVisibilityHour } from "./UsageCIVisibilityHour";
+import { UsageCIVisibilityResponse } from "./UsageCIVisibilityResponse";
 import { UsageCWSHour } from "./UsageCWSHour";
 import { UsageCWSResponse } from "./UsageCWSResponse";
 import { UsageCloudSecurityPostureManagementHour } from "./UsageCloudSecurityPostureManagementHour";
@@ -1601,6 +1603,8 @@ const typeMap: { [index: string]: any } = {
   UsageBillableSummaryHour: UsageBillableSummaryHour,
   UsageBillableSummaryKeys: UsageBillableSummaryKeys,
   UsageBillableSummaryResponse: UsageBillableSummaryResponse,
+  UsageCIVisibilityHour: UsageCIVisibilityHour,
+  UsageCIVisibilityResponse: UsageCIVisibilityResponse,
   UsageCWSHour: UsageCWSHour,
   UsageCWSResponse: UsageCWSResponse,
   UsageCloudSecurityPostureManagementHour:
