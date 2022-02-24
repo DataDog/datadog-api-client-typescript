@@ -505,7 +505,6 @@ const primitives = [
   "long",
   "float",
   "number",
-  "any",
 ];
 
 const ARRAY_PREFIX = "Array<";
@@ -1799,9 +1798,12 @@ const oneOfMap: { [index: string]: string[] } = {
 
 export class ObjectSerializer {
   public static serialize(data: any, type: string, format: string): any {
-    if (data == undefined) {
+    if (data == undefined || type == "any") {
       return data;
-    } else if (primitives.includes(type.toLowerCase())) {
+    } else if (
+      primitives.includes(type.toLowerCase()) &&
+      typeof data == type.toLowerCase()
+    ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
       // Array<Type> => Type
@@ -1913,9 +1915,12 @@ export class ObjectSerializer {
   }
 
   public static deserialize(data: any, type: string, format = ""): any {
-    if (data == undefined) {
+    if (data == undefined || type == "any") {
       return data;
-    } else if (primitives.includes(type.toLowerCase())) {
+    } else if (
+      primitives.includes(type.toLowerCase()) &&
+      typeof data == type.toLowerCase()
+    ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
       // Array<Type> => Type
