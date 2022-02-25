@@ -1,5 +1,5 @@
 .PHONY: all
-all: .generator .env
+all: .generator
 	@rm -rf packages/datadog-api-client-v*/models
 	@pre-commit run --all-files --hook-stage=manual openapi-generator || true
 	@rm -rf packages/datadog-api-client-v*/types/
@@ -10,7 +10,3 @@ all: .generator .env
 	@ls packages/datadog-api-client-v2/*Api.md | xargs -n1 ./extract-code-blocks.awk -v output="examples/generated/v2"
 	@rm packages/datadog-api-client-v*/*.md
 	@pre-commit run --all-files --hook-stage=manual lint || echo "modified files"
-
-.PHONY: .env
-.env:
-	@echo "export UID=$(shell id -u)\nexport GID=$(shell id -g)" > $@
