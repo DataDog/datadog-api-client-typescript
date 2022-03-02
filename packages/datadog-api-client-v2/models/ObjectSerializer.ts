@@ -260,6 +260,7 @@ import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRul
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleCreatePayload } from "./SecurityMonitoringRuleCreatePayload";
+import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
@@ -433,6 +434,7 @@ const enumsMap: { [key: string]: any[] } = {
     "threshold",
     "new_value",
     "anomaly_detection",
+    "impossible_travel",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
     0, 60, 300, 600, 900, 1800, 3600, 7200,
@@ -451,6 +453,7 @@ const enumsMap: { [key: string]: any[] } = {
     "sum",
     "max",
     "new_value",
+    "geo_data",
   ],
   SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
   SecurityMonitoringRuleTypeCreate: ["log_detection", "workload_security"],
@@ -749,6 +752,8 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
   SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
   SecurityMonitoringRuleCreatePayload: SecurityMonitoringRuleCreatePayload,
+  SecurityMonitoringRuleImpossibleTravelOptions:
+    SecurityMonitoringRuleImpossibleTravelOptions,
   SecurityMonitoringRuleNewValueOptions: SecurityMonitoringRuleNewValueOptions,
   SecurityMonitoringRuleOptions: SecurityMonitoringRuleOptions,
   SecurityMonitoringRuleQuery: SecurityMonitoringRuleQuery,

@@ -370,6 +370,7 @@ models/SecurityMonitoringRuleCaseCreate.ts
 models/SecurityMonitoringRuleCreatePayload.ts
 models/SecurityMonitoringRuleDetectionMethod.ts
 models/SecurityMonitoringRuleEvaluationWindow.ts
+models/SecurityMonitoringRuleImpossibleTravelOptions.ts
 models/SecurityMonitoringRuleKeepAlive.ts
 models/SecurityMonitoringRuleMaxSignalDuration.ts
 models/SecurityMonitoringRuleNewValueOptions.ts
