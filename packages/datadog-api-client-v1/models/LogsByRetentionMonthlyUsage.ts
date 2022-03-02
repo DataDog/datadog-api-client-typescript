@@ -19,7 +19,7 @@ export class LogsByRetentionMonthlyUsage {
   /**
    * The month for the usage.
    */
-  "date"?: string;
+  "date"?: Date;
   /**
    * Indexed logs usage for each active retention for the month.
    */
@@ -36,8 +36,8 @@ export class LogsByRetentionMonthlyUsage {
   static readonly attributeTypeMap: AttributeTypeMap = {
     date: {
       baseName: "date",
-      type: "string",
-      format: "datetime",
+      type: "Date",
+      format: "date-time",
     },
     usage: {
       baseName: "usage",
