@@ -265,6 +265,7 @@ export {
   UsageMeteringApiGetUsageAttributionRequest,
   UsageMeteringApiGetUsageAuditLogsRequest,
   UsageMeteringApiGetUsageBillableSummaryRequest,
+  UsageMeteringApiGetUsageCIAppRequest,
   UsageMeteringApiGetUsageCWSRequest,
   UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest,
   UsageMeteringApiGetUsageDBMRequest,
@@ -870,6 +871,8 @@ export { UsageBillableSummaryBody } from "./models/UsageBillableSummaryBody";
 export { UsageBillableSummaryHour } from "./models/UsageBillableSummaryHour";
 export { UsageBillableSummaryKeys } from "./models/UsageBillableSummaryKeys";
 export { UsageBillableSummaryResponse } from "./models/UsageBillableSummaryResponse";
+export { UsageCIVisibilityHour } from "./models/UsageCIVisibilityHour";
+export { UsageCIVisibilityResponse } from "./models/UsageCIVisibilityResponse";
 export { UsageCWSHour } from "./models/UsageCWSHour";
 export { UsageCWSResponse } from "./models/UsageCWSResponse";
 export { UsageCloudSecurityPostureManagementHour } from "./models/UsageCloudSecurityPostureManagementHour";
