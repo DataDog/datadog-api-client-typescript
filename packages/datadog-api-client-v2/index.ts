@@ -507,6 +507,7 @@ export { SecurityMonitoringRuleCaseCreate } from "./models/SecurityMonitoringRul
 export { SecurityMonitoringRuleCreatePayload } from "./models/SecurityMonitoringRuleCreatePayload";
 export { SecurityMonitoringRuleDetectionMethod } from "./models/SecurityMonitoringRuleDetectionMethod";
 export { SecurityMonitoringRuleEvaluationWindow } from "./models/SecurityMonitoringRuleEvaluationWindow";
+export { SecurityMonitoringRuleImpossibleTravelOptions } from "./models/SecurityMonitoringRuleImpossibleTravelOptions";
 export { SecurityMonitoringRuleKeepAlive } from "./models/SecurityMonitoringRuleKeepAlive";
 export { SecurityMonitoringRuleMaxSignalDuration } from "./models/SecurityMonitoringRuleMaxSignalDuration";
 export { SecurityMonitoringRuleNewValueOptions } from "./models/SecurityMonitoringRuleNewValueOptions";
