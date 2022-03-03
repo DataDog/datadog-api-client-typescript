@@ -626,6 +626,8 @@ models/UsageBillableSummaryBody.ts
 models/UsageBillableSummaryHour.ts
 models/UsageBillableSummaryKeys.ts
 models/UsageBillableSummaryResponse.ts
+models/UsageCIVisibilityHour.ts
+models/UsageCIVisibilityResponse.ts
 models/UsageCWSHour.ts
 models/UsageCWSResponse.ts
 models/UsageCloudSecurityPostureManagementHour.ts

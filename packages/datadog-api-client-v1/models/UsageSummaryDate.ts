@@ -69,6 +69,22 @@ export class UsageSummaryDate {
    */
   "browserRumUnitsSum"?: number;
   /**
+   * Shows the sum of all CI pipeline indexed spans over all hours in the current month for all organizations.
+   */
+  "ciPipelineIndexedSpansSum"?: number;
+  /**
+   * Shows the sum of all CI test indexed spans over all hours in the current month for all organizations.
+   */
+  "ciTestIndexedSpansSum"?: number;
+  /**
+   * Shows the high-water mark of all CI visibility pipeline committers over all hours in the current month for all organizations.
+   */
+  "ciVisibilityPipelineCommittersHwm"?: number;
+  /**
+   * Shows the high-water mark of all CI visibility test committers over all hours in the current month for all organizations.
+   */
+  "ciVisibilityTestCommittersHwm"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current date for all organizations.
    */
   "containerAvg"?: number;
@@ -316,6 +332,26 @@ export class UsageSummaryDate {
     },
     browserRumUnitsSum: {
       baseName: "browser_rum_units_sum",
+      type: "number",
+      format: "int64",
+    },
+    ciPipelineIndexedSpansSum: {
+      baseName: "ci_pipeline_indexed_spans_sum",
+      type: "number",
+      format: "int64",
+    },
+    ciTestIndexedSpansSum: {
+      baseName: "ci_test_indexed_spans_sum",
+      type: "number",
+      format: "int64",
+    },
+    ciVisibilityPipelineCommittersHwm: {
+      baseName: "ci_visibility_pipeline_committers_hwm",
+      type: "number",
+      format: "int64",
+    },
+    ciVisibilityTestCommittersHwm: {
+      baseName: "ci_visibility_test_committers_hwm",
       type: "number",
       format: "int64",
     },

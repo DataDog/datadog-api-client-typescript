@@ -8,22 +8,18 @@
  * Do not edit the class manually.
  */
 
-import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
+import { UsageCIVisibilityHour } from "./UsageCIVisibilityHour";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
- * Object containing a summary of indexed logs usage by retention period for a single month.
+ * CI visibility usage response
  */
 
-export class LogsByRetentionMonthlyUsage {
+export class UsageCIVisibilityResponse {
   /**
-   * The month for the usage.
+   * Response containing CI visibility usage.
    */
-  "date"?: Date;
-  /**
-   * Indexed logs usage for each active retention for the month.
-   */
-  "usage"?: Array<LogsRetentionSumUsage>;
+  "usage"?: Array<UsageCIVisibilityHour>;
 
   /**
    * @ignore
@@ -34,14 +30,9 @@ export class LogsByRetentionMonthlyUsage {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    date: {
-      baseName: "date",
-      type: "Date",
-      format: "date-time",
-    },
     usage: {
       baseName: "usage",
-      type: "Array<LogsRetentionSumUsage>",
+      type: "Array<UsageCIVisibilityHour>",
     },
   };
 
@@ -49,7 +40,7 @@ export class LogsByRetentionMonthlyUsage {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsByRetentionMonthlyUsage.attributeTypeMap;
+    return UsageCIVisibilityResponse.attributeTypeMap;
   }
 
   public constructor() {}
