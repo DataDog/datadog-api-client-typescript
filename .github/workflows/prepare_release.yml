@@ -41,7 +41,7 @@ jobs:
         run: |
           git switch -c "release/${RELEASE_VERSION}"
           npm version --allow-same-version --no-git-tag-version "${RELEASE_VERSION}"
-          git commit -a -m "Bump version to ${RELEASE_VERSION}"
+          git commit --allow-empty -a -m "Bump version to ${RELEASE_VERSION}"
           git push -f --set-upstream origin "release/${RELEASE_VERSION}"
         env:
           RELEASE_VERSION: ${{ github.event.inputs.version }}
