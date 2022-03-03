@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 1.0.0-beta.9 / 2022-03-03
+
+### Fixed
+* Fix event intake response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/541
+* Fix type for `date` field in `LogsByRetentionMonthlyUsage` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/553
+* Make `typedoc` a devDependency by @Nevon in https://github.com/DataDog/datadog-api-client-typescript/pull/554
+### Added
+* [Synthetics] Add missing option for SSL tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/544
+* Add impossible travel detection method by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/548
+* Add CI App usage endpoint and usage summary columns by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/552
+### Removed
+* Don't distribute tests directory by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/547
+
+## New Contributors
+* @Nevon made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/554
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.0.0-beta.8...v1.0.0-beta.9
+
 ## 1.0.0-beta.8 / 2022-02-18
 
 ### Fixed
