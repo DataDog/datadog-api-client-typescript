@@ -202,6 +202,17 @@ import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { RUMEvent } from "./RUMEvent";
+import { RUMEventAttributes } from "./RUMEventAttributes";
+import { RUMEventsResponse } from "./RUMEventsResponse";
+import { RUMQueryFilter } from "./RUMQueryFilter";
+import { RUMQueryOptions } from "./RUMQueryOptions";
+import { RUMQueryPageOptions } from "./RUMQueryPageOptions";
+import { RUMResponseLinks } from "./RUMResponseLinks";
+import { RUMResponseMetadata } from "./RUMResponseMetadata";
+import { RUMResponsePage } from "./RUMResponsePage";
+import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
+import { RUMWarning } from "./RUMWarning";
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
@@ -417,6 +428,9 @@ const enumsMap: { [key: string]: any[] } = {
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
   QuerySortOrder: ["asc", "desc"],
+  RUMEventType: ["rum"],
+  RUMResponseStatus: ["done", "timeout"],
+  RUMSort: ["timestamp", "-timestamp"],
   RolesSort: [
     "name",
     "-name",
@@ -691,6 +705,17 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
+  RUMEvent: RUMEvent,
+  RUMEventAttributes: RUMEventAttributes,
+  RUMEventsResponse: RUMEventsResponse,
+  RUMQueryFilter: RUMQueryFilter,
+  RUMQueryOptions: RUMQueryOptions,
+  RUMQueryPageOptions: RUMQueryPageOptions,
+  RUMResponseLinks: RUMResponseLinks,
+  RUMResponseMetadata: RUMResponseMetadata,
+  RUMResponsePage: RUMResponsePage,
+  RUMSearchEventsRequest: RUMSearchEventsRequest,
+  RUMWarning: RUMWarning,
   RelationshipToIncidentIntegrationMetadataData:
     RelationshipToIncidentIntegrationMetadataData,
   RelationshipToIncidentIntegrationMetadatas:
