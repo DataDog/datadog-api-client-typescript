@@ -124,6 +124,12 @@ export {
 } from "./apis/ProcessesApi";
 
 export {
+  RUMApiListRUMEventsRequest,
+  RUMApiSearchRUMEventsRequest,
+  RUMApi,
+} from "./apis/RUMApi";
+
+export {
   RolesApiAddPermissionToRoleRequest,
   RolesApiAddUserToRoleRequest,
   RolesApiCloneRoleRequest,
@@ -441,6 +447,20 @@ export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
 export { QuerySortOrder } from "./models/QuerySortOrder";
+export { RUMEvent } from "./models/RUMEvent";
+export { RUMEventAttributes } from "./models/RUMEventAttributes";
+export { RUMEventType } from "./models/RUMEventType";
+export { RUMEventsResponse } from "./models/RUMEventsResponse";
+export { RUMQueryFilter } from "./models/RUMQueryFilter";
+export { RUMQueryOptions } from "./models/RUMQueryOptions";
+export { RUMQueryPageOptions } from "./models/RUMQueryPageOptions";
+export { RUMResponseLinks } from "./models/RUMResponseLinks";
+export { RUMResponseMetadata } from "./models/RUMResponseMetadata";
+export { RUMResponsePage } from "./models/RUMResponsePage";
+export { RUMResponseStatus } from "./models/RUMResponseStatus";
+export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
+export { RUMSort } from "./models/RUMSort";
+export { RUMWarning } from "./models/RUMWarning";
 export { RelationshipToIncidentIntegrationMetadataData } from "./models/RelationshipToIncidentIntegrationMetadataData";
 export { RelationshipToIncidentIntegrationMetadatas } from "./models/RelationshipToIncidentIntegrationMetadatas";
 export { RelationshipToIncidentPostmortem } from "./models/RelationshipToIncidentPostmortem";
