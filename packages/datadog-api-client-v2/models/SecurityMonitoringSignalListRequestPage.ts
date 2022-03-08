@@ -24,8 +24,14 @@ export class SecurityMonitoringSignalListRequestPage {
    */
   "limit"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
       baseName: "cursor",
@@ -38,6 +44,9 @@ export class SecurityMonitoringSignalListRequestPage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringSignalListRequestPage.attributeTypeMap;
   }

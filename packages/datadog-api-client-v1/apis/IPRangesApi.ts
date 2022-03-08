@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory } from "./baseapi";
 import { Configuration, getServer } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
@@ -9,14 +8,7 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IPRanges } from "../models/IPRanges";
 
-/**
- * no description
- */
 export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Get information about Datadog IP ranges.
-   * List IP Ranges
-   */
   public async getIPRanges(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
@@ -79,5 +71,38 @@ export class IPRangesApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export class IPRangesApi {
+  private requestFactory: IPRangesApiRequestFactory;
+  private responseProcessor: IPRangesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: IPRangesApiRequestFactory,
+    responseProcessor?: IPRangesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new IPRangesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new IPRangesApiResponseProcessor();
+  }
+
+  /**
+   * Get information about Datadog IP ranges.
+   * @param param The request object
+   */
+  public getIPRanges(options?: Configuration): Promise<IPRanges> {
+    const requestContextPromise = this.requestFactory.getIPRanges(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getIPRanges(responseContext);
+        });
+    });
   }
 }

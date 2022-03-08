@@ -38,8 +38,14 @@ export class LogsArithmeticProcessor {
   "target": string;
   "type": LogsArithmeticProcessorType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     expression: {
       baseName: "expression",
@@ -70,6 +76,9 @@ export class LogsArithmeticProcessor {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArithmeticProcessor.attributeTypeMap;
   }

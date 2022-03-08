@@ -24,8 +24,14 @@ export class NotebookCellUpdateRequest {
   "id": string;
   "type": NotebookCellResourceType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -44,6 +50,9 @@ export class NotebookCellUpdateRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookCellUpdateRequest.attributeTypeMap;
   }

@@ -28,8 +28,14 @@ export class LogsListRequestTime {
    */
   "to": Date;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
       baseName: "from",
@@ -49,6 +55,9 @@ export class LogsListRequestTime {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsListRequestTime.attributeTypeMap;
   }

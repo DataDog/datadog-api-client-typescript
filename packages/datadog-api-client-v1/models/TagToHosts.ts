@@ -20,8 +20,14 @@ export class TagToHosts {
    */
   "tags"?: { [key: string]: Array<string> };
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tags: {
       baseName: "tags",
@@ -29,6 +35,9 @@ export class TagToHosts {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return TagToHosts.attributeTypeMap;
   }

@@ -26,8 +26,14 @@ export class LogsExclusion {
    */
   "name": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
@@ -44,6 +50,9 @@ export class LogsExclusion {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsExclusion.attributeTypeMap;
   }

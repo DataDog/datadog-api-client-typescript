@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class SunburstWidgetLegendTable {
   "type": SunburstWidgetLegendTableType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
       baseName: "type",
@@ -28,6 +34,9 @@ export class SunburstWidgetLegendTable {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SunburstWidgetLegendTable.attributeTypeMap;
   }

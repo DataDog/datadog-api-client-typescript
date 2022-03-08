@@ -23,7 +23,7 @@ let params: v1.SyntheticsApiTriggerTestsRequest = {
 
 apiInstance
   .triggerTests(params)
-  .then((data: any) => {
+  .then((data: v1.SyntheticsTriggerCITestsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

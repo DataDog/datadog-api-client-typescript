@@ -21,8 +21,14 @@ export class SyntheticsListTestsResponse {
    */
   "tests"?: Array<SyntheticsTestDetails>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
       baseName: "tests",
@@ -30,6 +36,9 @@ export class SyntheticsListTestsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsListTestsResponse.attributeTypeMap;
   }

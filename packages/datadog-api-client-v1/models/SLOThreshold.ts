@@ -34,8 +34,14 @@ export class SLOThreshold {
    */
   "warningDisplay"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     target: {
       baseName: "target",
@@ -63,6 +69,9 @@ export class SLOThreshold {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOThreshold.attributeTypeMap;
   }

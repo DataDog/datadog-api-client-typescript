@@ -34,8 +34,14 @@ export class WebhooksIntegrationUpdateRequest {
    */
   "url"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customHeaders: {
       baseName: "custom_headers",
@@ -59,6 +65,9 @@ export class WebhooksIntegrationUpdateRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WebhooksIntegrationUpdateRequest.attributeTypeMap;
   }

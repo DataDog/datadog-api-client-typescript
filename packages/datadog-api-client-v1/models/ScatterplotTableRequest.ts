@@ -28,8 +28,14 @@ export class ScatterplotTableRequest {
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   "responseFormat"?: FormulaAndFunctionResponseFormat;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     formulas: {
       baseName: "formulas",
@@ -45,6 +51,9 @@ export class ScatterplotTableRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ScatterplotTableRequest.attributeTypeMap;
   }

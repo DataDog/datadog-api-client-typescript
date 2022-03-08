@@ -24,8 +24,14 @@ export class LogsArchiveIntegrationAzure {
    */
   "tenantId": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     clientId: {
       baseName: "client_id",
@@ -39,6 +45,9 @@ export class LogsArchiveIntegrationAzure {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveIntegrationAzure.attributeTypeMap;
   }

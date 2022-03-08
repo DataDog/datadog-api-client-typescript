@@ -20,8 +20,14 @@ export class AWSLogsLambda {
    */
   "arn"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     arn: {
       baseName: "arn",
@@ -29,6 +35,9 @@ export class AWSLogsLambda {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSLogsLambda.attributeTypeMap;
   }

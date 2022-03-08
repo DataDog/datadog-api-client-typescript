@@ -21,8 +21,14 @@ export class RelationshipToIncidentIntegrationMetadatas {
    */
   "data": Array<RelationshipToIncidentIntegrationMetadataData>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -31,6 +37,9 @@ export class RelationshipToIncidentIntegrationMetadatas {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RelationshipToIncidentIntegrationMetadatas.attributeTypeMap;
   }

@@ -20,8 +20,14 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
    */
   "enabled"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     enabled: {
       baseName: "enabled",
@@ -29,6 +35,9 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationSettingsSamlIdpInitiatedLogin.attributeTypeMap;
   }

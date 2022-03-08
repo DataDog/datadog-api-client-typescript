@@ -76,6 +76,7 @@ import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMet
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
 import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
 import { FunnelQuery } from "./FunnelQuery";
+import { FunnelStep } from "./FunnelStep";
 import { FunnelWidgetDefinition } from "./FunnelWidgetDefinition";
 import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
 import { GCPAccount } from "./GCPAccount";
@@ -177,6 +178,11 @@ import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
 import { MetricsQueryResponse } from "./MetricsQueryResponse";
 import { MetricsQueryUnit } from "./MetricsQueryUnit";
 import { Monitor } from "./Monitor";
+import { MonitorFormulaAndFunctionEventQueryDefinition } from "./MonitorFormulaAndFunctionEventQueryDefinition";
+import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorFormulaAndFunctionEventQueryDefinitionCompute";
+import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
+import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
+import { MonitorFormulaAndFunctionEventQueryGroupBySort } from "./MonitorFormulaAndFunctionEventQueryGroupBySort";
 import { MonitorGroupSearchResponse } from "./MonitorGroupSearchResponse";
 import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCounts";
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
@@ -306,6 +312,7 @@ import { SyntheticsAPITestResultFull } from "./SyntheticsAPITestResultFull";
 import { SyntheticsAPITestResultFullCheck } from "./SyntheticsAPITestResultFullCheck";
 import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
 import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
+import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure";
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
@@ -319,6 +326,7 @@ import { SyntheticsBrowserError } from "./SyntheticsBrowserError";
 import { SyntheticsBrowserTest } from "./SyntheticsBrowserTest";
 import { SyntheticsBrowserTestConfig } from "./SyntheticsBrowserTestConfig";
 import { SyntheticsBrowserTestResultData } from "./SyntheticsBrowserTestResultData";
+import { SyntheticsBrowserTestResultFailure } from "./SyntheticsBrowserTestResultFailure";
 import { SyntheticsBrowserTestResultFull } from "./SyntheticsBrowserTestResultFull";
 import { SyntheticsBrowserTestResultFullCheck } from "./SyntheticsBrowserTestResultFullCheck";
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
@@ -401,6 +409,8 @@ import { UsageBillableSummaryBody } from "./UsageBillableSummaryBody";
 import { UsageBillableSummaryHour } from "./UsageBillableSummaryHour";
 import { UsageBillableSummaryKeys } from "./UsageBillableSummaryKeys";
 import { UsageBillableSummaryResponse } from "./UsageBillableSummaryResponse";
+import { UsageCIVisibilityHour } from "./UsageCIVisibilityHour";
+import { UsageCIVisibilityResponse } from "./UsageCIVisibilityResponse";
 import { UsageCWSHour } from "./UsageCWSHour";
 import { UsageCWSResponse } from "./UsageCWSResponse";
 import { UsageCloudSecurityPostureManagementHour } from "./UsageCloudSecurityPostureManagementHour";
@@ -497,7 +507,6 @@ const primitives = [
   "long",
   "float",
   "number",
-  "any",
 ];
 
 const ARRAY_PREFIX = "Array<";
@@ -617,6 +626,7 @@ const enumsMap: { [key: string]: any[] } = {
     "browser_usage",
     "container_usage",
     "custom_timeseries_usage",
+    "estimated_indexed_logs_usage",
     "fargate_usage",
     "functions_usage",
     "indexed_logs_usage",
@@ -662,6 +672,21 @@ const enumsMap: { [key: string]: any[] } = {
     "firefox.tablet",
     "firefox.mobile_small",
   ],
+  MonitorFormulaAndFunctionEventAggregation: [
+    "count",
+    "cardinality",
+    "median",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+  ],
+  MonitorFormulaAndFunctionEventsDataSource: ["rum"],
   MonitorOverallStates: [
     "Alert",
     "Ignored",
@@ -700,6 +725,8 @@ const enumsMap: { [key: string]: any[] } = {
     "container_percentage",
     "custom_timeseries_usage",
     "custom_timeseries_percentage",
+    "estimated_indexed_logs_usage",
+    "estimated_indexed_logs_percentage",
     "fargate_usage",
     "fargate_percentage",
     "functions_usage",
@@ -758,6 +785,34 @@ const enumsMap: { [key: string]: any[] } = {
   SunburstWidgetLegendTableType: ["table", "none"],
   SyntheticsAPIStepSubtype: ["http"],
   SyntheticsAPITestType: ["api"],
+  SyntheticsApiTestFailureCode: [
+    "BODY_TOO_LARGE",
+    "DENIED",
+    "TOO_MANY_REDIRECTS",
+    "AUTHENTICATION_ERROR",
+    "DECRYPTION",
+    "INVALID_CHAR_IN_HEADER",
+    "HEADER_TOO_LARGE",
+    "HEADERS_INCOMPATIBLE_CONTENT_LENGTH",
+    "INVALID_REQUEST",
+    "REQUIRES_UPDATE",
+    "UNESCAPED_CHARACTERS_IN_REQUEST_PATH",
+    "MALFORMED_RESPONSE",
+    "INCORRECT_ASSERTION",
+    "CONNREFUSED",
+    "CONNRESET",
+    "DNS",
+    "HOSTUNREACH",
+    "NETUNREACH",
+    "TIMEOUT",
+    "SSL",
+    "OCSP",
+    "INVALID_TEST",
+    "TUNNEL",
+    "WEBSOCKET",
+    "UNKNOWN",
+    "INTERNAL_ERROR",
+  ],
   SyntheticsAssertionJSONPathOperator: ["validatesJSONPath"],
   SyntheticsAssertionOperator: [
     "contains",
@@ -795,6 +850,41 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
   SyntheticsBasicAuthWebType: ["web"],
   SyntheticsBrowserErrorType: ["network", "js"],
+  SyntheticsBrowserTestFailureCode: [
+    "API_REQUEST_FAILURE",
+    "ASSERTION_FAILURE",
+    "DOWNLOAD_FILE_TOO_LARGE",
+    "ELEMENT_NOT_INTERACTABLE",
+    "EMAIL_VARIABLE_NOT_DEFINED",
+    "EVALUATE_JAVASCRIPT",
+    "EVALUATE_JAVASCRIPT_CONTEXT",
+    "EXTRACT_VARIABLE",
+    "FORBIDDEN_URL",
+    "FRAME_DETACHED",
+    "INCONSISTENCIES",
+    "INTERNAL_ERROR",
+    "INVALID_TYPE_TEXT_DELAY",
+    "INVALID_URL",
+    "INVALID_VARIABLE_PATTERN",
+    "INVISIBLE_ELEMENT",
+    "LOCATE_ELEMENT",
+    "NAVIGATE_TO_LINK",
+    "OPEN_URL",
+    "PRESS_KEY",
+    "SERVER_CERTIFICATE",
+    "SELECT_OPTION",
+    "STEP_TIMEOUT",
+    "SUB_TEST_NOT_PASSED",
+    "TEST_TIMEOUT",
+    "TOO_MANY_HTTP_REQUESTS",
+    "UNAVAILABLE_BROWSER",
+    "UNKNOWN",
+    "UNSUPPORTED_AUTH_SCHEMA",
+    "UPLOAD_FILES_ELEMENT_TYPE",
+    "UPLOAD_FILES_DIALOG",
+    "UPLOAD_FILES_DYNAMIC_ELEMENT",
+    "UPLOAD_FILES_NAME",
+  ],
   SyntheticsBrowserTestType: ["browser"],
   SyntheticsBrowserVariableType: [
     "element",
@@ -833,15 +923,6 @@ const enumsMap: { [key: string]: any[] } = {
     "edge.laptop_large",
     "edge.tablet",
     "edge.mobile_small",
-  ],
-  SyntheticsErrorCode: [
-    "NO_ERROR",
-    "UNKNOWN",
-    "DNS",
-    "SSL",
-    "TIMEOUT",
-    "DENIED",
-    "INCORRECT_ASSERTION",
   ],
   SyntheticsGlobalVariableParseTestOptionsType: ["http_body", "http_header"],
   SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
@@ -931,6 +1012,8 @@ const enumsMap: { [key: string]: any[] } = {
     "lambda_invocations_percentage",
     "lambda_usage",
     "lambda_percentage",
+    "estimated_indexed_logs_usage",
+    "estimated_indexed_logs_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1168,6 +1251,7 @@ const typeMap: { [index: string]: any } = {
     FormulaAndFunctionProcessQueryDefinition,
   FreeTextWidgetDefinition: FreeTextWidgetDefinition,
   FunnelQuery: FunnelQuery,
+  FunnelStep: FunnelStep,
   FunnelWidgetDefinition: FunnelWidgetDefinition,
   FunnelWidgetRequest: FunnelWidgetRequest,
   GCPAccount: GCPAccount,
@@ -1269,6 +1353,16 @@ const typeMap: { [index: string]: any } = {
   MetricsQueryResponse: MetricsQueryResponse,
   MetricsQueryUnit: MetricsQueryUnit,
   Monitor: Monitor,
+  MonitorFormulaAndFunctionEventQueryDefinition:
+    MonitorFormulaAndFunctionEventQueryDefinition,
+  MonitorFormulaAndFunctionEventQueryDefinitionCompute:
+    MonitorFormulaAndFunctionEventQueryDefinitionCompute,
+  MonitorFormulaAndFunctionEventQueryDefinitionSearch:
+    MonitorFormulaAndFunctionEventQueryDefinitionSearch,
+  MonitorFormulaAndFunctionEventQueryGroupBy:
+    MonitorFormulaAndFunctionEventQueryGroupBy,
+  MonitorFormulaAndFunctionEventQueryGroupBySort:
+    MonitorFormulaAndFunctionEventQueryGroupBySort,
   MonitorGroupSearchResponse: MonitorGroupSearchResponse,
   MonitorGroupSearchResponseCounts: MonitorGroupSearchResponseCounts,
   MonitorGroupSearchResult: MonitorGroupSearchResult,
@@ -1401,6 +1495,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAPITestResultFullCheck: SyntheticsAPITestResultFullCheck,
   SyntheticsAPITestResultShort: SyntheticsAPITestResultShort,
   SyntheticsAPITestResultShortResult: SyntheticsAPITestResultShortResult,
+  SyntheticsApiTestResultFailure: SyntheticsApiTestResultFailure,
   SyntheticsAssertionJSONPathTarget: SyntheticsAssertionJSONPathTarget,
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
@@ -1415,6 +1510,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsBrowserTest: SyntheticsBrowserTest,
   SyntheticsBrowserTestConfig: SyntheticsBrowserTestConfig,
   SyntheticsBrowserTestResultData: SyntheticsBrowserTestResultData,
+  SyntheticsBrowserTestResultFailure: SyntheticsBrowserTestResultFailure,
   SyntheticsBrowserTestResultFull: SyntheticsBrowserTestResultFull,
   SyntheticsBrowserTestResultFullCheck: SyntheticsBrowserTestResultFullCheck,
   SyntheticsBrowserTestResultShort: SyntheticsBrowserTestResultShort,
@@ -1506,6 +1602,8 @@ const typeMap: { [index: string]: any } = {
   UsageBillableSummaryHour: UsageBillableSummaryHour,
   UsageBillableSummaryKeys: UsageBillableSummaryKeys,
   UsageBillableSummaryResponse: UsageBillableSummaryResponse,
+  UsageCIVisibilityHour: UsageCIVisibilityHour,
+  UsageCIVisibilityResponse: UsageCIVisibilityResponse,
   UsageCWSHour: UsageCWSHour,
   UsageCWSResponse: UsageCWSResponse,
   UsageCloudSecurityPostureManagementHour:
@@ -1623,6 +1721,9 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsURLParser",
     "LogsUserAgentParser",
   ],
+  MonitorFormulaAndFunctionQueryDefinition: [
+    "MonitorFormulaAndFunctionEventQueryDefinition",
+  ],
   NotebookCellCreateRequestAttributes: [
     "NotebookDistributionCellAttributes",
     "NotebookHeatMapCellAttributes",
@@ -1701,9 +1802,12 @@ const oneOfMap: { [index: string]: string[] } = {
 
 export class ObjectSerializer {
   public static serialize(data: any, type: string, format: string): any {
-    if (data == undefined) {
+    if (data == undefined || type == "any") {
       return data;
-    } else if (primitives.includes(type.toLowerCase())) {
+    } else if (
+      primitives.includes(type.toLowerCase()) &&
+      typeof data == type.toLowerCase()
+    ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
       // Array<Type> => Type
@@ -1815,9 +1919,12 @@ export class ObjectSerializer {
   }
 
   public static deserialize(data: any, type: string, format = ""): any {
-    if (data == undefined) {
+    if (data == undefined || type == "any") {
       return data;
-    } else if (primitives.includes(type.toLowerCase())) {
+    } else if (
+      primitives.includes(type.toLowerCase()) &&
+      typeof data == type.toLowerCase()
+    ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
       // Array<Type> => Type

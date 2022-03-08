@@ -24,8 +24,14 @@ export class MonitorSearchResultNotification {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     handle: {
       baseName: "handle",
@@ -37,6 +43,9 @@ export class MonitorSearchResultNotification {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSearchResultNotification.attributeTypeMap;
   }

@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class SyntheticsUpdateTestPauseStatusPayload {
   "newStatus"?: SyntheticsTestPauseStatus;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     newStatus: {
       baseName: "new_status",
@@ -27,6 +33,9 @@ export class SyntheticsUpdateTestPauseStatusPayload {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsUpdateTestPauseStatusPayload.attributeTypeMap;
   }

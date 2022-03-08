@@ -78,8 +78,14 @@ export class DowntimeChild {
    */
   "updaterId"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     active: {
       baseName: "active",
@@ -156,6 +162,9 @@ export class DowntimeChild {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DowntimeChild.attributeTypeMap;
   }

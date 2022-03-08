@@ -20,7 +20,7 @@ let params: v2.KeyManagementApiCreateAPIKeyRequest = {
 
 apiInstance
   .createAPIKey(params)
-  .then((data: any) => {
+  .then((data: v2.APIKeyResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

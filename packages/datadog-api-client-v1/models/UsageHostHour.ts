@@ -68,12 +68,26 @@ export class UsageHostHour {
    */
   "opentelemetryHostCount"?: number;
   /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
+  /**
    * Contains the total number of hosts that reported through vSphere integration (and were NOT running the Datadog Agent).
    */
   "vsphereHostCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agentHostCount: {
       baseName: "agent_host_count",
@@ -140,6 +154,14 @@ export class UsageHostHour {
       type: "number",
       format: "int64",
     },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
+    },
     vsphereHostCount: {
       baseName: "vsphere_host_count",
       type: "number",
@@ -147,6 +169,9 @@ export class UsageHostHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageHostHour.attributeTypeMap;
   }

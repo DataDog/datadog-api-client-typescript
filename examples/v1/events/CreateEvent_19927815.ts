@@ -18,7 +18,7 @@ let params: v1.EventsApiCreateEventRequest = {
 
 apiInstance
   .createEvent(params)
-  .then((data: any) => {
+  .then((data: v1.EventCreateResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

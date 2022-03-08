@@ -24,8 +24,14 @@ export class ServiceLevelObjectiveQuery {
    */
   "numerator": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     denominator: {
       baseName: "denominator",
@@ -39,6 +45,9 @@ export class ServiceLevelObjectiveQuery {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceLevelObjectiveQuery.attributeTypeMap;
   }

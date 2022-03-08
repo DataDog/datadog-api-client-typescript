@@ -24,8 +24,14 @@ export class LogsMetricGroupBy {
    */
   "tagName"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     path: {
       baseName: "path",
@@ -38,6 +44,9 @@ export class LogsMetricGroupBy {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsMetricGroupBy.attributeTypeMap;
   }

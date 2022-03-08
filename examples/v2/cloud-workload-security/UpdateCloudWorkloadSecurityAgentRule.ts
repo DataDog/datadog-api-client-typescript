@@ -27,7 +27,7 @@ let params: v2.CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleReque
 
 apiInstance
   .updateCloudWorkloadSecurityAgentRule(params)
-  .then((data: any) => {
+  .then((data: v2.CloudWorkloadSecurityAgentRuleResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

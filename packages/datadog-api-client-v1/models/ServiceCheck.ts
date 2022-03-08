@@ -38,8 +38,14 @@ export class ServiceCheck {
    */
   "timestamp"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     check: {
       baseName: "check",
@@ -72,6 +78,9 @@ export class ServiceCheck {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceCheck.attributeTypeMap;
   }

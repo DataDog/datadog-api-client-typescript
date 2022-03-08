@@ -28,8 +28,14 @@ export class AWSAccountDeleteRequest {
    */
   "roleName"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accessKeyId: {
       baseName: "access_key_id",
@@ -45,6 +51,9 @@ export class AWSAccountDeleteRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSAccountDeleteRequest.attributeTypeMap;
   }

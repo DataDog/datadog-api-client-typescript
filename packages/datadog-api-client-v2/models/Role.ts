@@ -26,8 +26,14 @@ export class Role {
   "relationships"?: RoleResponseRelationships;
   "type": RolesType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -48,6 +54,9 @@ export class Role {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Role.attributeTypeMap;
   }

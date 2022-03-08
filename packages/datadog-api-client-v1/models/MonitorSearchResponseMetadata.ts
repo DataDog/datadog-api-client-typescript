@@ -32,8 +32,14 @@ export class MonitorSearchResponseMetadata {
    */
   "totalCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
       baseName: "page",
@@ -57,6 +63,9 @@ export class MonitorSearchResponseMetadata {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSearchResponseMetadata.attributeTypeMap;
   }

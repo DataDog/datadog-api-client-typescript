@@ -22,8 +22,14 @@ export class ServiceAccountCreateData {
   "relationships"?: UserRelationships;
   "type": UsersType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -41,6 +47,9 @@ export class ServiceAccountCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceAccountCreateData.attributeTypeMap;
   }

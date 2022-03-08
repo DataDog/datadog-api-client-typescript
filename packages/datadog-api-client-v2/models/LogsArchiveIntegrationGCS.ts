@@ -24,8 +24,14 @@ export class LogsArchiveIntegrationGCS {
    */
   "projectId": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     clientEmail: {
       baseName: "client_email",
@@ -39,6 +45,9 @@ export class LogsArchiveIntegrationGCS {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveIntegrationGCS.attributeTypeMap;
   }

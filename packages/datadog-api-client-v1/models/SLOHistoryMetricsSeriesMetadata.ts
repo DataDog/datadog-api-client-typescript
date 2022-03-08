@@ -41,8 +41,14 @@ export class SLOHistoryMetricsSeriesMetadata {
    */
   "unit"?: Array<SLOHistoryMetricsSeriesMetadataUnit>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggr: {
       baseName: "aggr",
@@ -71,6 +77,9 @@ export class SLOHistoryMetricsSeriesMetadata {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOHistoryMetricsSeriesMetadata.attributeTypeMap;
   }

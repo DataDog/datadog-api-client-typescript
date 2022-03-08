@@ -24,8 +24,14 @@ export class NotebookResponseData {
   "id": number;
   "type": NotebookResourceType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -45,6 +51,9 @@ export class NotebookResponseData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookResponseData.attributeTypeMap;
   }

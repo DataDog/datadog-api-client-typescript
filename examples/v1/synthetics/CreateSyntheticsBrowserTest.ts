@@ -45,12 +45,21 @@ let params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
     },
     tags: ["testing:browser"],
     type: "browser",
+    steps: [
+      {
+        allowFailure: false,
+        isCritical: true,
+        name: "Refresh page",
+        params: {},
+        type: "refresh",
+      },
+    ],
   },
 };
 
 apiInstance
   .createSyntheticsBrowserTest(params)
-  .then((data: any) => {
+  .then((data: v1.SyntheticsBrowserTest) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

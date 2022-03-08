@@ -39,8 +39,14 @@ export class LogsIndex {
    */
   "numRetentionDays"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dailyLimit: {
       baseName: "daily_limit",
@@ -72,6 +78,9 @@ export class LogsIndex {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsIndex.attributeTypeMap;
   }

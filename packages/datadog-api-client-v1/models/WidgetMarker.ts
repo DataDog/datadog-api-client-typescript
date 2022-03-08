@@ -32,8 +32,14 @@ export class WidgetMarker {
    */
   "value": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     displayType: {
       baseName: "display_type",
@@ -54,6 +60,9 @@ export class WidgetMarker {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return WidgetMarker.attributeTypeMap;
   }

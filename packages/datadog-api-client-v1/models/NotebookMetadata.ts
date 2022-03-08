@@ -26,8 +26,14 @@ export class NotebookMetadata {
   "takeSnapshots"?: boolean;
   "type"?: NotebookMetadataType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     isTemplate: {
       baseName: "is_template",
@@ -43,6 +49,9 @@ export class NotebookMetadata {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookMetadata.attributeTypeMap;
   }

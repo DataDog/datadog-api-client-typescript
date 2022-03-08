@@ -19,8 +19,14 @@ export class APIKeyRelationships {
   "createdBy"?: RelationshipToUser;
   "modifiedBy"?: RelationshipToUser;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdBy: {
       baseName: "created_by",
@@ -32,6 +38,9 @@ export class APIKeyRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return APIKeyRelationships.attributeTypeMap;
   }

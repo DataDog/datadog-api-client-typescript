@@ -8,9 +8,9 @@
  * Do not edit the class manually.
  */
 
+import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentServiceIncludedItems } from "./IncidentServiceIncludedItems";
 import { IncidentServiceResponseData } from "./IncidentServiceResponseData";
-import { IncidentServicesResponseMeta } from "./IncidentServicesResponseMeta";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
@@ -26,10 +26,16 @@ export class IncidentServicesResponse {
    * Included related resources which the user requested.
    */
   "included"?: Array<IncidentServiceIncludedItems>;
-  "meta"?: IncidentServicesResponseMeta;
+  "meta"?: IncidentResponseMeta;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -42,10 +48,13 @@ export class IncidentServicesResponse {
     },
     meta: {
       baseName: "meta",
-      type: "IncidentServicesResponseMeta",
+      type: "IncidentResponseMeta",
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentServicesResponse.attributeTypeMap;
   }

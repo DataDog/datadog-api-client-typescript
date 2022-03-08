@@ -20,8 +20,14 @@ export class SLOCorrectionCreateData {
   "attributes"?: SLOCorrectionCreateRequestAttributes;
   "type": SLOCorrectionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -34,6 +40,9 @@ export class SLOCorrectionCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOCorrectionCreateData.attributeTypeMap;
   }

@@ -32,8 +32,14 @@ export class SyntheticsBrowserTestResultShort {
   "resultId"?: string;
   "status"?: SyntheticsTestMonitorStatus;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     checkTime: {
       baseName: "check_time",
@@ -58,6 +64,9 @@ export class SyntheticsBrowserTestResultShort {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTestResultShort.attributeTypeMap;
   }

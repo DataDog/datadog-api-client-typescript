@@ -14,6 +14,14 @@ Feature: Logs
     When the request is sent
     Then the response status is 200 OK
 
+  @team:DataDog/logs-app
+  Scenario: Aggregate compute events with group by returns "OK" response
+    Given a valid "appKeyAuth" key in the system
+    And new "AggregateLogs" request
+    And body with value {"compute": [{"aggregation": "count", "interval": "5m", "type": "timeseries"}], "filter": {"from": "now-15m", "indexes": ["main"], "query": "*", "to": "now"}, "group_by": [{"facet": "host", "missing": "miss", "sort": {"type": "measure", "order": "asc", "aggregation": "pc90", "metric": "@duration"}, "total": "recall"}]}
+    When the request is sent
+    Then the response status is 200 OK
+
   @generated @skip @team:DataDog/logs-app
   Scenario: Aggregate events returns "Bad Request" response
     Given a valid "appKeyAuth" key in the system
@@ -73,7 +81,7 @@ Feature: Logs
     When the request is sent
     Then the response status is 200 OK
 
-  @integration-only @skip-validation @skip-terraform-config @team:DataDog/logs-backend @team:DataDog/logs-intake
+  @integration-only @skip-terraform-config @skip-validation @team:DataDog/logs-backend @team:DataDog/logs-intake
   Scenario: Send deflate logs returns "Request accepted for processing (always 202 empty JSON)." response
     Given new "SubmitLog" request
     And body with value [{"ddsource": "nginx", "ddtags": "env:staging,version:5.1", "hostname": "i-012345678", "message": "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World", "service": "payment"}]
@@ -81,7 +89,7 @@ Feature: Logs
     When the request is sent
     Then the response status is 202 Response from server (always 202 empty JSON).
 
-  @integration-only @skip-validation @skip-terraform-config @team:DataDog/logs-backend @team:DataDog/logs-intake
+  @integration-only @skip-terraform-config @skip-validation @team:DataDog/logs-backend @team:DataDog/logs-intake
   Scenario: Send gzip logs returns "Request accepted for processing (always 202 empty JSON)." response
     Given new "SubmitLog" request
     And body with value [{"ddsource": "nginx", "ddtags": "env:staging,version:5.1", "hostname": "i-012345678", "message": "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World", "service": "payment"}]

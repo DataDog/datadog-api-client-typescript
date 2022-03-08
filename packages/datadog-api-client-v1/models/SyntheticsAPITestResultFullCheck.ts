@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class SyntheticsAPITestResultFullCheck {
   "config": SyntheticsTestConfig;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
       baseName: "config",
@@ -28,6 +34,9 @@ export class SyntheticsAPITestResultFullCheck {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAPITestResultFullCheck.attributeTypeMap;
   }

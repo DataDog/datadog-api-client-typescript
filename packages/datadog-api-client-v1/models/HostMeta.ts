@@ -74,8 +74,14 @@ export class HostMeta {
    */
   "winV"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agentChecks: {
       baseName: "agent_checks",
@@ -140,6 +146,9 @@ export class HostMeta {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostMeta.attributeTypeMap;
   }

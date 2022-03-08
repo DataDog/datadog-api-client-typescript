@@ -27,9 +27,23 @@ export class UsageProfilingHour {
    * The hour for the usage.
    */
   "hour"?: Date;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     avgContainerAgentCount: {
       baseName: "avg_container_agent_count",
@@ -46,8 +60,19 @@ export class UsageProfilingHour {
       type: "Date",
       format: "date-time",
     },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
+    },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageProfilingHour.attributeTypeMap;
   }

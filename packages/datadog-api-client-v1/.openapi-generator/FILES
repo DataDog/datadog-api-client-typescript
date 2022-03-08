@@ -175,6 +175,7 @@ models/FreeTextWidgetDefinitionType.ts
 models/FunnelQuery.ts
 models/FunnelRequestType.ts
 models/FunnelSource.ts
+models/FunnelStep.ts
 models/FunnelWidgetDefinition.ts
 models/FunnelWidgetDefinitionType.ts
 models/FunnelWidgetRequest.ts
@@ -309,6 +310,14 @@ models/MetricsQueryResponse.ts
 models/MetricsQueryUnit.ts
 models/Monitor.ts
 models/MonitorDeviceID.ts
+models/MonitorFormulaAndFunctionEventAggregation.ts
+models/MonitorFormulaAndFunctionEventQueryDefinition.ts
+models/MonitorFormulaAndFunctionEventQueryDefinitionCompute.ts
+models/MonitorFormulaAndFunctionEventQueryDefinitionSearch.ts
+models/MonitorFormulaAndFunctionEventQueryGroupBy.ts
+models/MonitorFormulaAndFunctionEventQueryGroupBySort.ts
+models/MonitorFormulaAndFunctionEventsDataSource.ts
+models/MonitorFormulaAndFunctionQueryDefinition.ts
 models/MonitorGroupSearchResponse.ts
 models/MonitorGroupSearchResponseCounts.ts
 models/MonitorGroupSearchResult.ts
@@ -478,6 +487,8 @@ models/SyntheticsAPITestResultFullCheck.ts
 models/SyntheticsAPITestResultShort.ts
 models/SyntheticsAPITestResultShortResult.ts
 models/SyntheticsAPITestType.ts
+models/SyntheticsApiTestFailureCode.ts
+models/SyntheticsApiTestResultFailure.ts
 models/SyntheticsAssertion.ts
 models/SyntheticsAssertionJSONPathOperator.ts
 models/SyntheticsAssertionJSONPathTarget.ts
@@ -499,7 +510,9 @@ models/SyntheticsBrowserError.ts
 models/SyntheticsBrowserErrorType.ts
 models/SyntheticsBrowserTest.ts
 models/SyntheticsBrowserTestConfig.ts
+models/SyntheticsBrowserTestFailureCode.ts
 models/SyntheticsBrowserTestResultData.ts
+models/SyntheticsBrowserTestResultFailure.ts
 models/SyntheticsBrowserTestResultFull.ts
 models/SyntheticsBrowserTestResultFullCheck.ts
 models/SyntheticsBrowserTestResultShort.ts
@@ -523,7 +536,6 @@ models/SyntheticsDeleteTestsResponse.ts
 models/SyntheticsDeletedTest.ts
 models/SyntheticsDevice.ts
 models/SyntheticsDeviceID.ts
-models/SyntheticsErrorCode.ts
 models/SyntheticsGetAPITestLatestResultsResponse.ts
 models/SyntheticsGetBrowserTestLatestResultsResponse.ts
 models/SyntheticsGlobalVariable.ts
@@ -614,6 +626,8 @@ models/UsageBillableSummaryBody.ts
 models/UsageBillableSummaryHour.ts
 models/UsageBillableSummaryKeys.ts
 models/UsageBillableSummaryResponse.ts
+models/UsageCIVisibilityHour.ts
+models/UsageCIVisibilityResponse.ts
 models/UsageCWSHour.ts
 models/UsageCWSResponse.ts
 models/UsageCloudSecurityPostureManagementHour.ts

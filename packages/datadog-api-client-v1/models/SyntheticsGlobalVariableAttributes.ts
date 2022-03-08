@@ -20,8 +20,14 @@ export class SyntheticsGlobalVariableAttributes {
    */
   "restrictedRoles"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     restrictedRoles: {
       baseName: "restricted_roles",
@@ -29,6 +35,9 @@ export class SyntheticsGlobalVariableAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGlobalVariableAttributes.attributeTypeMap;
   }

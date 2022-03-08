@@ -56,8 +56,14 @@ export class MonitorSummaryWidgetDefinition {
   "titleSize"?: string;
   "type": MonitorSummaryWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     colorPreference: {
       baseName: "color_preference",
@@ -117,6 +123,9 @@ export class MonitorSummaryWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorSummaryWidgetDefinition.attributeTypeMap;
   }

@@ -43,8 +43,14 @@ export class LogsPipeline {
    */
   "type"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
@@ -77,6 +83,9 @@ export class LogsPipeline {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsPipeline.attributeTypeMap;
   }

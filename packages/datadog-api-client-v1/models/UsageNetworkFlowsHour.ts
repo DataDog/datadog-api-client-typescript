@@ -23,9 +23,23 @@ export class UsageNetworkFlowsHour {
    * Contains the number of netflow events indexed.
    */
   "indexedEventsCount"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
@@ -37,8 +51,19 @@ export class UsageNetworkFlowsHour {
       type: "number",
       format: "int64",
     },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
+    },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageNetworkFlowsHour.attributeTypeMap;
   }

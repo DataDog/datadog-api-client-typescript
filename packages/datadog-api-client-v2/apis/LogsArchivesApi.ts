@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
   Configuration,
@@ -18,16 +17,7 @@ import { LogsArchives } from "../models/LogsArchives";
 import { RelationshipToRole } from "../models/RelationshipToRole";
 import { RolesResponse } from "../models/RolesResponse";
 
-/**
- * no description
- */
 export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
-  /**
-   * Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
-   * Grant role to an archive
-   * @param archiveId The ID of the archive.
-   * @param body
-   */
   public async addReadRoleToArchive(
     archiveId: string,
     body: RelationshipToRole,
@@ -84,11 +74,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Create an archive in your organization.
-   * Create an archive
-   * @param body The definition of the new archive.
-   */
   public async createLogsArchive(
     body: LogsArchiveCreateRequest,
     _options?: Configuration
@@ -133,11 +118,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Delete a given archive from your organization.
-   * Delete an archive
-   * @param archiveId The ID of the archive.
-   */
   public async deleteLogsArchive(
     archiveId: string,
     _options?: Configuration
@@ -174,11 +154,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get a specific archive from your organization.
-   * Get an archive
-   * @param archiveId The ID of the archive.
-   */
   public async getLogsArchive(
     archiveId: string,
     _options?: Configuration
@@ -208,6 +183,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -215,10 +191,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the current order of your archives. This endpoint takes no JSON arguments.
-   * Get archive order
-   */
   public async getLogsArchiveOrder(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -237,6 +209,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -244,11 +217,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Returns all read roles a given archive is restricted to.
-   * List read roles for an archive
-   * @param archiveId The ID of the archive.
-   */
   public async listArchiveReadRoles(
     archiveId: string,
     _options?: Configuration
@@ -279,6 +247,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -286,10 +255,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Get the list of configured logs archives with their definitions.
-   * Get all archives
-   */
   public async listLogsArchives(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -308,6 +273,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -315,12 +281,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
-   * Revoke role from an archive
-   * @param archiveId The ID of the archive.
-   * @param body
-   */
   public async removeRoleFromArchive(
     archiveId: string,
     body: RelationshipToRole,
@@ -377,12 +337,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update a given archive configuration.  **Note**: Using this method updates your archive configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
-   * Update an archive
-   * @param archiveId The ID of the archive.
-   * @param body New definition of the archive.
-   */
   public async updateLogsArchive(
     archiveId: string,
     body: LogsArchiveCreateRequest,
@@ -438,11 +392,6 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  /**
-   * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change the structure and content of the data processed by other archives.  **Note**: Using the `PUT` method updates your archive's order by replacing the current order with the new one.
-   * Update archive order
-   * @param body An object containing the new ordered list of archive IDs.
-   */
   public async updateLogsArchiveOrder(
     body: LogsArchiveOrder,
     _options?: Configuration
@@ -1134,5 +1083,306 @@ export class LogsArchivesApiResponseProcessor {
       response.httpStatusCode,
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
+  }
+}
+
+export interface LogsArchivesApiAddReadRoleToArchiveRequest {
+  /**
+   * The ID of the archive.
+   * @type string
+   */
+  archiveId: string;
+  /**
+   *
+   * @type RelationshipToRole
+   */
+  body: RelationshipToRole;
+}
+
+export interface LogsArchivesApiCreateLogsArchiveRequest {
+  /**
+   * The definition of the new archive.
+   * @type LogsArchiveCreateRequest
+   */
+  body: LogsArchiveCreateRequest;
+}
+
+export interface LogsArchivesApiDeleteLogsArchiveRequest {
+  /**
+   * The ID of the archive.
+   * @type string
+   */
+  archiveId: string;
+}
+
+export interface LogsArchivesApiGetLogsArchiveRequest {
+  /**
+   * The ID of the archive.
+   * @type string
+   */
+  archiveId: string;
+}
+
+export interface LogsArchivesApiListArchiveReadRolesRequest {
+  /**
+   * The ID of the archive.
+   * @type string
+   */
+  archiveId: string;
+}
+
+export interface LogsArchivesApiRemoveRoleFromArchiveRequest {
+  /**
+   * The ID of the archive.
+   * @type string
+   */
+  archiveId: string;
+  /**
+   *
+   * @type RelationshipToRole
+   */
+  body: RelationshipToRole;
+}
+
+export interface LogsArchivesApiUpdateLogsArchiveRequest {
+  /**
+   * The ID of the archive.
+   * @type string
+   */
+  archiveId: string;
+  /**
+   * New definition of the archive.
+   * @type LogsArchiveCreateRequest
+   */
+  body: LogsArchiveCreateRequest;
+}
+
+export interface LogsArchivesApiUpdateLogsArchiveOrderRequest {
+  /**
+   * An object containing the new ordered list of archive IDs.
+   * @type LogsArchiveOrder
+   */
+  body: LogsArchiveOrder;
+}
+
+export class LogsArchivesApi {
+  private requestFactory: LogsArchivesApiRequestFactory;
+  private responseProcessor: LogsArchivesApiResponseProcessor;
+  private configuration: Configuration;
+
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: LogsArchivesApiRequestFactory,
+    responseProcessor?: LogsArchivesApiResponseProcessor
+  ) {
+    this.configuration = configuration;
+    this.requestFactory =
+      requestFactory || new LogsArchivesApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new LogsArchivesApiResponseProcessor();
+  }
+
+  /**
+   * Adds a read role to an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
+   * @param param The request object
+   */
+  public addReadRoleToArchive(
+    param: LogsArchivesApiAddReadRoleToArchiveRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.addReadRoleToArchive(
+      param.archiveId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.addReadRoleToArchive(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create an archive in your organization.
+   * @param param The request object
+   */
+  public createLogsArchive(
+    param: LogsArchivesApiCreateLogsArchiveRequest,
+    options?: Configuration
+  ): Promise<LogsArchive> {
+    const requestContextPromise = this.requestFactory.createLogsArchive(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createLogsArchive(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete a given archive from your organization.
+   * @param param The request object
+   */
+  public deleteLogsArchive(
+    param: LogsArchivesApiDeleteLogsArchiveRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteLogsArchive(
+      param.archiveId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteLogsArchive(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a specific archive from your organization.
+   * @param param The request object
+   */
+  public getLogsArchive(
+    param: LogsArchivesApiGetLogsArchiveRequest,
+    options?: Configuration
+  ): Promise<LogsArchive> {
+    const requestContextPromise = this.requestFactory.getLogsArchive(
+      param.archiveId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLogsArchive(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the current order of your archives. This endpoint takes no JSON arguments.
+   * @param param The request object
+   */
+  public getLogsArchiveOrder(
+    options?: Configuration
+  ): Promise<LogsArchiveOrder> {
+    const requestContextPromise =
+      this.requestFactory.getLogsArchiveOrder(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getLogsArchiveOrder(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns all read roles a given archive is restricted to.
+   * @param param The request object
+   */
+  public listArchiveReadRoles(
+    param: LogsArchivesApiListArchiveReadRolesRequest,
+    options?: Configuration
+  ): Promise<RolesResponse> {
+    const requestContextPromise = this.requestFactory.listArchiveReadRoles(
+      param.archiveId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listArchiveReadRoles(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the list of configured logs archives with their definitions.
+   * @param param The request object
+   */
+  public listLogsArchives(options?: Configuration): Promise<LogsArchives> {
+    const requestContextPromise = this.requestFactory.listLogsArchives(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listLogsArchives(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Removes a role from an archive. ([Roles API](https://docs.datadoghq.com/api/v2/roles/))
+   * @param param The request object
+   */
+  public removeRoleFromArchive(
+    param: LogsArchivesApiRemoveRoleFromArchiveRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.removeRoleFromArchive(
+      param.archiveId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.removeRoleFromArchive(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a given archive configuration.  **Note**: Using this method updates your archive configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * @param param The request object
+   */
+  public updateLogsArchive(
+    param: LogsArchivesApiUpdateLogsArchiveRequest,
+    options?: Configuration
+  ): Promise<LogsArchive> {
+    const requestContextPromise = this.requestFactory.updateLogsArchive(
+      param.archiveId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLogsArchive(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change the structure and content of the data processed by other archives.  **Note**: Using the `PUT` method updates your archive's order by replacing the current order with the new one.
+   * @param param The request object
+   */
+  public updateLogsArchiveOrder(
+    param: LogsArchivesApiUpdateLogsArchiveOrderRequest,
+    options?: Configuration
+  ): Promise<LogsArchiveOrder> {
+    const requestContextPromise = this.requestFactory.updateLogsArchiveOrder(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateLogsArchiveOrder(responseContext);
+        });
+    });
   }
 }

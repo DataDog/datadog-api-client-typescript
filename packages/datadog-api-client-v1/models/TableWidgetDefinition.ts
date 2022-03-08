@@ -42,8 +42,14 @@ export class TableWidgetDefinition {
   "titleSize"?: string;
   "type": TableWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     customLinks: {
       baseName: "custom_links",
@@ -81,6 +87,9 @@ export class TableWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return TableWidgetDefinition.attributeTypeMap;
   }

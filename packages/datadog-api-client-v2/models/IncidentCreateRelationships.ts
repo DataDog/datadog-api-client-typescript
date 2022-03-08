@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { RelationshipToUser } from "./RelationshipToUser";
+import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
@@ -16,18 +16,27 @@ import { AttributeTypeMap } from "./ObjectSerializer";
  */
 
 export class IncidentCreateRelationships {
-  "commander": RelationshipToUser;
+  "commanderUser": NullableRelationshipToUser;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commander: {
-      baseName: "commander",
-      type: "RelationshipToUser",
+    commanderUser: {
+      baseName: "commander_user",
+      type: "NullableRelationshipToUser",
       required: true,
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentCreateRelationships.attributeTypeMap;
   }

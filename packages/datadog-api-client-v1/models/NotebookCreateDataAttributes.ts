@@ -31,8 +31,14 @@ export class NotebookCreateDataAttributes {
   "status"?: NotebookStatus;
   "time": NotebookGlobalTime;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cells: {
       baseName: "cells",
@@ -59,6 +65,9 @@ export class NotebookCreateDataAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return NotebookCreateDataAttributes.attributeTypeMap;
   }

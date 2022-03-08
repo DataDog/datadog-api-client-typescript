@@ -8,9 +8,9 @@
  * Do not edit the class manually.
  */
 
+import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
-import { RelationshipToUser } from "./RelationshipToUser";
 import { AttributeTypeMap } from "./ObjectSerializer";
 
 /**
@@ -18,30 +18,26 @@ import { AttributeTypeMap } from "./ObjectSerializer";
  */
 
 export class IncidentUpdateRelationships {
-  "commanderUser"?: RelationshipToUser;
-  "createdByUser"?: RelationshipToUser;
+  "commanderUser"?: NullableRelationshipToUser;
   "integrations"?: RelationshipToIncidentIntegrationMetadatas;
-  "lastModifiedByUser"?: RelationshipToUser;
   "postmortem"?: RelationshipToIncidentPostmortem;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     commanderUser: {
       baseName: "commander_user",
-      type: "RelationshipToUser",
-    },
-    createdByUser: {
-      baseName: "created_by_user",
-      type: "RelationshipToUser",
+      type: "NullableRelationshipToUser",
     },
     integrations: {
       baseName: "integrations",
       type: "RelationshipToIncidentIntegrationMetadatas",
-    },
-    lastModifiedByUser: {
-      baseName: "last_modified_by_user",
-      type: "RelationshipToUser",
     },
     postmortem: {
       baseName: "postmortem",
@@ -49,6 +45,9 @@ export class IncidentUpdateRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentUpdateRelationships.attributeTypeMap;
   }

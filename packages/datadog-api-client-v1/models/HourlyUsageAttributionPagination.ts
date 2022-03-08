@@ -20,8 +20,14 @@ export class HourlyUsageAttributionPagination {
    */
   "nextRecordId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     nextRecordId: {
       baseName: "next_record_id",
@@ -29,6 +35,9 @@ export class HourlyUsageAttributionPagination {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HourlyUsageAttributionPagination.attributeTypeMap;
   }

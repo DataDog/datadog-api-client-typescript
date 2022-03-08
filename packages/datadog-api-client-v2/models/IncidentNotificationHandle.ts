@@ -24,8 +24,14 @@ export class IncidentNotificationHandle {
    */
   "handle"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     displayName: {
       baseName: "display_name",
@@ -37,6 +43,9 @@ export class IncidentNotificationHandle {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentNotificationHandle.attributeTypeMap;
   }

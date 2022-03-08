@@ -37,8 +37,14 @@ export class SyntheticsBrowserTestConfig {
    */
   "variables"?: Array<SyntheticsBrowserVariable>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     assertions: {
       baseName: "assertions",
@@ -64,6 +70,9 @@ export class SyntheticsBrowserTestConfig {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTestConfig.attributeTypeMap;
   }

@@ -90,8 +90,14 @@ export class IncidentResponseAttributes {
    */
   "title": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
@@ -180,6 +186,9 @@ export class IncidentResponseAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentResponseAttributes.attributeTypeMap;
   }

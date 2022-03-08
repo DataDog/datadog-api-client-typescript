@@ -24,8 +24,14 @@ export class LogsGrokParserRules {
    */
   "supportRules"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     matchRules: {
       baseName: "match_rules",
@@ -38,6 +44,9 @@ export class LogsGrokParserRules {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsGrokParserRules.attributeTypeMap;
   }

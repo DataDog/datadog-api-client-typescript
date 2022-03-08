@@ -33,8 +33,14 @@ export class TreeMapWidgetDefinition {
   "title"?: string;
   "type": TreeMapWidgetDefinitionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     colorBy: {
       baseName: "color_by",
@@ -64,6 +70,9 @@ export class TreeMapWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return TreeMapWidgetDefinition.attributeTypeMap;
   }

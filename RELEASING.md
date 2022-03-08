@@ -9,25 +9,30 @@ This project does not have a strict release schedule. However, we would make a r
   - Releases may be done more frequently than the above mentioned window.
 
 ### Prerequisites
-- Install [datadog_checks_dev](https://datadog-checks-base.readthedocs.io/en/latest/datadog_checks_dev.cli.html#installation) using Python 3
 - Have [Node.js 12+](https://nodejs.org/en/)
 - Ensure all CIs are passing on the master branch that we're about to release.
 
-## Release
-Note that once the release process is started, nobody should be merging/pushing anything.
+## Release Process
 
-### Commands
+The release process is controlled and run by GitHub Actions.
+### Prerequisite
 
-Releasing a new version of `@datadog/datadog-api-client` unfolds as follow:
+1. Make sure you have `write_repo` access.
+1. Share your plan for the release with other maintainers to avoid conflicts during the release process.
 
-- See changes ready for release by running `ddev release show changes . --tag-prefix v` at the root of this project. Add any missing labels to PRs if needed.
-- Run `ddev release changelog . <NEW_VERSION> --tag-prefix v` to update the `CHANGELOG.md` file at the root of this repository
-- Update the version in `package.json` you want to release, following semver (`yarn version --no-git-tag-version --set-version 1.0.0-beta.4`).
-- Commit the changes to the repository in a release branch and get it approved/merged after you:
-    - Make sure that all CIs are passing, as this is the commit we will be releasing!
-- Merge the Pull Request.
-- Create a Github Release from the [Releases page](https://github.com/DataDog/datadog-api-client-typescript/releases) with the description of changes introduced.
-    - Set the tag and the release name to new version e.g. `v1.0.0-beta.3`.
-    - Paste the changelog in the description.
-    - Check pre-release box for alpha/beta releases.
-- Once the release has been created, a Github Action will publish the package.
+### Update Changelog
+
+1. Open [prepare release](https://github.com/DataDog/datadog-api-client-typescript/actions/workflows/prepare_release.yml) and click on `Run workflow` dropdown.
+1. Enter new version identifier in the `New version number` input box (e.g. `1.0.0-beta.10`).
+1. Trigger the action by clicking on `Run workflow` button.
+
+### Review
+
+1. Review the generated pull-request for `release/<New version number>` branch.
+1. If everything is fine, merge the pull-request.
+1. Check that the [release](https://github.com/DataDog/datadog-api-client-typescript/actions/workflows/release.yml) action created new release on GitHub.
+
+### Publish
+
+1. A github action will kick off that builds and publishes this tag to NPM. Check that the [NPM package is published](https://www.npmjs.com/package/@datadog/datadog-api-client).
+1. Review and merge generated `Post release` pull-request with `dev` version bump.

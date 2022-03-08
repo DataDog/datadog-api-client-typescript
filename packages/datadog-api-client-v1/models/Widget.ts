@@ -24,8 +24,14 @@ export class Widget {
   "id"?: number;
   "layout"?: WidgetLayout;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
       baseName: "definition",
@@ -43,6 +49,9 @@ export class Widget {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Widget.attributeTypeMap;
   }

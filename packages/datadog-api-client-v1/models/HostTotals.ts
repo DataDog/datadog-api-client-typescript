@@ -24,8 +24,14 @@ export class HostTotals {
    */
   "totalUp"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     totalActive: {
       baseName: "total_active",
@@ -39,6 +45,9 @@ export class HostTotals {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostTotals.attributeTypeMap;
   }

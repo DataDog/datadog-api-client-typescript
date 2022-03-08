@@ -22,8 +22,14 @@ export class SyntheticsStepDetailWarning {
   "message": string;
   "type": SyntheticsWarningType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
       baseName: "message",
@@ -37,6 +43,9 @@ export class SyntheticsStepDetailWarning {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsStepDetailWarning.attributeTypeMap;
   }

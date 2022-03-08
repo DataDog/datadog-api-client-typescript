@@ -32,8 +32,14 @@ export class HostMapWidgetDefinitionStyle {
    */
   "paletteFlip"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     fillMax: {
       baseName: "fill_max",
@@ -53,6 +59,9 @@ export class HostMapWidgetDefinitionStyle {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostMapWidgetDefinitionStyle.attributeTypeMap;
   }

@@ -27,6 +27,10 @@ export class SyntheticsTestOptions {
    */
   "allowInsecure"?: boolean;
   /**
+   * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
+   */
+  "checkCertificateRevocation"?: boolean;
+  /**
    * For browser test, array with the different device IDs used to run the test.
    */
   "deviceIds"?: Array<SyntheticsDeviceID>;
@@ -65,8 +69,14 @@ export class SyntheticsTestOptions {
    */
   "tickEvery"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     acceptSelfSigned: {
       baseName: "accept_self_signed",
@@ -74,6 +84,10 @@ export class SyntheticsTestOptions {
     },
     allowInsecure: {
       baseName: "allow_insecure",
+      type: "boolean",
+    },
+    checkCertificateRevocation: {
+      baseName: "checkCertificateRevocation",
       type: "boolean",
     },
     deviceIds: {
@@ -126,6 +140,9 @@ export class SyntheticsTestOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsTestOptions.attributeTypeMap;
   }

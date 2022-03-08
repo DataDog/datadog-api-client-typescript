@@ -29,8 +29,14 @@ export class MetricTagConfigurationUpdateAttributes {
    */
   "tags"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregations: {
       baseName: "aggregations",
@@ -46,6 +52,9 @@ export class MetricTagConfigurationUpdateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricTagConfigurationUpdateAttributes.attributeTypeMap;
   }

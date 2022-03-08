@@ -68,8 +68,14 @@ export class Host {
    */
   "up"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aliases: {
       baseName: "aliases",
@@ -132,6 +138,9 @@ export class Host {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Host.attributeTypeMap;
   }

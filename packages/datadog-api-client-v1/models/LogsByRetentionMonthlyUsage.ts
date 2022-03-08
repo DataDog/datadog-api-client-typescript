@@ -19,19 +19,25 @@ export class LogsByRetentionMonthlyUsage {
   /**
    * The month for the usage.
    */
-  "date"?: string;
+  "date"?: Date;
   /**
    * Indexed logs usage for each active retention for the month.
    */
   "usage"?: Array<LogsRetentionSumUsage>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     date: {
       baseName: "date",
-      type: "string",
-      format: "datetime",
+      type: "Date",
+      format: "date-time",
     },
     usage: {
       baseName: "usage",
@@ -39,6 +45,9 @@ export class LogsByRetentionMonthlyUsage {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsByRetentionMonthlyUsage.attributeTypeMap;
   }

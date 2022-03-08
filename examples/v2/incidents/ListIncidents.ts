@@ -10,7 +10,7 @@ const apiInstance = new v2.IncidentsApi(configuration);
 
 apiInstance
   .listIncidents()
-  .then((data: any) => {
+  .then((data: v2.IncidentsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

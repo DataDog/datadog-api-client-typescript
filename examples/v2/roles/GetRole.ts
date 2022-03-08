@@ -16,7 +16,7 @@ let params: v2.RolesApiGetRoleRequest = {
 
 apiInstance
   .getRole(params)
-  .then((data: any) => {
+  .then((data: v2.RoleResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

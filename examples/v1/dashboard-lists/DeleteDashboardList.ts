@@ -16,7 +16,7 @@ let params: v1.DashboardListsApiDeleteDashboardListRequest = {
 
 apiInstance
   .deleteDashboardList(params)
-  .then((data: any) => {
+  .then((data: v1.DashboardListDeleteResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

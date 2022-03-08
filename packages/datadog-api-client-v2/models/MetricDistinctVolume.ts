@@ -24,8 +24,14 @@ export class MetricDistinctVolume {
   "id"?: string;
   "type"?: MetricDistinctVolumeType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -41,6 +47,9 @@ export class MetricDistinctVolume {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MetricDistinctVolume.attributeTypeMap;
   }

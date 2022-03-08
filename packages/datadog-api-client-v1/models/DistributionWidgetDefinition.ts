@@ -52,8 +52,14 @@ export class DistributionWidgetDefinition {
   "xaxis"?: DistributionWidgetXAxis;
   "yaxis"?: DistributionWidgetYAxis;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     legendSize: {
       baseName: "legend_size",
@@ -103,6 +109,9 @@ export class DistributionWidgetDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DistributionWidgetDefinition.attributeTypeMap;
   }

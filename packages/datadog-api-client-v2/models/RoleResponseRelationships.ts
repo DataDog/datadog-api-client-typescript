@@ -18,8 +18,14 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class RoleResponseRelationships {
   "permissions"?: RelationshipToPermissions;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     permissions: {
       baseName: "permissions",
@@ -27,6 +33,9 @@ export class RoleResponseRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RoleResponseRelationships.attributeTypeMap;
   }

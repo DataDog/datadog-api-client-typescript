@@ -25,11 +25,17 @@ export class SyntheticsAssertionTarget {
   /**
    * Value used by the operator.
    */
-  "target": any;
+  "target": any | null;
   "type": SyntheticsAssertionType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     operator: {
       baseName: "operator",
@@ -52,6 +58,9 @@ export class SyntheticsAssertionTarget {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsAssertionTarget.attributeTypeMap;
   }

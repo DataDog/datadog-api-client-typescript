@@ -43,8 +43,14 @@ export class ApmStatsQueryDefinition {
    */
   "service": string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
       baseName: "columns",
@@ -81,6 +87,9 @@ export class ApmStatsQueryDefinition {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApmStatsQueryDefinition.attributeTypeMap;
   }

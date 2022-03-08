@@ -24,8 +24,14 @@ export class SyntheticsDeletedTest {
    */
   "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     deletedAt: {
       baseName: "deleted_at",
@@ -38,6 +44,9 @@ export class SyntheticsDeletedTest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsDeletedTest.attributeTypeMap;
   }

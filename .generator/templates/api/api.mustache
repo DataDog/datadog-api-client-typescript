@@ -1,4 +1,3 @@
-// TODO: better import syntax?
 import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
 import {Configuration, getServer, applySecurityAuthentication} from '../configuration{{extensionForDeno}}';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
@@ -11,35 +10,15 @@ import FormData from "form-data";
 import {ObjectSerializer} from '../models/ObjectSerializer{{extensionForDeno}}';
 import {ApiException} from './exception{{extensionForDeno}}';
 import {isCodeInRange} from '../util{{extensionForDeno}}';
-{{#useInversify}}
-import { injectable } from "inversify";
-{{/useInversify}}
 
 {{#imports}}
 import { {{classname}} } from '..{{filename}}{{extensionForDeno}}';
 {{/imports}}
 {{#operations}}
 
-/**
- * {{{description}}}{{^description}}no description{{/description}}
- */
-{{#useInversify}}
-@injectable()
-{{/useInversify}}
 export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
 
     {{#operation}}
-    /**
-     {{#notes}}
-     * {{&notes}}
-     {{/notes}}
-     {{#summary}}
-     * {{&summary}}
-     {{/summary}}
-     {{#allParams}}
-     * @param {{paramName}} {{description}}
-     {{/allParams}}
-     */
     public async {{nickname}}({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}_options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
         {{#vendorExtensions.x-unstable}}
@@ -162,9 +141,6 @@ export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
 {{/operations}}
 {{#operations}}
 
-{{#useInversify}}
-@injectable()
-{{/useInversify}}
 export class {{classname}}ResponseProcessor {
 
     {{#operation}}
@@ -231,5 +207,50 @@ export class {{classname}}ResponseProcessor {
     }
 
     {{/operation}}
+}
+
+{{#operation}}
+{{#hasParams}}
+export interface {{classname}}{{operationIdCamelCase}}Request {
+    {{#allParams}}
+    /**
+     * {{description}}
+     * @type {{dataType}}
+     */
+    {{paramName}}{{^required}}?{{/required}}: {{{dataType}}}
+    {{/allParams}}
+}
+
+{{/hasParams}}
+{{/operation}}
+export class {{classname}} {
+
+    private requestFactory: {{classname}}RequestFactory;
+    private responseProcessor: {{classname}}ResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(configuration: Configuration, requestFactory?: {{classname}}RequestFactory, responseProcessor?: {{classname}}ResponseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new {{classname}}RequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new {{classname}}ResponseProcessor();
+    }
+
+{{#operation}}
+    /**
+     {{#notes}}
+     * {{&notes}}
+     {{/notes}}
+     * @param param The request object
+     */
+    public {{nickname}}({{#hasParams}}param: {{classname}}{{operationIdCamelCase}}Request{{^requiredParams}} = {}{{/requiredParams}}, {{/hasParams}}options?: Configuration): {{#useRxJS}}Observable{{/useRxJS}}{{^useRxJS}}Promise{{/useRxJS}}<{{{returnType}}}{{^returnType}}void{{/returnType}}> {
+        const requestContextPromise = this.requestFactory.{{nickname}}({{#allParams}}param.{{paramName}}, {{/allParams}}options);
+        return requestContextPromise.then(requestContext => {
+                return this.configuration.httpApi.send(requestContext).then(responseContext => {
+                        return this.responseProcessor.{{nickname}}(responseContext);
+                });
+        });
+    }
+
+{{/operation}}
 }
 {{/operations}}

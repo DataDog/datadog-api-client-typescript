@@ -26,8 +26,14 @@ export class UsageTopAvgMetricsMetadata {
   "month"?: Date;
   "pagination"?: UsageAttributionPagination;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     day: {
       baseName: "day",
@@ -45,6 +51,9 @@ export class UsageTopAvgMetricsMetadata {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTopAvgMetricsMetadata.attributeTypeMap;
   }

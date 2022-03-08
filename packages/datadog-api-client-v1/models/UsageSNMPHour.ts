@@ -20,17 +20,39 @@ export class UsageSNMPHour {
    */
   "hour"?: Date;
   /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
+  /**
    * Contains the number of SNMP devices.
    */
   "snmpDevices"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
       baseName: "hour",
       type: "Date",
       format: "date-time",
+    },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
     },
     snmpDevices: {
       baseName: "snmp_devices",
@@ -39,6 +61,9 @@ export class UsageSNMPHour {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageSNMPHour.attributeTypeMap;
   }

@@ -9,7 +9,7 @@ const apiInstance = new v1.NotebooksApi(configuration);
 
 apiInstance
   .listNotebooks()
-  .then((data: any) => {
+  .then((data: v1.NotebooksResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

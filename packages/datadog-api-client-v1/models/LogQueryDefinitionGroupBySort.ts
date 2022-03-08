@@ -26,8 +26,14 @@ export class LogQueryDefinitionGroupBySort {
   "facet"?: string;
   "order": WidgetSort;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
@@ -45,6 +51,9 @@ export class LogQueryDefinitionGroupBySort {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogQueryDefinitionGroupBySort.attributeTypeMap;
   }

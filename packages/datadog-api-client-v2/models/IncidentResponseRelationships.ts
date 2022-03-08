@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToUser } from "./RelationshipToUser";
@@ -18,18 +19,24 @@ import { AttributeTypeMap } from "./ObjectSerializer";
  */
 
 export class IncidentResponseRelationships {
-  "commanderUser"?: RelationshipToUser;
+  "commanderUser"?: NullableRelationshipToUser;
   "createdByUser"?: RelationshipToUser;
   "integrations"?: RelationshipToIncidentIntegrationMetadatas;
   "lastModifiedByUser"?: RelationshipToUser;
   "postmortem"?: RelationshipToIncidentPostmortem;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     commanderUser: {
       baseName: "commander_user",
-      type: "RelationshipToUser",
+      type: "NullableRelationshipToUser",
     },
     createdByUser: {
       baseName: "created_by_user",
@@ -49,6 +56,9 @@ export class IncidentResponseRelationships {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentResponseRelationships.attributeTypeMap;
   }

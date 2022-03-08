@@ -10,6 +10,7 @@
 
 import { SecurityMonitoringRuleDetectionMethod } from "./SecurityMonitoringRuleDetectionMethod";
 import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRuleEvaluationWindow";
+import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
@@ -22,12 +23,19 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class SecurityMonitoringRuleOptions {
   "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
+  "impossibleTravelOptions"?: SecurityMonitoringRuleImpossibleTravelOptions;
   "keepAlive"?: SecurityMonitoringRuleKeepAlive;
   "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     detectionMethod: {
       baseName: "detectionMethod",
@@ -36,6 +44,10 @@ export class SecurityMonitoringRuleOptions {
     evaluationWindow: {
       baseName: "evaluationWindow",
       type: "SecurityMonitoringRuleEvaluationWindow",
+    },
+    impossibleTravelOptions: {
+      baseName: "impossibleTravelOptions",
+      type: "SecurityMonitoringRuleImpossibleTravelOptions",
     },
     keepAlive: {
       baseName: "keepAlive",
@@ -51,6 +63,9 @@ export class SecurityMonitoringRuleOptions {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityMonitoringRuleOptions.attributeTypeMap;
   }

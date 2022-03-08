@@ -42,8 +42,14 @@ export class SyntheticsGlobalVariable {
   "tags": Array<string>;
   "value": SyntheticsGlobalVariableValue;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -83,6 +89,9 @@ export class SyntheticsGlobalVariable {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGlobalVariable.attributeTypeMap;
   }

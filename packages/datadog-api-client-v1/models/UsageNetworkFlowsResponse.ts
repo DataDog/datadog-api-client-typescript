@@ -21,8 +21,14 @@ export class UsageNetworkFlowsResponse {
    */
   "usage"?: Array<UsageNetworkFlowsHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
@@ -30,6 +36,9 @@ export class UsageNetworkFlowsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageNetworkFlowsResponse.attributeTypeMap;
   }

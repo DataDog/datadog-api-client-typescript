@@ -21,8 +21,14 @@ export class DashboardSummary {
    */
   "dashboards"?: Array<DashboardSummaryDefinition>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dashboards: {
       baseName: "dashboards",
@@ -30,6 +36,9 @@ export class DashboardSummary {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return DashboardSummary.attributeTypeMap;
   }

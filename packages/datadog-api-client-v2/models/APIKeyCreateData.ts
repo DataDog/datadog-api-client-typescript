@@ -20,8 +20,14 @@ export class APIKeyCreateData {
   "attributes": APIKeyCreateAttributes;
   "type": APIKeysType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -35,6 +41,9 @@ export class APIKeyCreateData {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return APIKeyCreateData.attributeTypeMap;
   }

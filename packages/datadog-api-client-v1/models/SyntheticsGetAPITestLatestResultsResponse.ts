@@ -25,8 +25,14 @@ export class SyntheticsGetAPITestLatestResultsResponse {
    */
   "results"?: Array<SyntheticsAPITestResultShort>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     lastTimestampFetched: {
       baseName: "last_timestamp_fetched",
@@ -39,6 +45,9 @@ export class SyntheticsGetAPITestLatestResultsResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsGetAPITestLatestResultsResponse.attributeTypeMap;
   }

@@ -21,8 +21,14 @@ export class SyntheticsCITestBody {
    */
   "tests"?: Array<SyntheticsCITest>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
       baseName: "tests",
@@ -30,6 +36,9 @@ export class SyntheticsCITestBody {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCITestBody.attributeTypeMap;
   }

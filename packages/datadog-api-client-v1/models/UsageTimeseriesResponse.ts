@@ -21,8 +21,14 @@ export class UsageTimeseriesResponse {
    */
   "usage"?: Array<UsageTimeseriesHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
@@ -30,6 +36,9 @@ export class UsageTimeseriesResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageTimeseriesResponse.attributeTypeMap;
   }

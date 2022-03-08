@@ -20,8 +20,14 @@ export class SyntheticsCIBatchMetadataPipeline {
    */
   "url"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     url: {
       baseName: "url",
@@ -29,6 +35,9 @@ export class SyntheticsCIBatchMetadataPipeline {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCIBatchMetadataPipeline.attributeTypeMap;
   }

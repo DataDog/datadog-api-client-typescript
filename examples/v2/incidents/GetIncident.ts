@@ -17,7 +17,7 @@ let params: v2.IncidentsApiGetIncidentRequest = {
 
 apiInstance
   .getIncident(params)
-  .then((data: any) => {
+  .then((data: v2.IncidentResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

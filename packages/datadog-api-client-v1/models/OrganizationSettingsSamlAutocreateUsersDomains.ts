@@ -24,8 +24,14 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
    */
   "enabled"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     domains: {
       baseName: "domains",
@@ -37,6 +43,9 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return OrganizationSettingsSamlAutocreateUsersDomains.attributeTypeMap;
   }

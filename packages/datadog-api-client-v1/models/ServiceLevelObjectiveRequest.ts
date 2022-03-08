@@ -45,8 +45,14 @@ export class ServiceLevelObjectiveRequest {
   "thresholds": Array<SLOThreshold>;
   "type": SLOType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
       baseName: "description",
@@ -86,6 +92,9 @@ export class ServiceLevelObjectiveRequest {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ServiceLevelObjectiveRequest.attributeTypeMap;
   }

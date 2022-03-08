@@ -21,8 +21,14 @@ export class UsageLogsByIndexResponse {
    */
   "usage"?: Array<UsageLogsByIndexHour>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
       baseName: "usage",
@@ -30,6 +36,9 @@ export class UsageLogsByIndexResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLogsByIndexResponse.attributeTypeMap;
   }

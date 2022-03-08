@@ -20,8 +20,14 @@ export class SecurityFilterMeta {
    */
   "warning"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     warning: {
       baseName: "warning",
@@ -29,6 +35,9 @@ export class SecurityFilterMeta {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SecurityFilterMeta.attributeTypeMap;
   }

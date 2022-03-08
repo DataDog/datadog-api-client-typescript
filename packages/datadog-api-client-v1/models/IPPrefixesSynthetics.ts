@@ -32,8 +32,14 @@ export class IPPrefixesSynthetics {
    */
   "prefixesIpv6ByLocation"?: { [key: string]: Array<string> };
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     prefixesIpv4: {
       baseName: "prefixes_ipv4",
@@ -53,6 +59,9 @@ export class IPPrefixesSynthetics {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IPPrefixesSynthetics.attributeTypeMap;
   }

@@ -33,8 +33,14 @@ export class LogsPipelineProcessor {
   "processors"?: Array<LogsProcessor>;
   "type": LogsPipelineProcessorType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
       baseName: "filter",
@@ -59,6 +65,9 @@ export class LogsPipelineProcessor {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsPipelineProcessor.attributeTypeMap;
   }

@@ -44,8 +44,14 @@ export class PermissionAttributes {
    */
   "restricted"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
       baseName: "created",
@@ -78,6 +84,9 @@ export class PermissionAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return PermissionAttributes.attributeTypeMap;
   }

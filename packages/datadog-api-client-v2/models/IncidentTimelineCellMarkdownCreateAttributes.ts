@@ -24,8 +24,14 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
    */
   "important"?: boolean;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cellType: {
       baseName: "cell_type",
@@ -43,6 +49,9 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return IncidentTimelineCellMarkdownCreateAttributes.attributeTypeMap;
   }

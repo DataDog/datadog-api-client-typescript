@@ -26,8 +26,14 @@ export class FullAPIKey {
   "relationships"?: APIKeyRelationships;
   "type"?: APIKeysType;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
@@ -47,6 +53,9 @@ export class FullAPIKey {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return FullAPIKey.attributeTypeMap;
   }

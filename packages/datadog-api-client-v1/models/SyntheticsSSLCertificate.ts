@@ -60,8 +60,14 @@ export class SyntheticsSSLCertificate {
    */
   "validTo"?: Date;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cipher: {
       baseName: "cipher",
@@ -116,6 +122,9 @@ export class SyntheticsSSLCertificate {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsSSLCertificate.attributeTypeMap;
   }

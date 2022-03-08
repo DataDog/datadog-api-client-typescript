@@ -47,9 +47,23 @@ export class UsageLogsHour {
    * Contains the number of rehydrated log bytes ingested (data available as of December 1, 2020).
    */
   "logsRehydratedIngestedBytes"?: number;
+  /**
+   * The organization name.
+   */
+  "orgName"?: string;
+  /**
+   * The organization public ID.
+   */
+  "publicId"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     billableIngestedBytes: {
       baseName: "billable_ingested_bytes",
@@ -91,8 +105,19 @@ export class UsageLogsHour {
       type: "number",
       format: "int64",
     },
+    orgName: {
+      baseName: "org_name",
+      type: "string",
+    },
+    publicId: {
+      baseName: "public_id",
+      type: "string",
+    },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageLogsHour.attributeTypeMap;
   }

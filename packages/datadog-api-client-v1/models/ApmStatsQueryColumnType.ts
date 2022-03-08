@@ -28,8 +28,14 @@ export class ApmStatsQueryColumnType {
   "name": string;
   "order"?: WidgetSort;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alias: {
       baseName: "alias",
@@ -50,6 +56,9 @@ export class ApmStatsQueryColumnType {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ApmStatsQueryColumnType.attributeTypeMap;
   }

@@ -28,8 +28,14 @@ export class SyntheticsCoreWebVitals {
    */
   "url"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cls: {
       baseName: "cls",
@@ -47,6 +53,9 @@ export class SyntheticsCoreWebVitals {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsCoreWebVitals.attributeTypeMap;
   }

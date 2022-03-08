@@ -24,8 +24,14 @@ export class Pagination {
    */
   "totalFilteredCount"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     totalCount: {
       baseName: "total_count",
@@ -39,6 +45,9 @@ export class Pagination {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return Pagination.attributeTypeMap;
   }

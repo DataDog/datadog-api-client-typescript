@@ -27,8 +27,14 @@ export class SLOListResponse {
   "errors"?: Array<string>;
   "metadata"?: SLOListResponseMetadata;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -44,6 +50,9 @@ export class SLOListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SLOListResponse.attributeTypeMap;
   }

@@ -23,8 +23,14 @@ export class RolesResponse {
   "data"?: Array<Role>;
   "meta"?: ResponseMetaAttributes;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
@@ -36,6 +42,9 @@ export class RolesResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return RolesResponse.attributeTypeMap;
   }

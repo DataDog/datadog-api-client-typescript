@@ -32,8 +32,14 @@ export class PartialAPIKeyAttributes {
    */
   "name"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
@@ -53,6 +59,9 @@ export class PartialAPIKeyAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return PartialAPIKeyAttributes.attributeTypeMap;
   }

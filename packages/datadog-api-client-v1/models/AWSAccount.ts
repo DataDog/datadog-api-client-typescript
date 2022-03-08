@@ -60,8 +60,14 @@ export class AWSAccount {
    */
   "secretAccessKey"?: string;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accessKeyId: {
       baseName: "access_key_id",
@@ -109,6 +115,9 @@ export class AWSAccount {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return AWSAccount.attributeTypeMap;
   }

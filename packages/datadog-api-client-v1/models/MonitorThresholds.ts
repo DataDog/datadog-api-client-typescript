@@ -40,8 +40,14 @@ export class MonitorThresholds {
    */
   "warningRecovery"?: number;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     critical: {
       baseName: "critical",
@@ -75,6 +81,9 @@ export class MonitorThresholds {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorThresholds.attributeTypeMap;
   }

@@ -9,6 +9,7 @@
  */
 
 import { MonitorDeviceID } from "./MonitorDeviceID";
+import { MonitorFormulaAndFunctionQueryDefinition } from "./MonitorFormulaAndFunctionQueryDefinition";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
@@ -107,9 +108,19 @@ export class MonitorOptions {
    * The number of hours of the monitor not reporting data before it automatically resolves from a triggered state. The minimum allowed value is 0 hours. The maximum allowed value is 24 hours.
    */
   "timeoutH"?: number;
+  /**
+   * List of requests that can be used in the monitor query. **This feature is currently in beta.**
+   */
+  "variables"?: Array<MonitorFormulaAndFunctionQueryDefinition>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
       baseName: "aggregation",
@@ -217,8 +228,15 @@ export class MonitorOptions {
       type: "number",
       format: "int64",
     },
+    variables: {
+      baseName: "variables",
+      type: "Array<MonitorFormulaAndFunctionQueryDefinition>",
+    },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return MonitorOptions.attributeTypeMap;
   }

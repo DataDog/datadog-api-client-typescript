@@ -21,8 +21,14 @@ export class LogsIndexListResponse {
    */
   "indexes"?: Array<LogsIndex>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     indexes: {
       baseName: "indexes",
@@ -30,6 +36,9 @@ export class LogsIndexListResponse {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsIndexListResponse.attributeTypeMap;
   }

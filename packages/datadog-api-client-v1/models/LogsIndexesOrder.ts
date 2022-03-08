@@ -20,8 +20,14 @@ export class LogsIndexesOrder {
    */
   "indexNames": Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     indexNames: {
       baseName: "index_names",
@@ -30,6 +36,9 @@ export class LogsIndexesOrder {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsIndexesOrder.attributeTypeMap;
   }

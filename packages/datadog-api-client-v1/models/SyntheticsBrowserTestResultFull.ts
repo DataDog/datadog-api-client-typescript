@@ -38,8 +38,14 @@ export class SyntheticsBrowserTestResultFull {
   "resultId"?: string;
   "status"?: SyntheticsTestMonitorStatus;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     check: {
       baseName: "check",
@@ -73,6 +79,9 @@ export class SyntheticsBrowserTestResultFull {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return SyntheticsBrowserTestResultFull.attributeTypeMap;
   }

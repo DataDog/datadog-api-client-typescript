@@ -20,8 +20,14 @@ export class LogsArchiveOrderAttributes {
    */
   "archiveIds": Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     archiveIds: {
       baseName: "archive_ids",
@@ -30,6 +36,9 @@ export class LogsArchiveOrderAttributes {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return LogsArchiveOrderAttributes.attributeTypeMap;
   }

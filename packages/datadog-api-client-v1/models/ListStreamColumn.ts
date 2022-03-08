@@ -22,8 +22,14 @@ export class ListStreamColumn {
   "field": string;
   "width": ListStreamColumnWidth;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     field: {
       baseName: "field",
@@ -37,6 +43,9 @@ export class ListStreamColumn {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return ListStreamColumn.attributeTypeMap;
   }

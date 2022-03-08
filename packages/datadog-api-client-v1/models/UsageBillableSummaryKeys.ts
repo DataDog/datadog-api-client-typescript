@@ -49,8 +49,14 @@ export class UsageBillableSummaryKeys {
   "syntheticsBrowserChecksSum"?: UsageBillableSummaryBody;
   "timeseriesAverage"?: UsageBillableSummaryBody;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     apmHostSum: {
       baseName: "apm_host_sum",
@@ -182,6 +188,9 @@ export class UsageBillableSummaryKeys {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return UsageBillableSummaryKeys.attributeTypeMap;
   }

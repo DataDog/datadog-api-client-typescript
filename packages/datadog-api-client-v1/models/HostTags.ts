@@ -24,8 +24,14 @@ export class HostTags {
    */
   "tags"?: Array<string>;
 
+  /**
+   * @ignore
+   */
   "unparsedObject"?: any;
 
+  /**
+   * @ignore
+   */
   static readonly attributeTypeMap: AttributeTypeMap = {
     host: {
       baseName: "host",
@@ -37,6 +43,9 @@ export class HostTags {
     },
   };
 
+  /**
+   * @ignore
+   */
   static getAttributeTypeMap(): AttributeTypeMap {
     return HostTags.attributeTypeMap;
   }
