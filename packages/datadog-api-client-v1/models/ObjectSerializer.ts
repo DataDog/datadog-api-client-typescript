@@ -446,6 +446,8 @@ import { UsageNetworkFlowsHour } from "./UsageNetworkFlowsHour";
 import { UsageNetworkFlowsResponse } from "./UsageNetworkFlowsResponse";
 import { UsageNetworkHostsHour } from "./UsageNetworkHostsHour";
 import { UsageNetworkHostsResponse } from "./UsageNetworkHostsResponse";
+import { UsageOnlineArchiveHour } from "./UsageOnlineArchiveHour";
+import { UsageOnlineArchiveResponse } from "./UsageOnlineArchiveResponse";
 import { UsageProfilingHour } from "./UsageProfilingHour";
 import { UsageProfilingResponse } from "./UsageProfilingResponse";
 import { UsageRumSessionsHour } from "./UsageRumSessionsHour";
@@ -1641,6 +1643,8 @@ const typeMap: { [index: string]: any } = {
   UsageNetworkFlowsResponse: UsageNetworkFlowsResponse,
   UsageNetworkHostsHour: UsageNetworkHostsHour,
   UsageNetworkHostsResponse: UsageNetworkHostsResponse,
+  UsageOnlineArchiveHour: UsageOnlineArchiveHour,
+  UsageOnlineArchiveResponse: UsageOnlineArchiveResponse,
   UsageProfilingHour: UsageProfilingHour,
   UsageProfilingResponse: UsageProfilingResponse,
   UsageRumSessionsHour: UsageRumSessionsHour,

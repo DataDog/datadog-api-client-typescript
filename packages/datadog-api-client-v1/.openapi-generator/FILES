@@ -664,6 +664,8 @@ models/UsageNetworkFlowsHour.ts
 models/UsageNetworkFlowsResponse.ts
 models/UsageNetworkHostsHour.ts
 models/UsageNetworkHostsResponse.ts
+models/UsageOnlineArchiveHour.ts
+models/UsageOnlineArchiveResponse.ts
 models/UsageProfilingHour.ts
 models/UsageProfilingResponse.ts
 models/UsageReportsType.ts
