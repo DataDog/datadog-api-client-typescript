@@ -279,6 +279,7 @@ export {
   UsageMeteringApiGetUsageLogsByRetentionRequest,
   UsageMeteringApiGetUsageNetworkFlowsRequest,
   UsageMeteringApiGetUsageNetworkHostsRequest,
+  UsageMeteringApiGetUsageOnlineArchiveRequest,
   UsageMeteringApiGetUsageProfilingRequest,
   UsageMeteringApiGetUsageRumSessionsRequest,
   UsageMeteringApiGetUsageRumUnitsRequest,
@@ -909,6 +910,8 @@ export { UsageNetworkFlowsHour } from "./models/UsageNetworkFlowsHour";
 export { UsageNetworkFlowsResponse } from "./models/UsageNetworkFlowsResponse";
 export { UsageNetworkHostsHour } from "./models/UsageNetworkHostsHour";
 export { UsageNetworkHostsResponse } from "./models/UsageNetworkHostsResponse";
+export { UsageOnlineArchiveHour } from "./models/UsageOnlineArchiveHour";
+export { UsageOnlineArchiveResponse } from "./models/UsageOnlineArchiveResponse";
 export { UsageProfilingHour } from "./models/UsageProfilingHour";
 export { UsageProfilingResponse } from "./models/UsageProfilingResponse";
 export { UsageReportsType } from "./models/UsageReportsType";
