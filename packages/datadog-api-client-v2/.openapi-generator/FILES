@@ -1,3 +1,4 @@
+AuditApi.md
 AuthNMappingsApi.md
 CloudWorkloadSecurityApi.md
 DashboardListsApi.md
@@ -16,6 +17,7 @@ RolesApi.md
 SecurityMonitoringApi.md
 ServiceAccountsApi.md
 UsersApi.md
+apis/AuditApi.ts
 apis/AuthNMappingsApi.ts
 apis/CloudWorkloadSecurityApi.ts
 apis/DashboardListsApi.ts
@@ -65,6 +67,20 @@ models/ApplicationKeyUpdateData.ts
 models/ApplicationKeyUpdateRequest.ts
 models/ApplicationKeysSort.ts
 models/ApplicationKeysType.ts
+models/AuditLogsEvent.ts
+models/AuditLogsEventAttributes.ts
+models/AuditLogsEventType.ts
+models/AuditLogsEventsResponse.ts
+models/AuditLogsQueryFilter.ts
+models/AuditLogsQueryOptions.ts
+models/AuditLogsQueryPageOptions.ts
+models/AuditLogsResponseLinks.ts
+models/AuditLogsResponseMetadata.ts
+models/AuditLogsResponsePage.ts
+models/AuditLogsResponseStatus.ts
+models/AuditLogsSearchEventsRequest.ts
+models/AuditLogsSort.ts
+models/AuditLogsWarning.ts
 models/AuthNMapping.ts
 models/AuthNMappingAttributes.ts
 models/AuthNMappingCreateAttributes.ts

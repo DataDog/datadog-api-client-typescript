@@ -8,6 +8,12 @@ export * from "./apis/exception";
 export * from "./servers";
 
 export {
+  AuditApiListAuditLogsRequest,
+  AuditApiSearchAuditLogsRequest,
+  AuditApi,
+} from "./apis/AuditApi";
+
+export {
   AuthNMappingsApiCreateAuthNMappingRequest,
   AuthNMappingsApiDeleteAuthNMappingRequest,
   AuthNMappingsApiGetAuthNMappingRequest,
@@ -207,6 +213,20 @@ export { ApplicationKeyUpdateData } from "./models/ApplicationKeyUpdateData";
 export { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
 export { ApplicationKeysSort } from "./models/ApplicationKeysSort";
 export { ApplicationKeysType } from "./models/ApplicationKeysType";
+export { AuditLogsEvent } from "./models/AuditLogsEvent";
+export { AuditLogsEventAttributes } from "./models/AuditLogsEventAttributes";
+export { AuditLogsEventType } from "./models/AuditLogsEventType";
+export { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
+export { AuditLogsQueryFilter } from "./models/AuditLogsQueryFilter";
+export { AuditLogsQueryOptions } from "./models/AuditLogsQueryOptions";
+export { AuditLogsQueryPageOptions } from "./models/AuditLogsQueryPageOptions";
+export { AuditLogsResponseLinks } from "./models/AuditLogsResponseLinks";
+export { AuditLogsResponseMetadata } from "./models/AuditLogsResponseMetadata";
+export { AuditLogsResponsePage } from "./models/AuditLogsResponsePage";
+export { AuditLogsResponseStatus } from "./models/AuditLogsResponseStatus";
+export { AuditLogsSearchEventsRequest } from "./models/AuditLogsSearchEventsRequest";
+export { AuditLogsSort } from "./models/AuditLogsSort";
+export { AuditLogsWarning } from "./models/AuditLogsWarning";
 export { AuthNMapping } from "./models/AuthNMapping";
 export { AuthNMappingAttributes } from "./models/AuthNMappingAttributes";
 export { AuthNMappingCreateAttributes } from "./models/AuthNMappingCreateAttributes";

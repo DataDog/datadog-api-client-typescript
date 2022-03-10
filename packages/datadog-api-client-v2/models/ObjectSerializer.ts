@@ -16,6 +16,17 @@ import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { AuditLogsEvent } from "./AuditLogsEvent";
+import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
+import { AuditLogsEventsResponse } from "./AuditLogsEventsResponse";
+import { AuditLogsQueryFilter } from "./AuditLogsQueryFilter";
+import { AuditLogsQueryOptions } from "./AuditLogsQueryOptions";
+import { AuditLogsQueryPageOptions } from "./AuditLogsQueryPageOptions";
+import { AuditLogsResponseLinks } from "./AuditLogsResponseLinks";
+import { AuditLogsResponseMetadata } from "./AuditLogsResponseMetadata";
+import { AuditLogsResponsePage } from "./AuditLogsResponsePage";
+import { AuditLogsSearchEventsRequest } from "./AuditLogsSearchEventsRequest";
+import { AuditLogsWarning } from "./AuditLogsWarning";
 import { AuthNMapping } from "./AuthNMapping";
 import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
 import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
@@ -351,6 +362,9 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  AuditLogsEventType: ["audit"],
+  AuditLogsResponseStatus: ["done", "timeout"],
+  AuditLogsSort: ["timestamp", "-timestamp"],
   AuthNMappingsSort: [
     "created_at",
     "-created_at",
@@ -502,6 +516,17 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  AuditLogsEvent: AuditLogsEvent,
+  AuditLogsEventAttributes: AuditLogsEventAttributes,
+  AuditLogsEventsResponse: AuditLogsEventsResponse,
+  AuditLogsQueryFilter: AuditLogsQueryFilter,
+  AuditLogsQueryOptions: AuditLogsQueryOptions,
+  AuditLogsQueryPageOptions: AuditLogsQueryPageOptions,
+  AuditLogsResponseLinks: AuditLogsResponseLinks,
+  AuditLogsResponseMetadata: AuditLogsResponseMetadata,
+  AuditLogsResponsePage: AuditLogsResponsePage,
+  AuditLogsSearchEventsRequest: AuditLogsSearchEventsRequest,
+  AuditLogsWarning: AuditLogsWarning,
   AuthNMapping: AuthNMapping,
   AuthNMappingAttributes: AuthNMappingAttributes,
   AuthNMappingCreateAttributes: AuthNMappingCreateAttributes,
