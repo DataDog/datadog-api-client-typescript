@@ -29,7 +29,7 @@ export class ChangeWidgetRequest {
   "compareTo"?: WidgetCompareTo;
   "eventQuery"?: LogQueryDefinition;
   /**
-   * List of formulas that operate on queries. **This feature is currently in beta.**
+   * List of formulas that operate on queries.
    */
   "formulas"?: Array<WidgetFormula>;
   /**
@@ -47,7 +47,7 @@ export class ChangeWidgetRequest {
    */
   "q"?: string;
   /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   * List of queries that can be returned directly or used in formulas.
    */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   "responseFormat"?: FormulaAndFunctionResponseFormat;
