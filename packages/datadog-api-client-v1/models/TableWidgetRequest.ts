@@ -42,7 +42,7 @@ export class TableWidgetRequest {
   "conditionalFormats"?: Array<WidgetConditionalFormat>;
   "eventQuery"?: LogQueryDefinition;
   /**
-   * List of formulas that operate on queries.
+   * List of formulas that operate on queries. **This feature is currently in beta.**
    */
   "formulas"?: Array<WidgetFormula>;
   /**
@@ -59,7 +59,7 @@ export class TableWidgetRequest {
    */
   "q"?: string;
   /**
-   * List of queries that can be returned directly or used in formulas.
+   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
    */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   "responseFormat"?: FormulaAndFunctionResponseFormat;
