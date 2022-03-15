@@ -598,3 +598,4 @@ export { UserUpdateData } from "./models/UserUpdateData";
 export { UserUpdateRequest } from "./models/UserUpdateRequest";
 export { UsersResponse } from "./models/UsersResponse";
 export { UsersType } from "./models/UsersType";
+export { ObjectSerializer } from "./models/ObjectSerializer";

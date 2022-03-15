@@ -999,3 +999,4 @@ export { WidgetTimeWindows } from "./models/WidgetTimeWindows";
 export { WidgetVerticalAlign } from "./models/WidgetVerticalAlign";
 export { WidgetViewMode } from "./models/WidgetViewMode";
 export { WidgetVizType } from "./models/WidgetVizType";
+export { ObjectSerializer } from "./models/ObjectSerializer";
