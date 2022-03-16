@@ -47,7 +47,7 @@ export class MonitorOptions {
    */
   "includeTags"?: boolean;
   /**
-   * Whether or not the monitor is locked (only editable by creator and admins).
+   * Whether or not the monitor is locked (only editable by creator and admins). Use `restricted_roles` instead.
    */
   "locked"?: boolean;
   /**

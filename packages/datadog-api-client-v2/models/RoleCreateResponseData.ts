@@ -20,7 +20,7 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class RoleCreateResponseData {
   "attributes"?: RoleCreateAttributes;
   /**
-   * ID of the role.
+   * The unique identifier of the role.
    */
   "id"?: string;
   "relationships"?: RoleResponseRelationships;
