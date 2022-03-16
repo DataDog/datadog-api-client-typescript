@@ -17,7 +17,7 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 
 export class RelationshipToRoleData {
   /**
-   * ID of the role.
+   * The unique identifier of the role.
    */
   "id"?: string;
   "type"?: RolesType;
