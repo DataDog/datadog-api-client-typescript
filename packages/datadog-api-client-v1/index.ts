@@ -943,6 +943,7 @@ export { UsageTimeseriesHour } from "./models/UsageTimeseriesHour";
 export { UsageTimeseriesResponse } from "./models/UsageTimeseriesResponse";
 export { UsageTopAvgMetricsHour } from "./models/UsageTopAvgMetricsHour";
 export { UsageTopAvgMetricsMetadata } from "./models/UsageTopAvgMetricsMetadata";
+export { UsageTopAvgMetricsPagination } from "./models/UsageTopAvgMetricsPagination";
 export { UsageTopAvgMetricsResponse } from "./models/UsageTopAvgMetricsResponse";
 export { User } from "./models/User";
 export { UserDisableResponse } from "./models/UserDisableResponse";

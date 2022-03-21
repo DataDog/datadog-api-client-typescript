@@ -476,6 +476,7 @@ import { UsageTimeseriesHour } from "./UsageTimeseriesHour";
 import { UsageTimeseriesResponse } from "./UsageTimeseriesResponse";
 import { UsageTopAvgMetricsHour } from "./UsageTopAvgMetricsHour";
 import { UsageTopAvgMetricsMetadata } from "./UsageTopAvgMetricsMetadata";
+import { UsageTopAvgMetricsPagination } from "./UsageTopAvgMetricsPagination";
 import { UsageTopAvgMetricsResponse } from "./UsageTopAvgMetricsResponse";
 import { User } from "./User";
 import { UserDisableResponse } from "./UserDisableResponse";
@@ -1674,6 +1675,7 @@ const typeMap: { [index: string]: any } = {
   UsageTimeseriesResponse: UsageTimeseriesResponse,
   UsageTopAvgMetricsHour: UsageTopAvgMetricsHour,
   UsageTopAvgMetricsMetadata: UsageTopAvgMetricsMetadata,
+  UsageTopAvgMetricsPagination: UsageTopAvgMetricsPagination,
   UsageTopAvgMetricsResponse: UsageTopAvgMetricsResponse,
   User: User,
   UserDisableResponse: UserDisableResponse,

@@ -697,6 +697,7 @@ models/UsageTimeseriesHour.ts
 models/UsageTimeseriesResponse.ts
 models/UsageTopAvgMetricsHour.ts
 models/UsageTopAvgMetricsMetadata.ts
+models/UsageTopAvgMetricsPagination.ts
 models/UsageTopAvgMetricsResponse.ts
 models/User.ts
 models/UserDisableResponse.ts
