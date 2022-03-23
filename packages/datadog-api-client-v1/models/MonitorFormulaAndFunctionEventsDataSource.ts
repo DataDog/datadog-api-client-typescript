@@ -8,5 +8,8 @@
  * Do not edit the class manually.
  */
 
-export type MonitorFormulaAndFunctionEventsDataSource = typeof RUM;
+export type MonitorFormulaAndFunctionEventsDataSource =
+  | typeof RUM
+  | typeof CI_PIPELINES;
 export const RUM = "rum";
+export const CI_PIPELINES = "ci_pipelines";
