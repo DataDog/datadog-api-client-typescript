@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
 // there is a valid "user" in the system
-let USER_DATA_ID = process.env.USER_DATA_ID as string;
+const USER_DATA_ID = process.env.USER_DATA_ID as string;
 
-let params: v2.UsersApiListUserPermissionsRequest = {
+const params: v2.UsersApiListUserPermissionsRequest = {
   userId: USER_DATA_ID,
 };
 

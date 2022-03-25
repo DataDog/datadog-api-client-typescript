@@ -8,7 +8,7 @@ const configuration = v1.createConfiguration();
 configuration.unstableOperations["getUsageAttribution"] = true;
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let params: v1.UsageMeteringApiGetUsageAttributionRequest = {
+const params: v1.UsageMeteringApiGetUsageAttributionRequest = {
   startMonth: new Date(new Date().getTime() / 1000 + -3 * 86400),
   fields: "*",
   offset: 0,

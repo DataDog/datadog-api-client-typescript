@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.WebhooksIntegrationApi(configuration);
 
-let params: v1.WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequest =
+const params: v1.WebhooksIntegrationApiCreateWebhooksIntegrationCustomVariableRequest =
   {
     body: {
       isSecret: true,

@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
-let params: v1.ServiceLevelObjectivesApiCreateSLORequest = {
+const params: v1.ServiceLevelObjectivesApiCreateSLORequest = {
   body: {
     type: "metric",
     description: "string",

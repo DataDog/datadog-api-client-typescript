@@ -7,7 +7,7 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
-let params: v2.KeyManagementApiCreateAPIKeyRequest = {
+const params: v2.KeyManagementApiCreateAPIKeyRequest = {
   body: {
     data: {
       type: "api_keys",

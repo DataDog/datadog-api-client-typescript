@@ -8,10 +8,10 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.WebhooksIntegrationApi(configuration);
 
 // there is a valid "webhook_custom_variable" in the system
-let WEBHOOK_CUSTOM_VARIABLE_NAME = process.env
+const WEBHOOK_CUSTOM_VARIABLE_NAME = process.env
   .WEBHOOK_CUSTOM_VARIABLE_NAME as string;
 
-let params: v1.WebhooksIntegrationApiDeleteWebhooksIntegrationCustomVariableRequest =
+const params: v1.WebhooksIntegrationApiDeleteWebhooksIntegrationCustomVariableRequest =
   {
     customVariableName: WEBHOOK_CUSTOM_VARIABLE_NAME,
   };

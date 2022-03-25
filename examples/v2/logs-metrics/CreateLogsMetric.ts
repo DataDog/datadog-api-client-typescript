@@ -7,7 +7,7 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsMetricsApi(configuration);
 
-let params: v2.LogsMetricsApiCreateLogsMetricRequest = {
+const params: v2.LogsMetricsApiCreateLogsMetricRequest = {
   body: {
     data: {
       id: "Example-Create_a_log_based_metric_returns_OK_response",

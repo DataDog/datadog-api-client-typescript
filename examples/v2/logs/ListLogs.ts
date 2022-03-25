@@ -7,7 +7,7 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsApi(configuration);
 
-let params: v2.LogsApiListLogsRequest = {
+const params: v2.LogsApiListLogsRequest = {
   body: {
     filter: {
       query: "datadog-agent",

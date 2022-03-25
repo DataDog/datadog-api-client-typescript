@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.AuthNMappingsApi(configuration);
 
 // there is a valid "authn_mapping" in the system
-let AUTHN_MAPPING_DATA_ID = process.env.AUTHN_MAPPING_DATA_ID as string;
+const AUTHN_MAPPING_DATA_ID = process.env.AUTHN_MAPPING_DATA_ID as string;
 
-let params: v2.AuthNMappingsApiDeleteAuthNMappingRequest = {
+const params: v2.AuthNMappingsApiDeleteAuthNMappingRequest = {
   authnMappingId: AUTHN_MAPPING_DATA_ID,
 };
 

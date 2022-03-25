@@ -8,9 +8,9 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.WebhooksIntegrationApi(configuration);
 
 // there is a valid "webhook" in the system
-let WEBHOOK_NAME = process.env.WEBHOOK_NAME as string;
+const WEBHOOK_NAME = process.env.WEBHOOK_NAME as string;
 
-let params: v1.WebhooksIntegrationApiGetWebhooksIntegrationRequest = {
+const params: v1.WebhooksIntegrationApiGetWebhooksIntegrationRequest = {
   webhookName: WEBHOOK_NAME,
 };
 

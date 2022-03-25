@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
 // the "user" has a "user_invitation"
-let USER_INVITATION_ID = process.env.USER_INVITATION_ID as string;
+const USER_INVITATION_ID = process.env.USER_INVITATION_ID as string;
 
-let params: v2.UsersApiGetInvitationRequest = {
+const params: v2.UsersApiGetInvitationRequest = {
   userInvitationUuid: USER_INVITATION_ID,
 };
 

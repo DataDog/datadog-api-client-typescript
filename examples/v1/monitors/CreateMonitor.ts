@@ -8,9 +8,9 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
 // there is a valid "role" in the system
-let ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
+const ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
 
-let params: v1.MonitorsApiCreateMonitorRequest = {
+const params: v1.MonitorsApiCreateMonitorRequest = {
   body: {
     name: "Example-Create_a_monitor_returns_OK_response",
     type: "log alert",

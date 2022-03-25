@@ -8,9 +8,9 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
 // there is a valid "monitor" in the system
-let MONITOR_ID = parseInt(process.env.MONITOR_ID as string);
+const MONITOR_ID = parseInt(process.env.MONITOR_ID as string);
 
-let params: v1.MonitorsApiDeleteMonitorRequest = {
+const params: v1.MonitorsApiDeleteMonitorRequest = {
   monitorId: MONITOR_ID,
 };
 

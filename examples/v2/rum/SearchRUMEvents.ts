@@ -7,7 +7,7 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.RUMApi(configuration);
 
-let params: v2.RUMApiSearchRUMEventsRequest = {
+const params: v2.RUMApiSearchRUMEventsRequest = {
   body: {
     filter: {
       from: "now-15m",

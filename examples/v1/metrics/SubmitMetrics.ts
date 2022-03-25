@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let params: v1.MetricsApiSubmitMetricsRequest = {
+const params: v1.MetricsApiSubmitMetricsRequest = {
   body: {
     series: [
       {

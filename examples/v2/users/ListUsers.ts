@@ -8,10 +8,10 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
 // there is a valid "user" in the system
-let USER_DATA_ATTRIBUTES_EMAIL = process.env
+const USER_DATA_ATTRIBUTES_EMAIL = process.env
   .USER_DATA_ATTRIBUTES_EMAIL as string;
 
-let params: v2.UsersApiListUsersRequest = {
+const params: v2.UsersApiListUsersRequest = {
   filter: USER_DATA_ATTRIBUTES_EMAIL,
 };
 

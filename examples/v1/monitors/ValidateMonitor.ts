@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
-let params: v1.MonitorsApiValidateMonitorRequest = {
+const params: v1.MonitorsApiValidateMonitorRequest = {
   body: {
     name: "Example-Validate_a_monitor_returns_OK_response",
     type: "log alert",

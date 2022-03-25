@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.NotebooksApi(configuration);
 
-let params: v1.NotebooksApiCreateNotebookRequest = {
+const params: v1.NotebooksApiCreateNotebookRequest = {
   body: {
     data: {
       attributes: {

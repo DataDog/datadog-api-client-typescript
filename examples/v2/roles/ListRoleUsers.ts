@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
 // there is a valid "role" in the system
-let ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
+const ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
 
-let params: v2.RolesApiListRoleUsersRequest = {
+const params: v2.RolesApiListRoleUsersRequest = {
   roleId: ROLE_DATA_ID,
 };
 

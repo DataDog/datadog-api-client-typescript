@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
-let params: v1.MonitorsApiCreateMonitorRequest = {
+const params: v1.MonitorsApiCreateMonitorRequest = {
   body: {
     name: "Example-Create_a_ci_pipelines_monitor_returns_OK_response",
     type: "ci-pipelines alert",

@@ -8,10 +8,10 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
 // there is a valid "slo" in the system
-let SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
-let SLO_DATA_0_NAME = process.env.SLO_DATA_0_NAME as string;
+const SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
+const SLO_DATA_0_NAME = process.env.SLO_DATA_0_NAME as string;
 
-let params: v1.ServiceLevelObjectivesApiUpdateSLORequest = {
+const params: v1.ServiceLevelObjectivesApiUpdateSLORequest = {
   body: {
     type: "metric",
     name: SLO_DATA_0_NAME,

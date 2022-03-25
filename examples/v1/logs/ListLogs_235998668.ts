@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.LogsApi(configuration);
 
-let params: v1.LogsApiListLogsRequest = {
+const params: v1.LogsApiListLogsRequest = {
   body: {
     index: "main",
     query: "service:web*",

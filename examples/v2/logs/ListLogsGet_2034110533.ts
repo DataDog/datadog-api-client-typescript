@@ -7,7 +7,7 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsApi(configuration);
 
-let params: v2.LogsApiListLogsGetRequest = {
+const params: v2.LogsApiListLogsGetRequest = {
   filterQuery: "datadog-agent",
   filterIndex: "main",
   filterFrom: new Date(2020, 9, 17, 11, 48, 36, 0),

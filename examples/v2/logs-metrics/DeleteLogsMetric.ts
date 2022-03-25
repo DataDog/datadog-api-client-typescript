@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsMetricsApi(configuration);
 
 // there is a valid "logs_metric" in the system
-let LOGS_METRIC_DATA_ID = process.env.LOGS_METRIC_DATA_ID as string;
+const LOGS_METRIC_DATA_ID = process.env.LOGS_METRIC_DATA_ID as string;
 
-let params: v2.LogsMetricsApiDeleteLogsMetricRequest = {
+const params: v2.LogsMetricsApiDeleteLogsMetricRequest = {
   metricId: LOGS_METRIC_DATA_ID,
 };
 
