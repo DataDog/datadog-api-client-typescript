@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardListsApi(configuration);
 
-let params: v1.DashboardListsApiCreateDashboardListRequest = {
+const params: v1.DashboardListsApiCreateDashboardListRequest = {
   body: {
     name: "Example-Create_a_dashboard_list_returns_OK_response",
   },

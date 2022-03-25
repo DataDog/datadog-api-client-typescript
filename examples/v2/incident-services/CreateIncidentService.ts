@@ -8,7 +8,7 @@ const configuration = v2.createConfiguration();
 configuration.unstableOperations["createIncidentService"] = true;
 const apiInstance = new v2.IncidentServicesApi(configuration);
 
-let params: v2.IncidentServicesApiCreateIncidentServiceRequest = {
+const params: v2.IncidentServicesApiCreateIncidentServiceRequest = {
   body: {
     data: {
       type: "services",

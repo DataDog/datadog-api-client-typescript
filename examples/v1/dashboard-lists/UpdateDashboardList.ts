@@ -8,9 +8,9 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardListsApi(configuration);
 
 // there is a valid "dashboard_list" in the system
-let DASHBOARD_LIST_ID = parseInt(process.env.DASHBOARD_LIST_ID as string);
+const DASHBOARD_LIST_ID = parseInt(process.env.DASHBOARD_LIST_ID as string);
 
-let params: v1.DashboardListsApiUpdateDashboardListRequest = {
+const params: v1.DashboardListsApiUpdateDashboardListRequest = {
   body: {
     name: "updated Example-Update_a_dashboard_list_returns_OK_response",
   },

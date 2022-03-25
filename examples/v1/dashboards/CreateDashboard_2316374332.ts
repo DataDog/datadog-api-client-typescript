@@ -9,7 +9,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 // there is a valid "monitor" in the system
 
-let params: v1.DashboardsApiCreateDashboardRequest = {
+const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     title: "Example-Create_a_new_dashboard_with_alert_value_widget",
     description: "",

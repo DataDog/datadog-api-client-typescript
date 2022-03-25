@@ -8,9 +8,9 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.NotebooksApi(configuration);
 
 // there is a valid "notebook" in the system
-let NOTEBOOK_DATA_ID = parseInt(process.env.NOTEBOOK_DATA_ID as string);
+const NOTEBOOK_DATA_ID = parseInt(process.env.NOTEBOOK_DATA_ID as string);
 
-let params: v1.NotebooksApiGetNotebookRequest = {
+const params: v1.NotebooksApiGetNotebookRequest = {
   notebookId: NOTEBOOK_DATA_ID,
 };
 

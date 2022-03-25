@@ -7,7 +7,7 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
-let params: v2.UsersApiCreateUserRequest = {
+const params: v2.UsersApiCreateUserRequest = {
   body: {
     data: {
       type: "users",

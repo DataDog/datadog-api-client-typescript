@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 // there is a valid "security_filter" in the system
-let SECURITY_FILTER_DATA_ID = process.env.SECURITY_FILTER_DATA_ID as string;
+const SECURITY_FILTER_DATA_ID = process.env.SECURITY_FILTER_DATA_ID as string;
 
-let params: v2.SecurityMonitoringApiDeleteSecurityFilterRequest = {
+const params: v2.SecurityMonitoringApiDeleteSecurityFilterRequest = {
   securityFilterId: SECURITY_FILTER_DATA_ID,
 };
 

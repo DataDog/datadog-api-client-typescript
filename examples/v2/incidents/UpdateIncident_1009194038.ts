@@ -9,9 +9,9 @@ configuration.unstableOperations["updateIncident"] = true;
 const apiInstance = new v2.IncidentsApi(configuration);
 
 // there is a valid "incident" in the system
-let INCIDENT_DATA_ID = process.env.INCIDENT_DATA_ID as string;
+const INCIDENT_DATA_ID = process.env.INCIDENT_DATA_ID as string;
 
-let params: v2.IncidentsApiUpdateIncidentRequest = {
+const params: v2.IncidentsApiUpdateIncidentRequest = {
   body: {
     data: {
       id: INCIDENT_DATA_ID,

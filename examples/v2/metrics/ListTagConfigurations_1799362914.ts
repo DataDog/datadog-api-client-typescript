@@ -8,7 +8,7 @@ const configuration = v2.createConfiguration();
 configuration.unstableOperations["listTagConfigurations"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
-let params: v2.MetricsApiListTagConfigurationsRequest = {
+const params: v2.MetricsApiListTagConfigurationsRequest = {
   filterTags:
     "ExampleListtagconfigurationswithatagfilterreturnsSuccessresponse",
 };

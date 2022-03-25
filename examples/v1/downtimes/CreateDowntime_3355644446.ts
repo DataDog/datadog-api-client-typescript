@@ -8,9 +8,9 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
 // there is a valid "monitor" in the system
-let MONITOR_ID = parseInt(process.env.MONITOR_ID as string);
+const MONITOR_ID = parseInt(process.env.MONITOR_ID as string);
 
-let params: v1.DowntimesApiCreateDowntimeRequest = {
+const params: v1.DowntimesApiCreateDowntimeRequest = {
   body: {
     message: "Example-Schedule_a_monitor_downtime_returns_OK_response",
     start: new Date().getTime() / 1000,

@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let params: v1.UsageMeteringApiGetUsageOnlineArchiveRequest = {
+const params: v1.UsageMeteringApiGetUsageOnlineArchiveRequest = {
   startHr: new Date(new Date().getTime() / 1000 + -5 * 86400),
   endHr: new Date(new Date().getTime() / 1000 + -3 * 86400),
 };

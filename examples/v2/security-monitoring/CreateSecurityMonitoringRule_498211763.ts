@@ -7,7 +7,7 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
-let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
+const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
   body: {
     name: "Example-Create_a_detection_rule_with_type_workload_security_returns_OK_response",
     queries: [

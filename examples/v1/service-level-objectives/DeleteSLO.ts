@@ -8,9 +8,9 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
 // there is a valid "slo" in the system
-let SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
+const SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
 
-let params: v1.ServiceLevelObjectivesApiDeleteSLORequest = {
+const params: v1.ServiceLevelObjectivesApiDeleteSLORequest = {
   sloId: SLO_DATA_0_ID,
 };
 

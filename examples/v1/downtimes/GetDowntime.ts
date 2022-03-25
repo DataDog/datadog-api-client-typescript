@@ -8,9 +8,9 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
 // there is a valid "downtime" in the system
-let DOWNTIME_ID = parseInt(process.env.DOWNTIME_ID as string);
+const DOWNTIME_ID = parseInt(process.env.DOWNTIME_ID as string);
 
-let params: v1.DowntimesApiGetDowntimeRequest = {
+const params: v1.DowntimesApiGetDowntimeRequest = {
   downtimeId: DOWNTIME_ID,
 };
 

@@ -9,9 +9,10 @@ configuration.unstableOperations["listIncidentTeams"] = true;
 const apiInstance = new v2.IncidentTeamsApi(configuration);
 
 // there is a valid "team" in the system
-let TEAM_DATA_ATTRIBUTES_NAME = process.env.TEAM_DATA_ATTRIBUTES_NAME as string;
+const TEAM_DATA_ATTRIBUTES_NAME = process.env
+  .TEAM_DATA_ATTRIBUTES_NAME as string;
 
-let params: v2.IncidentTeamsApiListIncidentTeamsRequest = {
+const params: v2.IncidentTeamsApiListIncidentTeamsRequest = {
   filter: TEAM_DATA_ATTRIBUTES_NAME,
 };
 
