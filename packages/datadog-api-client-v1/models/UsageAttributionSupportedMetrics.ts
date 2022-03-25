@@ -18,14 +18,12 @@ export type UsageAttributionSupportedMetrics =
   | typeof INFRA_HOST_USAGE
   | typeof CUSTOM_TIMESERIES_PERCENTAGE
   | typeof CONTAINER_PERCENTAGE
-  | typeof LAMBDA_USAGE
   | typeof API_USAGE
   | typeof APM_HOST_PERCENTAGE
   | typeof INFRA_HOST_PERCENTAGE
   | typeof SNMP_USAGE
   | typeof BROWSER_PERCENTAGE
   | typeof API_PERCENTAGE
-  | typeof LAMBDA_PERCENTAGE
   | typeof NPM_HOST_USAGE
   | typeof LAMBDA_FUNCTIONS_USAGE
   | typeof LAMBDA_FUNCTIONS_PERCENTAGE
@@ -53,14 +51,12 @@ export const NPM_HOST_PERCENTAGE = "npm_host_percentage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage";
 export const CONTAINER_PERCENTAGE = "container_percentage";
-export const LAMBDA_USAGE = "lambda_usage";
 export const API_USAGE = "api_usage";
 export const APM_HOST_PERCENTAGE = "apm_host_percentage";
 export const INFRA_HOST_PERCENTAGE = "infra_host_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const BROWSER_PERCENTAGE = "browser_percentage";
 export const API_PERCENTAGE = "api_percentage";
-export const LAMBDA_PERCENTAGE = "lambda_percentage";
 export const NPM_HOST_USAGE = "npm_host_usage";
 export const LAMBDA_FUNCTIONS_USAGE = "lambda_functions_usage";
 export const LAMBDA_FUNCTIONS_PERCENTAGE = "lambda_functions_percentage";

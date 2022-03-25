@@ -29,8 +29,6 @@ export type UsageAttributionSort =
   | typeof LAMBDA_FUNCTIONS_PERCENTAGE
   | typeof LAMBDA_INVOCATIONS_USAGE
   | typeof LAMBDA_INVOCATIONS_PERCENTAGE
-  | typeof LAMBDA_USAGE
-  | typeof LAMBDA_PERCENTAGE
   | typeof ESTIMATED_INDEXED_LOGS_USAGE
   | typeof ESTIMATED_INDEXED_LOGS_PERCENTAGE;
 export const API_PERCENTAGE = "api_percentage";
@@ -53,8 +51,6 @@ export const LAMBDA_FUNCTIONS_USAGE = "lambda_functions_usage";
 export const LAMBDA_FUNCTIONS_PERCENTAGE = "lambda_functions_percentage";
 export const LAMBDA_INVOCATIONS_USAGE = "lambda_invocations_usage";
 export const LAMBDA_INVOCATIONS_PERCENTAGE = "lambda_invocations_percentage";
-export const LAMBDA_USAGE = "lambda_usage";
-export const LAMBDA_PERCENTAGE = "lambda_percentage";
 export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
 export const ESTIMATED_INDEXED_LOGS_PERCENTAGE =
   "estimated_indexed_logs_percentage";
