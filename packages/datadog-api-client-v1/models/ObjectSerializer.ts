@@ -689,7 +689,7 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
     "avg",
   ],
-  MonitorFormulaAndFunctionEventsDataSource: ["rum"],
+  MonitorFormulaAndFunctionEventsDataSource: ["rum", "ci_pipelines"],
   MonitorOverallStates: [
     "Alert",
     "Ignored",
