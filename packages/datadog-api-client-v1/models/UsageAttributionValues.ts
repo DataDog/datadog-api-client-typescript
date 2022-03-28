@@ -136,14 +136,6 @@ export class UsageAttributionValues {
    */
   "lambdaInvocationsUsage"?: number;
   /**
-   * The percentage of Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_percentage instead.
-   */
-  "lambdaPercentage"?: number;
-  /**
-   * The Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_usage instead.
-   */
-  "lambdaUsage"?: number;
-  /**
    * The percentage of network host usage by tag(s).
    */
   "npmHostPercentage"?: number;
@@ -332,16 +324,6 @@ export class UsageAttributionValues {
     },
     lambdaInvocationsUsage: {
       baseName: "lambda_invocations_usage",
-      type: "number",
-      format: "double",
-    },
-    lambdaPercentage: {
-      baseName: "lambda_percentage",
-      type: "number",
-      format: "double",
-    },
-    lambdaUsage: {
-      baseName: "lambda_usage",
       type: "number",
       format: "double",
     },
