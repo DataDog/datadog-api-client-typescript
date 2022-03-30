@@ -130,6 +130,7 @@ export {
 } from "./apis/ProcessesApi";
 
 export {
+  RUMApiAggregateRUMEventsRequest,
   RUMApiListRUMEventsRequest,
   RUMApiSearchRUMEventsRequest,
   RUMApi,
@@ -467,10 +468,25 @@ export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
 export { QuerySortOrder } from "./models/QuerySortOrder";
+export { RUMAggregateBucketValue } from "./models/RUMAggregateBucketValue";
+export { RUMAggregateBucketValueTimeseriesPoint } from "./models/RUMAggregateBucketValueTimeseriesPoint";
+export { RUMAggregateRequest } from "./models/RUMAggregateRequest";
+export { RUMAggregateSort } from "./models/RUMAggregateSort";
+export { RUMAggregateSortType } from "./models/RUMAggregateSortType";
+export { RUMAggregationBucketsResponse } from "./models/RUMAggregationBucketsResponse";
+export { RUMAggregationFunction } from "./models/RUMAggregationFunction";
+export { RUMAnalyticsAggregateResponse } from "./models/RUMAnalyticsAggregateResponse";
+export { RUMBucketResponse } from "./models/RUMBucketResponse";
+export { RUMCompute } from "./models/RUMCompute";
+export { RUMComputeType } from "./models/RUMComputeType";
 export { RUMEvent } from "./models/RUMEvent";
 export { RUMEventAttributes } from "./models/RUMEventAttributes";
 export { RUMEventType } from "./models/RUMEventType";
 export { RUMEventsResponse } from "./models/RUMEventsResponse";
+export { RUMGroupBy } from "./models/RUMGroupBy";
+export { RUMGroupByHistogram } from "./models/RUMGroupByHistogram";
+export { RUMGroupByMissing } from "./models/RUMGroupByMissing";
+export { RUMGroupByTotal } from "./models/RUMGroupByTotal";
 export { RUMQueryFilter } from "./models/RUMQueryFilter";
 export { RUMQueryOptions } from "./models/RUMQueryOptions";
 export { RUMQueryPageOptions } from "./models/RUMQueryPageOptions";
@@ -480,6 +496,7 @@ export { RUMResponsePage } from "./models/RUMResponsePage";
 export { RUMResponseStatus } from "./models/RUMResponseStatus";
 export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
+export { RUMSortOrder } from "./models/RUMSortOrder";
 export { RUMWarning } from "./models/RUMWarning";
 export { RelationshipToIncidentIntegrationMetadataData } from "./models/RelationshipToIncidentIntegrationMetadataData";
 export { RelationshipToIncidentIntegrationMetadatas } from "./models/RelationshipToIncidentIntegrationMetadatas";
