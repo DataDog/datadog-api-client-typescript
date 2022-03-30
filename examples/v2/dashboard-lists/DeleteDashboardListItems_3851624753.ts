@@ -1,5 +1,5 @@
 /**
- * Update items of a dashboard list returns "OK" response
+ * Delete custom screenboard dashboard from an existing dashboard list returns "OK" response
  */
 
 import { v2 } from "@datadog/datadog-api-client";
@@ -13,7 +13,7 @@ const DASHBOARD_LIST_ID = parseInt(process.env.DASHBOARD_LIST_ID as string);
 // there is a valid "screenboard_dashboard" in the system
 const SCREENBOARD_DASHBOARD_ID = process.env.SCREENBOARD_DASHBOARD_ID as string;
 
-const params: v2.DashboardListsApiUpdateDashboardListItemsRequest = {
+const params: v2.DashboardListsApiDeleteDashboardListItemsRequest = {
   body: {
     dashboards: [
       {
@@ -26,8 +26,8 @@ const params: v2.DashboardListsApiUpdateDashboardListItemsRequest = {
 };
 
 apiInstance
-  .updateDashboardListItems(params)
-  .then((data: v2.DashboardListUpdateItemsResponse) => {
+  .deleteDashboardListItems(params)
+  .then((data: v2.DashboardListDeleteItemsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
