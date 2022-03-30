@@ -30,6 +30,10 @@ export class UsageSummaryResponse {
    */
   "apmHostTop99pSum"?: number;
   /**
+   * Shows the sum of all ingested APM span bytes over all hours in the current months for all organizations.
+   */
+  "apmIngestedSpansBillableBytesAggSum"?: number;
+  /**
    * Shows the sum of all audit logs lines indexed over all hours in the current months for all organizations.
    */
   "auditLogsLinesIndexedAggSum"?: number;
@@ -320,6 +324,11 @@ export class UsageSummaryResponse {
     },
     apmHostTop99pSum: {
       baseName: "apm_host_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    apmIngestedSpansBillableBytesAggSum: {
+      baseName: "apm_ingested_spans_billable_bytes_agg_sum",
       type: "number",
       format: "int64",
     },
