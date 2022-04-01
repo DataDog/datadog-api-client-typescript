@@ -20,13 +20,9 @@ export class UsageIngestedSpansHour {
    */
   "hour"?: Date;
   /**
-   * Use `ingested_spans_billable_bytes` as of 2022-03-01. Contains the total number of bytes ingested during a given hour using an old method of calculating span volume.
+   * Contains the total number of bytes ingested for APM spans during a given hour.
    */
   "ingestedEventsBytes"?: number;
-  /**
-   * Contains the total number of bytes ingested during a given hour.
-   */
-  "ingestedSpansBillableBytes"?: number;
   /**
    * The organization name.
    */
@@ -52,11 +48,6 @@ export class UsageIngestedSpansHour {
     },
     ingestedEventsBytes: {
       baseName: "ingested_events_bytes",
-      type: "number",
-      format: "int64",
-    },
-    ingestedSpansBillableBytes: {
-      baseName: "ingested_spans_billable_bytes",
       type: "number",
       format: "int64",
     },
