@@ -761,7 +761,7 @@ export interface MetricsApiListActiveMetricsRequest {
 
 export interface MetricsApiListMetricsRequest {
   /**
-   * Query string to search metrics upon. Can optionally be prefixed with &#x60;metrics:&#x60;.
+   * Query string to search metrics upon. Must be prefixed with &#x60;metrics:&#x60;.
    * @type string
    */
   q: string;

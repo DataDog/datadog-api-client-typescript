@@ -19,9 +19,9 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
       ],
       request: {
         basicAuth: {
-          password: "PaSSw0RD!",
+          password: "",
           type: "web",
-          username: "my_username",
+          username: "",
         },
         certificate: {
           cert: {},
