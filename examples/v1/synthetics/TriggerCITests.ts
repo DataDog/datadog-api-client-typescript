@@ -12,9 +12,9 @@ const params: v1.SyntheticsApiTriggerCITestsRequest = {
     tests: [
       {
         basicAuth: {
-          password: "",
+          password: "PaSSw0RD!",
           type: "web",
-          username: "",
+          username: "my_username",
         },
         deviceIds: ["laptop_large"],
         locations: ["aws:eu-west-3"],

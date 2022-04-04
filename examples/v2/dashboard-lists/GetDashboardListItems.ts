@@ -7,8 +7,11 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.DashboardListsApi(configuration);
 
+// there is a valid "dashboard_list" in the system
+const DASHBOARD_LIST_ID = parseInt(process.env.DASHBOARD_LIST_ID as string);
+
 const params: v2.DashboardListsApiGetDashboardListItemsRequest = {
-  dashboardListId: 9223372036854775807,
+  dashboardListId: DASHBOARD_LIST_ID,
 };
 
 apiInstance

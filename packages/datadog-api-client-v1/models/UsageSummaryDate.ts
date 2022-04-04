@@ -257,7 +257,7 @@ export class UsageSummaryDate {
    */
   "traceSearchIndexedEventsCountSum"?: number;
   /**
-   * Shows the sum of all tracing without limits bytes ingested over all hours in the current date for all organizations.
+   * Shows the sum of all ingested APM span bytes over all hours in the current date for all organizations.
    */
   "twolIngestedEventsBytesSum"?: number;
   /**
