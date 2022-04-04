@@ -11,7 +11,7 @@
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { WidgetFormula } from "./WidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An updated treemap widget.

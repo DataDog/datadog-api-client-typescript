@@ -9,7 +9,7 @@
  */
 
 import { NotebookMarkdownCellDefinition } from "./NotebookMarkdownCellDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The attributes of a notebook `markdown` cell.

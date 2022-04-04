@@ -10,7 +10,7 @@
 
 import { LogsMetricType } from "./LogsMetricType";
 import { LogsMetricUpdateAttributes } from "./LogsMetricUpdateAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The new log-based metric properties.

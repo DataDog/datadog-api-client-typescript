@@ -10,7 +10,7 @@
 
 import { MonthlyUsageAttributionBody } from "./MonthlyUsageAttributionBody";
 import { MonthlyUsageAttributionMetadata } from "./MonthlyUsageAttributionMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the monthly Usage Summary by tag(s).

@@ -9,7 +9,7 @@
  */
 
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The attribute object associated with the SLO correction to be created.

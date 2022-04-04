@@ -15,7 +15,7 @@ import { GeomapWidgetRequest } from "./GeomapWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * This visualization displays a series of values by country on a world map.

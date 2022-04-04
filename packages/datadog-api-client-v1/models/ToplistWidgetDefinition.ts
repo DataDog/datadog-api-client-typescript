@@ -13,7 +13,7 @@ import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.

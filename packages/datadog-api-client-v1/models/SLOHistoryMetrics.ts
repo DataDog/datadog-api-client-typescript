@@ -9,7 +9,7 @@
  */
 
 import { SLOHistoryMetricsSeries } from "./SLOHistoryMetricsSeries";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A `metric` based SLO history response.  This is not included in responses for `monitor` based SLOs.

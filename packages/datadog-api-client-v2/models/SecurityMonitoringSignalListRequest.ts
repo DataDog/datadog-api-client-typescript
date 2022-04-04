@@ -11,7 +11,7 @@
 import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringSignalListRequestFilter";
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
 import { SecurityMonitoringSignalsSort } from "./SecurityMonitoringSignalsSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The request for a security signal list.

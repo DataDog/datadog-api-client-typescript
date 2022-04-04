@@ -9,7 +9,7 @@
  */
 
 import { UsageBillableSummaryHour } from "./UsageBillableSummaryHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response with monthly summary of data billed by Datadog.

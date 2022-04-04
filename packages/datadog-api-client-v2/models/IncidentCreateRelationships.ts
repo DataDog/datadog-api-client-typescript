@@ -9,7 +9,7 @@
  */
 
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The relationships the incident will have with other resources once created.

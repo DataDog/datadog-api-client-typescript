@@ -17,7 +17,7 @@ import { WidgetCompareTo } from "./WidgetCompareTo";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetOrderBy } from "./WidgetOrderBy";
 import { WidgetSort } from "./WidgetSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated change widget.

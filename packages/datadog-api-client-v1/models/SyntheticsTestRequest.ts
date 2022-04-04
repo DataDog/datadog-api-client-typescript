@@ -12,7 +12,7 @@ import { HTTPMethod } from "./HTTPMethod";
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing the Synthetic test request.

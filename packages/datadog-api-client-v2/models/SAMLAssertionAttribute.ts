@@ -10,7 +10,7 @@
 
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SAMLAssertionAttributesType } from "./SAMLAssertionAttributesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * SAML assertion attribute.

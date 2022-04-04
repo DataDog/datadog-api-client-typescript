@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Sensitive Data Scanner usage for a given organization for a given hour.

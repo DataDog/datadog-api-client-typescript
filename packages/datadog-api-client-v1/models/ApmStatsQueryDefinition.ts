@@ -10,7 +10,7 @@
 
 import { ApmStatsQueryColumnType } from "./ApmStatsQueryColumnType";
 import { ApmStatsQueryRowType } from "./ApmStatsQueryRowType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The APM stats query for table and distributions widgets.

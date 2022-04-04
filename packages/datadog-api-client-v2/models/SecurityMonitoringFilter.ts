@@ -9,7 +9,7 @@
  */
 
 import { SecurityMonitoringFilterAction } from "./SecurityMonitoringFilterAction";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The rule's suppression filter.

@@ -9,7 +9,7 @@
  */
 
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response metadata object.

@@ -9,7 +9,7 @@
  */
 
 import { Permission } from "./Permission";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Payload with API-returned permissions.

@@ -13,7 +13,7 @@ import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The steps used in a Synthetics multistep API test.

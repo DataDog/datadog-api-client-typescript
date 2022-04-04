@@ -9,7 +9,7 @@
  */
 
 import { LogsAPIError } from "./LogsAPIError";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response returned by the Logs API when errors occur.

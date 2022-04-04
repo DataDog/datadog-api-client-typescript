@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Optional attributes for the status of a bulk tag configuration request.

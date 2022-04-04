@@ -12,7 +12,7 @@ import { LogsAggregateSort } from "./LogsAggregateSort";
 import { LogsGroupByHistogram } from "./LogsGroupByHistogram";
 import { LogsGroupByMissing } from "./LogsGroupByMissing";
 import { LogsGroupByTotal } from "./LogsGroupByTotal";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A group by rule

@@ -9,7 +9,7 @@
  */
 
 import { LogsGeoIPParserType } from "./LogsGeoIPParserType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The GeoIP parser takes an IP address attribute and extracts if available the Continent, Country, Subdivision, and City information in the target attribute path.

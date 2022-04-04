@@ -9,7 +9,7 @@
  */
 
 import { MetricSearchResponseResults } from "./MetricSearchResponseResults";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing the list of metrics matching the search query.

@@ -10,7 +10,7 @@
 
 import { RUMAggregationFunction } from "./RUMAggregationFunction";
 import { RUMComputeType } from "./RUMComputeType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A compute rule to compute metrics or timeseries.

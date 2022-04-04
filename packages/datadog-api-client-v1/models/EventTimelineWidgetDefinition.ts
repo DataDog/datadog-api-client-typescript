@@ -11,7 +11,7 @@
 import { EventTimelineWidgetDefinitionType } from "./EventTimelineWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The event timeline is a widget version of the timeline that appears at the top of the Event Stream view. Only available on FREE layout dashboards.

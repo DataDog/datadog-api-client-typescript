@@ -9,7 +9,7 @@
  */
 
 import { MetricVolumes } from "./MetricVolumes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response object which includes a single metric's volume.

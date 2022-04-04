@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Number of indexed logs for each hour and index for a given organization.

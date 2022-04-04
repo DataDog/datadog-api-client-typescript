@@ -11,7 +11,7 @@
 import { LogsAggregateResponseStatus } from "./LogsAggregateResponseStatus";
 import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The metadata associated with a request

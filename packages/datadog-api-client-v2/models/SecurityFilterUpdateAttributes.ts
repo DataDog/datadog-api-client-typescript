@@ -10,7 +10,7 @@
 
 import { SecurityFilterExclusionFilter } from "./SecurityFilterExclusionFilter";
 import { SecurityFilterFilteredDataType } from "./SecurityFilterFilteredDataType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The security filters properties to be updated.

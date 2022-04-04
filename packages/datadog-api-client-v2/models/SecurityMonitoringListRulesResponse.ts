@@ -10,7 +10,7 @@
 
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * List of rules.

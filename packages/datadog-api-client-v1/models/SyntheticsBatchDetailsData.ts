@@ -11,7 +11,7 @@
 import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsStatus } from "./SyntheticsStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Wrapper object that contains the details of a batch.

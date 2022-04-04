@@ -5,7 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
-import { logger } from "../../../index";
+import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";

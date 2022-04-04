@@ -12,7 +12,7 @@ import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunct
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
 import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
 import { FormulaAndFunctionEventsDataSource } from "./FormulaAndFunctionEventsDataSource";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A formula and functions events query.

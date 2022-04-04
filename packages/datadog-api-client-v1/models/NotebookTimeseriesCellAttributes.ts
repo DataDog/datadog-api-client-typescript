@@ -12,7 +12,7 @@ import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The attributes of a notebook `timeseries` cell.

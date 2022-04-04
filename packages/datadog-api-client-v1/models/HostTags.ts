@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Set of tags to associate with your host.

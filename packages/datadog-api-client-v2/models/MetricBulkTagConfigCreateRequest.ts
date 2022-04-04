@@ -9,7 +9,7 @@
  */
 
 import { MetricBulkTagConfigCreate } from "./MetricBulkTagConfigCreate";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Wrapper object for a single bulk tag configuration request.

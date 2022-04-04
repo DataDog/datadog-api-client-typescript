@@ -9,7 +9,7 @@
  */
 
 import { Event } from "./Event";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing an event response.

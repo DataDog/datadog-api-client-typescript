@@ -9,7 +9,7 @@
  */
 
 import { Role } from "./Role";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing information about a single role.

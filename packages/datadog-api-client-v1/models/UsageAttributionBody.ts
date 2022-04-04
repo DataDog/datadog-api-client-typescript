@@ -9,7 +9,7 @@
  */
 
 import { UsageAttributionValues } from "./UsageAttributionValues";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Usage Summary by tag for a given organization.

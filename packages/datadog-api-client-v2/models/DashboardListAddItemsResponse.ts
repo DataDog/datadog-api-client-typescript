@@ -9,7 +9,7 @@
  */
 
 import { DashboardListItemResponse } from "./DashboardListItemResponse";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing a list of added dashboards.

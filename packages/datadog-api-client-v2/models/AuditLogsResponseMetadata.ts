@@ -11,7 +11,7 @@
 import { AuditLogsResponsePage } from "./AuditLogsResponsePage";
 import { AuditLogsResponseStatus } from "./AuditLogsResponseStatus";
 import { AuditLogsWarning } from "./AuditLogsWarning";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The metadata associated with a request.

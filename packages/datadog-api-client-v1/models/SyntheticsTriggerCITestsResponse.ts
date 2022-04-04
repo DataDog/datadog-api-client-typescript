@@ -10,7 +10,7 @@
 
 import { SyntheticsTriggerCITestLocation } from "./SyntheticsTriggerCITestLocation";
 import { SyntheticsTriggerCITestRunResult } from "./SyntheticsTriggerCITestRunResult";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing information about the tests triggered.

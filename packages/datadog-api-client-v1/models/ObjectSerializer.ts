@@ -500,7 +500,8 @@ import { WidgetMarker } from "./WidgetMarker";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetStyle } from "./WidgetStyle";
 import { WidgetTime } from "./WidgetTime";
-import { logger } from "../../../index";
+import { UnparsedObject } from "../util";
+import { logger } from "../../../logger";
 
 const primitives = [
   "string",
@@ -2093,19 +2094,3 @@ export class ObjectSerializer {
     }
   }
 }
-
-export class UnparsedObject {
-  unparsedObject: any;
-  constructor(data: any) {
-    this.unparsedObject = data;
-  }
-}
-
-export type AttributeTypeMap = {
-  [key: string]: {
-    baseName: string;
-    type: string;
-    required?: boolean;
-    format?: string;
-  };
-};

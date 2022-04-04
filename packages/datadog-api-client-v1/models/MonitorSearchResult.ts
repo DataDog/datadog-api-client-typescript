@@ -12,7 +12,7 @@ import { Creator } from "./Creator";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorSearchResultNotification } from "./MonitorSearchResultNotification";
 import { MonitorType } from "./MonitorType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Holds search results.

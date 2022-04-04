@@ -9,7 +9,7 @@
  */
 
 import { UsageTopAvgMetricsPagination } from "./UsageTopAvgMetricsPagination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The object containing document metadata.

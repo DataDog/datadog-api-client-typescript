@@ -13,7 +13,7 @@ import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
 import { MonitorType } from "./MonitorType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing a monitor.

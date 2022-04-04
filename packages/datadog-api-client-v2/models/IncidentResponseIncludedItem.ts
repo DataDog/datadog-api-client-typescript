@@ -9,7 +9,7 @@
  */
 
 import { User } from "./User";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * An object related to an incident that is included in the response.

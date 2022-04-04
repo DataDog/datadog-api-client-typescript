@@ -9,7 +9,7 @@
  */
 
 import { LogContent } from "./LogContent";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing a log after being processed and stored by Datadog.

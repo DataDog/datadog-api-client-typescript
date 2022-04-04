@@ -9,7 +9,7 @@
  */
 
 import { Log } from "./Log";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response object with all logs matching the request and pagination information.

@@ -9,7 +9,7 @@
  */
 
 import { AWSTagFilter } from "./AWSTagFilter";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An array of tag filter rules by `namespace` and tag filter string.

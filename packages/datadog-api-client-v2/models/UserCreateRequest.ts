@@ -9,7 +9,7 @@
  */
 
 import { UserCreateData } from "./UserCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Create a user.

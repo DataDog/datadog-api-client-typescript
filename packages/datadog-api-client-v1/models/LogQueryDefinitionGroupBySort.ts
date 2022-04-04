@@ -9,7 +9,7 @@
  */
 
 import { WidgetSort } from "./WidgetSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Define a sorting method.

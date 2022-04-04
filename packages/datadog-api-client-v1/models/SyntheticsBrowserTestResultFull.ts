@@ -11,7 +11,7 @@
 import { SyntheticsBrowserTestResultData } from "./SyntheticsBrowserTestResultData";
 import { SyntheticsBrowserTestResultFullCheck } from "./SyntheticsBrowserTestResultFullCheck";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object returned describing a browser test result.

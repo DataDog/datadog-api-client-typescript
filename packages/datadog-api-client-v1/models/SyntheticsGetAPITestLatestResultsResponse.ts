@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object with the latest Synthetic API test run.

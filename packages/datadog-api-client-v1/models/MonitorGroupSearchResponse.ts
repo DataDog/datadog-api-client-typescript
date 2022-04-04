@@ -11,7 +11,7 @@
 import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCounts";
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The response of a monitor group search.

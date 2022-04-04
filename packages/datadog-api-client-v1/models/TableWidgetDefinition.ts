@@ -14,7 +14,7 @@ import { TableWidgetRequest } from "./TableWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The table visualization is available on timeboards and screenboards. It displays columns of metrics grouped by tag key.

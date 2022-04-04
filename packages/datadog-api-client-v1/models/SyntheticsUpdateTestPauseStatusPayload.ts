@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object to start or pause an existing Synthetic test.

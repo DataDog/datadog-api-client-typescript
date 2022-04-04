@@ -9,7 +9,7 @@
  */
 
 import { DashboardLayoutType } from "./DashboardLayoutType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Dashboard definition.

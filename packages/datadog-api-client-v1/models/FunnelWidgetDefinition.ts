@@ -12,7 +12,7 @@ import { FunnelWidgetDefinitionType } from "./FunnelWidgetDefinitionType";
 import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application.

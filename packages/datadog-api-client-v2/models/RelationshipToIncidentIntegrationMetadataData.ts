@@ -9,7 +9,7 @@
  */
 
 import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A relationship reference for an integration metadata object.

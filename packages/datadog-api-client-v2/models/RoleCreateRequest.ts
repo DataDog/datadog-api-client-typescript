@@ -9,7 +9,7 @@
  */
 
 import { RoleCreateData } from "./RoleCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Create a role.

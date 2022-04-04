@@ -9,7 +9,7 @@
  */
 
 import { RoleClone } from "./RoleClone";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request to create a role by cloning an existing role.

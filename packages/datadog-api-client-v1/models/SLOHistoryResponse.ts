@@ -10,7 +10,7 @@
 
 import { SLOHistoryResponseData } from "./SLOHistoryResponseData";
 import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A service level objective history response.

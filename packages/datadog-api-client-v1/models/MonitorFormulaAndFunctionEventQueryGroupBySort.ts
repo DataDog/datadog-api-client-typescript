@@ -10,7 +10,7 @@
 
 import { MonitorFormulaAndFunctionEventAggregation } from "./MonitorFormulaAndFunctionEventAggregation";
 import { QuerySortOrder } from "./QuerySortOrder";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Options for sorting group by results.

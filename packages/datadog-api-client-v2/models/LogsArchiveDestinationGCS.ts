@@ -10,7 +10,7 @@
 
 import { LogsArchiveDestinationGCSType } from "./LogsArchiveDestinationGCSType";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The GCS archive destination.

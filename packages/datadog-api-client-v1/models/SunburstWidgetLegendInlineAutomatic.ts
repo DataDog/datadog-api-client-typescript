@@ -9,7 +9,7 @@
  */
 
 import { SunburstWidgetLegendInlineAutomaticType } from "./SunburstWidgetLegendInlineAutomaticType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Configuration of inline or automatic legends.

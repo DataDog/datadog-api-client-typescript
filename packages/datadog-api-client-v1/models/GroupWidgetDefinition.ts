@@ -12,7 +12,7 @@ import { GroupWidgetDefinitionType } from "./GroupWidgetDefinitionType";
 import { Widget } from "./Widget";
 import { WidgetLayoutType } from "./WidgetLayoutType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.

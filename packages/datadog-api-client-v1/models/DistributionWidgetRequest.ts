@@ -12,7 +12,7 @@ import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetStyle } from "./WidgetStyle";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated distribution widget.

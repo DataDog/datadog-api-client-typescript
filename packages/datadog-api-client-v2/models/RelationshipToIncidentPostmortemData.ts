@@ -9,7 +9,7 @@
  */
 
 import { IncidentPostmortemType } from "./IncidentPostmortemType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The postmortem relationship data.

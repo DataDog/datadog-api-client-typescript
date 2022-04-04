@@ -9,7 +9,7 @@
  */
 
 import { UsageAnalyzedLogsHour } from "./UsageAnalyzedLogsHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A response containing the number of analyzed logs for each hour for a given organization.

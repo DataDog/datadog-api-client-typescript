@@ -11,7 +11,7 @@
 import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { ListStreamResponseFormat } from "./ListStreamResponseFormat";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated list stream widget.

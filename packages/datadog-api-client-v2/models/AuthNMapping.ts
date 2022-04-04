@@ -12,7 +12,7 @@ import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
 import { AuthNMappingIncluded } from "./AuthNMappingIncluded";
 import { AuthNMappingRelationships } from "./AuthNMappingRelationships";
 import { AuthNMappingsType } from "./AuthNMappingsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The AuthN Mapping object returned by API.

@@ -9,7 +9,7 @@
  */
 
 import { HTTPLogError } from "./HTTPLogError";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Invalid query performed.

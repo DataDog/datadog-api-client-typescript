@@ -23,7 +23,7 @@ import { LogsStringBuilderProcessor } from "./LogsStringBuilderProcessor";
 import { LogsTraceRemapper } from "./LogsTraceRemapper";
 import { LogsURLParser } from "./LogsURLParser";
 import { LogsUserAgentParser } from "./LogsUserAgentParser";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * Definition of a logs processor.

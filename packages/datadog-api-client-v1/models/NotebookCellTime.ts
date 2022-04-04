@@ -10,7 +10,7 @@
 
 import { NotebookAbsoluteTime } from "./NotebookAbsoluteTime";
 import { NotebookRelativeTime } from "./NotebookRelativeTime";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * Timeframe for the notebook cell. When 'null', the notebook global time is used.

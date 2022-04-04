@@ -9,7 +9,7 @@
  */
 
 import { LogsMetricComputeAggregationType } from "./LogsMetricComputeAggregationType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The compute rule to compute the log-based metric.

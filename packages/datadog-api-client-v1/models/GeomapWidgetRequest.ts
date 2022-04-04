@@ -12,7 +12,7 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An updated geomap widget.

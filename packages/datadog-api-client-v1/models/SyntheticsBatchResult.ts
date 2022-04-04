@@ -12,7 +12,7 @@ import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsStatus } from "./SyntheticsStatus";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object with the results of a Synthetics batch.

@@ -15,7 +15,7 @@ import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * IP ranges.

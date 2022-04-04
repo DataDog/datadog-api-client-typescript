@@ -9,7 +9,7 @@
  */
 
 import { UsageCloudSecurityPostureManagementHour } from "./UsageCloudSecurityPostureManagementHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The response containing the Cloud Security Posture Management usage for each hour for a given organization.

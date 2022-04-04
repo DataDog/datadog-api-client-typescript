@@ -10,7 +10,7 @@
 
 import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object with the results of a single Synthetic API test.

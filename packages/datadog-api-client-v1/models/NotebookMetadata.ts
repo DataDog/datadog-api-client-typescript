@@ -9,7 +9,7 @@
  */
 
 import { NotebookMetadataType } from "./NotebookMetadataType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Metadata associated with the notebook.

@@ -9,7 +9,7 @@
  */
 
 import { RUMAggregateBucketValue } from "./RUMAggregateBucketValue";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Bucket values.

@@ -13,7 +13,7 @@ import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
 import { SecurityMonitoringRuleTypeRead } from "./SecurityMonitoringRuleTypeRead";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Rule.

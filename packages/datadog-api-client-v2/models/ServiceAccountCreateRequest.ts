@@ -9,7 +9,7 @@
  */
 
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Create a service account.

@@ -10,7 +10,7 @@
 
 import { SyntheticsAssertionOperator } from "./SyntheticsAssertionOperator";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An assertion which uses a simple target.

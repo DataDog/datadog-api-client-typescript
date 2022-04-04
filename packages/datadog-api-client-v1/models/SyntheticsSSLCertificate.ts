@@ -10,7 +10,7 @@
 
 import { SyntheticsSSLCertificateIssuer } from "./SyntheticsSSLCertificateIssuer";
 import { SyntheticsSSLCertificateSubject } from "./SyntheticsSSLCertificateSubject";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing the SSL certificate used for a Synthetic test.

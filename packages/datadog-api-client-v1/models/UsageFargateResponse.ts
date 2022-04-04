@@ -9,7 +9,7 @@
  */
 
 import { UsageFargateHour } from "./UsageFargateHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the number of Fargate tasks run and hourly usage.

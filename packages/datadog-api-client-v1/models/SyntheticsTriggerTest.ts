@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Test configuration for Synthetics

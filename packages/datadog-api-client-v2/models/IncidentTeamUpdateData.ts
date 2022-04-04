@@ -11,7 +11,7 @@
 import { IncidentTeamRelationships } from "./IncidentTeamRelationships";
 import { IncidentTeamType } from "./IncidentTeamType";
 import { IncidentTeamUpdateAttributes } from "./IncidentTeamUpdateAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Incident Team data for an update request.

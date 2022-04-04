@@ -10,7 +10,7 @@
 
 import { LogsArchiveDestinationS3Type } from "./LogsArchiveDestinationS3Type";
 import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The S3 archive destination.

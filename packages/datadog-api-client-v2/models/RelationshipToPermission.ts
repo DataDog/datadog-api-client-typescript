@@ -9,7 +9,7 @@
  */
 
 import { RelationshipToPermissionData } from "./RelationshipToPermissionData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationship to a permissions object.

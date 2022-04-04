@@ -11,7 +11,7 @@
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentType } from "./IncidentType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Incident data for a create request.

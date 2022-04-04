@@ -10,7 +10,7 @@
 
 import { RUMEventAttributes } from "./RUMEventAttributes";
 import { RUMEventType } from "./RUMEventType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object description of a RUM event after being processed and stored by Datadog.

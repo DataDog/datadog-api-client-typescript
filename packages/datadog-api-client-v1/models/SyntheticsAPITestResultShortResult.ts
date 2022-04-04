@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsTiming } from "./SyntheticsTiming";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Result of the last API test run.

@@ -11,7 +11,7 @@
 import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Datadog API key.

@@ -11,7 +11,7 @@
 import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
 import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
 import { IncidentServiceType } from "./IncidentServiceType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Incident Service payload for create requests.

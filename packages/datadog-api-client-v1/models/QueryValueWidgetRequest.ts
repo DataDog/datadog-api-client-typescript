@@ -15,7 +15,7 @@ import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetAggregator } from "./WidgetAggregator";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated query value widget.

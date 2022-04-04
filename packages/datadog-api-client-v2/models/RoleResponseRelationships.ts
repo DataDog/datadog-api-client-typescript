@@ -9,7 +9,7 @@
  */
 
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationships of the role object returned by the API.

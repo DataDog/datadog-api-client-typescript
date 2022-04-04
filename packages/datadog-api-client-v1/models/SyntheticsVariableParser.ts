@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsGlobalVariableParserType } from "./SyntheticsGlobalVariableParserType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Details of the parser to use for the global variable.

@@ -9,7 +9,7 @@
  */
 
 import { MetricTagConfigurationCreateData } from "./MetricTagConfigurationCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request object that includes the metric that you would like to configure tags for.

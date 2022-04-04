@@ -9,7 +9,7 @@
  */
 
 import { MetricAllTags } from "./MetricAllTags";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response object that includes a single metric's indexed tags.

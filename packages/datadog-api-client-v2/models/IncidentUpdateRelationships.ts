@@ -11,7 +11,7 @@
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The incident's relationships for an update request.

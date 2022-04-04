@@ -9,7 +9,7 @@
  */
 
 import { UsageLogsByIndexHour } from "./UsageLogsByIndexHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the number of indexed logs for each hour and index for a given organization.

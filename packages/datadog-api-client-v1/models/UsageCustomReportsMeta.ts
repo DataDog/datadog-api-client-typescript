@@ -9,7 +9,7 @@
  */
 
 import { UsageCustomReportsPage } from "./UsageCustomReportsPage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The object containing document metadata.

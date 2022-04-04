@@ -11,7 +11,7 @@
 import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
 import { AuthNMappingCreateRelationships } from "./AuthNMappingCreateRelationships";
 import { AuthNMappingsType } from "./AuthNMappingsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Data for creating an AuthN Mapping.

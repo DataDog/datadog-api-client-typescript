@@ -9,7 +9,7 @@
  */
 
 import { AWSLogsLambda } from "./AWSLogsLambda";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A list of all Datadog-AWS logs integrations available in your Datadog organization.

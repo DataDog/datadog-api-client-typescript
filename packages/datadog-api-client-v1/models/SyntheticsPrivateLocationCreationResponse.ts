@@ -10,7 +10,7 @@
 
 import { SyntheticsPrivateLocation } from "./SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponseResultEncryption } from "./SyntheticsPrivateLocationCreationResponseResultEncryption";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object that contains the new private location, the public key for result encryption, and the configuration skeleton.

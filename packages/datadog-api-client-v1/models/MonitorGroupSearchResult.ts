@@ -9,7 +9,7 @@
  */
 
 import { MonitorOverallStates } from "./MonitorOverallStates";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A single monitor group search result.

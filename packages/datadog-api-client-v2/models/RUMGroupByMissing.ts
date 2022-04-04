@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * The value to use for logs that don't have the facet used to group by.

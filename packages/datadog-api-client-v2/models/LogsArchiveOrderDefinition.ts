@@ -10,7 +10,7 @@
 
 import { LogsArchiveOrderAttributes } from "./LogsArchiveOrderAttributes";
 import { LogsArchiveOrderDefinitionType } from "./LogsArchiveOrderDefinitionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The definition of an archive order.

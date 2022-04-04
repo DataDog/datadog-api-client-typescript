@@ -12,7 +12,7 @@ import { RUMAggregateSort } from "./RUMAggregateSort";
 import { RUMGroupByHistogram } from "./RUMGroupByHistogram";
 import { RUMGroupByMissing } from "./RUMGroupByMissing";
 import { RUMGroupByTotal } from "./RUMGroupByTotal";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A group-by rule.

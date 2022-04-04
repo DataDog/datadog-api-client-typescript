@@ -9,7 +9,7 @@
  */
 
 import { RoleCreateResponseData } from "./RoleCreateResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing information about a created role.

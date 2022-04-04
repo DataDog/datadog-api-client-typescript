@@ -12,7 +12,7 @@ import { LogsListRequestPage } from "./LogsListRequestPage";
 import { LogsQueryFilter } from "./LogsQueryFilter";
 import { LogsQueryOptions } from "./LogsQueryOptions";
 import { LogsSort } from "./LogsSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The request for a logs list.

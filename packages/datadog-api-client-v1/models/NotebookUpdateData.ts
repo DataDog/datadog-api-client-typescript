@@ -10,7 +10,7 @@
 
 import { NotebookResourceType } from "./NotebookResourceType";
 import { NotebookUpdateDataAttributes } from "./NotebookUpdateDataAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The data for a notebook update request.

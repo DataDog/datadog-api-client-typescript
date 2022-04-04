@@ -9,7 +9,7 @@
  */
 
 import { UsageOnlineArchiveHour } from "./UsageOnlineArchiveHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Online Archive usage response.

@@ -9,7 +9,7 @@
  */
 
 import { ApplicationKey } from "./ApplicationKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An application key response.

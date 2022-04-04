@@ -10,7 +10,7 @@
 
 import { SyntheticsBrowserTestResultShortResult } from "./SyntheticsBrowserTestResultShortResult";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object with the results of a single Synthetic browser test.

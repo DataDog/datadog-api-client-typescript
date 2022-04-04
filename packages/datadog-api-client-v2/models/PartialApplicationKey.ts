@@ -11,7 +11,7 @@
 import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
 import { ApplicationKeysType } from "./ApplicationKeysType";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Partial Datadog application key.
