@@ -8,7 +8,8 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 const params: v1.UsageMeteringApiGetUsageLogsRequest = {
-  startHr: new Date(2021, 11, 11, 11, 11, 11, 111000),
+  startHr: new Date(new Date().getTime() / 1000 + -5 * 86400),
+  endHr: new Date(new Date().getTime() / 1000 + -3 * 86400),
 };
 
 apiInstance
