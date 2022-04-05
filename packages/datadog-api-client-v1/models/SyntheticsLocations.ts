@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsLocation } from "./SyntheticsLocation";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * List of Synthetics locations.

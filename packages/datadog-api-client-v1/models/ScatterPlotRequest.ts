@@ -11,7 +11,7 @@
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { ScatterplotWidgetAggregator } from "./ScatterplotWidgetAggregator";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated scatter plot.

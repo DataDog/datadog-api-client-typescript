@@ -9,7 +9,7 @@
  */
 
 import { Series } from "./Series";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The metrics' payload.

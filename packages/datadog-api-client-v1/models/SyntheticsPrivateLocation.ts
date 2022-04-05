@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsPrivateLocationSecrets } from "./SyntheticsPrivateLocationSecrets";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing information about the private location to create.

@@ -11,7 +11,7 @@
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Scatterplot request containing formulas and functions.

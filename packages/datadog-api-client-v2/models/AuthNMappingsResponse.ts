@@ -10,7 +10,7 @@
 
 import { AuthNMapping } from "./AuthNMapping";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Array of AuthN Mappings response.

@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing the browser test configuration.

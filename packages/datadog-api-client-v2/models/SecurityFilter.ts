@@ -10,7 +10,7 @@
 
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterType } from "./SecurityFilterType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The security filter's properties.

@@ -9,7 +9,7 @@
  */
 
 import { UsageSummaryDateOrg } from "./UsageSummaryDateOrg";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response with hourly report of all data billed by Datadog all organizations.

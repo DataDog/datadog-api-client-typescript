@@ -9,7 +9,7 @@
  */
 
 import { AWSAccount } from "./AWSAccount";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * List of enabled AWS accounts.

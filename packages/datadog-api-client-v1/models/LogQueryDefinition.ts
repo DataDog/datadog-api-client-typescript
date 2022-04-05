@@ -11,7 +11,7 @@
 import { LogQueryDefinitionGroupBy } from "./LogQueryDefinitionGroupBy";
 import { LogQueryDefinitionSearch } from "./LogQueryDefinitionSearch";
 import { LogsQueryCompute } from "./LogsQueryCompute";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The log query.

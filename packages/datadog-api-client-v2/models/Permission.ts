@@ -10,7 +10,7 @@
 
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsType } from "./PermissionsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Permission object.

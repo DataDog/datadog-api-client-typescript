@@ -10,7 +10,7 @@
 
 import { WidgetLineType } from "./WidgetLineType";
 import { WidgetLineWidth } from "./WidgetLineWidth";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Define request widget style.

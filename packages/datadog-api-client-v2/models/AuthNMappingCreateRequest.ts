@@ -9,7 +9,7 @@
  */
 
 import { AuthNMappingCreateData } from "./AuthNMappingCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request for creating an AuthN Mapping.

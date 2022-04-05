@@ -9,7 +9,7 @@
  */
 
 import { ServiceCheckStatus } from "./ServiceCheckStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An object containing service check and status.

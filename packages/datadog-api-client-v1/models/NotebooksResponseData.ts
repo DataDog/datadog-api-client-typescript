@@ -10,7 +10,7 @@
 
 import { NotebookResourceType } from "./NotebookResourceType";
 import { NotebooksResponseDataAttributes } from "./NotebooksResponseDataAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The data for a notebook in get all response.

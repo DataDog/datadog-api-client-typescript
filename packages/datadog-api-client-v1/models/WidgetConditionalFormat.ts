@@ -10,7 +10,7 @@
 
 import { WidgetComparator } from "./WidgetComparator";
 import { WidgetPalette } from "./WidgetPalette";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Define a conditional format for the widget.

@@ -11,7 +11,7 @@
 import { RoleCreateAttributes } from "./RoleCreateAttributes";
 import { RoleRelationships } from "./RoleRelationships";
 import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Data related to the creation of a role.

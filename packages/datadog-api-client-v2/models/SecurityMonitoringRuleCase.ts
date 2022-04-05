@@ -9,7 +9,7 @@
  */
 
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Case when signal is generated.

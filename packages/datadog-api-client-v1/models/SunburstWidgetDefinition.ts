@@ -14,7 +14,7 @@ import { SunburstWidgetRequest } from "./SunburstWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Sunbursts are spot on to highlight how groups contribute to the total of a query.

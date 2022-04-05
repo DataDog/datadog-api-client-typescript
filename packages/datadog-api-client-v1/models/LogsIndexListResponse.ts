@@ -9,7 +9,7 @@
  */
 
 import { LogsIndex } from "./LogsIndex";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object with all Index configurations for a given organization.

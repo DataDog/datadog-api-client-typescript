@@ -9,7 +9,7 @@
  */
 
 import { UsageRumUnitsHour } from "./UsageRumUnitsHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the number of RUM Units for each hour for a given organization.

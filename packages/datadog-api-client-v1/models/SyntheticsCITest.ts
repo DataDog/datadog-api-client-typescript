@@ -12,7 +12,7 @@ import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Test configuration for Synthetics CI

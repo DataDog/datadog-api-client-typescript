@@ -13,7 +13,7 @@ import { DashboardReflowType } from "./DashboardReflowType";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { Widget } from "./Widget";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.

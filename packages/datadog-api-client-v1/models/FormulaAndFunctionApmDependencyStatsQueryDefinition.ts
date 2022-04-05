@@ -10,7 +10,7 @@
 
 import { FormulaAndFunctionApmDependencyStatName } from "./FormulaAndFunctionApmDependencyStatName";
 import { FormulaAndFunctionApmDependencyStatsDataSource } from "./FormulaAndFunctionApmDependencyStatsDataSource";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A formula and functions APM dependency stats query.

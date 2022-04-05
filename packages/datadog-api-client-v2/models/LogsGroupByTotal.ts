@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * A resulting object to put the given computes in over all the matching records.

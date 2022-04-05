@@ -11,7 +11,7 @@
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).

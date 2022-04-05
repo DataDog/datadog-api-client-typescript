@@ -12,7 +12,7 @@ import { SyntheticsAPIStep } from "./SyntheticsAPIStep";
 import { SyntheticsAssertion } from "./SyntheticsAssertion";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Configuration object for a Synthetic API test.

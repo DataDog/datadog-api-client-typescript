@@ -10,7 +10,7 @@
 
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
 import { SecurityFilterType } from "./SecurityFilterType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object for a single security filter.

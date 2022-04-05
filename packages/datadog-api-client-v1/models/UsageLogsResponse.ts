@@ -9,7 +9,7 @@
  */
 
 import { UsageLogsHour } from "./UsageLogsHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the number of logs for each hour.

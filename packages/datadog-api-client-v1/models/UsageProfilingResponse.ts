@@ -9,7 +9,7 @@
  */
 
 import { UsageProfilingHour } from "./UsageProfilingHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the number of profiled hosts for each hour for a given organization.

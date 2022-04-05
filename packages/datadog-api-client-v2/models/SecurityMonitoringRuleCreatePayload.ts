@@ -13,7 +13,7 @@ import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCr
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
 import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Create a new rule.

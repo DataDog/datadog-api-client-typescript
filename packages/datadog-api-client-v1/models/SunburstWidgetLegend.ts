@@ -10,7 +10,7 @@
 
 import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
 import { SunburstWidgetLegendTable } from "./SunburstWidgetLegendTable";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * Configuration of the legend.

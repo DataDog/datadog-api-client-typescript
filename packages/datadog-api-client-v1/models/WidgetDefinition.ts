@@ -37,7 +37,7 @@ import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).

@@ -9,7 +9,7 @@
  */
 
 import { UsageHostHour } from "./UsageHostHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Host usage response.

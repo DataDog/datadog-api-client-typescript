@@ -11,7 +11,7 @@
 import { IncidentType } from "./IncidentType";
 import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Incident data for an update request.

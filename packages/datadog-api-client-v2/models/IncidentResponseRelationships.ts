@@ -12,7 +12,7 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToUser } from "./RelationshipToUser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The incident's relationships from a response.

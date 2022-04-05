@@ -9,7 +9,7 @@
  */
 
 import { DashboardType } from "./DashboardType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A dashboard within a list.

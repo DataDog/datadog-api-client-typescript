@@ -12,7 +12,7 @@ import { NoteWidgetDefinitionType } from "./NoteWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTickEdge } from "./WidgetTickEdge";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The notes and links widget is similar to free text widget, but allows for more formatting options.

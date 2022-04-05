@@ -9,7 +9,7 @@
  */
 
 import { WebhooksIntegrationEncoding } from "./WebhooksIntegrationEncoding";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Datadog-Webhooks integration.

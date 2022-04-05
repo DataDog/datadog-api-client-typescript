@@ -9,7 +9,7 @@
  */
 
 import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.

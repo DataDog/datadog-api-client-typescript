@@ -10,7 +10,7 @@
 
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
 import { RelationshipToUsers } from "./RelationshipToUsers";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationships of the role object.

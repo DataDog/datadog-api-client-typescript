@@ -10,7 +10,7 @@
 
 import { HostMeta } from "./HostMeta";
 import { HostMetrics } from "./HostMetrics";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object representing a host.

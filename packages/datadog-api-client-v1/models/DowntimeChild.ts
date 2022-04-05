@@ -9,7 +9,7 @@
  */
 
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.

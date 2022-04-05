@@ -9,7 +9,7 @@
  */
 
 import { Pagination } from "./Pagination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing meta attributes of response.

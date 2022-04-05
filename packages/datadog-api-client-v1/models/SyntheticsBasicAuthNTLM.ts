@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsBasicAuthNTLMType } from "./SyntheticsBasicAuthNTLMType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object to handle `NTLM` authentication when performing the test.

@@ -9,7 +9,7 @@
  */
 
 import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The new security filter body.

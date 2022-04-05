@@ -10,7 +10,7 @@
 
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
 import { MetricDistinctVolumeType } from "./MetricDistinctVolumeType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object for a single metric's distinct volume.

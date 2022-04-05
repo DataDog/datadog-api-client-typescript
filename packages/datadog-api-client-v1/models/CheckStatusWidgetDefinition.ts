@@ -12,7 +12,7 @@ import { CheckStatusWidgetDefinitionType } from "./CheckStatusWidgetDefinitionTy
 import { WidgetGrouping } from "./WidgetGrouping";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Check status shows the current status or number of results for any check performed.

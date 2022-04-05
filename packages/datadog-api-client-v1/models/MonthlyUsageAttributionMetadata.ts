@@ -10,7 +10,7 @@
 
 import { MonthlyUsageAttributionPagination } from "./MonthlyUsageAttributionPagination";
 import { UsageAttributionAggregatesBody } from "./UsageAttributionAggregatesBody";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The object containing document metadata.

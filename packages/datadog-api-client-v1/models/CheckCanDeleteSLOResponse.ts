@@ -9,7 +9,7 @@
  */
 
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A service level objective response containing the requested object.

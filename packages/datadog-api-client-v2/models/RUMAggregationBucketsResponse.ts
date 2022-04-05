@@ -9,7 +9,7 @@
  */
 
 import { RUMBucketResponse } from "./RUMBucketResponse";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The query results.

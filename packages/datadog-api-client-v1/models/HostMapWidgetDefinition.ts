@@ -14,7 +14,7 @@ import { HostMapWidgetDefinitionType } from "./HostMapWidgetDefinitionType";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetNodeType } from "./WidgetNodeType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.

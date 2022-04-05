@@ -13,7 +13,7 @@ import { TreeMapGroupBy } from "./TreeMapGroupBy";
 import { TreeMapSizeBy } from "./TreeMapSizeBy";
 import { TreeMapWidgetDefinitionType } from "./TreeMapWidgetDefinitionType";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The treemap visualization found on the Host Dashboards comes from the output of `ps auxww`. This is not continuously run on your hosts. Instead, it’s run once on Agent start/restart. The treemap is only supported for process data on a single host dashboard — this may not be reused in other dashboards or for other metrics.

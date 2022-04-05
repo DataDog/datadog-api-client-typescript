@@ -10,7 +10,7 @@
 
 import { LogsAggregateResponseData } from "./LogsAggregateResponseData";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The response object for the logs aggregate API endpoint

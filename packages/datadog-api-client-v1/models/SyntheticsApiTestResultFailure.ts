@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsApiTestFailureCode } from "./SyntheticsApiTestFailureCode";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The API test failure details.

@@ -1,7 +1,7 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
 import {Configuration, getServer, applySecurityAuthentication} from '../configuration{{extensionForDeno}}';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
-import { logger } from "../../../index";
+import { logger } from "../../../logger";
 {{#platforms}}
 {{#node}}
 import FormData from "form-data";

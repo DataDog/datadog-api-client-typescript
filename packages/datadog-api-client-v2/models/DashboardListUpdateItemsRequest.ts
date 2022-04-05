@@ -9,7 +9,7 @@
  */
 
 import { DashboardListItemRequest } from "./DashboardListItemRequest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request containing the list of dashboards to update to.

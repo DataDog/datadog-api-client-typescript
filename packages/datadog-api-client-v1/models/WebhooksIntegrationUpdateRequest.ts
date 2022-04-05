@@ -9,7 +9,7 @@
  */
 
 import { WebhooksIntegrationEncoding } from "./WebhooksIntegrationEncoding";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Update request of a Webhooks integration object.  *All properties are optional.*

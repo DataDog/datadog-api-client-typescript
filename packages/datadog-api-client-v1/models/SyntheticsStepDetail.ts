@@ -14,7 +14,7 @@ import { SyntheticsCoreWebVitals } from "./SyntheticsCoreWebVitals";
 import { SyntheticsPlayingTab } from "./SyntheticsPlayingTab";
 import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
 import { SyntheticsStepType } from "./SyntheticsStepType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing a step for a Synthetic test.

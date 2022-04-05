@@ -3,7 +3,8 @@
 import { {{classname}}{{#hasEnums}}{{#vars}}{{#isEnum}}, {{classname}}{{enumName}} {{/isEnum}} {{/vars}}{{/hasEnums}} } from './{{{ classFilename }}}{{extensionForDeno}}';
 {{/model}}
 {{/models}}
-import { logger } from "../../../index";
+import { UnparsedObject } from "../util";
+import { logger } from "../../../logger";
 
 const primitives = [
     "string",
@@ -286,20 +287,4 @@ export class ObjectSerializer {
             return rawData;
         }
     }
-}
-
-export class UnparsedObject {
-    unparsedObject:any;
-    constructor(data:any) {
-        this.unparsedObject = data;
-    }
-}
-
-export type AttributeTypeMap = {
-    [key: string]: {
-      baseName: string;
-      type: string;
-      required?: boolean;
-      format?: string;
-    };
 }

@@ -11,7 +11,7 @@
 import { Creator } from "./Creator";
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
 import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponseAttributesModifier";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The attribute object associated with the SLO correction.

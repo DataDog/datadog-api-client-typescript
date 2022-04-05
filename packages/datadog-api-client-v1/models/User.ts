@@ -9,7 +9,7 @@
  */
 
 import { AccessRole } from "./AccessRole";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Create, edit, and disable users.

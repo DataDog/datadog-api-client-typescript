@@ -9,7 +9,7 @@
  */
 
 import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request object that includes the metric that you would like to edit the tag configuration on.

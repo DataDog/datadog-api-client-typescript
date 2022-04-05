@@ -9,7 +9,7 @@
  */
 
 import { SunburstWidgetLegendTableType } from "./SunburstWidgetLegendTableType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Configuration of table-based legend.

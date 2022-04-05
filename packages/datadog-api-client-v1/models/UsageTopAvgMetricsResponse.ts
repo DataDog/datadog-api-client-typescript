@@ -10,7 +10,7 @@
 
 import { UsageTopAvgMetricsHour } from "./UsageTopAvgMetricsHour";
 import { UsageTopAvgMetricsMetadata } from "./UsageTopAvgMetricsMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the number of hourly recorded custom metrics for a given organization.

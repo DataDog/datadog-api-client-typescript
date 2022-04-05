@@ -1,4 +1,5 @@
 export * from "./http/http";
+export * from "./http/isomorphic-fetch";
 export * from "./auth/auth";
 export { createConfiguration } from "./configuration";
 export { setServerVariables } from "./configuration";

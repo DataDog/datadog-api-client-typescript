@@ -9,7 +9,7 @@
  */
 
 import { OrganizationsType } from "./OrganizationsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationship to organization object.

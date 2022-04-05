@@ -9,7 +9,7 @@
  */
 
 import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The Slack channel configuration.

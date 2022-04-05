@@ -9,7 +9,7 @@
  */
 
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The metadata object containing pagination metadata.

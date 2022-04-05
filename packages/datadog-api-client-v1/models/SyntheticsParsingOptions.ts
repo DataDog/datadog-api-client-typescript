@@ -10,7 +10,7 @@
 
 import { SyntheticsGlobalVariableParseTestOptionsType } from "./SyntheticsGlobalVariableParseTestOptionsType";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Parsing options for variables to extract.

@@ -9,7 +9,7 @@
  */
 
 import { HourlyUsageAttributionUsageType } from "./HourlyUsageAttributionUsageType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The usage for one set of tags for one hour.

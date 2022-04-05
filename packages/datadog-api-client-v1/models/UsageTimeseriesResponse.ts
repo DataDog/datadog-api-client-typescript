@@ -9,7 +9,7 @@
  */
 
 import { UsageTimeseriesHour } from "./UsageTimeseriesHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing hourly usage of timeseries.

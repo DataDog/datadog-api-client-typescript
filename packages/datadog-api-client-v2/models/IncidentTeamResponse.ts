@@ -10,7 +10,7 @@
 
 import { IncidentTeamIncludedItems } from "./IncidentTeamIncludedItems";
 import { IncidentTeamResponseData } from "./IncidentTeamResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response with an incident team payload.

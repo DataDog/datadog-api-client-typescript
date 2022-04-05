@@ -9,7 +9,7 @@
  */
 
 import { MetricsQueryUnit } from "./MetricsQueryUnit";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing all metric names returned and their associated metadata.

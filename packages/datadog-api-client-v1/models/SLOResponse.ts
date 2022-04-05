@@ -9,7 +9,7 @@
  */
 
 import { SLOResponseData } from "./SLOResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A service level objective response containing a single service level objective.

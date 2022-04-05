@@ -10,7 +10,7 @@
 
 import { RoleCloneAttributes } from "./RoleCloneAttributes";
 import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Data for the clone role request.

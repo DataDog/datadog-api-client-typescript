@@ -18,7 +18,7 @@ import { WidgetEvent } from "./WidgetEvent";
 import { WidgetMarker } from "./WidgetMarker";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.

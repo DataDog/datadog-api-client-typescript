@@ -11,7 +11,7 @@
 import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMResponseStatus } from "./RUMResponseStatus";
 import { RUMWarning } from "./RUMWarning";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The metadata associated with a request.

@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object with the latest Synthetic browser test run.

@@ -9,7 +9,7 @@
  */
 
 import { AWSNamespace } from "./AWSNamespace";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A tag filter.

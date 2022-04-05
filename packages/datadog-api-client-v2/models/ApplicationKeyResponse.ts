@@ -10,7 +10,7 @@
 
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { FullApplicationKey } from "./FullApplicationKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response for retrieving an application key.

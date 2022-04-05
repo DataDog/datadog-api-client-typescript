@@ -11,7 +11,7 @@
 import { LogsAggregateSortType } from "./LogsAggregateSortType";
 import { LogsAggregationFunction } from "./LogsAggregationFunction";
 import { LogsSortOrder } from "./LogsSortOrder";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A sort rule

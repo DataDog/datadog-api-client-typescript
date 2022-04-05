@@ -11,7 +11,7 @@
 import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Partial Datadog API key.

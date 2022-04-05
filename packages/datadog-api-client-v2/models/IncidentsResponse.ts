@@ -11,7 +11,7 @@
 import { IncidentResponseData } from "./IncidentResponseData";
 import { IncidentResponseIncludedItem } from "./IncidentResponseIncludedItem";
 import { IncidentResponseMeta } from "./IncidentResponseMeta";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response with a list of incidents.

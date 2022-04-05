@@ -13,7 +13,7 @@ import { LogsCompute } from "./LogsCompute";
 import { LogsGroupBy } from "./LogsGroupBy";
 import { LogsQueryFilter } from "./LogsQueryFilter";
 import { LogsQueryOptions } from "./LogsQueryOptions";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The object sent with the request to retrieve a list of logs from your organization.

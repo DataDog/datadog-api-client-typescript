@@ -9,7 +9,7 @@
  */
 
 import { ApiKey } from "./ApiKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An API key with its associated metadata.

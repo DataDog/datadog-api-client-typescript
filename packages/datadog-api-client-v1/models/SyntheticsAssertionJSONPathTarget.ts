@@ -11,7 +11,7 @@
 import { SyntheticsAssertionJSONPathOperator } from "./SyntheticsAssertionJSONPathOperator";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An assertion for the `validatesJSONPath` operator.

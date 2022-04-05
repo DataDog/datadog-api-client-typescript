@@ -9,7 +9,7 @@
  */
 
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationship to user.

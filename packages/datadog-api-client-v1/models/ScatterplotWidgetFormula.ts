@@ -9,7 +9,7 @@
  */
 
 import { ScatterplotDimension } from "./ScatterplotDimension";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Formula to be used in a Scatterplot widget query.

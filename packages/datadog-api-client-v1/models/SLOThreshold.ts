@@ -9,7 +9,7 @@
  */
 
 import { SLOTimeframe } from "./SLOTimeframe";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * SLO thresholds (target and optionally warning) for a single time window.

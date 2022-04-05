@@ -13,7 +13,7 @@ import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFo
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request definition of sunburst widget.

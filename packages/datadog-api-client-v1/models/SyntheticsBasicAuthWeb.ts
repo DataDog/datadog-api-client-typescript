@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsBasicAuthWebType } from "./SyntheticsBasicAuthWebType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object to handle basic authentication when performing the test.

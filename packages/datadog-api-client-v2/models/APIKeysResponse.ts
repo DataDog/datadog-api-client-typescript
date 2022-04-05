@@ -10,7 +10,7 @@
 
 import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
 import { PartialAPIKey } from "./PartialAPIKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response for a list of API keys.

@@ -9,7 +9,7 @@
  */
 
 import { IncidentFieldAttributesSingleValueType } from "./IncidentFieldAttributesSingleValueType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A field with a single value selected.

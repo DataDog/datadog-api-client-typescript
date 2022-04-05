@@ -10,7 +10,7 @@
 
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { OrganizationsType } from "./OrganizationsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Organization object.

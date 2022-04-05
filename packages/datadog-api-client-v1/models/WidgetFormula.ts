@@ -11,7 +11,7 @@
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Formula to be used in a widget query.

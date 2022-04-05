@@ -10,7 +10,7 @@
 
 import { OrganizationBilling } from "./OrganizationBilling";
 import { OrganizationSubscription } from "./OrganizationSubscription";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing an organization to create.

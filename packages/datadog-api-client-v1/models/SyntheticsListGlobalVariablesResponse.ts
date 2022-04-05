@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing an array of Synthetic global variables.

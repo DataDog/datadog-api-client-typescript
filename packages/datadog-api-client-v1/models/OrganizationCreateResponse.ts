@@ -12,7 +12,7 @@ import { ApiKey } from "./ApiKey";
 import { ApplicationKey } from "./ApplicationKey";
 import { Organization } from "./Organization";
 import { User } from "./User";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response object for an organization creation.

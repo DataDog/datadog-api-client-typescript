@@ -10,7 +10,7 @@
 
 import { Metric } from "./Metric";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * Object for a metrics and metric tag configurations.

@@ -9,7 +9,7 @@
  */
 
 import { RoleUpdateData } from "./RoleUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Update a role.
