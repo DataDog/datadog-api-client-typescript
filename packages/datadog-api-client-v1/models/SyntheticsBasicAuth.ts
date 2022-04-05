@@ -11,7 +11,7 @@
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
 import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
 import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * Object to handle basic authentication when performing the test.

@@ -9,7 +9,7 @@
  */
 
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Dashboard bulk delete request body.

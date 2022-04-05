@@ -9,7 +9,7 @@
  */
 
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing information about an updated role.

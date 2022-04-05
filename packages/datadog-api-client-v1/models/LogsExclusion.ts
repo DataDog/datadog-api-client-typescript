@@ -9,7 +9,7 @@
  */
 
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Represents the index exclusion filter object from configuration API.

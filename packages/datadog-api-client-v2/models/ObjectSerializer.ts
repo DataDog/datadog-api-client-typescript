@@ -329,7 +329,8 @@ import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersResponse } from "./UsersResponse";
-import { logger } from "../../../index";
+import { UnparsedObject } from "../util";
+import { logger } from "../../../logger";
 
 const primitives = [
   "string",
@@ -1216,19 +1217,3 @@ export class ObjectSerializer {
     }
   }
 }
-
-export class UnparsedObject {
-  unparsedObject: any;
-  constructor(data: any) {
-    this.unparsedObject = data;
-  }
-}
-
-export type AttributeTypeMap = {
-  [key: string]: {
-    baseName: string;
-    type: string;
-    required?: boolean;
-    format?: string;
-  };
-};

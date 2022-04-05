@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsDeletedTest } from "./SyntheticsDeletedTest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response object for deleting Synthetic tests.

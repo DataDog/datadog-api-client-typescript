@@ -9,7 +9,7 @@
  */
 
 import { IncidentTeamUpdateData } from "./IncidentTeamUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Update request with an incident team payload.

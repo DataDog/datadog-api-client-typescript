@@ -10,7 +10,7 @@
 
 import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UsersType } from "./UsersType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object to update a user.

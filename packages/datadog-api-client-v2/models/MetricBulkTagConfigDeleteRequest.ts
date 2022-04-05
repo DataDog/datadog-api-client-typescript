@@ -9,7 +9,7 @@
  */
 
 import { MetricBulkTagConfigDelete } from "./MetricBulkTagConfigDelete";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Wrapper object for a single bulk tag deletion request.

@@ -10,7 +10,7 @@
 
 import { RelationshipToRole } from "./RelationshipToRole";
 import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * All relationships associated with AuthN Mapping.

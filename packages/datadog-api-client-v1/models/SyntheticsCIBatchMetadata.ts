@@ -10,7 +10,7 @@
 
 import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
 import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Metadata for the Synthetics tests run.

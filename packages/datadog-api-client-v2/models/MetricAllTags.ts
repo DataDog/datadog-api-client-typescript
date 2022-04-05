@@ -10,7 +10,7 @@
 
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
 import { MetricType } from "./MetricType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object for a single metric's indexed tags.

@@ -10,7 +10,7 @@
 
 import { AlertValueWidgetDefinitionType } from "./AlertValueWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Alert values are query values showing the current value of the metric in any monitor defined on your system.

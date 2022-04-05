@@ -10,7 +10,7 @@
 
 import { HourlyUsageAttributionBody } from "./HourlyUsageAttributionBody";
 import { HourlyUsageAttributionMetadata } from "./HourlyUsageAttributionMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the hourly usage attribution by tag(s).

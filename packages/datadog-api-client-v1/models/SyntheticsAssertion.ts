@@ -10,7 +10,7 @@
 
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * Object describing the assertions type, their associated operator, which property they apply, and upon which target.

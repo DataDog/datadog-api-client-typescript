@@ -9,7 +9,7 @@
  */
 
 import { SecurityFilterCreateData } from "./SecurityFilterCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request object that includes the security filter that you would like to create.

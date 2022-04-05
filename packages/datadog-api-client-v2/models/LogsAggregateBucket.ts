@@ -9,7 +9,7 @@
  */
 
 import { LogsAggregateBucketValue } from "./LogsAggregateBucketValue";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A bucket values

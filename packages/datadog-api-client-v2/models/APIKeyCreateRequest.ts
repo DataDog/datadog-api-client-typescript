@@ -9,7 +9,7 @@
  */
 
 import { APIKeyCreateData } from "./APIKeyCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request used to create an API key.

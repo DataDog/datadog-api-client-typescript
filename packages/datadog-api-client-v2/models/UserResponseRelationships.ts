@@ -12,7 +12,7 @@ import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
 import { RelationshipToRoles } from "./RelationshipToRoles";
 import { RelationshipToUsers } from "./RelationshipToUsers";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationships of the user object returned by the API.

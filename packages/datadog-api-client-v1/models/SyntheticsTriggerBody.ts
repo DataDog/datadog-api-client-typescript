@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsTriggerTest } from "./SyntheticsTriggerTest";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing the synthetics tests to trigger.

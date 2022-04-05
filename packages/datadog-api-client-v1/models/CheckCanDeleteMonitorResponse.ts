@@ -9,7 +9,7 @@
  */
 
 import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response of monitor IDs that can or can't be safely deleted.

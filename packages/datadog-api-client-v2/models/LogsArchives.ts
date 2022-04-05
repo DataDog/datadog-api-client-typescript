@@ -9,7 +9,7 @@
  */
 
 import { LogsArchiveDefinition } from "./LogsArchiveDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The available archives.

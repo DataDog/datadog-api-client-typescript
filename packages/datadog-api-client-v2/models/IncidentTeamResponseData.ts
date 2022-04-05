@@ -11,7 +11,7 @@
 import { IncidentTeamRelationships } from "./IncidentTeamRelationships";
 import { IncidentTeamResponseAttributes } from "./IncidentTeamResponseAttributes";
 import { IncidentTeamType } from "./IncidentTeamType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Incident Team data from a response.

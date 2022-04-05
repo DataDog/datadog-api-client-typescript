@@ -11,7 +11,7 @@
 import { LogsByRetentionMonthlyUsage } from "./LogsByRetentionMonthlyUsage";
 import { LogsByRetentionOrgs } from "./LogsByRetentionOrgs";
 import { LogsRetentionAggSumUsage } from "./LogsRetentionAggSumUsage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing logs usage data broken down by retention period.

@@ -9,7 +9,7 @@
  */
 
 import { RelationshipToRole } from "./RelationshipToRole";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationship of AuthN Mapping update object to Role.

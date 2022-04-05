@@ -9,7 +9,7 @@
  */
 
 import { Host } from "./Host";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response with Host information from Datadog.

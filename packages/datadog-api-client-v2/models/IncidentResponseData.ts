@@ -11,7 +11,7 @@
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseRelationships } from "./IncidentResponseRelationships";
 import { IncidentType } from "./IncidentType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Incident data from a response.

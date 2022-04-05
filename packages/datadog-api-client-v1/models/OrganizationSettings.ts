@@ -13,7 +13,7 @@ import { OrganizationSettingsSaml } from "./OrganizationSettingsSaml";
 import { OrganizationSettingsSamlAutocreateUsersDomains } from "./OrganizationSettingsSamlAutocreateUsersDomains";
 import { OrganizationSettingsSamlIdpInitiatedLogin } from "./OrganizationSettingsSamlIdpInitiatedLogin";
 import { OrganizationSettingsSamlStrictMode } from "./OrganizationSettingsSamlStrictMode";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A JSON array of settings.

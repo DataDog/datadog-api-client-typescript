@@ -10,7 +10,7 @@
 
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SLOCorrection } from "./SLOCorrection";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A list of  SLO correction objects.

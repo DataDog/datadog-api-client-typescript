@@ -13,7 +13,7 @@ import { RUMGroupBy } from "./RUMGroupBy";
 import { RUMQueryFilter } from "./RUMQueryFilter";
 import { RUMQueryOptions } from "./RUMQueryOptions";
 import { RUMQueryPageOptions } from "./RUMQueryPageOptions";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The object sent with the request to retrieve aggregation buckets of RUM events from your organization.

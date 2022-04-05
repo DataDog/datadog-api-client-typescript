@@ -13,7 +13,7 @@ import { WidgetFieldSort } from "./WidgetFieldSort";
 import { WidgetMessageDisplay } from "./WidgetMessageDisplay";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.

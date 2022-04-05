@@ -11,7 +11,7 @@
 import { RoleCreateAttributes } from "./RoleCreateAttributes";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
 import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Role object returned by the API.

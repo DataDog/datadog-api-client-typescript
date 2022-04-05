@@ -10,7 +10,7 @@
 
 import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 import { APIKeysType } from "./APIKeysType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object used to update an API key.

@@ -9,7 +9,7 @@
  */
 
 import { ListStreamColumnWidth } from "./ListStreamColumnWidth";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Widget column.

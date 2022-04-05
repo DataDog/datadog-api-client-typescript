@@ -10,7 +10,7 @@
 
 import { Role } from "./Role";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * Included data in the AuthN Mapping response.

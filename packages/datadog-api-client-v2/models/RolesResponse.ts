@@ -10,7 +10,7 @@
 
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { Role } from "./Role";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing information about multiple roles.

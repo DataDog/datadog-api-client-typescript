@@ -10,7 +10,7 @@
 
 import { FunnelQuery } from "./FunnelQuery";
 import { FunnelRequestType } from "./FunnelRequestType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated funnel widget.

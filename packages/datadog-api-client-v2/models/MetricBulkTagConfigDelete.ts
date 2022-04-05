@@ -10,7 +10,7 @@
 
 import { MetricBulkConfigureTagsType } from "./MetricBulkConfigureTagsType";
 import { MetricBulkTagConfigDeleteAttributes } from "./MetricBulkTagConfigDeleteAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request object to bulk delete all tag configurations for metrics matching the given prefix.

@@ -9,7 +9,7 @@
  */
 
 import { UsageBillableSummaryBody } from "./UsageBillableSummaryBody";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response with aggregated usage types.

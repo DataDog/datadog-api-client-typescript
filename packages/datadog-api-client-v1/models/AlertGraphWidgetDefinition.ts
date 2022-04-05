@@ -12,7 +12,7 @@ import { AlertGraphWidgetDefinitionType } from "./AlertGraphWidgetDefinitionType
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 import { WidgetVizType } from "./WidgetVizType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Alert graphs are timeseries graphs showing the current status of any monitor defined on your system.

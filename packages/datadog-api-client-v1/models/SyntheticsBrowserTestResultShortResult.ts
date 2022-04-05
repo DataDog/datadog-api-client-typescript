@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsDevice } from "./SyntheticsDevice";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object with the result of the last browser test run.

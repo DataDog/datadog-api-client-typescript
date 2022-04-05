@@ -10,7 +10,7 @@
 
 import { MetricDistinctVolume } from "./MetricDistinctVolume";
 import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * Possible response objects for a metric's volume.

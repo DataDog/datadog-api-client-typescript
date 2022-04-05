@@ -11,7 +11,7 @@
 import { RUMAggregateSortType } from "./RUMAggregateSortType";
 import { RUMAggregationFunction } from "./RUMAggregationFunction";
 import { RUMSortOrder } from "./RUMSortOrder";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A sort rule.

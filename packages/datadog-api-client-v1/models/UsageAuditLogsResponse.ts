@@ -9,7 +9,7 @@
  */
 
 import { UsageAuditLogsHour } from "./UsageAuditLogsHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the audit logs usage for each hour for a given organization.

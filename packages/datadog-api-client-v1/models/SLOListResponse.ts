@@ -10,7 +10,7 @@
 
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A response with one or more service level objective.

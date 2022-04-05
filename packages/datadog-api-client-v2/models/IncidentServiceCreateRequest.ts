@@ -9,7 +9,7 @@
  */
 
 import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Create request with an incident service payload.

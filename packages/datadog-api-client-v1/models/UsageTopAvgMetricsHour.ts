@@ -9,7 +9,7 @@
  */
 
 import { UsageMetricCategory } from "./UsageMetricCategory";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Number of hourly recorded custom metrics for a given organization.

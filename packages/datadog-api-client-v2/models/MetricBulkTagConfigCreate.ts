@@ -10,7 +10,7 @@
 
 import { MetricBulkConfigureTagsType } from "./MetricBulkConfigureTagsType";
 import { MetricBulkTagConfigCreateAttributes } from "./MetricBulkTagConfigCreateAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request object to bulk configure tags for metrics matching the given prefix.

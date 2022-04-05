@@ -9,7 +9,7 @@
  */
 
 import { UsageNetworkHostsHour } from "./UsageNetworkHostsHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the number of active NPM hosts for each hour for a given organization.

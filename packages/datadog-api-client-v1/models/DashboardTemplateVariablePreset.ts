@@ -9,7 +9,7 @@
  */
 
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Template variables saved views.

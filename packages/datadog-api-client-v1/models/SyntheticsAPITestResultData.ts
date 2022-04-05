@@ -12,7 +12,7 @@ import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure
 import { SyntheticsSSLCertificate } from "./SyntheticsSSLCertificate";
 import { SyntheticsTestProcessStatus } from "./SyntheticsTestProcessStatus";
 import { SyntheticsTiming } from "./SyntheticsTiming";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing results for your Synthetic API test.

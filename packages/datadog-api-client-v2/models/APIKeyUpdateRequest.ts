@@ -9,7 +9,7 @@
  */
 
 import { APIKeyUpdateData } from "./APIKeyUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request used to update an API key.

@@ -9,7 +9,7 @@
  */
 
 import { LogsArchiveOrderDefinition } from "./LogsArchiveOrderDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A ordered list of archive IDs.

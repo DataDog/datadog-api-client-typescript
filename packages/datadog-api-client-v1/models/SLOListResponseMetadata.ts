@@ -9,7 +9,7 @@
  */
 
 import { SLOListResponseMetadataPage } from "./SLOListResponseMetadataPage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The metadata object containing additional information about the list of SLOs.

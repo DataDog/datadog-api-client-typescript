@@ -9,7 +9,7 @@
  */
 
 import { MonitorStateGroup } from "./MonitorStateGroup";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Wrapper object with the different monitor states.

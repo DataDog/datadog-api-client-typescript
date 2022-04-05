@@ -9,7 +9,7 @@
  */
 
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request used to update an application key.

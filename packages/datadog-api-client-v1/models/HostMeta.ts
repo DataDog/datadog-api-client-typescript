@@ -9,7 +9,7 @@
  */
 
 import { HostMetaInstallMethod } from "./HostMetaInstallMethod";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Metadata associated with your host.

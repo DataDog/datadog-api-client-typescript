@@ -10,7 +10,7 @@
 
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Data related to the update of a role.

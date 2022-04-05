@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsWarningType } from "./SyntheticsWarningType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object collecting warnings for a given step.

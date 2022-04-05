@@ -12,7 +12,7 @@ import { AuditLogsQueryFilter } from "./AuditLogsQueryFilter";
 import { AuditLogsQueryOptions } from "./AuditLogsQueryOptions";
 import { AuditLogsQueryPageOptions } from "./AuditLogsQueryPageOptions";
 import { AuditLogsSort } from "./AuditLogsSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The request for a Audit Logs events list.

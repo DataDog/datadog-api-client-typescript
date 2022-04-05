@@ -3,8 +3,6 @@ import { userAgent } from "../../../userAgent";
 import FormData from "form-data";
 import URLParse from "url-parse";
 
-export * from "./isomorphic-fetch";
-
 /**
  * Interface for aborting fetch requests.
  */

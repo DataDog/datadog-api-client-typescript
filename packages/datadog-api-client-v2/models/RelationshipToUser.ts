@@ -9,7 +9,7 @@
  */
 
 import { RelationshipToUserData } from "./RelationshipToUserData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationship to user.

@@ -9,7 +9,7 @@
  */
 
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Dashboard summary response.

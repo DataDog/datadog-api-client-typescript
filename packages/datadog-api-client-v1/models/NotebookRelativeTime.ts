@@ -9,7 +9,7 @@
  */
 
 import { WidgetLiveSpan } from "./WidgetLiveSpan";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relative timeframe.

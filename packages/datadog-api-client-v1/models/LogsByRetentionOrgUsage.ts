@@ -9,7 +9,7 @@
  */
 
 import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Indexed logs usage by retention for a single organization.

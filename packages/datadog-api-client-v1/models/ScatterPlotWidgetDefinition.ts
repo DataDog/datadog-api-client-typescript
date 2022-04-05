@@ -14,7 +14,7 @@ import { WidgetAxis } from "./WidgetAxis";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The scatter plot visualization allows you to graph a chosen scope over two different metrics with their respective aggregation.

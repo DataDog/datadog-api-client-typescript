@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing the device used to perform the Synthetic test.

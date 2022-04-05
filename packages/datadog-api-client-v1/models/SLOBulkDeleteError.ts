@@ -9,7 +9,7 @@
  */
 
 import { SLOErrorTimeframe } from "./SLOErrorTimeframe";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing the error.

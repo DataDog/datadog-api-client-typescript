@@ -9,7 +9,7 @@
  */
 
 import { SLOCorrectionCreateData } from "./SLOCorrectionCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An object that defines a correction to be applied to an SLO.

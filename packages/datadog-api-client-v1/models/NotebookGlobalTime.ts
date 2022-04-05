@@ -10,7 +10,7 @@
 
 import { NotebookAbsoluteTime } from "./NotebookAbsoluteTime";
 import { NotebookRelativeTime } from "./NotebookRelativeTime";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * Notebook global timeframe.

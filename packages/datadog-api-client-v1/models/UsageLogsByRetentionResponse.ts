@@ -9,7 +9,7 @@
  */
 
 import { UsageLogsByRetentionHour } from "./UsageLogsByRetentionHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the indexed logs usage broken down by retention period for an organization during a given hour.

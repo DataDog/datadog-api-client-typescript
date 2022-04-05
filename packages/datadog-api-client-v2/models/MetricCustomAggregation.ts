@@ -10,7 +10,7 @@
 
 import { MetricCustomSpaceAggregation } from "./MetricCustomSpaceAggregation";
 import { MetricCustomTimeAggregation } from "./MetricCustomTimeAggregation";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A time and space aggregation combination for use in query.

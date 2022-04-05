@@ -9,7 +9,7 @@
  */
 
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The query results

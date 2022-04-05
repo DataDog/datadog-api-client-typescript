@@ -10,7 +10,7 @@
 
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventType } from "./AuditLogsEventType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object description of an Audit Logs event after it is processed and stored by Datadog.

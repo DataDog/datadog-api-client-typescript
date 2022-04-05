@@ -9,7 +9,7 @@
  */
 
 import { IncidentUpdateData } from "./IncidentUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Update request for an incident.

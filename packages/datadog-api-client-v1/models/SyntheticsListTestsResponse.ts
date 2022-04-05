@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing an array of Synthetic tests configuration.

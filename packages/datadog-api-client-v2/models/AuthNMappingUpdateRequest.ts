@@ -9,7 +9,7 @@
  */
 
 import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request to update an AuthN Mapping.

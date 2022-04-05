@@ -9,7 +9,7 @@
  */
 
 import { User } from "./User";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A Datadog User.

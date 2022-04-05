@@ -9,7 +9,7 @@
  */
 
 import { MetricBulkTagConfigStatus } from "./MetricBulkTagConfigStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Wrapper for a single bulk tag configuration status response.

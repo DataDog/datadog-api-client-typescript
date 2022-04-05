@@ -10,7 +10,7 @@
 
 import { NotebookCellResourceType } from "./NotebookCellResourceType";
 import { NotebookCellResponseAttributes } from "./NotebookCellResponseAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The description of a notebook cell response.

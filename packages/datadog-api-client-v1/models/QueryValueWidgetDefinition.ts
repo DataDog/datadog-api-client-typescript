@@ -13,7 +13,7 @@ import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Query values display the current value of a given metric, APM, or log query.

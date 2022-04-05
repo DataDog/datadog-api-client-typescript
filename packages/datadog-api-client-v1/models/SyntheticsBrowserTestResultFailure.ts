@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsBrowserTestFailureCode } from "./SyntheticsBrowserTestFailureCode";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The browser test failure details.

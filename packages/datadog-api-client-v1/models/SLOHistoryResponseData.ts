@@ -14,7 +14,7 @@ import { SLOHistorySLIData } from "./SLOHistorySLIData";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { SLOTypeNumeric } from "./SLOTypeNumeric";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An array of service level objective objects.

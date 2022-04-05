@@ -10,7 +10,7 @@
 
 import { MetricTagConfigurationCreateAttributes } from "./MetricTagConfigurationCreateAttributes";
 import { MetricTagConfigurationType } from "./MetricTagConfigurationType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object for a single metric to be configure tags on.

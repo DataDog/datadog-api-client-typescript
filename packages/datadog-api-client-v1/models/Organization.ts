@@ -11,7 +11,7 @@
 import { OrganizationBilling } from "./OrganizationBilling";
 import { OrganizationSettings } from "./OrganizationSettings";
 import { OrganizationSubscription } from "./OrganizationSubscription";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Create, edit, and manage organizations.

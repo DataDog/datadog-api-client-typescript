@@ -10,7 +10,7 @@
 
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
 import { ProcessSummaryType } from "./ProcessSummaryType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Process summary object.
