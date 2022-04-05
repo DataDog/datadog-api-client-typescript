@@ -9,7 +9,7 @@ configuration.unstableOperations["getSpecifiedDailyCustomReports"] = true;
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 const params: v1.UsageMeteringApiGetSpecifiedDailyCustomReportsRequest = {
-  reportId: "report_id",
+  reportId: "2022-03-20",
 };
 
 apiInstance
