@@ -147,6 +147,7 @@ export {
   MonitorsApiSearchMonitorGroupsRequest,
   MonitorsApiSearchMonitorsRequest,
   MonitorsApiUpdateMonitorRequest,
+  MonitorsApiValidateExistingMonitorRequest,
   MonitorsApiValidateMonitorRequest,
   MonitorsApi,
 } from "./apis/MonitorsApi";
