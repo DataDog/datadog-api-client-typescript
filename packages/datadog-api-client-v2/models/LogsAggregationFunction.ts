@@ -19,7 +19,8 @@ export type LogsAggregationFunction =
   | typeof SUM
   | typeof MIN
   | typeof MAX
-  | typeof AVG;
+  | typeof AVG
+  | typeof MEDIAN;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const PERCENTILE_75 = "pc75";
@@ -31,3 +32,4 @@ export const SUM = "sum";
 export const MIN = "min";
 export const MAX = "max";
 export const AVG = "avg";
+export const MEDIAN = "median";
