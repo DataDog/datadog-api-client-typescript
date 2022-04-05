@@ -27,7 +27,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           titleAlign: "left",
           time: {},
           type: "alert_graph",
-          alertId: "1",
+          alertId: "7",
           vizType: "timeseries",
         },
       },
