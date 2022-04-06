@@ -16,3 +16,8 @@ version.ts
 !bin/check-licenses.js
 !.eslintrc.js
 !.github/workflows/scripts/*
+
+__pycache__
+*.pyc
+*.pyo
+
