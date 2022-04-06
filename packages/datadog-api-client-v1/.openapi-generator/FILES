@@ -595,6 +595,8 @@ models/TableWidgetHasSearchBar.ts
 models/TableWidgetRequest.ts
 models/TagToHosts.ts
 models/TargetFormatType.ts
+models/TimeseriesBackground.ts
+models/TimeseriesBackgroundType.ts
 models/TimeseriesWidgetDefinition.ts
 models/TimeseriesWidgetDefinitionType.ts
 models/TimeseriesWidgetExpressionAlias.ts
