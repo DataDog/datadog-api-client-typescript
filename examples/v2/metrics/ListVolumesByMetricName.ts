@@ -7,12 +7,9 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
-// there is a valid "metric_tag_configuration" in the system
-const METRIC_TAG_CONFIGURATION_DATA_ID = process.env
-  .METRIC_TAG_CONFIGURATION_DATA_ID as string;
-
 const params: v2.MetricsApiListVolumesByMetricNameRequest = {
-  metricName: METRIC_TAG_CONFIGURATION_DATA_ID,
+  metricName:
+    "ExampleListdistinctmetricvolumesbymetricnamereturnsSuccessresponse",
 };
 
 apiInstance

@@ -8,12 +8,8 @@ const configuration = v2.createConfiguration();
 configuration.unstableOperations["listTagConfigurations"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
-const params: v2.MetricsApiListTagConfigurationsRequest = {
-  filterTagsConfigured: "ExampleListtagconfigurationsreturnsSuccessresponse",
-};
-
 apiInstance
-  .listTagConfigurations(params)
+  .listTagConfigurations()
   .then((data: v2.MetricsAndMetricTagConfigurationsResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
