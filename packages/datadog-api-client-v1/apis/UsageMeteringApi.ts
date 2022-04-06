@@ -4642,7 +4642,7 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    */
   nextRecordId?: string;
   /**
-   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of &#x60;tag_config_source&#x60; in the API response.
+   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
    * @type string
    */
   tagBreakdownKeys?: string;
@@ -4724,7 +4724,7 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
    */
   sortName?: MonthlyUsageAttributionSupportedMetrics;
   /**
-   * Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of &#x60;tag_config_source&#x60; in the API response.
+   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
    * @type string
    */
   tagBreakdownKeys?: string;
@@ -5238,7 +5238,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.  This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is set in the response. If it is, make another request and pass `next_record_id` as a parameter. Pseudo code example:  ``` response := GetHourlyUsageAttribution(start_month) cursor := response.metadata.pagination.next_record_id WHILE cursor != null BEGIN   sleep(5 seconds)  # Avoid running into rate limit   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)   cursor := response.metadata.pagination.next_record_id END ```
+   * Get Hourly Usage Attribution.
    * @param param The request object
    */
   public getHourlyUsageAttribution(
@@ -5335,7 +5335,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.  This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is set in the response. If it is, make another request and pass `next_record_id` as a parameter. Pseudo code example:  ``` response := GetMonthlyUsageAttribution(start_month) cursor := response.metadata.pagination.next_record_id WHILE cursor != null BEGIN   sleep(5 seconds)  # Avoid running into rate limit   response := GetMonthlyUsageAttribution(start_month, next_record_id=cursor)   cursor := response.metadata.pagination.next_record_id END ```
+   * Get Monthly Usage Attribution.
    * @param param The request object
    */
   public getMonthlyUsageAttribution(

@@ -147,7 +147,6 @@ export {
   MonitorsApiSearchMonitorGroupsRequest,
   MonitorsApiSearchMonitorsRequest,
   MonitorsApiUpdateMonitorRequest,
-  MonitorsApiValidateExistingMonitorRequest,
   MonitorsApiValidateMonitorRequest,
   MonitorsApi,
 } from "./apis/MonitorsApi";
@@ -843,8 +842,6 @@ export { TableWidgetHasSearchBar } from "./models/TableWidgetHasSearchBar";
 export { TableWidgetRequest } from "./models/TableWidgetRequest";
 export { TagToHosts } from "./models/TagToHosts";
 export { TargetFormatType } from "./models/TargetFormatType";
-export { TimeseriesBackground } from "./models/TimeseriesBackground";
-export { TimeseriesBackgroundType } from "./models/TimeseriesBackgroundType";
 export { TimeseriesWidgetDefinition } from "./models/TimeseriesWidgetDefinition";
 export { TimeseriesWidgetDefinitionType } from "./models/TimeseriesWidgetDefinitionType";
 export { TimeseriesWidgetExpressionAlias } from "./models/TimeseriesWidgetExpressionAlias";

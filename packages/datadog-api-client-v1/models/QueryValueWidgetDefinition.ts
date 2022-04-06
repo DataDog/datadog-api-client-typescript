@@ -10,7 +10,6 @@
 
 import { QueryValueWidgetDefinitionType } from "./QueryValueWidgetDefinitionType";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
-import { TimeseriesBackground } from "./TimeseriesBackground";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
@@ -43,7 +42,6 @@ export class QueryValueWidgetDefinition {
   "requests": Array<QueryValueWidgetRequest>;
   "textAlign"?: WidgetTextAlign;
   "time"?: WidgetTime;
-  "timeseriesBackground"?: TimeseriesBackground;
   /**
    * Title of your widget.
    */
@@ -93,10 +91,6 @@ export class QueryValueWidgetDefinition {
     time: {
       baseName: "time",
       type: "WidgetTime",
-    },
-    timeseriesBackground: {
-      baseName: "timeseries_background",
-      type: "TimeseriesBackground",
     },
     title: {
       baseName: "title",

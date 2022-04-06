@@ -26,7 +26,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           titleSize: "16",
           titleAlign: "left",
           type: "alert_value",
-          alertId: "7",
+          alertId: "1",
           unit: "auto",
           textAlign: "left",
           precision: 2,

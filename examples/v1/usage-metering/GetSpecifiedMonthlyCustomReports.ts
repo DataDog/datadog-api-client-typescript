@@ -9,7 +9,7 @@ configuration.unstableOperations["getSpecifiedMonthlyCustomReports"] = true;
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 const params: v1.UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest = {
-  reportId: "2021-05-01",
+  reportId: "report_id",
 };
 
 apiInstance

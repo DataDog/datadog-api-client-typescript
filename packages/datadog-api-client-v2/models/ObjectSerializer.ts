@@ -213,18 +213,9 @@ import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
-import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
-import { RUMAggregateRequest } from "./RUMAggregateRequest";
-import { RUMAggregateSort } from "./RUMAggregateSort";
-import { RUMAggregationBucketsResponse } from "./RUMAggregationBucketsResponse";
-import { RUMAnalyticsAggregateResponse } from "./RUMAnalyticsAggregateResponse";
-import { RUMBucketResponse } from "./RUMBucketResponse";
-import { RUMCompute } from "./RUMCompute";
 import { RUMEvent } from "./RUMEvent";
 import { RUMEventAttributes } from "./RUMEventAttributes";
 import { RUMEventsResponse } from "./RUMEventsResponse";
-import { RUMGroupBy } from "./RUMGroupBy";
-import { RUMGroupByHistogram } from "./RUMGroupByHistogram";
 import { RUMQueryFilter } from "./RUMQueryFilter";
 import { RUMQueryOptions } from "./RUMQueryOptions";
 import { RUMQueryPageOptions } from "./RUMQueryPageOptions";
@@ -428,7 +419,6 @@ const enumsMap: { [key: string]: any[] } = {
     "min",
     "max",
     "avg",
-    "median",
   ],
   LogsArchiveDestinationAzureType: ["azure"],
   LogsArchiveDestinationGCSType: ["gcs"],
@@ -453,26 +443,9 @@ const enumsMap: { [key: string]: any[] } = {
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
   QuerySortOrder: ["asc", "desc"],
-  RUMAggregateSortType: ["alphabetical", "measure"],
-  RUMAggregationFunction: [
-    "count",
-    "cardinality",
-    "pc75",
-    "pc90",
-    "pc95",
-    "pc98",
-    "pc99",
-    "sum",
-    "min",
-    "max",
-    "avg",
-    "median",
-  ],
-  RUMComputeType: ["timeseries", "total"],
   RUMEventType: ["rum"],
   RUMResponseStatus: ["done", "timeout"],
   RUMSort: ["timestamp", "-timestamp"],
-  RUMSortOrder: ["asc", "desc"],
   RolesSort: [
     "name",
     "-name",
@@ -758,19 +731,9 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
-  RUMAggregateBucketValueTimeseriesPoint:
-    RUMAggregateBucketValueTimeseriesPoint,
-  RUMAggregateRequest: RUMAggregateRequest,
-  RUMAggregateSort: RUMAggregateSort,
-  RUMAggregationBucketsResponse: RUMAggregationBucketsResponse,
-  RUMAnalyticsAggregateResponse: RUMAnalyticsAggregateResponse,
-  RUMBucketResponse: RUMBucketResponse,
-  RUMCompute: RUMCompute,
   RUMEvent: RUMEvent,
   RUMEventAttributes: RUMEventAttributes,
   RUMEventsResponse: RUMEventsResponse,
-  RUMGroupBy: RUMGroupBy,
-  RUMGroupByHistogram: RUMGroupByHistogram,
   RUMQueryFilter: RUMQueryFilter,
   RUMQueryOptions: RUMQueryOptions,
   RUMQueryPageOptions: RUMQueryPageOptions,
@@ -919,13 +882,6 @@ const oneOfMap: { [index: string]: string[] } = {
   LogsGroupByTotal: ["boolean", "number", "string"],
   MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
   MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
-  RUMAggregateBucketValue: [
-    "Array<RUMAggregateBucketValueTimeseriesPoint>",
-    "number",
-    "string",
-  ],
-  RUMGroupByMissing: ["number", "string"],
-  RUMGroupByTotal: ["boolean", "number", "string"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };
 
