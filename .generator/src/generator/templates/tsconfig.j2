@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    /* Basic Options */
+    "target": "{%- if supportsES6 %}es6{{ else }}es5{%- endif %}",
+    "module": "{%- if supportsES6 %}es6{{ else }}commonjs{%- endif %}",
+    "moduleResolution": "node",
+    "declaration": true,
+    /* Additional Checks */
+     "noUnusedLocals": false,                /* Report errors on unused locals. */ // TODO: reenable (unused imports!)
+     "noUnusedParameters": false,            /* Report errors on unused parameters. */ // TODO: set to true again
+     "noImplicitReturns": true,             /* Report error when not all code paths in function return a value. */
+     "noFallthroughCasesInSwitch": true,    /* Report errors for fallthrough cases in switch statement. */
+
+    "removeComments": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "noLib": false,
+    {%- if platforms %}
+    {%- if node %}
+    "lib": [ "es6" ],
+    {%- endif %}
+    {%- if browser %}
+    "lib": [ "es6", "dom" ],
+    {%- endif %}
+    {%- endif %}
+    {%- if useInversify %}
+    "experimentalDecorators": true,
+    {%- endif %}
+  },
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
+  "filesGlob": [
+    "./**/*.ts",
+  ]
+}

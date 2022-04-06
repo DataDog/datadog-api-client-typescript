@@ -1,0 +1,44 @@
+import { Configuration } from '../configuration{{extensionForDeno}}'
+{%- if useInversify %}
+import { injectable, inject } from "inversify";
+import { AbstractConfiguration } from "../services/configuration";
+{%- endif %}
+
+/**
+ *
+ * @export
+ */
+export const COLLECTION_FORMATS = {
+    csv: ",",
+    ssv: " ",
+    tsv: "\t",
+    pipes: "|",
+};
+
+
+/**
+ *
+ * @export
+ * @class BaseAPI
+ */
+{%- if useInversify %}
+@injectable()
+{%- endif %}
+export class BaseAPIRequestFactory {
+
+    constructor({%- if useInversify %}@inject(AbstractConfiguration) {%- endif %}protected configuration: Configuration) {
+    }
+};
+
+/**
+ *
+ * @export
+ * @class RequiredError
+ * @extends {Error}
+ */
+export class RequiredError extends Error {
+    name: "RequiredError" = "RequiredError";
+    constructor(public field: string, msg?: string) {
+        super(msg);
+    }
+}

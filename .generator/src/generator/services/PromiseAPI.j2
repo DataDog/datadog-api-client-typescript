@@ -1,0 +1,22 @@
+import type { HttpFile } from "../http/http";
+import type { Configuration } from "../configuration";
+
+{%- if models %}
+{%- if model %}
+import { {{ classname }} } from "../models/{{ classFilename }}";
+{%- endif %}
+{%- endif %}
+{%- if apiInfo %}
+{%- if apis %}
+{%- if operations %}
+
+
+export abstract class AbstractPromise{{classname}} {
+    {%- if operation %}
+    public abstract {{nickname}}({%- if allParams %}{{paramName}}{%- if not required %}?{%- endif %}: {{ dataType }}, {%- endif %}options?: Configuration): Promise<{{ returnType }}{%- if not returnType %}void{%- endif %}>;
+
+    {%- endif %}
+}
+{%- endif %}
+{%- endif %}
+{%- endif %}

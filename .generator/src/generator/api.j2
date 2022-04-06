@@ -1,0 +1,259 @@
+import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
+import {Configuration, getServer, applySecurityAuthentication} from '../configuration{{extensionForDeno}}';
+import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
+import { logger } from "../../../logger";
+import {ObjectSerializer} from '../models/ObjectSerializer{{extensionForDeno}}';
+import {ApiException} from './exception{{extensionForDeno}}';
+import {isCodeInRange} from '../util{{extensionForDeno}}';
+
+{%- if platforms and node %}
+  import FormData from "form-data";
+{%- endif %}
+
+{%- for module in imports -%}
+import { {{classname}} } from '..{{filename}}{{extensionForDeno}}';
+{%- endfor %}
+
+
+export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
+
+{% for path, method, operation in operations|sort(attribute="2.operationId") %}
+{%- set httpMethod = method.upper() %}
+{%- set returnType = operation|return_type %}
+
+    {%- if operation %}
+    public async {{nickname |}}({%- for name, parameter in operation|parameters%}{{ name|attribute_name }}{%- if not parameter.required %}?{%- endif %}: {{ get_type_for_parameter(parameter) }}, {% endfor %}_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+        {%- if vendorExtensions.x-unstable %}
+
+        logger.warn("Using unstable operation '{{operationId}}'");
+        if (!_config.unstableOperations['{{operationId}}']) {
+            throw new Error("Unstable operation '{{operationId}}' is disabled");
+        }
+        {%- endif %}
+        {%- if allParams %}
+
+        {%- if required %}
+        // verify required parameter '{{ name|attribute_name}}' is not null or undefined
+        if ({{ name|attribute_name}} === null || {{ name|attribute_name}} === undefined) {
+            throw new RequiredError('Required parameter {{ name|attribute_name}} was null or undefined when calling {{nickname}}.');
+        }
+
+        {%- endif %}
+        {%- endif %}
+
+        // Path Params
+        const localVarPath = '{{ path }}'{%- if pathParams %}
+            .replace('{' + '{{baseName}}' + '}', encodeURIComponent(String({{paramName}}))){%- endif %};
+
+        // Make Request Context
+        const requestContext = getServer(_config, '{{classname}}.{{nickname}}').makeRequestContext(localVarPath, HttpMethod.{{httpMethod}});
+        {%- if hasProduces %}
+        {%- if produces %}
+        {%- if loop.first %}requestContext.setHeaderParam("Accept", "{{ mediaType }}");{{% loop.first %}
+        {%- endif %}
+        {%- endif %}
+        {%- if not hasProduces %}
+        requestContext.setHeaderParam("Accept", "application/json");
+        {%- endif %}
+        requestContext.setHttpConfig(_config.httpConfig);
+        {%- if queryParams %}
+        {%- if loop.first %}
+
+        // Query Params
+        {%- endif %}
+        if ({{paramName}} !== undefined) {
+            requestContext.setQueryParam("{{baseName}}", ObjectSerializer.serialize({{paramName}}, "{{ dataType }}", "{{dataFormat}}"));
+        }
+        {%- endif %}
+        {%- if headerParams %}
+        {%- if loop.first %}
+
+        // Header Params
+        {%- endif %}
+        if ({{paramName}} !== undefined) {
+            requestContext.setHeaderParam("{{baseName}}", ObjectSerializer.serialize({{paramName}}, "{{ dataType }}", "{{dataFormat}}"));
+        }
+        {%- endif %}
+        {%- if hasFormParams %}
+
+        // Form Params
+        let localVarFormParams = new FormData();
+        {%- endif %}
+
+        {%- if formParams %}
+        {%- if isArray %}
+        if ({{paramName}}) {
+        {%- if isCollectionFormatMulti %}
+            {{paramName}}.forEach((element) => {
+                localVarFormParams.append('{{baseName}}', element as any);
+            })
+        {%- endif %}
+        {%- if not isCollectionFormatMulti %}
+            // TODO: replace .append with .set
+            localVarFormParams.append('{{baseName}}', {{paramName}}.join(COLLECTION_FORMATS["{{collectionFormat}}"]));
+        {%- endif %}
+        }
+        {%- endif %}
+        {%- if not isArray %}
+        if ({{paramName}} !== undefined) {
+             // TODO: replace .append with .set
+             {%- if not isFile %}
+             localVarFormParams.append('{{baseName}}', {{paramName}} as any);
+             {%- endif %}
+             {%- if isFile %}
+             {%- if platforms %}
+             {%- if node %}
+             localVarFormParams.append('{{baseName}}', {{paramName}}.data, {{paramName}}.name);
+             {%- endif %}
+             {%- if not node %}
+             localVarFormParams.append('{{baseName}}', {{paramName}}, {{paramName}}.name);
+             {%- endif %}
+             {%- endif %}
+             {%- endif %}
+        }
+        {%- endif %}
+        {%- endif %}
+        {%- if hasFormParams %}
+        requestContext.setBody(localVarFormParams);
+        {%- endif %}
+        {%- if bodyParam %}
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([{%- if consumes %}
+            "{{ mediaType }}"{%- if not loop.last %},{%- endif %}
+        {%- endif %}]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize({{paramName}}, "{{ dataType }}", "{{dataFormat}}"),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+        {%- endif %}
+        {%- if hasAuthMethods %}
+
+        // Apply auth methods
+        applySecurityAuthentication(_config, requestContext, [{%- if authMethods}}"{{name}}"{%- if not loop.last %}, {%- endif %}{{ authMethods }}]);
+        {%- endif %}
+
+        return requestContext;
+    }
+
+    {%- endif %}
+}
+{% endfor %}
+{%- if operations %}
+
+export class {{classname}}ResponseProcessor {
+
+    {%- if operation %}
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to {{nickname}}
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async {{nickname}}(response: ResponseContext): Promise<{{ returnType }} {%- if not returnType %}void{%- endif %}> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        {%- if responses %}
+        if (isCodeInRange("{{code}}", response.httpStatusCode)) {
+            {%- if dataType %}
+            {%- if isBinary %}
+            const body: {{ dataType}} = await response.getBodyAsFile() as any as {{returnType }};
+            {%- endif %}
+            {%- if not isBinary %}
+            const body: {{ dataType }} = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "{{ dataType }}", "{{returnFormat}}"
+            ) as {{ dataType }};
+            {%- endif %}
+            {%- if is2xx %}
+            return body;
+            {%- endif %}
+            {%- if not is2xx %}
+            throw new ApiException<{{ dataType }}>({{code}}, body);
+            {%- endif %}
+            {%- endif %}
+            {%- if not dataType %}
+            {%- if is2xx %}
+            return;
+            {%- endif %}
+            {%- if not is2xx %}
+            throw new ApiException<string>(response.httpStatusCode, "{{message}}");
+            {%- endif %}
+            {%- endif %}
+        }
+        {%- endif %}
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            {%- if returnType %}
+            {%- if isBinary %}
+            const body: {{ returnType}} = await response.getBodyAsFile() as any as {{returnType }};
+            {%- endif %}
+            {%- if not isBinary %}
+            const body: {{ returnType }} = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "{{ returnType }}", "{{returnFormat}}"
+            ) as {{ returnType }};
+            {%- endif %}
+            return body;
+            {%- endif %}
+            {%- if not returnType %}
+            return;
+            {%- endif %}
+        }
+
+        let body = (await response.body.text()) || "";
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    }
+
+    {%- endif %}
+}
+
+{%- if operation %}
+{%- if hasParams %}
+export interface {{classname}}{{operationIdCamelCase}}Request {
+    {%- if allParams %}
+    /**
+     * {{description}}
+     * @type {{dataType}}
+     */
+    {{paramName}}{%- if not required %}?{%- endif %}
+    {%- endif %}
+}
+
+{%- endif %}
+{%- endif %}
+export class {{classname}} {
+
+    private requestFactory: {{classname}}RequestFactory;
+    private responseProcessor: {{classname}}ResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(configuration: Configuration, requestFactory?: {{classname}}RequestFactory, responseProcessor?: {{classname}}ResponseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new {{classname}}RequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new {{classname}}ResponseProcessor();
+    }
+
+{%- if operation %}
+    /**
+     {%- if notes %}
+     * {{notes}}
+     {%- endif %}
+     * @param param The request object
+     */
+    public {{nickname}}({%- if hasParams %}param: {{classname}}{{operationIdCamelCase}}Request{%- if not requiredParams %} = {}{%- endif %}void{{ returnType }}> {
+        const requestContextPromise = this.requestFactory.{{nickname}}({%- if allParams %}param.{{paramName}}, {{ allParams }}options);
+        return requestContextPromise.then(requestContext => {
+                return this.configuration.httpApi.send(requestContext).then(responseContext => {
+                        return this.responseProcessor.{{nickname}}(responseContext);
+                });
+        });
+    }
+
+{%- endif %}
+}
+{%- endif %}

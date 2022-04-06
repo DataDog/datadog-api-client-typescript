@@ -1,0 +1,93 @@
+{% include 'licenseInfo.j2' %}
+{%- if models %}
+{%- if model %}
+{%- if tsImports %}
+import { {{classname}} } from './{{filename}}{{extensionForDeno}}';
+{%- endif %}
+import { HttpFile } from '../http/http{{extensionForDeno}}';
+import { AttributeTypeMap, UnparsedObject } from '../util';
+
+{%- if description %}
+/**
+* {{description}}
+*/
+{%- endif %}
+{%- if not isEnum %}{%- if not oneOf %}
+export class {{classname}} {%- if parent %}extends {{parent}} {%- endif %}{
+{%- if vars %}
+{%- if description %}
+    /**
+    * {{description}}
+    */
+{%- endif %}
+    '{{name}}'{%- if not required %}?{%- endif %}: {%- if isEnum %}{{ datatypeWithEnum }}{%- endif %}{%- if not isEnum %}{{ dataType }}{%- endif %}{%- if required %}{%- if isNullable %}|null{%- endif %}{%- endif %};
+{%- endif %}
+
+    /**
+     * @ignore
+     */
+    'unparsedObject'?:any;
+
+    {%- if not isArray %}
+    /**
+     * @ignore
+     */
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        {%- if vars %}
+        "{{name}}": {
+            "baseName": "{{baseName}}",
+            "type": "{%- if isEnum %}{{ datatypeWithEnum }}{%- endif %}{%- if not isEnum %}{{ dataType }}{%- endif %}",{%- if required %}
+            "required": {{required}},{%- endif %}{%- if dataFormat %}
+            "format": "{{dataFormat}}",{%- endif %}
+        }{%- if not loop.last %}},
+        {%- endif %}}
+        {%- endif %}
+    };
+
+    /**
+     * @ignore
+     */
+    static getAttributeTypeMap(): AttributeTypeMap {
+        {%- if parent %}
+        return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);
+        {%- endif %}
+        {%- if not parent %}
+        return {{classname}}.attributeTypeMap;
+        {%- endif %}
+    }
+    {%- endif %}
+
+    public constructor() {
+        {%- if parent %}
+        super();
+        {%- endif %}
+        {%- if allVars %}
+        {%- if discriminatorValue %}
+        this.{{name}} = "{{discriminatorValue}}";
+        {%- endif %}
+        {%- endif %}
+        {%- if discriminatorName %}
+        this.{{discriminatorName}} = "{{classname}}";
+        {%- endif %}
+    }
+}
+
+{%- if hasEnums %}
+
+{%- if vars %}
+{%- if isEnum %}
+export type {{classname}}{{enumName}} ={%- if allowableValues %}{%- if values %} "{{values}}" {%- if not loop.last %}}|{%- endif %}}{%- endif %}{%- endif %};
+{%- endif %}
+{%- endif %}
+
+{%- endif %}
+{%- endif %}{%- endif %}
+{%- if isEnum %}
+export type {{classname}} = {%- if allowableValues %}{%- if enumVars %}typeof {%- if enumClassPrefix %}{{classname.toUpperCase}}_{%- endif %}{{name}} {%- if not loop.last %}}| {%- endif %}}{%- endif %};
+{%- if enumVars %}
+export const {%- if enumClassPrefix %}{{classname.toUpperCase}}_{%- endif %}{{name}} = {{ value }};
+{%- endif %}{%- endif %}
+{%- endif %}
+{%- if oneOf %}{%- if loop.first %}export type {{classname}} = {%- endif %}{{oneOf}}{%- if not loop.last %}} | {%- endif %}}{%- if loop.last %}} | UnparsedObject;{%- endif %}}{%- endif %}
+{%- endif %}
+{%- endif %}
