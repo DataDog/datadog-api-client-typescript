@@ -801,6 +801,7 @@ export { SyntheticsPlayingTab } from "./models/SyntheticsPlayingTab";
 export { SyntheticsPrivateLocation } from "./models/SyntheticsPrivateLocation";
 export { SyntheticsPrivateLocationCreationResponse } from "./models/SyntheticsPrivateLocationCreationResponse";
 export { SyntheticsPrivateLocationCreationResponseResultEncryption } from "./models/SyntheticsPrivateLocationCreationResponseResultEncryption";
+export { SyntheticsPrivateLocationMetadata } from "./models/SyntheticsPrivateLocationMetadata";
 export { SyntheticsPrivateLocationSecrets } from "./models/SyntheticsPrivateLocationSecrets";
 export { SyntheticsPrivateLocationSecretsAuthentication } from "./models/SyntheticsPrivateLocationSecretsAuthentication";
 export { SyntheticsPrivateLocationSecretsConfigDecryption } from "./models/SyntheticsPrivateLocationSecretsConfigDecryption";

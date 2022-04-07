@@ -7,11 +7,18 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
+// there is a valid "role" in the system
+const ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
+
 const params: v1.SyntheticsApiCreatePrivateLocationRequest = {
   body: {
-    description: "Description of private location",
-    name: "New private location",
-    tags: ["team:front"],
+    description:
+      "Test Example-Create_a_private_location_returns_OK_response description",
+    metadata: {
+      restrictedRoles: [ROLE_DATA_ID],
+    },
+    name: "Example-Create_a_private_location_returns_OK_response",
+    tags: ["test:examplecreateaprivatelocationreturnsokresponse"],
   },
 };
 

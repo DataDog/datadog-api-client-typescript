@@ -553,6 +553,7 @@ models/SyntheticsPlayingTab.ts
 models/SyntheticsPrivateLocation.ts
 models/SyntheticsPrivateLocationCreationResponse.ts
 models/SyntheticsPrivateLocationCreationResponseResultEncryption.ts
+models/SyntheticsPrivateLocationMetadata.ts
 models/SyntheticsPrivateLocationSecrets.ts
 models/SyntheticsPrivateLocationSecretsAuthentication.ts
 models/SyntheticsPrivateLocationSecretsConfigDecryption.ts

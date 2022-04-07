@@ -359,6 +359,7 @@ import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
 import { SyntheticsPrivateLocation } from "./SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "./SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsPrivateLocationCreationResponseResultEncryption } from "./SyntheticsPrivateLocationCreationResponseResultEncryption";
+import { SyntheticsPrivateLocationMetadata } from "./SyntheticsPrivateLocationMetadata";
 import { SyntheticsPrivateLocationSecrets } from "./SyntheticsPrivateLocationSecrets";
 import { SyntheticsPrivateLocationSecretsAuthentication } from "./SyntheticsPrivateLocationSecretsAuthentication";
 import { SyntheticsPrivateLocationSecretsConfigDecryption } from "./SyntheticsPrivateLocationSecretsConfigDecryption";
@@ -1558,6 +1559,7 @@ const typeMap: { [index: string]: any } = {
     SyntheticsPrivateLocationCreationResponse,
   SyntheticsPrivateLocationCreationResponseResultEncryption:
     SyntheticsPrivateLocationCreationResponseResultEncryption,
+  SyntheticsPrivateLocationMetadata: SyntheticsPrivateLocationMetadata,
   SyntheticsPrivateLocationSecrets: SyntheticsPrivateLocationSecrets,
   SyntheticsPrivateLocationSecretsAuthentication:
     SyntheticsPrivateLocationSecretsAuthentication,

@@ -46,6 +46,7 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
     options: {
       deviceIds: ["laptop_large"],
       monitorOptions: {},
+      restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
       retry: {},
     },
     status: "live",

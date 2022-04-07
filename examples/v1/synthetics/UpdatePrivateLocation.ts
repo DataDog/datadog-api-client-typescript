@@ -10,6 +10,9 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 const params: v1.SyntheticsApiUpdatePrivateLocationRequest = {
   body: {
     description: "Description of private location",
+    metadata: {
+      restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
+    },
     name: "New private location",
     tags: ["team:front"],
   },

@@ -8,6 +8,7 @@
  * Do not edit the class manually.
  */
 
+import { SyntheticsPrivateLocationMetadata } from "./SyntheticsPrivateLocationMetadata";
 import { SyntheticsPrivateLocationSecrets } from "./SyntheticsPrivateLocationSecrets";
 import { AttributeTypeMap } from "../util";
 
@@ -24,6 +25,7 @@ export class SyntheticsPrivateLocation {
    * Unique identifier of the private location.
    */
   "id"?: string;
+  "metadata"?: SyntheticsPrivateLocationMetadata;
   /**
    * Name of the private location.
    */
@@ -51,6 +53,10 @@ export class SyntheticsPrivateLocation {
     id: {
       baseName: "id",
       type: "string",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "SyntheticsPrivateLocationMetadata",
     },
     name: {
       baseName: "name",
