@@ -15,7 +15,7 @@ const params: v2.MetricsApiCreateTagConfigurationRequest = {
       id: "ExampleCreateatagconfigurationreturnsCreatedresponse",
       attributes: {
         tags: ["app", "datacenter"],
-        metricType: "gauge",
+        metricType: "distribution",
       },
     },
   },

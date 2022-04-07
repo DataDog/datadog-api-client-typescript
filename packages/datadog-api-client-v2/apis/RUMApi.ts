@@ -1,4 +1,4 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import { BaseAPIRequestFactory } from "./baseapi";
 import {
   Configuration,
   getServer,
@@ -10,58 +10,11 @@ import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
-import { RUMAggregateRequest } from "../models/RUMAggregateRequest";
-import { RUMAnalyticsAggregateResponse } from "../models/RUMAnalyticsAggregateResponse";
 import { RUMEventsResponse } from "../models/RUMEventsResponse";
 import { RUMSearchEventsRequest } from "../models/RUMSearchEventsRequest";
 import { RUMSort } from "../models/RUMSort";
 
 export class RUMApiRequestFactory extends BaseAPIRequestFactory {
-  public async aggregateRUMEvents(
-    body: RUMAggregateRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling aggregateRUMEvents."
-      );
-    }
-
-    // Path Params
-    const localVarPath = "/api/v2/rum/analytics/aggregate";
-
-    // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "RUMApi.aggregateRUMEvents"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
-    requestContext.setHeaderParam("Content-Type", contentType);
-    const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "RUMAggregateRequest", ""),
-      contentType
-    );
-    requestContext.setBody(serializedBody);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
   public async listRUMEvents(
     filterQuery?: string,
     filterFrom?: Date,
@@ -133,17 +86,10 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async searchRUMEvents(
-    body: RUMSearchEventsRequest,
+    body?: RUMSearchEventsRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    // verify required parameter 'body' is not null or undefined
-    if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling searchRUMEvents."
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/rum/events/search";
@@ -179,69 +125,6 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class RUMApiResponseProcessor {
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to aggregateRUMEvents
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async aggregateRUMEvents(
-    response: ResponseContext
-  ): Promise<RUMAnalyticsAggregateResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: RUMAnalyticsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RUMAnalyticsAggregateResponse",
-        ""
-      ) as RUMAnalyticsAggregateResponse;
-      return body;
-    }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RUMAnalyticsAggregateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RUMAnalyticsAggregateResponse",
-        ""
-      ) as RUMAnalyticsAggregateResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -369,14 +252,6 @@ export class RUMApiResponseProcessor {
   }
 }
 
-export interface RUMApiAggregateRUMEventsRequest {
-  /**
-   *
-   * @type RUMAggregateRequest
-   */
-  body: RUMAggregateRequest;
-}
-
 export interface RUMApiListRUMEventsRequest {
   /**
    * Search query following RUM syntax.
@@ -415,7 +290,7 @@ export interface RUMApiSearchRUMEventsRequest {
    *
    * @type RUMSearchEventsRequest
    */
-  body: RUMSearchEventsRequest;
+  body?: RUMSearchEventsRequest;
 }
 
 export class RUMApi {
@@ -432,27 +307,6 @@ export class RUMApi {
     this.requestFactory =
       requestFactory || new RUMApiRequestFactory(configuration);
     this.responseProcessor = responseProcessor || new RUMApiResponseProcessor();
-  }
-
-  /**
-   * The API endpoint to aggregate RUM events into buckets of computed metrics and timeseries.
-   * @param param The request object
-   */
-  public aggregateRUMEvents(
-    param: RUMApiAggregateRUMEventsRequest,
-    options?: Configuration
-  ): Promise<RUMAnalyticsAggregateResponse> {
-    const requestContextPromise = this.requestFactory.aggregateRUMEvents(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.aggregateRUMEvents(responseContext);
-        });
-    });
   }
 
   /**
@@ -486,7 +340,7 @@ export class RUMApi {
    * @param param The request object
    */
   public searchRUMEvents(
-    param: RUMApiSearchRUMEventsRequest,
+    param: RUMApiSearchRUMEventsRequest = {},
     options?: Configuration
   ): Promise<RUMEventsResponse> {
     const requestContextPromise = this.requestFactory.searchRUMEvents(

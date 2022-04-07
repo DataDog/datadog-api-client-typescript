@@ -8,8 +8,12 @@ const configuration = v2.createConfiguration();
 configuration.unstableOperations["deleteTagConfiguration"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
+// there is a valid "metric_tag_configuration" in the system
+const METRIC_TAG_CONFIGURATION_DATA_ID = process.env
+  .METRIC_TAG_CONFIGURATION_DATA_ID as string;
+
 const params: v2.MetricsApiDeleteTagConfigurationRequest = {
-  metricName: "ExampleDeleteatagconfigurationreturnsNoContentresponse",
+  metricName: METRIC_TAG_CONFIGURATION_DATA_ID,
 };
 
 apiInstance

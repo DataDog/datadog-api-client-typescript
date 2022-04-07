@@ -20,7 +20,7 @@ export class UsageIngestedSpansHour {
    */
   "hour"?: Date;
   /**
-   * Contains the total number of bytes ingested for APM spans during a given hour.
+   * Contains the total number of bytes ingested during a given hour.
    */
   "ingestedEventsBytes"?: number;
   /**

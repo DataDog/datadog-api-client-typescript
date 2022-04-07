@@ -388,7 +388,6 @@ import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TableWidgetRequest } from "./TableWidgetRequest";
 import { TagToHosts } from "./TagToHosts";
-import { TimeseriesBackground } from "./TimeseriesBackground";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
@@ -646,13 +645,7 @@ const enumsMap: { [key: string]: any[] } = {
   ImageWidgetDefinitionType: ["image"],
   ListStreamColumnWidth: ["auto", "compact", "full"],
   ListStreamResponseFormat: ["event_list"],
-  ListStreamSource: [
-    "issue_stream",
-    "logs_stream",
-    "audit_stream",
-    "rum_issue_stream",
-    "apm_issue_stream",
-  ],
+  ListStreamSource: ["issue_stream", "logs_stream", "audit_stream"],
   ListStreamWidgetDefinitionType: ["list_stream"],
   LogStreamWidgetDefinitionType: ["log_stream"],
   LogsArithmeticProcessorType: ["arithmetic-processor"],
@@ -993,7 +986,6 @@ const enumsMap: { [key: string]: any[] } = {
   TableWidgetDefinitionType: ["query_table"],
   TableWidgetHasSearchBar: ["always", "never", "auto"],
   TargetFormatType: ["auto", "string", "integer", "double"],
-  TimeseriesBackgroundType: ["bars", "area"],
   TimeseriesWidgetDefinitionType: ["timeseries"],
   TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
   TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
@@ -1590,7 +1582,6 @@ const typeMap: { [index: string]: any } = {
   TableWidgetDefinition: TableWidgetDefinition,
   TableWidgetRequest: TableWidgetRequest,
   TagToHosts: TagToHosts,
-  TimeseriesBackground: TimeseriesBackground,
   TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
   TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,

@@ -32,7 +32,7 @@ const params: v2.LogsApiAggregateLogsRequest = {
           aggregation: "pc90",
           metric: "@duration",
         },
-        total: true,
+        total: "recall",
       },
     ],
   },
