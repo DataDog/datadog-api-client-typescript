@@ -28,6 +28,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     options: {
       deviceIds: ["laptop_large"],
       monitorOptions: {},
+      restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
       retry: {},
     },
     status: "live",

@@ -63,6 +63,10 @@ export class SyntheticsTestOptions {
    * Prevents saving screenshots of the steps.
    */
   "noScreenshot"?: boolean;
+  /**
+   * A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
+   */
+  "restrictedRoles"?: Array<string>;
   "retry"?: SyntheticsTestOptionsRetry;
   /**
    * The frequency at which to run the Synthetic test (in seconds).
@@ -128,6 +132,10 @@ export class SyntheticsTestOptions {
     noScreenshot: {
       baseName: "noScreenshot",
       type: "boolean",
+    },
+    restrictedRoles: {
+      baseName: "restricted_roles",
+      type: "Array<string>",
     },
     retry: {
       baseName: "retry",

@@ -11,10 +11,10 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * Attributes of the global variable.
+ * Object containing metadata about the private location.
  */
 
-export class SyntheticsGlobalVariableAttributes {
+export class SyntheticsPrivateLocationMetadata {
   /**
    * A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
    */
@@ -39,7 +39,7 @@ export class SyntheticsGlobalVariableAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariableAttributes.attributeTypeMap;
+    return SyntheticsPrivateLocationMetadata.attributeTypeMap;
   }
 
   public constructor() {}

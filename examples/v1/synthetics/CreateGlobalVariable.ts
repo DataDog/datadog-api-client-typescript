@@ -10,7 +10,7 @@ const apiInstance = new v1.SyntheticsApi(configuration);
 const params: v1.SyntheticsApiCreateGlobalVariableRequest = {
   body: {
     attributes: {
-      restrictedRoles: [],
+      restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
     },
     description: "Example description",
     name: "MY_VARIABLE",
