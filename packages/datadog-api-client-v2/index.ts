@@ -126,6 +126,11 @@ export {
 } from "./apis/MetricsApi";
 
 export {
+  OrganizationsApiUploadIdPMetadataRequest,
+  OrganizationsApi,
+} from "./apis/OrganizationsApi";
+
+export {
   ProcessesApiListProcessesRequest,
   ProcessesApi,
 } from "./apis/ProcessesApi";
@@ -278,6 +283,7 @@ export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttribu
 export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogErrors } from "./models/HTTPLogErrors";
 export { HTTPLogItem } from "./models/HTTPLogItem";
+export { IdPMetadataFormData } from "./models/IdPMetadataFormData";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
 export { IncidentCreateRelationships } from "./models/IncidentCreateRelationships";
