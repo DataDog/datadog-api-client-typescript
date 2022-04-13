@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.AuthNMappingsApi(configuration);
 
 // there is a valid "role" in the system
-let ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
+const ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
 
-let params: v2.AuthNMappingsApiCreateAuthNMappingRequest = {
+const params: v2.AuthNMappingsApiCreateAuthNMappingRequest = {
   body: {
     data: {
       attributes: {

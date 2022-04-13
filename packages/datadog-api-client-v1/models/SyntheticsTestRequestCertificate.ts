@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Client certificate to use when performing the test request.

@@ -9,7 +9,7 @@
  */
 
 import { UserInvitationResponseData } from "./UserInvitationResponseData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * User invitations as returned by the API.

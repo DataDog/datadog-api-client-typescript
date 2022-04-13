@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Your Google Cloud Platform Account.
@@ -36,7 +36,7 @@ export class GCPAccount {
    */
   "clientId"?: string;
   /**
-   * Should be `https://www.googleapis.com/robot/v1/metadata/x509/<CLIENT_EMAIL>` where `<CLIENT_EMAIL>` is the email found in your JSON service account key.
+   * Should be `https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL` where `$CLIENT_EMAIL` is the email found in your JSON service account key.
    */
   "clientX509CertUrl"?: string;
   /**

@@ -9,7 +9,7 @@
  */
 
 import { NotebookMarkdownCellDefinitionType } from "./NotebookMarkdownCellDefinitionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Text in a notebook is formatted with [Markdown](https://daringfireball.net/projects/markdown/), which enables the use of headings, subheadings, links, images, lists, and code blocks.

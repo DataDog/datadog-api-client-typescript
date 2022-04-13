@@ -9,7 +9,7 @@
  */
 
 import { IncidentFieldAttributesValueType } from "./IncidentFieldAttributesValueType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A field with potentially multiple values selected.

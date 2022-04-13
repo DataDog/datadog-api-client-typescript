@@ -10,7 +10,7 @@
 
 import { IncidentResponseData } from "./IncidentResponseData";
 import { IncidentResponseIncludedItem } from "./IncidentResponseIncludedItem";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response with an incident.

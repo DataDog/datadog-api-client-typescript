@@ -1,4 +1,5 @@
 export * from "./http/http";
+export * from "./http/isomorphic-fetch";
 export * from "./auth/auth";
 export { createConfiguration } from "./configuration";
 export { setServerVariables } from "./configuration";
@@ -146,6 +147,7 @@ export {
   MonitorsApiSearchMonitorGroupsRequest,
   MonitorsApiSearchMonitorsRequest,
   MonitorsApiUpdateMonitorRequest,
+  MonitorsApiValidateExistingMonitorRequest,
   MonitorsApiValidateMonitorRequest,
   MonitorsApi,
 } from "./apis/MonitorsApi";
@@ -279,6 +281,7 @@ export {
   UsageMeteringApiGetUsageLogsByRetentionRequest,
   UsageMeteringApiGetUsageNetworkFlowsRequest,
   UsageMeteringApiGetUsageNetworkHostsRequest,
+  UsageMeteringApiGetUsageOnlineArchiveRequest,
   UsageMeteringApiGetUsageProfilingRequest,
   UsageMeteringApiGetUsageRumSessionsRequest,
   UsageMeteringApiGetUsageRumUnitsRequest,
@@ -798,6 +801,7 @@ export { SyntheticsPlayingTab } from "./models/SyntheticsPlayingTab";
 export { SyntheticsPrivateLocation } from "./models/SyntheticsPrivateLocation";
 export { SyntheticsPrivateLocationCreationResponse } from "./models/SyntheticsPrivateLocationCreationResponse";
 export { SyntheticsPrivateLocationCreationResponseResultEncryption } from "./models/SyntheticsPrivateLocationCreationResponseResultEncryption";
+export { SyntheticsPrivateLocationMetadata } from "./models/SyntheticsPrivateLocationMetadata";
 export { SyntheticsPrivateLocationSecrets } from "./models/SyntheticsPrivateLocationSecrets";
 export { SyntheticsPrivateLocationSecretsAuthentication } from "./models/SyntheticsPrivateLocationSecretsAuthentication";
 export { SyntheticsPrivateLocationSecretsConfigDecryption } from "./models/SyntheticsPrivateLocationSecretsConfigDecryption";
@@ -840,6 +844,8 @@ export { TableWidgetHasSearchBar } from "./models/TableWidgetHasSearchBar";
 export { TableWidgetRequest } from "./models/TableWidgetRequest";
 export { TagToHosts } from "./models/TagToHosts";
 export { TargetFormatType } from "./models/TargetFormatType";
+export { TimeseriesBackground } from "./models/TimeseriesBackground";
+export { TimeseriesBackgroundType } from "./models/TimeseriesBackgroundType";
 export { TimeseriesWidgetDefinition } from "./models/TimeseriesWidgetDefinition";
 export { TimeseriesWidgetDefinitionType } from "./models/TimeseriesWidgetDefinitionType";
 export { TimeseriesWidgetExpressionAlias } from "./models/TimeseriesWidgetExpressionAlias";
@@ -909,6 +915,8 @@ export { UsageNetworkFlowsHour } from "./models/UsageNetworkFlowsHour";
 export { UsageNetworkFlowsResponse } from "./models/UsageNetworkFlowsResponse";
 export { UsageNetworkHostsHour } from "./models/UsageNetworkHostsHour";
 export { UsageNetworkHostsResponse } from "./models/UsageNetworkHostsResponse";
+export { UsageOnlineArchiveHour } from "./models/UsageOnlineArchiveHour";
+export { UsageOnlineArchiveResponse } from "./models/UsageOnlineArchiveResponse";
 export { UsageProfilingHour } from "./models/UsageProfilingHour";
 export { UsageProfilingResponse } from "./models/UsageProfilingResponse";
 export { UsageReportsType } from "./models/UsageReportsType";
@@ -940,6 +948,7 @@ export { UsageTimeseriesHour } from "./models/UsageTimeseriesHour";
 export { UsageTimeseriesResponse } from "./models/UsageTimeseriesResponse";
 export { UsageTopAvgMetricsHour } from "./models/UsageTopAvgMetricsHour";
 export { UsageTopAvgMetricsMetadata } from "./models/UsageTopAvgMetricsMetadata";
+export { UsageTopAvgMetricsPagination } from "./models/UsageTopAvgMetricsPagination";
 export { UsageTopAvgMetricsResponse } from "./models/UsageTopAvgMetricsResponse";
 export { User } from "./models/User";
 export { UserDisableResponse } from "./models/UserDisableResponse";
@@ -996,3 +1005,4 @@ export { WidgetTimeWindows } from "./models/WidgetTimeWindows";
 export { WidgetVerticalAlign } from "./models/WidgetVerticalAlign";
 export { WidgetViewMode } from "./models/WidgetViewMode";
 export { WidgetVizType } from "./models/WidgetVizType";
+export { ObjectSerializer } from "./models/ObjectSerializer";

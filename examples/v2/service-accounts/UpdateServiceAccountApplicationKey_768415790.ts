@@ -8,14 +8,14 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.ServiceAccountsApi(configuration);
 
 // there is a valid "service_account_user" in the system
-let SERVICE_ACCOUNT_USER_DATA_ID = process.env
+const SERVICE_ACCOUNT_USER_DATA_ID = process.env
   .SERVICE_ACCOUNT_USER_DATA_ID as string;
 
 // there is a valid "service_account_application_key" for "service_account_user"
-let SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID = process.env
+const SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID = process.env
   .SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID as string;
 
-let params: v2.ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest = {
+const params: v2.ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest = {
   body: {
     data: {
       id: SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID,

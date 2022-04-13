@@ -10,7 +10,7 @@
 
 import { NotebookCreateDataAttributes } from "./NotebookCreateDataAttributes";
 import { NotebookResourceType } from "./NotebookResourceType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The data for a notebook create request.

@@ -9,7 +9,7 @@
  */
 
 import { LogsArchiveCreateRequestDestination } from "./LogsArchiveCreateRequestDestination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The attributes associated with the archive.

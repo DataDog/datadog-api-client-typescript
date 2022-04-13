@@ -9,9 +9,9 @@ configuration.unstableOperations["getIncidentService"] = true;
 const apiInstance = new v2.IncidentServicesApi(configuration);
 
 // there is a valid "service" in the system
-let SERVICE_DATA_ID = process.env.SERVICE_DATA_ID as string;
+const SERVICE_DATA_ID = process.env.SERVICE_DATA_ID as string;
 
-let params: v2.IncidentServicesApiGetIncidentServiceRequest = {
+const params: v2.IncidentServicesApiGetIncidentServiceRequest = {
   serviceId: SERVICE_DATA_ID,
 };
 

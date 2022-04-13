@@ -9,7 +9,7 @@
  */
 
 import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationship to role object.
@@ -17,7 +17,7 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 
 export class RelationshipToRoleData {
   /**
-   * ID of the role.
+   * The unique identifier of the role.
    */
   "id"?: string;
   "type"?: RolesType;

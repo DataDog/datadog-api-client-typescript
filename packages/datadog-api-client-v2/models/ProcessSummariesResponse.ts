@@ -10,7 +10,7 @@
 
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummary } from "./ProcessSummary";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * List of process summaries.

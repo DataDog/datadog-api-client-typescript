@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsBrowserErrorType } from "./SyntheticsBrowserErrorType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Error response object for a browser test.

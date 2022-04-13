@@ -12,7 +12,7 @@ import { EventStreamWidgetDefinitionType } from "./EventStreamWidgetDefinitionTy
 import { WidgetEventSize } from "./WidgetEventSize";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.

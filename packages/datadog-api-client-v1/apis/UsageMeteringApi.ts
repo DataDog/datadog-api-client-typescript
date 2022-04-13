@@ -5,7 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
-import { logger } from "../../../index";
+import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -38,6 +38,7 @@ import { UsageLogsByRetentionResponse } from "../models/UsageLogsByRetentionResp
 import { UsageLogsResponse } from "../models/UsageLogsResponse";
 import { UsageNetworkFlowsResponse } from "../models/UsageNetworkFlowsResponse";
 import { UsageNetworkHostsResponse } from "../models/UsageNetworkHostsResponse";
+import { UsageOnlineArchiveResponse } from "../models/UsageOnlineArchiveResponse";
 import { UsageProfilingResponse } from "../models/UsageProfilingResponse";
 import { UsageRumSessionsResponse } from "../models/UsageRumSessionsResponse";
 import { UsageRumUnitsResponse } from "../models/UsageRumUnitsResponse";
@@ -1538,6 +1539,58 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const requestContext = getServer(
       _config,
       "UsageMeteringApi.getUsageNetworkHosts"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (startHr !== undefined) {
+      requestContext.setQueryParam(
+        "start_hr",
+        ObjectSerializer.serialize(startHr, "Date", "date-time")
+      );
+    }
+    if (endHr !== undefined) {
+      requestContext.setQueryParam(
+        "end_hr",
+        ObjectSerializer.serialize(endHr, "Date", "date-time")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getUsageOnlineArchive(
+    startHr: Date,
+    endHr?: Date,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'startHr' is not null or undefined
+    if (startHr === null || startHr === undefined) {
+      throw new RequiredError(
+        "Required parameter startHr was null or undefined when calling getUsageOnlineArchive."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/usage/online-archive";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "UsageMeteringApi.getUsageOnlineArchive"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -3791,6 +3844,69 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getUsageOnlineArchive
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUsageOnlineArchive(
+    response: ResponseContext
+  ): Promise<UsageOnlineArchiveResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: UsageOnlineArchiveResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageOnlineArchiveResponse",
+        ""
+      ) as UsageOnlineArchiveResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageOnlineArchiveResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageOnlineArchiveResponse",
+        ""
+      ) as UsageOnlineArchiveResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getUsageProfiling
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4526,7 +4642,7 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    */
   nextRecordId?: string;
   /**
-   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of &#x60;tag_config_source&#x60; in the API response.
    * @type string
    */
   tagBreakdownKeys?: string;
@@ -4608,7 +4724,7 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
    */
   sortName?: MonthlyUsageAttributionSupportedMetrics;
   /**
-   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   * Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of &#x60;tag_config_source&#x60; in the API response.
    * @type string
    */
   tagBreakdownKeys?: string;
@@ -4899,6 +5015,19 @@ export interface UsageMeteringApiGetUsageNetworkHostsRequest {
   endHr?: Date;
 }
 
+export interface UsageMeteringApiGetUsageOnlineArchiveRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * @type Date
+   */
+  startHr: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * @type Date
+   */
+  endHr?: Date;
+}
+
 export interface UsageMeteringApiGetUsageProfilingRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
@@ -5109,7 +5238,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.
+   * Get Hourly Usage Attribution.  This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is set in the response. If it is, make another request and pass `next_record_id` as a parameter. Pseudo code example:  ``` response := GetHourlyUsageAttribution(start_month) cursor := response.metadata.pagination.next_record_id WHILE cursor != null BEGIN   sleep(5 seconds)  # Avoid running into rate limit   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)   cursor := response.metadata.pagination.next_record_id END ```
    * @param param The request object
    */
   public getHourlyUsageAttribution(
@@ -5206,7 +5335,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.
+   * Get Monthly Usage Attribution.  This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is set in the response. If it is, make another request and pass `next_record_id` as a parameter. Pseudo code example:  ``` response := GetMonthlyUsageAttribution(start_month) cursor := response.metadata.pagination.next_record_id WHILE cursor != null BEGIN   sleep(5 seconds)  # Avoid running into rate limit   response := GetMonthlyUsageAttribution(start_month, next_record_id=cursor)   cursor := response.metadata.pagination.next_record_id END ```
    * @param param The request object
    */
   public getMonthlyUsageAttribution(
@@ -5690,6 +5819,28 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUsageNetworkHosts(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get hourly usage for Online Archive.
+   * @param param The request object
+   */
+  public getUsageOnlineArchive(
+    param: UsageMeteringApiGetUsageOnlineArchiveRequest,
+    options?: Configuration
+  ): Promise<UsageOnlineArchiveResponse> {
+    const requestContextPromise = this.requestFactory.getUsageOnlineArchive(
+      param.startHr,
+      param.endHr,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUsageOnlineArchive(responseContext);
         });
     });
   }

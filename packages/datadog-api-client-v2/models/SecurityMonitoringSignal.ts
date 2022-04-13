@@ -10,7 +10,7 @@
 
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
 import { SecurityMonitoringSignalType } from "./SecurityMonitoringSignalType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object description of a security signal.

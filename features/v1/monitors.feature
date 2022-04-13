@@ -13,12 +13,14 @@ Feature: Monitors
   @generated @skip @team:DataDog/monitor-app
   Scenario: Check if a monitor can be deleted returns "Bad Request" response
     Given new "CheckCanDeleteMonitor" request
+    And request contains "monitor_ids" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 400 Bad Request
 
   @generated @skip @team:DataDog/monitor-app
   Scenario: Check if a monitor can be deleted returns "Deletion conflict error" response
     Given new "CheckCanDeleteMonitor" request
+    And request contains "monitor_ids" parameter from "REPLACE.ME"
     When the request is sent
     Then the response status is 409 Deletion conflict error
 
@@ -34,6 +36,13 @@ Feature: Monitors
   Scenario: Create a RUM formula and functions monitor returns "OK" response
     Given new "CreateMonitor" request
     And body with value {"name": "{{ unique }}","type": "rum alert","query": "formula(\"query2 / query1 * 100\").last(\"15m\") >= 0.8","message": "some message Notify: @hipchat-channel", "tags": ["test:{{ unique_lower_alnum }}", "env:ci"],"priority": 3,"options":{"thresholds":{"critical":0.8},"variables":[{"data_source": "rum","name": "query2","search": {"query": ""},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []}, {"data_source": "rum","name": "query1","search": {"query": "status:error"},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []}]}}
+    When the request is sent
+    Then the response status is 200 OK
+
+  @team:DataDog/monitor-app
+  Scenario: Create a ci-pipelines formula and functions monitor returns "OK" response
+    Given new "CreateMonitor" request
+    And body with value {"name": "{{ unique }}","type": "ci-pipelines alert","query": "formula(\"query1 / query2 * 100\").last(\"15m\") >= 0.8","message": "some message Notify: @hipchat-channel","tags": ["test:{{ unique_lower_alnum }}", "env:ci"],"priority": 3,"options": {"thresholds": {"critical": 0.8},"variables": [{"data_source": "ci_pipelines","name": "query1","search": {"query": "@ci.status:error"},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []},{"data_source": "ci_pipelines","name": "query2","search": {"query": ""},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []}]}}
     When the request is sent
     Then the response status is 200 OK
 
@@ -56,6 +65,13 @@ Feature: Monitors
     Given there is a valid "role" in the system
     And new "CreateMonitor" request
     And body with value {"name": "{{ unique }}", "type": "log alert", "query": "logs(\"service:foo AND type:error\").index(\"main\").rollup(\"count\").by(\"source\").last(\"5m\") > 2", "message": "some message Notify: @hipchat-channel", "tags": ["test:{{ unique_lower_alnum }}", "env:ci"], "priority": 3, "restricted_roles": ["{{ role.data.id }}"]}
+    When the request is sent
+    Then the response status is 200 OK
+
+  @team:DataDog/monitor-app
+  Scenario: Create an Error Tracking monitor returns "OK" response
+    Given new "CreateMonitor" request
+    And body from file "monitor_error_tracking_alert_payload.json"
     When the request is sent
     Then the response status is 200 OK
 
@@ -85,7 +101,7 @@ Feature: Monitors
   Scenario: Edit a monitor returns "Bad Request" response
     Given new "UpdateMonitor" request
     And request contains "monitor_id" parameter from "REPLACE.ME"
-    And body with value {"message": null, "name": null, "options": {"enable_logs_sample": null, "escalation_message": "none", "evaluation_delay": null, "groupby_simple_monitor": null, "include_tags": true, "locked": null, "min_failure_duration": 0, "min_location_failed": 1, "new_group_delay": null, "new_host_delay": 300, "no_data_timeframe": null, "notify_audit": false, "notify_no_data": false, "renotify_interval": null, "renotify_occurrences": null, "renotify_statuses": ["alert"], "require_full_window": null, "silenced": null, "synthetics_check_id": null, "threshold_windows": {"recovery_window": null, "trigger_window": null}, "thresholds": {"critical": null, "critical_recovery": null, "ok": null, "unknown": null, "warning": null, "warning_recovery": null}, "timeout_h": null, "variables": [{"compute": {"aggregation": "avg", "interval": 60000, "metric": "@duration"}, "data_source": "rum", "group_by": [{"facet": "status", "limit": 10, "sort": {"aggregation": "avg", "metric": null, "order": "desc"}}], "indexes": ["days-3", "days-7"], "name": "query_errors", "search": {"query": "service:query"}}]}, "priority": null, "query": null, "restricted_roles": [null], "tags": [null], "type": "query alert"}
+    And body with value {"options": {"escalation_message": "none", "evaluation_delay": null, "include_tags": true, "min_failure_duration": 0, "min_location_failed": 1, "new_group_delay": null, "new_host_delay": 300, "no_data_timeframe": null, "notify_audit": false, "notify_no_data": false, "renotify_interval": null, "renotify_occurrences": null, "renotify_statuses": ["alert"], "synthetics_check_id": null, "threshold_windows": {"recovery_window": null, "trigger_window": null}, "thresholds": {"critical_recovery": null, "ok": null, "unknown": null, "warning": null, "warning_recovery": null}, "timeout_h": null, "variables": [{"compute": {"aggregation": "avg", "interval": 60000, "metric": "@duration"}, "data_source": "rum", "group_by": [{"facet": "status", "limit": 10, "sort": {"aggregation": "avg", "order": "desc"}}], "indexes": ["days-3", "days-7"], "name": "query_errors", "search": {"query": "service:query"}}]}, "restricted_roles": [], "tags": [], "type": "query alert"}
     When the request is sent
     Then the response status is 400 Bad Request
 
@@ -198,6 +214,31 @@ Feature: Monitors
   @team:DataDog/monitor-app
   Scenario: Validate a monitor returns "OK" response
     Given new "ValidateMonitor" request
+    And body from file "monitor_payload.json"
+    When the request is sent
+    Then the response status is 200 OK
+
+  @team:DataDog/monitor-app
+  Scenario: Validate an existing monitor returns "Invalid JSON" response
+    Given there is a valid "monitor" in the system
+    And new "ValidateExistingMonitor" request
+    And request contains "monitor_id" parameter from "monitor.id"
+    And body with value {"type": "log alert", "query": "query"}
+    When the request is sent
+    Then the response status is 400 Invalid JSON
+
+  @skip @team:DataDog/monitor-app
+  Scenario: Validate an existing monitor returns "Item not found error" response
+    Given new "ValidateExistingMonitor" request
+    And request contains "monitor_id" parameter with value 0
+    When the request is sent
+    Then the response status is 404 Item not found error
+
+  @team:DataDog/monitor-app
+  Scenario: Validate an existing monitor returns "OK" response
+    Given there is a valid "monitor" in the system
+    And new "ValidateExistingMonitor" request
+    And request contains "monitor_id" parameter from "monitor.id"
     And body from file "monitor_payload.json"
     When the request is sent
     Then the response status is 200 OK

@@ -10,7 +10,7 @@
 
 import { LogAttributes } from "./LogAttributes";
 import { LogType } from "./LogType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object description of a log after being processed and stored by Datadog.

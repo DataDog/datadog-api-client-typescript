@@ -15,7 +15,7 @@ import { SyntheticsTestDetailsSubType } from "./SyntheticsTestDetailsSubType";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing details about your Synthetic test.

@@ -9,7 +9,7 @@
  */
 
 import { UsageCIVisibilityHour } from "./UsageCIVisibilityHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * CI visibility usage response

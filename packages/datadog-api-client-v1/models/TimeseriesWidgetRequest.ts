@@ -16,7 +16,7 @@ import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAli
 import { WidgetDisplayType } from "./WidgetDisplayType";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated timeseries widget.
@@ -28,7 +28,7 @@ export class TimeseriesWidgetRequest {
   "displayType"?: WidgetDisplayType;
   "eventQuery"?: LogQueryDefinition;
   /**
-   * List of formulas that operate on queries. **This feature is currently in beta.**
+   * List of formulas that operate on queries.
    */
   "formulas"?: Array<WidgetFormula>;
   "logQuery"?: LogQueryDefinition;
@@ -48,7 +48,7 @@ export class TimeseriesWidgetRequest {
    */
   "q"?: string;
   /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   * List of queries that can be returned directly or used in formulas.
    */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   "responseFormat"?: FormulaAndFunctionResponseFormat;

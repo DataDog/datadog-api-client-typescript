@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
-let params: v1.DowntimesApiCreateDowntimeRequest = {
+const params: v1.DowntimesApiCreateDowntimeRequest = {
   body: {
     message: "Example-Schedule_a_downtime_until_date",
     recurrence: {

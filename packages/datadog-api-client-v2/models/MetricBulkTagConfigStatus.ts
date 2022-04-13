@@ -10,7 +10,7 @@
 
 import { MetricBulkConfigureTagsType } from "./MetricBulkConfigureTagsType";
 import { MetricBulkTagConfigStatusAttributes } from "./MetricBulkTagConfigStatusAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The status of a request to bulk configure metric tags. It contains the fields from the original request for reference.

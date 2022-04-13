@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.CloudWorkloadSecurityApi(configuration);
 
 // there is a valid "agent_rule" in the system
-let AGENT_RULE_DATA_ID = process.env.AGENT_RULE_DATA_ID as string;
+const AGENT_RULE_DATA_ID = process.env.AGENT_RULE_DATA_ID as string;
 
-let params: v2.CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest =
+const params: v2.CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest =
   {
     agentRuleId: AGENT_RULE_DATA_ID,
   };

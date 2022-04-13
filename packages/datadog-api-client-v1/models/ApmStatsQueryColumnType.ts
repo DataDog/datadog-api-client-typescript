@@ -10,7 +10,7 @@
 
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetSort } from "./WidgetSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Column properties.

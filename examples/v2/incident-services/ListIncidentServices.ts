@@ -9,10 +9,10 @@ configuration.unstableOperations["listIncidentServices"] = true;
 const apiInstance = new v2.IncidentServicesApi(configuration);
 
 // there is a valid "service" in the system
-let SERVICE_DATA_ATTRIBUTES_NAME = process.env
+const SERVICE_DATA_ATTRIBUTES_NAME = process.env
   .SERVICE_DATA_ATTRIBUTES_NAME as string;
 
-let params: v2.IncidentServicesApiListIncidentServicesRequest = {
+const params: v2.IncidentServicesApiListIncidentServicesRequest = {
   filter: SERVICE_DATA_ATTRIBUTES_NAME,
 };
 

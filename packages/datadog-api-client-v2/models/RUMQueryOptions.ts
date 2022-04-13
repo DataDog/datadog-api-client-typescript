@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Global query options that are used during the query. Note: Only supply timezone or time offset, not both. Otherwise, the query fails.

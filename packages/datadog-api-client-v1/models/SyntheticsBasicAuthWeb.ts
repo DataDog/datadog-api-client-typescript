@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsBasicAuthWebType } from "./SyntheticsBasicAuthWebType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object to handle basic authentication when performing the test.
@@ -20,7 +20,7 @@ export class SyntheticsBasicAuthWeb {
    * Password to use for the basic authentication.
    */
   "password": string;
-  "type": SyntheticsBasicAuthWebType;
+  "type"?: SyntheticsBasicAuthWebType;
   /**
    * Username to use for the basic authentication.
    */
@@ -43,7 +43,6 @@ export class SyntheticsBasicAuthWeb {
     type: {
       baseName: "type",
       type: "SyntheticsBasicAuthWebType",
-      required: true,
     },
     username: {
       baseName: "username",

@@ -12,7 +12,7 @@ import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
 import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The attributes of a notebook `heatmap` cell.

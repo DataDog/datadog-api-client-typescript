@@ -10,7 +10,7 @@
 
 import { SyntheticsCIBatchMetadataPipeline } from "./SyntheticsCIBatchMetadataPipeline";
 import { SyntheticsCIBatchMetadataProvider } from "./SyntheticsCIBatchMetadataProvider";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Description of the CI provider.

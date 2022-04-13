@@ -9,9 +9,9 @@ configuration.unstableOperations["deleteIncidentTeam"] = true;
 const apiInstance = new v2.IncidentTeamsApi(configuration);
 
 // there is a valid "team" in the system
-let TEAM_DATA_ID = process.env.TEAM_DATA_ID as string;
+const TEAM_DATA_ID = process.env.TEAM_DATA_ID as string;
 
-let params: v2.IncidentTeamsApiDeleteIncidentTeamRequest = {
+const params: v2.IncidentTeamsApiDeleteIncidentTeamRequest = {
   teamId: TEAM_DATA_ID,
 };
 

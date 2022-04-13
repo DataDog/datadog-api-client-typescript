@@ -10,7 +10,7 @@
 
 import { LogsArchiveDestination } from "./LogsArchiveDestination";
 import { LogsArchiveState } from "./LogsArchiveState";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The attributes associated with the archive.

@@ -9,7 +9,7 @@
  */
 
 import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Defined items in the group.

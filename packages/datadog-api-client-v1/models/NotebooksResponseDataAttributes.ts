@@ -13,7 +13,7 @@ import { NotebookCellResponse } from "./NotebookCellResponse";
 import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The attributes of a notebook in get all response.

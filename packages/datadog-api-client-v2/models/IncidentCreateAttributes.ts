@@ -11,7 +11,7 @@
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentTimelineCellCreateAttributes } from "./IncidentTimelineCellCreateAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The incident's attributes for a create request.

@@ -10,7 +10,7 @@
 
 import { LogsByRetention } from "./LogsByRetention";
 import { UsageSummaryDate } from "./UsageSummaryDate";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response summarizing all usage aggregated across the months in the request for all organizations, and broken down by month and by organization.
@@ -223,6 +223,10 @@ export class UsageSummaryResponse {
    */
   "npmHostTop99pSum"?: number;
   /**
+   * Sum of all online archived events over all hours in the current months for all organizations.
+   */
+  "onlineArchiveEventsCountAggSum"?: number;
+  /**
    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current months for all organizations.
    */
   "opentelemetryHostTop99pSum"?: number;
@@ -283,7 +287,7 @@ export class UsageSummaryResponse {
    */
   "traceSearchIndexedEventsCountAggSum"?: number;
   /**
-   * Shows the sum of all tracing without limits bytes ingested over all hours in the current months for all organizations.
+   * Shows the sum of all ingested APM span bytes over all hours in the current months for all organizations.
    */
   "twolIngestedEventsBytesAggSum"?: number;
   /**
@@ -560,6 +564,11 @@ export class UsageSummaryResponse {
     },
     npmHostTop99pSum: {
       baseName: "npm_host_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    onlineArchiveEventsCountAggSum: {
+      baseName: "online_archive_events_count_agg_sum",
       type: "number",
       format: "int64",
     },

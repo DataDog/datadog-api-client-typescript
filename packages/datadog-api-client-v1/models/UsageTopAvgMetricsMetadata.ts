@@ -8,8 +8,8 @@
  * Do not edit the class manually.
  */
 
-import { UsageAttributionPagination } from "./UsageAttributionPagination";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { UsageTopAvgMetricsPagination } from "./UsageTopAvgMetricsPagination";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The object containing document metadata.
@@ -24,7 +24,7 @@ export class UsageTopAvgMetricsMetadata {
    * The month value from the user request that contains the returned usage data. (If month was used the request)
    */
   "month"?: Date;
-  "pagination"?: UsageAttributionPagination;
+  "pagination"?: UsageTopAvgMetricsPagination;
 
   /**
    * @ignore
@@ -47,7 +47,7 @@ export class UsageTopAvgMetricsMetadata {
     },
     pagination: {
       baseName: "pagination",
-      type: "UsageAttributionPagination",
+      type: "UsageTopAvgMetricsPagination",
     },
   };
 

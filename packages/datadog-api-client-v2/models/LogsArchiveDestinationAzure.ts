@@ -10,7 +10,7 @@
 
 import { LogsArchiveDestinationAzureType } from "./LogsArchiveDestinationAzureType";
 import { LogsArchiveIntegrationAzure } from "./LogsArchiveIntegrationAzure";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The Azure archive destination.

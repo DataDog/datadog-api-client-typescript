@@ -10,7 +10,7 @@
 
 import { NotebookCellCreateRequestAttributes } from "./NotebookCellCreateRequestAttributes";
 import { NotebookCellResourceType } from "./NotebookCellResourceType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The description of a notebook cell create request.

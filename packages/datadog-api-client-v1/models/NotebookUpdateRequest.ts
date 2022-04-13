@@ -9,7 +9,7 @@
  */
 
 import { NotebookUpdateData } from "./NotebookUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The description of a notebook update request.

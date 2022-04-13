@@ -9,7 +9,7 @@
  */
 
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Request used to create an application key.

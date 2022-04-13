@@ -553,6 +553,7 @@ models/SyntheticsPlayingTab.ts
 models/SyntheticsPrivateLocation.ts
 models/SyntheticsPrivateLocationCreationResponse.ts
 models/SyntheticsPrivateLocationCreationResponseResultEncryption.ts
+models/SyntheticsPrivateLocationMetadata.ts
 models/SyntheticsPrivateLocationSecrets.ts
 models/SyntheticsPrivateLocationSecretsAuthentication.ts
 models/SyntheticsPrivateLocationSecretsConfigDecryption.ts
@@ -595,6 +596,8 @@ models/TableWidgetHasSearchBar.ts
 models/TableWidgetRequest.ts
 models/TagToHosts.ts
 models/TargetFormatType.ts
+models/TimeseriesBackground.ts
+models/TimeseriesBackgroundType.ts
 models/TimeseriesWidgetDefinition.ts
 models/TimeseriesWidgetDefinitionType.ts
 models/TimeseriesWidgetExpressionAlias.ts
@@ -664,6 +667,8 @@ models/UsageNetworkFlowsHour.ts
 models/UsageNetworkFlowsResponse.ts
 models/UsageNetworkHostsHour.ts
 models/UsageNetworkHostsResponse.ts
+models/UsageOnlineArchiveHour.ts
+models/UsageOnlineArchiveResponse.ts
 models/UsageProfilingHour.ts
 models/UsageProfilingResponse.ts
 models/UsageReportsType.ts
@@ -695,6 +700,7 @@ models/UsageTimeseriesHour.ts
 models/UsageTimeseriesResponse.ts
 models/UsageTopAvgMetricsHour.ts
 models/UsageTopAvgMetricsMetadata.ts
+models/UsageTopAvgMetricsPagination.ts
 models/UsageTopAvgMetricsResponse.ts
 models/User.ts
 models/UserDisableResponse.ts

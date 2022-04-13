@@ -9,9 +9,9 @@ configuration.unstableOperations["getSLOCorrections"] = true;
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
 // there is a valid "slo" in the system
-let SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
+const SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
 
-let params: v1.ServiceLevelObjectivesApiGetSLOCorrectionsRequest = {
+const params: v1.ServiceLevelObjectivesApiGetSLOCorrectionsRequest = {
   sloId: SLO_DATA_0_ID,
 };
 

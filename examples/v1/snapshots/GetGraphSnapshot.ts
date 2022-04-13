@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SnapshotsApi(configuration);
 
-let params: v1.SnapshotsApiGetGraphSnapshotRequest = {
+const params: v1.SnapshotsApiGetGraphSnapshotRequest = {
   metricQuery: "avg:system.load.1{*}",
   start: new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000,
   end: new Date().getTime() / 1000,

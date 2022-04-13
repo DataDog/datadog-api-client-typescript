@@ -10,7 +10,7 @@
 
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricTagConfigurationMetricTypes } from "./MetricTagConfigurationMetricTypes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing the definition of a metric tag configuration attributes.

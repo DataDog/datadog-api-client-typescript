@@ -9,7 +9,7 @@
  */
 
 import { RelationshipToSAMLAssertionAttributeData } from "./RelationshipToSAMLAssertionAttributeData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * AuthN Mapping relationship to SAML Assertion Attribute.

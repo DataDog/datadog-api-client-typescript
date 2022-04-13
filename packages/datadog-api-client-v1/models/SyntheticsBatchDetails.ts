@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Details about a batch response.

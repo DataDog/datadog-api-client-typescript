@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsStepType } from "./SyntheticsStepType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The steps used in a Synthetics browser test.

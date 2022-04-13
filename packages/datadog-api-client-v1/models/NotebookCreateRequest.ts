@@ -9,7 +9,7 @@
  */
 
 import { NotebookCreateData } from "./NotebookCreateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The description of a notebook create request.

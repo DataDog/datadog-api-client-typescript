@@ -9,7 +9,7 @@
  */
 
 import { ApiKey } from "./ApiKey";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * List of API and application keys available for a given organization.

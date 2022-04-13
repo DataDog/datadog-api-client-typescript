@@ -8,9 +8,9 @@ const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
 // there is a valid "dashboard" in the system
-let DASHBOARD_ID = process.env.DASHBOARD_ID as string;
+const DASHBOARD_ID = process.env.DASHBOARD_ID as string;
 
-let params: v1.DashboardsApiDeleteDashboardsRequest = {
+const params: v1.DashboardsApiDeleteDashboardsRequest = {
   body: {
     data: [
       {

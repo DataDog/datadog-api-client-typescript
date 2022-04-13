@@ -34,7 +34,7 @@ Feature: Synthetics
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Create a browser test returns "- JSON format is wrong" response
     Given new "CreateSyntheticsBrowserTest" request
-    And body with value {"config": {"assertions": [], "configVariables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}], "request": {"allow_insecure": null, "basicAuth": {"password": "", "type": "web", "username": ""}, "body": null, "certificate": {"cert": {"content": null, "filename": null, "updatedAt": null}, "key": {"content": null, "filename": null, "updatedAt": null}}, "dnsServer": null, "dnsServerPort": null, "follow_redirects": null, "headers": null, "host": null, "message": null, "method": "GET", "noSavingResponseBody": null, "numberOfPackets": null, "port": null, "proxy": {"headers": null, "url": "https://example.com"}, "query": null, "servername": null, "shouldTrackHops": null, "timeout": null, "url": "https://example.com"}, "setCookie": null, "variables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}]}, "locations": ["example-location"], "message": "", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "steps": [{"allowFailure": null, "isCritical": null, "name": null, "params": null, "timeout": null, "type": "assertElementContent"}], "tags": [null], "type": "browser"}
+    And body with value {"config": {"assertions": [], "configVariables": [{"name": "VARIABLE_NAME", "type": "text"}], "request": {"basicAuth": {"password": "PaSSw0RD!", "type": "web", "username": "my_username"}, "certificate": {"cert": {}, "key": {}}, "method": "GET", "proxy": {"url": "https://example.com"}, "url": "https://example.com"}, "variables": [{"name": "VARIABLE_NAME", "type": "text"}]}, "locations": ["aws:eu-west-3"], "message": "", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "steps": [{"type": "assertElementContent"}], "tags": ["env:prod"], "type": "browser"}
     When the request is sent
     Then the response status is 400 - JSON format is wrong
 
@@ -49,42 +49,43 @@ Feature: Synthetics
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Create a browser test returns "Test quota is reached" response
     Given new "CreateSyntheticsBrowserTest" request
-    And body with value {"config": {"assertions": [], "configVariables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}], "request": {"allow_insecure": null, "basicAuth": {"password": "", "type": "web", "username": ""}, "body": null, "certificate": {"cert": {"content": null, "filename": null, "updatedAt": null}, "key": {"content": null, "filename": null, "updatedAt": null}}, "dnsServer": null, "dnsServerPort": null, "follow_redirects": null, "headers": null, "host": null, "message": null, "method": "GET", "noSavingResponseBody": null, "numberOfPackets": null, "port": null, "proxy": {"headers": null, "url": "https://example.com"}, "query": null, "servername": null, "shouldTrackHops": null, "timeout": null, "url": "https://example.com"}, "setCookie": null, "variables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}]}, "locations": ["example-location"], "message": "", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "steps": [{"allowFailure": null, "isCritical": null, "name": null, "params": null, "timeout": null, "type": "assertElementContent"}], "tags": [null], "type": "browser"}
+    And body with value {"config": {"assertions": [], "configVariables": [{"name": "VARIABLE_NAME", "type": "text"}], "request": {"basicAuth": {"password": "PaSSw0RD!", "type": "web", "username": "my_username"}, "certificate": {"cert": {}, "key": {}}, "method": "GET", "proxy": {"url": "https://example.com"}, "url": "https://example.com"}, "variables": [{"name": "VARIABLE_NAME", "type": "text"}]}, "locations": ["aws:eu-west-3"], "message": "", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "steps": [{"type": "assertElementContent"}], "tags": ["env:prod"], "type": "browser"}
     When the request is sent
     Then the response status is 402 Test quota is reached
 
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Create a global variable returns "Invalid request" response
     Given new "CreateGlobalVariable" request
-    And body with value {"attributes": {"restricted_roles": [null]}, "description": "Example description", "name": "MY_VARIABLE", "parse_test_options": {"field": "content-type", "parser": {"type": "regex", "value": ".*"}, "type": "http_body"}, "parse_test_public_id": "abc-def-123", "tags": ["team:front", "test:workflow-1"], "value": {"secure": true, "value": "value"}}
+    And body with value {"attributes": {"restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]}, "description": "Example description", "name": "MY_VARIABLE", "parse_test_options": {"field": "content-type", "parser": {"type": "regex", "value": ".*"}, "type": "http_body"}, "parse_test_public_id": "abc-def-123", "tags": ["team:front", "test:workflow-1"], "value": {"secure": true, "value": "value"}}
     When the request is sent
     Then the response status is 400 Invalid request
 
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Create a global variable returns "OK" response
     Given new "CreateGlobalVariable" request
-    And body with value {"attributes": {"restricted_roles": [null]}, "description": "Example description", "name": "MY_VARIABLE", "parse_test_options": {"field": "content-type", "parser": {"type": "regex", "value": ".*"}, "type": "http_body"}, "parse_test_public_id": "abc-def-123", "tags": ["team:front", "test:workflow-1"], "value": {"secure": true, "value": "value"}}
+    And body with value {"attributes": {"restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]}, "description": "Example description", "name": "MY_VARIABLE", "parse_test_options": {"field": "content-type", "parser": {"type": "regex", "value": ".*"}, "type": "http_body"}, "parse_test_public_id": "abc-def-123", "tags": ["team:front", "test:workflow-1"], "value": {"secure": true, "value": "value"}}
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/synthetics-app
+  @team:DataDog/synthetics-app
   Scenario: Create a private location returns "OK" response
-    Given new "CreatePrivateLocation" request
-    And body with value {"description": "Description of private location", "name": "New private location", "tags": ["team:front"]}
+    Given there is a valid "role" in the system
+    And new "CreatePrivateLocation" request
+    And body with value {"description": "Test {{ unique }} description", "metadata": {"restricted_roles": ["{{ role.data.id }}"]}, "name": "{{ unique }}", "tags": ["test:{{ unique_lower_alnum }}"]}
     When the request is sent
     Then the response status is 200 OK
 
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Create a private location returns "Private locations are not activated for the user" response
     Given new "CreatePrivateLocation" request
-    And body with value {"description": "Description of private location", "name": "New private location", "tags": ["team:front"]}
+    And body with value {"description": "Description of private location", "metadata": {"restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]}, "name": "New private location", "tags": ["team:front"]}
     When the request is sent
     Then the response status is 404 Private locations are not activated for the user
 
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Create a private location returns "Quota reached for private locations" response
     Given new "CreatePrivateLocation" request
-    And body with value {"description": "Description of private location", "name": "New private location", "tags": ["team:front"]}
+    And body with value {"description": "Description of private location", "metadata": {"restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]}, "name": "New private location", "tags": ["team:front"]}
     When the request is sent
     Then the response status is 402 Quota reached for private locations
 
@@ -107,21 +108,21 @@ Feature: Synthetics
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Create an API test returns "- JSON format is wrong" response
     Given new "CreateSyntheticsAPITest" request
-    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
+    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
     When the request is sent
     Then the response status is 400 - JSON format is wrong
 
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Create an API test returns "OK - Returns the created test details." response
     Given new "CreateSyntheticsAPITest" request
-    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
+    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
     When the request is sent
     Then the response status is 200 OK - Returns the created test details.
 
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Create an API test returns "Test quota is reached" response
     Given new "CreateSyntheticsAPITest" request
-    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
+    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
     When the request is sent
     Then the response status is 402 Test quota is reached
 
@@ -213,7 +214,7 @@ Feature: Synthetics
   Scenario: Edit a browser test returns "- JSON format is wrong" response
     Given new "UpdateBrowserTest" request
     And request contains "public_id" parameter from "REPLACE.ME"
-    And body with value {"config": {"assertions": [], "configVariables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}], "request": {"allow_insecure": null, "basicAuth": {"password": "", "type": "web", "username": ""}, "body": null, "certificate": {"cert": {"content": null, "filename": null, "updatedAt": null}, "key": {"content": null, "filename": null, "updatedAt": null}}, "dnsServer": null, "dnsServerPort": null, "follow_redirects": null, "headers": null, "host": null, "message": null, "method": "GET", "noSavingResponseBody": null, "numberOfPackets": null, "port": null, "proxy": {"headers": null, "url": "https://example.com"}, "query": null, "servername": null, "shouldTrackHops": null, "timeout": null, "url": "https://example.com"}, "setCookie": null, "variables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}]}, "locations": ["example-location"], "message": "", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "steps": [{"allowFailure": null, "isCritical": null, "name": null, "params": null, "timeout": null, "type": "assertElementContent"}], "tags": [null], "type": "browser"}
+    And body with value {"config": {"assertions": [], "configVariables": [{"name": "VARIABLE_NAME", "type": "text"}], "request": {"basicAuth": {"password": "PaSSw0RD!", "type": "web", "username": "my_username"}, "certificate": {"cert": {}, "key": {}}, "method": "GET", "proxy": {"url": "https://example.com"}, "url": "https://example.com"}, "variables": [{"name": "VARIABLE_NAME", "type": "text"}]}, "locations": ["aws:eu-west-3"], "message": "", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "steps": [{"type": "assertElementContent"}], "tags": ["env:prod"], "type": "browser"}
     When the request is sent
     Then the response status is 400 - JSON format is wrong
 
@@ -221,7 +222,7 @@ Feature: Synthetics
   Scenario: Edit a browser test returns "- Synthetic Monitoring is not activated for the user" response
     Given new "UpdateBrowserTest" request
     And request contains "public_id" parameter from "REPLACE.ME"
-    And body with value {"config": {"assertions": [], "configVariables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}], "request": {"allow_insecure": null, "basicAuth": {"password": "", "type": "web", "username": ""}, "body": null, "certificate": {"cert": {"content": null, "filename": null, "updatedAt": null}, "key": {"content": null, "filename": null, "updatedAt": null}}, "dnsServer": null, "dnsServerPort": null, "follow_redirects": null, "headers": null, "host": null, "message": null, "method": "GET", "noSavingResponseBody": null, "numberOfPackets": null, "port": null, "proxy": {"headers": null, "url": "https://example.com"}, "query": null, "servername": null, "shouldTrackHops": null, "timeout": null, "url": "https://example.com"}, "setCookie": null, "variables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}]}, "locations": ["example-location"], "message": "", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "steps": [{"allowFailure": null, "isCritical": null, "name": null, "params": null, "timeout": null, "type": "assertElementContent"}], "tags": [null], "type": "browser"}
+    And body with value {"config": {"assertions": [], "configVariables": [{"name": "VARIABLE_NAME", "type": "text"}], "request": {"basicAuth": {"password": "PaSSw0RD!", "type": "web", "username": "my_username"}, "certificate": {"cert": {}, "key": {}}, "method": "GET", "proxy": {"url": "https://example.com"}, "url": "https://example.com"}, "variables": [{"name": "VARIABLE_NAME", "type": "text"}]}, "locations": ["aws:eu-west-3"], "message": "", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "steps": [{"type": "assertElementContent"}], "tags": ["env:prod"], "type": "browser"}
     When the request is sent
     Then the response status is 404 - Synthetic Monitoring is not activated for the user
 
@@ -229,7 +230,7 @@ Feature: Synthetics
   Scenario: Edit a browser test returns "OK" response
     Given new "UpdateBrowserTest" request
     And request contains "public_id" parameter from "REPLACE.ME"
-    And body with value {"config": {"assertions": [], "configVariables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}], "request": {"allow_insecure": null, "basicAuth": {"password": "", "type": "web", "username": ""}, "body": null, "certificate": {"cert": {"content": null, "filename": null, "updatedAt": null}, "key": {"content": null, "filename": null, "updatedAt": null}}, "dnsServer": null, "dnsServerPort": null, "follow_redirects": null, "headers": null, "host": null, "message": null, "method": "GET", "noSavingResponseBody": null, "numberOfPackets": null, "port": null, "proxy": {"headers": null, "url": "https://example.com"}, "query": null, "servername": null, "shouldTrackHops": null, "timeout": null, "url": "https://example.com"}, "setCookie": null, "variables": [{"example": null, "id": null, "name": "VARIABLE_NAME", "pattern": null, "type": "text"}]}, "locations": ["example-location"], "message": "", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "steps": [{"allowFailure": null, "isCritical": null, "name": null, "params": null, "timeout": null, "type": "assertElementContent"}], "tags": [null], "type": "browser"}
+    And body with value {"config": {"assertions": [], "configVariables": [{"name": "VARIABLE_NAME", "type": "text"}], "request": {"basicAuth": {"password": "PaSSw0RD!", "type": "web", "username": "my_username"}, "certificate": {"cert": {}, "key": {}}, "method": "GET", "proxy": {"url": "https://example.com"}, "url": "https://example.com"}, "variables": [{"name": "VARIABLE_NAME", "type": "text"}]}, "locations": ["aws:eu-west-3"], "message": "", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "steps": [{"type": "assertElementContent"}], "tags": ["env:prod"], "type": "browser"}
     When the request is sent
     Then the response status is 200 OK
 
@@ -237,7 +238,7 @@ Feature: Synthetics
   Scenario: Edit a global variable returns "Invalid request" response
     Given new "EditGlobalVariable" request
     And request contains "variable_id" parameter from "REPLACE.ME"
-    And body with value {"attributes": {"restricted_roles": [null]}, "description": "Example description", "name": "MY_VARIABLE", "parse_test_options": {"field": "content-type", "parser": {"type": "regex", "value": ".*"}, "type": "http_body"}, "parse_test_public_id": "abc-def-123", "tags": ["team:front", "test:workflow-1"], "value": {"secure": true, "value": "value"}}
+    And body with value {"attributes": {"restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]}, "description": "Example description", "name": "MY_VARIABLE", "parse_test_options": {"field": "content-type", "parser": {"type": "regex", "value": ".*"}, "type": "http_body"}, "parse_test_public_id": "abc-def-123", "tags": ["team:front", "test:workflow-1"], "value": {"secure": true, "value": "value"}}
     When the request is sent
     Then the response status is 400 Invalid request
 
@@ -245,7 +246,7 @@ Feature: Synthetics
   Scenario: Edit a global variable returns "OK" response
     Given new "EditGlobalVariable" request
     And request contains "variable_id" parameter from "REPLACE.ME"
-    And body with value {"attributes": {"restricted_roles": [null]}, "description": "Example description", "name": "MY_VARIABLE", "parse_test_options": {"field": "content-type", "parser": {"type": "regex", "value": ".*"}, "type": "http_body"}, "parse_test_public_id": "abc-def-123", "tags": ["team:front", "test:workflow-1"], "value": {"secure": true, "value": "value"}}
+    And body with value {"attributes": {"restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]}, "description": "Example description", "name": "MY_VARIABLE", "parse_test_options": {"field": "content-type", "parser": {"type": "regex", "value": ".*"}, "type": "http_body"}, "parse_test_public_id": "abc-def-123", "tags": ["team:front", "test:workflow-1"], "value": {"secure": true, "value": "value"}}
     When the request is sent
     Then the response status is 200 OK
 
@@ -253,7 +254,7 @@ Feature: Synthetics
   Scenario: Edit a private location returns "- Private locations are not activated for the user" response
     Given new "UpdatePrivateLocation" request
     And request contains "location_id" parameter from "REPLACE.ME"
-    And body with value {"description": "Description of private location", "name": "New private location", "tags": ["team:front"]}
+    And body with value {"description": "Description of private location", "metadata": {"restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]}, "name": "New private location", "tags": ["team:front"]}
     When the request is sent
     Then the response status is 404 - Private locations are not activated for the user
 
@@ -261,7 +262,7 @@ Feature: Synthetics
   Scenario: Edit a private location returns "OK" response
     Given new "UpdatePrivateLocation" request
     And request contains "location_id" parameter from "REPLACE.ME"
-    And body with value {"description": "Description of private location", "name": "New private location", "tags": ["team:front"]}
+    And body with value {"description": "Description of private location", "metadata": {"restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]}, "name": "New private location", "tags": ["team:front"]}
     When the request is sent
     Then the response status is 200 OK
 
@@ -269,7 +270,7 @@ Feature: Synthetics
   Scenario: Edit an API test returns "- JSON format is wrong" response
     Given new "UpdateAPITest" request
     And request contains "public_id" parameter from "REPLACE.ME"
-    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
+    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
     When the request is sent
     Then the response status is 400 - JSON format is wrong
 
@@ -277,7 +278,7 @@ Feature: Synthetics
   Scenario: Edit an API test returns "- Synthetic Monitoring is not activated for the user" response
     Given new "UpdateAPITest" request
     And request contains "public_id" parameter from "REPLACE.ME"
-    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"accept_self_signed": null, "allow_insecure": null, "checkCertificateRevocation": null, "device_ids": ["laptop_large"], "disableCors": null, "follow_redirects": null, "min_failure_duration": null, "min_location_failed": null, "monitor_name": null, "monitor_options": {"renotify_interval": null}, "monitor_priority": null, "noScreenshot": null, "retry": {"count": null, "interval": null}, "tick_every": null}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
+    And body with value {"config": {"assertions": [{"operator": "lessThan", "target": 1000, "type": "responseTime"}], "request": {"method": "GET", "url": "https://example.com"}}, "locations": ["aws:eu-west-3"], "message": "Notification message", "name": "Example test name", "options": {"device_ids": ["laptop_large"], "monitor_options": {}, "restricted_roles": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], "retry": {}}, "status": "live", "subtype": "http", "tags": ["env:production"], "type": "api"}
     When the request is sent
     Then the response status is 404 - Synthetic Monitoring is not activated for the user
 
@@ -498,7 +499,7 @@ Feature: Synthetics
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Trigger Synthetics tests returns "Bad Request" response
     Given new "TriggerTests" request
-    And body with value {"tests": [{"metadata": {"ci": {"pipeline": {"url": null}, "provider": {"name": null}}, "git": {"branch": null, "commitSha": null}}, "public_id": "aaa-aaa-aaa"}]}
+    And body with value {"tests": [{"metadata": {"ci": {"pipeline": {}, "provider": {}}, "git": {}}, "public_id": "aaa-aaa-aaa"}]}
     When the request is sent
     Then the response status is 400 Bad Request
 
@@ -513,13 +514,13 @@ Feature: Synthetics
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Trigger tests from CI/CD pipelines returns "JSON format is wrong" response
     Given new "TriggerCITests" request
-    And body with value {"tests": [{"allowInsecureCertificates": null, "basicAuth": {"password": "", "type": "web", "username": ""}, "body": null, "bodyType": null, "cookies": null, "deviceIds": ["laptop_large"], "followRedirects": null, "headers": null, "locations": [null], "metadata": {"ci": {"pipeline": {"url": null}, "provider": {"name": null}}, "git": {"branch": null, "commitSha": null}}, "public_id": "aaa-aaa-aaa", "retry": {"count": null, "interval": null}, "startUrl": null, "variables": null}]}
+    And body with value {"tests": [{"basicAuth": {"password": "PaSSw0RD!", "type": "web", "username": "my_username"}, "deviceIds": ["laptop_large"], "locations": ["aws:eu-west-3"], "metadata": {"ci": {"pipeline": {}, "provider": {}}, "git": {}}, "public_id": "aaa-aaa-aaa", "retry": {}}]}
     When the request is sent
     Then the response status is 400 JSON format is wrong
 
   @generated @skip @team:DataDog/synthetics-app
   Scenario: Trigger tests from CI/CD pipelines returns "OK" response
     Given new "TriggerCITests" request
-    And body with value {"tests": [{"allowInsecureCertificates": null, "basicAuth": {"password": "", "type": "web", "username": ""}, "body": null, "bodyType": null, "cookies": null, "deviceIds": ["laptop_large"], "followRedirects": null, "headers": null, "locations": [null], "metadata": {"ci": {"pipeline": {"url": null}, "provider": {"name": null}}, "git": {"branch": null, "commitSha": null}}, "public_id": "aaa-aaa-aaa", "retry": {"count": null, "interval": null}, "startUrl": null, "variables": null}]}
+    And body with value {"tests": [{"basicAuth": {"password": "PaSSw0RD!", "type": "web", "username": "my_username"}, "deviceIds": ["laptop_large"], "locations": ["aws:eu-west-3"], "metadata": {"ci": {"pipeline": {}, "provider": {}}, "git": {}}, "public_id": "aaa-aaa-aaa", "retry": {}}]}
     When the request is sent
     Then the response status is 200 OK

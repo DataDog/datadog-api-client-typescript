@@ -9,7 +9,7 @@
  */
 
 import { UserUpdateData } from "./UserUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Update a user.

@@ -359,6 +359,7 @@ import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
 import { SyntheticsPrivateLocation } from "./SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "./SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsPrivateLocationCreationResponseResultEncryption } from "./SyntheticsPrivateLocationCreationResponseResultEncryption";
+import { SyntheticsPrivateLocationMetadata } from "./SyntheticsPrivateLocationMetadata";
 import { SyntheticsPrivateLocationSecrets } from "./SyntheticsPrivateLocationSecrets";
 import { SyntheticsPrivateLocationSecretsAuthentication } from "./SyntheticsPrivateLocationSecretsAuthentication";
 import { SyntheticsPrivateLocationSecretsConfigDecryption } from "./SyntheticsPrivateLocationSecretsConfigDecryption";
@@ -388,6 +389,7 @@ import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TableWidgetRequest } from "./TableWidgetRequest";
 import { TagToHosts } from "./TagToHosts";
+import { TimeseriesBackground } from "./TimeseriesBackground";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
@@ -446,6 +448,8 @@ import { UsageNetworkFlowsHour } from "./UsageNetworkFlowsHour";
 import { UsageNetworkFlowsResponse } from "./UsageNetworkFlowsResponse";
 import { UsageNetworkHostsHour } from "./UsageNetworkHostsHour";
 import { UsageNetworkHostsResponse } from "./UsageNetworkHostsResponse";
+import { UsageOnlineArchiveHour } from "./UsageOnlineArchiveHour";
+import { UsageOnlineArchiveResponse } from "./UsageOnlineArchiveResponse";
 import { UsageProfilingHour } from "./UsageProfilingHour";
 import { UsageProfilingResponse } from "./UsageProfilingResponse";
 import { UsageRumSessionsHour } from "./UsageRumSessionsHour";
@@ -474,6 +478,7 @@ import { UsageTimeseriesHour } from "./UsageTimeseriesHour";
 import { UsageTimeseriesResponse } from "./UsageTimeseriesResponse";
 import { UsageTopAvgMetricsHour } from "./UsageTopAvgMetricsHour";
 import { UsageTopAvgMetricsMetadata } from "./UsageTopAvgMetricsMetadata";
+import { UsageTopAvgMetricsPagination } from "./UsageTopAvgMetricsPagination";
 import { UsageTopAvgMetricsResponse } from "./UsageTopAvgMetricsResponse";
 import { User } from "./User";
 import { UserDisableResponse } from "./UserDisableResponse";
@@ -497,7 +502,8 @@ import { WidgetMarker } from "./WidgetMarker";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetStyle } from "./WidgetStyle";
 import { WidgetTime } from "./WidgetTime";
-import { logger } from "../../../index";
+import { UnparsedObject } from "../util";
+import { logger } from "../../../logger";
 
 const primitives = [
   "string",
@@ -641,7 +647,13 @@ const enumsMap: { [key: string]: any[] } = {
   ImageWidgetDefinitionType: ["image"],
   ListStreamColumnWidth: ["auto", "compact", "full"],
   ListStreamResponseFormat: ["event_list"],
-  ListStreamSource: ["issue_stream", "logs_stream", "audit_stream"],
+  ListStreamSource: [
+    "issue_stream",
+    "logs_stream",
+    "audit_stream",
+    "rum_issue_stream",
+    "apm_issue_stream",
+  ],
   ListStreamWidgetDefinitionType: ["list_stream"],
   LogStreamWidgetDefinitionType: ["log_stream"],
   LogsArithmeticProcessorType: ["arithmetic-processor"],
@@ -686,7 +698,7 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
     "avg",
   ],
-  MonitorFormulaAndFunctionEventsDataSource: ["rum"],
+  MonitorFormulaAndFunctionEventsDataSource: ["rum", "ci_pipelines"],
   MonitorOverallStates: [
     "Alert",
     "Ignored",
@@ -713,6 +725,7 @@ const enumsMap: { [key: string]: any[] } = {
     "event-v2 alert",
     "audit alert",
     "ci-pipelines alert",
+    "error-tracking alert",
   ],
   MonthlyUsageAttributionSupportedMetrics: [
     "api_usage",
@@ -981,6 +994,7 @@ const enumsMap: { [key: string]: any[] } = {
   TableWidgetDefinitionType: ["query_table"],
   TableWidgetHasSearchBar: ["always", "never", "auto"],
   TargetFormatType: ["auto", "string", "integer", "double"],
+  TimeseriesBackgroundType: ["bars", "area"],
   TimeseriesWidgetDefinitionType: ["timeseries"],
   TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
   TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
@@ -1010,8 +1024,6 @@ const enumsMap: { [key: string]: any[] } = {
     "lambda_functions_percentage",
     "lambda_invocations_usage",
     "lambda_invocations_percentage",
-    "lambda_usage",
-    "lambda_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
   ],
@@ -1025,14 +1037,12 @@ const enumsMap: { [key: string]: any[] } = {
     "infra_host_usage",
     "custom_timeseries_percentage",
     "container_percentage",
-    "lambda_usage",
     "api_usage",
     "apm_host_percentage",
     "infra_host_percentage",
     "snmp_usage",
     "browser_percentage",
     "api_percentage",
-    "lambda_percentage",
     "npm_host_usage",
     "lambda_functions_usage",
     "lambda_functions_percentage",
@@ -1549,6 +1559,7 @@ const typeMap: { [index: string]: any } = {
     SyntheticsPrivateLocationCreationResponse,
   SyntheticsPrivateLocationCreationResponseResultEncryption:
     SyntheticsPrivateLocationCreationResponseResultEncryption,
+  SyntheticsPrivateLocationMetadata: SyntheticsPrivateLocationMetadata,
   SyntheticsPrivateLocationSecrets: SyntheticsPrivateLocationSecrets,
   SyntheticsPrivateLocationSecretsAuthentication:
     SyntheticsPrivateLocationSecretsAuthentication,
@@ -1581,6 +1592,7 @@ const typeMap: { [index: string]: any } = {
   TableWidgetDefinition: TableWidgetDefinition,
   TableWidgetRequest: TableWidgetRequest,
   TagToHosts: TagToHosts,
+  TimeseriesBackground: TimeseriesBackground,
   TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
   TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,
@@ -1641,6 +1653,8 @@ const typeMap: { [index: string]: any } = {
   UsageNetworkFlowsResponse: UsageNetworkFlowsResponse,
   UsageNetworkHostsHour: UsageNetworkHostsHour,
   UsageNetworkHostsResponse: UsageNetworkHostsResponse,
+  UsageOnlineArchiveHour: UsageOnlineArchiveHour,
+  UsageOnlineArchiveResponse: UsageOnlineArchiveResponse,
   UsageProfilingHour: UsageProfilingHour,
   UsageProfilingResponse: UsageProfilingResponse,
   UsageRumSessionsHour: UsageRumSessionsHour,
@@ -1669,6 +1683,7 @@ const typeMap: { [index: string]: any } = {
   UsageTimeseriesResponse: UsageTimeseriesResponse,
   UsageTopAvgMetricsHour: UsageTopAvgMetricsHour,
   UsageTopAvgMetricsMetadata: UsageTopAvgMetricsMetadata,
+  UsageTopAvgMetricsPagination: UsageTopAvgMetricsPagination,
   UsageTopAvgMetricsResponse: UsageTopAvgMetricsResponse,
   User: User,
   UserDisableResponse: UserDisableResponse,
@@ -2090,19 +2105,3 @@ export class ObjectSerializer {
     }
   }
 }
-
-export class UnparsedObject {
-  unparsedObject: any;
-  constructor(data: any) {
-    this.unparsedObject = data;
-  }
-}
-
-export type AttributeTypeMap = {
-  [key: string]: {
-    baseName: string;
-    type: string;
-    required?: boolean;
-    format?: string;
-  };
-};

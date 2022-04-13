@@ -9,7 +9,7 @@
  */
 
 import { MonthlyUsageAttributionValues } from "./MonthlyUsageAttributionValues";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Usage Summary by tag for a given organization.

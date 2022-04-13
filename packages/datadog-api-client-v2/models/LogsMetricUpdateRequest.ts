@@ -9,7 +9,7 @@
  */
 
 import { LogsMetricUpdateData } from "./LogsMetricUpdateData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The new log-based metric body.

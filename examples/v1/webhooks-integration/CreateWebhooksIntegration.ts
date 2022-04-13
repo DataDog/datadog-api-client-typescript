@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.WebhooksIntegrationApi(configuration);
 
-let params: v1.WebhooksIntegrationApiCreateWebhooksIntegrationRequest = {
+const params: v1.WebhooksIntegrationApiCreateWebhooksIntegrationRequest = {
   body: {
     name: "Example-Create_a_webhooks_integration_returns_OK_response",
     url: "https://example.com/webhook",

@@ -11,7 +11,7 @@
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Scatterplot request containing formulas and functions.
@@ -19,11 +19,11 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 
 export class ScatterplotTableRequest {
   /**
-   * List of Scatterplot formulas that operate on queries. **This feature is currently in beta.**
+   * List of Scatterplot formulas that operate on queries.
    */
   "formulas"?: Array<ScatterplotWidgetFormula>;
   /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   * List of queries that can be returned directly or used in formulas.
    */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   "responseFormat"?: FormulaAndFunctionResponseFormat;

@@ -10,7 +10,7 @@
 
 import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
 import { MetricIngestedIndexedVolumeType } from "./MetricIngestedIndexedVolumeType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object for a single metric's ingested and indexed volume.

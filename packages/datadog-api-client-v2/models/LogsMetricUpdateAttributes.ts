@@ -10,7 +10,7 @@
 
 import { LogsMetricFilter } from "./LogsMetricFilter";
 import { LogsMetricGroupBy } from "./LogsMetricGroupBy";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The log-based metric properties that will be updated.

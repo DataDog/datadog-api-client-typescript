@@ -10,7 +10,7 @@
 
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Data related to the update of a role.
@@ -19,7 +19,7 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class RoleUpdateData {
   "attributes": RoleUpdateAttributes;
   /**
-   * ID of the role.
+   * The unique identifier of the role.
    */
   "id": string;
   "type": RolesType;

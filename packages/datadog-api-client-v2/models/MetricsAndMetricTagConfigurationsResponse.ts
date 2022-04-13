@@ -9,7 +9,7 @@
  */
 
 import { MetricsAndMetricTagConfigurations } from "./MetricsAndMetricTagConfigurations";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response object that includes metrics and metric tag configurations.

@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 // there is a valid "security_rule" in the system
-let SECURITY_RULE_ID = process.env.SECURITY_RULE_ID as string;
+const SECURITY_RULE_ID = process.env.SECURITY_RULE_ID as string;
 
-let params: v2.SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest = {
+const params: v2.SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest = {
   ruleId: SECURITY_RULE_ID,
 };
 

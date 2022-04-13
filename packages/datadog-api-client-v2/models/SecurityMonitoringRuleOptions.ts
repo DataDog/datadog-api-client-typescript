@@ -14,7 +14,7 @@ import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitor
 import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Options on rules.

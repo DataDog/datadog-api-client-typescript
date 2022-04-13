@@ -11,7 +11,7 @@
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { WidgetFormula } from "./WidgetFormula";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * An updated treemap widget.
@@ -19,7 +19,7 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 
 export class TreeMapWidgetRequest {
   /**
-   * List of formulas that operate on queries. **This feature is currently in beta.**
+   * List of formulas that operate on queries.
    */
   "formulas"?: Array<WidgetFormula>;
   /**
@@ -27,7 +27,7 @@ export class TreeMapWidgetRequest {
    */
   "q"?: string;
   /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   * List of queries that can be returned directly or used in formulas.
    */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   "responseFormat"?: FormulaAndFunctionResponseFormat;

@@ -10,7 +10,7 @@
 
 import { Role } from "./Role";
 import { User } from "./User";
-import { UnparsedObject } from "./ObjectSerializer";
+import { UnparsedObject } from "../util";
 
 /**
  * An object related to an application key.

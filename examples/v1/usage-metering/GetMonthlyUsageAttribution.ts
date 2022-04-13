@@ -8,7 +8,7 @@ const configuration = v1.createConfiguration();
 configuration.unstableOperations["getMonthlyUsageAttribution"] = true;
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let params: v1.UsageMeteringApiGetMonthlyUsageAttributionRequest = {
+const params: v1.UsageMeteringApiGetMonthlyUsageAttributionRequest = {
   startMonth: new Date(new Date().getTime() / 1000 + -3 * 86400),
   fields: "infra_host_usage",
 };

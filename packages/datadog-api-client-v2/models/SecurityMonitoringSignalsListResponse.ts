@@ -11,7 +11,7 @@
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The response object with all security signals matching the request and pagination information.

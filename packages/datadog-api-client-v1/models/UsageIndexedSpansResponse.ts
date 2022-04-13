@@ -9,7 +9,7 @@
  */
 
 import { UsageIndexedSpansHour } from "./UsageIndexedSpansHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A response containing indexed spans usage.

@@ -10,7 +10,7 @@
 
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterMeta } from "./SecurityFilterMeta";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response object which includes a single security filter.

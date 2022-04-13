@@ -9,7 +9,7 @@
  */
 
 import { ListStreamSource } from "./ListStreamSource";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated list stream widget.

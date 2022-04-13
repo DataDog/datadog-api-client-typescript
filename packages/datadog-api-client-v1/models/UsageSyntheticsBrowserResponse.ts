@@ -9,7 +9,7 @@
  */
 
 import { UsageSyntheticsBrowserHour } from "./UsageSyntheticsBrowserHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the number of Synthetics Browser tests run for each hour for a given organization.

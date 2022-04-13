@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Global hourly report of all data billed by Datadog for a given organization.
@@ -208,6 +208,10 @@ export class UsageSummaryDateOrg {
    */
   "npmHostTop99p"?: number;
   /**
+   * Sum of all online archived events over all hours in the current date for the given org.
+   */
+  "onlineArchiveEventsCountSum"?: number;
+  /**
    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
    */
   "opentelemetryHostTop99p"?: number;
@@ -256,7 +260,7 @@ export class UsageSummaryDateOrg {
    */
   "traceSearchIndexedEventsCountSum"?: number;
   /**
-   * Shows the sum of all tracing without limits bytes ingested over all hours in the current date for the given org.
+   * Shows the sum of all ingested APM span bytes over all hours in the current date for the given org.
    */
   "twolIngestedEventsBytesSum"?: number;
   /**
@@ -508,6 +512,11 @@ export class UsageSummaryDateOrg {
     },
     npmHostTop99p: {
       baseName: "npm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    onlineArchiveEventsCountSum: {
+      baseName: "online_archive_events_count_sum",
       type: "number",
       format: "int64",
     },

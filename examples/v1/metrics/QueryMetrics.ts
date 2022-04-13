@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
-let params: v1.MetricsApiQueryMetricsRequest = {
+const params: v1.MetricsApiQueryMetricsRequest = {
   from: new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000,
   to: new Date().getTime() / 1000,
   query: "system.cpu.idle{*}",

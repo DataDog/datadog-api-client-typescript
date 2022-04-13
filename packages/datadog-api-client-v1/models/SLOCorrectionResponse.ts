@@ -9,7 +9,7 @@
  */
 
 import { SLOCorrection } from "./SLOCorrection";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The response object of an SLO correction.

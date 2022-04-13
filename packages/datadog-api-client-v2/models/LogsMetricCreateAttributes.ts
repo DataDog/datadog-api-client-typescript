@@ -11,7 +11,7 @@
 import { LogsMetricCompute } from "./LogsMetricCompute";
 import { LogsMetricFilter } from "./LogsMetricFilter";
 import { LogsMetricGroupBy } from "./LogsMetricGroupBy";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The object describing the Datadog log-based metric to create.

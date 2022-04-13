@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Fields in Usage Summary by tag(s).
@@ -135,14 +135,6 @@ export class UsageAttributionValues {
    * The Lambda invocation usage by tag(s).
    */
   "lambdaInvocationsUsage"?: number;
-  /**
-   * The percentage of Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_percentage instead.
-   */
-  "lambdaPercentage"?: number;
-  /**
-   * The Lambda function usage by tag(s).  **Note** this field is deprecated. Use lambda_functions_usage instead.
-   */
-  "lambdaUsage"?: number;
   /**
    * The percentage of network host usage by tag(s).
    */
@@ -332,16 +324,6 @@ export class UsageAttributionValues {
     },
     lambdaInvocationsUsage: {
       baseName: "lambda_invocations_usage",
-      type: "number",
-      format: "double",
-    },
-    lambdaPercentage: {
-      baseName: "lambda_percentage",
-      type: "number",
-      format: "double",
-    },
-    lambdaUsage: {
-      baseName: "lambda_usage",
       type: "number",
       format: "double",
     },

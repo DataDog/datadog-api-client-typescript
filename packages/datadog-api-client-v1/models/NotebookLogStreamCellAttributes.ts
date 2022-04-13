@@ -11,7 +11,7 @@
 import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The attributes of a notebook `log_stream` cell.

@@ -10,7 +10,7 @@
 
 import { UsageSpecifiedCustomReportsData } from "./UsageSpecifiedCustomReportsData";
 import { UsageSpecifiedCustomReportsMeta } from "./UsageSpecifiedCustomReportsMeta";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Returns available specified custom reports.

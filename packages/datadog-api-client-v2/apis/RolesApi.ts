@@ -1532,7 +1532,7 @@ export class RolesApiResponseProcessor {
 
 export interface RolesApiAddPermissionToRoleRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1545,7 +1545,7 @@ export interface RolesApiAddPermissionToRoleRequest {
 
 export interface RolesApiAddUserToRoleRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1558,7 +1558,7 @@ export interface RolesApiAddUserToRoleRequest {
 
 export interface RolesApiCloneRoleRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1579,7 +1579,7 @@ export interface RolesApiCreateRoleRequest {
 
 export interface RolesApiDeleteRoleRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1587,7 +1587,7 @@ export interface RolesApiDeleteRoleRequest {
 
 export interface RolesApiGetRoleRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1595,7 +1595,7 @@ export interface RolesApiGetRoleRequest {
 
 export interface RolesApiListRolePermissionsRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1603,7 +1603,7 @@ export interface RolesApiListRolePermissionsRequest {
 
 export interface RolesApiListRoleUsersRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1654,7 +1654,7 @@ export interface RolesApiListRolesRequest {
 
 export interface RolesApiRemovePermissionFromRoleRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1667,7 +1667,7 @@ export interface RolesApiRemovePermissionFromRoleRequest {
 
 export interface RolesApiRemoveUserFromRoleRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1680,7 +1680,7 @@ export interface RolesApiRemoveUserFromRoleRequest {
 
 export interface RolesApiUpdateRoleRequest {
   /**
-   * The ID of the role.
+   * The unique identifier of the role.
    * @type string
    */
   roleId: string;
@@ -1901,7 +1901,7 @@ export class RolesApi {
   }
 
   /**
-   * Returns all roles, including their names and IDs.
+   * Returns all roles, including their names and their unique identifiers.
    * @param param The request object
    */
   public listRoles(

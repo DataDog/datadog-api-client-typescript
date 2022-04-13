@@ -12,7 +12,7 @@ import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorF
 import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
 import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
 import { MonitorFormulaAndFunctionEventsDataSource } from "./MonitorFormulaAndFunctionEventsDataSource";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A formula and functions events query.

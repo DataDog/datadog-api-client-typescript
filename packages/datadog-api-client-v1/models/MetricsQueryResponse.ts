@@ -9,7 +9,7 @@
  */
 
 import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response Object that includes your query and the list of metrics retrieved.

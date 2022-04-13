@@ -10,7 +10,7 @@
 
 import { SLOCorrectionCreateRequestAttributes } from "./SLOCorrectionCreateRequestAttributes";
 import { SLOCorrectionType } from "./SLOCorrectionType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The data object associated with the SLO correction to be created.

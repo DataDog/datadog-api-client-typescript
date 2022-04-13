@@ -10,7 +10,7 @@
 
 import { UsageReportsType } from "./UsageReportsType";
 import { UsageSpecifiedCustomReportsAttributes } from "./UsageSpecifiedCustomReportsAttributes";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing date and type for specified custom reports.

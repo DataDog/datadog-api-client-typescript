@@ -16,6 +16,17 @@ import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { AuditLogsEvent } from "./AuditLogsEvent";
+import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
+import { AuditLogsEventsResponse } from "./AuditLogsEventsResponse";
+import { AuditLogsQueryFilter } from "./AuditLogsQueryFilter";
+import { AuditLogsQueryOptions } from "./AuditLogsQueryOptions";
+import { AuditLogsQueryPageOptions } from "./AuditLogsQueryPageOptions";
+import { AuditLogsResponseLinks } from "./AuditLogsResponseLinks";
+import { AuditLogsResponseMetadata } from "./AuditLogsResponseMetadata";
+import { AuditLogsResponsePage } from "./AuditLogsResponsePage";
+import { AuditLogsSearchEventsRequest } from "./AuditLogsSearchEventsRequest";
+import { AuditLogsWarning } from "./AuditLogsWarning";
 import { AuthNMapping } from "./AuthNMapping";
 import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
 import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
@@ -59,6 +70,7 @@ import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
 import { HTTPLogItem } from "./HTTPLogItem";
+import { IdPMetadataFormData } from "./IdPMetadataFormData";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
@@ -202,9 +214,18 @@ import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
+import { RUMAggregateRequest } from "./RUMAggregateRequest";
+import { RUMAggregateSort } from "./RUMAggregateSort";
+import { RUMAggregationBucketsResponse } from "./RUMAggregationBucketsResponse";
+import { RUMAnalyticsAggregateResponse } from "./RUMAnalyticsAggregateResponse";
+import { RUMBucketResponse } from "./RUMBucketResponse";
+import { RUMCompute } from "./RUMCompute";
 import { RUMEvent } from "./RUMEvent";
 import { RUMEventAttributes } from "./RUMEventAttributes";
 import { RUMEventsResponse } from "./RUMEventsResponse";
+import { RUMGroupBy } from "./RUMGroupBy";
+import { RUMGroupByHistogram } from "./RUMGroupByHistogram";
 import { RUMQueryFilter } from "./RUMQueryFilter";
 import { RUMQueryOptions } from "./RUMQueryOptions";
 import { RUMQueryPageOptions } from "./RUMQueryPageOptions";
@@ -309,7 +330,8 @@ import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersResponse } from "./UsersResponse";
-import { logger } from "../../../index";
+import { UnparsedObject } from "../util";
+import { logger } from "../../../logger";
 
 const primitives = [
   "string",
@@ -351,6 +373,9 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   ApplicationKeysType: ["application_keys"],
+  AuditLogsEventType: ["audit"],
+  AuditLogsResponseStatus: ["done", "timeout"],
+  AuditLogsSort: ["timestamp", "-timestamp"],
   AuthNMappingsSort: [
     "created_at",
     "-created_at",
@@ -404,6 +429,7 @@ const enumsMap: { [key: string]: any[] } = {
     "min",
     "max",
     "avg",
+    "median",
   ],
   LogsArchiveDestinationAzureType: ["azure"],
   LogsArchiveDestinationGCSType: ["gcs"],
@@ -428,9 +454,26 @@ const enumsMap: { [key: string]: any[] } = {
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
   QuerySortOrder: ["asc", "desc"],
+  RUMAggregateSortType: ["alphabetical", "measure"],
+  RUMAggregationFunction: [
+    "count",
+    "cardinality",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+    "median",
+  ],
+  RUMComputeType: ["timeseries", "total"],
   RUMEventType: ["rum"],
   RUMResponseStatus: ["done", "timeout"],
   RUMSort: ["timestamp", "-timestamp"],
+  RUMSortOrder: ["asc", "desc"],
   RolesSort: [
     "name",
     "-name",
@@ -502,6 +545,17 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  AuditLogsEvent: AuditLogsEvent,
+  AuditLogsEventAttributes: AuditLogsEventAttributes,
+  AuditLogsEventsResponse: AuditLogsEventsResponse,
+  AuditLogsQueryFilter: AuditLogsQueryFilter,
+  AuditLogsQueryOptions: AuditLogsQueryOptions,
+  AuditLogsQueryPageOptions: AuditLogsQueryPageOptions,
+  AuditLogsResponseLinks: AuditLogsResponseLinks,
+  AuditLogsResponseMetadata: AuditLogsResponseMetadata,
+  AuditLogsResponsePage: AuditLogsResponsePage,
+  AuditLogsSearchEventsRequest: AuditLogsSearchEventsRequest,
+  AuditLogsWarning: AuditLogsWarning,
   AuthNMapping: AuthNMapping,
   AuthNMappingAttributes: AuthNMappingAttributes,
   AuthNMappingCreateAttributes: AuthNMappingCreateAttributes,
@@ -556,6 +610,7 @@ const typeMap: { [index: string]: any } = {
   HTTPLogError: HTTPLogError,
   HTTPLogErrors: HTTPLogErrors,
   HTTPLogItem: HTTPLogItem,
+  IdPMetadataFormData: IdPMetadataFormData,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
   IncidentCreateRelationships: IncidentCreateRelationships,
@@ -705,9 +760,19 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
+  RUMAggregateBucketValueTimeseriesPoint:
+    RUMAggregateBucketValueTimeseriesPoint,
+  RUMAggregateRequest: RUMAggregateRequest,
+  RUMAggregateSort: RUMAggregateSort,
+  RUMAggregationBucketsResponse: RUMAggregationBucketsResponse,
+  RUMAnalyticsAggregateResponse: RUMAnalyticsAggregateResponse,
+  RUMBucketResponse: RUMBucketResponse,
+  RUMCompute: RUMCompute,
   RUMEvent: RUMEvent,
   RUMEventAttributes: RUMEventAttributes,
   RUMEventsResponse: RUMEventsResponse,
+  RUMGroupBy: RUMGroupBy,
+  RUMGroupByHistogram: RUMGroupByHistogram,
   RUMQueryFilter: RUMQueryFilter,
   RUMQueryOptions: RUMQueryOptions,
   RUMQueryPageOptions: RUMQueryPageOptions,
@@ -856,6 +921,13 @@ const oneOfMap: { [index: string]: string[] } = {
   LogsGroupByTotal: ["boolean", "number", "string"],
   MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
   MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
+  RUMAggregateBucketValue: [
+    "Array<RUMAggregateBucketValueTimeseriesPoint>",
+    "number",
+    "string",
+  ],
+  RUMGroupByMissing: ["number", "string"],
+  RUMGroupByTotal: ["boolean", "number", "string"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };
 
@@ -1149,19 +1221,3 @@ export class ObjectSerializer {
     }
   }
 }
-
-export class UnparsedObject {
-  unparsedObject: any;
-  constructor(data: any) {
-    this.unparsedObject = data;
-  }
-}
-
-export type AttributeTypeMap = {
-  [key: string]: {
-    baseName: string;
-    type: string;
-    required?: boolean;
-    format?: string;
-  };
-};

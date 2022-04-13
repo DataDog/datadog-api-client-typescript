@@ -7,7 +7,7 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.LogsApi(configuration);
 
-let params: v2.LogsApiAggregateLogsRequest = {
+const params: v2.LogsApiAggregateLogsRequest = {
   body: {
     compute: [
       {
@@ -32,7 +32,7 @@ let params: v2.LogsApiAggregateLogsRequest = {
           aggregation: "pc90",
           metric: "@duration",
         },
-        total: "recall",
+        total: true,
       },
     ],
   },

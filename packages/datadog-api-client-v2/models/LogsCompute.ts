@@ -10,7 +10,7 @@
 
 import { LogsAggregationFunction } from "./LogsAggregationFunction";
 import { LogsComputeType } from "./LogsComputeType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * A compute rule to compute metrics or timeseries

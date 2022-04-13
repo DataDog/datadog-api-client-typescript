@@ -12,7 +12,7 @@ import { ListStreamWidgetDefinitionType } from "./ListStreamWidgetDefinitionType
 import { ListStreamWidgetRequest } from "./ListStreamWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The list stream visualization displays a table of recent events in your application that match a search criteria using user-defined columns.

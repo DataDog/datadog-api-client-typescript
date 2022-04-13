@@ -11,7 +11,7 @@
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 import { RolesType } from "./RolesType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Role object returned by the API.
@@ -20,7 +20,7 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 export class RoleUpdateResponseData {
   "attributes"?: RoleUpdateAttributes;
   /**
-   * ID of the role.
+   * The unique identifier of the role.
    */
   "id"?: string;
   "relationships"?: RoleResponseRelationships;

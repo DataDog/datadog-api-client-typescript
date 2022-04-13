@@ -10,7 +10,7 @@
 
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeysType } from "./ApplicationKeysType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object used to create an application key.

@@ -10,7 +10,7 @@
 
 import { UserInvitationDataAttributes } from "./UserInvitationDataAttributes";
 import { UserInvitationsType } from "./UserInvitationsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object of a user invitation returned by the API.

@@ -10,7 +10,7 @@
 
 import { FunnelSource } from "./FunnelSource";
 import { FunnelStep } from "./FunnelStep";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated funnel widget.

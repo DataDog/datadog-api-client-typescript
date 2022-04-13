@@ -9,7 +9,7 @@
  */
 
 import { RelationshipToRoleData } from "./RelationshipToRoleData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Relationship to role.

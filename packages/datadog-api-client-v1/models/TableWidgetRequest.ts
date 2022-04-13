@@ -18,7 +18,7 @@ import { WidgetAggregator } from "./WidgetAggregator";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSort } from "./WidgetSort";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated table widget.
@@ -42,7 +42,7 @@ export class TableWidgetRequest {
   "conditionalFormats"?: Array<WidgetConditionalFormat>;
   "eventQuery"?: LogQueryDefinition;
   /**
-   * List of formulas that operate on queries. **This feature is currently in beta.**
+   * List of formulas that operate on queries.
    */
   "formulas"?: Array<WidgetFormula>;
   /**
@@ -59,7 +59,7 @@ export class TableWidgetRequest {
    */
   "q"?: string;
   /**
-   * List of queries that can be returned directly or used in formulas. **This feature is currently in beta.**
+   * List of queries that can be returned directly or used in formulas.
    */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   "responseFormat"?: FormulaAndFunctionResponseFormat;

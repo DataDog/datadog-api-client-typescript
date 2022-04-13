@@ -8,7 +8,7 @@
  * Do not edit the class manually.
  */
 
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Attributes of the global variable.
@@ -16,7 +16,7 @@ import { AttributeTypeMap } from "./ObjectSerializer";
 
 export class SyntheticsGlobalVariableAttributes {
   /**
-   * List of role identifiers that can be pulled from the Roles API.
+   * A list of role identifiers that can be pulled from the Roles API, for restricting read and write access.
    */
   "restrictedRoles"?: Array<string>;
 

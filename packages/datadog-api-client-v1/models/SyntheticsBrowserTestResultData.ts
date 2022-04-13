@@ -11,7 +11,7 @@
 import { SyntheticsBrowserTestResultFailure } from "./SyntheticsBrowserTestResultFailure";
 import { SyntheticsDevice } from "./SyntheticsDevice";
 import { SyntheticsStepDetail } from "./SyntheticsStepDetail";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object containing results for your Synthetic browser test.

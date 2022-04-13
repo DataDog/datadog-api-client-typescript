@@ -9,7 +9,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 // there is a valid "monitor" in the system
 
-let params: v1.DashboardsApiCreateDashboardRequest = {
+const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     title: "Example-Create_a_new_dashboard_with_alert_graph_widget",
     description: "",
@@ -27,7 +27,7 @@ let params: v1.DashboardsApiCreateDashboardRequest = {
           titleAlign: "left",
           time: {},
           type: "alert_graph",
-          alertId: "1",
+          alertId: "7",
           vizType: "timeseries",
         },
       },

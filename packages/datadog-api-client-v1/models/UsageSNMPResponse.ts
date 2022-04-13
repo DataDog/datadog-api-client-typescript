@@ -9,7 +9,7 @@
  */
 
 import { UsageSNMPHour } from "./UsageSNMPHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the number of SNMP devices for each hour for a given organization.

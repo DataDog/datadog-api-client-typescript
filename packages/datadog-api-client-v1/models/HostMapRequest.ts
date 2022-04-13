@@ -10,7 +10,7 @@
 
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Updated host map.

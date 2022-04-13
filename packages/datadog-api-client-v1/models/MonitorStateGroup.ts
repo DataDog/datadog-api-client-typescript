@@ -9,7 +9,7 @@
  */
 
 import { MonitorOverallStates } from "./MonitorOverallStates";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Monitor state for a single group.

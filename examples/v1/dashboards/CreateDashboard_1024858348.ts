@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
-let params: v1.DashboardsApiCreateDashboardRequest = {
+const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     title:
       "Example-Create_a_new_dashboard_with_a_formulas_and_functions_treemap_widget",

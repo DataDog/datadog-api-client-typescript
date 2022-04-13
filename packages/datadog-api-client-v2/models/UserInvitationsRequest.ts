@@ -9,7 +9,7 @@
  */
 
 import { UserInvitationData } from "./UserInvitationData";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object to invite users to join the organization.

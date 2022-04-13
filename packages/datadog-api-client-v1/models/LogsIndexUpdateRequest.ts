@@ -10,7 +10,7 @@
 
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsFilter } from "./LogsFilter";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object for updating a Datadog Log index.

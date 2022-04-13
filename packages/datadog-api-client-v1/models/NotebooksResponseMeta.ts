@@ -9,7 +9,7 @@
  */
 
 import { NotebooksResponsePage } from "./NotebooksResponsePage";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Searches metadata returned by the API.

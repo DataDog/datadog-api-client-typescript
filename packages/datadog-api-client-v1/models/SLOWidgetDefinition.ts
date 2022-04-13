@@ -12,7 +12,7 @@ import { SLOWidgetDefinitionType } from "./SLOWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTimeWindows } from "./WidgetTimeWindows";
 import { WidgetViewMode } from "./WidgetViewMode";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.

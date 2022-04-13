@@ -9,7 +9,7 @@
  */
 
 import { UsageIngestedSpansHour } from "./UsageIngestedSpansHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the ingested spans usage for each hour for a given organization.

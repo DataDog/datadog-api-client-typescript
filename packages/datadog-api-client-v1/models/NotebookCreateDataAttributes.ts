@@ -12,7 +12,7 @@ import { NotebookCellCreateRequest } from "./NotebookCellCreateRequest";
 import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The data attributes of a notebook.

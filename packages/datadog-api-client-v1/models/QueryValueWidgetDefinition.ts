@@ -10,10 +10,11 @@
 
 import { QueryValueWidgetDefinitionType } from "./QueryValueWidgetDefinitionType";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
+import { TimeseriesBackground } from "./TimeseriesBackground";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Query values display the current value of a given metric, APM, or log query.
@@ -42,6 +43,7 @@ export class QueryValueWidgetDefinition {
   "requests": Array<QueryValueWidgetRequest>;
   "textAlign"?: WidgetTextAlign;
   "time"?: WidgetTime;
+  "timeseriesBackground"?: TimeseriesBackground;
   /**
    * Title of your widget.
    */
@@ -91,6 +93,10 @@ export class QueryValueWidgetDefinition {
     time: {
       baseName: "time",
       type: "WidgetTime",
+    },
+    timeseriesBackground: {
+      baseName: "timeseries_background",
+      type: "TimeseriesBackground",
     },
     title: {
       baseName: "title",

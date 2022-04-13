@@ -9,7 +9,7 @@
  */
 
 import { RelationshipToUser } from "./RelationshipToUser";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The incident team's relationships.

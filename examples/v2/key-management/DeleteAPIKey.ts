@@ -8,9 +8,9 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
 // there is a valid "api_key" in the system
-let API_KEY_DATA_ID = process.env.API_KEY_DATA_ID as string;
+const API_KEY_DATA_ID = process.env.API_KEY_DATA_ID as string;
 
-let params: v2.KeyManagementApiDeleteAPIKeyRequest = {
+const params: v2.KeyManagementApiDeleteAPIKeyRequest = {
   apiKeyId: API_KEY_DATA_ID,
 };
 

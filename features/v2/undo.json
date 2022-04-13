@@ -60,6 +60,18 @@
       "type": "idempotent"
     }
   },
+  "ListAuditLogs": {
+    "tag": "Audit",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "SearchAuditLogs": {
+    "tag": "Audit",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "ListAuthNMappings": {
     "tag": "AuthN Mappings",
     "undo": {
@@ -489,6 +501,12 @@
       "type": "safe"
     }
   },
+  "AggregateRUMEvents": {
+    "tag": "RUM",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "ListRUMEvents": {
     "tag": "RUM",
     "undo": {
@@ -499,6 +517,12 @@
     "tag": "RUM",
     "undo": {
       "type": "safe"
+    }
+  },
+  "UploadIdPMetadata": {
+    "tag": "Organizations",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "DownloadCloudWorkloadPolicyFile": {

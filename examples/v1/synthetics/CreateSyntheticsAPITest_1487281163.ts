@@ -7,7 +7,7 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
-let params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
+const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
   body: {
     config: {
       assertions: [

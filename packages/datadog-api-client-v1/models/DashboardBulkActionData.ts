@@ -9,7 +9,7 @@
  */
 
 import { DashboardResourceType } from "./DashboardResourceType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Dashboard bulk action request data.

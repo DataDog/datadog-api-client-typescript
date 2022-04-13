@@ -8,10 +8,10 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
 // there is a valid "user" in the system
-let USER_DATA_ATTRIBUTES_EMAIL = process.env
+const USER_DATA_ATTRIBUTES_EMAIL = process.env
   .USER_DATA_ATTRIBUTES_EMAIL as string;
 
-let params: v2.MetricsApiCreateBulkTagsMetricsConfigurationRequest = {
+const params: v2.MetricsApiCreateBulkTagsMetricsConfigurationRequest = {
   body: {
     data: {
       attributes: {

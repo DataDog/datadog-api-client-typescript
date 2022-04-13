@@ -9,7 +9,7 @@
  */
 
 import { UsageIoTHour } from "./UsageIoTHour";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Response containing the IoT usage for each hour for a given organization.

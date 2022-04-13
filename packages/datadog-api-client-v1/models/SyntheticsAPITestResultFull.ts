@@ -11,7 +11,7 @@
 import { SyntheticsAPITestResultData } from "./SyntheticsAPITestResultData";
 import { SyntheticsAPITestResultFullCheck } from "./SyntheticsAPITestResultFullCheck";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object returned describing a API test result.

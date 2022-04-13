@@ -13,7 +13,7 @@ import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
 import { MonitorType } from "./MonitorType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing a monitor.
@@ -60,7 +60,7 @@ export class Monitor {
    */
   "query": string;
   /**
-   * A list of role identifiers that can be pulled from the Roles API. Cannot be used with `locked` option.
+   * A list of unique role identifiers to define which roles are allowed to edit the monitor. The unique identifiers for all roles can be pulled from the [Roles API](https://docs.datadoghq.com/api/latest/roles/#list-roles) and are located in the `data.id` field. Editing a monitor includes any updates to the monitor configuration, monitor deletion, and muting of the monitor for any amount of time. `restricted_roles` is the successor of `locked`. For more information about `locked` and `restricted_roles`, see the [monitor options docs](https://docs.datadoghq.com/monitors/guide/monitor_api_options/#permissions-options).
    */
   "restrictedRoles"?: Array<string>;
   "state"?: MonitorState;

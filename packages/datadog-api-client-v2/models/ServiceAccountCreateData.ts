@@ -11,7 +11,7 @@
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object to create a service account User.

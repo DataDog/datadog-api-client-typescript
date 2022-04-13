@@ -9,7 +9,7 @@
  */
 
 import { LogsURLParserType } from "./LogsURLParserType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * This processor extracts query parameters and other important parameters from a URL.

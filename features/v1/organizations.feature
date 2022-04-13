@@ -58,17 +58,19 @@ Feature: Organizations
     When the request is sent
     Then the response status is 200 OK
 
-  @generated @skip @team:DataDog/team-aaa
+  @skip @team:DataDog/team-aaa
   Scenario: Upload IdP metadata returns "Bad Request" response
     Given new "UploadIdPForOrg" request
     And request contains "public_id" parameter from "REPLACE.ME"
+    And request contains "idp_file" parameter with value "./idp_metadata_invalid.xml"
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/team-aaa
+  @skip @team:DataDog/team-aaa
   Scenario: Upload IdP metadata returns "OK" response
     Given new "UploadIdPForOrg" request
     And request contains "public_id" parameter from "REPLACE.ME"
+    And request contains "idp_file" parameter with value "./idp_metadata.xml"
     When the request is sent
     Then the response status is 200 OK
 

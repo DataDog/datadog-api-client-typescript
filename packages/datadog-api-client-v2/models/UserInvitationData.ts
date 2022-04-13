@@ -10,7 +10,7 @@
 
 import { UserInvitationRelationships } from "./UserInvitationRelationships";
 import { UserInvitationsType } from "./UserInvitationsType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object to create a user invitation.

@@ -7,7 +7,7 @@ import { v2 } from "@datadog/datadog-api-client";
 const configuration = v2.createConfiguration();
 const apiInstance = new v2.CloudWorkloadSecurityApi(configuration);
 
-let params: v2.CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest =
+const params: v2.CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest =
   {
     body: {
       data: {

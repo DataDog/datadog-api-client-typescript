@@ -9,7 +9,7 @@
  */
 
 import { LogsFilter } from "./LogsFilter";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object describing the logs filter.

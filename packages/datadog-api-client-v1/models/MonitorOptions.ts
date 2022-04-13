@@ -14,7 +14,7 @@ import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
 import { MonitorThresholds } from "./MonitorThresholds";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * List of options associated with your monitor.
@@ -47,7 +47,7 @@ export class MonitorOptions {
    */
   "includeTags"?: boolean;
   /**
-   * Whether or not the monitor is locked (only editable by creator and admins).
+   * Whether or not the monitor is locked (only editable by creator and admins). Use `restricted_roles` instead.
    */
   "locked"?: boolean;
   /**

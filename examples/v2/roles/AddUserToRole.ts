@@ -8,12 +8,12 @@ const configuration = v2.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
 // there is a valid "role" in the system
-let ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
+const ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
 
 // there is a valid "user" in the system
-let USER_DATA_ID = process.env.USER_DATA_ID as string;
+const USER_DATA_ID = process.env.USER_DATA_ID as string;
 
-let params: v2.RolesApiAddUserToRoleRequest = {
+const params: v2.RolesApiAddUserToRoleRequest = {
   body: {
     data: {
       id: USER_DATA_ID,

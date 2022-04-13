@@ -1,4 +1,5 @@
 export * from "./http/http";
+export * from "./http/isomorphic-fetch";
 export * from "./auth/auth";
 export { createConfiguration } from "./configuration";
 export { setServerVariables } from "./configuration";
@@ -6,6 +7,12 @@ export { setServerVariables } from "./configuration";
 export { Configuration } from "./configuration";
 export * from "./apis/exception";
 export * from "./servers";
+
+export {
+  AuditApiListAuditLogsRequest,
+  AuditApiSearchAuditLogsRequest,
+  AuditApi,
+} from "./apis/AuditApi";
 
 export {
   AuthNMappingsApiCreateAuthNMappingRequest,
@@ -119,11 +126,17 @@ export {
 } from "./apis/MetricsApi";
 
 export {
+  OrganizationsApiUploadIdPMetadataRequest,
+  OrganizationsApi,
+} from "./apis/OrganizationsApi";
+
+export {
   ProcessesApiListProcessesRequest,
   ProcessesApi,
 } from "./apis/ProcessesApi";
 
 export {
+  RUMApiAggregateRUMEventsRequest,
   RUMApiListRUMEventsRequest,
   RUMApiSearchRUMEventsRequest,
   RUMApi,
@@ -207,6 +220,20 @@ export { ApplicationKeyUpdateData } from "./models/ApplicationKeyUpdateData";
 export { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
 export { ApplicationKeysSort } from "./models/ApplicationKeysSort";
 export { ApplicationKeysType } from "./models/ApplicationKeysType";
+export { AuditLogsEvent } from "./models/AuditLogsEvent";
+export { AuditLogsEventAttributes } from "./models/AuditLogsEventAttributes";
+export { AuditLogsEventType } from "./models/AuditLogsEventType";
+export { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
+export { AuditLogsQueryFilter } from "./models/AuditLogsQueryFilter";
+export { AuditLogsQueryOptions } from "./models/AuditLogsQueryOptions";
+export { AuditLogsQueryPageOptions } from "./models/AuditLogsQueryPageOptions";
+export { AuditLogsResponseLinks } from "./models/AuditLogsResponseLinks";
+export { AuditLogsResponseMetadata } from "./models/AuditLogsResponseMetadata";
+export { AuditLogsResponsePage } from "./models/AuditLogsResponsePage";
+export { AuditLogsResponseStatus } from "./models/AuditLogsResponseStatus";
+export { AuditLogsSearchEventsRequest } from "./models/AuditLogsSearchEventsRequest";
+export { AuditLogsSort } from "./models/AuditLogsSort";
+export { AuditLogsWarning } from "./models/AuditLogsWarning";
 export { AuthNMapping } from "./models/AuthNMapping";
 export { AuthNMappingAttributes } from "./models/AuthNMappingAttributes";
 export { AuthNMappingCreateAttributes } from "./models/AuthNMappingCreateAttributes";
@@ -256,6 +283,7 @@ export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttribu
 export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogErrors } from "./models/HTTPLogErrors";
 export { HTTPLogItem } from "./models/HTTPLogItem";
+export { IdPMetadataFormData } from "./models/IdPMetadataFormData";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
 export { IncidentCreateRelationships } from "./models/IncidentCreateRelationships";
@@ -447,10 +475,25 @@ export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
 export { QuerySortOrder } from "./models/QuerySortOrder";
+export { RUMAggregateBucketValue } from "./models/RUMAggregateBucketValue";
+export { RUMAggregateBucketValueTimeseriesPoint } from "./models/RUMAggregateBucketValueTimeseriesPoint";
+export { RUMAggregateRequest } from "./models/RUMAggregateRequest";
+export { RUMAggregateSort } from "./models/RUMAggregateSort";
+export { RUMAggregateSortType } from "./models/RUMAggregateSortType";
+export { RUMAggregationBucketsResponse } from "./models/RUMAggregationBucketsResponse";
+export { RUMAggregationFunction } from "./models/RUMAggregationFunction";
+export { RUMAnalyticsAggregateResponse } from "./models/RUMAnalyticsAggregateResponse";
+export { RUMBucketResponse } from "./models/RUMBucketResponse";
+export { RUMCompute } from "./models/RUMCompute";
+export { RUMComputeType } from "./models/RUMComputeType";
 export { RUMEvent } from "./models/RUMEvent";
 export { RUMEventAttributes } from "./models/RUMEventAttributes";
 export { RUMEventType } from "./models/RUMEventType";
 export { RUMEventsResponse } from "./models/RUMEventsResponse";
+export { RUMGroupBy } from "./models/RUMGroupBy";
+export { RUMGroupByHistogram } from "./models/RUMGroupByHistogram";
+export { RUMGroupByMissing } from "./models/RUMGroupByMissing";
+export { RUMGroupByTotal } from "./models/RUMGroupByTotal";
 export { RUMQueryFilter } from "./models/RUMQueryFilter";
 export { RUMQueryOptions } from "./models/RUMQueryOptions";
 export { RUMQueryPageOptions } from "./models/RUMQueryPageOptions";
@@ -460,6 +503,7 @@ export { RUMResponsePage } from "./models/RUMResponsePage";
 export { RUMResponseStatus } from "./models/RUMResponseStatus";
 export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
+export { RUMSortOrder } from "./models/RUMSortOrder";
 export { RUMWarning } from "./models/RUMWarning";
 export { RelationshipToIncidentIntegrationMetadataData } from "./models/RelationshipToIncidentIntegrationMetadataData";
 export { RelationshipToIncidentIntegrationMetadatas } from "./models/RelationshipToIncidentIntegrationMetadatas";
@@ -578,3 +622,4 @@ export { UserUpdateData } from "./models/UserUpdateData";
 export { UserUpdateRequest } from "./models/UserUpdateRequest";
 export { UsersResponse } from "./models/UsersResponse";
 export { UsersType } from "./models/UsersType";
+export { ObjectSerializer } from "./models/ObjectSerializer";

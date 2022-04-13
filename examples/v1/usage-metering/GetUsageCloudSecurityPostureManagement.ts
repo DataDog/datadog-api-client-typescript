@@ -7,9 +7,10 @@ import { v1 } from "@datadog/datadog-api-client";
 const configuration = v1.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
-let params: v1.UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest = {
-  startHr: new Date(new Date().getTime() / 1000 + -3 * 86400),
-};
+const params: v1.UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest =
+  {
+    startHr: new Date(new Date().getTime() / 1000 + -3 * 86400),
+  };
 
 apiInstance
   .getUsageCloudSecurityPostureManagement(params)

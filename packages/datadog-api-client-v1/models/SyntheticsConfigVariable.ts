@@ -9,7 +9,7 @@
  */
 
 import { SyntheticsConfigVariableType } from "./SyntheticsConfigVariableType";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Object defining a variable that can be used in your test configuration.

@@ -10,7 +10,7 @@
 
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * The incident's attributes from a response.

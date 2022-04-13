@@ -9,7 +9,7 @@
  */
 
 import { QuerySortOrder } from "./QuerySortOrder";
-import { AttributeTypeMap } from "./ObjectSerializer";
+import { AttributeTypeMap } from "../util";
 
 /**
  * Options for limiting results returned.
