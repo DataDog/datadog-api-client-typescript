@@ -10,6 +10,7 @@ LogsApi.md
 LogsArchivesApi.md
 LogsMetricsApi.md
 MetricsApi.md
+OrganizationsApi.md
 ProcessesApi.md
 README.md
 RUMApi.md
@@ -29,6 +30,7 @@ apis/LogsApi.ts
 apis/LogsArchivesApi.ts
 apis/LogsMetricsApi.ts
 apis/MetricsApi.ts
+apis/OrganizationsApi.ts
 apis/ProcessesApi.ts
 apis/RUMApi.ts
 apis/RolesApi.ts
@@ -130,6 +132,7 @@ models/FullApplicationKeyAttributes.ts
 models/HTTPLogError.ts
 models/HTTPLogErrors.ts
 models/HTTPLogItem.ts
+models/IdPMetadataFormData.ts
 models/IncidentCreateAttributes.ts
 models/IncidentCreateData.ts
 models/IncidentCreateRelationships.ts
