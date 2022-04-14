@@ -142,6 +142,10 @@ When("the request is sent", async function (this: World) {
   }
 });
 
+When("the request with pagination is sent", async function (this: World) {
+  // XXX implement
+});
+
 Then(
   /^the response status is (\d+) (.*)/,
   function (this: World, status: number, msg: string) {
@@ -180,6 +184,13 @@ Then(
     expect(pathLookup(this.response, responsePath).length).to.equal(
       fixtureLength
     );
+  }
+);
+
+Then(
+  "the response has {int} items",
+  function (this: World, fixtureLength: number) {
+    expect(this.response.length).to.equal(fixtureLength);
   }
 );
 
