@@ -34,7 +34,7 @@ export class SyntheticsBatchResult {
    */
   "resultId"?: string;
   /**
-   * Total duration in millisecond of the test.
+   * Number of times this result has been retried.
    */
   "retries"?: number;
   "status"?: SyntheticsStatus;
