@@ -46,6 +46,7 @@ def cli(input, output):
     env.filters["return_type"] = openapi.return_type
     env.filters["snake_case"] = formatter.snake_case
     env.filters["untitle_case"] = formatter.untitle_case
+    env.filters["response_type"] = openapi.get_type_for_response
 
     env.globals["package_name"] = package_name
     env.globals["npm_name"] = npm_name

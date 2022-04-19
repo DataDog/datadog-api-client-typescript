@@ -1,16 +1,12 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
 import {Configuration, getServer, applySecurityAuthentication} from '../configuration{{extensionForDeno}}';
 import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
-{%- if platforms %}
-{%- if node %}
+{%- if platforms and node %}
 import FormData from "form-data";
-{%- endif %}
 {%- endif %}
 import {ObjectSerializer} from '../models/ObjectSerializer{{extensionForDeno}}';
 import {ApiException} from './exception{{extensionForDeno}}';
 import {isCodeInRange} from '../util{{extensionForDeno}}';
-
-{{ imports }}
 
 {%- for model in get_api_models(operations)|sort %}
 import { {{ model }} } from '../models/{{ model }}';
@@ -23,7 +19,7 @@ export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
     {%- set httpMethod = method.upper() %}
     {%- set returnType = operation|return_type %}
     {%- if operation %}
-    public async {{operation.operationId | camel_case | untitle_case }}({%- if allParams %}{{paramName}}{%- if not required %}?{%- endif %}: {{ dataType }}, {%- endif %}_options?: Configuration): Promise<RequestContext> {
+    public async {{operation.operationId | camel_case | untitle_case }}({%- for name, parameter in operation|parameters %}{{name}}{%- if not parameter.required %}?{%- endif %}: {{ get_type_for_parameter(parameter) }}, {%- endfor %}_options?: Configuration): Promise<RequestContext> {
         const _config = _options || this.configuration;
         if (!_config.unstableOperations['{{operationId}}']) {
             throw new Error("Unstable operation '{{operationId}}' is disabled");
@@ -135,8 +131,8 @@ export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
     }
 
     {%- endif %}
-}
 {%- endfor %}
+}
 
 export class {{classname}}ResponseProcessor {
     {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
@@ -152,30 +148,32 @@ export class {{classname}}ResponseProcessor {
      */
      public async {{operation.operationId | camel_case | untitle_case }}(response: ResponseContext): Promise<{{ returnType }} {%- if not returnType %}void{%- endif %}> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        {%- for response in operation.responses %}
-        if (isCodeInRange("{{response}}", response.httpStatusCode)) {
-            {%- if response.content. %}
-            {%- if response.isBinary %}
-            const body: {{ content.dataType }} = await response.getBodyAsFile() as any as {{ returnType }};
+
+        {%- for responseCode, response in operation.responses.items() %}
+        {%- set dataType = response|response_type %}
+
+        if (isCodeInRange("{{responseCode}}", response.httpStatusCode)) {
+            {%- if dataType %}
+            {%- if response.content %}
+            {%- if dataType == "binary" %}
+            const body: {{ dataType }} = await response.getBodyAsFile() as any as {{ returnType }};
             {%- else %}
-            const body: {{ content.dataType }} = ObjectSerializer.deserialize(
+            const body: {{ dataType }} = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{{ content.dataType }}", "{{content.returnFormat}}"
-            ) as {{ content.dataType }};
+                "{{ dataType }}", ""
+            ) as {{ dataType }};
             {%- endif %}
-            {%- if is2xx %}
+            {%- if responseCode.startswith("2") %}
             return body;
+            {%- else %}
+            throw new ApiException<{{ dataType }}>({{responseCode}}, body);
             {%- endif %}
-            {%- if not is2xx %}
-            throw new ApiException<{{ dataType }}>({{code}}, body);
-            {%- endif %}
-            {%- endif %}
-            {%- if not dataType %}
-            {%- if is2xx %}
+            {%- else %}
+            {%- if responseCode.startswith("2") %}
             return;
-            {%- endif %}
-            {%- if not is2xx %}
+            {%- else %}
             throw new ApiException<string>(response.httpStatusCode, "{{message}}");
+            {%- endif %}
             {%- endif %}
             {%- endif %}
         }
@@ -184,43 +182,42 @@ export class {{classname}}ResponseProcessor {
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
             {%- if returnType %}
-            {%- if isBinary %}
+            {%- if dataType == "binary" %}
             const body: {{ returnType }} = await response.getBodyAsFile() as any as {{ returnType }};
-            {%- endif %}
-            {%- if not isBinary %}
+            {%- else %}
             const body: {{ returnType }} = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "{{ returnType }}", "{{returnFormat}}"
             ) as {{ returnType }};
             {%- endif %}
             return body;
-            {%- endif %}
-            {%- if not returnType %}
+            {%- else %}
             return;
             {%- endif %}
         }
 
-        let body = (await response.body.text()) || "";
+        const body = (await response.body.text()) || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-
     {%- endif %}
+{%- endfor %}
 }
 
-{%- if operation %}
-{%- if hasParams %}
-export interface {{classname}}{{operationIdCamelCase}}Request {
-    {%- if allParams %}
+{%- for path, method, operation in operations|sort(attribute="2.operationId") %}
+{%- if operation|parameters %}
+export interface {{classname}}{{operation.operationId | camel_case}}Request {
+    {%- for name, parameter in operation|parameters %}
+    {%- set parameterType = get_type_for_parameter(parameter) %}
     /**
-     * {{description}}
-     * @type {{dataType}}
+     * {{parameter.description}}
+     * @type {{parameterType}}
      */
-    {{paramName}}{%- if not required %}?{%- endif %}: {{ dataType }}
-    {%- endif %}
+    {{name}}{%- if not parameter.required %}?{%- endif %}: {{ parameterType }}
+    {%- endfor %}
 }
+{%- endif %}
+{%- endfor %}
 
-{%- endif %}
-{%- endif %}
 export class {{classname}} {
 
     private requestFactory: {{classname}}RequestFactory;
@@ -251,4 +248,3 @@ export class {{classname}} {
 
 {%- endif %}
 }
-{%- endfor %}

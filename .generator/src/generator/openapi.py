@@ -48,7 +48,7 @@ def type_to_typescript(schema, alternative_name=None):
 
     if type_ == "integer":
         return "number"
-    elif type_ == "float":
+    elif type_ == "number":
         return "number"
     elif type_ == "string":
         format_ = schema.get("format")
@@ -63,7 +63,7 @@ def type_to_typescript(schema, alternative_name=None):
         return "[{}]".format(type_to_typescript(schema["items"]))
     elif type_ == "object":
         if "additionalProperties" in schema:
-            return "{ [key:string]:{}; }".format(
+            return "{{ [key:string]:{}; }}".format(
                 type_to_typescript(schema["additionalProperties"])
             )
         return (
@@ -75,7 +75,7 @@ def type_to_typescript(schema, alternative_name=None):
                 or "anyOf" in schema
                 or "allOf" in schema
             )
-            else "Object"
+            else "any"
         )
     elif type_ == "null":
         return "null"
@@ -247,6 +247,12 @@ def parameter_schema(parameter):
                 return content["schema"]
     raise ValueError(f"Unknown schema for parameter {parameter}")
 
+def get_type_for_response(response):
+    """Return Typescript type name for the response."""
+    if "content" in response:
+        for content in response["content"].values():
+            if "schema" in content:
+                return type_to_typescript(content["schema"])
 
 def return_type(operation):
     for response in operation.get("responses", {}).values():
