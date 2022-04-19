@@ -10,7 +10,7 @@ const apiInstance = new v1.LogsApi(configuration);
 const params: v1.LogsApiListLogsRequest = {
   body: {
     index: "main",
-    query: "service:web*",
+    query: "host:Test*",
     sort: "asc",
     time: {
       from: new Date(new Date().getTime() / 1000 + -1 * 3600),

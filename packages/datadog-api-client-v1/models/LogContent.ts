@@ -34,7 +34,7 @@ export class LogContent {
   /**
    * Array of tags associated with your log.
    */
-  "tags"?: Array<any>;
+  "tags"?: Array<string>;
   /**
    * Timestamp of your log.
    */
@@ -67,8 +67,7 @@ export class LogContent {
     },
     tags: {
       baseName: "tags",
-      type: "Array<any>",
-      format: "string",
+      type: "Array<string>",
     },
     timestamp: {
       baseName: "timestamp",
