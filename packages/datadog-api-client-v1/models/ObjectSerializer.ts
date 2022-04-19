@@ -648,7 +648,6 @@ const enumsMap: { [key: string]: any[] } = {
   ListStreamColumnWidth: ["auto", "compact", "full"],
   ListStreamResponseFormat: ["event_list"],
   ListStreamSource: [
-    "issue_stream",
     "logs_stream",
     "audit_stream",
     "rum_issue_stream",

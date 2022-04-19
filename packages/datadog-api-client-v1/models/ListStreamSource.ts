@@ -9,12 +9,10 @@
  */
 
 export type ListStreamSource =
-  | typeof ISSUE_STREAM
   | typeof LOGS_STREAM
   | typeof AUDIT_STREAM
   | typeof RUM_ISSUE_STREAM
   | typeof APM_ISSUE_STREAM;
-export const ISSUE_STREAM = "issue_stream";
 export const LOGS_STREAM = "logs_stream";
 export const AUDIT_STREAM = "audit_stream";
 export const RUM_ISSUE_STREAM = "rum_issue_stream";

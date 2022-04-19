@@ -25,7 +25,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                 },
               ],
               query: {
-                dataSource: "issue_stream",
+                dataSource: "apm_issue_stream",
                 queryString: "",
               },
               responseFormat: "event_list",
