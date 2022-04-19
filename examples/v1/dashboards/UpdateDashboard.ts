@@ -29,7 +29,7 @@ const params: v1.DashboardsApiUpdateDashboardRequest = {
                 },
               ],
               query: {
-                dataSource: "issue_stream",
+                dataSource: "apm_issue_stream",
                 queryString: "",
               },
               responseFormat: "event_list",
