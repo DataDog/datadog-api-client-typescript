@@ -67,6 +67,13 @@ Given("new {string} request", function (this: World, operationId: string) {
   this.operationId = operationId;
 });
 
+Given(
+    "there is a {int} second delay",
+    async function (this: World, sleepTime: number) {
+      await new Promise(r => setTimeout(r, sleepTime * 1000));
+    }
+);
+
 When("the request is sent", async function (this: World) {
   // build request from scenario
   const api = (datadogApiClient as any)[this.apiVersion];
