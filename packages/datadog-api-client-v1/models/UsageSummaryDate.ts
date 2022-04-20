@@ -205,6 +205,10 @@ export class UsageSummaryDate {
    */
   "npmHostTop99p"?: number;
   /**
+   * Sum of all observability pipelines bytes processed over all hours in the current date for the given org.
+   */
+  "observabilityPipelinesBytesProcessedSum"?: number;
+  /**
    * Sum of all online archived events over all hours in the current date for all organizations.
    */
   "onlineArchiveEventsCountSum"?: number;
@@ -506,6 +510,11 @@ export class UsageSummaryDate {
     },
     npmHostTop99p: {
       baseName: "npm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    observabilityPipelinesBytesProcessedSum: {
+      baseName: "observability_pipelines_bytes_processed_sum",
       type: "number",
       format: "int64",
     },

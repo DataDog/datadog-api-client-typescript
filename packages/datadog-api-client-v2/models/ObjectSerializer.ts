@@ -311,6 +311,10 @@ import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitor
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
+import { UsageAttributesObject } from "./UsageAttributesObject";
+import { UsageDataObject } from "./UsageDataObject";
+import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
+import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
 import { UserCreateAttributes } from "./UserCreateAttributes";
@@ -400,6 +404,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
+  HourlyUsageType: ["observability_pipelines_bytes_processed"],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
   IncidentFieldAttributesValueType: [
     "multiselect",
@@ -522,6 +527,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
+  UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
   UsersType: ["users"],
 };
@@ -867,6 +873,10 @@ const typeMap: { [index: string]: any } = {
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,
+  UsageAttributesObject: UsageAttributesObject,
+  UsageDataObject: UsageDataObject,
+  UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
+  UsageTimeSeriesObject: UsageTimeSeriesObject,
   User: User,
   UserAttributes: UserAttributes,
   UserCreateAttributes: UserCreateAttributes,
