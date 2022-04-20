@@ -85,7 +85,11 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     }
 
     private logRequest(request: RequestContext): void {
-        const headers = request.getHeaders();
+        const headers: { [key: string]: string } = {};
+        const originalHeaders = request.getHeaders();
+        for (const header in originalHeaders) {
+            headers[header] = originalHeaders[header];
+        }
         if (headers["DD-API-KEY"]) {
             headers["DD-API-KEY"] = headers["DD-API-KEY"].replace(/./g, "x");
         }
