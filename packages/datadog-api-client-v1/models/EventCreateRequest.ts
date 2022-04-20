@@ -23,7 +23,7 @@ export class EventCreateRequest {
   "aggregationKey"?: string;
   "alertType"?: EventAlertType;
   /**
-   * POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited to events no older than 7 days.
+   * POSIX timestamp of the event. Must be sent as an integer (that is no quotes). Limited to events no older than 18 hours
    */
   "dateHappened"?: number;
   /**
