@@ -1,8 +1,9 @@
-{%- if models %}
+{%- for model in models %}
+{%- set classname = model.replace(" ", "") + "Api" %}
 {%- if model %}
 import { {{classname}}{%- if hasEnums %}{%- if vars %}{%- if isEnum %}, {{classname}}{{enumName}} {%- endif %} {%- endif %}{%- endif %} } from './{{ classFilename }}{{extensionForDeno}}';
 {%- endif %}
-{%- endif %}
+{%- endfor %}
 import { UnparsedObject } from "../util";
 import { logger } from "../../../logger";
 

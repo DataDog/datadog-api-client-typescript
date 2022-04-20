@@ -1,8 +1,4 @@
-import { Configuration } from '../configuration{{extensionForDeno}}'
-{%- if useInversify %}
-import { injectable, inject } from "inversify";
-import { AbstractConfiguration } from "../services/configuration";
-{%- endif %}
+import { Configuration } from '../configuration'
 
 /**
  *
@@ -21,12 +17,9 @@ export const COLLECTION_FORMATS = {
  * @export
  * @class BaseAPI
  */
-{%- if useInversify %}
-@injectable()
-{%- endif %}
 export class BaseAPIRequestFactory {
 
-    constructor({%- if useInversify %}@inject(AbstractConfiguration) {%- endif %}protected configuration: Configuration) {
+    constructor(protected configuration: Configuration) {
     }
 };
 

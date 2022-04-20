@@ -8,23 +8,18 @@ export { Configuration } from "./configuration"
 export * from "./apis/exception";
 export * from "./servers";
 
-{%- for api in apis %}
+{%- for api, operations in apis.items()|sort %}
 {%- set classname = api.replace(" ", "") + "Api" %}
-
-{{ operations }}
-
-{%- for path, method, operation in operations %}
-{%- for name, parameter in operation|parameters %}
-
-export { {{ classname }}{{ operation.operationId | camel_case }}Request, {%- if not loop.last%}, {%- endif %} } from './apis/{{ classname }}';
-
+export {
+{%- for path, method, operation in operations|sort(attribute="2.operationId") %}
+    {{ classname }}{{ operation.operationId | camel_case }}Request,
 {%- endfor %}
-{%- endfor %}
-{%- endfor %}
+    {{ classname}}
+} from './apis/{{ classname }}';
+{% endfor %}
 
-{%- for model in mdoels %}
-{%- set classname = api.replace(" ", "") + "Api" %}
-    export { {{classname}} } from './models/{{ classFilename }}';
+{%- for model in models|sort %}
+export { {{ model }} } from "./models/{{ model }}";
 {%- endfor %}
 
 export { ObjectSerializer } from "./models/ObjectSerializer";

@@ -47,6 +47,7 @@ def cli(input, output):
     env.filters["snake_case"] = formatter.snake_case
     env.filters["untitle_case"] = formatter.untitle_case
     env.filters["response_type"] = openapi.get_type_for_response
+    env.filters["get_required_parameters"] = openapi.get_required_parameters
 
     env.globals["package_name"] = package_name
     env.globals["npm_name"] = npm_name
@@ -63,19 +64,18 @@ def cli(input, output):
     api_j2 = env.get_template("api/api.j2")
     model_j2 = env.get_template("model/model.j2")
     package_j2 = env.get_template("package.j2")
-    index_j2 = env.get_template("index.j2")
     configuration_j2 = env.get_template("configuration.j2")
 
     extra_files = {
         "util.ts": env.get_template("util.j2"),
         "apis/baseapi.ts": env.get_template("api/baseapi.j2"),
         "apis/exception.ts": env.get_template("api/exception.j2"),
-        "apis/middleware.ts": env.get_template("api/middleware.j2"),
         "auth/auth.ts": env.get_template("auth/auth.j2"),
         "models/ObjectSerializer.ts": env.get_template("model/ObjectSerializer.j2"),
         "http/http.ts": env.get_template("http/http.j2"),
         "http/isomorphic-fetch.ts": env.get_template("http/isomorphic-fetch.j2"),
-        "servers.ts": env.get_template("servers.j2")
+        "servers.ts": env.get_template("servers.j2"),
+        "index.ts": env.get_template("index.j2")
     }
 
     apis = openapi.apis(spec)
@@ -102,11 +102,6 @@ def cli(input, output):
         filename.parent.mkdir(parents=True, exist_ok=True)
         with filename.open("w+") as fp:
             fp.write(template.render(apis=apis, models=models))
-
-    # move to extra files
-    index_path = package_path / "index.ts"
-    with index_path.open("w+") as fp:
-        fp.write(index_j2.render())
 
     configuration_path = package_path / "configuration.ts"
     with configuration_path.open("w+") as fp:

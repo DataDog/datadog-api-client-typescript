@@ -390,3 +390,8 @@ def get_api_models(operations):
                     if name and name not in seen:
                         seen.add(name)
                         yield name
+
+def get_required_parameters(operation):
+    allParams = list(parameters(operation))
+    print("PARAMS0:", allParams[0])
+    return [param for name, param in allParams if param.required]

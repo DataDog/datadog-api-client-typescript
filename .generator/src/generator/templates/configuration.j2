@@ -1,14 +1,7 @@
-import { HttpLibrary, HttpConfiguration, RequestContext } from "./http/http{{extensionForDeno}}";
-{%- if frameworks %}
-{%- if fetch-api %}
-import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch{{extensionForDeno}}";
-{%- endif %}
-{%- if jquery %}
-import { JQueryHttpLibrary as DefaultHttpLibrary } from "./http/jquery";
-{%- endif %}
-{%- endif %}
-import { BaseServerConfiguration, server1, servers, operationServers } from "./servers{{extensionForDeno}}";
-import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth/auth{{extensionForDeno}}";
+import { HttpLibrary, HttpConfiguration, RequestContext } from "./http/http";
+import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch";
+import { BaseServerConfiguration, server1, servers, operationServers } from "./servers";
+import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth/auth";
 
 export interface Configuration {
     readonly baseServer?: BaseServerConfiguration;

@@ -1,12 +1,12 @@
-import { BaseAPIRequestFactory, RequiredError } from './baseapi{{extensionForDeno}}';
-import {Configuration, getServer, applySecurityAuthentication} from '../configuration{{extensionForDeno}}';
-import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http{{extensionForDeno}}';
+import { BaseAPIRequestFactory, RequiredError } from './baseapi';
+import {Configuration, getServer, applySecurityAuthentication} from '../configuration';
+import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
 {%- if platforms and node %}
 import FormData from "form-data";
 {%- endif %}
-import {ObjectSerializer} from '../models/ObjectSerializer{{extensionForDeno}}';
-import {ApiException} from './exception{{extensionForDeno}}';
-import {isCodeInRange} from '../util{{extensionForDeno}}';
+import {ObjectSerializer} from '../models/ObjectSerializer';
+import {ApiException} from './exception';
+import {isCodeInRange} from '../util';
 
 {%- for model in get_api_models(operations)|sort %}
 import { {{ model }} } from '../models/{{ model }}';
@@ -230,15 +230,15 @@ export class {{classname}} {
         this.responseProcessor = responseProcessor || new {{classname}}ResponseProcessor();
     }
 
-{%- if operation %}
+{%- for path, method, operation in operations|sort(attribute="2.operationId") %}
     /**
-     {%- if notes %}
-     * {{notes}}
+     {%- if operation.description %}
+     * {{operation.description}}
      {%- endif %}
      * @param param The request object
      */
-    public {{operation.operationId | camel_case | untitle_case }}({%- if hasParams %}param: {{classname}}{{operationIdCamelCase}}Request{%- if not requiredParams %} = {}{%- endif %}, {%- endif %}options?: Configuration): {%- if useRxJS %}Observable{%- endif %}{%- if not useRxJS %}Promise{%- endif %}<{{ returnType }}{%- if not returnType %}void{%- endif %}> {
-        const requestContextPromise = this.requestFactory.{{operation.operationId | camel_case | untitle_case }}({%- if allParams %}param.{{paramName}}, {%- endif %}options);
+    public {{operation.operationId | camel_case | untitle_case }}({%- if operation|parameters|list|length > 0 %}param: {{classname}}{{operation.operationId}}Request{%- if operation|get_required_parameters|length == 0 %} = {}{%- endif %}, {%- endif %}options?: Configuration): Promise<{{ returnType }}{%- if not returnType %}void{%- endif %}> {
+        const requestContextPromise = this.requestFactory.{{operation.operationId | camel_case | untitle_case }}({%- for name, parameter in operation|parameters %}param.{{name}}, {%- endfor %}options);
         return requestContextPromise.then(requestContext => {
                 return this.configuration.httpApi.send(requestContext).then(responseContext => {
                         return this.responseProcessor.{{operation.operationId | camel_case | untitle_case }}(responseContext);
@@ -246,5 +246,5 @@ export class {{classname}} {
         });
     }
 
-{%- endif %}
+{%- endfor %}
 }
