@@ -39,6 +39,10 @@ export class Event {
    */
   "idStr"?: string;
   /**
+   * Integer ID of the monitor. The `monitor_id` is only available if the event has an associated monitor.
+   */
+  "monitorId"?: number;
+  /**
    * Payload of the event.
    */
   "payload"?: string;
@@ -98,6 +102,11 @@ export class Event {
     idStr: {
       baseName: "id_str",
       type: "string",
+    },
+    monitorId: {
+      baseName: "monitor_id",
+      type: "number",
+      format: "int64",
     },
     payload: {
       baseName: "payload",
