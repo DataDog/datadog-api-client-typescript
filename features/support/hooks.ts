@@ -22,7 +22,7 @@ Before(function (
   }
 });
 
-Before({ tags: "@skip or @skip-typescript" }, function () {
+Before({ tags: "@skip or @skip-typescript or @with-pagination" }, function () {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return "skipped" as any;
 });
