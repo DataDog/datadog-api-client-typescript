@@ -40,6 +40,7 @@ import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
@@ -52,6 +53,9 @@ import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurit
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "./CloudWorkloadSecurityAgentRulesListResponse";
+import { CostByOrg } from "./CostByOrg";
+import { CostByOrgAttributes } from "./CostByOrgAttributes";
+import { CostByOrgResponse } from "./CostByOrgResponse";
 import { Creator } from "./Creator";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
@@ -397,6 +401,7 @@ const enumsMap: { [key: string]: any[] } = {
   AuthNMappingsType: ["authn_mappings"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   ContentEncoding: ["gzip", "deflate"],
+  CostByOrgType: ["cost_by_org"],
   DashboardType: [
     "custom_timeboard",
     "custom_screenboard",
@@ -575,6 +580,7 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  ChargebackBreakdown: ChargebackBreakdown,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
   CloudWorkloadSecurityAgentRuleCreateAttributes:
@@ -598,6 +604,9 @@ const typeMap: { [index: string]: any } = {
     CloudWorkloadSecurityAgentRuleUpdaterAttributes,
   CloudWorkloadSecurityAgentRulesListResponse:
     CloudWorkloadSecurityAgentRulesListResponse,
+  CostByOrg: CostByOrg,
+  CostByOrgAttributes: CostByOrgAttributes,
+  CostByOrgResponse: CostByOrgResponse,
   Creator: Creator,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
