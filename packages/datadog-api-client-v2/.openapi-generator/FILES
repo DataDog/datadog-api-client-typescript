@@ -101,6 +101,7 @@ models/AuthNMappingUpdateRequest.ts
 models/AuthNMappingsResponse.ts
 models/AuthNMappingsSort.ts
 models/AuthNMappingsType.ts
+models/ChargebackBreakdown.ts
 models/CloudWorkloadSecurityAgentRuleAttributes.ts
 models/CloudWorkloadSecurityAgentRuleCreateAttributes.ts
 models/CloudWorkloadSecurityAgentRuleCreateData.ts
@@ -115,6 +116,10 @@ models/CloudWorkloadSecurityAgentRuleUpdateRequest.ts
 models/CloudWorkloadSecurityAgentRuleUpdaterAttributes.ts
 models/CloudWorkloadSecurityAgentRulesListResponse.ts
 models/ContentEncoding.ts
+models/CostByOrg.ts
+models/CostByOrgAttributes.ts
+models/CostByOrgResponse.ts
+models/CostByOrgType.ts
 models/Creator.ts
 models/DashboardListAddItemsRequest.ts
 models/DashboardListAddItemsResponse.ts
