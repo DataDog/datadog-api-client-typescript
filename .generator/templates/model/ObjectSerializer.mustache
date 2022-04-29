@@ -1,9 +1,8 @@
-{%- for model in models %}
-{%- set classname = model.replace(" ", "") + "Api" %}
-{%- if model %}
-import { {{classname}}{%- if hasEnums %}{%- if vars %}{%- if "enum" in model %}, {{classname}}{{enumName}} {%- endif %} {%- endif %}{%- endif %} } from './{{ classFilename }}';
-{%- endif %}
-{%- endfor %}
+{{#models}}
+{{#model}}
+import { {{classname}}{{#hasEnums}}{{#vars}}{{#isEnum}}, {{classname}}{{enumName}} {{/isEnum}} {{/vars}}{{/hasEnums}} } from './{{{ classFilename }}}{{extensionForDeno}}';
+{{/model}}
+{{/models}}
 import { UnparsedObject } from "../util";
 import { logger } from "../../../logger";
 
@@ -27,39 +26,37 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 }
 
 const enumsMap: {[key: string]: any[]} = {
-    {%- for name, model in models.items() %}
-    {%- set enumName = name %}
-    {%- set enumVars = model.enum %}
-        {%- if model %}
-            {%- if model.enum|length > 0 %}
-    {{enumName}}: [{%- for value in model.enum %} "{{ value }}" {%- if not loop.last %}, {%- endif %}{%- endfor %}],
-            {%- endif %}
-            {%- if hasEnums %}
-                {%- if model.x-var-enums %}
-                    {%- if "enum" in model %}
-    "{{enumName}}": [{%- if enumVars %}{{ value }}{%- if not loop.last %}, {%- endif %}{%- endif %}],
-                    {%- endif %}
-                {%- endif %}
-            {%- endif %}
-        {%- endif %}
-    {%- endfor %}
+    {{#models}}
+        {{#model}}
+            {{#isEnum}}
+    "{{classname}}{{enumName}}": [{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
+            {{/isEnum}}
+            {{#hasEnums}}
+                {{#vars}}
+                    {{#isEnum}}
+    "{{classname}}{{enumName}}": [{{#allowableValues}}{{#enumVars}}{{{value}}}{{^-last}}, {{/-last}}{{/enumVars}}]{{/allowableValues}},
+                    {{/isEnum}}
+                {{/vars}}
+            {{/hasEnums}}
+        {{/model}}
+    {{/models}}
 };
 
 const typeMap: {[index: string]: any} = {
-    {%- if models %}
-        {%- if model %}
-            {%- if not "enum" in model %}
-            {%- if not oneOf %}
+    {{#models}}
+        {{#model}}
+            {{^isEnum}}
+            {{^oneOf}}
     "{{classname}}": {{classname}},
-            {%- endif %}
-            {%- endif %}
-        {%- endif %}
-    {%- endif %}
+            {{/oneOf}}
+            {{/isEnum}}
+        {{/model}}
+    {{/models}}
 }
 
 const oneOfMap: {[index: string]: string[]} = {
-  {%- if models %}{%- if model %}{%- if oneOf %}{%- if loop.first %}"{{classname}}": [{%- endif %}"{{oneOf}}"{%- if not loop.last %}}, {%- endif %}}{%- if loop.last %}}],
-  {%- endif %}}{%- endif %}{%- endif %}{%- endif %}
+  {{#models}}{{#model}}{{#oneOf}}{{#-first}}"{{classname}}": [{{/-first}}"{{{.}}}"{{^-last}}, {{/-last}}{{#-last}}],
+  {{/-last}}{{/oneOf}}{{/model}}{{/models}}
 };
 
 export class ObjectSerializer {

@@ -1,7 +1,25 @@
 import { userAgent } from '../../../userAgent';
+{{#platforms}}
+{{#node}}
 // TODO: evaluate if we can easily get rid of this library
 import FormData from "form-data";
+{{/node}}
+{{/platforms}}
+{{#platforms}}
+{{^deno}}
 import URLParse from "url-parse";
+{{/deno}}
+{{/platforms}}
+
+{{#platforms}}
+{{^deno}}
+{{#frameworks}}
+{{#jquery}}
+export * from './jquery';
+{{/jquery}}
+{{/frameworks}}
+{{/deno}}
+{{/platforms}}
 
 /**
  * Interface for aborting fetch requests.
@@ -42,16 +60,55 @@ export enum HttpMethod {
 /**
  * Represents an HTTP file which will be transferred from or to a server.
  */
-{%- if platforms %}
-    {%- if node %}
+{{#platforms}}
+{{#node}}
 export type HttpFile = {
-    data: {{ fileContentDataType }},
+    data: {{{fileContentDataType}}},
     name: string
 };
-    {%- else %}
-export type HttpFile = {{ fileContentDataType }} & { readonly name: string };
-    {%- endif %}
-{%- endif %}
+{{/node}}
+{{^node}}
+export type HttpFile = {{{fileContentDataType}}} & { readonly name: string };
+{{/node}}
+{{/platforms}}
+
+{{#platforms}}
+{{#deno}}
+/**
+ * URLParse Wrapper for Deno
+ */
+class URLParse {
+    private url: URL;
+
+    constructor(address: string, _parser: boolean) {
+        this.url = new URL(address);
+    }
+
+    public set(_part: 'query', obj: {[key: string]: string | undefined}) {
+        for (const key in obj) {
+            const value = obj[key];
+            if (value) {
+              this.url.searchParams.set(key, value);
+            } else {
+              this.url.searchParams.set(key, "");
+            }
+        }
+    }
+
+    public get query() {
+        const obj: {[key: string]: string} = {};
+        for (const [key, value] of this.url.searchParams.entries()) {
+            obj[key] = value;
+        }
+        return obj;
+    }
+
+    public toString() {
+        return this.url.toString();
+    }
+}
+{{/deno}}
+{{/platforms}}
 
 export class HttpException extends Error {
     public constructor(msg: string) {
@@ -164,26 +221,26 @@ export class RequestContext {
 
 export interface ResponseBody {
     text(): Promise<string>;
-    binary(): Promise<{{ fileContentDataType }}>;
+    binary(): Promise<{{{fileContentDataType}}}>;
 }
 
 /**
  * Helper class to generate a `ResponseBody` from binary data
  */
 export class SelfDecodingBody implements ResponseBody {
-    constructor(private dataSource: Promise<{{ fileContentDataType }}>) {}
+    constructor(private dataSource: Promise<{{{fileContentDataType}}}>) {}
 
-    binary(): Promise<{{ fileContentDataType }}> {
+    binary(): Promise<{{{fileContentDataType}}}> {
         return this.dataSource;
     }
 
     async text(): Promise<string> {
-        const data: {{ fileContentDataType }} = await this.dataSource;
-        {%- if platforms %}
-            {%- if node %}
+        const data: {{{fileContentDataType}}} = await this.dataSource;
+        {{#platforms}}
+        {{#node}}
         return data.toString();
-            {%- endif %}
-            {%- if browser %}
+        {{/node}}
+        {{#browser}}
         // @ts-ignore
         if (data.text) {
             // @ts-ignore
@@ -196,8 +253,11 @@ export class SelfDecodingBody implements ResponseBody {
             reader.addEventListener("error", () => reject(reader.error));
             reader.readAsText(data);
         });
-            {%- endif %}
-        {%- endif %}
+        {{/browser}}
+        {{#deno}}
+        return data.text();
+        {{/deno}}
+        {{/platforms}}
     }
 }
 
@@ -241,10 +301,11 @@ export class ResponseContext {
     public async getBodyAsFile(): Promise<HttpFile> {
         const data = await this.body.binary();
         const fileName = this.getParsedHeader("content-disposition")["filename"] || "";
-        {%- if platforms %}
-            {%- if node %}
+        {{#platforms}}
+        {{#node}}
         return { data, name: fileName };
-            {%- else %}
+        {{/node}}
+        {{^node}}
         const contentType = this.headers["content-type"] || "";
         try {
             return new File([data], fileName, { type: contentType });
@@ -255,8 +316,8 @@ export class ResponseContext {
                 type: contentType
             });
         }
-            {%- endif %}
-        {%- endif %}
+        {{/node}}
+        {{/platforms}}
     }
 }
 

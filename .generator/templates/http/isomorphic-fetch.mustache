@@ -1,12 +1,12 @@
 import {HttpLibrary, RequestContext, ResponseContext} from './http{{extensionForDeno}}';
-{%- if platforms %}
-    {%- if node %}
+{{#platforms}}
+{{#node}}
 import fetch from "cross-fetch";
-    {%- endif %}
-    {%- if browser %}
+{{/node}}
+{{#browser}}
 import "whatwg-fetch";
-    {%- endif %}
-{%- endif %}
+{{/browser}}
+{{/platforms}}
 import pako from "pako";
 import bufferFrom from "buffer-from";
 
@@ -49,30 +49,31 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
             body: body as any,
             headers: headers,
             signal: request.getHttpConfig().signal,
-            {%- if platforms %}
-                {%- if browser %}
+            {{#platforms}}
+            {{#browser}}
             credentials: "same-origin"
-                {%- endif %}
-            {%- endif %}
+            {{/browser}}
+            {{/platforms}}
         }).then((resp: any) => {
             const headers: { [name: string]: string } = {};
             resp.headers.forEach((value: string, name: string) => {
               headers[name] = value;
             });
 
-            {%- if platforms %}
-                {%- if node %}
+            {{#platforms}}
+            {{#node}}
             const body = {
               text: () => resp.text(),
               binary: () => resp.buffer()
             };
-                {%- else %}
+            {{/node}}
+            {{^node}}
             const body = {
               text: () => resp.text(),
               binary: () => resp.blob()
             };
-                {%- endif %}
-            {%- endif %}
+            {{/node}}
+            {{/platforms}}
             const response = new ResponseContext(resp.status, headers, body);
             if (this.debug) {
                 this.logResponse(response);
@@ -84,11 +85,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     }
 
     private logRequest(request: RequestContext): void {
-        const headers: { [key: string]: string } = {};
-        const originalHeaders = request.getHeaders();
-        for (const header in originalHeaders) {
-            headers[header] = originalHeaders[header];
-        }
+        const headers = request.getHeaders();
         if (headers["DD-API-KEY"]) {
             headers["DD-API-KEY"] = headers["DD-API-KEY"].replace(/./g, "x");
         }

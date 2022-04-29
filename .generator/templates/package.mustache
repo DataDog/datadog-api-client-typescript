@@ -16,49 +16,46 @@
     "build": "tsc",
     "prepare": "npm run build"
   },
-  {%- if condition %}
-
-  {%- endif %}
   "dependencies": {
-    {%- if frameworks %}
-      {%- if fetch %}
-        {%- if platforms %}
-          {%- if node %}
+    {{#frameworks}}
+      {{#fetch-api}}
+        {{#platforms}}
+          {{#node}}
     "node-fetch": "^2.6.0",
     "@types/node-fetch": "^2.5.7",
-          {%- endif %}
-          {%- if browser %}
+          {{/node}}
+          {{#browser}}
     "whatwg-fetch": "^3.0.0",
-          {%- endif %}
-        {%- endif %}
-      {%- endif %}
-      {%- if jquery %}
+          {{/browser}}
+        {{/platforms}}
+      {{/fetch-api}}
+      {{#jquery}}
     "@types/jquery": "^3.3.29",
     "jquery": "^3.4.1",
-      {%- endif %}
-    {%- endif %}
-    {%- if platforms %}
-      {%- if node %}
+      {{/jquery}}
+    {{/frameworks}}
+    {{#platforms}}
+      {{#node}}
     "@types/node": "*",
     "form-data": "^2.5.0",
     "btoa": "^1.2.1",
-      {%- endif %}
-    {%- endif %}
-    {%- if useRxJS %}
+      {{/node}}
+    {{/platforms}}
+    {{#useRxJS}}
     "rxjs": "^6.4.0",
-    {%- endif %}
-    {%- if useInversify %}
+    {{/useRxJS}}
+    {{#useInversify}}
     "inversify": "^5.0.1",
-    {%- endif %}
+    {{/useInversify}}
     "es6-promise": "^4.2.4",
     "url-parse": "^1.4.3"
   },
   "devDependencies": {
     "typescript": "^3.9.3"
-  }{%- if npmRepository %},{%- endif %}
-{%- if npmRepository %}
+  }{{#npmRepository}},{{/npmRepository}}
+{{#npmRepository}}
   "publishConfig":{
     "registry":"{{npmRepository}}"
   }
-{%- endif %}
+{{/npmRepository}}
 }

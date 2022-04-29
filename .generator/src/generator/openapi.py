@@ -22,6 +22,19 @@ def get_name(schema):
     return name
 
 
+def form_parameter(operation):
+    if "requestBody" in operation and "multipart/form-data" in operation["requestBody"]["content"]:
+        parent = operation["requestBody"]["content"]["multipart/form-data"][
+            "schema"
+        ]
+        [(name, schema)] = list(parent["properties"].items())
+        return {
+            "schema": schema,
+            "name": name,
+            "description": schema.get("description"),
+            "required": name in parent.get("required", []),
+        }
+
 def type_to_typescript(schema, alternative_name=None):
     """Return Typescript type name for the type."""
     name = get_name(schema)
@@ -37,11 +50,11 @@ def type_to_typescript(schema, alternative_name=None):
     type_ = schema.get("type")
     if type_ is None:
         if "items" in schema:
-            type_ = "Array"
+            type_ = "array"
         elif "properties" in schema:
-            type_ = "Object"
+            type_ = "object"
         else:
-            type_ = "Object"
+            type_ = "object"
             warnings.warn(
                 f"Unknown type for schema: {schema} ({name or alternative_name})"
             )
@@ -60,7 +73,7 @@ def type_to_typescript(schema, alternative_name=None):
     elif type_ == "boolean":
         return "boolean"
     elif type_ == "array":
-        return "[{}]".format(type_to_typescript(schema["items"]))
+        return "Array<{}>".format(type_to_typescript(schema["items"]))
     elif type_ == "object":
         if "additionalProperties" in schema:
             return "{{ [key:string]:{}; }}".format(
@@ -84,7 +97,7 @@ def type_to_typescript(schema, alternative_name=None):
 
 
 def get_type_for_attribute(schema, attribute, current_name=None):
-    """Return Ruby type name for the attribute."""
+    """Return Typescript type name for the attribute."""
     child_schema = schema.get("properties", {}).get(attribute)
     alternative_name = (
         current_name + formatter.camel_case(attribute) if current_name else None
@@ -93,7 +106,7 @@ def get_type_for_attribute(schema, attribute, current_name=None):
 
 
 def get_type_for_parameter(parameter):
-    """Return Ruby type name for the parameter."""
+    """Return Typescript type name for the parameter."""
     if "content" in parameter:
         assert "in" not in parameter
         for content in parameter["content"].values():
@@ -101,37 +114,47 @@ def get_type_for_parameter(parameter):
     return type_to_typescript(parameter.get("schema"))
 
 
-def child_models(schema, alternative_name=None, seen=None):
+def child_models(schema, alternative_name=None, seen=None, parent=None):
     seen = seen or set()
     current_name = get_name(schema)
     name = current_name or alternative_name
 
+    # schema["name"] = name
+
+    if parent is not None:
+        schema["parent"] = parent
+
     has_sub_models = False
     if "allOf" in schema:
         has_sub_models = True
-        for child in schema["allOf"]:
-            yield from child_models(child, seen=seen)
+        for index in range(len(schema["allOf"])):
+            yield from child_models(schema["allOf"][index], seen=seen, parent=schema)
     if "oneOf" in schema:
         has_sub_models = True
-        for child in schema["oneOf"]:
-            yield from child_models(child, seen=seen)
+        for index in range(len(schema["oneOf"])):
+            yield from child_models(schema["oneOf"][index], seen=seen, parent=schema)
     if "anyOf" in schema:
         has_sub_models = True
-        for child in schema["anyOf"]:
-            yield from child_models(child, seen=seen)
+        for index in range(len(schema["anyOf"])):
+            yield from child_models(schema["anyOf"][index], seen=seen, parent=schema)
 
     if "items" in schema:
+        if current_name is not None and schema.get("x-generate-alias-as-model", False):
+            if name in seen:
+                return
+            seen.add(name)
+            yield name, schema
+
         yield from child_models(
             schema["items"],
-            alternative_name=alternative_name + "Item"
-            if alternative_name is not None
-            else None,
+            alternative_name=name + "Item" if name is not None else None,
             seen=seen,
+            parent=schema,
         )
 
-    if (
-        schema.get("type") == "object" or "properties" in schema or has_sub_models
-    ) and "additionalProperties" not in schema:
+    if (schema.get("type") == "object" or "properties" in schema or has_sub_models) and (
+        not (schema.get("additionalProperties") and not schema.get("properties"))
+    ):
         if not has_sub_models and name is None:
             # this is a basic map object so we don't need a type
             return
@@ -146,9 +169,12 @@ def child_models(schema, alternative_name=None, seen=None):
             seen.add(name)
             yield name, schema
 
-        for key, child in schema.get("properties", {}).items():
+        for key in schema.get("properties", {}):
             yield from child_models(
-                child, alternative_name=name + formatter.camel_case(key), seen=seen
+                schema["properties"][key],
+                alternative_name=name + formatter.camel_case(key),
+                seen=seen,
+                # parent=schema,
             )
 
     if "enum" in schema:
@@ -166,10 +192,9 @@ def child_models(schema, alternative_name=None, seen=None):
         if nested_name:
             yield from child_models(
                 schema["additionalProperties"],
-                alternative_name=name,
                 seen=seen,
+                # parent=schema,
             )
-
 
 def models(spec):
     name_to_schema = {}
@@ -193,6 +218,44 @@ def models(spec):
 
     return name_to_schema
 
+def get_references_for_model(model, model_name):
+    result = []
+    top_name = formatter.get_name(model) or model_name
+    for key, definition in model.get("properties", {}).items():
+        if (
+            definition.get("type") == "object"
+            or definition.get("enum")
+            or definition.get("oneOf")
+        ):
+            name = formatter.get_name(definition)
+            if name:
+                result.append(name)
+            elif definition.get("properties") and top_name:
+                result.append(top_name + formatter.camel_case(key))
+            elif definition.get("additionalProperties"):
+                name = formatter.get_name(definition["additionalProperties"])
+                if name:
+                    result.append(name)
+        elif definition.get("type") == "array":
+            name = formatter.get_name(definition)
+            if name:
+                result.append(name)
+            else:
+                name = formatter.get_name(definition.get("items"))
+                if name:
+                    result.append(name)
+        elif definition.get("properties") and top_name:
+            result.append(top_name + formatter.camel_case(key))
+    if model.get("additionalProperties"):
+        definition = model["additionalProperties"]
+        name = formatter.get_name(definition)
+        if name:
+            result.append(name)
+        elif definition.get("type") == "array":
+            name = formatter.get_name(definition.get("items"))
+            if name:
+                result.append(name)
+    return result
 
 def apis(spec):
     operations = {}
@@ -393,5 +456,9 @@ def get_api_models(operations):
 
 def get_required_parameters(operation):
     allParams = list(parameters(operation))
-    print("PARAMS0:", allParams[0])
-    return [param for name, param in allParams if param.required]
+    return [k for k,v in allParams if v.get("required")]
+
+def has_enums(model):
+    return False
+    # for key, child in model.get("properties", {}).items():
+    #     import pdb; pdb.set_trace()

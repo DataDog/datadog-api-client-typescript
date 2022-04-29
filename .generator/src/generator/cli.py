@@ -45,10 +45,13 @@ def cli(input, output):
     env.filters["parameters"] = openapi.parameters
     env.filters["return_type"] = openapi.return_type
     env.filters["snake_case"] = formatter.snake_case
+    env.filters["form_parameter"] = openapi.form_parameter
     env.filters["untitle_case"] = formatter.untitle_case
     env.filters["response_type"] = openapi.get_type_for_response
-    env.filters["get_required_parameters"] = openapi.get_required_parameters
 
+
+    env.globals["get_references_for_model"] = openapi.get_references_for_model
+    env.globals["get_required_parameters"] = openapi.get_required_parameters
     env.globals["package_name"] = package_name
     env.globals["npm_name"] = npm_name
     env.globals["enumerate"] = enumerate
@@ -60,10 +63,10 @@ def cli(input, output):
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
     env.globals["get_api_models"] = openapi.get_api_models
     env.globals["response"] = openapi.response
+    env.globals["has_enums"] = openapi.has_enums
 
     api_j2 = env.get_template("api/api.j2")
     model_j2 = env.get_template("model/model.j2")
-    package_j2 = env.get_template("package.j2")
     configuration_j2 = env.get_template("configuration.j2")
 
     extra_files = {

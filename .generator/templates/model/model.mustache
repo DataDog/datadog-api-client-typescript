@@ -1,0 +1,93 @@
+{{>licenseInfo}}
+{{#models}}
+{{#model}}
+{{#tsImports}}
+import { {{classname}} } from './{{filename}}{{extensionForDeno}}';
+{{/tsImports}}
+import { HttpFile } from '../http/http{{extensionForDeno}}';
+import { AttributeTypeMap, UnparsedObject } from '../util';
+
+{{#description}}
+/**
+* {{{.}}}
+*/
+{{/description}}
+{{^isEnum}}{{^oneOf}}
+export class {{classname}} {{#parent}}extends {{{.}}} {{/parent}}{
+{{#vars}}
+{{#description}}
+    /**
+    * {{{.}}}
+    */
+{{/description}}
+    '{{name}}'{{^required}}?{{/required}}: {{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}{{#required}}{{#isNullable}}|null{{/isNullable}}{{/required}};
+{{/vars}}
+
+    /**
+     * @ignore
+     */
+    'unparsedObject'?:any;
+
+    {{^isArray}}
+    /**
+     * @ignore
+     */
+    static readonly attributeTypeMap: AttributeTypeMap = {
+        {{#vars}}
+        "{{name}}": {
+            "baseName": "{{baseName}}",
+            "type": "{{#isEnum}}{{{datatypeWithEnum}}}{{/isEnum}}{{^isEnum}}{{{dataType}}}{{/isEnum}}",{{#required}}
+            "required": {{required}},{{/required}}{{#dataFormat}}
+            "format": "{{.}}",{{/dataFormat}}
+        }{{^-last}},
+        {{/-last}}
+        {{/vars}}
+    };
+
+    /**
+     * @ignore
+     */
+    static getAttributeTypeMap(): AttributeTypeMap {
+        {{#parent}}
+        return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);
+        {{/parent}}
+        {{^parent}}
+        return {{classname}}.attributeTypeMap;
+        {{/parent}}
+    }
+    {{/isArray}}
+
+    public constructor() {
+        {{#parent}}
+        super();
+        {{/parent}}
+        {{#allVars}}
+        {{#discriminatorValue}}
+        this.{{name}} = "{{discriminatorValue}}";
+        {{/discriminatorValue}}
+        {{/allVars}}
+        {{#discriminatorName}}
+        this.{{discriminatorName}} = "{{classname}}";
+        {{/discriminatorName}}
+    }
+}
+
+{{#hasEnums}}
+
+{{#vars}}
+{{#isEnum}}
+export type {{classname}}{{enumName}} ={{#allowableValues}}{{#values}} "{{.}}" {{^-last}}|{{/-last}}{{/values}}{{/allowableValues}};
+{{/isEnum}}
+{{/vars}}
+
+{{/hasEnums}}
+{{/oneOf}}{{/isEnum}}
+{{#isEnum}}
+export type {{classname}} = {{#allowableValues}}{{#enumVars}}typeof {{#enumClassPrefix}}{{{classname.toUpperCase}}}_{{/enumClassPrefix}}{{name}} {{^-last}}| {{/-last}}{{/enumVars}};
+{{#enumVars}}
+export const {{#enumClassPrefix}}{{{classname.toUpperCase}}}_{{/enumClassPrefix}}{{name}} = {{{value}}};
+{{/enumVars}}{{/allowableValues}}
+{{/isEnum}}
+{{#oneOf}}{{#-first}}export type {{classname}} = {{/-first}}{{{.}}}{{^-last}} | {{/-last}}{{#-last}} | UnparsedObject;{{/-last}}{{/oneOf}}
+{{/model}}
+{{/models}}

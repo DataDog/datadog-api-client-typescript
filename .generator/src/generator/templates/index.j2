@@ -12,7 +12,7 @@ export * from "./servers";
 {%- set classname = api.replace(" ", "") + "Api" %}
 export {
 {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
-    {{ classname }}{{ operation.operationId | camel_case }}Request,
+    {{ classname }}{{ operation.operationId }}Request,
 {%- endfor %}
     {{ classname}}
 } from './apis/{{ classname }}';

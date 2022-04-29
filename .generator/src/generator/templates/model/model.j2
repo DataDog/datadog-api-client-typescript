@@ -1,93 +1,83 @@
 {% include 'licenseInfo.j2' %}
-{%- if models %}
-{%- if model %}
-{%- if tsImports %}
-import { {{classname}} } from './{{filename}}{{extensionForDeno}}';
-{%- endif %}
-import { HttpFile } from '../http/http{{extensionForDeno}}';
+
+{% for classname in get_references_for_model(model, name) %}
+import { {{classname}} } from './{{classname}}';
+{%- endfor %}
+import { HttpFile } from '../http/http';
 import { AttributeTypeMap, UnparsedObject } from '../util';
 
-{%- if description %}
+{%- set classname = name %}
+
+{% if "description" in model %}
 /**
-* {{description}}
+* {{model.description}}
 */
-{%- endif %}
-{%- if not isEnum %}{%- if not oneOf %}
-export class {{classname}} {%- if parent %}extends {{parent}} {%- endif %}{
-{%- if vars %}
-{%- if description %}
+{% endif %}
+
+{% if "enum" not in model and "oneOf" not in model -%}
+export class {{classname}} {% if "parent_id" in model %} extends {{model.parent_id}} {% endif %} {
+
+{% if "properties" in model %}
+    {%- for varname, var in model.properties.items() -%}
+        {%- if "description" in var -%}
     /**
-    * {{description}}
+    * {{var.description}}
     */
-{%- endif %}
-    '{{name}}'{%- if not required %}?{%- endif %}: {%- if isEnum %}{{ datatypeWithEnum }}{%- endif %}{%- if not isEnum %}{{ dataType }}{%- endif %}{%- if required %}{%- if isNullable %}|null{%- endif %}{%- endif %};
-{%- endif %}
+        {%- endif -%}
+    '{{varname|camel_case|untitle_case}}'{% if not var.required %}?{% endif %}:{{type_to_typescript(var)}}
+        {%- if "nullable" in var %} | null {%-endif %}
+    {%- endfor -%}
 
     /**
      * @ignore
      */
-    'unparsedObject'?:any;
+    'unparsedObject'?:any
 
-    {%- if not isArray %}
+    {% if model.type != "array" %}
     /**
      * @ignore
      */
     static readonly attributeTypeMap: AttributeTypeMap = {
-        {%- if vars %}
-        "{{name}}": {
+    {% for varname, var in model.get("properties", {}).items() %}
+        {%- set baseName = varname | attribute_name %}
+        "{{varname|camel_case|untitle_case}}": {
             "baseName": "{{baseName}}",
-            "type": "{%- if isEnum %}{{ datatypeWithEnum }}{%- endif %}{%- if not isEnum %}{{ dataType }}{%- endif %}",{%- if required %}
-            "required": {{required}},{%- endif %}{%- if dataFormat %}
-            "format": "{{dataFormat}}",{%- endif %}
-        }{%- if not loop.last %}},
-        {%- endif %}}
-        {%- endif %}
+            "type": "{{type_to_typescript(var)}}",
+            {%- if "required" in var %}
+            "required": {{var.required}},
+            {%- endif %}
+            {%- if "format" in var %}
+            "format": "{{var.format}}",
+            {%- endif %}
+        }{% if not loop.last %},{% endif %}
+    {% endfor %}
     };
 
-    /**
+      /**
      * @ignore
      */
     static getAttributeTypeMap(): AttributeTypeMap {
-        {%- if parent %}
-        return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);
-        {%- endif %}
-        {%- if not parent %}
+        {% if model.parent is defined %}
+        return super.getAttributeTypeMap().concat({{model.parent.classname}}.attributeTypeMap);
+        {% else %}
         return {{classname}}.attributeTypeMap;
-        {%- endif %}
+        {% endif %}
     }
-    {%- endif %}
+    {% endif %}
 
-    public constructor() {
-        {%- if parent %}
+     public constructor() {
+        {% if model.parent is defined %}
         super();
-        {%- endif %}
-        {%- if allVars %}
-        {%- if discriminatorValue %}
-        this.{{name}} = "{{discriminatorValue}}";
-        {%- endif %}
-        {%- endif %}
-        {%- if discriminatorName %}
-        this.{{discriminatorName}} = "{{classname}}";
-        {%- endif %}
+        {% endif %}
+        {%- for attr, definition in model.get("properties", {}).items() %}
+        this.{{attr}} = "{{definition}}";
+        {%- endfor %}
+        {%- if model.discriminator is defined -%}
+        this.{{model.discriminator.propertyName}} = "{{classname}}";
+        {%- endif -%}
     }
+
+{% endif %}
+
 }
-
-{%- if hasEnums %}
-
-{%- if vars %}
-{%- if isEnum %}
-export type {{classname}}{{enumName}} ={%- if allowableValues %}{%- if values %} "{{values}}" {%- if not loop.last %}}|{%- endif %}}{%- endif %}{%- endif %};
-{%- endif %}
-{%- endif %}
-
-{%- endif %}
-{%- endif %}{%- endif %}
-{%- if isEnum %}
-export type {{classname}} = {%- if allowableValues %}{%- if enumVars %}typeof {%- if enumClassPrefix %}{{classname.toUpperCase}}_{%- endif %}{{name}} {%- if not loop.last %}}| {%- endif %}}{%- endif %};
-{%- if enumVars %}
-export const {%- if enumClassPrefix %}{{classname.toUpperCase}}_{%- endif %}{{name}} = {{ value }};
-{%- endif %}{%- endif %}
-{%- endif %}
-{%- if oneOf %}{%- if loop.first %}export type {{classname}} = {%- endif %}{{oneOf}}{%- if not loop.last %}} | {%- endif %}}{%- if loop.last %}} | UnparsedObject;{%- endif %}}{%- endif %}
-{%- endif %}
 {%- endif %}
