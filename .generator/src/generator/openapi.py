@@ -458,7 +458,7 @@ def get_required_parameters(operation):
     allParams = list(parameters(operation))
     return [k for k,v in allParams if v.get("required")]
 
-def has_enums(model):
-    return False
-    # for key, child in model.get("properties", {}).items():
-    #     import pdb; pdb.set_trace()
+def get_enums_list(model):
+    if model.get("enum") is None:
+        return None
+    return zip(model.get("x-enum-varnames", []), model.get("enum"))

@@ -70,14 +70,26 @@ export class {{classname}} {% if "parent_id" in model %} extends {{model.parent_
         super();
         {% endif %}
         {%- for attr, definition in model.get("properties", {}).items() %}
-        this.{{attr}} = "{{definition}}";
-        {%- endfor %}
-        {%- if model.discriminator is defined -%}
+            {%- if model.discriminator is defined -%}
         this.{{model.discriminator.propertyName}} = "{{classname}}";
-        {%- endif -%}
+            {%- endif -%}
+        {%- endfor %}
+
     }
 
 {% endif %}
 
 }
+
+{%- endif %}
+
+{% if model.enum  %}
+
+export type {{classname}} = {%- for name in model.get("x-enum-varnames", []) %} typeof {{name}}{% if not loop.last %} |{% endif %}{% endfor %};
+
+    {%- for name, value in get_enums_list(model) %}
+export const {{name}} = "{{value}}";
+    {%- endfor %}
+
+
 {%- endif %}
