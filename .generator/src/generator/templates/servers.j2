@@ -51,36 +51,39 @@ export class BaseServerConfiguration {
  */
 export class ServerConfiguration<T extends { [key: string]: string }> extends BaseServerConfiguration {}
 
-{%- if servers %}
-export const server{{-index}} = new ServerConfiguration<{ {%- if variables %}
-    "{{name}}": {%- if enumValues %}"{{enumValues}}"{%- if not loop.last %}} | {%- endif %}}{%- endif %}{%- if not enumValues %}string{%- endif %}{%- if not loop.last %}},{%- endif %}}
-{%- endif %} }>("{{url}}", { {%- if variables %}
-    "{{name}}": "{{defaultValue}}" {%- if not loop.last %}},{%- endif %}}{%- endif %}
+{%- for index, server in enumerate(openapi.servers) %}
+export const server{{index+1}} = new ServerConfiguration<{
+    {%- for name, value in server.get("variables", {}).items() %}
+    "{{name}}": {%- for enumValue in value.get("enum", []) %} "{{enumValue}}"{% if not loop.last%} |{% endif %}{% endfor %}{% if not value.get("enum", [])%} string {% endif %};
+    {%- endfor %} }>("{{server.url}}", { {%- for name, value in server.get("variables", {}).items() %}
+    "{{name}}": "{{value.default}}" {%- if not loop.last %},{%- endif %}{%- endfor %}
 })
-{%- endif %}
+{%- endfor %}
 
-export const servers = [{%- if servers %}server{{-index}}{%- if not loop.last %}}, {%- endif %}}{%- endif %}];
+export const servers = [{% for index, server in enumerate(openapi.servers) %}server{{index+1}}{%- if not loop.last %}, {% endif %}{%- endfor %}];
 
+{#
 export const operationServers: { [endpoint: string]: BaseServerConfiguration[] } = {
-{%- if apiInfo %}
-{%- if apis %}
-{%- if operations %}
-{%- if operation %}
-{%- if servers %}
-{%- if loop.first %}
-    "{{ classname }}.{{ nickname }}": [
-{%- endif %}
-        new ServerConfiguration<{ {%- if variables %}
-            "{{name}}": {%- if enumValues %}"{{enumValues}}"{%- if not loop.last %}} | {%- endif %}}{%- endif %}{%- if not enumValues %}string{%- endif %}{%- if not loop.last %}},{%- endif %}}
-        {%- endif %} }>("{{url}}", { {%- if variables %}
-            "{{name}}": "{{defaultValue}}" {%- if not loop.last %}},{%- endif %}}{%- endif %}
+{{#apiInfo}}
+{{#apis}}
+{{#operations}}
+{{#operation}}
+{{#servers}}
+{{#-first}}
+    "{{{classname}}}.{{{nickname}}}": [
+{{/-first}}
+        new ServerConfiguration<{ {{#variables}}
+            "{{name}}": {{#enumValues}}"{{.}}"{{^-last}} | {{/-last}}{{/enumValues}}{{^enumValues}}string{{/enumValues}}{{^-last}},{{/-last}}
+        {{/variables}} }>("{{url}}", { {{#variables}}
+            "{{name}}": "{{defaultValue}}" {{^-last}},{{/-last}}{{/variables}}
         }),
-{%- if loop.last %}}
+{{#-last}}
     ],
-{%- endif %}}
-{%- endif %}
-{%- endif %}
-{%- endif %}
-{%- endif %}
-{%- endif %}
+{{/-last}}
+{{/servers}}
+{{/operation}}
+{{/operations}}
+{{/apis}}
+{{/apiInfo}}
 }
+#}

@@ -68,6 +68,7 @@ def cli(input, output):
     api_j2 = env.get_template("api/api.j2")
     model_j2 = env.get_template("model/model.j2")
     configuration_j2 = env.get_template("configuration.j2")
+    servers_j2 =  env.get_template("servers.j2")
 
     extra_files = {
         "util.ts": env.get_template("util.j2"),
@@ -77,7 +78,6 @@ def cli(input, output):
         "models/ObjectSerializer.ts": env.get_template("model/ObjectSerializer.j2"),
         "http/http.ts": env.get_template("http/http.j2"),
         "http/isomorphic-fetch.ts": env.get_template("http/isomorphic-fetch.j2"),
-        "servers.ts": env.get_template("servers.j2"),
         "index.ts": env.get_template("index.j2")
     }
 
@@ -100,6 +100,8 @@ def cli(input, output):
         with api_path.open("w+") as fp:
             fp.write(api_j2.render(name=name, operations=operations, models=models))
 
+
+
     for name, template in extra_files.items():
         filename = package_path / name
         filename.parent.mkdir(parents=True, exist_ok=True)
@@ -109,4 +111,8 @@ def cli(input, output):
     configuration_path = package_path / "configuration.ts"
     with configuration_path.open("w+") as fp:
         fp.write(configuration_j2.render())
+
+    servers_path = package_path / "servers.ts"
+    with servers_path.open("w+") as fp:
+        fp.write(servers_j2.render(apis=apis, operations=operations))
 
