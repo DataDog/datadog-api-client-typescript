@@ -16,7 +16,7 @@ const params: v1.SyntheticsApiUpdateTestPauseStatusRequest = {
 
 apiInstance
   .updateTestPauseStatus(params)
-  .then((data: any) => {
+  .then((data: boolean) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
