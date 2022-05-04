@@ -184,7 +184,6 @@ export {
 
 export {
   UsageMeteringApiGetCostByOrgRequest,
-  UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
   UsageMeteringApi,
 } from "./apis/UsageMeteringApi";
@@ -613,7 +612,6 @@ export { SecurityMonitoringSignalsSort } from "./models/SecurityMonitoringSignal
 export { ServiceAccountCreateAttributes } from "./models/ServiceAccountCreateAttributes";
 export { ServiceAccountCreateData } from "./models/ServiceAccountCreateData";
 export { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
-export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
 export { UsageDataObject } from "./models/UsageDataObject";
 export { UsageObservabilityPipelinesResponse } from "./models/UsageObservabilityPipelinesResponse";

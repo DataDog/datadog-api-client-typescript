@@ -315,7 +315,6 @@ import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitor
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
-import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
 import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
@@ -410,10 +409,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
-  HourlyUsageType: [
-    "app_sec_host_count",
-    "observability_pipelines_bytes_processed",
-  ],
+  HourlyUsageType: ["observability_pipelines_bytes_processed"],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
   IncidentFieldAttributesValueType: [
     "multiselect",
@@ -886,8 +882,6 @@ const typeMap: { [index: string]: any } = {
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,
-  UsageApplicationSecurityMonitoringResponse:
-    UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
   UsageDataObject: UsageDataObject,
   UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,

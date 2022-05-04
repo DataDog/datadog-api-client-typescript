@@ -8,9 +8,6 @@
  * Do not edit the class manually.
  */
 
-export type HourlyUsageType =
-  | typeof APP_SEC_HOST_COUNT
-  | typeof OBSERVABILITY_PIPELINES_BYTES_PROCESSSED;
-export const APP_SEC_HOST_COUNT = "app_sec_host_count";
+export type HourlyUsageType = typeof OBSERVABILITY_PIPELINES_BYTES_PROCESSSED;
 export const OBSERVABILITY_PIPELINES_BYTES_PROCESSSED =
   "observability_pipelines_bytes_processed";
