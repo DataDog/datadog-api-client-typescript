@@ -23,6 +23,7 @@ const params: v2.LogsArchivesApiCreateLogsArchiveRequest = {
         includeTags: false,
         name: "Nginx Archive",
         query: "source:nginx",
+        rehydrationMaxScanSizeInGb: 100,
         rehydrationTags: ["team:intake", "team:app"],
       },
       type: "archives",
