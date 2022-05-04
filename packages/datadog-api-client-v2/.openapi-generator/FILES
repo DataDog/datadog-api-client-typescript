@@ -458,6 +458,7 @@ models/SecurityMonitoringSignalsSort.ts
 models/ServiceAccountCreateAttributes.ts
 models/ServiceAccountCreateData.ts
 models/ServiceAccountCreateRequest.ts
+models/UsageApplicationSecurityMonitoringResponse.ts
 models/UsageAttributesObject.ts
 models/UsageDataObject.ts
 models/UsageObservabilityPipelinesResponse.ts
