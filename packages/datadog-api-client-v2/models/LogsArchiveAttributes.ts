@@ -31,6 +31,10 @@ export class LogsArchiveAttributes {
    */
   "query": string;
   /**
+   * Maximum scan size for rehydration from this archive.
+   */
+  "rehydrationMaxScanSizeInGb"?: number;
+  /**
    * An array of tags to add to rehydrated logs from an archive.
    */
   "rehydrationTags"?: Array<string>;
@@ -63,6 +67,11 @@ export class LogsArchiveAttributes {
       baseName: "query",
       type: "string",
       required: true,
+    },
+    rehydrationMaxScanSizeInGb: {
+      baseName: "rehydration_max_scan_size_in_gb",
+      type: "number",
+      format: "int64",
     },
     rehydrationTags: {
       baseName: "rehydration_tags",
