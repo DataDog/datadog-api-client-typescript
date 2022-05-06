@@ -13,6 +13,7 @@ const DOWNTIME_ID = parseInt(process.env.DOWNTIME_ID as string);
 const params: v1.DowntimesApiUpdateDowntimeRequest = {
   body: {
     message: "Example-Update_a_downtime_returns_OK_response-updated",
+    muteFirstRecoveryNotification: true,
   },
   downtimeId: DOWNTIME_ID,
 };
