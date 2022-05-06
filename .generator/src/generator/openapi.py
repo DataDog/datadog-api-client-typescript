@@ -447,10 +447,16 @@ def get_api_models(operations):
         if "requestBody" in operation:
             for content in operation["requestBody"].get("content", {}).values():
                 if "schema" in content:
-                    name = formatter.get_name(content["schema"])
-                    if name and name not in seen:
-                        seen.add(name)
-                        yield name
+                    if "items" in content["schema"]:
+                        name = formatter.get_name(content["schema"]["items"])
+                        if name and name not in seen:
+                            seen.add(name)
+                            yield name
+                    else:
+                        name = formatter.get_name(content["schema"])
+                        if name and name not in seen:
+                            seen.add(name)
+                            yield name
 
 
 def get_enums_list(model):

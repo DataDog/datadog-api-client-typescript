@@ -183,11 +183,9 @@ def format_parameters(kwargs, spec, replace_values=None, has_body=False):
 
 
 def get_name(schema):
-
     name = None
     if hasattr(schema, "__reference__"):
         name = schema.__reference__["$ref"].split("/")[-1]
-
     return name
 
 
