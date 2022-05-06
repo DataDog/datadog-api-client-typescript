@@ -226,6 +226,12 @@ def models(spec):
 def get_references_for_model(model, model_name):
     result = []
     top_name = formatter.get_name(model) or model_name
+    if "oneOf" in model:
+        for oneOf in model["oneOf"]:
+            if "items" in oneOf:
+                result.append(formatter.get_name(oneOf["items"]))
+            else:
+                result.append(formatter.get_name(oneOf))
     for key, definition in model.get("properties", {}).items():
         if definition.get("type") == "object" or definition.get("enum") or definition.get("oneOf"):
             name = formatter.get_name(definition)
@@ -238,13 +244,9 @@ def get_references_for_model(model, model_name):
                 if name:
                     result.append(name)
         elif definition.get("type") == "array":
-            name = formatter.get_name(definition)
+            name = formatter.get_name(definition.get("items"))
             if name:
                 result.append(name)
-            else:
-                name = formatter.get_name(definition.get("items"))
-                if name:
-                    result.append(name)
         elif definition.get("properties") and top_name:
             result.append(top_name + formatter.camel_case(key))
     if model.get("additionalProperties"):
@@ -256,7 +258,7 @@ def get_references_for_model(model, model_name):
             name = formatter.get_name(definition.get("items"))
             if name:
                 result.append(name)
-    return result
+    return set(result)
 
 
 def apis(spec):

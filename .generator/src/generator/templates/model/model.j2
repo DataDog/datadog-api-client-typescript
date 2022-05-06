@@ -1,7 +1,7 @@
 {% include 'licenseInfo.j2' %}
 
 {% for classname in get_references_for_model(model, name) %}
-import { {{classname}} } from './{{classname}}';
+import { {{ classname }} } from './{{ classname }}';
 {%- endfor %}
 import { HttpFile } from '../http/http';
 import { AttributeTypeMap, UnparsedObject } from '../util';
@@ -91,9 +91,9 @@ export class {{ name }} {
 
 
 {%- if "enum" in model %}
-export type {{ name }} = {%- for index, value in enumerate(model.enum) %}typeof {{ model["x-enum-varnames"][index] or value.upper() }} {%- if not loop.last %}| {% endif %}{%- endfor %};
+export type {{ name }} = {% for index, value in enumerate(model.enum) %}typeof {{ model["x-enum-varnames"][index] or value.upper() }} {%- if not loop.last %}| {% endif %}{%- endfor %};
 {%- for index, value in enumerate(model.enum) %}
-export const {{ model["x-enum-varnames"][index] or value.upper() }} = "{{ value }}";
+export const {{ model["x-enum-varnames"][index] or value.upper() }} = {{ value|format_value }};
 {%- endfor %}
 {%- endif %}
 {%- if "oneOf" in model %}
