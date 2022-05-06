@@ -1,12 +1,5 @@
 import {HttpLibrary, RequestContext, ResponseContext} from './http{{extensionForDeno}}';
-{%- if platforms %}
-    {%- if node %}
 import fetch from "cross-fetch";
-    {%- endif %}
-    {%- if browser %}
-import "whatwg-fetch";
-    {%- endif %}
-{%- endif %}
 import pako from "pako";
 import bufferFrom from "buffer-from";
 
@@ -18,7 +11,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         if (this.debug) {
             this.logRequest(request);
         }
-        let method = request.getHttpMethod().toString();
+        const method = request.getHttpMethod().toString();
         let body = request.getBody();
 
         let compress = request.getHttpConfig().compress;
@@ -26,7 +19,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
             compress = true;
         }
 
-        let headers = request.getHeaders();
+        const headers = request.getHeaders();
         if (typeof body === "string") {
             if (headers["Content-Encoding"] == "gzip") {
                 body = bufferFrom(pako.gzip(body).buffer);
@@ -49,30 +42,16 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
             body: body as any,
             headers: headers,
             signal: request.getHttpConfig().signal,
-            {%- if platforms %}
-                {%- if browser %}
-            credentials: "same-origin"
-                {%- endif %}
-            {%- endif %}
         }).then((resp: any) => {
             const headers: { [name: string]: string } = {};
             resp.headers.forEach((value: string, name: string) => {
               headers[name] = value;
             });
 
-            {%- if platforms %}
-                {%- if node %}
             const body = {
               text: () => resp.text(),
               binary: () => resp.buffer()
             };
-                {%- else %}
-            const body = {
-              text: () => resp.text(),
-              binary: () => resp.blob()
-            };
-                {%- endif %}
-            {%- endif %}
             const response = new ResponseContext(resp.status, headers, body);
             if (this.debug) {
                 this.logResponse(response);

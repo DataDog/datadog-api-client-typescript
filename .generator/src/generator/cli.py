@@ -9,13 +9,12 @@ from . import formatter
 package_name = "datadog-api-client"
 npm_name = "@datadog/datadog-api-client"
 
+
 @click.command()
 @click.option(
     "-i",
     "--input",
-    type=click.Path(
-        exists=True, file_okay=True, dir_okay=False, path_type=pathlib.Path
-    ),
+    type=click.Path(exists=True, file_okay=True, dir_okay=False, path_type=pathlib.Path),
 )
 @click.option(
     "-o",
@@ -30,9 +29,7 @@ def cli(input, output):
 
     version = input.parent.name
 
-    env = Environment(
-        loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates"))
-    )
+    env = Environment(loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates")))
 
     env.filters["accept_headers"] = openapi.accept_headers
     env.filters["attribute_name"] = formatter.attribute_name
@@ -48,10 +45,9 @@ def cli(input, output):
     env.filters["form_parameter"] = openapi.form_parameter
     env.filters["untitle_case"] = formatter.untitle_case
     env.filters["response_type"] = openapi.get_type_for_response
-
+    env.filters["escape_html"] = formatter.escape_html
 
     env.globals["get_references_for_model"] = openapi.get_references_for_model
-    env.globals["get_required_parameters"] = openapi.get_required_parameters
     env.globals["package_name"] = package_name
     env.globals["npm_name"] = npm_name
     env.globals["enumerate"] = enumerate
@@ -64,11 +60,12 @@ def cli(input, output):
     env.globals["get_api_models"] = openapi.get_api_models
     env.globals["response"] = openapi.response
     env.globals["get_enums_list"] = openapi.get_enums_list
+    env.globals["get_format"] = openapi.get_format
 
     api_j2 = env.get_template("api/api.j2")
     model_j2 = env.get_template("model/model.j2")
     configuration_j2 = env.get_template("configuration.j2")
-    servers_j2 =  env.get_template("servers.j2")
+    servers_j2 = env.get_template("servers.j2")
 
     extra_files = {
         "util.ts": env.get_template("util.j2"),
@@ -78,7 +75,7 @@ def cli(input, output):
         "models/ObjectSerializer.ts": env.get_template("model/ObjectSerializer.j2"),
         "http/http.ts": env.get_template("http/http.j2"),
         "http/isomorphic-fetch.ts": env.get_template("http/isomorphic-fetch.j2"),
-        "index.ts": env.get_template("index.j2")
+        "index.ts": env.get_template("index.j2"),
     }
 
     apis = openapi.apis(spec)
@@ -100,8 +97,6 @@ def cli(input, output):
         with api_path.open("w+") as fp:
             fp.write(api_j2.render(name=name, operations=operations, models=models))
 
-
-
     for name, template in extra_files.items():
         filename = package_path / name
         filename.parent.mkdir(parents=True, exist_ok=True)
@@ -115,4 +110,3 @@ def cli(input, output):
     servers_path = package_path / "servers.ts"
     with servers_path.open("w+") as fp:
         fp.write(servers_j2.render(apis=apis, operations=operations))
-

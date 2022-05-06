@@ -65,7 +65,7 @@ export interface ConfigurationParameters {
  */
 export function createConfiguration(conf: ConfigurationParameters = {}): Configuration {
     if (process !== undefined && process.env.DD_SITE) {
-        let serverConf = server1.getConfiguration();
+        const serverConf = server1.getConfiguration();
         server1.setVariables({"site": process.env.DD_SITE} as (typeof serverConf));
         for (const op in operationServers) {
             operationServers[op][0].setVariables({ site: process.env.DD_SITE });
@@ -73,33 +73,26 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
     }
 
     const authMethods = conf.authMethods || {};
-    {%- if authMethods %}
-    {%- if isApiKey %}
-    {%- if isKeyInHeader %}
-
-    if (!("{{name}}" in authMethods) && process !== undefined && process.env.{{vendorExtensions.x-env-name}}) {
-        authMethods["{{name}}"] = process.env.{{vendorExtensions.x-env-name}};
+    {%- for name, schema in openapi.components.securitySchemes.items()  %}
+    {%- if schema.get("type") == "apiKey" and schema.get("in") == "header" %}
+    if (!("{{ name }}" in authMethods) && process !== undefined && process.env.{{ schema["x-env-name"] }}) {
+        authMethods["{{ name }}"] = process.env.{{ schema["x-env-name"] }};
     }
     {%- endif %}
-    {%- endif %}
-    {%- endif %}
+    {%- endfor %}
 
     const configuration: Configuration = {
         baseServer: conf.baseServer,
         serverIndex: conf.serverIndex || 0,
         operationServerIndices: conf.operationServerIndices || {},
         unstableOperations: {
-        {%- if apiInfo %}
-        {%- if apis %}
-        {%- if operations %}
-        {%- if operation %}
-        {%- if vendorExtensions.x-unstable %}
-            "{{operationId}}": false,
+        {%- for path in openapi.paths.values() %}
+        {%- for operation in path.values()|sort(attribute="operationId") %}
+        {%- if "x-unstable" in operation %}
+        "{{ operation.operationId|untitle_case  }}": false,
         {%- endif %}
-        {%- endif %}
-        {%- endif %}
-        {%- endif %}
-        {%- endif %}
+        {%- endfor %}
+        {%- endfor %}
         },
         httpApi: conf.httpApi || new DefaultHttpLibrary(),
         authMethods: configureAuthMethods(authMethods),
@@ -114,7 +107,7 @@ export function getServer(conf: Configuration, endpoint: string): BaseServerConf
     if (conf.baseServer !== undefined) {
         return conf.baseServer;
     }
-    let index = (endpoint in conf.operationServerIndices) ? conf.operationServerIndices[endpoint] : conf.serverIndex;
+    const index = (endpoint in conf.operationServerIndices) ? conf.operationServerIndices[endpoint] : conf.serverIndex;
     return (endpoint in operationServers) ? operationServers[endpoint][index] : servers[index];
 }
 
@@ -129,7 +122,7 @@ export function setServerVariables(conf: Configuration, serverVariables: { [key:
         return ;
     }
 
-    let index = conf.serverIndex;
+    const index = conf.serverIndex;
     servers[index].setVariables(serverVariables);
 
     for (const op in operationServers) {

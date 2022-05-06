@@ -8,11 +8,15 @@ export { Configuration } from "./configuration"
 export * from "./apis/exception";
 export * from "./servers";
 
-{%- for api, operations in apis.items()|sort %}
+{%- for api, operations in apis.items()|sort(attribute="0", case_sensitive=True) %}
 {%- set classname = api.replace(" ", "") + "Api" %}
+
 export {
-{%- for path, method, operation in operations|sort(attribute="2.operationId") %}
+{%- for path, method, operation in operations|sort(attribute="2.operationId", case_sensitive=True) %}
+    {%- set allParams = operation|parameters|list %}
+    {%- if allParams %}
     {{ classname }}{{ operation.operationId }}Request,
+    {%- endif %}
 {%- endfor %}
     {{ classname}}
 } from './apis/{{ classname }}';

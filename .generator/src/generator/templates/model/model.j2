@@ -6,90 +6,96 @@ import { {{classname}} } from './{{classname}}';
 import { HttpFile } from '../http/http';
 import { AttributeTypeMap, UnparsedObject } from '../util';
 
-{%- set classname = name %}
-
 {% if "description" in model %}
 /**
-* {{model.description}}
+* {{ model.description|replace("\n", " ") }}
 */
 {% endif %}
-
-{% if "enum" not in model and "oneOf" not in model -%}
-export class {{classname}} {% if "parent_id" in model %} extends {{model.parent_id}} {% endif %} {
-
-{% if "properties" in model %}
-    {%- for varname, var in model.properties.items() -%}
-        {%- if "description" in var -%}
+{%- if "enum" not in model and "oneOf" not in model -%}
+export class {{ name }} {
+{%- for attr, schema in model.get("properties", {}).items() %}
+{%- set isRequired = attr in model.get("required", []) %}
+{%- set isNullable = schema.nullable %}
+{%- if schema.description %}
     /**
-    * {{var.description}}
+    * {{ schema.description|replace("\n", " ") }}
     */
-        {%- endif -%}
-    '{{varname|camel_case|untitle_case}}'{% if not var.required %}?{% endif %}:{{type_to_typescript(var)}}
-        {%- if "nullable" in var %} | null {%-endif %}
-    {%- endfor -%}
+{%- endif %}
+    '{{ attr|attribute_name }}'{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isRequired and isNullable %}|null{%- endif %};
+{%- endfor %}
 
     /**
      * @ignore
      */
-    'unparsedObject'?:any
+    'unparsedObject'?:any;
+    {%- if "items" not in model %}
 
-    {% if model.type != "array" %}
     /**
      * @ignore
      */
     static readonly attributeTypeMap: AttributeTypeMap = {
-    {% for varname, var in model.get("properties", {}).items() %}
-        {%- set baseName = varname | attribute_name %}
-        "{{varname|camel_case|untitle_case}}": {
-            "baseName": "{{baseName}}",
-            "type": "{{type_to_typescript(var)}}",
-            {%- if "required" in var %}
-            "required": {{var.required}},
+        {%- for attr, schema in model.get("properties", {}).items() %}
+        {%- set isRequired = attr in model.get("required", []) %}
+        {%- set format = get_format(schema) %}
+        "{{ attr|attribute_name }}": {
+            "baseName": "{{ attr }}",
+            "type": "{{ type_to_typescript(schema) }}",
+            {%- if isRequired %}
+            "required": true,
             {%- endif %}
-            {%- if "format" in var %}
-            "format": "{{var.format}}",
+            {%- if format %}
+            "format": "{{ format }}",
             {%- endif %}
-        }{% if not loop.last %},{% endif %}
-    {% endfor %}
+        }{%- if loop.nextitem %},{%- endif %}
+        {%- endfor %}
     };
 
-      /**
+    /**
      * @ignore
      */
     static getAttributeTypeMap(): AttributeTypeMap {
-        {% if model.parent is defined %}
-        return super.getAttributeTypeMap().concat({{model.parent.classname}}.attributeTypeMap);
-        {% else %}
-        return {{classname}}.attributeTypeMap;
-        {% endif %}
+{#        {{#parent}}#}
+{#        return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);#}
+{#        {{/parent}}#}
+{#        {{^parent}}#}
+        return {{ name }}.attributeTypeMap;
+{#        {{/parent}}#}
     }
-    {% endif %}
+    {%- endif %}
 
-     public constructor() {
-        {% if model.parent is defined %}
-        super();
-        {% endif %}
-        {%- for attr, definition in model.get("properties", {}).items() %}
-            {%- if model.discriminator is defined -%}
-        this.{{model.discriminator.propertyName}} = "{{classname}}";
-            {%- endif -%}
-        {%- endfor %}
-
+    public constructor() {
+{#        {{#parent}}#}
+{#        super();#}
+{#        {{/parent}}#}
+{#        {{#allVars}}#}
+{#        {{#discriminatorValue}}#}
+{#        this.{{name}} = "{{discriminatorValue}}";#}
+{#        {{/discriminatorValue}}#}
+{#        {{/allVars}}#}
+{#        {{#discriminatorName}}#}
+{#        this.{{discriminatorName}} = "{{classname}}";#}
+{#        {{/discriminatorName}}#}
     }
-
-{% endif %}
-
 }
 
+{#{{#hasEnums}}#}
+{##}
+{#{{#vars}}#}
+{#{{#isEnum}}#}
+{#export type {{classname}}{{enumName}} ={{#allowableValues}}{{#values}} "{{.}}" {{^-last}}|{{/-last}}{{/values}}{{/allowableValues}};#}
+{#{{/isEnum}}#}
+{#{{/vars}}#}
+{##}
+{#{{/hasEnums}}#}
 {%- endif %}
 
-{% if model.enum  %}
 
-export type {{classname}} = {%- for name in model.get("x-enum-varnames", []) %} typeof {{name}}{% if not loop.last %} |{% endif %}{% endfor %};
-
-    {%- for name, value in get_enums_list(model) %}
-export const {{name}} = "{{value}}";
-    {%- endfor %}
-
-
+{%- if "enum" in model %}
+export type {{ name }} = {%- for index, value in enumerate(model.enum) %}typeof {{ model["x-enum-varnames"][index] or value.upper() }} {%- if not loop.last %}| {% endif %}{%- endfor %};
+{%- for index, value in enumerate(model.enum) %}
+export const {{ model["x-enum-varnames"][index] or value.upper() }} = "{{ value }}";
+{%- endfor %}
+{%- endif %}
+{%- if "oneOf" in model %}
+export type {{ name }} = {% for oneOf in model.oneOf %}{{ type_to_typescript(oneOf) }}{% if not loop.last %} | {% endif %}{%- if loop.last %} | UnparsedObject{%- endif %}{%- endfor %};
 {%- endif %}

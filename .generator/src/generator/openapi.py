@@ -7,6 +7,8 @@ from yaml import CSafeLoader
 
 from . import formatter
 
+PRIMITIVE_TYPES = ["string", "number", "boolean", "integer"]
+
 
 def load(filename):
     path = pathlib.Path(filename)
@@ -22,11 +24,22 @@ def get_name(schema):
     return name
 
 
+def get_format(schema):
+    if "format" in schema:
+        return schema["format"]
+    elif "items" in schema:
+        return schema["items"].get("format", "")
+
+
+def is_primitive(schema):
+    if schema.get("type") in PRIMITIVE_TYPES and "enum" not in schema:
+        return True
+    return False
+
+
 def form_parameter(operation):
     if "requestBody" in operation and "multipart/form-data" in operation["requestBody"]["content"]:
-        parent = operation["requestBody"]["content"]["multipart/form-data"][
-            "schema"
-        ]
+        parent = operation["requestBody"]["content"]["multipart/form-data"]["schema"]
         [(name, schema)] = list(parent["properties"].items())
         return {
             "schema": schema,
@@ -35,17 +48,18 @@ def form_parameter(operation):
             "required": name in parent.get("required", []),
         }
 
+
 def type_to_typescript(schema, alternative_name=None):
     """Return Typescript type name for the type."""
     name = get_name(schema)
-    if name:
+    if name and "items" not in schema and not is_primitive(schema):
         if "enum" in schema:
             return name
-        if (
-            not schema.get("additionalProperties")
-            and schema.get("type", "object") == "object"
-        ):
-            return name
+        # if (
+        #     not schema.get("additionalProperties")
+        #     and schema.get("type", "object") == "object"
+        # ):
+        return name
 
     type_ = schema.get("type")
     if type_ is None:
@@ -55,9 +69,7 @@ def type_to_typescript(schema, alternative_name=None):
             type_ = "object"
         else:
             type_ = "object"
-            warnings.warn(
-                f"Unknown type for schema: {schema} ({name or alternative_name})"
-            )
+            warnings.warn(f"Unknown type for schema: {schema} ({name or alternative_name})")
 
     if type_ == "integer":
         return "number"
@@ -68,7 +80,7 @@ def type_to_typescript(schema, alternative_name=None):
         if format_ in {"date", "date-time"}:
             return "Date"
         elif format_ == "binary":
-            return "any"
+            return "HttpFile"
         return "string"
     elif type_ == "boolean":
         return "boolean"
@@ -76,18 +88,11 @@ def type_to_typescript(schema, alternative_name=None):
         return "Array<{}>".format(type_to_typescript(schema["items"]))
     elif type_ == "object":
         if "additionalProperties" in schema:
-            return "{{ [key:string]:{}; }}".format(
-                type_to_typescript(schema["additionalProperties"])
-            )
+            return "{{ [key: string]: {}; }}".format(type_to_typescript(schema["additionalProperties"]))
         return (
             alternative_name
             if alternative_name
-            and (
-                "properties" in schema
-                or "oneOf" in schema
-                or "anyOf" in schema
-                or "allOf" in schema
-            )
+            and ("properties" in schema or "oneOf" in schema or "anyOf" in schema or "allOf" in schema)
             else "any"
         )
     elif type_ == "null":
@@ -99,9 +104,7 @@ def type_to_typescript(schema, alternative_name=None):
 def get_type_for_attribute(schema, attribute, current_name=None):
     """Return Typescript type name for the attribute."""
     child_schema = schema.get("properties", {}).get(attribute)
-    alternative_name = (
-        current_name + formatter.camel_case(attribute) if current_name else None
-    )
+    alternative_name = current_name + formatter.camel_case(attribute) if current_name else None
     return type_to_typescript(child_schema, alternative_name=alternative_name)
 
 
@@ -196,6 +199,7 @@ def child_models(schema, alternative_name=None, seen=None, parent=None):
                 # parent=schema,
             )
 
+
 def models(spec):
     name_to_schema = {}
 
@@ -218,15 +222,12 @@ def models(spec):
 
     return name_to_schema
 
+
 def get_references_for_model(model, model_name):
     result = []
     top_name = formatter.get_name(model) or model_name
     for key, definition in model.get("properties", {}).items():
-        if (
-            definition.get("type") == "object"
-            or definition.get("enum")
-            or definition.get("oneOf")
-        ):
+        if definition.get("type") == "object" or definition.get("enum") or definition.get("oneOf"):
             name = formatter.get_name(definition)
             if name:
                 result.append(name)
@@ -257,6 +258,7 @@ def get_references_for_model(model, model_name):
                 result.append(name)
     return result
 
+
 def apis(spec):
     operations = {}
 
@@ -285,9 +287,7 @@ def parameters(operation):
 
     if "requestBody" in operation:
         if "multipart/form-data" in operation["requestBody"]["content"]:
-            parent = operation["requestBody"]["content"]["multipart/form-data"][
-                "schema"
-            ]
+            parent = operation["requestBody"]["content"]["multipart/form-data"]["schema"]
             for name, schema in parent["properties"].items():
                 yield name, {
                     "in": "form",
@@ -308,7 +308,8 @@ def parameter_schema(parameter):
         for content in parameter.get("content", {}).values():
             if "schema" in content:
                 return content["schema"]
-    raise ValueError(f"Unknown schema for parameter {parameter}")
+    return {}
+
 
 def get_type_for_response(response):
     """Return Typescript type name for the response."""
@@ -317,12 +318,13 @@ def get_type_for_response(response):
             if "schema" in content:
                 return type_to_typescript(content["schema"])
 
+
 def return_type(operation):
     for response in operation.get("responses", {}).values():
         for content in response.get("content", {}).values():
             if "schema" in content:
                 return type_to_typescript(content["schema"])
-        return
+        return "void"
 
 
 def accept_headers(operation):
@@ -367,9 +369,7 @@ def format_server(server, server_variables=None, path=""):
     for variable in server["variables"]:
         if server_variables and variable in server_variables:
             continue
-        url = url.replace(
-            "{" + variable + "}", server["variables"][variable]["default"]
-        )
+        url = url.replace("{" + variable + "}", server["variables"][variable]["default"])
     return urlparse(url)
 
 
@@ -383,9 +383,7 @@ def server_url_and_method(spec, operation_id, server_index=0, server_variables=N
                 else:
                     server = spec["servers"][server_index]
                 return (
-                    format_server(
-                        server, server_variables=server_variables, path=path
-                    ).geturl(),
+                    format_server(server, server_variables=server_variables, path=path).geturl(),
                     method,
                 )
 
@@ -395,13 +393,9 @@ def server_url_and_method(spec, operation_id, server_index=0, server_variables=N
 def response_code_and_accept_type(operation, status_code=None):
     for response in operation["responses"]:
         if status_code is None:
-            return int(response), next(
-                iter(operation["responses"][response].get("content", {None: None}))
-            )
+            return int(response), next(iter(operation["responses"][response].get("content", {None: None})))
         if response == str(status_code):
-            return status_code, next(
-                iter(operation["responses"][response].get("content", {None: None}))
-            )
+            return status_code, next(iter(operation["responses"][response].get("content", {None: None})))
     return status_code, None
 
 
@@ -412,10 +406,12 @@ def request_content_type(operation, status_code=None):
 def response(operation, status_code=None):
     for response in operation["responses"]:
         if status_code is None or response == str(status_code):
-            return list(operation["responses"][response]["content"].values())[0][
-                "schema"
-            ]
+            try:
+                return list(operation["responses"][response]["content"].values())[0]["schema"]
+            except KeyError:
+                return None
     return None
+
 
 def get_api_models(operations):
     seen = set()
@@ -454,9 +450,6 @@ def get_api_models(operations):
                         seen.add(name)
                         yield name
 
-def get_required_parameters(operation):
-    allParams = list(parameters(operation))
-    return [k for k,v in allParams if v.get("required")]
 
 def get_enums_list(model):
     if model.get("enum") is None:

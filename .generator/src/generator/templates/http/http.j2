@@ -42,16 +42,10 @@ export enum HttpMethod {
 /**
  * Represents an HTTP file which will be transferred from or to a server.
  */
-{%- if platforms %}
-    {%- if node %}
 export type HttpFile = {
-    data: {{ fileContentDataType }},
+    data: Buffer,
     name: string
 };
-    {%- else %}
-export type HttpFile = {{ fileContentDataType }} & { readonly name: string };
-    {%- endif %}
-{%- endif %}
 
 export class HttpException extends Error {
     public constructor(msg: string) {
@@ -133,7 +127,7 @@ export class RequestContext {
     }
 
     public setQueryParam(name: string, value: string): void {
-        let queryObj = this.url.query;
+        const queryObj = this.url.query;
         queryObj[name] = value;
         this.url.set("query", queryObj);
     }
@@ -164,40 +158,22 @@ export class RequestContext {
 
 export interface ResponseBody {
     text(): Promise<string>;
-    binary(): Promise<{{ fileContentDataType }}>;
+    binary(): Promise<Buffer>;
 }
 
 /**
  * Helper class to generate a `ResponseBody` from binary data
  */
 export class SelfDecodingBody implements ResponseBody {
-    constructor(private dataSource: Promise<{{ fileContentDataType }}>) {}
+    constructor(private dataSource: Promise<Buffer>) {}
 
-    binary(): Promise<{{ fileContentDataType }}> {
+    binary(): Promise<Buffer> {
         return this.dataSource;
     }
 
     async text(): Promise<string> {
-        const data: {{ fileContentDataType }} = await this.dataSource;
-        {%- if platforms %}
-            {%- if node %}
+        const data: Buffer = await this.dataSource;
         return data.toString();
-            {%- endif %}
-            {%- if browser %}
-        // @ts-ignore
-        if (data.text) {
-            // @ts-ignore
-            return data.text();
-        }
-
-        return new Promise<string>((resolve, reject) => {
-            const reader = new FileReader();
-            reader.addEventListener("load", () => resolve(reader.result as string));
-            reader.addEventListener("error", () => reject(reader.error));
-            reader.readAsText(data);
-        });
-            {%- endif %}
-        {%- endif %}
     }
 }
 
@@ -241,22 +217,7 @@ export class ResponseContext {
     public async getBodyAsFile(): Promise<HttpFile> {
         const data = await this.body.binary();
         const fileName = this.getParsedHeader("content-disposition")["filename"] || "";
-        {%- if platforms %}
-            {%- if node %}
         return { data, name: fileName };
-            {%- else %}
-        const contentType = this.headers["content-type"] || "";
-        try {
-            return new File([data], fileName, { type: contentType });
-        } catch (error) {
-            /** Fallback for when the File constructor is not available */
-            return Object.assign(data, {
-                name: fileName,
-                type: contentType
-            });
-        }
-            {%- endif %}
-        {%- endif %}
     }
 }
 

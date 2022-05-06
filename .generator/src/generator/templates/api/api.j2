@@ -1,180 +1,210 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
+
+{%- set seen = {"HttpFile": False, "FormData": False} %}
+{%- for path, method, operation in operations|sort(attribute="2.operationId") %}
+{%- set allParams = operation|parameters|list %}
+{%- set formParams = allParams|selectattr('1.in', 'equalto', "form") | list %}
+{%- if formParams|length > 0 %}
+{%- set _ = seen.update({"FormData": True}) %}
+{%- endif %}
+{%- for _, parameter in allParams %}
+{%- if get_type_for_parameter(parameter) == "HttpFile" %}
+{%- set _ = seen.update({"HttpFile": True}) %}
+{%- endif %}
+{%- endfor %}
+{%- endfor %}
+
 import { Configuration, getServer, applySecurityAuthentication} from '../configuration';
-import { RequestContext, HttpMethod, ResponseContext, HttpFile} from '../http/http';
-{%- if platforms and node %}
+import {
+    RequestContext,
+    HttpMethod,
+    ResponseContext,
+{%- if seen["HttpFile"] %}
+    HttpFile
+{%- endif %}
+    } from '../http/http';
+
+{%- if seen["FormData"] %}
+
 import FormData from "form-data";
 {%- endif %}
 import { ObjectSerializer } from '../models/ObjectSerializer';
 import { ApiException } from './exception';
 import { isCodeInRange } from '../util';
 
+import { APIErrorResponse } from "../models/APIErrorResponse";
 {%- for model in get_api_models(operations)|sort %}
 import { {{ model }} } from '../models/{{ model }}';
 {%- endfor %}
 
-{%- set classname = name.replace(" ", "") + "Api" %}
+{%- set className = name.replace(" ", "") + "Api" %}
 
-export class {{classname}}RequestFactory extends BaseAPIRequestFactory {
+export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
     {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
-    {%- set httpMethod = method.upper() %}
-    {%- set returnType = operation|return_type %}
-    public async {{operation.operationId|untitle_case}}({%- for name, parameter in operation|parameters %}{{name}}{%- if not parameter.required %}?{%- endif %}: {{ get_type_for_parameter(parameter) }}, {%- endfor %}_options?: Configuration): Promise<RequestContext> {
-        const _config = _options || this.configuration;
-        if (!_config.unstableOperations['{{operationId}}']) {
-            throw new Error("Unstable operation '{{operationId}}' is disabled");
-        }
-        {%- for name, parameter in operation|parameters %}
-        {%- set baseName = name|snake_case %}
-        {%- set paramName = name %}
-        {%- set formParams = operation|form_parameter %}
-        {%- set isCollectionFormatMulti = parameter|collection_format %}
+    {%- set allParams = operation|parameters | list %}
+    {%- set requiredParams = allParams|selectattr('1.required', 'equalto', true) | list %}
+    {%- set pathParams = allParams|selectattr('1.in', 'equalto', "path") | list %}
+    {%- set queryParams = allParams|selectattr('1.in', 'equalto', "query") | list %}
+    {%- set formParams = allParams|selectattr('1.in', 'equalto', "form") | list %}
+    {%- set headerParams = allParams|selectattr('1.in', 'equalto', "header") | list %}
+    {%- set authMethods = operation.security if "security" in operation else openapi.security %}
+    {%- set operationId = operation.operationId|untitle_case %}
+    {%- set bodyParamName = operation.get("x-codegen-request-body-name", "body") %}
 
-        {%- if parameter.required %}
+    public async {{ operationId }}({%- for name, parameter in allParams %}{{ name|attribute_name }}{%- if not parameter.required %}?{%- endif %}: {{ get_type_for_parameter(parameter) }}, {%- endfor %}_options?: Configuration): Promise<RequestContext> {
+        const _config = _options || this.configuration;
+        {%- if "x-unstable" in operation %}
+        if (!_config.unstableOperations['{{ operationId }}']) {
+            throw new Error("Unstable operation '{{ operationId }}' is disabled");
+        }
+        {%- endif %}
+
+        {%- for name, parameter in requiredParams %}
+
         // verify required parameter '{{ name|attribute_name }}' is not null or undefined
         if ({{ name|attribute_name }} === null || {{ name|attribute_name }} === undefined) {
-            throw new RequiredError('Required parameter {{ name|attribute_name }} was null or undefined when calling {{operation.operationId}}.');
+            throw new RequiredError('Required parameter {{ name|attribute_name }} was null or undefined when calling {{ operationId }}.');
         }
-        {%- endif %}
-
+        {%- endfor %}
 
         // Path Params
-        const localVarPath = '{{ path }}'{%- if parameter.in == "path" %}
-            .replace('{' + '{{baseName}}' + '}', encodeURIComponent(String({{paramName}}))){%- endif %};
+        const localVarPath = '{{ path }}'
+            {%- for name, parameter in pathParams %}
+            .replace('{' + '{{ name }}' + '}', encodeURIComponent(String({{ name|attribute_name }})))
+            {%- endfor %};
 
         // Make Request Context
-        const requestContext = getServer(_config, '{{classname}}.{{operation.operationId}}').makeRequestContext(localVarPath, HttpMethod.{{httpMethod}});
-        {%- if hasProduces %}
-        {%- if produces %}
-        {%- if loop.first %}requestContext.setHeaderParam("Accept", "{{ mediaType }}");{%- endif %}
+        const requestContext = getServer(_config, '{{ className }}.{{ operationId }}').makeRequestContext(localVarPath, HttpMethod.{{ method.upper() }});
+        {%- for mediaType in operation|accept_headers %}
+        {%- if loop.first %}
+        requestContext.setHeaderParam("Accept", "{{ mediaType }}");
         {%- endif %}
-        {%- else %}
+        {%- endfor %}
+        {%- if operation|accept_headers|length == 0 %}
         requestContext.setHeaderParam("Accept", "application/json");
         {%- endif %}
         requestContext.setHttpConfig(_config.httpConfig);
-        {%- if parameter.in == "query" %}
+
+        {%- for name, parameter in queryParams %}
         {%- if loop.first %}
 
         // Query Params
         {%- endif %}
-        if ({{paramName}} !== undefined) {
-            requestContext.setQueryParam("{{baseName}}", ObjectSerializer.serialize({{paramName}}, "{{ dataType }}", "{{dataFormat}}"));
+        if ({{ name|attribute_name }} !== undefined) {
+            requestContext.setQueryParam("{{ name }}", ObjectSerializer.serialize({{ name|attribute_name }}, "{{ get_type_for_parameter(parameter) }}", "{{ (parameter|parameter_schema).format }}"));
         }
-        {%- endif %}
-        {%- if parameter.in == "header" %}
+        {%- endfor %}
+
+        {%- for name, parameter in headerParams %}
         {%- if loop.first %}
 
         // Header Params
-        {%- endif %}
-        if ({{paramName}} !== undefined) {
-            requestContext.setHeaderParam("{{baseName}}", ObjectSerializer.serialize({{paramName}}, "{{ dataType }}", "{{dataFormat}}"));
+        {%-endif %}
+        if ({{ name|attribute_name }} !== undefined) {
+            requestContext.setHeaderParam("{{ name }}", ObjectSerializer.serialize({{ name|attribute_name }}, "{{ get_type_for_parameter(parameter) }}", "{{ (parameter|parameter_schema).format }}"));
         }
-        {%- endif %}
-        {%- if formParams %}
+        {%- endfor %}
+
+        {%- for name, parameter in formParams %}
+        {%- set isArray = "items" in parameter %}
+        {%- if loop.first %}
 
         // Form Params
-        let localVarFormParams = new FormData();
+        const localVarFormParams = new FormData();
         {%- endif %}
 
-        {%- if formParams %}
-        formParams: {{formParams}}
         {%- if isArray %}
-        if ({{paramName}}) {
-        {%- if isCollectionFormatMulti %}
-            {{paramName}}.forEach((element) => {
-                localVarFormParams.append('{{parameter|collection_format}}', element as any);
+        if ({{ name|attribute_name }}) {
+        {%- if parameter|collection_format %}
+            {{ name|attribute_name }}.forEach((element) => {
+                localVarFormParams.append('{{ name }}', element as any);
             })
-        {%- endif %}
-        {%- if not isCollectionFormatMulti %}
-            // TODO: replace .append with .set
-            localVarFormParams.append('{{baseName}}', {{paramName}}.join(COLLECTION_FORMATS["{{collectionFormat}}"]));
-        {%- endif %}
-        }
         {%- else %}
-        if ({{paramName}} !== undefined) {
+            // TODO: replace .append with .set
+            localVarFormParams.append('{{ name }}', {{ name|attribute_name }}.join(COLLECTION_FORMATS["{{ parameter|collection_format }}"]));
+        {%- endif %}
+        }
+        {% else %}
+        if ({{ name|attribute_name }} !== undefined) {
              // TODO: replace .append with .set
-             {%- if not isFile %}
-             localVarFormParams.append('{{baseName}}', {{paramName}} as any);
-             {%- endif %}
-             {%- if isFile %}
-             {%- if platforms %}
-             {%- if node %}
-             localVarFormParams.append('{{baseName}}', {{paramName}}.data, {{paramName}}.name);
-             {%- else %}
-             localVarFormParams.append('{{baseName}}', {{paramName}}, {{paramName}}.name);
-             {%- endif %}
-             {%- endif %}
+             {%- if (parameter|parameter_schema).get("format", {}) != "binary" %}
+             localVarFormParams.append('{{ name }}', {{ name|attribute_name }} as any);
+             {%- else  %}
+             localVarFormParams.append('{{ name }}', {{ name|attribute_name }}.data, {{ name|attribute_name }}.name);
              {%- endif %}
         }
         {%- endif %}
-        {%- endif %}
-        {%- if hasFormParams %}
+
+        {%- if loop.last %}
         requestContext.setBody(localVarFormParams);
         {%- endif %}
-        {%- if bodyParam %}
+        {%- endfor %}
+
+        {%- if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}
 
         // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([{%- if consumes %}
-            "{{ mediaType }}"{%- if not loop.last %}},{%- endif %}}
-        {%- endif %}]);
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            {%- for mediaType in operation.requestBody.content.keys() %}
+            "{{ mediaType }}"{%- if loop.nextitem %},{%- endif %}
+            {%- endfor %}]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize({{paramName}}, "{{ dataType }}", "{{dataFormat}}"),
+            ObjectSerializer.serialize({{ bodyParamName }}, "{{ get_type_for_parameter(operation.requestBody) }}", "{{ operation.requestBody.format }}"),
             contentType
         );
         requestContext.setBody(serializedBody);
         {%- endif %}
-        {%- endfor %}
-        {%- set authMethods = operation.security if "security" in operation else openapi.security %}
+
         {%- if authMethods %}
+
         // Apply auth methods
-        applySecurityAuthentication(_config, requestContext, [{%- for auth in (authMethods or []) %}"{{ '", "'.join(auth.keys()) }}"{%- if not loop.last %}, {% endif %}{%- endfor %}]);
+        applySecurityAuthentication(_config, requestContext, [{% for authMethod in authMethods|reverse %}{%- for name in authMethod %}"{{ name }}"{% if loop.nextitem %}, {% endif %}{% endfor %}{% if loop.nextitem %}, {% endif %}{% endfor %}]);
         {%- endif %}
 
         return requestContext;
     }
-
-{%- endfor %}
+    {%- endfor %}
 }
 
-export class {{classname}}ResponseProcessor {
+export class {{ className }}ResponseProcessor {
     {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
-    {%- set httpMethod = method.upper() %}
     {%- set returnType = operation|return_type %}
+    {%- set responseSchema = response(operation) or {} %}
+    {%- set operationId = operation.operationId|untitle_case %}
+    {%- set bodyParamName = operation.get("x-codegen-request-body-name", "body") %}
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to {{operation.operationId}}
+     * @params response Response returned by the server for a request to {{ operationId }}
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async {{operation.operationId}}(response: ResponseContext): Promise<{{ returnType }} {%- if not returnType %}void{%- endif %}> {
+     public async {{ operationId }}(response: ResponseContext): Promise<{%- if returnType %}{{ returnType }} {%- else %}void{%-endif %}> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-
         {%- for responseCode, response in operation.responses.items() %}
-        {%- set dataType = response|response_type %}
-
-        if (isCodeInRange("{{responseCode}}", response.httpStatusCode)) {
-            {%- if dataType %}
-            {%- if response.content %}
-            {%- if dataType == "binary" %}
-            const body: {{ dataType }} = await response.getBodyAsFile() as any as {{ returnType }};
+        {%- set responseSchema = response|parameter_schema %}
+        {%- set reponseType = response|response_type %}
+        if (isCodeInRange("{{ responseCode }}", response.httpStatusCode)) {
+            {%- if reponseType %}
+            {%- if responseSchema and responseSchema.get("format") == "binary" %}
+            const body: {{ reponseType }} = await response.getBodyAsFile() as any as {{ returnType }};
             {%- else %}
-            const body: {{ dataType }} = ObjectSerializer.deserialize(
+            const body: {{ reponseType }} = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{{ dataType }}", ""
-            ) as {{ dataType }};
+                "{{ reponseType }}", "{{ responseSchema.get("format", "") }}"
+            ) as {{ reponseType }};
             {%- endif %}
             {%- if responseCode.startswith("2") %}
             return body;
             {%- else %}
-            throw new ApiException<{{ dataType }}>({{responseCode}}, body);
+            throw new ApiException<{{ reponseType }}>({{ responseCode }}, body);
             {%- endif %}
             {%- else %}
             {%- if responseCode.startswith("2") %}
             return;
             {%- else %}
-            throw new ApiException<string>(response.httpStatusCode, "{{message}}");
-            {%- endif %}
+            throw new ApiException<string>(response.httpStatusCode, "{{ responseSchema.description }}");
             {%- endif %}
             {%- endif %}
         }
@@ -183,12 +213,12 @@ export class {{classname}}ResponseProcessor {
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
             {%- if returnType %}
-            {%- if dataType == "binary" %}
+            {%- if responseSchema.get("format") == "binary" %}
             const body: {{ returnType }} = await response.getBodyAsFile() as any as {{ returnType }};
             {%- else %}
             const body: {{ returnType }} = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "{{ returnType }}", "{{returnFormat}}"
+                "{{ returnType }}", "{{ responseSchema.get("format", "") }}"
             ) as {{ returnType }};
             {%- endif %}
             return body;
@@ -200,52 +230,57 @@ export class {{classname}}ResponseProcessor {
         const body = (await response.body.text()) || "";
         throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-{%- endfor %}
+    {%- endfor %}
 }
 
 {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
-{%- if operation|parameters|list|length > 0 %}
-export interface {{classname}}{{operation.operationId}}Request {
-    {%- for name, parameter in operation|parameters %}
+{%- set allParams = operation|parameters | list %}
+{%- if allParams %}
+
+export interface {{ className }}{{ operation.operationId }}Request {
+    {%- for name, parameter in allParams %}
     {%- set parameterType = get_type_for_parameter(parameter) %}
     /**
-     * {{parameter.description}}
-     * @type {{parameterType}}
+     * {{ parameter.description|escape_html }}
+     * @type {{ parameterType|escape_html }}
      */
-    {{name}}{%- if not parameter.required %}?{%- endif %}: {{ parameterType }}
-    {%- endfor %}
+    {{ name|attribute_name }}{%- if not parameter.required %}?{%-endif %}: {{ parameterType }}
+    {%-endfor %}
 }
 {%- endif %}
 {%- endfor %}
 
-export class {{classname}} {
-
-    private requestFactory: {{classname}}RequestFactory;
-    private responseProcessor: {{classname}}ResponseProcessor;
+export class {{ className }} {
+    private requestFactory: {{ className }}RequestFactory;
+    private responseProcessor: {{ className }}ResponseProcessor;
     private configuration: Configuration;
 
-    public constructor(configuration: Configuration, requestFactory?: {{classname}}RequestFactory, responseProcessor?: {{classname}}ResponseProcessor) {
+    public constructor(configuration: Configuration, requestFactory?: {{ className }}RequestFactory, responseProcessor?: {{ className }}ResponseProcessor) {
         this.configuration = configuration;
-        this.requestFactory = requestFactory || new {{classname}}RequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new {{classname}}ResponseProcessor();
+        this.requestFactory = requestFactory || new {{ className }}RequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new {{ className }}ResponseProcessor();
     }
 
 {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
+{%- set operationId = operation.operationId|untitle_case %}
+{%- set allParams = operation|parameters | list %}
+{%- set optionalParams = allParams|rejectattr('1.required', 'equalto', true) | list %}
+{%- set requiredParams = allParams|selectattr('1.required', 'equalto', true) | list %}
 {%- set returnType = operation|return_type %}
+
     /**
      {%- if operation.description %}
-     * {{operation.description}}
+     * {{ operation.description|replace("\n", " ") }}
      {%- endif %}
      * @param param The request object
      */
-    public {{operation.operationId|untitle_case}}({%- if operation|parameters|list|length > 0 %}param: {{classname}}{{operation.operationId}}Request{%- if get_required_parameters(operation)|length == 0 %} = {}{%- endif %}, {%- endif %} options?: Configuration): Promise<{{ returnType }}{%- if not returnType %}void{%- endif %}> {
-        const requestContextPromise = this.requestFactory.{{operation.operationId|untitle_case}}({%- for name, parameter in operation|parameters %}param.{{name}}, {%- endfor %}options);
+    public {{ operationId }}({%- if allParams %}param: {{ className }}{{ operation.operationId }}Request{%- if not requiredParams %} = {}{%- endif %}, {%- endif %} options?: Configuration): Promise<{%- if returnType %}{{ returnType }}{%- else %}void{%- endif %}> {
+        const requestContextPromise = this.requestFactory.{{ operationId }}({%- for name, parameter in allParams %}param.{{ name|attribute_name }}, {%- endfor %}options);
         return requestContextPromise.then(requestContext => {
                 return this.configuration.httpApi.send(requestContext).then(responseContext => {
-                        return this.responseProcessor.{{operation.operationId|untitle_case}}(responseContext);
+                        return this.responseProcessor.{{ operationId }}(responseContext);
                 });
         });
     }
-
 {%- endfor %}
 }
