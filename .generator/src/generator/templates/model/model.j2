@@ -1,10 +1,23 @@
 {% include 'licenseInfo.j2' %}
 
-{% for classname in get_references_for_model(model, name) %}
+{%- for classname in get_references_for_model(model, name) %}
 import { {{ classname }} } from './{{ classname }}';
 {%- endfor %}
+
+{%- set seen = {"HttpFile": False, "FormData": False} %}
+{%- for attr, schema in model.get("properties", {}).items() %}
+{%- if type_to_typescript(schema) == "HttpFile" %}
+{%- set _ = seen.update({"HttpFile": True}) %}
+{%- endif %}
+{%- endfor %}
+
+{%- if seen["HttpFile"] %}
 import { HttpFile } from '../http/http';
-import { AttributeTypeMap, UnparsedObject } from '../util';
+{%- endif %}
+
+{%- if "enum" not in model -%}
+import { AttributeTypeMap{%- if "oneOf" in model %}, UnparsedObject{% endif %} } from '../util';
+{%- endif %}
 
 {% if "description" in model %}
 /**
