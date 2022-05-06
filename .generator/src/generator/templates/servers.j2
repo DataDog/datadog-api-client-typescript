@@ -1,4 +1,4 @@
-import { RequestContext, HttpMethod } from "./http/http{{extensionForDeno}}";
+import { RequestContext, HttpMethod } from "./http/http";
 
 /**
  *
@@ -51,39 +51,41 @@ export class BaseServerConfiguration {
  */
 export class ServerConfiguration<T extends { [key: string]: string }> extends BaseServerConfiguration {}
 
-{%- for index, server in enumerate(openapi.servers) %}
-export const server{{index+1}} = new ServerConfiguration<{
+{%- for idx ,server in enumerate(openapi.servers) %}
+{%- set serverCount = idx + 1 %}
+export const server{{ serverCount }} = new ServerConfiguration<{
     {%- for name, value in server.get("variables", {}).items() %}
-    "{{name}}": {%- for enumValue in value.get("enum", []) %} "{{enumValue}}"{% if not loop.last%} |{% endif %}{% endfor %}{% if not value.get("enum", [])%} string {% endif %};
-    {%- endfor %} }>("{{server.url}}", { {%- for name, value in server.get("variables", {}).items() %}
-    "{{name}}": "{{value.default}}" {%- if not loop.last %},{%- endif %}{%- endfor %}
+    "{{ name }}": {%- for enumValue in value.get("enum", []) %}"{{ enumValue }}"{%- if not loop.last %} | {% endif %}{%- endfor %}{% if not value.get("enum") %}string{%- endif %}{%- if not loop.last %},{%- endif %}
+    {%- endfor %}
+    }>("{{ server.url }}", {
+    {%- for name, value in server.get("variables", {}).items() %}
+    "{{ name }}": "{{ value.default }}" {%- if not loop.last %},{%- endif %}
+    {%- endfor %}
 })
 {%- endfor %}
 
-export const servers = [{% for index, server in enumerate(openapi.servers) %}server{{index+1}}{%- if not loop.last %}, {% endif %}{%- endfor %}];
+export const servers = [{% for index, server in enumerate(openapi.servers) %}server{{ index+1 }}{%- if not loop.last %}, {% endif %}{%- endfor %}];
 
-{#
 export const operationServers: { [endpoint: string]: BaseServerConfiguration[] } = {
-{{#apiInfo}}
-{{#apis}}
-{{#operations}}
-{{#operation}}
-{{#servers}}
-{{#-first}}
-    "{{{classname}}}.{{{nickname}}}": [
-{{/-first}}
-        new ServerConfiguration<{ {{#variables}}
-            "{{name}}": {{#enumValues}}"{{.}}"{{^-last}} | {{/-last}}{{/enumValues}}{{^enumValues}}string{{/enumValues}}{{^-last}},{{/-last}}
-        {{/variables}} }>("{{url}}", { {{#variables}}
-            "{{name}}": "{{defaultValue}}" {{^-last}},{{/-last}}{{/variables}}
+    {%- for path in openapi.paths.values() %}
+    {%- for operation in path.values() %}
+    {%- for server in operation.servers %}
+    {%- if loop.first %}
+    "{{ operation.tags[0].replace(" ", "") }}Api.{{ operation.operationId|untitle_case }}": [
+    {%- endif %}
+        new ServerConfiguration<{
+        {%- for name, value in server.get("variables", {}).items() %}
+            "{{ name }}": {%- for enumValue in value.get("enum", []) %}"{{ enumValue }}"{%- if not loop.last %} | {% endif %}{%- endfor %}{% if not value.get("enum") %}string{%- endif %}{%- if not loop.last %},{%- endif %}
+        {%- endfor %} }>("{{ server.url }}", {
+        {%- for name, value in server.get("variables", {}).items() %}
+            "{{ name }}": "{{ value.default }}" {%- if not loop.last %},{%- endif %}
+        {%- endfor %}
         }),
-{{#-last}}
-    ],
-{{/-last}}
-{{/servers}}
-{{/operation}}
-{{/operations}}
-{{/apis}}
-{{/apiInfo}}
+    {%- if loop.last %}
+        ],
+    {%- endif %}
+    {%- endfor %}
+    {%- endfor %}
+    {%- endfor %}
 }
-#}
+

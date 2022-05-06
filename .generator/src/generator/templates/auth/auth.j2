@@ -20,15 +20,13 @@ export interface SecurityAuthentication {
 export interface TokenProvider {
   getToken(): Promise<string> | string;
 }
-{%- for path, method, operation in operations|sort(attribute="2.operationId") %}
-    {%- set authMethods = operation.security if "security" in operation else openapi.security %}
-    {%- for authMethod in authMethods %}
-        {%- for name in authMethod %}
-            {%- set schema = openapi.components.securitySchemes[name] %}
+
+{%- for name, schema in openapi.components.securitySchemes.items()  %}
+
 /**
- * Applies {{name}} authentication to the request context.
+ * Applies {{ schema.type }} authentication to the request context.
  */
-export class {{name | camel_case}}Authentication implements SecurityAuthentication {
+export class {{ name|camel_case }}Authentication implements SecurityAuthentication {
     {%- if schema.type == "apiKey" %}
     /**
      * Configures this api key authentication with the necessary properties
@@ -37,7 +35,7 @@ export class {{name | camel_case}}Authentication implements SecurityAuthenticati
      */
     public constructor(private apiKey: string) {}
     {%- endif %}
-    {%- if schema.scheme == "basic" %}
+    {%- if schema.type == "basic" %}
     /**
      * Configures the http authentication with the required details.
      *
@@ -49,7 +47,7 @@ export class {{name | camel_case}}Authentication implements SecurityAuthenticati
         private password: string
     ) {}
     {%- endif %}
-    {%- if schema.scheme == "bearer" %}
+    {%- if schema.type == "bearer" %}
     /**
      * Configures the http authentication with the required details.
      *
@@ -67,39 +65,32 @@ export class {{name | camel_case}}Authentication implements SecurityAuthenticati
     {%- endif %}
 
     public getName(): string {
-        return "{{name}}";
+        return "{{ name }}";
     }
 
-    public {%- if schema.scheme == "bearer" %}async {%- endif %}applySecurityAuthentication(context: RequestContext): void {
-    {%- if schema.type == "apiKey" %}
-        context.{%- if schema.in == "header" %}setHeaderParam{%- endif %}{%- if schema.in == "query" %}setQueryParam{%- endif %}{%- if schema.in == "cookie" %}addCookie{%- endif %}("{{keyParamName}}", this.apiKey);
-    {%- endif %}
-    {%- if schema.scheme == "basic" %}
+    public {% if schema.type == "bearer" %}async {% endif %}applySecurityAuthentication(context: RequestContext): void {
+        {%- if schema.type == "apiKey" %}
+        context.{%- if schema["in"] == "header" %}setHeaderParam{%- endif %}{%- if schema["in"] == "query" %}setQueryParam{%- endif %}{%- if schema["in"] == "cookie" %}addCookie{%- endif %}("{{ schema["name"] }}", this.apiKey);
+        {%- endif %}
+        {%- if schema.type == "basic" %}
         let comb = this.username + ":" + this.password;
         context.setHeaderParam("Authorization", "Basic " + btoa(comb));
-    {%- endif %}
-    {%- if schema.scheme == "bearer" %}
+        {%- endif %}
+        {%- if schema.type == "bearer" %}
         context.setHeaderParam("Authorization", "Bearer " + await this.tokenProvider.getToken());
-    {%- endif %}
-    {%- if schema.type == "oauth2" %}
+        {%- endif %}
+        {%- if schema.type == "oauth2" %}
         context.setHeaderParam("Authorization", "Bearer " + this.accessToken);
-    {%- endif %}
+        {%- endif %}
     }
 }
-        {%- endfor %}
-    {%- endfor %}
+
 {%- endfor %}
 
 export type AuthMethods = {
-    {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
-        {%- set authMethods = operation.security if "security" in operation else openapi.security %}
-        {%- for authMethod in authMethods %}
-            {%- for name in authMethod %}
-    "{{name}}"?: SecurityAuthentication{%- if not loop.last %}},{%- endif %}}
-            {%- endfor %}
-        {%- endfor %}
+    {%- for name, schema in openapi.components.securitySchemes.items() %}
+    "{{ name }}"?: SecurityAuthentication{%- if loop.nextitem %},{%- endif %}
     {%- endfor %}
-
 }
 
 export type ApiKeyConfiguration = string;
@@ -108,14 +99,8 @@ export type HttpBearerConfiguration = { tokenProvider: TokenProvider };
 export type OAuth2Configuration = { accessToken: string };
 
 export type AuthMethodsConfiguration = {
-    {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
-        {%- set authMethods = operation.security if "security" in operation else openapi.security %}
-        {%- for authMethod in authMethods %}
-            {%- for name in authMethod %}
-                {%- set schema = openapi.components.securitySchemes[name] %}
-    "{{name}}"?: {%- if schema.type == "apiKey" %}ApiKeyConfiguration{%- endif %}{%- if schema.scheme == "basic" %}HttpBasicConfiguration{%- endif %}{%- if schema.scheme == "bearer" %}HttpBearerConfiguration{%- endif %}{%- if schema.type == "oauth2" %}OAuth2Configuration{%- endif %}{%- if not loop.last %}},{%- endif %}}
-            {%- endfor %}
-        {%- endfor %}
+    {%- for name, schema in openapi.components.securitySchemes.items() %}
+    "{{ name }}"?: {% if schema.type == "apiKey" %}ApiKeyConfiguration{%-endif %}{% if schema.type == "basic" %}HttpBasicConfiguration{%- endif %}{% if schema.type == "bearer" %}HttpBearerConfiguration{%- endif %}{% if schema.type == "oauth2" %}OAuth2Configuration{%- endif %}{%- if loop.nextitem %},{%- endif %}
     {%- endfor %}
 }
 
@@ -130,31 +115,27 @@ export function configureAuthMethods(config: AuthMethodsConfiguration | undefine
         return authMethods;
     }
 
-{%- for path, method, operation in operations|sort(attribute="2.operationId") %}
-    {%- set authMethods = operation.security if "security" in operation else openapi.security %}
-    // authMethods: {{authMethods}}
-    {%- for authMethod in authMethods %}
-        {%- for name in authMethod %}
-        {%- set schema = openapi.components.securitySchemes[name] %}
-    if (config["{{name}}"]) {
-        authMethods["{{name}}"] = new {{name | camel_case}}Authentication(
-        {%- if schema.type == "apiKey" %}
-            config["{{name}}"]
-        {%- endif %}
-        {%- if schema.scheme == "basic" %}
-            config["{{name}}"]["username"],
-            config["{{name}}"]["password"]
-        {%- endif %}
-        {%- if schema.scheme == "bearer" %}
-            config["{{name}}"]["tokenProvider"]
-        {%- endif %}
-        {%- if schema.type == "oauth2" %}
-            config["{{name}}"]["accessToken"]
-        {%- endif %}
+    {%- for name, schema in openapi.components.securitySchemes.items() %}
+
+    if (config["{{ name }}"]) {
+        authMethods["{{ name }}"] = new {{ name|camel_case }}Authentication(
+            {% if schema.type == "apiKey" %}
+            config["{{ name }}"]
+            {%- endif %}
+            {% if schema.type == "basic" %}
+            config["{{ name }}"]["username"],
+            config["{{ name }}"]["password"]
+            {%- endif %}
+            {% if schema.type == "bearer" %}
+            config["{{ name }}"]["tokenProvider"]
+            {%- endif %}
+            {% if schema.type == "oauth2" %}
+            config["{{ name }}"]["accessToken"]
+            {%- endif %}
         );
     }
-        {%- endfor %}
+
     {%- endfor %}
-{%- endfor %}
+
     return authMethods;
 }
