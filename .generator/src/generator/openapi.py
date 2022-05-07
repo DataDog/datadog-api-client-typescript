@@ -55,12 +55,8 @@ def type_to_typescript(schema, alternative_name=None):
     if name and "items" not in schema and not is_primitive(schema):
         if "enum" in schema:
             return name
-        # if (
-        #     not schema.get("additionalProperties")
-        #     and schema.get("type", "object") == "object"
-        # ):
-        return name
-
+        if not schema.get("additionalProperties"):
+            return name
     type_ = schema.get("type")
     if type_ is None:
         if "items" in schema:
@@ -235,7 +231,7 @@ def get_references_for_model(model, model_name):
     for key, definition in model.get("properties", {}).items():
         if definition.get("type") == "object" or definition.get("enum") or definition.get("oneOf"):
             name = formatter.get_name(definition)
-            if name:
+            if name and not definition.get("additionalProperties"):
                 result.append(name)
             elif definition.get("properties") and top_name:
                 result.append(top_name + formatter.camel_case(key))
@@ -451,6 +447,12 @@ def get_api_models(operations):
                         if name and name not in seen:
                             seen.add(name)
                             yield name
+                    if "additionalProperties" in content["schema"]:
+                        if "items" in content["schema"]["additionalProperties"]:
+                            name = formatter.get_name(content["schema"]["additionalProperties"]["items"])
+                            if name and name not in seen:
+                                seen.add(name)
+                                yield name
                     else:
                         name = formatter.get_name(content["schema"])
                         if name and name not in seen:

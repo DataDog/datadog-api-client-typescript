@@ -15,7 +15,7 @@ import { {{ classname }} } from './{{ classname }}';
 import { HttpFile } from '../http/http';
 {%- endif %}
 
-{%- if "enum" not in model -%}
+{% if "enum" not in model -%}
 import { AttributeTypeMap{%- if "oneOf" in model %}, UnparsedObject{% endif %} } from '../util';
 {%- endif %}
 

@@ -1,11 +1,14 @@
 import { BaseAPIRequestFactory, RequiredError } from './baseapi';
 
-{%- set seen = {"HttpFile": False, "FormData": False} %}
+{%- set seen = {"HttpFile": False, "FormData": False, "Logger": False} %}
 {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
 {%- set allParams = operation|parameters|list %}
 {%- set formParams = allParams|selectattr('1.in', 'equalto', "form") | list %}
 {%- if formParams|length > 0 %}
 {%- set _ = seen.update({"FormData": True}) %}
+{%- endif %}
+{%- if "x-unstable" in operation %}
+{%- set _ = seen.update({"Logger": True}) %}
 {%- endif %}
 {%- for _, parameter in allParams %}
 {%- if get_type_for_parameter(parameter) == "HttpFile" %}
@@ -28,6 +31,9 @@ import {
 
 import FormData from "form-data";
 {%- endif %}
+{%- if seen["Logger"] %}
+import { logger } from "../../../logger";
+{%- endif %}
 import { ObjectSerializer } from '../models/ObjectSerializer';
 import { ApiException } from './exception';
 import { isCodeInRange } from '../util';
@@ -42,6 +48,7 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
     {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
     {%- set allParams = operation|parameters | list %}
     {%- set requiredParams = allParams|selectattr('1.required', 'equalto', true) | list %}
+    {%- set optionalParams = allParams|rejectattr('1.required', 'equalto', true) | list %}
     {%- set pathParams = allParams|selectattr('1.in', 'equalto', "path") | list %}
     {%- set queryParams = allParams|selectattr('1.in', 'equalto', "query") | list %}
     {%- set formParams = allParams|selectattr('1.in', 'equalto', "form") | list %}
@@ -50,9 +57,11 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
     {%- set operationId = operation.operationId|untitle_case %}
     {%- set bodyParamName = operation.get("x-codegen-request-body-name", "body") %}
 
-    public async {{ operationId }}({%- for name, parameter in allParams %}{{ name|attribute_name }}{%- if not parameter.required %}?{%- endif %}: {{ get_type_for_parameter(parameter) }}, {%- endfor %}_options?: Configuration): Promise<RequestContext> {
+    public async {{ operationId }}({%- for name, parameter in requiredParams %}{{ name|attribute_name }}: {{ get_type_for_parameter(parameter) }}, {%- endfor %}{%- for name, parameter in optionalParams %}{{ name|attribute_name }}?: {{ get_type_for_parameter(parameter) }}, {%- endfor %}_options?: Configuration): Promise<RequestContext> {
         const _config = _options || this.configuration;
         {%- if "x-unstable" in operation %}
+
+        logger.warn("Using unstable operation '{{ operationId }}'");
         if (!_config.unstableOperations['{{ operationId }}']) {
             throw new Error("Unstable operation '{{ operationId }}' is disabled");
         }
@@ -234,10 +243,20 @@ export class {{ className }}ResponseProcessor {
 
 {%- for path, method, operation in operations|sort(attribute="2.operationId") %}
 {%- set allParams = operation|parameters | list %}
+{%- set requiredParams = allParams|selectattr('1.required', 'equalto', true) | list %}
+{%- set optionalParams = allParams|rejectattr('1.required', 'equalto', true) | list %}
 {%- if allParams %}
 
 export interface {{ className }}{{ operation.operationId }}Request {
-    {%- for name, parameter in allParams %}
+    {%- for name, parameter in requiredParams %}
+    {%- set parameterType = get_type_for_parameter(parameter) %}
+    /**
+     * {{ parameter.description|escape_html }}
+     * @type {{ parameterType|escape_html }}
+     */
+    {{ name|attribute_name }}{%- if not parameter.required %}?{%-endif %}: {{ parameterType }}
+    {%-endfor %}
+    {%- for name, parameter in optionalParams %}
     {%- set parameterType = get_type_for_parameter(parameter) %}
     /**
      * {{ parameter.description|escape_html }}
@@ -274,7 +293,7 @@ export class {{ className }} {
      * @param param The request object
      */
     public {{ operationId }}({%- if allParams %}param: {{ className }}{{ operation.operationId }}Request{%- if not requiredParams %} = {}{%- endif %}, {%- endif %} options?: Configuration): Promise<{%- if returnType %}{{ returnType }}{%- else %}void{%- endif %}> {
-        const requestContextPromise = this.requestFactory.{{ operationId }}({%- for name, parameter in allParams %}param.{{ name|attribute_name }}, {%- endfor %}options);
+        const requestContextPromise = this.requestFactory.{{ operationId }}({%- for name, parameter in requiredParams %}param.{{ name|attribute_name }}, {%- endfor %}{%- for name, parameter in optionalParams %}param.{{ name|attribute_name }}, {%- endfor %}options);
         return requestContextPromise.then(requestContext => {
                 return this.configuration.httpApi.send(requestContext).then(responseContext => {
                         return this.responseProcessor.{{ operationId }}(responseContext);
