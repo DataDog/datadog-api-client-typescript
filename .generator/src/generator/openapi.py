@@ -430,7 +430,6 @@ def get_api_models(operations):
                         if name and name not in seen:
                             seen.add(name)
                             yield name
-            break
         for content in operation.get("parameters", []):
             if "schema" in content and (
                 content["schema"].get("type") in ("object", "array") or content["schema"].get("enum")
