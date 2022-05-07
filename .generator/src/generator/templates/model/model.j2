@@ -1,19 +1,12 @@
 {% include 'licenseInfo.j2' %}
 
 {%- for classname in get_references_for_model(model, name)|sort %}
+{%- if classname != name %}{# TODO: fix this. LogsApiError references itself in param #}
 import { {{ classname }} } from './{{ classname }}';
-{%- endfor %}
-
-{%- set seen = {"HttpFile": False, "FormData": False} %}
-{%- for attr, schema in model.get("properties", {}).items() %}
-{%- if type_to_typescript(schema) == "HttpFile" %}
-{%- set _ = seen.update({"HttpFile": True}) %}
 {%- endif %}
 {%- endfor %}
 
-{%- if seen["HttpFile"] %}
 import { HttpFile } from '../http/http';
-{%- endif %}
 
 {% if "enum" not in model -%}
 import { AttributeTypeMap{%- if "oneOf" in model %}, UnparsedObject{% endif %} } from '../util';
