@@ -1,5 +1,5 @@
 export * from "./http/http";
-export * from './http/isomorphic-fetch';
+export * from "./http/isomorphic-fetch";
 export * from "./auth/auth";
 export { createConfiguration } from "./configuration"
 export { setServerVariables } from "./configuration"
@@ -13,13 +13,13 @@ export * from "./servers";
 
 export {
 {%- for path, method, operation in operations|sort(attribute="2.operationId", case_sensitive=True) %}
-    {%- set allParams = operation|parameters|list %}
-    {%- if allParams %}
-    {{ classname }}{{ operation.operationId }}Request,
-    {%- endif %}
+  {%- set allParams = operation|parameters|list %}
+  {%- if allParams %}
+  {{ classname }}{{ operation.operationId }}Request,
+  {%- endif %}
 {%- endfor %}
-    {{ classname}}
-} from './apis/{{ classname }}';
+  {{ classname}}
+} from "./apis/{{ classname }}";
 {% endfor %}
 
 {%- for model in models|sort %}

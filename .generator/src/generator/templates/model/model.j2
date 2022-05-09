@@ -1,15 +1,15 @@
-{% include 'licenseInfo.j2' %}
+{% include "licenseInfo.j2" %}
 
 {%- for classname in get_references_for_model(model, name)|sort %}
 {%- if classname != name %}{# TODO: fix this. LogsApiError references itself in param #}
-import { {{ classname }} } from './{{ classname }}';
+import { {{ classname }} } from "./{{ classname }}";
 {%- endif %}
 {%- endfor %}
 
-import { HttpFile } from '../http/http';
+import { HttpFile } from "../http/http";
 
 {% if "enum" not in model -%}
-import { AttributeTypeMap{%- if "oneOf" in model %}, UnparsedObject{% endif %} } from '../util';
+import { AttributeTypeMap{%- if "oneOf" in model %}, UnparsedObject{% endif %} } from "../util";
 {%- endif %}
 
 {% if "description" in model %}
@@ -23,65 +23,65 @@ export class {{ name }} {
 {%- set isRequired = attr in model.get("required", []) %}
 {%- set isNullable = schema.nullable %}
 {%- if schema.description %}
-    /**
-    * {{ schema.description|replace("\n", " ") }}
-    */
+  /**
+  * {{ schema.description|replace("\n", " ") }}
+  */
 {%- endif %}
-    '{{ attr|attribute_name }}'{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isRequired and isNullable %}|null{%- endif %};
+  "{{ attr|attribute_name }}"{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isRequired and isNullable %}|null{%- endif %};
 {%- endfor %}
 
-    /**
-     * @ignore
-     */
-    'unparsedObject'?:any;
-    {%- if "items" not in model %}
+  /**
+   * @ignore
+   */
+  "unparsedObject"?:any;
+  {%- if "items" not in model %}
 
-    /**
-     * @ignore
-     */
-    static readonly attributeTypeMap: AttributeTypeMap = {
-        {%- for attr, schema in model.get("properties", {}).items() %}
-        {%- set isRequired = attr in model.get("required", []) %}
-        {%- set format = get_format(schema) %}
-        "{{ attr|attribute_name }}": {
-            "baseName": "{{ attr }}",
-            "type": "{{ type_to_typescript(schema) }}",
-            {%- if isRequired %}
-            "required": true,
-            {%- endif %}
-            {%- if format %}
-            "format": "{{ format }}",
-            {%- endif %}
-        }{%- if loop.nextitem %},{%- endif %}
-        {%- endfor %}
-    };
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    {%- for attr, schema in model.get("properties", {}).items() %}
+    {%- set isRequired = attr in model.get("required", []) %}
+    {%- set format = get_format(schema) %}
+    "{{ attr|attribute_name }}": {
+      "baseName": "{{ attr }}",
+      "type": "{{ type_to_typescript(schema) }}",
+      {%- if isRequired %}
+      "required": true,
+      {%- endif %}
+      {%- if format %}
+      "format": "{{ format }}",
+      {%- endif %}
+    }{%- if loop.nextitem %},{%- endif %}
+    {%- endfor %}
+  };
 
-    /**
-     * @ignore
-     */
-    static getAttributeTypeMap(): AttributeTypeMap {
-{#        {{#parent}}#}
-{#        return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);#}
-{#        {{/parent}}#}
-{#        {{^parent}}#}
-        return {{ name }}.attributeTypeMap;
-{#        {{/parent}}#}
-    }
-    {%- endif %}
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+{#      {{#parent}}#}
+{#      return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);#}
+{#      {{/parent}}#}
+{#      {{^parent}}#}
+    return {{ name }}.attributeTypeMap;
+{#      {{/parent}}#}
+  }
+  {%- endif %}
 
-    public constructor() {
-{#        {{#parent}}#}
-{#        super();#}
-{#        {{/parent}}#}
-{#        {{#allVars}}#}
-{#        {{#discriminatorValue}}#}
-{#        this.{{name}} = "{{discriminatorValue}}";#}
-{#        {{/discriminatorValue}}#}
-{#        {{/allVars}}#}
-{#        {{#discriminatorName}}#}
-{#        this.{{discriminatorName}} = "{{classname}}";#}
-{#        {{/discriminatorName}}#}
-    }
+  public constructor() {
+{#      {{#parent}}#}
+{#      super();#}
+{#      {{/parent}}#}
+{#      {{#allVars}}#}
+{#      {{#discriminatorValue}}#}
+{#      this.{{name}} = "{{discriminatorValue}}";#}
+{#      {{/discriminatorValue}}#}
+{#      {{/allVars}}#}
+{#      {{#discriminatorName}}#}
+{#      this.{{discriminatorName}} = "{{classname}}";#}
+{#      {{/discriminatorName}}#}
+  }
 }
 
 {#{{#hasEnums}}#}
