@@ -85,14 +85,14 @@ def cli(input, output):
     package_path = output / f"{package_name}-{version}"
 
     for name, model in models.items():
-        filename = formatter.camel_case(name) + ".ts"
+        filename = name + ".ts"
         model_path = package_path / "models" / filename
         model_path.parent.mkdir(parents=True, exist_ok=True)
         with model_path.open("w+") as fp:
             fp.write(model_j2.render(name=name, model=model))
 
     for name, operations in apis.items():
-        filename = formatter.camel_case(name) + "Api.ts"
+        filename = name.replace(" ", "") + "Api.ts"
         api_path = package_path / "apis" / filename
         api_path.parent.mkdir(parents=True, exist_ok=True)
         with api_path.open("w+") as fp:
