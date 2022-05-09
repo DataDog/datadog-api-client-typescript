@@ -81,7 +81,7 @@ def type_to_typescript(schema, alternative_name=None):
     elif type_ == "boolean":
         return "boolean"
     elif type_ == "array":
-        return "Array<{}>".format(type_to_typescript(schema["items"]))
+        return "Array<{}>".format(type_to_typescript(schema["items"], name + "Item" if name else None))
     elif type_ == "object":
         if "additionalProperties" in schema:
             return "{{ [key: string]: {}; }}".format(type_to_typescript(schema["additionalProperties"]))
@@ -254,6 +254,8 @@ def get_references_for_model(model, model_name):
             name = formatter.get_name(definition.get("items"))
             if name:
                 result.append(name)
+            elif get_name(definition):
+                result.append(get_name(definition) + "Item")
         elif definition.get("properties") and top_name:
             result.append(top_name + formatter.camel_case(key))
     if model.get("additionalProperties"):
