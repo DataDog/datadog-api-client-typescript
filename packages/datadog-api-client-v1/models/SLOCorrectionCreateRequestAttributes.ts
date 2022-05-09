@@ -34,7 +34,7 @@ export class SLOCorrectionCreateRequestAttributes {
    */
   "rrule"?: string;
   /**
-   * ID of the SLO that this correction will be applied to.
+   * ID of the SLO that this correction applies to.
    */
   "sloId": string;
   /**
