@@ -1,6 +1,0 @@
-# OpenAPI Generator Ignore
-
-.gitignore
-git_push.sh
-package.json
-tsconfig.json

@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -12,8 +13,8 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { LogsMetricCreateRequest } from "../models/LogsMetricCreateRequest";
 import { LogsMetricResponse } from "../models/LogsMetricResponse";
-import { LogsMetricUpdateRequest } from "../models/LogsMetricUpdateRequest";
 import { LogsMetricsResponse } from "../models/LogsMetricsResponse";
+import { LogsMetricUpdateRequest } from "../models/LogsMetricUpdateRequest";
 
 export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
   public async createLogsMetric(
@@ -84,7 +85,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsMetricsApi.deleteLogsMetric"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods

@@ -83,7 +83,6 @@ export function createConfiguration(
   }
 
   const authMethods = conf.authMethods || {};
-
   if (
     !("apiKeyAuth" in authMethods) &&
     process !== undefined &&
@@ -91,7 +90,6 @@ export function createConfiguration(
   ) {
     authMethods["apiKeyAuth"] = process.env.DD_API_KEY;
   }
-
   if (
     !("appKeyAuth" in authMethods) &&
     process !== undefined &&
@@ -105,20 +103,20 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
+      getDailyCustomReports: false,
+      getSpecifiedDailyCustomReports: false,
+      getMonthlyCustomReports: false,
+      getSpecifiedMonthlyCustomReports: false,
       createSLOCorrection: false,
+      listSLOCorrection: false,
       deleteSLOCorrection: false,
       getSLOCorrection: false,
-      listSLOCorrection: false,
       updateSLOCorrection: false,
       getSLOCorrections: false,
       getSLOHistory: false,
-      getDailyCustomReports: false,
-      getHourlyUsageAttribution: false,
-      getMonthlyCustomReports: false,
-      getMonthlyUsageAttribution: false,
-      getSpecifiedDailyCustomReports: false,
-      getSpecifiedMonthlyCustomReports: false,
       getUsageAttribution: false,
+      getHourlyUsageAttribution: false,
+      getMonthlyUsageAttribution: false,
     },
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
     authMethods: configureAuthMethods(authMethods),

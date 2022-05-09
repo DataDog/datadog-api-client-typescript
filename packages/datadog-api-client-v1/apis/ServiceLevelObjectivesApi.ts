@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
@@ -12,6 +13,8 @@ import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
+import { ServiceLevelObjective } from "../models/ServiceLevelObjective";
+import { ServiceLevelObjectiveRequest } from "../models/ServiceLevelObjectiveRequest";
 import { SLOBulkDeleteResponse } from "../models/SLOBulkDeleteResponse";
 import { SLOCorrectionListResponse } from "../models/SLOCorrectionListResponse";
 import { SLODeleteResponse } from "../models/SLODeleteResponse";
@@ -19,8 +22,6 @@ import { SLOHistoryResponse } from "../models/SLOHistoryResponse";
 import { SLOListResponse } from "../models/SLOListResponse";
 import { SLOResponse } from "../models/SLOResponse";
 import { SLOTimeframe } from "../models/SLOTimeframe";
-import { ServiceLevelObjective } from "../models/ServiceLevelObjective";
-import { ServiceLevelObjectiveRequest } from "../models/ServiceLevelObjectiveRequest";
 
 export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFactory {
   public async checkCanDeleteSLO(

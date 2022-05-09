@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -12,9 +13,9 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AuthNMappingCreateRequest } from "../models/AuthNMappingCreateRequest";
 import { AuthNMappingResponse } from "../models/AuthNMappingResponse";
-import { AuthNMappingUpdateRequest } from "../models/AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "../models/AuthNMappingsResponse";
 import { AuthNMappingsSort } from "../models/AuthNMappingsSort";
+import { AuthNMappingUpdateRequest } from "../models/AuthNMappingUpdateRequest";
 
 export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
   public async createAuthNMapping(
@@ -86,7 +87,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "AuthNMappingsApi.deleteAuthNMapping"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods

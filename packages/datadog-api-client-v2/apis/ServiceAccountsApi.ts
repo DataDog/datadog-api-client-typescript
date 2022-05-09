@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -12,8 +13,8 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateRequest";
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
-import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
+import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
 import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
 
@@ -112,7 +113,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "ServiceAccountsApi.deleteServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods

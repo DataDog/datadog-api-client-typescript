@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -12,13 +13,13 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { APIKeyCreateRequest } from "../models/APIKeyCreateRequest";
 import { APIKeyResponse } from "../models/APIKeyResponse";
-import { APIKeyUpdateRequest } from "../models/APIKeyUpdateRequest";
 import { APIKeysResponse } from "../models/APIKeysResponse";
 import { APIKeysSort } from "../models/APIKeysSort";
+import { APIKeyUpdateRequest } from "../models/APIKeyUpdateRequest";
 import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateRequest";
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
-import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
+import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
 
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
@@ -134,7 +135,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.deleteAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -170,7 +171,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.deleteApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -207,7 +208,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "KeyManagementApi.deleteCurrentUserApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods

@@ -188,6 +188,7 @@ import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCo
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
+import { MonitorSearchCountItem } from "./MonitorSearchCountItem";
 import { MonitorSearchResponse } from "./MonitorSearchResponse";
 import { MonitorSearchResponseCounts } from "./MonitorSearchResponseCounts";
 import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
@@ -1377,6 +1378,7 @@ const typeMap: { [index: string]: any } = {
   MonitorGroupSearchResult: MonitorGroupSearchResult,
   MonitorOptions: MonitorOptions,
   MonitorOptionsAggregation: MonitorOptionsAggregation,
+  MonitorSearchCountItem: MonitorSearchCountItem,
   MonitorSearchResponse: MonitorSearchResponse,
   MonitorSearchResponseCounts: MonitorSearchResponseCounts,
   MonitorSearchResponseMetadata: MonitorSearchResponseMetadata,
@@ -1712,74 +1714,74 @@ const typeMap: { [index: string]: any } = {
 
 const oneOfMap: { [index: string]: string[] } = {
   FormulaAndFunctionQueryDefinition: [
+    "FormulaAndFunctionMetricQueryDefinition",
+    "FormulaAndFunctionEventQueryDefinition",
+    "FormulaAndFunctionProcessQueryDefinition",
     "FormulaAndFunctionApmDependencyStatsQueryDefinition",
     "FormulaAndFunctionApmResourceStatsQueryDefinition",
-    "FormulaAndFunctionEventQueryDefinition",
-    "FormulaAndFunctionMetricQueryDefinition",
-    "FormulaAndFunctionProcessQueryDefinition",
   ],
   LogsProcessor: [
-    "LogsArithmeticProcessor",
-    "LogsAttributeRemapper",
-    "LogsCategoryProcessor",
-    "LogsDateRemapper",
-    "LogsGeoIPParser",
     "LogsGrokParser",
-    "LogsLookupProcessor",
-    "LogsMessageRemapper",
-    "LogsPipelineProcessor",
-    "LogsServiceRemapper",
+    "LogsDateRemapper",
     "LogsStatusRemapper",
-    "LogsStringBuilderProcessor",
-    "LogsTraceRemapper",
+    "LogsServiceRemapper",
+    "LogsMessageRemapper",
+    "LogsAttributeRemapper",
     "LogsURLParser",
     "LogsUserAgentParser",
+    "LogsCategoryProcessor",
+    "LogsArithmeticProcessor",
+    "LogsStringBuilderProcessor",
+    "LogsPipelineProcessor",
+    "LogsGeoIPParser",
+    "LogsLookupProcessor",
+    "LogsTraceRemapper",
   ],
   MonitorFormulaAndFunctionQueryDefinition: [
     "MonitorFormulaAndFunctionEventQueryDefinition",
   ],
   NotebookCellCreateRequestAttributes: [
-    "NotebookDistributionCellAttributes",
-    "NotebookHeatMapCellAttributes",
-    "NotebookLogStreamCellAttributes",
     "NotebookMarkdownCellAttributes",
     "NotebookTimeseriesCellAttributes",
     "NotebookToplistCellAttributes",
+    "NotebookHeatMapCellAttributes",
+    "NotebookDistributionCellAttributes",
+    "NotebookLogStreamCellAttributes",
   ],
   NotebookCellResponseAttributes: [
-    "NotebookDistributionCellAttributes",
-    "NotebookHeatMapCellAttributes",
-    "NotebookLogStreamCellAttributes",
     "NotebookMarkdownCellAttributes",
     "NotebookTimeseriesCellAttributes",
     "NotebookToplistCellAttributes",
+    "NotebookHeatMapCellAttributes",
+    "NotebookDistributionCellAttributes",
+    "NotebookLogStreamCellAttributes",
   ],
-  NotebookCellTime: ["NotebookAbsoluteTime", "NotebookRelativeTime"],
+  NotebookCellTime: ["NotebookRelativeTime", "NotebookAbsoluteTime"],
   NotebookCellUpdateRequestAttributes: [
-    "NotebookDistributionCellAttributes",
-    "NotebookHeatMapCellAttributes",
-    "NotebookLogStreamCellAttributes",
     "NotebookMarkdownCellAttributes",
     "NotebookTimeseriesCellAttributes",
     "NotebookToplistCellAttributes",
+    "NotebookHeatMapCellAttributes",
+    "NotebookDistributionCellAttributes",
+    "NotebookLogStreamCellAttributes",
   ],
-  NotebookGlobalTime: ["NotebookAbsoluteTime", "NotebookRelativeTime"],
+  NotebookGlobalTime: ["NotebookRelativeTime", "NotebookAbsoluteTime"],
   NotebookUpdateCell: [
     "NotebookCellCreateRequest",
     "NotebookCellUpdateRequest",
   ],
   SunburstWidgetLegend: [
-    "SunburstWidgetLegendInlineAutomatic",
     "SunburstWidgetLegendTable",
+    "SunburstWidgetLegendInlineAutomatic",
   ],
   SyntheticsAssertion: [
-    "SyntheticsAssertionJSONPathTarget",
     "SyntheticsAssertionTarget",
+    "SyntheticsAssertionJSONPathTarget",
   ],
   SyntheticsBasicAuth: [
-    "SyntheticsBasicAuthNTLM",
-    "SyntheticsBasicAuthSigv4",
     "SyntheticsBasicAuthWeb",
+    "SyntheticsBasicAuthSigv4",
+    "SyntheticsBasicAuthNTLM",
   ],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
@@ -1790,20 +1792,18 @@ const oneOfMap: { [index: string]: string[] } = {
     "EventStreamWidgetDefinition",
     "EventTimelineWidgetDefinition",
     "FreeTextWidgetDefinition",
-    "FunnelWidgetDefinition",
     "GeomapWidgetDefinition",
     "GroupWidgetDefinition",
     "HeatMapWidgetDefinition",
     "HostMapWidgetDefinition",
     "IFrameWidgetDefinition",
     "ImageWidgetDefinition",
-    "ListStreamWidgetDefinition",
     "LogStreamWidgetDefinition",
     "MonitorSummaryWidgetDefinition",
     "NoteWidgetDefinition",
     "QueryValueWidgetDefinition",
-    "SLOWidgetDefinition",
     "ScatterPlotWidgetDefinition",
+    "SLOWidgetDefinition",
     "ServiceMapWidgetDefinition",
     "ServiceSummaryWidgetDefinition",
     "SunburstWidgetDefinition",
@@ -1811,6 +1811,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "TimeseriesWidgetDefinition",
     "ToplistWidgetDefinition",
     "TreeMapWidgetDefinition",
+    "ListStreamWidgetDefinition",
+    "FunnelWidgetDefinition",
   ],
 };
 
@@ -1860,7 +1862,6 @@ export class ObjectSerializer {
         month = month < 10 ? "0" + month.toString() : month.toString();
         let day = data.getDate();
         day = day < 10 ? "0" + day.toString() : day.toString();
-
         return data.getFullYear() + "-" + month + "-" + day;
       } else {
         return data.toISOString();
@@ -1910,7 +1911,6 @@ export class ObjectSerializer {
           attributeObj.type,
           attributeObj.format
         );
-
         // check for required properties
         if (
           attributeObj?.required &&
@@ -2008,7 +2008,6 @@ export class ObjectSerializer {
           attributeObj.type,
           attributeObj.format
         );
-
         // check for required properties
         if (attributeObj?.required && instance[attributeName] === undefined) {
           throw new Error(`missing required property '${attributeName}'`);

@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -17,10 +18,10 @@ import { RoleCloneRequest } from "../models/RoleCloneRequest";
 import { RoleCreateRequest } from "../models/RoleCreateRequest";
 import { RoleCreateResponse } from "../models/RoleCreateResponse";
 import { RoleResponse } from "../models/RoleResponse";
-import { RoleUpdateRequest } from "../models/RoleUpdateRequest";
-import { RoleUpdateResponse } from "../models/RoleUpdateResponse";
 import { RolesResponse } from "../models/RolesResponse";
 import { RolesSort } from "../models/RolesSort";
+import { RoleUpdateRequest } from "../models/RoleUpdateRequest";
+import { RoleUpdateResponse } from "../models/RoleUpdateResponse";
 import { UsersResponse } from "../models/UsersResponse";
 
 export class RolesApiRequestFactory extends BaseAPIRequestFactory {
@@ -261,7 +262,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "RolesApi.deleteRole"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -374,6 +375,62 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listRoles(
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: RolesSort,
+    filter?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/roles";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "RolesApi.listRoles"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64")
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64")
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "RolesSort", "")
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        ObjectSerializer.serialize(filter, "string", "")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listRoleUsers(
     roleId: string,
     pageSize?: number,
@@ -422,62 +479,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort",
         ObjectSerializer.serialize(sort, "string", "")
-      );
-    }
-    if (filter !== undefined) {
-      requestContext.setQueryParam(
-        "filter",
-        ObjectSerializer.serialize(filter, "string", "")
-      );
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async listRoles(
-    pageSize?: number,
-    pageNumber?: number,
-    sort?: RolesSort,
-    filter?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // Path Params
-    const localVarPath = "/api/v2/roles";
-
-    // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "RolesApi.listRoles"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-    if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
-      );
-    }
-    if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
-      );
-    }
-    if (sort !== undefined) {
-      requestContext.setQueryParam(
-        "sort",
-        ObjectSerializer.serialize(sort, "RolesSort", "")
       );
     }
     if (filter !== undefined) {
@@ -1196,6 +1197,59 @@ export class RolesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listRoles
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listRoles(response: ResponseContext): Promise<RolesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: RolesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RolesResponse",
+        ""
+      ) as RolesResponse;
+      return body;
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RolesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RolesResponse",
+        ""
+      ) as RolesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listRoleUsers
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1245,59 +1299,6 @@ export class RolesApiResponseProcessor {
         "UsersResponse",
         ""
       ) as UsersResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to listRoles
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listRoles(response: ResponseContext): Promise<RolesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: RolesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RolesResponse",
-        ""
-      ) as RolesResponse;
-      return body;
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RolesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RolesResponse",
-        ""
-      ) as RolesResponse;
       return body;
     }
 
@@ -1601,6 +1602,29 @@ export interface RolesApiListRolePermissionsRequest {
   roleId: string;
 }
 
+export interface RolesApiListRolesRequest {
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;.
+   * @type RolesSort
+   */
+  sort?: RolesSort;
+  /**
+   * Filter all roles by the given string.
+   * @type string
+   */
+  filter?: string;
+}
+
 export interface RolesApiListRoleUsersRequest {
   /**
    * The unique identifier of the role.
@@ -1624,29 +1648,6 @@ export interface RolesApiListRoleUsersRequest {
   sort?: string;
   /**
    * Filter all users by the given string. Defaults to no filtering.
-   * @type string
-   */
-  filter?: string;
-}
-
-export interface RolesApiListRolesRequest {
-  /**
-   * Size for a given page.
-   * @type number
-   */
-  pageSize?: number;
-  /**
-   * Specific page number to return.
-   * @type number
-   */
-  pageNumber?: number;
-  /**
-   * Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;.
-   * @type RolesSort
-   */
-  sort?: RolesSort;
-  /**
-   * Filter all roles by the given string.
    * @type string
    */
   filter?: string;
@@ -1876,6 +1877,30 @@ export class RolesApi {
   }
 
   /**
+   * Returns all roles, including their names and their unique identifiers.
+   * @param param The request object
+   */
+  public listRoles(
+    param: RolesApiListRolesRequest = {},
+    options?: Configuration
+  ): Promise<RolesResponse> {
+    const requestContextPromise = this.requestFactory.listRoles(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRoles(responseContext);
+        });
+    });
+  }
+
+  /**
    * Gets all users of a role.
    * @param param The request object
    */
@@ -1896,30 +1921,6 @@ export class RolesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listRoleUsers(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Returns all roles, including their names and their unique identifiers.
-   * @param param The request object
-   */
-  public listRoles(
-    param: RolesApiListRolesRequest = {},
-    options?: Configuration
-  ): Promise<RolesResponse> {
-    const requestContextPromise = this.requestFactory.listRoles(
-      param.pageSize,
-      param.pageNumber,
-      param.sort,
-      param.filter,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listRoles(responseContext);
         });
     });
   }

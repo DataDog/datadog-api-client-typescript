@@ -10,6 +10,7 @@ import {
   ResponseContext,
   HttpFile,
 } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -17,8 +18,8 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CloudWorkloadSecurityAgentRuleCreateRequest } from "../models/CloudWorkloadSecurityAgentRuleCreateRequest";
 import { CloudWorkloadSecurityAgentRuleResponse } from "../models/CloudWorkloadSecurityAgentRuleResponse";
-import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "../models/CloudWorkloadSecurityAgentRulesListResponse";
+import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
 
 export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactory {
   public async createCloudWorkloadSecurityAgentRule(
@@ -95,7 +96,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
       _config,
       "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -121,7 +122,6 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
       "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/yaml");
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -412,7 +412,7 @@ export class CloudWorkloadSecurityApiResponseProcessor {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIErrorResponse",
-        "binary"
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
@@ -420,18 +420,15 @@ export class CloudWorkloadSecurityApiResponseProcessor {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIErrorResponse",
-        "binary"
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HttpFile = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "HttpFile",
-        "binary"
-      ) as HttpFile;
+      const body: HttpFile =
+        (await response.getBodyAsFile()) as any as HttpFile;
       return body;
     }
 

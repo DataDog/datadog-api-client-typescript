@@ -58,7 +58,6 @@ export class BaseServerConfiguration {
 export class ServerConfiguration<
   T extends { [key: string]: string }
 > extends BaseServerConfiguration {}
-
 export const server1 = new ServerConfiguration<{
   site:
     | "datadoghq.com"
@@ -66,7 +65,6 @@ export const server1 = new ServerConfiguration<{
     | "us5.datadoghq.com"
     | "datadoghq.eu"
     | "ddog-gov.com";
-
   subdomain: string;
 }>("https://{subdomain}.{site}", {
   site: "datadoghq.com",
@@ -74,7 +72,6 @@ export const server1 = new ServerConfiguration<{
 });
 export const server2 = new ServerConfiguration<{
   name: string;
-
   protocol: string;
 }>("{protocol}://{name}", {
   name: "api.datadoghq.com",
@@ -82,7 +79,6 @@ export const server2 = new ServerConfiguration<{
 });
 export const server3 = new ServerConfiguration<{
   site: string;
-
   subdomain: string;
 }>("https://{subdomain}.{site}", {
   site: "datadoghq.com",
@@ -102,7 +98,6 @@ export const operationServers: {
         | "us5.datadoghq.com"
         | "datadoghq.eu"
         | "ddog-gov.com";
-
       subdomain: string;
     }>("https://{subdomain}.{site}", {
       site: "datadoghq.com",
@@ -110,7 +105,6 @@ export const operationServers: {
     }),
     new ServerConfiguration<{
       name: string;
-
       protocol: string;
     }>("{protocol}://{name}", {
       name: "http-intake.logs.datadoghq.com",
@@ -118,7 +112,6 @@ export const operationServers: {
     }),
     new ServerConfiguration<{
       site: string;
-
       subdomain: string;
     }>("https://{subdomain}.{site}", {
       site: "datadoghq.com",

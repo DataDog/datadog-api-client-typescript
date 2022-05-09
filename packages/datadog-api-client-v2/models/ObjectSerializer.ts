@@ -915,11 +915,11 @@ const typeMap: { [index: string]: any } = {
 
 const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User"],
-  ApplicationKeyResponseIncludedItem: ["Role", "User"],
-  AuthNMappingIncluded: ["Role", "SAMLAssertionAttribute"],
+  ApplicationKeyResponseIncludedItem: ["User", "Role"],
+  AuthNMappingIncluded: ["SAMLAssertionAttribute", "Role"],
   IncidentFieldAttributes: [
-    "IncidentFieldAttributesMultipleValue",
     "IncidentFieldAttributesSingleValue",
+    "IncidentFieldAttributesMultipleValue",
   ],
   IncidentResponseIncludedItem: ["User"],
   IncidentServiceIncludedItems: ["User"],
@@ -928,9 +928,9 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentTimelineCellMarkdownCreateAttributes",
   ],
   LogsAggregateBucketValue: [
-    "Array<LogsAggregateBucketValueTimeseriesPoint>",
-    "number",
     "string",
+    "number",
+    "Array<LogsAggregateBucketValueTimeseriesPoint>",
   ],
   LogsArchiveCreateRequestDestination: [
     "LogsArchiveDestinationAzure",
@@ -942,17 +942,17 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsArchiveDestinationGCS",
     "LogsArchiveDestinationS3",
   ],
-  LogsGroupByMissing: ["number", "string"],
-  LogsGroupByTotal: ["boolean", "number", "string"],
+  LogsGroupByMissing: ["string", "number"],
+  LogsGroupByTotal: ["boolean", "string", "number"],
   MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
   MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
   RUMAggregateBucketValue: [
-    "Array<RUMAggregateBucketValueTimeseriesPoint>",
-    "number",
     "string",
+    "number",
+    "Array<RUMAggregateBucketValueTimeseriesPoint>",
   ],
-  RUMGroupByMissing: ["number", "string"],
-  RUMGroupByTotal: ["boolean", "number", "string"],
+  RUMGroupByMissing: ["string", "number"],
+  RUMGroupByTotal: ["boolean", "string", "number"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };
 
@@ -1002,7 +1002,6 @@ export class ObjectSerializer {
         month = month < 10 ? "0" + month.toString() : month.toString();
         let day = data.getDate();
         day = day < 10 ? "0" + day.toString() : day.toString();
-
         return data.getFullYear() + "-" + month + "-" + day;
       } else {
         return data.toISOString();
@@ -1052,7 +1051,6 @@ export class ObjectSerializer {
           attributeObj.type,
           attributeObj.format
         );
-
         // check for required properties
         if (
           attributeObj?.required &&
@@ -1150,7 +1148,6 @@ export class ObjectSerializer {
           attributeObj.type,
           attributeObj.format
         );
-
         // check for required properties
         if (attributeObj?.required && instance[attributeName] === undefined) {
           throw new Error(`missing required property '${attributeName}'`);

@@ -83,7 +83,6 @@ export function createConfiguration(
   }
 
   const authMethods = conf.authMethods || {};
-
   if (
     !("apiKeyAuth" in authMethods) &&
     process !== undefined &&
@@ -91,7 +90,6 @@ export function createConfiguration(
   ) {
     authMethods["apiKeyAuth"] = process.env.DD_API_KEY;
   }
-
   if (
     !("appKeyAuth" in authMethods) &&
     process !== undefined &&
@@ -105,28 +103,28 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
-      createIncidentService: false,
-      deleteIncidentService: false,
-      getIncidentService: false,
-      listIncidentServices: false,
-      updateIncidentService: false,
-      createIncidentTeam: false,
-      deleteIncidentTeam: false,
-      getIncidentTeam: false,
-      listIncidentTeams: false,
-      updateIncidentTeam: false,
       createIncident: false,
+      listIncidents: false,
       deleteIncident: false,
       getIncident: false,
-      listIncidents: false,
       updateIncident: false,
+      listTagConfigurations: false,
       createTagConfiguration: false,
       deleteTagConfiguration: false,
       listTagConfigurationByName: false,
-      listTagConfigurations: false,
       updateTagConfiguration: false,
       listSecurityMonitoringSignals: false,
       searchSecurityMonitoringSignals: false,
+      createIncidentService: false,
+      listIncidentServices: false,
+      deleteIncidentService: false,
+      getIncidentService: false,
+      updateIncidentService: false,
+      createIncidentTeam: false,
+      listIncidentTeams: false,
+      deleteIncidentTeam: false,
+      getIncidentTeam: false,
+      updateIncidentTeam: false,
     },
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
     authMethods: configureAuthMethods(authMethods),
