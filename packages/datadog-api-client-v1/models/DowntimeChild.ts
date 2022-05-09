@@ -57,6 +57,10 @@ export class DowntimeChild {
    */
   "monitorTags"?: Array<string>;
   /**
+   * If the first recovery notification during a downtime should be muted.
+   */
+  "muteFirstRecoveryNotification"?: boolean;
+  /**
    * ID of the parent Downtime.
    */
   "parentId"?: number;
@@ -132,6 +136,10 @@ export class DowntimeChild {
     monitorTags: {
       baseName: "monitor_tags",
       type: "Array<string>",
+    },
+    muteFirstRecoveryNotification: {
+      baseName: "mute_first_recovery_notification",
+      type: "boolean",
     },
     parentId: {
       baseName: "parent_id",
