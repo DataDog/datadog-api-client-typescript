@@ -5509,7 +5509,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility (Tests, Pipeline, Combo, and Spans).
+   * Get hourly usage for CI Visibility (Tests, Pipeline, and Spans).
    * @param param The request object
    */
   public getUsageCIApp(

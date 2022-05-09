@@ -696,7 +696,7 @@ export class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update the specified SLO correction object object.
+   * Update the specified SLO correction object.
    * @param param The request object
    */
   public updateSLOCorrection(

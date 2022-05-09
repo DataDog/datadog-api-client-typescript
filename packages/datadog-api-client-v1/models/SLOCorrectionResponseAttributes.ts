@@ -18,7 +18,7 @@ export class SLOCorrectionResponseAttributes {
    */
   "category"?: SLOCorrectionCategory;
   /**
-   * The epoch timestamp of when the correction was created at
+   * The epoch timestamp of when the correction was created at.
    */
   "createdAt"?: number;
   /**
@@ -38,7 +38,7 @@ export class SLOCorrectionResponseAttributes {
    */
   "end"?: number;
   /**
-   * The epoch timestamp of when the correction was modified at
+   * The epoch timestamp of when the correction was modified at.
    */
   "modifiedAt"?: number;
   /**
@@ -46,11 +46,11 @@ export class SLOCorrectionResponseAttributes {
    */
   "modifier"?: SLOCorrectionResponseAttributesModifier;
   /**
-   * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT` and `UNTIL`.
+   * The recurrence rules as defined in the iCalendar RFC 5545. The supported rules for SLO corrections are `FREQ`, `INTERVAL`, `COUNT`, and `UNTIL`.
    */
   "rrule"?: string;
   /**
-   * ID of the SLO that this correction will be applied to.
+   * ID of the SLO that this correction applies to.
    */
   "sloId"?: string;
   /**
