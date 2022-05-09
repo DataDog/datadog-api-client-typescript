@@ -75,7 +75,7 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
         // Query Params
         {%- endif %}
         if ({{ name|attribute_name }} !== undefined) {
-            requestContext.setQueryParam("{{ name }}", ObjectSerializer.serialize({{ name|attribute_name }}, "{{ get_type_for_parameter(parameter) }}", "{{ (parameter|parameter_schema).format }}"));
+            requestContext.setQueryParam("{{ name }}", ObjectSerializer.serialize({{ name|attribute_name }}, "{{ get_type_for_parameter(parameter) }}", "{{ get_format_for_parameter(parameter) }}"));
         }
         {%- endfor %}
 

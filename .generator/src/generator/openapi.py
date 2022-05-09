@@ -113,6 +113,17 @@ def get_type_for_parameter(parameter):
     return type_to_typescript(parameter.get("schema"))
 
 
+def get_format_for_parameter(parameter):
+    schema = {}
+    if "schema" in parameter:
+        schema = parameter["schema"]
+    if "content" in parameter:
+        schema = next(iter(parameter["content"].values()))
+    if schema.get("items"):
+        return schema["items"].get("format", "")
+    return schema.get("format", "")
+
+
 def child_models(schema, alternative_name=None, seen=None, parent=None):
     seen = seen or set()
     current_name = get_name(schema)
