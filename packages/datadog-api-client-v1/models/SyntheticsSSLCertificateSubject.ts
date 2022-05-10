@@ -13,27 +13,27 @@ export class SyntheticsSSLCertificateSubject {
   /**
    * Country Name associated with the certificate.
    */
-  "c"?: string;
+  "C"?: string;
   /**
    * Common Name that associated with the certificate.
    */
-  "cn"?: string;
+  "CN"?: string;
   /**
    * Locality associated with the certificate.
    */
-  "l"?: string;
+  "L"?: string;
   /**
    * Organization associated with the certificate.
    */
-  "o"?: string;
+  "O"?: string;
   /**
    * Organizational Unit associated with the certificate.
    */
-  "ou"?: string;
+  "OU"?: string;
   /**
    * State Or Province Name associated with the certificate.
    */
-  "st"?: string;
+  "ST"?: string;
   /**
    * Subject Alternative Name associated with the certificate.
    */
@@ -48,27 +48,27 @@ export class SyntheticsSSLCertificateSubject {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    c: {
+    C: {
       baseName: "C",
       type: "string",
     },
-    cn: {
+    CN: {
       baseName: "CN",
       type: "string",
     },
-    l: {
+    L: {
       baseName: "L",
       type: "string",
     },
-    o: {
+    O: {
       baseName: "O",
       type: "string",
     },
-    ou: {
+    OU: {
       baseName: "OU",
       type: "string",
     },
-    st: {
+    ST: {
       baseName: "ST",
       type: "string",
     },

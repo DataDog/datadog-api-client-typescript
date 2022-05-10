@@ -13,27 +13,27 @@ export class SyntheticsSSLCertificateIssuer {
   /**
    * Country Name that issued the certificate.
    */
-  "c"?: string;
+  "C"?: string;
   /**
    * Common Name that issued certificate.
    */
-  "cn"?: string;
+  "CN"?: string;
   /**
    * Locality that issued the certificate.
    */
-  "l"?: string;
+  "L"?: string;
   /**
    * Organization that issued the certificate.
    */
-  "o"?: string;
+  "O"?: string;
   /**
    * Organizational Unit that issued the certificate.
    */
-  "ou"?: string;
+  "OU"?: string;
   /**
    * State Or Province Name that issued the certificate.
    */
-  "st"?: string;
+  "ST"?: string;
 
   /**
    * @ignore
@@ -44,27 +44,27 @@ export class SyntheticsSSLCertificateIssuer {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    c: {
+    C: {
       baseName: "C",
       type: "string",
     },
-    cn: {
+    CN: {
       baseName: "CN",
       type: "string",
     },
-    l: {
+    L: {
       baseName: "L",
       type: "string",
     },
-    o: {
+    O: {
       baseName: "O",
       type: "string",
     },
-    ou: {
+    OU: {
       baseName: "OU",
       type: "string",
     },
-    st: {
+    ST: {
       baseName: "ST",
       type: "string",
     },

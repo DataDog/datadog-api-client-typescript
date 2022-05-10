@@ -137,6 +137,8 @@ def escape_reserved_keyword(word):
 
 
 def attribute_name(attribute):
+    if attribute.isupper():
+        return attribute
     return escape_reserved_keyword(untitle_case(camel_case(attribute)))
 
 
