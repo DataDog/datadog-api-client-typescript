@@ -1,3 +1,6 @@
+.DS_Store
+.idea/
+
 dist
 node_modules
 package-lock.json
@@ -16,3 +19,8 @@ version.ts
 !bin/check-licenses.js
 !.eslintrc.js
 !.github/workflows/scripts/*
+
+__pycache__
+*.pyc
+*.pyo
+

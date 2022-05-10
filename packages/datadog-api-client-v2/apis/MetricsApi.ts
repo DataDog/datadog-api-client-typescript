@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
@@ -15,12 +16,12 @@ import { MetricAllTagsResponse } from "../models/MetricAllTagsResponse";
 import { MetricBulkTagConfigCreateRequest } from "../models/MetricBulkTagConfigCreateRequest";
 import { MetricBulkTagConfigDeleteRequest } from "../models/MetricBulkTagConfigDeleteRequest";
 import { MetricBulkTagConfigResponse } from "../models/MetricBulkTagConfigResponse";
+import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigurationCreateRequest";
 import { MetricTagConfigurationMetricTypes } from "../models/MetricTagConfigurationMetricTypes";
 import { MetricTagConfigurationResponse } from "../models/MetricTagConfigurationResponse";
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
-import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 
 export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   public async createBulkTagsMetricsConfiguration(
@@ -208,7 +209,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MetricsApi.deleteTagConfiguration"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods

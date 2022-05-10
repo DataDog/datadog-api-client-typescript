@@ -10,7 +10,9 @@ import {
   ResponseContext,
   HttpFile,
 } from "../http/http";
+
 import FormData from "form-data";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -32,12 +34,11 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "OrganizationsApi.uploadIdPMetadata"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Form Params
     const localVarFormParams = new FormData();
-
     if (idpFile !== undefined) {
       // TODO: replace .append with .set
       localVarFormParams.append("idp_file", idpFile.data, idpFile.name);

@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
@@ -22,9 +23,9 @@ import { UsageAttributionSupportedMetrics } from "../models/UsageAttributionSupp
 import { UsageAuditLogsResponse } from "../models/UsageAuditLogsResponse";
 import { UsageBillableSummaryResponse } from "../models/UsageBillableSummaryResponse";
 import { UsageCIVisibilityResponse } from "../models/UsageCIVisibilityResponse";
-import { UsageCWSResponse } from "../models/UsageCWSResponse";
 import { UsageCloudSecurityPostureManagementResponse } from "../models/UsageCloudSecurityPostureManagementResponse";
 import { UsageCustomReportsResponse } from "../models/UsageCustomReportsResponse";
+import { UsageCWSResponse } from "../models/UsageCWSResponse";
 import { UsageDBMResponse } from "../models/UsageDBMResponse";
 import { UsageFargateResponse } from "../models/UsageFargateResponse";
 import { UsageHostsResponse } from "../models/UsageHostsResponse";
@@ -887,7 +888,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageCWS(
+  public async getUsageCloudSecurityPostureManagement(
     startHr: Date,
     endHr?: Date,
     _options?: Configuration
@@ -897,17 +898,17 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
       throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageCWS."
+        "Required parameter startHr was null or undefined when calling getUsageCloudSecurityPostureManagement."
       );
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/cws";
+    const localVarPath = "/api/v1/usage/cspm";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageCWS"
+      "UsageMeteringApi.getUsageCloudSecurityPostureManagement"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -939,7 +940,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getUsageCloudSecurityPostureManagement(
+  public async getUsageCWS(
     startHr: Date,
     endHr?: Date,
     _options?: Configuration
@@ -949,17 +950,17 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
       throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageCloudSecurityPostureManagement."
+        "Required parameter startHr was null or undefined when calling getUsageCWS."
       );
     }
 
     // Path Params
-    const localVarPath = "/api/v1/usage/cspm";
+    const localVarPath = "/api/v1/usage/cws";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageCloudSecurityPostureManagement"
+      "UsageMeteringApi.getUsageCWS"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -3023,69 +3024,6 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getUsageCWS
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getUsageCWS(
-    response: ResponseContext
-  ): Promise<UsageCWSResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageCWSResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCWSResponse",
-        ""
-      ) as UsageCWSResponse;
-      return body;
-    }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageCWSResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCWSResponse",
-        ""
-      ) as UsageCWSResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to getUsageCloudSecurityPostureManagement
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3137,6 +3075,69 @@ export class UsageMeteringApiResponseProcessor {
           "UsageCloudSecurityPostureManagementResponse",
           ""
         ) as UsageCloudSecurityPostureManagementResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getUsageCWS
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUsageCWS(
+    response: ResponseContext
+  ): Promise<UsageCWSResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: UsageCWSResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageCWSResponse",
+        ""
+      ) as UsageCWSResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageCWSResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageCWSResponse",
+        ""
+      ) as UsageCWSResponse;
       return body;
     }
 
@@ -4841,7 +4842,7 @@ export interface UsageMeteringApiGetUsageCIAppRequest {
   endHr?: Date;
 }
 
-export interface UsageMeteringApiGetUsageCWSRequest {
+export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
    * @type Date
@@ -4854,7 +4855,7 @@ export interface UsageMeteringApiGetUsageCWSRequest {
   endHr?: Date;
 }
 
-export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
+export interface UsageMeteringApiGetUsageCWSRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
    * @type Date
@@ -5530,28 +5531,6 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for Cloud Workload Security.
-   * @param param The request object
-   */
-  public getUsageCWS(
-    param: UsageMeteringApiGetUsageCWSRequest,
-    options?: Configuration
-  ): Promise<UsageCWSResponse> {
-    const requestContextPromise = this.requestFactory.getUsageCWS(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageCWS(responseContext);
-        });
-    });
-  }
-
-  /**
    * Get hourly usage for Cloud Security Posture Management (CSPM).
    * @param param The request object
    */
@@ -5572,6 +5551,28 @@ export class UsageMeteringApi {
           return this.responseProcessor.getUsageCloudSecurityPostureManagement(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get hourly usage for Cloud Workload Security.
+   * @param param The request object
+   */
+  public getUsageCWS(
+    param: UsageMeteringApiGetUsageCWSRequest,
+    options?: Configuration
+  ): Promise<UsageCWSResponse> {
+    const requestContextPromise = this.requestFactory.getUsageCWS(
+      param.startHr,
+      param.endHr,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUsageCWS(responseContext);
         });
     });
   }

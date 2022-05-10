@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -107,11 +108,8 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
       "application/json",
-
       "application/json;simple",
-
       "application/logplex-1",
-
       "text/plain",
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);

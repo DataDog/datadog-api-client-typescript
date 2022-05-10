@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -12,9 +13,9 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { LogsAPIErrorResponse } from "../models/LogsAPIErrorResponse";
 import { LogsIndex } from "../models/LogsIndex";
+import { LogsIndexesOrder } from "../models/LogsIndexesOrder";
 import { LogsIndexListResponse } from "../models/LogsIndexListResponse";
 import { LogsIndexUpdateRequest } from "../models/LogsIndexUpdateRequest";
-import { LogsIndexesOrder } from "../models/LogsIndexesOrder";
 
 export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
   public async createLogsIndex(

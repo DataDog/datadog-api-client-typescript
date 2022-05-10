@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -51,7 +52,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.addReadRoleToArchive"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -142,7 +143,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.deleteLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -314,7 +315,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "LogsArchivesApi.removeRoleFromArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

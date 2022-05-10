@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
@@ -14,8 +15,8 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
 import { IncidentTeamCreateRequest } from "../models/IncidentTeamCreateRequest";
 import { IncidentTeamResponse } from "../models/IncidentTeamResponse";
-import { IncidentTeamUpdateRequest } from "../models/IncidentTeamUpdateRequest";
 import { IncidentTeamsResponse } from "../models/IncidentTeamsResponse";
+import { IncidentTeamUpdateRequest } from "../models/IncidentTeamUpdateRequest";
 
 export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
   public async createIncidentTeam(
@@ -97,7 +98,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "IncidentTeamsApi.deleteIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods

@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -36,7 +37,6 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
       "ServiceChecksApi.submitServiceCheck"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "text/json");
-
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params

@@ -10,7 +10,9 @@ import {
   ResponseContext,
   HttpFile,
 } from "../http/http";
+
 import FormData from "form-data";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -219,7 +221,6 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Form Params
     const localVarFormParams = new FormData();
-
     if (idpFile !== undefined) {
       // TODO: replace .append with .set
       localVarFormParams.append("idp_file", idpFile.data, idpFile.name);

@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -12,8 +13,8 @@ import { isCodeInRange } from "../util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { NotebookCreateRequest } from "../models/NotebookCreateRequest";
 import { NotebookResponse } from "../models/NotebookResponse";
-import { NotebookUpdateRequest } from "../models/NotebookUpdateRequest";
 import { NotebooksResponse } from "../models/NotebooksResponse";
+import { NotebookUpdateRequest } from "../models/NotebookUpdateRequest";
 
 export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
   public async createNotebook(
@@ -84,7 +85,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "NotebooksApi.deleteNotebook"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods

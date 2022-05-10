@@ -5,6 +5,7 @@ import {
   applySecurityAuthentication,
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -131,7 +132,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.deleteWebhooksIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -168,7 +169,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       _config,
       "WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
