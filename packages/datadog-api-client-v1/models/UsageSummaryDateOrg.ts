@@ -13,15 +13,15 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all agent hosts over all hours in the current date for the given org.
    */
-  "agentHostTop99P"?: number;
+  "agentHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all Azure app services using APM over all hours in the current date for the given org.
    */
-  "apmAzureAppServiceHostTop99P"?: number;
+  "apmAzureAppServiceHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all distinct APM hosts over all hours in the current date for the given org.
    */
-  "apmHostTop99P"?: number;
+  "apmHostTop99p"?: number;
   /**
    * Shows the sum of all audit logs lines indexed over all hours in the current date for the given org.
    */
@@ -33,7 +33,7 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all AWS hosts over all hours in the current date for the given org.
    */
-  "awsHostTop99P"?: number;
+  "awsHostTop99p"?: number;
   /**
    * Shows the sum of all AWS Lambda invocations over all hours in the current date for the given org.
    */
@@ -45,7 +45,7 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all Azure app services over all hours in the current date for the given org.
    */
-  "azureAppServiceTop99P"?: number;
+  "azureAppServiceTop99p"?: number;
   /**
    * Shows the sum of all log bytes ingested over all hours in the current date for the given org.
    */
@@ -89,11 +89,11 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current date for the given org.
    */
-  "cspmAasHostTop99P"?: number;
+  "cspmAasHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for the given org.
    */
-  "cspmAzureHostTop99P"?: number;
+  "cspmAzureHostTop99p"?: number;
   /**
    * Shows the average number of Cloud Security Posture Management containers over all hours in the current date for the given org.
    */
@@ -105,7 +105,7 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current date for the given org.
    */
-  "cspmHostTop99P"?: number;
+  "cspmHostTop99p"?: number;
   /**
    * Shows the average number of distinct custom metrics over all hours in the current date for the given org.
    */
@@ -117,11 +117,11 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all Cloud Workload Security hosts over all hours in the current date for the given org.
    */
-  "cwsHostTop99P"?: number;
+  "cwsHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for the given org.
    */
-  "dbmHostTop99PSum"?: number;
+  "dbmHostTop99pSum"?: number;
   /**
    * Shows the average of all distinct Database Monitoring normalized queries over all hours in the current month for the given org.
    */
@@ -137,11 +137,11 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all GCP hosts over all hours in the current date for the given org.
    */
-  "gcpHostTop99P"?: number;
+  "gcpHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all Heroku dynos over all hours in the current date for the given org.
    */
-  "herokuHostTop99P"?: number;
+  "herokuHostTop99p"?: number;
   /**
    * The organization id.
    */
@@ -157,7 +157,7 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all distinct infrastructure hosts over all hours in the current date for the given org.
    */
-  "infraHostTop99P"?: number;
+  "infraHostTop99p"?: number;
   /**
    * Shows the sum of all log bytes ingested over all hours in the current date for the given org.
    */
@@ -169,7 +169,7 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all IoT devices over all hours in the current date for the given org.
    */
-  "iotDeviceTop99PSum"?: number;
+  "iotDeviceTop99pSum"?: number;
   /**
    * Shows the sum of all mobile lite sessions over all hours in the current date for the given org.
    */
@@ -201,7 +201,7 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all distinct Networks hosts over all hours in the current date for the given org.
    */
-  "npmHostTop99P"?: number;
+  "npmHostTop99p"?: number;
   /**
    * Sum of all observability pipelines bytes processed over all hours in the current date for the given org.
    */
@@ -213,11 +213,11 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for the given org.
    */
-  "opentelemetryHostTop99P"?: number;
+  "opentelemetryHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org.
    */
-  "profilingHostTop99P"?: number;
+  "profilingHostTop99p"?: number;
   /**
    * The organization public id.
    */
@@ -265,7 +265,7 @@ export class UsageSummaryDateOrg {
   /**
    * Shows the 99th percentile of all vSphere hosts over all hours in the current date for the given org.
    */
-  "vsphereHostTop99P"?: number;
+  "vsphereHostTop99p"?: number;
 
   /**
    * @ignore
@@ -276,17 +276,17 @@ export class UsageSummaryDateOrg {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    agentHostTop99P: {
+    agentHostTop99p: {
       baseName: "agent_host_top99p",
       type: "number",
       format: "int64",
     },
-    apmAzureAppServiceHostTop99P: {
+    apmAzureAppServiceHostTop99p: {
       baseName: "apm_azure_app_service_host_top99p",
       type: "number",
       format: "int64",
     },
-    apmHostTop99P: {
+    apmHostTop99p: {
       baseName: "apm_host_top99p",
       type: "number",
       format: "int64",
@@ -301,7 +301,7 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    awsHostTop99P: {
+    awsHostTop99p: {
       baseName: "aws_host_top99p",
       type: "number",
       format: "int64",
@@ -316,7 +316,7 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    azureAppServiceTop99P: {
+    azureAppServiceTop99p: {
       baseName: "azure_app_service_top99p",
       type: "number",
       format: "int64",
@@ -371,12 +371,12 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    cspmAasHostTop99P: {
+    cspmAasHostTop99p: {
       baseName: "cspm_aas_host_top99p",
       type: "number",
       format: "int64",
     },
-    cspmAzureHostTop99P: {
+    cspmAzureHostTop99p: {
       baseName: "cspm_azure_host_top99p",
       type: "number",
       format: "int64",
@@ -391,7 +391,7 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    cspmHostTop99P: {
+    cspmHostTop99p: {
       baseName: "cspm_host_top99p",
       type: "number",
       format: "int64",
@@ -406,12 +406,12 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    cwsHostTop99P: {
+    cwsHostTop99p: {
       baseName: "cws_host_top99p",
       type: "number",
       format: "int64",
     },
-    dbmHostTop99PSum: {
+    dbmHostTop99pSum: {
       baseName: "dbm_host_top99p_sum",
       type: "number",
       format: "int64",
@@ -431,12 +431,12 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    gcpHostTop99P: {
+    gcpHostTop99p: {
       baseName: "gcp_host_top99p",
       type: "number",
       format: "int64",
     },
-    herokuHostTop99P: {
+    herokuHostTop99p: {
       baseName: "heroku_host_top99p",
       type: "number",
       format: "int64",
@@ -455,7 +455,7 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    infraHostTop99P: {
+    infraHostTop99p: {
       baseName: "infra_host_top99p",
       type: "number",
       format: "int64",
@@ -470,7 +470,7 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    iotDeviceTop99PSum: {
+    iotDeviceTop99pSum: {
       baseName: "iot_device_top99p_sum",
       type: "number",
       format: "int64",
@@ -509,7 +509,7 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    npmHostTop99P: {
+    npmHostTop99p: {
       baseName: "npm_host_top99p",
       type: "number",
       format: "int64",
@@ -524,12 +524,12 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    opentelemetryHostTop99P: {
+    opentelemetryHostTop99p: {
       baseName: "opentelemetry_host_top99p",
       type: "number",
       format: "int64",
     },
-    profilingHostTop99P: {
+    profilingHostTop99p: {
       baseName: "profiling_host_top99p",
       type: "number",
       format: "int64",
@@ -588,7 +588,7 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
-    vsphereHostTop99P: {
+    vsphereHostTop99p: {
       baseName: "vsphere_host_top99p",
       type: "number",
       format: "int64",

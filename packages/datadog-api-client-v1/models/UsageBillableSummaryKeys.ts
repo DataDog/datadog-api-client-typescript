@@ -18,7 +18,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "apmHostTop99P"?: UsageBillableSummaryBody;
+  "apmHostTop99p"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -38,11 +38,11 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "infraHostTop99P"?: UsageBillableSummaryBody;
+  "infraHostTop99p"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "iotTop99P"?: UsageBillableSummaryBody;
+  "iotTop99p"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -50,35 +50,35 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed15DaySum"?: UsageBillableSummaryBody;
+  "logsIndexed15daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed180DaySum"?: UsageBillableSummaryBody;
+  "logsIndexed180daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed30DaySum"?: UsageBillableSummaryBody;
+  "logsIndexed30daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed3DaySum"?: UsageBillableSummaryBody;
+  "logsIndexed3daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed45DaySum"?: UsageBillableSummaryBody;
+  "logsIndexed45daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed60DaySum"?: UsageBillableSummaryBody;
+  "logsIndexed60daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed7DaySum"?: UsageBillableSummaryBody;
+  "logsIndexed7daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
-  "logsIndexed90DaySum"?: UsageBillableSummaryBody;
+  "logsIndexed90daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -94,7 +94,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "networkDeviceTop99P"?: UsageBillableSummaryBody;
+  "networkDeviceTop99p"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -106,7 +106,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "npmHostTop99P"?: UsageBillableSummaryBody;
+  "npmHostTop99p"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -114,7 +114,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "profHostTop99P"?: UsageBillableSummaryBody;
+  "profHostTop99p"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -153,7 +153,7 @@ export class UsageBillableSummaryKeys {
       baseName: "apm_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    apmHostTop99P: {
+    apmHostTop99p: {
       baseName: "apm_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -173,11 +173,11 @@ export class UsageBillableSummaryKeys {
       baseName: "infra_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    infraHostTop99P: {
+    infraHostTop99p: {
       baseName: "infra_host_top99p",
       type: "UsageBillableSummaryBody",
     },
-    iotTop99P: {
+    iotTop99p: {
       baseName: "iot_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -185,35 +185,35 @@ export class UsageBillableSummaryKeys {
       baseName: "lambda_function_average",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed15DaySum: {
+    logsIndexed15daySum: {
       baseName: "logs_indexed_15day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed180DaySum: {
+    logsIndexed180daySum: {
       baseName: "logs_indexed_180day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed30DaySum: {
+    logsIndexed30daySum: {
       baseName: "logs_indexed_30day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed3DaySum: {
+    logsIndexed3daySum: {
       baseName: "logs_indexed_3day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed45DaySum: {
+    logsIndexed45daySum: {
       baseName: "logs_indexed_45day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed60DaySum: {
+    logsIndexed60daySum: {
       baseName: "logs_indexed_60day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed7DaySum: {
+    logsIndexed7daySum: {
       baseName: "logs_indexed_7day_sum",
       type: "UsageBillableSummaryBody",
     },
-    logsIndexed90DaySum: {
+    logsIndexed90daySum: {
       baseName: "logs_indexed_90day_sum",
       type: "UsageBillableSummaryBody",
     },
@@ -229,7 +229,7 @@ export class UsageBillableSummaryKeys {
       baseName: "logs_ingested_sum",
       type: "UsageBillableSummaryBody",
     },
-    networkDeviceTop99P: {
+    networkDeviceTop99p: {
       baseName: "network_device_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -241,7 +241,7 @@ export class UsageBillableSummaryKeys {
       baseName: "npm_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    npmHostTop99P: {
+    npmHostTop99p: {
       baseName: "npm_host_top99p",
       type: "UsageBillableSummaryBody",
     },
@@ -249,7 +249,7 @@ export class UsageBillableSummaryKeys {
       baseName: "prof_container_sum",
       type: "UsageBillableSummaryBody",
     },
-    profHostTop99P: {
+    profHostTop99p: {
       baseName: "prof_host_top99p",
       type: "UsageBillableSummaryBody",
     },

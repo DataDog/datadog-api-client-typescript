@@ -104,8 +104,12 @@ def block_comment(comment, prefix="//"):
     return "\n".join(f"{prefix} {line}".rstrip() for line in comment.split("\n"))
 
 
+def upperfirst(value):
+    return value[0].upper() + value[1:]
+
+
 def camel_case(value):
-    return "".join(x.title() for x in snake_case(value).split("_"))
+    return "".join(upperfirst(x) for x in snake_case(value).split("_"))
 
 
 def untitle_case(value):
