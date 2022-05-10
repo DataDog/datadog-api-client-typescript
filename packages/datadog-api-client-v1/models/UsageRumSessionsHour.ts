@@ -38,6 +38,10 @@ export class UsageRumSessionsHour {
    * Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
    */
   "sessionCountIos"?: number;
+  /**
+   * Contains the number of mobile RUM Sessions on React Native (data available beginning May 1, 2022).
+   */
+  "sessionCountReactnative"?: number;
 
   /**
    * @ignore
@@ -78,6 +82,11 @@ export class UsageRumSessionsHour {
     },
     sessionCountIos: {
       baseName: "session_count_ios",
+      type: "number",
+      format: "int64",
+    },
+    sessionCountReactnative: {
+      baseName: "session_count_reactnative",
       type: "number",
       format: "int64",
     },

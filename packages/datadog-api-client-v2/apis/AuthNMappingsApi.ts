@@ -141,7 +141,6 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     pageSize?: number,
     pageNumber?: number,
     sort?: AuthNMappingsSort,
-    include?: Array<string>,
     filter?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -175,12 +174,6 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort",
         ObjectSerializer.serialize(sort, "AuthNMappingsSort", "")
-      );
-    }
-    if (include !== undefined) {
-      requestContext.setQueryParam(
-        "include",
-        ObjectSerializer.serialize(include, "Array<string>", "")
       );
     }
     if (filter !== undefined) {
@@ -632,11 +625,6 @@ export interface AuthNMappingsApiListAuthNMappingsRequest {
    */
   sort?: AuthNMappingsSort;
   /**
-   * Include additional information in the response.
-   * @type Array&lt;string&gt;
-   */
-  include?: Array<string>;
-  /**
    * Filter all mappings by the given string.
    * @type string
    */
@@ -748,7 +736,6 @@ export class AuthNMappingsApi {
       param.pageSize,
       param.pageNumber,
       param.sort,
-      param.include,
       param.filter,
       options
     );
