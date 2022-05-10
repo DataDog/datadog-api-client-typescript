@@ -1,17 +1,23 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+schema { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import { Configuration, getServer, applySecurityAuthentication} from "../configuration";
 import {
-  Configuration,
-  getServer,
-  applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+  HttpFile
+  } from "../http/http";
 
+import FormData from "form-data";
+
+import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
 
+
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
+import { HTTPLog } from "../models/HTTPLog";
 import { HTTPLogError } from "../models/HTTPLogError";
 import { HTTPLogItem } from "../models/HTTPLogItem";
 import { LogsAPIErrorResponse } from "../models/LogsAPIErrorResponse";
@@ -19,34 +25,26 @@ import { LogsListRequest } from "../models/LogsListRequest";
 import { LogsListResponse } from "../models/LogsListResponse";
 
 export class LogsApiRequestFactory extends BaseAPIRequestFactory {
-  public async listLogs(
-    body: LogsListRequest,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+
+  public async listLogs(body: LogsListRequest,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling listLogs."
-      );
+      throw new RequiredError('Required parameter body was null or undefined when calling listLogs.');
     }
 
     // Path Params
-    const localVarPath = "/api/v1/logs-queries/list";
+    const localVarPath = '/api/v1/logs-queries/list';
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "LogsApi.listLogs"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(_config, 'LogsApi.listLogs').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+      "application/json"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "LogsListRequest", ""),
@@ -55,54 +53,35 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
 
     return requestContext;
   }
 
-  public async submitLog(
-    body: Array<HTTPLogItem>,
-    contentEncoding?: ContentEncoding,
-    ddtags?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async submitLog(body: Array<HTTPLogItem>,contentEncoding?: ContentEncoding,ddtags?: string,_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling submitLog."
-      );
+      throw new RequiredError('Required parameter body was null or undefined when calling submitLog.');
     }
 
     // Path Params
-    const localVarPath = "/v1/input";
+    const localVarPath = '/v1/input';
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "LogsApi.submitLog"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(_config, 'LogsApi.submitLog').makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (ddtags !== undefined) {
-      requestContext.setQueryParam(
-        "ddtags",
-        ObjectSerializer.serialize(ddtags, "string", "")
-      );
+      requestContext.setQueryParam("ddtags", ObjectSerializer.serialize(ddtags, "string", ""));
     }
 
     // Header Params
     if (contentEncoding !== undefined) {
-      requestContext.setHeaderParam(
-        "Content-Encoding",
-        ObjectSerializer.serialize(contentEncoding, "ContentEncoding", "")
-      );
+      requestContext.setHeaderParam("Content-Encoding", ObjectSerializer.serialize(contentEncoding, "ContentEncoding", ""));
     }
 
     // Body Params
@@ -110,8 +89,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
       "application/json",
       "application/json;simple",
       "application/logplex-1",
-      "text/plain",
-    ]);
+      "text/plain"]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Array<HTTPLogItem>", ""),
@@ -127,6 +105,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class LogsApiResponseProcessor {
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -134,39 +113,33 @@ export class LogsApiResponseProcessor {
    * @params response Response returned by the server for a request to listLogs
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listLogs(response: ResponseContext): Promise<LogsListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async listLogs(response: ResponseContext): Promise<LogsListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsListResponse",
-        ""
+        "LogsListResponse", ""
       ) as LogsListResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: LogsAPIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsAPIErrorResponse",
-        ""
+        "LogsAPIErrorResponse", ""
       ) as LogsAPIErrorResponse;
       throw new ApiException<LogsAPIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse", ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse", ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -175,17 +148,13 @@ export class LogsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "LogsListResponse",
-        ""
+        "LogsListResponse", ""
       ) as LogsListResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 
   /**
@@ -195,31 +164,26 @@ export class LogsApiResponseProcessor {
    * @params response Response returned by the server for a request to submitLog
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async submitLog(response: ResponseContext): Promise<any> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
+   public async submitLog(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any",
-        ""
+        "any", ""
       ) as any;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: HTTPLogError = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HTTPLogError",
-        ""
+        "HTTPLogError", ""
       ) as HTTPLogError;
       throw new ApiException<HTTPLogError>(400, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse", ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -228,17 +192,13 @@ export class LogsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any",
-        ""
+        "any", ""
       ) as any;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
+    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }
 }
 
@@ -247,7 +207,7 @@ export interface LogsApiListLogsRequest {
    * Logs filter
    * @type LogsListRequest
    */
-  body: LogsListRequest;
+  body: LogsListRequest
 }
 
 export interface LogsApiSubmitLogRequest {
@@ -255,17 +215,17 @@ export interface LogsApiSubmitLogRequest {
    * Log to send (JSON format).
    * @type Array&lt;HTTPLogItem&gt;
    */
-  body: Array<HTTPLogItem>;
+  body: Array<HTTPLogItem>
   /**
    * HTTP header used to compress the media-type.
    * @type ContentEncoding
    */
-  contentEncoding?: ContentEncoding;
+  contentEncoding?: ContentEncoding
   /**
    * Log tags can be passed as query parameters with &#x60;text/plain&#x60; content type.
    * @type string
    */
-  ddtags?: string;
+  ddtags?: string
 }
 
 export class LogsApi {
@@ -273,35 +233,21 @@ export class LogsApi {
   private responseProcessor: LogsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(
-    configuration: Configuration,
-    requestFactory?: LogsApiRequestFactory,
-    responseProcessor?: LogsApiResponseProcessor
-  ) {
+  public constructor(configuration: Configuration, requestFactory?: LogsApiRequestFactory, responseProcessor?: LogsApiResponseProcessor) {
     this.configuration = configuration;
-    this.requestFactory =
-      requestFactory || new LogsApiRequestFactory(configuration);
-    this.responseProcessor =
-      responseProcessor || new LogsApiResponseProcessor();
+    this.requestFactory = requestFactory || new LogsApiRequestFactory(configuration);
+    this.responseProcessor = responseProcessor || new LogsApiResponseProcessor();
   }
 
   /**
    * List endpoint returns logs that match a log search query. [Results are paginated][1].  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    * @param param The request object
    */
-  public listLogs(
-    param: LogsApiListLogsRequest,
-    options?: Configuration
-  ): Promise<LogsListResponse> {
-    const requestContextPromise = this.requestFactory.listLogs(
-      param.body,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listLogs(responseContext);
+  public listLogs(param: LogsApiListLogsRequest, options?: Configuration): Promise<LogsListResponse> {
+    const requestContextPromise = this.requestFactory.listLogs(param.body,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.listLogs(responseContext);
         });
     });
   }
@@ -310,21 +256,11 @@ export class LogsApi {
    * Send your logs to your Datadog platform over HTTP. Limits per HTTP request are:  - Maximum content size per payload (uncompressed): 5MB - Maximum size for a single log: 1MB - Maximum array size if sending multiple logs in an array: 1000 entries  Any log exceeding 1MB is accepted and truncated by Datadog: - For a single log request, the API truncates the log at 1MB and returns a 2xx. - For a multi-logs request, the API processes all logs, truncates only logs larger than 1MB, and returns a 2xx.  Datadog recommends sending your logs compressed. Add the `Content-Encoding: gzip` header to the request when sending compressed logs.  The status codes answered by the HTTP API are: - 200: OK - 400: Bad request (likely an issue in the payload formatting) - 403: Permission issue (likely using an invalid API Key) - 413: Payload too large (batch is above 5MB uncompressed) - 5xx: Internal error, request should be retried after some time
    * @param param The request object
    */
-  public submitLog(
-    param: LogsApiSubmitLogRequest,
-    options?: Configuration
-  ): Promise<any> {
-    const requestContextPromise = this.requestFactory.submitLog(
-      param.body,
-      param.contentEncoding,
-      param.ddtags,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.submitLog(responseContext);
+  public submitLog(param: LogsApiSubmitLogRequest, options?: Configuration): Promise<any> {
+    const requestContextPromise = this.requestFactory.submitLog(param.body,param.contentEncoding,param.ddtags,options);
+    return requestContextPromise.then(requestContext => {
+        return this.configuration.httpApi.send(requestContext).then(responseContext => {
+            return this.responseProcessor.submitLog(responseContext);
         });
     });
   }
