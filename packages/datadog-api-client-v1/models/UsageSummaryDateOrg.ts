@@ -183,6 +183,10 @@ export class UsageSummaryDateOrg {
    */
   "mobileRumSessionCountIosSum"?: number;
   /**
+   * Shows the sum of all mobile RUM Sessions on React Native over all hours in the current date for the given org.
+   */
+  "mobileRumSessionCountReactnativeSum"?: number;
+  /**
    * Shows the sum of all mobile RUM Sessions over all hours in the current date for the given org.
    */
   "mobileRumSessionCountSum"?: number;
@@ -487,6 +491,11 @@ export class UsageSummaryDateOrg {
     },
     mobileRumSessionCountIosSum: {
       baseName: "mobile_rum_session_count_ios_sum",
+      type: "number",
+      format: "int64",
+    },
+    mobileRumSessionCountReactnativeSum: {
+      baseName: "mobile_rum_session_count_reactnative_sum",
       type: "number",
       format: "int64",
     },
