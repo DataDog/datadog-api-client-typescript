@@ -4,8 +4,6 @@
 yarn install
 yarn link
 
-./extract-code-blocks.sh examples
-
 cd ./examples/
 yarn link "@datadog/datadog-api-client"
 cd ../
