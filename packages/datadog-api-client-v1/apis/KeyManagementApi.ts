@@ -1,19 +1,14 @@
-schema { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer, applySecurityAuthentication} from "../configuration";
+import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  HttpFile
-  } from "../http/http";
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
+import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 
-import FormData from "form-data";
-
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
-
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ApiKey } from "../models/ApiKey";
@@ -24,26 +19,34 @@ import { ApplicationKeyListResponse } from "../models/ApplicationKeyListResponse
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
-
-  public async createAPIKey(body: ApiKey,_options?: Configuration): Promise<RequestContext> {
+  public async createAPIKey(
+    body: ApiKey,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling createAPIKey.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling createAPIKey."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/api_key';
+    const localVarPath = "/api/v1/api_key";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.createAPIKey').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.createAPIKey"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ApiKey", ""),
@@ -52,30 +55,42 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async createApplicationKey(body: ApplicationKey,_options?: Configuration): Promise<RequestContext> {
+  public async createApplicationKey(
+    body: ApplicationKey,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling createApplicationKey.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling createApplicationKey."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/application_key';
+    const localVarPath = "/api/v1/application_key";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.createApplicationKey').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.createApplicationKey"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ApplicationKey", ""),
@@ -84,99 +99,154 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async deleteAPIKey(key: string,_options?: Configuration): Promise<RequestContext> {
+  public async deleteAPIKey(
+    key: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'key' is not null or undefined
     if (key === null || key === undefined) {
-      throw new RequiredError('Required parameter key was null or undefined when calling deleteAPIKey.');
+      throw new RequiredError(
+        "Required parameter key was null or undefined when calling deleteAPIKey."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/api_key/{key}'
-      .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
+    const localVarPath = "/api/v1/api_key/{key}".replace(
+      "{" + "key" + "}",
+      encodeURIComponent(String(key))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.deleteAPIKey').makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.deleteAPIKey"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async deleteApplicationKey(key: string,_options?: Configuration): Promise<RequestContext> {
+  public async deleteApplicationKey(
+    key: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'key' is not null or undefined
     if (key === null || key === undefined) {
-      throw new RequiredError('Required parameter key was null or undefined when calling deleteApplicationKey.');
+      throw new RequiredError(
+        "Required parameter key was null or undefined when calling deleteApplicationKey."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/application_key/{key}'
-      .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
+    const localVarPath = "/api/v1/application_key/{key}".replace(
+      "{" + "key" + "}",
+      encodeURIComponent(String(key))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.deleteApplicationKey').makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.deleteApplicationKey"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async getAPIKey(key: string,_options?: Configuration): Promise<RequestContext> {
+  public async getAPIKey(
+    key: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'key' is not null or undefined
     if (key === null || key === undefined) {
-      throw new RequiredError('Required parameter key was null or undefined when calling getAPIKey.');
+      throw new RequiredError(
+        "Required parameter key was null or undefined when calling getAPIKey."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/api_key/{key}'
-      .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
+    const localVarPath = "/api/v1/api_key/{key}".replace(
+      "{" + "key" + "}",
+      encodeURIComponent(String(key))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.getAPIKey').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.getAPIKey"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async getApplicationKey(key: string,_options?: Configuration): Promise<RequestContext> {
+  public async getApplicationKey(
+    key: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'key' is not null or undefined
     if (key === null || key === undefined) {
-      throw new RequiredError('Required parameter key was null or undefined when calling getApplicationKey.');
+      throw new RequiredError(
+        "Required parameter key was null or undefined when calling getApplicationKey."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/application_key/{key}'
-      .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
+    const localVarPath = "/api/v1/application_key/{key}".replace(
+      "{" + "key" + "}",
+      encodeURIComponent(String(key))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.getApplicationKey').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.getApplicationKey"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
@@ -185,61 +255,89 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = '/api/v1/api_key';
+    const localVarPath = "/api/v1/api_key";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.listAPIKeys').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.listAPIKeys"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async listApplicationKeys(_options?: Configuration): Promise<RequestContext> {
+  public async listApplicationKeys(
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = '/api/v1/application_key';
+    const localVarPath = "/api/v1/application_key";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.listApplicationKeys').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.listApplicationKeys"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async updateAPIKey(key: string,body: ApiKey,_options?: Configuration): Promise<RequestContext> {
+  public async updateAPIKey(
+    key: string,
+    body: ApiKey,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'key' is not null or undefined
     if (key === null || key === undefined) {
-      throw new RequiredError('Required parameter key was null or undefined when calling updateAPIKey.');
+      throw new RequiredError(
+        "Required parameter key was null or undefined when calling updateAPIKey."
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling updateAPIKey.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling updateAPIKey."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/api_key/{key}'
-      .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
+    const localVarPath = "/api/v1/api_key/{key}".replace(
+      "{" + "key" + "}",
+      encodeURIComponent(String(key))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.updateAPIKey').makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.updateAPIKey"
+    ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ApiKey", ""),
@@ -248,36 +346,53 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async updateApplicationKey(key: string,body: ApplicationKey,_options?: Configuration): Promise<RequestContext> {
+  public async updateApplicationKey(
+    key: string,
+    body: ApplicationKey,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'key' is not null or undefined
     if (key === null || key === undefined) {
-      throw new RequiredError('Required parameter key was null or undefined when calling updateApplicationKey.');
+      throw new RequiredError(
+        "Required parameter key was null or undefined when calling updateApplicationKey."
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling updateApplicationKey.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling updateApplicationKey."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/application_key/{key}'
-      .replace('{' + 'key' + '}', encodeURIComponent(String(key)));
+    const localVarPath = "/api/v1/application_key/{key}".replace(
+      "{" + "key" + "}",
+      encodeURIComponent(String(key))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'KeyManagementApi.updateApplicationKey').makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = getServer(
+      _config,
+      "KeyManagementApi.updateApplicationKey"
+    ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "ApplicationKey", ""),
@@ -286,14 +401,16 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 }
 
 export class KeyManagementApiResponseProcessor {
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -301,33 +418,41 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async createAPIKey(response: ResponseContext): Promise<ApiKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async createAPIKey(
+    response: ResponseContext
+  ): Promise<ApiKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApiKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyResponse", ""
+        "ApiKeyResponse",
+        ""
       ) as ApiKeyResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -336,13 +461,17 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApiKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyResponse", ""
+        "ApiKeyResponse",
+        ""
       ) as ApiKeyResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -352,40 +481,49 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to createApplicationKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async createApplicationKey(response: ResponseContext): Promise<ApplicationKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async createApplicationKey(
+    response: ResponseContext
+  ): Promise<ApplicationKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse", ""
+        "ApplicationKeyResponse",
+        ""
       ) as ApplicationKeyResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("409", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(409, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -394,13 +532,17 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse", ""
+        "ApplicationKeyResponse",
+        ""
       ) as ApplicationKeyResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -410,40 +552,49 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async deleteAPIKey(response: ResponseContext): Promise<ApiKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async deleteAPIKey(
+    response: ResponseContext
+  ): Promise<ApiKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApiKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyResponse", ""
+        "ApiKeyResponse",
+        ""
       ) as ApiKeyResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -452,13 +603,17 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApiKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyResponse", ""
+        "ApiKeyResponse",
+        ""
       ) as ApiKeyResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -468,33 +623,41 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteApplicationKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async deleteApplicationKey(response: ResponseContext): Promise<ApplicationKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async deleteApplicationKey(
+    response: ResponseContext
+  ): Promise<ApplicationKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse", ""
+        "ApplicationKeyResponse",
+        ""
       ) as ApplicationKeyResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -503,13 +666,17 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse", ""
+        "ApplicationKeyResponse",
+        ""
       ) as ApplicationKeyResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -519,33 +686,39 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async getAPIKey(response: ResponseContext): Promise<ApiKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async getAPIKey(response: ResponseContext): Promise<ApiKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApiKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyResponse", ""
+        "ApiKeyResponse",
+        ""
       ) as ApiKeyResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -554,13 +727,17 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApiKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyResponse", ""
+        "ApiKeyResponse",
+        ""
       ) as ApiKeyResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -570,33 +747,41 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to getApplicationKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async getApplicationKey(response: ResponseContext): Promise<ApplicationKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async getApplicationKey(
+    response: ResponseContext
+  ): Promise<ApplicationKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse", ""
+        "ApplicationKeyResponse",
+        ""
       ) as ApplicationKeyResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -605,13 +790,17 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse", ""
+        "ApplicationKeyResponse",
+        ""
       ) as ApplicationKeyResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -621,26 +810,33 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listAPIKeys
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listAPIKeys(response: ResponseContext): Promise<ApiKeyListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listAPIKeys(
+    response: ResponseContext
+  ): Promise<ApiKeyListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApiKeyListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyListResponse", ""
+        "ApiKeyListResponse",
+        ""
       ) as ApiKeyListResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -649,13 +845,17 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApiKeyListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyListResponse", ""
+        "ApiKeyListResponse",
+        ""
       ) as ApiKeyListResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -665,26 +865,33 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to listApplicationKeys
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listApplicationKeys(response: ResponseContext): Promise<ApplicationKeyListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listApplicationKeys(
+    response: ResponseContext
+  ): Promise<ApplicationKeyListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApplicationKeyListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyListResponse", ""
+        "ApplicationKeyListResponse",
+        ""
       ) as ApplicationKeyListResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -693,13 +900,17 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyListResponse", ""
+        "ApplicationKeyListResponse",
+        ""
       ) as ApplicationKeyListResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -709,40 +920,49 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAPIKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async updateAPIKey(response: ResponseContext): Promise<ApiKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async updateAPIKey(
+    response: ResponseContext
+  ): Promise<ApiKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApiKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyResponse", ""
+        "ApiKeyResponse",
+        ""
       ) as ApiKeyResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -751,13 +971,17 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApiKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApiKeyResponse", ""
+        "ApiKeyResponse",
+        ""
       ) as ApiKeyResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -767,47 +991,57 @@ export class KeyManagementApiResponseProcessor {
    * @params response Response returned by the server for a request to updateApplicationKey
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async updateApplicationKey(response: ResponseContext): Promise<ApplicationKeyResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async updateApplicationKey(
+    response: ResponseContext
+  ): Promise<ApplicationKeyResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse", ""
+        "ApplicationKeyResponse",
+        ""
       ) as ApplicationKeyResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("409", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(409, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -816,30 +1050,34 @@ export class KeyManagementApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse", ""
+        "ApplicationKeyResponse",
+        ""
       ) as ApplicationKeyResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 }
 
 export interface KeyManagementApiCreateAPIKeyRequest {
   /**
-   * 
+   *
    * @type ApiKey
    */
-  body: ApiKey
+  body: ApiKey;
 }
 
 export interface KeyManagementApiCreateApplicationKeyRequest {
   /**
-   * 
+   *
    * @type ApplicationKey
    */
-  body: ApplicationKey
+  body: ApplicationKey;
 }
 
 export interface KeyManagementApiDeleteAPIKeyRequest {
@@ -847,7 +1085,7 @@ export interface KeyManagementApiDeleteAPIKeyRequest {
    * The specific API key you are working with.
    * @type string
    */
-  key: string
+  key: string;
 }
 
 export interface KeyManagementApiDeleteApplicationKeyRequest {
@@ -855,7 +1093,7 @@ export interface KeyManagementApiDeleteApplicationKeyRequest {
    * The specific APP key you are working with.
    * @type string
    */
-  key: string
+  key: string;
 }
 
 export interface KeyManagementApiGetAPIKeyRequest {
@@ -863,7 +1101,7 @@ export interface KeyManagementApiGetAPIKeyRequest {
    * The specific API key you are working with.
    * @type string
    */
-  key: string
+  key: string;
 }
 
 export interface KeyManagementApiGetApplicationKeyRequest {
@@ -871,7 +1109,7 @@ export interface KeyManagementApiGetApplicationKeyRequest {
    * The specific APP key you are working with.
    * @type string
    */
-  key: string
+  key: string;
 }
 
 export interface KeyManagementApiUpdateAPIKeyRequest {
@@ -879,12 +1117,12 @@ export interface KeyManagementApiUpdateAPIKeyRequest {
    * The specific API key you are working with.
    * @type string
    */
-  key: string
+  key: string;
   /**
-   * 
+   *
    * @type ApiKey
    */
-  body: ApiKey
+  body: ApiKey;
 }
 
 export interface KeyManagementApiUpdateApplicationKeyRequest {
@@ -892,12 +1130,12 @@ export interface KeyManagementApiUpdateApplicationKeyRequest {
    * The specific APP key you are working with.
    * @type string
    */
-  key: string
+  key: string;
   /**
-   * 
+   *
    * @type ApplicationKey
    */
-  body: ApplicationKey
+  body: ApplicationKey;
 }
 
 export class KeyManagementApi {
@@ -905,21 +1143,35 @@ export class KeyManagementApi {
   private responseProcessor: KeyManagementApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(configuration: Configuration, requestFactory?: KeyManagementApiRequestFactory, responseProcessor?: KeyManagementApiResponseProcessor) {
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: KeyManagementApiRequestFactory,
+    responseProcessor?: KeyManagementApiResponseProcessor
+  ) {
     this.configuration = configuration;
-    this.requestFactory = requestFactory || new KeyManagementApiRequestFactory(configuration);
-    this.responseProcessor = responseProcessor || new KeyManagementApiResponseProcessor();
+    this.requestFactory =
+      requestFactory || new KeyManagementApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new KeyManagementApiResponseProcessor();
   }
 
   /**
    * Creates an API key with a given name.
    * @param param The request object
    */
-  public createAPIKey(param: KeyManagementApiCreateAPIKeyRequest, options?: Configuration): Promise<ApiKeyResponse> {
-    const requestContextPromise = this.requestFactory.createAPIKey(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.createAPIKey(responseContext);
+  public createAPIKey(
+    param: KeyManagementApiCreateAPIKeyRequest,
+    options?: Configuration
+  ): Promise<ApiKeyResponse> {
+    const requestContextPromise = this.requestFactory.createAPIKey(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAPIKey(responseContext);
         });
     });
   }
@@ -928,11 +1180,19 @@ export class KeyManagementApi {
    * Create an application key with a given name.
    * @param param The request object
    */
-  public createApplicationKey(param: KeyManagementApiCreateApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.createApplicationKey(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.createApplicationKey(responseContext);
+  public createApplicationKey(
+    param: KeyManagementApiCreateApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.createApplicationKey(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createApplicationKey(responseContext);
         });
     });
   }
@@ -941,11 +1201,19 @@ export class KeyManagementApi {
    * Delete a given API key.
    * @param param The request object
    */
-  public deleteAPIKey(param: KeyManagementApiDeleteAPIKeyRequest, options?: Configuration): Promise<ApiKeyResponse> {
-    const requestContextPromise = this.requestFactory.deleteAPIKey(param.key,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.deleteAPIKey(responseContext);
+  public deleteAPIKey(
+    param: KeyManagementApiDeleteAPIKeyRequest,
+    options?: Configuration
+  ): Promise<ApiKeyResponse> {
+    const requestContextPromise = this.requestFactory.deleteAPIKey(
+      param.key,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAPIKey(responseContext);
         });
     });
   }
@@ -954,11 +1222,19 @@ export class KeyManagementApi {
    * Delete a given application key.
    * @param param The request object
    */
-  public deleteApplicationKey(param: KeyManagementApiDeleteApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.deleteApplicationKey(param.key,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.deleteApplicationKey(responseContext);
+  public deleteApplicationKey(
+    param: KeyManagementApiDeleteApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.deleteApplicationKey(
+      param.key,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteApplicationKey(responseContext);
         });
     });
   }
@@ -967,11 +1243,19 @@ export class KeyManagementApi {
    * Get a given API key.
    * @param param The request object
    */
-  public getAPIKey(param: KeyManagementApiGetAPIKeyRequest, options?: Configuration): Promise<ApiKeyResponse> {
-    const requestContextPromise = this.requestFactory.getAPIKey(param.key,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.getAPIKey(responseContext);
+  public getAPIKey(
+    param: KeyManagementApiGetAPIKeyRequest,
+    options?: Configuration
+  ): Promise<ApiKeyResponse> {
+    const requestContextPromise = this.requestFactory.getAPIKey(
+      param.key,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getAPIKey(responseContext);
         });
     });
   }
@@ -980,11 +1264,19 @@ export class KeyManagementApi {
    * Get a given application key.
    * @param param The request object
    */
-  public getApplicationKey(param: KeyManagementApiGetApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.getApplicationKey(param.key,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.getApplicationKey(responseContext);
+  public getApplicationKey(
+    param: KeyManagementApiGetApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.getApplicationKey(
+      param.key,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getApplicationKey(responseContext);
         });
     });
   }
@@ -993,11 +1285,13 @@ export class KeyManagementApi {
    * Get all API keys available for your account.
    * @param param The request object
    */
-  public listAPIKeys( options?: Configuration): Promise<ApiKeyListResponse> {
+  public listAPIKeys(options?: Configuration): Promise<ApiKeyListResponse> {
     const requestContextPromise = this.requestFactory.listAPIKeys(options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listAPIKeys(responseContext);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAPIKeys(responseContext);
         });
     });
   }
@@ -1006,11 +1300,16 @@ export class KeyManagementApi {
    * Get all application keys available for your Datadog account.
    * @param param The request object
    */
-  public listApplicationKeys( options?: Configuration): Promise<ApplicationKeyListResponse> {
-    const requestContextPromise = this.requestFactory.listApplicationKeys(options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listApplicationKeys(responseContext);
+  public listApplicationKeys(
+    options?: Configuration
+  ): Promise<ApplicationKeyListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listApplicationKeys(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listApplicationKeys(responseContext);
         });
     });
   }
@@ -1019,11 +1318,20 @@ export class KeyManagementApi {
    * Edit an API key name.
    * @param param The request object
    */
-  public updateAPIKey(param: KeyManagementApiUpdateAPIKeyRequest, options?: Configuration): Promise<ApiKeyResponse> {
-    const requestContextPromise = this.requestFactory.updateAPIKey(param.key,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.updateAPIKey(responseContext);
+  public updateAPIKey(
+    param: KeyManagementApiUpdateAPIKeyRequest,
+    options?: Configuration
+  ): Promise<ApiKeyResponse> {
+    const requestContextPromise = this.requestFactory.updateAPIKey(
+      param.key,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAPIKey(responseContext);
         });
     });
   }
@@ -1032,11 +1340,20 @@ export class KeyManagementApi {
    * Edit an application key name.
    * @param param The request object
    */
-  public updateApplicationKey(param: KeyManagementApiUpdateApplicationKeyRequest, options?: Configuration): Promise<ApplicationKeyResponse> {
-    const requestContextPromise = this.requestFactory.updateApplicationKey(param.key,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.updateApplicationKey(responseContext);
+  public updateApplicationKey(
+    param: KeyManagementApiUpdateApplicationKeyRequest,
+    options?: Configuration
+  ): Promise<ApplicationKeyResponse> {
+    const requestContextPromise = this.requestFactory.updateApplicationKey(
+      param.key,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateApplicationKey(responseContext);
         });
     });
   }

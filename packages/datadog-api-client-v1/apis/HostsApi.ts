@@ -1,19 +1,14 @@
-schema { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer, applySecurityAuthentication} from "../configuration";
+import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  HttpFile
-  } from "../http/http";
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
+import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 
-import FormData from "form-data";
-
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
-
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { HostListResponse } from "../models/HostListResponse";
@@ -22,97 +17,164 @@ import { HostMuteSettings } from "../models/HostMuteSettings";
 import { HostTotals } from "../models/HostTotals";
 
 export class HostsApiRequestFactory extends BaseAPIRequestFactory {
-
-  public async getHostTotals(from?: number,_options?: Configuration): Promise<RequestContext> {
+  public async getHostTotals(
+    from?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = '/api/v1/hosts/totals';
+    const localVarPath = "/api/v1/hosts/totals";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'HostsApi.getHostTotals').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "HostsApi.getHostTotals"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (from !== undefined) {
-      requestContext.setQueryParam("from", ObjectSerializer.serialize(from, "number", "int64"));
+      requestContext.setQueryParam(
+        "from",
+        ObjectSerializer.serialize(from, "number", "int64")
+      );
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async listHosts(filter?: string,sortField?: string,sortDir?: string,start?: number,count?: number,from?: number,includeMutedHostsData?: boolean,includeHostsMetadata?: boolean,_options?: Configuration): Promise<RequestContext> {
+  public async listHosts(
+    filter?: string,
+    sortField?: string,
+    sortDir?: string,
+    start?: number,
+    count?: number,
+    from?: number,
+    includeMutedHostsData?: boolean,
+    includeHostsMetadata?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = '/api/v1/hosts';
+    const localVarPath = "/api/v1/hosts";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'HostsApi.listHosts').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "HostsApi.listHosts"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (filter !== undefined) {
-      requestContext.setQueryParam("filter", ObjectSerializer.serialize(filter, "string", ""));
+      requestContext.setQueryParam(
+        "filter",
+        ObjectSerializer.serialize(filter, "string", "")
+      );
     }
     if (sortField !== undefined) {
-      requestContext.setQueryParam("sort_field", ObjectSerializer.serialize(sortField, "string", ""));
+      requestContext.setQueryParam(
+        "sort_field",
+        ObjectSerializer.serialize(sortField, "string", "")
+      );
     }
     if (sortDir !== undefined) {
-      requestContext.setQueryParam("sort_dir", ObjectSerializer.serialize(sortDir, "string", ""));
+      requestContext.setQueryParam(
+        "sort_dir",
+        ObjectSerializer.serialize(sortDir, "string", "")
+      );
     }
     if (start !== undefined) {
-      requestContext.setQueryParam("start", ObjectSerializer.serialize(start, "number", "int64"));
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64")
+      );
     }
     if (count !== undefined) {
-      requestContext.setQueryParam("count", ObjectSerializer.serialize(count, "number", "int64"));
+      requestContext.setQueryParam(
+        "count",
+        ObjectSerializer.serialize(count, "number", "int64")
+      );
     }
     if (from !== undefined) {
-      requestContext.setQueryParam("from", ObjectSerializer.serialize(from, "number", "int64"));
+      requestContext.setQueryParam(
+        "from",
+        ObjectSerializer.serialize(from, "number", "int64")
+      );
     }
     if (includeMutedHostsData !== undefined) {
-      requestContext.setQueryParam("include_muted_hosts_data", ObjectSerializer.serialize(includeMutedHostsData, "boolean", ""));
+      requestContext.setQueryParam(
+        "include_muted_hosts_data",
+        ObjectSerializer.serialize(includeMutedHostsData, "boolean", "")
+      );
     }
     if (includeHostsMetadata !== undefined) {
-      requestContext.setQueryParam("include_hosts_metadata", ObjectSerializer.serialize(includeHostsMetadata, "boolean", ""));
+      requestContext.setQueryParam(
+        "include_hosts_metadata",
+        ObjectSerializer.serialize(includeHostsMetadata, "boolean", "")
+      );
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async muteHost(hostName: string,body: HostMuteSettings,_options?: Configuration): Promise<RequestContext> {
+  public async muteHost(
+    hostName: string,
+    body: HostMuteSettings,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
-      throw new RequiredError('Required parameter hostName was null or undefined when calling muteHost.');
+      throw new RequiredError(
+        "Required parameter hostName was null or undefined when calling muteHost."
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling muteHost.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling muteHost."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/host/{host_name}/mute'
-      .replace('{' + 'host_name' + '}', encodeURIComponent(String(hostName)));
+    const localVarPath = "/api/v1/host/{host_name}/mute".replace(
+      "{" + "host_name" + "}",
+      encodeURIComponent(String(hostName))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'HostsApi.muteHost').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(
+      _config,
+      "HostsApi.muteHost"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "HostMuteSettings", ""),
@@ -121,37 +183,52 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async unmuteHost(hostName: string,_options?: Configuration): Promise<RequestContext> {
+  public async unmuteHost(
+    hostName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
-      throw new RequiredError('Required parameter hostName was null or undefined when calling unmuteHost.');
+      throw new RequiredError(
+        "Required parameter hostName was null or undefined when calling unmuteHost."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/host/{host_name}/unmute'
-      .replace('{' + 'host_name' + '}', encodeURIComponent(String(hostName)));
+    const localVarPath = "/api/v1/host/{host_name}/unmute".replace(
+      "{" + "host_name" + "}",
+      encodeURIComponent(String(hostName))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'HostsApi.unmuteHost').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(
+      _config,
+      "HostsApi.unmuteHost"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 }
 
 export class HostsApiResponseProcessor {
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -159,33 +236,39 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to getHostTotals
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async getHostTotals(response: ResponseContext): Promise<HostTotals> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async getHostTotals(response: ResponseContext): Promise<HostTotals> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: HostTotals = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostTotals", ""
+        "HostTotals",
+        ""
       ) as HostTotals;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -194,13 +277,17 @@ export class HostsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostTotals = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostTotals", ""
+        "HostTotals",
+        ""
       ) as HostTotals;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -210,33 +297,39 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to listHosts
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listHosts(response: ResponseContext): Promise<HostListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listHosts(response: ResponseContext): Promise<HostListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: HostListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostListResponse", ""
+        "HostListResponse",
+        ""
       ) as HostListResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -245,13 +338,17 @@ export class HostsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostListResponse", ""
+        "HostListResponse",
+        ""
       ) as HostListResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -261,33 +358,39 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to muteHost
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async muteHost(response: ResponseContext): Promise<HostMuteResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async muteHost(response: ResponseContext): Promise<HostMuteResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostMuteResponse", ""
+        "HostMuteResponse",
+        ""
       ) as HostMuteResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -296,13 +399,17 @@ export class HostsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostMuteResponse", ""
+        "HostMuteResponse",
+        ""
       ) as HostMuteResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -312,33 +419,41 @@ export class HostsApiResponseProcessor {
    * @params response Response returned by the server for a request to unmuteHost
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async unmuteHost(response: ResponseContext): Promise<HostMuteResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async unmuteHost(
+    response: ResponseContext
+  ): Promise<HostMuteResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostMuteResponse", ""
+        "HostMuteResponse",
+        ""
       ) as HostMuteResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -347,13 +462,17 @@ export class HostsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HostMuteResponse", ""
+        "HostMuteResponse",
+        ""
       ) as HostMuteResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 }
 
@@ -362,7 +481,7 @@ export interface HostsApiGetHostTotalsRequest {
    * Number of seconds from which you want to get total number of active hosts.
    * @type number
    */
-  from?: number
+  from?: number;
 }
 
 export interface HostsApiListHostsRequest {
@@ -370,42 +489,42 @@ export interface HostsApiListHostsRequest {
    * String to filter search results.
    * @type string
    */
-  filter?: string
+  filter?: string;
   /**
    * Sort hosts by this field.
    * @type string
    */
-  sortField?: string
+  sortField?: string;
   /**
    * Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;.
    * @type string
    */
-  sortDir?: string
+  sortDir?: string;
   /**
    * Host result to start search from.
    * @type number
    */
-  start?: number
+  start?: number;
   /**
    * Number of hosts to return. Max 1000.
    * @type number
    */
-  count?: number
+  count?: number;
   /**
    * Number of seconds since UNIX epoch from which you want to search your hosts.
    * @type number
    */
-  from?: number
+  from?: number;
   /**
    * Include information on the muted status of hosts and when the mute expires.
    * @type boolean
    */
-  includeMutedHostsData?: boolean
+  includeMutedHostsData?: boolean;
   /**
    * Include additional metadata about the hosts (agent_version, machine, platform, processor, etc.).
    * @type boolean
    */
-  includeHostsMetadata?: boolean
+  includeHostsMetadata?: boolean;
 }
 
 export interface HostsApiMuteHostRequest {
@@ -413,12 +532,12 @@ export interface HostsApiMuteHostRequest {
    * Name of the host to mute.
    * @type string
    */
-  hostName: string
+  hostName: string;
   /**
    * Mute a host request body.
    * @type HostMuteSettings
    */
-  body: HostMuteSettings
+  body: HostMuteSettings;
 }
 
 export interface HostsApiUnmuteHostRequest {
@@ -426,7 +545,7 @@ export interface HostsApiUnmuteHostRequest {
    * Name of the host to unmute.
    * @type string
    */
-  hostName: string
+  hostName: string;
 }
 
 export class HostsApi {
@@ -434,21 +553,35 @@ export class HostsApi {
   private responseProcessor: HostsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(configuration: Configuration, requestFactory?: HostsApiRequestFactory, responseProcessor?: HostsApiResponseProcessor) {
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: HostsApiRequestFactory,
+    responseProcessor?: HostsApiResponseProcessor
+  ) {
     this.configuration = configuration;
-    this.requestFactory = requestFactory || new HostsApiRequestFactory(configuration);
-    this.responseProcessor = responseProcessor || new HostsApiResponseProcessor();
+    this.requestFactory =
+      requestFactory || new HostsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new HostsApiResponseProcessor();
   }
 
   /**
    * This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
    * @param param The request object
    */
-  public getHostTotals(param: HostsApiGetHostTotalsRequest = {}, options?: Configuration): Promise<HostTotals> {
-    const requestContextPromise = this.requestFactory.getHostTotals(param.from,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.getHostTotals(responseContext);
+  public getHostTotals(
+    param: HostsApiGetHostTotalsRequest = {},
+    options?: Configuration
+  ): Promise<HostTotals> {
+    const requestContextPromise = this.requestFactory.getHostTotals(
+      param.from,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getHostTotals(responseContext);
         });
     });
   }
@@ -457,11 +590,26 @@ export class HostsApi {
    * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
    * @param param The request object
    */
-  public listHosts(param: HostsApiListHostsRequest = {}, options?: Configuration): Promise<HostListResponse> {
-    const requestContextPromise = this.requestFactory.listHosts(param.filter,param.sortField,param.sortDir,param.start,param.count,param.from,param.includeMutedHostsData,param.includeHostsMetadata,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listHosts(responseContext);
+  public listHosts(
+    param: HostsApiListHostsRequest = {},
+    options?: Configuration
+  ): Promise<HostListResponse> {
+    const requestContextPromise = this.requestFactory.listHosts(
+      param.filter,
+      param.sortField,
+      param.sortDir,
+      param.start,
+      param.count,
+      param.from,
+      param.includeMutedHostsData,
+      param.includeHostsMetadata,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listHosts(responseContext);
         });
     });
   }
@@ -470,11 +618,20 @@ export class HostsApi {
    * Mute a host.
    * @param param The request object
    */
-  public muteHost(param: HostsApiMuteHostRequest, options?: Configuration): Promise<HostMuteResponse> {
-    const requestContextPromise = this.requestFactory.muteHost(param.hostName,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.muteHost(responseContext);
+  public muteHost(
+    param: HostsApiMuteHostRequest,
+    options?: Configuration
+  ): Promise<HostMuteResponse> {
+    const requestContextPromise = this.requestFactory.muteHost(
+      param.hostName,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.muteHost(responseContext);
         });
     });
   }
@@ -483,11 +640,19 @@ export class HostsApi {
    * Unmutes a host. This endpoint takes no JSON arguments.
    * @param param The request object
    */
-  public unmuteHost(param: HostsApiUnmuteHostRequest, options?: Configuration): Promise<HostMuteResponse> {
-    const requestContextPromise = this.requestFactory.unmuteHost(param.hostName,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.unmuteHost(responseContext);
+  public unmuteHost(
+    param: HostsApiUnmuteHostRequest,
+    options?: Configuration
+  ): Promise<HostMuteResponse> {
+    const requestContextPromise = this.requestFactory.unmuteHost(
+      param.hostName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.unmuteHost(responseContext);
         });
     });
   }

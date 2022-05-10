@@ -1,19 +1,14 @@
-schema { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer, applySecurityAuthentication} from "../configuration";
+import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  HttpFile
-  } from "../http/http";
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
+import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 
-import FormData from "form-data";
-
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
-
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CostByOrgResponse } from "../models/CostByOrgResponse";
@@ -21,100 +16,164 @@ import { UsageApplicationSecurityMonitoringResponse } from "../models/UsageAppli
 import { UsageObservabilityPipelinesResponse } from "../models/UsageObservabilityPipelinesResponse";
 
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
-
-  public async getCostByOrg(startMonth: Date,endMonth?: Date,_options?: Configuration): Promise<RequestContext> {
+  public async getCostByOrg(
+    startMonth: Date,
+    endMonth?: Date,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError('Required parameter startMonth was null or undefined when calling getCostByOrg.');
+      throw new RequiredError(
+        "Required parameter startMonth was null or undefined when calling getCostByOrg."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v2/usage/cost_by_org';
+    const localVarPath = "/api/v2/usage/cost_by_org";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'UsageMeteringApi.getCostByOrg').makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
+    const requestContext = getServer(
+      _config,
+      "UsageMeteringApi.getCostByOrg"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startMonth !== undefined) {
-      requestContext.setQueryParam("start_month", ObjectSerializer.serialize(startMonth, "Date", "date-time"));
+      requestContext.setQueryParam(
+        "start_month",
+        ObjectSerializer.serialize(startMonth, "Date", "date-time")
+      );
     }
     if (endMonth !== undefined) {
-      requestContext.setQueryParam("end_month", ObjectSerializer.serialize(endMonth, "Date", "date-time"));
+      requestContext.setQueryParam(
+        "end_month",
+        ObjectSerializer.serialize(endMonth, "Date", "date-time")
+      );
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async getUsageApplicationSecurityMonitoring(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
+  public async getUsageApplicationSecurityMonitoring(
+    startHr: Date,
+    endHr?: Date,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageApplicationSecurityMonitoring.');
+      throw new RequiredError(
+        "Required parameter startHr was null or undefined when calling getUsageApplicationSecurityMonitoring."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v2/usage/application_security';
+    const localVarPath = "/api/v2/usage/application_security";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'UsageMeteringApi.getUsageApplicationSecurityMonitoring').makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
+    const requestContext = getServer(
+      _config,
+      "UsageMeteringApi.getUsageApplicationSecurityMonitoring"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"));
+      requestContext.setQueryParam(
+        "start_hr",
+        ObjectSerializer.serialize(startHr, "Date", "date-time")
+      );
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
+      requestContext.setQueryParam(
+        "end_hr",
+        ObjectSerializer.serialize(endHr, "Date", "date-time")
+      );
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async getUsageObservabilityPipelines(startHr: Date,endHr?: Date,_options?: Configuration): Promise<RequestContext> {
+  public async getUsageObservabilityPipelines(
+    startHr: Date,
+    endHr?: Date,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError('Required parameter startHr was null or undefined when calling getUsageObservabilityPipelines.');
+      throw new RequiredError(
+        "Required parameter startHr was null or undefined when calling getUsageObservabilityPipelines."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v2/usage/observability_pipelines';
+    const localVarPath = "/api/v2/usage/observability_pipelines";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'UsageMeteringApi.getUsageObservabilityPipelines').makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json;datetime-format=rfc3339");
+    const requestContext = getServer(
+      _config,
+      "UsageMeteringApi.getUsageObservabilityPipelines"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
     if (startHr !== undefined) {
-      requestContext.setQueryParam("start_hr", ObjectSerializer.serialize(startHr, "Date", "date-time"));
+      requestContext.setQueryParam(
+        "start_hr",
+        ObjectSerializer.serialize(startHr, "Date", "date-time")
+      );
     }
     if (endHr !== undefined) {
-      requestContext.setQueryParam("end_hr", ObjectSerializer.serialize(endHr, "Date", "date-time"));
+      requestContext.setQueryParam(
+        "end_hr",
+        ObjectSerializer.serialize(endHr, "Date", "date-time")
+      );
     }
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 }
 
 export class UsageMeteringApiResponseProcessor {
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -122,33 +181,41 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getCostByOrg
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async getCostByOrg(response: ResponseContext): Promise<CostByOrgResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async getCostByOrg(
+    response: ResponseContext
+  ): Promise<CostByOrgResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: CostByOrgResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostByOrgResponse", ""
+        "CostByOrgResponse",
+        ""
       ) as CostByOrgResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -157,13 +224,17 @@ export class UsageMeteringApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostByOrgResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostByOrgResponse", ""
+        "CostByOrgResponse",
+        ""
       ) as CostByOrgResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -173,48 +244,62 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageApplicationSecurityMonitoring
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async getUsageApplicationSecurityMonitoring(response: ResponseContext): Promise<UsageApplicationSecurityMonitoringResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async getUsageApplicationSecurityMonitoring(
+    response: ResponseContext
+  ): Promise<UsageApplicationSecurityMonitoringResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageApplicationSecurityMonitoringResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageApplicationSecurityMonitoringResponse", ""
-      ) as UsageApplicationSecurityMonitoringResponse;
+      const body: UsageApplicationSecurityMonitoringResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageApplicationSecurityMonitoringResponse",
+          ""
+        ) as UsageApplicationSecurityMonitoringResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageApplicationSecurityMonitoringResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageApplicationSecurityMonitoringResponse", ""
-      ) as UsageApplicationSecurityMonitoringResponse;
+      const body: UsageApplicationSecurityMonitoringResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageApplicationSecurityMonitoringResponse",
+          ""
+        ) as UsageApplicationSecurityMonitoringResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -224,48 +309,62 @@ export class UsageMeteringApiResponseProcessor {
    * @params response Response returned by the server for a request to getUsageObservabilityPipelines
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async getUsageObservabilityPipelines(response: ResponseContext): Promise<UsageObservabilityPipelinesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async getUsageObservabilityPipelines(
+    response: ResponseContext
+  ): Promise<UsageObservabilityPipelinesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageObservabilityPipelinesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageObservabilityPipelinesResponse", ""
-      ) as UsageObservabilityPipelinesResponse;
+      const body: UsageObservabilityPipelinesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageObservabilityPipelinesResponse",
+          ""
+        ) as UsageObservabilityPipelinesResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageObservabilityPipelinesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageObservabilityPipelinesResponse", ""
-      ) as UsageObservabilityPipelinesResponse;
+      const body: UsageObservabilityPipelinesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageObservabilityPipelinesResponse",
+          ""
+        ) as UsageObservabilityPipelinesResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 }
 
@@ -274,12 +373,12 @@ export interface UsageMeteringApiGetCostByOrgRequest {
    * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for cost beginning this month.
    * @type Date
    */
-  startMonth: Date
+  startMonth: Date;
   /**
    * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for cost ending this month.
    * @type Date
    */
-  endMonth?: Date
+  endMonth?: Date;
 }
 
 export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
@@ -287,12 +386,12 @@ export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date
+  startHr: Date;
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date
+  endHr?: Date;
 }
 
 export interface UsageMeteringApiGetUsageObservabilityPipelinesRequest {
@@ -300,12 +399,12 @@ export interface UsageMeteringApiGetUsageObservabilityPipelinesRequest {
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
    * @type Date
    */
-  startHr: Date
+  startHr: Date;
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
    * @type Date
    */
-  endHr?: Date
+  endHr?: Date;
 }
 
 export class UsageMeteringApi {
@@ -313,21 +412,36 @@ export class UsageMeteringApi {
   private responseProcessor: UsageMeteringApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(configuration: Configuration, requestFactory?: UsageMeteringApiRequestFactory, responseProcessor?: UsageMeteringApiResponseProcessor) {
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: UsageMeteringApiRequestFactory,
+    responseProcessor?: UsageMeteringApiResponseProcessor
+  ) {
     this.configuration = configuration;
-    this.requestFactory = requestFactory || new UsageMeteringApiRequestFactory(configuration);
-    this.responseProcessor = responseProcessor || new UsageMeteringApiResponseProcessor();
+    this.requestFactory =
+      requestFactory || new UsageMeteringApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new UsageMeteringApiResponseProcessor();
   }
 
   /**
    * Get Cost Across Multi-Org Account.
    * @param param The request object
    */
-  public getCostByOrg(param: UsageMeteringApiGetCostByOrgRequest, options?: Configuration): Promise<CostByOrgResponse> {
-    const requestContextPromise = this.requestFactory.getCostByOrg(param.startMonth,param.endMonth,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.getCostByOrg(responseContext);
+  public getCostByOrg(
+    param: UsageMeteringApiGetCostByOrgRequest,
+    options?: Configuration
+  ): Promise<CostByOrgResponse> {
+    const requestContextPromise = this.requestFactory.getCostByOrg(
+      param.startMonth,
+      param.endMonth,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCostByOrg(responseContext);
         });
     });
   }
@@ -336,11 +450,23 @@ export class UsageMeteringApi {
    * Get hourly usage for Application Security .
    * @param param The request object
    */
-  public getUsageApplicationSecurityMonitoring(param: UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest, options?: Configuration): Promise<UsageApplicationSecurityMonitoringResponse> {
-    const requestContextPromise = this.requestFactory.getUsageApplicationSecurityMonitoring(param.startHr,param.endHr,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.getUsageApplicationSecurityMonitoring(responseContext);
+  public getUsageApplicationSecurityMonitoring(
+    param: UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
+    options?: Configuration
+  ): Promise<UsageApplicationSecurityMonitoringResponse> {
+    const requestContextPromise =
+      this.requestFactory.getUsageApplicationSecurityMonitoring(
+        param.startHr,
+        param.endHr,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUsageApplicationSecurityMonitoring(
+            responseContext
+          );
         });
     });
   }
@@ -349,11 +475,23 @@ export class UsageMeteringApi {
    * Get hourly usage for Observability Pipelines.
    * @param param The request object
    */
-  public getUsageObservabilityPipelines(param: UsageMeteringApiGetUsageObservabilityPipelinesRequest, options?: Configuration): Promise<UsageObservabilityPipelinesResponse> {
-    const requestContextPromise = this.requestFactory.getUsageObservabilityPipelines(param.startHr,param.endHr,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.getUsageObservabilityPipelines(responseContext);
+  public getUsageObservabilityPipelines(
+    param: UsageMeteringApiGetUsageObservabilityPipelinesRequest,
+    options?: Configuration
+  ): Promise<UsageObservabilityPipelinesResponse> {
+    const requestContextPromise =
+      this.requestFactory.getUsageObservabilityPipelines(
+        param.startHr,
+        param.endHr,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUsageObservabilityPipelines(
+            responseContext
+          );
         });
     });
   }

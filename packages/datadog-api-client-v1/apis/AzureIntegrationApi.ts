@@ -1,45 +1,47 @@
-schema { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer, applySecurityAuthentication} from "../configuration";
+import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  HttpFile
-  } from "../http/http";
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
+import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 
-import FormData from "form-data";
-
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
 
-
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AzureAccount } from "../models/AzureAccount";
-import { AzureAccountListResponse } from "../models/AzureAccountListResponse";
 
 export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-
-  public async createAzureIntegration(body: AzureAccount,_options?: Configuration): Promise<RequestContext> {
+  public async createAzureIntegration(
+    body: AzureAccount,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling createAzureIntegration.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling createAzureIntegration."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/integration/azure';
+    const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'AzureIntegrationApi.createAzureIntegration').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(
+      _config,
+      "AzureIntegrationApi.createAzureIntegration"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AzureAccount", ""),
@@ -48,30 +50,42 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async deleteAzureIntegration(body: AzureAccount,_options?: Configuration): Promise<RequestContext> {
+  public async deleteAzureIntegration(
+    body: AzureAccount,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling deleteAzureIntegration.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling deleteAzureIntegration."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/integration/azure';
+    const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'AzureIntegrationApi.deleteAzureIntegration').makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = getServer(
+      _config,
+      "AzureIntegrationApi.deleteAzureIntegration"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AzureAccount", ""),
@@ -80,47 +94,67 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async listAzureIntegration(_options?: Configuration): Promise<RequestContext> {
+  public async listAzureIntegration(
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
-    const localVarPath = '/api/v1/integration/azure';
+    const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'AzureIntegrationApi.listAzureIntegration').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "AzureIntegrationApi.listAzureIntegration"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async updateAzureHostFilters(body: AzureAccount,_options?: Configuration): Promise<RequestContext> {
+  public async updateAzureHostFilters(
+    body: AzureAccount,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling updateAzureHostFilters.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling updateAzureHostFilters."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/integration/azure/host_filters';
+    const localVarPath = "/api/v1/integration/azure/host_filters";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'AzureIntegrationApi.updateAzureHostFilters').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(
+      _config,
+      "AzureIntegrationApi.updateAzureHostFilters"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AzureAccount", ""),
@@ -129,30 +163,42 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async updateAzureIntegration(body: AzureAccount,_options?: Configuration): Promise<RequestContext> {
+  public async updateAzureIntegration(
+    body: AzureAccount,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling updateAzureIntegration.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling updateAzureIntegration."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/integration/azure';
+    const localVarPath = "/api/v1/integration/azure";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'AzureIntegrationApi.updateAzureIntegration').makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = getServer(
+      _config,
+      "AzureIntegrationApi.updateAzureIntegration"
+    ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AzureAccount", ""),
@@ -161,14 +207,16 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 }
 
 export class AzureIntegrationApiResponseProcessor {
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -176,33 +224,39 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to createAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async createAzureIntegration(response: ResponseContext): Promise<any> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async createAzureIntegration(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any", ""
+        "any",
+        ""
       ) as any;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -211,13 +265,17 @@ export class AzureIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any", ""
+        "any",
+        ""
       ) as any;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -227,33 +285,39 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async deleteAzureIntegration(response: ResponseContext): Promise<any> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async deleteAzureIntegration(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any", ""
+        "any",
+        ""
       ) as any;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -262,13 +326,17 @@ export class AzureIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any", ""
+        "any",
+        ""
       ) as any;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -278,33 +346,41 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to listAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listAzureIntegration(response: ResponseContext): Promise<Array<AzureAccount>> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listAzureIntegration(
+    response: ResponseContext
+  ): Promise<Array<AzureAccount>> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: Array<AzureAccount> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<AzureAccount>", ""
+        "Array<AzureAccount>",
+        ""
       ) as Array<AzureAccount>;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -313,13 +389,17 @@ export class AzureIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<AzureAccount> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<AzureAccount>", ""
+        "Array<AzureAccount>",
+        ""
       ) as Array<AzureAccount>;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -329,33 +409,39 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAzureHostFilters
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async updateAzureHostFilters(response: ResponseContext): Promise<any> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async updateAzureHostFilters(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any", ""
+        "any",
+        ""
       ) as any;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -364,13 +450,17 @@ export class AzureIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any", ""
+        "any",
+        ""
       ) as any;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -380,33 +470,39 @@ export class AzureIntegrationApiResponseProcessor {
    * @params response Response returned by the server for a request to updateAzureIntegration
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async updateAzureIntegration(response: ResponseContext): Promise<any> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async updateAzureIntegration(response: ResponseContext): Promise<any> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any", ""
+        "any",
+        ""
       ) as any;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -415,13 +511,17 @@ export class AzureIntegrationApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "any", ""
+        "any",
+        ""
       ) as any;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 }
 
@@ -430,7 +530,7 @@ export interface AzureIntegrationApiCreateAzureIntegrationRequest {
    * Create a Datadog-Azure integration for your Datadog account request body.
    * @type AzureAccount
    */
-  body: AzureAccount
+  body: AzureAccount;
 }
 
 export interface AzureIntegrationApiDeleteAzureIntegrationRequest {
@@ -438,7 +538,7 @@ export interface AzureIntegrationApiDeleteAzureIntegrationRequest {
    * Delete a given Datadog-Azure integration request body.
    * @type AzureAccount
    */
-  body: AzureAccount
+  body: AzureAccount;
 }
 
 export interface AzureIntegrationApiUpdateAzureHostFiltersRequest {
@@ -446,7 +546,7 @@ export interface AzureIntegrationApiUpdateAzureHostFiltersRequest {
    * Update a Datadog-Azure integration&#39;s host filters request body.
    * @type AzureAccount
    */
-  body: AzureAccount
+  body: AzureAccount;
 }
 
 export interface AzureIntegrationApiUpdateAzureIntegrationRequest {
@@ -454,7 +554,7 @@ export interface AzureIntegrationApiUpdateAzureIntegrationRequest {
    * Update a Datadog-Azure integration request body.
    * @type AzureAccount
    */
-  body: AzureAccount
+  body: AzureAccount;
 }
 
 export class AzureIntegrationApi {
@@ -462,21 +562,35 @@ export class AzureIntegrationApi {
   private responseProcessor: AzureIntegrationApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(configuration: Configuration, requestFactory?: AzureIntegrationApiRequestFactory, responseProcessor?: AzureIntegrationApiResponseProcessor) {
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: AzureIntegrationApiRequestFactory,
+    responseProcessor?: AzureIntegrationApiResponseProcessor
+  ) {
     this.configuration = configuration;
-    this.requestFactory = requestFactory || new AzureIntegrationApiRequestFactory(configuration);
-    this.responseProcessor = responseProcessor || new AzureIntegrationApiResponseProcessor();
+    this.requestFactory =
+      requestFactory || new AzureIntegrationApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new AzureIntegrationApiResponseProcessor();
   }
 
   /**
    * Create a Datadog-Azure integration.  Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the `PUT` method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
    */
-  public createAzureIntegration(param: AzureIntegrationApiCreateAzureIntegrationRequest, options?: Configuration): Promise<any> {
-    const requestContextPromise = this.requestFactory.createAzureIntegration(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.createAzureIntegration(responseContext);
+  public createAzureIntegration(
+    param: AzureIntegrationApiCreateAzureIntegrationRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.createAzureIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createAzureIntegration(responseContext);
         });
     });
   }
@@ -485,11 +599,19 @@ export class AzureIntegrationApi {
    * Delete a given Datadog-Azure integration from your Datadog account.
    * @param param The request object
    */
-  public deleteAzureIntegration(param: AzureIntegrationApiDeleteAzureIntegrationRequest, options?: Configuration): Promise<any> {
-    const requestContextPromise = this.requestFactory.deleteAzureIntegration(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.deleteAzureIntegration(responseContext);
+  public deleteAzureIntegration(
+    param: AzureIntegrationApiDeleteAzureIntegrationRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.deleteAzureIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteAzureIntegration(responseContext);
         });
     });
   }
@@ -498,11 +620,16 @@ export class AzureIntegrationApi {
    * List all Datadog-Azure integrations configured in your Datadog account.
    * @param param The request object
    */
-  public listAzureIntegration( options?: Configuration): Promise<Array<AzureAccount>> {
-    const requestContextPromise = this.requestFactory.listAzureIntegration(options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listAzureIntegration(responseContext);
+  public listAzureIntegration(
+    options?: Configuration
+  ): Promise<Array<AzureAccount>> {
+    const requestContextPromise =
+      this.requestFactory.listAzureIntegration(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAzureIntegration(responseContext);
         });
     });
   }
@@ -511,11 +638,19 @@ export class AzureIntegrationApi {
    * Update the defined list of host filters for a given Datadog-Azure integration.
    * @param param The request object
    */
-  public updateAzureHostFilters(param: AzureIntegrationApiUpdateAzureHostFiltersRequest, options?: Configuration): Promise<any> {
-    const requestContextPromise = this.requestFactory.updateAzureHostFilters(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.updateAzureHostFilters(responseContext);
+  public updateAzureHostFilters(
+    param: AzureIntegrationApiUpdateAzureHostFiltersRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.updateAzureHostFilters(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAzureHostFilters(responseContext);
         });
     });
   }
@@ -524,11 +659,19 @@ export class AzureIntegrationApi {
    * Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
    * @param param The request object
    */
-  public updateAzureIntegration(param: AzureIntegrationApiUpdateAzureIntegrationRequest, options?: Configuration): Promise<any> {
-    const requestContextPromise = this.requestFactory.updateAzureIntegration(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.updateAzureIntegration(responseContext);
+  public updateAzureIntegration(
+    param: AzureIntegrationApiUpdateAzureIntegrationRequest,
+    options?: Configuration
+  ): Promise<any> {
+    const requestContextPromise = this.requestFactory.updateAzureIntegration(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateAzureIntegration(responseContext);
         });
     });
   }

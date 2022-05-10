@@ -1,19 +1,14 @@
-schema { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer, applySecurityAuthentication} from "../configuration";
+import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  HttpFile
-  } from "../http/http";
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
+import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 
-import FormData from "form-data";
-
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
-
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DashboardListAddItemsRequest } from "../models/DashboardListAddItemsRequest";
@@ -25,32 +20,46 @@ import { DashboardListUpdateItemsRequest } from "../models/DashboardListUpdateIt
 import { DashboardListUpdateItemsResponse } from "../models/DashboardListUpdateItemsResponse";
 
 export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
-
-  public async createDashboardListItems(dashboardListId: number,body: DashboardListAddItemsRequest,_options?: Configuration): Promise<RequestContext> {
+  public async createDashboardListItems(
+    dashboardListId: number,
+    body: DashboardListAddItemsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'dashboardListId' is not null or undefined
     if (dashboardListId === null || dashboardListId === undefined) {
-      throw new RequiredError('Required parameter dashboardListId was null or undefined when calling createDashboardListItems.');
+      throw new RequiredError(
+        "Required parameter dashboardListId was null or undefined when calling createDashboardListItems."
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling createDashboardListItems.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling createDashboardListItems."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'
-      .replace('{' + 'dashboard_list_id' + '}', encodeURIComponent(String(dashboardListId)));
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{" + "dashboard_list_id" + "}",
+        encodeURIComponent(String(dashboardListId))
+      );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'DashboardListsApi.createDashboardListItems').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(
+      _config,
+      "DashboardListsApi.createDashboardListItems"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DashboardListAddItemsRequest", ""),
@@ -59,36 +68,54 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async deleteDashboardListItems(dashboardListId: number,body: DashboardListDeleteItemsRequest,_options?: Configuration): Promise<RequestContext> {
+  public async deleteDashboardListItems(
+    dashboardListId: number,
+    body: DashboardListDeleteItemsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'dashboardListId' is not null or undefined
     if (dashboardListId === null || dashboardListId === undefined) {
-      throw new RequiredError('Required parameter dashboardListId was null or undefined when calling deleteDashboardListItems.');
+      throw new RequiredError(
+        "Required parameter dashboardListId was null or undefined when calling deleteDashboardListItems."
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling deleteDashboardListItems.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling deleteDashboardListItems."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'
-      .replace('{' + 'dashboard_list_id' + '}', encodeURIComponent(String(dashboardListId)));
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{" + "dashboard_list_id" + "}",
+        encodeURIComponent(String(dashboardListId))
+      );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'DashboardListsApi.deleteDashboardListItems').makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = getServer(
+      _config,
+      "DashboardListsApi.deleteDashboardListItems"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DashboardListDeleteItemsRequest", ""),
@@ -97,59 +124,92 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async getDashboardListItems(dashboardListId: number,_options?: Configuration): Promise<RequestContext> {
+  public async getDashboardListItems(
+    dashboardListId: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'dashboardListId' is not null or undefined
     if (dashboardListId === null || dashboardListId === undefined) {
-      throw new RequiredError('Required parameter dashboardListId was null or undefined when calling getDashboardListItems.');
+      throw new RequiredError(
+        "Required parameter dashboardListId was null or undefined when calling getDashboardListItems."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'
-      .replace('{' + 'dashboard_list_id' + '}', encodeURIComponent(String(dashboardListId)));
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{" + "dashboard_list_id" + "}",
+        encodeURIComponent(String(dashboardListId))
+      );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'DashboardListsApi.getDashboardListItems').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "DashboardListsApi.getDashboardListItems"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["AuthZ", "apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async updateDashboardListItems(dashboardListId: number,body: DashboardListUpdateItemsRequest,_options?: Configuration): Promise<RequestContext> {
+  public async updateDashboardListItems(
+    dashboardListId: number,
+    body: DashboardListUpdateItemsRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'dashboardListId' is not null or undefined
     if (dashboardListId === null || dashboardListId === undefined) {
-      throw new RequiredError('Required parameter dashboardListId was null or undefined when calling updateDashboardListItems.');
+      throw new RequiredError(
+        "Required parameter dashboardListId was null or undefined when calling updateDashboardListItems."
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling updateDashboardListItems.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling updateDashboardListItems."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards'
-      .replace('{' + 'dashboard_list_id' + '}', encodeURIComponent(String(dashboardListId)));
+    const localVarPath =
+      "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
+        "{" + "dashboard_list_id" + "}",
+        encodeURIComponent(String(dashboardListId))
+      );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'DashboardListsApi.updateDashboardListItems').makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = getServer(
+      _config,
+      "DashboardListsApi.updateDashboardListItems"
+    ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "DashboardListUpdateItemsRequest", ""),
@@ -158,14 +218,16 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 }
 
 export class DashboardListsApiResponseProcessor {
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -173,40 +235,49 @@ export class DashboardListsApiResponseProcessor {
    * @params response Response returned by the server for a request to createDashboardListItems
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async createDashboardListItems(response: ResponseContext): Promise<DashboardListAddItemsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async createDashboardListItems(
+    response: ResponseContext
+  ): Promise<DashboardListAddItemsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: DashboardListAddItemsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListAddItemsResponse", ""
+        "DashboardListAddItemsResponse",
+        ""
       ) as DashboardListAddItemsResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -215,13 +286,17 @@ export class DashboardListsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardListAddItemsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListAddItemsResponse", ""
+        "DashboardListAddItemsResponse",
+        ""
       ) as DashboardListAddItemsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -231,55 +306,70 @@ export class DashboardListsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteDashboardListItems
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async deleteDashboardListItems(response: ResponseContext): Promise<DashboardListDeleteItemsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async deleteDashboardListItems(
+    response: ResponseContext
+  ): Promise<DashboardListDeleteItemsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: DashboardListDeleteItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListDeleteItemsResponse", ""
-      ) as DashboardListDeleteItemsResponse;
+      const body: DashboardListDeleteItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListDeleteItemsResponse",
+          ""
+        ) as DashboardListDeleteItemsResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DashboardListDeleteItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListDeleteItemsResponse", ""
-      ) as DashboardListDeleteItemsResponse;
+      const body: DashboardListDeleteItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListDeleteItemsResponse",
+          ""
+        ) as DashboardListDeleteItemsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -289,33 +379,41 @@ export class DashboardListsApiResponseProcessor {
    * @params response Response returned by the server for a request to getDashboardListItems
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async getDashboardListItems(response: ResponseContext): Promise<DashboardListItems> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async getDashboardListItems(
+    response: ResponseContext
+  ): Promise<DashboardListItems> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: DashboardListItems = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListItems", ""
+        "DashboardListItems",
+        ""
       ) as DashboardListItems;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -324,13 +422,17 @@ export class DashboardListsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardListItems = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListItems", ""
+        "DashboardListItems",
+        ""
       ) as DashboardListItems;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -340,55 +442,70 @@ export class DashboardListsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateDashboardListItems
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async updateDashboardListItems(response: ResponseContext): Promise<DashboardListUpdateItemsResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async updateDashboardListItems(
+    response: ResponseContext
+  ): Promise<DashboardListUpdateItemsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: DashboardListUpdateItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListUpdateItemsResponse", ""
-      ) as DashboardListUpdateItemsResponse;
+      const body: DashboardListUpdateItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListUpdateItemsResponse",
+          ""
+        ) as DashboardListUpdateItemsResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: DashboardListUpdateItemsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "DashboardListUpdateItemsResponse", ""
-      ) as DashboardListUpdateItemsResponse;
+      const body: DashboardListUpdateItemsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "DashboardListUpdateItemsResponse",
+          ""
+        ) as DashboardListUpdateItemsResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 }
 
@@ -397,12 +514,12 @@ export interface DashboardListsApiCreateDashboardListItemsRequest {
    * ID of the dashboard list to add items to.
    * @type number
    */
-  dashboardListId: number
+  dashboardListId: number;
   /**
    * Dashboards to add to the dashboard list.
    * @type DashboardListAddItemsRequest
    */
-  body: DashboardListAddItemsRequest
+  body: DashboardListAddItemsRequest;
 }
 
 export interface DashboardListsApiDeleteDashboardListItemsRequest {
@@ -410,12 +527,12 @@ export interface DashboardListsApiDeleteDashboardListItemsRequest {
    * ID of the dashboard list to delete items from.
    * @type number
    */
-  dashboardListId: number
+  dashboardListId: number;
   /**
    * Dashboards to delete from the dashboard list.
    * @type DashboardListDeleteItemsRequest
    */
-  body: DashboardListDeleteItemsRequest
+  body: DashboardListDeleteItemsRequest;
 }
 
 export interface DashboardListsApiGetDashboardListItemsRequest {
@@ -423,7 +540,7 @@ export interface DashboardListsApiGetDashboardListItemsRequest {
    * ID of the dashboard list to get items from.
    * @type number
    */
-  dashboardListId: number
+  dashboardListId: number;
 }
 
 export interface DashboardListsApiUpdateDashboardListItemsRequest {
@@ -431,12 +548,12 @@ export interface DashboardListsApiUpdateDashboardListItemsRequest {
    * ID of the dashboard list to update items from.
    * @type number
    */
-  dashboardListId: number
+  dashboardListId: number;
   /**
    * New dashboards of the dashboard list.
    * @type DashboardListUpdateItemsRequest
    */
-  body: DashboardListUpdateItemsRequest
+  body: DashboardListUpdateItemsRequest;
 }
 
 export class DashboardListsApi {
@@ -444,21 +561,38 @@ export class DashboardListsApi {
   private responseProcessor: DashboardListsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(configuration: Configuration, requestFactory?: DashboardListsApiRequestFactory, responseProcessor?: DashboardListsApiResponseProcessor) {
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: DashboardListsApiRequestFactory,
+    responseProcessor?: DashboardListsApiResponseProcessor
+  ) {
     this.configuration = configuration;
-    this.requestFactory = requestFactory || new DashboardListsApiRequestFactory(configuration);
-    this.responseProcessor = responseProcessor || new DashboardListsApiResponseProcessor();
+    this.requestFactory =
+      requestFactory || new DashboardListsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor || new DashboardListsApiResponseProcessor();
   }
 
   /**
    * Add dashboards to an existing dashboard list.
    * @param param The request object
    */
-  public createDashboardListItems(param: DashboardListsApiCreateDashboardListItemsRequest, options?: Configuration): Promise<DashboardListAddItemsResponse> {
-    const requestContextPromise = this.requestFactory.createDashboardListItems(param.dashboardListId,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.createDashboardListItems(responseContext);
+  public createDashboardListItems(
+    param: DashboardListsApiCreateDashboardListItemsRequest,
+    options?: Configuration
+  ): Promise<DashboardListAddItemsResponse> {
+    const requestContextPromise = this.requestFactory.createDashboardListItems(
+      param.dashboardListId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createDashboardListItems(
+            responseContext
+          );
         });
     });
   }
@@ -467,11 +601,22 @@ export class DashboardListsApi {
    * Delete dashboards from an existing dashboard list.
    * @param param The request object
    */
-  public deleteDashboardListItems(param: DashboardListsApiDeleteDashboardListItemsRequest, options?: Configuration): Promise<DashboardListDeleteItemsResponse> {
-    const requestContextPromise = this.requestFactory.deleteDashboardListItems(param.dashboardListId,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.deleteDashboardListItems(responseContext);
+  public deleteDashboardListItems(
+    param: DashboardListsApiDeleteDashboardListItemsRequest,
+    options?: Configuration
+  ): Promise<DashboardListDeleteItemsResponse> {
+    const requestContextPromise = this.requestFactory.deleteDashboardListItems(
+      param.dashboardListId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteDashboardListItems(
+            responseContext
+          );
         });
     });
   }
@@ -480,11 +625,19 @@ export class DashboardListsApi {
    * Fetch the dashboard list’s dashboard definitions.
    * @param param The request object
    */
-  public getDashboardListItems(param: DashboardListsApiGetDashboardListItemsRequest, options?: Configuration): Promise<DashboardListItems> {
-    const requestContextPromise = this.requestFactory.getDashboardListItems(param.dashboardListId,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.getDashboardListItems(responseContext);
+  public getDashboardListItems(
+    param: DashboardListsApiGetDashboardListItemsRequest,
+    options?: Configuration
+  ): Promise<DashboardListItems> {
+    const requestContextPromise = this.requestFactory.getDashboardListItems(
+      param.dashboardListId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getDashboardListItems(responseContext);
         });
     });
   }
@@ -493,11 +646,22 @@ export class DashboardListsApi {
    * Update dashboards of an existing dashboard list.
    * @param param The request object
    */
-  public updateDashboardListItems(param: DashboardListsApiUpdateDashboardListItemsRequest, options?: Configuration): Promise<DashboardListUpdateItemsResponse> {
-    const requestContextPromise = this.requestFactory.updateDashboardListItems(param.dashboardListId,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.updateDashboardListItems(responseContext);
+  public updateDashboardListItems(
+    param: DashboardListsApiUpdateDashboardListItemsRequest,
+    options?: Configuration
+  ): Promise<DashboardListUpdateItemsResponse> {
+    const requestContextPromise = this.requestFactory.updateDashboardListItems(
+      param.dashboardListId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateDashboardListItems(
+            responseContext
+          );
         });
     });
   }

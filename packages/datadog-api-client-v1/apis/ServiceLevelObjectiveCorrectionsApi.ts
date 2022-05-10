@@ -1,19 +1,15 @@
-schema { BaseAPIRequestFactory, RequiredError } from "./baseapi";
-import { Configuration, getServer, applySecurityAuthentication} from "../configuration";
+import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
 import {
-  RequestContext,
-  HttpMethod,
-  ResponseContext,
-  HttpFile
-  } from "../http/http";
-
-import FormData from "form-data";
+  Configuration,
+  getServer,
+  applySecurityAuthentication,
+} from "../configuration";
+import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
-
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { SLOCorrectionCreateRequest } from "../models/SLOCorrectionCreateRequest";
@@ -22,31 +18,39 @@ import { SLOCorrectionResponse } from "../models/SLOCorrectionResponse";
 import { SLOCorrectionUpdateRequest } from "../models/SLOCorrectionUpdateRequest";
 
 export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRequestFactory {
-
-  public async createSLOCorrection(body: SLOCorrectionCreateRequest,_options?: Configuration): Promise<RequestContext> {
+  public async createSLOCorrection(
+    body: SLOCorrectionCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createSLOCorrection'");
-    if (!_config.unstableOperations['createSLOCorrection']) {
+    if (!_config.unstableOperations["createSLOCorrection"]) {
       throw new Error("Unstable operation 'createSLOCorrection' is disabled");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling createSLOCorrection.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling createSLOCorrection."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/slo/correction';
+    const localVarPath = "/api/v1/slo/correction";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'ServiceLevelObjectiveCorrectionsApi.createSLOCorrection').makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = getServer(
+      _config,
+      "ServiceLevelObjectiveCorrectionsApi.createSLOCorrection"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SLOCorrectionCreateRequest", ""),
@@ -55,119 +59,170 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async deleteSLOCorrection(sloCorrectionId: string,_options?: Configuration): Promise<RequestContext> {
+  public async deleteSLOCorrection(
+    sloCorrectionId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteSLOCorrection'");
-    if (!_config.unstableOperations['deleteSLOCorrection']) {
+    if (!_config.unstableOperations["deleteSLOCorrection"]) {
       throw new Error("Unstable operation 'deleteSLOCorrection' is disabled");
     }
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
-      throw new RequiredError('Required parameter sloCorrectionId was null or undefined when calling deleteSLOCorrection.');
+      throw new RequiredError(
+        "Required parameter sloCorrectionId was null or undefined when calling deleteSLOCorrection."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/slo/correction/{slo_correction_id}'
-      .replace('{' + 'slo_correction_id' + '}', encodeURIComponent(String(sloCorrectionId)));
+    const localVarPath = "/api/v1/slo/correction/{slo_correction_id}".replace(
+      "{" + "slo_correction_id" + "}",
+      encodeURIComponent(String(sloCorrectionId))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection').makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = getServer(
+      _config,
+      "ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async getSLOCorrection(sloCorrectionId: string,_options?: Configuration): Promise<RequestContext> {
+  public async getSLOCorrection(
+    sloCorrectionId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSLOCorrection'");
-    if (!_config.unstableOperations['getSLOCorrection']) {
+    if (!_config.unstableOperations["getSLOCorrection"]) {
       throw new Error("Unstable operation 'getSLOCorrection' is disabled");
     }
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
-      throw new RequiredError('Required parameter sloCorrectionId was null or undefined when calling getSLOCorrection.');
+      throw new RequiredError(
+        "Required parameter sloCorrectionId was null or undefined when calling getSLOCorrection."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/slo/correction/{slo_correction_id}'
-      .replace('{' + 'slo_correction_id' + '}', encodeURIComponent(String(sloCorrectionId)));
+    const localVarPath = "/api/v1/slo/correction/{slo_correction_id}".replace(
+      "{" + "slo_correction_id" + "}",
+      encodeURIComponent(String(sloCorrectionId))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'ServiceLevelObjectiveCorrectionsApi.getSLOCorrection').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "ServiceLevelObjectiveCorrectionsApi.getSLOCorrection"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async listSLOCorrection(_options?: Configuration): Promise<RequestContext> {
+  public async listSLOCorrection(
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listSLOCorrection'");
-    if (!_config.unstableOperations['listSLOCorrection']) {
+    if (!_config.unstableOperations["listSLOCorrection"]) {
       throw new Error("Unstable operation 'listSLOCorrection' is disabled");
     }
 
     // Path Params
-    const localVarPath = '/api/v1/slo/correction';
+    const localVarPath = "/api/v1/slo/correction";
 
     // Make Request Context
-    const requestContext = getServer(_config, 'ServiceLevelObjectiveCorrectionsApi.listSLOCorrection').makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = getServer(
+      _config,
+      "ServiceLevelObjectiveCorrectionsApi.listSLOCorrection"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 
-  public async updateSLOCorrection(sloCorrectionId: string,body: SLOCorrectionUpdateRequest,_options?: Configuration): Promise<RequestContext> {
+  public async updateSLOCorrection(
+    sloCorrectionId: string,
+    body: SLOCorrectionUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateSLOCorrection'");
-    if (!_config.unstableOperations['updateSLOCorrection']) {
+    if (!_config.unstableOperations["updateSLOCorrection"]) {
       throw new Error("Unstable operation 'updateSLOCorrection' is disabled");
     }
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
-      throw new RequiredError('Required parameter sloCorrectionId was null or undefined when calling updateSLOCorrection.');
+      throw new RequiredError(
+        "Required parameter sloCorrectionId was null or undefined when calling updateSLOCorrection."
+      );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError('Required parameter body was null or undefined when calling updateSLOCorrection.');
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling updateSLOCorrection."
+      );
     }
 
     // Path Params
-    const localVarPath = '/api/v1/slo/correction/{slo_correction_id}'
-      .replace('{' + 'slo_correction_id' + '}', encodeURIComponent(String(sloCorrectionId)));
+    const localVarPath = "/api/v1/slo/correction/{slo_correction_id}".replace(
+      "{" + "slo_correction_id" + "}",
+      encodeURIComponent(String(sloCorrectionId))
+    );
 
     // Make Request Context
-    const requestContext = getServer(_config, 'ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection').makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = getServer(
+      _config,
+      "ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection"
+    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json"]);
+      "application/json",
+    ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SLOCorrectionUpdateRequest", ""),
@@ -176,14 +231,16 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth", "appKeyAuth"]);
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
 
     return requestContext;
   }
 }
 
 export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
-
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -191,40 +248,49 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
    * @params response Response returned by the server for a request to createSLOCorrection
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async createSLOCorrection(response: ResponseContext): Promise<SLOCorrectionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async createSLOCorrection(
+    response: ResponseContext
+  ): Promise<SLOCorrectionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOCorrectionResponse", ""
+        "SLOCorrectionResponse",
+        ""
       ) as SLOCorrectionResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -233,13 +299,17 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOCorrectionResponse", ""
+        "SLOCorrectionResponse",
+        ""
       ) as SLOCorrectionResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -249,29 +319,34 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteSLOCorrection
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async deleteSLOCorrection(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async deleteSLOCorrection(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("204", response.httpStatusCode)) {
       return;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -280,13 +355,17 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void", ""
+        "void",
+        ""
       ) as void;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -296,33 +375,41 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
    * @params response Response returned by the server for a request to getSLOCorrection
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async getSLOCorrection(response: ResponseContext): Promise<SLOCorrectionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async getSLOCorrection(
+    response: ResponseContext
+  ): Promise<SLOCorrectionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOCorrectionResponse", ""
+        "SLOCorrectionResponse",
+        ""
       ) as SLOCorrectionResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -331,13 +418,17 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOCorrectionResponse", ""
+        "SLOCorrectionResponse",
+        ""
       ) as SLOCorrectionResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -347,26 +438,33 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
    * @params response Response returned by the server for a request to listSLOCorrection
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async listSLOCorrection(response: ResponseContext): Promise<SLOCorrectionListResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async listSLOCorrection(
+    response: ResponseContext
+  ): Promise<SLOCorrectionListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: SLOCorrectionListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOCorrectionListResponse", ""
+        "SLOCorrectionListResponse",
+        ""
       ) as SLOCorrectionListResponse;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -375,13 +473,17 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOCorrectionListResponse", ""
+        "SLOCorrectionListResponse",
+        ""
       ) as SLOCorrectionListResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 
   /**
@@ -391,40 +493,49 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
    * @params response Response returned by the server for a request to updateSLOCorrection
    * @throws ApiException if the response code was not in [200, 299]
    */
-   public async updateSLOCorrection(response: ResponseContext): Promise<SLOCorrectionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+  public async updateSLOCorrection(
+    response: ResponseContext
+  ): Promise<SLOCorrectionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
     if (isCodeInRange("200", response.httpStatusCode)) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOCorrectionResponse", ""
+        "SLOCorrectionResponse",
+        ""
       ) as SLOCorrectionResponse;
       return body;
     }
     if (isCodeInRange("400", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(400, body);
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
     if (isCodeInRange("404", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(404, body);
     }
     if (isCodeInRange("429", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse", ""
+        "APIErrorResponse",
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
@@ -433,13 +544,17 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOCorrectionResponse", ""
+        "SLOCorrectionResponse",
+        ""
       ) as SLOCorrectionResponse;
       return body;
     }
 
     const body = (await response.body.text()) || "";
-    throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
   }
 }
 
@@ -448,7 +563,7 @@ export interface ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest {
    * Create an SLO Correction
    * @type SLOCorrectionCreateRequest
    */
-  body: SLOCorrectionCreateRequest
+  body: SLOCorrectionCreateRequest;
 }
 
 export interface ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest {
@@ -456,7 +571,7 @@ export interface ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest {
    * The ID of the SLO correction object.
    * @type string
    */
-  sloCorrectionId: string
+  sloCorrectionId: string;
 }
 
 export interface ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest {
@@ -464,7 +579,7 @@ export interface ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest {
    * The ID of the SLO correction object.
    * @type string
    */
-  sloCorrectionId: string
+  sloCorrectionId: string;
 }
 
 export interface ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest {
@@ -472,12 +587,12 @@ export interface ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest {
    * The ID of the SLO correction object.
    * @type string
    */
-  sloCorrectionId: string
+  sloCorrectionId: string;
   /**
    * The edited SLO correction object.
    * @type SLOCorrectionUpdateRequest
    */
-  body: SLOCorrectionUpdateRequest
+  body: SLOCorrectionUpdateRequest;
 }
 
 export class ServiceLevelObjectiveCorrectionsApi {
@@ -485,21 +600,37 @@ export class ServiceLevelObjectiveCorrectionsApi {
   private responseProcessor: ServiceLevelObjectiveCorrectionsApiResponseProcessor;
   private configuration: Configuration;
 
-  public constructor(configuration: Configuration, requestFactory?: ServiceLevelObjectiveCorrectionsApiRequestFactory, responseProcessor?: ServiceLevelObjectiveCorrectionsApiResponseProcessor) {
+  public constructor(
+    configuration: Configuration,
+    requestFactory?: ServiceLevelObjectiveCorrectionsApiRequestFactory,
+    responseProcessor?: ServiceLevelObjectiveCorrectionsApiResponseProcessor
+  ) {
     this.configuration = configuration;
-    this.requestFactory = requestFactory || new ServiceLevelObjectiveCorrectionsApiRequestFactory(configuration);
-    this.responseProcessor = responseProcessor || new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
+    this.requestFactory =
+      requestFactory ||
+      new ServiceLevelObjectiveCorrectionsApiRequestFactory(configuration);
+    this.responseProcessor =
+      responseProcessor ||
+      new ServiceLevelObjectiveCorrectionsApiResponseProcessor();
   }
 
   /**
    * Create an SLO Correction.
    * @param param The request object
    */
-  public createSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest, options?: Configuration): Promise<SLOCorrectionResponse> {
-    const requestContextPromise = this.requestFactory.createSLOCorrection(param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.createSLOCorrection(responseContext);
+  public createSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest,
+    options?: Configuration
+  ): Promise<SLOCorrectionResponse> {
+    const requestContextPromise = this.requestFactory.createSLOCorrection(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSLOCorrection(responseContext);
         });
     });
   }
@@ -508,11 +639,19 @@ export class ServiceLevelObjectiveCorrectionsApi {
    * Permanently delete the specified SLO correction object.
    * @param param The request object
    */
-  public deleteSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest, options?: Configuration): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteSLOCorrection(param.sloCorrectionId,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.deleteSLOCorrection(responseContext);
+  public deleteSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteSLOCorrection(
+      param.sloCorrectionId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSLOCorrection(responseContext);
         });
     });
   }
@@ -521,11 +660,19 @@ export class ServiceLevelObjectiveCorrectionsApi {
    * Get an SLO correction.
    * @param param The request object
    */
-  public getSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest, options?: Configuration): Promise<SLOCorrectionResponse> {
-    const requestContextPromise = this.requestFactory.getSLOCorrection(param.sloCorrectionId,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.getSLOCorrection(responseContext);
+  public getSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest,
+    options?: Configuration
+  ): Promise<SLOCorrectionResponse> {
+    const requestContextPromise = this.requestFactory.getSLOCorrection(
+      param.sloCorrectionId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSLOCorrection(responseContext);
         });
     });
   }
@@ -534,11 +681,16 @@ export class ServiceLevelObjectiveCorrectionsApi {
    * Get all Service Level Objective corrections.
    * @param param The request object
    */
-  public listSLOCorrection( options?: Configuration): Promise<SLOCorrectionListResponse> {
-    const requestContextPromise = this.requestFactory.listSLOCorrection(options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.listSLOCorrection(responseContext);
+  public listSLOCorrection(
+    options?: Configuration
+  ): Promise<SLOCorrectionListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSLOCorrection(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSLOCorrection(responseContext);
         });
     });
   }
@@ -547,11 +699,20 @@ export class ServiceLevelObjectiveCorrectionsApi {
    * Update the specified SLO correction object.
    * @param param The request object
    */
-  public updateSLOCorrection(param: ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest, options?: Configuration): Promise<SLOCorrectionResponse> {
-    const requestContextPromise = this.requestFactory.updateSLOCorrection(param.sloCorrectionId,param.body,options);
-    return requestContextPromise.then(requestContext => {
-        return this.configuration.httpApi.send(requestContext).then(responseContext => {
-            return this.responseProcessor.updateSLOCorrection(responseContext);
+  public updateSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest,
+    options?: Configuration
+  ): Promise<SLOCorrectionResponse> {
+    const requestContextPromise = this.requestFactory.updateSLOCorrection(
+      param.sloCorrectionId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateSLOCorrection(responseContext);
         });
     });
   }
