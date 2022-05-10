@@ -113,14 +113,14 @@ def get_type_for_parameter(parameter):
     return type_to_typescript(parameter.get("schema"))
 
 
-def get_format_for_parameter(parameter):
-    schema = {}
+def get_format_for_schema(parameter):
+    schema = parameter
     if "schema" in parameter:
         schema = parameter["schema"]
     if "content" in parameter:
         schema = next(iter(parameter["content"].values()))
     if schema.get("items"):
-        return schema["items"].get("format", "")
+        return get_format_for_schema(schema["items"])
     return schema.get("format", "")
 
 

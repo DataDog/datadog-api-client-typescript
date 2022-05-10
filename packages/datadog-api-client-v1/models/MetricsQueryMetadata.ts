@@ -107,6 +107,7 @@ export class MetricsQueryMetadata {
     pointlist: {
       baseName: "pointlist",
       type: "Array<Array<number>>",
+      format: "double",
     },
     queryIndex: {
       baseName: "query_index",

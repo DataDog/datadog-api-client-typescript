@@ -84,6 +84,7 @@ export class SLOHistoryMonitor {
     history: {
       baseName: "history",
       type: "Array<Array<number>>",
+      format: "double",
     },
     monitorModified: {
       baseName: "monitor_modified",

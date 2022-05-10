@@ -42,7 +42,7 @@ export class {{ name }} {
   static readonly attributeTypeMap: AttributeTypeMap = {
     {%- for attr, schema in model.get("properties", {}).items() %}
     {%- set isRequired = attr in model.get("required", []) %}
-    {%- set format = get_format(schema) %}
+    {%- set format = get_format_for_schema(schema) %}
     "{{ attr|attribute_name }}": {
       "baseName": "{{ attr }}",
       "type": "{{ type_to_typescript(schema) }}",

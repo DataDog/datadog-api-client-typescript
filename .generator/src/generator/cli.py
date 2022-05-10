@@ -57,7 +57,7 @@ def cli(input, output):
     env.globals["type_to_typescript"] = openapi.type_to_typescript
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
     env.globals["get_type_for_parameter"] = openapi.get_type_for_parameter
-    env.globals["get_format_for_parameter"] = openapi.get_format_for_parameter
+    env.globals["get_format_for_schema"] = openapi.get_format_for_schema
     env.globals["get_api_models"] = openapi.get_api_models
     env.globals["response"] = openapi.response
     env.globals["get_enums_list"] = openapi.get_enums_list

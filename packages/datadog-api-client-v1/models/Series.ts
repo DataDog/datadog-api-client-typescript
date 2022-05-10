@@ -62,6 +62,7 @@ export class Series {
       baseName: "points",
       type: "Array<Array<number>>",
       required: true,
+      format: "double",
     },
     tags: {
       baseName: "tags",
