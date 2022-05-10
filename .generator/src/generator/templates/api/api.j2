@@ -172,7 +172,7 @@ export class {{ className }}ResponseProcessor {
     if (isCodeInRange("{{ responseCode }}", response.httpStatusCode)) {
       {%- if reponseType %}
       {%- if responseSchema and responseSchema.get("format") == "binary" %}
-      const body: {{ reponseType }} = await response.getBodyAsFile() as any as {{ returnType }};
+      const body: {{ reponseType }} = await response.getBodyAsFile() as {{ returnType }};
       {%- else %}
       const body: {{ reponseType }} = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),

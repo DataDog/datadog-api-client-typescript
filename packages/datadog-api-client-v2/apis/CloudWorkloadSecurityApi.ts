@@ -404,8 +404,7 @@ export class CloudWorkloadSecurityApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: HttpFile =
-        (await response.getBodyAsFile()) as any as HttpFile;
+      const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
