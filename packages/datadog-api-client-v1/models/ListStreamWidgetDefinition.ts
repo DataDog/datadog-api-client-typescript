@@ -21,7 +21,7 @@ export class ListStreamWidgetDefinition {
   /**
    * Request payload used to query items.
    */
-  "requests": Array<ListStreamWidgetRequest>;
+  "requests": [ListStreamWidgetRequest];
   /**
    * Whether or not to display the legend on this widget.
    */
@@ -62,7 +62,7 @@ export class ListStreamWidgetDefinition {
     },
     requests: {
       baseName: "requests",
-      type: "Array<ListStreamWidgetRequest>",
+      type: "[ListStreamWidgetRequest]",
       required: true,
     },
     showLegend: {

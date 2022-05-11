@@ -25,7 +25,7 @@ export class Series {
   /**
    * Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
    */
-  "points": Array<Array<number>>;
+  "points": Array<[number, number]>;
   /**
    * A list of tags associated with the metric.
    */
@@ -60,7 +60,7 @@ export class Series {
     },
     points: {
       baseName: "points",
-      type: "Array<Array<number>>",
+      type: "Array<[number, number]>",
       required: true,
       format: "double",
     },
