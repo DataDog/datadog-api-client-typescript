@@ -153,12 +153,6 @@ def child_models(schema, alternative_name=None, seen=None, parent=None):
             yield from child_models(schema["anyOf"][index], seen=seen, parent=schema)
 
     if "items" in schema:
-        if current_name is not None and schema.get("x-generate-alias-as-model", False):
-            if name in seen:
-                return
-            seen.add(name)
-            yield name, schema
-
         yield from child_models(
             schema["items"],
             alternative_name=name + "Item" if name is not None else None,
