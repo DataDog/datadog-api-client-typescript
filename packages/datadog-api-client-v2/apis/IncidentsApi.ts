@@ -873,11 +873,11 @@ export class IncidentsApi {
       const response = await this.responseProcessor.listIncidents(
         responseContext
       );
-      const responsedata = response.data;
-      if (responsedata === undefined) {
+      const responseData = response.data;
+      if (responseData === undefined) {
         break;
       }
-      const results = responsedata;
+      const results = responseData;
       for (const item of results) {
         yield new Promise<IncidentResponseData>((resolve) => resolve(item));
       }

@@ -1729,31 +1729,31 @@ export class SecurityMonitoringApi {
         await this.responseProcessor.listSecurityMonitoringSignals(
           responseContext
         );
-      const responsedata = response.data;
-      if (responsedata === undefined) {
+      const responseData = response.data;
+      if (responseData === undefined) {
         break;
       }
-      const results = responsedata;
+      const results = responseData;
       for (const item of results) {
         yield new Promise<SecurityMonitoringSignal>((resolve) => resolve(item));
       }
       if (results.length < pageSize) {
         break;
       }
-      const cursormeta = response.meta;
-      if (cursormeta === undefined) {
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
         break;
       }
-      const cursormetapage = cursormeta.page;
-      if (cursormetapage === undefined) {
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
         break;
       }
-      const cursormetapageafter = cursormetapage.after;
-      if (cursormetapageafter === undefined) {
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
         break;
       }
 
-      param.pageCursor = cursormetapageafter;
+      param.pageCursor = cursorMetaPageAfter;
     }
   }
 
@@ -1810,31 +1810,31 @@ export class SecurityMonitoringApi {
         await this.responseProcessor.searchSecurityMonitoringSignals(
           responseContext
         );
-      const responsedata = response.data;
-      if (responsedata === undefined) {
+      const responseData = response.data;
+      if (responseData === undefined) {
         break;
       }
-      const results = responsedata;
+      const results = responseData;
       for (const item of results) {
         yield new Promise<SecurityMonitoringSignal>((resolve) => resolve(item));
       }
       if (results.length < pageSize) {
         break;
       }
-      const cursormeta = response.meta;
-      if (cursormeta === undefined) {
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
         break;
       }
-      const cursormetapage = cursormeta.page;
-      if (cursormetapage === undefined) {
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
         break;
       }
-      const cursormetapageafter = cursormetapage.after;
-      if (cursormetapageafter === undefined) {
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
         break;
       }
 
-      param.body.page.cursor = cursormetapageafter;
+      param.body.page.cursor = cursorMetaPageAfter;
     }
   }
 
