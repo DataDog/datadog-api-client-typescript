@@ -5,12 +5,18 @@ repos:
         name: Generate
         language: node
         entry: make
-        files: '^(\.generator/.*|\.pre-commit-config\.yaml|package\.json|yarn\.lock|\.eslintrc\.js|Makefile)'
+        files: '^(\.generator/.*|\.pre-commit-config\.yaml|package\.json|yarn\.lock|\.eslintrc\.js|Makefile|\features/.*)'
         pass_filenames: false
       - id: lint
         name: Lint
         language: node
         entry: yarn run lint:fix
+        stages: [manual]
+        pass_filenames: false
+      - id: lint-examples
+        name: Lint examples
+        language: node
+        entry: yarn run lint:fix-examples
         stages: [manual]
         pass_filenames: false
       - id: generator-v1
@@ -31,4 +37,12 @@ repos:
         pass_filenames: false
         additional_dependencies:
           - "poetry"
-
+      - id: examples
+        name: examples
+        language: python
+        entry: bash -c "cd .generator && poetry install && poetry run pytest"
+        files: "^.generator/"
+        stages: [manual]
+        pass_filenames: false
+        additional_dependencies:
+          - "poetry"
