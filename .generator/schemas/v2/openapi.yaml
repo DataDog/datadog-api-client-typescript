@@ -2721,7 +2721,7 @@ components:
       items:
         $ref: '#/components/schemas/LogsAggregateBucketValueTimeseriesPoint'
       type: array
-      
+      x-generate-alias-as-model: true
     LogsAggregateBucketValueTimeseriesPoint:
       description: A timeseries point
       properties:
@@ -4623,7 +4623,7 @@ components:
       items:
         $ref: '#/components/schemas/RUMAggregateBucketValueTimeseriesPoint'
       type: array
-      
+      x-generate-alias-as-model: true
     RUMAggregateBucketValueTimeseriesPoint:
       description: A timeseries point.
       properties:
