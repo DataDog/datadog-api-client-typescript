@@ -148,6 +148,10 @@ def attribute_name(attribute):
     return escape_reserved_keyword(untitle_case(camel_case(attribute)))
 
 
+def attribute_path(attribute):
+    return ".".join(attribute_name(a) for a in attribute.split("."))
+
+
 def format_value(value, quotes="'"):
     if isinstance(value, str):
         return f"{quotes}{value}{quotes}"

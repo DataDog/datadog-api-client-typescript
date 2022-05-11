@@ -15,6 +15,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IncidentCreateRequest } from "../models/IncidentCreateRequest";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
 import { IncidentResponse } from "../models/IncidentResponse";
+import { IncidentResponseData } from "../models/IncidentResponseData";
 import { IncidentsResponse } from "../models/IncidentsResponse";
 import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
 
@@ -844,6 +845,51 @@ export class IncidentsApi {
           return this.responseProcessor.listIncidents(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listIncidents returning a generator with all the items.
+   */
+  public async *listIncidentsWithPagination(
+    param: IncidentsApiListIncidentsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<IncidentResponseData> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listIncidents(
+        param.include,
+        param.pageSize,
+        param.pageOffset,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listIncidents(
+        responseContext
+      );
+      const responsedata = response.data;
+      if (responsedata === undefined) {
+        break;
+      }
+      const results = responsedata;
+      for (const item of results) {
+        yield new Promise<IncidentResponseData>((resolve) => resolve(item));
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = param.pageOffset + pageSize;
+      }
+    }
   }
 
   /**

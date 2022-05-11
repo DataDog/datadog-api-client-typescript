@@ -11,7 +11,9 @@ import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { AuditLogsEvent } from "../models/AuditLogsEvent";
 import { AuditLogsEventsResponse } from "../models/AuditLogsEventsResponse";
+import { AuditLogsQueryPageOptions } from "../models/AuditLogsQueryPageOptions";
 import { AuditLogsSearchEventsRequest } from "../models/AuditLogsSearchEventsRequest";
 import { AuditLogsSort } from "../models/AuditLogsSort";
 
@@ -336,6 +338,63 @@ export class AuditApi {
   }
 
   /**
+   * Provide a paginated version of listAuditLogs returning a generator with all the items.
+   */
+  public async *listAuditLogsWithPagination(
+    param: AuditApiListAuditLogsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<AuditLogsEvent> {
+    let pageSize = 10;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listAuditLogs(
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listAuditLogs(
+        responseContext
+      );
+      const responsedata = response.data;
+      if (responsedata === undefined) {
+        break;
+      }
+      const results = responsedata;
+      for (const item of results) {
+        yield new Promise<AuditLogsEvent>((resolve) => resolve(item));
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursormeta = response.meta;
+      if (cursormeta === undefined) {
+        break;
+      }
+      const cursormetapage = cursormeta.page;
+      if (cursormetapage === undefined) {
+        break;
+      }
+      const cursormetapageafter = cursormetapage.after;
+      if (cursormetapageafter === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursormetapageafter;
+    }
+  }
+
+  /**
    * List endpoint returns Audit Logs events that match an Audit search query. [Results are paginated][1].  Use this endpoint to build complex Audit Logs events filtering and search.  [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
@@ -354,5 +413,63 @@ export class AuditApi {
           return this.responseProcessor.searchAuditLogs(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of searchAuditLogs returning a generator with all the items.
+   */
+  public async *searchAuditLogsWithPagination(
+    param: AuditApiSearchAuditLogsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<AuditLogsEvent> {
+    let pageSize = 10;
+    if (param.body === undefined) {
+      param.body = new AuditLogsSearchEventsRequest();
+    }
+    if (param.body.page === undefined) {
+      param.body.page = new AuditLogsQueryPageOptions();
+    }
+    if (param.body.page.limit !== undefined) {
+      pageSize = param.body.page.limit;
+    }
+    param.body.page.limit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.searchAuditLogs(
+        param.body,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.searchAuditLogs(
+        responseContext
+      );
+      const responsedata = response.data;
+      if (responsedata === undefined) {
+        break;
+      }
+      const results = responsedata;
+      for (const item of results) {
+        yield new Promise<AuditLogsEvent>((resolve) => resolve(item));
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursormeta = response.meta;
+      if (cursormeta === undefined) {
+        break;
+      }
+      const cursormetapage = cursormeta.page;
+      if (cursormetapage === undefined) {
+        break;
+      }
+      const cursormetapageafter = cursormetapage.after;
+      if (cursormetapageafter === undefined) {
+        break;
+      }
+
+      param.body.page.cursor = cursormetapageafter;
+    }
   }
 }

@@ -469,12 +469,79 @@ def get_api_models(operations):
                         if name and name not in seen:
                             seen.add(name)
                             yield name
+        if "x-pagination" in operation:
+            name = get_type_at_path(operation, operation["x-pagination"]["resultsPath"])
+            if name and name not in seen:
+                seen.add(name)
+                yield name
+
+            limit_param = operation["x-pagination"]["limitParam"]
+            limit_param_parts = limit_param.split(".")
+            for number_of_parts in range(1, len(limit_param_parts)):
+                param = ".".join(limit_param_parts[:number_of_parts])
+                name = get_container_type(operation, param)
+                if name and name not in seen:
+                    seen.add(name)
+                    yield name
 
 
 def get_enums_list(model):
     if model.get("enum") is None:
         return None
     return zip(model.get("x-enum-varnames", []), model.get("enum"))
+
+
+def get_default(operation, attribute_path):
+    attrs = attribute_path.split(".")
+    for name, parameter in parameters(operation):
+        if name == attrs[0]:
+            break
+    if name == attribute_path:
+        # We found a top level attribute matching the full path, let's use the default
+        return parameter["schema"]["default"]
+
+    if name == "body":
+        parameter = next(iter(parameter["content"].values()))["schema"]
+    for attr in attrs[1:]:
+        parameter = parameter["properties"][attr]
+    return parameter["default"]
+
+
+def get_container(operation, attribute_path, container_name="param"):
+    return f'{container_name}.{formatter.attribute_path(attribute_path)}'
+
+
+def get_container_type(operation, attribute_path, stop=None):
+    attrs = attribute_path.split(".")[:stop]
+    for name, parameter in parameters(operation):
+        if name == attrs[0]:
+            break
+
+    if attrs[0] == "body":
+        parameter = next(iter(parameter["content"].values()))
+
+    if name == attrs[0] and len(attrs) == 1:
+        return type_to_typescript(parameter["schema"])
+
+    parameter = parameter["schema"]
+    for attr in attrs[1:]:
+        parameter = parameter["properties"][attr]
+    return type_to_typescript(parameter)
+
+
+def get_type_at_path(operation, attribute_path):
+    content = None
+    for code, response in operation.get("responses", {}).items():
+        if int(code) >= 300:
+            continue
+        for content in response.get("content", {}).values():
+            if "schema" in content:
+                break
+    if content is None:
+        raise RuntimeError("Default response not found")
+    for attr in attribute_path.split("."):
+        content = content["schema"]["properties"][attr]
+    return get_name(content.get("items"))
 
 
 def generate_value(schema, use_random=False, prefix=None):
