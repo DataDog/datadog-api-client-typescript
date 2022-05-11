@@ -321,11 +321,11 @@ export class {{ className }} {
       const response = await this.responseProcessor.{{ operationId }}(responseContext);
 			{%- set previous = {"part": ""} %}
 			{%- for part in pagination.resultsPath.split(".") %}
-			const response{{ previous["part"] + (part|attribute_name) }} = response{{ previous["part"] }}.{{ part|attribute_name }};
-			if (response{{ previous["part"] + (part|attribute_name) }} === undefined) {
+			const response{{ previous["part"] + (part|camel_case) }} = response{{ previous["part"] }}.{{ part|attribute_name }};
+			if (response{{ previous["part"] + (part|camel_case) }} === undefined) {
 				break;
 			}
-			{%- set _ = previous.update({"part": previous["part"] + (part|attribute_name)}) %}
+			{%- set _ = previous.update({"part": previous["part"] + (part|camel_case)}) %}
 			{%- if loop.last %}
 			const results = response{{ previous["part"] }};
 			{%- endif %}
@@ -349,18 +349,18 @@ export class {{ className }} {
 			{%- set previous = {"cursor": ""} %}
 			{%- for part in pagination.cursorPath.split(".") %}
 			{%- if loop.first %}
-			const cursor{{ previous["cursor"] + (part|attribute_name) }} = response.{{ part|attribute_name }};
+			const cursor{{ previous["cursor"] + (part|camel_case) }} = response.{{ part|attribute_name }};
 			{%- else %}
-			const cursor{{ previous["cursor"] + (part|attribute_name) }} = cursor{{ previous["cursor"] }}.{{ part|attribute_name }};
+			const cursor{{ previous["cursor"] + (part|camel_case) }} = cursor{{ previous["cursor"] }}.{{ part|attribute_name }};
 			{%- endif %}
-			if (cursor{{ previous["cursor"] + (part|attribute_name) }} === undefined) {
+			if (cursor{{ previous["cursor"] + (part|camel_case) }} === undefined) {
 				break;
 			}
 			{%- if loop.last %}
 
-			{{ get_container(operation, pagination.cursorParam) }} = cursor{{ previous["cursor"] + (part|attribute_name) }};
+			{{ get_container(operation, pagination.cursorParam) }} = cursor{{ previous["cursor"] + (part|camel_case) }};
 			{%- endif %}
-			{%- set _ = previous.update({"cursor": previous["cursor"] + (part|attribute_name)}) %}
+			{%- set _ = previous.update({"cursor": previous["cursor"] + (part|camel_case)}) %}
 			{%- endfor %}
 
 			{%- endif %}
