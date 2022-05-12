@@ -508,10 +508,12 @@ const enumsMap: { [key: string]: any[] } = {
     "new_value",
     "anomaly_detection",
     "impossible_travel",
+    "hardcoded",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
     0, 60, 300, 600, 900, 1800, 3600, 7200,
   ],
+  SecurityMonitoringRuleHardcodedEvaluatorType: ["log4shell"],
   SecurityMonitoringRuleKeepAlive: [
     0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600,
   ],
