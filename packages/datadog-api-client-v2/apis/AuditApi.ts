@@ -372,7 +372,7 @@ export class AuditApi {
       }
       const results = responseData;
       for (const item of results) {
-        yield new Promise<AuditLogsEvent>((resolve) => resolve(item));
+        yield item;
       }
       if (results.length < pageSize) {
         break;
@@ -451,7 +451,7 @@ export class AuditApi {
       }
       const results = responseData;
       for (const item of results) {
-        yield new Promise<AuditLogsEvent>((resolve) => resolve(item));
+        yield item;
       }
       if (results.length < pageSize) {
         break;

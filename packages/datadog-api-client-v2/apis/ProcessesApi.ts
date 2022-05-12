@@ -262,7 +262,7 @@ export class ProcessesApi {
       }
       const results = responseData;
       for (const item of results) {
-        yield new Promise<ProcessSummary>((resolve) => resolve(item));
+        yield item;
       }
       if (results.length < pageSize) {
         break;

@@ -331,7 +331,7 @@ export class {{ className }} {
 			{%- endif %}
 			{%- endfor %}
       for (const item of results) {
-        yield new Promise<{{ itemType}}>(resolve => resolve(item));
+        yield item;
       }
       if (results.length < pageSize) {
         break;

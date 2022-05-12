@@ -519,7 +519,7 @@ export class RUMApi {
       }
       const results = responseData;
       for (const item of results) {
-        yield new Promise<RUMEvent>((resolve) => resolve(item));
+        yield item;
       }
       if (results.length < pageSize) {
         break;
@@ -596,7 +596,7 @@ export class RUMApi {
       }
       const results = responseData;
       for (const item of results) {
-        yield new Promise<RUMEvent>((resolve) => resolve(item));
+        yield item;
       }
       if (results.length < pageSize) {
         break;
