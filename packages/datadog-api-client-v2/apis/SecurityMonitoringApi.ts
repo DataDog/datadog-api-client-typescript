@@ -20,7 +20,9 @@ import { SecurityMonitoringListRulesResponse } from "../models/SecurityMonitorin
 import { SecurityMonitoringRuleCreatePayload } from "../models/SecurityMonitoringRuleCreatePayload";
 import { SecurityMonitoringRuleResponse } from "../models/SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "../models/SecurityMonitoringRuleUpdatePayload";
+import { SecurityMonitoringSignal } from "../models/SecurityMonitoringSignal";
 import { SecurityMonitoringSignalListRequest } from "../models/SecurityMonitoringSignalListRequest";
+import { SecurityMonitoringSignalListRequestPage } from "../models/SecurityMonitoringSignalListRequestPage";
 import { SecurityMonitoringSignalsListResponse } from "../models/SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSignalsSort";
 
@@ -1697,6 +1699,65 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Provide a paginated version of listSecurityMonitoringSignals returning a generator with all the items.
+   */
+  public async *listSecurityMonitoringSignalsWithPagination(
+    param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<SecurityMonitoringSignal> {
+    let pageSize = 10;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.listSecurityMonitoringSignals(
+          param.filterQuery,
+          param.filterFrom,
+          param.filterTo,
+          param.sort,
+          param.pageCursor,
+          param.pageLimit,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response =
+        await this.responseProcessor.listSecurityMonitoringSignals(
+          responseContext
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageAfter;
+    }
+  }
+
+  /**
    * Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
    * @param param The request object
    */
@@ -1715,6 +1776,66 @@ export class SecurityMonitoringApi {
           );
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of searchSecurityMonitoringSignals returning a generator with all the items.
+   */
+  public async *searchSecurityMonitoringSignalsWithPagination(
+    param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<SecurityMonitoringSignal> {
+    let pageSize = 10;
+    if (param.body === undefined) {
+      param.body = new SecurityMonitoringSignalListRequest();
+    }
+    if (param.body.page === undefined) {
+      param.body.page = new SecurityMonitoringSignalListRequestPage();
+    }
+    if (param.body.page.limit !== undefined) {
+      pageSize = param.body.page.limit;
+    }
+    param.body.page.limit = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.searchSecurityMonitoringSignals(
+          param.body,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response =
+        await this.responseProcessor.searchSecurityMonitoringSignals(
+          responseContext
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.body.page.cursor = cursorMetaPageAfter;
+    }
   }
 
   /**
