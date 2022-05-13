@@ -338,6 +338,8 @@ def format_data_with_schema_dict(
             warnings.warn(f"missing required properties: {missing}")
 
         for k, v in data.items():
+            if k not in schema["properties"]:
+                continue
             value = format_data_with_schema(
                 v,
                 schema["properties"][k],
@@ -345,14 +347,40 @@ def format_data_with_schema_dict(
                 required=k in required_properties,
             )
             parameters += f"{attribute_name(k)}: {value},\n"
-    elif schema.get("additionalProperties"):
+
+    if schema.get("additionalProperties"):
+        saved_parameters = ""
+        if schema.get("properties"):
+            saved_parameters = parameters
+            parameters = ""
+        nested_schema = schema["additionalProperties"]
+        nested_schema_name = simple_type(nested_schema)
+        if not nested_schema_name:
+            nested_schema_name = schema_name(nested_schema)
+
+        has_properties = schema.get("properties")
+
         for k, v in data.items():
+            if has_properties and k in schema["properties"]:
+                continue
             value = format_data_with_schema(
                 v,
                 schema["additionalProperties"],
                 replace_values=replace_values,
+                required=True,
             )
             parameters += f'"{k}": {value},\n'
+
+            # IMPROVE: find a better way to get nested schema name
+            if not nested_schema_name:
+                nested_schema_name = value.split("{")[0]
+
+        if has_properties:
+            if parameters:
+                parameters = f"{saved_parameters}additionalProperties: {{\n{parameters}}},\n"
+            else:
+                parameters = saved_parameters
+
         return f"{{\n{parameters}}}"
 
     if "oneOf" in schema:
