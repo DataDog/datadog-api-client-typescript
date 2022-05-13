@@ -26,7 +26,7 @@ export class TreeMapWidgetDefinition {
   /**
    * List of top list widget requests.
    */
-  "requests": Array<TreeMapWidgetRequest>;
+  "requests": [TreeMapWidgetRequest];
   /**
    * The attribute used to determine size in the widget.
    */
@@ -59,7 +59,7 @@ export class TreeMapWidgetDefinition {
     },
     requests: {
       baseName: "requests",
-      type: "Array<TreeMapWidgetRequest>",
+      type: "[TreeMapWidgetRequest]",
       required: true,
     },
     sizeBy: {

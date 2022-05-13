@@ -518,6 +518,7 @@ const primitives = [
 
 const ARRAY_PREFIX = "Array<";
 const MAP_PREFIX = "{ [key: string]: ";
+const TUPLE_PREFIX = "[";
 
 const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/json": Infinity,
@@ -1838,6 +1839,18 @@ export class ObjectSerializer {
         );
       }
       return transformedData;
+    } else if (type.startsWith(TUPLE_PREFIX)) {
+      // We only support homegeneus tuples
+      const subType: string = type
+        .substring(TUPLE_PREFIX.length, type.length - 1)
+        .split(", ")[0];
+      const transformedData: any[] = [];
+      for (const element of data) {
+        transformedData.push(
+          ObjectSerializer.serialize(element, subType, format)
+        );
+      }
+      return transformedData;
     } else if (type.startsWith(MAP_PREFIX)) {
       // { [key: string]: Type; } => Type
       const subType: string = type.substring(
@@ -1946,6 +1959,18 @@ export class ObjectSerializer {
         ARRAY_PREFIX.length,
         type.length - 1
       );
+      const transformedData: any[] = [];
+      for (const element of data) {
+        transformedData.push(
+          ObjectSerializer.deserialize(element, subType, format)
+        );
+      }
+      return transformedData;
+    } else if (type.startsWith(TUPLE_PREFIX)) {
+      // [Type,...] => Type
+      const subType: string = type
+        .substring(TUPLE_PREFIX.length, type.length - 1)
+        .split(", ")[0];
       const transformedData: any[] = [];
       for (const element of data) {
         transformedData.push(
