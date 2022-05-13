@@ -247,7 +247,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "MetricsApi.submitMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "text/json");
+    requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Header Params

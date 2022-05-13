@@ -121,7 +121,10 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
       _config,
       "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/yaml");
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/yaml, application/json"
+    );
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
