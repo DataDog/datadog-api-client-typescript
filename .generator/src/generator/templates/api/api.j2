@@ -59,13 +59,10 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
 
     // Make Request Context
     const requestContext = getServer(_config, '{{ className }}.{{ operationId }}').makeRequestContext(localVarPath, HttpMethod.{{ method.upper() }});
-    {%- for mediaType in operation|accept_headers %}
-    {%- if loop.first %}
-    requestContext.setHeaderParam("Accept", "{{ mediaType }}");
-    {%- endif %}
-    {%- endfor %}
     {%- if operation|accept_headers|length == 0 %}
     requestContext.setHeaderParam("Accept", "application/json");
+    {%- else %}
+    requestContext.setHeaderParam("Accept", "{%- for mediaType in operation|accept_headers %}{{ mediaType }}{%- if not loop.last %}, {% endif %}{% endfor -%}");
     {%- endif %}
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -276,5 +273,96 @@ export class {{ className }} {
         });
     });
   }
+{%- if operation["x-pagination"] %}
+{%- set pagination = operation["x-pagination"] %}
+
+  /**
+   * Provide a paginated version of {{ operationId }} returning a generator with all the items.
+   */
+{%- set itemType = get_type_at_path(operation, pagination.resultsPath) %}
+  public async *{{ operationId }}WithPagination({%- if allParams %}param: {{ className }}{{ operation.operationId }}Request{%- if not requiredParams %} = {}{%- endif %}, {%- endif %} options?: Configuration): AsyncGenerator<{{ itemType }}> {
+
+    let pageSize = {{ get_default(operation, pagination.limitParam) }};
+    {%- for name, parameter in operation|parameters if not parameter.required and parameter.in != "path" %}
+    {%- if loop.first %}
+    {%- set limitParamParts = pagination.limitParam.split(".") %}
+    {%- for numberOfParts in range(1, limitParamParts|length) %}
+    {%- set limitParam = ".".join(limitParamParts[:numberOfParts]) %}
+    if ({{ get_container(operation, limitParam) }} === undefined) {
+      {{ get_container(operation, limitParam) }} = new {{ get_container_type(operation, limitParam) }}();
+    }
+    {%- endfor %}
+    if ({{ get_container(operation, pagination.limitParam) }} !== undefined) {
+      pageSize = {{ get_container(operation, pagination.limitParam) }};
+    }
+    {{ get_container(operation, pagination.limitParam) }} = pageSize;
+    {%- endif %}
+    {%- else %}
+    {%- set limitParamParts = pagination.limitParam.split(".") %}
+    {%- for numberOfParts in range(2, limitParamParts|length) %}
+    {%- set limitParam = ".".join(limitParamParts[:numberOfParts]) %}
+    if ({{ get_container(operation, limitParam) }} === undefined ) {
+      {{ get_container(operation, limitParam) }} = new {{ get_container_type(operation, limitParam) }}();
+    }
+    {%- endfor %}
+    if ({{ get_container(operation, pagination.limitParam) }} === undefined) {
+      {{ get_container(operation, pagination.limitParam) }} = pageSize;
+    } else {
+      pageSize = {{ get_container(operation, pagination.limitParam) }};
+    }
+    {%- endfor %}
+    while (true) {
+      const requestContext = await this.requestFactory.{{ operationId }}({%- for name, parameter in requiredParams %}param.{{ name|attribute_name }}, {%- endfor %}{%- for name, parameter in optionalParams %}param.{{ name|attribute_name }}, {%- endfor %}options);
+      const responseContext = await this.configuration.httpApi.send(requestContext);
+
+      const response = await this.responseProcessor.{{ operationId }}(responseContext);
+      {%- set previous = {"part": ""} %}
+      {%- for part in pagination.resultsPath.split(".") %}
+      const response{{ previous["part"] + (part|camel_case) }} = response{{ previous["part"] }}.{{ part|attribute_name }};
+      if (response{{ previous["part"] + (part|camel_case) }} === undefined) {
+        break;
+      }
+      {%- set _ = previous.update({"part": previous["part"] + (part|camel_case)}) %}
+      {%- if loop.last %}
+      const results = response{{ previous["part"] }};
+      {%- endif %}
+      {%- endfor %}
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      {%- if pagination.pageOffsetParam %}
+      if ({{ get_container(operation, pagination.pageOffsetParam) }} === undefined) {
+        {{ get_container(operation, pagination.pageOffsetParam) }} = pageSize;
+      } else {
+        {{ get_container(operation, pagination.pageOffsetParam) }} = {{ get_container(operation, pagination.pageOffsetParam) }} + pageSize;
+      }
+
+      {%- endif %}
+
+      {%- if pagination.cursorParam %}
+      {%- set previous = {"cursor": ""} %}
+      {%- for part in pagination.cursorPath.split(".") %}
+      {%- if loop.first %}
+      const cursor{{ previous["cursor"] + (part|camel_case) }} = response.{{ part|attribute_name }};
+      {%- else %}
+      const cursor{{ previous["cursor"] + (part|camel_case) }} = cursor{{ previous["cursor"] }}.{{ part|attribute_name }};
+      {%- endif %}
+      if (cursor{{ previous["cursor"] + (part|camel_case) }} === undefined) {
+        break;
+      }
+      {%- if loop.last %}
+
+      {{ get_container(operation, pagination.cursorParam) }} = cursor{{ previous["cursor"] + (part|camel_case) }};
+      {%- endif %}
+      {%- set _ = previous.update({"cursor": previous["cursor"] + (part|camel_case)}) %}
+      {%- endfor %}
+
+      {%- endif %}
+    }
+  }
+{%- endif %}
 {%- endfor %}
 }

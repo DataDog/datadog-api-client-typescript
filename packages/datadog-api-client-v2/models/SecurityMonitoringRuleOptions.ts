@@ -5,6 +5,7 @@
  */
 import { SecurityMonitoringRuleDetectionMethod } from "./SecurityMonitoringRuleDetectionMethod";
 import { SecurityMonitoringRuleEvaluationWindow } from "./SecurityMonitoringRuleEvaluationWindow";
+import { SecurityMonitoringRuleHardcodedEvaluatorType } from "./SecurityMonitoringRuleHardcodedEvaluatorType";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
@@ -24,6 +25,10 @@ export class SecurityMonitoringRuleOptions {
    * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
    */
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
+  /**
+   * Hardcoded evaluator type.
+   */
+  "hardcodedEvaluatorType"?: SecurityMonitoringRuleHardcodedEvaluatorType;
   /**
    * Options on impossible travel rules.
    */
@@ -58,6 +63,10 @@ export class SecurityMonitoringRuleOptions {
       baseName: "evaluationWindow",
       type: "SecurityMonitoringRuleEvaluationWindow",
       format: "int32",
+    },
+    hardcodedEvaluatorType: {
+      baseName: "hardcodedEvaluatorType",
+      type: "SecurityMonitoringRuleHardcodedEvaluatorType",
     },
     impossibleTravelOptions: {
       baseName: "impossibleTravelOptions",

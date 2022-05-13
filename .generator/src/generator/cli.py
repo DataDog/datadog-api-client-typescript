@@ -62,6 +62,10 @@ def cli(input, output):
     env.globals["response"] = openapi.response
     env.globals["get_enums_list"] = openapi.get_enums_list
     env.globals["get_format"] = openapi.get_format
+    env.globals["get_default"] = openapi.get_default
+    env.globals["get_container"] = openapi.get_container
+    env.globals["get_container_type"] = openapi.get_container_type
+    env.globals["get_type_at_path"] = openapi.get_type_at_path
 
     api_j2 = env.get_template("api/api.j2")
     model_j2 = env.get_template("model/model.j2")

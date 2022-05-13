@@ -42,7 +42,7 @@ export class MetricsQueryMetadata {
   /**
    * List of points of the time series.
    */
-  "pointlist"?: Array<Array<number>>;
+  "pointlist"?: Array<[number, number]>;
   /**
    * The index of the series' query within the request.
    */
@@ -62,7 +62,7 @@ export class MetricsQueryMetadata {
   /**
    * Detailed information about the metric unit. First element describes the "primary unit" (for example, `bytes` in `bytes per second`), second describes the "per unit" (for example, `second` in `bytes per second`).
    */
-  "unit"?: Array<MetricsQueryUnit>;
+  "unit"?: [MetricsQueryUnit, MetricsQueryUnit];
 
   /**
    * @ignore
@@ -106,7 +106,7 @@ export class MetricsQueryMetadata {
     },
     pointlist: {
       baseName: "pointlist",
-      type: "Array<Array<number>>",
+      type: "Array<[number, number]>",
       format: "double",
     },
     queryIndex: {
@@ -129,7 +129,7 @@ export class MetricsQueryMetadata {
     },
     unit: {
       baseName: "unit",
-      type: "Array<MetricsQueryUnit>",
+      type: "[MetricsQueryUnit, MetricsQueryUnit]",
     },
   };
 

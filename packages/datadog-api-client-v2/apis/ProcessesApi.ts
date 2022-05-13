@@ -12,6 +12,7 @@ import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ProcessSummariesResponse } from "../models/ProcessSummariesResponse";
+import { ProcessSummary } from "../models/ProcessSummary";
 
 export class ProcessesApiRequestFactory extends BaseAPIRequestFactory {
   public async listProcesses(
@@ -224,5 +225,62 @@ export class ProcessesApi {
           return this.responseProcessor.listProcesses(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listProcesses returning a generator with all the items.
+   */
+  public async *listProcessesWithPagination(
+    param: ProcessesApiListProcessesRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<ProcessSummary> {
+    let pageSize = 1000;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listProcesses(
+        param.search,
+        param.tags,
+        param.from,
+        param.to,
+        param.pageLimit,
+        param.pageCursor,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listProcesses(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageAfter;
+    }
   }
 }
