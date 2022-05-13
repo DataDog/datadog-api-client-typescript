@@ -119,6 +119,18 @@ export class ObjectSerializer {
 
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
+        if (attributeName == "additionalProperties") {
+          if (data.additionalProperties) {
+            for (const key in data.additionalProperties) {
+              instance[key] = ObjectSerializer.serialize(
+                data.additionalProperties[key],
+                attributeObj.type,
+                attributeObj.format
+              );
+            }
+          }
+          continue;
+        }
         instance[attributeObj.baseName] = ObjectSerializer.serialize(data[attributeName], attributeObj.type, attributeObj.format);
         // check for required properties
         if (attributeObj?.required && instance[attributeObj.baseName] === undefined) {

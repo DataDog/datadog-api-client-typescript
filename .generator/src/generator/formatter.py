@@ -345,8 +345,7 @@ def format_data_with_schema_dict(
                 required=k in required_properties,
             )
             parameters += f"{attribute_name(k)}: {value},\n"
-
-    if schema.get("additionalProperties"):
+    elif schema.get("additionalProperties"):
         for k, v in data.items():
             value = format_data_with_schema(
                 v,
