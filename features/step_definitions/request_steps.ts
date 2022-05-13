@@ -143,7 +143,64 @@ When("the request is sent", async function (this: World) {
 });
 
 When("the request with pagination is sent", async function (this: World) {
-  // XXX implement
+  const api = (datadogApiClient as any)[this.apiVersion];
+  const configurationOpts = {
+    authMethods: this.authMethods,
+    httpConfig: { compress: false },
+  };
+  if (process.env.DD_TEST_SITE) {
+    const serverConf = api.servers[2].getConfiguration();
+    api.servers[2].setVariables({
+      site: process.env.DD_TEST_SITE,
+    } as typeof serverConf);
+    (configurationOpts as any)["serverIndex"] = 2;
+  }
+  if (process.env.DD_TEST_SITE_URL) {
+    const serverConf = api.servers[1].getConfiguration();
+    api.servers[1].setVariables({
+      name: process.env.DD_TEST_SITE_URL,
+      protocol: "http",
+    } as typeof serverConf);
+    (configurationOpts as any)["serverIndex"] = 1;
+  }
+  const configuration = api.createConfiguration(configurationOpts);
+  for (const operationId in this.unstableOperations) {
+    if (operationId in configuration.unstableOperations) {
+      configuration.unstableOperations[operationId] = this.unstableOperations[operationId];
+    } else {
+      // FIXME throw new Error(`Operation ${operationId} is not unstable`);
+      logger.warn(`Operation ${operationId} is not unstable`);
+    }
+  }
+  const apiInstance = new api[`${this.apiName}Api`](configuration);
+
+  // store request context from response processor
+  Store((...args) => {
+    this.requestContext = args[0];
+  })(apiInstance.responseProcessor);
+  try {
+    let response = [];
+    if (Object.keys(this.opts).length) {
+      for await (const item of apiInstance[this.operationId.toOperationName() + "WithPagination"](this.opts)) {
+        response.push(item);
+      }
+    } else {
+      for await (const item of apiInstance[this.operationId.toOperationName() + "WithPagination"]()) {
+        response.push(item);
+      }
+    }
+    this.response = response;
+  } catch (error) {
+    this.response = error;
+    logger.debug(error);
+    if (this.requestContext === undefined) {
+      throw error;
+    }
+    if (this.requestContext !== undefined && this.requestContext.headers["content-type"] == "application/problem+json" && this.requestContext.httpStatusCode == 500) {
+      logger.debug(this.requestContext.body.text);
+      throw error;
+    }
+  }
 });
 
 Then(

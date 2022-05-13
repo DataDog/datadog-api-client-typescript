@@ -14,9 +14,11 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
 import { HTTPLogErrors } from "../models/HTTPLogErrors";
 import { HTTPLogItem } from "../models/HTTPLogItem";
+import { Log } from "../models/Log";
 import { LogsAggregateRequest } from "../models/LogsAggregateRequest";
 import { LogsAggregateResponse } from "../models/LogsAggregateResponse";
 import { LogsListRequest } from "../models/LogsListRequest";
+import { LogsListRequestPage } from "../models/LogsListRequestPage";
 import { LogsListResponse } from "../models/LogsListResponse";
 import { LogsSort } from "../models/LogsSort";
 
@@ -662,6 +664,62 @@ export class LogsApi {
   }
 
   /**
+   * Provide a paginated version of listLogs returning a generator with all the items.
+   */
+  public async *listLogsWithPagination(
+    param: LogsApiListLogsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<Log> {
+    let pageSize = 10;
+    if (param.body === undefined) {
+      param.body = new LogsListRequest();
+    }
+    if (param.body.page === undefined) {
+      param.body.page = new LogsListRequestPage();
+    }
+    if (param.body.page.limit !== undefined) {
+      pageSize = param.body.page.limit;
+    }
+    param.body.page.limit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listLogs(
+        param.body,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listLogs(responseContext);
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.body.page.cursor = cursorMetaPageAfter;
+    }
+  }
+
+  /**
    * List endpoint returns logs that match a log search query. [Results are paginated][1].  Use this endpoint to see your latest logs.  **If you are considering archiving logs for your organization, consider use of the Datadog archive capabilities instead of the log list API. See [Datadog Logs Archive documentation][2].**  [1]: /logs/guide/collect-multiple-logs-with-pagination [2]: https://docs.datadoghq.com/logs/archives
    * @param param The request object
    */
@@ -686,6 +744,64 @@ export class LogsApi {
           return this.responseProcessor.listLogsGet(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listLogsGet returning a generator with all the items.
+   */
+  public async *listLogsGetWithPagination(
+    param: LogsApiListLogsGetRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<Log> {
+    let pageSize = 10;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listLogsGet(
+        param.filterQuery,
+        param.filterIndex,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listLogsGet(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageAfter;
+    }
   }
 
   /**
