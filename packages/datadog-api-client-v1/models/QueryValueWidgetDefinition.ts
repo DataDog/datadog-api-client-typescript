@@ -35,7 +35,7 @@ export class QueryValueWidgetDefinition {
   /**
    * Widget definition.
    */
-  "requests": Array<QueryValueWidgetRequest>;
+  "requests": [QueryValueWidgetRequest];
   /**
    * How to align the text on the widget.
    */
@@ -93,7 +93,7 @@ export class QueryValueWidgetDefinition {
     },
     requests: {
       baseName: "requests",
-      type: "Array<QueryValueWidgetRequest>",
+      type: "[QueryValueWidgetRequest]",
       required: true,
     },
     textAlign: {
