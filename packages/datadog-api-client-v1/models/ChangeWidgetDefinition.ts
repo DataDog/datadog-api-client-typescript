@@ -22,7 +22,7 @@ export class ChangeWidgetDefinition {
   /**
    * Array of one request object to display in the widget.  See the dedicated [Request JSON schema documentation](https://docs.datadoghq.com/dashboards/graphing_json/request_json)  to learn how to build the `REQUEST_SCHEMA`.
    */
-  "requests": Array<ChangeWidgetRequest>;
+  "requests": [ChangeWidgetRequest];
   /**
    * Time setting for the widget.
    */
@@ -59,7 +59,7 @@ export class ChangeWidgetDefinition {
     },
     requests: {
       baseName: "requests",
-      type: "Array<ChangeWidgetRequest>",
+      type: "[ChangeWidgetRequest]",
       required: true,
     },
     time: {

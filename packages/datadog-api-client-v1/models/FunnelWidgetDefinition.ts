@@ -17,7 +17,7 @@ export class FunnelWidgetDefinition {
   /**
    * Request payload used to query items.
    */
-  "requests": Array<FunnelWidgetRequest>;
+  "requests": [FunnelWidgetRequest];
   /**
    * Time setting for the widget.
    */
@@ -50,7 +50,7 @@ export class FunnelWidgetDefinition {
   static readonly attributeTypeMap: AttributeTypeMap = {
     requests: {
       baseName: "requests",
-      type: "Array<FunnelWidgetRequest>",
+      type: "[FunnelWidgetRequest]",
       required: true,
     },
     time: {

@@ -32,7 +32,7 @@ export class HeatMapWidgetDefinition {
   /**
    * List of widget types.
    */
-  "requests": Array<HeatMapWidgetRequest>;
+  "requests": [HeatMapWidgetRequest];
   /**
    * Whether or not to display the legend on this widget.
    */
@@ -85,7 +85,7 @@ export class HeatMapWidgetDefinition {
     },
     requests: {
       baseName: "requests",
-      type: "Array<HeatMapWidgetRequest>",
+      type: "[HeatMapWidgetRequest]",
       required: true,
     },
     showLegend: {
