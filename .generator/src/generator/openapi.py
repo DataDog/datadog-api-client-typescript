@@ -92,7 +92,7 @@ def type_to_typescript(schema, alternative_name=None):
             return "[{}]".format(", ".join([sub_type] * min_items))
         return "Array<{}>".format(type_to_typescript(schema["items"], name + "Item" if name else None))
     elif type_ == "object":
-        if "additionalProperties" in schema:
+        if "additionalProperties" in schema and not schema.get("properties"):
             return "{{ [key: string]: {}; }}".format(type_to_typescript(schema["additionalProperties"]))
         return (
             alternative_name

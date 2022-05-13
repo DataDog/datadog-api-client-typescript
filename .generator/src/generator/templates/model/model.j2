@@ -29,6 +29,15 @@ export class {{ name }} {
 {%- endif %}
   "{{ attr|attribute_name }}"{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isRequired and isNullable %}|null{%- endif %};
 {%- endfor %}
+{%- if model.get("additionalProperties") %}
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: {{ type_to_typescript(model["additionalProperties"]) }} };
+{%- endif %}
 
   /**
    * @ignore
@@ -52,8 +61,18 @@ export class {{ name }} {
       {%- if format %}
       "format": "{{ format }}",
       {%- endif %}
-    }{%- if loop.nextitem %},{%- endif %}
+    }{%- if loop.nextitem or model.get("additionalProperties") %},{%- endif %}
     {%- endfor %}
+    {%- if model.get("additionalProperties") %}
+    {%- set format = get_format_for_schema(model["additionalProperties"]) %}
+    "additionalProperties": {
+      "baseName": "additionalProperties",
+      "type": "{{ type_to_typescript(model["additionalProperties"]) }}",
+      {%- if format %}
+      "format": "{{ format }}",
+      {%- endif %}
+    }
+    {%- endif %}
   };
 
   /**
