@@ -85,6 +85,11 @@ def type_to_typescript(schema, alternative_name=None):
     elif type_ == "boolean":
         return "boolean"
     elif type_ == "array":
+        min_items = schema.get("minItems")
+        max_items = schema.get("maxItems")
+        if min_items is not None and min_items == max_items:
+            sub_type = type_to_typescript(schema["items"], name + "Item" if name else None)
+            return "[{}]".format(", ".join([sub_type] * min_items))
         return "Array<{}>".format(type_to_typescript(schema["items"], name + "Item" if name else None))
     elif type_ == "object":
         if "additionalProperties" in schema:

@@ -26,7 +26,7 @@ export class SLOHistorySLIData {
   /**
    * For `monitor` based SLOs, this includes the aggregated history as arrays that include time series and uptime data where `0=monitor` is in `OK` state and `1=monitor` is in `alert` state.
    */
-  "history"?: Array<Array<number>>;
+  "history"?: Array<[number, number]>;
   /**
    * For `monitor` based SLOs, this is the last modified timestamp in epoch seconds of the monitor.
    */
@@ -83,7 +83,7 @@ export class SLOHistorySLIData {
     },
     history: {
       baseName: "history",
-      type: "Array<Array<number>>",
+      type: "Array<[number, number]>",
       format: "double",
     },
     monitorModified: {
