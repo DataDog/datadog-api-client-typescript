@@ -24,6 +24,7 @@ const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
     options: {
       detectionMethod: "threshold",
       evaluationWindow: 0,
+      hardcodedEvaluatorType: "log4shell",
       impossibleTravelOptions: {
         baselineUserLocations: true,
       },
