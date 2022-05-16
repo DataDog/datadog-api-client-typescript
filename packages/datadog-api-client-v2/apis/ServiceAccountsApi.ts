@@ -57,7 +57,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.createServiceAccountApplicationKey"
+      "v2.ServiceAccountsApi.createServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -118,7 +118,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.deleteServiceAccountApplicationKey"
+      "v2.ServiceAccountsApi.deleteServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -168,7 +168,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.getServiceAccountApplicationKey"
+      "v2.ServiceAccountsApi.getServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -211,7 +211,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.listServiceAccountApplicationKeys"
+      "v2.ServiceAccountsApi.listServiceAccountApplicationKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -307,7 +307,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.updateServiceAccountApplicationKey"
+      "v2.ServiceAccountsApi.updateServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

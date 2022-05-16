@@ -44,7 +44,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getCostByOrg"
+      "v2.UsageMeteringApi.getCostByOrg"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -96,7 +96,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageApplicationSecurityMonitoring"
+      "v2.UsageMeteringApi.getUsageApplicationSecurityMonitoring"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -148,7 +148,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageLambdaTracedInvocations"
+      "v2.UsageMeteringApi.getUsageLambdaTracedInvocations"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -200,7 +200,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageObservabilityPipelines"
+      "v2.UsageMeteringApi.getUsageObservabilityPipelines"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",

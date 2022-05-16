@@ -42,7 +42,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "DashboardListsApi.createDashboardList"
+      "v1.DashboardListsApi.createDashboardList"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -90,7 +90,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "DashboardListsApi.deleteDashboardList"
+      "v1.DashboardListsApi.deleteDashboardList"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -127,7 +127,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "DashboardListsApi.getDashboardList"
+      "v1.DashboardListsApi.getDashboardList"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -153,7 +153,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "DashboardListsApi.listDashboardLists"
+      "v1.DashboardListsApi.listDashboardLists"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -198,7 +198,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "DashboardListsApi.updateDashboardList"
+      "v1.DashboardListsApi.updateDashboardList"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

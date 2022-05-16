@@ -44,7 +44,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.createLogsIndex"
+      "v1.LogsIndexesApi.createLogsIndex"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -91,7 +91,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.getLogsIndex"
+      "v1.LogsIndexesApi.getLogsIndex"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -116,7 +116,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.getLogsIndexOrder"
+      "v1.LogsIndexesApi.getLogsIndexOrder"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -142,7 +142,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.listLogIndexes"
+      "v1.LogsIndexesApi.listLogIndexes"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -187,7 +187,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.updateLogsIndex"
+      "v1.LogsIndexesApi.updateLogsIndex"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -231,7 +231,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.updateLogsIndexOrder"
+      "v1.LogsIndexesApi.updateLogsIndexOrder"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

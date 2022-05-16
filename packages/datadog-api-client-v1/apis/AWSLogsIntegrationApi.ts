@@ -44,7 +44,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.checkAWSLogsLambdaAsync"
+      "v1.AWSLogsIntegrationApi.checkAWSLogsLambdaAsync"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -89,7 +89,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.checkAWSLogsServicesAsync"
+      "v1.AWSLogsIntegrationApi.checkAWSLogsServicesAsync"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -133,7 +133,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.createAWSLambdaARN"
+      "v1.AWSLogsIntegrationApi.createAWSLambdaARN"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -177,7 +177,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.deleteAWSLambdaARN"
+      "v1.AWSLogsIntegrationApi.deleteAWSLambdaARN"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -221,7 +221,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.enableAWSLogServices"
+      "v1.AWSLogsIntegrationApi.enableAWSLogServices"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -257,7 +257,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.listAWSLogsIntegrations"
+      "v1.AWSLogsIntegrationApi.listAWSLogsIntegrations"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -282,7 +282,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.listAWSLogsServices"
+      "v1.AWSLogsIntegrationApi.listAWSLogsServices"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

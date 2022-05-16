@@ -57,7 +57,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.addReadRoleToArchive"
+      "v2.LogsArchivesApi.addReadRoleToArchive"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -101,7 +101,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.createLogsArchive"
+      "v2.LogsArchivesApi.createLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -148,7 +148,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.deleteLogsArchive"
+      "v2.LogsArchivesApi.deleteLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -184,7 +184,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.getLogsArchive"
+      "v2.LogsArchivesApi.getLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -210,7 +210,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.getLogsArchiveOrder"
+      "v2.LogsArchivesApi.getLogsArchiveOrder"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -248,7 +248,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.listArchiveReadRoles"
+      "v2.LogsArchivesApi.listArchiveReadRoles"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -274,7 +274,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.listLogsArchives"
+      "v2.LogsArchivesApi.listLogsArchives"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -320,7 +320,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.removeRoleFromArchive"
+      "v2.LogsArchivesApi.removeRoleFromArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -375,7 +375,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.updateLogsArchive"
+      "v2.LogsArchivesApi.updateLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -419,7 +419,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.updateLogsArchiveOrder"
+      "v2.LogsArchivesApi.updateLogsArchiveOrder"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

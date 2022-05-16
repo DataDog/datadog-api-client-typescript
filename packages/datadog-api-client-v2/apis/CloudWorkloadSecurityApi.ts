@@ -45,7 +45,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule"
+      "v2.CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -97,7 +97,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule"
+      "v2.CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -122,7 +122,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile"
+      "v2.CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -163,7 +163,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule"
+      "v2.CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -189,7 +189,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules"
+      "v2.CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -234,7 +234,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule"
+      "v2.CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

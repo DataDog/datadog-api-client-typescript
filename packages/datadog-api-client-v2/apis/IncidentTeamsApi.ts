@@ -50,7 +50,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.createIncidentTeam"
+      "v2.IncidentTeamsApi.createIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -103,7 +103,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.deleteIncidentTeam"
+      "v2.IncidentTeamsApi.deleteIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -146,7 +146,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.getIncidentTeam"
+      "v2.IncidentTeamsApi.getIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -189,7 +189,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.listIncidentTeams"
+      "v2.IncidentTeamsApi.listIncidentTeams"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -265,7 +265,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.updateIncidentTeam"
+      "v2.IncidentTeamsApi.updateIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

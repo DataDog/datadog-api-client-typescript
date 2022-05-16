@@ -50,7 +50,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.checkCanDeleteSLO"
+      "v1.ServiceLevelObjectivesApi.checkCanDeleteSLO"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -91,7 +91,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.createSLO"
+      "v1.ServiceLevelObjectivesApi.createSLO"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -139,7 +139,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.deleteSLO"
+      "v1.ServiceLevelObjectivesApi.deleteSLO"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -180,7 +180,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk"
+      "v1.ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -232,7 +232,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.getSLO"
+      "v1.ServiceLevelObjectivesApi.getSLO"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -291,7 +291,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.getSLOCorrections"
+      "v1.ServiceLevelObjectivesApi.getSLOCorrections"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -351,7 +351,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.getSLOHistory"
+      "v1.ServiceLevelObjectivesApi.getSLOHistory"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -409,7 +409,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.listSLOs"
+      "v1.ServiceLevelObjectivesApi.listSLOs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -492,7 +492,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.updateSLO"
+      "v1.ServiceLevelObjectivesApi.updateSLO"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

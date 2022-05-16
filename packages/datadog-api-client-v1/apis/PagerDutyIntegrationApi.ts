@@ -42,7 +42,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "PagerDutyIntegrationApi.createPagerDutyIntegrationService"
+      "v1.PagerDutyIntegrationApi.createPagerDutyIntegrationService"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -90,7 +90,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "PagerDutyIntegrationApi.deletePagerDutyIntegrationService"
+      "v1.PagerDutyIntegrationApi.deletePagerDutyIntegrationService"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -127,7 +127,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "PagerDutyIntegrationApi.getPagerDutyIntegrationService"
+      "v1.PagerDutyIntegrationApi.getPagerDutyIntegrationService"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -172,7 +172,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "PagerDutyIntegrationApi.updatePagerDutyIntegrationService"
+      "v1.PagerDutyIntegrationApi.updatePagerDutyIntegrationService"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);

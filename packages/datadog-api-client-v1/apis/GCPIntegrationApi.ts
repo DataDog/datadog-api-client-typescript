@@ -40,7 +40,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "GCPIntegrationApi.createGCPIntegration"
+      "v1.GCPIntegrationApi.createGCPIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -84,7 +84,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "GCPIntegrationApi.deleteGCPIntegration"
+      "v1.GCPIntegrationApi.deleteGCPIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -120,7 +120,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "GCPIntegrationApi.listGCPIntegration"
+      "v1.GCPIntegrationApi.listGCPIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -153,7 +153,7 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "GCPIntegrationApi.updateGCPIntegration"
+      "v1.GCPIntegrationApi.updateGCPIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
