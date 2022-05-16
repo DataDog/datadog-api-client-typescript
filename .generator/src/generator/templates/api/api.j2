@@ -225,7 +225,7 @@ export interface {{ className }}{{ operation.operationId }}Request {
   {%- set parameterType = get_type_for_parameter(parameter) %}
   /**
 {{ parameter.description|docstring }}
-   * @type {{ parameterType|escape_html }}
+   * @type {{ parameterType }}
    */
   {{ name|attribute_name }}{%- if not parameter.required %}?{%-endif %}: {{ parameterType }}
   {%-endfor %}
@@ -233,7 +233,7 @@ export interface {{ className }}{{ operation.operationId }}Request {
   {%- set parameterType = get_type_for_parameter(parameter) %}
   /**
 {{ parameter.description|docstring }}
-   * @type {{ parameterType|escape_html }}
+   * @type {{ parameterType }}
    */
   {{ name|attribute_name }}{%- if not parameter.required %}?{%-endif %}: {{ parameterType }}
   {%-endfor %}

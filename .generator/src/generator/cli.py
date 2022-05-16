@@ -45,7 +45,6 @@ def cli(input, output):
     env.filters["form_parameter"] = openapi.form_parameter
     env.filters["untitle_case"] = formatter.untitle_case
     env.filters["response_type"] = openapi.get_type_for_response
-    env.filters["escape_html"] = formatter.escape_html
     env.filters["docstring"] = formatter.docstring
 
     env.globals["get_references_for_model"] = openapi.get_references_for_model

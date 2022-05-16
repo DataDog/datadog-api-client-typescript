@@ -1143,7 +1143,7 @@ export interface ServiceLevelObjectivesApiDeleteSLORequest {
 export interface ServiceLevelObjectivesApiDeleteSLOTimeframeInBulkRequest {
   /**
    * Delete multiple service level objective objects request body.
-   * @type { [key: string]: Array&lt;SLOTimeframe&gt;; }
+   * @type { [key: string]: Array<SLOTimeframe>; }
    */
   body: { [key: string]: Array<SLOTimeframe> };
 }

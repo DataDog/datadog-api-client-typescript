@@ -702,7 +702,7 @@ export interface IncidentsApiGetIncidentRequest {
   incidentId: string;
   /**
    * Specifies which types of related objects should be included in the response.
-   * @type Array&lt;IncidentRelatedObject&gt;
+   * @type Array<IncidentRelatedObject>
    */
   include?: Array<IncidentRelatedObject>;
 }
@@ -710,7 +710,7 @@ export interface IncidentsApiGetIncidentRequest {
 export interface IncidentsApiListIncidentsRequest {
   /**
    * Specifies which types of related objects should be included in the response.
-   * @type Array&lt;IncidentRelatedObject&gt;
+   * @type Array<IncidentRelatedObject>
    */
   include?: Array<IncidentRelatedObject>;
   /**
@@ -738,7 +738,7 @@ export interface IncidentsApiUpdateIncidentRequest {
   body: IncidentUpdateRequest;
   /**
    * Specifies which types of related objects should be included in the response.
-   * @type Array&lt;IncidentRelatedObject&gt;
+   * @type Array<IncidentRelatedObject>
    */
   include?: Array<IncidentRelatedObject>;
 }

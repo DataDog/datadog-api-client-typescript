@@ -141,7 +141,7 @@ export class ServiceChecksApiResponseProcessor {
 export interface ServiceChecksApiSubmitServiceCheckRequest {
   /**
    * Service Check request body.
-   * @type Array&lt;ServiceCheck&gt;
+   * @type Array<ServiceCheck>
    */
   body: Array<ServiceCheck>;
 }

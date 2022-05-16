@@ -4988,7 +4988,7 @@ export interface UsageMeteringApiGetUsageLogsByIndexRequest {
   endHr?: Date;
   /**
    * Comma-separated list of log index names.
-   * @type Array&lt;string&gt;
+   * @type Array<string>
    */
   indexName?: Array<string>;
 }
@@ -5205,7 +5205,7 @@ export interface UsageMeteringApiGetUsageTopAvgMetricsRequest {
   day?: Date;
   /**
    * Comma-separated list of metric names.
-   * @type Array&lt;string&gt;
+   * @type Array<string>
    */
   names?: Array<string>;
   /**

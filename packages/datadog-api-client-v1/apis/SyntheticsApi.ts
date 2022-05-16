@@ -3001,7 +3001,7 @@ export interface SyntheticsApiGetAPITestLatestResultsRequest {
   toTs?: number;
   /**
    * Locations for which to query results.
-   * @type Array&lt;string&gt;
+   * @type Array<string>
    */
   probeDc?: Array<string>;
 }
@@ -3046,7 +3046,7 @@ export interface SyntheticsApiGetBrowserTestLatestResultsRequest {
   toTs?: number;
   /**
    * Locations for which to query results.
-   * @type Array&lt;string&gt;
+   * @type Array<string>
    */
   probeDc?: Array<string>;
 }

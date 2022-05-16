@@ -590,7 +590,7 @@ export interface LogsApiListLogsGetRequest {
 export interface LogsApiSubmitLogRequest {
   /**
    * Log to send (JSON format).
-   * @type Array&lt;HTTPLogItem&gt;
+   * @type Array<HTTPLogItem>
    */
   body: Array<HTTPLogItem>;
   /**

@@ -1227,7 +1227,7 @@ export class MonitorsApiResponseProcessor {
 export interface MonitorsApiCheckCanDeleteMonitorRequest {
   /**
    * The IDs of the monitor to check.
-   * @type Array&lt;number&gt;
+   * @type Array<number>
    */
   monitorIds: Array<number>;
 }
