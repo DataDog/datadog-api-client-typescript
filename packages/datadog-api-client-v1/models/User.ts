@@ -5,7 +5,7 @@
  */
 import { AccessRole } from "./AccessRole";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Create, edit, and disable users.

@@ -19,7 +19,7 @@ import { LogsTraceRemapper } from "./LogsTraceRemapper";
 import { LogsURLParser } from "./LogsURLParser";
 import { LogsUserAgentParser } from "./LogsUserAgentParser";
 
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * Definition of a logs processor.

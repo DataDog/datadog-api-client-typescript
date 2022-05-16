@@ -11,9 +11,9 @@ npm_name = "@datadog/datadog-api-client"
 
 
 @click.command()
-@click.option(
-    "-i",
-    "--input",
+@click.argument(
+    "specs",
+    nargs=-1,
     type=click.Path(exists=True, file_okay=True, dir_okay=False, path_type=pathlib.Path),
 )
 @click.option(
@@ -21,13 +21,10 @@ npm_name = "@datadog/datadog-api-client"
     "--output",
     type=click.Path(path_type=pathlib.Path),
 )
-def cli(input, output):
+def cli(specs, output):
     """
     Generate a Typescript code snippet from OpenAPI specification.
     """
-    spec = openapi.load(input)
-
-    version = input.parent.name
 
     env = Environment(loader=FileSystemLoader(str(pathlib.Path(__file__).parent / "templates")))
 
@@ -51,8 +48,6 @@ def cli(input, output):
     env.globals["package_name"] = package_name
     env.globals["npm_name"] = npm_name
     env.globals["enumerate"] = enumerate
-    env.globals["version"] = version
-    env.globals["openapi"] = spec
     env.globals["get_name"] = openapi.get_name
     env.globals["type_to_typescript"] = openapi.type_to_typescript
     env.globals["get_type_for_attribute"] = openapi.get_type_for_attribute
@@ -69,49 +64,62 @@ def cli(input, output):
 
     api_j2 = env.get_template("api/api.j2")
     model_j2 = env.get_template("model/model.j2")
-    configuration_j2 = env.get_template("configuration.j2")
-    servers_j2 = env.get_template("servers.j2")
 
     extra_files = {
-        "util.ts": env.get_template("util.j2"),
-        "apis/baseapi.ts": env.get_template("api/baseapi.j2"),
-        "apis/exception.ts": env.get_template("api/exception.j2"),
-        "auth/auth.ts": env.get_template("auth/auth.j2"),
         "models/ObjectSerializer.ts": env.get_template("model/ObjectSerializer.j2"),
-        "http/http.ts": env.get_template("http/http.j2"),
-        "http/isomorphic-fetch.ts": env.get_template("http/isomorphic-fetch.j2"),
         "index.ts": env.get_template("index.j2"),
     }
 
-    apis = openapi.apis(spec)
-    models = openapi.models(spec)
+    all_specs = {}
+    for spec_path in specs:
+        spec = openapi.load(spec_path)
 
-    package_path = output / f"{package_name}-{version}"
+        version = spec_path.parent.name
 
-    for name, model in models.items():
-        filename = name + ".ts"
-        model_path = package_path / "models" / filename
-        model_path.parent.mkdir(parents=True, exist_ok=True)
-        with model_path.open("w+") as fp:
-            fp.write(model_j2.render(name=name, model=model))
+        env.globals["version"] = version
+        env.globals["openapi"] = spec
 
-    for name, operations in apis.items():
-        filename = name.replace(" ", "") + "Api.ts"
-        api_path = package_path / "apis" / filename
-        api_path.parent.mkdir(parents=True, exist_ok=True)
-        with api_path.open("w+") as fp:
-            fp.write(api_j2.render(name=name, operations=operations, models=models))
+        all_specs[version] = spec
 
-    for name, template in extra_files.items():
-        filename = package_path / name
+        apis = openapi.apis(spec)
+        models = openapi.models(spec)
+
+        package_path = output / f"{package_name}-{version}"
+
+        for name, model in models.items():
+            filename = name + ".ts"
+            model_path = package_path / "models" / filename
+            model_path.parent.mkdir(parents=True, exist_ok=True)
+            with model_path.open("w+") as fp:
+                fp.write(model_j2.render(name=name, model=model))
+
+        for name, operations in apis.items():
+            filename = name.replace(" ", "") + "Api.ts"
+            api_path = package_path / "apis" / filename
+            api_path.parent.mkdir(parents=True, exist_ok=True)
+            with api_path.open("w+") as fp:
+                fp.write(api_j2.render(name=name, operations=operations, models=models))
+
+        for name, template in extra_files.items():
+            filename = package_path / name
+            filename.parent.mkdir(parents=True, exist_ok=True)
+            with filename.open("w+") as fp:
+                fp.write(template.render(apis=apis, models=models))
+
+    common_files = {
+        "util.ts": env.get_template("util.j2"),
+        "baseapi.ts": env.get_template("api/baseapi.j2"),
+        "exception.ts": env.get_template("api/exception.j2"),
+        "auth.ts": env.get_template("auth/auth.j2"),
+        "http/http.ts": env.get_template("http/http.j2"),
+        "http/isomorphic-fetch.ts": env.get_template("http/isomorphic-fetch.j2"),
+        "servers.ts": env.get_template("servers.j2"),
+        "configuration.ts": env.get_template("configuration.j2"),
+        "index.ts": env.get_template("common_index.j2"),
+    }
+
+    for name, template in common_files.items():
+        filename = output / "datadog-api-client-common" / name
         filename.parent.mkdir(parents=True, exist_ok=True)
         with filename.open("w+") as fp:
-            fp.write(template.render(apis=apis, models=models))
-
-    configuration_path = package_path / "configuration.ts"
-    with configuration_path.open("w+") as fp:
-        fp.write(configuration_j2.render())
-
-    servers_path = package_path / "servers.ts"
-    with servers_path.open("w+") as fp:
-        fp.write(servers_j2.render(apis=apis, operations=operations))
+            fp.write(template.render())

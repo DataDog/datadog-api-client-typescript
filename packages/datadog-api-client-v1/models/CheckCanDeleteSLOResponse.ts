@@ -5,7 +5,7 @@
  */
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective response containing the requested object.

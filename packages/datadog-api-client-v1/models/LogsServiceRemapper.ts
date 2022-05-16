@@ -5,7 +5,7 @@
  */
 import { LogsServiceRemapperType } from "./LogsServiceRemapperType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Use this processor if you want to assign one or more attributes as the official service.

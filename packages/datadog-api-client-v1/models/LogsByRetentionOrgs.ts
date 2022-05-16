@@ -5,7 +5,7 @@
  */
 import { LogsByRetentionOrgUsage } from "./LogsByRetentionOrgUsage";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Indexed logs usage summary for each organization for each retention period with usage.

@@ -5,7 +5,7 @@
  */
 import { SyntheticsCITest } from "./SyntheticsCITest";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the synthetics tests to trigger.

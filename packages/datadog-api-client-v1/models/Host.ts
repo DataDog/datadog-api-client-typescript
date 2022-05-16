@@ -6,7 +6,7 @@
 import { HostMeta } from "./HostMeta";
 import { HostMetrics } from "./HostMetrics";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object representing a host.

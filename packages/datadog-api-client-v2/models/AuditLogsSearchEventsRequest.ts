@@ -8,7 +8,7 @@ import { AuditLogsQueryOptions } from "./AuditLogsQueryOptions";
 import { AuditLogsQueryPageOptions } from "./AuditLogsQueryPageOptions";
 import { AuditLogsSort } from "./AuditLogsSort";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The request for a Audit Logs events list.

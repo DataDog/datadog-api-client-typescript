@@ -5,7 +5,7 @@
  */
 import { ServiceCheckStatus } from "./ServiceCheckStatus";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An object containing service check and status.

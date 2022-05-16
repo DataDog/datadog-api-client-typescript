@@ -5,7 +5,7 @@
  */
 import { UsageBillableSummaryBody } from "./UsageBillableSummaryBody";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response with aggregated usage types.

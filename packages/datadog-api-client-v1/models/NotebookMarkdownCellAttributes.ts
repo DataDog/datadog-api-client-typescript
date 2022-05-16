@@ -5,7 +5,7 @@
  */
 import { NotebookMarkdownCellDefinition } from "./NotebookMarkdownCellDefinition";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a notebook `markdown` cell.

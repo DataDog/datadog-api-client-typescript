@@ -5,7 +5,7 @@
  */
 import { LogsStringBuilderProcessorType } from "./LogsStringBuilderProcessorType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Use the string builder processor to add a new attribute (without spaces or special characters)

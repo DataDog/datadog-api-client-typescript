@@ -7,7 +7,7 @@ import { IncidentType } from "./IncidentType";
 import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Incident data for an update request.

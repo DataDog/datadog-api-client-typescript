@@ -6,7 +6,7 @@
 import { ApmStatsQueryColumnType } from "./ApmStatsQueryColumnType";
 import { ApmStatsQueryRowType } from "./ApmStatsQueryRowType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The APM stats query for table and distributions widgets.

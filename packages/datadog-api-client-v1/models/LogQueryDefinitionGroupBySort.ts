@@ -5,7 +5,7 @@
  */
 import { WidgetSort } from "./WidgetSort";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Define a sorting method.

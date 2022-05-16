@@ -5,7 +5,7 @@
  */
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to start or pause an existing Synthetic test.

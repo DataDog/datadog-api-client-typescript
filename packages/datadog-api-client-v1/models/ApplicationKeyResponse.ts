@@ -5,7 +5,7 @@
  */
 import { ApplicationKey } from "./ApplicationKey";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An application key response.

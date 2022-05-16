@@ -6,7 +6,7 @@
 import { RUMEventAttributes } from "./RUMEventAttributes";
 import { RUMEventType } from "./RUMEventType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object description of a RUM event after being processed and stored by Datadog.

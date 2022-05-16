@@ -6,7 +6,7 @@
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
 import { LogsCategoryProcessorType } from "./LogsCategoryProcessorType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Use the Category Processor to add a new attribute (without spaces or special characters in the new attribute name)

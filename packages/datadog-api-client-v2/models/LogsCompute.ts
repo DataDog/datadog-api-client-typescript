@@ -6,7 +6,7 @@
 import { LogsAggregationFunction } from "./LogsAggregationFunction";
 import { LogsComputeType } from "./LogsComputeType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A compute rule to compute metrics or timeseries

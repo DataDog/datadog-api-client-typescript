@@ -10,7 +10,7 @@ import {
   configureAuthMethods,
   AuthMethods,
   AuthMethodsConfiguration,
-} from "./auth/auth";
+} from "./auth";
 
 export interface Configuration {
   readonly baseServer?: BaseServerConfiguration;
@@ -103,14 +103,23 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
-      getDailyCustomReports: false,
-      getSpecifiedDailyCustomReports: false,
-      getMonthlyCustomReports: false,
-      getSpecifiedMonthlyCustomReports: false,
-      getSLOHistory: false,
-      getUsageAttribution: false,
-      getHourlyUsageAttribution: false,
-      getMonthlyUsageAttribution: false,
+      createIncident: false,
+      listIncidents: false,
+      deleteIncident: false,
+      getIncident: false,
+      updateIncident: false,
+      listSecurityMonitoringSignals: false,
+      searchSecurityMonitoringSignals: false,
+      createIncidentService: false,
+      listIncidentServices: false,
+      deleteIncidentService: false,
+      getIncidentService: false,
+      updateIncidentService: false,
+      createIncidentTeam: false,
+      listIncidentTeams: false,
+      deleteIncidentTeam: false,
+      getIncidentTeam: false,
+      updateIncidentTeam: false,
     },
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
     authMethods: configureAuthMethods(authMethods),

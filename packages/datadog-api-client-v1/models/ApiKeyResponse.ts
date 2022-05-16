@@ -5,7 +5,7 @@
  */
 import { ApiKey } from "./ApiKey";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An API key with its associated metadata.

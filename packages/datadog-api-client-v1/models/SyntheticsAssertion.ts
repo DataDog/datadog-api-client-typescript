@@ -6,7 +6,7 @@
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the assertions type, their associated operator,

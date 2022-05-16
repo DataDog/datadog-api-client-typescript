@@ -5,7 +5,7 @@
  */
 import { UsageIndexedSpansHour } from "./UsageIndexedSpansHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A response containing indexed spans usage.

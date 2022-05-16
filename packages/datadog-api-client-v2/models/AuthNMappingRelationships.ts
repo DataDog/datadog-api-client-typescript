@@ -6,7 +6,7 @@
 import { RelationshipToRole } from "./RelationshipToRole";
 import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * All relationships associated with AuthN Mapping.

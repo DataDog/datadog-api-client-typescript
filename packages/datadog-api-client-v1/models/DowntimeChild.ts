@@ -5,7 +5,7 @@
  */
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The downtime object definition of the active child for the original parent recurring downtime. This

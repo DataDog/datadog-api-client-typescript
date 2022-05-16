@@ -5,7 +5,7 @@
  */
 import { SunburstWidgetLegendTableType } from "./SunburstWidgetLegendTableType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration of table-based legend.

@@ -1,7 +1,7 @@
 import { HttpLibrary, HttpConfiguration, RequestContext } from "./http/http";
 import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch";
 import { BaseServerConfiguration, server1, servers, operationServers } from "./servers";
-import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth/auth";
+import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth";
 
 export interface Configuration {
   readonly baseServer?: BaseServerConfiguration;

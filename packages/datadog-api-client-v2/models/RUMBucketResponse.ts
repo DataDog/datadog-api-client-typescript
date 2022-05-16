@@ -5,7 +5,7 @@
  */
 import { RUMAggregateBucketValue } from "./RUMAggregateBucketValue";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Bucket values.

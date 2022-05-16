@@ -6,7 +6,7 @@
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageTimeSeriesType } from "./UsageTimeSeriesType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Usage data.

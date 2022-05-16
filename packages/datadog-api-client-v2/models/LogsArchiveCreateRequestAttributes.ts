@@ -5,7 +5,7 @@
  */
 import { LogsArchiveCreateRequestDestination } from "./LogsArchiveCreateRequestDestination";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes associated with the archive.

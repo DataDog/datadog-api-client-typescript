@@ -5,7 +5,7 @@
  */
 import { AWSLogsAsyncError } from "./AWSLogsAsyncError";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A list of all Datadog-AWS logs integrations available in your Datadog organization.

@@ -6,7 +6,7 @@
 import { RUMAggregationFunction } from "./RUMAggregationFunction";
 import { RUMComputeType } from "./RUMComputeType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A compute rule to compute metrics or timeseries.

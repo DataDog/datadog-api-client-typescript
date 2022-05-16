@@ -5,7 +5,7 @@
  */
 import { UsageCIVisibilityHour } from "./UsageCIVisibilityHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * CI visibility usage response

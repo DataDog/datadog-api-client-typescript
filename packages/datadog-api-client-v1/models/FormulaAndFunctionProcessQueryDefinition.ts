@@ -7,7 +7,7 @@ import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricA
 import { FormulaAndFunctionProcessQueryDataSource } from "./FormulaAndFunctionProcessQueryDataSource";
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Process query using formulas and functions.

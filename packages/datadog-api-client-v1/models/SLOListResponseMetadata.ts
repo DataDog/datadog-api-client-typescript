@@ -5,7 +5,7 @@
  */
 import { SLOListResponseMetadataPage } from "./SLOListResponseMetadataPage";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata object containing additional information about the list of SLOs.

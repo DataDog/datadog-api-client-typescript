@@ -5,7 +5,7 @@
  */
 import { Event } from "./Event";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An event list response.

@@ -5,7 +5,7 @@
  */
 import { LogsMetricResponseData } from "./LogsMetricResponseData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * All the available log-based metric objects.

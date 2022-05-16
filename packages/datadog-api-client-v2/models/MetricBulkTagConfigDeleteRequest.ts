@@ -5,7 +5,7 @@
  */
 import { MetricBulkTagConfigDelete } from "./MetricBulkTagConfigDelete";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Wrapper object for a single bulk tag deletion request.
