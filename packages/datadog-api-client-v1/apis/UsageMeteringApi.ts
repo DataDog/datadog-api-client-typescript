@@ -73,7 +73,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getDailyCustomReports'");
-    if (!_config.unstableOperations["getDailyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getDailyCustomReports"]) {
       throw new Error("Unstable operation 'getDailyCustomReports' is disabled");
     }
 
@@ -139,7 +139,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getHourlyUsageAttribution'");
-    if (!_config.unstableOperations["getHourlyUsageAttribution"]) {
+    if (!_config.unstableOperations["v1.getHourlyUsageAttribution"]) {
       throw new Error(
         "Unstable operation 'getHourlyUsageAttribution' is disabled"
       );
@@ -339,7 +339,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getMonthlyCustomReports'");
-    if (!_config.unstableOperations["getMonthlyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getMonthlyCustomReports"]) {
       throw new Error(
         "Unstable operation 'getMonthlyCustomReports' is disabled"
       );
@@ -409,7 +409,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getMonthlyUsageAttribution'");
-    if (!_config.unstableOperations["getMonthlyUsageAttribution"]) {
+    if (!_config.unstableOperations["v1.getMonthlyUsageAttribution"]) {
       throw new Error(
         "Unstable operation 'getMonthlyUsageAttribution' is disabled"
       );
@@ -518,7 +518,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSpecifiedDailyCustomReports'");
-    if (!_config.unstableOperations["getSpecifiedDailyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getSpecifiedDailyCustomReports"]) {
       throw new Error(
         "Unstable operation 'getSpecifiedDailyCustomReports' is disabled"
       );
@@ -565,7 +565,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSpecifiedMonthlyCustomReports'");
-    if (!_config.unstableOperations["getSpecifiedMonthlyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getSpecifiedMonthlyCustomReports"]) {
       throw new Error(
         "Unstable operation 'getSpecifiedMonthlyCustomReports' is disabled"
       );
@@ -671,7 +671,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getUsageAttribution'");
-    if (!_config.unstableOperations["getUsageAttribution"]) {
+    if (!_config.unstableOperations["v1.getUsageAttribution"]) {
       throw new Error("Unstable operation 'getUsageAttribution' is disabled");
     }
 

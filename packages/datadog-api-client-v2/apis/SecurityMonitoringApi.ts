@@ -360,7 +360,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listSecurityMonitoringSignals'");
-    if (!_config.unstableOperations["listSecurityMonitoringSignals"]) {
+    if (!_config.unstableOperations["v2.listSecurityMonitoringSignals"]) {
       throw new Error(
         "Unstable operation 'listSecurityMonitoringSignals' is disabled"
       );
@@ -432,7 +432,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'searchSecurityMonitoringSignals'");
-    if (!_config.unstableOperations["searchSecurityMonitoringSignals"]) {
+    if (!_config.unstableOperations["v2.searchSecurityMonitoringSignals"]) {
       throw new Error(
         "Unstable operation 'searchSecurityMonitoringSignals' is disabled"
       );

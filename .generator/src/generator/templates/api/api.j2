@@ -38,7 +38,7 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
     {%- if "x-unstable" in operation %}
 
     logger.warn("Using unstable operation '{{ operationId }}'");
-    if (!_config.unstableOperations['{{ operationId }}']) {
+    if (!_config.unstableOperations['{{ version }}.{{ operationId }}']) {
       throw new Error("Unstable operation '{{ operationId }}' is disabled");
     }
     {%- endif %}

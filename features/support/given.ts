@@ -61,8 +61,8 @@ for (const apiVersion of Versions) {
         (configurationOpts as any)["serverIndex"] = 1;
       }
       const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
-      if (operationName in configuration.unstableOperations) {
-        configuration.unstableOperations[operationName] = true;
+      if (`${apiVersion}.${operationName}` in configuration.unstableOperations) {
+        configuration.unstableOperations[`${apiVersion}.${operationName}`] = true;
       }
       const apiInstance = new (api as any)[`${apiName}Api`](configuration);
 

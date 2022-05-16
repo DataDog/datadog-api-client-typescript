@@ -71,6 +71,7 @@ def cli(specs, output):
     }
 
     all_specs = {}
+    all_apis = {}
     for spec_path in specs:
         spec = openapi.load(spec_path)
 
@@ -83,6 +84,8 @@ def cli(specs, output):
 
         apis = openapi.apis(spec)
         models = openapi.models(spec)
+
+        all_apis[version] = apis
 
         package_path = output / f"{package_name}-{version}"
 
@@ -122,4 +125,4 @@ def cli(specs, output):
         filename = output / "datadog-api-client-common" / name
         filename.parent.mkdir(parents=True, exist_ok=True)
         with filename.open("w+") as fp:
-            fp.write(template.render())
+            fp.write(template.render(apis=all_apis))

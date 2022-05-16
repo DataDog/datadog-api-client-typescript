@@ -33,7 +33,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createIncidentTeam'");
-    if (!_config.unstableOperations["createIncidentTeam"]) {
+    if (!_config.unstableOperations["v2.createIncidentTeam"]) {
       throw new Error("Unstable operation 'createIncidentTeam' is disabled");
     }
 
@@ -83,7 +83,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteIncidentTeam'");
-    if (!_config.unstableOperations["deleteIncidentTeam"]) {
+    if (!_config.unstableOperations["v2.deleteIncidentTeam"]) {
       throw new Error("Unstable operation 'deleteIncidentTeam' is disabled");
     }
 
@@ -126,7 +126,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getIncidentTeam'");
-    if (!_config.unstableOperations["getIncidentTeam"]) {
+    if (!_config.unstableOperations["v2.getIncidentTeam"]) {
       throw new Error("Unstable operation 'getIncidentTeam' is disabled");
     }
 
@@ -179,7 +179,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listIncidentTeams'");
-    if (!_config.unstableOperations["listIncidentTeams"]) {
+    if (!_config.unstableOperations["v2.listIncidentTeams"]) {
       throw new Error("Unstable operation 'listIncidentTeams' is disabled");
     }
 
@@ -238,7 +238,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateIncidentTeam'");
-    if (!_config.unstableOperations["updateIncidentTeam"]) {
+    if (!_config.unstableOperations["v2.updateIncidentTeam"]) {
       throw new Error("Unstable operation 'updateIncidentTeam' is disabled");
     }
 

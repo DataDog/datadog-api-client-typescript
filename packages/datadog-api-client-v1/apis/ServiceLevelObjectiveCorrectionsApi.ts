@@ -30,6 +30,20 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+<<<<<<< HEAD
+||||||| parent of f90afcbfc (Fix unstable)
+    logger.warn("Using unstable operation 'createSLOCorrection'");
+    if (!_config.unstableOperations["createSLOCorrection"]) {
+      throw new Error("Unstable operation 'createSLOCorrection' is disabled");
+    }
+
+=======
+    logger.warn("Using unstable operation 'createSLOCorrection'");
+    if (!_config.unstableOperations["v1.createSLOCorrection"]) {
+      throw new Error("Unstable operation 'createSLOCorrection' is disabled");
+    }
+
+>>>>>>> f90afcbfc (Fix unstable)
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError(
@@ -74,6 +88,20 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+<<<<<<< HEAD
+||||||| parent of f90afcbfc (Fix unstable)
+    logger.warn("Using unstable operation 'deleteSLOCorrection'");
+    if (!_config.unstableOperations["deleteSLOCorrection"]) {
+      throw new Error("Unstable operation 'deleteSLOCorrection' is disabled");
+    }
+
+=======
+    logger.warn("Using unstable operation 'deleteSLOCorrection'");
+    if (!_config.unstableOperations["v1.deleteSLOCorrection"]) {
+      throw new Error("Unstable operation 'deleteSLOCorrection' is disabled");
+    }
+
+>>>>>>> f90afcbfc (Fix unstable)
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
       throw new RequiredError(
@@ -110,6 +138,20 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+<<<<<<< HEAD
+||||||| parent of f90afcbfc (Fix unstable)
+    logger.warn("Using unstable operation 'getSLOCorrection'");
+    if (!_config.unstableOperations["getSLOCorrection"]) {
+      throw new Error("Unstable operation 'getSLOCorrection' is disabled");
+    }
+
+=======
+    logger.warn("Using unstable operation 'getSLOCorrection'");
+    if (!_config.unstableOperations["v1.getSLOCorrection"]) {
+      throw new Error("Unstable operation 'getSLOCorrection' is disabled");
+    }
+
+>>>>>>> f90afcbfc (Fix unstable)
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
       throw new RequiredError(
@@ -145,6 +187,20 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+<<<<<<< HEAD
+||||||| parent of f90afcbfc (Fix unstable)
+    logger.warn("Using unstable operation 'listSLOCorrection'");
+    if (!_config.unstableOperations["listSLOCorrection"]) {
+      throw new Error("Unstable operation 'listSLOCorrection' is disabled");
+    }
+
+=======
+    logger.warn("Using unstable operation 'listSLOCorrection'");
+    if (!_config.unstableOperations["v1.listSLOCorrection"]) {
+      throw new Error("Unstable operation 'listSLOCorrection' is disabled");
+    }
+
+>>>>>>> f90afcbfc (Fix unstable)
     // Path Params
     const localVarPath = "/api/v1/slo/correction";
 
@@ -172,6 +228,20 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+<<<<<<< HEAD
+||||||| parent of f90afcbfc (Fix unstable)
+    logger.warn("Using unstable operation 'updateSLOCorrection'");
+    if (!_config.unstableOperations["updateSLOCorrection"]) {
+      throw new Error("Unstable operation 'updateSLOCorrection' is disabled");
+    }
+
+=======
+    logger.warn("Using unstable operation 'updateSLOCorrection'");
+    if (!_config.unstableOperations["v1.updateSLOCorrection"]) {
+      throw new Error("Unstable operation 'updateSLOCorrection' is disabled");
+    }
+
+>>>>>>> f90afcbfc (Fix unstable)
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
       throw new RequiredError(

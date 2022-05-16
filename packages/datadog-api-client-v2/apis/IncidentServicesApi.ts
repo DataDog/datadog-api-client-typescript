@@ -33,7 +33,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createIncidentService'");
-    if (!_config.unstableOperations["createIncidentService"]) {
+    if (!_config.unstableOperations["v2.createIncidentService"]) {
       throw new Error("Unstable operation 'createIncidentService' is disabled");
     }
 
@@ -83,7 +83,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteIncidentService'");
-    if (!_config.unstableOperations["deleteIncidentService"]) {
+    if (!_config.unstableOperations["v2.deleteIncidentService"]) {
       throw new Error("Unstable operation 'deleteIncidentService' is disabled");
     }
 
@@ -126,7 +126,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getIncidentService'");
-    if (!_config.unstableOperations["getIncidentService"]) {
+    if (!_config.unstableOperations["v2.getIncidentService"]) {
       throw new Error("Unstable operation 'getIncidentService' is disabled");
     }
 
@@ -179,7 +179,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listIncidentServices'");
-    if (!_config.unstableOperations["listIncidentServices"]) {
+    if (!_config.unstableOperations["v2.listIncidentServices"]) {
       throw new Error("Unstable operation 'listIncidentServices' is disabled");
     }
 
@@ -238,7 +238,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateIncidentService'");
-    if (!_config.unstableOperations["updateIncidentService"]) {
+    if (!_config.unstableOperations["v2.updateIncidentService"]) {
       throw new Error("Unstable operation 'updateIncidentService' is disabled");
     }
 

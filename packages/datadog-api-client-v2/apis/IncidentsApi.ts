@@ -34,7 +34,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createIncident'");
-    if (!_config.unstableOperations["createIncident"]) {
+    if (!_config.unstableOperations["v2.createIncident"]) {
       throw new Error("Unstable operation 'createIncident' is disabled");
     }
 
@@ -84,7 +84,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteIncident'");
-    if (!_config.unstableOperations["deleteIncident"]) {
+    if (!_config.unstableOperations["v2.deleteIncident"]) {
       throw new Error("Unstable operation 'deleteIncident' is disabled");
     }
 
@@ -127,7 +127,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getIncident'");
-    if (!_config.unstableOperations["getIncident"]) {
+    if (!_config.unstableOperations["v2.getIncident"]) {
       throw new Error("Unstable operation 'getIncident' is disabled");
     }
 
@@ -179,7 +179,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listIncidents'");
-    if (!_config.unstableOperations["listIncidents"]) {
+    if (!_config.unstableOperations["v2.listIncidents"]) {
       throw new Error("Unstable operation 'listIncidents' is disabled");
     }
 
@@ -233,7 +233,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateIncident'");
-    if (!_config.unstableOperations["updateIncident"]) {
+    if (!_config.unstableOperations["v2.updateIncident"]) {
       throw new Error("Unstable operation 'updateIncident' is disabled");
     }
 

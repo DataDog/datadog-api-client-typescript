@@ -91,8 +91,8 @@ When("the request is sent", async function (this: World) {
   }
   const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    if (operationId in configuration.unstableOperations) {
-      configuration.unstableOperations[this.apiVersion + "." + operationId] = this.unstableOperations[operationId];
+    if (`${this.apiVersion}.${operationId}` in configuration.unstableOperations) {
+      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] = this.unstableOperations[operationId];
     } else {
       // FIXME throw new Error(`Operation ${operationId} is not unstable`);
       logger.warn(`Operation ${operationId} is not unstable`);
@@ -165,8 +165,8 @@ When("the request with pagination is sent", async function (this: World) {
   }
   const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    if (operationId in configuration.unstableOperations) {
-      configuration.unstableOperations[operationId] = this.unstableOperations[operationId];
+    if (`${this.apiVersion}.${operationId}` in configuration.unstableOperations) {
+      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] = this.unstableOperations[operationId];
     } else {
       // FIXME throw new Error(`Operation ${operationId} is not unstable`);
       logger.warn(`Operation ${operationId} is not unstable`);
