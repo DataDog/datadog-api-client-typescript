@@ -386,10 +386,11 @@ def format_data_with_schema_dict(
     return f"{{\n{parameters}}}"
 
 
-def docstring(text):
+def docstring(text, indent=3):
     if not text:
         return ""
-    return "\n".join("   * {}".format(line) for line in text.splitlines())
+    blank = " " * indent
+    return "\n".join("{}* {}".format(blank, line) for line in text.splitlines())
 
 
 def simple_type(schema):

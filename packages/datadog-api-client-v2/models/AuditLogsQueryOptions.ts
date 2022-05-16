@@ -7,7 +7,8 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * Global query options that are used during the query. Note: Specify either timezone or time offset, not both. Otherwise, the query fails.
+ * Global query options that are used during the query.
+ * Note: Specify either timezone or time offset, not both. Otherwise, the query fails.
  */
 export class AuditLogsQueryOptions {
   /**

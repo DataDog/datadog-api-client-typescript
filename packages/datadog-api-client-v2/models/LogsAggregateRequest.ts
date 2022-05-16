@@ -28,7 +28,8 @@ export class LogsAggregateRequest {
    */
   "groupBy"?: Array<LogsGroupBy>;
   /**
-   * Global query options that are used during the query. Note: You should only supply timezone or time offset but not both otherwise the query will fail.
+   * Global query options that are used during the query.
+   * Note: You should only supply timezone or time offset but not both otherwise the query will fail.
    */
   "options"?: LogsQueryOptions;
   /**

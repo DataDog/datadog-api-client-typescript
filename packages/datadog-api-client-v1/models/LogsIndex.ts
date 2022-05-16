@@ -17,7 +17,9 @@ export class LogsIndex {
    */
   "dailyLimit"?: number;
   /**
-   * An array of exclusion objects. The logs are tested against the query of each filter, following the order of the array. Only the first matching active exclusion matters, others (if any) are ignored.
+   * An array of exclusion objects. The logs are tested against the query of each filter,
+   * following the order of the array. Only the first matching active exclusion matters,
+   * others (if any) are ignored.
    */
   "exclusionFilters"?: Array<LogsExclusion>;
   /**
@@ -25,7 +27,8 @@ export class LogsIndex {
    */
   "filter": LogsFilter;
   /**
-   * A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent. Rate limit is reset every-day at 2pm UTC.
+   * A boolean stating if the index is rate limited, meaning more logs than the daily limit have been sent.
+   * Rate limit is reset every-day at 2pm UTC.
    */
   "isRateLimited"?: boolean;
   /**
@@ -33,7 +36,8 @@ export class LogsIndex {
    */
   "name": string;
   /**
-   * The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.
+   * The number of days before logs are deleted from this index. Available values depend on
+   * retention plans specified in your organization's contract/subscriptions.
    */
   "numRetentionDays"?: number;
 

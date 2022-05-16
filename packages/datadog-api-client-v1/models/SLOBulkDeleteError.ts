@@ -12,7 +12,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class SLOBulkDeleteError {
   /**
-   * The ID of the service level objective object associated with this error.
+   * The ID of the service level objective object associated with
+   * this error.
    */
   "id": string;
   /**
@@ -20,7 +21,8 @@ export class SLOBulkDeleteError {
    */
   "message": string;
   /**
-   * The timeframe of the threshold associated with this error or "all" if all thresholds are affected.
+   * The timeframe of the threshold associated with this error
+   * or "all" if all thresholds are affected.
    */
   "timeframe": SLOErrorTimeframe;
 

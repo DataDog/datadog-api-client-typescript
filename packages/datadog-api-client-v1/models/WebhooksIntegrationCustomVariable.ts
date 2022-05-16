@@ -11,7 +11,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class WebhooksIntegrationCustomVariable {
   /**
-   * Make custom variable is secret or not. If the custom variable is secret, the value is not returned in the response payload.
+   * Make custom variable is secret or not.
+   * If the custom variable is secret, the value is not returned in the response payload.
    */
   "isSecret": boolean;
   /**

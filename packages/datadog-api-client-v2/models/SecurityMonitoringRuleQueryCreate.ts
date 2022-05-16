@@ -24,7 +24,8 @@ export class SecurityMonitoringRuleQueryCreate {
    */
   "groupByFields"?: Array<string>;
   /**
-   * The target field to aggregate over when using the sum or max aggregations.
+   * The target field to aggregate over when using the sum or max
+   * aggregations.
    */
   "metric"?: string;
   /**

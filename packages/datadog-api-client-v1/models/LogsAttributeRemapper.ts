@@ -9,7 +9,9 @@ import { TargetFormatType } from "./TargetFormatType";
 import { AttributeTypeMap } from "../util";
 
 /**
- * The remapper processor remaps any source attribute(s) or tag to another target attribute or tag. Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice). Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.
+ * The remapper processor remaps any source attribute(s) or tag to another target attribute or tag.
+ * Constraints on the tag/attribute name are explained in the [Tag Best Practice documentation](https://docs.datadoghq.com/logs/guide/log-parsing-best-practice).
+ * Some additional constraints are applied as `:` or `,` are not allowed in the target tag/attribute name.
  */
 export class LogsAttributeRemapper {
   /**
@@ -41,7 +43,9 @@ export class LogsAttributeRemapper {
    */
   "target": string;
   /**
-   * If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type. If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types. If the `target_type` is `tag`, this parameter may not be specified.
+   * If the `target_type` of the remapper is `attribute`, try to cast the value to a new specific type.
+   * If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
+   * If the `target_type` is `tag`, this parameter may not be specified.
    */
   "targetFormat"?: TargetFormatType;
   /**

@@ -38,7 +38,10 @@ export class SyntheticsAPITestResultFull {
    */
   "resultId"?: string;
   /**
-   * The status of your Synthetic monitor. * `O` for not triggered * `1` for triggered * `2` for no data
+   * The status of your Synthetic monitor.
+   * * `O` for not triggered
+   * * `1` for triggered
+   * * `2` for no data
    */
   "status"?: SyntheticsTestMonitorStatus;
 

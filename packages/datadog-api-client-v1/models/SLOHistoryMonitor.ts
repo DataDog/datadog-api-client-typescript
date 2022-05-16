@@ -8,7 +8,8 @@ import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithTy
 import { AttributeTypeMap } from "../util";
 
 /**
- * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value. This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
+ * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value.
+ * This can also represent the SLI value for a specific monitor in multi-monitor SLOs, or a group in grouped SLOs.
  */
 export class SLOHistoryMonitor {
   /**
@@ -44,7 +45,8 @@ export class SLOHistoryMonitor {
    */
   "precision"?: number;
   /**
-   * For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime calculation.
+   * For `monitor` based SLOs, when `true` this indicates that a replay is in progress to give an accurate uptime
+   * calculation.
    */
   "preview"?: boolean;
   /**

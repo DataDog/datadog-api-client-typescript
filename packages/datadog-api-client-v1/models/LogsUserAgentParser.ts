@@ -8,7 +8,8 @@ import { LogsUserAgentParserType } from "./LogsUserAgentParserType";
 import { AttributeTypeMap } from "../util";
 
 /**
- * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data. It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
+ * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data.
+ * It recognizes major bots like the Google Bot, Yahoo Slurp, and Bing.
  */
 export class LogsUserAgentParser {
   /**

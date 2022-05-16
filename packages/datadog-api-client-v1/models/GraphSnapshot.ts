@@ -11,7 +11,9 @@ import { AttributeTypeMap } from "../util";
  */
 export class GraphSnapshot {
   /**
-   * A JSON document defining the graph. `graph_def` can be used instead of `metric_query`. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
+   * A JSON document defining the graph. `graph_def` can be used instead of `metric_query`.
+   * The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)
+   * and should be formatted to a single line then URL encoded.
    */
   "graphDef"?: string;
   /**

@@ -19,7 +19,8 @@ export class RUMSearchEventsRequest {
    */
   "filter"?: RUMQueryFilter;
   /**
-   * Global query options that are used during the query. Note: Only supply timezone or time offset, not both. Otherwise, the query fails.
+   * Global query options that are used during the query.
+   * Note: Only supply timezone or time offset, not both. Otherwise, the query fails.
    */
   "options"?: RUMQueryOptions;
   /**

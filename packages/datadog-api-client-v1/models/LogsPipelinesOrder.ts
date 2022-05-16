@@ -11,7 +11,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class LogsPipelinesOrder {
   /**
-   * Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array define the overall Pipelines order for Datadog.
+   * Ordered Array of `<PIPELINE_ID>` strings, the order of pipeline IDs in the array
+   * define the overall Pipelines order for Datadog.
    */
   "pipelineIds": Array<string>;
 

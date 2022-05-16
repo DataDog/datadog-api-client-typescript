@@ -12,7 +12,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class MonitorState {
   /**
-   * Dictionary where the keys are groups (comma separated lists of tags) and the values are the list of groups your monitor is broken down on.
+   * Dictionary where the keys are groups (comma separated lists of tags) and the values are
+   * the list of groups your monitor is broken down on.
    */
   "groups"?: { [key: string]: MonitorStateGroup };
 

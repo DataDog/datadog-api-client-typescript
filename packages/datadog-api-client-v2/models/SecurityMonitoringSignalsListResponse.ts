@@ -10,7 +10,8 @@ import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringS
 import { AttributeTypeMap } from "../util";
 
 /**
- * The response object with all security signals matching the request and pagination information.
+ * The response object with all security signals matching the request
+ * and pagination information.
  */
 export class SecurityMonitoringSignalsListResponse {
   /**

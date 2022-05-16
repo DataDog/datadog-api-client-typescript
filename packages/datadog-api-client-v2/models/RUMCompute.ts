@@ -17,7 +17,8 @@ export class RUMCompute {
    */
   "aggregation": RUMAggregationFunction;
   /**
-   * The time buckets' size (only used for type=timeseries) Defaults to a resolution of 150 points.
+   * The time buckets' size (only used for type=timeseries)
+   * Defaults to a resolution of 150 points.
    */
   "interval"?: string;
   /**

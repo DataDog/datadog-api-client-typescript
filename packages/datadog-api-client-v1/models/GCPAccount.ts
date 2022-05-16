@@ -31,7 +31,8 @@ export class GCPAccount {
    */
   "clientId"?: string;
   /**
-   * Should be `https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL` where `$CLIENT_EMAIL` is the email found in your JSON service account key.
+   * Should be `https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL`
+   * where `$CLIENT_EMAIL` is the email found in your JSON service account key.
    */
   "clientX509CertUrl"?: string;
   /**
@@ -39,7 +40,8 @@ export class GCPAccount {
    */
   "errors"?: Array<string>;
   /**
-   * Limit the GCE instances that are pulled into Datadog by using tags. Only hosts that match one of the defined tags are imported into Datadog.
+   * Limit the GCE instances that are pulled into Datadog by using tags.
+   * Only hosts that match one of the defined tags are imported into Datadog.
    */
   "hostFilters"?: string;
   /**

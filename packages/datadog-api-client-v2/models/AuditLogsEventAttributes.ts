@@ -15,7 +15,9 @@ export class AuditLogsEventAttributes {
    */
   "attributes"?: { [key: string]: any };
   /**
-   * Name of the application or service generating Audit Logs events. This name is used to correlate Audit Logs to APM, so make sure you specify the same value when you use both products.
+   * Name of the application or service generating Audit Logs events.
+   * This name is used to correlate Audit Logs to APM, so make sure you specify the same
+   * value when you use both products.
    */
   "service"?: string;
   /**

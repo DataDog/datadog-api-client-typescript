@@ -58,7 +58,8 @@ export class SyntheticsBrowserTestResultData {
    */
   "thumbnailsBucketKey"?: boolean;
   /**
-   * Time in second to wait before the browser test starts after reaching the start URL.
+   * Time in second to wait before the browser test starts after
+   * reaching the start URL.
    */
   "timeToInteractive"?: number;
 

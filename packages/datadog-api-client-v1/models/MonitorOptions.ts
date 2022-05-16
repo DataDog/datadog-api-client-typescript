@@ -29,11 +29,16 @@ export class MonitorOptions {
    */
   "enableLogsSample"?: boolean;
   /**
-   * We recommend using the [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify), block in the original message instead. A message to include with a re-notification. Supports the `@username` notification we allow elsewhere. Not applicable if `renotify_interval` is `None`.
+   * We recommend using the [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify),
+   * block in the original message instead.
+   * A message to include with a re-notification. Supports the `@username` notification we allow elsewhere.
+   * Not applicable if `renotify_interval` is `None`.
    */
   "escalationMessage"?: string;
   /**
-   * Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to `300` (5min), the timeframe is set to `last_5m` and the time is 7:00, the monitor evaluates data from 6:50 to 6:55. This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
+   * Time (in seconds) to delay evaluation, as a non-negative integer. For example, if the value is set to `300` (5min),
+   * the timeframe is set to `last_5m` and the time is 7:00, the monitor evaluates data from 6:50 to 6:55.
+   * This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
    */
   "evaluationDelay"?: number;
   /**
@@ -41,7 +46,11 @@ export class MonitorOptions {
    */
   "groupbySimpleMonitor"?: boolean;
   /**
-   * A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.  **Examples** - If `True`, `[Triggered on {host:h1}] Monitor Title` - If `False`, `[Triggered] Monitor Title`
+   * A Boolean indicating whether notifications from this monitor automatically inserts its triggering tags into the title.
+   *
+   * **Examples**
+   * - If `True`, `[Triggered on {host:h1}] Monitor Title`
+   * - If `False`, `[Triggered] Monitor Title`
    */
   "includeTags"?: boolean;
   /**
@@ -53,19 +62,31 @@ export class MonitorOptions {
    */
   "minFailureDuration"?: number;
   /**
-   * The minimum number of locations in failure at the same time during at least one moment in the `min_failure_duration` period (`min_location_failed` and `min_failure_duration` are part of the advanced alerting rules - integer, >= 1).
+   * The minimum number of locations in failure at the same time during
+   * at least one moment in the `min_failure_duration` period (`min_location_failed` and `min_failure_duration`
+   * are part of the advanced alerting rules - integer, >= 1).
    */
   "minLocationFailed"?: number;
   /**
-   * Time (in seconds) to skip evaluations for new groups.  For example, this option can be used to skip evaluations for new hosts while they initialize.  Must be a non negative integer.
+   * Time (in seconds) to skip evaluations for new groups.
+   *
+   * For example, this option can be used to skip evaluations for new hosts while they initialize.
+   *
+   * Must be a non negative integer.
    */
   "newGroupDelay"?: number;
   /**
-   * Time (in seconds) to allow a host to boot and applications to fully start before starting the evaluation of monitor results. Should be a non negative integer.  Use new_group_delay instead.
+   * Time (in seconds) to allow a host to boot and applications
+   * to fully start before starting the evaluation of monitor results.
+   * Should be a non negative integer.
+   *
+   * Use new_group_delay instead.
    */
   "newHostDelay"?: number;
   /**
-   * The number of minutes before a monitor notifies after data stops reporting. Datadog recommends at least 2x the monitor timeframe for query alerts or 2 minutes for service checks. If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
+   * The number of minutes before a monitor notifies after data stops reporting.
+   * Datadog recommends at least 2x the monitor timeframe for query alerts or 2 minutes for service checks.
+   * If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
    */
   "noDataTimeframe"?: number;
   /**
@@ -77,7 +98,8 @@ export class MonitorOptions {
    */
   "notifyNoData"?: boolean;
   /**
-   * The number of minutes after the last notification before a monitor re-notifies on the current status. It only re-notifies if it’s not resolved.
+   * The number of minutes after the last notification before a monitor re-notifies on the current status.
+   * It only re-notifies if it’s not resolved.
    */
   "renotifyInterval"?: number;
   /**
@@ -89,7 +111,9 @@ export class MonitorOptions {
    */
   "renotifyStatuses"?: Array<MonitorRenotifyStatusType>;
   /**
-   * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated. We highly recommend you set this to `false` for sparse metrics, otherwise some evaluations are skipped. Default is false.
+   * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated.
+   * We highly recommend you set this to `false` for sparse metrics,
+   * otherwise some evaluations are skipped. Default is false.
    */
   "requireFullWindow"?: boolean;
   /**

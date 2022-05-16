@@ -11,7 +11,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class SecurityMonitoringSignalsListResponseLinks {
   /**
-   * The link for the next set of results. **Note**: The request can also be made using the POST endpoint.
+   * The link for the next set of results. **Note**: The request can also be made using the
+   * POST endpoint.
    */
   "next"?: string;
 

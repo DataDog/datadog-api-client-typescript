@@ -8,7 +8,10 @@ import { LogsServiceRemapperType } from "./LogsServiceRemapperType";
 import { AttributeTypeMap } from "../util";
 
 /**
- * Use this processor if you want to assign one or more attributes as the official service.  **Note:** If multiple service remapper processors can be applied to a given log, only the first one (according to the pipeline order) is taken into account.
+ * Use this processor if you want to assign one or more attributes as the official service.
+ *
+ * **Note:** If multiple service remapper processors can be applied to a given log,
+ * only the first one (according to the pipeline order) is taken into account.
  */
 export class LogsServiceRemapper {
   /**

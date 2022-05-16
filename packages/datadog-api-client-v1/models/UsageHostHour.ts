@@ -11,11 +11,13 @@ import { AttributeTypeMap } from "../util";
  */
 export class UsageHostHour {
   /**
-   * Contains the total number of infrastructure hosts reporting during a given hour that were running the Datadog Agent.
+   * Contains the total number of infrastructure hosts reporting
+   * during a given hour that were running the Datadog Agent.
    */
   "agentHostCount"?: number;
   /**
-   * Contains the total number of hosts that reported through Alibaba integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through Alibaba integration
+   * (and were NOT running the Datadog Agent).
    */
   "alibabaHostCount"?: number;
   /**
@@ -23,15 +25,18 @@ export class UsageHostHour {
    */
   "apmAzureAppServiceHostCount"?: number;
   /**
-   * Shows the total number of hosts using APM during the hour, these are counted as billable (except during trial periods).
+   * Shows the total number of hosts using APM during the hour,
+   * these are counted as billable (except during trial periods).
    */
   "apmHostCount"?: number;
   /**
-   * Contains the total number of hosts that reported through the AWS integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through the AWS integration
+   * (and were NOT running the Datadog Agent).
    */
   "awsHostCount"?: number;
   /**
-   * Contains the total number of hosts that reported through Azure integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through Azure integration
+   * (and were NOT running the Datadog Agent).
    */
   "azureHostCount"?: number;
   /**
@@ -39,7 +44,8 @@ export class UsageHostHour {
    */
   "containerCount"?: number;
   /**
-   * Contains the total number of hosts that reported through the Google Cloud integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through the Google Cloud integration
+   * (and were NOT running the Datadog Agent).
    */
   "gcpHostCount"?: number;
   /**
@@ -47,7 +53,8 @@ export class UsageHostHour {
    */
   "herokuHostCount"?: number;
   /**
-   * Contains the total number of billable infrastructure hosts reporting during a given hour. This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.
+   * Contains the total number of billable infrastructure hosts reporting during a given hour.
+   * This is the sum of `agent_host_count`, `aws_host_count`, and `gcp_host_count`.
    */
   "hostCount"?: number;
   /**
@@ -55,7 +62,8 @@ export class UsageHostHour {
    */
   "hour"?: Date;
   /**
-   * Contains the total number of hosts that reported through the Azure App Services integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through the Azure App Services integration
+   * (and were NOT running the Datadog Agent).
    */
   "infraAzureAppService"?: number;
   /**
@@ -71,7 +79,8 @@ export class UsageHostHour {
    */
   "publicId"?: string;
   /**
-   * Contains the total number of hosts that reported through vSphere integration (and were NOT running the Datadog Agent).
+   * Contains the total number of hosts that reported through vSphere integration
+   * (and were NOT running the Datadog Agent).
    */
   "vsphereHostCount"?: number;
 

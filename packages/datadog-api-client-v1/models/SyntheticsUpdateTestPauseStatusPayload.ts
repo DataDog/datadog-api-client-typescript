@@ -12,7 +12,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class SyntheticsUpdateTestPauseStatusPayload {
   /**
-   * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+   * Define whether you want to start (`live`) or pause (`paused`) a
+   * Synthetic test.
    */
   "newStatus"?: SyntheticsTestPauseStatus;
 

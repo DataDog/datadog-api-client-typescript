@@ -17,7 +17,8 @@ export class LogsArchiveAttributes {
    */
   "destination": LogsArchiveDestination | null;
   /**
-   * To store the tags in the archive, set the value "true". If it is set to "false", the tags will be deleted when the logs are sent to the archive.
+   * To store the tags in the archive, set the value "true".
+   * If it is set to "false", the tags will be deleted when the logs are sent to the archive.
    */
   "includeTags"?: boolean;
   /**

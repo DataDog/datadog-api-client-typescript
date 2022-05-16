@@ -8,11 +8,14 @@ import { WebhooksIntegrationEncoding } from "./WebhooksIntegrationEncoding";
 import { AttributeTypeMap } from "../util";
 
 /**
- * Update request of a Webhooks integration object.  *All properties are optional.*
+ * Update request of a Webhooks integration object.
+ *
+ * *All properties are optional.*
  */
 export class WebhooksIntegrationUpdateRequest {
   /**
-   * If `null`, uses no header. If given a JSON payload, these will be headers attached to your webhook.
+   * If `null`, uses no header.
+   * If given a JSON payload, these will be headers attached to your webhook.
    */
   "customHeaders"?: string;
   /**
@@ -20,11 +23,16 @@ export class WebhooksIntegrationUpdateRequest {
    */
   "encodeAs"?: WebhooksIntegrationEncoding;
   /**
-   * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`. Learn more on how to use it in [monitor notifications](https://docs.datadoghq.com/monitors/notify).
+   * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
+   * Learn more on how to use it in
+   * [monitor notifications](https://docs.datadoghq.com/monitors/notify).
    */
   "name"?: string;
   /**
-   * If `null`, uses the default payload. If given a JSON payload, the webhook returns the payload specified by the given payload. [Webhooks variable usage](https://docs.datadoghq.com/integrations/webhooks/#usage).
+   * If `null`, uses the default payload.
+   * If given a JSON payload, the webhook returns the payload
+   * specified by the given payload.
+   * [Webhooks variable usage](https://docs.datadoghq.com/integrations/webhooks/#usage).
    */
   "payload"?: string;
   /**

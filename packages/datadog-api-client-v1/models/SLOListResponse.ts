@@ -17,7 +17,8 @@ export class SLOListResponse {
    */
   "data"?: Array<ServiceLevelObjective>;
   /**
-   * An array of error messages. Each endpoint documents how/whether this field is used.
+   * An array of error messages. Each endpoint documents how/whether this field is
+   * used.
    */
   "errors"?: Array<string>;
   /**

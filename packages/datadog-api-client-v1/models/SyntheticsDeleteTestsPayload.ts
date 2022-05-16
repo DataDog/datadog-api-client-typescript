@@ -7,7 +7,8 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * A JSON list of the ID or IDs of the Synthetic tests that you want to delete.
+ * A JSON list of the ID or IDs of the Synthetic tests that you want
+ * to delete.
  */
 export class SyntheticsDeleteTestsPayload {
   /**

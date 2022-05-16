@@ -11,7 +11,8 @@ import { WidgetTime } from "./WidgetTime";
 import { AttributeTypeMap } from "../util";
 
 /**
- * The list stream visualization displays a table of recent events in your application that match a search criteria using user-defined columns.
+ * The list stream visualization displays a table of recent events in your application that
+ * match a search criteria using user-defined columns.
  */
 export class ListStreamWidgetDefinition {
   /**

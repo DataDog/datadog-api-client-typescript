@@ -15,7 +15,8 @@ export class SyntheticsGlobalVariableValue {
    */
   "secure"?: boolean;
   /**
-   * Value of the global variable. When reading a global variable, the value will not be present if the variable is hidden with the `secure` property.
+   * Value of the global variable. When reading a global variable,
+   * the value will not be present if the variable is hidden with the `secure` property.
    */
   "value"?: string;
 
