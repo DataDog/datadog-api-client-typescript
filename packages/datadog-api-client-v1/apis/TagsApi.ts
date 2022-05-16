@@ -583,7 +583,8 @@ export interface TagsApiCreateHostTagsRequest {
    */
   body: HostTags;
   /**
-   * The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * The source of the tags.
+   * [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
    * @type string
    */
   source?: string;
@@ -596,7 +597,8 @@ export interface TagsApiDeleteHostTagsRequest {
    */
   hostName: string;
   /**
-   * The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * The source of the tags (for example chef, puppet).
+   * [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
    * @type string
    */
   source?: string;
@@ -635,7 +637,8 @@ export interface TagsApiUpdateHostTagsRequest {
    */
   body: HostTags;
   /**
-   * The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+   * The source of the tags (for example chef, puppet).
+   * [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
    * @type string
    */
   source?: string;
@@ -659,7 +662,8 @@ export class TagsApi {
   }
 
   /**
-   * This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
+   * This endpoint allows you to add new tags to a host,
+   * optionally specifying where these tags come from.
    * @param param The request object
    */
   public createHostTags(
@@ -682,7 +686,8 @@ export class TagsApi {
   }
 
   /**
-   * This endpoint allows you to remove all user-assigned tags for a single host.
+   * This endpoint allows you to remove all user-assigned tags
+   * for a single host.
    * @param param The request object
    */
   public deleteHostTags(
@@ -747,7 +752,8 @@ export class TagsApi {
   }
 
   /**
-   * This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
+   * This endpoint allows you to update/replace all tags in
+   * an integration source with those supplied in the request.
    * @param param The request object
    */
   public updateHostTags(

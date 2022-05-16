@@ -543,7 +543,7 @@ export interface AzureIntegrationApiDeleteAzureIntegrationRequest {
 
 export interface AzureIntegrationApiUpdateAzureHostFiltersRequest {
   /**
-   * Update a Datadog-Azure integration&#39;s host filters request body.
+   * Update a Datadog-Azure integration's host filters request body.
    * @type AzureAccount
    */
   body: AzureAccount;
@@ -575,7 +575,13 @@ export class AzureIntegrationApi {
   }
 
   /**
-   * Create a Datadog-Azure integration.  Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the `PUT` method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
+   * Create a Datadog-Azure integration.
+   *
+   * Using the `POST` method updates your integration configuration by adding your new
+   * configuration to the existing one in your Datadog organization.
+   *
+   * Using the `PUT` method updates your integration configuration by replacing your
+   * current configuration with the new one sent to your Datadog organization.
    * @param param The request object
    */
   public createAzureIntegration(
@@ -656,7 +662,9 @@ export class AzureIntegrationApi {
   }
 
   /**
-   * Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
+   * Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
+   * Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
+   * use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
    * @param param The request object
    */
   public updateAzureIntegration(

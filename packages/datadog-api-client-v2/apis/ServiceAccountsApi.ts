@@ -661,7 +661,7 @@ export interface ServiceAccountsApiCreateServiceAccountApplicationKeyRequest {
    */
   serviceAccountId: string;
   /**
-   *
+
    * @type ApplicationKeyCreateRequest
    */
   body: ApplicationKeyCreateRequest;
@@ -710,7 +710,9 @@ export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
    */
   pageNumber?: number;
   /**
-   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * Application key attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
    * @type ApplicationKeysSort
    */
   sort?: ApplicationKeysSort;
@@ -743,7 +745,7 @@ export interface ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest {
    */
   appKeyId: string;
   /**
-   *
+
    * @type ApplicationKeyUpdateRequest
    */
   body: ApplicationKeyUpdateRequest;

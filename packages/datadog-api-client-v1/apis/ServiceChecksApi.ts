@@ -164,7 +164,11 @@ export class ServiceChecksApi {
   }
 
   /**
-   * Submit a list of Service Checks.  **Notes**: - A valid API key is required. - Service checks can be submitted up to 10 minutes in the past.
+   * Submit a list of Service Checks.
+   *
+   * **Notes**:
+   * - A valid API key is required.
+   * - Service checks can be submitted up to 10 minutes in the past.
    * @param param The request object
    */
   public submitServiceCheck(

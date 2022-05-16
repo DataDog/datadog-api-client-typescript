@@ -1100,7 +1100,7 @@ export class MetricsApiResponseProcessor {
 
 export interface MetricsApiCreateBulkTagsMetricsConfigurationRequest {
   /**
-   *
+
    * @type MetricBulkTagConfigCreateRequest
    */
   body: MetricBulkTagConfigCreateRequest;
@@ -1113,7 +1113,7 @@ export interface MetricsApiCreateTagConfigurationRequest {
    */
   metricName: string;
   /**
-   *
+
    * @type MetricTagConfigurationCreateRequest
    */
   body: MetricTagConfigurationCreateRequest;
@@ -1121,7 +1121,7 @@ export interface MetricsApiCreateTagConfigurationRequest {
 
 export interface MetricsApiDeleteBulkTagsMetricsConfigurationRequest {
   /**
-   *
+
    * @type MetricBulkTagConfigDeleteRequest
    */
   body: MetricBulkTagConfigDeleteRequest;
@@ -1160,17 +1160,20 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterMetricType?: MetricTagConfigurationMetricTypes;
   /**
-   * Filter distributions with additional percentile aggregations enabled or disabled.
+   * Filter distributions with additional percentile
+   * aggregations enabled or disabled.
    * @type boolean
    */
   filterIncludePercentiles?: boolean;
   /**
-   * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+   * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions.
+   * Cannot be combined with other filters.
    * @type string
    */
   filterTags?: string;
   /**
-   * The number of seconds of look back (from now) to apply to a filter[tag] query. Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
+   * The number of seconds of look back (from now) to apply to a filter[tag] query.
+   * Defaults value is 3600 (1 hour), maximum value is 172,800 (2 days).
    * @type number
    */
   windowSeconds?: number;
@@ -1199,7 +1202,7 @@ export interface MetricsApiUpdateTagConfigurationRequest {
    */
   metricName: string;
   /**
-   *
+
    * @type MetricTagConfigurationUpdateRequest
    */
   body: MetricTagConfigurationUpdateRequest;
@@ -1223,7 +1226,12 @@ export class MetricsApi {
   }
 
   /**
-   * Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics. Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations. Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app. If multiple calls include the same metric, the last configuration applied (not by submit order) is used, do not expect deterministic ordering of concurrent calls. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * Create and define a list of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+   * Metrics are selected by passing a metric name prefix. Use the Delete method of this API path to remove tag configurations.
+   * Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+   * If multiple calls include the same metric, the last configuration applied (not by submit order) is used, do not
+   * expect deterministic ordering of concurrent calls.
+   * Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
   public createBulkTagsMetricsConfiguration(
@@ -1247,7 +1255,10 @@ export class MetricsApi {
   }
 
   /**
-   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric. Optionally, include percentile aggregations on any distribution metric or configure custom aggregations on any count, rate, or gauge metric. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * Create and define a list of queryable tag keys for an existing count/gauge/rate/distribution metric.
+   * Optionally, include percentile aggregations on any distribution metric or configure custom aggregations
+   * on any count, rate, or gauge metric.
+   * Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
   public createTagConfiguration(
@@ -1269,7 +1280,10 @@ export class MetricsApi {
   }
 
   /**
-   * Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics. Metrics are selected by passing a metric name prefix. Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app. Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
+   * Delete all custom lists of queryable tag keys for a set of existing count, gauge, rate, and distribution metrics.
+   * Metrics are selected by passing a metric name prefix.
+   * Results can be sent to a set of account email addresses, just like the same operation in the Datadog web app.
+   * Can only be used with application keys of users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
   public deleteBulkTagsMetricsConfiguration(
@@ -1293,7 +1307,8 @@ export class MetricsApi {
   }
 
   /**
-   * Deletes a metric's tag configuration. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+   * Deletes a metric's tag configuration. Can only be used with application
+   * keys from users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
   public deleteTagConfiguration(
@@ -1335,7 +1350,8 @@ export class MetricsApi {
   }
 
   /**
-   * Returns all configured count/gauge/rate/distribution metric names (with additional filters if specified).
+   * Returns all configured count/gauge/rate/distribution metric names
+   * (with additional filters if specified).
    * @param param The request object
    */
   public listTagConfigurations(
@@ -1382,7 +1398,11 @@ export class MetricsApi {
   }
 
   /**
-   * View distinct metrics volumes for the given metric name.  Custom distribution metrics will return both ingested and indexed custom metric volumes. For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes. Custom metrics generated in-app from other products will return `null` for ingested volumes.
+   * View distinct metrics volumes for the given metric name.
+   *
+   * Custom distribution metrics will return both ingested and indexed custom metric volumes.
+   * For Metrics without Limits&trade; beta customers, all metrics will return both ingested/indexed volumes.
+   * Custom metrics generated in-app from other products will return `null` for ingested volumes.
    * @param param The request object
    */
   public listVolumesByMetricName(
@@ -1405,7 +1425,9 @@ export class MetricsApi {
   }
 
   /**
-   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations of a count, rate, or gauge metric. Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
+   * Update the tag configuration of a metric or percentile aggregations of a distribution metric or custom aggregations
+   * of a count, rate, or gauge metric.
+   * Can only be used with application keys from users with the `Manage Tags for Metrics` permission.
    * @param param The request object
    */
   public updateTagConfiguration(

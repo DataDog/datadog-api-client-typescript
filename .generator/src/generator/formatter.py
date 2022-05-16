@@ -404,6 +404,12 @@ def escape_html(text):
     return "".join(HTML_ESCAPE_CHARACTERS.get(c, c) for c in text)
 
 
+def docstring(text):
+    if not text:
+        return ""
+    return "\n".join("   * {}".format(line) for line in text.splitlines())
+
+
 def simple_type(schema):
     """Return the simple type of a schema.
 

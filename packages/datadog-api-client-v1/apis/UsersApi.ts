@@ -594,7 +594,10 @@ export class UsersApi {
   }
 
   /**
-   * Create a user for your organization.  **Note**: Users can only be created with the admin access role if application keys belong to administrators.
+   * Create a user for your organization.
+   *
+   * **Note**: Users can only be created with the admin access role
+   * if application keys belong to administrators.
    * @param param The request object
    */
   public createUser(
@@ -615,7 +618,10 @@ export class UsersApi {
   }
 
   /**
-   * Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
+   * Delete a user from an organization.
+   *
+   * **Note**: This endpoint can only be used with application keys belonging to
+   * administrators.
    * @param param The request object
    */
   public disableUser(
@@ -672,7 +678,9 @@ export class UsersApi {
   }
 
   /**
-   * Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
+   * Update a user information.
+   *
+   * **Note**: It can only be used with application keys belonging to administrators.
    * @param param The request object
    */
   public updateUser(

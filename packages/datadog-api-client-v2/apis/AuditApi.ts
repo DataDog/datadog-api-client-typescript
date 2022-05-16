@@ -288,7 +288,7 @@ export interface AuditApiListAuditLogsRequest {
 
 export interface AuditApiSearchAuditLogsRequest {
   /**
-   *
+
    * @type AuditLogsSearchEventsRequest
    */
   body?: AuditLogsSearchEventsRequest;
@@ -312,7 +312,12 @@ export class AuditApi {
   }
 
   /**
-   * List endpoint returns events that match a Audit Logs search query. [Results are paginated][1].  Use this endpoint to see your latest Audit Logs events.  [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * List endpoint returns events that match a Audit Logs search query.
+   * [Results are paginated][1].
+   *
+   * Use this endpoint to see your latest Audit Logs events.
+   *
+   * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
   public listAuditLogs(
@@ -395,7 +400,12 @@ export class AuditApi {
   }
 
   /**
-   * List endpoint returns Audit Logs events that match an Audit search query. [Results are paginated][1].  Use this endpoint to build complex Audit Logs events filtering and search.  [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * List endpoint returns Audit Logs events that match an Audit search query.
+   * [Results are paginated][1].
+   *
+   * Use this endpoint to build complex Audit Logs events filtering and search.
+   *
+   * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
   public searchAuditLogs(

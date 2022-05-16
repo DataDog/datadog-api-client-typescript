@@ -631,7 +631,7 @@ export interface LogsIndexesApiUpdateLogsIndexRequest {
    */
   name: string;
   /**
-   * Object containing the new &#x60;LogsIndexUpdateRequest&#x60;.
+   * Object containing the new `LogsIndexUpdateRequest`.
    * @type LogsIndexUpdateRequest
    */
   body: LogsIndexUpdateRequest;
@@ -721,7 +721,8 @@ export class LogsIndexesApi {
   }
 
   /**
-   * The Index object describes the configuration of a log index. This endpoint returns an array of the `LogIndex` objects of your organization.
+   * The Index object describes the configuration of a log index.
+   * This endpoint returns an array of the `LogIndex` objects of your organization.
    * @param param The request object
    */
   public listLogIndexes(
@@ -738,7 +739,11 @@ export class LogsIndexesApi {
   }
 
   /**
-   * Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the `PUT` method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * Update an index as identified by its name.
+   * Returns the Index object passed in the request body when the request is successful.
+   *
+   * Using the `PUT` method updates your index’s configuration by **replacing**
+   * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
    */
   public updateLogsIndex(
@@ -760,7 +765,8 @@ export class LogsIndexesApi {
   }
 
   /**
-   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
+   * This endpoint updates the index order of your organization.
+   * It returns the index order object passed in the request body when the request is successful.
    * @param param The request object
    */
   public updateLogsIndexOrder(

@@ -564,7 +564,7 @@ export interface OrganizationsApiCreateChildOrgRequest {
 
 export interface OrganizationsApiGetOrgRequest {
   /**
-   * The &#x60;public_id&#x60; of the organization you are operating within.
+   * The `public_id` of the organization you are operating within.
    * @type string
    */
   publicId: string;
@@ -572,12 +572,12 @@ export interface OrganizationsApiGetOrgRequest {
 
 export interface OrganizationsApiUpdateOrgRequest {
   /**
-   * The &#x60;public_id&#x60; of the organization you are operating within.
+   * The `public_id` of the organization you are operating within.
    * @type string
    */
   publicId: string;
   /**
-   *
+
    * @type Organization
    */
   body: Organization;
@@ -585,7 +585,7 @@ export interface OrganizationsApiUpdateOrgRequest {
 
 export interface OrganizationsApiUploadIdPForOrgRequest {
   /**
-   * The &#x60;public_id&#x60; of the organization you are operating with
+   * The `public_id` of the organization you are operating with
    * @type string
    */
   publicId: string;
@@ -614,7 +614,16 @@ export class OrganizationsApi {
   }
 
   /**
-   * Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `api_key.key`, and `application_key.hash` provided in the response.
+   * Create a child organization.
+   *
+   * This endpoint requires the
+   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
+   * feature and must be enabled by
+   * [contacting support](https://docs.datadoghq.com/help/).
+   *
+   * Once a new child organization is created, you can interact with it
+   * by using the `org.public_id`, `api_key.key`, and
+   * `application_key.hash` provided in the response.
    * @param param The request object
    */
   public createChildOrg(
@@ -693,7 +702,12 @@ export class OrganizationsApi {
   }
 
   /**
-   * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
+   * There are a couple of options for updating the Identity Provider (IdP)
+   * metadata from your SAML IdP.
+   *
+   * * **Multipart Form-Data**: Post the IdP metadata file using a form post.
+   *
+   * * **XML Body:** Post the IdP metadata file as the body of the request.
    * @param param The request object
    */
   public uploadIdPForOrg(

@@ -654,12 +654,12 @@ export interface NotebooksApiGetNotebookRequest {
 
 export interface NotebooksApiListNotebooksRequest {
   /**
-   * Return notebooks created by the given &#x60;author_handle&#x60;.
+   * Return notebooks created by the given `author_handle`.
    * @type string
    */
   authorHandle?: string;
   /**
-   * Return notebooks not created by the given &#x60;author_handle&#x60;.
+   * Return notebooks not created by the given `author_handle`.
    * @type string
    */
   excludeAuthorHandle?: string;
@@ -674,22 +674,22 @@ export interface NotebooksApiListNotebooksRequest {
    */
   count?: number;
   /**
-   * Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;.
+   * Sort by field `modified`, `name`, or `created`.
    * @type string
    */
   sortField?: string;
   /**
-   * Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.
+   * Sort by direction `asc` or `desc`.
    * @type string
    */
   sortDir?: string;
   /**
-   * Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.
+   * Return only notebooks with `query` string in notebook name or author handle.
    * @type string
    */
   query?: string;
   /**
-   * Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.
+   * Value of `false` excludes the `cells` and global `time` for each notebook.
    * @type boolean
    */
   includeCells?: boolean;
@@ -799,7 +799,8 @@ export class NotebooksApi {
   }
 
   /**
-   * Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook `name` or author `handle`.
+   * Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook
+   * `name` or author `handle`.
    * @param param The request object
    */
   public listNotebooks(

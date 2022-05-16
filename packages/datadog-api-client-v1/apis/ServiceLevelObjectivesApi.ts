@@ -1134,7 +1134,7 @@ export interface ServiceLevelObjectivesApiDeleteSLORequest {
    */
   sloId: string;
   /**
-   * Delete the monitor even if it&#39;s referenced by other resources (for example SLO, composite monitor).
+   * Delete the monitor even if it's referenced by other resources (for example SLO, composite monitor).
    * @type string
    */
   force?: string;
@@ -1176,22 +1176,23 @@ export interface ServiceLevelObjectivesApiGetSLOHistoryRequest {
    */
   sloId: string;
   /**
-   * The &#x60;from&#x60; timestamp for the query window in epoch seconds.
+   * The `from` timestamp for the query window in epoch seconds.
    * @type number
    */
   fromTs: number;
   /**
-   * The &#x60;to&#x60; timestamp for the query window in epoch seconds.
+   * The `to` timestamp for the query window in epoch seconds.
    * @type number
    */
   toTs: number;
   /**
-   * The SLO target. If &#x60;target&#x60; is passed in, the response will include the remaining error budget and a timeframe value of &#x60;custom&#x60;.
+   * The SLO target. If `target` is passed in, the response will include the remaining error budget and a timeframe value of `custom`.
    * @type number
    */
   target?: number;
   /**
-   * Defaults to &#x60;true&#x60;. If any SLO corrections are applied and this parameter is set to &#x60;false&#x60;, then the corrections will not be applied and the SLI values will not be affected.
+   * Defaults to `true`. If any SLO corrections are applied and this parameter is set to `false`,
+   * then the corrections will not be applied and the SLI values will not be affected.
    * @type boolean
    */
   applyCorrection?: boolean;
@@ -1262,7 +1263,8 @@ export class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Check if an SLO can be safely deleted. For example, assure an SLO can be deleted without disrupting a dashboard.
+   * Check if an SLO can be safely deleted. For example,
+   * assure an SLO can be deleted without disrupting a dashboard.
    * @param param The request object
    */
   public checkCanDeleteSLO(
@@ -1304,7 +1306,10 @@ export class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Permanently delete the specified service level objective object.  If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns a 409 conflict error because the SLO is referenced in a dashboard.
+   * Permanently delete the specified service level objective object.
+   *
+   * If an SLO is used in a dashboard, the `DELETE /v1/slo/` endpoint returns
+   * a 409 conflict error because the SLO is referenced in a dashboard.
    * @param param The request object
    */
   public deleteSLO(
@@ -1326,7 +1331,11 @@ export class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Delete (or partially delete) multiple service level objective objects.  This endpoint facilitates deletion of one or more thresholds for one or more service level objective objects. If all thresholds are deleted, the service level objective object is deleted as well.
+   * Delete (or partially delete) multiple service level objective objects.
+   *
+   * This endpoint facilitates deletion of one or more thresholds for one or more
+   * service level objective objects. If all thresholds are deleted, the service level
+   * objective object is deleted as well.
    * @param param The request object
    */
   public deleteSLOTimeframeInBulk(
@@ -1392,7 +1401,14 @@ export class ServiceLevelObjectivesApi {
   }
 
   /**
-   * Get a specific SLO’s history, regardless of its SLO type.  The detailed history data is structured according to the source data type. For example, metric data is included for event SLOs that use the metric source, and monitor SLO types include the monitor transition history.  **Note:** There are different response formats for event based and time based SLOs. Examples of both are shown.
+   * Get a specific SLO’s history, regardless of its SLO type.
+   *
+   * The detailed history data is structured according to the source data type.
+   * For example, metric data is included for event SLOs that use
+   * the metric source, and monitor SLO types include the monitor transition history.
+   *
+   * **Note:** There are different response formats for event based and time based SLOs.
+   * Examples of both are shown.
    * @param param The request object
    */
   public getSLOHistory(

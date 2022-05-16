@@ -163,12 +163,16 @@ export interface ProcessesApiListProcessesRequest {
    */
   tags?: string;
   /**
-   * Unix timestamp (number of seconds since epoch) of the start of the query window. If not provided, the start of the query window will be 15 minutes before the &#x60;to&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
+   * Unix timestamp (number of seconds since epoch) of the start of the query window.
+   * If not provided, the start of the query window will be 15 minutes before the `to` timestamp. If neither
+   * `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
    * @type number
    */
   from?: number;
   /**
-   * Unix timestamp (number of seconds since epoch) of the end of the query window. If not provided, the end of the query window will be 15 minutes after the &#x60;from&#x60; timestamp. If neither &#x60;from&#x60; nor &#x60;to&#x60; are provided, the query window will be &#x60;[now - 15m, now]&#x60;.
+   * Unix timestamp (number of seconds since epoch) of the end of the query window.
+   * If not provided, the end of the query window will be 15 minutes after the `from` timestamp. If neither
+   * `from` nor `to` are provided, the query window will be `[now - 15m, now]`.
    * @type number
    */
   to?: number;
@@ -178,7 +182,8 @@ export interface ProcessesApiListProcessesRequest {
    */
   pageLimit?: number;
   /**
-   * String to query the next page of results. This key is provided with each valid response from the API in &#x60;meta.page.after&#x60;.
+   * String to query the next page of results.
+   * This key is provided with each valid response from the API in `meta.page.after`.
    * @type string
    */
   pageCursor?: string;

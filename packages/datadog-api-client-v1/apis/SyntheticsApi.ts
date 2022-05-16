@@ -3029,7 +3029,8 @@ export interface SyntheticsApiGetBrowserTestRequest {
 
 export interface SyntheticsApiGetBrowserTestLatestResultsRequest {
   /**
-   * The public ID of the browser test for which to search results for.
+   * The public ID of the browser test for which to search results
+   * for.
    * @type string
    */
   publicId: string;
@@ -3052,7 +3053,8 @@ export interface SyntheticsApiGetBrowserTestLatestResultsRequest {
 
 export interface SyntheticsApiGetBrowserTestResultRequest {
   /**
-   * The public ID of the browser test to which the target result belongs.
+   * The public ID of the browser test to which the target result
+   * belongs.
    * @type string
    */
   publicId: string;
@@ -3352,7 +3354,8 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the detailed configuration associated with a Synthetic API test.
+   * Get the detailed configuration associated with
+   * a Synthetic API test.
    * @param param The request object
    */
   public getAPITest(
@@ -3421,7 +3424,8 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the detailed configuration (including steps) associated with a Synthetic browser test.
+   * Get the detailed configuration (including steps) associated with
+   * a Synthetic browser test.
    * @param param The request object
    */
   public getBrowserTest(
@@ -3593,7 +3597,8 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the list of public and private locations available for Synthetic tests. No arguments required.
+   * Get the list of public and private locations available for Synthetic
+   * tests. No arguments required.
    * @param param The request object
    */
   public listLocations(options?: Configuration): Promise<SyntheticsLocations> {

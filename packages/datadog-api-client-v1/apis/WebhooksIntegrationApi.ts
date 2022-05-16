@@ -1113,7 +1113,10 @@ export class WebhooksIntegrationApi {
   }
 
   /**
-   * Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.  If the custom variable is secret, the value does not return in the response payload.
+   * Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.
+   *
+   * If the custom variable is secret, the value does not return in the
+   * response payload.
    * @param param The request object
    */
   public getWebhooksIntegrationCustomVariable(

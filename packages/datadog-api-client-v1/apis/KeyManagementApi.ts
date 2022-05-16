@@ -1066,7 +1066,7 @@ export class KeyManagementApiResponseProcessor {
 
 export interface KeyManagementApiCreateAPIKeyRequest {
   /**
-   *
+
    * @type ApiKey
    */
   body: ApiKey;
@@ -1074,7 +1074,7 @@ export interface KeyManagementApiCreateAPIKeyRequest {
 
 export interface KeyManagementApiCreateApplicationKeyRequest {
   /**
-   *
+
    * @type ApplicationKey
    */
   body: ApplicationKey;
@@ -1119,7 +1119,7 @@ export interface KeyManagementApiUpdateAPIKeyRequest {
    */
   key: string;
   /**
-   *
+
    * @type ApiKey
    */
   body: ApiKey;
@@ -1132,7 +1132,7 @@ export interface KeyManagementApiUpdateApplicationKeyRequest {
    */
   key: string;
   /**
-   *
+
    * @type ApplicationKey
    */
   body: ApplicationKey;

@@ -404,7 +404,7 @@ export interface EventsApiListEventsRequest {
    */
   end: number;
   /**
-   * Priority of your events, either &#x60;low&#x60; or &#x60;normal&#x60;.
+   * Priority of your events, either `low` or `normal`.
    * @type EventPriority
    */
   priority?: EventPriority;
@@ -419,17 +419,21 @@ export interface EventsApiListEventsRequest {
    */
   tags?: string;
   /**
-   * Set unaggregated to &#x60;true&#x60; to return all events within the specified [&#x60;start&#x60;,&#x60;end&#x60;] timeframe. Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe, it won&#39;t be available in the output. Aggregated events with &#x60;is_aggregate&#x3D;true&#x60; in the response will still be returned unless exclude_aggregate is set to &#x60;true.&#x60;
+   * Set unaggregated to `true` to return all events within the specified [`start`,`end`] timeframe.
+   * Otherwise if an event is aggregated to a parent event with a timestamp outside of the timeframe,
+   * it won't be available in the output. Aggregated events with `is_aggregate=true` in the response will still be returned unless exclude_aggregate is set to `true.`
    * @type boolean
    */
   unaggregated?: boolean;
   /**
-   * Set &#x60;exclude_aggregate&#x60; to &#x60;true&#x60; to only return unaggregated events where &#x60;is_aggregate&#x3D;false&#x60; in the response. If the &#x60;exclude_aggregate&#x60; parameter is set to &#x60;true&#x60;, then the unaggregated parameter is ignored and will be &#x60;true&#x60; by default.
+   * Set `exclude_aggregate` to `true` to only return unaggregated events where `is_aggregate=false` in the response. If the `exclude_aggregate` parameter is set to `true`,
+   * then the unaggregated parameter is ignored and will be `true` by default.
    * @type boolean
    */
   excludeAggregate?: boolean;
   /**
-   * By default 1000 results are returned per request. Set page to the number of the page to return with &#x60;0&#x60; being the first page. The page parameter can only be used when either unaggregated or exclude_aggregate is set to &#x60;true.&#x60;
+   * By default 1000 results are returned per request. Set page to the number of the page to return with `0` being the first page. The page parameter can only be used
+   * when either unaggregated or exclude_aggregate is set to `true.`
    * @type number
    */
   page?: number;
@@ -453,7 +457,8 @@ export class EventsApi {
   }
 
   /**
-   * This endpoint allows you to post events to the stream. Tag them, set priority and event aggregate them with other events.
+   * This endpoint allows you to post events to the stream.
+   * Tag them, set priority and event aggregate them with other events.
    * @param param The request object
    */
   public createEvent(
@@ -474,7 +479,10 @@ export class EventsApi {
   }
 
   /**
-   * This endpoint allows you to query for event details.  **Note**: If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\`,`n` in your output.
+   * This endpoint allows you to query for event details.
+   *
+   * **Note**: If the event you’re querying contains markdown formatting of any kind,
+   * you may see characters such as `%`,`\`,`n` in your output.
    * @param param The request object
    */
   public getEvent(
@@ -495,7 +503,15 @@ export class EventsApi {
   }
 
   /**
-   * The event stream can be queried and filtered by time, priority, sources and tags.  **Notes**: - If the event you’re querying contains markdown formatting of any kind, you may see characters such as `%`,`\`,`n` in your output.  - This endpoint returns a maximum of `1000` most recent results. To return additional results, identify the last timestamp of the last result and set that as the `end` query time to paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
+   * The event stream can be queried and filtered by time, priority, sources and tags.
+   *
+   * **Notes**:
+   * - If the event you’re querying contains markdown formatting of any kind,
+   * you may see characters such as `%`,`\`,`n` in your output.
+   *
+   * - This endpoint returns a maximum of `1000` most recent results. To return additional results,
+   * identify the last timestamp of the last result and set that as the `end` query time to
+   * paginate the results. You can also use the page parameter to specify which set of `1000` results to return.
    * @param param The request object
    */
   public listEvents(

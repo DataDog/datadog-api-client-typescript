@@ -4600,22 +4600,22 @@ export class UsageMeteringApiResponseProcessor {
 
 export interface UsageMeteringApiGetDailyCustomReportsRequest {
   /**
-   * The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.
+   * The number of files to return in the response. `[default=60]`.
    * @type number
    */
   pageSize?: number;
   /**
-   * The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;.
+   * The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
    * @type number
    */
   pageNumber?: number;
   /**
-   * The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
   sortDir?: UsageSortDirection;
   /**
-   * The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+   * The field to sort by: `[computed_on, size, start_date, end_date]`.
    * @type UsageSort
    */
   sort?: UsageSort;
@@ -4623,7 +4623,7 @@ export interface UsageMeteringApiGetDailyCustomReportsRequest {
 
 export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
@@ -4633,7 +4633,8 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    */
   usageType: HourlyUsageAttributionUsageType;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4643,7 +4644,9 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    */
   nextRecordId?: string;
   /**
-   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of &#x60;tag_config_source&#x60; in the API response.
+   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   *
+   * To see which tags are available, look for the value of `tag_config_source` in the API response.
    * @type string
    */
   tagBreakdownKeys?: string;
@@ -4651,12 +4654,13 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
 
 export interface UsageMeteringApiGetIncidentManagementRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4664,12 +4668,13 @@ export interface UsageMeteringApiGetIncidentManagementRequest {
 
 export interface UsageMeteringApiGetIngestedSpansRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4677,22 +4682,22 @@ export interface UsageMeteringApiGetIngestedSpansRequest {
 
 export interface UsageMeteringApiGetMonthlyCustomReportsRequest {
   /**
-   * The number of files to return in the response &#x60;[default&#x3D;60].&#x60;
+   * The number of files to return in the response `[default=60].`
    * @type number
    */
   pageSize?: number;
   /**
-   * The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;.
+   * The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
    * @type number
    */
   pageNumber?: number;
   /**
-   * The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
   sortDir?: UsageSortDirection;
   /**
-   * The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+   * The field to sort by: `[computed_on, size, start_date, end_date]`.
    * @type UsageSort
    */
   sort?: UsageSort;
@@ -4700,22 +4705,23 @@ export interface UsageMeteringApiGetMonthlyCustomReportsRequest {
 
 export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month.
+   * Maximum of 15 months ago.
    * @type Date
    */
   startMonth: Date;
   /**
-   * Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+   * Comma-separated list of usage types to return, or `*` for all usage types.
    * @type MonthlyUsageAttributionSupportedMetrics
    */
   fields: MonthlyUsageAttributionSupportedMetrics;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
    * @type Date
    */
   endMonth?: Date;
   /**
-   * The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
   sortDirection?: UsageSortDirection;
@@ -4725,7 +4731,9 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
    */
   sortName?: MonthlyUsageAttributionSupportedMetrics;
   /**
-   * Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of &#x60;tag_config_source&#x60; in the API response.
+   * Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.
+   *
+   * To see which tags are available, look for the value of `tag_config_source` in the API response.
    * @type string
    */
   tagBreakdownKeys?: string;
@@ -4738,7 +4746,7 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
 
 export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
   /**
-   * Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
+   * Date of the report in the format `YYYY-MM-DD`.
    * @type string
    */
   reportId: string;
@@ -4746,7 +4754,7 @@ export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
 
 export interface UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest {
   /**
-   * Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
+   * Date of the report in the format `YYYY-MM-DD`.
    * @type string
    */
   reportId: string;
@@ -4754,12 +4762,13 @@ export interface UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest {
 
 export interface UsageMeteringApiGetUsageAnalyzedLogsRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4767,22 +4776,23 @@ export interface UsageMeteringApiGetUsageAnalyzedLogsRequest {
 
 export interface UsageMeteringApiGetUsageAttributionRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month.
+   * Maximum of 15 months ago.
    * @type Date
    */
   startMonth: Date;
   /**
-   * Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+   * Comma-separated list of usage types to return, or `*` for all usage types.
    * @type UsageAttributionSupportedMetrics
    */
   fields: UsageAttributionSupportedMetrics;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
    * @type Date
    */
   endMonth?: Date;
   /**
-   * The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
   sortDirection?: UsageSortDirection;
@@ -4810,12 +4820,13 @@ export interface UsageMeteringApiGetUsageAttributionRequest {
 
 export interface UsageMeteringApiGetUsageAuditLogsRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4823,7 +4834,7 @@ export interface UsageMeteringApiGetUsageAuditLogsRequest {
 
 export interface UsageMeteringApiGetUsageBillableSummaryRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
    * @type Date
    */
   month?: Date;
@@ -4831,12 +4842,13 @@ export interface UsageMeteringApiGetUsageBillableSummaryRequest {
 
 export interface UsageMeteringApiGetUsageCIAppRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4844,12 +4856,13 @@ export interface UsageMeteringApiGetUsageCIAppRequest {
 
 export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4857,12 +4870,13 @@ export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
 
 export interface UsageMeteringApiGetUsageCWSRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4870,12 +4884,13 @@ export interface UsageMeteringApiGetUsageCWSRequest {
 
 export interface UsageMeteringApiGetUsageDBMRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4909,12 +4924,12 @@ export interface UsageMeteringApiGetUsageHostsRequest {
 
 export interface UsageMeteringApiGetUsageIndexedSpansRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4922,12 +4937,13 @@ export interface UsageMeteringApiGetUsageIndexedSpansRequest {
 
 export interface UsageMeteringApiGetUsageInternetOfThingsRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4979,12 +4995,13 @@ export interface UsageMeteringApiGetUsageLogsByIndexRequest {
 
 export interface UsageMeteringApiGetUsageLogsByRetentionRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4992,12 +5009,13 @@ export interface UsageMeteringApiGetUsageLogsByRetentionRequest {
 
 export interface UsageMeteringApiGetUsageNetworkFlowsRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5018,12 +5036,13 @@ export interface UsageMeteringApiGetUsageNetworkHostsRequest {
 
 export interface UsageMeteringApiGetUsageOnlineArchiveRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5031,12 +5050,13 @@ export interface UsageMeteringApiGetUsageOnlineArchiveRequest {
 
 export interface UsageMeteringApiGetUsageProfilingRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5054,7 +5074,7 @@ export interface UsageMeteringApiGetUsageRumSessionsRequest {
    */
   endHr?: Date;
   /**
-   * RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
+   * RUM type: `[browser, mobile]`. Defaults to `browser`.
    * @type string
    */
   type?: string;
@@ -5075,12 +5095,13 @@ export interface UsageMeteringApiGetUsageRumUnitsRequest {
 
 export interface UsageMeteringApiGetUsageSDSRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5088,12 +5109,13 @@ export interface UsageMeteringApiGetUsageSDSRequest {
 
 export interface UsageMeteringApiGetUsageSNMPRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5101,12 +5123,13 @@ export interface UsageMeteringApiGetUsageSNMPRequest {
 
 export interface UsageMeteringApiGetUsageSummaryRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month.
+   * Maximum of 15 months ago.
    * @type Date
    */
   startMonth: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
    * @type Date
    */
   endMonth?: Date;
@@ -5239,7 +5262,21 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.  This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is set in the response. If it is, make another request and pass `next_record_id` as a parameter. Pseudo code example:  ``` response := GetHourlyUsageAttribution(start_month) cursor := response.metadata.pagination.next_record_id WHILE cursor != null BEGIN   sleep(5 seconds)  # Avoid running into rate limit   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)   cursor := response.metadata.pagination.next_record_id END ```
+   * Get Hourly Usage Attribution.
+   *
+   * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+   * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+   * Pseudo code example:
+   *
+   * ```
+   * response := GetHourlyUsageAttribution(start_month)
+   * cursor := response.metadata.pagination.next_record_id
+   * WHILE cursor != null BEGIN
+   *   sleep(5 seconds)  # Avoid running into rate limit
+   *   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)
+   *   cursor := response.metadata.pagination.next_record_id
+   * END
+   * ```
    * @param param The request object
    */
   public getHourlyUsageAttribution(
@@ -5336,7 +5373,21 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.  This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is set in the response. If it is, make another request and pass `next_record_id` as a parameter. Pseudo code example:  ``` response := GetMonthlyUsageAttribution(start_month) cursor := response.metadata.pagination.next_record_id WHILE cursor != null BEGIN   sleep(5 seconds)  # Avoid running into rate limit   response := GetMonthlyUsageAttribution(start_month, next_record_id=cursor)   cursor := response.metadata.pagination.next_record_id END ```
+   * Get Monthly Usage Attribution.
+   *
+   * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+   * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+   * Pseudo code example:
+   *
+   * ```
+   * response := GetMonthlyUsageAttribution(start_month)
+   * cursor := response.metadata.pagination.next_record_id
+   * WHILE cursor != null BEGIN
+   *   sleep(5 seconds)  # Avoid running into rate limit
+   *   response := GetMonthlyUsageAttribution(start_month, next_record_id=cursor)
+   *   cursor := response.metadata.pagination.next_record_id
+   * END
+   * ```
    * @param param The request object
    */
   public getMonthlyUsageAttribution(

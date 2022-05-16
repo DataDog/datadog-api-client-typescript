@@ -1655,7 +1655,7 @@ export class KeyManagementApiResponseProcessor {
 
 export interface KeyManagementApiCreateAPIKeyRequest {
   /**
-   *
+
    * @type APIKeyCreateRequest
    */
   body: APIKeyCreateRequest;
@@ -1663,7 +1663,7 @@ export interface KeyManagementApiCreateAPIKeyRequest {
 
 export interface KeyManagementApiCreateCurrentUserApplicationKeyRequest {
   /**
-   *
+
    * @type ApplicationKeyCreateRequest
    */
   body: ApplicationKeyCreateRequest;
@@ -1700,7 +1700,7 @@ export interface KeyManagementApiGetAPIKeyRequest {
    */
   apiKeyId: string;
   /**
-   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
    * @type string
    */
   include?: string;
@@ -1713,7 +1713,7 @@ export interface KeyManagementApiGetApplicationKeyRequest {
    */
   appKeyId: string;
   /**
-   * Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+   * Resource path for related resources to include in the response. Only `owned_by` is supported.
    * @type string
    */
   include?: string;
@@ -1739,7 +1739,9 @@ export interface KeyManagementApiListAPIKeysRequest {
    */
   pageNumber?: number;
   /**
-   * API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * API key attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
    * @type APIKeysSort
    */
   sort?: APIKeysSort;
@@ -1769,7 +1771,7 @@ export interface KeyManagementApiListAPIKeysRequest {
    */
   filterModifiedAtEnd?: string;
   /**
-   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
    * @type string
    */
   include?: string;
@@ -1787,7 +1789,9 @@ export interface KeyManagementApiListApplicationKeysRequest {
    */
   pageNumber?: number;
   /**
-   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * Application key attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
    * @type ApplicationKeysSort
    */
   sort?: ApplicationKeysSort;
@@ -1820,7 +1824,9 @@ export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
    */
   pageNumber?: number;
   /**
-   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * Application key attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
    * @type ApplicationKeysSort
    */
   sort?: ApplicationKeysSort;
@@ -1848,7 +1854,7 @@ export interface KeyManagementApiUpdateAPIKeyRequest {
    */
   apiKeyId: string;
   /**
-   *
+
    * @type APIKeyUpdateRequest
    */
   body: APIKeyUpdateRequest;
@@ -1861,7 +1867,7 @@ export interface KeyManagementApiUpdateApplicationKeyRequest {
    */
   appKeyId: string;
   /**
-   *
+
    * @type ApplicationKeyUpdateRequest
    */
   body: ApplicationKeyUpdateRequest;
@@ -1874,7 +1880,7 @@ export interface KeyManagementApiUpdateCurrentUserApplicationKeyRequest {
    */
   appKeyId: string;
   /**
-   *
+
    * @type ApplicationKeyUpdateRequest
    */
   body: ApplicationKeyUpdateRequest;
