@@ -56,7 +56,7 @@ function buildUndoFor(
       httpConfig: { compress: false },
     };
     if (process.env.DD_TEST_SITE) {
-      const server = api.servers[2];
+      const server = datadogApiClient.client.servers[2];
       const serverConf = server.getConfiguration();
       server.setVariables({
         site: process.env.DD_TEST_SITE,
@@ -64,14 +64,14 @@ function buildUndoFor(
       (configurationOpts as any)["baseServer"] = server;
     }
     if (process.env.DD_TEST_SITE_URL) {
-      const serverConf = api.servers[1].getConfiguration();
-      api.servers[1].setVariables({
+      const serverConf = datadogApiClient.client.servers[1].getConfiguration();
+      datadogApiClient.client.servers[1].setVariables({
         name: process.env.DD_TEST_SITE_URL,
         protocol: "http",
       } as typeof serverConf);
       (configurationOpts as any)["serverIndex"] = 1;
     }
-    const configuration = api.createConfiguration(configurationOpts);
+    const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
     if (operationName in configuration.unstableOperations) {
       configuration.unstableOperations[operationName] = true;
     }
