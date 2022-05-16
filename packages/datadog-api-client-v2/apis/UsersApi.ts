@@ -1105,7 +1105,6 @@ export class UsersApiResponseProcessor {
 
 export interface UsersApiCreateServiceAccountRequest {
   /**
-
    * @type ServiceAccountCreateRequest
    */
   body: ServiceAccountCreateRequest;
@@ -1113,7 +1112,6 @@ export interface UsersApiCreateServiceAccountRequest {
 
 export interface UsersApiCreateUserRequest {
   /**
-
    * @type UserCreateRequest
    */
   body: UserCreateRequest;
@@ -1199,7 +1197,6 @@ export interface UsersApiListUsersRequest {
 
 export interface UsersApiSendInvitationsRequest {
   /**
-
    * @type UserInvitationsRequest
    */
   body: UserInvitationsRequest;
@@ -1212,7 +1209,6 @@ export interface UsersApiUpdateUserRequest {
    */
   userId: string;
   /**
-
    * @type UserUpdateRequest
    */
   body: UserUpdateRequest;

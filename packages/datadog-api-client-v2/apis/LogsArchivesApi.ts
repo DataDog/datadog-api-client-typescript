@@ -1094,7 +1094,6 @@ export interface LogsArchivesApiAddReadRoleToArchiveRequest {
    */
   archiveId: string;
   /**
-
    * @type RelationshipToRole
    */
   body: RelationshipToRole;
@@ -1139,7 +1138,6 @@ export interface LogsArchivesApiRemoveRoleFromArchiveRequest {
    */
   archiveId: string;
   /**
-
    * @type RelationshipToRole
    */
   body: RelationshipToRole;

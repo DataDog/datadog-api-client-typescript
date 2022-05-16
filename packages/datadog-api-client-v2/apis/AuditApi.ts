@@ -288,7 +288,6 @@ export interface AuditApiListAuditLogsRequest {
 
 export interface AuditApiSearchAuditLogsRequest {
   /**
-
    * @type AuditLogsSearchEventsRequest
    */
   body?: AuditLogsSearchEventsRequest;

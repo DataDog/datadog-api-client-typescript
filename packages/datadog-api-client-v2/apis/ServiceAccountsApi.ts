@@ -661,7 +661,6 @@ export interface ServiceAccountsApiCreateServiceAccountApplicationKeyRequest {
    */
   serviceAccountId: string;
   /**
-
    * @type ApplicationKeyCreateRequest
    */
   body: ApplicationKeyCreateRequest;
@@ -745,7 +744,6 @@ export interface ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest {
    */
   appKeyId: string;
   /**
-
    * @type ApplicationKeyUpdateRequest
    */
   body: ApplicationKeyUpdateRequest;

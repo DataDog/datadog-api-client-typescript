@@ -1538,7 +1538,6 @@ export interface RolesApiAddPermissionToRoleRequest {
    */
   roleId: string;
   /**
-
    * @type RelationshipToPermission
    */
   body: RelationshipToPermission;
@@ -1551,7 +1550,6 @@ export interface RolesApiAddUserToRoleRequest {
    */
   roleId: string;
   /**
-
    * @type RelationshipToUser
    */
   body: RelationshipToUser;
@@ -1564,7 +1562,6 @@ export interface RolesApiCloneRoleRequest {
    */
   roleId: string;
   /**
-
    * @type RoleCloneRequest
    */
   body: RoleCloneRequest;
@@ -1572,7 +1569,6 @@ export interface RolesApiCloneRoleRequest {
 
 export interface RolesApiCreateRoleRequest {
   /**
-
    * @type RoleCreateRequest
    */
   body: RoleCreateRequest;
@@ -1664,7 +1660,6 @@ export interface RolesApiRemovePermissionFromRoleRequest {
    */
   roleId: string;
   /**
-
    * @type RelationshipToPermission
    */
   body: RelationshipToPermission;
@@ -1677,7 +1672,6 @@ export interface RolesApiRemoveUserFromRoleRequest {
    */
   roleId: string;
   /**
-
    * @type RelationshipToUser
    */
   body: RelationshipToUser;
@@ -1690,7 +1684,6 @@ export interface RolesApiUpdateRoleRequest {
    */
   roleId: string;
   /**
-
    * @type RoleUpdateRequest
    */
   body: RoleUpdateRequest;

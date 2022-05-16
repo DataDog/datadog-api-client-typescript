@@ -577,7 +577,6 @@ export interface OrganizationsApiUpdateOrgRequest {
    */
   publicId: string;
   /**
-
    * @type Organization
    */
   body: Organization;

@@ -224,7 +224,9 @@ export interface {{ className }}{{ operation.operationId }}Request {
   {%- for name, parameter in requiredParams %}
   {%- set parameterType = get_type_for_parameter(parameter) %}
   /**
+{%- if parameter.description %}
 {{ parameter.description|docstring }}
+{%- endif %}
    * @type {{ parameterType }}
    */
   {{ name|attribute_name }}{%- if not parameter.required %}?{%-endif %}: {{ parameterType }}
@@ -232,7 +234,9 @@ export interface {{ className }}{{ operation.operationId }}Request {
   {%- for name, parameter in optionalParams %}
   {%- set parameterType = get_type_for_parameter(parameter) %}
   /**
+{%- if parameter.description %}
 {{ parameter.description|docstring }}
+{%- endif %}
    * @type {{ parameterType }}
    */
   {{ name|attribute_name }}{%- if not parameter.required %}?{%-endif %}: {{ parameterType }}

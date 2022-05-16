@@ -534,7 +534,6 @@ export class LogsApiResponseProcessor {
 
 export interface LogsApiAggregateLogsRequest {
   /**
-
    * @type LogsAggregateRequest
    */
   body: LogsAggregateRequest;
@@ -542,7 +541,6 @@ export interface LogsApiAggregateLogsRequest {
 
 export interface LogsApiListLogsRequest {
   /**
-
    * @type LogsListRequest
    */
   body?: LogsListRequest;

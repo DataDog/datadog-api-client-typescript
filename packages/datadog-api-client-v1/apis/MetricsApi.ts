@@ -789,7 +789,6 @@ export interface MetricsApiQueryMetricsRequest {
 
 export interface MetricsApiSubmitMetricsRequest {
   /**
-
    * @type MetricsPayload
    */
   body: MetricsPayload;

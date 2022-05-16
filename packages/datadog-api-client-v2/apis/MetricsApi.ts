@@ -1100,7 +1100,6 @@ export class MetricsApiResponseProcessor {
 
 export interface MetricsApiCreateBulkTagsMetricsConfigurationRequest {
   /**
-
    * @type MetricBulkTagConfigCreateRequest
    */
   body: MetricBulkTagConfigCreateRequest;
@@ -1113,7 +1112,6 @@ export interface MetricsApiCreateTagConfigurationRequest {
    */
   metricName: string;
   /**
-
    * @type MetricTagConfigurationCreateRequest
    */
   body: MetricTagConfigurationCreateRequest;
@@ -1121,7 +1119,6 @@ export interface MetricsApiCreateTagConfigurationRequest {
 
 export interface MetricsApiDeleteBulkTagsMetricsConfigurationRequest {
   /**
-
    * @type MetricBulkTagConfigDeleteRequest
    */
   body: MetricBulkTagConfigDeleteRequest;
@@ -1202,7 +1199,6 @@ export interface MetricsApiUpdateTagConfigurationRequest {
    */
   metricName: string;
   /**
-
    * @type MetricTagConfigurationUpdateRequest
    */
   body: MetricTagConfigurationUpdateRequest;

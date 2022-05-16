@@ -1363,7 +1363,6 @@ export interface SecurityMonitoringApiCreateSecurityFilterRequest {
 
 export interface SecurityMonitoringApiCreateSecurityMonitoringRuleRequest {
   /**
-
    * @type SecurityMonitoringRuleCreatePayload
    */
   body: SecurityMonitoringRuleCreatePayload;
@@ -1449,7 +1448,6 @@ export interface SecurityMonitoringApiListSecurityMonitoringSignalsRequest {
 
 export interface SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest {
   /**
-
    * @type SecurityMonitoringSignalListRequest
    */
   body?: SecurityMonitoringSignalListRequest;
@@ -1475,7 +1473,6 @@ export interface SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest {
    */
   ruleId: string;
   /**
-
    * @type SecurityMonitoringRuleUpdatePayload
    */
   body: SecurityMonitoringRuleUpdatePayload;

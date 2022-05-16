@@ -374,7 +374,6 @@ export class RUMApiResponseProcessor {
 
 export interface RUMApiAggregateRUMEventsRequest {
   /**
-
    * @type RUMAggregateRequest
    */
   body: RUMAggregateRequest;
@@ -415,7 +414,6 @@ export interface RUMApiListRUMEventsRequest {
 
 export interface RUMApiSearchRUMEventsRequest {
   /**
-
    * @type RUMSearchEventsRequest
    */
   body: RUMSearchEventsRequest;

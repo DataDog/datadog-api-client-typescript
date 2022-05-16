@@ -586,7 +586,6 @@ export class AuthNMappingsApiResponseProcessor {
 
 export interface AuthNMappingsApiCreateAuthNMappingRequest {
   /**
-
    * @type AuthNMappingCreateRequest
    */
   body: AuthNMappingCreateRequest;
@@ -638,7 +637,6 @@ export interface AuthNMappingsApiUpdateAuthNMappingRequest {
    */
   authnMappingId: string;
   /**
-
    * @type AuthNMappingUpdateRequest
    */
   body: AuthNMappingUpdateRequest;
