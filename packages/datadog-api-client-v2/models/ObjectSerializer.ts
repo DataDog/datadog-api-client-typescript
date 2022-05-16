@@ -187,6 +187,9 @@ import { MetricBulkTagConfigStatusAttributes } from "./MetricBulkTagConfigStatus
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricDistinctVolume } from "./MetricDistinctVolume";
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
+import { MetricEstimate } from "./MetricEstimate";
+import { MetricEstimateAttributes } from "./MetricEstimateAttributes";
+import { MetricEstimateResponse } from "./MetricEstimateResponse";
 import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
 import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
@@ -463,6 +466,8 @@ const enumsMap: { [key: string]: any[] } = {
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
   MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
   MetricDistinctVolumeType: ["distinct_metric_volumes"],
+  MetricEstimateResourceType: ["metric_cardinality_estimate"],
+  MetricEstimateType: ["count_or_gauge", "distribution", "percentile"],
   MetricIngestedIndexedVolumeType: ["metric_volumes"],
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
@@ -750,6 +755,9 @@ const typeMap: { [index: string]: any } = {
   MetricCustomAggregation: MetricCustomAggregation,
   MetricDistinctVolume: MetricDistinctVolume,
   MetricDistinctVolumeAttributes: MetricDistinctVolumeAttributes,
+  MetricEstimate: MetricEstimate,
+  MetricEstimateAttributes: MetricEstimateAttributes,
+  MetricEstimateResponse: MetricEstimateResponse,
   MetricIngestedIndexedVolume: MetricIngestedIndexedVolume,
   MetricIngestedIndexedVolumeAttributes: MetricIngestedIndexedVolumeAttributes,
   MetricTagConfiguration: MetricTagConfiguration,

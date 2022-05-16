@@ -117,6 +117,7 @@ export {
   MetricsApiCreateTagConfigurationRequest,
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
+  MetricsApiEstimateMetricsOutputSeriesRequest,
   MetricsApiListTagConfigurationByNameRequest,
   MetricsApiListTagConfigurationsRequest,
   MetricsApiListTagsByMetricNameRequest,
@@ -448,6 +449,11 @@ export { MetricCustomTimeAggregation } from "./models/MetricCustomTimeAggregatio
 export { MetricDistinctVolume } from "./models/MetricDistinctVolume";
 export { MetricDistinctVolumeAttributes } from "./models/MetricDistinctVolumeAttributes";
 export { MetricDistinctVolumeType } from "./models/MetricDistinctVolumeType";
+export { MetricEstimate } from "./models/MetricEstimate";
+export { MetricEstimateAttributes } from "./models/MetricEstimateAttributes";
+export { MetricEstimateResourceType } from "./models/MetricEstimateResourceType";
+export { MetricEstimateResponse } from "./models/MetricEstimateResponse";
+export { MetricEstimateType } from "./models/MetricEstimateType";
 export { MetricIngestedIndexedVolume } from "./models/MetricIngestedIndexedVolume";
 export { MetricIngestedIndexedVolumeAttributes } from "./models/MetricIngestedIndexedVolumeAttributes";
 export { MetricIngestedIndexedVolumeType } from "./models/MetricIngestedIndexedVolumeType";
