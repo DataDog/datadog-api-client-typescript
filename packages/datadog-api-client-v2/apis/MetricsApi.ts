@@ -1295,7 +1295,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterHoursAgo?: number;
   /**
-   * The number of aggregations that a &#x60;count&#x60;, &#x60;rate&#x60;, or &#x60;gauge&#x60; metric is configured to use. Max number of aggregation combos is 9.
+   * The number of aggregations that a `count`, `rate`, or `gauge` metric is configured to use. Max number of aggregation combos is 9.
    * @type number
    */
   filterNumAggregations?: number;
