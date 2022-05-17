@@ -2,9 +2,9 @@
  * Delete a security filter returns "No Content" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 // there is a valid "security_filter" in the system

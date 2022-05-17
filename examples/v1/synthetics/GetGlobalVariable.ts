@@ -2,9 +2,9 @@
  * Get a global variable returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
 const params: v1.SyntheticsApiGetGlobalVariableRequest = {

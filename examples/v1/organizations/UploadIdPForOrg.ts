@@ -3,9 +3,9 @@
  */
 
 import * as fs from "fs";
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
 const params: v1.OrganizationsApiUploadIdPForOrgRequest = {

@@ -2,9 +2,9 @@
  * Get all application keys owned by current user returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
 apiInstance
