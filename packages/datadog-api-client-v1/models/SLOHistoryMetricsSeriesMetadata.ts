@@ -32,7 +32,9 @@ export class SLOHistoryMetricsSeriesMetadata {
    */
   "scope"?: string;
   /**
-   * An array of metric units that contains up to two unit objects. For example, bytes represents one unit object and bytes per second represents two unit objects. If a metric query only has one unit object, the second array element is null.
+   * An array of metric units that contains up to two unit objects.
+   * For example, bytes represents one unit object and bytes per second represents two unit objects.
+   * If a metric query only has one unit object, the second array element is null.
    */
   "unit"?: Array<SLOHistoryMetricsSeriesMetadataUnit>;
 

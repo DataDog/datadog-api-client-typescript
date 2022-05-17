@@ -28,7 +28,8 @@ export class SyntheticsAPIStep {
    */
   "extractedValues"?: Array<SyntheticsParsingOptions>;
   /**
-   * Determines whether or not to consider the entire test as failed if this step fails. Can be used only if `allowFailure` is `true`.
+   * Determines whether or not to consider the entire test as failed if this step fails.
+   * Can be used only if `allowFailure` is `true`.
    */
   "isCritical"?: boolean;
   /**

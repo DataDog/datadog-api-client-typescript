@@ -19,7 +19,9 @@ export class AWSAccount {
    */
   "accountId"?: string;
   /**
-   * An object, (in the form `{"namespace1":true/false, "namespace2":true/false}`), that enables or disables metric collection for specific AWS namespaces for this AWS account only.
+   * An object, (in the form `{"namespace1":true/false, "namespace2":true/false}`),
+   * that enables or disables metric collection for specific AWS namespaces for this
+   * AWS account only.
    */
   "accountSpecificNamespaceRules"?: { [key: string]: boolean };
   /**
@@ -31,11 +33,17 @@ export class AWSAccount {
    */
   "excludedRegions"?: Array<string>;
   /**
-   * The array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2. Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used. Only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. Host matching a given tag can also be excluded by adding `!` before the tag. For example, `env:production,instance-type:c1.*,!region:us-east-1`
+   * The array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
+   * Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
+   * Only hosts that match one of the defined tags
+   * will be imported into Datadog. The rest will be ignored.
+   * Host matching a given tag can also be excluded by adding `!` before the tag.
+   * For example, `env:production,instance-type:c1.*,!region:us-east-1`
    */
   "filterTags"?: Array<string>;
   /**
-   * Array of tags (in the form `key:value`) to add to all hosts and metrics reporting through this integration.
+   * Array of tags (in the form `key:value`) to add to all hosts
+   * and metrics reporting through this integration.
    */
   "hostTags"?: Array<string>;
   /**

@@ -8,7 +8,8 @@ import { SLOHistoryMetricsSeriesMetadata } from "./SLOHistoryMetricsSeriesMetada
 import { AttributeTypeMap } from "../util";
 
 /**
- * A representation of `metric` based SLO time series for the provided queries. This is the same response type from `batch_query` endpoint.
+ * A representation of `metric` based SLO time series for the provided queries.
+ * This is the same response type from `batch_query` endpoint.
  */
 export class SLOHistoryMetricsSeries {
   /**

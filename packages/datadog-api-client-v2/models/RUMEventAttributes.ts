@@ -15,7 +15,9 @@ export class RUMEventAttributes {
    */
   "attributes"?: { [key: string]: any };
   /**
-   * The name of the application or service generating RUM events. It is used to switch from RUM to APM, so make sure you define the same value when you use both products.
+   * The name of the application or service generating RUM events.
+   * It is used to switch from RUM to APM, so make sure you define the same
+   * value when you use both products.
    */
   "service"?: string;
   /**

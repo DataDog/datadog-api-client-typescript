@@ -72,17 +72,6 @@ KEYWORDS = {
     "yield",
 }
 
-HTML_ESCAPE_CHARACTERS = {
-    "&": "&amp;",
-    "'": "&#39;",
-    ">": "&gt;",
-    "<": "&lt;",
-    '"': "&quot;",
-    "`": "&#x60;",
-    "=": "&#x3D;",
-    "\\": "\\\\",
-}
-
 with (pathlib.Path(__file__).parent / "replacement.json").open() as f:
     EDGE_CASES = json.load(f)
 
@@ -397,11 +386,11 @@ def format_data_with_schema_dict(
     return f"{{\n{parameters}}}"
 
 
-def escape_html(text):
+def docstring(text, indent=3):
     if not text:
         return ""
-    text = " ".join(text.splitlines())
-    return "".join(HTML_ESCAPE_CHARACTERS.get(c, c) for c in text)
+    blank = " " * indent
+    return "\n".join("{}* {}".format(blank, line) for line in text.splitlines())
 
 
 def simple_type(schema):

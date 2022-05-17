@@ -14,7 +14,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class SyntheticsTestOptions {
   /**
-   * For SSL test, whether or not the test should allow self signed certificates.
+   * For SSL test, whether or not the test should allow self signed
+   * certificates.
    */
   "acceptSelfSigned"?: boolean;
   /**
@@ -42,7 +43,8 @@ export class SyntheticsTestOptions {
    */
   "minFailureDuration"?: number;
   /**
-   * Minimum number of locations in failure required to trigger an alert.
+   * Minimum number of locations in failure required to trigger
+   * an alert.
    */
   "minLocationFailed"?: number;
   /**
@@ -50,7 +52,8 @@ export class SyntheticsTestOptions {
    */
   "monitorName"?: string;
   /**
-   * Object containing the options for a Synthetic test as a monitor (for example, renotification).
+   * Object containing the options for a Synthetic test as a monitor
+   * (for example, renotification).
    */
   "monitorOptions"?: SyntheticsTestOptionsMonitorOptions;
   /**

@@ -20,7 +20,8 @@ export class OrganizationSettings {
    */
   "privateWidgetShare"?: boolean;
   /**
-   * Set the boolean property enabled to enable or disable single sign on with SAML. See the SAML documentation for more information about all SAML settings.
+   * Set the boolean property enabled to enable or disable single sign on with SAML.
+   * See the SAML documentation for more information about all SAML settings.
    */
   "saml"?: OrganizationSettingsSaml;
   /**

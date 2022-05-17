@@ -1538,7 +1538,6 @@ export interface RolesApiAddPermissionToRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RelationshipToPermission
    */
   body: RelationshipToPermission;
@@ -1551,7 +1550,6 @@ export interface RolesApiAddUserToRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RelationshipToUser
    */
   body: RelationshipToUser;
@@ -1564,7 +1562,6 @@ export interface RolesApiCloneRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RoleCloneRequest
    */
   body: RoleCloneRequest;
@@ -1572,7 +1569,6 @@ export interface RolesApiCloneRoleRequest {
 
 export interface RolesApiCreateRoleRequest {
   /**
-   *
    * @type RoleCreateRequest
    */
   body: RoleCreateRequest;
@@ -1614,7 +1610,9 @@ export interface RolesApiListRolesRequest {
    */
   pageNumber?: number;
   /**
-   * Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;.
+   * Sort roles depending on the given field. Sort order is **ascending** by default.
+   * Sort order is **descending** if the field is prefixed by a negative sign, for example:
+   * `sort=-name`.
    * @type RolesSort
    */
   sort?: RolesSort;
@@ -1642,7 +1640,9 @@ export interface RolesApiListRoleUsersRequest {
    */
   pageNumber?: number;
   /**
-   * User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;.
+   * User attribute to order results by. Sort order is **ascending** by default.
+   * Sort order is **descending** if the field is prefixed by a negative sign,
+   * for example `sort=-name`. Options: `name`, `email`, `status`.
    * @type string
    */
   sort?: string;
@@ -1660,7 +1660,6 @@ export interface RolesApiRemovePermissionFromRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RelationshipToPermission
    */
   body: RelationshipToPermission;
@@ -1673,7 +1672,6 @@ export interface RolesApiRemoveUserFromRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RelationshipToUser
    */
   body: RelationshipToUser;
@@ -1686,7 +1684,6 @@ export interface RolesApiUpdateRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RoleUpdateRequest
    */
   body: RoleUpdateRequest;

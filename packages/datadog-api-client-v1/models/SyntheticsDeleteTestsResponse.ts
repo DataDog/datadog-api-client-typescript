@@ -12,7 +12,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class SyntheticsDeleteTestsResponse {
   /**
-   * Array of objects containing a deleted Synthetic test ID with the associated deletion timestamp.
+   * Array of objects containing a deleted Synthetic test ID with
+   * the associated deletion timestamp.
    */
   "deletedTests"?: Array<SyntheticsDeletedTest>;
 

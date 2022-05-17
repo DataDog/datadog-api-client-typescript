@@ -11,7 +11,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class LogsArchiveOrderAttributes {
   /**
-   * An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array define the overall archives order for Datadog.
+   * An ordered array of `<ARCHIVE_ID>` strings, the order of archive IDs in the array
+   * define the overall archives order for Datadog.
    */
   "archiveIds": Array<string>;
 

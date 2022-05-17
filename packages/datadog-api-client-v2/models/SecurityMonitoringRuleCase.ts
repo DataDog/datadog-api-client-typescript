@@ -12,7 +12,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class SecurityMonitoringRuleCase {
   /**
-   * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated based on the event counts in the previously defined queries.
+   * A rule case contains logical operations (`>`,`>=`, `&&`, `||`) to determine if a signal should be generated
+   * based on the event counts in the previously defined queries.
    */
   "condition"?: string;
   /**

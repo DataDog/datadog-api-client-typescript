@@ -16,7 +16,8 @@ export class LogsListResponse {
    */
   "logs"?: Array<Log>;
   /**
-   * Hash identifier of the next log to return in the list. This parameter is used for the pagination feature.
+   * Hash identifier of the next log to return in the list.
+   * This parameter is used for the pagination feature.
    */
   "nextLogId"?: string;
   /**

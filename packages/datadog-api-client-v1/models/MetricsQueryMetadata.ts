@@ -60,7 +60,9 @@ export class MetricsQueryMetadata {
    */
   "tagSet"?: Array<string>;
   /**
-   * Detailed information about the metric unit. First element describes the "primary unit" (for example, `bytes` in `bytes per second`), second describes the "per unit" (for example, `second` in `bytes per second`).
+   * Detailed information about the metric unit.
+   * First element describes the "primary unit" (for example, `bytes` in `bytes per second`),
+   * second describes the "per unit" (for example, `second` in `bytes per second`).
    */
   "unit"?: [MetricsQueryUnit, MetricsQueryUnit];
 

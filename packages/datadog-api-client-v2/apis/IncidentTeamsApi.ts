@@ -800,7 +800,8 @@ export class IncidentTeamsApi {
   }
 
   /**
-   * Get details of an incident team. If the `include[users]` query parameter is provided, the included attribute will contain the users related to these incident teams.
+   * Get details of an incident team. If the `include[users]` query parameter is provided,
+   * the included attribute will contain the users related to these incident teams.
    * @param param The request object
    */
   public getIncidentTeam(

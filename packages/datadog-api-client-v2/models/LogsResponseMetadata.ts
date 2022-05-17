@@ -30,7 +30,8 @@ export class LogsResponseMetadata {
    */
   "status"?: LogsAggregateResponseStatus;
   /**
-   * A list of warnings (non fatal errors) encountered, partial results might be returned if warnings are present in the response.
+   * A list of warnings (non fatal errors) encountered, partial results might be returned if
+   * warnings are present in the response.
    */
   "warnings"?: Array<LogsWarning>;
 

@@ -7,7 +7,8 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * Object containing a deleted Synthetic test ID with the associated deletion timestamp.
+ * Object containing a deleted Synthetic test ID with the associated
+ * deletion timestamp.
  */
 export class SyntheticsDeletedTest {
   /**

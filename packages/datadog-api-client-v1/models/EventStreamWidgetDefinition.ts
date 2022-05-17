@@ -11,7 +11,8 @@ import { WidgetTime } from "./WidgetTime";
 import { AttributeTypeMap } from "../util";
 
 /**
- * The event stream is a widget version of the stream of events on the Event Stream view. Only available on FREE layout dashboards.
+ * The event stream is a widget version of the stream of events
+ * on the Event Stream view. Only available on FREE layout dashboards.
  */
 export class EventStreamWidgetDefinition {
   /**

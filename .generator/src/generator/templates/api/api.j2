@@ -224,16 +224,20 @@ export interface {{ className }}{{ operation.operationId }}Request {
   {%- for name, parameter in requiredParams %}
   {%- set parameterType = get_type_for_parameter(parameter) %}
   /**
-   * {{ parameter.description|escape_html }}
-   * @type {{ parameterType|escape_html }}
+{%- if parameter.description %}
+{{ parameter.description|docstring }}
+{%- endif %}
+   * @type {{ parameterType }}
    */
   {{ name|attribute_name }}{%- if not parameter.required %}?{%-endif %}: {{ parameterType }}
   {%-endfor %}
   {%- for name, parameter in optionalParams %}
   {%- set parameterType = get_type_for_parameter(parameter) %}
   /**
-   * {{ parameter.description|escape_html }}
-   * @type {{ parameterType|escape_html }}
+{%- if parameter.description %}
+{{ parameter.description|docstring }}
+{%- endif %}
+   * @type {{ parameterType }}
    */
   {{ name|attribute_name }}{%- if not parameter.required %}?{%-endif %}: {{ parameterType }}
   {%-endfor %}
@@ -261,7 +265,7 @@ export class {{ className }} {
 
   /**
    {%- if operation.description %}
-   * {{ operation.description|replace("\n", " ") }}
+{{ operation.description|docstring }}
    {%- endif %}
    * @param param The request object
    */

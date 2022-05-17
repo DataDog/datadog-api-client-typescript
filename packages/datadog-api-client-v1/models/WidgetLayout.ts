@@ -15,7 +15,8 @@ export class WidgetLayout {
    */
   "height": number;
   /**
-   * Whether the widget should be the first one on the second column in high density or not. **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should have this property set to `true`.
+   * Whether the widget should be the first one on the second column in high density or not.
+   * **Note**: Only for the **new dashboard layout** and only one widget in the dashboard should have this property set to `true`.
    */
   "isColumnBreak"?: boolean;
   /**

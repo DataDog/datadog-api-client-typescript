@@ -12,7 +12,8 @@ import { Widget } from "./Widget";
 import { AttributeTypeMap } from "../util";
 
 /**
- * A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying key performance metrics, which enable you to monitor the health of your infrastructure.
+ * A dashboard is Datadog’s tool for visually tracking, analyzing, and displaying
+ * key performance metrics, which enable you to monitor the health of your infrastructure.
  */
 export class Dashboard {
   /**
@@ -52,7 +53,9 @@ export class Dashboard {
    */
   "notifyList"?: Array<string>;
   /**
-   * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is 'ordered'. If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto', widgets should not have layouts.
+   * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is 'ordered'.
+   * If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',
+   * widgets should not have layouts.
    */
   "reflowType"?: DashboardReflowType;
   /**

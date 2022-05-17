@@ -57,7 +57,8 @@ export class SyntheticsStepDetail {
    */
   "stepId"?: number;
   /**
-   * If this steps include a sub-test. [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
+   * If this steps include a sub-test.
+   * [Subtests documentation](https://docs.datadoghq.com/synthetics/browser_tests/advanced_options/#subtests).
    */
   "subTestStepDetails"?: Array<SyntheticsStepDetail>;
   /**

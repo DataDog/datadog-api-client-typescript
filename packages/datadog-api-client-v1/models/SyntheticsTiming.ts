@@ -7,7 +7,8 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * Object containing all metrics and their values collected for a Synthetic API test. Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
+ * Object containing all metrics and their values collected for a Synthetic API test.
+ * Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
  */
 export class SyntheticsTiming {
   /**

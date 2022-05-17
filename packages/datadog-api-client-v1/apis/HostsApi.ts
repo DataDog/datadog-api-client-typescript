@@ -496,7 +496,7 @@ export interface HostsApiListHostsRequest {
    */
   sortField?: string;
   /**
-   * Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;.
+   * Direction of sort. Options include `asc` and `desc`.
    * @type string
    */
   sortDir?: string;
@@ -566,7 +566,8 @@ export class HostsApi {
   }
 
   /**
-   * This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
+   * This endpoint returns the total number of active and up hosts in your Datadog account.
+   * Active means the host has reported in the past hour, and up means it has reported in the past two hours.
    * @param param The request object
    */
   public getHostTotals(
@@ -587,7 +588,10 @@ export class HostsApi {
   }
 
   /**
-   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
+   * This endpoint allows searching for hosts by name, alias, or tag.
+   * Hosts live within the past 3 hours are included by default.
+   * Retention is 7 days.
+   * Results are paginated with a max of 1000 results at a time.
    * @param param The request object
    */
   public listHosts(

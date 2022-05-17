@@ -13,7 +13,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class LogsListRequest {
   /**
-   * The log index on which the request is performed. For multi-index organizations, the default is all live indexes. Historical indexes of rehydrated logs must be specified.
+   * The log index on which the request is performed. For multi-index organizations,
+   * the default is all live indexes. Historical indexes of rehydrated logs must be specified.
    */
   "index"?: string;
   /**
@@ -29,7 +30,11 @@ export class LogsListRequest {
    */
   "sort"?: LogsSort;
   /**
-   * Hash identifier of the first log to return in the list, available in a log `id` attribute. This parameter is used for the pagination feature.  **Note**: This parameter is ignored if the corresponding log is out of the scope of the specified time window.
+   * Hash identifier of the first log to return in the list, available in a log `id` attribute.
+   * This parameter is used for the pagination feature.
+   *
+   * **Note**: This parameter is ignored if the corresponding log
+   * is out of the scope of the specified time window.
    */
   "startAt"?: string;
   /**

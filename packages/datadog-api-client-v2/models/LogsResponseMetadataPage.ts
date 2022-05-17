@@ -11,7 +11,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class LogsResponseMetadataPage {
   /**
-   * The cursor to use to get the next results, if any. To make the next request, use the same. parameters with the addition of the `page[cursor]`.
+   * The cursor to use to get the next results, if any. To make the next request, use the same.
+   * parameters with the addition of the `page[cursor]`.
    */
   "after"?: string;
 

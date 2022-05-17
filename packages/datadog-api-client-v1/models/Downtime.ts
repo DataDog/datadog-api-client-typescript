@@ -9,7 +9,10 @@ import { DowntimeRecurrence } from "./DowntimeRecurrence";
 import { AttributeTypeMap } from "../util";
 
 /**
- * Downtiming gives you greater control over monitor notifications by allowing you to globally exclude scopes from alerting. Downtime settings, which can be scheduled with start and end times, prevent all alerting related to specified Datadog tags.
+ * Downtiming gives you greater control over monitor notifications by
+ * allowing you to globally exclude scopes from alerting.
+ * Downtime settings, which can be scheduled with start and end times,
+ * prevent all alerting related to specified Datadog tags.
  */
 export class Downtime {
   /**
@@ -17,7 +20,8 @@ export class Downtime {
    */
   "active"?: boolean;
   /**
-   * The downtime object definition of the active child for the original parent recurring downtime. This field will only exist on recurring downtimes.
+   * The downtime object definition of the active child for the original parent recurring downtime. This
+   * field will only exist on recurring downtimes.
    */
   "activeChild"?: DowntimeChild;
   /**
@@ -33,11 +37,14 @@ export class Downtime {
    */
   "disabled"?: boolean;
   /**
-   * `0` for a downtime applied on `*` or all, `1` when the downtime is only scoped to hosts, or `2` when the downtime is scoped to anything but hosts.
+   * `0` for a downtime applied on `*` or all,
+   * `1` when the downtime is only scoped to hosts,
+   * or `2` when the downtime is scoped to anything but hosts.
    */
   "downtimeType"?: number;
   /**
-   * POSIX timestamp to end the downtime. If not provided, the downtime is in effect indefinitely until you cancel it.
+   * POSIX timestamp to end the downtime. If not provided,
+   * the downtime is in effect indefinitely until you cancel it.
    */
   "end"?: number;
   /**
@@ -45,15 +52,20 @@ export class Downtime {
    */
   "id"?: number;
   /**
-   * A message to include with notifications for this downtime. Email notifications can be sent to specific users by using the same `@username` notation as events.
+   * A message to include with notifications for this downtime.
+   * Email notifications can be sent to specific users by using the same `@username` notation as events.
    */
   "message"?: string;
   /**
-   * A single monitor to which the downtime applies. If not provided, the downtime applies to all monitors.
+   * A single monitor to which the downtime applies.
+   * If not provided, the downtime applies to all monitors.
    */
   "monitorId"?: number;
   /**
-   * A comma-separated list of monitor tags. For example, tags that are applied directly to monitors, not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies. The resulting downtime applies to monitors that match ALL provided monitor tags. For example, `service:postgres` **AND** `team:frontend`.
+   * A comma-separated list of monitor tags. For example, tags that are applied directly to monitors,
+   * not tags that are used in monitor queries (which are filtered by the scope parameter), to which the downtime applies.
+   * The resulting downtime applies to monitors that match ALL provided monitor tags.
+   * For example, `service:postgres` **AND** `team:frontend`.
    */
   "monitorTags"?: Array<string>;
   /**
@@ -69,11 +81,14 @@ export class Downtime {
    */
   "recurrence"?: DowntimeRecurrence;
   /**
-   * The scope(s) to which the downtime applies. For example, `host:app2`. Provide multiple scopes as a comma-separated list like `env:dev,env:prod`. The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
+   * The scope(s) to which the downtime applies. For example, `host:app2`.
+   * Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
+   * The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
    */
   "scope"?: Array<string>;
   /**
-   * POSIX timestamp to start the downtime. If not provided, the downtime starts the moment it is created.
+   * POSIX timestamp to start the downtime.
+   * If not provided, the downtime starts the moment it is created.
    */
   "start"?: number;
   /**

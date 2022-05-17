@@ -11,11 +11,14 @@ import { AttributeTypeMap } from "../util";
  */
 export class SLOBulkDeleteResponseData {
   /**
-   * An array of service level objective object IDs that indicates which objects that were completely deleted.
+   * An array of service level objective object IDs that indicates
+   * which objects that were completely deleted.
    */
   "deleted"?: Array<string>;
   /**
-   * An array of service level objective object IDs that indicates which objects that were modified (objects for which at least one threshold was deleted, but that were not completely deleted).
+   * An array of service level objective object IDs that indicates
+   * which objects that were modified (objects for which at least one
+   * threshold was deleted, but that were not completely deleted).
    */
   "updated"?: Array<string>;
 

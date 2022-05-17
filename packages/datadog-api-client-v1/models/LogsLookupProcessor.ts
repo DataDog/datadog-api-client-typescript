@@ -8,7 +8,12 @@ import { LogsLookupProcessorType } from "./LogsLookupProcessorType";
 import { AttributeTypeMap } from "../util";
 
 /**
- * Use the Lookup Processor to define a mapping between a log attribute and a human readable value saved in the processors mapping table. For example, you can use the Lookup Processor to map an internal service ID into a human readable service name. Alternatively, you could also use it to check if the MAC address that just attempted to connect to the production environment belongs to your list of stolen machines.
+ * Use the Lookup Processor to define a mapping between a log attribute
+ * and a human readable value saved in the processors mapping table.
+ * For example, you can use the Lookup Processor to map an internal service ID
+ * into a human readable service name. Alternatively, you could also use it to check
+ * if the MAC address that just attempted to connect to the production
+ * environment belongs to your list of stolen machines.
  */
 export class LogsLookupProcessor {
   /**
@@ -20,7 +25,8 @@ export class LogsLookupProcessor {
    */
   "isEnabled"?: boolean;
   /**
-   * Mapping table of values for the source attribute and their associated target attribute values, formatted as `["source_key1,target_value1", "source_key2,target_value2"]`
+   * Mapping table of values for the source attribute and their associated target attribute values,
+   * formatted as `["source_key1,target_value1", "source_key2,target_value2"]`
    */
   "lookupTable": Array<string>;
   /**
@@ -32,7 +38,8 @@ export class LogsLookupProcessor {
    */
   "source": string;
   /**
-   * Name of the attribute that contains the corresponding value in the mapping list or the `default_lookup` if not found in the mapping list.
+   * Name of the attribute that contains the corresponding value in the mapping list
+   * or the `default_lookup` if not found in the mapping list.
    */
   "target": string;
   /**

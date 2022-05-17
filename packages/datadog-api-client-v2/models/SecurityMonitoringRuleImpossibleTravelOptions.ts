@@ -11,7 +11,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class SecurityMonitoringRuleImpossibleTravelOptions {
   /**
-   * If true, signals are suppressed for the first 24 hours. In that time, Datadog learns the user's regular access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
+   * If true, signals are suppressed for the first 24 hours. In that time, Datadog learns the user's regular
+   * access locations. This can be helpful to reduce noise and infer VPN usage or credentialed API access.
    */
   "baselineUserLocations"?: boolean;
 

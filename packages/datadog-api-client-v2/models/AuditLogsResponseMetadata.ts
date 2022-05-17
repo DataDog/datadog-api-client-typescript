@@ -30,7 +30,8 @@ export class AuditLogsResponseMetadata {
    */
   "status"?: AuditLogsResponseStatus;
   /**
-   * A list of warnings (non-fatal errors) encountered. Partial results may return if warnings are present in the response.
+   * A list of warnings (non-fatal errors) encountered. Partial results may return if
+   * warnings are present in the response.
    */
   "warnings"?: Array<AuditLogsWarning>;
 

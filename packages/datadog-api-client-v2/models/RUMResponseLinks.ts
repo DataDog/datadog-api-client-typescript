@@ -11,7 +11,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class RUMResponseLinks {
   /**
-   * Link for the next set of results. Note that the request can also be made using the POST endpoint.
+   * Link for the next set of results. Note that the request can also be made using the
+   * POST endpoint.
    */
   "next"?: string;
 

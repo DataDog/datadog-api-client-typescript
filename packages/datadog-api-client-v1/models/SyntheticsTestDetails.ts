@@ -50,7 +50,8 @@ export class SyntheticsTestDetails {
    */
   "publicId"?: string;
   /**
-   * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+   * Define whether you want to start (`live`) or pause (`paused`) a
+   * Synthetic test.
    */
   "status"?: SyntheticsTestPauseStatus;
   /**
@@ -58,7 +59,8 @@ export class SyntheticsTestDetails {
    */
   "steps"?: Array<SyntheticsStep>;
   /**
-   * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`, `dns`, `icmp`, `udp`, `websocket` or `multi`.
+   * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
+   * `dns`, `icmp`, `udp`, `websocket` or `multi`.
    */
   "subtype"?: SyntheticsTestDetailsSubType;
   /**

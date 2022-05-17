@@ -11,7 +11,10 @@ import { AttributeTypeMap } from "../util";
  */
 export class WidgetMarker {
   /**
-   * Combination of:   - A severity error, warning, ok, or info   - A line type: dashed, solid, or bold In this case of a Distribution widget, this can be set to be `x_axis_percentile`.
+   * Combination of:
+   *   - A severity error, warning, ok, or info
+   *   - A line type: dashed, solid, or bold
+   * In this case of a Distribution widget, this can be set to be `x_axis_percentile`.
    */
   "displayType"?: string;
   /**

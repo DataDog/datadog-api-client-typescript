@@ -488,12 +488,12 @@ export class UsageMeteringApiResponseProcessor {
 
 export interface UsageMeteringApiGetCostByOrgRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for cost beginning this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
    * @type Date
    */
   startMonth: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for cost ending this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
    * @type Date
    */
   endMonth?: Date;
@@ -501,12 +501,13 @@ export interface UsageMeteringApiGetCostByOrgRequest {
 
 export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -514,12 +515,13 @@ export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
 
 export interface UsageMeteringApiGetUsageLambdaTracedInvocationsRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -527,12 +529,13 @@ export interface UsageMeteringApiGetUsageLambdaTracedInvocationsRequest {
 
 export interface UsageMeteringApiGetUsageObservabilityPipelinesRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;

@@ -7,7 +7,8 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * Synthetic location that can be used when creating or editing a test.
+ * Synthetic location that can be used when creating or editing a
+ * test.
  */
 export class SyntheticsLocation {
   /**

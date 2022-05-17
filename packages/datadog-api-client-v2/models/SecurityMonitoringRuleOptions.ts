@@ -22,7 +22,8 @@ export class SecurityMonitoringRuleOptions {
    */
   "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
   /**
-   * A time window is specified to match when at least one of the cases matches true. This is a sliding window and evaluates in real time.
+   * A time window is specified to match when at least one of the cases matches true. This is a sliding window
+   * and evaluates in real time.
    */
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
   /**
@@ -34,11 +35,13 @@ export class SecurityMonitoringRuleOptions {
    */
   "impossibleTravelOptions"?: SecurityMonitoringRuleImpossibleTravelOptions;
   /**
-   * Once a signal is generated, the signal will remain “open” if a case is matched at least once within this keep alive window.
+   * Once a signal is generated, the signal will remain “open” if a case is matched at least once within
+   * this keep alive window.
    */
   "keepAlive"?: SecurityMonitoringRuleKeepAlive;
   /**
-   * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration. This time is calculated from the first seen timestamp.
+   * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
+   * This time is calculated from the first seen timestamp.
    */
   "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
   /**

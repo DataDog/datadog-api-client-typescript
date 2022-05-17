@@ -9,7 +9,8 @@ import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { UnparsedObject } from "../util";
 
 /**
- * Object describing the assertions type, their associated operator, which property they apply, and upon which target.
+ * Object describing the assertions type, their associated operator,
+ * which property they apply, and upon which target.
  */
 
 export type SyntheticsAssertion =

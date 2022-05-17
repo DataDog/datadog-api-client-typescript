@@ -14,7 +14,7 @@ import { AttributeTypeMap{%- if "oneOf" in model %}, UnparsedObject{% endif %} }
 
 {% if "description" in model %}
 /**
-* {{ model.description|replace("\n", " ") }}
+{{ model.description|docstring(indent=1) }}
 */
 {% endif %}
 {%- if "enum" not in model and "oneOf" not in model -%}
@@ -24,7 +24,7 @@ export class {{ name }} {
 {%- set isNullable = schema.nullable %}
 {%- if schema.description %}
   /**
-  * {{ schema.description|replace("\n", " ") }}
+{{ schema.description|docstring }}
   */
 {%- endif %}
   "{{ attr|attribute_name }}"{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isRequired and isNullable %}|null{%- endif %};

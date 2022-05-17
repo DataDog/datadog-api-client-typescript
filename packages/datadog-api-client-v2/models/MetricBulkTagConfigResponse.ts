@@ -12,7 +12,8 @@ import { AttributeTypeMap } from "../util";
  */
 export class MetricBulkTagConfigResponse {
   /**
-   * The status of a request to bulk configure metric tags. It contains the fields from the original request for reference.
+   * The status of a request to bulk configure metric tags.
+   * It contains the fields from the original request for reference.
    */
   "data"?: MetricBulkTagConfigStatus;
 

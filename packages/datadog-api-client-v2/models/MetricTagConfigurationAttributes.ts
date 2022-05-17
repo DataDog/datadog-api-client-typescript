@@ -13,7 +13,22 @@ import { AttributeTypeMap } from "../util";
  */
 export class MetricTagConfigurationAttributes {
   /**
-   * A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and Gauge metrics require the (time: avg, space: avg) aggregation. Additional time & space combinations are also available:  - time: avg, space: avg - time: avg, space: max - time: avg, space: min - time: avg, space: sum - time: count, space: sum - time: max, space: max - time: min, space: min - time: sum, space: avg - time: sum, space: sum  Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
+   * A list of queryable aggregation combinations for a count, rate, or gauge metric.
+   * By default, count and rate metrics require the (time: sum, space: sum) aggregation and
+   * Gauge metrics require the (time: avg, space: avg) aggregation.
+   * Additional time & space combinations are also available:
+   *
+   * - time: avg, space: avg
+   * - time: avg, space: max
+   * - time: avg, space: min
+   * - time: avg, space: sum
+   * - time: count, space: sum
+   * - time: max, space: max
+   * - time: min, space: min
+   * - time: sum, space: avg
+   * - time: sum, space: sum
+   *
+   * Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
    */
   "aggregations"?: Array<MetricCustomAggregation>;
   /**
@@ -21,7 +36,8 @@ export class MetricTagConfigurationAttributes {
    */
   "createdAt"?: Date;
   /**
-   * Toggle to turn on/off percentile aggregations for distribution metrics. Only present when the `metric_type` is `distribution`.
+   * Toggle to turn on/off percentile aggregations for distribution metrics.
+   * Only present when the `metric_type` is `distribution`.
    */
   "includePercentiles"?: boolean;
   /**

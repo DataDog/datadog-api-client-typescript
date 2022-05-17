@@ -7,7 +7,8 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * The object containing all signal attributes and their associated values.
+ * The object containing all signal attributes and their
+ * associated values.
  */
 export class SecurityMonitoringSignalAttributes {
   /**

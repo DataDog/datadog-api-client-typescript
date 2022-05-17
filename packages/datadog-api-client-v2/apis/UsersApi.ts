@@ -1105,7 +1105,6 @@ export class UsersApiResponseProcessor {
 
 export interface UsersApiCreateServiceAccountRequest {
   /**
-   *
    * @type ServiceAccountCreateRequest
    */
   body: ServiceAccountCreateRequest;
@@ -1113,7 +1112,6 @@ export interface UsersApiCreateServiceAccountRequest {
 
 export interface UsersApiCreateUserRequest {
   /**
-   *
    * @type UserCreateRequest
    */
   body: UserCreateRequest;
@@ -1171,12 +1169,15 @@ export interface UsersApiListUsersRequest {
    */
   pageNumber?: number;
   /**
-   * User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;.
+   * User attribute to order results by. Sort order is ascending by default.
+   * Sort order is descending if the field
+   * is prefixed by a negative sign, for example `sort=-name`. Options: `name`,
+   * `modified_at`, `user_count`.
    * @type string
    */
   sort?: string;
   /**
-   * Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;.
+   * Direction of sort. Options: `asc`, `desc`.
    * @type QuerySortOrder
    */
   sortDir?: QuerySortOrder;
@@ -1186,7 +1187,9 @@ export interface UsersApiListUsersRequest {
    */
   filter?: string;
   /**
-   * Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.
+   * Filter on status attribute.
+   * Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.
+   * Defaults to no filtering.
    * @type string
    */
   filterStatus?: string;
@@ -1194,7 +1197,6 @@ export interface UsersApiListUsersRequest {
 
 export interface UsersApiSendInvitationsRequest {
   /**
-   *
    * @type UserInvitationsRequest
    */
   body: UserInvitationsRequest;
@@ -1207,7 +1209,6 @@ export interface UsersApiUpdateUserRequest {
    */
   userId: string;
   /**
-   *
    * @type UserUpdateRequest
    */
   body: UserUpdateRequest;
@@ -1273,7 +1274,8 @@ export class UsersApi {
   }
 
   /**
-   * Disable a user. Can only be used with an application key belonging to an administrator user.
+   * Disable a user. Can only be used with an application key belonging
+   * to an administrator user.
    * @param param The request object
    */
   public disableUser(
@@ -1336,7 +1338,8 @@ export class UsersApi {
   }
 
   /**
-   * Get a user organization. Returns the user information and all organizations joined by this user.
+   * Get a user organization. Returns the user information and all organizations
+   * joined by this user.
    * @param param The request object
    */
   public listUserOrganizations(
@@ -1357,7 +1360,8 @@ export class UsersApi {
   }
 
   /**
-   * Get a user permission set. Returns a list of the user’s permissions granted by the associated user's roles.
+   * Get a user permission set. Returns a list of the user’s permissions
+   * granted by the associated user's roles.
    * @param param The request object
    */
   public listUserPermissions(
@@ -1378,7 +1382,8 @@ export class UsersApi {
   }
 
   /**
-   * Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
+   * Get the list of all users in the organization. This list includes
+   * all users even if they are deactivated or unverified.
    * @param param The request object
    */
   public listUsers(
@@ -1425,7 +1430,8 @@ export class UsersApi {
   }
 
   /**
-   * Edit a user. Can only be used with an application key belonging to an administrator user.
+   * Edit a user. Can only be used with an application key belonging
+   * to an administrator user.
    * @param param The request object
    */
   public updateUser(

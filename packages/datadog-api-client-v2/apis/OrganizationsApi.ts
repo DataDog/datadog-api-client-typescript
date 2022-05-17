@@ -139,7 +139,9 @@ export class OrganizationsApi {
   }
 
   /**
-   * Endpoint for uploading IdP metadata for SAML setup.  Use this endpoint to upload or replace IdP metadata for SAML login configuration.
+   * Endpoint for uploading IdP metadata for SAML setup.
+   *
+   * Use this endpoint to upload or replace IdP metadata for SAML login configuration.
    * @param param The request object
    */
   public uploadIdPMetadata(

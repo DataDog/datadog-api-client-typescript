@@ -186,7 +186,9 @@ export interface SnapshotsApiGetGraphSnapshotRequest {
    */
   eventQuery?: string;
   /**
-   * A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
+   * A JSON document defining the graph. `graph_def` can be used instead of `metric_query`.
+   * The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)
+   * and should be formatted to a single line then URL encoded.
    * @type string
    */
   graphDef?: string;
@@ -215,7 +217,8 @@ export class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is available.
+   * Take graph snapshots.
+   * **Note**: When a snapshot is created, there is some delay before it is available.
    * @param param The request object
    */
   public getGraphSnapshot(

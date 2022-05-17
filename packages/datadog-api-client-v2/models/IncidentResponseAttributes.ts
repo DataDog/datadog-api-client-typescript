@@ -17,7 +17,8 @@ export class IncidentResponseAttributes {
    */
   "created"?: Date;
   /**
-   * Length of the incident's customer impact in seconds. Equals the difference between `customer_impact_start` and `customer_impact_end`.
+   * Length of the incident's customer impact in seconds.
+   * Equals the difference between `customer_impact_start` and `customer_impact_end`.
    */
   "customerImpactDuration"?: number;
   /**
@@ -65,7 +66,8 @@ export class IncidentResponseAttributes {
    */
   "resolved"?: Date;
   /**
-   * The amount of time in seconds to detect the incident. Equals the difference between `customer_impact_start` and `detected`.
+   * The amount of time in seconds to detect the incident.
+   * Equals the difference between `customer_impact_start` and `detected`.
    */
   "timeToDetect"?: number;
   /**

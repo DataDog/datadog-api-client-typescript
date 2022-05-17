@@ -1094,7 +1094,6 @@ export interface LogsArchivesApiAddReadRoleToArchiveRequest {
    */
   archiveId: string;
   /**
-   *
    * @type RelationshipToRole
    */
   body: RelationshipToRole;
@@ -1139,7 +1138,6 @@ export interface LogsArchivesApiRemoveRoleFromArchiveRequest {
    */
   archiveId: string;
   /**
-   *
    * @type RelationshipToRole
    */
   body: RelationshipToRole;
@@ -1269,7 +1267,8 @@ export class LogsArchivesApi {
   }
 
   /**
-   * Get the current order of your archives. This endpoint takes no JSON arguments.
+   * Get the current order of your archives.
+   * This endpoint takes no JSON arguments.
    * @param param The request object
    */
   public getLogsArchiveOrder(
@@ -1345,7 +1344,10 @@ export class LogsArchivesApi {
   }
 
   /**
-   * Update a given archive configuration.  **Note**: Using this method updates your archive configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * Update a given archive configuration.
+   *
+   * **Note**: Using this method updates your archive configuration by **replacing**
+   * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
    */
   public updateLogsArchive(
@@ -1367,7 +1369,11 @@ export class LogsArchivesApi {
   }
 
   /**
-   * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change the structure and content of the data processed by other archives.  **Note**: Using the `PUT` method updates your archive's order by replacing the current order with the new one.
+   * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
+   * the structure and content of the data processed by other archives.
+   *
+   * **Note**: Using the `PUT` method updates your archive's order by replacing the current order
+   * with the new one.
    * @param param The request object
    */
   public updateLogsArchiveOrder(

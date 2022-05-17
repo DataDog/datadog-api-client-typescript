@@ -7,7 +7,8 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * A metric to submit to Datadog. See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
+ * A metric to submit to Datadog.
+ * See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
  */
 export class Series {
   /**

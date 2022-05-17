@@ -44,7 +44,8 @@ export class SyntheticsBrowserTest {
    */
   "publicId"?: string;
   /**
-   * Define whether you want to start (`live`) or pause (`paused`) a Synthetic test.
+   * Define whether you want to start (`live`) or pause (`paused`) a
+   * Synthetic test.
    */
   "status"?: SyntheticsTestPauseStatus;
   /**

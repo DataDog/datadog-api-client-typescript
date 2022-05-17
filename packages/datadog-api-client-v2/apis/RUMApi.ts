@@ -374,7 +374,6 @@ export class RUMApiResponseProcessor {
 
 export interface RUMApiAggregateRUMEventsRequest {
   /**
-   *
    * @type RUMAggregateRequest
    */
   body: RUMAggregateRequest;
@@ -415,7 +414,6 @@ export interface RUMApiListRUMEventsRequest {
 
 export interface RUMApiSearchRUMEventsRequest {
   /**
-   *
    * @type RUMSearchEventsRequest
    */
   body: RUMSearchEventsRequest;
@@ -459,7 +457,12 @@ export class RUMApi {
   }
 
   /**
-   * List endpoint returns events that match a RUM search query. [Results are paginated][1].  Use this endpoint to see your latest RUM events.  [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * List endpoint returns events that match a RUM search query.
+   * [Results are paginated][1].
+   *
+   * Use this endpoint to see your latest RUM events.
+   *
+   * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
   public listRUMEvents(
@@ -542,7 +545,12 @@ export class RUMApi {
   }
 
   /**
-   * List endpoint returns RUM events that match a RUM search query. [Results are paginated][1].  Use this endpoint to build complex RUM events filtering and search.  [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * List endpoint returns RUM events that match a RUM search query.
+   * [Results are paginated][1].
+   *
+   * Use this endpoint to build complex RUM events filtering and search.
+   *
+   * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
   public searchRUMEvents(

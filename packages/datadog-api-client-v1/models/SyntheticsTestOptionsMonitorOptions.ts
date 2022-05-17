@@ -7,11 +7,13 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * Object containing the options for a Synthetic test as a monitor (for example, renotification).
+ * Object containing the options for a Synthetic test as a monitor
+ * (for example, renotification).
  */
 export class SyntheticsTestOptionsMonitorOptions {
   /**
-   * Time interval before renotifying if the test is still failing (in minutes).
+   * Time interval before renotifying if the test is still failing
+   * (in minutes).
    */
   "renotifyInterval"?: number;
 

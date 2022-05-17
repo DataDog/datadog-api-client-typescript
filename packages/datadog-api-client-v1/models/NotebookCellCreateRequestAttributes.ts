@@ -13,7 +13,8 @@ import { NotebookToplistCellAttributes } from "./NotebookToplistCellAttributes";
 import { UnparsedObject } from "../util";
 
 /**
- * The attributes of a notebook cell in create cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`, `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
+ * The attributes of a notebook cell in create cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
+ * `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
  */
 
 export type NotebookCellCreateRequestAttributes =

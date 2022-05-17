@@ -12,11 +12,13 @@ import { AttributeTypeMap } from "../util";
  */
 export class SLOResponse {
   /**
-   * A service level objective object includes a service level indicator, thresholds for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
+   * A service level objective object includes a service level indicator, thresholds
+   * for one or more timeframes, and metadata (`name`, `description`, `tags`, etc.).
    */
   "data"?: SLOResponseData;
   /**
-   * An array of error messages. Each endpoint documents how/whether this field is used.
+   * An array of error messages. Each endpoint documents how/whether this field is
+   * used.
    */
   "errors"?: Array<string>;
 

@@ -17,11 +17,15 @@ export class LogsIndexUpdateRequest {
    */
   "dailyLimit"?: number;
   /**
-   * If true, sets the `daily_limit` value to null and the index is not limited on a daily basis (any specified `daily_limit` value in the request is ignored). If false or omitted, the index's current `daily_limit` is maintained.
+   * If true, sets the `daily_limit` value to null and the index is not limited on a daily basis (any
+   * specified `daily_limit` value in the request is ignored). If false or omitted, the index's current
+   * `daily_limit` is maintained.
    */
   "disableDailyLimit"?: boolean;
   /**
-   * An array of exclusion objects. The logs are tested against the query of each filter, following the order of the array. Only the first matching active exclusion matters, others (if any) are ignored.
+   * An array of exclusion objects. The logs are tested against the query of each filter,
+   * following the order of the array. Only the first matching active exclusion matters,
+   * others (if any) are ignored.
    */
   "exclusionFilters"?: Array<LogsExclusion>;
   /**
@@ -29,7 +33,11 @@ export class LogsIndexUpdateRequest {
    */
   "filter": LogsFilter;
   /**
-   * The number of days before logs are deleted from this index. Available values depend on retention plans specified in your organization's contract/subscriptions.  **Note:** Changing the retention for an index adjusts the length of retention for all logs already in this index. It may also affect billing.
+   * The number of days before logs are deleted from this index. Available values depend on
+   * retention plans specified in your organization's contract/subscriptions.
+   *
+   * **Note:** Changing the retention for an index adjusts the length of retention for all logs
+   * already in this index. It may also affect billing.
    */
   "numRetentionDays"?: number;
 

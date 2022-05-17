@@ -7,11 +7,14 @@
 import { AttributeTypeMap } from "../util";
 
 /**
- * Update request of a custom variable object.  *All properties are optional.*
+ * Update request of a custom variable object.
+ *
+ * *All properties are optional.*
  */
 export class WebhooksIntegrationCustomVariableUpdateRequest {
   /**
-   * Make custom variable is secret or not. If the custom variable is secret, the value is not returned in the response payload.
+   * Make custom variable is secret or not.
+   * If the custom variable is secret, the value is not returned in the response payload.
    */
   "isSecret"?: boolean;
   /**

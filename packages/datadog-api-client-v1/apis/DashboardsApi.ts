@@ -799,12 +799,14 @@ export interface DashboardsApiGetDashboardRequest {
 
 export interface DashboardsApiListDashboardsRequest {
   /**
-   * When &#x60;true&#x60;, this query only returns shared custom created or cloned dashboards.
+   * When `true`, this query only returns shared custom created
+   * or cloned dashboards.
    * @type boolean
    */
   filterShared?: boolean;
   /**
-   * When &#x60;true&#x60;, this query returns only deleted custom-created or cloned dashboards. This parameter is incompatible with &#x60;filter[shared]&#x60;.
+   * When `true`, this query returns only deleted custom-created
+   * or cloned dashboards. This parameter is incompatible with `filter[shared]`.
    * @type boolean
    */
   filterDeleted?: boolean;
@@ -849,7 +851,8 @@ export class DashboardsApi {
   }
 
   /**
-   * Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended. Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
+   * Create a dashboard using the specified options. When defining queries in your widgets, take note of which queries should have the `as_count()` or `as_rate()` modifiers appended.
+   * Refer to the following [documentation](https://docs.datadoghq.com/developers/metrics/type_modifiers/?tab=count#in-application-modifiers) for more information on these modifiers.
    * @param param The request object
    */
   public createDashboard(
@@ -933,7 +936,10 @@ export class DashboardsApi {
   }
 
   /**
-   * Get all dashboards.  **Note**: This query will only return custom created or cloned dashboards. This query will not return preset dashboards.
+   * Get all dashboards.
+   *
+   * **Note**: This query will only return custom created or cloned dashboards.
+   * This query will not return preset dashboards.
    * @param param The request object
    */
   public listDashboards(

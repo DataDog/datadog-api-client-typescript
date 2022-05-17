@@ -11,11 +11,13 @@ import { AttributeTypeMap } from "../util";
  */
 export class SyntheticsTestOptionsRetry {
   /**
-   * Number of times a test needs to be retried before marking a location as failed. Defaults to 0.
+   * Number of times a test needs to be retried before marking a
+   * location as failed. Defaults to 0.
    */
   "count"?: number;
   /**
-   * Time interval between retries (in milliseconds). Defaults to 300ms.
+   * Time interval between retries (in milliseconds). Defaults to
+   * 300ms.
    */
   "interval"?: number;
 
