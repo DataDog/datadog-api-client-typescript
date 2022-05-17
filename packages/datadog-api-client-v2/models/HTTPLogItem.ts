@@ -29,13 +29,20 @@ export class HTTPLogItem {
    * of your log. By default, Datadog ingests the value of the message attribute as the body of the log entry.
    * That value is then highlighted and displayed in the Logstream, where it is indexed for full text search.
    */
-  "message"?: string;
+  "message": string;
   /**
    * The name of the application or service generating the log events.
    * It is used to switch from Logs to APM, so make sure you define the same value when you use both products.
    * See [reserved attributes](https://docs.datadoghq.com/logs/log_collection/#reserved-attributes).
    */
   "service"?: string;
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: string };
 
   /**
    * @ignore
@@ -61,9 +68,14 @@ export class HTTPLogItem {
     message: {
       baseName: "message",
       type: "string",
+      required: true,
     },
     service: {
       baseName: "service",
+      type: "string",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
       type: "string",
     },
   };
