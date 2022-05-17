@@ -280,7 +280,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.estimateMetricsOutputSeries"
+      "v2.MetricsApi.estimateMetricsOutputSeries"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
