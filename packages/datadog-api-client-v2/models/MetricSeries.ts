@@ -3,6 +3,10 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { MetricIntakeType } from "./MetricIntakeType";
+import { MetricMetadata } from "./MetricMetadata";
+import { MetricPoint } from "./MetricPoint";
+import { MetricResource } from "./MetricResource";
 
 import { AttributeTypeMap } from "../util";
 
@@ -10,31 +14,43 @@ import { AttributeTypeMap } from "../util";
  * A metric to submit to Datadog.
  * See [Datadog metrics](https://docs.datadoghq.com/developers/metrics/#custom-metrics-properties).
  */
-export class Series {
-  /**
-   * The name of the host that produced the metric.
-   */
-  "host"?: string;
+export class MetricSeries {
   /**
    * If the type of the metric is rate or count, define the corresponding interval.
    */
   "interval"?: number;
   /**
+   * Metadata for the metric.
+   */
+  "metadata"?: MetricMetadata;
+  /**
    * The name of the timeseries.
    */
   "metric": string;
   /**
-   * Points relating to a metric. All points must be tuples with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
+   * Points relating to a metric. All points must be objects with timestamp and a scalar value (cannot be a string). Timestamps should be in POSIX time in seconds, and cannot be more than ten minutes in the future or more than one hour in the past.
    */
-  "points": Array<[number, number]>;
+  "points": Array<MetricPoint>;
+  /**
+   * A list of resources to associate with this metric.
+   */
+  "resources"?: Array<MetricResource>;
+  /**
+   * The source type name.
+   */
+  "sourceTypeName"?: string;
   /**
    * A list of tags associated with the metric.
    */
   "tags"?: Array<string>;
   /**
-   * The type of the metric. Valid types are "",`count`, `gauge`, and `rate`.
+   * The type of metric.
    */
-  "type"?: string;
+  "type"?: MetricIntakeType;
+  /**
+   * The unit of point value.
+   */
+  "unit"?: string;
 
   /**
    * @ignore
@@ -45,14 +61,14 @@ export class Series {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    host: {
-      baseName: "host",
-      type: "string",
-    },
     interval: {
       baseName: "interval",
       type: "number",
       format: "int64",
+    },
+    metadata: {
+      baseName: "metadata",
+      type: "MetricMetadata",
     },
     metric: {
       baseName: "metric",
@@ -61,9 +77,16 @@ export class Series {
     },
     points: {
       baseName: "points",
-      type: "Array<[number, number]>",
+      type: "Array<MetricPoint>",
       required: true,
-      format: "double",
+    },
+    resources: {
+      baseName: "resources",
+      type: "Array<MetricResource>",
+    },
+    sourceTypeName: {
+      baseName: "source_type_name",
+      type: "string",
     },
     tags: {
       baseName: "tags",
@@ -71,6 +94,11 @@ export class Series {
     },
     type: {
       baseName: "type",
+      type: "MetricIntakeType",
+      format: "int32",
+    },
+    unit: {
+      baseName: "unit",
       type: "string",
     },
   };
@@ -79,7 +107,7 @@ export class Series {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Series.attributeTypeMap;
+    return MetricSeries.attributeTypeMap;
   }
 
   public constructor() {}

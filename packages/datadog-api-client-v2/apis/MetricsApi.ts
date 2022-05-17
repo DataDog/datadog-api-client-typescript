@@ -12,11 +12,14 @@ import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
 import { MetricAllTagsResponse } from "../models/MetricAllTagsResponse";
 import { MetricBulkTagConfigCreateRequest } from "../models/MetricBulkTagConfigCreateRequest";
 import { MetricBulkTagConfigDeleteRequest } from "../models/MetricBulkTagConfigDeleteRequest";
 import { MetricBulkTagConfigResponse } from "../models/MetricBulkTagConfigResponse";
+import { MetricContentEncoding } from "../models/MetricContentEncoding";
 import { MetricEstimateResponse } from "../models/MetricEstimateResponse";
+import { MetricPayload } from "../models/MetricPayload";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigurationCreateRequest";
 import { MetricTagConfigurationMetricTypes } from "../models/MetricTagConfigurationMetricTypes";
@@ -488,6 +491,56 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
     ]);
+
+    return requestContext;
+  }
+
+  public async submitMetrics(
+    body: MetricPayload,
+    contentEncoding?: MetricContentEncoding,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling submitMetrics."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/series";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "MetricsApi.submitMetrics"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Header Params
+    if (contentEncoding !== undefined) {
+      requestContext.setHeaderParam(
+        "Content-Encoding",
+        ObjectSerializer.serialize(contentEncoding, "MetricContentEncoding", "")
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "MetricPayload", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -1176,6 +1229,85 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to submitMetrics
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async submitMetrics(
+    response: ResponseContext
+  ): Promise<IntakePayloadAccepted> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("202", response.httpStatusCode)) {
+      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IntakePayloadAccepted",
+        ""
+      ) as IntakePayloadAccepted;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("408", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(408, body);
+    }
+    if (isCodeInRange("413", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(413, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IntakePayloadAccepted",
+        ""
+      ) as IntakePayloadAccepted;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateTagConfiguration
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1369,6 +1501,18 @@ export interface MetricsApiListVolumesByMetricNameRequest {
    * @type string
    */
   metricName: string;
+}
+
+export interface MetricsApiSubmitMetricsRequest {
+  /**
+   * @type MetricPayload
+   */
+  body: MetricPayload;
+  /**
+   * HTTP header used to compress the media-type.
+   * @type MetricContentEncoding
+   */
+  contentEncoding?: MetricContentEncoding;
 }
 
 export interface MetricsApiUpdateTagConfigurationRequest {
@@ -1624,6 +1768,37 @@ export class MetricsApi {
           return this.responseProcessor.listVolumesByMetricName(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
+   * The maximum payload size is 500 kilobytes (512000 bytes). Compressed payloads must have a decompressed size of less than 5 megabytes (5242880 bytes).
+   *
+   * If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
+   *
+   * - 64 bits for the timestamp
+   * - 64 bits for the value
+   * - 20 bytes for the metric names
+   * - 50 bytes for the timeseries
+   * - The full payload is approximately 100 bytes.
+   * @param param The request object
+   */
+  public submitMetrics(
+    param: MetricsApiSubmitMetricsRequest,
+    options?: Configuration
+  ): Promise<IntakePayloadAccepted> {
+    const requestContextPromise = this.requestFactory.submitMetrics(
+      param.body,
+      param.contentEncoding,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.submitMetrics(responseContext);
         });
     });
   }
