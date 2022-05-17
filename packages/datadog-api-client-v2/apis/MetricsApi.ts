@@ -16,6 +16,7 @@ import { MetricAllTagsResponse } from "../models/MetricAllTagsResponse";
 import { MetricBulkTagConfigCreateRequest } from "../models/MetricBulkTagConfigCreateRequest";
 import { MetricBulkTagConfigDeleteRequest } from "../models/MetricBulkTagConfigDeleteRequest";
 import { MetricBulkTagConfigResponse } from "../models/MetricBulkTagConfigResponse";
+import { MetricEstimateResponse } from "../models/MetricEstimateResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigurationCreateRequest";
 import { MetricTagConfigurationMetricTypes } from "../models/MetricTagConfigurationMetricTypes";
@@ -214,6 +215,80 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async estimateMetricsOutputSeries(
+    metricName: string,
+    filterGroups?: string,
+    filterHoursAgo?: number,
+    filterNumAggregations?: number,
+    filterPct?: boolean,
+    filterTimespanH?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError(
+        "Required parameter metricName was null or undefined when calling estimateMetricsOutputSeries."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/{metric_name}/estimate".replace(
+      "{" + "metric_name" + "}",
+      encodeURIComponent(String(metricName))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "MetricsApi.estimateMetricsOutputSeries"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterGroups !== undefined) {
+      requestContext.setQueryParam(
+        "filter[groups]",
+        ObjectSerializer.serialize(filterGroups, "string", "")
+      );
+    }
+    if (filterHoursAgo !== undefined) {
+      requestContext.setQueryParam(
+        "filter[hours_ago]",
+        ObjectSerializer.serialize(filterHoursAgo, "number", "")
+      );
+    }
+    if (filterNumAggregations !== undefined) {
+      requestContext.setQueryParam(
+        "filter[num_aggregations]",
+        ObjectSerializer.serialize(filterNumAggregations, "number", "")
+      );
+    }
+    if (filterPct !== undefined) {
+      requestContext.setQueryParam(
+        "filter[pct]",
+        ObjectSerializer.serialize(filterPct, "boolean", "")
+      );
+    }
+    if (filterTimespanH !== undefined) {
+      requestContext.setQueryParam(
+        "filter[timespan_h]",
+        ObjectSerializer.serialize(filterTimespanH, "number", "")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -760,6 +835,77 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to estimateMetricsOutputSeries
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async estimateMetricsOutputSeries(
+    response: ResponseContext
+  ): Promise<MetricEstimateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: MetricEstimateResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricEstimateResponse",
+        ""
+      ) as MetricEstimateResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MetricEstimateResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricEstimateResponse",
+        ""
+      ) as MetricEstimateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTagConfigurationByName
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1132,6 +1278,39 @@ export interface MetricsApiDeleteTagConfigurationRequest {
   metricName: string;
 }
 
+export interface MetricsApiEstimateMetricsOutputSeriesRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+  /**
+   * Filtered tag groups that the metric is configured to query with.
+   * @type string
+   */
+  filterGroups?: string;
+  /**
+   * The number of hours of look back (from now) to estimate cardinality with.
+   * @type number
+   */
+  filterHoursAgo?: number;
+  /**
+   * The number of aggregations that a &#x60;count&#x60;, &#x60;rate&#x60;, or &#x60;gauge&#x60; metric is configured to use. Max number of aggregation combos is 9.
+   * @type number
+   */
+  filterNumAggregations?: number;
+  /**
+   * A boolean, for distribution metrics only, to estimate cardinality if the metric includes additional percentile aggregators.
+   * @type boolean
+   */
+  filterPct?: boolean;
+  /**
+   * A window, in hours, from the look back to estimate cardinality with.
+   * @type number
+   */
+  filterTimespanH?: number;
+}
+
 export interface MetricsApiListTagConfigurationByNameRequest {
   /**
    * The name of the metric.
@@ -1320,6 +1499,35 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteTagConfiguration(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Returns a cardinality estimate for a metric with a given tag, percentile, and number of aggregations configuration.
+   * @param param The request object
+   */
+  public estimateMetricsOutputSeries(
+    param: MetricsApiEstimateMetricsOutputSeriesRequest,
+    options?: Configuration
+  ): Promise<MetricEstimateResponse> {
+    const requestContextPromise =
+      this.requestFactory.estimateMetricsOutputSeries(
+        param.metricName,
+        param.filterGroups,
+        param.filterHoursAgo,
+        param.filterNumAggregations,
+        param.filterPct,
+        param.filterTimespanH,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.estimateMetricsOutputSeries(
+            responseContext
+          );
         });
     });
   }
