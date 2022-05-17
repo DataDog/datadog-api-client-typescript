@@ -117,6 +117,7 @@ import { IncidentUpdateData } from "./IncidentUpdateData";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentsResponse } from "./IncidentsResponse";
+import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
@@ -192,6 +193,12 @@ import { MetricEstimateAttributes } from "./MetricEstimateAttributes";
 import { MetricEstimateResponse } from "./MetricEstimateResponse";
 import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
 import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
+import { MetricMetadata } from "./MetricMetadata";
+import { MetricOrigin } from "./MetricOrigin";
+import { MetricPayload } from "./MetricPayload";
+import { MetricPoint } from "./MetricPoint";
+import { MetricResource } from "./MetricResource";
+import { MetricSeries } from "./MetricSeries";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
 import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
 import { MetricTagConfigurationCreateAttributes } from "./MetricTagConfigurationCreateAttributes";
@@ -463,12 +470,14 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
+  MetricContentEncoding: ["deflate"],
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
   MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
   MetricDistinctVolumeType: ["distinct_metric_volumes"],
   MetricEstimateResourceType: ["metric_cardinality_estimate"],
   MetricEstimateType: ["count_or_gauge", "distribution", "percentile"],
   MetricIngestedIndexedVolumeType: ["metric_volumes"],
+  MetricIntakeType: [0, 1, 2, 3, 15],
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
@@ -684,6 +693,7 @@ const typeMap: { [index: string]: any } = {
   IncidentUpdateRelationships: IncidentUpdateRelationships,
   IncidentUpdateRequest: IncidentUpdateRequest,
   IncidentsResponse: IncidentsResponse,
+  IntakePayloadAccepted: IntakePayloadAccepted,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
   Log: Log,
   LogAttributes: LogAttributes,
@@ -760,6 +770,12 @@ const typeMap: { [index: string]: any } = {
   MetricEstimateResponse: MetricEstimateResponse,
   MetricIngestedIndexedVolume: MetricIngestedIndexedVolume,
   MetricIngestedIndexedVolumeAttributes: MetricIngestedIndexedVolumeAttributes,
+  MetricMetadata: MetricMetadata,
+  MetricOrigin: MetricOrigin,
+  MetricPayload: MetricPayload,
+  MetricPoint: MetricPoint,
+  MetricResource: MetricResource,
+  MetricSeries: MetricSeries,
   MetricTagConfiguration: MetricTagConfiguration,
   MetricTagConfigurationAttributes: MetricTagConfigurationAttributes,
   MetricTagConfigurationCreateAttributes:

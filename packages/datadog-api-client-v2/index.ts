@@ -122,6 +122,7 @@ export {
   MetricsApiListTagConfigurationsRequest,
   MetricsApiListTagsByMetricNameRequest,
   MetricsApiListVolumesByMetricNameRequest,
+  MetricsApiSubmitMetricsRequest,
   MetricsApiUpdateTagConfigurationRequest,
   MetricsApi,
 } from "./apis/MetricsApi";
@@ -355,6 +356,7 @@ export { IncidentUpdateAttributes } from "./models/IncidentUpdateAttributes";
 export { IncidentUpdateData } from "./models/IncidentUpdateData";
 export { IncidentUpdateRelationships } from "./models/IncidentUpdateRelationships";
 export { IncidentUpdateRequest } from "./models/IncidentUpdateRequest";
+export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
 export { Log } from "./models/Log";
 export { LogAttributes } from "./models/LogAttributes";
@@ -443,6 +445,7 @@ export { MetricBulkTagConfigDeleteRequest } from "./models/MetricBulkTagConfigDe
 export { MetricBulkTagConfigResponse } from "./models/MetricBulkTagConfigResponse";
 export { MetricBulkTagConfigStatus } from "./models/MetricBulkTagConfigStatus";
 export { MetricBulkTagConfigStatusAttributes } from "./models/MetricBulkTagConfigStatusAttributes";
+export { MetricContentEncoding } from "./models/MetricContentEncoding";
 export { MetricCustomAggregation } from "./models/MetricCustomAggregation";
 export { MetricCustomSpaceAggregation } from "./models/MetricCustomSpaceAggregation";
 export { MetricCustomTimeAggregation } from "./models/MetricCustomTimeAggregation";
@@ -457,8 +460,15 @@ export { MetricEstimateType } from "./models/MetricEstimateType";
 export { MetricIngestedIndexedVolume } from "./models/MetricIngestedIndexedVolume";
 export { MetricIngestedIndexedVolumeAttributes } from "./models/MetricIngestedIndexedVolumeAttributes";
 export { MetricIngestedIndexedVolumeType } from "./models/MetricIngestedIndexedVolumeType";
+export { MetricIntakeType } from "./models/MetricIntakeType";
+export { MetricMetadata } from "./models/MetricMetadata";
+export { MetricOrigin } from "./models/MetricOrigin";
+export { MetricPayload } from "./models/MetricPayload";
+export { MetricPoint } from "./models/MetricPoint";
+export { MetricResource } from "./models/MetricResource";
 export { MetricsAndMetricTagConfigurations } from "./models/MetricsAndMetricTagConfigurations";
 export { MetricsAndMetricTagConfigurationsResponse } from "./models/MetricsAndMetricTagConfigurationsResponse";
+export { MetricSeries } from "./models/MetricSeries";
 export { MetricTagConfiguration } from "./models/MetricTagConfiguration";
 export { MetricTagConfigurationAttributes } from "./models/MetricTagConfigurationAttributes";
 export { MetricTagConfigurationCreateAttributes } from "./models/MetricTagConfigurationCreateAttributes";
