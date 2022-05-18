@@ -1417,7 +1417,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   metricName: string;
   /**
-   * Filtered tag groups that the metric is configured to query with.
+   * Filtered tag keys that the metric is configured to query with.
    * @type string
    */
   filterGroups?: string;
@@ -1648,7 +1648,7 @@ export class MetricsApi {
   }
 
   /**
-   * Returns a cardinality estimate for a metric with a given tag, percentile, and number of aggregations configuration.
+   * Returns the estimated cardinality for a metric with a given tag, percentile and number of aggregations configuration using Metrics without Limits&trade;.
    * @param param The request object
    */
   public estimateMetricsOutputSeries(
