@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsBrowserTestRumSettings } from "./SyntheticsBrowserTestRumSettings";
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
@@ -72,6 +73,20 @@ export class SyntheticsTestOptions {
    * Object describing the retry strategy to apply to a Synthetic test.
    */
   "retry"?: SyntheticsTestOptionsRetry;
+  /**
+   * The RUM data collection settings for the Synthetic browser test.
+   * **Note:** There are 3 ways to format RUM settings:
+   *
+   * `{ isEnabled: false }`
+   * RUM data is not collected.
+   *
+   * `{ isEnabled: true }`
+   * RUM data is collected from the Synthetic test's default application.
+   *
+   * `{ isEnabled: true, applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", clientTokenId: 12345 }`
+   * RUM data is collected using the specified application.
+   */
+  "rumSettings"?: SyntheticsBrowserTestRumSettings;
   /**
    * The frequency at which to run the Synthetic test (in seconds).
    */
@@ -144,6 +159,10 @@ export class SyntheticsTestOptions {
     retry: {
       baseName: "retry",
       type: "SyntheticsTestOptionsRetry",
+    },
+    rumSettings: {
+      baseName: "rumSettings",
+      type: "SyntheticsBrowserTestRumSettings",
     },
     tickEvery: {
       baseName: "tick_every",

@@ -48,6 +48,11 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
       monitorOptions: {},
       restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
       retry: {},
+      rumSettings: {
+        applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        clientTokenId: 12345,
+        isEnabled: true,
+      },
     },
     status: "live",
     steps: [
