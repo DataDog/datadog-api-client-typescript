@@ -699,7 +699,11 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
     "avg",
   ],
-  MonitorFormulaAndFunctionEventsDataSource: ["rum", "ci_pipelines"],
+  MonitorFormulaAndFunctionEventsDataSource: [
+    "rum",
+    "ci_pipelines",
+    "ci_tests",
+  ],
   MonitorOverallStates: [
     "Alert",
     "Ignored",
@@ -726,6 +730,7 @@ const enumsMap: { [key: string]: any[] } = {
     "event-v2 alert",
     "audit alert",
     "ci-pipelines alert",
+    "ci-tests alert",
     "error-tracking alert",
   ],
   MonthlyUsageAttributionSupportedMetrics: [

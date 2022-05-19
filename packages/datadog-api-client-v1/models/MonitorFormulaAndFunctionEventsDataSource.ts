@@ -6,6 +6,8 @@
 
 export type MonitorFormulaAndFunctionEventsDataSource =
   | typeof RUM
-  | typeof CI_PIPELINES;
+  | typeof CI_PIPELINES
+  | typeof CI_TESTS;
 export const RUM = "rum";
 export const CI_PIPELINES = "ci_pipelines";
+export const CI_TESTS = "ci_tests";
