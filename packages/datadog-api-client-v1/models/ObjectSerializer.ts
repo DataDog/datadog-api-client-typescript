@@ -332,6 +332,7 @@ import { SyntheticsBrowserTestResultFull } from "./SyntheticsBrowserTestResultFu
 import { SyntheticsBrowserTestResultFullCheck } from "./SyntheticsBrowserTestResultFullCheck";
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
 import { SyntheticsBrowserTestResultShortResult } from "./SyntheticsBrowserTestResultShortResult";
+import { SyntheticsBrowserTestRumSettings } from "./SyntheticsBrowserTestRumSettings";
 import { SyntheticsBrowserVariable } from "./SyntheticsBrowserVariable";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
@@ -1533,6 +1534,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsBrowserTestResultShort: SyntheticsBrowserTestResultShort,
   SyntheticsBrowserTestResultShortResult:
     SyntheticsBrowserTestResultShortResult,
+  SyntheticsBrowserTestRumSettings: SyntheticsBrowserTestRumSettings,
   SyntheticsBrowserVariable: SyntheticsBrowserVariable,
   SyntheticsCIBatchMetadata: SyntheticsCIBatchMetadata,
   SyntheticsCIBatchMetadataCI: SyntheticsCIBatchMetadataCI,
