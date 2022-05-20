@@ -766,6 +766,7 @@ export { SyntheticsBrowserTestResultFull } from "./models/SyntheticsBrowserTestR
 export { SyntheticsBrowserTestResultFullCheck } from "./models/SyntheticsBrowserTestResultFullCheck";
 export { SyntheticsBrowserTestResultShort } from "./models/SyntheticsBrowserTestResultShort";
 export { SyntheticsBrowserTestResultShortResult } from "./models/SyntheticsBrowserTestResultShortResult";
+export { SyntheticsBrowserTestRumSettings } from "./models/SyntheticsBrowserTestRumSettings";
 export { SyntheticsBrowserTestType } from "./models/SyntheticsBrowserTestType";
 export { SyntheticsBrowserVariable } from "./models/SyntheticsBrowserVariable";
 export { SyntheticsBrowserVariableType } from "./models/SyntheticsBrowserVariableType";
