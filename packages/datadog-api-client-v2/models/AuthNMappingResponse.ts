@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { AuthNMapping } from "./AuthNMapping";
+import { AuthNMappingIncluded } from "./AuthNMappingIncluded";
 
 import { AttributeTypeMap } from "../util";
 
@@ -15,6 +16,10 @@ export class AuthNMappingResponse {
    * The AuthN Mapping object returned by API.
    */
   "data"?: AuthNMapping;
+  /**
+   * Included data in the AuthN Mapping response.
+   */
+  "included"?: Array<AuthNMappingIncluded>;
 
   /**
    * @ignore
@@ -28,6 +33,10 @@ export class AuthNMappingResponse {
     data: {
       baseName: "data",
       type: "AuthNMapping",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<AuthNMappingIncluded>",
     },
   };
 
