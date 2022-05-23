@@ -178,6 +178,13 @@ export {
 } from "./apis/PagerDutyIntegrationApi";
 
 export {
+  SecurityMonitoringApiAddSecurityMonitoringSignalToIncidentRequest,
+  SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
+  SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
+  SecurityMonitoringApi,
+} from "./apis/SecurityMonitoringApi";
+
+export {
   ServiceChecksApiSubmitServiceCheckRequest,
   ServiceChecksApi,
 } from "./apis/ServiceChecksApi";
@@ -317,6 +324,7 @@ export {
 } from "./apis/WebhooksIntegrationApi";
 
 export { AccessRole } from "./models/AccessRole";
+export { AddSignalToIncidentRequest } from "./models/AddSignalToIncidentRequest";
 export { AlertGraphWidgetDefinition } from "./models/AlertGraphWidgetDefinition";
 export { AlertGraphWidgetDefinitionType } from "./models/AlertGraphWidgetDefinitionType";
 export { AlertValueWidgetDefinition } from "./models/AlertValueWidgetDefinition";
@@ -677,6 +685,10 @@ export { ServiceMapWidgetDefinition } from "./models/ServiceMapWidgetDefinition"
 export { ServiceMapWidgetDefinitionType } from "./models/ServiceMapWidgetDefinitionType";
 export { ServiceSummaryWidgetDefinition } from "./models/ServiceSummaryWidgetDefinition";
 export { ServiceSummaryWidgetDefinitionType } from "./models/ServiceSummaryWidgetDefinitionType";
+export { SignalArchiveReason } from "./models/SignalArchiveReason";
+export { SignalAssigneeUpdateRequest } from "./models/SignalAssigneeUpdateRequest";
+export { SignalStateUpdateRequest } from "./models/SignalStateUpdateRequest";
+export { SignalTriageState } from "./models/SignalTriageState";
 export { SlackIntegrationChannel } from "./models/SlackIntegrationChannel";
 export { SlackIntegrationChannelDisplay } from "./models/SlackIntegrationChannelDisplay";
 export { SLOBulkDeleteError } from "./models/SLOBulkDeleteError";
@@ -718,6 +730,7 @@ export { SLOType } from "./models/SLOType";
 export { SLOTypeNumeric } from "./models/SLOTypeNumeric";
 export { SLOWidgetDefinition } from "./models/SLOWidgetDefinition";
 export { SLOWidgetDefinitionType } from "./models/SLOWidgetDefinitionType";
+export { SuccessfulSignalUpdateResponse } from "./models/SuccessfulSignalUpdateResponse";
 export { SunburstWidgetDefinition } from "./models/SunburstWidgetDefinition";
 export { SunburstWidgetDefinitionType } from "./models/SunburstWidgetDefinitionType";
 export { SunburstWidgetLegend } from "./models/SunburstWidgetLegend";
