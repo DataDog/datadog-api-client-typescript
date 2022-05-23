@@ -17,7 +17,7 @@ export class MonthlyUsageAttributionResponse {
    */
   "metadata"?: MonthlyUsageAttributionMetadata;
   /**
-   * Get Usage Summary by tag(s).
+   * Get usage summary by tag(s).
    */
   "usage"?: Array<MonthlyUsageAttributionBody>;
 

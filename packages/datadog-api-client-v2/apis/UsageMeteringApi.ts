@@ -559,7 +559,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Cost Across Multi-Org Account.
+   * Get cost across multi-org account.
    * @param param The request object
    */
   public getCostByOrg(
