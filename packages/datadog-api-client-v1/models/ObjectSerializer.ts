@@ -876,6 +876,7 @@ const enumsMap: { [key: string]: any[] } = {
     "packetsReceived",
     "networkHop",
     "receivedMessage",
+    "connection",
   ],
   SyntheticsBasicAuthNTLMType: ["ntlm"],
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
