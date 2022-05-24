@@ -19,7 +19,8 @@ export type SyntheticsAssertionType =
   | typeof PACKET_LOSS_PERCENTAGE
   | typeof PACKETS_RECEIVED
   | typeof NETWORK_HOP
-  | typeof RECEIVED_MESSAGE;
+  | typeof RECEIVED_MESSAGE
+  | typeof CONNECTION;
 export const BODY = "body";
 export const HEADER = "header";
 export const STATUS_CODE = "statusCode";
@@ -35,3 +36,4 @@ export const PACKET_LOSS_PERCENTAGE = "packetLossPercentage";
 export const PACKETS_RECEIVED = "packetsReceived";
 export const NETWORK_HOP = "networkHop";
 export const RECEIVED_MESSAGE = "receivedMessage";
+export const CONNECTION = "connection";
