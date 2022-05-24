@@ -50,7 +50,7 @@ export class SyntheticsAPITest {
   "status"?: SyntheticsTestPauseStatus;
   /**
    * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
-   * `dns`, `icmp`, `udp`, `websocket` or `multi`.
+   * `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
    */
   "subtype"?: SyntheticsTestDetailsSubType;
   /**
