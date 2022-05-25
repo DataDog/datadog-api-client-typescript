@@ -14,7 +14,7 @@ export class RelationshipToSAMLAssertionAttributeData {
   /**
    * The ID of the SAML assertion attribute.
    */
-  "id": number;
+  "id": string;
   /**
    * SAML assertion attributes resource type.
    */
@@ -31,9 +31,8 @@ export class RelationshipToSAMLAssertionAttributeData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
-      type: "number",
+      type: "string",
       required: true,
-      format: "int32",
     },
     type: {
       baseName: "type",

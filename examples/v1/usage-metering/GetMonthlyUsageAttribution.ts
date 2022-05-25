@@ -1,5 +1,5 @@
 /**
- * Get Monthly Usage Attribution returns "OK" response
+ * Get monthly usage attribution returns "OK" response
  */
 
 import { v1 } from "@datadog/datadog-api-client";

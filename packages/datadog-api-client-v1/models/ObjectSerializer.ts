@@ -14,6 +14,7 @@ import { AWSTagFilter } from "./AWSTagFilter";
 import { AWSTagFilterCreateRequest } from "./AWSTagFilterCreateRequest";
 import { AWSTagFilterDeleteRequest } from "./AWSTagFilterDeleteRequest";
 import { AWSTagFilterListResponse } from "./AWSTagFilterListResponse";
+import { AddSignalToIncidentRequest } from "./AddSignalToIncidentRequest";
 import { AlertGraphWidgetDefinition } from "./AlertGraphWidgetDefinition";
 import { AlertValueWidgetDefinition } from "./AlertValueWidgetDefinition";
 import { ApiKey } from "./ApiKey";
@@ -299,8 +300,11 @@ import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
 import { ServiceLevelObjectiveRequest } from "./ServiceLevelObjectiveRequest";
 import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
+import { SignalAssigneeUpdateRequest } from "./SignalAssigneeUpdateRequest";
+import { SignalStateUpdateRequest } from "./SignalStateUpdateRequest";
 import { SlackIntegrationChannel } from "./SlackIntegrationChannel";
 import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
+import { SuccessfulSignalUpdateResponse } from "./SuccessfulSignalUpdateResponse";
 import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
 import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
 import { SunburstWidgetLegendTable } from "./SunburstWidgetLegendTable";
@@ -800,6 +804,13 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceCheckStatus: [0, 1, 2, 3],
   ServiceMapWidgetDefinitionType: ["servicemap"],
   ServiceSummaryWidgetDefinitionType: ["trace_service"],
+  SignalArchiveReason: [
+    "none",
+    "false_positive",
+    "testing_or_maintenance",
+    "other",
+  ],
+  SignalTriageState: ["open", "archived", "under_review"],
   SunburstWidgetDefinitionType: ["sunburst"],
   SunburstWidgetLegendInlineAutomaticType: ["inline", "automatic"],
   SunburstWidgetLegendTableType: ["table", "none"],
@@ -865,6 +876,8 @@ const enumsMap: { [key: string]: any[] } = {
     "packetsReceived",
     "networkHop",
     "receivedMessage",
+    "grpcHealthcheckStatus",
+    "connection",
   ],
   SyntheticsBasicAuthNTLMType: ["ntlm"],
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
@@ -984,6 +997,7 @@ const enumsMap: { [key: string]: any[] } = {
     "icmp",
     "udp",
     "websocket",
+    "grpc",
   ],
   SyntheticsTestDetailsType: ["api", "browser"],
   SyntheticsTestExecutionRule: ["blocking", "non_blocking", "skipped"],
@@ -1198,6 +1212,7 @@ const typeMap: { [index: string]: any } = {
   AWSTagFilterCreateRequest: AWSTagFilterCreateRequest,
   AWSTagFilterDeleteRequest: AWSTagFilterDeleteRequest,
   AWSTagFilterListResponse: AWSTagFilterListResponse,
+  AddSignalToIncidentRequest: AddSignalToIncidentRequest,
   AlertGraphWidgetDefinition: AlertGraphWidgetDefinition,
   AlertValueWidgetDefinition: AlertValueWidgetDefinition,
   ApiKey: ApiKey,
@@ -1499,8 +1514,11 @@ const typeMap: { [index: string]: any } = {
   ServiceLevelObjectiveRequest: ServiceLevelObjectiveRequest,
   ServiceMapWidgetDefinition: ServiceMapWidgetDefinition,
   ServiceSummaryWidgetDefinition: ServiceSummaryWidgetDefinition,
+  SignalAssigneeUpdateRequest: SignalAssigneeUpdateRequest,
+  SignalStateUpdateRequest: SignalStateUpdateRequest,
   SlackIntegrationChannel: SlackIntegrationChannel,
   SlackIntegrationChannelDisplay: SlackIntegrationChannelDisplay,
+  SuccessfulSignalUpdateResponse: SuccessfulSignalUpdateResponse,
   SunburstWidgetDefinition: SunburstWidgetDefinition,
   SunburstWidgetLegendInlineAutomatic: SunburstWidgetLegendInlineAutomatic,
   SunburstWidgetLegendTable: SunburstWidgetLegendTable,
