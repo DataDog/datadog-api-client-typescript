@@ -55,10 +55,6 @@ export class SyntheticsTestRequest {
    */
   "message"?: string;
   /**
-   * Metadata to include when performing the gRPC test.
-   */
-  "metadata"?: { [key: string]: string };
-  /**
    * The HTTP method.
    */
   "method"?: HTTPMethod;
@@ -88,10 +84,6 @@ export class SyntheticsTestRequest {
    * the same IP address and TCP port number.
    */
   "servername"?: string;
-  /**
-   * gRPC service on which you want to perform the healthcheck.
-   */
-  "service"?: string;
   /**
    * Turns on a traceroute probe to discover all gateways along the path to the host destination.
    */
@@ -155,10 +147,6 @@ export class SyntheticsTestRequest {
       baseName: "message",
       type: "string",
     },
-    metadata: {
-      baseName: "metadata",
-      type: "{ [key: string]: string; }",
-    },
     method: {
       baseName: "method",
       type: "HTTPMethod",
@@ -187,10 +175,6 @@ export class SyntheticsTestRequest {
     },
     servername: {
       baseName: "servername",
-      type: "string",
-    },
-    service: {
-      baseName: "service",
       type: "string",
     },
     shouldTrackHops: {

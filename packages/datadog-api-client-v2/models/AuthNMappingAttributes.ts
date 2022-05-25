@@ -29,7 +29,7 @@ export class AuthNMappingAttributes {
   /**
    * The ID of the SAML assertion attribute.
    */
-  "samlAssertionAttributeId"?: string;
+  "samlAssertionAttributeId"?: number;
 
   /**
    * @ignore
@@ -60,7 +60,8 @@ export class AuthNMappingAttributes {
     },
     samlAssertionAttributeId: {
       baseName: "saml_assertion_attribute_id",
-      type: "string",
+      type: "number",
+      format: "int32",
     },
   };
 

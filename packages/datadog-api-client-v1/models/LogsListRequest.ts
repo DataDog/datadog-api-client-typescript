@@ -26,7 +26,7 @@ export class LogsListRequest {
    */
   "query"?: string;
   /**
-   * Time-ascending `asc` or time-descending `desc` results.
+   * Time-ascending `asc` or time-descending `desc`results.
    */
   "sort"?: LogsSort;
   /**

@@ -1,5 +1,5 @@
 /**
- * Get usage attribution returns "OK" response
+ * Get Usage Attribution returns "OK" response
  */
 
 import { v1 } from "@datadog/datadog-api-client";

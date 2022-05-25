@@ -1,5 +1,5 @@
 /**
- * Get hourly usage attribution returns "OK" response
+ * Get Hourly Usage Attribution returns "OK" response
  */
 
 import { v1 } from "@datadog/datadog-api-client";

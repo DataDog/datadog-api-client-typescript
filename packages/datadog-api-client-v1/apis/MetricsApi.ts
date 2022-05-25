@@ -11,6 +11,8 @@ import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { DistributionPointsContentEncoding } from "../models/DistributionPointsContentEncoding";
+import { DistributionPointsPayload } from "../models/DistributionPointsPayload";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
 import { MetricContentEncoding } from "../models/MetricContentEncoding";
 import { MetricMetadata } from "../models/MetricMetadata";
@@ -221,6 +223,58 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
       "apiKeyAuth",
       "appKeyAuth",
     ]);
+
+    return requestContext;
+  }
+
+  public async submitDistributionPoints(
+    body: DistributionPointsPayload,
+    contentEncoding?: DistributionPointsContentEncoding,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling submitDistributionPoints."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/distribution_points";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "MetricsApi.submitDistributionPoints"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "text/json, application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Header Params
+    if (contentEncoding !== undefined) {
+      requestContext.setHeaderParam(
+        "Content-Encoding",
+        ObjectSerializer.serialize(
+          contentEncoding,
+          "DistributionPointsContentEncoding",
+          ""
+        )
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType(["text/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "DistributionPointsPayload", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -586,6 +640,85 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to submitDistributionPoints
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async submitDistributionPoints(
+    response: ResponseContext
+  ): Promise<IntakePayloadAccepted> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("202", response.httpStatusCode)) {
+      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IntakePayloadAccepted",
+        ""
+      ) as IntakePayloadAccepted;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("408", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(408, body);
+    }
+    if (isCodeInRange("413", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(413, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IntakePayloadAccepted",
+        ""
+      ) as IntakePayloadAccepted;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to submitMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -787,6 +920,18 @@ export interface MetricsApiQueryMetricsRequest {
   query: string;
 }
 
+export interface MetricsApiSubmitDistributionPointsRequest {
+  /**
+   * @type DistributionPointsPayload
+   */
+  body: DistributionPointsPayload;
+  /**
+   * HTTP header used to compress the media-type.
+   * @type DistributionPointsContentEncoding
+   */
+  contentEncoding?: DistributionPointsContentEncoding;
+}
+
 export interface MetricsApiSubmitMetricsRequest {
   /**
    * @type MetricsPayload
@@ -913,6 +1058,30 @@ export class MetricsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.queryMetrics(responseContext);
+        });
+    });
+  }
+
+  /**
+   * The distribution points end-point allows you to post distribution data that can be graphed on Datadog’s dashboards.
+   * @param param The request object
+   */
+  public submitDistributionPoints(
+    param: MetricsApiSubmitDistributionPointsRequest,
+    options?: Configuration
+  ): Promise<IntakePayloadAccepted> {
+    const requestContextPromise = this.requestFactory.submitDistributionPoints(
+      param.body,
+      param.contentEncoding,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.submitDistributionPoints(
+            responseContext
+          );
         });
     });
   }

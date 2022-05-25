@@ -3,21 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { DistributionPointsSeries } from "./DistributionPointsSeries";
 
 import { AttributeTypeMap } from "../util";
 
 /**
- * Attributes describing an assignee update operation over a security signal.
+ * The distribution points payload.
  */
-export class SignalAssigneeUpdateRequest {
+export class DistributionPointsPayload {
   /**
-   * The UUID of the user being assigned. Use empty string to return signal to unassigned.
+   * A list of distribution points series to submit to Datadog.
    */
-  "assignee": string;
-  /**
-   * Version of the updated signal. If server side version is higher, update will be rejected.
-   */
-  "version"?: number;
+  "series": Array<DistributionPointsSeries>;
 
   /**
    * @ignore
@@ -28,15 +25,10 @@ export class SignalAssigneeUpdateRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    assignee: {
-      baseName: "assignee",
-      type: "string",
+    series: {
+      baseName: "series",
+      type: "Array<DistributionPointsSeries>",
       required: true,
-    },
-    version: {
-      baseName: "version",
-      type: "number",
-      format: "int64",
     },
   };
 
@@ -44,7 +36,7 @@ export class SignalAssigneeUpdateRequest {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SignalAssigneeUpdateRequest.attributeTypeMap;
+    return DistributionPointsPayload.attributeTypeMap;
   }
 
   public constructor() {}

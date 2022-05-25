@@ -4,10 +4,5 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SignalTriageState =
-  | typeof OPEN
-  | typeof ARCHIVED
-  | typeof UNDER_REVIEW;
-export const OPEN = "open";
-export const ARCHIVED = "archived";
-export const UNDER_REVIEW = "under_review";
+export type DistributionPointsType = typeof DISTRIBUTION;
+export const DISTRIBUTION = "distribution";

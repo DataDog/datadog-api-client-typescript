@@ -5262,7 +5262,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage attribution.
+   * Get Hourly Usage Attribution.
    *
    * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
    * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
@@ -5373,7 +5373,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get monthly usage attribution.
+   * Get Monthly Usage Attribution.
    *
    * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
    * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
@@ -5487,7 +5487,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get usage attribution.
+   * Get Usage Attribution.
    * @param param The request object
    */
   public getUsageAttribution(

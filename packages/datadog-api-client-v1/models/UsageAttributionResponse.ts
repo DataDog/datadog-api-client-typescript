@@ -17,7 +17,7 @@ export class UsageAttributionResponse {
    */
   "metadata"?: UsageAttributionMetadata;
   /**
-   * Get usage summary by tag(s).
+   * Get Usage Summary by tag(s).
    */
   "usage"?: Array<UsageAttributionBody>;
 

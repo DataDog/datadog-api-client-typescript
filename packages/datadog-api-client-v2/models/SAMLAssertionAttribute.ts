@@ -19,7 +19,7 @@ export class SAMLAssertionAttribute {
   /**
    * The ID of the SAML assertion attribute.
    */
-  "id": string;
+  "id": number;
   /**
    * SAML assertion attributes resource type.
    */
@@ -40,8 +40,9 @@ export class SAMLAssertionAttribute {
     },
     id: {
       baseName: "id",
-      type: "string",
+      type: "number",
       required: true,
+      format: "int32",
     },
     type: {
       baseName: "type",

@@ -1,5 +1,5 @@
 /**
- * Paginate monthly usage attribution
+ * Paginate Monthly Usage Attribution
  */
 
 import { v1 } from "@datadog/datadog-api-client";

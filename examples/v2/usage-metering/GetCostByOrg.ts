@@ -1,5 +1,5 @@
 /**
- * Get cost across multi-org account returns "OK" response
+ * Get Cost Across Multi-Org Account returns "OK" response
  */
 
 import { v2 } from "@datadog/datadog-api-client";

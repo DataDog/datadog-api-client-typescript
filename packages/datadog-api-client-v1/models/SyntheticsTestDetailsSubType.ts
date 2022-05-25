@@ -12,8 +12,7 @@ export type SyntheticsTestDetailsSubType =
   | typeof MULTI
   | typeof ICMP
   | typeof UDP
-  | typeof WEBSOCKET
-  | typeof GRPC;
+  | typeof WEBSOCKET;
 export const HTTP = "http";
 export const SSL = "ssl";
 export const TCP = "tcp";
@@ -22,4 +21,3 @@ export const MULTI = "multi";
 export const ICMP = "icmp";
 export const UDP = "udp";
 export const WEBSOCKET = "websocket";
-export const GRPC = "grpc";

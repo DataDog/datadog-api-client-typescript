@@ -559,7 +559,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get cost across multi-org account. Cost by org data for a given month becomes available no later than the 16th of the following month.
+   * Get Cost Across Multi-Org Account.
    * @param param The request object
    */
   public getCostByOrg(
