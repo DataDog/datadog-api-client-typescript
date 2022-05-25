@@ -26,7 +26,7 @@ import { AttributeTypeMap } from "../util";
 export class LogsCategoryProcessor {
   /**
    * Array of filters to match or not a log and their
-   * corresponding `name`to assign a custom value to the log.
+   * corresponding `name` to assign a custom value to the log.
    */
   "categories": Array<LogsCategoryProcessorCategory>;
   /**
