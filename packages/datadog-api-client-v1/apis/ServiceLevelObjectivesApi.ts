@@ -254,11 +254,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getSLOCorrections'");
-    if (!_config.unstableOperations["getSLOCorrections"]) {
-      throw new Error("Unstable operation 'getSLOCorrections' is disabled");
-    }
-
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
       throw new RequiredError(
