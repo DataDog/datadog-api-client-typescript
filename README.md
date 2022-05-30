@@ -39,6 +39,24 @@ apiInstance.getMonitor(params).then((data: v1.Monitor) => {
 
 ```
 
+### Authentication
+
+By default the library will use the `DD_API_KEY` and `DD_APP_KEY` environment variables to authenticate against the Datadog API.
+To provide your own set of credentials, you need to set the appropriate keys on the configuration:
+
+```typescript
+import { v1 } from '@datadog/datadog-api-client';
+
+const configurationOpts = {
+  authMethods: {
+    apiKeyAuth: "<API KEY>",
+    appKeyAuth: "<APPLICATION KEY>"
+  },
+};
+
+const configuration = v1.createConfiguration(configurationOpts);
+```
+
 ### Unstable Endpoints
 
 This client includes access to Datadog API endpoints while they are in an unstable state and may undergo breaking changes. An extra configuration step is required to enable these endpoints:
@@ -120,6 +138,27 @@ const apiInstance = new v1.MonitorsApi(configuration);
 apiInstance.listMonitors().then((data: v1.Monitor[]) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error)).finally(() => clearTimeout(timeout));
+```
+
+### Pagination
+
+Several listing operations have a pagination method to help consume all the items available.
+For example, to retrieve all your incidents:
+
+```typescript
+import { v2 } from "@datadog/datadog-api-client";
+
+async function main() {
+  const configuration = v2.createConfiguration();
+  configuration.unstableOperations["listIncidents"] = true;
+  const apiInstance = new v2.IncidentsApi(configuration);
+
+  for await (const incident of apiInstance.listIncidentsWithPagination()) {
+      console.log("Got incident " + incident.id);
+  }
+}
+
+main();
 ```
 
 ## Documentation
