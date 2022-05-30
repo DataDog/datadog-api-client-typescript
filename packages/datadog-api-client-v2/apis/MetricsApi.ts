@@ -563,7 +563,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.submitMetrics"
+      "v2.MetricsApi.submitMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

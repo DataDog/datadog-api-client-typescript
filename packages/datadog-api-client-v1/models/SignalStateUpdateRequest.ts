@@ -6,7 +6,7 @@
 import { SignalArchiveReason } from "./SignalArchiveReason";
 import { SignalTriageState } from "./SignalTriageState";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the change of state for a given state.
