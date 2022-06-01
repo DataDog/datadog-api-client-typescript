@@ -6,7 +6,6 @@ import {
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -23,11 +22,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'createSLOCorrection'");
-    if (!_config.unstableOperations["createSLOCorrection"]) {
-      throw new Error("Unstable operation 'createSLOCorrection' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -73,11 +67,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteSLOCorrection'");
-    if (!_config.unstableOperations["deleteSLOCorrection"]) {
-      throw new Error("Unstable operation 'deleteSLOCorrection' is disabled");
-    }
-
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
       throw new RequiredError(
@@ -114,11 +103,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getSLOCorrection'");
-    if (!_config.unstableOperations["getSLOCorrection"]) {
-      throw new Error("Unstable operation 'getSLOCorrection' is disabled");
-    }
-
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
       throw new RequiredError(
@@ -154,11 +138,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listSLOCorrection'");
-    if (!_config.unstableOperations["listSLOCorrection"]) {
-      throw new Error("Unstable operation 'listSLOCorrection' is disabled");
-    }
-
     // Path Params
     const localVarPath = "/api/v1/slo/correction";
 
@@ -185,11 +164,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'updateSLOCorrection'");
-    if (!_config.unstableOperations["updateSLOCorrection"]) {
-      throw new Error("Unstable operation 'updateSLOCorrection' is disabled");
-    }
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
