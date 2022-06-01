@@ -17,10 +17,6 @@ export class WidgetEvent {
    * Query definition.
    */
   "q": string;
-  /**
-   * The execution method for multi-value filters.
-   */
-  "tagsExecution"?: string;
 
   /**
    * @ignore
@@ -35,10 +31,6 @@ export class WidgetEvent {
       baseName: "q",
       type: "string",
       required: true,
-    },
-    tagsExecution: {
-      baseName: "tags_execution",
-      type: "string",
     },
   };
 

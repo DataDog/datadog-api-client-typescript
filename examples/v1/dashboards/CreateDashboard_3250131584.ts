@@ -25,7 +25,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           titleAlign: "left",
           type: "event_timeline",
           query: "status:error priority:all",
-          tagsExecution: "and",
         },
       },
     ],

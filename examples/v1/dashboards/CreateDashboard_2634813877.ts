@@ -25,7 +25,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           titleAlign: "left",
           type: "event_stream",
           query: "example-query",
-          tagsExecution: "and",
           eventSize: "s",
         },
       },

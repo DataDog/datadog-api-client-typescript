@@ -14,10 +14,6 @@ export class EventQueryDefinition {
    * The query being made on the event.
    */
   "search": string;
-  /**
-   * The execution method for multi-value filters. Can be either and or or.
-   */
-  "tagsExecution": string;
 
   /**
    * @ignore
@@ -30,11 +26,6 @@ export class EventQueryDefinition {
   static readonly attributeTypeMap: AttributeTypeMap = {
     search: {
       baseName: "search",
-      type: "string",
-      required: true,
-    },
-    tagsExecution: {
-      baseName: "tags_execution",
       type: "string",
       required: true,
     },

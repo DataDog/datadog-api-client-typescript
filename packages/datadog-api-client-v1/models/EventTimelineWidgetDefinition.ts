@@ -18,10 +18,6 @@ export class EventTimelineWidgetDefinition {
    */
   "query": string;
   /**
-   * The execution method for multi-value filters. Can be either and or or.
-   */
-  "tagsExecution"?: string;
-  /**
    * Time setting for the widget.
    */
   "time"?: WidgetTime;
@@ -55,10 +51,6 @@ export class EventTimelineWidgetDefinition {
       baseName: "query",
       type: "string",
       required: true,
-    },
-    tagsExecution: {
-      baseName: "tags_execution",
-      type: "string",
     },
     time: {
       baseName: "time",
