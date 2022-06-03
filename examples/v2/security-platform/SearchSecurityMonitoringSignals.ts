@@ -5,10 +5,9 @@
 import { v2 } from "@datadog/datadog-api-client";
 
 const configuration = v2.createConfiguration();
-configuration.unstableOperations["searchSecurityMonitoringSignals"] = true;
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.SecurityPlatformApi(configuration);
 
-const params: v2.SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {
+const params: v2.SecurityPlatformApiSearchSecurityMonitoringSignalsRequest = {
   body: {
     filter: {
       from: new Date(2019, 1, 2, 9, 42, 36, 320000),

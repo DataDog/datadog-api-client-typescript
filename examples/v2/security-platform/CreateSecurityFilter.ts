@@ -5,9 +5,9 @@
 import { v2 } from "@datadog/datadog-api-client";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.SecurityPlatformApi(configuration);
 
-const params: v2.SecurityMonitoringApiCreateSecurityFilterRequest = {
+const params: v2.SecurityPlatformApiCreateSecurityFilterRequest = {
   body: {
     data: {
       attributes: {
@@ -19,8 +19,8 @@ const params: v2.SecurityMonitoringApiCreateSecurityFilterRequest = {
         ],
         filteredDataType: "logs",
         isEnabled: true,
-        name: "Example-Create_a_security_filter_returns_OK_response",
-        query: "service:ExampleCreateasecurityfilterreturnsOKresponse",
+        name: "Custom security filter",
+        query: "service:api",
       },
       type: "security_filters",
     },

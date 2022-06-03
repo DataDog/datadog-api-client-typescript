@@ -5,26 +5,23 @@
 import { v2 } from "@datadog/datadog-api-client";
 
 const configuration = v2.createConfiguration();
-const apiInstance = new v2.SecurityMonitoringApi(configuration);
+const apiInstance = new v2.SecurityPlatformApi(configuration);
 
-// there is a valid "security_filter" in the system
-const SECURITY_FILTER_DATA_ID = process.env.SECURITY_FILTER_DATA_ID as string;
-
-const params: v2.SecurityMonitoringApiUpdateSecurityFilterRequest = {
+const params: v2.SecurityPlatformApiUpdateSecurityFilterRequest = {
   body: {
     data: {
       attributes: {
         exclusionFilters: [],
         filteredDataType: "logs",
         isEnabled: true,
-        name: "Example-Update_a_security_filter_returns_OK_response",
-        query: "service:ExampleUpdateasecurityfilterreturnsOKresponse",
+        name: "Custom security filter",
+        query: "service:api",
         version: 1,
       },
       type: "security_filters",
     },
   },
-  securityFilterId: SECURITY_FILTER_DATA_ID,
+  securityFilterId: "security_filter_id",
 };
 
 apiInstance

@@ -113,8 +113,6 @@ export function createConfiguration(
       deleteTagConfiguration: false,
       listTagConfigurationByName: false,
       updateTagConfiguration: false,
-      listSecurityMonitoringSignals: false,
-      searchSecurityMonitoringSignals: false,
       createIncidentService: false,
       listIncidentServices: false,
       deleteIncidentService: false,

@@ -161,19 +161,19 @@ export {
 } from "./apis/RolesApi";
 
 export {
-  SecurityMonitoringApiCreateSecurityFilterRequest,
-  SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
-  SecurityMonitoringApiDeleteSecurityFilterRequest,
-  SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
-  SecurityMonitoringApiGetSecurityFilterRequest,
-  SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
-  SecurityMonitoringApiListSecurityMonitoringRulesRequest,
-  SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
-  SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
-  SecurityMonitoringApiUpdateSecurityFilterRequest,
-  SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
-  SecurityMonitoringApi,
-} from "./apis/SecurityMonitoringApi";
+  SecurityPlatformApiCreateSecurityFilterRequest,
+  SecurityPlatformApiCreateSecurityMonitoringRuleRequest,
+  SecurityPlatformApiDeleteSecurityFilterRequest,
+  SecurityPlatformApiDeleteSecurityMonitoringRuleRequest,
+  SecurityPlatformApiGetSecurityFilterRequest,
+  SecurityPlatformApiGetSecurityMonitoringRuleRequest,
+  SecurityPlatformApiListSecurityMonitoringRulesRequest,
+  SecurityPlatformApiListSecurityMonitoringSignalsRequest,
+  SecurityPlatformApiSearchSecurityMonitoringSignalsRequest,
+  SecurityPlatformApiUpdateSecurityFilterRequest,
+  SecurityPlatformApiUpdateSecurityMonitoringRuleRequest,
+  SecurityPlatformApi,
+} from "./apis/SecurityPlatformApi";
 
 export {
   ServiceAccountsApiCreateServiceAccountApplicationKeyRequest,
