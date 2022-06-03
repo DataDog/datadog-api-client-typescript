@@ -12,6 +12,7 @@ const API_KEY_DATA_ID = process.env.API_KEY_DATA_ID as string;
 
 const params: v2.KeyManagementApiGetAPIKeyRequest = {
   apiKeyId: API_KEY_DATA_ID,
+  include: "created_by,modified_by",
 };
 
 apiInstance
