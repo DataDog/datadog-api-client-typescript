@@ -6,7 +6,6 @@ import {
 } from "../configuration";
 import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
 
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "./exception";
 import { isCodeInRange } from "../util";
@@ -26,7 +25,7 @@ import { SecurityMonitoringSignalListRequestPage } from "../models/SecurityMonit
 import { SecurityMonitoringSignalsListResponse } from "../models/SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSignalsSort";
 
-export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
+export class SecurityPlatformApiRequestFactory extends BaseAPIRequestFactory {
   public async createSecurityFilter(
     body: SecurityFilterCreateRequest,
     _options?: Configuration
@@ -47,7 +46,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.createSecurityFilter"
+      "SecurityPlatformApi.createSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -92,7 +91,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.createSecurityMonitoringRule"
+      "SecurityPlatformApi.createSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -145,7 +144,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.deleteSecurityFilter"
+      "SecurityPlatformApi.deleteSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -182,7 +181,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.deleteSecurityMonitoringRule"
+      "SecurityPlatformApi.deleteSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -220,7 +219,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.getSecurityFilter"
+      "SecurityPlatformApi.getSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -257,7 +256,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.getSecurityMonitoringRule"
+      "SecurityPlatformApi.getSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -284,7 +283,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.listSecurityFilters"
+      "SecurityPlatformApi.listSecurityFilters"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -312,7 +311,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.listSecurityMonitoringRules"
+      "SecurityPlatformApi.listSecurityMonitoringRules"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -352,20 +351,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listSecurityMonitoringSignals'");
-    if (!_config.unstableOperations["listSecurityMonitoringSignals"]) {
-      throw new Error(
-        "Unstable operation 'listSecurityMonitoringSignals' is disabled"
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.listSecurityMonitoringSignals"
+      "SecurityPlatformApi.listSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -424,20 +416,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'searchSecurityMonitoringSignals'");
-    if (!_config.unstableOperations["searchSecurityMonitoringSignals"]) {
-      throw new Error(
-        "Unstable operation 'searchSecurityMonitoringSignals' is disabled"
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals/search";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.searchSecurityMonitoringSignals"
+      "SecurityPlatformApi.searchSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -498,7 +483,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.updateSecurityFilter"
+      "SecurityPlatformApi.updateSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -554,7 +539,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.updateSecurityMonitoringRule"
+      "SecurityPlatformApi.updateSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -585,7 +570,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 }
 
-export class SecurityMonitoringApiResponseProcessor {
+export class SecurityPlatformApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1353,7 +1338,7 @@ export class SecurityMonitoringApiResponseProcessor {
   }
 }
 
-export interface SecurityMonitoringApiCreateSecurityFilterRequest {
+export interface SecurityPlatformApiCreateSecurityFilterRequest {
   /**
    * The definition of the new security filter.
    * @type SecurityFilterCreateRequest
@@ -1361,14 +1346,14 @@ export interface SecurityMonitoringApiCreateSecurityFilterRequest {
   body: SecurityFilterCreateRequest;
 }
 
-export interface SecurityMonitoringApiCreateSecurityMonitoringRuleRequest {
+export interface SecurityPlatformApiCreateSecurityMonitoringRuleRequest {
   /**
    * @type SecurityMonitoringRuleCreatePayload
    */
   body: SecurityMonitoringRuleCreatePayload;
 }
 
-export interface SecurityMonitoringApiDeleteSecurityFilterRequest {
+export interface SecurityPlatformApiDeleteSecurityFilterRequest {
   /**
    * The ID of the security filter.
    * @type string
@@ -1376,7 +1361,7 @@ export interface SecurityMonitoringApiDeleteSecurityFilterRequest {
   securityFilterId: string;
 }
 
-export interface SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest {
+export interface SecurityPlatformApiDeleteSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
    * @type string
@@ -1384,7 +1369,7 @@ export interface SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest {
   ruleId: string;
 }
 
-export interface SecurityMonitoringApiGetSecurityFilterRequest {
+export interface SecurityPlatformApiGetSecurityFilterRequest {
   /**
    * The ID of the security filter.
    * @type string
@@ -1392,7 +1377,7 @@ export interface SecurityMonitoringApiGetSecurityFilterRequest {
   securityFilterId: string;
 }
 
-export interface SecurityMonitoringApiGetSecurityMonitoringRuleRequest {
+export interface SecurityPlatformApiGetSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
    * @type string
@@ -1400,7 +1385,7 @@ export interface SecurityMonitoringApiGetSecurityMonitoringRuleRequest {
   ruleId: string;
 }
 
-export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
+export interface SecurityPlatformApiListSecurityMonitoringRulesRequest {
   /**
    * Size for a given page.
    * @type number
@@ -1413,7 +1398,7 @@ export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
   pageNumber?: number;
 }
 
-export interface SecurityMonitoringApiListSecurityMonitoringSignalsRequest {
+export interface SecurityPlatformApiListSecurityMonitoringSignalsRequest {
   /**
    * The search query for security signals.
    * @type string
@@ -1446,14 +1431,14 @@ export interface SecurityMonitoringApiListSecurityMonitoringSignalsRequest {
   pageLimit?: number;
 }
 
-export interface SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest {
+export interface SecurityPlatformApiSearchSecurityMonitoringSignalsRequest {
   /**
    * @type SecurityMonitoringSignalListRequest
    */
   body?: SecurityMonitoringSignalListRequest;
 }
 
-export interface SecurityMonitoringApiUpdateSecurityFilterRequest {
+export interface SecurityPlatformApiUpdateSecurityFilterRequest {
   /**
    * The ID of the security filter.
    * @type string
@@ -1466,7 +1451,7 @@ export interface SecurityMonitoringApiUpdateSecurityFilterRequest {
   body: SecurityFilterUpdateRequest;
 }
 
-export interface SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest {
+export interface SecurityPlatformApiUpdateSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
    * @type string
@@ -1478,21 +1463,21 @@ export interface SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest {
   body: SecurityMonitoringRuleUpdatePayload;
 }
 
-export class SecurityMonitoringApi {
-  private requestFactory: SecurityMonitoringApiRequestFactory;
-  private responseProcessor: SecurityMonitoringApiResponseProcessor;
+export class SecurityPlatformApi {
+  private requestFactory: SecurityPlatformApiRequestFactory;
+  private responseProcessor: SecurityPlatformApiResponseProcessor;
   private configuration: Configuration;
 
   public constructor(
     configuration: Configuration,
-    requestFactory?: SecurityMonitoringApiRequestFactory,
-    responseProcessor?: SecurityMonitoringApiResponseProcessor
+    requestFactory?: SecurityPlatformApiRequestFactory,
+    responseProcessor?: SecurityPlatformApiResponseProcessor
   ) {
     this.configuration = configuration;
     this.requestFactory =
-      requestFactory || new SecurityMonitoringApiRequestFactory(configuration);
+      requestFactory || new SecurityPlatformApiRequestFactory(configuration);
     this.responseProcessor =
-      responseProcessor || new SecurityMonitoringApiResponseProcessor();
+      responseProcessor || new SecurityPlatformApiResponseProcessor();
   }
 
   /**
@@ -1503,7 +1488,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public createSecurityFilter(
-    param: SecurityMonitoringApiCreateSecurityFilterRequest,
+    param: SecurityPlatformApiCreateSecurityFilterRequest,
     options?: Configuration
   ): Promise<SecurityFilterResponse> {
     const requestContextPromise = this.requestFactory.createSecurityFilter(
@@ -1524,7 +1509,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public createSecurityMonitoringRule(
-    param: SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
+    param: SecurityPlatformApiCreateSecurityMonitoringRuleRequest,
     options?: Configuration
   ): Promise<SecurityMonitoringRuleResponse> {
     const requestContextPromise =
@@ -1545,7 +1530,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public deleteSecurityFilter(
-    param: SecurityMonitoringApiDeleteSecurityFilterRequest,
+    param: SecurityPlatformApiDeleteSecurityFilterRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise = this.requestFactory.deleteSecurityFilter(
@@ -1566,7 +1551,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public deleteSecurityMonitoringRule(
-    param: SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
+    param: SecurityPlatformApiDeleteSecurityMonitoringRuleRequest,
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise =
@@ -1590,7 +1575,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public getSecurityFilter(
-    param: SecurityMonitoringApiGetSecurityFilterRequest,
+    param: SecurityPlatformApiGetSecurityFilterRequest,
     options?: Configuration
   ): Promise<SecurityFilterResponse> {
     const requestContextPromise = this.requestFactory.getSecurityFilter(
@@ -1611,7 +1596,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public getSecurityMonitoringRule(
-    param: SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
+    param: SecurityPlatformApiGetSecurityMonitoringRuleRequest,
     options?: Configuration
   ): Promise<SecurityMonitoringRuleResponse> {
     const requestContextPromise = this.requestFactory.getSecurityMonitoringRule(
@@ -1652,7 +1637,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public listSecurityMonitoringRules(
-    param: SecurityMonitoringApiListSecurityMonitoringRulesRequest = {},
+    param: SecurityPlatformApiListSecurityMonitoringRulesRequest = {},
     options?: Configuration
   ): Promise<SecurityMonitoringListRulesResponse> {
     const requestContextPromise =
@@ -1679,7 +1664,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public listSecurityMonitoringSignals(
-    param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {},
+    param: SecurityPlatformApiListSecurityMonitoringSignalsRequest = {},
     options?: Configuration
   ): Promise<SecurityMonitoringSignalsListResponse> {
     const requestContextPromise =
@@ -1707,7 +1692,7 @@ export class SecurityMonitoringApi {
    * Provide a paginated version of listSecurityMonitoringSignals returning a generator with all the items.
    */
   public async *listSecurityMonitoringSignalsWithPagination(
-    param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {},
+    param: SecurityPlatformApiListSecurityMonitoringSignalsRequest = {},
     options?: Configuration
   ): AsyncGenerator<SecurityMonitoringSignal> {
     let pageSize = 10;
@@ -1769,7 +1754,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public searchSecurityMonitoringSignals(
-    param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {},
+    param: SecurityPlatformApiSearchSecurityMonitoringSignalsRequest = {},
     options?: Configuration
   ): Promise<SecurityMonitoringSignalsListResponse> {
     const requestContextPromise =
@@ -1789,7 +1774,7 @@ export class SecurityMonitoringApi {
    * Provide a paginated version of searchSecurityMonitoringSignals returning a generator with all the items.
    */
   public async *searchSecurityMonitoringSignalsWithPagination(
-    param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {},
+    param: SecurityPlatformApiSearchSecurityMonitoringSignalsRequest = {},
     options?: Configuration
   ): AsyncGenerator<SecurityMonitoringSignal> {
     let pageSize = 10;
@@ -1851,7 +1836,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public updateSecurityFilter(
-    param: SecurityMonitoringApiUpdateSecurityFilterRequest,
+    param: SecurityPlatformApiUpdateSecurityFilterRequest,
     options?: Configuration
   ): Promise<SecurityFilterResponse> {
     const requestContextPromise = this.requestFactory.updateSecurityFilter(
@@ -1875,7 +1860,7 @@ export class SecurityMonitoringApi {
    * @param param The request object
    */
   public updateSecurityMonitoringRule(
-    param: SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
+    param: SecurityPlatformApiUpdateSecurityMonitoringRuleRequest,
     options?: Configuration
   ): Promise<SecurityMonitoringRuleResponse> {
     const requestContextPromise =
