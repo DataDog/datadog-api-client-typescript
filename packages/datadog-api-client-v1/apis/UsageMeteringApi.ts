@@ -126,6 +126,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     endHr?: Date,
     nextRecordId?: string,
     tagBreakdownKeys?: string,
+    includeDescendants?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -198,6 +199,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "tag_breakdown_keys",
         ObjectSerializer.serialize(tagBreakdownKeys, "string", "")
+      );
+    }
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", "")
       );
     }
 
@@ -389,6 +396,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     sortName?: MonthlyUsageAttributionSupportedMetrics,
     tagBreakdownKeys?: string,
     nextRecordId?: string,
+    includeDescendants?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -477,6 +485,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "next_record_id",
         ObjectSerializer.serialize(nextRecordId, "string", "")
+      );
+    }
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", "")
       );
     }
 
@@ -4650,6 +4664,11 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    * @type string
    */
   tagBreakdownKeys?: string;
+  /**
+   * Include child org usage in the response. Defaults to `true`.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
 }
 
 export interface UsageMeteringApiGetIncidentManagementRequest {
@@ -4742,6 +4761,11 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
    * @type string
    */
   nextRecordId?: string;
+  /**
+   * Include child org usage in the response. Defaults to `true`.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
 }
 
 export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
@@ -5289,6 +5313,7 @@ export class UsageMeteringApi {
       param.endHr,
       param.nextRecordId,
       param.tagBreakdownKeys,
+      param.includeDescendants,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -5403,6 +5428,7 @@ export class UsageMeteringApi {
         param.sortName,
         param.tagBreakdownKeys,
         param.nextRecordId,
+        param.includeDescendants,
         options
       );
     return requestContextPromise.then((requestContext) => {
