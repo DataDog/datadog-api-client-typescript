@@ -6,7 +6,7 @@
 import { LogsByRetention } from "./LogsByRetention";
 import { UsageSummaryDate } from "./UsageSummaryDate";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response summarizing all usage aggregated across the months in the request for all organizations, and broken down by month and by organization.

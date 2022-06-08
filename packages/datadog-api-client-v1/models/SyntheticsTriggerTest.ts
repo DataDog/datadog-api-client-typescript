@@ -5,7 +5,7 @@
  */
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Test configuration for Synthetics

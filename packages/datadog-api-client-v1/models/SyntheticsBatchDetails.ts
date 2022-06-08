@@ -5,7 +5,7 @@
  */
 import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Details about a batch response.

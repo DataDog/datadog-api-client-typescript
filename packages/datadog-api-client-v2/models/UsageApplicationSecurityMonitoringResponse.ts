@@ -5,7 +5,7 @@
  */
 import { UsageDataObject } from "./UsageDataObject";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Application Security Monitoring usage response.

@@ -5,7 +5,7 @@
  */
 import { DashboardListItemRequest } from "./DashboardListItemRequest";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request containing a list of dashboards to delete.

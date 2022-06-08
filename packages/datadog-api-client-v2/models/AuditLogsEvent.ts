@@ -6,7 +6,7 @@
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventType } from "./AuditLogsEventType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object description of an Audit Logs event after it is processed and stored by Datadog.

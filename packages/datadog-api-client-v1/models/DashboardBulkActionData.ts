@@ -5,7 +5,7 @@
  */
 import { DashboardResourceType } from "./DashboardResourceType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Dashboard bulk action request data.

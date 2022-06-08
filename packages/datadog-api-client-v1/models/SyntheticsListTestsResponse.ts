@@ -5,7 +5,7 @@
  */
 import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing an array of Synthetic tests configuration.

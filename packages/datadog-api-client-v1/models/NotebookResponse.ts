@@ -5,7 +5,7 @@
  */
 import { NotebookResponseData } from "./NotebookResponseData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The description of a notebook response.

@@ -6,7 +6,7 @@
 import { MonthlyUsageAttributionBody } from "./MonthlyUsageAttributionBody";
 import { MonthlyUsageAttributionMetadata } from "./MonthlyUsageAttributionMetadata";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the monthly Usage Summary by tag(s).

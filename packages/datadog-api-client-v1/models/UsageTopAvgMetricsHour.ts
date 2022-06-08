@@ -5,7 +5,7 @@
  */
 import { UsageMetricCategory } from "./UsageMetricCategory";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Number of hourly recorded custom metrics for a given organization.

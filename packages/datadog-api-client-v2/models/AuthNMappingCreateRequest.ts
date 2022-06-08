@@ -5,7 +5,7 @@
  */
 import { AuthNMappingCreateData } from "./AuthNMappingCreateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request for creating an AuthN Mapping.

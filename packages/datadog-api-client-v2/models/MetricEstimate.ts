@@ -6,7 +6,7 @@
 import { MetricEstimateAttributes } from "./MetricEstimateAttributes";
 import { MetricEstimateResourceType } from "./MetricEstimateResourceType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object for a metric cardinality estimate.

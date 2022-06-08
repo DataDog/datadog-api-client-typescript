@@ -6,7 +6,7 @@
 import { TimeseriesBackgroundType } from "./TimeseriesBackgroundType";
 import { WidgetAxis } from "./WidgetAxis";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Set a timeseries on the widget background.

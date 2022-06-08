@@ -2,9 +2,9 @@
  * Configure tags for multiple metrics returns "Accepted" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
 // there is a valid "user" in the system

@@ -7,7 +7,7 @@ import { SyntheticsBrowserTestResultFailure } from "./SyntheticsBrowserTestResul
 import { SyntheticsDevice } from "./SyntheticsDevice";
 import { SyntheticsStepDetail } from "./SyntheticsStepDetail";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing results for your Synthetic browser test.

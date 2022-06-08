@@ -5,7 +5,7 @@
  */
 import { AWSNamespace } from "./AWSNamespace";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The objects used to set an AWS tag filter.

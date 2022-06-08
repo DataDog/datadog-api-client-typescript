@@ -9,7 +9,7 @@ import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The steps used in a Synthetics multistep API test.

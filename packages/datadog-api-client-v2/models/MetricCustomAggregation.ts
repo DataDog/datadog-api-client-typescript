@@ -6,7 +6,7 @@
 import { MetricCustomSpaceAggregation } from "./MetricCustomSpaceAggregation";
 import { MetricCustomTimeAggregation } from "./MetricCustomTimeAggregation";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A time and space aggregation combination for use in query.

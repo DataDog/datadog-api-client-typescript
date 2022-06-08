@@ -7,7 +7,7 @@ import { RUMAggregateSortType } from "./RUMAggregateSortType";
 import { RUMAggregationFunction } from "./RUMAggregationFunction";
 import { RUMSortOrder } from "./RUMSortOrder";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A sort rule.

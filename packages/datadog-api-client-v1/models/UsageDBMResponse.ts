@@ -5,7 +5,7 @@
  */
 import { UsageDBMHour } from "./UsageDBMHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the Database Monitoring usage for each hour for a given organization.

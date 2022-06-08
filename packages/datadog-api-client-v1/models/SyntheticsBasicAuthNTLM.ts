@@ -5,7 +5,7 @@
  */
 import { SyntheticsBasicAuthNTLMType } from "./SyntheticsBasicAuthNTLMType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to handle `NTLM` authentication when performing the test.

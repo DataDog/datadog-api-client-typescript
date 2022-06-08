@@ -5,7 +5,7 @@
  */
 import { User } from "./User";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Array of Datadog users for a given organization.

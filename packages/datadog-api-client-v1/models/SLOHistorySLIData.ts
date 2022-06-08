@@ -5,7 +5,7 @@
  */
 import { SLOHistoryResponseErrorWithType } from "./SLOHistoryResponseErrorWithType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An object that holds an SLI value and its associated data. It can represent an SLO's overall SLI value.

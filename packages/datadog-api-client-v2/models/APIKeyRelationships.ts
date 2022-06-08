@@ -5,7 +5,7 @@
  */
 import { RelationshipToUser } from "./RelationshipToUser";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Resources related to the API key.

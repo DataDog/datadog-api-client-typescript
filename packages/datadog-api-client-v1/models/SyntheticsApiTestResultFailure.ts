@@ -5,7 +5,7 @@
  */
 import { SyntheticsApiTestFailureCode } from "./SyntheticsApiTestFailureCode";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The API test failure details.

@@ -6,7 +6,7 @@
 import { RoleCloneAttributes } from "./RoleCloneAttributes";
 import { RolesType } from "./RolesType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Data for the clone role request.

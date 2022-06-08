@@ -6,7 +6,7 @@
 import { LogsGrokParserRules } from "./LogsGrokParserRules";
 import { LogsGrokParserType } from "./LogsGrokParserType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Create custom grok rules to parse the full message or [a specific attribute of your raw event](https://docs.datadoghq.com/logs/log_configuration/parsing/#advanced-settings).

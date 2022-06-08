@@ -5,7 +5,7 @@
  */
 import { UsageAnalyzedLogsHour } from "./UsageAnalyzedLogsHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A response containing the number of analyzed logs for each hour for a given organization.

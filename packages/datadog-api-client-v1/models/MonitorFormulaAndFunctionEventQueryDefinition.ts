@@ -8,7 +8,7 @@ import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFo
 import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
 import { MonitorFormulaAndFunctionEventsDataSource } from "./MonitorFormulaAndFunctionEventsDataSource";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A formula and functions events query.

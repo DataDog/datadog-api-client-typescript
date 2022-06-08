@@ -5,7 +5,7 @@
  */
 import { MetricTagConfigurationCreateData } from "./MetricTagConfigurationCreateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request object that includes the metric that you would like to configure tags for.

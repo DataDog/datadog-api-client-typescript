@@ -75,24 +75,24 @@ When("the request is sent", async function (this: World) {
     httpConfig: { compress: false },
   };
   if (process.env.DD_TEST_SITE) {
-    const serverConf = api.servers[2].getConfiguration();
-    api.servers[2].setVariables({
+    const serverConf = datadogApiClient.client.servers[2].getConfiguration();
+    datadogApiClient.client.servers[2].setVariables({
       site: process.env.DD_TEST_SITE,
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 2;
   }
   if (process.env.DD_TEST_SITE_URL) {
-    const serverConf = api.servers[1].getConfiguration();
-    api.servers[1].setVariables({
+    const serverConf = datadogApiClient.client.servers[1].getConfiguration();
+    datadogApiClient.client.servers[1].setVariables({
       name: process.env.DD_TEST_SITE_URL,
       protocol: "http",
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 1;
   }
-  const configuration = api.createConfiguration(configurationOpts);
+  const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    if (operationId in configuration.unstableOperations) {
-      configuration.unstableOperations[operationId] = this.unstableOperations[operationId];
+    if (`${this.apiVersion}.${operationId}` in configuration.unstableOperations) {
+      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] = this.unstableOperations[operationId];
     } else {
       // FIXME throw new Error(`Operation ${operationId} is not unstable`);
       logger.warn(`Operation ${operationId} is not unstable`);
@@ -149,24 +149,24 @@ When("the request with pagination is sent", async function (this: World) {
     httpConfig: { compress: false },
   };
   if (process.env.DD_TEST_SITE) {
-    const serverConf = api.servers[2].getConfiguration();
-    api.servers[2].setVariables({
+    const serverConf = datadogApiClient.client.servers[2].getConfiguration();
+    datadogApiClient.client.servers[2].setVariables({
       site: process.env.DD_TEST_SITE,
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 2;
   }
   if (process.env.DD_TEST_SITE_URL) {
-    const serverConf = api.servers[1].getConfiguration();
-    api.servers[1].setVariables({
+    const serverConf = datadogApiClient.client.servers[1].getConfiguration();
+    datadogApiClient.client.servers[1].setVariables({
       name: process.env.DD_TEST_SITE_URL,
       protocol: "http",
     } as typeof serverConf);
     (configurationOpts as any)["serverIndex"] = 1;
   }
-  const configuration = api.createConfiguration(configurationOpts);
+  const configuration = datadogApiClient.client.createConfiguration(configurationOpts);
   for (const operationId in this.unstableOperations) {
-    if (operationId in configuration.unstableOperations) {
-      configuration.unstableOperations[operationId] = this.unstableOperations[operationId];
+    if (`${this.apiVersion}.${operationId}` in configuration.unstableOperations) {
+      configuration.unstableOperations[`${this.apiVersion}.${operationId}`] = this.unstableOperations[operationId];
     } else {
       // FIXME throw new Error(`Operation ${operationId} is not unstable`);
       logger.warn(`Operation ${operationId} is not unstable`);

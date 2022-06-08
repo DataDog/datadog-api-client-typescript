@@ -5,7 +5,7 @@
  */
 import { AWSTagFilter } from "./AWSTagFilter";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An array of tag filter rules by `namespace` and tag filter string.

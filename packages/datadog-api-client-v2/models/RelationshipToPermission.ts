@@ -5,7 +5,7 @@
  */
 import { RelationshipToPermissionData } from "./RelationshipToPermissionData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationship to a permissions object.

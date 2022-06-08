@@ -7,7 +7,7 @@ import { Organization } from "./Organization";
 import { Permission } from "./Permission";
 import { Role } from "./Role";
 
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * An object related to a user.

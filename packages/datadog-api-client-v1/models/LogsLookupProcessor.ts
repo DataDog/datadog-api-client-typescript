@@ -5,7 +5,7 @@
  */
 import { LogsLookupProcessorType } from "./LogsLookupProcessorType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Use the Lookup Processor to define a mapping between a log attribute

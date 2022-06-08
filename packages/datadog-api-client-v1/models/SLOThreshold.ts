@@ -5,7 +5,7 @@
  */
 import { SLOTimeframe } from "./SLOTimeframe";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * SLO thresholds (target and optionally warning) for a single time window.

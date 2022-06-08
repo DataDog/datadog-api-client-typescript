@@ -6,7 +6,7 @@
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SAMLAssertionAttributesType } from "./SAMLAssertionAttributesType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * SAML assertion attribute.

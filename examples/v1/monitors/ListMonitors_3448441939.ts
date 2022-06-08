@@ -2,9 +2,9 @@
  * Get all monitor details with tags
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
 const params: v1.MonitorsApiListMonitorsRequest = {

@@ -5,7 +5,7 @@
  */
 import { APIKeyCreateData } from "./APIKeyCreateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request used to create an API key.

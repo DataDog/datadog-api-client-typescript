@@ -5,7 +5,7 @@
  */
 import { UsageBillableSummaryKeys } from "./UsageBillableSummaryKeys";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response with monthly summary of data billed by Datadog.

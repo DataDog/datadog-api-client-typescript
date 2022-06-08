@@ -5,7 +5,7 @@
  */
 import { LogsDateRemapperType } from "./LogsDateRemapperType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.

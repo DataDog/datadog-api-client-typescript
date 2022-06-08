@@ -5,7 +5,7 @@
  */
 import { UsageTimeseriesHour } from "./UsageTimeseriesHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing hourly usage of timeseries.

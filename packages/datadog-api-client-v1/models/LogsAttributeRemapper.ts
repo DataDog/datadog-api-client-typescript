@@ -6,7 +6,7 @@
 import { LogsAttributeRemapperType } from "./LogsAttributeRemapperType";
 import { TargetFormatType } from "./TargetFormatType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The remapper processor remaps any source attribute(s) or tag to another target attribute or tag.

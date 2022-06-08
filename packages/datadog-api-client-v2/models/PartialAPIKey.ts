@@ -7,7 +7,7 @@ import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Partial Datadog API key.

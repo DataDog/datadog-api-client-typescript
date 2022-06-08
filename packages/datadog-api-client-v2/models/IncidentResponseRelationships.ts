@@ -8,7 +8,7 @@ import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToInci
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToUser } from "./RelationshipToUser";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The incident's relationships from a response.
