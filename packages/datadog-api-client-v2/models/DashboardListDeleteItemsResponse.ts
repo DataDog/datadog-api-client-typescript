@@ -5,7 +5,7 @@
  */
 import { DashboardListItemResponse } from "./DashboardListItemResponse";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing a list of deleted dashboards.

@@ -5,7 +5,7 @@
  */
 import { SLOResponseData } from "./SLOResponseData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective response containing a single service level objective.

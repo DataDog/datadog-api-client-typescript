@@ -7,7 +7,7 @@ import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to create a service account User.

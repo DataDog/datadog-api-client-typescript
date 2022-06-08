@@ -5,7 +5,7 @@
  */
 import { SyntheticsLocation } from "./SyntheticsLocation";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of Synthetics locations.

@@ -5,7 +5,7 @@
  */
 import { LogsAPIError } from "./LogsAPIError";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response returned by the Logs API when errors occur.

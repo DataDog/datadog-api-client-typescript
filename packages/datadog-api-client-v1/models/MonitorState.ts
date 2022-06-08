@@ -5,7 +5,7 @@
  */
 import { MonitorStateGroup } from "./MonitorStateGroup";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Wrapper object with the different monitor states.

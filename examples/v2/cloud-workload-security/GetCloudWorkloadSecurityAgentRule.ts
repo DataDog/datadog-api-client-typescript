@@ -2,9 +2,9 @@
  * Get a Cloud Workload Security Agent rule returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.CloudWorkloadSecurityApi(configuration);
 
 // there is a valid "agent_rule" in the system

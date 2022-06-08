@@ -7,7 +7,7 @@ import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
 import { AuthNMappingRelationships } from "./AuthNMappingRelationships";
 import { AuthNMappingsType } from "./AuthNMappingsType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The AuthN Mapping object returned by API.

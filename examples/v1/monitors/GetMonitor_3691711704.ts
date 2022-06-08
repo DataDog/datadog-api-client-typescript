@@ -2,9 +2,9 @@
  * Get a synthetics monitor's details
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
 // there is a valid "synthetics_api_test" in the system

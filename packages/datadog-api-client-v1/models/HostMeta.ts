@@ -5,7 +5,7 @@
  */
 import { HostMetaInstallMethod } from "./HostMetaInstallMethod";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata associated with your host.

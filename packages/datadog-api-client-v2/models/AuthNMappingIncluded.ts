@@ -6,7 +6,7 @@
 import { Role } from "./Role";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * Included data in the AuthN Mapping response.

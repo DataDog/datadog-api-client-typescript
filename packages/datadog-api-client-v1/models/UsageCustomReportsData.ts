@@ -6,7 +6,7 @@
 import { UsageCustomReportsAttributes } from "./UsageCustomReportsAttributes";
 import { UsageReportsType } from "./UsageReportsType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The response containing the date and type for custom reports.

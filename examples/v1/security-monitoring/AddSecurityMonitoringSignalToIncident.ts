@@ -2,9 +2,9 @@
  * Add a security signal to an incident returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.SecurityMonitoringApi(configuration);
 
 const params: v1.SecurityMonitoringApiAddSecurityMonitoringSignalToIncidentRequest =

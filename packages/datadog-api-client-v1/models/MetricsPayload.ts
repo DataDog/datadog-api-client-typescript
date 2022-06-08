@@ -5,7 +5,7 @@
  */
 import { Series } from "./Series";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metrics' payload.

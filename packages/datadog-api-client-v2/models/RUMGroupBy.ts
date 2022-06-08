@@ -8,7 +8,7 @@ import { RUMGroupByHistogram } from "./RUMGroupByHistogram";
 import { RUMGroupByMissing } from "./RUMGroupByMissing";
 import { RUMGroupByTotal } from "./RUMGroupByTotal";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A group-by rule.

@@ -6,7 +6,7 @@
 import { UserInvitationDataAttributes } from "./UserInvitationDataAttributes";
 import { UserInvitationsType } from "./UserInvitationsType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object of a user invitation returned by the API.

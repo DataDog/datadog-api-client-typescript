@@ -5,7 +5,7 @@
  */
 import { Organization } from "./Organization";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response with the list of organizations.

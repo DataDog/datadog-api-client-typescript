@@ -5,7 +5,7 @@
  */
 import { LogsMessageRemapperType } from "./LogsMessageRemapperType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The message is a key attribute in Datadog.

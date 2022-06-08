@@ -1,15 +1,22 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { HourlyUsageAttributionResponse } from "../models/HourlyUsageAttributionResponse";
@@ -66,7 +73,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getDailyCustomReports'");
-    if (!_config.unstableOperations["getDailyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getDailyCustomReports"]) {
       throw new Error("Unstable operation 'getDailyCustomReports' is disabled");
     }
 
@@ -76,7 +83,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getDailyCustomReports"
+      "v1.UsageMeteringApi.getDailyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -132,7 +139,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getHourlyUsageAttribution'");
-    if (!_config.unstableOperations["getHourlyUsageAttribution"]) {
+    if (!_config.unstableOperations["v1.getHourlyUsageAttribution"]) {
       throw new Error(
         "Unstable operation 'getHourlyUsageAttribution' is disabled"
       );
@@ -158,7 +165,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getHourlyUsageAttribution"
+      "v1.UsageMeteringApi.getHourlyUsageAttribution"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -238,7 +245,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getIncidentManagement"
+      "v1.UsageMeteringApi.getIncidentManagement"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -290,7 +297,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getIngestedSpans"
+      "v1.UsageMeteringApi.getIngestedSpans"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -332,7 +339,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getMonthlyCustomReports'");
-    if (!_config.unstableOperations["getMonthlyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getMonthlyCustomReports"]) {
       throw new Error(
         "Unstable operation 'getMonthlyCustomReports' is disabled"
       );
@@ -344,7 +351,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getMonthlyCustomReports"
+      "v1.UsageMeteringApi.getMonthlyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -402,7 +409,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getMonthlyUsageAttribution'");
-    if (!_config.unstableOperations["getMonthlyUsageAttribution"]) {
+    if (!_config.unstableOperations["v1.getMonthlyUsageAttribution"]) {
       throw new Error(
         "Unstable operation 'getMonthlyUsageAttribution' is disabled"
       );
@@ -428,7 +435,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getMonthlyUsageAttribution"
+      "v1.UsageMeteringApi.getMonthlyUsageAttribution"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -511,7 +518,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSpecifiedDailyCustomReports'");
-    if (!_config.unstableOperations["getSpecifiedDailyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getSpecifiedDailyCustomReports"]) {
       throw new Error(
         "Unstable operation 'getSpecifiedDailyCustomReports' is disabled"
       );
@@ -533,7 +540,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getSpecifiedDailyCustomReports"
+      "v1.UsageMeteringApi.getSpecifiedDailyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -558,7 +565,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSpecifiedMonthlyCustomReports'");
-    if (!_config.unstableOperations["getSpecifiedMonthlyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getSpecifiedMonthlyCustomReports"]) {
       throw new Error(
         "Unstable operation 'getSpecifiedMonthlyCustomReports' is disabled"
       );
@@ -580,7 +587,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getSpecifiedMonthlyCustomReports"
+      "v1.UsageMeteringApi.getSpecifiedMonthlyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -618,7 +625,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageAnalyzedLogs"
+      "v1.UsageMeteringApi.getUsageAnalyzedLogs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -664,7 +671,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getUsageAttribution'");
-    if (!_config.unstableOperations["getUsageAttribution"]) {
+    if (!_config.unstableOperations["v1.getUsageAttribution"]) {
       throw new Error("Unstable operation 'getUsageAttribution' is disabled");
     }
 
@@ -688,7 +695,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageAttribution"
+      "v1.UsageMeteringApi.getUsageAttribution"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -780,7 +787,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageAuditLogs"
+      "v1.UsageMeteringApi.getUsageAuditLogs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -824,7 +831,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageBillableSummary"
+      "v1.UsageMeteringApi.getUsageBillableSummary"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -870,7 +877,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageCIApp"
+      "v1.UsageMeteringApi.getUsageCIApp"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -922,7 +929,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageCloudSecurityPostureManagement"
+      "v1.UsageMeteringApi.getUsageCloudSecurityPostureManagement"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -974,7 +981,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageCWS"
+      "v1.UsageMeteringApi.getUsageCWS"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1026,7 +1033,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageDBM"
+      "v1.UsageMeteringApi.getUsageDBM"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1078,7 +1085,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageFargate"
+      "v1.UsageMeteringApi.getUsageFargate"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1130,7 +1137,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageHosts"
+      "v1.UsageMeteringApi.getUsageHosts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1182,7 +1189,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageIndexedSpans"
+      "v1.UsageMeteringApi.getUsageIndexedSpans"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1234,7 +1241,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageInternetOfThings"
+      "v1.UsageMeteringApi.getUsageInternetOfThings"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1286,7 +1293,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageLambda"
+      "v1.UsageMeteringApi.getUsageLambda"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1338,7 +1345,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageLogs"
+      "v1.UsageMeteringApi.getUsageLogs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1391,7 +1398,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageLogsByIndex"
+      "v1.UsageMeteringApi.getUsageLogsByIndex"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1449,7 +1456,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageLogsByRetention"
+      "v1.UsageMeteringApi.getUsageLogsByRetention"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1501,7 +1508,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageNetworkFlows"
+      "v1.UsageMeteringApi.getUsageNetworkFlows"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1553,7 +1560,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageNetworkHosts"
+      "v1.UsageMeteringApi.getUsageNetworkHosts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1605,7 +1612,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageOnlineArchive"
+      "v1.UsageMeteringApi.getUsageOnlineArchive"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1657,7 +1664,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageProfiling"
+      "v1.UsageMeteringApi.getUsageProfiling"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1710,7 +1717,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageRumSessions"
+      "v1.UsageMeteringApi.getUsageRumSessions"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1768,7 +1775,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageRumUnits"
+      "v1.UsageMeteringApi.getUsageRumUnits"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1820,7 +1827,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSDS"
+      "v1.UsageMeteringApi.getUsageSDS"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1872,7 +1879,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSNMP"
+      "v1.UsageMeteringApi.getUsageSNMP"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1925,7 +1932,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSummary"
+      "v1.UsageMeteringApi.getUsageSummary"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1983,7 +1990,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSynthetics"
+      "v1.UsageMeteringApi.getUsageSynthetics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -2035,7 +2042,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSyntheticsAPI"
+      "v1.UsageMeteringApi.getUsageSyntheticsAPI"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -2087,7 +2094,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSyntheticsBrowser"
+      "v1.UsageMeteringApi.getUsageSyntheticsBrowser"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -2139,7 +2146,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageTimeseries"
+      "v1.UsageMeteringApi.getUsageTimeseries"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -2187,7 +2194,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageTopAvgMetrics"
+      "v1.UsageMeteringApi.getUsageTopAvgMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",

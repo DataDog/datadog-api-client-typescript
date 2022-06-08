@@ -5,7 +5,7 @@
  */
 import { LogsArchiveDefinition } from "./LogsArchiveDefinition";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The available archives.

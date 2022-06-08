@@ -2,9 +2,9 @@
  * Aggregate RUM events returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.RUMApi(configuration);
 
 const params: v2.RUMApiAggregateRUMEventsRequest = {

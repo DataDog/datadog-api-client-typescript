@@ -6,7 +6,7 @@
 import { UsageAttributionAggregatesBody } from "./UsageAttributionAggregatesBody";
 import { UsageAttributionPagination } from "./UsageAttributionPagination";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object containing document metadata.

@@ -5,7 +5,7 @@
  */
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Client certificate to use when performing the test request.

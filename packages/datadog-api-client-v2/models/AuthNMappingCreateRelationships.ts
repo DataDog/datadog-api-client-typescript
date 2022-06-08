@@ -5,7 +5,7 @@
  */
 import { RelationshipToRole } from "./RelationshipToRole";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationship of AuthN Mapping create object to Role.

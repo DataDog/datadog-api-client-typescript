@@ -5,7 +5,7 @@
  */
 import { UsageHostHour } from "./UsageHostHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Host usage response.

@@ -5,7 +5,7 @@
  */
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object with the latest Synthetic browser test run.

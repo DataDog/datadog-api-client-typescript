@@ -5,7 +5,7 @@
  */
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Case when signal is generated.

@@ -5,7 +5,7 @@
  */
 import { MetricSearchResponseResults } from "./MetricSearchResponseResults";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the list of metrics matching the search query.

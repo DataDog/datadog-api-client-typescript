@@ -5,7 +5,7 @@
  */
 import { SyntheticsBrowserErrorType } from "./SyntheticsBrowserErrorType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Error response object for a browser test.

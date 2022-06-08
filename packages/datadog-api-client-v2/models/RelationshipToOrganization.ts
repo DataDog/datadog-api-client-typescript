@@ -5,7 +5,7 @@
  */
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationship to an organization.

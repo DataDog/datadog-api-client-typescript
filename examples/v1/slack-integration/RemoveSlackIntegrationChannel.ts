@@ -2,9 +2,9 @@
  * Remove a Slack integration channel returns "The channel was removed successfully." response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.SlackIntegrationApi(configuration);
 
 const params: v1.SlackIntegrationApiRemoveSlackIntegrationChannelRequest = {

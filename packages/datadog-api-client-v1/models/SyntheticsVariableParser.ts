@@ -5,7 +5,7 @@
  */
 import { SyntheticsGlobalVariableParserType } from "./SyntheticsGlobalVariableParserType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Details of the parser to use for the global variable.

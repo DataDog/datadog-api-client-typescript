@@ -5,7 +5,7 @@
  */
 import { UsageSpecifiedCustomReportsPage } from "./UsageSpecifiedCustomReportsPage";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object containing document metadata.

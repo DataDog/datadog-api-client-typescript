@@ -5,7 +5,7 @@
  */
 import { UserCreateData } from "./UserCreateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Create a user.

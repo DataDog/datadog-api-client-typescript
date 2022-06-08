@@ -5,7 +5,7 @@
  */
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The relationships the incident will have with other resources once created.

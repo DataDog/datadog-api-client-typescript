@@ -5,7 +5,7 @@
  */
 import { LogsFilter } from "./LogsFilter";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the logs filter.

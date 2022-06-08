@@ -5,7 +5,7 @@
  */
 import { UsageSyntheticsAPIHour } from "./UsageSyntheticsAPIHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the number of Synthetics API tests run for each hour for a given organization.

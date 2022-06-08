@@ -2,9 +2,9 @@
  * Add Items to a Dashboard List returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.DashboardListsApi(configuration);
 
 const params: v2.DashboardListsApiCreateDashboardListItemsRequest = {

@@ -8,7 +8,7 @@ import { SyntheticsStatus } from "./SyntheticsStatus";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object with the results of a Synthetics batch.

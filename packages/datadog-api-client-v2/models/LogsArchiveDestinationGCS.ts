@@ -6,7 +6,7 @@
 import { LogsArchiveDestinationGCSType } from "./LogsArchiveDestinationGCSType";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The GCS archive destination.
