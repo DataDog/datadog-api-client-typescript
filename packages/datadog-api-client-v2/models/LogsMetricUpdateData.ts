@@ -6,7 +6,7 @@
 import { LogsMetricType } from "./LogsMetricType";
 import { LogsMetricUpdateAttributes } from "./LogsMetricUpdateAttributes";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The new log-based metric properties.

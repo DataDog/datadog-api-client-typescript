@@ -11,7 +11,7 @@ import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAli
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Options on rules.

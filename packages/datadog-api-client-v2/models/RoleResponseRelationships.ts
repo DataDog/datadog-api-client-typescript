@@ -5,7 +5,7 @@
  */
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationships of the role object returned by the API.

@@ -5,7 +5,7 @@
  */
 import { RoleCreateResponseData } from "./RoleCreateResponseData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing information about a created role.

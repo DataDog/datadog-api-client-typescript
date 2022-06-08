@@ -6,7 +6,7 @@
 import { WidgetLineType } from "./WidgetLineType";
 import { WidgetLineWidth } from "./WidgetLineWidth";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Define request widget style.

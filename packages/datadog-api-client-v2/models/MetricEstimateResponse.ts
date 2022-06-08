@@ -5,7 +5,7 @@
  */
 import { MetricEstimate } from "./MetricEstimate";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response object that includes metric cardinality estimates.

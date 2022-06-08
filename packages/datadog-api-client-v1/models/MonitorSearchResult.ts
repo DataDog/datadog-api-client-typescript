@@ -8,7 +8,7 @@ import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorSearchResultNotification } from "./MonitorSearchResultNotification";
 import { MonitorType } from "./MonitorType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Holds search results.

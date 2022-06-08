@@ -2,9 +2,9 @@
  * Create an application key for this service account returns "Created" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.ServiceAccountsApi(configuration);
 
 const params: v2.ServiceAccountsApiCreateServiceAccountApplicationKeyRequest = {

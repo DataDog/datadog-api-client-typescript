@@ -6,7 +6,7 @@
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { OrganizationsType } from "./OrganizationsType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Organization object.

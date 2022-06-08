@@ -6,7 +6,7 @@
 import { EventAlertType } from "./EventAlertType";
 import { EventPriority } from "./EventPriority";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object representing an event.

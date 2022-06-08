@@ -6,7 +6,7 @@
 import { SyntheticsAssertionOperator } from "./SyntheticsAssertionOperator";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An assertion which uses a simple target.

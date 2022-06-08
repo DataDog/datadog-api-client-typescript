@@ -7,7 +7,7 @@ import { LogsFilter } from "./LogsFilter";
 import { LogsPipelineProcessorType } from "./LogsPipelineProcessorType";
 import { LogsProcessor } from "./LogsProcessor";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Nested Pipelines are pipelines within a pipeline. Use Nested Pipelines to split the processing into two steps.

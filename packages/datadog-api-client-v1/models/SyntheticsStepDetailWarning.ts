@@ -5,7 +5,7 @@
  */
 import { SyntheticsWarningType } from "./SyntheticsWarningType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object collecting warnings for a given step.

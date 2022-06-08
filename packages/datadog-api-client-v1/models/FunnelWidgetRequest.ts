@@ -6,7 +6,7 @@
 import { FunnelQuery } from "./FunnelQuery";
 import { FunnelRequestType } from "./FunnelRequestType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Updated funnel widget.

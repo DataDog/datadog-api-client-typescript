@@ -5,7 +5,7 @@
  */
 import { SAMLAssertionAttributesType } from "./SAMLAssertionAttributesType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Data of AuthN Mapping relationship to SAML Assertion Attribute.

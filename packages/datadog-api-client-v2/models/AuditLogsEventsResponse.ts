@@ -7,7 +7,7 @@ import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsResponseLinks } from "./AuditLogsResponseLinks";
 import { AuditLogsResponseMetadata } from "./AuditLogsResponseMetadata";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response object with all events matching the request and pagination information.

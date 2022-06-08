@@ -7,7 +7,7 @@ import { RoleResponseRelationships } from "./RoleResponseRelationships";
 import { RolesType } from "./RolesType";
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Role object returned by the API.

@@ -6,7 +6,7 @@
 import { MetricBulkConfigureTagsType } from "./MetricBulkConfigureTagsType";
 import { MetricBulkTagConfigCreateAttributes } from "./MetricBulkTagConfigCreateAttributes";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request object to bulk configure tags for metrics matching the given prefix.

@@ -5,7 +5,7 @@
  */
 import { Host } from "./Host";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response with Host information from Datadog.

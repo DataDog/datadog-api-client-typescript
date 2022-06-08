@@ -5,7 +5,7 @@
  */
 import { IncidentFieldAttributesValueType } from "./IncidentFieldAttributesValueType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A field with potentially multiple values selected.

@@ -2,9 +2,9 @@
  * Get the details of an incident returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 configuration.unstableOperations["getIncident"] = true;
 const apiInstance = new v2.IncidentsApi(configuration);
 

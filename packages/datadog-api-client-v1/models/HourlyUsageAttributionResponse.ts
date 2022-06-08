@@ -6,7 +6,7 @@
 import { HourlyUsageAttributionBody } from "./HourlyUsageAttributionBody";
 import { HourlyUsageAttributionMetadata } from "./HourlyUsageAttributionMetadata";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the hourly usage attribution by tag(s).

@@ -8,7 +8,7 @@ import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
 import { NotebookUpdateCell } from "./NotebookUpdateCell";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The data attributes of a notebook.

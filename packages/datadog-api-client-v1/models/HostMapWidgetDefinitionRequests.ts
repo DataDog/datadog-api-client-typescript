@@ -5,7 +5,7 @@
  */
 import { HostMapRequest } from "./HostMapRequest";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of definitions.

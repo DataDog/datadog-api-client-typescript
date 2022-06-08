@@ -5,7 +5,7 @@
  */
 import { MetricOrigin } from "./MetricOrigin";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata for the metric.

@@ -2,9 +2,9 @@
  * Get one app key owned by this service account returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.ServiceAccountsApi(configuration);
 
 // there is a valid "service_account_user" in the system

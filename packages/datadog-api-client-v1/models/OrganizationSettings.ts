@@ -9,7 +9,7 @@ import { OrganizationSettingsSamlAutocreateUsersDomains } from "./OrganizationSe
 import { OrganizationSettingsSamlIdpInitiatedLogin } from "./OrganizationSettingsSamlIdpInitiatedLogin";
 import { OrganizationSettingsSamlStrictMode } from "./OrganizationSettingsSamlStrictMode";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A JSON array of settings.

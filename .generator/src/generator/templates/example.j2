@@ -3,9 +3,9 @@
  */
 
 import * as fs from "fs";
-import { {{ version }} } from "@datadog/datadog-api-client";
+import { client, {{ version }} } from "@datadog/datadog-api-client";
 
-const configuration = {{ version }}.createConfiguration();
+const configuration = client.createConfiguration();
 {%- for operation in context._enable_operations %}
 configuration.unstableOperations["{{ operation|untitle_case }}"] = true;
 {%- endfor %}

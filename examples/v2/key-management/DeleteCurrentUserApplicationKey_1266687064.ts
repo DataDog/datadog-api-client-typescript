@@ -2,9 +2,9 @@
  * Delete an Application key owned by current user returns "No Content" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.KeyManagementApi(configuration);
 
 // there is a valid "application_key" in the system

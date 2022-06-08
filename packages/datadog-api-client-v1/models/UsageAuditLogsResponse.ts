@@ -5,7 +5,7 @@
  */
 import { UsageAuditLogsHour } from "./UsageAuditLogsHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the audit logs usage for each hour for a given organization.

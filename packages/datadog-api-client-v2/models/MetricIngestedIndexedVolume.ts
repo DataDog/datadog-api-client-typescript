@@ -6,7 +6,7 @@
 import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
 import { MetricIngestedIndexedVolumeType } from "./MetricIngestedIndexedVolumeType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object for a single metric's ingested and indexed volume.

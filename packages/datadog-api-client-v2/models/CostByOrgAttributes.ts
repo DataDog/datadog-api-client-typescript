@@ -5,7 +5,7 @@
  */
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Cost attributes data.

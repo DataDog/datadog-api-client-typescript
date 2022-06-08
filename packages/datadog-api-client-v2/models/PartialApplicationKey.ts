@@ -7,7 +7,7 @@ import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
 import { ApplicationKeysType } from "./ApplicationKeysType";
 import { PartialApplicationKeyAttributes } from "./PartialApplicationKeyAttributes";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Partial Datadog application key.

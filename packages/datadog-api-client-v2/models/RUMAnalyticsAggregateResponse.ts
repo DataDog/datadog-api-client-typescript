@@ -7,7 +7,7 @@ import { RUMAggregationBucketsResponse } from "./RUMAggregationBucketsResponse";
 import { RUMResponseLinks } from "./RUMResponseLinks";
 import { RUMResponseMetadata } from "./RUMResponseMetadata";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The response object for the RUM events aggregate API endpoint.

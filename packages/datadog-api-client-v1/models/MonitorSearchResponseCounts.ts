@@ -5,7 +5,7 @@
  */
 import { MonitorSearchCountItem } from "./MonitorSearchCountItem";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The counts of monitors per different criteria.

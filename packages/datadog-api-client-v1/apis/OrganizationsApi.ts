@@ -1,21 +1,24 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
+} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
   HttpFile,
-} from "../http/http";
+} from "../../datadog-api-client-common/http/http";
 
 import FormData from "form-data";
 
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IdpResponse } from "../models/IdpResponse";
@@ -45,7 +48,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.createChildOrg"
+      "v1.OrganizationsApi.createChildOrg"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -92,7 +95,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.getOrg"
+      "v1.OrganizationsApi.getOrg"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -115,7 +118,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.listOrgs"
+      "v1.OrganizationsApi.listOrgs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -159,7 +162,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.updateOrg"
+      "v1.OrganizationsApi.updateOrg"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -214,7 +217,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.uploadIdPForOrg"
+      "v1.OrganizationsApi.uploadIdPForOrg"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

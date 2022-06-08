@@ -5,7 +5,7 @@
  */
 import { MetricAllTags } from "./MetricAllTags";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response object that includes a single metric's indexed tags.

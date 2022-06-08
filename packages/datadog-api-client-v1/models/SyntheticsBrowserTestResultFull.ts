@@ -7,7 +7,7 @@ import { SyntheticsBrowserTestResultData } from "./SyntheticsBrowserTestResultDa
 import { SyntheticsBrowserTestResultFullCheck } from "./SyntheticsBrowserTestResultFullCheck";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object returned describing a browser test result.

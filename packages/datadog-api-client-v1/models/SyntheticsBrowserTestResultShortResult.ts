@@ -5,7 +5,7 @@
  */
 import { SyntheticsDevice } from "./SyntheticsDevice";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object with the result of the last browser test run.

@@ -5,7 +5,7 @@
  */
 import { UsageIncidentManagementHour } from "./UsageIncidentManagementHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the incident management usage for each hour for a given organization.

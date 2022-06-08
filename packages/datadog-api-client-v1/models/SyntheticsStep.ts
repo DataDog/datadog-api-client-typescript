@@ -5,7 +5,7 @@
  */
 import { SyntheticsStepType } from "./SyntheticsStepType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The steps used in a Synthetics browser test.

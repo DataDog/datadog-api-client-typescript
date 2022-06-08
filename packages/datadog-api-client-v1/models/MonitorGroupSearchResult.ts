@@ -5,7 +5,7 @@
  */
 import { MonitorOverallStates } from "./MonitorOverallStates";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A single monitor group search result.

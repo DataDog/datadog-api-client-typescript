@@ -5,7 +5,7 @@
  */
 import { UsageNetworkFlowsHour } from "./UsageNetworkFlowsHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the number of netflow events indexed for each hour for a given organization.

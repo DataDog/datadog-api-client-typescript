@@ -5,7 +5,7 @@
  */
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Dashboard summary response.

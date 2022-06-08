@@ -1,14 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
 
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
@@ -46,7 +53,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.createBulkTagsMetricsConfiguration"
+      "v2.MetricsApi.createBulkTagsMetricsConfiguration"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -101,7 +108,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.createTagConfiguration"
+      "v2.MetricsApi.createTagConfiguration"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -149,7 +156,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.deleteBulkTagsMetricsConfiguration"
+      "v2.MetricsApi.deleteBulkTagsMetricsConfiguration"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -196,7 +203,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.deleteTagConfiguration"
+      "v2.MetricsApi.deleteTagConfiguration"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -237,7 +244,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.estimateMetricsOutputSeries"
+      "v2.MetricsApi.estimateMetricsOutputSeries"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -306,7 +313,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.listTagConfigurationByName"
+      "v2.MetricsApi.listTagConfigurationByName"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -337,7 +344,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.listTagConfigurations"
+      "v2.MetricsApi.listTagConfigurations"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -416,7 +423,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.listTagsByMetricName"
+      "v2.MetricsApi.listTagsByMetricName"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -453,7 +460,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.listVolumesByMetricName"
+      "v2.MetricsApi.listVolumesByMetricName"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -488,7 +495,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.submitMetrics"
+      "v2.MetricsApi.submitMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -548,7 +555,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.updateTagConfiguration"
+      "v2.MetricsApi.updateTagConfiguration"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

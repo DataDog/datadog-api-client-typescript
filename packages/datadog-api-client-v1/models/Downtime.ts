@@ -6,7 +6,7 @@
 import { DowntimeChild } from "./DowntimeChild";
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Downtiming gives you greater control over monitor notifications by

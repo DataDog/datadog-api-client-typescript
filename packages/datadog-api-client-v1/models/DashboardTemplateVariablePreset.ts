@@ -5,7 +5,7 @@
  */
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Template variables saved views.

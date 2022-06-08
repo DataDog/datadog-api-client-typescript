@@ -7,7 +7,7 @@ import { IncidentTeamCreateAttributes } from "./IncidentTeamCreateAttributes";
 import { IncidentTeamRelationships } from "./IncidentTeamRelationships";
 import { IncidentTeamType } from "./IncidentTeamType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Incident Team data for a create request.

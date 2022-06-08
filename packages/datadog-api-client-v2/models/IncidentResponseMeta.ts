@@ -5,7 +5,7 @@
  */
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata object containing pagination metadata.

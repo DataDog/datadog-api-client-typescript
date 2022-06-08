@@ -5,7 +5,7 @@
  */
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request used to update an application key.

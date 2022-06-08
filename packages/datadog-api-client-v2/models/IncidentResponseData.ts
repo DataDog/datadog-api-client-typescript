@@ -7,7 +7,7 @@ import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
 import { IncidentResponseRelationships } from "./IncidentResponseRelationships";
 import { IncidentType } from "./IncidentType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Incident data from a response.

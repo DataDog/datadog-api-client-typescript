@@ -6,7 +6,7 @@
 import { APIKeysType } from "./APIKeysType";
 import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object used to update an API key.

@@ -6,7 +6,7 @@
 import { SyntheticsCIBatchMetadataPipeline } from "./SyntheticsCIBatchMetadataPipeline";
 import { SyntheticsCIBatchMetadataProvider } from "./SyntheticsCIBatchMetadataProvider";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Description of the CI provider.

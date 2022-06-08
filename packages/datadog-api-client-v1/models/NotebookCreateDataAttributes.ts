@@ -8,7 +8,7 @@ import { NotebookGlobalTime } from "./NotebookGlobalTime";
 import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The data attributes of a notebook.

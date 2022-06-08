@@ -360,7 +360,7 @@ import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersResponse } from "./UsersResponse";
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
 
 const primitives = [

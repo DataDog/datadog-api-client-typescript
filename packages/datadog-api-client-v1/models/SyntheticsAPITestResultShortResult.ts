@@ -5,7 +5,7 @@
  */
 import { SyntheticsTiming } from "./SyntheticsTiming";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Result of the last API test run.

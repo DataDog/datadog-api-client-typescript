@@ -2,9 +2,9 @@
  * Get an API test result returns result with failure object
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
 // there is a "synthetics_api_test_with_wrong_dns" in the system

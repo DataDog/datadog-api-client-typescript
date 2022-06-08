@@ -6,7 +6,7 @@
 import { SLOHistoryResponseData } from "./SLOHistoryResponseData";
 import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective history response.

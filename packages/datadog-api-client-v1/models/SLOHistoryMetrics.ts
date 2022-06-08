@@ -5,7 +5,7 @@
  */
 import { SLOHistoryMetricsSeries } from "./SLOHistoryMetricsSeries";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A `metric` based SLO history response.

@@ -5,7 +5,7 @@
  */
 import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Compute options.

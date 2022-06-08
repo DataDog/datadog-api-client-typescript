@@ -6,7 +6,7 @@
 import { Creator } from "./Creator";
 import { DashboardType } from "./DashboardType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A dashboard within a list.

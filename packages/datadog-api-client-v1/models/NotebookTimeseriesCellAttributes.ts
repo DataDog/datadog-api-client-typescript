@@ -8,7 +8,7 @@ import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a notebook `timeseries` cell.

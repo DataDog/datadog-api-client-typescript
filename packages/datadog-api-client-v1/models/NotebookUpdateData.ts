@@ -6,7 +6,7 @@
 import { NotebookResourceType } from "./NotebookResourceType";
 import { NotebookUpdateDataAttributes } from "./NotebookUpdateDataAttributes";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The data for a notebook update request.

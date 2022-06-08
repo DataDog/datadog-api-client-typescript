@@ -5,7 +5,7 @@
  */
 import { SyntheticsBasicAuthWebType } from "./SyntheticsBasicAuthWebType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to handle basic authentication when performing the test.

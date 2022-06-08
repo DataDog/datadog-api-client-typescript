@@ -14,7 +14,7 @@ import { WidgetMarker } from "./WidgetMarker";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The timeseries visualization allows you to display the evolution of one or more metrics, log events, or Indexed Spans over time.

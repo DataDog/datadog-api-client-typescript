@@ -6,7 +6,7 @@
 import { SLOCorrectionType } from "./SLOCorrectionType";
 import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateRequestAttributes";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The data object associated with the SLO correction to be updated.

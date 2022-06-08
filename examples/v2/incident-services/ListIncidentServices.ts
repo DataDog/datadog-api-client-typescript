@@ -2,9 +2,9 @@
  * Get a list of all incident services returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 configuration.unstableOperations["listIncidentServices"] = true;
 const apiInstance = new v2.IncidentServicesApi(configuration);
 

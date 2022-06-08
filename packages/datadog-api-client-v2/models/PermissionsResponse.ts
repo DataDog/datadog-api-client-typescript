@@ -5,7 +5,7 @@
  */
 import { Permission } from "./Permission";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Payload with API-returned permissions.

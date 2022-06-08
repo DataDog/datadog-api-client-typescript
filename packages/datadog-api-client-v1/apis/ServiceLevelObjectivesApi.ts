@@ -1,15 +1,22 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
@@ -43,7 +50,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.checkCanDeleteSLO"
+      "v1.ServiceLevelObjectivesApi.checkCanDeleteSLO"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -84,7 +91,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.createSLO"
+      "v1.ServiceLevelObjectivesApi.createSLO"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -132,7 +139,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.deleteSLO"
+      "v1.ServiceLevelObjectivesApi.deleteSLO"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -173,7 +180,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk"
+      "v1.ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -225,7 +232,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.getSLO"
+      "v1.ServiceLevelObjectivesApi.getSLO"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -270,7 +277,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.getSLOCorrections"
+      "v1.ServiceLevelObjectivesApi.getSLOCorrections"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -296,7 +303,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSLOHistory'");
-    if (!_config.unstableOperations["getSLOHistory"]) {
+    if (!_config.unstableOperations["v1.getSLOHistory"]) {
       throw new Error("Unstable operation 'getSLOHistory' is disabled");
     }
 
@@ -330,7 +337,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.getSLOHistory"
+      "v1.ServiceLevelObjectivesApi.getSLOHistory"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -388,7 +395,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.listSLOs"
+      "v1.ServiceLevelObjectivesApi.listSLOs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -471,7 +478,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectivesApi.updateSLO"
+      "v1.ServiceLevelObjectivesApi.updateSLO"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

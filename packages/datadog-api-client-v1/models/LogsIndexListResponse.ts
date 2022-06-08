@@ -5,7 +5,7 @@
  */
 import { LogsIndex } from "./LogsIndex";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object with all Index configurations for a given organization.
