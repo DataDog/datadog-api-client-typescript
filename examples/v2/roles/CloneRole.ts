@@ -2,9 +2,9 @@
  * Create a new role by cloning an existing role returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.RolesApi(configuration);
 
 // there is a valid "role" in the system

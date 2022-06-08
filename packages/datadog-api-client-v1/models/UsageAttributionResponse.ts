@@ -6,7 +6,7 @@
 import { UsageAttributionBody } from "./UsageAttributionBody";
 import { UsageAttributionMetadata } from "./UsageAttributionMetadata";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the Usage Summary by tag(s).

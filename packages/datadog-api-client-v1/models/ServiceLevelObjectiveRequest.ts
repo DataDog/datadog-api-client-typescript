@@ -7,7 +7,7 @@ import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective object includes a service level indicator, thresholds

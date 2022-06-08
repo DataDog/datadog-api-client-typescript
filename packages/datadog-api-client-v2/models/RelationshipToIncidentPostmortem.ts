@@ -5,7 +5,7 @@
  */
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A relationship reference for postmortems.

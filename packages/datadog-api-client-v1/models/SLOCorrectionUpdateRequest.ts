@@ -5,7 +5,7 @@
  */
 import { SLOCorrectionUpdateData } from "./SLOCorrectionUpdateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An object that defines a correction to be applied to an SLO.

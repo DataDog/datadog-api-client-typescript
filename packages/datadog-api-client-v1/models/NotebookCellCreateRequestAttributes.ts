@@ -10,7 +10,7 @@ import { NotebookMarkdownCellAttributes } from "./NotebookMarkdownCellAttributes
 import { NotebookTimeseriesCellAttributes } from "./NotebookTimeseriesCellAttributes";
 import { NotebookToplistCellAttributes } from "./NotebookToplistCellAttributes";
 
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a notebook cell in create cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,

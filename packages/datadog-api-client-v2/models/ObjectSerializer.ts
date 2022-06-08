@@ -212,6 +212,16 @@ import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
+import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
+import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
+import { OpsgenieServiceCreateRequest } from "./OpsgenieServiceCreateRequest";
+import { OpsgenieServiceResponse } from "./OpsgenieServiceResponse";
+import { OpsgenieServiceResponseAttributes } from "./OpsgenieServiceResponseAttributes";
+import { OpsgenieServiceResponseData } from "./OpsgenieServiceResponseData";
+import { OpsgenieServiceUpdateAttributes } from "./OpsgenieServiceUpdateAttributes";
+import { OpsgenieServiceUpdateData } from "./OpsgenieServiceUpdateData";
+import { OpsgenieServiceUpdateRequest } from "./OpsgenieServiceUpdateRequest";
+import { OpsgenieServicesResponse } from "./OpsgenieServicesResponse";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { Pagination } from "./Pagination";
@@ -350,7 +360,7 @@ import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersResponse } from "./UsersResponse";
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
 
 const primitives = [
@@ -481,6 +491,8 @@ const enumsMap: { [key: string]: any[] } = {
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
+  OpsgenieServiceRegionType: ["us", "eu", "custom"],
+  OpsgenieServiceType: ["opsgenie-service"],
   OrganizationsType: ["orgs"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
@@ -792,6 +804,16 @@ const typeMap: { [index: string]: any } = {
     MetricsAndMetricTagConfigurationsResponse,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
+  OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
+  OpsgenieServiceCreateData: OpsgenieServiceCreateData,
+  OpsgenieServiceCreateRequest: OpsgenieServiceCreateRequest,
+  OpsgenieServiceResponse: OpsgenieServiceResponse,
+  OpsgenieServiceResponseAttributes: OpsgenieServiceResponseAttributes,
+  OpsgenieServiceResponseData: OpsgenieServiceResponseData,
+  OpsgenieServiceUpdateAttributes: OpsgenieServiceUpdateAttributes,
+  OpsgenieServiceUpdateData: OpsgenieServiceUpdateData,
+  OpsgenieServiceUpdateRequest: OpsgenieServiceUpdateRequest,
+  OpsgenieServicesResponse: OpsgenieServicesResponse,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
   Pagination: Pagination,

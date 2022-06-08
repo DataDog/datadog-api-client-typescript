@@ -5,7 +5,7 @@
  */
 import { UsageAttributionValues } from "./UsageAttributionValues";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Usage Summary by tag for a given organization.

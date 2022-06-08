@@ -5,7 +5,7 @@
  */
 import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The new security filter body.

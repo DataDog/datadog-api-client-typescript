@@ -5,7 +5,7 @@
  */
 import { UserInvitationData } from "./UserInvitationData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to invite users to join the organization.

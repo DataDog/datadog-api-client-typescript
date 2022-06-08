@@ -5,7 +5,7 @@
  */
 import { RoleUpdateData } from "./RoleUpdateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Update a role.

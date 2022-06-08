@@ -6,7 +6,7 @@
 import { UsageSpecifiedCustomReportsData } from "./UsageSpecifiedCustomReportsData";
 import { UsageSpecifiedCustomReportsMeta } from "./UsageSpecifiedCustomReportsMeta";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Returns available specified custom reports.

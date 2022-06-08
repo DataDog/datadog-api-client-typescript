@@ -4,9 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { HttpFile } from "../http/http";
+import { HttpFile } from "../../datadog-api-client-common/http/http";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the IdP configuration.

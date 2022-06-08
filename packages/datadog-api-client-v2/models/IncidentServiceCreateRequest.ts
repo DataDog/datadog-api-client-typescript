@@ -5,7 +5,7 @@
  */
 import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Create request with an incident service payload.

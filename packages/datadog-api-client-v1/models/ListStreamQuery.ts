@@ -5,7 +5,7 @@
  */
 import { ListStreamSource } from "./ListStreamSource";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Updated list stream widget.

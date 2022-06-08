@@ -2,9 +2,9 @@
  * Get an SLO's history returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 configuration.unstableOperations["getSLOHistory"] = true;
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 

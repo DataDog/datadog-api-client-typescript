@@ -7,7 +7,7 @@ import { LogsMetricResponseCompute } from "./LogsMetricResponseCompute";
 import { LogsMetricResponseFilter } from "./LogsMetricResponseFilter";
 import { LogsMetricResponseGroupBy } from "./LogsMetricResponseGroupBy";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object describing a Datadog log-based metric.

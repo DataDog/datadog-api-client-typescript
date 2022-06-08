@@ -5,7 +5,7 @@
  */
 import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Defined items in the group.

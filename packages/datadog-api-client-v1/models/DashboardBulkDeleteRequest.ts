@@ -5,7 +5,7 @@
  */
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Dashboard bulk delete request body.

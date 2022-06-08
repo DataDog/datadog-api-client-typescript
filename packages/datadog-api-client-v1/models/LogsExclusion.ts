@@ -5,7 +5,7 @@
  */
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Represents the index exclusion filter object from configuration API.

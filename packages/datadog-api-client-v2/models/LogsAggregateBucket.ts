@@ -5,7 +5,7 @@
  */
 import { LogsAggregateBucketValue } from "./LogsAggregateBucketValue";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A bucket values

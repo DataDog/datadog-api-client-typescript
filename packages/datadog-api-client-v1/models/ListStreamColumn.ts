@@ -5,7 +5,7 @@
  */
 import { ListStreamColumnWidth } from "./ListStreamColumnWidth";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Widget column.

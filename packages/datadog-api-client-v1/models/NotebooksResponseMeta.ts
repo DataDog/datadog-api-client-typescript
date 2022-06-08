@@ -5,7 +5,7 @@
  */
 import { NotebooksResponsePage } from "./NotebooksResponsePage";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Searches metadata returned by the API.

@@ -6,7 +6,7 @@
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgType } from "./CostByOrgType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Cost data.

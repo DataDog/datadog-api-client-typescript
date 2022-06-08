@@ -5,7 +5,7 @@
  */
 import { UsageCWSHour } from "./UsageCWSHour";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the Cloud Workload Security usage for each hour for a given organization.

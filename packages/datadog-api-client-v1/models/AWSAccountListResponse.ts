@@ -5,7 +5,7 @@
  */
 import { AWSAccount } from "./AWSAccount";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of enabled AWS accounts.

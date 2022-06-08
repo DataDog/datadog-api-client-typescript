@@ -6,7 +6,7 @@
 import { SecurityFilterExclusionFilterResponse } from "./SecurityFilterExclusionFilterResponse";
 import { SecurityFilterFilteredDataType } from "./SecurityFilterFilteredDataType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object describing a security filter.

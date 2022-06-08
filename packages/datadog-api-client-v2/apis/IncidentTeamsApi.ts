@@ -1,15 +1,22 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
 
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
@@ -26,7 +33,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createIncidentTeam'");
-    if (!_config.unstableOperations["createIncidentTeam"]) {
+    if (!_config.unstableOperations["v2.createIncidentTeam"]) {
       throw new Error("Unstable operation 'createIncidentTeam' is disabled");
     }
 
@@ -43,7 +50,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.createIncidentTeam"
+      "v2.IncidentTeamsApi.createIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -76,7 +83,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteIncidentTeam'");
-    if (!_config.unstableOperations["deleteIncidentTeam"]) {
+    if (!_config.unstableOperations["v2.deleteIncidentTeam"]) {
       throw new Error("Unstable operation 'deleteIncidentTeam' is disabled");
     }
 
@@ -96,7 +103,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.deleteIncidentTeam"
+      "v2.IncidentTeamsApi.deleteIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -119,7 +126,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getIncidentTeam'");
-    if (!_config.unstableOperations["getIncidentTeam"]) {
+    if (!_config.unstableOperations["v2.getIncidentTeam"]) {
       throw new Error("Unstable operation 'getIncidentTeam' is disabled");
     }
 
@@ -139,7 +146,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.getIncidentTeam"
+      "v2.IncidentTeamsApi.getIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -172,7 +179,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listIncidentTeams'");
-    if (!_config.unstableOperations["listIncidentTeams"]) {
+    if (!_config.unstableOperations["v2.listIncidentTeams"]) {
       throw new Error("Unstable operation 'listIncidentTeams' is disabled");
     }
 
@@ -182,7 +189,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.listIncidentTeams"
+      "v2.IncidentTeamsApi.listIncidentTeams"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -231,7 +238,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateIncidentTeam'");
-    if (!_config.unstableOperations["updateIncidentTeam"]) {
+    if (!_config.unstableOperations["v2.updateIncidentTeam"]) {
       throw new Error("Unstable operation 'updateIncidentTeam' is disabled");
     }
 
@@ -258,7 +265,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentTeamsApi.updateIncidentTeam"
+      "v2.IncidentTeamsApi.updateIncidentTeam"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

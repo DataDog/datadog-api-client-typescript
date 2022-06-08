@@ -6,7 +6,7 @@
 import { RolesType } from "./RolesType";
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Data related to the update of a role.

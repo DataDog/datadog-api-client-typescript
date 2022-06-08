@@ -1,7 +1,7 @@
 import { HttpLibrary, HttpConfiguration, RequestContext } from "./http/http";
 import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch";
 import { BaseServerConfiguration, server1, servers, operationServers } from "./servers";
-import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth/auth";
+import { configureAuthMethods, AuthMethods, AuthMethodsConfiguration } from "./auth";
 
 export interface Configuration {
   readonly baseServer?: BaseServerConfiguration;
@@ -86,11 +86,13 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
-    {%- for path in openapi.paths.values() %}
-    {%- for operation in path.values()|sort(attribute="operationId") %}
+    {%- for version, api in apis.items() %}
+    {%- for operations in api.values() %}
+    {%- for _, _, operation in operations|sort(attribute="2.operationId") %}
     {%- if "x-unstable" in operation %}
-    "{{ operation.operationId|untitle_case  }}": false,
+        "{{ version }}.{{ operation.operationId|untitle_case }}": false,
     {%- endif %}
+    {%- endfor %}
     {%- endfor %}
     {%- endfor %}
     },

@@ -5,7 +5,7 @@
  */
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response metadata object.

@@ -6,7 +6,7 @@
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of rules.

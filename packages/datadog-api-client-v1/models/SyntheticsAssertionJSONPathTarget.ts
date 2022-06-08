@@ -7,7 +7,7 @@ import { SyntheticsAssertionJSONPathOperator } from "./SyntheticsAssertionJSONPa
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An assertion for the `validatesJSONPath` operator.

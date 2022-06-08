@@ -6,7 +6,7 @@
 import { LogsAggregateResponseData } from "./LogsAggregateResponseData";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The response object for the logs aggregate API endpoint

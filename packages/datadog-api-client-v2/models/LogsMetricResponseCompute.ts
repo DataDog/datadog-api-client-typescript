@@ -5,7 +5,7 @@
  */
 import { LogsMetricResponseComputeAggregationType } from "./LogsMetricResponseComputeAggregationType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The compute rule to compute the log-based metric.

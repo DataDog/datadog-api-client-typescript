@@ -1,11 +1,8 @@
 import { tracer } from "dd-trace";
 
-const v1 =
-  require("../../packages/datadog-api-client-v1/http/isomorphic-fetch").IsomorphicFetchHttpLibrary;
-const v1Send = v1.prototype.send;
-const v2 =
-  require("../../packages/datadog-api-client-v2/http/isomorphic-fetch").IsomorphicFetchHttpLibrary;
-const v2Send = v2.prototype.send;
+const lib =
+  require("../../packages/datadog-api-client-common/http/isomorphic-fetch").IsomorphicFetchHttpLibrary;
+const libSend = lib.prototype.send;
 
 function wrap(method: any) {
   function send(this: any, request: any): any {
@@ -48,7 +45,6 @@ function wrap(method: any) {
   return send;
 }
 
-v1.prototype.send = wrap(v1Send);
-v2.prototype.send = wrap(v2Send);
+lib.prototype.send = wrap(libSend);
 
 export default tracer;

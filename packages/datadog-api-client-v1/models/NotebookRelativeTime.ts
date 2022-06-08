@@ -5,7 +5,7 @@
  */
 import { WidgetLiveSpan } from "./WidgetLiveSpan";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relative timeframe.

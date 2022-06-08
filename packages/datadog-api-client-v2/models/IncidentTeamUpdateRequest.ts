@@ -5,7 +5,7 @@
  */
 import { IncidentTeamUpdateData } from "./IncidentTeamUpdateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Update request with an incident team payload.

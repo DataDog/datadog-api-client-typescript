@@ -426,7 +426,7 @@ def get_response_type(schema, version):
 
     response_schema = list(schema["content"].values())[0]["schema"]
     if response_schema.get("format") == "binary":
-        return f"{version}.HttpFile"
+        return "client.HttpFile"
 
     if response_schema.get("type") == "array":
         nested_schema = response_schema.get("items")

@@ -7,7 +7,7 @@ import { LogQueryDefinitionGroupBy } from "./LogQueryDefinitionGroupBy";
 import { LogQueryDefinitionSearch } from "./LogQueryDefinitionSearch";
 import { LogsQueryCompute } from "./LogsQueryCompute";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The log query.

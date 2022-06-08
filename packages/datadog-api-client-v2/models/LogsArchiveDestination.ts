@@ -7,7 +7,7 @@ import { LogsArchiveDestinationAzure } from "./LogsArchiveDestinationAzure";
 import { LogsArchiveDestinationGCS } from "./LogsArchiveDestinationGCS";
 import { LogsArchiveDestinationS3 } from "./LogsArchiveDestinationS3";
 
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * An archive's destination.

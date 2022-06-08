@@ -6,7 +6,7 @@
 import { FormulaAndFunctionApmDependencyStatName } from "./FormulaAndFunctionApmDependencyStatName";
 import { FormulaAndFunctionApmDependencyStatsDataSource } from "./FormulaAndFunctionApmDependencyStatsDataSource";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A formula and functions APM dependency stats query.

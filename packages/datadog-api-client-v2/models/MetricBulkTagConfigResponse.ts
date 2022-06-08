@@ -5,7 +5,7 @@
  */
 import { MetricBulkTagConfigStatus } from "./MetricBulkTagConfigStatus";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Wrapper for a single bulk tag configuration status response.

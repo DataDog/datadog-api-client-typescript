@@ -8,7 +8,7 @@ import { MetricMetadata } from "./MetricMetadata";
 import { MetricPoint } from "./MetricPoint";
 import { MetricResource } from "./MetricResource";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A metric to submit to Datadog.

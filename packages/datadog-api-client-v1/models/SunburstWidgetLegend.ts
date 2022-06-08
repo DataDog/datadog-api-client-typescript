@@ -6,7 +6,7 @@
 import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
 import { SunburstWidgetLegendTable } from "./SunburstWidgetLegendTable";
 
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration of the legend.

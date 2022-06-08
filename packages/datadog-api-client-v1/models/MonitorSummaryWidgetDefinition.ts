@@ -10,7 +10,7 @@ import { WidgetMonitorSummarySort } from "./WidgetMonitorSummarySort";
 import { WidgetSummaryType } from "./WidgetSummaryType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The monitor summary widget displays a summary view of all your Datadog monitors, or a subset based on a query. Only available on FREE layout dashboards.

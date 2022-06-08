@@ -5,7 +5,7 @@
  */
 import { DashboardListItem } from "./DashboardListItem";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Dashboards within a list.

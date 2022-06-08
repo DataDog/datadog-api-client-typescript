@@ -5,7 +5,7 @@
  */
 import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorResponseData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response of monitor IDs that can or can't be safely deleted.

@@ -8,7 +8,7 @@ import { LogsGroupByHistogram } from "./LogsGroupByHistogram";
 import { LogsGroupByMissing } from "./LogsGroupByMissing";
 import { LogsGroupByTotal } from "./LogsGroupByTotal";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A group by rule

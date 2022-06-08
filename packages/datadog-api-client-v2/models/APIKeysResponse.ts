@@ -6,7 +6,7 @@
 import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
 import { PartialAPIKey } from "./PartialAPIKey";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response for a list of API keys.

@@ -23,9 +23,9 @@ yarn add @datadog/datadog-api-client
 Here's an example getting a monitor:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client, v1 } from '@datadog/datadog-api-client';
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
 let params:v1.MonitorsApiGetMonitorRequest = {
@@ -72,11 +72,11 @@ where <operationName> is the name of the method used to interact with that endpo
 When talking to a different server, like the `eu` instance, change the server variables:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client } from '@datadog/datadog-api-client';
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 
-v1.setServerVariables(configuration, {
+client.setServerVariables(configuration, {
   site: "datadoghq.eu"
 });
 ```
@@ -87,14 +87,14 @@ If you want to disable GZIP compressed responses, set the `compress` flag
 on your configuration options:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client } from '@datadog/datadog-api-client';
 const configurationOpts = {
   httpConfig: {
     compress: false
   },
 };
 
-const configuration = v1.createConfiguration(configurationOpts);
+const configuration = client.createConfiguration(configurationOpts);
 ```
 
 ### Enable requests logging
@@ -102,12 +102,12 @@ const configuration = v1.createConfiguration(configurationOpts);
 If you want to enable requests logging, set the `debug` flag on your configuration object:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client } from '@datadog/datadog-api-client';
 const configurationOpts = {
   debug: true
 };
 
-const configuration = v1.createConfiguration(configurationOpts);
+const configuration = client.createConfiguration(configurationOpts);
 ```
 
 ### Adding timeout to requests
@@ -118,7 +118,7 @@ controller, for example the one implemented by
 then pass the `signal method to the HTTP configuration options:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client, v1 } from '@datadog/datadog-api-client';
 import AbortController from 'abort-controller';
 
 const controller = new AbortController();
@@ -132,7 +132,7 @@ const configurationOpts = {
   },
 };
 
-const configuration = v1.createConfiguration(configurationOpts);
+const configuration = client.createConfiguration(configurationOpts);
 
 const apiInstance = new v1.MonitorsApi(configuration);
 apiInstance.listMonitors().then((data: v1.Monitor[]) => {

@@ -5,7 +5,7 @@
  */
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Information about a single test run.
