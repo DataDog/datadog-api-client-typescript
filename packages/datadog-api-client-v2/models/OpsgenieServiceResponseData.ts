@@ -6,7 +6,7 @@
 import { OpsgenieServiceResponseAttributes } from "./OpsgenieServiceResponseAttributes";
 import { OpsgenieServiceType } from "./OpsgenieServiceType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Opsgenie service data from a response.

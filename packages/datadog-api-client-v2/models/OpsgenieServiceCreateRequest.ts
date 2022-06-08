@@ -5,7 +5,7 @@
  */
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Create request for an Opsgenie service.

@@ -1,14 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
 
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { OpsgenieServiceCreateRequest } from "../models/OpsgenieServiceCreateRequest";
@@ -36,7 +43,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OpsgenieIntegrationApi.createOpsgenieService"
+      "v2.OpsgenieIntegrationApi.createOpsgenieService"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -84,7 +91,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OpsgenieIntegrationApi.deleteOpsgenieService"
+      "v2.OpsgenieIntegrationApi.deleteOpsgenieService"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -121,7 +128,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OpsgenieIntegrationApi.getOpsgenieService"
+      "v2.OpsgenieIntegrationApi.getOpsgenieService"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -146,7 +153,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OpsgenieIntegrationApi.listOpsgenieServices"
+      "v2.OpsgenieIntegrationApi.listOpsgenieServices"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -191,7 +198,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OpsgenieIntegrationApi.updateOpsgenieService"
+      "v2.OpsgenieIntegrationApi.updateOpsgenieService"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);

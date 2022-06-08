@@ -5,7 +5,7 @@
  */
 import { OpsgenieServiceRegionType } from "./OpsgenieServiceRegionType";
 
-import { AttributeTypeMap } from "../util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes from an Opsgenie service response.
