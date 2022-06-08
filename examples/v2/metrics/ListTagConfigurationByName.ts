@@ -4,15 +4,7 @@
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
-<<<<<<< HEAD
-const configuration = v2.createConfiguration();
-||||||| parent of 74bf8c72d (Fix examples)
-const configuration = v2.createConfiguration();
-configuration.unstableOperations["listTagConfigurationByName"] = true;
-=======
 const configuration = client.createConfiguration();
-configuration.unstableOperations["listTagConfigurationByName"] = true;
->>>>>>> 74bf8c72d (Fix examples)
 const apiInstance = new v2.MetricsApi(configuration);
 
 // there is a valid "metric_tag_configuration" in the system
