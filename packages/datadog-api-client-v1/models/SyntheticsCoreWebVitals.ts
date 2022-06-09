@@ -35,12 +35,12 @@ export class SyntheticsCoreWebVitals {
     cls: {
       baseName: "cls",
       type: "number",
-      format: "int64",
+      format: "double",
     },
     lcp: {
       baseName: "lcp",
       type: "number",
-      format: "int64",
+      format: "double",
     },
     url: {
       baseName: "url",
