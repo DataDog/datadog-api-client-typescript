@@ -123,6 +123,7 @@ export {
   MetricsApiListActiveMetricsRequest,
   MetricsApiListMetricsRequest,
   MetricsApiQueryMetricsRequest,
+  MetricsApiSubmitDistributionPointsRequest,
   MetricsApiSubmitMetricsRequest,
   MetricsApiUpdateMetricMetadataRequest,
   MetricsApi,
@@ -377,6 +378,11 @@ export { DashboardTemplateVariable } from "./models/DashboardTemplateVariable";
 export { DashboardTemplateVariablePreset } from "./models/DashboardTemplateVariablePreset";
 export { DashboardTemplateVariablePresetValue } from "./models/DashboardTemplateVariablePresetValue";
 export { DeletedMonitor } from "./models/DeletedMonitor";
+export { DistributionPointItem } from "./models/DistributionPointItem";
+export { DistributionPointsContentEncoding } from "./models/DistributionPointsContentEncoding";
+export { DistributionPointsPayload } from "./models/DistributionPointsPayload";
+export { DistributionPointsSeries } from "./models/DistributionPointsSeries";
+export { DistributionPointsType } from "./models/DistributionPointsType";
 export { DistributionWidgetDefinition } from "./models/DistributionWidgetDefinition";
 export { DistributionWidgetDefinitionType } from "./models/DistributionWidgetDefinitionType";
 export { DistributionWidgetRequest } from "./models/DistributionWidgetRequest";
