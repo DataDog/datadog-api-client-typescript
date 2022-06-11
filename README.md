@@ -45,7 +45,7 @@ By default the library will use the `DD_API_KEY` and `DD_APP_KEY` environment va
 To provide your own set of credentials, you need to set the appropriate keys on the configuration:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client } from '@datadog/datadog-api-client';
 
 const configurationOpts = {
   authMethods: {
@@ -54,7 +54,7 @@ const configurationOpts = {
   },
 };
 
-const configuration = v1.createConfiguration(configurationOpts);
+const configuration = client.createConfiguration(configurationOpts);
 ```
 
 ### Unstable Endpoints
@@ -146,10 +146,10 @@ Several listing operations have a pagination method to help consume all the item
 For example, to retrieve all your incidents:
 
 ```typescript
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
 async function main() {
-  const configuration = v2.createConfiguration();
+  const configuration = client.createConfiguration();
   configuration.unstableOperations["listIncidents"] = true;
   const apiInstance = new v2.IncidentsApi(configuration);
 
