@@ -239,7 +239,9 @@ def get_references_for_model(model, model_name):
     if "oneOf" in model:
         for oneOf in model["oneOf"]:
             if "items" in oneOf:
-                result.append(formatter.get_name(oneOf["items"]))
+                name = formatter.get_name(oneOf["items"])
+                if name:
+                    result.append(name)
             else:
                 result.append(formatter.get_name(oneOf))
     for key, definition in model.get("properties", {}).items():
@@ -259,6 +261,10 @@ def get_references_for_model(model, model_name):
                 result.append(name)
             elif get_name(definition):
                 result.append(get_name(definition) + "Item")
+            if "items" in definition["items"]:
+                name = get_name(definition["items"])
+                if name:
+                    result.append(name + "Item")
         elif definition.get("properties") and top_name:
             result.append(top_name + formatter.camel_case(key))
     if model.get("additionalProperties"):

@@ -51,6 +51,8 @@ import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
 import { DeletedMonitor } from "./DeletedMonitor";
+import { DistributionPointsPayload } from "./DistributionPointsPayload";
+import { DistributionPointsSeries } from "./DistributionPointsSeries";
 import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { DistributionWidgetRequest } from "./DistributionWidgetRequest";
 import { DistributionWidgetXAxis } from "./DistributionWidgetXAxis";
@@ -551,6 +553,8 @@ const enumsMap: { [key: string]: any[] } = {
   DashboardLayoutType: ["ordered", "free"],
   DashboardReflowType: ["auto", "fixed"],
   DashboardResourceType: ["dashboard"],
+  DistributionPointsContentEncoding: ["deflate"],
+  DistributionPointsType: ["distribution"],
   DistributionWidgetDefinitionType: ["distribution"],
   EventAlertType: [
     "error",
@@ -1249,6 +1253,8 @@ const typeMap: { [index: string]: any } = {
   DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
   DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
   DeletedMonitor: DeletedMonitor,
+  DistributionPointsPayload: DistributionPointsPayload,
+  DistributionPointsSeries: DistributionPointsSeries,
   DistributionWidgetDefinition: DistributionWidgetDefinition,
   DistributionWidgetRequest: DistributionWidgetRequest,
   DistributionWidgetXAxis: DistributionWidgetXAxis,
@@ -1739,6 +1745,7 @@ const typeMap: { [index: string]: any } = {
 };
 
 const oneOfMap: { [index: string]: string[] } = {
+  DistributionPointItem: ["number", "Array<number>"],
   FormulaAndFunctionQueryDefinition: [
     "FormulaAndFunctionMetricQueryDefinition",
     "FormulaAndFunctionEventQueryDefinition",
