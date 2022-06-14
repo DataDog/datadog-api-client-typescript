@@ -13,7 +13,6 @@ import {
   ResponseContext,
 } from "../../datadog-api-client-common/http/http";
 
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 import { isCodeInRange } from "../../datadog-api-client-common/util";
@@ -359,13 +358,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listSecurityMonitoringSignals'");
-    if (!_config.unstableOperations["v2.listSecurityMonitoringSignals"]) {
-      throw new Error(
-        "Unstable operation 'listSecurityMonitoringSignals' is disabled"
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals";
 
@@ -430,13 +422,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'searchSecurityMonitoringSignals'");
-    if (!_config.unstableOperations["v2.searchSecurityMonitoringSignals"]) {
-      throw new Error(
-        "Unstable operation 'searchSecurityMonitoringSignals' is disabled"
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals/search";
