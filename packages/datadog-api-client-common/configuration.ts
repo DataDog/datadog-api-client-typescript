@@ -116,8 +116,6 @@ export function createConfiguration(
       "v2.getIncident": false,
       "v2.listIncidents": false,
       "v2.updateIncident": false,
-      "v2.listSecurityMonitoringSignals": false,
-      "v2.searchSecurityMonitoringSignals": false,
       "v2.createIncidentService": false,
       "v2.deleteIncidentService": false,
       "v2.getIncidentService": false,
