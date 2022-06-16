@@ -385,6 +385,8 @@ export { DistributionPointsSeries } from "./models/DistributionPointsSeries";
 export { DistributionPointsType } from "./models/DistributionPointsType";
 export { DistributionWidgetDefinition } from "./models/DistributionWidgetDefinition";
 export { DistributionWidgetDefinitionType } from "./models/DistributionWidgetDefinitionType";
+export { DistributionWidgetHistogramRequestQuery } from "./models/DistributionWidgetHistogramRequestQuery";
+export { DistributionWidgetHistogramRequestType } from "./models/DistributionWidgetHistogramRequestType";
 export { DistributionWidgetRequest } from "./models/DistributionWidgetRequest";
 export { DistributionWidgetXAxis } from "./models/DistributionWidgetXAxis";
 export { DistributionWidgetYAxis } from "./models/DistributionWidgetYAxis";

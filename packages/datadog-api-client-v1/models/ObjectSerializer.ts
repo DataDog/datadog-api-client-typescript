@@ -556,6 +556,7 @@ const enumsMap: { [key: string]: any[] } = {
   DistributionPointsContentEncoding: ["deflate"],
   DistributionPointsType: ["distribution"],
   DistributionWidgetDefinitionType: ["distribution"],
+  DistributionWidgetHistogramRequestType: ["histogram"],
   EventAlertType: [
     "error",
     "warning",
@@ -583,6 +584,7 @@ const enumsMap: { [key: string]: any[] } = {
     "error_rate",
     "hits",
     "latency_avg",
+    "latency_distribution",
     "latency_max",
     "latency_p50",
     "latency_p75",
@@ -1746,6 +1748,11 @@ const typeMap: { [index: string]: any } = {
 
 const oneOfMap: { [index: string]: string[] } = {
   DistributionPointItem: ["number", "Array<number>"],
+  DistributionWidgetHistogramRequestQuery: [
+    "FormulaAndFunctionMetricQueryDefinition",
+    "FormulaAndFunctionEventQueryDefinition",
+    "FormulaAndFunctionApmResourceStatsQueryDefinition",
+  ],
   FormulaAndFunctionQueryDefinition: [
     "FormulaAndFunctionMetricQueryDefinition",
     "FormulaAndFunctionEventQueryDefinition",
