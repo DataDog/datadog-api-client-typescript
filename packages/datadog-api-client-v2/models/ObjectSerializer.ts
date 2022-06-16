@@ -1018,6 +1018,9 @@ export class ObjectSerializer {
     ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
+      if (!Array.isArray(data)) {
+        throw new TypeError(`mismatch types '${data}' and '${type}'`);
+      }
       // Array<Type> => Type
       const subType: string = type.substring(
         ARRAY_PREFIX.length,
@@ -1157,6 +1160,10 @@ export class ObjectSerializer {
     ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
+      // Assert the passed data is Array type
+      if (!Array.isArray(data)) {
+        throw new TypeError(`mismatch types '${data}' and '${type}'`);
+      }
       // Array<Type> => Type
       const subType: string = type.substring(
         ARRAY_PREFIX.length,
