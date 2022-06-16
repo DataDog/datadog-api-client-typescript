@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
+import { DistributionWidgetHistogramRequestQuery } from "./DistributionWidgetHistogramRequestQuery";
+import { DistributionWidgetHistogramRequestType } from "./DistributionWidgetHistogramRequestType";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetStyle } from "./WidgetStyle";
@@ -46,6 +48,14 @@ export class DistributionWidgetRequest {
    * Widget query.
    */
   "q"?: string;
+  /**
+   * Query definition for Distribution Widget Histogram Request
+   */
+  "query"?: DistributionWidgetHistogramRequestQuery;
+  /**
+   * Request type for the histogram request.
+   */
+  "requestType"?: DistributionWidgetHistogramRequestType;
   /**
    * The log query.
    */
@@ -99,6 +109,14 @@ export class DistributionWidgetRequest {
     q: {
       baseName: "q",
       type: "string",
+    },
+    query: {
+      baseName: "query",
+      type: "DistributionWidgetHistogramRequestQuery",
+    },
+    requestType: {
+      baseName: "request_type",
+      type: "DistributionWidgetHistogramRequestType",
     },
     rumQuery: {
       baseName: "rum_query",
