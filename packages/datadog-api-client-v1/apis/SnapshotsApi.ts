@@ -28,6 +28,8 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     eventQuery?: string,
     graphDef?: string,
     title?: string,
+    height?: number,
+    width?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -92,6 +94,18 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "title",
         ObjectSerializer.serialize(title, "string", "")
+      );
+    }
+    if (height !== undefined) {
+      requestContext.setQueryParam(
+        "height",
+        ObjectSerializer.serialize(height, "number", "int64")
+      );
+    }
+    if (width !== undefined) {
+      requestContext.setQueryParam(
+        "width",
+        ObjectSerializer.serialize(width, "number", "int64")
       );
     }
 
@@ -204,6 +218,16 @@ export interface SnapshotsApiGetGraphSnapshotRequest {
    * @type string
    */
   title?: string;
+  /**
+   * The height of the graph. If no height is specified, the graph's original height is used.
+   * @type number
+   */
+  height?: number;
+  /**
+   * The width of the graph. If no width is specified, the graph's original width is used.
+   * @type number
+   */
+  width?: number;
 }
 
 export class SnapshotsApi {
@@ -239,6 +263,8 @@ export class SnapshotsApi {
       param.eventQuery,
       param.graphDef,
       param.title,
+      param.height,
+      param.width,
       options
     );
     return requestContextPromise.then((requestContext) => {
