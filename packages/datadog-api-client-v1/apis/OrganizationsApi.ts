@@ -667,7 +667,7 @@ export class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations.
+   * This endpoint returns data on your top-level organization.
    * @param param The request object
    */
   public listOrgs(options?: Configuration): Promise<OrganizationListResponse> {
