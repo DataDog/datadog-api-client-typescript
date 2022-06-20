@@ -154,7 +154,6 @@ export {
 
 export {
   OrganizationsApiCreateChildOrgRequest,
-  OrganizationsApiDowngradeOrgRequest,
   OrganizationsApiGetOrgRequest,
   OrganizationsApiUpdateOrgRequest,
   OrganizationsApiUploadIdPForOrgRequest,
@@ -656,7 +655,6 @@ export { OrganizationSettingsSamlAutocreateUsersDomains } from "./models/Organiz
 export { OrganizationSettingsSamlIdpInitiatedLogin } from "./models/OrganizationSettingsSamlIdpInitiatedLogin";
 export { OrganizationSettingsSamlStrictMode } from "./models/OrganizationSettingsSamlStrictMode";
 export { OrganizationSubscription } from "./models/OrganizationSubscription";
-export { OrgDowngradedResponse } from "./models/OrgDowngradedResponse";
 export { PagerDutyService } from "./models/PagerDutyService";
 export { PagerDutyServiceKey } from "./models/PagerDutyServiceKey";
 export { PagerDutyServiceName } from "./models/PagerDutyServiceName";

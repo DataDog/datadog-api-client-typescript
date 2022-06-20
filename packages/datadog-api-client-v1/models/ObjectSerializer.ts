@@ -238,7 +238,6 @@ import { NotebooksResponseData } from "./NotebooksResponseData";
 import { NotebooksResponseDataAttributes } from "./NotebooksResponseDataAttributes";
 import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
 import { NotebooksResponsePage } from "./NotebooksResponsePage";
-import { OrgDowngradedResponse } from "./OrgDowngradedResponse";
 import { Organization } from "./Organization";
 import { OrganizationBilling } from "./OrganizationBilling";
 import { OrganizationCreateBody } from "./OrganizationCreateBody";
@@ -1456,7 +1455,6 @@ const typeMap: { [index: string]: any } = {
   NotebooksResponseDataAttributes: NotebooksResponseDataAttributes,
   NotebooksResponseMeta: NotebooksResponseMeta,
   NotebooksResponsePage: NotebooksResponsePage,
-  OrgDowngradedResponse: OrgDowngradedResponse,
   Organization: Organization,
   OrganizationBilling: OrganizationBilling,
   OrganizationCreateBody: OrganizationCreateBody,

@@ -549,11 +549,6 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SecurityMonitoringRuleNewValueOptionsForgetAfter: [1, 2, 7, 14, 21, 28],
   SecurityMonitoringRuleNewValueOptionsLearningDuration: [0, 1, 7],
-  SecurityMonitoringRuleNewValueOptionsLearningMethod: [
-    "duration",
-    "threshold",
-  ],
-  SecurityMonitoringRuleNewValueOptionsLearningThreshold: [0, 1],
   SecurityMonitoringRuleQueryAggregation: [
     "count",
     "cardinality",

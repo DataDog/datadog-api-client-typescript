@@ -39,7 +39,6 @@ const params: v1.OrganizationsApiUpdateOrgRequest = {
     subscription: {
       type: "pro",
     },
-    trial: false,
   },
   publicId: "abc123",
 };
