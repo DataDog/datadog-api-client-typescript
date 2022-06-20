@@ -33,6 +33,8 @@ const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
       newValueOptions: {
         forgetAfter: 1,
         learningDuration: 0,
+        learningMethod: "duration",
+        learningThreshold: 0,
       },
     },
     queries: [
