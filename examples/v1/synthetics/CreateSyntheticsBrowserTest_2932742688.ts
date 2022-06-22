@@ -47,6 +47,9 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         clientTokenId: 123456,
       },
       tickEvery: 300,
+      ci: {
+        executionRule: "skipped",
+      },
     },
     tags: ["testing:browser"],
     type: "browser",
