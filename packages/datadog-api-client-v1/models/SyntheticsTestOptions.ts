@@ -5,6 +5,7 @@
  */
 import { SyntheticsBrowserTestRumSettings } from "./SyntheticsBrowserTestRumSettings";
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
+import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 
@@ -27,6 +28,10 @@ export class SyntheticsTestOptions {
    * For SSL test, whether or not the test should fail on revoked certificate in stapled OCSP.
    */
   "checkCertificateRevocation"?: boolean;
+  /**
+   * CI/CD options for a Synthetic test.
+   */
+  "ci"?: SyntheticsTestCiOptions;
   /**
    * For browser test, array with the different device IDs used to run the test.
    */
@@ -112,6 +117,10 @@ export class SyntheticsTestOptions {
     checkCertificateRevocation: {
       baseName: "checkCertificateRevocation",
       type: "boolean",
+    },
+    ci: {
+      baseName: "ci",
+      type: "SyntheticsTestCiOptions",
     },
     deviceIds: {
       baseName: "device_ids",

@@ -378,6 +378,7 @@ import { SyntheticsSSLCertificateSubject } from "./SyntheticsSSLCertificateSubje
 import { SyntheticsStep } from "./SyntheticsStep";
 import { SyntheticsStepDetail } from "./SyntheticsStepDetail";
 import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
+import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
 import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
@@ -1608,6 +1609,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsStep: SyntheticsStep,
   SyntheticsStepDetail: SyntheticsStepDetail,
   SyntheticsStepDetailWarning: SyntheticsStepDetailWarning,
+  SyntheticsTestCiOptions: SyntheticsTestCiOptions,
   SyntheticsTestConfig: SyntheticsTestConfig,
   SyntheticsTestDetails: SyntheticsTestDetails,
   SyntheticsTestOptions: SyntheticsTestOptions,

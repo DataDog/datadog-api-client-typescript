@@ -828,6 +828,7 @@ export { SyntheticsStep } from "./models/SyntheticsStep";
 export { SyntheticsStepDetail } from "./models/SyntheticsStepDetail";
 export { SyntheticsStepDetailWarning } from "./models/SyntheticsStepDetailWarning";
 export { SyntheticsStepType } from "./models/SyntheticsStepType";
+export { SyntheticsTestCiOptions } from "./models/SyntheticsTestCiOptions";
 export { SyntheticsTestConfig } from "./models/SyntheticsTestConfig";
 export { SyntheticsTestDetails } from "./models/SyntheticsTestDetails";
 export { SyntheticsTestDetailsSubType } from "./models/SyntheticsTestDetailsSubType";

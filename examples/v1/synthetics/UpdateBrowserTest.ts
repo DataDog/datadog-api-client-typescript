@@ -44,6 +44,9 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
     message: "",
     name: "Example test name",
     options: {
+      ci: {
+        executionRule: "blocking",
+      },
       deviceIds: ["laptop_large"],
       monitorOptions: {},
       restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
