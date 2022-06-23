@@ -111,6 +111,7 @@ export function createConfiguration(
       "v1.getSpecifiedMonthlyCustomReports": false,
       "v1.getUsageAttribution": false,
       "v1.getSLOHistory": false,
+      "v1.searchSLO": false,
       "v2.createIncident": false,
       "v2.deleteIncident": false,
       "v2.getIncident": false,

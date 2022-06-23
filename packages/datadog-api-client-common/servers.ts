@@ -144,6 +144,33 @@ export const operationServers: {
       subdomain: "http-intake.logs",
     }),
   ],
+  "v1.ServiceLevelObjectivesApi.searchSLO": [
+    new ServerConfiguration<{
+      site:
+        | "datadoghq.com"
+        | "us3.datadoghq.com"
+        | "us5.datadoghq.com"
+        | "ddog-gov.com";
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "api",
+    }),
+    new ServerConfiguration<{
+      name: string;
+      protocol: string;
+    }>("{protocol}://{name}", {
+      name: "api.datadoghq.com",
+      protocol: "https",
+    }),
+    new ServerConfiguration<{
+      site: string;
+      subdomain: string;
+    }>("https://{subdomain}.{site}", {
+      site: "datadoghq.com",
+      subdomain: "api",
+    }),
+  ],
   "v2.LogsApi.submitLog": [
     new ServerConfiguration<{
       site:

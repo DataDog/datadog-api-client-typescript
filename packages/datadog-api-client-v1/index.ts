@@ -198,6 +198,7 @@ export {
   ServiceLevelObjectivesApiGetSLOCorrectionsRequest,
   ServiceLevelObjectivesApiGetSLOHistoryRequest,
   ServiceLevelObjectivesApiListSLOsRequest,
+  ServiceLevelObjectivesApiSearchSLORequest,
   ServiceLevelObjectivesApiUpdateSLORequest,
   ServiceLevelObjectivesApi,
 } from "./apis/ServiceLevelObjectivesApi";
@@ -675,6 +676,15 @@ export { ScatterPlotWidgetDefinition } from "./models/ScatterPlotWidgetDefinitio
 export { ScatterPlotWidgetDefinitionRequests } from "./models/ScatterPlotWidgetDefinitionRequests";
 export { ScatterPlotWidgetDefinitionType } from "./models/ScatterPlotWidgetDefinitionType";
 export { ScatterplotWidgetFormula } from "./models/ScatterplotWidgetFormula";
+export { SearchSLOResponse } from "./models/SearchSLOResponse";
+export { SearchSLOResponseData } from "./models/SearchSLOResponseData";
+export { SearchSLOResponseDataAttributes } from "./models/SearchSLOResponseDataAttributes";
+export { SearchSLOResponseDataAttributesFacets } from "./models/SearchSLOResponseDataAttributesFacets";
+export { SearchSLOResponseDataAttributesFacetsObjectInt } from "./models/SearchSLOResponseDataAttributesFacetsObjectInt";
+export { SearchSLOResponseDataAttributesFacetsObjectString } from "./models/SearchSLOResponseDataAttributesFacetsObjectString";
+export { SearchSLOResponseLinks } from "./models/SearchSLOResponseLinks";
+export { SearchSLOResponseMeta } from "./models/SearchSLOResponseMeta";
+export { SearchSLOResponseMetaPage } from "./models/SearchSLOResponseMetaPage";
 export { Series } from "./models/Series";
 export { ServiceCheck } from "./models/ServiceCheck";
 export { ServiceCheckStatus } from "./models/ServiceCheckStatus";

@@ -20,6 +20,7 @@ import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CheckCanDeleteSLOResponse } from "../models/CheckCanDeleteSLOResponse";
+import { SearchSLOResponse } from "../models/SearchSLOResponse";
 import { ServiceLevelObjective } from "../models/ServiceLevelObjective";
 import { ServiceLevelObjectiveRequest } from "../models/ServiceLevelObjectiveRequest";
 import { SLOBulkDeleteResponse } from "../models/SLOBulkDeleteResponse";
@@ -432,6 +433,59 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
       requestContext.setQueryParam(
         "offset",
         ObjectSerializer.serialize(offset, "number", "int64")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async searchSLO(
+    query?: string,
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'searchSLO'");
+    if (!_config.unstableOperations["v1.searchSLO"]) {
+      throw new Error("Unstable operation 'searchSLO' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/slo/search";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.ServiceLevelObjectivesApi.searchSLO"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        ObjectSerializer.serialize(query, "string", "")
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64")
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64")
       );
     }
 
@@ -1043,6 +1097,69 @@ export class ServiceLevelObjectivesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to searchSLO
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async searchSLO(
+    response: ResponseContext
+  ): Promise<SearchSLOResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: SearchSLOResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SearchSLOResponse",
+        ""
+      ) as SearchSLOResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SearchSLOResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SearchSLOResponse",
+        ""
+      ) as SearchSLOResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateSLO
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1227,6 +1344,24 @@ export interface ServiceLevelObjectivesApiListSLOsRequest {
    * @type number
    */
   offset?: number;
+}
+
+export interface ServiceLevelObjectivesApiSearchSLORequest {
+  /**
+   * The query string to filter results based on SLO names.
+   * @type string
+   */
+  query?: string;
+  /**
+   * The number of files to return in the response `[default=10]`.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
+   * @type number
+   */
+  pageNumber?: number;
 }
 
 export interface ServiceLevelObjectivesApiUpdateSLORequest {
@@ -1452,6 +1587,29 @@ export class ServiceLevelObjectivesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listSLOs(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a list of service level objective objects for your organization.
+   * @param param The request object
+   */
+  public searchSLO(
+    param: ServiceLevelObjectivesApiSearchSLORequest = {},
+    options?: Configuration
+  ): Promise<SearchSLOResponse> {
+    const requestContextPromise = this.requestFactory.searchSLO(
+      param.query,
+      param.pageSize,
+      param.pageNumber,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.searchSLO(responseContext);
         });
     });
   }
