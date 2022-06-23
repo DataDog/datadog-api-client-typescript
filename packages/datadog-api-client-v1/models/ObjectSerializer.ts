@@ -296,6 +296,15 @@ import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
+import { SearchSLOResponse } from "./SearchSLOResponse";
+import { SearchSLOResponseData } from "./SearchSLOResponseData";
+import { SearchSLOResponseDataAttributes } from "./SearchSLOResponseDataAttributes";
+import { SearchSLOResponseDataAttributesFacets } from "./SearchSLOResponseDataAttributesFacets";
+import { SearchSLOResponseDataAttributesFacetsObjectInt } from "./SearchSLOResponseDataAttributesFacetsObjectInt";
+import { SearchSLOResponseDataAttributesFacetsObjectString } from "./SearchSLOResponseDataAttributesFacetsObjectString";
+import { SearchSLOResponseLinks } from "./SearchSLOResponseLinks";
+import { SearchSLOResponseMeta } from "./SearchSLOResponseMeta";
+import { SearchSLOResponseMetaPage } from "./SearchSLOResponseMetaPage";
 import { Series } from "./Series";
 import { ServiceCheck } from "./ServiceCheck";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
@@ -1518,6 +1527,17 @@ const typeMap: { [index: string]: any } = {
   ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
   ScatterplotTableRequest: ScatterplotTableRequest,
   ScatterplotWidgetFormula: ScatterplotWidgetFormula,
+  SearchSLOResponse: SearchSLOResponse,
+  SearchSLOResponseData: SearchSLOResponseData,
+  SearchSLOResponseDataAttributes: SearchSLOResponseDataAttributes,
+  SearchSLOResponseDataAttributesFacets: SearchSLOResponseDataAttributesFacets,
+  SearchSLOResponseDataAttributesFacetsObjectInt:
+    SearchSLOResponseDataAttributesFacetsObjectInt,
+  SearchSLOResponseDataAttributesFacetsObjectString:
+    SearchSLOResponseDataAttributesFacetsObjectString,
+  SearchSLOResponseLinks: SearchSLOResponseLinks,
+  SearchSLOResponseMeta: SearchSLOResponseMeta,
+  SearchSLOResponseMetaPage: SearchSLOResponseMetaPage,
   Series: Series,
   ServiceCheck: ServiceCheck,
   ServiceLevelObjective: ServiceLevelObjective,

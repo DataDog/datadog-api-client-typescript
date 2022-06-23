@@ -7,19 +7,29 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
- * to be used because this will sum up all request counts instead of averaging them, or taking the max or
- * min of all of those requests.
+ * Pagination links.
  */
-export class ServiceLevelObjectiveQuery {
+export class SearchSLOResponseLinks {
   /**
-   * A Datadog metric query for total (valid) events.
+   * Link to last page.
    */
-  "denominator": string;
+  "first"?: string;
   /**
-   * A Datadog metric query for good events.
+   * Link to first page.
    */
-  "numerator": string;
+  "last"?: string;
+  /**
+   * Link to the next page.
+   */
+  "next"?: string;
+  /**
+   * Link to previous page.
+   */
+  "prev"?: string;
+  /**
+   * Link to current page.
+   */
+  "self"?: string;
 
   /**
    * @ignore
@@ -30,15 +40,25 @@ export class ServiceLevelObjectiveQuery {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    denominator: {
-      baseName: "denominator",
+    first: {
+      baseName: "first",
       type: "string",
-      required: true,
     },
-    numerator: {
-      baseName: "numerator",
+    last: {
+      baseName: "last",
       type: "string",
-      required: true,
+    },
+    next: {
+      baseName: "next",
+      type: "string",
+    },
+    prev: {
+      baseName: "prev",
+      type: "string",
+    },
+    self: {
+      baseName: "self",
+      type: "string",
     },
   };
 
@@ -46,7 +66,7 @@ export class ServiceLevelObjectiveQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceLevelObjectiveQuery.attributeTypeMap;
+    return SearchSLOResponseLinks.attributeTypeMap;
   }
 
   public constructor() {}
