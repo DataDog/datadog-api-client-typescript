@@ -26,7 +26,7 @@ export class SyntheticsAPITest {
   /**
    * Notification message associated with the test.
    */
-  "message"?: string;
+  "message": string;
   /**
    * The associated monitor ID.
    */
@@ -84,6 +84,7 @@ export class SyntheticsAPITest {
     message: {
       baseName: "message",
       type: "string",
+      required: true,
     },
     monitorId: {
       baseName: "monitor_id",
