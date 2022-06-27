@@ -1990,6 +1990,23 @@ export class ObjectSerializer {
       const attributesMap = typeMap[type].getAttributeTypeMap();
       const instance: { [index: string]: any } = {};
 
+      const extraAttributes = Object.keys(data)
+        .filter(
+          (key) => !Object.prototype.hasOwnProperty.call(attributesMap, key)
+        )
+        .reduce((obj, key) => {
+          return Object.assign(obj, {
+            [key]: data[key],
+          });
+        }, {});
+
+      if (Object.keys(extraAttributes).length !== 0) {
+        if (!data.additionalProperties) {
+          data.additionalProperties = {};
+        }
+        Object.assign(data.additionalProperties, extraAttributes);
+      }
+
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
         if (attributeName == "additionalProperties") {
