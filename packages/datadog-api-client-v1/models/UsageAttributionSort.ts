@@ -9,6 +9,8 @@ export type UsageAttributionSort =
   | typeof SNMP_USAGE
   | typeof APM_HOST_USAGE
   | typeof API_USAGE
+  | typeof APPSEC_USAGE
+  | typeof APPSEC_PERCENTAGE
   | typeof CONTAINER_USAGE
   | typeof CUSTOM_TIMESERIES_PERCENTAGE
   | typeof CONTAINER_PERCENTAGE
@@ -33,6 +35,8 @@ export const API_PERCENTAGE = "api_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const APM_HOST_USAGE = "apm_host_usage";
 export const API_USAGE = "api_usage";
+export const APPSEC_USAGE = "appsec_usage";
+export const APPSEC_PERCENTAGE = "appsec_percentage";
 export const CONTAINER_USAGE = "container_usage";
 export const CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage";
 export const CONTAINER_PERCENTAGE = "container_percentage";

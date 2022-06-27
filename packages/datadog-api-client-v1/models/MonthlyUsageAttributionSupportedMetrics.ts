@@ -9,6 +9,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof API_PERCENTAGE
   | typeof APM_HOST_USAGE
   | typeof APM_HOST_PERCENTAGE
+  | typeof APPSEC_USAGE
+  | typeof APPSEC_PERCENTAGE
   | typeof BROWSER_USAGE
   | typeof BROWSER_PERCENTAGE
   | typeof CONTAINER_USAGE
@@ -42,6 +44,8 @@ export const API_USAGE = "api_usage";
 export const API_PERCENTAGE = "api_percentage";
 export const APM_HOST_USAGE = "apm_host_usage";
 export const APM_HOST_PERCENTAGE = "apm_host_percentage";
+export const APPSEC_USAGE = "appsec_usage";
+export const APPSEC_PERCENTAGE = "appsec_percentage";
 export const BROWSER_USAGE = "browser_usage";
 export const BROWSER_PERCENTAGE = "browser_percentage";
 export const CONTAINER_USAGE = "container_usage";
