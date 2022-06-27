@@ -76,6 +76,65 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getEstimatedCostByOrg(
+    startMonth?: Date,
+    endMonth?: Date,
+    startDate?: Date,
+    endDate?: Date,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/estimated_cost_by_org";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.UsageMeteringApi.getEstimatedCostByOrg"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (startMonth !== undefined) {
+      requestContext.setQueryParam(
+        "start_month",
+        ObjectSerializer.serialize(startMonth, "Date", "date-time")
+      );
+    }
+    if (endMonth !== undefined) {
+      requestContext.setQueryParam(
+        "end_month",
+        ObjectSerializer.serialize(endMonth, "Date", "date-time")
+      );
+    }
+    if (startDate !== undefined) {
+      requestContext.setQueryParam(
+        "start_date",
+        ObjectSerializer.serialize(startDate, "Date", "date-time")
+      );
+    }
+    if (endDate !== undefined) {
+      requestContext.setQueryParam(
+        "end_date",
+        ObjectSerializer.serialize(endDate, "Date", "date-time")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getUsageApplicationSecurityMonitoring(
     startHr: Date,
     endHr?: Date,
@@ -242,6 +301,69 @@ export class UsageMeteringApiResponseProcessor {
    * @throws ApiException if the response code was not in [200, 299]
    */
   public async getCostByOrg(
+    response: ResponseContext
+  ): Promise<CostByOrgResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: CostByOrgResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostByOrgResponse",
+        ""
+      ) as CostByOrgResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CostByOrgResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostByOrgResponse",
+        ""
+      ) as CostByOrgResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getEstimatedCostByOrg
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getEstimatedCostByOrg(
     response: ResponseContext
   ): Promise<CostByOrgResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
@@ -506,6 +628,29 @@ export interface UsageMeteringApiGetCostByOrgRequest {
   endMonth?: Date;
 }
 
+export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both.
+   * @type Date
+   */
+  startMonth?: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
+   * @type Date
+   */
+  endMonth?: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both.
+   * @type Date
+   */
+  startDate?: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost ending this day.
+   * @type Date
+   */
+  endDate?: Date;
+}
+
 export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
@@ -583,6 +728,30 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCostByOrg(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get estimated cost across multi-org account.
+   * @param param The request object
+   */
+  public getEstimatedCostByOrg(
+    param: UsageMeteringApiGetEstimatedCostByOrgRequest = {},
+    options?: Configuration
+  ): Promise<CostByOrgResponse> {
+    const requestContextPromise = this.requestFactory.getEstimatedCostByOrg(
+      param.startMonth,
+      param.endMonth,
+      param.startDate,
+      param.endDate,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getEstimatedCostByOrg(responseContext);
         });
     });
   }
