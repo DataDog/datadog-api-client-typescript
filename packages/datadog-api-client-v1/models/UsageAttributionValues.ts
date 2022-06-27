@@ -107,6 +107,14 @@ export class UsageAttributionValues {
    */
   "estimatedIndexedLogsUsage"?: number;
   /**
+   * The percentage of estimated indexed spans usage by tag(s). Note this field is in private beta.
+   */
+  "estimatedIndexedSpansPercentage"?: number;
+  /**
+   * The estimated indexed spans usage by tag(s). Note this field is in private beta.
+   */
+  "estimatedIndexedSpansUsage"?: number;
+  /**
    * The percentage of infrastructure host usage by tag(s).
    */
   "infraHostPercentage"?: number;
@@ -289,6 +297,16 @@ export class UsageAttributionValues {
     },
     estimatedIndexedLogsUsage: {
       baseName: "estimated_indexed_logs_usage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIndexedSpansPercentage: {
+      baseName: "estimated_indexed_spans_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIndexedSpansUsage: {
+      baseName: "estimated_indexed_spans_usage",
       type: "number",
       format: "double",
     },

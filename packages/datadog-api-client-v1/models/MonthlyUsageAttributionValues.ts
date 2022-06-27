@@ -59,6 +59,14 @@ export class MonthlyUsageAttributionValues {
    */
   "estimatedIndexedLogsUsage"?: number;
   /**
+   * The percentage of estimated indexed spans usage by tag(s). This field is in private beta.
+   */
+  "estimatedIndexedSpansPercentage"?: number;
+  /**
+   * The estimated indexed spans usage by tag(s). This field is in private beta.
+   */
+  "estimatedIndexedSpansUsage"?: number;
+  /**
    * The percentage of Fargate usage by tags.
    */
   "fargatePercentage"?: number;
@@ -197,6 +205,16 @@ export class MonthlyUsageAttributionValues {
     },
     estimatedIndexedLogsUsage: {
       baseName: "estimated_indexed_logs_usage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIndexedSpansPercentage: {
+      baseName: "estimated_indexed_spans_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIndexedSpansUsage: {
+      baseName: "estimated_indexed_spans_usage",
       type: "number",
       format: "double",
     },

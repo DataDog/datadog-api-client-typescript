@@ -17,6 +17,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof CUSTOM_TIMESERIES_PERCENTAGE
   | typeof ESTIMATED_INDEXED_LOGS_USAGE
   | typeof ESTIMATED_INDEXED_LOGS_PERCENTAGE
+  | typeof ESTIMATED_INDEXED_SPANS_USAGE
+  | typeof ESTIMATED_INDEXED_SPANS_PERCENTAGE
   | typeof FARGATE_USAGE
   | typeof FARGATE_PERCENTAGE
   | typeof FUNCTIONS_USAGE
@@ -49,6 +51,9 @@ export const CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage";
 export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
 export const ESTIMATED_INDEXED_LOGS_PERCENTAGE =
   "estimated_indexed_logs_percentage";
+export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
+export const ESTIMATED_INDEXED_SPANS_PERCENTAGE =
+  "estimated_indexed_spans_percentage";
 export const FARGATE_USAGE = "fargate_usage";
 export const FARGATE_PERCENTAGE = "fargate_percentage";
 export const FUNCTIONS_USAGE = "functions_usage";
