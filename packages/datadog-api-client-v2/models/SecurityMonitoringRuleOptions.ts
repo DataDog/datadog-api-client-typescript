@@ -18,6 +18,12 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SecurityMonitoringRuleOptions {
   /**
+   * If true, signals in non-production environments have a lower severity than what is defined by the rule case, which can reduce signal noise.
+   * The severity is decreased by one level: `CRITICAL` in production becomes `HIGH` in non-production, `HIGH` becomes `MEDIUM` and so on. `INFO` remains `INFO`.
+   * The decrement is applied when the environment tag of the signal starts with `staging`, `test` or `dev`.
+   */
+  "decreaseCriticalityBasedOnEnv"?: boolean;
+  /**
    * The detection method.
    */
   "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
@@ -58,6 +64,10 @@ export class SecurityMonitoringRuleOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    decreaseCriticalityBasedOnEnv: {
+      baseName: "decreaseCriticalityBasedOnEnv",
+      type: "boolean",
+    },
     detectionMethod: {
       baseName: "detectionMethod",
       type: "SecurityMonitoringRuleDetectionMethod",
