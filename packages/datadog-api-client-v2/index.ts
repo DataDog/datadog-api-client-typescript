@@ -184,6 +184,7 @@ export {
 
 export {
   UsageMeteringApiGetCostByOrgRequest,
+  UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
