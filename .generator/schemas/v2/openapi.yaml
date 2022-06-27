@@ -4317,7 +4317,6 @@ components:
         aggregations:
           $ref: '#/components/schemas/MetricCustomAggregations'
         include_percentiles:
-          default: false
           description: 'Toggle to include/exclude percentiles for a distribution metric.
 
             Defaults to false. Can only be applied to metrics that have a `metric_type`
@@ -4409,7 +4408,6 @@ components:
         aggregations:
           $ref: '#/components/schemas/MetricCustomAggregations'
         include_percentiles:
-          default: false
           description: 'Toggle to include/exclude percentiles for a distribution metric.
 
             Defaults to false. Can only be applied to metrics that have a `metric_type`
@@ -4583,7 +4581,7 @@ components:
       properties:
         custom_url:
           description: The custom URL for a custom region.
-          example: https://example.com
+          example: null
           nullable: true
           type: string
         name:
@@ -6469,6 +6467,10 @@ components:
           $ref: '#/components/schemas/SecurityMonitoringRuleNewValueOptionsForgetAfter'
         learningDuration:
           $ref: '#/components/schemas/SecurityMonitoringRuleNewValueOptionsLearningDuration'
+        learningMethod:
+          $ref: '#/components/schemas/SecurityMonitoringRuleNewValueOptionsLearningMethod'
+        learningThreshold:
+          $ref: '#/components/schemas/SecurityMonitoringRuleNewValueOptionsLearningThreshold'
       type: object
     SecurityMonitoringRuleNewValueOptionsForgetAfter:
       description: The duration in days after which a learned value is forgotten.
@@ -6489,6 +6491,7 @@ components:
       - THREE_WEEKS
       - FOUR_WEEKS
     SecurityMonitoringRuleNewValueOptionsLearningDuration:
+      default: 0
       description: 'The duration in days during which values are learned, and after
         which signals will be generated for values that
 
@@ -6504,6 +6507,29 @@ components:
       - ZERO_DAYS
       - ONE_DAY
       - SEVEN_DAYS
+    SecurityMonitoringRuleNewValueOptionsLearningMethod:
+      default: duration
+      description: The learning method used to determine when signals should be generated
+        for values that weren't learned.
+      enum:
+      - duration
+      - threshold
+      type: string
+      x-enum-varnames:
+      - DURATION
+      - THRESHOLD
+    SecurityMonitoringRuleNewValueOptionsLearningThreshold:
+      default: 0
+      description: A number of occurrences after which signals will be generated for
+        values that weren't learned.
+      enum:
+      - 0
+      - 1
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - ZERO_OCCURRENCES
+      - ONE_OCCURRENCE
     SecurityMonitoringRuleOptions:
       description: Options on rules.
       properties:
@@ -7311,7 +7337,8 @@ components:
         authorizationCode:
           authorizationUrl: /oauth2/v1/authorize
           scopes:
-            dashboards_public_share: Share dashboards externally.
+            dashboards_public_share: Generate public and authenticated links to share
+              dashboards externally.
             dashboards_read: View dashboards.
             dashboards_write: Create and change dashboards.
             events_read: Read Events data.
@@ -7319,6 +7346,8 @@ components:
             incident_settings_write: Configure Incidents settings.
             incident_write: Create, view, and manage incidents in Datadog.
             metrics_read: View custom metrics.
+            monitors_read: View monitors.
+            monitors_write: Edit, mute, and delete individual monitors.
             security_monitoring_filters_read: Read Security Filters.
             security_monitoring_filters_write: Create, edit, and delete Security Filters.
             security_monitoring_rules_read: Read Detection Rules.
@@ -11398,11 +11427,6 @@ paths:
           $ref: '#/components/responses/NotAuthorizedResponse'
         '429':
           $ref: '#/components/responses/TooManyRequestsResponse'
-      security:
-      - apiKeyAuth: []
-        appKeyAuth: []
-      - AuthZ:
-        - security_monitoring_rules_read
       summary: Get the latest Cloud Workload Security policy
       tags:
       - Cloud Workload Security
@@ -12004,9 +12028,6 @@ paths:
         resultsPath: data
       x-undo:
         type: safe
-      x-unstable: '**Note**: This endpoint is in public beta.
-
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/security_monitoring/signals/search:
     post:
       description: 'Returns security signals that match a search query.
@@ -12051,9 +12072,6 @@ paths:
         resultsPath: data
       x-undo:
         type: safe
-      x-unstable: '**Note**: This endpoint is in public beta.
-
-        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/series:
     post:
       description: "The metrics end-point allows you to post time-series data that
@@ -12917,6 +12935,81 @@ paths:
       x-menu-order: 39
       x-undo:
         type: safe
+  /api/v2/usage/estimated_cost_by_org:
+    get:
+      description: Get estimated cost across multi-org account.
+      operationId: GetEstimatedCostByOrg
+      parameters:
+      - description: 'Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]`
+          for cost beginning this month. Either start_month or start_date should be
+          specified, but not both.'
+        in: query
+        name: start_month
+        required: false
+        schema:
+          format: date-time
+          type: string
+      - description: 'Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]`
+          for cost ending this month.'
+        in: query
+        name: end_month
+        required: false
+        schema:
+          format: date-time
+          type: string
+      - description: 'Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]`
+          for cost beginning this day. Either start_month or start_date should be
+          specified, but not both.'
+        in: query
+        name: start_date
+        required: false
+        schema:
+          format: date-time
+          type: string
+      - description: 'Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]`
+          for cost ending this day.'
+        in: query
+        name: end_date
+        required: false
+        schema:
+          format: date-time
+          type: string
+      responses:
+        '200':
+          content:
+            application/json;datetime-format=rfc3339:
+              schema:
+                $ref: '#/components/schemas/CostByOrgResponse'
+          description: OK
+        '400':
+          content:
+            application/json;datetime-format=rfc3339:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Bad Request
+        '403':
+          content:
+            application/json;datetime-format=rfc3339:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Forbidden - User is not authorized
+        '429':
+          content:
+            application/json;datetime-format=rfc3339:
+              schema:
+                $ref: '#/components/schemas/APIErrorResponse'
+          description: Too many requests
+      security:
+      - apiKeyAuth: []
+        appKeyAuth: []
+      - AuthZ:
+        - usage_read
+      summary: Get estimated cost across multi-org account
+      tags:
+      - Usage Metering
+      x-menu-order: 39
+      x-undo:
+        type: safe
   /api/v2/usage/lambda_traced_invocations:
     get:
       description: Get hourly usage for Lambda Traced Invocations.
@@ -13575,7 +13668,7 @@ tags:
     that set number.\n\nThe Post, Patch, and Delete `manage_tags` API methods can
     only be performed by\na user who has the `Manage Tags for Metrics` permission."
   name: Metrics
-- description: 'Configure your [Datadog Opsgenie integration](https://docs.datadoghq.com/api/latest/opsgenie-integration)
+- description: 'Configure your [Datadog Opsgenie integration](https://docs.datadoghq.com/integrations/opsgenie/)
 
     directly through the Datadog API.'
   externalDocs:

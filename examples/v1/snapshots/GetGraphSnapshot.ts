@@ -12,6 +12,8 @@ const params: v1.SnapshotsApiGetGraphSnapshotRequest = {
   start: new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000,
   end: new Date().getTime() / 1000,
   title: "System load",
+  height: 400,
+  width: 600,
 };
 
 apiInstance

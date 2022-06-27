@@ -7,20 +7,22 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.OpsgenieIntegrationApi(configuration);
 
+// there is a valid "opsgenie_service" in the system
+const OPSGENIE_SERVICE_DATA_ID = process.env.OPSGENIE_SERVICE_DATA_ID as string;
+
 const params: v2.OpsgenieIntegrationApiUpdateOpsgenieServiceRequest = {
   body: {
     data: {
       attributes: {
-        customUrl: "https://example.com",
-        name: "fake-opsgenie-service-name",
+        name: "fake-opsgenie-service-name--updated",
         opsgenieApiKey: "00000000-0000-0000-0000-000000000000",
-        region: "us",
+        region: "eu",
       },
-      id: "596da4af-0563-4097-90ff-07230c3f9db3",
+      id: OPSGENIE_SERVICE_DATA_ID,
       type: "opsgenie-service",
     },
   },
-  integrationServiceId: "integration_service_id",
+  integrationServiceId: OPSGENIE_SERVICE_DATA_ID,
 };
 
 apiInstance

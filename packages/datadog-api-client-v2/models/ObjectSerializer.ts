@@ -549,6 +549,11 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SecurityMonitoringRuleNewValueOptionsForgetAfter: [1, 2, 7, 14, 21, 28],
   SecurityMonitoringRuleNewValueOptionsLearningDuration: [0, 1, 7],
+  SecurityMonitoringRuleNewValueOptionsLearningMethod: [
+    "duration",
+    "threshold",
+  ],
+  SecurityMonitoringRuleNewValueOptionsLearningThreshold: [0, 1],
   SecurityMonitoringRuleQueryAggregation: [
     "count",
     "cardinality",
@@ -1018,6 +1023,9 @@ export class ObjectSerializer {
     ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
+      if (!Array.isArray(data)) {
+        throw new TypeError(`mismatch types '${data}' and '${type}'`);
+      }
       // Array<Type> => Type
       const subType: string = type.substring(
         ARRAY_PREFIX.length,
@@ -1157,6 +1165,10 @@ export class ObjectSerializer {
     ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
+      // Assert the passed data is Array type
+      if (!Array.isArray(data)) {
+        throw new TypeError(`mismatch types '${data}' and '${type}'`);
+      }
       // Array<Type> => Type
       const subType: string = type.substring(
         ARRAY_PREFIX.length,

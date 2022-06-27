@@ -44,7 +44,7 @@ export class SLOHistoryMetrics {
    */
   "respVersion": number;
   /**
-   * An array of query timestamps in EPOCH milliseconds
+   * An array of query timestamps in EPOCH milliseconds.
    */
   "times": Array<number>;
 

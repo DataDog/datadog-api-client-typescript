@@ -5,6 +5,8 @@
  */
 import { SecurityMonitoringRuleNewValueOptionsForgetAfter } from "./SecurityMonitoringRuleNewValueOptionsForgetAfter";
 import { SecurityMonitoringRuleNewValueOptionsLearningDuration } from "./SecurityMonitoringRuleNewValueOptionsLearningDuration";
+import { SecurityMonitoringRuleNewValueOptionsLearningMethod } from "./SecurityMonitoringRuleNewValueOptionsLearningMethod";
+import { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./SecurityMonitoringRuleNewValueOptionsLearningThreshold";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -21,6 +23,14 @@ export class SecurityMonitoringRuleNewValueOptions {
    * weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
    */
   "learningDuration"?: SecurityMonitoringRuleNewValueOptionsLearningDuration;
+  /**
+   * The learning method used to determine when signals should be generated for values that weren't learned.
+   */
+  "learningMethod"?: SecurityMonitoringRuleNewValueOptionsLearningMethod;
+  /**
+   * A number of occurrences after which signals will be generated for values that weren't learned.
+   */
+  "learningThreshold"?: SecurityMonitoringRuleNewValueOptionsLearningThreshold;
 
   /**
    * @ignore
@@ -39,6 +49,15 @@ export class SecurityMonitoringRuleNewValueOptions {
     learningDuration: {
       baseName: "learningDuration",
       type: "SecurityMonitoringRuleNewValueOptionsLearningDuration",
+      format: "int32",
+    },
+    learningMethod: {
+      baseName: "learningMethod",
+      type: "SecurityMonitoringRuleNewValueOptionsLearningMethod",
+    },
+    learningThreshold: {
+      baseName: "learningThreshold",
+      type: "SecurityMonitoringRuleNewValueOptionsLearningThreshold",
       format: "int32",
     },
   };

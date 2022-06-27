@@ -123,6 +123,7 @@ export {
   MetricsApiListActiveMetricsRequest,
   MetricsApiListMetricsRequest,
   MetricsApiQueryMetricsRequest,
+  MetricsApiSubmitDistributionPointsRequest,
   MetricsApiSubmitMetricsRequest,
   MetricsApiUpdateMetricMetadataRequest,
   MetricsApi,
@@ -153,6 +154,7 @@ export {
 
 export {
   OrganizationsApiCreateChildOrgRequest,
+  OrganizationsApiDowngradeOrgRequest,
   OrganizationsApiGetOrgRequest,
   OrganizationsApiUpdateOrgRequest,
   OrganizationsApiUploadIdPForOrgRequest,
@@ -196,6 +198,7 @@ export {
   ServiceLevelObjectivesApiGetSLOCorrectionsRequest,
   ServiceLevelObjectivesApiGetSLOHistoryRequest,
   ServiceLevelObjectivesApiListSLOsRequest,
+  ServiceLevelObjectivesApiSearchSLORequest,
   ServiceLevelObjectivesApiUpdateSLORequest,
   ServiceLevelObjectivesApi,
 } from "./apis/ServiceLevelObjectivesApi";
@@ -377,8 +380,15 @@ export { DashboardTemplateVariable } from "./models/DashboardTemplateVariable";
 export { DashboardTemplateVariablePreset } from "./models/DashboardTemplateVariablePreset";
 export { DashboardTemplateVariablePresetValue } from "./models/DashboardTemplateVariablePresetValue";
 export { DeletedMonitor } from "./models/DeletedMonitor";
+export { DistributionPointItem } from "./models/DistributionPointItem";
+export { DistributionPointsContentEncoding } from "./models/DistributionPointsContentEncoding";
+export { DistributionPointsPayload } from "./models/DistributionPointsPayload";
+export { DistributionPointsSeries } from "./models/DistributionPointsSeries";
+export { DistributionPointsType } from "./models/DistributionPointsType";
 export { DistributionWidgetDefinition } from "./models/DistributionWidgetDefinition";
 export { DistributionWidgetDefinitionType } from "./models/DistributionWidgetDefinitionType";
+export { DistributionWidgetHistogramRequestQuery } from "./models/DistributionWidgetHistogramRequestQuery";
+export { DistributionWidgetHistogramRequestType } from "./models/DistributionWidgetHistogramRequestType";
 export { DistributionWidgetRequest } from "./models/DistributionWidgetRequest";
 export { DistributionWidgetXAxis } from "./models/DistributionWidgetXAxis";
 export { DistributionWidgetYAxis } from "./models/DistributionWidgetYAxis";
@@ -647,6 +657,7 @@ export { OrganizationSettingsSamlAutocreateUsersDomains } from "./models/Organiz
 export { OrganizationSettingsSamlIdpInitiatedLogin } from "./models/OrganizationSettingsSamlIdpInitiatedLogin";
 export { OrganizationSettingsSamlStrictMode } from "./models/OrganizationSettingsSamlStrictMode";
 export { OrganizationSubscription } from "./models/OrganizationSubscription";
+export { OrgDowngradedResponse } from "./models/OrgDowngradedResponse";
 export { PagerDutyService } from "./models/PagerDutyService";
 export { PagerDutyServiceKey } from "./models/PagerDutyServiceKey";
 export { PagerDutyServiceName } from "./models/PagerDutyServiceName";
@@ -665,6 +676,15 @@ export { ScatterPlotWidgetDefinition } from "./models/ScatterPlotWidgetDefinitio
 export { ScatterPlotWidgetDefinitionRequests } from "./models/ScatterPlotWidgetDefinitionRequests";
 export { ScatterPlotWidgetDefinitionType } from "./models/ScatterPlotWidgetDefinitionType";
 export { ScatterplotWidgetFormula } from "./models/ScatterplotWidgetFormula";
+export { SearchSLOResponse } from "./models/SearchSLOResponse";
+export { SearchSLOResponseData } from "./models/SearchSLOResponseData";
+export { SearchSLOResponseDataAttributes } from "./models/SearchSLOResponseDataAttributes";
+export { SearchSLOResponseDataAttributesFacets } from "./models/SearchSLOResponseDataAttributesFacets";
+export { SearchSLOResponseDataAttributesFacetsObjectInt } from "./models/SearchSLOResponseDataAttributesFacetsObjectInt";
+export { SearchSLOResponseDataAttributesFacetsObjectString } from "./models/SearchSLOResponseDataAttributesFacetsObjectString";
+export { SearchSLOResponseLinks } from "./models/SearchSLOResponseLinks";
+export { SearchSLOResponseMeta } from "./models/SearchSLOResponseMeta";
+export { SearchSLOResponseMetaPage } from "./models/SearchSLOResponseMetaPage";
 export { Series } from "./models/Series";
 export { ServiceCheck } from "./models/ServiceCheck";
 export { ServiceCheckStatus } from "./models/ServiceCheckStatus";
@@ -818,6 +838,7 @@ export { SyntheticsStep } from "./models/SyntheticsStep";
 export { SyntheticsStepDetail } from "./models/SyntheticsStepDetail";
 export { SyntheticsStepDetailWarning } from "./models/SyntheticsStepDetailWarning";
 export { SyntheticsStepType } from "./models/SyntheticsStepType";
+export { SyntheticsTestCiOptions } from "./models/SyntheticsTestCiOptions";
 export { SyntheticsTestConfig } from "./models/SyntheticsTestConfig";
 export { SyntheticsTestDetails } from "./models/SyntheticsTestDetails";
 export { SyntheticsTestDetailsSubType } from "./models/SyntheticsTestDetailsSubType";

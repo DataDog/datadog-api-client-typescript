@@ -51,6 +51,8 @@ import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
 import { DeletedMonitor } from "./DeletedMonitor";
+import { DistributionPointsPayload } from "./DistributionPointsPayload";
+import { DistributionPointsSeries } from "./DistributionPointsSeries";
 import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { DistributionWidgetRequest } from "./DistributionWidgetRequest";
 import { DistributionWidgetXAxis } from "./DistributionWidgetXAxis";
@@ -236,6 +238,7 @@ import { NotebooksResponseData } from "./NotebooksResponseData";
 import { NotebooksResponseDataAttributes } from "./NotebooksResponseDataAttributes";
 import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
 import { NotebooksResponsePage } from "./NotebooksResponsePage";
+import { OrgDowngradedResponse } from "./OrgDowngradedResponse";
 import { Organization } from "./Organization";
 import { OrganizationBilling } from "./OrganizationBilling";
 import { OrganizationCreateBody } from "./OrganizationCreateBody";
@@ -293,6 +296,15 @@ import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
+import { SearchSLOResponse } from "./SearchSLOResponse";
+import { SearchSLOResponseData } from "./SearchSLOResponseData";
+import { SearchSLOResponseDataAttributes } from "./SearchSLOResponseDataAttributes";
+import { SearchSLOResponseDataAttributesFacets } from "./SearchSLOResponseDataAttributesFacets";
+import { SearchSLOResponseDataAttributesFacetsObjectInt } from "./SearchSLOResponseDataAttributesFacetsObjectInt";
+import { SearchSLOResponseDataAttributesFacetsObjectString } from "./SearchSLOResponseDataAttributesFacetsObjectString";
+import { SearchSLOResponseLinks } from "./SearchSLOResponseLinks";
+import { SearchSLOResponseMeta } from "./SearchSLOResponseMeta";
+import { SearchSLOResponseMetaPage } from "./SearchSLOResponseMetaPage";
 import { Series } from "./Series";
 import { ServiceCheck } from "./ServiceCheck";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
@@ -375,6 +387,7 @@ import { SyntheticsSSLCertificateSubject } from "./SyntheticsSSLCertificateSubje
 import { SyntheticsStep } from "./SyntheticsStep";
 import { SyntheticsStepDetail } from "./SyntheticsStepDetail";
 import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
+import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
 import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
@@ -551,7 +564,10 @@ const enumsMap: { [key: string]: any[] } = {
   DashboardLayoutType: ["ordered", "free"],
   DashboardReflowType: ["auto", "fixed"],
   DashboardResourceType: ["dashboard"],
+  DistributionPointsContentEncoding: ["deflate"],
+  DistributionPointsType: ["distribution"],
   DistributionWidgetDefinitionType: ["distribution"],
+  DistributionWidgetHistogramRequestType: ["histogram"],
   EventAlertType: [
     "error",
     "warning",
@@ -579,6 +595,7 @@ const enumsMap: { [key: string]: any[] } = {
     "error_rate",
     "hits",
     "latency_avg",
+    "latency_distribution",
     "latency_max",
     "latency_p50",
     "latency_p75",
@@ -640,6 +657,7 @@ const enumsMap: { [key: string]: any[] } = {
     "container_usage",
     "custom_timeseries_usage",
     "estimated_indexed_logs_usage",
+    "estimated_indexed_spans_usage",
     "fargate_usage",
     "functions_usage",
     "indexed_logs_usage",
@@ -751,6 +769,8 @@ const enumsMap: { [key: string]: any[] } = {
     "custom_timeseries_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
+    "estimated_indexed_spans_usage",
+    "estimated_indexed_spans_percentage",
     "fargate_usage",
     "fargate_percentage",
     "functions_usage",
@@ -1047,6 +1067,8 @@ const enumsMap: { [key: string]: any[] } = {
     "lambda_invocations_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
+    "estimated_indexed_spans_usage",
+    "estimated_indexed_spans_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1081,6 +1103,8 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_queries_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
+    "estimated_indexed_spans_usage",
+    "estimated_indexed_spans_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],
@@ -1249,6 +1273,8 @@ const typeMap: { [index: string]: any } = {
   DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
   DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
   DeletedMonitor: DeletedMonitor,
+  DistributionPointsPayload: DistributionPointsPayload,
+  DistributionPointsSeries: DistributionPointsSeries,
   DistributionWidgetDefinition: DistributionWidgetDefinition,
   DistributionWidgetRequest: DistributionWidgetRequest,
   DistributionWidgetXAxis: DistributionWidgetXAxis,
@@ -1447,6 +1473,7 @@ const typeMap: { [index: string]: any } = {
   NotebooksResponseDataAttributes: NotebooksResponseDataAttributes,
   NotebooksResponseMeta: NotebooksResponseMeta,
   NotebooksResponsePage: NotebooksResponsePage,
+  OrgDowngradedResponse: OrgDowngradedResponse,
   Organization: Organization,
   OrganizationBilling: OrganizationBilling,
   OrganizationCreateBody: OrganizationCreateBody,
@@ -1507,6 +1534,17 @@ const typeMap: { [index: string]: any } = {
   ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
   ScatterplotTableRequest: ScatterplotTableRequest,
   ScatterplotWidgetFormula: ScatterplotWidgetFormula,
+  SearchSLOResponse: SearchSLOResponse,
+  SearchSLOResponseData: SearchSLOResponseData,
+  SearchSLOResponseDataAttributes: SearchSLOResponseDataAttributes,
+  SearchSLOResponseDataAttributesFacets: SearchSLOResponseDataAttributesFacets,
+  SearchSLOResponseDataAttributesFacetsObjectInt:
+    SearchSLOResponseDataAttributesFacetsObjectInt,
+  SearchSLOResponseDataAttributesFacetsObjectString:
+    SearchSLOResponseDataAttributesFacetsObjectString,
+  SearchSLOResponseLinks: SearchSLOResponseLinks,
+  SearchSLOResponseMeta: SearchSLOResponseMeta,
+  SearchSLOResponseMetaPage: SearchSLOResponseMetaPage,
   Series: Series,
   ServiceCheck: ServiceCheck,
   ServiceLevelObjective: ServiceLevelObjective,
@@ -1598,6 +1636,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsStep: SyntheticsStep,
   SyntheticsStepDetail: SyntheticsStepDetail,
   SyntheticsStepDetailWarning: SyntheticsStepDetailWarning,
+  SyntheticsTestCiOptions: SyntheticsTestCiOptions,
   SyntheticsTestConfig: SyntheticsTestConfig,
   SyntheticsTestDetails: SyntheticsTestDetails,
   SyntheticsTestOptions: SyntheticsTestOptions,
@@ -1739,6 +1778,12 @@ const typeMap: { [index: string]: any } = {
 };
 
 const oneOfMap: { [index: string]: string[] } = {
+  DistributionPointItem: ["number", "Array<number>"],
+  DistributionWidgetHistogramRequestQuery: [
+    "FormulaAndFunctionMetricQueryDefinition",
+    "FormulaAndFunctionEventQueryDefinition",
+    "FormulaAndFunctionApmResourceStatsQueryDefinition",
+  ],
   FormulaAndFunctionQueryDefinition: [
     "FormulaAndFunctionMetricQueryDefinition",
     "FormulaAndFunctionEventQueryDefinition",
@@ -1852,6 +1897,9 @@ export class ObjectSerializer {
     ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
+      if (!Array.isArray(data)) {
+        throw new TypeError(`mismatch types '${data}' and '${type}'`);
+      }
       // Array<Type> => Type
       const subType: string = type.substring(
         ARRAY_PREFIX.length,
@@ -1991,6 +2039,10 @@ export class ObjectSerializer {
     ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
+      // Assert the passed data is Array type
+      if (!Array.isArray(data)) {
+        throw new TypeError(`mismatch types '${data}' and '${type}'`);
+      }
       // Array<Type> => Type
       const subType: string = type.substring(
         ARRAY_PREFIX.length,

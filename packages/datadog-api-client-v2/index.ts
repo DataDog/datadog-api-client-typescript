@@ -184,6 +184,7 @@ export {
 
 export {
   UsageMeteringApiGetCostByOrgRequest,
+  UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
@@ -618,6 +619,8 @@ export { SecurityMonitoringRuleMaxSignalDuration } from "./models/SecurityMonito
 export { SecurityMonitoringRuleNewValueOptions } from "./models/SecurityMonitoringRuleNewValueOptions";
 export { SecurityMonitoringRuleNewValueOptionsForgetAfter } from "./models/SecurityMonitoringRuleNewValueOptionsForgetAfter";
 export { SecurityMonitoringRuleNewValueOptionsLearningDuration } from "./models/SecurityMonitoringRuleNewValueOptionsLearningDuration";
+export { SecurityMonitoringRuleNewValueOptionsLearningMethod } from "./models/SecurityMonitoringRuleNewValueOptionsLearningMethod";
+export { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./models/SecurityMonitoringRuleNewValueOptionsLearningThreshold";
 export { SecurityMonitoringRuleOptions } from "./models/SecurityMonitoringRuleOptions";
 export { SecurityMonitoringRuleQuery } from "./models/SecurityMonitoringRuleQuery";
 export { SecurityMonitoringRuleQueryAggregation } from "./models/SecurityMonitoringRuleQueryAggregation";

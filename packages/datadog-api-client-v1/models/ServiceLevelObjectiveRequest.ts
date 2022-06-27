@@ -22,7 +22,7 @@ export class ServiceLevelObjectiveRequest {
    */
   "description"?: string;
   /**
-   * A list of (up to 20) monitor groups that narrow the scope of a monitor service level objective.
+   * A list of (up to 100) monitor groups that narrow the scope of a monitor service level objective.
    *
    * Included in service level objective responses if it is not empty. Optional in
    * create/update requests for monitor service level objectives, but may only be
@@ -30,7 +30,7 @@ export class ServiceLevelObjectiveRequest {
    */
   "groups"?: Array<string>;
   /**
-   * A list of monitor ids that defines the scope of a monitor service level
+   * A list of monitor IDs that defines the scope of a monitor service level
    * objective. **Required if type is `monitor`**.
    */
   "monitorIds"?: Array<number>;
@@ -39,7 +39,7 @@ export class ServiceLevelObjectiveRequest {
    */
   "name": string;
   /**
-   * A metric SLI query. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
+   * A metric-based SLO. **Required if type is `metric`**. Note that Datadog only allows the sum by aggregator
    * to be used because this will sum up all request counts instead of averaging them, or taking the max or
    * min of all of those requests.
    */

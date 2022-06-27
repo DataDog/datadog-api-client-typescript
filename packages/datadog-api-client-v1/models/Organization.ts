@@ -41,6 +41,10 @@ export class Organization {
    * Subscription definition.
    */
   "subscription"?: OrganizationSubscription;
+  /**
+   * Only available for MSP customers. Allows child organizations to be created on a trial plan.
+   */
+  "trial"?: boolean;
 
   /**
    * @ignore
@@ -78,6 +82,10 @@ export class Organization {
     subscription: {
       baseName: "subscription",
       type: "OrganizationSubscription",
+    },
+    trial: {
+      baseName: "trial",
+      type: "boolean",
     },
   };
 
