@@ -27,6 +27,14 @@ export class UsageAttributionValues {
    */
   "apmHostUsage"?: number;
   /**
+   * The percentage of Application Security Monitoring host usage by tag(s).
+   */
+  "appsecPercentage"?: any;
+  /**
+   * The Application Security Monitoring host usage by tag(s).
+   */
+  "appsecUsage"?: number;
+  /**
    * The percentage of synthetic browser test usage by tag(s).
    */
   "browserPercentage"?: number;
@@ -197,6 +205,15 @@ export class UsageAttributionValues {
     },
     apmHostUsage: {
       baseName: "apm_host_usage",
+      type: "number",
+      format: "double",
+    },
+    appsecPercentage: {
+      baseName: "appsec_percentage",
+      type: "any",
+    },
+    appsecUsage: {
+      baseName: "appsec_usage",
       type: "number",
       format: "double",
     },
