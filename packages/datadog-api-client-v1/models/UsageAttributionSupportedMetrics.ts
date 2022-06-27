@@ -37,6 +37,8 @@ export type UsageAttributionSupportedMetrics =
   | typeof DBM_QUERIES_PERCENTAGE
   | typeof ESTIMATED_INDEXED_LOGS_USAGE
   | typeof ESTIMATED_INDEXED_LOGS_PERCENTAGE
+  | typeof ESTIMATED_INDEXED_SPANS_USAGE
+  | typeof ESTIMATED_INDEXED_SPANS_PERCENTAGE
   | typeof ALL;
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CONTAINER_USAGE = "container_usage";
@@ -71,4 +73,7 @@ export const DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage";
 export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
 export const ESTIMATED_INDEXED_LOGS_PERCENTAGE =
   "estimated_indexed_logs_percentage";
+export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
+export const ESTIMATED_INDEXED_SPANS_PERCENTAGE =
+  "estimated_indexed_spans_percentage";
 export const ALL = "*";
