@@ -9,6 +9,7 @@ import { IPPrefixesAPM } from "./IPPrefixesAPM";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
+import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -45,6 +46,10 @@ export class IPRanges {
    * Available prefix information for the Synthetics endpoints.
    */
   "synthetics"?: IPPrefixesSynthetics;
+  /**
+   * Available prefix information for the Synthetics Private Locations endpoints.
+   */
+  "syntheticsPrivateLocations"?: IPPrefixesSyntheticsPrivateLocations;
   /**
    * Version of the IP list.
    */
@@ -90,6 +95,10 @@ export class IPRanges {
     synthetics: {
       baseName: "synthetics",
       type: "IPPrefixesSynthetics",
+    },
+    syntheticsPrivateLocations: {
+      baseName: "synthetics-private-locations",
+      type: "IPPrefixesSyntheticsPrivateLocations",
     },
     version: {
       baseName: "version",
