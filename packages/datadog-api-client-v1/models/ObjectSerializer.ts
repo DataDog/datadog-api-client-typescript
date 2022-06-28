@@ -117,6 +117,7 @@ import { IPPrefixesAgents } from "./IPPrefixesAgents";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
+import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
 import { IPRanges } from "./IPRanges";
 import { IdpFormData } from "./IdpFormData";
@@ -1354,6 +1355,7 @@ const typeMap: { [index: string]: any } = {
   IPPrefixesLogs: IPPrefixesLogs,
   IPPrefixesProcess: IPPrefixesProcess,
   IPPrefixesSynthetics: IPPrefixesSynthetics,
+  IPPrefixesSyntheticsPrivateLocations: IPPrefixesSyntheticsPrivateLocations,
   IPPrefixesWebhooks: IPPrefixesWebhooks,
   IPRanges: IPRanges,
   IdpFormData: IdpFormData,

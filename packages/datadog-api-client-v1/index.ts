@@ -483,6 +483,7 @@ export { IPPrefixesAPM } from "./models/IPPrefixesAPM";
 export { IPPrefixesLogs } from "./models/IPPrefixesLogs";
 export { IPPrefixesProcess } from "./models/IPPrefixesProcess";
 export { IPPrefixesSynthetics } from "./models/IPPrefixesSynthetics";
+export { IPPrefixesSyntheticsPrivateLocations } from "./models/IPPrefixesSyntheticsPrivateLocations";
 export { IPPrefixesWebhooks } from "./models/IPPrefixesWebhooks";
 export { IPRanges } from "./models/IPRanges";
 export { ListStreamColumn } from "./models/ListStreamColumn";
