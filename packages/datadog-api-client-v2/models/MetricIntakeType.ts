@@ -8,10 +8,8 @@ export type MetricIntakeType =
   | typeof UNSPECIFIED
   | typeof COUNT
   | typeof RATE
-  | typeof GAUGE
-  | typeof UNSPECIFIED_LEGACY;
+  | typeof GAUGE;
 export const UNSPECIFIED = 0;
 export const COUNT = 1;
 export const RATE = 2;
 export const GAUGE = 3;
-export const UNSPECIFIED_LEGACY = 15;

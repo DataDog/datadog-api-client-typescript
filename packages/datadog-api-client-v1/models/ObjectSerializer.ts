@@ -117,7 +117,6 @@ import { IPPrefixesAgents } from "./IPPrefixesAgents";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
-import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
 import { IPRanges } from "./IPRanges";
 import { IdpFormData } from "./IdpFormData";
@@ -654,12 +653,10 @@ const enumsMap: { [key: string]: any[] } = {
   HourlyUsageAttributionUsageType: [
     "api_usage",
     "apm_host_usage",
-    "appsec_usage",
     "browser_usage",
     "container_usage",
     "custom_timeseries_usage",
     "estimated_indexed_logs_usage",
-    "estimated_indexed_spans_usage",
     "fargate_usage",
     "functions_usage",
     "indexed_logs_usage",
@@ -698,7 +695,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsTraceRemapperType: ["trace-id-remapper"],
   LogsURLParserType: ["url-parser"],
   LogsUserAgentParserType: ["user-agent-parser"],
-  MetricContentEncoding: ["deflate"],
+  MetricContentEncoding: ["deflate", "zstd", "gzip"],
   MonitorDeviceID: [
     "laptop_large",
     "tablet",
@@ -763,8 +760,6 @@ const enumsMap: { [key: string]: any[] } = {
     "api_percentage",
     "apm_host_usage",
     "apm_host_percentage",
-    "appsec_usage",
-    "appsec_percentage",
     "browser_usage",
     "browser_percentage",
     "container_usage",
@@ -773,8 +768,6 @@ const enumsMap: { [key: string]: any[] } = {
     "custom_timeseries_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
-    "estimated_indexed_spans_usage",
-    "estimated_indexed_spans_percentage",
     "fargate_usage",
     "fargate_percentage",
     "functions_usage",
@@ -1053,8 +1046,6 @@ const enumsMap: { [key: string]: any[] } = {
     "snmp_usage",
     "apm_host_usage",
     "api_usage",
-    "appsec_usage",
-    "appsec_percentage",
     "container_usage",
     "custom_timeseries_percentage",
     "container_percentage",
@@ -1073,8 +1064,6 @@ const enumsMap: { [key: string]: any[] } = {
     "lambda_invocations_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
-    "estimated_indexed_spans_usage",
-    "estimated_indexed_spans_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1109,10 +1098,6 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_queries_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
-    "appsec_usage",
-    "appsec_percentage",
-    "estimated_indexed_spans_usage",
-    "estimated_indexed_spans_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],
@@ -1355,7 +1340,6 @@ const typeMap: { [index: string]: any } = {
   IPPrefixesLogs: IPPrefixesLogs,
   IPPrefixesProcess: IPPrefixesProcess,
   IPPrefixesSynthetics: IPPrefixesSynthetics,
-  IPPrefixesSyntheticsPrivateLocations: IPPrefixesSyntheticsPrivateLocations,
   IPPrefixesWebhooks: IPPrefixesWebhooks,
   IPRanges: IPRanges,
   IdpFormData: IdpFormData,

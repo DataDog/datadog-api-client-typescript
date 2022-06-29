@@ -22,7 +22,6 @@ const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
     ],
     hasExtendedTitle: true,
     options: {
-      decreaseCriticalityBasedOnEnv: false,
       detectionMethod: "threshold",
       evaluationWindow: 0,
       hardcodedEvaluatorType: "log4shell",

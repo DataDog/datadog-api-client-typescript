@@ -132,6 +132,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);

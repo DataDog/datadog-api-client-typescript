@@ -26,7 +26,7 @@ export class SyntheticsBrowserTest {
   /**
    * Notification message associated with the test. Message can either be text or an empty string.
    */
-  "message": string;
+  "message"?: string;
   /**
    * The associated monitor ID.
    */
@@ -83,7 +83,6 @@ export class SyntheticsBrowserTest {
     message: {
       baseName: "message",
       type: "string",
-      required: true,
     },
     monitorId: {
       baseName: "monitor_id",

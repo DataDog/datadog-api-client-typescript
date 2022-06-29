@@ -27,14 +27,6 @@ export class UsageAttributionValues {
    */
   "apmHostUsage"?: number;
   /**
-   * The percentage of Application Security Monitoring host usage by tag(s).
-   */
-  "appsecPercentage"?: any;
-  /**
-   * The Application Security Monitoring host usage by tag(s).
-   */
-  "appsecUsage"?: number;
-  /**
    * The percentage of synthetic browser test usage by tag(s).
    */
   "browserPercentage"?: number;
@@ -114,14 +106,6 @@ export class UsageAttributionValues {
    * The estimated live indexed logs usage by tag(s). Note this field is in private beta.
    */
   "estimatedIndexedLogsUsage"?: number;
-  /**
-   * The percentage of estimated indexed spans usage by tag(s). Note this field is in private beta.
-   */
-  "estimatedIndexedSpansPercentage"?: number;
-  /**
-   * The estimated indexed spans usage by tag(s). Note this field is in private beta.
-   */
-  "estimatedIndexedSpansUsage"?: number;
   /**
    * The percentage of infrastructure host usage by tag(s).
    */
@@ -205,15 +189,6 @@ export class UsageAttributionValues {
     },
     apmHostUsage: {
       baseName: "apm_host_usage",
-      type: "number",
-      format: "double",
-    },
-    appsecPercentage: {
-      baseName: "appsec_percentage",
-      type: "any",
-    },
-    appsecUsage: {
-      baseName: "appsec_usage",
       type: "number",
       format: "double",
     },
@@ -314,16 +289,6 @@ export class UsageAttributionValues {
     },
     estimatedIndexedLogsUsage: {
       baseName: "estimated_indexed_logs_usage",
-      type: "number",
-      format: "double",
-    },
-    estimatedIndexedSpansPercentage: {
-      baseName: "estimated_indexed_spans_percentage",
-      type: "number",
-      format: "double",
-    },
-    estimatedIndexedSpansUsage: {
-      baseName: "estimated_indexed_spans_usage",
       type: "number",
       format: "double",
     },
