@@ -11,9 +11,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class IntakePayloadAccepted {
   /**
-   * The status of the intake payload.
+   * A list of errors.
    */
-  "status"?: string;
+  "errors"?: Array<string>;
 
   /**
    * @ignore
@@ -24,9 +24,9 @@ export class IntakePayloadAccepted {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    status: {
-      baseName: "status",
-      type: "string",
+    errors: {
+      baseName: "errors",
+      type: "Array<string>",
     },
   };
 
