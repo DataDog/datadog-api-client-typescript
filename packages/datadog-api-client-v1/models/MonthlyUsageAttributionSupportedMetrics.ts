@@ -15,8 +15,20 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof BROWSER_PERCENTAGE
   | typeof CONTAINER_USAGE
   | typeof CONTAINER_PERCENTAGE
+  | typeof CSPM_CONTAINERS_PERCENTAGE
+  | typeof CSPM_CONTAINERS_USAGE
+  | typeof CSPM_HOSTS_PERCENTAGE
+  | typeof CSPM_HOSTS_USAGE
   | typeof CUSTOM_TIMESERIES_USAGE
   | typeof CUSTOM_TIMESERIES_PERCENTAGE
+  | typeof CWS_CONTAINERS_PERCENTAGE
+  | typeof CWS_CONTAINERS_USAGE
+  | typeof CWS_HOSTS_PERCENTAGE
+  | typeof CWS_HOSTS_USAGE
+  | typeof DBM_HOSTS_PERCENTAGE
+  | typeof DBM_HOSTS_USAGE
+  | typeof DBM_QUERIES_PERCENTAGE
+  | typeof DBM_QUERIES_USAGE
   | typeof ESTIMATED_INDEXED_LOGS_USAGE
   | typeof ESTIMATED_INDEXED_LOGS_PERCENTAGE
   | typeof ESTIMATED_INDEXED_SPANS_USAGE
@@ -50,8 +62,20 @@ export const BROWSER_USAGE = "browser_usage";
 export const BROWSER_PERCENTAGE = "browser_percentage";
 export const CONTAINER_USAGE = "container_usage";
 export const CONTAINER_PERCENTAGE = "container_percentage";
+export const CSPM_CONTAINERS_PERCENTAGE = "cspm_containers_percentage";
+export const CSPM_CONTAINERS_USAGE = "cspm_containers_usage";
+export const CSPM_HOSTS_PERCENTAGE = "cspm_hosts_percentage";
+export const CSPM_HOSTS_USAGE = "cspm_hosts_usage";
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage";
+export const CWS_CONTAINERS_PERCENTAGE = "cws_containers_percentage";
+export const CWS_CONTAINERS_USAGE = "cws_containers_usage";
+export const CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage";
+export const CWS_HOSTS_USAGE = "cws_hosts_usage";
+export const DBM_HOSTS_PERCENTAGE = "dbm_hosts_percentage";
+export const DBM_HOSTS_USAGE = "dbm_hosts_usage";
+export const DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage";
+export const DBM_QUERIES_USAGE = "dbm_queries_usage";
 export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
 export const ESTIMATED_INDEXED_LOGS_PERCENTAGE =
   "estimated_indexed_logs_percentage";
