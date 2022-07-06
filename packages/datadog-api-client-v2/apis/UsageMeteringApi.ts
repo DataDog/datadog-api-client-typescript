@@ -733,7 +733,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get estimated cost across multi-org account.
+   * Get estimated cost across multi-org account. Estimated data is only available for the current month and previous month. To access historical costs beyond 2 months in the past, use the [/cost_by_org](#get-cost-across-multi-org-account) endpoint.
    * @param param The request object
    */
   public getEstimatedCostByOrg(
