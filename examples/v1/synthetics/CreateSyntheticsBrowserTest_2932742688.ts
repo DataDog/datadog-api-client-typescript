@@ -44,7 +44,7 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
       rumSettings: {
         isEnabled: true,
         applicationId: "mockApplicationId",
-        clientTokenId: 123456,
+        clientTokenId: 12345,
       },
       tickEvery: 300,
       ci: {
