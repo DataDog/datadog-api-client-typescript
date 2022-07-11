@@ -487,7 +487,7 @@ const enumsMap: { [key: string]: any[] } = {
   MetricEstimateResourceType: ["metric_cardinality_estimate"],
   MetricEstimateType: ["count_or_gauge", "distribution", "percentile"],
   MetricIngestedIndexedVolumeType: ["metric_volumes"],
-  MetricIntakeType: [0, 1, 2, 3, 15],
+  MetricIntakeType: [0, 1, 2, 3],
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
