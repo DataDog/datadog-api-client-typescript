@@ -41,6 +41,8 @@ export type UsageAttributionSupportedMetrics =
   | typeof APPSEC_PERCENTAGE
   | typeof ESTIMATED_INDEXED_SPANS_USAGE
   | typeof ESTIMATED_INDEXED_SPANS_PERCENTAGE
+  | typeof ESTIMATED_INGESTED_SPANS_USAGE
+  | typeof ESTIMATED_INGESTED_SPANS_PERCENTAGE
   | typeof ALL;
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CONTAINER_USAGE = "container_usage";
@@ -80,4 +82,7 @@ export const APPSEC_PERCENTAGE = "appsec_percentage";
 export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
 export const ESTIMATED_INDEXED_SPANS_PERCENTAGE =
   "estimated_indexed_spans_percentage";
+export const ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage";
+export const ESTIMATED_INGESTED_SPANS_PERCENTAGE =
+  "estimated_ingested_spans_percentage";
 export const ALL = "*";
