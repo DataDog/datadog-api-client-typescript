@@ -29,7 +29,7 @@ export class UsageAttributionValues {
   /**
    * The percentage of Application Security Monitoring host usage by tag(s).
    */
-  "appsecPercentage"?: any;
+  "appsecPercentage"?: number;
   /**
    * The Application Security Monitoring host usage by tag(s).
    */
@@ -123,6 +123,14 @@ export class UsageAttributionValues {
    */
   "estimatedIndexedSpansUsage"?: number;
   /**
+   * The percentage of estimated ingested spans usage by tag(s). Note this field is in private beta.
+   */
+  "estimatedIngestedSpansPercentage"?: number;
+  /**
+   * The estimated ingested spans usage by tag(s). Note this field is in private beta.
+   */
+  "estimatedIngestedSpansUsage"?: number;
+  /**
    * The percentage of infrastructure host usage by tag(s).
    */
   "infraHostPercentage"?: number;
@@ -210,7 +218,8 @@ export class UsageAttributionValues {
     },
     appsecPercentage: {
       baseName: "appsec_percentage",
-      type: "any",
+      type: "number",
+      format: "double",
     },
     appsecUsage: {
       baseName: "appsec_usage",
@@ -324,6 +333,16 @@ export class UsageAttributionValues {
     },
     estimatedIndexedSpansUsage: {
       baseName: "estimated_indexed_spans_usage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIngestedSpansPercentage: {
+      baseName: "estimated_ingested_spans_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIngestedSpansUsage: {
+      baseName: "estimated_ingested_spans_usage",
       type: "number",
       format: "double",
     },
