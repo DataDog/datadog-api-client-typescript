@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
@@ -17,10 +25,10 @@ import { RoleCloneRequest } from "../models/RoleCloneRequest";
 import { RoleCreateRequest } from "../models/RoleCreateRequest";
 import { RoleCreateResponse } from "../models/RoleCreateResponse";
 import { RoleResponse } from "../models/RoleResponse";
-import { RoleUpdateRequest } from "../models/RoleUpdateRequest";
-import { RoleUpdateResponse } from "../models/RoleUpdateResponse";
 import { RolesResponse } from "../models/RolesResponse";
 import { RolesSort } from "../models/RolesSort";
+import { RoleUpdateRequest } from "../models/RoleUpdateRequest";
+import { RoleUpdateResponse } from "../models/RoleUpdateResponse";
 import { UsersResponse } from "../models/UsersResponse";
 
 export class RolesApiRequestFactory extends BaseAPIRequestFactory {
@@ -54,7 +62,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.addPermissionToRole"
+      "v2.RolesApi.addPermissionToRole"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -110,7 +118,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.addUserToRole"
+      "v2.RolesApi.addUserToRole"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -166,7 +174,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.cloneRole"
+      "v2.RolesApi.cloneRole"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -211,7 +219,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.createRole"
+      "v2.RolesApi.createRole"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -259,9 +267,9 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.deleteRole"
+      "v2.RolesApi.deleteRole"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -296,7 +304,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.getRole"
+      "v2.RolesApi.getRole"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -322,7 +330,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.listPermissions"
+      "v2.RolesApi.listPermissions"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -359,10 +367,66 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.listRolePermissions"
+      "v2.RolesApi.listRolePermissions"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listRoles(
+    pageSize?: number,
+    pageNumber?: number,
+    sort?: RolesSort,
+    filter?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/roles";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.RolesApi.listRoles"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64")
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64")
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "RolesSort", "")
+      );
+    }
+    if (filter !== undefined) {
+      requestContext.setQueryParam(
+        "filter",
+        ObjectSerializer.serialize(filter, "string", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -400,7 +464,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.listRoleUsers"
+      "v2.RolesApi.listRoleUsers"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -422,62 +486,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort",
         ObjectSerializer.serialize(sort, "string", "")
-      );
-    }
-    if (filter !== undefined) {
-      requestContext.setQueryParam(
-        "filter",
-        ObjectSerializer.serialize(filter, "string", "")
-      );
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async listRoles(
-    pageSize?: number,
-    pageNumber?: number,
-    sort?: RolesSort,
-    filter?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // Path Params
-    const localVarPath = "/api/v2/roles";
-
-    // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "RolesApi.listRoles"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-    if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
-      );
-    }
-    if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
-      );
-    }
-    if (sort !== undefined) {
-      requestContext.setQueryParam(
-        "sort",
-        ObjectSerializer.serialize(sort, "RolesSort", "")
       );
     }
     if (filter !== undefined) {
@@ -527,7 +535,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.removePermissionFromRole"
+      "v2.RolesApi.removePermissionFromRole"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -583,7 +591,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.removeUserFromRole"
+      "v2.RolesApi.removeUserFromRole"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -639,7 +647,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RolesApi.updateRole"
+      "v2.RolesApi.updateRole"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1196,6 +1204,59 @@ export class RolesApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listRoles
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listRoles(response: ResponseContext): Promise<RolesResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: RolesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RolesResponse",
+        ""
+      ) as RolesResponse;
+      return body;
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RolesResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RolesResponse",
+        ""
+      ) as RolesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listRoleUsers
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1245,59 +1306,6 @@ export class RolesApiResponseProcessor {
         "UsersResponse",
         ""
       ) as UsersResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to listRoles
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listRoles(response: ResponseContext): Promise<RolesResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: RolesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RolesResponse",
-        ""
-      ) as RolesResponse;
-      return body;
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RolesResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "RolesResponse",
-        ""
-      ) as RolesResponse;
       return body;
     }
 
@@ -1537,7 +1545,6 @@ export interface RolesApiAddPermissionToRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RelationshipToPermission
    */
   body: RelationshipToPermission;
@@ -1550,7 +1557,6 @@ export interface RolesApiAddUserToRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RelationshipToUser
    */
   body: RelationshipToUser;
@@ -1563,7 +1569,6 @@ export interface RolesApiCloneRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RoleCloneRequest
    */
   body: RoleCloneRequest;
@@ -1571,7 +1576,6 @@ export interface RolesApiCloneRoleRequest {
 
 export interface RolesApiCreateRoleRequest {
   /**
-   *
    * @type RoleCreateRequest
    */
   body: RoleCreateRequest;
@@ -1601,6 +1605,31 @@ export interface RolesApiListRolePermissionsRequest {
   roleId: string;
 }
 
+export interface RolesApiListRolesRequest {
+  /**
+   * Size for a given page.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Sort roles depending on the given field. Sort order is **ascending** by default.
+   * Sort order is **descending** if the field is prefixed by a negative sign, for example:
+   * `sort=-name`.
+   * @type RolesSort
+   */
+  sort?: RolesSort;
+  /**
+   * Filter all roles by the given string.
+   * @type string
+   */
+  filter?: string;
+}
+
 export interface RolesApiListRoleUsersRequest {
   /**
    * The unique identifier of the role.
@@ -1618,35 +1647,14 @@ export interface RolesApiListRoleUsersRequest {
    */
   pageNumber?: number;
   /**
-   * User attribute to order results by. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;email&#x60;, &#x60;status&#x60;.
+   * User attribute to order results by. Sort order is **ascending** by default.
+   * Sort order is **descending** if the field is prefixed by a negative sign,
+   * for example `sort=-name`. Options: `name`, `email`, `status`.
    * @type string
    */
   sort?: string;
   /**
    * Filter all users by the given string. Defaults to no filtering.
-   * @type string
-   */
-  filter?: string;
-}
-
-export interface RolesApiListRolesRequest {
-  /**
-   * Size for a given page.
-   * @type number
-   */
-  pageSize?: number;
-  /**
-   * Specific page number to return.
-   * @type number
-   */
-  pageNumber?: number;
-  /**
-   * Sort roles depending on the given field. Sort order is **ascending** by default. Sort order is **descending** if the field is prefixed by a negative sign, for example: &#x60;sort&#x3D;-name&#x60;.
-   * @type RolesSort
-   */
-  sort?: RolesSort;
-  /**
-   * Filter all roles by the given string.
    * @type string
    */
   filter?: string;
@@ -1659,7 +1667,6 @@ export interface RolesApiRemovePermissionFromRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RelationshipToPermission
    */
   body: RelationshipToPermission;
@@ -1672,7 +1679,6 @@ export interface RolesApiRemoveUserFromRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RelationshipToUser
    */
   body: RelationshipToUser;
@@ -1685,7 +1691,6 @@ export interface RolesApiUpdateRoleRequest {
    */
   roleId: string;
   /**
-   *
    * @type RoleUpdateRequest
    */
   body: RoleUpdateRequest;
@@ -1876,6 +1881,30 @@ export class RolesApi {
   }
 
   /**
+   * Returns all roles, including their names and their unique identifiers.
+   * @param param The request object
+   */
+  public listRoles(
+    param: RolesApiListRolesRequest = {},
+    options?: Configuration
+  ): Promise<RolesResponse> {
+    const requestContextPromise = this.requestFactory.listRoles(
+      param.pageSize,
+      param.pageNumber,
+      param.sort,
+      param.filter,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listRoles(responseContext);
+        });
+    });
+  }
+
+  /**
    * Gets all users of a role.
    * @param param The request object
    */
@@ -1896,30 +1925,6 @@ export class RolesApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listRoleUsers(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Returns all roles, including their names and their unique identifiers.
-   * @param param The request object
-   */
-  public listRoles(
-    param: RolesApiListRolesRequest = {},
-    options?: Configuration
-  ): Promise<RolesResponse> {
-    const requestContextPromise = this.requestFactory.listRoles(
-      param.pageSize,
-      param.pageNumber,
-      param.sort,
-      param.filter,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listRoles(responseContext);
         });
     });
   }

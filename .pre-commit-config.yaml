@@ -5,7 +5,7 @@ repos:
         name: Generate
         language: node
         entry: make
-        files: '^(\.generator/.*|\.pre-commit-config\.yaml|package\.json|yarn\.lock|\.eslintrc\.js|Makefile)'
+        files: '^(\.generator/.*|\.pre-commit-config\.yaml|package\.json|yarn\.lock|\.eslintrc\.js|Makefile|\features/.*)'
         pass_filenames: false
       - id: lint
         name: Lint
@@ -13,12 +13,27 @@ repos:
         entry: yarn run lint:fix
         stages: [manual]
         pass_filenames: false
-      - id: openapi-generator
-        name: OpenAPI-generator
+      - id: lint-examples
+        name: Lint examples
         language: node
-        entry: bash -c "cd .generator && openapi-generator-cli generate"
-        files: "^.generator/.*"
+        entry: yarn run lint:fix-examples
+        stages: [manual]
+        pass_filenames: false
+      - id: generator
+        name: generator
+        language: python
+        entry: bash -c "cd .generator && poetry install && poetry run python -m generator ./schemas/v1/openapi.yaml ./schemas/v2/openapi.yaml -o ../packages"
+        files: "^.generator/(config|schemas/v1|src|poetry.lock|pyproject.toml)"
         stages: [manual]
         pass_filenames: false
         additional_dependencies:
-          - "@openapitools/openapi-generator-cli"
+          - "poetry"
+      - id: examples
+        name: examples
+        language: python
+        entry: bash -c "cd .generator && poetry install && poetry run pytest"
+        files: "^.generator/"
+        stages: [manual]
+        pass_filenames: false
+        additional_dependencies:
+          - "poetry"

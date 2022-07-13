@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { LogsAPIErrorResponse } from "../models/LogsAPIErrorResponse";
@@ -34,7 +42,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsPipelinesApi.createLogsPipeline"
+      "v1.LogsPipelinesApi.createLogsPipeline"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -81,9 +89,9 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsPipelinesApi.deleteLogsPipeline"
+      "v1.LogsPipelinesApi.deleteLogsPipeline"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -117,7 +125,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsPipelinesApi.getLogsPipeline"
+      "v1.LogsPipelinesApi.getLogsPipeline"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -143,7 +151,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsPipelinesApi.getLogsPipelineOrder"
+      "v1.LogsPipelinesApi.getLogsPipelineOrder"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -169,7 +177,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsPipelinesApi.listLogsPipelines"
+      "v1.LogsPipelinesApi.listLogsPipelines"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -214,7 +222,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsPipelinesApi.updateLogsPipeline"
+      "v1.LogsPipelinesApi.updateLogsPipeline"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -258,7 +266,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsPipelinesApi.updateLogsPipelineOrder"
+      "v1.LogsPipelinesApi.updateLogsPipelineOrder"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -796,7 +804,8 @@ export class LogsPipelinesApi {
   }
 
   /**
-   * Delete a given pipeline from your organization. This endpoint takes no JSON arguments.
+   * Delete a given pipeline from your organization.
+   * This endpoint takes no JSON arguments.
    * @param param The request object
    */
   public deleteLogsPipeline(
@@ -817,7 +826,8 @@ export class LogsPipelinesApi {
   }
 
   /**
-   * Get a specific pipeline from your organization. This endpoint takes no JSON arguments.
+   * Get a specific pipeline from your organization.
+   * This endpoint takes no JSON arguments.
    * @param param The request object
    */
   public getLogsPipeline(
@@ -838,7 +848,8 @@ export class LogsPipelinesApi {
   }
 
   /**
-   * Get the current order of your pipelines. This endpoint takes no JSON arguments.
+   * Get the current order of your pipelines.
+   * This endpoint takes no JSON arguments.
    * @param param The request object
    */
   public getLogsPipelineOrder(
@@ -856,7 +867,8 @@ export class LogsPipelinesApi {
   }
 
   /**
-   * Get all pipelines from your organization. This endpoint takes no JSON arguments.
+   * Get all pipelines from your organization.
+   * This endpoint takes no JSON arguments.
    * @param param The request object
    */
   public listLogsPipelines(
@@ -874,7 +886,10 @@ export class LogsPipelinesApi {
   }
 
   /**
-   * Update a given pipeline configuration to change it’s processors or their order.  **Note**: Using this method updates your pipeline configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * Update a given pipeline configuration to change it’s processors or their order.
+   *
+   * **Note**: Using this method updates your pipeline configuration by **replacing**
+   * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
    */
   public updateLogsPipeline(
@@ -896,7 +911,11 @@ export class LogsPipelinesApi {
   }
 
   /**
-   * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change the structure and content of the data processed by other pipelines and their processors.  **Note**: Using the `PUT` method updates your pipeline order by replacing your current order with the new one sent to your Datadog organization.
+   * Update the order of your pipelines. Since logs are processed sequentially, reordering a pipeline may change
+   * the structure and content of the data processed by other pipelines and their processors.
+   *
+   * **Note**: Using the `PUT` method updates your pipeline order by replacing your current order
+   * with the new one sent to your Datadog organization.
    * @param param The request object
    */
   public updateLogsPipelineOrder(

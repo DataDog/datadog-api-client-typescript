@@ -1,20 +1,28 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { LogsAPIErrorResponse } from "../models/LogsAPIErrorResponse";
 import { LogsIndex } from "../models/LogsIndex";
+import { LogsIndexesOrder } from "../models/LogsIndexesOrder";
 import { LogsIndexListResponse } from "../models/LogsIndexListResponse";
 import { LogsIndexUpdateRequest } from "../models/LogsIndexUpdateRequest";
-import { LogsIndexesOrder } from "../models/LogsIndexesOrder";
 
 export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
   public async createLogsIndex(
@@ -36,7 +44,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.createLogsIndex"
+      "v1.LogsIndexesApi.createLogsIndex"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -83,7 +91,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.getLogsIndex"
+      "v1.LogsIndexesApi.getLogsIndex"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -108,7 +116,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.getLogsIndexOrder"
+      "v1.LogsIndexesApi.getLogsIndexOrder"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -134,7 +142,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.listLogIndexes"
+      "v1.LogsIndexesApi.listLogIndexes"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -179,7 +187,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.updateLogsIndex"
+      "v1.LogsIndexesApi.updateLogsIndex"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -223,7 +231,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsIndexesApi.updateLogsIndexOrder"
+      "v1.LogsIndexesApi.updateLogsIndexOrder"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -630,7 +638,7 @@ export interface LogsIndexesApiUpdateLogsIndexRequest {
    */
   name: string;
   /**
-   * Object containing the new &#x60;LogsIndexUpdateRequest&#x60;.
+   * Object containing the new `LogsIndexUpdateRequest`.
    * @type LogsIndexUpdateRequest
    */
   body: LogsIndexUpdateRequest;
@@ -720,7 +728,8 @@ export class LogsIndexesApi {
   }
 
   /**
-   * The Index object describes the configuration of a log index. This endpoint returns an array of the `LogIndex` objects of your organization.
+   * The Index object describes the configuration of a log index.
+   * This endpoint returns an array of the `LogIndex` objects of your organization.
    * @param param The request object
    */
   public listLogIndexes(
@@ -737,7 +746,11 @@ export class LogsIndexesApi {
   }
 
   /**
-   * Update an index as identified by its name. Returns the Index object passed in the request body when the request is successful.  Using the `PUT` method updates your index’s configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * Update an index as identified by its name.
+   * Returns the Index object passed in the request body when the request is successful.
+   *
+   * Using the `PUT` method updates your index’s configuration by **replacing**
+   * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
    */
   public updateLogsIndex(
@@ -759,7 +772,8 @@ export class LogsIndexesApi {
   }
 
   /**
-   * This endpoint updates the index order of your organization. It returns the index order object passed in the request body when the request is successful.
+   * This endpoint updates the index order of your organization.
+   * It returns the index order object passed in the request body when the request is successful.
    * @param param The request object
    */
   public updateLogsIndexOrder(

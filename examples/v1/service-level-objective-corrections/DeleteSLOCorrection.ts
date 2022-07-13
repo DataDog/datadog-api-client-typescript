@@ -2,10 +2,9 @@
  * Delete an SLO correction returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
-configuration.unstableOperations["deleteSLOCorrection"] = true;
+const configuration = client.createConfiguration();
 const apiInstance = new v1.ServiceLevelObjectiveCorrectionsApi(configuration);
 
 const params: v1.ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest =

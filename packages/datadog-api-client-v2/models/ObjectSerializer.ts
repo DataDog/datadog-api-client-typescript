@@ -40,6 +40,7 @@ import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
@@ -52,6 +53,9 @@ import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurit
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "./CloudWorkloadSecurityAgentRulesListResponse";
+import { CostByOrg } from "./CostByOrg";
+import { CostByOrgAttributes } from "./CostByOrgAttributes";
+import { CostByOrgResponse } from "./CostByOrgResponse";
 import { Creator } from "./Creator";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
@@ -113,6 +117,7 @@ import { IncidentUpdateData } from "./IncidentUpdateData";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentsResponse } from "./IncidentsResponse";
+import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
@@ -183,8 +188,17 @@ import { MetricBulkTagConfigStatusAttributes } from "./MetricBulkTagConfigStatus
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 import { MetricDistinctVolume } from "./MetricDistinctVolume";
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
+import { MetricEstimate } from "./MetricEstimate";
+import { MetricEstimateAttributes } from "./MetricEstimateAttributes";
+import { MetricEstimateResponse } from "./MetricEstimateResponse";
 import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
 import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
+import { MetricMetadata } from "./MetricMetadata";
+import { MetricOrigin } from "./MetricOrigin";
+import { MetricPayload } from "./MetricPayload";
+import { MetricPoint } from "./MetricPoint";
+import { MetricResource } from "./MetricResource";
+import { MetricSeries } from "./MetricSeries";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
 import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
 import { MetricTagConfigurationCreateAttributes } from "./MetricTagConfigurationCreateAttributes";
@@ -198,6 +212,16 @@ import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
+import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
+import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
+import { OpsgenieServiceCreateRequest } from "./OpsgenieServiceCreateRequest";
+import { OpsgenieServiceResponse } from "./OpsgenieServiceResponse";
+import { OpsgenieServiceResponseAttributes } from "./OpsgenieServiceResponseAttributes";
+import { OpsgenieServiceResponseData } from "./OpsgenieServiceResponseData";
+import { OpsgenieServiceUpdateAttributes } from "./OpsgenieServiceUpdateAttributes";
+import { OpsgenieServiceUpdateData } from "./OpsgenieServiceUpdateData";
+import { OpsgenieServiceUpdateRequest } from "./OpsgenieServiceUpdateRequest";
+import { OpsgenieServicesResponse } from "./OpsgenieServicesResponse";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { Pagination } from "./Pagination";
@@ -311,6 +335,12 @@ import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitor
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
+import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
+import { UsageAttributesObject } from "./UsageAttributesObject";
+import { UsageDataObject } from "./UsageDataObject";
+import { UsageLambdaTracedInvocationsResponse } from "./UsageLambdaTracedInvocationsResponse";
+import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
+import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 import { User } from "./User";
 import { UserAttributes } from "./UserAttributes";
 import { UserCreateAttributes } from "./UserCreateAttributes";
@@ -330,7 +360,7 @@ import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersResponse } from "./UsersResponse";
-import { UnparsedObject } from "../util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
 
 const primitives = [
@@ -345,6 +375,7 @@ const primitives = [
 
 const ARRAY_PREFIX = "Array<";
 const MAP_PREFIX = "{ [key: string]: ";
+const TUPLE_PREFIX = "[";
 
 const supportedMediaTypes: { [mediaType: string]: number } = {
   "application/json": Infinity,
@@ -393,12 +424,18 @@ const enumsMap: { [key: string]: any[] } = {
   AuthNMappingsType: ["authn_mappings"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   ContentEncoding: ["gzip", "deflate"],
+  CostByOrgType: ["cost_by_org"],
   DashboardType: [
     "custom_timeboard",
     "custom_screenboard",
     "integration_screenboard",
     "integration_timeboard",
     "host_timeboard",
+  ],
+  HourlyUsageType: [
+    "app_sec_host_count",
+    "observability_pipelines_bytes_processed",
+    "lambda_traced_invocations_count",
   ],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
   IncidentFieldAttributesValueType: [
@@ -443,13 +480,19 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
+  MetricContentEncoding: ["deflate"],
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
   MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
   MetricDistinctVolumeType: ["distinct_metric_volumes"],
+  MetricEstimateResourceType: ["metric_cardinality_estimate"],
+  MetricEstimateType: ["count_or_gauge", "distribution", "percentile"],
   MetricIngestedIndexedVolumeType: ["metric_volumes"],
+  MetricIntakeType: [0, 1, 2, 3],
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
+  OpsgenieServiceRegionType: ["us", "eu", "custom"],
+  OpsgenieServiceType: ["opsgenie-service"],
   OrganizationsType: ["orgs"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
@@ -492,10 +535,12 @@ const enumsMap: { [key: string]: any[] } = {
     "new_value",
     "anomaly_detection",
     "impossible_travel",
+    "hardcoded",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
     0, 60, 300, 600, 900, 1800, 3600, 7200,
   ],
+  SecurityMonitoringRuleHardcodedEvaluatorType: ["log4shell"],
   SecurityMonitoringRuleKeepAlive: [
     0, 60, 300, 600, 900, 1800, 3600, 7200, 10800, 21600,
   ],
@@ -504,6 +549,11 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SecurityMonitoringRuleNewValueOptionsForgetAfter: [1, 2, 7, 14, 21, 28],
   SecurityMonitoringRuleNewValueOptionsLearningDuration: [0, 1, 7],
+  SecurityMonitoringRuleNewValueOptionsLearningMethod: [
+    "duration",
+    "threshold",
+  ],
+  SecurityMonitoringRuleNewValueOptionsLearningThreshold: [0, 1],
   SecurityMonitoringRuleQueryAggregation: [
     "count",
     "cardinality",
@@ -522,6 +572,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
+  UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
   UsersType: ["users"],
 };
@@ -569,6 +620,7 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  ChargebackBreakdown: ChargebackBreakdown,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
   CloudWorkloadSecurityAgentRuleCreateAttributes:
@@ -592,6 +644,9 @@ const typeMap: { [index: string]: any } = {
     CloudWorkloadSecurityAgentRuleUpdaterAttributes,
   CloudWorkloadSecurityAgentRulesListResponse:
     CloudWorkloadSecurityAgentRulesListResponse,
+  CostByOrg: CostByOrg,
+  CostByOrgAttributes: CostByOrgAttributes,
+  CostByOrgResponse: CostByOrgResponse,
   Creator: Creator,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
@@ -655,6 +710,7 @@ const typeMap: { [index: string]: any } = {
   IncidentUpdateRelationships: IncidentUpdateRelationships,
   IncidentUpdateRequest: IncidentUpdateRequest,
   IncidentsResponse: IncidentsResponse,
+  IntakePayloadAccepted: IntakePayloadAccepted,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
   Log: Log,
   LogAttributes: LogAttributes,
@@ -726,8 +782,17 @@ const typeMap: { [index: string]: any } = {
   MetricCustomAggregation: MetricCustomAggregation,
   MetricDistinctVolume: MetricDistinctVolume,
   MetricDistinctVolumeAttributes: MetricDistinctVolumeAttributes,
+  MetricEstimate: MetricEstimate,
+  MetricEstimateAttributes: MetricEstimateAttributes,
+  MetricEstimateResponse: MetricEstimateResponse,
   MetricIngestedIndexedVolume: MetricIngestedIndexedVolume,
   MetricIngestedIndexedVolumeAttributes: MetricIngestedIndexedVolumeAttributes,
+  MetricMetadata: MetricMetadata,
+  MetricOrigin: MetricOrigin,
+  MetricPayload: MetricPayload,
+  MetricPoint: MetricPoint,
+  MetricResource: MetricResource,
+  MetricSeries: MetricSeries,
   MetricTagConfiguration: MetricTagConfiguration,
   MetricTagConfigurationAttributes: MetricTagConfigurationAttributes,
   MetricTagConfigurationCreateAttributes:
@@ -744,6 +809,16 @@ const typeMap: { [index: string]: any } = {
     MetricsAndMetricTagConfigurationsResponse,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
+  OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
+  OpsgenieServiceCreateData: OpsgenieServiceCreateData,
+  OpsgenieServiceCreateRequest: OpsgenieServiceCreateRequest,
+  OpsgenieServiceResponse: OpsgenieServiceResponse,
+  OpsgenieServiceResponseAttributes: OpsgenieServiceResponseAttributes,
+  OpsgenieServiceResponseData: OpsgenieServiceResponseData,
+  OpsgenieServiceUpdateAttributes: OpsgenieServiceUpdateAttributes,
+  OpsgenieServiceUpdateData: OpsgenieServiceUpdateData,
+  OpsgenieServiceUpdateRequest: OpsgenieServiceUpdateRequest,
+  OpsgenieServicesResponse: OpsgenieServicesResponse,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
   Pagination: Pagination,
@@ -867,6 +942,13 @@ const typeMap: { [index: string]: any } = {
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,
+  UsageApplicationSecurityMonitoringResponse:
+    UsageApplicationSecurityMonitoringResponse,
+  UsageAttributesObject: UsageAttributesObject,
+  UsageDataObject: UsageDataObject,
+  UsageLambdaTracedInvocationsResponse: UsageLambdaTracedInvocationsResponse,
+  UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
+  UsageTimeSeriesObject: UsageTimeSeriesObject,
   User: User,
   UserAttributes: UserAttributes,
   UserCreateAttributes: UserCreateAttributes,
@@ -890,11 +972,11 @@ const typeMap: { [index: string]: any } = {
 
 const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User"],
-  ApplicationKeyResponseIncludedItem: ["Role", "User"],
-  AuthNMappingIncluded: ["Role", "SAMLAssertionAttribute"],
+  ApplicationKeyResponseIncludedItem: ["User", "Role"],
+  AuthNMappingIncluded: ["SAMLAssertionAttribute", "Role"],
   IncidentFieldAttributes: [
-    "IncidentFieldAttributesMultipleValue",
     "IncidentFieldAttributesSingleValue",
+    "IncidentFieldAttributesMultipleValue",
   ],
   IncidentResponseIncludedItem: ["User"],
   IncidentServiceIncludedItems: ["User"],
@@ -903,9 +985,9 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentTimelineCellMarkdownCreateAttributes",
   ],
   LogsAggregateBucketValue: [
-    "Array<LogsAggregateBucketValueTimeseriesPoint>",
-    "number",
     "string",
+    "number",
+    "Array<LogsAggregateBucketValueTimeseriesPoint>",
   ],
   LogsArchiveCreateRequestDestination: [
     "LogsArchiveDestinationAzure",
@@ -917,17 +999,17 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsArchiveDestinationGCS",
     "LogsArchiveDestinationS3",
   ],
-  LogsGroupByMissing: ["number", "string"],
-  LogsGroupByTotal: ["boolean", "number", "string"],
+  LogsGroupByMissing: ["string", "number"],
+  LogsGroupByTotal: ["boolean", "string", "number"],
   MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
   MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
   RUMAggregateBucketValue: [
-    "Array<RUMAggregateBucketValueTimeseriesPoint>",
-    "number",
     "string",
+    "number",
+    "Array<RUMAggregateBucketValueTimeseriesPoint>",
   ],
-  RUMGroupByMissing: ["number", "string"],
-  RUMGroupByTotal: ["boolean", "number", "string"],
+  RUMGroupByMissing: ["string", "number"],
+  RUMGroupByTotal: ["boolean", "string", "number"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };
 
@@ -941,11 +1023,26 @@ export class ObjectSerializer {
     ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
+      if (!Array.isArray(data)) {
+        throw new TypeError(`mismatch types '${data}' and '${type}'`);
+      }
       // Array<Type> => Type
       const subType: string = type.substring(
         ARRAY_PREFIX.length,
         type.length - 1
       );
+      const transformedData: any[] = [];
+      for (const element of data) {
+        transformedData.push(
+          ObjectSerializer.serialize(element, subType, format)
+        );
+      }
+      return transformedData;
+    } else if (type.startsWith(TUPLE_PREFIX)) {
+      // We only support homegeneus tuples
+      const subType: string = type
+        .substring(TUPLE_PREFIX.length, type.length - 1)
+        .split(", ")[0];
       const transformedData: any[] = [];
       for (const element of data) {
         transformedData.push(
@@ -977,7 +1074,6 @@ export class ObjectSerializer {
         month = month < 10 ? "0" + month.toString() : month.toString();
         let day = data.getDate();
         day = day < 10 ? "0" + day.toString() : day.toString();
-
         return data.getFullYear() + "-" + month + "-" + day;
       } else {
         return data.toISOString();
@@ -1020,14 +1116,42 @@ export class ObjectSerializer {
       const attributesMap = typeMap[type].getAttributeTypeMap();
       const instance: { [index: string]: any } = {};
 
+      const extraAttributes = Object.keys(data)
+        .filter(
+          (key) => !Object.prototype.hasOwnProperty.call(attributesMap, key)
+        )
+        .reduce((obj, key) => {
+          return Object.assign(obj, {
+            [key]: data[key],
+          });
+        }, {});
+
+      if (Object.keys(extraAttributes).length !== 0) {
+        if (!data.additionalProperties) {
+          data.additionalProperties = {};
+        }
+        Object.assign(data.additionalProperties, extraAttributes);
+      }
+
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
+        if (attributeName == "additionalProperties") {
+          if (data.additionalProperties) {
+            for (const key in data.additionalProperties) {
+              instance[key] = ObjectSerializer.serialize(
+                data.additionalProperties[key],
+                attributeObj.type,
+                attributeObj.format
+              );
+            }
+          }
+          continue;
+        }
         instance[attributeObj.baseName] = ObjectSerializer.serialize(
           data[attributeName],
           attributeObj.type,
           attributeObj.format
         );
-
         // check for required properties
         if (
           attributeObj?.required &&
@@ -1058,11 +1182,27 @@ export class ObjectSerializer {
     ) {
       return data;
     } else if (type.startsWith(ARRAY_PREFIX)) {
+      // Assert the passed data is Array type
+      if (!Array.isArray(data)) {
+        throw new TypeError(`mismatch types '${data}' and '${type}'`);
+      }
       // Array<Type> => Type
       const subType: string = type.substring(
         ARRAY_PREFIX.length,
         type.length - 1
       );
+      const transformedData: any[] = [];
+      for (const element of data) {
+        transformedData.push(
+          ObjectSerializer.deserialize(element, subType, format)
+        );
+      }
+      return transformedData;
+    } else if (type.startsWith(TUPLE_PREFIX)) {
+      // [Type,...] => Type
+      const subType: string = type
+        .substring(TUPLE_PREFIX.length, type.length - 1)
+        .split(", ")[0];
       const transformedData: any[] = [];
       for (const element of data) {
         transformedData.push(
@@ -1125,7 +1265,6 @@ export class ObjectSerializer {
           attributeObj.type,
           attributeObj.format
         );
-
         // check for required properties
         if (attributeObj?.required && instance[attributeName] === undefined) {
           throw new Error(`missing required property '${attributeName}'`);

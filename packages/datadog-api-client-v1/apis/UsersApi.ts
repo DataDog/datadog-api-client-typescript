@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { User } from "../models/User";
@@ -35,7 +43,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.createUser"
+      "v1.UsersApi.createUser"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -83,7 +91,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.disableUser"
+      "v1.UsersApi.disableUser"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -119,7 +127,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.getUser"
+      "v1.UsersApi.getUser"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -142,7 +150,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.listUsers"
+      "v1.UsersApi.listUsers"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -187,7 +195,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.updateUser"
+      "v1.UsersApi.updateUser"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -593,7 +601,10 @@ export class UsersApi {
   }
 
   /**
-   * Create a user for your organization.  **Note**: Users can only be created with the admin access role if application keys belong to administrators.
+   * Create a user for your organization.
+   *
+   * **Note**: Users can only be created with the admin access role
+   * if application keys belong to administrators.
    * @param param The request object
    */
   public createUser(
@@ -614,7 +625,10 @@ export class UsersApi {
   }
 
   /**
-   * Delete a user from an organization.  **Note**: This endpoint can only be used with application keys belonging to administrators.
+   * Delete a user from an organization.
+   *
+   * **Note**: This endpoint can only be used with application keys belonging to
+   * administrators.
    * @param param The request object
    */
   public disableUser(
@@ -671,7 +685,9 @@ export class UsersApi {
   }
 
   /**
-   * Update a user information.  **Note**: It can only be used with application keys belonging to administrators.
+   * Update a user information.
+   *
+   * **Note**: It can only be used with application keys belonging to administrators.
    * @param param The request object
    */
   public updateUser(

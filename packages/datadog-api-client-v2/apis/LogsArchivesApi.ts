@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { LogsArchive } from "../models/LogsArchive";
@@ -49,9 +57,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.addReadRoleToArchive"
+      "v2.LogsArchivesApi.addReadRoleToArchive"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -93,7 +101,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.createLogsArchive"
+      "v2.LogsArchivesApi.createLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -140,9 +148,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.deleteLogsArchive"
+      "v2.LogsArchivesApi.deleteLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -176,7 +184,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.getLogsArchive"
+      "v2.LogsArchivesApi.getLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -202,7 +210,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.getLogsArchiveOrder"
+      "v2.LogsArchivesApi.getLogsArchiveOrder"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -240,7 +248,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.listArchiveReadRoles"
+      "v2.LogsArchivesApi.listArchiveReadRoles"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -266,7 +274,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.listLogsArchives"
+      "v2.LogsArchivesApi.listLogsArchives"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -312,9 +320,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.removeRoleFromArchive"
+      "v2.LogsArchivesApi.removeRoleFromArchive"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -367,7 +375,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.updateLogsArchive"
+      "v2.LogsArchivesApi.updateLogsArchive"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -411,7 +419,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "LogsArchivesApi.updateLogsArchiveOrder"
+      "v2.LogsArchivesApi.updateLogsArchiveOrder"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1093,7 +1101,6 @@ export interface LogsArchivesApiAddReadRoleToArchiveRequest {
    */
   archiveId: string;
   /**
-   *
    * @type RelationshipToRole
    */
   body: RelationshipToRole;
@@ -1138,7 +1145,6 @@ export interface LogsArchivesApiRemoveRoleFromArchiveRequest {
    */
   archiveId: string;
   /**
-   *
    * @type RelationshipToRole
    */
   body: RelationshipToRole;
@@ -1268,7 +1274,8 @@ export class LogsArchivesApi {
   }
 
   /**
-   * Get the current order of your archives. This endpoint takes no JSON arguments.
+   * Get the current order of your archives.
+   * This endpoint takes no JSON arguments.
    * @param param The request object
    */
   public getLogsArchiveOrder(
@@ -1344,7 +1351,10 @@ export class LogsArchivesApi {
   }
 
   /**
-   * Update a given archive configuration.  **Note**: Using this method updates your archive configuration by **replacing** your current configuration with the new one sent to your Datadog organization.
+   * Update a given archive configuration.
+   *
+   * **Note**: Using this method updates your archive configuration by **replacing**
+   * your current configuration with the new one sent to your Datadog organization.
    * @param param The request object
    */
   public updateLogsArchive(
@@ -1366,7 +1376,11 @@ export class LogsArchivesApi {
   }
 
   /**
-   * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change the structure and content of the data processed by other archives.  **Note**: Using the `PUT` method updates your archive's order by replacing the current order with the new one.
+   * Update the order of your archives. Since logs are processed sequentially, reordering an archive may change
+   * the structure and content of the data processed by other archives.
+   *
+   * **Note**: Using the `PUT` method updates your archive's order by replacing the current order
+   * with the new one.
    * @param param The request object
    */
   public updateLogsArchiveOrder(

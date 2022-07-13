@@ -1,15 +1,25 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { DistributionPointsContentEncoding } from "../models/DistributionPointsContentEncoding";
+import { DistributionPointsPayload } from "../models/DistributionPointsPayload";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
 import { MetricContentEncoding } from "../models/MetricContentEncoding";
 import { MetricMetadata } from "../models/MetricMetadata";
@@ -41,7 +51,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.getMetricMetadata"
+      "v1.MetricsApi.getMetricMetadata"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -77,7 +87,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.listActiveMetrics"
+      "v1.MetricsApi.listActiveMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -131,7 +141,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.listMetrics"
+      "v1.MetricsApi.listMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -189,7 +199,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.queryMetrics"
+      "v1.MetricsApi.queryMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -224,6 +234,58 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async submitDistributionPoints(
+    body: DistributionPointsPayload,
+    contentEncoding?: DistributionPointsContentEncoding,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling submitDistributionPoints."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/distribution_points";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.MetricsApi.submitDistributionPoints"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "text/json, application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Header Params
+    if (contentEncoding !== undefined) {
+      requestContext.setHeaderParam(
+        "Content-Encoding",
+        ObjectSerializer.serialize(
+          contentEncoding,
+          "DistributionPointsContentEncoding",
+          ""
+        )
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType(["text/json"]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "DistributionPointsPayload", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
+
+    return requestContext;
+  }
+
   public async submitMetrics(
     body: MetricsPayload,
     contentEncoding?: MetricContentEncoding,
@@ -244,10 +306,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.submitMetrics"
+      "v1.MetricsApi.submitMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "text/json");
-
+    requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Header Params
@@ -303,7 +364,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "MetricsApi.updateMetricMetadata"
+      "v1.MetricsApi.updateMetricMetadata"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -586,6 +647,85 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to submitDistributionPoints
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async submitDistributionPoints(
+    response: ResponseContext
+  ): Promise<IntakePayloadAccepted> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("202", response.httpStatusCode)) {
+      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IntakePayloadAccepted",
+        ""
+      ) as IntakePayloadAccepted;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("408", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(408, body);
+    }
+    if (isCodeInRange("413", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(413, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IntakePayloadAccepted",
+        ""
+      ) as IntakePayloadAccepted;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to submitMetrics
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -748,12 +888,14 @@ export interface MetricsApiListActiveMetricsRequest {
    */
   from: number;
   /**
-   * Hostname for filtering the list of metrics returned. If set, metrics retrieved are those with the corresponding hostname tag.
+   * Hostname for filtering the list of metrics returned.
+   * If set, metrics retrieved are those with the corresponding hostname tag.
    * @type string
    */
   host?: string;
   /**
-   * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions. Cannot be combined with other filters.
+   * Filter metrics that have been submitted with the given tags. Supports boolean and wildcard expressions.
+   * Cannot be combined with other filters.
    * @type string
    */
   tagFilter?: string;
@@ -761,7 +903,7 @@ export interface MetricsApiListActiveMetricsRequest {
 
 export interface MetricsApiListMetricsRequest {
   /**
-   * Query string to search metrics upon. Can optionally be prefixed with &#x60;metrics:&#x60;.
+   * Query string to search metrics upon. Can optionally be prefixed with `metrics:`.
    * @type string
    */
   q: string;
@@ -785,9 +927,20 @@ export interface MetricsApiQueryMetricsRequest {
   query: string;
 }
 
+export interface MetricsApiSubmitDistributionPointsRequest {
+  /**
+   * @type DistributionPointsPayload
+   */
+  body: DistributionPointsPayload;
+  /**
+   * HTTP header used to compress the media-type.
+   * @type DistributionPointsContentEncoding
+   */
+  contentEncoding?: DistributionPointsContentEncoding;
+}
+
 export interface MetricsApiSubmitMetricsRequest {
   /**
-   *
    * @type MetricsPayload
    */
   body: MetricsPayload;
@@ -917,7 +1070,41 @@ export class MetricsApi {
   }
 
   /**
-   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards. The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).  If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:  - 64 bits for the timestamp - 32 bits for the value - 40 bytes for the metric names - 50 bytes for the timeseries - The full payload is approximately 100 bytes. However, with the DogStatsD API, compression is applied, which reduces the payload size.
+   * The distribution points end-point allows you to post distribution data that can be graphed on Datadog’s dashboards.
+   * @param param The request object
+   */
+  public submitDistributionPoints(
+    param: MetricsApiSubmitDistributionPointsRequest,
+    options?: Configuration
+  ): Promise<IntakePayloadAccepted> {
+    const requestContextPromise = this.requestFactory.submitDistributionPoints(
+      param.body,
+      param.contentEncoding,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.submitDistributionPoints(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * The metrics end-point allows you to post time-series data that can be graphed on Datadog’s dashboards.
+   * The maximum payload size is 3.2 megabytes (3200000 bytes). Compressed payloads must have a decompressed size of less than 62 megabytes (62914560 bytes).
+   *
+   * If you’re submitting metrics directly to the Datadog API without using DogStatsD, expect:
+   *
+   * - 64 bits for the timestamp
+   * - 64 bits for the value
+   * - 40 bytes for the metric names
+   * - 50 bytes for the timeseries
+   * - The full payload is approximately 100 bytes. However, with the DogStatsD API,
+   * compression is applied, which reduces the payload size.
    * @param param The request object
    */
   public submitMetrics(

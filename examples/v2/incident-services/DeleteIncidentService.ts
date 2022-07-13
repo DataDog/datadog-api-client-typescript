@@ -2,9 +2,9 @@
  * Delete an existing incident service returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 configuration.unstableOperations["deleteIncidentService"] = true;
 const apiInstance = new v2.IncidentServicesApi(configuration);
 

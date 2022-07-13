@@ -1,19 +1,27 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { NotebookCreateRequest } from "../models/NotebookCreateRequest";
 import { NotebookResponse } from "../models/NotebookResponse";
-import { NotebookUpdateRequest } from "../models/NotebookUpdateRequest";
 import { NotebooksResponse } from "../models/NotebooksResponse";
+import { NotebookUpdateRequest } from "../models/NotebookUpdateRequest";
 
 export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
   public async createNotebook(
@@ -35,7 +43,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "NotebooksApi.createNotebook"
+      "v1.NotebooksApi.createNotebook"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -82,9 +90,9 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "NotebooksApi.deleteNotebook"
+      "v1.NotebooksApi.deleteNotebook"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -118,7 +126,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "NotebooksApi.getNotebook"
+      "v1.NotebooksApi.getNotebook"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -153,7 +161,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "NotebooksApi.listNotebooks"
+      "v1.NotebooksApi.listNotebooks"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -259,7 +267,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "NotebooksApi.updateNotebook"
+      "v1.NotebooksApi.updateNotebook"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -653,12 +661,12 @@ export interface NotebooksApiGetNotebookRequest {
 
 export interface NotebooksApiListNotebooksRequest {
   /**
-   * Return notebooks created by the given &#x60;author_handle&#x60;.
+   * Return notebooks created by the given `author_handle`.
    * @type string
    */
   authorHandle?: string;
   /**
-   * Return notebooks not created by the given &#x60;author_handle&#x60;.
+   * Return notebooks not created by the given `author_handle`.
    * @type string
    */
   excludeAuthorHandle?: string;
@@ -673,22 +681,22 @@ export interface NotebooksApiListNotebooksRequest {
    */
   count?: number;
   /**
-   * Sort by field &#x60;modified&#x60;, &#x60;name&#x60;, or &#x60;created&#x60;.
+   * Sort by field `modified`, `name`, or `created`.
    * @type string
    */
   sortField?: string;
   /**
-   * Sort by direction &#x60;asc&#x60; or &#x60;desc&#x60;.
+   * Sort by direction `asc` or `desc`.
    * @type string
    */
   sortDir?: string;
   /**
-   * Return only notebooks with &#x60;query&#x60; string in notebook name or author handle.
+   * Return only notebooks with `query` string in notebook name or author handle.
    * @type string
    */
   query?: string;
   /**
-   * Value of &#x60;false&#x60; excludes the &#x60;cells&#x60; and global &#x60;time&#x60; for each notebook.
+   * Value of `false` excludes the `cells` and global `time` for each notebook.
    * @type boolean
    */
   includeCells?: boolean;
@@ -798,7 +806,8 @@ export class NotebooksApi {
   }
 
   /**
-   * Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook `name` or author `handle`.
+   * Get all notebooks. This can also be used to search for notebooks with a particular `query` in the notebook
+   * `name` or author `handle`.
    * @param param The request object
    */
   public listNotebooks(

@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
@@ -18,8 +26,8 @@ import { UserInvitationResponse } from "../models/UserInvitationResponse";
 import { UserInvitationsRequest } from "../models/UserInvitationsRequest";
 import { UserInvitationsResponse } from "../models/UserInvitationsResponse";
 import { UserResponse } from "../models/UserResponse";
-import { UserUpdateRequest } from "../models/UserUpdateRequest";
 import { UsersResponse } from "../models/UsersResponse";
+import { UserUpdateRequest } from "../models/UserUpdateRequest";
 
 export class UsersApiRequestFactory extends BaseAPIRequestFactory {
   public async createServiceAccount(
@@ -41,7 +49,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.createServiceAccount"
+      "v2.UsersApi.createServiceAccount"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -85,7 +93,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.createUser"
+      "v2.UsersApi.createUser"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -133,9 +141,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.disableUser"
+      "v2.UsersApi.disableUser"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -171,7 +179,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.getInvitation"
+      "v2.UsersApi.getInvitation"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -208,7 +216,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.getUser"
+      "v2.UsersApi.getUser"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -245,7 +253,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.listUserOrganizations"
+      "v2.UsersApi.listUserOrganizations"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -282,7 +290,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.listUserPermissions"
+      "v2.UsersApi.listUserPermissions"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -314,7 +322,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.listUsers"
+      "v2.UsersApi.listUsers"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -386,7 +394,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.sendInvitations"
+      "v2.UsersApi.sendInvitations"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -442,7 +450,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsersApi.updateUser"
+      "v2.UsersApi.updateUser"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1104,7 +1112,6 @@ export class UsersApiResponseProcessor {
 
 export interface UsersApiCreateServiceAccountRequest {
   /**
-   *
    * @type ServiceAccountCreateRequest
    */
   body: ServiceAccountCreateRequest;
@@ -1112,7 +1119,6 @@ export interface UsersApiCreateServiceAccountRequest {
 
 export interface UsersApiCreateUserRequest {
   /**
-   *
    * @type UserCreateRequest
    */
   body: UserCreateRequest;
@@ -1170,12 +1176,15 @@ export interface UsersApiListUsersRequest {
    */
   pageNumber?: number;
   /**
-   * User attribute to order results by. Sort order is ascending by default. Sort order is descending if the field is prefixed by a negative sign, for example &#x60;sort&#x3D;-name&#x60;. Options: &#x60;name&#x60;, &#x60;modified_at&#x60;, &#x60;user_count&#x60;.
+   * User attribute to order results by. Sort order is ascending by default.
+   * Sort order is descending if the field
+   * is prefixed by a negative sign, for example `sort=-name`. Options: `name`,
+   * `modified_at`, `user_count`.
    * @type string
    */
   sort?: string;
   /**
-   * Direction of sort. Options: &#x60;asc&#x60;, &#x60;desc&#x60;.
+   * Direction of sort. Options: `asc`, `desc`.
    * @type QuerySortOrder
    */
   sortDir?: QuerySortOrder;
@@ -1185,7 +1194,9 @@ export interface UsersApiListUsersRequest {
    */
   filter?: string;
   /**
-   * Filter on status attribute. Comma separated list, with possible values &#x60;Active&#x60;, &#x60;Pending&#x60;, and &#x60;Disabled&#x60;. Defaults to no filtering.
+   * Filter on status attribute.
+   * Comma separated list, with possible values `Active`, `Pending`, and `Disabled`.
+   * Defaults to no filtering.
    * @type string
    */
   filterStatus?: string;
@@ -1193,7 +1204,6 @@ export interface UsersApiListUsersRequest {
 
 export interface UsersApiSendInvitationsRequest {
   /**
-   *
    * @type UserInvitationsRequest
    */
   body: UserInvitationsRequest;
@@ -1206,7 +1216,6 @@ export interface UsersApiUpdateUserRequest {
    */
   userId: string;
   /**
-   *
    * @type UserUpdateRequest
    */
   body: UserUpdateRequest;
@@ -1272,7 +1281,8 @@ export class UsersApi {
   }
 
   /**
-   * Disable a user. Can only be used with an application key belonging to an administrator user.
+   * Disable a user. Can only be used with an application key belonging
+   * to an administrator user.
    * @param param The request object
    */
   public disableUser(
@@ -1335,7 +1345,8 @@ export class UsersApi {
   }
 
   /**
-   * Get a user organization. Returns the user information and all organizations joined by this user.
+   * Get a user organization. Returns the user information and all organizations
+   * joined by this user.
    * @param param The request object
    */
   public listUserOrganizations(
@@ -1356,7 +1367,8 @@ export class UsersApi {
   }
 
   /**
-   * Get a user permission set. Returns a list of the user’s permissions granted by the associated user's roles.
+   * Get a user permission set. Returns a list of the user’s permissions
+   * granted by the associated user's roles.
    * @param param The request object
    */
   public listUserPermissions(
@@ -1377,7 +1389,8 @@ export class UsersApi {
   }
 
   /**
-   * Get the list of all users in the organization. This list includes all users even if they are deactivated or unverified.
+   * Get the list of all users in the organization. This list includes
+   * all users even if they are deactivated or unverified.
    * @param param The request object
    */
   public listUsers(
@@ -1424,7 +1437,8 @@ export class UsersApi {
   }
 
   /**
-   * Edit a user. Can only be used with an application key belonging to an administrator user.
+   * Edit a user. Can only be used with an application key belonging
+   * to an administrator user.
    * @param param The request object
    */
   public updateUser(

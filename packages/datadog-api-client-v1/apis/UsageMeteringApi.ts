@@ -1,14 +1,22 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { HourlyUsageAttributionResponse } from "../models/HourlyUsageAttributionResponse";
@@ -22,9 +30,9 @@ import { UsageAttributionSupportedMetrics } from "../models/UsageAttributionSupp
 import { UsageAuditLogsResponse } from "../models/UsageAuditLogsResponse";
 import { UsageBillableSummaryResponse } from "../models/UsageBillableSummaryResponse";
 import { UsageCIVisibilityResponse } from "../models/UsageCIVisibilityResponse";
-import { UsageCWSResponse } from "../models/UsageCWSResponse";
 import { UsageCloudSecurityPostureManagementResponse } from "../models/UsageCloudSecurityPostureManagementResponse";
 import { UsageCustomReportsResponse } from "../models/UsageCustomReportsResponse";
+import { UsageCWSResponse } from "../models/UsageCWSResponse";
 import { UsageDBMResponse } from "../models/UsageDBMResponse";
 import { UsageFargateResponse } from "../models/UsageFargateResponse";
 import { UsageHostsResponse } from "../models/UsageHostsResponse";
@@ -65,7 +73,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getDailyCustomReports'");
-    if (!_config.unstableOperations["getDailyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getDailyCustomReports"]) {
       throw new Error("Unstable operation 'getDailyCustomReports' is disabled");
     }
 
@@ -75,7 +83,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getDailyCustomReports"
+      "v1.UsageMeteringApi.getDailyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -125,12 +133,13 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     endHr?: Date,
     nextRecordId?: string,
     tagBreakdownKeys?: string,
+    includeDescendants?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getHourlyUsageAttribution'");
-    if (!_config.unstableOperations["getHourlyUsageAttribution"]) {
+    if (!_config.unstableOperations["v1.getHourlyUsageAttribution"]) {
       throw new Error(
         "Unstable operation 'getHourlyUsageAttribution' is disabled"
       );
@@ -156,7 +165,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getHourlyUsageAttribution"
+      "v1.UsageMeteringApi.getHourlyUsageAttribution"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -199,6 +208,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(tagBreakdownKeys, "string", "")
       );
     }
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -230,7 +245,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getIncidentManagement"
+      "v1.UsageMeteringApi.getIncidentManagement"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -282,7 +297,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getIngestedSpans"
+      "v1.UsageMeteringApi.getIngestedSpans"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -324,7 +339,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getMonthlyCustomReports'");
-    if (!_config.unstableOperations["getMonthlyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getMonthlyCustomReports"]) {
       throw new Error(
         "Unstable operation 'getMonthlyCustomReports' is disabled"
       );
@@ -336,7 +351,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getMonthlyCustomReports"
+      "v1.UsageMeteringApi.getMonthlyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -388,12 +403,13 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     sortName?: MonthlyUsageAttributionSupportedMetrics,
     tagBreakdownKeys?: string,
     nextRecordId?: string,
+    includeDescendants?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getMonthlyUsageAttribution'");
-    if (!_config.unstableOperations["getMonthlyUsageAttribution"]) {
+    if (!_config.unstableOperations["v1.getMonthlyUsageAttribution"]) {
       throw new Error(
         "Unstable operation 'getMonthlyUsageAttribution' is disabled"
       );
@@ -419,7 +435,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getMonthlyUsageAttribution"
+      "v1.UsageMeteringApi.getMonthlyUsageAttribution"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -478,6 +494,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(nextRecordId, "string", "")
       );
     }
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -496,7 +518,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSpecifiedDailyCustomReports'");
-    if (!_config.unstableOperations["getSpecifiedDailyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getSpecifiedDailyCustomReports"]) {
       throw new Error(
         "Unstable operation 'getSpecifiedDailyCustomReports' is disabled"
       );
@@ -518,7 +540,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getSpecifiedDailyCustomReports"
+      "v1.UsageMeteringApi.getSpecifiedDailyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -543,7 +565,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getSpecifiedMonthlyCustomReports'");
-    if (!_config.unstableOperations["getSpecifiedMonthlyCustomReports"]) {
+    if (!_config.unstableOperations["v1.getSpecifiedMonthlyCustomReports"]) {
       throw new Error(
         "Unstable operation 'getSpecifiedMonthlyCustomReports' is disabled"
       );
@@ -565,7 +587,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getSpecifiedMonthlyCustomReports"
+      "v1.UsageMeteringApi.getSpecifiedMonthlyCustomReports"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -603,7 +625,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageAnalyzedLogs"
+      "v1.UsageMeteringApi.getUsageAnalyzedLogs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -649,7 +671,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getUsageAttribution'");
-    if (!_config.unstableOperations["getUsageAttribution"]) {
+    if (!_config.unstableOperations["v1.getUsageAttribution"]) {
       throw new Error("Unstable operation 'getUsageAttribution' is disabled");
     }
 
@@ -673,7 +695,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageAttribution"
+      "v1.UsageMeteringApi.getUsageAttribution"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -765,7 +787,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageAuditLogs"
+      "v1.UsageMeteringApi.getUsageAuditLogs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -809,7 +831,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageBillableSummary"
+      "v1.UsageMeteringApi.getUsageBillableSummary"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -855,59 +877,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageCIApp"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-    if (startHr !== undefined) {
-      requestContext.setQueryParam(
-        "start_hr",
-        ObjectSerializer.serialize(startHr, "Date", "date-time")
-      );
-    }
-    if (endHr !== undefined) {
-      requestContext.setQueryParam(
-        "end_hr",
-        ObjectSerializer.serialize(endHr, "Date", "date-time")
-      );
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async getUsageCWS(
-    startHr: Date,
-    endHr?: Date,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'startHr' is not null or undefined
-    if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageCWS."
-      );
-    }
-
-    // Path Params
-    const localVarPath = "/api/v1/usage/cws";
-
-    // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "UsageMeteringApi.getUsageCWS"
+      "v1.UsageMeteringApi.getUsageCIApp"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -959,7 +929,59 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageCloudSecurityPostureManagement"
+      "v1.UsageMeteringApi.getUsageCloudSecurityPostureManagement"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (startHr !== undefined) {
+      requestContext.setQueryParam(
+        "start_hr",
+        ObjectSerializer.serialize(startHr, "Date", "date-time")
+      );
+    }
+    if (endHr !== undefined) {
+      requestContext.setQueryParam(
+        "end_hr",
+        ObjectSerializer.serialize(endHr, "Date", "date-time")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getUsageCWS(
+    startHr: Date,
+    endHr?: Date,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'startHr' is not null or undefined
+    if (startHr === null || startHr === undefined) {
+      throw new RequiredError(
+        "Required parameter startHr was null or undefined when calling getUsageCWS."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/usage/cws";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.UsageMeteringApi.getUsageCWS"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1011,7 +1033,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageDBM"
+      "v1.UsageMeteringApi.getUsageDBM"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1063,7 +1085,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageFargate"
+      "v1.UsageMeteringApi.getUsageFargate"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1115,7 +1137,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageHosts"
+      "v1.UsageMeteringApi.getUsageHosts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1167,7 +1189,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageIndexedSpans"
+      "v1.UsageMeteringApi.getUsageIndexedSpans"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1219,7 +1241,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageInternetOfThings"
+      "v1.UsageMeteringApi.getUsageInternetOfThings"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1271,7 +1293,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageLambda"
+      "v1.UsageMeteringApi.getUsageLambda"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1323,7 +1345,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageLogs"
+      "v1.UsageMeteringApi.getUsageLogs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1376,7 +1398,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageLogsByIndex"
+      "v1.UsageMeteringApi.getUsageLogsByIndex"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1434,7 +1456,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageLogsByRetention"
+      "v1.UsageMeteringApi.getUsageLogsByRetention"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1486,7 +1508,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageNetworkFlows"
+      "v1.UsageMeteringApi.getUsageNetworkFlows"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1538,7 +1560,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageNetworkHosts"
+      "v1.UsageMeteringApi.getUsageNetworkHosts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1590,7 +1612,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageOnlineArchive"
+      "v1.UsageMeteringApi.getUsageOnlineArchive"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1642,7 +1664,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageProfiling"
+      "v1.UsageMeteringApi.getUsageProfiling"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1695,7 +1717,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageRumSessions"
+      "v1.UsageMeteringApi.getUsageRumSessions"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1753,7 +1775,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageRumUnits"
+      "v1.UsageMeteringApi.getUsageRumUnits"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1805,7 +1827,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSDS"
+      "v1.UsageMeteringApi.getUsageSDS"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1857,7 +1879,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSNMP"
+      "v1.UsageMeteringApi.getUsageSNMP"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1910,7 +1932,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSummary"
+      "v1.UsageMeteringApi.getUsageSummary"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -1968,7 +1990,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSynthetics"
+      "v1.UsageMeteringApi.getUsageSynthetics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -2020,7 +2042,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSyntheticsAPI"
+      "v1.UsageMeteringApi.getUsageSyntheticsAPI"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -2072,7 +2094,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageSyntheticsBrowser"
+      "v1.UsageMeteringApi.getUsageSyntheticsBrowser"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -2124,7 +2146,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageTimeseries"
+      "v1.UsageMeteringApi.getUsageTimeseries"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -2172,7 +2194,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "UsageMeteringApi.getUsageTopAvgMetrics"
+      "v1.UsageMeteringApi.getUsageTopAvgMetrics"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
@@ -3023,69 +3045,6 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getUsageCWS
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getUsageCWS(
-    response: ResponseContext
-  ): Promise<UsageCWSResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: UsageCWSResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCWSResponse",
-        ""
-      ) as UsageCWSResponse;
-      return body;
-    }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageCWSResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageCWSResponse",
-        ""
-      ) as UsageCWSResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to getUsageCloudSecurityPostureManagement
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3137,6 +3096,69 @@ export class UsageMeteringApiResponseProcessor {
           "UsageCloudSecurityPostureManagementResponse",
           ""
         ) as UsageCloudSecurityPostureManagementResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getUsageCWS
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUsageCWS(
+    response: ResponseContext
+  ): Promise<UsageCWSResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: UsageCWSResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageCWSResponse",
+        ""
+      ) as UsageCWSResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageCWSResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UsageCWSResponse",
+        ""
+      ) as UsageCWSResponse;
       return body;
     }
 
@@ -4599,22 +4621,22 @@ export class UsageMeteringApiResponseProcessor {
 
 export interface UsageMeteringApiGetDailyCustomReportsRequest {
   /**
-   * The number of files to return in the response. &#x60;[default&#x3D;60]&#x60;.
+   * The number of files to return in the response. `[default=60]`.
    * @type number
    */
   pageSize?: number;
   /**
-   * The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;.
+   * The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
    * @type number
    */
   pageNumber?: number;
   /**
-   * The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
   sortDir?: UsageSortDirection;
   /**
-   * The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+   * The field to sort by: `[computed_on, size, start_date, end_date]`.
    * @type UsageSort
    */
   sort?: UsageSort;
@@ -4622,7 +4644,7 @@ export interface UsageMeteringApiGetDailyCustomReportsRequest {
 
 export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
@@ -4632,7 +4654,8 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    */
   usageType: HourlyUsageAttributionUsageType;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4642,20 +4665,28 @@ export interface UsageMeteringApiGetHourlyUsageAttributionRequest {
    */
   nextRecordId?: string;
   /**
-   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of &#x60;tag_config_source&#x60; in the API response.
+   * Comma separated list of tags used to group usage. If no value is provided the usage will not be broken down by tags.
+   *
+   * To see which tags are available, look for the value of `tag_config_source` in the API response.
    * @type string
    */
   tagBreakdownKeys?: string;
+  /**
+   * Include child org usage in the response. Defaults to `true`.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
 }
 
 export interface UsageMeteringApiGetIncidentManagementRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4663,12 +4694,13 @@ export interface UsageMeteringApiGetIncidentManagementRequest {
 
 export interface UsageMeteringApiGetIngestedSpansRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4676,22 +4708,22 @@ export interface UsageMeteringApiGetIngestedSpansRequest {
 
 export interface UsageMeteringApiGetMonthlyCustomReportsRequest {
   /**
-   * The number of files to return in the response &#x60;[default&#x3D;60].&#x60;
+   * The number of files to return in the response `[default=60].`
    * @type number
    */
   pageSize?: number;
   /**
-   * The identifier of the first page to return. This parameter is used for the pagination feature &#x60;[default&#x3D;0]&#x60;.
+   * The identifier of the first page to return. This parameter is used for the pagination feature `[default=0]`.
    * @type number
    */
   pageNumber?: number;
   /**
-   * The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
   sortDir?: UsageSortDirection;
   /**
-   * The field to sort by: &#x60;[computed_on, size, start_date, end_date]&#x60;.
+   * The field to sort by: `[computed_on, size, start_date, end_date]`.
    * @type UsageSort
    */
   sort?: UsageSort;
@@ -4699,22 +4731,23 @@ export interface UsageMeteringApiGetMonthlyCustomReportsRequest {
 
 export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month.
+   * Maximum of 15 months ago.
    * @type Date
    */
   startMonth: Date;
   /**
-   * Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+   * Comma-separated list of usage types to return, or `*` for all usage types.
    * @type MonthlyUsageAttributionSupportedMetrics
    */
   fields: MonthlyUsageAttributionSupportedMetrics;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
    * @type Date
    */
   endMonth?: Date;
   /**
-   * The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
   sortDirection?: UsageSortDirection;
@@ -4724,7 +4757,9 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
    */
   sortName?: MonthlyUsageAttributionSupportedMetrics;
   /**
-   * Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.  To see which tags are available, look for the value of &#x60;tag_config_source&#x60; in the API response.
+   * Comma separated list of tag keys used to group usage. If no value is provided the usage will not be broken down by tags.
+   *
+   * To see which tags are available, look for the value of `tag_config_source` in the API response.
    * @type string
    */
   tagBreakdownKeys?: string;
@@ -4733,11 +4768,16 @@ export interface UsageMeteringApiGetMonthlyUsageAttributionRequest {
    * @type string
    */
   nextRecordId?: string;
+  /**
+   * Include child org usage in the response. Defaults to `true`.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
 }
 
 export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
   /**
-   * Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
+   * Date of the report in the format `YYYY-MM-DD`.
    * @type string
    */
   reportId: string;
@@ -4745,7 +4785,7 @@ export interface UsageMeteringApiGetSpecifiedDailyCustomReportsRequest {
 
 export interface UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest {
   /**
-   * Date of the report in the format &#x60;YYYY-MM-DD&#x60;.
+   * Date of the report in the format `YYYY-MM-DD`.
    * @type string
    */
   reportId: string;
@@ -4753,12 +4793,13 @@ export interface UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest {
 
 export interface UsageMeteringApiGetUsageAnalyzedLogsRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4766,22 +4807,23 @@ export interface UsageMeteringApiGetUsageAnalyzedLogsRequest {
 
 export interface UsageMeteringApiGetUsageAttributionRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month.
+   * Maximum of 15 months ago.
    * @type Date
    */
   startMonth: Date;
   /**
-   * Comma-separated list of usage types to return, or &#x60;*&#x60; for all usage types.
+   * Comma-separated list of usage types to return, or `*` for all usage types.
    * @type UsageAttributionSupportedMetrics
    */
   fields: UsageAttributionSupportedMetrics;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
    * @type Date
    */
   endMonth?: Date;
   /**
-   * The direction to sort by: &#x60;[desc, asc]&#x60;.
+   * The direction to sort by: `[desc, asc]`.
    * @type UsageSortDirection
    */
   sortDirection?: UsageSortDirection;
@@ -4809,12 +4851,13 @@ export interface UsageMeteringApiGetUsageAttributionRequest {
 
 export interface UsageMeteringApiGetUsageAuditLogsRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4822,7 +4865,7 @@ export interface UsageMeteringApiGetUsageAuditLogsRequest {
 
 export interface UsageMeteringApiGetUsageBillableSummaryRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage starting this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage starting this month.
    * @type Date
    */
   month?: Date;
@@ -4830,25 +4873,13 @@ export interface UsageMeteringApiGetUsageBillableSummaryRequest {
 
 export interface UsageMeteringApiGetUsageCIAppRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
-   * @type Date
-   */
-  endHr?: Date;
-}
-
-export interface UsageMeteringApiGetUsageCWSRequest {
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
-   * @type Date
-   */
-  startHr: Date;
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4856,12 +4887,27 @@ export interface UsageMeteringApiGetUsageCWSRequest {
 
 export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
+   * @type Date
+   */
+  endHr?: Date;
+}
+
+export interface UsageMeteringApiGetUsageCWSRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
+   * @type Date
+   */
+  startHr: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4869,12 +4915,13 @@ export interface UsageMeteringApiGetUsageCloudSecurityPostureManagementRequest {
 
 export interface UsageMeteringApiGetUsageDBMRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4908,12 +4955,12 @@ export interface UsageMeteringApiGetUsageHostsRequest {
 
 export interface UsageMeteringApiGetUsageIndexedSpansRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4921,12 +4968,13 @@ export interface UsageMeteringApiGetUsageIndexedSpansRequest {
 
 export interface UsageMeteringApiGetUsageInternetOfThingsRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4971,19 +5019,20 @@ export interface UsageMeteringApiGetUsageLogsByIndexRequest {
   endHr?: Date;
   /**
    * Comma-separated list of log index names.
-   * @type Array&lt;string&gt;
+   * @type Array<string>
    */
   indexName?: Array<string>;
 }
 
 export interface UsageMeteringApiGetUsageLogsByRetentionRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -4991,12 +5040,13 @@ export interface UsageMeteringApiGetUsageLogsByRetentionRequest {
 
 export interface UsageMeteringApiGetUsageNetworkFlowsRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5017,12 +5067,13 @@ export interface UsageMeteringApiGetUsageNetworkHostsRequest {
 
 export interface UsageMeteringApiGetUsageOnlineArchiveRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5030,12 +5081,13 @@ export interface UsageMeteringApiGetUsageOnlineArchiveRequest {
 
 export interface UsageMeteringApiGetUsageProfilingRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5053,7 +5105,7 @@ export interface UsageMeteringApiGetUsageRumSessionsRequest {
    */
   endHr?: Date;
   /**
-   * RUM type: &#x60;[browser, mobile]&#x60;. Defaults to &#x60;browser&#x60;.
+   * RUM type: `[browser, mobile]`. Defaults to `browser`.
    * @type string
    */
   type?: string;
@@ -5074,12 +5126,13 @@ export interface UsageMeteringApiGetUsageRumUnitsRequest {
 
 export interface UsageMeteringApiGetUsageSDSRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5087,12 +5140,13 @@ export interface UsageMeteringApiGetUsageSDSRequest {
 
 export interface UsageMeteringApiGetUsageSNMPRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage beginning at this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
    * @type Date
    */
   startHr: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to hour: &#x60;[YYYY-MM-DDThh]&#x60; for usage ending **before** this hour.
+   * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage ending
+   * **before** this hour.
    * @type Date
    */
   endHr?: Date;
@@ -5100,12 +5154,13 @@ export interface UsageMeteringApiGetUsageSNMPRequest {
 
 export interface UsageMeteringApiGetUsageSummaryRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage beginning in this month. Maximum of 15 months ago.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month.
+   * Maximum of 15 months ago.
    * @type Date
    */
   startMonth: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: &#x60;[YYYY-MM]&#x60; for usage ending this month.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
    * @type Date
    */
   endMonth?: Date;
@@ -5181,7 +5236,7 @@ export interface UsageMeteringApiGetUsageTopAvgMetricsRequest {
   day?: Date;
   /**
    * Comma-separated list of metric names.
-   * @type Array&lt;string&gt;
+   * @type Array<string>
    */
   names?: Array<string>;
   /**
@@ -5238,7 +5293,21 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Hourly Usage Attribution.  This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is set in the response. If it is, make another request and pass `next_record_id` as a parameter. Pseudo code example:  ``` response := GetHourlyUsageAttribution(start_month) cursor := response.metadata.pagination.next_record_id WHILE cursor != null BEGIN   sleep(5 seconds)  # Avoid running into rate limit   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)   cursor := response.metadata.pagination.next_record_id END ```
+   * Get hourly usage attribution.
+   *
+   * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+   * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+   * Pseudo code example:
+   *
+   * ```
+   * response := GetHourlyUsageAttribution(start_month)
+   * cursor := response.metadata.pagination.next_record_id
+   * WHILE cursor != null BEGIN
+   *   sleep(5 seconds)  # Avoid running into rate limit
+   *   response := GetHourlyUsageAttribution(start_month, next_record_id=cursor)
+   *   cursor := response.metadata.pagination.next_record_id
+   * END
+   * ```
    * @param param The request object
    */
   public getHourlyUsageAttribution(
@@ -5251,6 +5320,7 @@ export class UsageMeteringApi {
       param.endHr,
       param.nextRecordId,
       param.tagBreakdownKeys,
+      param.includeDescendants,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -5335,7 +5405,21 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Monthly Usage Attribution.  This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is set in the response. If it is, make another request and pass `next_record_id` as a parameter. Pseudo code example:  ``` response := GetMonthlyUsageAttribution(start_month) cursor := response.metadata.pagination.next_record_id WHILE cursor != null BEGIN   sleep(5 seconds)  # Avoid running into rate limit   response := GetMonthlyUsageAttribution(start_month, next_record_id=cursor)   cursor := response.metadata.pagination.next_record_id END ```
+   * Get monthly usage attribution.
+   *
+   * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+   * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+   * Pseudo code example:
+   *
+   * ```
+   * response := GetMonthlyUsageAttribution(start_month)
+   * cursor := response.metadata.pagination.next_record_id
+   * WHILE cursor != null BEGIN
+   *   sleep(5 seconds)  # Avoid running into rate limit
+   *   response := GetMonthlyUsageAttribution(start_month, next_record_id=cursor)
+   *   cursor := response.metadata.pagination.next_record_id
+   * END
+   * ```
    * @param param The request object
    */
   public getMonthlyUsageAttribution(
@@ -5351,6 +5435,7 @@ export class UsageMeteringApi {
         param.sortName,
         param.tagBreakdownKeys,
         param.nextRecordId,
+        param.includeDescendants,
         options
       );
     return requestContextPromise.then((requestContext) => {
@@ -5435,7 +5520,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get Usage Attribution.
+   * Get usage attribution.
    * @param param The request object
    */
   public getUsageAttribution(
@@ -5508,7 +5593,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for CI Visibility (Tests, Pipeline, Combo, and Spans).
+   * Get hourly usage for CI Visibility (Tests, Pipeline, and Spans).
    * @param param The request object
    */
   public getUsageCIApp(
@@ -5525,28 +5610,6 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUsageCIApp(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Get hourly usage for Cloud Workload Security.
-   * @param param The request object
-   */
-  public getUsageCWS(
-    param: UsageMeteringApiGetUsageCWSRequest,
-    options?: Configuration
-  ): Promise<UsageCWSResponse> {
-    const requestContextPromise = this.requestFactory.getUsageCWS(
-      param.startHr,
-      param.endHr,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageCWS(responseContext);
         });
     });
   }
@@ -5572,6 +5635,28 @@ export class UsageMeteringApi {
           return this.responseProcessor.getUsageCloudSecurityPostureManagement(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get hourly usage for Cloud Workload Security.
+   * @param param The request object
+   */
+  public getUsageCWS(
+    param: UsageMeteringApiGetUsageCWSRequest,
+    options?: Configuration
+  ): Promise<UsageCWSResponse> {
+    const requestContextPromise = this.requestFactory.getUsageCWS(
+      param.startHr,
+      param.endHr,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUsageCWS(responseContext);
         });
     });
   }

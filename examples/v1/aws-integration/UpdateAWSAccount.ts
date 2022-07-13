@@ -2,17 +2,16 @@
  * Update an AWS integration returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.AWSIntegrationApi(configuration);
 
 const params: v1.AWSIntegrationApiUpdateAWSAccountRequest = {
   body: {
-    accountId: "1234567",
+    accountId: "123456789012",
     accountSpecificNamespaceRules: {
       auto_scaling: false,
-      opswork: false,
     },
     cspmResourceCollectionEnabled: true,
     excludedRegions: ["us-east-1", "us-west-2"],
@@ -20,8 +19,10 @@ const params: v1.AWSIntegrationApiUpdateAWSAccountRequest = {
     hostTags: ["$KEY:$VALUE"],
     metricsCollectionEnabled: false,
     resourceCollectionEnabled: true,
-    roleName: "DatadogAWSIntegrationRole",
+    roleName: "datadog-role",
   },
+  accountId: "123456789012",
+  roleName: "datadog-role",
 };
 
 apiInstance

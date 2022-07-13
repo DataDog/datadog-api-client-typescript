@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ApiKey } from "../models/ApiKey";
@@ -37,7 +45,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.createAPIKey"
+      "v1.KeyManagementApi.createAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -81,7 +89,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.createApplicationKey"
+      "v1.KeyManagementApi.createApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -128,7 +136,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.deleteAPIKey"
+      "v1.KeyManagementApi.deleteAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -164,7 +172,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.deleteApplicationKey"
+      "v1.KeyManagementApi.deleteApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -200,7 +208,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.getAPIKey"
+      "v1.KeyManagementApi.getAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -236,7 +244,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.getApplicationKey"
+      "v1.KeyManagementApi.getApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -259,7 +267,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.listAPIKeys"
+      "v1.KeyManagementApi.listAPIKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -284,7 +292,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.listApplicationKeys"
+      "v1.KeyManagementApi.listApplicationKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -328,7 +336,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.updateAPIKey"
+      "v1.KeyManagementApi.updateAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -383,7 +391,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.updateApplicationKey"
+      "v1.KeyManagementApi.updateApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1065,7 +1073,6 @@ export class KeyManagementApiResponseProcessor {
 
 export interface KeyManagementApiCreateAPIKeyRequest {
   /**
-   *
    * @type ApiKey
    */
   body: ApiKey;
@@ -1073,7 +1080,6 @@ export interface KeyManagementApiCreateAPIKeyRequest {
 
 export interface KeyManagementApiCreateApplicationKeyRequest {
   /**
-   *
    * @type ApplicationKey
    */
   body: ApplicationKey;
@@ -1118,7 +1124,6 @@ export interface KeyManagementApiUpdateAPIKeyRequest {
    */
   key: string;
   /**
-   *
    * @type ApiKey
    */
   body: ApiKey;
@@ -1131,7 +1136,6 @@ export interface KeyManagementApiUpdateApplicationKeyRequest {
    */
   key: string;
   /**
-   *
    * @type ApplicationKey
    */
   body: ApplicationKey;

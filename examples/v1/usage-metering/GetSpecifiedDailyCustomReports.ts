@@ -2,9 +2,9 @@
  * Get specified daily custom reports returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 configuration.unstableOperations["getSpecifiedDailyCustomReports"] = true;
 const apiInstance = new v1.UsageMeteringApi(configuration);
 

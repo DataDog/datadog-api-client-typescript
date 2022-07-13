@@ -1,19 +1,27 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateRequest";
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
-import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
+import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
 import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
 
@@ -49,7 +57,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.createServiceAccountApplicationKey"
+      "v2.ServiceAccountsApi.createServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -110,9 +118,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.deleteServiceAccountApplicationKey"
+      "v2.ServiceAccountsApi.deleteServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -160,7 +168,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.getServiceAccountApplicationKey"
+      "v2.ServiceAccountsApi.getServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -203,7 +211,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.listServiceAccountApplicationKeys"
+      "v2.ServiceAccountsApi.listServiceAccountApplicationKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -299,7 +307,7 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceAccountsApi.updateServiceAccountApplicationKey"
+      "v2.ServiceAccountsApi.updateServiceAccountApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -660,7 +668,6 @@ export interface ServiceAccountsApiCreateServiceAccountApplicationKeyRequest {
    */
   serviceAccountId: string;
   /**
-   *
    * @type ApplicationKeyCreateRequest
    */
   body: ApplicationKeyCreateRequest;
@@ -709,7 +716,9 @@ export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
    */
   pageNumber?: number;
   /**
-   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * Application key attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
    * @type ApplicationKeysSort
    */
   sort?: ApplicationKeysSort;
@@ -742,7 +751,6 @@ export interface ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest {
    */
   appKeyId: string;
   /**
-   *
    * @type ApplicationKeyUpdateRequest
    */
   body: ApplicationKeyUpdateRequest;

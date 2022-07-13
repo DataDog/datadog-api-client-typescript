@@ -1,24 +1,32 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { APIKeyCreateRequest } from "../models/APIKeyCreateRequest";
 import { APIKeyResponse } from "../models/APIKeyResponse";
-import { APIKeyUpdateRequest } from "../models/APIKeyUpdateRequest";
 import { APIKeysResponse } from "../models/APIKeysResponse";
 import { APIKeysSort } from "../models/APIKeysSort";
+import { APIKeyUpdateRequest } from "../models/APIKeyUpdateRequest";
 import { ApplicationKeyCreateRequest } from "../models/ApplicationKeyCreateRequest";
 import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
-import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
+import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
 
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
@@ -41,7 +49,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.createAPIKey"
+      "v2.KeyManagementApi.createAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -85,7 +93,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.createCurrentUserApplicationKey"
+      "v2.KeyManagementApi.createCurrentUserApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -132,9 +140,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.deleteAPIKey"
+      "v2.KeyManagementApi.deleteAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -168,9 +176,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.deleteApplicationKey"
+      "v2.KeyManagementApi.deleteApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -205,9 +213,9 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.deleteCurrentUserApplicationKey"
+      "v2.KeyManagementApi.deleteCurrentUserApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -242,7 +250,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.getAPIKey"
+      "v2.KeyManagementApi.getAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -287,7 +295,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.getApplicationKey"
+      "v2.KeyManagementApi.getApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -332,7 +340,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.getCurrentUserApplicationKey"
+      "v2.KeyManagementApi.getCurrentUserApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -366,7 +374,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.listAPIKeys"
+      "v2.KeyManagementApi.listAPIKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -453,7 +461,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.listApplicationKeys"
+      "v2.KeyManagementApi.listApplicationKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -522,7 +530,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.listCurrentUserApplicationKeys"
+      "v2.KeyManagementApi.listCurrentUserApplicationKeys"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -604,7 +612,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.updateAPIKey"
+      "v2.KeyManagementApi.updateAPIKey"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -659,7 +667,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.updateApplicationKey"
+      "v2.KeyManagementApi.updateApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -715,7 +723,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "KeyManagementApi.updateCurrentUserApplicationKey"
+      "v2.KeyManagementApi.updateCurrentUserApplicationKey"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1654,7 +1662,6 @@ export class KeyManagementApiResponseProcessor {
 
 export interface KeyManagementApiCreateAPIKeyRequest {
   /**
-   *
    * @type APIKeyCreateRequest
    */
   body: APIKeyCreateRequest;
@@ -1662,7 +1669,6 @@ export interface KeyManagementApiCreateAPIKeyRequest {
 
 export interface KeyManagementApiCreateCurrentUserApplicationKeyRequest {
   /**
-   *
    * @type ApplicationKeyCreateRequest
    */
   body: ApplicationKeyCreateRequest;
@@ -1699,7 +1705,7 @@ export interface KeyManagementApiGetAPIKeyRequest {
    */
   apiKeyId: string;
   /**
-   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
    * @type string
    */
   include?: string;
@@ -1712,7 +1718,7 @@ export interface KeyManagementApiGetApplicationKeyRequest {
    */
   appKeyId: string;
   /**
-   * Resource path for related resources to include in the response. Only &#x60;owned_by&#x60; is supported.
+   * Resource path for related resources to include in the response. Only `owned_by` is supported.
    * @type string
    */
   include?: string;
@@ -1738,7 +1744,9 @@ export interface KeyManagementApiListAPIKeysRequest {
    */
   pageNumber?: number;
   /**
-   * API key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * API key attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
    * @type APIKeysSort
    */
   sort?: APIKeysSort;
@@ -1768,7 +1776,7 @@ export interface KeyManagementApiListAPIKeysRequest {
    */
   filterModifiedAtEnd?: string;
   /**
-   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are &#x60;created_by&#x60; and &#x60;modified_by&#x60;.
+   * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
    * @type string
    */
   include?: string;
@@ -1786,7 +1794,9 @@ export interface KeyManagementApiListApplicationKeysRequest {
    */
   pageNumber?: number;
   /**
-   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * Application key attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
    * @type ApplicationKeysSort
    */
   sort?: ApplicationKeysSort;
@@ -1819,7 +1829,9 @@ export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
    */
   pageNumber?: number;
   /**
-   * Application key attribute used to sort results. Sort order is ascending by default. In order to specify a descending sort, prefix the attribute with a minus sign.
+   * Application key attribute used to sort results. Sort order is ascending
+   * by default. In order to specify a descending sort, prefix the
+   * attribute with a minus sign.
    * @type ApplicationKeysSort
    */
   sort?: ApplicationKeysSort;
@@ -1847,7 +1859,6 @@ export interface KeyManagementApiUpdateAPIKeyRequest {
    */
   apiKeyId: string;
   /**
-   *
    * @type APIKeyUpdateRequest
    */
   body: APIKeyUpdateRequest;
@@ -1860,7 +1871,6 @@ export interface KeyManagementApiUpdateApplicationKeyRequest {
    */
   appKeyId: string;
   /**
-   *
    * @type ApplicationKeyUpdateRequest
    */
   body: ApplicationKeyUpdateRequest;
@@ -1873,7 +1883,6 @@ export interface KeyManagementApiUpdateCurrentUserApplicationKeyRequest {
    */
   appKeyId: string;
   /**
-   *
    * @type ApplicationKeyUpdateRequest
    */
   body: ApplicationKeyUpdateRequest;

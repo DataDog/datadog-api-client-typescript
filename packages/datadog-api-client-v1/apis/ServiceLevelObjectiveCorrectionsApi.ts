@@ -1,14 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
-import { logger } from "../../../logger";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { SLOCorrectionCreateRequest } from "../models/SLOCorrectionCreateRequest";
@@ -23,11 +30,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createSLOCorrection'");
-    if (!_config.unstableOperations["createSLOCorrection"]) {
-      throw new Error("Unstable operation 'createSLOCorrection' is disabled");
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError(
@@ -41,7 +43,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectiveCorrectionsApi.createSLOCorrection"
+      "v1.ServiceLevelObjectiveCorrectionsApi.createSLOCorrection"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -72,11 +74,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'deleteSLOCorrection'");
-    if (!_config.unstableOperations["deleteSLOCorrection"]) {
-      throw new Error("Unstable operation 'deleteSLOCorrection' is disabled");
-    }
-
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
       throw new RequiredError(
@@ -93,9 +90,9 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection"
+      "v1.ServiceLevelObjectiveCorrectionsApi.deleteSLOCorrection"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -113,11 +110,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getSLOCorrection'");
-    if (!_config.unstableOperations["getSLOCorrection"]) {
-      throw new Error("Unstable operation 'getSLOCorrection' is disabled");
-    }
-
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
       throw new RequiredError(
@@ -134,7 +126,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectiveCorrectionsApi.getSLOCorrection"
+      "v1.ServiceLevelObjectiveCorrectionsApi.getSLOCorrection"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -153,18 +145,13 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listSLOCorrection'");
-    if (!_config.unstableOperations["listSLOCorrection"]) {
-      throw new Error("Unstable operation 'listSLOCorrection' is disabled");
-    }
-
     // Path Params
     const localVarPath = "/api/v1/slo/correction";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectiveCorrectionsApi.listSLOCorrection"
+      "v1.ServiceLevelObjectiveCorrectionsApi.listSLOCorrection"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -184,11 +171,6 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'updateSLOCorrection'");
-    if (!_config.unstableOperations["updateSLOCorrection"]) {
-      throw new Error("Unstable operation 'updateSLOCorrection' is disabled");
-    }
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
@@ -213,7 +195,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection"
+      "v1.ServiceLevelObjectiveCorrectionsApi.updateSLOCorrection"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -695,7 +677,7 @@ export class ServiceLevelObjectiveCorrectionsApi {
   }
 
   /**
-   * Update the specified SLO correction object object.
+   * Update the specified SLO correction object.
    * @param param The request object
    */
   public updateSLOCorrection(

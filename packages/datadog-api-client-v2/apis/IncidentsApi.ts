@@ -1,21 +1,30 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IncidentCreateRequest } from "../models/IncidentCreateRequest";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
 import { IncidentResponse } from "../models/IncidentResponse";
-import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
+import { IncidentResponseData } from "../models/IncidentResponseData";
 import { IncidentsResponse } from "../models/IncidentsResponse";
+import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
 
 export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   public async createIncident(
@@ -25,7 +34,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'createIncident'");
-    if (!_config.unstableOperations["createIncident"]) {
+    if (!_config.unstableOperations["v2.createIncident"]) {
       throw new Error("Unstable operation 'createIncident' is disabled");
     }
 
@@ -42,7 +51,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.createIncident"
+      "v2.IncidentsApi.createIncident"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -75,7 +84,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'deleteIncident'");
-    if (!_config.unstableOperations["deleteIncident"]) {
+    if (!_config.unstableOperations["v2.deleteIncident"]) {
       throw new Error("Unstable operation 'deleteIncident' is disabled");
     }
 
@@ -95,9 +104,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.deleteIncident"
+      "v2.IncidentsApi.deleteIncident"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -118,7 +127,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'getIncident'");
-    if (!_config.unstableOperations["getIncident"]) {
+    if (!_config.unstableOperations["v2.getIncident"]) {
       throw new Error("Unstable operation 'getIncident' is disabled");
     }
 
@@ -138,7 +147,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.getIncident"
+      "v2.IncidentsApi.getIncident"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -170,7 +179,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'listIncidents'");
-    if (!_config.unstableOperations["listIncidents"]) {
+    if (!_config.unstableOperations["v2.listIncidents"]) {
       throw new Error("Unstable operation 'listIncidents' is disabled");
     }
 
@@ -180,7 +189,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.listIncidents"
+      "v2.IncidentsApi.listIncidents"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -224,7 +233,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const _config = _options || this.configuration;
 
     logger.warn("Using unstable operation 'updateIncident'");
-    if (!_config.unstableOperations["updateIncident"]) {
+    if (!_config.unstableOperations["v2.updateIncident"]) {
       throw new Error("Unstable operation 'updateIncident' is disabled");
     }
 
@@ -251,7 +260,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "IncidentsApi.updateIncident"
+      "v2.IncidentsApi.updateIncident"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -700,7 +709,7 @@ export interface IncidentsApiGetIncidentRequest {
   incidentId: string;
   /**
    * Specifies which types of related objects should be included in the response.
-   * @type Array&lt;IncidentRelatedObject&gt;
+   * @type Array<IncidentRelatedObject>
    */
   include?: Array<IncidentRelatedObject>;
 }
@@ -708,7 +717,7 @@ export interface IncidentsApiGetIncidentRequest {
 export interface IncidentsApiListIncidentsRequest {
   /**
    * Specifies which types of related objects should be included in the response.
-   * @type Array&lt;IncidentRelatedObject&gt;
+   * @type Array<IncidentRelatedObject>
    */
   include?: Array<IncidentRelatedObject>;
   /**
@@ -736,7 +745,7 @@ export interface IncidentsApiUpdateIncidentRequest {
   body: IncidentUpdateRequest;
   /**
    * Specifies which types of related objects should be included in the response.
-   * @type Array&lt;IncidentRelatedObject&gt;
+   * @type Array<IncidentRelatedObject>
    */
   include?: Array<IncidentRelatedObject>;
 }
@@ -843,6 +852,51 @@ export class IncidentsApi {
           return this.responseProcessor.listIncidents(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listIncidents returning a generator with all the items.
+   */
+  public async *listIncidentsWithPagination(
+    param: IncidentsApiListIncidentsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<IncidentResponseData> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listIncidents(
+        param.include,
+        param.pageSize,
+        param.pageOffset,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listIncidents(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = param.pageOffset + pageSize;
+      }
+    }
   }
 
   /**

@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AzureAccount } from "../models/AzureAccount";
@@ -32,7 +40,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AzureIntegrationApi.createAzureIntegration"
+      "v1.AzureIntegrationApi.createAzureIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -76,7 +84,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AzureIntegrationApi.deleteAzureIntegration"
+      "v1.AzureIntegrationApi.deleteAzureIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -112,7 +120,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AzureIntegrationApi.listAzureIntegration"
+      "v1.AzureIntegrationApi.listAzureIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -145,7 +153,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AzureIntegrationApi.updateAzureHostFilters"
+      "v1.AzureIntegrationApi.updateAzureHostFilters"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -189,7 +197,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AzureIntegrationApi.updateAzureIntegration"
+      "v1.AzureIntegrationApi.updateAzureIntegration"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -542,7 +550,7 @@ export interface AzureIntegrationApiDeleteAzureIntegrationRequest {
 
 export interface AzureIntegrationApiUpdateAzureHostFiltersRequest {
   /**
-   * Update a Datadog-Azure integration&#39;s host filters request body.
+   * Update a Datadog-Azure integration's host filters request body.
    * @type AzureAccount
    */
   body: AzureAccount;
@@ -574,7 +582,13 @@ export class AzureIntegrationApi {
   }
 
   /**
-   * Create a Datadog-Azure integration.  Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization.  Using the `PUT` method updates your integration configuration by replacing your current configuration with the new one sent to your Datadog organization.
+   * Create a Datadog-Azure integration.
+   *
+   * Using the `POST` method updates your integration configuration by adding your new
+   * configuration to the existing one in your Datadog organization.
+   *
+   * Using the `PUT` method updates your integration configuration by replacing your
+   * current configuration with the new one sent to your Datadog organization.
    * @param param The request object
    */
   public createAzureIntegration(
@@ -655,7 +669,9 @@ export class AzureIntegrationApi {
   }
 
   /**
-   * Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`. Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`, use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
+   * Update a Datadog-Azure integration. Requires an existing `tenant_name` and `client_id`.
+   * Any other fields supplied will overwrite existing values. To overwrite `tenant_name` or `client_id`,
+   * use `new_tenant_name` and `new_client_id`. To leave a field unchanged, do not supply that field in the payload.
    * @param param The request object
    */
   public updateAzureIntegration(

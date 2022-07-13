@@ -2,9 +2,9 @@
  * Send logs returns "Request accepted for processing (always 202 empty JSON)." response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.LogsApi(configuration);
 
 const params: v2.LogsApiSubmitLogRequest = {
@@ -15,6 +15,9 @@ const params: v2.LogsApiSubmitLogRequest = {
       hostname: "i-012345678",
       message: "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World",
       service: "payment",
+      additionalProperties: {
+        status: "error",
+      },
     },
   ],
 };

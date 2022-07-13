@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AWSAccountAndLambdaRequest } from "../models/AWSAccountAndLambdaRequest";
@@ -36,7 +44,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.checkAWSLogsLambdaAsync"
+      "v1.AWSLogsIntegrationApi.checkAWSLogsLambdaAsync"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -81,7 +89,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.checkAWSLogsServicesAsync"
+      "v1.AWSLogsIntegrationApi.checkAWSLogsServicesAsync"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -125,7 +133,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.createAWSLambdaARN"
+      "v1.AWSLogsIntegrationApi.createAWSLambdaARN"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -169,7 +177,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.deleteAWSLambdaARN"
+      "v1.AWSLogsIntegrationApi.deleteAWSLambdaARN"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -213,7 +221,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.enableAWSLogServices"
+      "v1.AWSLogsIntegrationApi.enableAWSLogServices"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -249,7 +257,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.listAWSLogsIntegrations"
+      "v1.AWSLogsIntegrationApi.listAWSLogsIntegrations"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -274,7 +282,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSLogsIntegrationApi.listAWSLogsServices"
+      "v1.AWSLogsIntegrationApi.listAWSLogsServices"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -778,7 +786,14 @@ export class AWSLogsIntegrationApi {
   }
 
   /**
-   * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this endpoint can be polled intermittently instead of blocking.  - Returns a status of 'created' when it's checking if the Lambda exists in the account. - Returns a status of 'waiting' while checking. - Returns a status of 'checked and ok' if the Lambda exists. - Returns a status of 'error' if the Lambda does not exist.
+   * Test if permissions are present to add a log-forwarding triggers for the given services and AWS account. The input
+   * is the same as for Enable an AWS service log collection. Subsequent requests will always repeat the above, so this
+   * endpoint can be polled intermittently instead of blocking.
+   *
+   * - Returns a status of 'created' when it's checking if the Lambda exists in the account.
+   * - Returns a status of 'waiting' while checking.
+   * - Returns a status of 'checked and ok' if the Lambda exists.
+   * - Returns a status of 'error' if the Lambda does not exist.
    * @param param The request object
    */
   public checkAWSLogsLambdaAsync(
@@ -801,7 +816,16 @@ export class AWSLogsIntegrationApi {
   }
 
   /**
-   * Test if permissions are present to add log-forwarding triggers for the given services and AWS account. Input is the same as for `EnableAWSLogServices`. Done async, so can be repeatedly polled in a non-blocking fashion until the async request completes.  - Returns a status of `created` when it's checking if the permissions exists   in the AWS account. - Returns a status of `waiting` while checking. - Returns a status of `checked and ok` if the Lambda exists. - Returns a status of `error` if the Lambda does not exist.
+   * Test if permissions are present to add log-forwarding triggers for the
+   * given services and AWS account. Input is the same as for `EnableAWSLogServices`.
+   * Done async, so can be repeatedly polled in a non-blocking fashion until
+   * the async request completes.
+   *
+   * - Returns a status of `created` when it's checking if the permissions exists
+   *   in the AWS account.
+   * - Returns a status of `waiting` while checking.
+   * - Returns a status of `checked and ok` if the Lambda exists.
+   * - Returns a status of `error` if the Lambda does not exist.
    * @param param The request object
    */
   public checkAWSLogsServicesAsync(

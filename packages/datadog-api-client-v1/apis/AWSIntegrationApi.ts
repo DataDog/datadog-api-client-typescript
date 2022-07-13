@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AWSAccount } from "../models/AWSAccount";
@@ -38,7 +46,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSIntegrationApi.createAWSAccount"
+      "v1.AWSIntegrationApi.createAWSAccount"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -82,7 +90,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSIntegrationApi.createAWSTagFilter"
+      "v1.AWSIntegrationApi.createAWSTagFilter"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -126,7 +134,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSIntegrationApi.createNewAWSExternalID"
+      "v1.AWSIntegrationApi.createNewAWSExternalID"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -170,7 +178,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSIntegrationApi.deleteAWSAccount"
+      "v1.AWSIntegrationApi.deleteAWSAccount"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -214,7 +222,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSIntegrationApi.deleteAWSTagFilter"
+      "v1.AWSIntegrationApi.deleteAWSTagFilter"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -239,6 +247,31 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listAvailableAWSNamespaces(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v1/integration/aws/available_namespace_rules";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.AWSIntegrationApi.listAvailableAWSNamespaces"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listAWSAccounts(
     accountId?: string,
     roleName?: string,
@@ -253,7 +286,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSIntegrationApi.listAWSAccounts"
+      "v1.AWSIntegrationApi.listAWSAccounts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -306,7 +339,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSIntegrationApi.listAWSTagFilters"
+      "v1.AWSIntegrationApi.listAWSTagFilters"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -318,31 +351,6 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(accountId, "string", "")
       );
     }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async listAvailableAWSNamespaces(
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // Path Params
-    const localVarPath = "/api/v1/integration/aws/available_namespace_rules";
-
-    // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "AWSIntegrationApi.listAvailableAWSNamespaces"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -375,7 +383,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AWSIntegrationApi.updateAWSAccount"
+      "v1.AWSIntegrationApi.updateAWSAccount"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -751,6 +759,61 @@ export class AWSIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listAvailableAWSNamespaces
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listAvailableAWSNamespaces(
+    response: ResponseContext
+  ): Promise<Array<string>> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: Array<string> = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Array<string>",
+        ""
+      ) as Array<string>;
+      return body;
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Array<string> = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Array<string>",
+        ""
+      ) as Array<string>;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listAWSAccounts
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -877,61 +940,6 @@ export class AWSIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to listAvailableAWSNamespaces
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async listAvailableAWSNamespaces(
-    response: ResponseContext
-  ): Promise<Array<string>> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: Array<string> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<string>",
-        ""
-      ) as Array<string>;
-      return body;
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: Array<string> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<string>",
-        ""
-      ) as Array<string>;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to updateAWSAccount
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1008,7 +1016,8 @@ export interface AWSIntegrationApiCreateAWSAccountRequest {
 
 export interface AWSIntegrationApiCreateAWSTagFilterRequest {
   /**
-   * Set an AWS tag filter using an &#x60;aws_account_identifier&#x60;, &#x60;namespace&#x60;, and filtering string. Namespace options are &#x60;application_elb&#x60;, &#x60;elb&#x60;, &#x60;lambda&#x60;, &#x60;network_elb&#x60;, &#x60;rds&#x60;, &#x60;sqs&#x60;, and &#x60;custom&#x60;.
+   * Set an AWS tag filter using an `aws_account_identifier`, `namespace`, and filtering string.
+   * Namespace options are `application_elb`, `elb`, `lambda`, `network_elb`, `rds`, `sqs`, and `custom`.
    * @type AWSTagFilterCreateRequest
    */
   body: AWSTagFilterCreateRequest;
@@ -1016,7 +1025,9 @@ export interface AWSIntegrationApiCreateAWSTagFilterRequest {
 
 export interface AWSIntegrationApiCreateNewAWSExternalIDRequest {
   /**
-   * Your Datadog role delegation name. For more information about your AWS account Role name, see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
+   * Your Datadog role delegation name.
+   * For more information about your AWS account Role name,
+   * see the [Datadog AWS integration configuration info](https://docs.datadoghq.com/integrations/amazon_web_services/#setup).
    * @type AWSAccount
    */
   body: AWSAccount;
@@ -1032,7 +1043,7 @@ export interface AWSIntegrationApiDeleteAWSAccountRequest {
 
 export interface AWSIntegrationApiDeleteAWSTagFilterRequest {
   /**
-   * Delete a tag filtering entry for a given AWS account and &#x60;dd-aws&#x60; namespace.
+   * Delete a tag filtering entry for a given AWS account and `dd-aws` namespace.
    * @type AWSTagFilterDeleteRequest
    */
   body: AWSTagFilterDeleteRequest;
@@ -1040,7 +1051,7 @@ export interface AWSIntegrationApiDeleteAWSTagFilterRequest {
 
 export interface AWSIntegrationApiListAWSAccountsRequest {
   /**
-   * Only return AWS accounts that matches this &#x60;account_id&#x60;.
+   * Only return AWS accounts that matches this `account_id`.
    * @type string
    */
   accountId?: string;
@@ -1050,7 +1061,7 @@ export interface AWSIntegrationApiListAWSAccountsRequest {
    */
   roleName?: string;
   /**
-   * Only return AWS accounts that matches this &#x60;access_key_id&#x60;.
+   * Only return AWS accounts that matches this `access_key_id`.
    * @type string
    */
   accessKeyId?: string;
@@ -1058,7 +1069,7 @@ export interface AWSIntegrationApiListAWSAccountsRequest {
 
 export interface AWSIntegrationApiListAWSTagFiltersRequest {
   /**
-   * Only return AWS filters that matches this &#x60;account_id&#x60;.
+   * Only return AWS filters that matches this `account_id`.
    * @type string
    */
   accountId: string;
@@ -1071,17 +1082,19 @@ export interface AWSIntegrationApiUpdateAWSAccountRequest {
    */
   body: AWSAccount;
   /**
-   * Only return AWS accounts that matches this &#x60;account_id&#x60;.
+   * Only return AWS accounts that matches this `account_id`.
    * @type string
    */
   accountId?: string;
   /**
-   * Only return AWS accounts that match this &#x60;role_name&#x60;. Required if &#x60;account_id&#x60; is specified.
+   * Only return AWS accounts that match this `role_name`.
+   * Required if `account_id` is specified.
    * @type string
    */
   roleName?: string;
   /**
-   * Only return AWS accounts that matches this &#x60;access_key_id&#x60;. Required if none of the other two options are specified.
+   * Only return AWS accounts that matches this `access_key_id`.
+   * Required if none of the other two options are specified.
    * @type string
    */
   accessKeyId?: string;
@@ -1105,7 +1118,10 @@ export class AWSIntegrationApi {
   }
 
   /**
-   * Create a Datadog-Amazon Web Services integration. Using the `POST` method updates your integration configuration by adding your new configuration to the existing one in your Datadog organization. A unique AWS Account ID for role based authentication.
+   * Create a Datadog-Amazon Web Services integration.
+   * Using the `POST` method updates your integration configuration
+   * by adding your new configuration to the existing one in your Datadog organization.
+   * A unique AWS Account ID for role based authentication.
    * @param param The request object
    */
   public createAWSAccount(
@@ -1210,6 +1226,26 @@ export class AWSIntegrationApi {
   }
 
   /**
+   * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
+   * @param param The request object
+   */
+  public listAvailableAWSNamespaces(
+    options?: Configuration
+  ): Promise<Array<string>> {
+    const requestContextPromise =
+      this.requestFactory.listAvailableAWSNamespaces(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAvailableAWSNamespaces(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * List all Datadog-AWS integrations available in your Datadog organization.
    * @param param The request object
    */
@@ -1249,26 +1285,6 @@ export class AWSIntegrationApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.listAWSTagFilters(responseContext);
-        });
-    });
-  }
-
-  /**
-   * List all namespace rules for a given Datadog-AWS integration. This endpoint takes no arguments.
-   * @param param The request object
-   */
-  public listAvailableAWSNamespaces(
-    options?: Configuration
-  ): Promise<Array<string>> {
-    const requestContextPromise =
-      this.requestFactory.listAvailableAWSNamespaces(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.listAvailableAWSNamespaces(
-            responseContext
-          );
         });
     });
   }

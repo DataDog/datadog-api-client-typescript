@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { HostTags } from "../models/HostTags";
@@ -45,7 +53,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "TagsApi.createHostTags"
+      "v1.TagsApi.createHostTags"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -101,9 +109,9 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "TagsApi.deleteHostTags"
+      "v1.TagsApi.deleteHostTags"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
@@ -146,7 +154,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "TagsApi.getHostTags"
+      "v1.TagsApi.getHostTags"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -180,7 +188,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "TagsApi.listHostTags"
+      "v1.TagsApi.listHostTags"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -234,7 +242,7 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "TagsApi.updateHostTags"
+      "v1.TagsApi.updateHostTags"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -582,7 +590,8 @@ export interface TagsApiCreateHostTagsRequest {
    */
   body: HostTags;
   /**
-   * The source of the tags. [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * The source of the tags.
+   * [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
    * @type string
    */
   source?: string;
@@ -595,7 +604,8 @@ export interface TagsApiDeleteHostTagsRequest {
    */
   hostName: string;
   /**
-   * The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
+   * The source of the tags (for example chef, puppet).
+   * [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).
    * @type string
    */
   source?: string;
@@ -634,7 +644,8 @@ export interface TagsApiUpdateHostTagsRequest {
    */
   body: HostTags;
   /**
-   * The source of the tags (for example chef, puppet). [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
+   * The source of the tags (for example chef, puppet).
+   * [Complete list of source attribute values](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value)
    * @type string
    */
   source?: string;
@@ -658,7 +669,8 @@ export class TagsApi {
   }
 
   /**
-   * This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.
+   * This endpoint allows you to add new tags to a host,
+   * optionally specifying where these tags come from.
    * @param param The request object
    */
   public createHostTags(
@@ -681,7 +693,8 @@ export class TagsApi {
   }
 
   /**
-   * This endpoint allows you to remove all user-assigned tags for a single host.
+   * This endpoint allows you to remove all user-assigned tags
+   * for a single host.
    * @param param The request object
    */
   public deleteHostTags(
@@ -746,7 +759,8 @@ export class TagsApi {
   }
 
   /**
-   * This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.
+   * This endpoint allows you to update/replace all tags in
+   * an integration source with those supplied in the request.
    * @param param The request object
    */
   public updateHostTags(

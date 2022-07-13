@@ -2,9 +2,9 @@
  * Update your organization returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.OrganizationsApi(configuration);
 
 const params: v1.OrganizationsApiUpdateOrgRequest = {
@@ -39,6 +39,7 @@ const params: v1.OrganizationsApiUpdateOrgRequest = {
     subscription: {
       type: "pro",
     },
+    trial: false,
   },
   publicId: "abc123",
 };

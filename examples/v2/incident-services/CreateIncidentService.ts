@@ -2,9 +2,9 @@
  * Create a new incident service returns "CREATED" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 configuration.unstableOperations["createIncidentService"] = true;
 const apiInstance = new v2.IncidentServicesApi(configuration);
 

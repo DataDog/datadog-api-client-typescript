@@ -1,25 +1,34 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
-import { logger } from "../../../logger";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { SecurityFilterCreateRequest } from "../models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
-import { SecurityFilterUpdateRequest } from "../models/SecurityFilterUpdateRequest";
 import { SecurityFiltersResponse } from "../models/SecurityFiltersResponse";
+import { SecurityFilterUpdateRequest } from "../models/SecurityFilterUpdateRequest";
 import { SecurityMonitoringListRulesResponse } from "../models/SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringRuleCreatePayload } from "../models/SecurityMonitoringRuleCreatePayload";
 import { SecurityMonitoringRuleResponse } from "../models/SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "../models/SecurityMonitoringRuleUpdatePayload";
+import { SecurityMonitoringSignal } from "../models/SecurityMonitoringSignal";
 import { SecurityMonitoringSignalListRequest } from "../models/SecurityMonitoringSignalListRequest";
+import { SecurityMonitoringSignalListRequestPage } from "../models/SecurityMonitoringSignalListRequestPage";
 import { SecurityMonitoringSignalsListResponse } from "../models/SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSignalsSort";
 
@@ -44,7 +53,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.createSecurityFilter"
+      "v2.SecurityMonitoringApi.createSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -89,7 +98,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.createSecurityMonitoringRule"
+      "v2.SecurityMonitoringApi.createSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -142,9 +151,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.deleteSecurityFilter"
+      "v2.SecurityMonitoringApi.deleteSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -179,9 +188,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.deleteSecurityMonitoringRule"
+      "v2.SecurityMonitoringApi.deleteSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -217,7 +226,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.getSecurityFilter"
+      "v2.SecurityMonitoringApi.getSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -254,7 +263,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.getSecurityMonitoringRule"
+      "v2.SecurityMonitoringApi.getSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -281,7 +290,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.listSecurityFilters"
+      "v2.SecurityMonitoringApi.listSecurityFilters"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -309,7 +318,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.listSecurityMonitoringRules"
+      "v2.SecurityMonitoringApi.listSecurityMonitoringRules"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -349,20 +358,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listSecurityMonitoringSignals'");
-    if (!_config.unstableOperations["listSecurityMonitoringSignals"]) {
-      throw new Error(
-        "Unstable operation 'listSecurityMonitoringSignals' is disabled"
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.listSecurityMonitoringSignals"
+      "v2.SecurityMonitoringApi.listSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -421,20 +423,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'searchSecurityMonitoringSignals'");
-    if (!_config.unstableOperations["searchSecurityMonitoringSignals"]) {
-      throw new Error(
-        "Unstable operation 'searchSecurityMonitoringSignals' is disabled"
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/signals/search";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.searchSecurityMonitoringSignals"
+      "v2.SecurityMonitoringApi.searchSecurityMonitoringSignals"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -495,7 +490,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.updateSecurityFilter"
+      "v2.SecurityMonitoringApi.updateSecurityFilter"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -551,7 +546,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SecurityMonitoringApi.updateSecurityMonitoringRule"
+      "v2.SecurityMonitoringApi.updateSecurityMonitoringRule"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1360,7 +1355,6 @@ export interface SecurityMonitoringApiCreateSecurityFilterRequest {
 
 export interface SecurityMonitoringApiCreateSecurityMonitoringRuleRequest {
   /**
-   *
    * @type SecurityMonitoringRuleCreatePayload
    */
   body: SecurityMonitoringRuleCreatePayload;
@@ -1446,7 +1440,6 @@ export interface SecurityMonitoringApiListSecurityMonitoringSignalsRequest {
 
 export interface SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest {
   /**
-   *
    * @type SecurityMonitoringSignalListRequest
    */
   body?: SecurityMonitoringSignalListRequest;
@@ -1472,7 +1465,6 @@ export interface SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest {
    */
   ruleId: string;
   /**
-   *
    * @type SecurityMonitoringRuleUpdatePayload
    */
   body: SecurityMonitoringRuleUpdatePayload;
@@ -1496,7 +1488,10 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Create a security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+   * Create a security filter.
+   *
+   * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+   * for more examples.
    * @param param The request object
    */
   public createSecurityFilter(
@@ -1580,7 +1575,10 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Get the details of a specific security filter.  See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/) for more examples.
+   * Get the details of a specific security filter.
+   *
+   * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
+   * for more examples.
    * @param param The request object
    */
   public getSecurityFilter(
@@ -1667,7 +1665,9 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * The list endpoint returns security signals that match a search query. Both this endpoint and the POST endpoint can be used interchangeably when listing security signals.
+   * The list endpoint returns security signals that match a search query.
+   * Both this endpoint and the POST endpoint can be used interchangeably when listing
+   * security signals.
    * @param param The request object
    */
   public listSecurityMonitoringSignals(
@@ -1696,7 +1696,68 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Returns security signals that match a search query. Both this endpoint and the GET endpoint can be used interchangeably for listing security signals.
+   * Provide a paginated version of listSecurityMonitoringSignals returning a generator with all the items.
+   */
+  public async *listSecurityMonitoringSignalsWithPagination(
+    param: SecurityMonitoringApiListSecurityMonitoringSignalsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<SecurityMonitoringSignal> {
+    let pageSize = 10;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.listSecurityMonitoringSignals(
+          param.filterQuery,
+          param.filterFrom,
+          param.filterTo,
+          param.sort,
+          param.pageCursor,
+          param.pageLimit,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response =
+        await this.responseProcessor.listSecurityMonitoringSignals(
+          responseContext
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageAfter;
+    }
+  }
+
+  /**
+   * Returns security signals that match a search query.
+   * Both this endpoint and the GET endpoint can be used interchangeably for listing
+   * security signals.
    * @param param The request object
    */
   public searchSecurityMonitoringSignals(
@@ -1717,7 +1778,68 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Update a specific security filter. Returns the security filter object when the request is successful.
+   * Provide a paginated version of searchSecurityMonitoringSignals returning a generator with all the items.
+   */
+  public async *searchSecurityMonitoringSignalsWithPagination(
+    param: SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<SecurityMonitoringSignal> {
+    let pageSize = 10;
+    if (param.body === undefined) {
+      param.body = new SecurityMonitoringSignalListRequest();
+    }
+    if (param.body.page === undefined) {
+      param.body.page = new SecurityMonitoringSignalListRequestPage();
+    }
+    if (param.body.page.limit !== undefined) {
+      pageSize = param.body.page.limit;
+    }
+    param.body.page.limit = pageSize;
+    while (true) {
+      const requestContext =
+        await this.requestFactory.searchSecurityMonitoringSignals(
+          param.body,
+          options
+        );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response =
+        await this.responseProcessor.searchSecurityMonitoringSignals(
+          responseContext
+        );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.body.page.cursor = cursorMetaPageAfter;
+    }
+  }
+
+  /**
+   * Update a specific security filter.
+   * Returns the security filter object when the request is successful.
    * @param param The request object
    */
   public updateSecurityFilter(
@@ -1739,7 +1861,9 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field must be included. For example, when modifying a query all queries must be included. Default rules can only be updated to be enabled and to change notifications.
+   * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field
+   * must be included. For example, when modifying a query all queries must be included.
+   * Default rules can only be updated to be enabled and to change notifications.
    * @param param The request object
    */
   public updateSecurityMonitoringRule(

@@ -1,24 +1,28 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
+} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
   HttpFile,
-} from "../http/http";
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CloudWorkloadSecurityAgentRuleCreateRequest } from "../models/CloudWorkloadSecurityAgentRuleCreateRequest";
 import { CloudWorkloadSecurityAgentRuleResponse } from "../models/CloudWorkloadSecurityAgentRuleResponse";
-import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "../models/CloudWorkloadSecurityAgentRulesListResponse";
+import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "../models/CloudWorkloadSecurityAgentRuleUpdateRequest";
 
 export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactory {
   public async createCloudWorkloadSecurityAgentRule(
@@ -41,7 +45,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule"
+      "v2.CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -93,9 +97,9 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule"
+      "v2.CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -118,15 +122,16 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile"
+      "v2.CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/yaml");
-
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/yaml, application/json"
+    );
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -157,7 +162,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule"
+      "v2.CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -183,7 +188,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules"
+      "v2.CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -228,7 +233,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule"
+      "v2.CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -404,15 +409,14 @@ export class CloudWorkloadSecurityApiResponseProcessor {
       response.headers["content-type"]
     );
     if (isCodeInRange("200", response.httpStatusCode)) {
-      const body: HttpFile =
-        (await response.getBodyAsFile()) as any as HttpFile;
+      const body: HttpFile = (await response.getBodyAsFile()) as HttpFile;
       return body;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIErrorResponse",
-        "binary"
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(403, body);
     }
@@ -420,18 +424,15 @@ export class CloudWorkloadSecurityApiResponseProcessor {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIErrorResponse",
-        "binary"
+        ""
       ) as APIErrorResponse;
       throw new ApiException<APIErrorResponse>(429, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HttpFile = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "HttpFile",
-        "binary"
-      ) as HttpFile;
+      const body: HttpFile =
+        (await response.getBodyAsFile()) as any as HttpFile;
       return body;
     }
 
@@ -750,7 +751,9 @@ export class CloudWorkloadSecurityApi {
   }
 
   /**
-   * The download endpoint generates a Cloud Workload Security policy file from your currently active Cloud Workload Security rules, and downloads them as a .policy file. This file can then be deployed to your agents to update the policy running in your environment.
+   * The download endpoint generates a Cloud Workload Security policy file from your currently active
+   * Cloud Workload Security rules, and downloads them as a .policy file. This file can then be deployed to
+   * your agents to update the policy running in your environment.
    * @param param The request object
    */
   public downloadCloudWorkloadPolicyFile(
@@ -814,7 +817,8 @@ export class CloudWorkloadSecurityApi {
   }
 
   /**
-   * Update a specific Agent rule. Returns the Agent rule object when the request is successful.
+   * Update a specific Agent rule.
+   * Returns the Agent rule object when the request is successful.
    * @param param The request object
    */
   public updateCloudWorkloadSecurityAgentRule(

@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GraphSnapshot } from "../models/GraphSnapshot";
@@ -20,6 +28,8 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     eventQuery?: string,
     graphDef?: string,
     title?: string,
+    height?: number,
+    width?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -44,7 +54,7 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "SnapshotsApi.getGraphSnapshot"
+      "v1.SnapshotsApi.getGraphSnapshot"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -84,6 +94,18 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "title",
         ObjectSerializer.serialize(title, "string", "")
+      );
+    }
+    if (height !== undefined) {
+      requestContext.setQueryParam(
+        "height",
+        ObjectSerializer.serialize(height, "number", "int64")
+      );
+    }
+    if (width !== undefined) {
+      requestContext.setQueryParam(
+        "width",
+        ObjectSerializer.serialize(width, "number", "int64")
       );
     }
 
@@ -185,7 +207,9 @@ export interface SnapshotsApiGetGraphSnapshotRequest {
    */
   eventQuery?: string;
   /**
-   * A JSON document defining the graph. &#x60;graph_def&#x60; can be used instead of &#x60;metric_query&#x60;. The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar) and should be formatted to a single line then URL encoded.
+   * A JSON document defining the graph. `graph_def` can be used instead of `metric_query`.
+   * The JSON document uses the [grammar defined here](https://docs.datadoghq.com/graphing/graphing_json/#grammar)
+   * and should be formatted to a single line then URL encoded.
    * @type string
    */
   graphDef?: string;
@@ -194,6 +218,16 @@ export interface SnapshotsApiGetGraphSnapshotRequest {
    * @type string
    */
   title?: string;
+  /**
+   * The height of the graph. If no height is specified, the graph's original height is used.
+   * @type number
+   */
+  height?: number;
+  /**
+   * The width of the graph. If no width is specified, the graph's original width is used.
+   * @type number
+   */
+  width?: number;
 }
 
 export class SnapshotsApi {
@@ -214,7 +248,8 @@ export class SnapshotsApi {
   }
 
   /**
-   * Take graph snapshots. **Note**: When a snapshot is created, there is some delay before it is available.
+   * Take graph snapshots.
+   * **Note**: When a snapshot is created, there is some delay before it is available.
    * @param param The request object
    */
   public getGraphSnapshot(
@@ -228,6 +263,8 @@ export class SnapshotsApi {
       param.eventQuery,
       param.graphDef,
       param.title,
+      param.height,
+      param.width,
       options
     );
     return requestContextPromise.then((requestContext) => {

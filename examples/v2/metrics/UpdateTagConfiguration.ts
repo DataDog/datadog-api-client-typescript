@@ -2,10 +2,9 @@
  * Update a tag configuration returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
-configuration.unstableOperations["updateTagConfiguration"] = true;
+const configuration = client.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
 // there is a valid "metric_tag_configuration" in the system

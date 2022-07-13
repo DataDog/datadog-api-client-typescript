@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { HostListResponse } from "../models/HostListResponse";
@@ -28,7 +36,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "HostsApi.getHostTotals"
+      "v1.HostsApi.getHostTotals"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -70,7 +78,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "HostsApi.listHosts"
+      "v1.HostsApi.listHosts"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -165,7 +173,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "HostsApi.muteHost"
+      "v1.HostsApi.muteHost"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -212,7 +220,7 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "HostsApi.unmuteHost"
+      "v1.HostsApi.unmuteHost"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -495,7 +503,7 @@ export interface HostsApiListHostsRequest {
    */
   sortField?: string;
   /**
-   * Direction of sort. Options include &#x60;asc&#x60; and &#x60;desc&#x60;.
+   * Direction of sort. Options include `asc` and `desc`.
    * @type string
    */
   sortDir?: string;
@@ -565,7 +573,8 @@ export class HostsApi {
   }
 
   /**
-   * This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.
+   * This endpoint returns the total number of active and up hosts in your Datadog account.
+   * Active means the host has reported in the past hour, and up means it has reported in the past two hours.
    * @param param The request object
    */
   public getHostTotals(
@@ -586,7 +595,10 @@ export class HostsApi {
   }
 
   /**
-   * This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.
+   * This endpoint allows searching for hosts by name, alias, or tag.
+   * Hosts live within the past 3 hours are included by default.
+   * Retention is 7 days.
+   * Results are paginated with a max of 1000 results at a time.
    * @param param The request object
    */
   public listHosts(

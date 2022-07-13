@@ -2,9 +2,9 @@
  * Edit a browser test returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
 const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
@@ -44,10 +44,18 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
     message: "",
     name: "Example test name",
     options: {
+      ci: {
+        executionRule: "blocking",
+      },
       deviceIds: ["laptop_large"],
       monitorOptions: {},
       restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
       retry: {},
+      rumSettings: {
+        applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        clientTokenId: 12345,
+        isEnabled: true,
+      },
     },
     status: "live",
     steps: [

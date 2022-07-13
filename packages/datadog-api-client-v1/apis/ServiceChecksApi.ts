@@ -1,13 +1,21 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
@@ -33,10 +41,9 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "ServiceChecksApi.submitServiceCheck"
+      "v1.ServiceChecksApi.submitServiceCheck"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
-    requestContext.setHeaderParam("Accept", "text/json");
-
+    requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
@@ -141,7 +148,7 @@ export class ServiceChecksApiResponseProcessor {
 export interface ServiceChecksApiSubmitServiceCheckRequest {
   /**
    * Service Check request body.
-   * @type Array&lt;ServiceCheck&gt;
+   * @type Array<ServiceCheck>
    */
   body: Array<ServiceCheck>;
 }
@@ -164,7 +171,11 @@ export class ServiceChecksApi {
   }
 
   /**
-   * Submit a list of Service Checks.  **Notes**: - A valid API key is required. - Service checks can be submitted up to 10 minutes in the past.
+   * Submit a list of Service Checks.
+   *
+   * **Notes**:
+   * - A valid API key is required.
+   * - Service checks can be submitted up to 10 minutes in the past.
    * @param param The request object
    */
   public submitServiceCheck(

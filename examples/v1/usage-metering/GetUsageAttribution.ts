@@ -1,10 +1,10 @@
 /**
- * Get Usage Attribution returns "OK" response
+ * Get usage attribution returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 configuration.unstableOperations["getUsageAttribution"] = true;
 const apiInstance = new v1.UsageMeteringApi(configuration);
 

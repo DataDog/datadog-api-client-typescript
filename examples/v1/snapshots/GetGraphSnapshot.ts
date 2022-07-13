@@ -2,9 +2,9 @@
  * Take graph snapshots returns "OK" response
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.SnapshotsApi(configuration);
 
 const params: v1.SnapshotsApiGetGraphSnapshotRequest = {
@@ -12,6 +12,8 @@ const params: v1.SnapshotsApiGetGraphSnapshotRequest = {
   start: new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000,
   end: new Date().getTime() / 1000,
   title: "System load",
+  height: 400,
+  width: 600,
 };
 
 apiInstance

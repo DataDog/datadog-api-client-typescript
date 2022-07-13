@@ -2,10 +2,9 @@
  * Get a quick list of security signals returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
-configuration.unstableOperations["listSecurityMonitoringSignals"] = true;
+const configuration = client.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 apiInstance

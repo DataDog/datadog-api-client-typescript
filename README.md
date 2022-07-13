@@ -23,9 +23,9 @@ yarn add @datadog/datadog-api-client
 Here's an example getting a monitor:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client, v1 } from '@datadog/datadog-api-client';
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
 let params:v1.MonitorsApiGetMonitorRequest = {
@@ -37,6 +37,24 @@ apiInstance.getMonitor(params).then((data: v1.Monitor) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 
+```
+
+### Authentication
+
+By default the library will use the `DD_API_KEY` and `DD_APP_KEY` environment variables to authenticate against the Datadog API.
+To provide your own set of credentials, you need to set the appropriate keys on the configuration:
+
+```typescript
+import { client } from '@datadog/datadog-api-client';
+
+const configurationOpts = {
+  authMethods: {
+    apiKeyAuth: "<API KEY>",
+    appKeyAuth: "<APPLICATION KEY>"
+  },
+};
+
+const configuration = client.createConfiguration(configurationOpts);
 ```
 
 ### Unstable Endpoints
@@ -54,11 +72,11 @@ where <operationName> is the name of the method used to interact with that endpo
 When talking to a different server, like the `eu` instance, change the server variables:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client } from '@datadog/datadog-api-client';
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 
-v1.setServerVariables(configuration, {
+client.setServerVariables(configuration, {
   site: "datadoghq.eu"
 });
 ```
@@ -69,14 +87,14 @@ If you want to disable GZIP compressed responses, set the `compress` flag
 on your configuration options:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client } from '@datadog/datadog-api-client';
 const configurationOpts = {
   httpConfig: {
     compress: false
   },
 };
 
-const configuration = v1.createConfiguration(configurationOpts);
+const configuration = client.createConfiguration(configurationOpts);
 ```
 
 ### Enable requests logging
@@ -84,12 +102,12 @@ const configuration = v1.createConfiguration(configurationOpts);
 If you want to enable requests logging, set the `debug` flag on your configuration object:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client } from '@datadog/datadog-api-client';
 const configurationOpts = {
   debug: true
 };
 
-const configuration = v1.createConfiguration(configurationOpts);
+const configuration = client.createConfiguration(configurationOpts);
 ```
 
 ### Adding timeout to requests
@@ -100,7 +118,7 @@ controller, for example the one implemented by
 then pass the `signal method to the HTTP configuration options:
 
 ```typescript
-import { v1 } from '@datadog/datadog-api-client';
+import { client, v1 } from '@datadog/datadog-api-client';
 import AbortController from 'abort-controller';
 
 const controller = new AbortController();
@@ -114,12 +132,33 @@ const configurationOpts = {
   },
 };
 
-const configuration = v1.createConfiguration(configurationOpts);
+const configuration = client.createConfiguration(configurationOpts);
 
 const apiInstance = new v1.MonitorsApi(configuration);
 apiInstance.listMonitors().then((data: v1.Monitor[]) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error)).finally(() => clearTimeout(timeout));
+```
+
+### Pagination
+
+Several listing operations have a pagination method to help consume all the items available.
+For example, to retrieve all your incidents:
+
+```typescript
+import { client, v2 } from "@datadog/datadog-api-client";
+
+async function main() {
+  const configuration = client.createConfiguration();
+  configuration.unstableOperations["listIncidents"] = true;
+  const apiInstance = new v2.IncidentsApi(configuration);
+
+  for await (const incident of apiInstance.listIncidentsWithPagination()) {
+      console.log("Got incident " + incident.id);
+  }
+}
+
+main();
 ```
 
 ## Documentation

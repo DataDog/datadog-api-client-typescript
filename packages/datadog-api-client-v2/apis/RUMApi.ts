@@ -1,18 +1,28 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { RUMAggregateRequest } from "../models/RUMAggregateRequest";
 import { RUMAnalyticsAggregateResponse } from "../models/RUMAnalyticsAggregateResponse";
+import { RUMEvent } from "../models/RUMEvent";
 import { RUMEventsResponse } from "../models/RUMEventsResponse";
+import { RUMQueryPageOptions } from "../models/RUMQueryPageOptions";
 import { RUMSearchEventsRequest } from "../models/RUMSearchEventsRequest";
 import { RUMSort } from "../models/RUMSort";
 
@@ -36,7 +46,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RUMApi.aggregateRUMEvents"
+      "v2.RUMApi.aggregateRUMEvents"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -79,7 +89,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RUMApi.listRUMEvents"
+      "v2.RUMApi.listRUMEvents"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -151,7 +161,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "RUMApi.searchRUMEvents"
+      "v2.RUMApi.searchRUMEvents"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -371,7 +381,6 @@ export class RUMApiResponseProcessor {
 
 export interface RUMApiAggregateRUMEventsRequest {
   /**
-   *
    * @type RUMAggregateRequest
    */
   body: RUMAggregateRequest;
@@ -412,7 +421,6 @@ export interface RUMApiListRUMEventsRequest {
 
 export interface RUMApiSearchRUMEventsRequest {
   /**
-   *
    * @type RUMSearchEventsRequest
    */
   body: RUMSearchEventsRequest;
@@ -456,7 +464,12 @@ export class RUMApi {
   }
 
   /**
-   * List endpoint returns events that match a RUM search query. [Results are paginated][1].  Use this endpoint to see your latest RUM events.  [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * List endpoint returns events that match a RUM search query.
+   * [Results are paginated][1].
+   *
+   * Use this endpoint to see your latest RUM events.
+   *
+   * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
   public listRUMEvents(
@@ -482,7 +495,69 @@ export class RUMApi {
   }
 
   /**
-   * List endpoint returns RUM events that match a RUM search query. [Results are paginated][1].  Use this endpoint to build complex RUM events filtering and search.  [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
+   * Provide a paginated version of listRUMEvents returning a generator with all the items.
+   */
+  public async *listRUMEventsWithPagination(
+    param: RUMApiListRUMEventsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<RUMEvent> {
+    let pageSize = 10;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listRUMEvents(
+        param.filterQuery,
+        param.filterFrom,
+        param.filterTo,
+        param.sort,
+        param.pageCursor,
+        param.pageLimit,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listRUMEvents(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageAfter;
+    }
+  }
+
+  /**
+   * List endpoint returns RUM events that match a RUM search query.
+   * [Results are paginated][1].
+   *
+   * Use this endpoint to build complex RUM events filtering and search.
+   *
+   * [1]: https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
   public searchRUMEvents(
@@ -500,5 +575,61 @@ export class RUMApi {
           return this.responseProcessor.searchRUMEvents(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of searchRUMEvents returning a generator with all the items.
+   */
+  public async *searchRUMEventsWithPagination(
+    param: RUMApiSearchRUMEventsRequest,
+    options?: Configuration
+  ): AsyncGenerator<RUMEvent> {
+    let pageSize = 10;
+    if (param.body.page === undefined) {
+      param.body.page = new RUMQueryPageOptions();
+    }
+    if (param.body.page.limit === undefined) {
+      param.body.page.limit = pageSize;
+    } else {
+      pageSize = param.body.page.limit;
+    }
+    while (true) {
+      const requestContext = await this.requestFactory.searchRUMEvents(
+        param.body,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.searchRUMEvents(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageAfter = cursorMetaPage.after;
+      if (cursorMetaPageAfter === undefined) {
+        break;
+      }
+
+      param.body.page.cursor = cursorMetaPageAfter;
+    }
   }
 }

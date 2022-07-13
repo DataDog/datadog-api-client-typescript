@@ -2,10 +2,9 @@
  * List tag configurations with a tag filter returns "Success" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
-configuration.unstableOperations["listTagConfigurations"] = true;
+const configuration = client.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
 const params: v2.MetricsApiListTagConfigurationsRequest = {

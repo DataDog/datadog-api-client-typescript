@@ -2,9 +2,9 @@
  * Schedule a downtime once a year
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.DowntimesApi(configuration);
 
 const params: v1.DowntimesApiCreateDowntimeRequest = {
@@ -18,6 +18,7 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
     start: new Date().getTime() / 1000,
     end: new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000,
     timezone: "Etc/UTC",
+    muteFirstRecoveryNotification: true,
   },
 };
 

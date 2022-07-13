@@ -2,9 +2,9 @@
  * Update an existing rule returns "OK" response
  */
 
-import { v2 } from "@datadog/datadog-api-client";
+import { client, v2 } from "@datadog/datadog-api-client";
 
-const configuration = v2.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
@@ -22,8 +22,10 @@ const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
     ],
     hasExtendedTitle: true,
     options: {
+      decreaseCriticalityBasedOnEnv: false,
       detectionMethod: "threshold",
       evaluationWindow: 0,
+      hardcodedEvaluatorType: "log4shell",
       impossibleTravelOptions: {
         baselineUserLocations: true,
       },
@@ -32,6 +34,8 @@ const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
       newValueOptions: {
         forgetAfter: 1,
         learningDuration: 0,
+        learningMethod: "duration",
+        learningThreshold: 0,
       },
     },
     queries: [

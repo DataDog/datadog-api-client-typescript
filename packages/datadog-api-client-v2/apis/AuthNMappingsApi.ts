@@ -1,20 +1,28 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
-import { RequestContext, HttpMethod, ResponseContext } from "../http/http";
+} from "../../datadog-api-client-common/configuration";
+import {
+  RequestContext,
+  HttpMethod,
+  ResponseContext,
+} from "../../datadog-api-client-common/http/http";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AuthNMappingCreateRequest } from "../models/AuthNMappingCreateRequest";
 import { AuthNMappingResponse } from "../models/AuthNMappingResponse";
-import { AuthNMappingUpdateRequest } from "../models/AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "../models/AuthNMappingsResponse";
 import { AuthNMappingsSort } from "../models/AuthNMappingsSort";
+import { AuthNMappingUpdateRequest } from "../models/AuthNMappingUpdateRequest";
 
 export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
   public async createAuthNMapping(
@@ -36,7 +44,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AuthNMappingsApi.createAuthNMapping"
+      "v2.AuthNMappingsApi.createAuthNMapping"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -84,9 +92,9 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AuthNMappingsApi.deleteAuthNMapping"
+      "v2.AuthNMappingsApi.deleteAuthNMapping"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -121,7 +129,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AuthNMappingsApi.getAuthNMapping"
+      "v2.AuthNMappingsApi.getAuthNMapping"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -140,7 +148,6 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     pageSize?: number,
     pageNumber?: number,
     sort?: AuthNMappingsSort,
-    include?: Array<string>,
     filter?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -152,7 +159,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AuthNMappingsApi.listAuthNMappings"
+      "v2.AuthNMappingsApi.listAuthNMappings"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -174,12 +181,6 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort",
         ObjectSerializer.serialize(sort, "AuthNMappingsSort", "")
-      );
-    }
-    if (include !== undefined) {
-      requestContext.setQueryParam(
-        "include",
-        ObjectSerializer.serialize(include, "Array<string>", "")
       );
     }
     if (filter !== undefined) {
@@ -229,7 +230,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "AuthNMappingsApi.updateAuthNMapping"
+      "v2.AuthNMappingsApi.updateAuthNMapping"
     ).makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -592,7 +593,6 @@ export class AuthNMappingsApiResponseProcessor {
 
 export interface AuthNMappingsApiCreateAuthNMappingRequest {
   /**
-   *
    * @type AuthNMappingCreateRequest
    */
   body: AuthNMappingCreateRequest;
@@ -631,11 +631,6 @@ export interface AuthNMappingsApiListAuthNMappingsRequest {
    */
   sort?: AuthNMappingsSort;
   /**
-   * Include additional information in the response.
-   * @type Array&lt;string&gt;
-   */
-  include?: Array<string>;
-  /**
    * Filter all mappings by the given string.
    * @type string
    */
@@ -649,7 +644,6 @@ export interface AuthNMappingsApiUpdateAuthNMappingRequest {
    */
   authnMappingId: string;
   /**
-   *
    * @type AuthNMappingUpdateRequest
    */
   body: AuthNMappingUpdateRequest;
@@ -747,7 +741,6 @@ export class AuthNMappingsApi {
       param.pageSize,
       param.pageNumber,
       param.sort,
-      param.include,
       param.filter,
       options
     );

@@ -2,9 +2,9 @@
  * Create a new dashboard with alert_value widget
  */
 
-import { v1 } from "@datadog/datadog-api-client";
+import { client, v1 } from "@datadog/datadog-api-client";
 
-const configuration = v1.createConfiguration();
+const configuration = client.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
 // there is a valid "monitor" in the system

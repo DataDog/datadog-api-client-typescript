@@ -1,19 +1,24 @@
-import { BaseAPIRequestFactory, RequiredError } from "./baseapi";
+import {
+  BaseAPIRequestFactory,
+  RequiredError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   getServer,
   applySecurityAuthentication,
-} from "../configuration";
+} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
   ResponseContext,
   HttpFile,
-} from "../http/http";
+} from "../../datadog-api-client-common/http/http";
+
 import FormData from "form-data";
+
 import { ObjectSerializer } from "../models/ObjectSerializer";
-import { ApiException } from "./exception";
-import { isCodeInRange } from "../util";
+import { ApiException } from "../../datadog-api-client-common/exception";
+import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IdpResponse } from "../models/IdpResponse";
@@ -22,6 +27,7 @@ import { OrganizationCreateBody } from "../models/OrganizationCreateBody";
 import { OrganizationCreateResponse } from "../models/OrganizationCreateResponse";
 import { OrganizationListResponse } from "../models/OrganizationListResponse";
 import { OrganizationResponse } from "../models/OrganizationResponse";
+import { OrgDowngradedResponse } from "../models/OrgDowngradedResponse";
 
 export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
   public async createChildOrg(
@@ -43,7 +49,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.createChildOrg"
+      "v1.OrganizationsApi.createChildOrg"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -58,6 +64,42 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
       contentType
     );
     requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async downgradeOrg(
+    publicId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError(
+        "Required parameter publicId was null or undefined when calling downgradeOrg."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/org/{public_id}/downgrade".replace(
+      "{" + "public_id" + "}",
+      encodeURIComponent(String(publicId))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.OrganizationsApi.downgradeOrg"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -90,7 +132,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.getOrg"
+      "v1.OrganizationsApi.getOrg"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -113,7 +155,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.listOrgs"
+      "v1.OrganizationsApi.listOrgs"
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -157,7 +199,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.updateOrg"
+      "v1.OrganizationsApi.updateOrg"
     ).makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -212,14 +254,13 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "OrganizationsApi.uploadIdPForOrg"
+      "v1.OrganizationsApi.uploadIdPForOrg"
     ).makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Form Params
     const localVarFormParams = new FormData();
-
     if (idpFile !== undefined) {
       // TODO: replace .append with .set
       localVarFormParams.append("idp_file", idpFile.data, idpFile.name);
@@ -290,6 +331,69 @@ export class OrganizationsApiResponseProcessor {
         "OrganizationCreateResponse",
         ""
       ) as OrganizationCreateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to downgradeOrg
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async downgradeOrg(
+    response: ResponseContext
+  ): Promise<OrgDowngradedResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: OrgDowngradedResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OrgDowngradedResponse",
+        ""
+      ) as OrgDowngradedResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: OrgDowngradedResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "OrgDowngradedResponse",
+        ""
+      ) as OrgDowngradedResponse;
       return body;
     }
 
@@ -561,9 +665,17 @@ export interface OrganizationsApiCreateChildOrgRequest {
   body: OrganizationCreateBody;
 }
 
+export interface OrganizationsApiDowngradeOrgRequest {
+  /**
+   * The `public_id` of the organization you are operating within.
+   * @type string
+   */
+  publicId: string;
+}
+
 export interface OrganizationsApiGetOrgRequest {
   /**
-   * The &#x60;public_id&#x60; of the organization you are operating within.
+   * The `public_id` of the organization you are operating within.
    * @type string
    */
   publicId: string;
@@ -571,12 +683,11 @@ export interface OrganizationsApiGetOrgRequest {
 
 export interface OrganizationsApiUpdateOrgRequest {
   /**
-   * The &#x60;public_id&#x60; of the organization you are operating within.
+   * The `public_id` of the organization you are operating within.
    * @type string
    */
   publicId: string;
   /**
-   *
    * @type Organization
    */
   body: Organization;
@@ -584,7 +695,7 @@ export interface OrganizationsApiUpdateOrgRequest {
 
 export interface OrganizationsApiUploadIdPForOrgRequest {
   /**
-   * The &#x60;public_id&#x60; of the organization you are operating with
+   * The `public_id` of the organization you are operating with
    * @type string
    */
   publicId: string;
@@ -613,7 +724,16 @@ export class OrganizationsApi {
   }
 
   /**
-   * Create a child organization.  This endpoint requires the [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/) feature and must be enabled by [contacting support](https://docs.datadoghq.com/help/).  Once a new child organization is created, you can interact with it by using the `org.public_id`, `api_key.key`, and `application_key.hash` provided in the response.
+   * Create a child organization.
+   *
+   * This endpoint requires the
+   * [multi-organization account](https://docs.datadoghq.com/account_management/multi_organization/)
+   * feature and must be enabled by
+   * [contacting support](https://docs.datadoghq.com/help/).
+   *
+   * Once a new child organization is created, you can interact with it
+   * by using the `org.public_id`, `api_key.key`, and
+   * `application_key.hash` provided in the response.
    * @param param The request object
    */
   public createChildOrg(
@@ -629,6 +749,27 @@ export class OrganizationsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createChildOrg(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Only available for MSP customers. Removes a child organization from the hierarchy of the master organization and places the child organization on a 30-day trial.
+   * @param param The request object
+   */
+  public downgradeOrg(
+    param: OrganizationsApiDowngradeOrgRequest,
+    options?: Configuration
+  ): Promise<OrgDowngradedResponse> {
+    const requestContextPromise = this.requestFactory.downgradeOrg(
+      param.publicId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.downgradeOrg(responseContext);
         });
     });
   }
@@ -655,7 +796,7 @@ export class OrganizationsApi {
   }
 
   /**
-   * List your managed organizations.
+   * This endpoint returns data on your top-level organization.
    * @param param The request object
    */
   public listOrgs(options?: Configuration): Promise<OrganizationListResponse> {
@@ -692,7 +833,12 @@ export class OrganizationsApi {
   }
 
   /**
-   * There are a couple of options for updating the Identity Provider (IdP) metadata from your SAML IdP.  * **Multipart Form-Data**: Post the IdP metadata file using a form post.  * **XML Body:** Post the IdP metadata file as the body of the request.
+   * There are a couple of options for updating the Identity Provider (IdP)
+   * metadata from your SAML IdP.
+   *
+   * * **Multipart Form-Data**: Post the IdP metadata file using a form post.
+   *
+   * * **XML Body:** Post the IdP metadata file as the body of the request.
    * @param param The request object
    */
   public uploadIdPForOrg(
