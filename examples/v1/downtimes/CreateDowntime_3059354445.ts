@@ -19,6 +19,7 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
     end: new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000,
     timezone: "Etc/UTC",
     muteFirstRecoveryNotification: true,
+    monitorTags: ["tag0"],
   },
 };
 
