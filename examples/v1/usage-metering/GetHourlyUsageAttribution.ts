@@ -5,7 +5,6 @@
 import { client, v1 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["getHourlyUsageAttribution"] = true;
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 const params: v1.UsageMeteringApiGetHourlyUsageAttributionRequest = {

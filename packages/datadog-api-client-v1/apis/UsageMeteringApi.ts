@@ -138,13 +138,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getHourlyUsageAttribution'");
-    if (!_config.unstableOperations["v1.getHourlyUsageAttribution"]) {
-      throw new Error(
-        "Unstable operation 'getHourlyUsageAttribution' is disabled"
-      );
-    }
-
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
       throw new RequiredError(
@@ -407,13 +400,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getMonthlyUsageAttribution'");
-    if (!_config.unstableOperations["v1.getMonthlyUsageAttribution"]) {
-      throw new Error(
-        "Unstable operation 'getMonthlyUsageAttribution' is disabled"
-      );
-    }
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
