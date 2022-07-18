@@ -324,14 +324,27 @@ import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQuery
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
+import { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./SecurityMonitoringSignalAssigneeUpdateAttributes";
+import { SecurityMonitoringSignalAssigneeUpdateData } from "./SecurityMonitoringSignalAssigneeUpdateData";
+import { SecurityMonitoringSignalAssigneeUpdateRequest } from "./SecurityMonitoringSignalAssigneeUpdateRequest";
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
+import { SecurityMonitoringSignalIncidentsUpdateAttributes } from "./SecurityMonitoringSignalIncidentsUpdateAttributes";
+import { SecurityMonitoringSignalIncidentsUpdateData } from "./SecurityMonitoringSignalIncidentsUpdateData";
+import { SecurityMonitoringSignalIncidentsUpdateRequest } from "./SecurityMonitoringSignalIncidentsUpdateRequest";
 import { SecurityMonitoringSignalListRequest } from "./SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringSignalListRequestFilter";
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
+import { SecurityMonitoringSignalStateUpdateAttributes } from "./SecurityMonitoringSignalStateUpdateAttributes";
+import { SecurityMonitoringSignalStateUpdateData } from "./SecurityMonitoringSignalStateUpdateData";
+import { SecurityMonitoringSignalStateUpdateRequest } from "./SecurityMonitoringSignalStateUpdateRequest";
+import { SecurityMonitoringSignalTriageAttributes } from "./SecurityMonitoringSignalTriageAttributes";
+import { SecurityMonitoringSignalTriageUpdateData } from "./SecurityMonitoringSignalTriageUpdateData";
+import { SecurityMonitoringSignalTriageUpdateResponse } from "./SecurityMonitoringSignalTriageUpdateResponse";
 import { SecurityMonitoringSignalsListResponse } from "./SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
 import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
+import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
@@ -570,6 +583,13 @@ const enumsMap: { [key: string]: any[] } = {
     "workload_security",
     "cloud_configuration",
   ],
+  SecurityMonitoringSignalArchiveReason: [
+    "none",
+    "false_positive",
+    "testing_or_maintenance",
+    "other",
+  ],
+  SecurityMonitoringSignalState: ["open", "archived", "under_review"],
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -926,12 +946,36 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringRuleResponse: SecurityMonitoringRuleResponse,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
   SecurityMonitoringSignal: SecurityMonitoringSignal,
+  SecurityMonitoringSignalAssigneeUpdateAttributes:
+    SecurityMonitoringSignalAssigneeUpdateAttributes,
+  SecurityMonitoringSignalAssigneeUpdateData:
+    SecurityMonitoringSignalAssigneeUpdateData,
+  SecurityMonitoringSignalAssigneeUpdateRequest:
+    SecurityMonitoringSignalAssigneeUpdateRequest,
   SecurityMonitoringSignalAttributes: SecurityMonitoringSignalAttributes,
+  SecurityMonitoringSignalIncidentsUpdateAttributes:
+    SecurityMonitoringSignalIncidentsUpdateAttributes,
+  SecurityMonitoringSignalIncidentsUpdateData:
+    SecurityMonitoringSignalIncidentsUpdateData,
+  SecurityMonitoringSignalIncidentsUpdateRequest:
+    SecurityMonitoringSignalIncidentsUpdateRequest,
   SecurityMonitoringSignalListRequest: SecurityMonitoringSignalListRequest,
   SecurityMonitoringSignalListRequestFilter:
     SecurityMonitoringSignalListRequestFilter,
   SecurityMonitoringSignalListRequestPage:
     SecurityMonitoringSignalListRequestPage,
+  SecurityMonitoringSignalStateUpdateAttributes:
+    SecurityMonitoringSignalStateUpdateAttributes,
+  SecurityMonitoringSignalStateUpdateData:
+    SecurityMonitoringSignalStateUpdateData,
+  SecurityMonitoringSignalStateUpdateRequest:
+    SecurityMonitoringSignalStateUpdateRequest,
+  SecurityMonitoringSignalTriageAttributes:
+    SecurityMonitoringSignalTriageAttributes,
+  SecurityMonitoringSignalTriageUpdateData:
+    SecurityMonitoringSignalTriageUpdateData,
+  SecurityMonitoringSignalTriageUpdateResponse:
+    SecurityMonitoringSignalTriageUpdateResponse,
   SecurityMonitoringSignalsListResponse: SecurityMonitoringSignalsListResponse,
   SecurityMonitoringSignalsListResponseLinks:
     SecurityMonitoringSignalsListResponseLinks,
@@ -939,6 +983,7 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalsListResponseMeta,
   SecurityMonitoringSignalsListResponseMetaPage:
     SecurityMonitoringSignalsListResponseMetaPage,
+  SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,

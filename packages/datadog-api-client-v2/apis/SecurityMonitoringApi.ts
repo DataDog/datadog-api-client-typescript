@@ -27,10 +27,14 @@ import { SecurityMonitoringRuleCreatePayload } from "../models/SecurityMonitorin
 import { SecurityMonitoringRuleResponse } from "../models/SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "../models/SecurityMonitoringRuleUpdatePayload";
 import { SecurityMonitoringSignal } from "../models/SecurityMonitoringSignal";
+import { SecurityMonitoringSignalAssigneeUpdateRequest } from "../models/SecurityMonitoringSignalAssigneeUpdateRequest";
+import { SecurityMonitoringSignalIncidentsUpdateRequest } from "../models/SecurityMonitoringSignalIncidentsUpdateRequest";
 import { SecurityMonitoringSignalListRequest } from "../models/SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalListRequestPage } from "../models/SecurityMonitoringSignalListRequestPage";
 import { SecurityMonitoringSignalsListResponse } from "../models/SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSignalsSort";
+import { SecurityMonitoringSignalStateUpdateRequest } from "../models/SecurityMonitoringSignalStateUpdateRequest";
+import { SecurityMonitoringSignalTriageUpdateResponse } from "../models/SecurityMonitoringSignalTriageUpdateResponse";
 
 export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   public async createSecurityFilter(
@@ -192,6 +196,189 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async editSecurityMonitoringSignalAssignee(
+    signalId: string,
+    body: SecurityMonitoringSignalAssigneeUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'signalId' is not null or undefined
+    if (signalId === null || signalId === undefined) {
+      throw new RequiredError(
+        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalAssignee."
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalAssignee."
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/signals/{signal_id}/assignee".replace(
+        "{" + "signal_id" + "}",
+        encodeURIComponent(String(signalId))
+      );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee"
+    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringSignalAssigneeUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async editSecurityMonitoringSignalIncidents(
+    signalId: string,
+    body: SecurityMonitoringSignalIncidentsUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'signalId' is not null or undefined
+    if (signalId === null || signalId === undefined) {
+      throw new RequiredError(
+        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalIncidents."
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalIncidents."
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/signals/{signal_id}/incidents".replace(
+        "{" + "signal_id" + "}",
+        encodeURIComponent(String(signalId))
+      );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.SecurityMonitoringApi.editSecurityMonitoringSignalIncidents"
+    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringSignalIncidentsUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async editSecurityMonitoringSignalState(
+    signalId: string,
+    body: SecurityMonitoringSignalStateUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'signalId' is not null or undefined
+    if (signalId === null || signalId === undefined) {
+      throw new RequiredError(
+        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalState."
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalState."
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/signals/{signal_id}/state".replace(
+        "{" + "signal_id" + "}",
+        encodeURIComponent(String(signalId))
+      );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.SecurityMonitoringApi.editSecurityMonitoringSignalState"
+    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringSignalStateUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -830,6 +1017,225 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to editSecurityMonitoringSignalAssignee
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async editSecurityMonitoringSignalAssignee(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+          ""
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+          ""
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to editSecurityMonitoringSignalIncidents
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async editSecurityMonitoringSignalIncidents(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+          ""
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+          ""
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to editSecurityMonitoringSignalState
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async editSecurityMonitoringSignalState(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+          ""
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSignalTriageUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalTriageUpdateResponse",
+          ""
+        ) as SecurityMonitoringSignalTriageUpdateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1376,6 +1782,45 @@ export interface SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest {
   ruleId: string;
 }
 
+export interface SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest {
+  /**
+   * The ID of the signal.
+   * @type string
+   */
+  signalId: string;
+  /**
+   * Attributes describing the signal update.
+   * @type SecurityMonitoringSignalAssigneeUpdateRequest
+   */
+  body: SecurityMonitoringSignalAssigneeUpdateRequest;
+}
+
+export interface SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest {
+  /**
+   * The ID of the signal.
+   * @type string
+   */
+  signalId: string;
+  /**
+   * Attributes describing the signal update.
+   * @type SecurityMonitoringSignalIncidentsUpdateRequest
+   */
+  body: SecurityMonitoringSignalIncidentsUpdateRequest;
+}
+
+export interface SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest {
+  /**
+   * The ID of the signal.
+   * @type string
+   */
+  signalId: string;
+  /**
+   * Attributes describing the signal update.
+   * @type SecurityMonitoringSignalStateUpdateRequest
+   */
+  body: SecurityMonitoringSignalStateUpdateRequest;
+}
+
 export interface SecurityMonitoringApiGetSecurityFilterRequest {
   /**
    * The ID of the security filter.
@@ -1568,6 +2013,81 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSecurityMonitoringRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Modify the triage assignee of a security signal.
+   * @param param The request object
+   */
+  public editSecurityMonitoringSignalAssignee(
+    param: SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
+    const requestContextPromise =
+      this.requestFactory.editSecurityMonitoringSignalAssignee(
+        param.signalId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.editSecurityMonitoringSignalAssignee(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Change the related incidents for a security signal.
+   * @param param The request object
+   */
+  public editSecurityMonitoringSignalIncidents(
+    param: SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
+    const requestContextPromise =
+      this.requestFactory.editSecurityMonitoringSignalIncidents(
+        param.signalId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.editSecurityMonitoringSignalIncidents(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Change the triage state of a security signal.
+   * @param param The request object
+   */
+  public editSecurityMonitoringSignalState(
+    param: SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringSignalTriageUpdateResponse> {
+    const requestContextPromise =
+      this.requestFactory.editSecurityMonitoringSignalState(
+        param.signalId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.editSecurityMonitoringSignalState(
             responseContext
           );
         });

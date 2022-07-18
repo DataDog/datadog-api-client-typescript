@@ -163,6 +163,9 @@ export {
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
+  SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
+  SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
@@ -631,7 +634,14 @@ export { SecurityMonitoringRuleTypeCreate } from "./models/SecurityMonitoringRul
 export { SecurityMonitoringRuleTypeRead } from "./models/SecurityMonitoringRuleTypeRead";
 export { SecurityMonitoringRuleUpdatePayload } from "./models/SecurityMonitoringRuleUpdatePayload";
 export { SecurityMonitoringSignal } from "./models/SecurityMonitoringSignal";
+export { SecurityMonitoringSignalArchiveReason } from "./models/SecurityMonitoringSignalArchiveReason";
+export { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./models/SecurityMonitoringSignalAssigneeUpdateAttributes";
+export { SecurityMonitoringSignalAssigneeUpdateData } from "./models/SecurityMonitoringSignalAssigneeUpdateData";
+export { SecurityMonitoringSignalAssigneeUpdateRequest } from "./models/SecurityMonitoringSignalAssigneeUpdateRequest";
 export { SecurityMonitoringSignalAttributes } from "./models/SecurityMonitoringSignalAttributes";
+export { SecurityMonitoringSignalIncidentsUpdateAttributes } from "./models/SecurityMonitoringSignalIncidentsUpdateAttributes";
+export { SecurityMonitoringSignalIncidentsUpdateData } from "./models/SecurityMonitoringSignalIncidentsUpdateData";
+export { SecurityMonitoringSignalIncidentsUpdateRequest } from "./models/SecurityMonitoringSignalIncidentsUpdateRequest";
 export { SecurityMonitoringSignalListRequest } from "./models/SecurityMonitoringSignalListRequest";
 export { SecurityMonitoringSignalListRequestFilter } from "./models/SecurityMonitoringSignalListRequestFilter";
 export { SecurityMonitoringSignalListRequestPage } from "./models/SecurityMonitoringSignalListRequestPage";
@@ -640,7 +650,15 @@ export { SecurityMonitoringSignalsListResponseLinks } from "./models/SecurityMon
 export { SecurityMonitoringSignalsListResponseMeta } from "./models/SecurityMonitoringSignalsListResponseMeta";
 export { SecurityMonitoringSignalsListResponseMetaPage } from "./models/SecurityMonitoringSignalsListResponseMetaPage";
 export { SecurityMonitoringSignalsSort } from "./models/SecurityMonitoringSignalsSort";
+export { SecurityMonitoringSignalState } from "./models/SecurityMonitoringSignalState";
+export { SecurityMonitoringSignalStateUpdateAttributes } from "./models/SecurityMonitoringSignalStateUpdateAttributes";
+export { SecurityMonitoringSignalStateUpdateData } from "./models/SecurityMonitoringSignalStateUpdateData";
+export { SecurityMonitoringSignalStateUpdateRequest } from "./models/SecurityMonitoringSignalStateUpdateRequest";
+export { SecurityMonitoringSignalTriageAttributes } from "./models/SecurityMonitoringSignalTriageAttributes";
+export { SecurityMonitoringSignalTriageUpdateData } from "./models/SecurityMonitoringSignalTriageUpdateData";
+export { SecurityMonitoringSignalTriageUpdateResponse } from "./models/SecurityMonitoringSignalTriageUpdateResponse";
 export { SecurityMonitoringSignalType } from "./models/SecurityMonitoringSignalType";
+export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageUser";
 export { ServiceAccountCreateAttributes } from "./models/ServiceAccountCreateAttributes";
 export { ServiceAccountCreateData } from "./models/ServiceAccountCreateData";
 export { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
