@@ -8,8 +8,8 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
 const params: v1.SyntheticsApiGetAPITestResultRequest = {
-  publicId: "public_id",
-  resultId: "result_id",
+  publicId: "hwb-332-3xe",
+  resultId: "3420446318379485707",
 };
 
 apiInstance

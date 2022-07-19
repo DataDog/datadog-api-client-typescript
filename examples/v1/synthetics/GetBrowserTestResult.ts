@@ -8,8 +8,8 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
 const params: v1.SyntheticsApiGetBrowserTestResultRequest = {
-  publicId: "public_id",
-  resultId: "result_id",
+  publicId: "2yy-sem-mjh",
+  resultId: "5671719892074090418",
 };
 
 apiInstance

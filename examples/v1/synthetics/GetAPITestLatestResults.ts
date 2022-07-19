@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
 const params: v1.SyntheticsApiGetAPITestLatestResultsRequest = {
-  publicId: "public_id",
+  publicId: "hwb-332-3xe",
 };
 
 apiInstance
