@@ -19,6 +19,7 @@ import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CostByOrgResponse } from "../models/CostByOrgResponse";
+import { HourlyUsageResponse } from "../models/HourlyUsageResponse";
 import { UsageApplicationSecurityMonitoringResponse } from "../models/UsageApplicationSecurityMonitoringResponse";
 import { UsageLambdaTracedInvocationsResponse } from "../models/UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "../models/UsageObservabilityPipelinesResponse";
@@ -122,6 +123,100 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "end_date",
         ObjectSerializer.serialize(endDate, "Date", "date-time")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getHourlyUsage(
+    filterTimestampStart: Date,
+    filterProductFamilies: string,
+    filterTimestampEnd?: Date,
+    filterIncludeDescendants?: boolean,
+    filterVersions?: string,
+    pageLimit?: number,
+    pageNextRecordId?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'filterTimestampStart' is not null or undefined
+    if (filterTimestampStart === null || filterTimestampStart === undefined) {
+      throw new RequiredError(
+        "Required parameter filterTimestampStart was null or undefined when calling getHourlyUsage."
+      );
+    }
+
+    // verify required parameter 'filterProductFamilies' is not null or undefined
+    if (filterProductFamilies === null || filterProductFamilies === undefined) {
+      throw new RequiredError(
+        "Required parameter filterProductFamilies was null or undefined when calling getHourlyUsage."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/hourly_usage";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.UsageMeteringApi.getHourlyUsage"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (filterTimestampStart !== undefined) {
+      requestContext.setQueryParam(
+        "filter[timestamp][start]",
+        ObjectSerializer.serialize(filterTimestampStart, "Date", "date-time")
+      );
+    }
+    if (filterTimestampEnd !== undefined) {
+      requestContext.setQueryParam(
+        "filter[timestamp][end]",
+        ObjectSerializer.serialize(filterTimestampEnd, "Date", "date-time")
+      );
+    }
+    if (filterProductFamilies !== undefined) {
+      requestContext.setQueryParam(
+        "filter[product_families]",
+        ObjectSerializer.serialize(filterProductFamilies, "string", "")
+      );
+    }
+    if (filterIncludeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "filter[include_descendants]",
+        ObjectSerializer.serialize(filterIncludeDescendants, "boolean", "")
+      );
+    }
+    if (filterVersions !== undefined) {
+      requestContext.setQueryParam(
+        "filter[versions]",
+        ObjectSerializer.serialize(filterVersions, "string", "")
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int32")
+      );
+    }
+    if (pageNextRecordId !== undefined) {
+      requestContext.setQueryParam(
+        "page[next_record_id]",
+        ObjectSerializer.serialize(pageNextRecordId, "string", "")
       );
     }
 
@@ -423,6 +518,69 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getHourlyUsage
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getHourlyUsage(
+    response: ResponseContext
+  ): Promise<HourlyUsageResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: HourlyUsageResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "HourlyUsageResponse",
+        ""
+      ) as HourlyUsageResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("403", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(403, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: HourlyUsageResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "HourlyUsageResponse",
+        ""
+      ) as HourlyUsageResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getUsageApplicationSecurityMonitoring
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -651,6 +809,51 @@ export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
   endDate?: Date;
 }
 
+export interface UsageMeteringApiGetHourlyUsageRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+   * @type Date
+   */
+  filterTimestampStart: Date;
+  /**
+   * Comma separated list of product families to retrieve. Available families are `all`, `analyzed_logs`,
+   * `application_security`, `audit_logs`, `serverless`, `ci_app`, `cspm`, `cws`, `dbm`, `fargate`,
+   * `infra_hosts`, `incident_management`, `indexed_logs`, `indexed_spans`, `ingested_spans`, `iot`,
+   * `lambda_traced_invocations`, `logs`, `network_flows`, `network_hosts`, `observability_pipelines`,
+   * `online_archive`, `profiling`, `rum`, `rum_browser_sessions`, `rum_mobile_sessions`, `sds`, `snmp`,
+   * `synthetics_api`, `synthetics_browser`, and `timeseries`.
+   * @type string
+   */
+  filterProductFamilies: string;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+   * @type Date
+   */
+  filterTimestampEnd?: Date;
+  /**
+   * Include child org usage in the response. Defaults to false.
+   * @type boolean
+   */
+  filterIncludeDescendants?: boolean;
+  /**
+   * Comma separated list of product family versions to use in the format `product_family:version`. For example,
+   * `infra_hosts:1.0.0`. If this parameter is not used, the API will use the latest version of each requested
+   * product family. Currently all families have one version `1.0.0`.
+   * @type string
+   */
+  filterVersions?: string;
+  /**
+   * Maximum number of results to return (between 1 and 500) - defaults to 500 if limit not specified.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * List following results with a next_record_id provided in the previous query.
+   * @type string
+   */
+  pageNextRecordId?: string;
+}
+
 export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
@@ -752,6 +955,33 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getEstimatedCostByOrg(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get hourly usage by product family
+   * @param param The request object
+   */
+  public getHourlyUsage(
+    param: UsageMeteringApiGetHourlyUsageRequest,
+    options?: Configuration
+  ): Promise<HourlyUsageResponse> {
+    const requestContextPromise = this.requestFactory.getHourlyUsage(
+      param.filterTimestampStart,
+      param.filterProductFamilies,
+      param.filterTimestampEnd,
+      param.filterIncludeDescendants,
+      param.filterVersions,
+      param.pageLimit,
+      param.pageNextRecordId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getHourlyUsage(responseContext);
         });
     });
   }

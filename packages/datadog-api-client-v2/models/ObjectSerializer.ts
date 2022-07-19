@@ -74,6 +74,12 @@ import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
 import { HTTPLogItem } from "./HTTPLogItem";
+import { HourlyUsage } from "./HourlyUsage";
+import { HourlyUsageAttributes } from "./HourlyUsageAttributes";
+import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
+import { HourlyUsageMetadata } from "./HourlyUsageMetadata";
+import { HourlyUsagePagination } from "./HourlyUsagePagination";
+import { HourlyUsageResponse } from "./HourlyUsageResponse";
 import { IdPMetadataFormData } from "./IdPMetadataFormData";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
@@ -685,6 +691,12 @@ const typeMap: { [index: string]: any } = {
   HTTPLogError: HTTPLogError,
   HTTPLogErrors: HTTPLogErrors,
   HTTPLogItem: HTTPLogItem,
+  HourlyUsage: HourlyUsage,
+  HourlyUsageAttributes: HourlyUsageAttributes,
+  HourlyUsageMeasurement: HourlyUsageMeasurement,
+  HourlyUsageMetadata: HourlyUsageMetadata,
+  HourlyUsagePagination: HourlyUsagePagination,
+  HourlyUsageResponse: HourlyUsageResponse,
   IdPMetadataFormData: IdPMetadataFormData,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
