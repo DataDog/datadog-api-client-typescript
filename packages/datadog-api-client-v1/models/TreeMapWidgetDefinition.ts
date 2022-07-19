@@ -8,29 +8,39 @@ import { TreeMapGroupBy } from "./TreeMapGroupBy";
 import { TreeMapSizeBy } from "./TreeMapSizeBy";
 import { TreeMapWidgetDefinitionType } from "./TreeMapWidgetDefinitionType";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
+import { WidgetCustomLink } from "./WidgetCustomLink";
+import { WidgetTime } from "./WidgetTime";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The treemap visualization found on the Host Dashboards comes from the output of `ps auxww`. This is not continuously run on your hosts. Instead, it’s run once on Agent start/restart. The treemap is only supported for process data on a single host dashboard — this may not be reused in other dashboards or for other metrics.
+ * The treemap visualization enables you to display hierarchical and nested data. It is well suited for queries that describe part-whole relationships, such as resource usage by availability zone, data center, or team.
  */
 export class TreeMapWidgetDefinition {
   /**
-   * The attribute used to determine color in the widget.
+   * (deprecated) The attribute formerly used to determine color in the widget.
    */
   "colorBy"?: TreeMapColorBy;
   /**
-   * The attribute used to group elements in the widget.
+   * List of custom links.
+   */
+  "customLinks"?: Array<WidgetCustomLink>;
+  /**
+   * (deprecated) The attribute formerly used to group elements in the widget.
    */
   "groupBy"?: TreeMapGroupBy;
   /**
-   * List of top list widget requests.
+   * List of treemap widget requests.
    */
   "requests": [TreeMapWidgetRequest];
   /**
-   * The attribute used to determine size in the widget.
+   * (deprecated) The attribute formerly used to determine size in the widget.
    */
   "sizeBy"?: TreeMapSizeBy;
+  /**
+   * Time setting for the widget.
+   */
+  "time"?: WidgetTime;
   /**
    * Title of your widget.
    */
@@ -53,6 +63,10 @@ export class TreeMapWidgetDefinition {
       baseName: "color_by",
       type: "TreeMapColorBy",
     },
+    customLinks: {
+      baseName: "custom_links",
+      type: "Array<WidgetCustomLink>",
+    },
     groupBy: {
       baseName: "group_by",
       type: "TreeMapGroupBy",
@@ -65,6 +79,10 @@ export class TreeMapWidgetDefinition {
     sizeBy: {
       baseName: "size_by",
       type: "TreeMapSizeBy",
+    },
+    time: {
+      baseName: "time",
+      type: "WidgetTime",
     },
     title: {
       baseName: "title",
