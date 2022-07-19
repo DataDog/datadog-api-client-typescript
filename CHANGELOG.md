@@ -1,5 +1,40 @@
 # CHANGELOG
 
+## 1.1.0 / 2022-07-19
+
+### Fixed
+* Fix de/serialization of Array types by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/721
+* Remove include_percentiles default by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/734
+* Mark message as required for Synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/729
+### Added
+* Add distribution points intake endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/693
+* Add height and width params to graph snapshot by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/716
+* Add support for defining histogram requests in Distribution widgets by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/700
+* Add DowngradeOrg endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/718
+* Add new options for new value detection type on security monitoring rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/709
+* Add ci execution rule in Synthetics options by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/710
+* Add SLO Search API endpoint  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/630
+* New usage metering endpoint for estimated cost by org by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/737
+* Add estimated indexed spans usage attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/736
+* Handle raw  json for additionalProperties in typescript  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/707
+* Add Application Security Monitoring Hosts Attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/738
+* Add support for security monitoring rule dynamic criticality by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/723
+* Update IP ranges with synthetics private locations section by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/741
+* Add new products to billable summary by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/744
+* Update usage attribution enums by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/739
+* Add estimated ingested spans to usage attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/755
+* Add v2 Security monitoring signals triage operations. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/745
+### Changed
+* Remove unstable marker on security list signal endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/715
+* Update metric intake v2 accept response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/742
+* Add description of metric type enums by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/756
+* remove x-unstable property for usage attribution endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/762
+
+## New Contributors
+* @jybp made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/732
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.0.0...v1.1.0
+
 ## 1.0.0 / 2022-06-10
 
 ### Fixed
