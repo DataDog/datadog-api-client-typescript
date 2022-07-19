@@ -106,7 +106,7 @@ String.prototype.toOperationName = function (): string {
 
 String.prototype.toAttributeName = function (): string {
   return String(this)
-    .replace(/[^A-Za-z0-9](.)/g, function (...matches) {
+    .replace(/[^A-Za-z0-9]+(.)/g, function (...matches) {
       return matches[1].toUpperCase();
     })
     .replace(/[^A-Za-z0-9]+/g, "");
