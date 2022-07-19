@@ -188,6 +188,7 @@ export {
 export {
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
+  UsageMeteringApiGetHourlyUsageRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
@@ -297,6 +298,12 @@ export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
+export { HourlyUsage } from "./models/HourlyUsage";
+export { HourlyUsageAttributes } from "./models/HourlyUsageAttributes";
+export { HourlyUsageMeasurement } from "./models/HourlyUsageMeasurement";
+export { HourlyUsageMetadata } from "./models/HourlyUsageMetadata";
+export { HourlyUsagePagination } from "./models/HourlyUsagePagination";
+export { HourlyUsageResponse } from "./models/HourlyUsageResponse";
 export { HourlyUsageType } from "./models/HourlyUsageType";
 export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogErrors } from "./models/HTTPLogErrors";
