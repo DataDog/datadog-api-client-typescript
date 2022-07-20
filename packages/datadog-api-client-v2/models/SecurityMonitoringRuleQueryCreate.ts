@@ -29,6 +29,10 @@ export class SecurityMonitoringRuleQueryCreate {
    */
   "metric"?: string;
   /**
+   * Group of target fields to aggregate over when using the new value aggregations.
+   */
+  "metrics"?: Array<string>;
+  /**
    * Name of the query.
    */
   "name"?: string;
@@ -61,6 +65,10 @@ export class SecurityMonitoringRuleQueryCreate {
     metric: {
       baseName: "metric",
       type: "string",
+    },
+    metrics: {
+      baseName: "metrics",
+      type: "Array<string>",
     },
     name: {
       baseName: "name",
