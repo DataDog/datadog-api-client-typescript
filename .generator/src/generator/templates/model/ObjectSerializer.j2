@@ -29,7 +29,7 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 const enumsMap: {[key: string]: any[]} = {
   {%- for name, model in models.items()|sort(attribute='0', case_sensitive=True) %}
   {%- if "enum" in model %}
-  "{{ name }}": [{%- for index, value in enumerate(model.enum) %}{{ value|format_value }}{%- if loop.nextitem %}, {% endif %}{% endfor %}],
+  "{{ name }}": [{%- for index, value in enumerate(model.enum) %}{{ value|format_value }}{%- if loop.nextitem %}, {% endif %}{% endfor %}{% if model.nullable %}, null{% endif %}],
   {%- endif %}
   {%- endfor %}
 };

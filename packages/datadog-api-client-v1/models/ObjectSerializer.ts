@@ -578,7 +578,7 @@ const enumsMap: { [key: string]: any[] } = {
     "recommendation",
     "snapshot",
   ],
-  EventPriority: ["normal", "low"],
+  EventPriority: ["normal", "low", null],
   EventStreamWidgetDefinitionType: ["event_stream"],
   EventTimelineWidgetDefinitionType: ["event_timeline"],
   FormulaAndFunctionApmDependencyStatName: [
@@ -826,6 +826,7 @@ const enumsMap: { [key: string]: any[] } = {
     "investigation",
     "documentation",
     "report",
+    null,
   ],
   NotebookResourceType: ["notebooks"],
   NotebookStatus: ["published"],
