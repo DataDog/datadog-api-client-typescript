@@ -1,5 +1,5 @@
 /**
- * Get hourly usage for Online Archive returns "OK" response
+ * Get hourly usage for online archive returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -8,8 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 const params: v1.UsageMeteringApiGetUsageOnlineArchiveRequest = {
-  startHr: new Date(new Date().getTime() / 1000 + -5 * 86400),
-  endHr: new Date(new Date().getTime() / 1000 + -3 * 86400),
+  startHr: new Date(2021, 11, 11, 11, 11, 11, 111000),
 };
 
 apiInstance
