@@ -187,6 +187,7 @@ export {
 
 export {
   UsageMeteringApiGetCostByOrgRequest,
+  UsageMeteringApiGetCustomEventsCountRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetHourlyUsageRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
@@ -671,6 +672,7 @@ export { ServiceAccountCreateData } from "./models/ServiceAccountCreateData";
 export { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
+export { UsageCustomEventsResponse } from "./models/UsageCustomEventsResponse";
 export { UsageDataObject } from "./models/UsageDataObject";
 export { UsageLambdaTracedInvocationsResponse } from "./models/UsageLambdaTracedInvocationsResponse";
 export { UsageObservabilityPipelinesResponse } from "./models/UsageObservabilityPipelinesResponse";

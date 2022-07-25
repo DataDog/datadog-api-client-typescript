@@ -356,6 +356,7 @@ import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
+import { UsageCustomEventsResponse } from "./UsageCustomEventsResponse";
 import { UsageDataObject } from "./UsageDataObject";
 import { UsageLambdaTracedInvocationsResponse } from "./UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
@@ -455,6 +456,7 @@ const enumsMap: { [key: string]: any[] } = {
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
     "lambda_traced_invocations_count",
+    "custom_event_count",
   ],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
   IncidentFieldAttributesValueType: [
@@ -1002,6 +1004,7 @@ const typeMap: { [index: string]: any } = {
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
+  UsageCustomEventsResponse: UsageCustomEventsResponse,
   UsageDataObject: UsageDataObject,
   UsageLambdaTracedInvocationsResponse: UsageLambdaTracedInvocationsResponse,
   UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
