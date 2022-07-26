@@ -24,11 +24,10 @@ const params: v2.LogsApiListLogsRequest = {
   },
 };
 
-
 (async () => {
   try {
     for await (const item of apiInstance.listLogsWithPagination(params)) {
-      console.log("THIS IS WORKING_________", item);
+      console.log(item);
     }
   } catch (error) {
     console.error(error);
