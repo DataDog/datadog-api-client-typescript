@@ -25,10 +25,14 @@ const params: v2.RUMApiSearchRUMEventsRequest = {
   },
 };
 
-try {
-  for await (const item of apiInstance.searchRUMEventsWithPagination(params)) {
-    console.log(item);
+(async () => {
+  try {
+    for await (const item of apiInstance.searchRUMEventsWithPagination(
+      params
+    )) {
+      console.log(item);
+    }
+  } catch (error) {
+    console.error(error);
   }
-} catch (error) {
-  console.error(error);
-}
+})();

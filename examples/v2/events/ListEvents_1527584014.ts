@@ -14,10 +14,12 @@ const params: v2.EventsApiListEventsRequest = {
   pageLimit: 2,
 };
 
-try {
-  for await (const item of apiInstance.listEventsWithPagination(params)) {
-    console.log(item);
+(async () => {
+  try {
+    for await (const item of apiInstance.listEventsWithPagination(params)) {
+      console.log(item);
+    }
+  } catch (error) {
+    console.error(error);
   }
-} catch (error) {
-  console.error(error);
-}
+})();

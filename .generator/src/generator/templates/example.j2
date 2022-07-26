@@ -55,6 +55,7 @@ const params: {{ version }}.{{ context.api_instance.name }}Api{{ context.api_req
 
 {%- if context.pagination %}
 
+(async () => {
   try {
     for await (const item of apiInstance.{{ context.api_request.operation_id|untitle_case }}WithPagination({% if has_params %}params{% endif %})) {
       console.log(item);
@@ -62,6 +63,8 @@ const params: {{ version }}.{{ context.api_instance.name }}Api{{ context.api_req
   } catch (error) {
     console.error(error)
   }
+})();
+
 {%- else %}
 
 apiInstance

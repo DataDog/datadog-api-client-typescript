@@ -12,10 +12,12 @@ const params: v2.IncidentsApiListIncidentsRequest = {
   pageSize: 2,
 };
 
-try {
-  for await (const item of apiInstance.listIncidentsWithPagination(params)) {
-    console.log(item);
+(async () => {
+  try {
+    for await (const item of apiInstance.listIncidentsWithPagination(params)) {
+      console.log(item);
+    }
+  } catch (error) {
+    console.error(error);
   }
-} catch (error) {
-  console.error(error);
-}
+})();

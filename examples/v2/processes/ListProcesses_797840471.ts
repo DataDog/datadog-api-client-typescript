@@ -11,10 +11,12 @@ const params: v2.ProcessesApiListProcessesRequest = {
   pageLimit: 2,
 };
 
-try {
-  for await (const item of apiInstance.listProcessesWithPagination(params)) {
-    console.log(item);
+(async () => {
+  try {
+    for await (const item of apiInstance.listProcessesWithPagination(params)) {
+      console.log(item);
+    }
+  } catch (error) {
+    console.error(error);
   }
-} catch (error) {
-  console.error(error);
-}
+})();

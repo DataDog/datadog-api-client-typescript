@@ -11,10 +11,12 @@ const params: v2.RUMApiListRUMEventsRequest = {
   pageLimit: 2,
 };
 
-try {
-  for await (const item of apiInstance.listRUMEventsWithPagination(params)) {
-    console.log(item);
+(async () => {
+  try {
+    for await (const item of apiInstance.listRUMEventsWithPagination(params)) {
+      console.log(item);
+    }
+  } catch (error) {
+    console.error(error);
   }
-} catch (error) {
-  console.error(error);
-}
+})();
