@@ -30,6 +30,12 @@ export {
 } from "./apis/DashboardListsApi";
 
 export {
+  EventsApiListEventsRequest,
+  EventsApiSearchEventsRequest,
+  EventsApi,
+} from "./apis/EventsApi";
+
+export {
   IncidentServicesApiCreateIncidentServiceRequest,
   IncidentServicesApiDeleteIncidentServiceRequest,
   IncidentServicesApiGetIncidentServiceRequest,
@@ -294,6 +300,23 @@ export { DashboardListItems } from "./models/DashboardListItems";
 export { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateItemsRequest";
 export { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
 export { DashboardType } from "./models/DashboardType";
+export { Event } from "./models/Event";
+export { EventAttributes } from "./models/EventAttributes";
+export { EventPriority } from "./models/EventPriority";
+export { EventResponse } from "./models/EventResponse";
+export { EventResponseAttributes } from "./models/EventResponseAttributes";
+export { EventsListRequest } from "./models/EventsListRequest";
+export { EventsListResponse } from "./models/EventsListResponse";
+export { EventsListResponseLinks } from "./models/EventsListResponseLinks";
+export { EventsQueryFilter } from "./models/EventsQueryFilter";
+export { EventsQueryOptions } from "./models/EventsQueryOptions";
+export { EventsRequestPage } from "./models/EventsRequestPage";
+export { EventsResponseMetadata } from "./models/EventsResponseMetadata";
+export { EventsResponseMetadataPage } from "./models/EventsResponseMetadataPage";
+export { EventsSort } from "./models/EventsSort";
+export { EventStatusType } from "./models/EventStatusType";
+export { EventsWarning } from "./models/EventsWarning";
+export { EventType } from "./models/EventType";
 export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
@@ -492,6 +515,7 @@ export { MetricTagConfigurationUpdateRequest } from "./models/MetricTagConfigura
 export { MetricType } from "./models/MetricType";
 export { MetricVolumes } from "./models/MetricVolumes";
 export { MetricVolumesResponse } from "./models/MetricVolumesResponse";
+export { MonitorType } from "./models/MonitorType";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { OpsgenieServiceCreateAttributes } from "./models/OpsgenieServiceCreateAttributes";
