@@ -1755,6 +1755,8 @@ export class MetricsApi {
    * - 20 bytes for the metric names
    * - 50 bytes for the timeseries
    * - The full payload is approximately 100 bytes.
+   *
+   * Host name is one of the resources in the Resources field.
    * @param param The request object
    */
   public submitMetrics(
