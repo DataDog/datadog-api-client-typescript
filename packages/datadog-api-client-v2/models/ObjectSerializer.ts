@@ -67,6 +67,19 @@ import { DashboardListItemResponse } from "./DashboardListItemResponse";
 import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
+import { Event } from "./Event";
+import { EventAttributes } from "./EventAttributes";
+import { EventResponse } from "./EventResponse";
+import { EventResponseAttributes } from "./EventResponseAttributes";
+import { EventsListRequest } from "./EventsListRequest";
+import { EventsListResponse } from "./EventsListResponse";
+import { EventsListResponseLinks } from "./EventsListResponseLinks";
+import { EventsQueryFilter } from "./EventsQueryFilter";
+import { EventsQueryOptions } from "./EventsQueryOptions";
+import { EventsRequestPage } from "./EventsRequestPage";
+import { EventsResponseMetadata } from "./EventsResponseMetadata";
+import { EventsResponseMetadataPage } from "./EventsResponseMetadataPage";
+import { EventsWarning } from "./EventsWarning";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
@@ -216,6 +229,7 @@ import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdate
 import { MetricTagConfigurationUpdateRequest } from "./MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
+import { MonitorType } from "./MonitorType";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
@@ -451,6 +465,19 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
+  EventPriority: ["normal", "low"],
+  EventStatusType: [
+    "failure",
+    "error",
+    "warning",
+    "info",
+    "success",
+    "user_update",
+    "recommendation",
+    "snapshot",
+  ],
+  EventType: ["event"],
+  EventsSort: ["timestamp", "-timestamp"],
   HourlyUsageType: [
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
@@ -684,6 +711,19 @@ const typeMap: { [index: string]: any } = {
   DashboardListItems: DashboardListItems,
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
+  Event: Event,
+  EventAttributes: EventAttributes,
+  EventResponse: EventResponse,
+  EventResponseAttributes: EventResponseAttributes,
+  EventsListRequest: EventsListRequest,
+  EventsListResponse: EventsListResponse,
+  EventsListResponseLinks: EventsListResponseLinks,
+  EventsQueryFilter: EventsQueryFilter,
+  EventsQueryOptions: EventsQueryOptions,
+  EventsRequestPage: EventsRequestPage,
+  EventsResponseMetadata: EventsResponseMetadata,
+  EventsResponseMetadataPage: EventsResponseMetadataPage,
+  EventsWarning: EventsWarning,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
@@ -839,6 +879,7 @@ const typeMap: { [index: string]: any } = {
   MetricVolumesResponse: MetricVolumesResponse,
   MetricsAndMetricTagConfigurationsResponse:
     MetricsAndMetricTagConfigurationsResponse,
+  MonitorType: MonitorType,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
