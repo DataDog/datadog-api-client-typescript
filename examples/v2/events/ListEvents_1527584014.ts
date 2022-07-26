@@ -13,6 +13,7 @@ const params: v2.EventsApiListEventsRequest = {
   filterTo: "now",
   pageLimit: 2,
 };
+
 try {
   for await (const item of apiInstance.listEventsWithPagination(params)) {
     console.log(item);

@@ -10,6 +10,7 @@ const apiInstance = new v2.AuditApi(configuration);
 const params: v2.AuditApiListAuditLogsRequest = {
   pageLimit: 2,
 };
+
 try {
   for await (const item of apiInstance.listAuditLogsWithPagination(params)) {
     console.log(item);

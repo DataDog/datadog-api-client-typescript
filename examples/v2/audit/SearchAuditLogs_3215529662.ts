@@ -22,6 +22,7 @@ const params: v2.AuditApiSearchAuditLogsRequest = {
     sort: "timestamp",
   },
 };
+
 try {
   for await (const item of apiInstance.searchAuditLogsWithPagination(params)) {
     console.log(item);

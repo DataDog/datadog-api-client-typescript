@@ -10,6 +10,7 @@ const apiInstance = new v2.LogsApi(configuration);
 const params: v2.LogsApiListLogsGetRequest = {
   pageLimit: 2,
 };
+
 try {
   for await (const item of apiInstance.listLogsGetWithPagination(params)) {
     console.log(item);

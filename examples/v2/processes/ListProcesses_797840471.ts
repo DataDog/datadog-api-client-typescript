@@ -10,6 +10,7 @@ const apiInstance = new v2.ProcessesApi(configuration);
 const params: v2.ProcessesApiListProcessesRequest = {
   pageLimit: 2,
 };
+
 try {
   for await (const item of apiInstance.listProcessesWithPagination(params)) {
     console.log(item);

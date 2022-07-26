@@ -24,6 +24,7 @@ const params: v2.RUMApiSearchRUMEventsRequest = {
     sort: "timestamp",
   },
 };
+
 try {
   for await (const item of apiInstance.searchRUMEventsWithPagination(params)) {
     console.log(item);

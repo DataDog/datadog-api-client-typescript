@@ -23,6 +23,7 @@ const params: v2.LogsApiListLogsRequest = {
     sort: "timestamp",
   },
 };
+
 try {
   for await (const item of apiInstance.listLogsWithPagination(params)) {
     console.log(item);

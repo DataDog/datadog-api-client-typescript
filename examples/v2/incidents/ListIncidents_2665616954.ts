@@ -11,6 +11,7 @@ const apiInstance = new v2.IncidentsApi(configuration);
 const params: v2.IncidentsApiListIncidentsRequest = {
   pageSize: 2,
 };
+
 try {
   for await (const item of apiInstance.listIncidentsWithPagination(params)) {
     console.log(item);

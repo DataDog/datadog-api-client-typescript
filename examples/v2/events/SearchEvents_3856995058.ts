@@ -23,6 +23,7 @@ const params: v2.EventsApiSearchEventsRequest = {
     sort: "timestamp",
   },
 };
+
 try {
   for await (const item of apiInstance.searchEventsWithPagination(params)) {
     console.log(item);

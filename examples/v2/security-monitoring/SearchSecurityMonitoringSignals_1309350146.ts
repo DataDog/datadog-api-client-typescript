@@ -20,6 +20,7 @@ const params: v2.SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {
     sort: "timestamp",
   },
 };
+
 try {
   for await (const item of apiInstance.searchSecurityMonitoringSignalsWithPagination(
     params
