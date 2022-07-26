@@ -11,11 +11,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricResource {
   /**
-   * The name of the metric.
+   * The name of the resource.
    */
   "name"?: string;
   /**
-   * The type of metric.
+   * The type of the resource.
    */
   "type"?: string;
 
