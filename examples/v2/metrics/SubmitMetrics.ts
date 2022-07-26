@@ -19,6 +19,12 @@ const params: v2.MetricsApiSubmitMetricsRequest = {
             value: 0.7,
           },
         ],
+        resources: [
+          {
+            name: "dummyhost",
+            type: "host",
+          },
+        ],
       },
     ],
   },
