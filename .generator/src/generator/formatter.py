@@ -232,6 +232,10 @@ def format_data_with_schema(
     nullable = schema.get("nullable", False)
 
     if "enum" in schema and data not in schema["enum"]:
+        # Support nullable enums
+        if nullable and data is None:
+            parameters = "null" if required else "undefined"
+            return parameters
         raise ValueError(f"{data} is not valid enum value {schema['enum']}")
 
     if replace_values and data in replace_values:
