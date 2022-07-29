@@ -13,6 +13,7 @@ import {
   ResponseContext,
 } from "../../datadog-api-client-common/http/http";
 
+import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 import { isCodeInRange } from "../../datadog-api-client-common/util";
@@ -78,6 +79,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getEstimatedCostByOrg(
+    view: string,
     startMonth?: Date,
     endMonth?: Date,
     startDate?: Date,
@@ -86,8 +88,20 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'getEstimatedCostByOrg'");
+    if (!_config.unstableOperations["v2.getEstimatedCostByOrg"]) {
+      throw new Error("Unstable operation 'getEstimatedCostByOrg' is disabled");
+    }
+
+    // verify required parameter 'view' is not null or undefined
+    if (view === null || view === undefined) {
+      throw new RequiredError(
+        "Required parameter view was null or undefined when calling getEstimatedCostByOrg."
+      );
+    }
+
     // Path Params
-    const localVarPath = "/api/v2/usage/estimated_cost_by_org";
+    const localVarPath = "/api/v2/usage/estimated_cost";
 
     // Make Request Context
     const requestContext = getServer(
@@ -101,6 +115,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
+    if (view !== undefined) {
+      requestContext.setQueryParam(
+        "view",
+        ObjectSerializer.serialize(view, "string", "")
+      );
+    }
     if (startMonth !== undefined) {
       requestContext.setQueryParam(
         "start_month",
@@ -788,7 +808,12 @@ export interface UsageMeteringApiGetCostByOrgRequest {
 
 export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both.
+   * String to specify whether cost is broken down at a parent-org level or at the sub-org level. Currently, only the 'sub-org' view is supported.
+   * @type string
+   */
+  view: string;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past)
    * @type Date
    */
   startMonth?: Date;
@@ -798,7 +823,7 @@ export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
    */
   endMonth?: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both.
+   * Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both. (start_date cannot go beyond two months in the past)
    * @type Date
    */
   startDate?: Date;
@@ -936,14 +961,16 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get estimated cost across multi-org account.
+   * Get estimated cost across multi-org and single root-org accounts.
+   * Estimated cost data is only available for the current month and previous month. To access historical costs prior to this, use the /cost_by_org endpoint.
    * @param param The request object
    */
   public getEstimatedCostByOrg(
-    param: UsageMeteringApiGetEstimatedCostByOrgRequest = {},
+    param: UsageMeteringApiGetEstimatedCostByOrgRequest,
     options?: Configuration
   ): Promise<CostByOrgResponse> {
     const requestContextPromise = this.requestFactory.getEstimatedCostByOrg(
+      param.view,
       param.startMonth,
       param.endMonth,
       param.startDate,

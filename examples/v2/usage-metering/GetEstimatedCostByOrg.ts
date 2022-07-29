@@ -1,14 +1,19 @@
 /**
- * Get estimated cost across multi-org account returns "OK" response
+ * Get estimated cost across your account returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
+configuration.unstableOperations["getEstimatedCostByOrg"] = true;
 const apiInstance = new v2.UsageMeteringApi(configuration);
 
+const params: v2.UsageMeteringApiGetEstimatedCostByOrgRequest = {
+  view: "view",
+};
+
 apiInstance
-  .getEstimatedCostByOrg()
+  .getEstimatedCostByOrg(params)
   .then((data: v2.CostByOrgResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

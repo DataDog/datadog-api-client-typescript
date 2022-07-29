@@ -1,15 +1,16 @@
 /**
- * Get estimated cost across multi-org account with date returns "OK" response
+ * GetEstimatedCostByOrg with start_date returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
+configuration.unstableOperations["getEstimatedCostByOrg"] = true;
 const apiInstance = new v2.UsageMeteringApi(configuration);
 
 const params: v2.UsageMeteringApiGetEstimatedCostByOrgRequest = {
+  view: "sub-org",
   startDate: new Date(new Date().getTime() / 1000 + -5 * 86400),
-  endDate: new Date(new Date().getTime() / 1000 + -3 * 86400),
 };
 
 apiInstance
