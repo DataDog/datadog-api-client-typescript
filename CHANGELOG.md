@@ -1,5 +1,20 @@
 # CHANGELOG
 
+## 1.2.0 / 2022-08-01
+
+### Fixed
+* Add synthetics results api replay only tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/763
+### Added
+* docs(dataviz): update Treemap widget definition with deprecated properties + updated description [VIZZ-2305] by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/764
+* Add hourly usage v2 endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/749
+* Add metrics field in the RuleQuery by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/750
+* Add support for Events V2 endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/727
+* [RQ-2492]: Add custom_events to list of product families in hourly-usage api. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/774
+* Re-introduce Estimated Cost API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/780
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.1.0...v1.2.0
+
 ## 1.1.0 / 2022-07-19
 
 ### Fixed

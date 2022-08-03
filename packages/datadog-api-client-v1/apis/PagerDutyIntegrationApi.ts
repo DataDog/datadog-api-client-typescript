@@ -275,7 +275,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (isCodeInRange("204", response.httpStatusCode)) {
       return;
     }
     if (isCodeInRange("403", response.httpStatusCode)) {
