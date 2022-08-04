@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
 import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
 import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
@@ -17,4 +18,5 @@ export type SyntheticsBasicAuth =
   | SyntheticsBasicAuthWeb
   | SyntheticsBasicAuthSigv4
   | SyntheticsBasicAuthNTLM
+  | SyntheticsBasicAuthDigest
   | UnparsedObject;

@@ -770,6 +770,8 @@ export { SyntheticsAssertionOperator } from "./models/SyntheticsAssertionOperato
 export { SyntheticsAssertionTarget } from "./models/SyntheticsAssertionTarget";
 export { SyntheticsAssertionType } from "./models/SyntheticsAssertionType";
 export { SyntheticsBasicAuth } from "./models/SyntheticsBasicAuth";
+export { SyntheticsBasicAuthDigest } from "./models/SyntheticsBasicAuthDigest";
+export { SyntheticsBasicAuthDigestType } from "./models/SyntheticsBasicAuthDigestType";
 export { SyntheticsBasicAuthNTLM } from "./models/SyntheticsBasicAuthNTLM";
 export { SyntheticsBasicAuthNTLMType } from "./models/SyntheticsBasicAuthNTLMType";
 export { SyntheticsBasicAuthSigv4 } from "./models/SyntheticsBasicAuthSigv4";
