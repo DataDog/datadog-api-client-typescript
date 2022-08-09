@@ -20,6 +20,10 @@ import { isCodeInRange } from "../../datadog-api-client-common/util";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { RUMAggregateRequest } from "../models/RUMAggregateRequest";
 import { RUMAnalyticsAggregateResponse } from "../models/RUMAnalyticsAggregateResponse";
+import { RUMApplicationCreateRequest } from "../models/RUMApplicationCreateRequest";
+import { RUMApplicationResponse } from "../models/RUMApplicationResponse";
+import { RUMApplicationsResponse } from "../models/RUMApplicationsResponse";
+import { RUMApplicationUpdateRequest } from "../models/RUMApplicationUpdateRequest";
 import { RUMEvent } from "../models/RUMEvent";
 import { RUMEventsResponse } from "../models/RUMEventsResponse";
 import { RUMQueryPageOptions } from "../models/RUMQueryPageOptions";
@@ -65,6 +69,147 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createRUMApplication(
+    body: RUMApplicationCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling createRUMApplication."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/applications";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.RUMApi.createRUMApplication"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "RUMApplicationCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteRUMApplication(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError(
+        "Required parameter id was null or undefined when calling deleteRUMApplication."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/applications/{id}".replace(
+      "{" + "id" + "}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.RUMApi.deleteRUMApplication"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getRUMApplication(
+    id: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError(
+        "Required parameter id was null or undefined when calling getRUMApplication."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/applications/{id}".replace(
+      "{" + "id" + "}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.RUMApi.getRUMApplication"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getRUMApplications(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/applications";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.RUMApi.getRUMApplications"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -186,6 +331,61 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateRUMApplication(
+    id: string,
+    body: RUMApplicationUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'id' is not null or undefined
+    if (id === null || id === undefined) {
+      throw new RequiredError(
+        "Required parameter id was null or undefined when calling updateRUMApplication."
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling updateRUMApplication."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/rum/applications/{id}".replace(
+      "{" + "id" + "}",
+      encodeURIComponent(String(id))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.RUMApi.updateRUMApplication"
+    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "RUMApplicationUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class RUMApiResponseProcessor {
@@ -242,6 +442,219 @@ export class RUMApiResponseProcessor {
         "RUMAnalyticsAggregateResponse",
         ""
       ) as RUMAnalyticsAggregateResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createRUMApplication
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createRUMApplication(
+    response: ResponseContext
+  ): Promise<RUMApplicationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RUMApplicationResponse",
+        ""
+      ) as RUMApplicationResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RUMApplicationResponse",
+        ""
+      ) as RUMApplicationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteRUMApplication
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteRUMApplication(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("204", response.httpStatusCode)) {
+      return;
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getRUMApplication
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getRUMApplication(
+    response: ResponseContext
+  ): Promise<RUMApplicationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RUMApplicationResponse",
+        ""
+      ) as RUMApplicationResponse;
+      return body;
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RUMApplicationResponse",
+        ""
+      ) as RUMApplicationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getRUMApplications
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getRUMApplications(
+    response: ResponseContext
+  ): Promise<RUMApplicationsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: RUMApplicationsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RUMApplicationsResponse",
+        ""
+      ) as RUMApplicationsResponse;
+      return body;
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RUMApplicationsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RUMApplicationsResponse",
+        ""
+      ) as RUMApplicationsResponse;
       return body;
     }
 
@@ -377,6 +790,77 @@ export class RUMApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateRUMApplication
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateRUMApplication(
+    response: ResponseContext
+  ): Promise<RUMApplicationResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (isCodeInRange("200", response.httpStatusCode)) {
+      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RUMApplicationResponse",
+        ""
+      ) as RUMApplicationResponse;
+      return body;
+    }
+    if (isCodeInRange("400", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(400, body);
+    }
+    if (isCodeInRange("404", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(404, body);
+    }
+    if (isCodeInRange("422", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(422, body);
+    }
+    if (isCodeInRange("429", response.httpStatusCode)) {
+      const body: APIErrorResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "APIErrorResponse",
+        ""
+      ) as APIErrorResponse;
+      throw new ApiException<APIErrorResponse>(429, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: RUMApplicationResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "RUMApplicationResponse",
+        ""
+      ) as RUMApplicationResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface RUMApiAggregateRUMEventsRequest {
@@ -384,6 +868,29 @@ export interface RUMApiAggregateRUMEventsRequest {
    * @type RUMAggregateRequest
    */
   body: RUMAggregateRequest;
+}
+
+export interface RUMApiCreateRUMApplicationRequest {
+  /**
+   * @type RUMApplicationCreateRequest
+   */
+  body: RUMApplicationCreateRequest;
+}
+
+export interface RUMApiDeleteRUMApplicationRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  id: string;
+}
+
+export interface RUMApiGetRUMApplicationRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  id: string;
 }
 
 export interface RUMApiListRUMEventsRequest {
@@ -426,6 +933,18 @@ export interface RUMApiSearchRUMEventsRequest {
   body: RUMSearchEventsRequest;
 }
 
+export interface RUMApiUpdateRUMApplicationRequest {
+  /**
+   * RUM application ID.
+   * @type string
+   */
+  id: string;
+  /**
+   * @type RUMApplicationUpdateRequest
+   */
+  body: RUMApplicationUpdateRequest;
+}
+
 export class RUMApi {
   private requestFactory: RUMApiRequestFactory;
   private responseProcessor: RUMApiResponseProcessor;
@@ -459,6 +978,87 @@ export class RUMApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.aggregateRUMEvents(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Create a new RUM application in your organization.
+   * @param param The request object
+   */
+  public createRUMApplication(
+    param: RUMApiCreateRUMApplicationRequest,
+    options?: Configuration
+  ): Promise<RUMApplicationResponse> {
+    const requestContextPromise = this.requestFactory.createRUMApplication(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createRUMApplication(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Delete an existing RUM application in your organization.
+   * @param param The request object
+   */
+  public deleteRUMApplication(
+    param: RUMApiDeleteRUMApplicationRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteRUMApplication(
+      param.id,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteRUMApplication(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the RUM application with given ID in your organization.
+   * @param param The request object
+   */
+  public getRUMApplication(
+    param: RUMApiGetRUMApplicationRequest,
+    options?: Configuration
+  ): Promise<RUMApplicationResponse> {
+    const requestContextPromise = this.requestFactory.getRUMApplication(
+      param.id,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getRUMApplication(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List all the RUM applications in your organization.
+   * @param param The request object
+   */
+  public getRUMApplications(
+    options?: Configuration
+  ): Promise<RUMApplicationsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getRUMApplications(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getRUMApplications(responseContext);
         });
     });
   }
@@ -631,5 +1231,27 @@ export class RUMApi {
 
       param.body.page.cursor = cursorMetaPageAfter;
     }
+  }
+
+  /**
+   * Update the RUM application with given ID in your organization.
+   * @param param The request object
+   */
+  public updateRUMApplication(
+    param: RUMApiUpdateRUMApplicationRequest,
+    options?: Configuration
+  ): Promise<RUMApplicationResponse> {
+    const requestContextPromise = this.requestFactory.updateRUMApplication(
+      param.id,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateRUMApplication(responseContext);
+        });
+    });
   }
 }
