@@ -150,7 +150,7 @@ import { client, v2 } from "@datadog/datadog-api-client";
 
 async function main() {
   const configuration = client.createConfiguration();
-  configuration.unstableOperations["listIncidents"] = true;
+  configuration.unstableOperations["v2.listIncidents"] = true;
   const apiInstance = new v2.IncidentsApi(configuration);
 
   for await (const incident of apiInstance.listIncidentsWithPagination()) {
