@@ -7,7 +7,7 @@ import { client, {{ version }} } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 {%- for operation in context._enable_operations %}
-configuration.unstableOperations["{{ operation|untitle_case }}"] = true;
+configuration.unstableOperations["{{ version }}.{{ operation|untitle_case }}"] = true;
 {%- endfor %}
 const apiInstance = new {{ version }}.{{ context.api_instance.name }}Api(configuration);
 

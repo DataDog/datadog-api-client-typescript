@@ -62,7 +62,7 @@ const configuration = client.createConfiguration(configurationOpts);
 This client includes access to Datadog API endpoints while they are in an unstable state and may undergo breaking changes. An extra configuration step is required to enable these endpoints:
 
 ```typescript
-configuration.unstableOperations["<operationName>"] = true
+configuration.unstableOperations["<version>.<operationName>"] = true
 ```
 
 where <operationName> is the name of the method used to interact with that endpoint. For example: `listLogIndexes`, or `getLogsIndex`.
