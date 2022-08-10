@@ -5,7 +5,7 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["createIncident"] = true;
+configuration.unstableOperations["v2.createIncident"] = true;
 const apiInstance = new v2.IncidentsApi(configuration);
 
 // there is a valid "user" in the system

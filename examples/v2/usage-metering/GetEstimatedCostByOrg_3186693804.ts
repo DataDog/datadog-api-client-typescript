@@ -5,7 +5,7 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["getEstimatedCostByOrg"] = true;
+configuration.unstableOperations["v2.getEstimatedCostByOrg"] = true;
 const apiInstance = new v2.UsageMeteringApi(configuration);
 
 const params: v2.UsageMeteringApiGetEstimatedCostByOrgRequest = {
