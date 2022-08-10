@@ -46,7 +46,7 @@ export type AttributeTypeMap = {
   };
 };
 
-export async function compressZstd(body: string): Promise<string> {
+export async function compressZstd(body: string): Promise<ArrayBuffer> {
   return await new Promise((resolve) => {
     let zstdLib;
     try {
