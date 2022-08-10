@@ -334,6 +334,7 @@ import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
+import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
 import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
 import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
@@ -924,6 +925,7 @@ const enumsMap: { [key: string]: any[] } = {
     "grpcHealthcheckStatus",
     "connection",
   ],
+  SyntheticsBasicAuthDigestType: ["digest"],
   SyntheticsBasicAuthNTLMType: ["ntlm"],
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
   SyntheticsBasicAuthWebType: ["web"],
@@ -1608,6 +1610,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
+  SyntheticsBasicAuthDigest: SyntheticsBasicAuthDigest,
   SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
   SyntheticsBasicAuthSigv4: SyntheticsBasicAuthSigv4,
   SyntheticsBasicAuthWeb: SyntheticsBasicAuthWeb,
@@ -1887,6 +1890,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthWeb",
     "SyntheticsBasicAuthSigv4",
     "SyntheticsBasicAuthNTLM",
+    "SyntheticsBasicAuthDigest",
   ],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
