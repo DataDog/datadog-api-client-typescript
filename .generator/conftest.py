@@ -105,7 +105,7 @@ def pytest_bdd_after_scenario(request, feature, scenario):
 
 def pytest_bdd_apply_tag(tag, function):
     """Register tags as custom markers and skip test for '@skip' ones."""
-    skip_tags = {"with-pagination"}
+    skip_tags = {}
     if tag in skip_tags:
         marker = pytest.mark.skip(reason=f"skipped because '{tag}' in {skip_tags}")
         marker(function)
@@ -442,6 +442,7 @@ def execute_request(context, api_version):
 @when("the request with pagination is sent")
 def execute_request_with_pagination(context):
     """Execute the prepared request paginated."""
+    context["pagination"] = True
 
 
 @then(parsers.parse("the response status is {status:d} {description}"))
