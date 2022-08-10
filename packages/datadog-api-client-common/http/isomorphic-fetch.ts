@@ -6,7 +6,7 @@ import bufferFrom from "buffer-from";
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
 
-  public send(request: RequestContext): Promise<ResponseContext> {
+  public async send(request: RequestContext): Promise<ResponseContext> {
     if (this.debug) {
       this.logRequest(request);
     }
@@ -24,12 +24,14 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         body = bufferFrom(pako.gzip(body).buffer);
       } else if (headers["Content-Encoding"] == "deflate") {
         body = bufferFrom(pako.deflate(body).buffer);
+      } else if (headers["Content-Encoding"] == "zstd1") {
+        body = await tryCompress(body);
       }
     }
 
     if (!headers["Accept-Encoding"]) {
       if (compress) {
-        headers["Accept-Encoding"] = "gzip,deflate";
+        headers["Accept-Encoding"] = "gzip,deflate,zstd1";
       } else {
         // We need to enforce it otherwise node-fetch will set a default
         headers["Accept-Encoding"] = "identity";

@@ -110,5 +110,8 @@
   "engines": {
     "node": ">=12.0.0"
   },
-  "version": "1.2.1-beta.0"
+  "version": "1.2.1-beta.0",
+  "optionalDependencies": {
+    "zstd-codec": "^0.1.4"
+  }
 }
