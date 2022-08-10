@@ -1,4 +1,5 @@
 import { HttpLibrary, RequestContext, ResponseContext } from "./http";
+import { compressZstd } from "../util";
 import fetch from "cross-fetch";
 import pako from "pako";
 import bufferFrom from "buffer-from";
@@ -25,7 +26,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       } else if (headers["Content-Encoding"] == "deflate") {
         body = bufferFrom(pako.deflate(body).buffer);
       } else if (headers["Content-Encoding"] == "zstd1") {
-        body = await tryCompress(body);
+        body = await compressZstd(body);
       }
     }
 
