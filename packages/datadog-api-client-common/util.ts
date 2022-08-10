@@ -57,7 +57,7 @@ export async function compressZstd(body: string): Promise<string> {
 
     zstdLib.ZstdCodec.run((zstd: any) => {
       const simple = new zstd.Simple();
-      resolve(simple.compress(Buffer.from(body, "utf8")));
+      resolve(simple.compress(Buffer.from(body, "utf8")).buffer);
     });
   });
 }
