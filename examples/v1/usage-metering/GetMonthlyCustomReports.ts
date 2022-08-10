@@ -5,7 +5,7 @@
 import { client, v1 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["getMonthlyCustomReports"] = true;
+configuration.unstableOperations["v1.getMonthlyCustomReports"] = true;
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 apiInstance

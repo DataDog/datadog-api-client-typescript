@@ -5,7 +5,7 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["createIncidentService"] = true;
+configuration.unstableOperations["v2.createIncidentService"] = true;
 const apiInstance = new v2.IncidentServicesApi(configuration);
 
 const params: v2.IncidentServicesApiCreateIncidentServiceRequest = {

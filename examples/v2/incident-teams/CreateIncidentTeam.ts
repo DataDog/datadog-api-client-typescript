@@ -5,7 +5,7 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["createIncidentTeam"] = true;
+configuration.unstableOperations["v2.createIncidentTeam"] = true;
 const apiInstance = new v2.IncidentTeamsApi(configuration);
 
 const params: v2.IncidentTeamsApiCreateIncidentTeamRequest = {
