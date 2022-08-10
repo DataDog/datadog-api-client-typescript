@@ -263,16 +263,6 @@ import { RUMAggregateRequest } from "./RUMAggregateRequest";
 import { RUMAggregateSort } from "./RUMAggregateSort";
 import { RUMAggregationBucketsResponse } from "./RUMAggregationBucketsResponse";
 import { RUMAnalyticsAggregateResponse } from "./RUMAnalyticsAggregateResponse";
-import { RUMApplication } from "./RUMApplication";
-import { RUMApplicationAttributes } from "./RUMApplicationAttributes";
-import { RUMApplicationCreate } from "./RUMApplicationCreate";
-import { RUMApplicationCreateAttributes } from "./RUMApplicationCreateAttributes";
-import { RUMApplicationCreateRequest } from "./RUMApplicationCreateRequest";
-import { RUMApplicationResponse } from "./RUMApplicationResponse";
-import { RUMApplicationUpdate } from "./RUMApplicationUpdate";
-import { RUMApplicationUpdateAttributes } from "./RUMApplicationUpdateAttributes";
-import { RUMApplicationUpdateRequest } from "./RUMApplicationUpdateRequest";
-import { RUMApplicationsResponse } from "./RUMApplicationsResponse";
 import { RUMBucketResponse } from "./RUMBucketResponse";
 import { RUMCompute } from "./RUMCompute";
 import { RUMEvent } from "./RUMEvent";
@@ -568,9 +558,6 @@ const enumsMap: { [key: string]: any[] } = {
     "avg",
     "median",
   ],
-  RUMApplicationCreateType: ["rum_application_create"],
-  RUMApplicationType: ["rum_application"],
-  RUMApplicationUpdateType: ["rum_application_update"],
   RUMComputeType: ["timeseries", "total"],
   RUMEventType: ["rum"],
   RUMResponseStatus: ["done", "timeout"],
@@ -927,16 +914,6 @@ const typeMap: { [index: string]: any } = {
   RUMAggregateSort: RUMAggregateSort,
   RUMAggregationBucketsResponse: RUMAggregationBucketsResponse,
   RUMAnalyticsAggregateResponse: RUMAnalyticsAggregateResponse,
-  RUMApplication: RUMApplication,
-  RUMApplicationAttributes: RUMApplicationAttributes,
-  RUMApplicationCreate: RUMApplicationCreate,
-  RUMApplicationCreateAttributes: RUMApplicationCreateAttributes,
-  RUMApplicationCreateRequest: RUMApplicationCreateRequest,
-  RUMApplicationResponse: RUMApplicationResponse,
-  RUMApplicationUpdate: RUMApplicationUpdate,
-  RUMApplicationUpdateAttributes: RUMApplicationUpdateAttributes,
-  RUMApplicationUpdateRequest: RUMApplicationUpdateRequest,
-  RUMApplicationsResponse: RUMApplicationsResponse,
   RUMBucketResponse: RUMBucketResponse,
   RUMCompute: RUMCompute,
   RUMEvent: RUMEvent,
