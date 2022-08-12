@@ -1,11 +1,12 @@
 import { HttpLibrary, RequestContext, ResponseContext } from "./http";
-import { compressZstd } from "../util";
+import { getZstdCompressor } from "../util";
 import fetch from "cross-fetch";
 import pako from "pako";
 import bufferFrom from "buffer-from";
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
+  private zstdCompressor: any;
 
   public async send(request: RequestContext): Promise<ResponseContext> {
     if (this.debug) {
@@ -26,7 +27,10 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       } else if (headers["Content-Encoding"] == "deflate") {
         body = bufferFrom(pako.deflate(body).buffer);
       } else if (headers["Content-Encoding"] == "zstd1") {
-        body = bufferFrom(await compressZstd(body));
+        this.zstdCompressor ??= await getZstdCompressor();
+        body = bufferFrom(
+          this.zstdCompressor.compress(Buffer.from(body, "utf8")).buffer
+        );
       }
     }
 

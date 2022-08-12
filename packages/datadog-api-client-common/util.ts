@@ -46,7 +46,7 @@ export type AttributeTypeMap = {
   };
 };
 
-export async function compressZstd(body: string): Promise<ArrayBuffer> {
+export async function getZstdCompressor(): Promise<any> {
   return await new Promise((resolve) => {
     let zstdLib;
     try {
@@ -57,7 +57,7 @@ export async function compressZstd(body: string): Promise<ArrayBuffer> {
 
     zstdLib.ZstdCodec.run((zstd: any) => {
       const simple = new zstd.Simple();
-      resolve(simple.compress(Buffer.from(body, "utf8")).buffer);
+      resolve(simple);
     });
   });
 }
