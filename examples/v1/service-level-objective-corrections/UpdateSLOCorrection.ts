@@ -17,9 +17,10 @@ const params: v1.ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest =
         attributes: {
           category: "Deployment",
           description: "Example-Update_an_SLO_correction_returns_OK_response",
-          end:
-            new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000,
-          start: new Date().getTime() / 1000,
+          end: Math.round(
+            new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000
+          ),
+          start: Math.round(new Date().getTime() / 1000),
           timezone: "UTC",
         },
         type: "correction",

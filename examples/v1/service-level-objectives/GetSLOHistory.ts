@@ -13,8 +13,10 @@ const SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
 
 const params: v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
   sloId: SLO_DATA_0_ID,
-  fromTs: new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000,
-  toTs: new Date().getTime() / 1000,
+  fromTs: Math.round(
+    new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000
+  ),
+  toTs: Math.round(new Date().getTime() / 1000),
 };
 
 apiInstance
