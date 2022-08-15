@@ -19,7 +19,9 @@ export type WidgetMonitorSummarySort =
   | typeof TAGS_ASCENDING
   | typeof TAGS_DESCENDING
   | typeof TRIGGERED_ASCENDING
-  | typeof TRIGGERED_DESCENDING;
+  | typeof TRIGGERED_DESCENDING
+  | typeof PRIORITY_ASCENDING
+  | typeof PRIORITY_DESCENDING;
 export const NAME = "name";
 export const GROUP = "group";
 export const STATUS = "status";
@@ -35,3 +37,5 @@ export const TAGS_ASCENDING = "tags,asc";
 export const TAGS_DESCENDING = "tags,desc";
 export const TRIGGERED_ASCENDING = "triggered,asc";
 export const TRIGGERED_DESCENDING = "triggered,desc";
+export const PRIORITY_ASCENDING = "priority,asc";
+export const PRIORITY_DESCENDING = "priority,desc";

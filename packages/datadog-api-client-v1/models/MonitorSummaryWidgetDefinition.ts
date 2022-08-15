@@ -41,6 +41,10 @@ export class MonitorSummaryWidgetDefinition {
    */
   "showLastTriggered"?: boolean;
   /**
+   * Whether to show the priorities column.
+   */
+  "showPriority"?: boolean;
+  /**
    * Widget sorting methods.
    */
   "sort"?: WidgetMonitorSummarySort;
@@ -102,6 +106,10 @@ export class MonitorSummaryWidgetDefinition {
     },
     showLastTriggered: {
       baseName: "show_last_triggered",
+      type: "boolean",
+    },
+    showPriority: {
+      baseName: "show_priority",
       type: "boolean",
     },
     sort: {
