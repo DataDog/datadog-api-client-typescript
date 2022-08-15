@@ -1205,6 +1205,8 @@ const enumsMap: { [key: string]: any[] } = {
     "tags,desc",
     "triggered,asc",
     "triggered,desc",
+    "priority,asc",
+    "priority,desc",
   ],
   WidgetNodeType: ["host", "container"],
   WidgetOrderBy: ["change", "name", "present", "past"],
