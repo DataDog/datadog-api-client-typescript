@@ -646,6 +646,7 @@ export { NotebookUpdateDataAttributes } from "./models/NotebookUpdateDataAttribu
 export { NotebookUpdateRequest } from "./models/NotebookUpdateRequest";
 export { NoteWidgetDefinition } from "./models/NoteWidgetDefinition";
 export { NoteWidgetDefinitionType } from "./models/NoteWidgetDefinitionType";
+export { OnMissingDataOption } from "./models/OnMissingDataOption";
 export { Organization } from "./models/Organization";
 export { OrganizationBilling } from "./models/OrganizationBilling";
 export { OrganizationCreateBody } from "./models/OrganizationCreateBody";
@@ -770,6 +771,8 @@ export { SyntheticsAssertionOperator } from "./models/SyntheticsAssertionOperato
 export { SyntheticsAssertionTarget } from "./models/SyntheticsAssertionTarget";
 export { SyntheticsAssertionType } from "./models/SyntheticsAssertionType";
 export { SyntheticsBasicAuth } from "./models/SyntheticsBasicAuth";
+export { SyntheticsBasicAuthDigest } from "./models/SyntheticsBasicAuthDigest";
+export { SyntheticsBasicAuthDigestType } from "./models/SyntheticsBasicAuthDigestType";
 export { SyntheticsBasicAuthNTLM } from "./models/SyntheticsBasicAuthNTLM";
 export { SyntheticsBasicAuthNTLMType } from "./models/SyntheticsBasicAuthNTLMType";
 export { SyntheticsBasicAuthSigv4 } from "./models/SyntheticsBasicAuthSigv4";

@@ -26,6 +26,7 @@ const params: v1.MonitorsApiValidateMonitorRequest = {
       noDataTimeframe: undefined,
       notifyAudit: false,
       notifyNoData: false,
+      onMissingData: "show_and_notify_no_data",
       renotifyInterval: 60,
       requireFullWindow: true,
       timeoutH: 24,

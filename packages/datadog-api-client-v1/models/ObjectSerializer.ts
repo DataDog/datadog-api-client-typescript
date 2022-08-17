@@ -334,6 +334,7 @@ import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
+import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
 import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
 import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
@@ -686,6 +687,7 @@ const enumsMap: { [key: string]: any[] } = {
     "audit_stream",
     "rum_issue_stream",
     "apm_issue_stream",
+    "logs_pattern_stream",
   ],
   ListStreamWidgetDefinitionType: ["list_stream"],
   LogStreamWidgetDefinitionType: ["log_stream"],
@@ -830,6 +832,12 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   NotebookResourceType: ["notebooks"],
   NotebookStatus: ["published"],
+  OnMissingDataOption: [
+    "default",
+    "show_no_data",
+    "show_and_notify_no_data",
+    "resolve",
+  ],
   QuerySortOrder: ["asc", "desc"],
   QueryValueWidgetDefinitionType: ["query_value"],
   SLOCorrectionCategory: [
@@ -925,6 +933,7 @@ const enumsMap: { [key: string]: any[] } = {
     "grpcHealthcheckStatus",
     "connection",
   ],
+  SyntheticsBasicAuthDigestType: ["digest"],
   SyntheticsBasicAuthNTLMType: ["ntlm"],
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
   SyntheticsBasicAuthWebType: ["web"],
@@ -1204,6 +1213,8 @@ const enumsMap: { [key: string]: any[] } = {
     "tags,desc",
     "triggered,asc",
     "triggered,desc",
+    "priority,asc",
+    "priority,desc",
   ],
   WidgetNodeType: ["host", "container"],
   WidgetOrderBy: ["change", "name", "present", "past"],
@@ -1609,6 +1620,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
+  SyntheticsBasicAuthDigest: SyntheticsBasicAuthDigest,
   SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
   SyntheticsBasicAuthSigv4: SyntheticsBasicAuthSigv4,
   SyntheticsBasicAuthWeb: SyntheticsBasicAuthWeb,
@@ -1888,6 +1900,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthWeb",
     "SyntheticsBasicAuthSigv4",
     "SyntheticsBasicAuthNTLM",
+    "SyntheticsBasicAuthDigest",
   ],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",

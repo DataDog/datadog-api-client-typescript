@@ -7,7 +7,7 @@ import { client, {{ version }} } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
 {%- for operation in context._enable_operations %}
-configuration.unstableOperations["{{ operation|untitle_case }}"] = true;
+configuration.unstableOperations["{{ version }}.{{ operation|untitle_case }}"] = true;
 {%- endfor %}
 const apiInstance = new {{ version }}.{{ context.api_instance.name }}Api(configuration);
 
@@ -53,9 +53,24 @@ const params: {{ version }}.{{ context.api_instance.name }}Api{{ context.api_req
 };
 {%- endif %}
 
+{%- if context.pagination %}
+
+(async () => {
+  try {
+    for await (const item of apiInstance.{{ context.api_request.operation_id|untitle_case }}WithPagination({% if has_params %}params{% endif %})) {
+      console.log(item);
+    }
+  } catch (error) {
+    console.error(error)
+  }
+})();
+
+{%- else %}
+
 apiInstance
   .{{ context.api_request.operation_id|untitle_case }}({% if has_params %}params{% endif %})
   .then((data: {% if api_response_type %}{{ api_response_type }}{% else %}any{% endif %}) => {
     console.log("API called successfully. Returned data: " + JSON.stringify(data));
   })
   .catch((error: any) => console.error(error));
+{%-endif %}

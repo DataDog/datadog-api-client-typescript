@@ -5,7 +5,7 @@
 import { client, v1 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["searchSLO"] = true;
+configuration.unstableOperations["v1.searchSLO"] = true;
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
 // there is a valid "slo" in the system
