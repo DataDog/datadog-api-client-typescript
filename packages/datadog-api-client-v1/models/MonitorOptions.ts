@@ -9,6 +9,7 @@ import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholds } from "./MonitorThresholds";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
+import { OnMissingDataOption } from "./OnMissingDataOption";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -41,6 +42,13 @@ export class MonitorOptions {
    * This is useful for AWS CloudWatch and other backfilled metrics to ensure the monitor always has data during evaluation.
    */
   "evaluationDelay"?: number;
+  /**
+   * The time span after which groups with missing data are dropped from the monitor state.
+   * The minimum value is one hour, and the maximum value is 72 hours.
+   * Example values are: "60m", "1h", and "2d".
+   * This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+   */
+  "groupRetentionDuration"?: string;
   /**
    * Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
    */
@@ -97,6 +105,14 @@ export class MonitorOptions {
    * A Boolean indicating whether this monitor notifies when data stops reporting.
    */
   "notifyNoData"?: boolean;
+  /**
+   * Controls how groups or monitors are treated if an evaluation does not return any data points.
+   * The default option results in different behavior depending on the monitor query type.
+   * For monitors using Count queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions.
+   * For monitor using any query type other than Count, for example Gauge or Rate, the monitor shows the last known status.
+   * This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
+   */
+  "onMissingData"?: OnMissingDataOption;
   /**
    * The number of minutes after the last notification before a monitor re-notifies on the current status.
    * It only re-notifies if it’s not resolved.
@@ -171,6 +187,10 @@ export class MonitorOptions {
       type: "number",
       format: "int64",
     },
+    groupRetentionDuration: {
+      baseName: "group_retention_duration",
+      type: "string",
+    },
     groupbySimpleMonitor: {
       baseName: "groupby_simple_monitor",
       type: "boolean",
@@ -215,6 +235,10 @@ export class MonitorOptions {
     notifyNoData: {
       baseName: "notify_no_data",
       type: "boolean",
+    },
+    onMissingData: {
+      baseName: "on_missing_data",
+      type: "OnMissingDataOption",
     },
     renotifyInterval: {
       baseName: "renotify_interval",

@@ -831,6 +831,12 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   NotebookResourceType: ["notebooks"],
   NotebookStatus: ["published"],
+  OnMissingDataOption: [
+    "default",
+    "show_no_data",
+    "show_and_notify_no_data",
+    "resolve",
+  ],
   QuerySortOrder: ["asc", "desc"],
   QueryValueWidgetDefinitionType: ["query_value"],
   SLOCorrectionCategory: [
