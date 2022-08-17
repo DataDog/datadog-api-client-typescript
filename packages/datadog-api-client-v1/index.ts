@@ -646,6 +646,7 @@ export { NotebookUpdateDataAttributes } from "./models/NotebookUpdateDataAttribu
 export { NotebookUpdateRequest } from "./models/NotebookUpdateRequest";
 export { NoteWidgetDefinition } from "./models/NoteWidgetDefinition";
 export { NoteWidgetDefinitionType } from "./models/NoteWidgetDefinitionType";
+export { OnMissingDataOption } from "./models/OnMissingDataOption";
 export { Organization } from "./models/Organization";
 export { OrganizationBilling } from "./models/OrganizationBilling";
 export { OrganizationCreateBody } from "./models/OrganizationCreateBody";
