@@ -103,11 +103,6 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
-      "v1.getDailyCustomReports": false,
-      "v1.getMonthlyCustomReports": false,
-      "v1.getSpecifiedDailyCustomReports": false,
-      "v1.getSpecifiedMonthlyCustomReports": false,
-      "v1.getUsageAttribution": false,
       "v1.getSLOHistory": false,
       "v1.searchSLO": false,
       "v2.listEvents": false,
