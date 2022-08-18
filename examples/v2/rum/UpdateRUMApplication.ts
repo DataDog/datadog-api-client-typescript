@@ -12,7 +12,7 @@ const params: v2.RUMApiUpdateRUMApplicationRequest = {
     data: {
       attributes: {
         name: "updated_name_for_my_existing_rum_application",
-        type: "browser|ios|android|react-native|flutter",
+        type: "browser",
       },
       id: "abcd1234-0000-0000-abcd-1234abcd5678",
       type: "rum_application_update",
