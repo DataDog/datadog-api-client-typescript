@@ -10,15 +10,16 @@ const apiInstance = new v1.DowntimesApi(configuration);
 const params: v1.DowntimesApiCreateDowntimeRequest = {
   body: {
     message: "Example-Schedule_a_downtime_returns_OK_response",
-    start: new Date().getTime() / 1000,
+    start: Math.round(new Date().getTime() / 1000),
     timezone: "Etc/UTC",
     scope: ["test:examplescheduleadowntimereturnsokresponse"],
     recurrence: {
       type: "weeks",
       period: 1,
       weekDays: ["Mon", "Tue", "Wed", "Thu", "Fri"],
-      untilDate:
-        new Date(new Date().getTime() / 1000 + 21 * 86400).getTime() / 1000,
+      untilDate: Math.round(
+        new Date(new Date().getTime() / 1000 + 21 * 86400).getTime() / 1000
+      ),
     },
   },
 };

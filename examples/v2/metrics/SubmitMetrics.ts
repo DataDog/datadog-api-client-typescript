@@ -15,7 +15,7 @@ const params: v2.MetricsApiSubmitMetricsRequest = {
         type: 0,
         points: [
           {
-            timestamp: new Date().getTime() / 1000,
+            timestamp: Math.round(new Date().getTime() / 1000),
             value: 0.7,
           },
         ],

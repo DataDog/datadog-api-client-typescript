@@ -19,7 +19,7 @@ const params: v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest =
           description:
             "Example-Create_an_SLO_correction_with_rrule_returns_OK_response",
           sloId: SLO_DATA_0_ID,
-          start: new Date().getTime() / 1000,
+          start: Math.round(new Date().getTime() / 1000),
           duration: 3600,
           rrule: "FREQ=DAILY;INTERVAL=10;COUNT=5",
           timezone: "UTC",

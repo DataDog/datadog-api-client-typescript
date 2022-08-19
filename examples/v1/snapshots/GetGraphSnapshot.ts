@@ -9,8 +9,10 @@ const apiInstance = new v1.SnapshotsApi(configuration);
 
 const params: v1.SnapshotsApiGetGraphSnapshotRequest = {
   metricQuery: "avg:system.load.1{*}",
-  start: new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000,
-  end: new Date().getTime() / 1000,
+  start: Math.round(
+    new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000
+  ),
+  end: Math.round(new Date().getTime() / 1000),
   title: "System load",
   height: 400,
   width: 600,
