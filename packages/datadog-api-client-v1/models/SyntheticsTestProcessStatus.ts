@@ -7,11 +7,9 @@
 export type SyntheticsTestProcessStatus =
   | typeof NOT_SCHEDULED
   | typeof SCHEDULED
-  | typeof STARTED
   | typeof FINISHED
   | typeof FINISHED_WITH_ERROR;
 export const NOT_SCHEDULED = "not_scheduled";
 export const SCHEDULED = "scheduled";
-export const STARTED = "started";
 export const FINISHED = "finished";
 export const FINISHED_WITH_ERROR = "finished_with_error";

@@ -1060,7 +1060,6 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsTestProcessStatus: [
     "not_scheduled",
     "scheduled",
-    "started",
     "finished",
     "finished_with_error",
   ],
