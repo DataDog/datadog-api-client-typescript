@@ -1,5 +1,5 @@
 /**
- * Validate a monitor returns "OK" response
+ * Validate a multi-alert monitor returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -9,17 +9,18 @@ const apiInstance = new v1.MonitorsApi(configuration);
 
 const params: v1.MonitorsApiValidateMonitorRequest = {
   body: {
-    name: "Example-Validate_a_monitor_returns_OK_response",
+    name: "Example-Validate_a_multi_alert_monitor_returns_OK_response",
     type: "log alert",
     query: `logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2`,
     message: "some message Notify: @hipchat-channel",
-    tags: ["test:examplevalidateamonitorreturnsokresponse", "env:ci"],
+    tags: ["test:examplevalidateamultialertmonitorreturnsokresponse", "env:ci"],
     priority: 3,
     options: {
       enableLogsSample: true,
       escalationMessage: "the situation has escalated",
       evaluationDelay: 700,
-      groupbySimpleMonitor: true,
+      groupRetentionDuration: "2d",
+      groupbySimpleMonitor: false,
       includeTags: true,
       locked: false,
       newHostDelay: 600,
