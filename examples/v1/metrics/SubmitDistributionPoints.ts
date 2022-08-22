@@ -12,7 +12,7 @@ const params: v1.MetricsApiSubmitDistributionPointsRequest = {
     series: [
       {
         metric: "system.load.1.dist",
-        points: [[new Date().getTime() / 1000, [1.0, 2.0]]],
+        points: [[Math.round(new Date().getTime() / 1000), [1.0, 2.0]]],
       },
     ],
   },

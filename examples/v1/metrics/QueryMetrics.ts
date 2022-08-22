@@ -8,8 +8,10 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.MetricsApi(configuration);
 
 const params: v1.MetricsApiQueryMetricsRequest = {
-  from: new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000,
-  to: new Date().getTime() / 1000,
+  from: Math.round(
+    new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000
+  ),
+  to: Math.round(new Date().getTime() / 1000),
   query: "system.cpu.idle{*}",
 };
 

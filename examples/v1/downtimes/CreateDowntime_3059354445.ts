@@ -15,8 +15,10 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
       type: "years",
     },
     scope: ["*"],
-    start: new Date().getTime() / 1000,
-    end: new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000,
+    start: Math.round(new Date().getTime() / 1000),
+    end: Math.round(
+      new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000
+    ),
     timezone: "Etc/UTC",
     muteFirstRecoveryNotification: true,
     monitorTags: ["tag0"],

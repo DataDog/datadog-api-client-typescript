@@ -17,10 +17,11 @@ const params: v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest =
         attributes: {
           category: "Scheduled Maintenance",
           description: "Example-Create_an_SLO_correction_returns_OK_response",
-          end:
-            new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000,
+          end: Math.round(
+            new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000
+          ),
           sloId: SLO_DATA_0_ID,
-          start: new Date().getTime() / 1000,
+          start: Math.round(new Date().getTime() / 1000),
           timezone: "UTC",
         },
         type: "correction",
