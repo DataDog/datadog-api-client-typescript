@@ -687,6 +687,7 @@ const enumsMap: { [key: string]: any[] } = {
     "audit_stream",
     "rum_issue_stream",
     "apm_issue_stream",
+    "logs_pattern_stream",
   ],
   ListStreamWidgetDefinitionType: ["list_stream"],
   LogStreamWidgetDefinitionType: ["log_stream"],
@@ -830,6 +831,12 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   NotebookResourceType: ["notebooks"],
   NotebookStatus: ["published"],
+  OnMissingDataOption: [
+    "default",
+    "show_no_data",
+    "show_and_notify_no_data",
+    "resolve",
+  ],
   QuerySortOrder: ["asc", "desc"],
   QueryValueWidgetDefinitionType: ["query_value"],
   SLOCorrectionCategory: [
@@ -1053,7 +1060,6 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsTestProcessStatus: [
     "not_scheduled",
     "scheduled",
-    "started",
     "finished",
     "finished_with_error",
   ],
@@ -1205,6 +1211,8 @@ const enumsMap: { [key: string]: any[] } = {
     "tags,desc",
     "triggered,asc",
     "triggered,desc",
+    "priority,asc",
+    "priority,desc",
   ],
   WidgetNodeType: ["host", "container"],
   WidgetOrderBy: ["change", "name", "present", "past"],

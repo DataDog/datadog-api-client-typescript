@@ -137,7 +137,7 @@ def unique(request):
 
 TIME_FORMATTER = {
     "now": "new Date()",
-    "timestamp": "{sret}.getTime() / 1000",
+    "timestamp": "Math.round({sret}.getTime() / 1000)",
     "isoformat": "{sret}",
     "units": {
         "s": "new Date(new Date().getTime() / 1000 + {num})",

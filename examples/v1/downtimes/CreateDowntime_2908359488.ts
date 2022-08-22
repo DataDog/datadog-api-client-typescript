@@ -13,13 +13,16 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
     recurrence: {
       period: 1,
       type: "weeks",
-      untilDate:
-        new Date(new Date().getTime() / 1000 + 21 * 86400).getTime() / 1000,
+      untilDate: Math.round(
+        new Date(new Date().getTime() / 1000 + 21 * 86400).getTime() / 1000
+      ),
       weekDays: ["Mon", "Tue", "Wed", "Thu", "Fri"],
     },
     scope: ["*"],
-    start: new Date().getTime() / 1000,
-    end: new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000,
+    start: Math.round(new Date().getTime() / 1000),
+    end: Math.round(
+      new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000
+    ),
     timezone: "Etc/UTC",
     muteFirstRecoveryNotification: true,
     monitorTags: ["tag0"],

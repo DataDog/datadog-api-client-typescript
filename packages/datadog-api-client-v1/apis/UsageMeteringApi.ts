@@ -13,7 +13,6 @@ import {
   ResponseContext,
 } from "../../datadog-api-client-common/http/http";
 
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 import { isCodeInRange } from "../../datadog-api-client-common/util";
@@ -71,11 +70,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getDailyCustomReports'");
-    if (!_config.unstableOperations["v1.getDailyCustomReports"]) {
-      throw new Error("Unstable operation 'getDailyCustomReports' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v1/daily_custom_reports";
@@ -331,13 +325,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getMonthlyCustomReports'");
-    if (!_config.unstableOperations["v1.getMonthlyCustomReports"]) {
-      throw new Error(
-        "Unstable operation 'getMonthlyCustomReports' is disabled"
-      );
-    }
-
     // Path Params
     const localVarPath = "/api/v1/monthly_custom_reports";
 
@@ -503,13 +490,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getSpecifiedDailyCustomReports'");
-    if (!_config.unstableOperations["v1.getSpecifiedDailyCustomReports"]) {
-      throw new Error(
-        "Unstable operation 'getSpecifiedDailyCustomReports' is disabled"
-      );
-    }
-
     // verify required parameter 'reportId' is not null or undefined
     if (reportId === null || reportId === undefined) {
       throw new RequiredError(
@@ -549,13 +529,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getSpecifiedMonthlyCustomReports'");
-    if (!_config.unstableOperations["v1.getSpecifiedMonthlyCustomReports"]) {
-      throw new Error(
-        "Unstable operation 'getSpecifiedMonthlyCustomReports' is disabled"
-      );
-    }
 
     // verify required parameter 'reportId' is not null or undefined
     if (reportId === null || reportId === undefined) {
@@ -655,11 +628,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getUsageAttribution'");
-    if (!_config.unstableOperations["v1.getUsageAttribution"]) {
-      throw new Error("Unstable operation 'getUsageAttribution' is disabled");
-    }
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
@@ -5256,6 +5224,8 @@ export class UsageMeteringApi {
 
   /**
    * Get daily custom reports.
+   * **Note:** This endpoint will be fully deprecated on December 1, 2022.
+   * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
    * @param param The request object
    */
   public getDailyCustomReports(
@@ -5368,6 +5338,8 @@ export class UsageMeteringApi {
 
   /**
    * Get monthly custom reports.
+   * **Note:** This endpoint will be fully deprecated on December 1, 2022.
+   * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
    * @param param The request object
    */
   public getMonthlyCustomReports(
@@ -5439,6 +5411,8 @@ export class UsageMeteringApi {
 
   /**
    * Get specified daily custom reports.
+   * **Note:** This endpoint will be fully deprecated on December 1, 2022.
+   * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
    * @param param The request object
    */
   public getSpecifiedDailyCustomReports(
@@ -5463,6 +5437,8 @@ export class UsageMeteringApi {
 
   /**
    * Get specified monthly custom reports.
+   * **Note:** This endpoint will be fully deprecated on December 1, 2022.
+   * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
    * @param param The request object
    */
   public getSpecifiedMonthlyCustomReports(
@@ -5510,6 +5486,8 @@ export class UsageMeteringApi {
 
   /**
    * Get usage attribution.
+   * **Note:** This endpoint will be fully deprecated on December 1, 2022.
+   * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
    * @param param The request object
    */
   public getUsageAttribution(
