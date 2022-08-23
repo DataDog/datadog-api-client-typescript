@@ -234,7 +234,10 @@ export class ResponseContext {
   }
 }
 
+export type ZstdCompressorCallback = (body: string) => Buffer;
+
 export interface HttpLibrary {
   debug?: boolean;
+  zstdCompressorCallback?: ZstdCompressorCallback;
   send(request: RequestContext): Promise<ResponseContext>;
 }

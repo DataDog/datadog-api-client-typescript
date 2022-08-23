@@ -1,4 +1,9 @@
-import { HttpLibrary, HttpConfiguration, RequestContext } from "./http/http";
+import {
+  HttpLibrary,
+  HttpConfiguration,
+  RequestContext,
+  ZstdCompressorCallback,
+} from "./http/http";
 import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch";
 import {
   BaseServerConfiguration,
@@ -55,6 +60,10 @@ export interface ConfigurationParameters {
    * Flag to enable requests tracing
    */
   debug?: boolean;
+  /**
+   * Callback method to compress string body with zstd
+   */
+  zstdCompressorCallback?: ZstdCompressorCallback;
 }
 
 /**
@@ -129,6 +138,8 @@ export function createConfiguration(
     httpConfig: conf.httpConfig || {},
     debug: conf.debug,
   };
+  configuration.httpApi.zstdCompressorCallback =
+    conf.zstdCompressorCallback || undefined;
   configuration.httpApi.debug = configuration.debug;
   return configuration;
 }
