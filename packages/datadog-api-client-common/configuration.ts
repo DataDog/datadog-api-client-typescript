@@ -138,8 +138,7 @@ export function createConfiguration(
     httpConfig: conf.httpConfig || {},
     debug: conf.debug,
   };
-  configuration.httpApi.zstdCompressorCallback =
-    conf.zstdCompressorCallback || undefined;
+  configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
   configuration.httpApi.debug = configuration.debug;
   return configuration;
 }
