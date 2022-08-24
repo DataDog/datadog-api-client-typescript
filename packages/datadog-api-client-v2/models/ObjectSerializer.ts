@@ -466,7 +466,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   AuthNMappingsType: ["authn_mappings"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
-  ContentEncoding: ["identity", "gzip", "deflate"],
+  ContentEncoding: ["gzip", "deflate"],
   CostByOrgType: ["cost_by_org"],
   DashboardType: [
     "custom_timeboard",

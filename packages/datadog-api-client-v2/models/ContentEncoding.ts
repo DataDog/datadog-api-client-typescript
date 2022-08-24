@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type ContentEncoding = typeof IDENTITY | typeof GZIP | typeof DEFLATE;
-export const IDENTITY = "identity";
+export type ContentEncoding = typeof GZIP | typeof DEFLATE;
 export const GZIP = "gzip";
 export const DEFLATE = "deflate";
