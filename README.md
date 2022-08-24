@@ -165,7 +165,7 @@ main();
 
 Zstd compression support requires users to supply their own zstd compressor callback function.
 The callback should accept string arg and return compressed Buffer data.
-Callback signature: (body: string) => Buffer
+Callback signature `(body: string) => Buffer`.
 For example, using `zstd.ts` package:
 
 ```typescript
