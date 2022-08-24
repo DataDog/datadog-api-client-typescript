@@ -161,9 +161,54 @@ async function main() {
 main();
 ```
 
+### Zstd compression
+
+Zstd compression support requires users to supply their own zstd compressor callback function.
+The callback should accept string arg and return compressed Buffer data.
+Callback signature: (body: string) => Buffer
+For example, using `zstd.ts` package:
+
+```typescript
+import { compressSync } from 'zstd.ts'
+import { client, v2 } from "@datadog/datadog-api-client";
+
+async function main() {
+  const configurationOpts = {
+    zstdCompressorCallback: (body: string) => compressSync({input: Buffer.from(body, "utf8")})
+  }
+  const configuration = client.createConfiguration(configurationOpts);
+  const apiInstance = new v2.MetricsApi(configuration);
+  const params: v2.MetricsApiSubmitMetricsRequest = {
+      body: {
+          series: [
+              {
+                  metric: "system.load.1",
+                  type: 0,
+                  points: [
+                      {
+                          timestamp: Math.round(new Date().getTime() / 1000),
+                          value: 0.7,
+                      },
+                  ],
+              },
+          ],
+      },
+      contentEncoding: "zstd1",
+  };
+
+  apiInstance.submitMetrics(params).then((data: v2.IntakePayloadAccepted) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  }).catch((error: any) => console.error(error));
+}
+
+main();
+```
+
 ## Documentation
 
-Documentation for API endpoints can be found in in [Github pages][github pages].
+Documentation for API endpoints can be found in [GitHub pages][github pages].
 
 ## Contributing
 
