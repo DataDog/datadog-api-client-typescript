@@ -132,6 +132,13 @@ Before(function (
   });
 });
 
+// Disable PollyJS request interception when tests are in integration mode
+Before(async function (this: World) {
+  if (this.polly?.mode == MODES.PASSTHROUGH) {
+    this.polly.configure({adapters: []})
+  }
+});
+
 // The order of After functions is important. They are in reverse order
 // hence this.cleanup() must be defined after this.polly.stop().
 
