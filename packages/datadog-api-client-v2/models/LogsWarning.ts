@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class LogsWarning {
   /**
-   * A unique code for this type of warning
+   * A unique code for this type of warning updated
    */
   "code"?: string;
   /**
