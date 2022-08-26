@@ -92,6 +92,10 @@ export class UsageSummaryDate {
    */
   "cspmAasHostTop99p"?: number;
   /**
+   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in the current date for all organizations.
+   */
+  "cspmAwsHostTop99p"?: number;
+  /**
    * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for all organizations.
    */
   "cspmAzureHostTop99p"?: number;
@@ -374,6 +378,11 @@ export class UsageSummaryDate {
     },
     cspmAasHostTop99p: {
       baseName: "cspm_aas_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    cspmAwsHostTop99p: {
+      baseName: "cspm_aws_host_top99p",
       type: "number",
       format: "int64",
     },
