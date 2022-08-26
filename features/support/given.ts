@@ -1,4 +1,5 @@
 import { Given } from "@cucumber/cucumber";
+import { compressSync } from 'zstd.ts'
 
 import fs from "fs";
 import path from "path";
@@ -43,7 +44,9 @@ for (const apiVersion of Versions) {
           appKeyAuth: process.env.DD_TEST_CLIENT_APP_KEY,
         },
         httpConfig: { compress: false },
+        zstdCompressorCallback: (body: string) => compressSync({input: Buffer.from(body, "utf8")}),
       };
+
       if (process.env.DD_TEST_SITE) {
         const server = datadogApiClient.client.servers[2];
         const serverConf = server.getConfiguration();
