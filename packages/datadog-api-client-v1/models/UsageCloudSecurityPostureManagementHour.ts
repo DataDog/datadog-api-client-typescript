@@ -15,6 +15,10 @@ export class UsageCloudSecurityPostureManagementHour {
    */
   "aasHostCount"?: number;
   /**
+   * The number of Cloud Security Posture Management AWS hosts during a given hour.
+   */
+  "awsHostCount"?: number;
+  /**
    * The number of Cloud Security Posture Management Azure hosts during a given hour.
    */
   "azureHostCount"?: number;
@@ -54,6 +58,11 @@ export class UsageCloudSecurityPostureManagementHour {
   static readonly attributeTypeMap: AttributeTypeMap = {
     aasHostCount: {
       baseName: "aas_host_count",
+      type: "number",
+      format: "double",
+    },
+    awsHostCount: {
+      baseName: "aws_host_count",
       type: "number",
       format: "double",
     },
