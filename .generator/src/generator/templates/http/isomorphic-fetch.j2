@@ -27,7 +27,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         body = bufferFrom(pako.deflate(body).buffer);
       } else if (headers["Content-Encoding"] == "zstd1") {
         if (this.zstdCompressorCallback) {
-          body = bufferFrom((this.zstdCompressorCallback(body)).buffer);
+          body = this.zstdCompressorCallback(body);
         } else {
           throw new Error("zstdCompressorCallback method missing")
         }
