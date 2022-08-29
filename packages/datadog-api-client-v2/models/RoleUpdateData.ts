@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { RoleRelationships } from "./RoleRelationships";
 import { RolesType } from "./RolesType";
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 
@@ -20,6 +21,10 @@ export class RoleUpdateData {
    * The unique identifier of the role.
    */
   "id": string;
+  /**
+   * Relationships of the role object.
+   */
+  "relationships"?: RoleRelationships;
   /**
    * Roles type.
    */
@@ -43,6 +48,10 @@ export class RoleUpdateData {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "RoleRelationships",
     },
     type: {
       baseName: "type",
