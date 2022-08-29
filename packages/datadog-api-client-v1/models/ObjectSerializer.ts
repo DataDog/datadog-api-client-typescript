@@ -708,7 +708,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsTraceRemapperType: ["trace-id-remapper"],
   LogsURLParserType: ["url-parser"],
   LogsUserAgentParserType: ["user-agent-parser"],
-  MetricContentEncoding: ["deflate"],
+  MetricContentEncoding: ["deflate", "gzip"],
   MonitorDeviceID: [
     "laptop_large",
     "tablet",

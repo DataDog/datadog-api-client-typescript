@@ -4,5 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type MetricContentEncoding = typeof DEFLATE;
+export type MetricContentEncoding = typeof DEFLATE | typeof GZIP;
 export const DEFLATE = "deflate";
+export const GZIP = "gzip";

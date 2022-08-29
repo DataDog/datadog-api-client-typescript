@@ -9,6 +9,7 @@ import * as datadogApiClient from "../../index";
 import fs from "fs";
 import path from "path";
 
+import { compressSync } from "zstd.ts";
 import log from "loglevel";
 const logger = log.getLogger("testing")
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
@@ -73,6 +74,7 @@ When("the request is sent", async function (this: World) {
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
+    zstdCompressorCallback: (body: string) => compressSync({input: Buffer.from(body, "utf8")}),
   };
   if (process.env.DD_TEST_SITE) {
     const serverConf = datadogApiClient.client.servers[2].getConfiguration();
