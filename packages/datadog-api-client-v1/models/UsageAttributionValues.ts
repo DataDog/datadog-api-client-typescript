@@ -123,6 +123,14 @@ export class UsageAttributionValues {
    */
   "estimatedIndexedSpansUsage"?: number;
   /**
+   * The percentage of estimated live ingested logs usage by tag(s). Note this field is in private beta.
+   */
+  "estimatedIngestedLogsPercentage"?: number;
+  /**
+   * The estimated live ingested logs usage by tag(s). Note this field is in private beta.
+   */
+  "estimatedIngestedLogsUsage"?: number;
+  /**
    * The percentage of estimated ingested spans usage by tag(s). Note this field is in private beta.
    */
   "estimatedIngestedSpansPercentage"?: number;
@@ -333,6 +341,16 @@ export class UsageAttributionValues {
     },
     estimatedIndexedSpansUsage: {
       baseName: "estimated_indexed_spans_usage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIngestedLogsPercentage: {
+      baseName: "estimated_ingested_logs_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIngestedLogsUsage: {
+      baseName: "estimated_ingested_logs_usage",
       type: "number",
       format: "double",
     },
