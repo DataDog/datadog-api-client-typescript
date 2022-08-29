@@ -10,6 +10,9 @@ const apiInstance = new v2.RolesApi(configuration);
 // there is a valid "role" in the system
 const ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
 
+// there is a valid "permission" in the system
+const PERMISSION_ID = process.env.PERMISSION_ID as string;
+
 const params: v2.RolesApiUpdateRoleRequest = {
   body: {
     data: {
@@ -17,6 +20,16 @@ const params: v2.RolesApiUpdateRoleRequest = {
       type: "roles",
       attributes: {
         name: "developers-updated",
+      },
+      relationships: {
+        permissions: {
+          data: [
+            {
+              id: PERMISSION_ID,
+              type: "permissions",
+            },
+          ],
+        },
       },
     },
   },
