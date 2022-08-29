@@ -536,7 +536,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
-  MetricContentEncoding: ["deflate"],
+  MetricContentEncoding: ["deflate", "zstd1", "gzip"],
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
   MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
   MetricDistinctVolumeType: ["distinct_metric_volumes"],
