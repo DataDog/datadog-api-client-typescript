@@ -231,6 +231,10 @@ export class UsageSummaryDateOrg {
    */
   "publicId"?: string;
   /**
+   * The region of the organization.
+   */
+  "region"?: string;
+  /**
    * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for the given org.
    */
   "rumBrowserAndMobileSessionCount"?: number;
@@ -554,6 +558,10 @@ export class UsageSummaryDateOrg {
     },
     publicId: {
       baseName: "public_id",
+      type: "string",
+    },
+    region: {
+      baseName: "region",
       type: "string",
     },
     rumBrowserAndMobileSessionCount: {

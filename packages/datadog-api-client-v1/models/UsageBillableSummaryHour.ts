@@ -36,6 +36,10 @@ export class UsageBillableSummaryHour {
    */
   "ratioInMonth"?: number;
   /**
+   * The region of the organization.
+   */
+  "region"?: string;
+  /**
    * Shows the first date of usage.
    */
   "startDate"?: Date;
@@ -79,6 +83,10 @@ export class UsageBillableSummaryHour {
       baseName: "ratio_in_month",
       type: "number",
       format: "double",
+    },
+    region: {
+      baseName: "region",
+      type: "string",
     },
     startDate: {
       baseName: "start_date",
