@@ -17,9 +17,13 @@ export class SyntheticsGlobalVariableParseTestOptions {
    */
   "field"?: string;
   /**
+   * When type is `local_variable`, name of the local variable to use to extract the value.
+   */
+  "localVariableName"?: string;
+  /**
    * Details of the parser to use for the global variable.
    */
-  "parser": SyntheticsVariableParser;
+  "parser"?: SyntheticsVariableParser;
   /**
    * Property of the Synthetics Test Response to use for a Synthetics global variable.
    */
@@ -38,10 +42,13 @@ export class SyntheticsGlobalVariableParseTestOptions {
       baseName: "field",
       type: "string",
     },
+    localVariableName: {
+      baseName: "localVariableName",
+      type: "string",
+    },
     parser: {
       baseName: "parser",
       type: "SyntheticsVariableParser",
-      required: true,
     },
     type: {
       baseName: "type",
