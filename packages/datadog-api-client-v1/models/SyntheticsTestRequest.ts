@@ -31,6 +31,10 @@ export class SyntheticsTestRequest {
    */
   "certificate"?: SyntheticsTestRequestCertificate;
   /**
+   * By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+   */
+  "certificateDomains"?: Array<string>;
+  /**
    * DNS server to use for DNS tests.
    */
   "dnsServer"?: string;
@@ -129,6 +133,10 @@ export class SyntheticsTestRequest {
     certificate: {
       baseName: "certificate",
       type: "SyntheticsTestRequestCertificate",
+    },
+    certificateDomains: {
+      baseName: "certificateDomains",
+      type: "Array<string>",
     },
     dnsServer: {
       baseName: "dnsServer",

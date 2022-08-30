@@ -22,6 +22,7 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
       request: {
         method: "GET",
         url: "https://datadoghq.com",
+        certificateDomains: ["https://datadoghq.com"],
       },
       setCookie: "name:test",
     },
@@ -50,6 +51,9 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
       ci: {
         executionRule: "skipped",
       },
+      ignoreServerCertificateError: true,
+      disableCsp: true,
+      initialNavigationTimeout: 200,
     },
     tags: ["testing:browser"],
     type: "browser",
