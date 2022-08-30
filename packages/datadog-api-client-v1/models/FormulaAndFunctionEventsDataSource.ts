@@ -12,7 +12,8 @@ export type FormulaAndFunctionEventsDataSource =
   | typeof SECURITY_SIGNALS
   | typeof PROFILES
   | typeof AUDIT
-  | typeof EVENTS;
+  | typeof EVENTS
+  | typeof CI_TESTS;
 export const LOGS = "logs";
 export const SPANS = "spans";
 export const NETWORK = "network";
@@ -21,3 +22,4 @@ export const SECURITY_SIGNALS = "security_signals";
 export const PROFILES = "profiles";
 export const AUDIT = "audit";
 export const EVENTS = "events";
+export const CI_TESTS = "ci_tests";
