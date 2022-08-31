@@ -35,6 +35,10 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
           token: ${{ steps.get_token.outputs.token }}
+      - uses: actions/setup-python@v4 
+        with:
+          python-version: '3.10'
+          cache: 'pipenv'
       # Fetch a fork of the repo
       - uses: actions/checkout@v3
         if: github.event.pull_request.head.repo.full_name != github.repository

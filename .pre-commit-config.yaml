@@ -27,7 +27,7 @@ repos:
         stages: [manual]
         pass_filenames: false
         additional_dependencies:
-          - "poetry==1.1.15"
+          - "poetry"
       - id: examples
         name: examples
         language: python
@@ -36,4 +36,4 @@ repos:
         stages: [manual]
         pass_filenames: false
         additional_dependencies:
-          - "poetry==1.1.15"
+          - "poetry"
