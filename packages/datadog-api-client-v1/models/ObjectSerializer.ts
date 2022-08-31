@@ -1015,7 +1015,11 @@ const enumsMap: { [key: string]: any[] } = {
     "edge.tablet",
     "edge.mobile_small",
   ],
-  SyntheticsGlobalVariableParseTestOptionsType: ["http_body", "http_header"],
+  SyntheticsGlobalVariableParseTestOptionsType: [
+    "http_body",
+    "http_header",
+    "local_variable",
+  ],
   SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
   SyntheticsPlayingTab: [-1, 0, 1, 2, 3],
   SyntheticsStatus: ["passed", "skipped", "failed"],

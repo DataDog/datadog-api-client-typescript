@@ -1,5 +1,5 @@
 /**
- * Create a global variable returns "OK" response
+ * Create a global variable from test returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -7,27 +7,23 @@ import { client, v1 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
+// there is a valid "synthetics_api_test_multi_step" in the system
+const SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID = process.env
+  .SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID as string;
+
 const params: v1.SyntheticsApiCreateGlobalVariableRequest = {
   body: {
-    attributes: {
-      restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
-    },
-    description: "Example description",
-    name: "MY_VARIABLE",
-    parseTestOptions: {
-      field: "content-type",
-      localVariableName: "LOCAL_VARIABLE",
-      parser: {
-        type: "regex",
-        value: ".*",
-      },
-      type: "http_body",
-    },
-    parseTestPublicId: "abc-def-123",
-    tags: ["team:front", "test:workflow-1"],
+    description: "",
+    name: "GLOBAL_VARIABLE_PAYLOAD",
+    tags: [],
     value: {
-      secure: true,
-      value: "value",
+      secure: false,
+      value: "",
+    },
+    parseTestPublicId: SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID,
+    parseTestOptions: {
+      type: "local_variable",
+      localVariableName: "EXTRACTED_VALUE",
     },
   },
 };
