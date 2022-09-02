@@ -218,6 +218,9 @@ import { MetricPayload } from "./MetricPayload";
 import { MetricPoint } from "./MetricPoint";
 import { MetricResource } from "./MetricResource";
 import { MetricSeries } from "./MetricSeries";
+import { MetricSuggestedTagsAndAggregations } from "./MetricSuggestedTagsAndAggregations";
+import { MetricSuggestedTagsAndAggregationsResponse } from "./MetricSuggestedTagsAndAggregationsResponse";
+import { MetricSuggestedTagsAttributes } from "./MetricSuggestedTagsAttributes";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
 import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
 import { MetricTagConfigurationCreateAttributes } from "./MetricTagConfigurationCreateAttributes";
@@ -535,6 +538,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsMetricType: ["logs_metrics"],
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
+  MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
   MetricContentEncoding: ["deflate", "zstd1", "gzip"],
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
@@ -878,6 +882,10 @@ const typeMap: { [index: string]: any } = {
   MetricPoint: MetricPoint,
   MetricResource: MetricResource,
   MetricSeries: MetricSeries,
+  MetricSuggestedTagsAndAggregations: MetricSuggestedTagsAndAggregations,
+  MetricSuggestedTagsAndAggregationsResponse:
+    MetricSuggestedTagsAndAggregationsResponse,
+  MetricSuggestedTagsAttributes: MetricSuggestedTagsAttributes,
   MetricTagConfiguration: MetricTagConfiguration,
   MetricTagConfigurationAttributes: MetricTagConfigurationAttributes,
   MetricTagConfigurationCreateAttributes:

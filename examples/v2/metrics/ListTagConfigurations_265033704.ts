@@ -1,5 +1,5 @@
 /**
- * List tag configurations with configured filter returns "Success" response
+ * Get a list of metrics with a tag filter returns "Success" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
 const params: v2.MetricsApiListTagConfigurationsRequest = {
-  filterConfigured: true,
+  filterTags: "ExampleGetalistofmetricswithatagfilterreturnsSuccessresponse",
 };
 
 apiInstance
