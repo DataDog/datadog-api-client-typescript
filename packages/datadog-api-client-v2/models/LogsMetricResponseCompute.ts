@@ -16,6 +16,10 @@ export class LogsMetricResponseCompute {
    */
   "aggregationType"?: LogsMetricResponseComputeAggregationType;
   /**
+   * Whether to calculate percentiles for the metric
+   */
+  "includePercentiles"?: boolean;
+  /**
    * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution").
    */
   "path"?: string;
@@ -32,6 +36,10 @@ export class LogsMetricResponseCompute {
     aggregationType: {
       baseName: "aggregation_type",
       type: "LogsMetricResponseComputeAggregationType",
+    },
+    includePercentiles: {
+      baseName: "includePercentiles",
+      type: "boolean",
     },
     path: {
       baseName: "path",
