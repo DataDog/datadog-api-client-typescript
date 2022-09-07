@@ -114,6 +114,7 @@ export {
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiEstimateMetricsOutputSeriesRequest,
+  MetricsApiListActiveMetricConfigurationsRequest,
   MetricsApiListTagConfigurationByNameRequest,
   MetricsApiListTagConfigurationsRequest,
   MetricsApiListTagsByMetricNameRequest,
@@ -468,6 +469,7 @@ export { LogsSortOrder } from "./models/LogsSortOrder";
 export { LogsWarning } from "./models/LogsWarning";
 export { LogType } from "./models/LogType";
 export { Metric } from "./models/Metric";
+export { MetricActiveConfigurationType } from "./models/MetricActiveConfigurationType";
 export { MetricAllTags } from "./models/MetricAllTags";
 export { MetricAllTagsAttributes } from "./models/MetricAllTagsAttributes";
 export { MetricAllTagsResponse } from "./models/MetricAllTagsResponse";
@@ -505,6 +507,9 @@ export { MetricResource } from "./models/MetricResource";
 export { MetricsAndMetricTagConfigurations } from "./models/MetricsAndMetricTagConfigurations";
 export { MetricsAndMetricTagConfigurationsResponse } from "./models/MetricsAndMetricTagConfigurationsResponse";
 export { MetricSeries } from "./models/MetricSeries";
+export { MetricSuggestedTagsAndAggregations } from "./models/MetricSuggestedTagsAndAggregations";
+export { MetricSuggestedTagsAndAggregationsResponse } from "./models/MetricSuggestedTagsAndAggregationsResponse";
+export { MetricSuggestedTagsAttributes } from "./models/MetricSuggestedTagsAttributes";
 export { MetricTagConfiguration } from "./models/MetricTagConfiguration";
 export { MetricTagConfigurationAttributes } from "./models/MetricTagConfigurationAttributes";
 export { MetricTagConfigurationCreateAttributes } from "./models/MetricTagConfigurationCreateAttributes";
