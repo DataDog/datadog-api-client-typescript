@@ -916,6 +916,7 @@ const enumsMap: { [key: string]: any[] } = {
     "validates",
     "isInMoreThan",
     "isInLessThan",
+    "doesNotExist",
   ],
   SyntheticsAssertionType: [
     "body",
