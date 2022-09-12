@@ -17,7 +17,8 @@ export type SyntheticsAssertionOperator =
   | typeof DOES_NOT_MATCH
   | typeof VALIDATES
   | typeof IS_IN_MORE_DAYS_THAN
-  | typeof IS_IN_LESS_DAYS_THAN;
+  | typeof IS_IN_LESS_DAYS_THAN
+  | typeof DOES_NOT_EXIST;
 export const CONTAINS = "contains";
 export const DOES_NOT_CONTAIN = "doesNotContain";
 export const IS = "is";
@@ -31,3 +32,4 @@ export const DOES_NOT_MATCH = "doesNotMatch";
 export const VALIDATES = "validates";
 export const IS_IN_MORE_DAYS_THAN = "isInMoreThan";
 export const IS_IN_LESS_DAYS_THAN = "isInLessThan";
+export const DOES_NOT_EXIST = "doesNotExist";
