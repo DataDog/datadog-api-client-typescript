@@ -12,7 +12,6 @@ import FormData from "form-data";
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 {% for model in get_api_models(operations)|sort %}
 import { {{ model }} } from "../models/{{ model }}";
@@ -163,26 +162,29 @@ export class {{ className }}ResponseProcessor {
    */
    public async {{ operationId }}(response: ResponseContext): Promise<{%- if returnType %}{{ returnType }} {%- else %}void{%-endif %}> {
     const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-    {%- for responseCode, response in operation.responses.items() %}
+    {%- for responseType, (response, responseCodes) in operation|responses_by_types %}
     {%- set responseSchema = response|parameter_schema %}
-    {%- set reponseType = response|response_type %}
-    if (isCodeInRange("{{ responseCode }}", response.httpStatusCode)) {
-      {%- if reponseType %}
+    if (
+      {%- for responseCode in responseCodes -%}
+      {%- if not loop.first -%} || {%- endif -%} response.httpStatusCode == {{ responseCode }}
+      {%- endfor -%}
+      ) {
+      {%- if responseType %}
       {%- if responseSchema and responseSchema.get("format") == "binary" %}
-      const body: {{ reponseType }} = await response.getBodyAsFile() as {{ returnType }};
+      const body: {{ responseType }} = await response.getBodyAsFile() as {{ returnType }};
       {%- else %}
-      const body: {{ reponseType }} = ObjectSerializer.deserialize(
+      const body: {{ responseType }} = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "{{ reponseType }}", "{{ responseSchema.get("format", "") }}"
-      ) as {{ reponseType }};
+        "{{ responseType }}"
+      ) as {{ responseType }};
       {%- endif %}
-      {%- if responseCode.startswith("2") %}
+      {%- if responseCodes[0].startswith("2") %}
       return body;
       {%- else %}
-      throw new ApiException<{{ reponseType }}>({{ responseCode }}, body);
+      throw new ApiException<{{ responseType }}>(response.httpStatusCode, body);
       {%- endif %}
       {%- else %}
-      {%- if responseCode.startswith("2") %}
+      {%- if responseCodes[0].startswith("2") %}
       return;
       {%- else %}
       throw new ApiException<string>(response.httpStatusCode, "{{ responseSchema.description }}");
