@@ -15,7 +15,6 @@ import {
 
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DistributionPointsContentEncoding } from "../models/DistributionPointsContentEncoding";
@@ -404,37 +403,23 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: MetricMetadata = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricMetadata",
-        ""
+        "MetricMetadata"
       ) as MetricMetadata;
       return body;
     }
-    if (isCodeInRange("403", response.httpStatusCode)) {
+    if (
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse"
       ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("404", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(404, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -467,37 +452,23 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: MetricsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsListResponse",
-        ""
+        "MetricsListResponse"
       ) as MetricsListResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse"
       ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -530,37 +501,23 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: MetricSearchResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricSearchResponse",
-        ""
+        "MetricSearchResponse"
       ) as MetricSearchResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse"
       ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -593,37 +550,23 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: MetricsQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricsQueryResponse",
-        ""
+        "MetricsQueryResponse"
       ) as MetricsQueryResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse"
       ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -656,53 +599,25 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("202", response.httpStatusCode)) {
+    if (response.httpStatusCode == 202) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IntakePayloadAccepted",
-        ""
+        "IntakePayloadAccepted"
       ) as IntakePayloadAccepted;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 408 ||
+      response.httpStatusCode == 413 ||
+      response.httpStatusCode == 429
+    ) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse"
       ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("408", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(408, body);
-    }
-    if (isCodeInRange("413", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(413, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -735,53 +650,25 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("202", response.httpStatusCode)) {
+    if (response.httpStatusCode == 202) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IntakePayloadAccepted",
-        ""
+        "IntakePayloadAccepted"
       ) as IntakePayloadAccepted;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 408 ||
+      response.httpStatusCode == 413 ||
+      response.httpStatusCode == 429
+    ) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse"
       ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("408", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(408, body);
-    }
-    if (isCodeInRange("413", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(413, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -814,45 +701,24 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: MetricMetadata = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "MetricMetadata",
-        ""
+        "MetricMetadata"
       ) as MetricMetadata;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
       const body: APIErrorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
+        "APIErrorResponse"
       ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("404", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(404, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
