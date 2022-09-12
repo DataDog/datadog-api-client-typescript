@@ -31,6 +31,7 @@ import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
+import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -69,4 +70,5 @@ export type WidgetDefinition =
   | TreeMapWidgetDefinition
   | ListStreamWidgetDefinition
   | FunnelWidgetDefinition
+  | TopologyMapWidgetDefinition
   | UnparsedObject;
