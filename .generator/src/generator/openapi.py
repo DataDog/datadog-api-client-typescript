@@ -339,6 +339,17 @@ def get_type_for_response(response):
                 return type_to_typescript(content["schema"])
 
 
+def responses_by_types(operation):
+    result = {}
+    for response_code, response in operation["responses"].items():
+        response_type = get_type_for_response(response)
+        if response_type in result:
+            result[response_type][1].append(response_code)
+        else:
+            result[response_type] = [response, [response_code]]
+    return result.items()
+
+
 def return_type(operation):
     for response in operation.get("responses", {}).values():
         for content in response.get("content", {}).values():
