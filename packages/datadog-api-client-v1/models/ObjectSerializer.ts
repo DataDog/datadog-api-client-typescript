@@ -416,6 +416,9 @@ import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAli
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
+import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
+import { TopologyQuery } from "./TopologyQuery";
+import { TopologyRequest } from "./TopologyRequest";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
 import { UsageAnalyzedLogsHour } from "./UsageAnalyzedLogsHour";
@@ -1082,6 +1085,9 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
   TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
   ToplistWidgetDefinitionType: ["toplist"],
+  TopologyMapWidgetDefinitionType: ["topology_map"],
+  TopologyQueryDataSource: ["data_streams", "service_map"],
+  TopologyRequestType: ["topology"],
   TreeMapColorBy: ["user"],
   TreeMapGroupBy: ["user", "family", "process"],
   TreeMapSizeBy: ["pct_cpu", "pct_mem"],
@@ -1722,6 +1728,9 @@ const typeMap: { [index: string]: any } = {
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,
   ToplistWidgetDefinition: ToplistWidgetDefinition,
   ToplistWidgetRequest: ToplistWidgetRequest,
+  TopologyMapWidgetDefinition: TopologyMapWidgetDefinition,
+  TopologyQuery: TopologyQuery,
+  TopologyRequest: TopologyRequest,
   TreeMapWidgetDefinition: TreeMapWidgetDefinition,
   TreeMapWidgetRequest: TreeMapWidgetRequest,
   UsageAnalyzedLogsHour: UsageAnalyzedLogsHour,
@@ -1943,6 +1952,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "TreeMapWidgetDefinition",
     "ListStreamWidgetDefinition",
     "FunnelWidgetDefinition",
+    "TopologyMapWidgetDefinition",
   ],
 };
 
