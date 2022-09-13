@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 const params: v1.UsageMeteringApiGetUsageTopAvgMetricsRequest = {
-  day: new Date(new Date().getTime() / 1000 + -3 * 86400),
+  day: new Date(new Date().getTime() + -3 * 86400 * 1000),
 };
 
 apiInstance

@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 const params: v1.UsageMeteringApiGetHourlyUsageAttributionRequest = {
-  startHr: new Date(new Date().getTime() / 1000 + -3 * 86400),
+  startHr: new Date(new Date().getTime() + -3 * 86400 * 1000),
   usageType: "infra_host_usage",
 };
 

@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 const params: v1.UsageMeteringApiGetUsageAttributionRequest = {
-  startMonth: new Date(new Date().getTime() / 1000 + -3 * 86400),
+  startMonth: new Date(new Date().getTime() + -3 * 86400 * 1000),
   fields: "*",
   offset: 0,
   limit: 1,
