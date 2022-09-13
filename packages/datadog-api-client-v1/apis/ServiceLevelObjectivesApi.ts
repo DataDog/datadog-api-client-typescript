@@ -448,6 +448,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     query?: string,
     pageSize?: number,
     pageNumber?: number,
+    includeFacets?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -485,6 +486,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
       requestContext.setQueryParam(
         "page[number]",
         ObjectSerializer.serialize(pageNumber, "number", "int64")
+      );
+    }
+    if (includeFacets !== undefined) {
+      requestContext.setQueryParam(
+        "include_facets",
+        ObjectSerializer.serialize(includeFacets, "boolean", "")
       );
     }
 
@@ -1164,6 +1171,8 @@ export interface ServiceLevelObjectivesApiListSLOsRequest {
 export interface ServiceLevelObjectivesApiSearchSLORequest {
   /**
    * The query string to filter results based on SLO names.
+   * Some examples of queries include `service:<service-name>`
+   * and `<slo-name>`.
    * @type string
    */
   query?: string;
@@ -1177,6 +1186,11 @@ export interface ServiceLevelObjectivesApiSearchSLORequest {
    * @type number
    */
   pageNumber?: number;
+  /**
+   * Whether or not to return facet information in the response `[default=false]`.
+   * @type boolean
+   */
+  includeFacets?: boolean;
 }
 
 export interface ServiceLevelObjectivesApiUpdateSLORequest {
@@ -1418,6 +1432,7 @@ export class ServiceLevelObjectivesApi {
       param.query,
       param.pageSize,
       param.pageNumber,
+      param.includeFacets,
       options
     );
     return requestContextPromise.then((requestContext) => {

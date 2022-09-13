@@ -274,6 +274,7 @@ import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponse
 import { SLOCorrectionUpdateData } from "./SLOCorrectionUpdateData";
 import { SLOCorrectionUpdateRequest } from "./SLOCorrectionUpdateRequest";
 import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateRequestAttributes";
+import { SLOCreator } from "./SLOCreator";
 import { SLODeleteResponse } from "./SLODeleteResponse";
 import { SLOHistoryMetrics } from "./SLOHistoryMetrics";
 import { SLOHistoryMetricsSeries } from "./SLOHistoryMetricsSeries";
@@ -288,6 +289,8 @@ import { SLOHistorySLIData } from "./SLOHistorySLIData";
 import { SLOListResponse } from "./SLOListResponse";
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
 import { SLOListResponseMetadataPage } from "./SLOListResponseMetadataPage";
+import { SLOOverallStatuses } from "./SLOOverallStatuses";
+import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
 import { SLOResponse } from "./SLOResponse";
 import { SLOResponseData } from "./SLOResponseData";
 import { SLOThreshold } from "./SLOThreshold";
@@ -297,6 +300,7 @@ import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
+import { SearchSLOQuery } from "./SearchSLOQuery";
 import { SearchSLOResponse } from "./SearchSLOResponse";
 import { SearchSLOResponseData } from "./SearchSLOResponseData";
 import { SearchSLOResponseDataAttributes } from "./SearchSLOResponseDataAttributes";
@@ -306,6 +310,8 @@ import { SearchSLOResponseDataAttributesFacetsObjectString } from "./SearchSLORe
 import { SearchSLOResponseLinks } from "./SearchSLOResponseLinks";
 import { SearchSLOResponseMeta } from "./SearchSLOResponseMeta";
 import { SearchSLOResponseMetaPage } from "./SearchSLOResponseMetaPage";
+import { SearchSLOThreshold } from "./SearchSLOThreshold";
+import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
 import { Series } from "./Series";
 import { ServiceCheck } from "./ServiceCheck";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
@@ -861,6 +867,7 @@ const enumsMap: { [key: string]: any[] } = {
   ScatterPlotWidgetDefinitionType: ["scatterplot"],
   ScatterplotDimension: ["x", "y", "radius", "color"],
   ScatterplotWidgetAggregator: ["avg", "last", "max", "min", "sum"],
+  SearchSLOTimeframe: ["7d", "30d", "90d"],
   ServiceCheckStatus: [0, 1, 2, 3],
   ServiceMapWidgetDefinitionType: ["servicemap"],
   ServiceSummaryWidgetDefinitionType: ["trace_service"],
@@ -1574,6 +1581,7 @@ const typeMap: { [index: string]: any } = {
   SLOCorrectionUpdateData: SLOCorrectionUpdateData,
   SLOCorrectionUpdateRequest: SLOCorrectionUpdateRequest,
   SLOCorrectionUpdateRequestAttributes: SLOCorrectionUpdateRequestAttributes,
+  SLOCreator: SLOCreator,
   SLODeleteResponse: SLODeleteResponse,
   SLOHistoryMetrics: SLOHistoryMetrics,
   SLOHistoryMetricsSeries: SLOHistoryMetricsSeries,
@@ -1588,6 +1596,8 @@ const typeMap: { [index: string]: any } = {
   SLOListResponse: SLOListResponse,
   SLOListResponseMetadata: SLOListResponseMetadata,
   SLOListResponseMetadataPage: SLOListResponseMetadataPage,
+  SLOOverallStatuses: SLOOverallStatuses,
+  SLORawErrorBudgetRemaining: SLORawErrorBudgetRemaining,
   SLOResponse: SLOResponse,
   SLOResponseData: SLOResponseData,
   SLOThreshold: SLOThreshold,
@@ -1597,6 +1607,7 @@ const typeMap: { [index: string]: any } = {
   ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
   ScatterplotTableRequest: ScatterplotTableRequest,
   ScatterplotWidgetFormula: ScatterplotWidgetFormula,
+  SearchSLOQuery: SearchSLOQuery,
   SearchSLOResponse: SearchSLOResponse,
   SearchSLOResponseData: SearchSLOResponseData,
   SearchSLOResponseDataAttributes: SearchSLOResponseDataAttributes,
@@ -1608,6 +1619,8 @@ const typeMap: { [index: string]: any } = {
   SearchSLOResponseLinks: SearchSLOResponseLinks,
   SearchSLOResponseMeta: SearchSLOResponseMeta,
   SearchSLOResponseMetaPage: SearchSLOResponseMetaPage,
+  SearchSLOThreshold: SearchSLOThreshold,
+  SearchServiceLevelObjective: SearchServiceLevelObjective,
   Series: Series,
   ServiceCheck: ServiceCheck,
   ServiceLevelObjective: ServiceLevelObjective,
