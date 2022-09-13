@@ -3,23 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
-import { SearchSLOResponseDataAttributesFacets } from "./SearchSLOResponseDataAttributesFacets";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes
+ * The creator of the SLO
  */
-export class SearchSLOResponseDataAttributes {
+export class SLOCreator {
   /**
-   * Facets
+   * Email of the creator.
    */
-  "facets"?: SearchSLOResponseDataAttributesFacets;
+  "email"?: string;
   /**
-   * SLOs
+   * User ID of the creator.
    */
-  "slo"?: Array<SearchServiceLevelObjective>;
+  "id"?: string;
+  /**
+   * Name of the creator.
+   */
+  "name"?: string;
 
   /**
    * @ignore
@@ -30,13 +32,17 @@ export class SearchSLOResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facets: {
-      baseName: "facets",
-      type: "SearchSLOResponseDataAttributesFacets",
+    email: {
+      baseName: "email",
+      type: "string",
     },
-    slo: {
-      baseName: "slo",
-      type: "Array<SearchServiceLevelObjective>",
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
     },
   };
 
@@ -44,7 +50,7 @@ export class SearchSLOResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseDataAttributes.attributeTypeMap;
+    return SLOCreator.attributeTypeMap;
   }
 
   public constructor() {}

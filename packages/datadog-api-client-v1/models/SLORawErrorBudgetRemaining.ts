@@ -3,23 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
-import { SearchSLOResponseDataAttributesFacets } from "./SearchSLOResponseDataAttributesFacets";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes
+ * Error budget remaining for an SLO.
  */
-export class SearchSLOResponseDataAttributes {
+export class SLORawErrorBudgetRemaining {
   /**
-   * Facets
+   * Error budget remaining unit.
    */
-  "facets"?: SearchSLOResponseDataAttributesFacets;
+  "unit"?: string;
   /**
-   * SLOs
+   * Error budget remaining value.
    */
-  "slo"?: Array<SearchServiceLevelObjective>;
+  "value"?: number;
 
   /**
    * @ignore
@@ -30,13 +28,14 @@ export class SearchSLOResponseDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    facets: {
-      baseName: "facets",
-      type: "SearchSLOResponseDataAttributesFacets",
+    unit: {
+      baseName: "unit",
+      type: "string",
     },
-    slo: {
-      baseName: "slo",
-      type: "Array<SearchServiceLevelObjective>",
+    value: {
+      baseName: "value",
+      type: "number",
+      format: "double",
     },
   };
 
@@ -44,7 +43,7 @@ export class SearchSLOResponseDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseDataAttributes.attributeTypeMap;
+    return SLORawErrorBudgetRemaining.attributeTypeMap;
   }
 
   public constructor() {}
