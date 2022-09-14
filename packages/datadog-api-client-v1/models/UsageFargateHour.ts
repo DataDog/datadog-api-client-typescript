@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class UsageFargateHour {
   /**
+   * The high-water mark of APM ECS Fargate tasks during the given hour.
+   */
+  "apmFargateCount"?: number;
+  /**
    * The average profiled task count for Fargate Profiling.
    */
   "avgProfiledFargateTasks"?: number;
@@ -40,6 +44,11 @@ export class UsageFargateHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    apmFargateCount: {
+      baseName: "apm_fargate_count",
+      type: "number",
+      format: "int64",
+    },
     avgProfiledFargateTasks: {
       baseName: "avg_profiled_fargate_tasks",
       type: "number",

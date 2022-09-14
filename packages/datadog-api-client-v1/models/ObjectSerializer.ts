@@ -664,6 +664,7 @@ const enumsMap: { [key: string]: any[] } = {
   HostMapWidgetDefinitionType: ["hostmap"],
   HourlyUsageAttributionUsageType: [
     "api_usage",
+    "apm_fargate_usage",
     "apm_host_usage",
     "appsec_usage",
     "browser_usage",
@@ -781,6 +782,8 @@ const enumsMap: { [key: string]: any[] } = {
   MonthlyUsageAttributionSupportedMetrics: [
     "api_usage",
     "api_percentage",
+    "apm_fargate_usage",
+    "apm_fargate_percentage",
     "apm_host_usage",
     "apm_host_percentage",
     "appsec_usage",
@@ -1130,6 +1133,8 @@ const enumsMap: { [key: string]: any[] } = {
     "estimated_indexed_spans_percentage",
     "estimated_ingested_spans_usage",
     "estimated_ingested_spans_percentage",
+    "apm_fargate_usage",
+    "apm_fargate_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1172,6 +1177,8 @@ const enumsMap: { [key: string]: any[] } = {
     "estimated_indexed_spans_percentage",
     "estimated_ingested_spans_usage",
     "estimated_ingested_spans_percentage",
+    "apm_fargate_usage",
+    "apm_fargate_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],
