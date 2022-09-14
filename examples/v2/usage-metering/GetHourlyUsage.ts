@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.UsageMeteringApi(configuration);
 
 const params: v2.UsageMeteringApiGetHourlyUsageRequest = {
-  filterTimestampStart: new Date(new Date().getTime() / 1000 + -3 * 86400),
+  filterTimestampStart: new Date(new Date().getTime() + -3 * 86400 * 1000),
   filterProductFamilies: "infra_hosts",
 };
 

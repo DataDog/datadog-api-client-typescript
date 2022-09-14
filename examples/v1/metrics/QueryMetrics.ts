@@ -9,7 +9,7 @@ const apiInstance = new v1.MetricsApi(configuration);
 
 const params: v1.MetricsApiQueryMetricsRequest = {
   from: Math.round(
-    new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000
+    new Date(new Date().getTime() + -1 * 86400 * 1000).getTime() / 1000
   ),
   to: Math.round(new Date().getTime() / 1000),
   query: "system.cpu.idle{*}",

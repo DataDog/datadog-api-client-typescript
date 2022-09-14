@@ -9,8 +9,8 @@ const apiInstance = new v2.UsageMeteringApi(configuration);
 
 const params: v2.UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest =
   {
-    startHr: new Date(new Date().getTime() / 1000 + -5 * 86400),
-    endHr: new Date(new Date().getTime() / 1000 + -3 * 86400),
+    startHr: new Date(new Date().getTime() + -5 * 86400 * 1000),
+    endHr: new Date(new Date().getTime() + -3 * 86400 * 1000),
   };
 
 apiInstance
