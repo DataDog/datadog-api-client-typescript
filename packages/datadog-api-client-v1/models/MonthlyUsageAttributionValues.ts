@@ -19,6 +19,14 @@ export class MonthlyUsageAttributionValues {
    */
   "apiUsage"?: number;
   /**
+   * The percentage of APM ECS Fargate task usage by tag(s).
+   */
+  "apmFargatePercentage"?: number;
+  /**
+   * The APM ECS Fargate task usage by tag(s).
+   */
+  "apmFargateUsage"?: number;
+  /**
    * The percentage of APM host usage by tag(s).
    */
   "apmHostPercentage"?: number;
@@ -179,6 +187,16 @@ export class MonthlyUsageAttributionValues {
     },
     apiUsage: {
       baseName: "api_usage",
+      type: "number",
+      format: "double",
+    },
+    apmFargatePercentage: {
+      baseName: "apm_fargate_percentage",
+      type: "number",
+      format: "double",
+    },
+    apmFargateUsage: {
+      baseName: "apm_fargate_usage",
       type: "number",
       format: "double",
     },
