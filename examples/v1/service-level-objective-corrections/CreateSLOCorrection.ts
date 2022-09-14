@@ -18,7 +18,7 @@ const params: v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest =
           category: "Scheduled Maintenance",
           description: "Example-Create_an_SLO_correction_returns_OK_response",
           end: Math.round(
-            new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000
+            new Date(new Date().getTime() + 1 * 3600 * 1000).getTime() / 1000
           ),
           sloId: SLO_DATA_0_ID,
           start: Math.round(new Date().getTime() / 1000),

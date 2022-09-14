@@ -140,12 +140,12 @@ TIME_FORMATTER = {
     "timestamp": "Math.round({sret}.getTime() / 1000)",
     "isoformat": "{sret}",
     "units": {
-        "s": "new Date(new Date().getTime() / 1000 + {num})",
-        "m": "new Date(new Date().getTime() / 1000 + {num}*60)",
-        "h": "new Date(new Date().getTime() / 1000 + {num}*3600)",
-        "d": "new Date(new Date().getTime() / 1000 + {num}*86400)",
-        "M": "new Date(new Date().getTime() / 1000 + {num}*86400*30)",
-        "y": "new Date(new Date().getTime() / 1000 + {num}*86400*365)",
+        "s": "new Date(new Date().getTime() + {num}*1000)",
+        "m": "new Date(new Date().getTime() + {num}*60*1000)",
+        "h": "new Date(new Date().getTime() + {num}*3600*1000)",
+        "d": "new Date(new Date().getTime() + {num}*86400*1000)",
+        "M": "new Date(new Date().getTime() + {num}*86400*30*1000)",
+        "y": "new Date(new Date().getTime() + {num}*86400*365*1000)",
     },
 }
 

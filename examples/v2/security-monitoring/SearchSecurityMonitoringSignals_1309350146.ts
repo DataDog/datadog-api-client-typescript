@@ -10,7 +10,7 @@ const apiInstance = new v2.SecurityMonitoringApi(configuration);
 const params: v2.SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest = {
   body: {
     filter: {
-      from: new Date(new Date().getTime() / 1000 + -15 * 60),
+      from: new Date(new Date().getTime() + -15 * 60 * 1000),
       query: "security:attack status:high",
       to: new Date(),
     },

@@ -19,7 +19,7 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
     scope: ["*"],
     start: Math.round(new Date().getTime() / 1000),
     end: Math.round(
-      new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000
+      new Date(new Date().getTime() + 1 * 3600 * 1000).getTime() / 1000
     ),
     timezone: "Etc/UTC",
     monitorTags: ["tag0"],

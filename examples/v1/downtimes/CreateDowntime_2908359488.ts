@@ -14,14 +14,14 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
       period: 1,
       type: "weeks",
       untilDate: Math.round(
-        new Date(new Date().getTime() / 1000 + 21 * 86400).getTime() / 1000
+        new Date(new Date().getTime() + 21 * 86400 * 1000).getTime() / 1000
       ),
       weekDays: ["Mon", "Tue", "Wed", "Thu", "Fri"],
     },
     scope: ["*"],
     start: Math.round(new Date().getTime() / 1000),
     end: Math.round(
-      new Date(new Date().getTime() / 1000 + 1 * 3600).getTime() / 1000
+      new Date(new Date().getTime() + 1 * 3600 * 1000).getTime() / 1000
     ),
     timezone: "Etc/UTC",
     muteFirstRecoveryNotification: true,

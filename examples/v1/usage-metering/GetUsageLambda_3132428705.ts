@@ -8,8 +8,8 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.UsageMeteringApi(configuration);
 
 const params: v1.UsageMeteringApiGetUsageLambdaRequest = {
-  startHr: new Date(new Date().getTime() / 1000 + -5 * 86400),
-  endHr: new Date(new Date().getTime() / 1000 + -3 * 86400),
+  startHr: new Date(new Date().getTime() + -5 * 86400 * 1000),
+  endHr: new Date(new Date().getTime() + -3 * 86400 * 1000),
 };
 
 apiInstance
