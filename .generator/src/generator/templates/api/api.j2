@@ -170,6 +170,7 @@ export class {{ className }}ResponseProcessor {
       {%- endfor -%}
       ) {
       {%- if responseType %}
+      {%- if responseCodes[0].startswith("2") %}
       {%- if responseSchema and responseSchema.get("format") == "binary" %}
       const body: {{ responseType }} = await response.getBodyAsFile() as {{ returnType }};
       {%- else %}
@@ -178,10 +179,19 @@ export class {{ className }}ResponseProcessor {
         "{{ responseType }}"
       ) as {{ responseType }};
       {%- endif %}
-      {%- if responseCodes[0].startswith("2") %}
       return body;
       {%- else %}
-      throw new ApiException<{{ responseType }}>(response.httpStatusCode, body);
+      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+      try {
+        const body: {{ responseType }} = ObjectSerializer.deserialize(
+          bodyText,
+          "{{ responseType }}"
+        ) as {{ responseType }};
+        throw new ApiException<{{ responseType }}>(response.httpStatusCode, body);
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<{{ responseType }}>(response.httpStatusCode, bodyText);
+      } 
       {%- endif %}
       {%- else %}
       {%- if responseCodes[0].startswith("2") %}
