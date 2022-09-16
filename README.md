@@ -206,6 +206,78 @@ async function main() {
 main();
 ```
 
+### Configure proxy
+
+You can provide custom `HttpLibrary` implementation with proxy support to `configuration` object. See example below:
+
+```typescript
+import pako from "pako";
+import bufferFrom from "buffer-from";
+import fetch from "node-fetch";
+import { HttpsProxyAgent } from "https-proxy-agent";
+import { v1, client } from "@datadog/datadog-api-client";
+
+const proxyAgent = new HttpsProxyAgent('http://127.0.0.11:3128');
+
+class HttpLibraryWithProxy implements client.HttpLibrary {
+    public debug = false;
+
+    public send(request: client.RequestContext): Promise<client.ResponseContext> {
+        const method = request.getHttpMethod().toString();
+        let body = request.getBody();
+
+        let compress = request.getHttpConfig().compress;
+        if (compress === undefined) {
+            compress = true;
+        }
+
+        const headers = request.getHeaders();
+        if (typeof body === "string") {
+            if (headers["Content-Encoding"] == "gzip") {
+                body = bufferFrom(pako.gzip(body).buffer);
+            } else if (headers["Content-Encoding"] == "deflate") {
+                body = bufferFrom(pako.deflate(body).buffer);
+            }
+        }
+
+        const resultPromise = fetch(request.getUrl(), {
+            method: method,
+            body: body as any,
+            headers: headers,
+            signal: request.getHttpConfig().signal,
+            compress: compress,
+            agent: proxyAgent,
+        }).then((resp: any) => {
+            const headers: { [name: string]: string } = {};
+            resp.headers.forEach((value: string, name: string) => {
+                headers[name] = value;
+            });
+
+            const body = {
+                text: () => resp.text(),
+                binary: () => resp.buffer(),
+            };
+            const response = new client.ResponseContext(resp.status, headers, body);
+            return response;
+        });
+
+        return resultPromise;
+    }
+}
+
+const configuration = client.createConfiguration({httpApi: new HttpLibraryWithProxy()});
+const apiInstance = new v1.DashboardsApi(configuration);
+
+apiInstance
+    .listDashboards()
+    .then((data: v1.DashboardSummary) => {
+        console.log(
+            "API called successfully. Returned data: " + JSON.stringify(data)
+        );
+    })
+    .catch((error: any) => console.error(error));
+```
+
 ## Documentation
 
 Documentation for API endpoints can be found in [GitHub pages][github pages].
