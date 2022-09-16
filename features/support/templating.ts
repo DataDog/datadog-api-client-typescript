@@ -77,7 +77,7 @@ const reservedKeywords: string[] = [
   "while",
   "with",
   "yield",
-]
+];
 
 function relativeTime(iso: boolean): any {
   const timeRE = /now( *([+-]) *(\d+)([smhdMy]))?/;
@@ -132,7 +132,10 @@ function pathLookup(data: any, dottedPath: string): any {
           result = value[part];
         } else if (part.toAttributeName() in value) {
           result = value[part.toAttributeName()];
-        } else if ("unparsedObject" in value && part in value["unparsedObject"]) {
+        } else if (
+          "unparsedObject" in value &&
+          part in value["unparsedObject"]
+        ) {
           result = value["unparsedObject"][part];
         } else {
           throw new Error(
@@ -175,7 +178,7 @@ String.prototype.toAttributeName = function (): string {
     })
     .replace(/[^A-Za-z0-9]+/g, "");
 
-  return reservedKeywords.includes(attrName) ? `_${attrName}` : attrName
+  return reservedKeywords.includes(attrName) ? `_${attrName}` : attrName;
 };
 
 function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
