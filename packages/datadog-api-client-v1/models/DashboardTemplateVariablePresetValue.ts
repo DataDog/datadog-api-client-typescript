@@ -15,9 +15,13 @@ export class DashboardTemplateVariablePresetValue {
    */
   "name"?: string;
   /**
-   * The value of the template variable within the saved view.
+   * (deprecated) The value of the template variable within the saved view. Cannot be used in conjunction with `values`.
    */
   "value"?: string;
+  /**
+   * One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
+   */
+  "values"?: Array<string>;
 
   /**
    * @ignore
@@ -35,6 +39,10 @@ export class DashboardTemplateVariablePresetValue {
     value: {
       baseName: "value",
       type: "string",
+    },
+    values: {
+      baseName: "values",
+      type: "Array<string>",
     },
   };
 
