@@ -6,6 +6,8 @@
 
 export type SecurityMonitoringRuleTypeCreate =
   | typeof LOG_DETECTION
+  | typeof SIGNAL_CORRELATION
   | typeof WORKLOAD_SECURITY;
 export const LOG_DETECTION = "log_detection";
+export const SIGNAL_CORRELATION = "signal_correlation";
 export const WORKLOAD_SECURITY = "workload_security";

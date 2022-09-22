@@ -624,11 +624,17 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
     "new_value",
     "geo_data",
+    "event_count",
   ],
   SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
-  SecurityMonitoringRuleTypeCreate: ["log_detection", "workload_security"],
+  SecurityMonitoringRuleTypeCreate: [
+    "log_detection",
+    "signal_correlation",
+    "workload_security",
+  ],
   SecurityMonitoringRuleTypeRead: [
     "log_detection",
+    "signal_correlation",
     "infrastructure_configuration",
     "workload_security",
     "cloud_configuration",

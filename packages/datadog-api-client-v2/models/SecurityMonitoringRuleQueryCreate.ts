@@ -16,6 +16,14 @@ export class SecurityMonitoringRuleQueryCreate {
    */
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
+   * Fields to group by for Signal Correlation rules.
+   */
+  "correlatedByFields"?: Array<string>;
+  /**
+   * Index of the rule query used to retrieve the correlated field for Signal Correlation rules.
+   */
+  "correlatedQueryIndex"?: number;
+  /**
    * Field for which the cardinality is measured. Sent as an array.
    */
   "distinctFields"?: Array<string>;
@@ -39,7 +47,11 @@ export class SecurityMonitoringRuleQueryCreate {
   /**
    * Query to run on logs.
    */
-  "query": string;
+  "query"?: string;
+  /**
+   * Rule ID to match on signals for Signal Correlation rules.
+   */
+  "ruleId"?: string;
 
   /**
    * @ignore
@@ -53,6 +65,15 @@ export class SecurityMonitoringRuleQueryCreate {
     aggregation: {
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
+    },
+    correlatedByFields: {
+      baseName: "correlatedByFields",
+      type: "Array<string>",
+    },
+    correlatedQueryIndex: {
+      baseName: "correlatedQueryIndex",
+      type: "number",
+      format: "int32",
     },
     distinctFields: {
       baseName: "distinctFields",
@@ -77,7 +98,10 @@ export class SecurityMonitoringRuleQueryCreate {
     query: {
       baseName: "query",
       type: "string",
-      required: true,
+    },
+    ruleId: {
+      baseName: "ruleId",
+      type: "string",
     },
   };
 
