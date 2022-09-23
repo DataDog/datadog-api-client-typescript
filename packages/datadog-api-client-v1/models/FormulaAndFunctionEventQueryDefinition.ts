@@ -38,6 +38,10 @@ export class FormulaAndFunctionEventQueryDefinition {
    * Search options.
    */
   "search"?: FormulaAndFunctionEventQueryDefinitionSearch;
+  /**
+   * Option for storage location. Feature in Private Beta.
+   */
+  "storage"?: string;
 
   /**
    * @ignore
@@ -74,6 +78,10 @@ export class FormulaAndFunctionEventQueryDefinition {
     search: {
       baseName: "search",
       type: "FormulaAndFunctionEventQueryDefinitionSearch",
+    },
+    storage: {
+      baseName: "storage",
+      type: "string",
     },
   };
 
