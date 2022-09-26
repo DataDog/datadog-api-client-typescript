@@ -462,6 +462,44 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSecurityMonitoringSignal(
+    signalId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'signalId' is not null or undefined
+    if (signalId === null || signalId === undefined) {
+      throw new RequiredError(
+        "Required parameter signalId was null or undefined when calling getSecurityMonitoringSignal."
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/signals/{signal_id}".replace(
+        "{" + "signal_id" + "}",
+        encodeURIComponent(String(signalId))
+      );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.SecurityMonitoringApi.getSecurityMonitoringSignal"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listSecurityFilters(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -1311,6 +1349,63 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSecurityMonitoringSignal
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringSignal(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringSignal> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: SecurityMonitoringSignal = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityMonitoringSignal"
+      ) as SecurityMonitoringSignal;
+      return body;
+    }
+    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      try {
+        const body: APIErrorResponse = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+        throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringSignal = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SecurityMonitoringSignal",
+        ""
+      ) as SecurityMonitoringSignal;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listSecurityFilters
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1762,6 +1857,14 @@ export interface SecurityMonitoringApiGetSecurityMonitoringRuleRequest {
   ruleId: string;
 }
 
+export interface SecurityMonitoringApiGetSecurityMonitoringSignalRequest {
+  /**
+   * The ID of the signal.
+   * @type string
+   */
+  signalId: string;
+}
+
 export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
   /**
    * Size for a given page.
@@ -2060,6 +2163,27 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSecurityMonitoringRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get a signal's details.
+   * @param param The request object
+   */
+  public getSecurityMonitoringSignal(
+    param: SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringSignal> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringSignal(param.signalId, options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringSignal(
             responseContext
           );
         });
