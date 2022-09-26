@@ -289,6 +289,9 @@ import { SLOHistorySLIData } from "./SLOHistorySLIData";
 import { SLOListResponse } from "./SLOListResponse";
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
 import { SLOListResponseMetadataPage } from "./SLOListResponseMetadataPage";
+import { SLOListWidgetDefinition } from "./SLOListWidgetDefinition";
+import { SLOListWidgetQuery } from "./SLOListWidgetQuery";
+import { SLOListWidgetRequest } from "./SLOListWidgetRequest";
 import { SLOOverallStatuses } from "./SLOOverallStatuses";
 import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
 import { SLOResponse } from "./SLOResponse";
@@ -863,6 +866,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SLOCorrectionType: ["correction"],
   SLOErrorTimeframe: ["7d", "30d", "90d", "all"],
+  SLOListWidgetDefinitionType: ["slo_list"],
+  SLOListWidgetRequestType: ["slo_list"],
   SLOTimeframe: ["7d", "30d", "90d", "custom"],
   SLOType: ["metric", "monitor"],
   SLOTypeNumeric: [0, 1],
@@ -1603,6 +1608,9 @@ const typeMap: { [index: string]: any } = {
   SLOListResponse: SLOListResponse,
   SLOListResponseMetadata: SLOListResponseMetadata,
   SLOListResponseMetadataPage: SLOListResponseMetadataPage,
+  SLOListWidgetDefinition: SLOListWidgetDefinition,
+  SLOListWidgetQuery: SLOListWidgetQuery,
+  SLOListWidgetRequest: SLOListWidgetRequest,
   SLOOverallStatuses: SLOOverallStatuses,
   SLORawErrorBudgetRemaining: SLORawErrorBudgetRemaining,
   SLOResponse: SLOResponse,
@@ -1963,6 +1971,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "QueryValueWidgetDefinition",
     "ScatterPlotWidgetDefinition",
     "SLOWidgetDefinition",
+    "SLOListWidgetDefinition",
     "ServiceMapWidgetDefinition",
     "ServiceSummaryWidgetDefinition",
     "SunburstWidgetDefinition",
