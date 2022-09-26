@@ -8,26 +8,21 @@ import { SecurityMonitoringRuleQueryAggregation } from "./SecurityMonitoringRule
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Query for matching rule.
+ * Query for matching rule on signals
  */
-export class SecurityMonitoringRuleQueryCreate {
+export class SecurityMonitoringSignalRuleQueryCreate {
   /**
    * The aggregation type.
    */
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
-   * Field for which the cardinality is measured. Sent as an array.
-   */
-  "distinctFields"?: Array<string>;
-  /**
    * Fields to group by.
    */
-  "groupByFields"?: Array<string>;
+  "correlatedByFields"?: Array<string>;
   /**
-   * The target field to aggregate over when using the sum or max
-   * aggregations.
+   * Index of the rule query used to retrieve the correlated field.
    */
-  "metric"?: string;
+  "correlatedQueryIndex"?: number;
   /**
    * Group of target fields to aggregate over when using the new value aggregations.
    */
@@ -37,9 +32,9 @@ export class SecurityMonitoringRuleQueryCreate {
    */
   "name"?: string;
   /**
-   * Query to run on logs.
+   * Rule ID to match on signals.
    */
-  "query": string;
+  "ruleId": string;
 
   /**
    * @ignore
@@ -54,17 +49,14 @@ export class SecurityMonitoringRuleQueryCreate {
       baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
     },
-    distinctFields: {
-      baseName: "distinctFields",
+    correlatedByFields: {
+      baseName: "correlatedByFields",
       type: "Array<string>",
     },
-    groupByFields: {
-      baseName: "groupByFields",
-      type: "Array<string>",
-    },
-    metric: {
-      baseName: "metric",
-      type: "string",
+    correlatedQueryIndex: {
+      baseName: "correlatedQueryIndex",
+      type: "number",
+      format: "int32",
     },
     metrics: {
       baseName: "metrics",
@@ -74,8 +66,8 @@ export class SecurityMonitoringRuleQueryCreate {
       baseName: "name",
       type: "string",
     },
-    query: {
-      baseName: "query",
+    ruleId: {
+      baseName: "ruleId",
       type: "string",
       required: true,
     },
@@ -85,7 +77,7 @@ export class SecurityMonitoringRuleQueryCreate {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleQueryCreate.attributeTypeMap;
+    return SecurityMonitoringSignalRuleQueryCreate.attributeTypeMap;
   }
 
   public constructor() {}

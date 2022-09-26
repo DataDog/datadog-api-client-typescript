@@ -10,10 +10,12 @@ export type SecurityMonitoringRuleQueryAggregation =
   | typeof SUM
   | typeof MAX
   | typeof NEW_VALUE
-  | typeof GEO_DATA;
+  | typeof GEO_DATA
+  | typeof EVENT_COUNT;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const SUM = "sum";
 export const MAX = "max";
 export const NEW_VALUE = "new_value";
 export const GEO_DATA = "geo_data";
+export const EVENT_COUNT = "event_count";

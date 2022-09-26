@@ -348,12 +348,9 @@ import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
-import { SecurityMonitoringRuleCreatePayload } from "./SecurityMonitoringRuleCreatePayload";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
-import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
-import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
@@ -367,6 +364,9 @@ import { SecurityMonitoringSignalIncidentsUpdateRequest } from "./SecurityMonito
 import { SecurityMonitoringSignalListRequest } from "./SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringSignalListRequestFilter";
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
+import { SecurityMonitoringSignalRuleCreatePayload } from "./SecurityMonitoringSignalRuleCreatePayload";
+import { SecurityMonitoringSignalRuleQuery } from "./SecurityMonitoringSignalRuleQuery";
+import { SecurityMonitoringSignalRuleQueryCreate } from "./SecurityMonitoringSignalRuleQueryCreate";
 import { SecurityMonitoringSignalStateUpdateAttributes } from "./SecurityMonitoringSignalStateUpdateAttributes";
 import { SecurityMonitoringSignalStateUpdateData } from "./SecurityMonitoringSignalStateUpdateData";
 import { SecurityMonitoringSignalStateUpdateRequest } from "./SecurityMonitoringSignalStateUpdateRequest";
@@ -377,6 +377,9 @@ import { SecurityMonitoringSignalsListResponse } from "./SecurityMonitoringSigna
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
 import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
+import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitoringStandardRuleCreatePayload";
+import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
+import { SecurityMonitoringStandardRuleQueryCreate } from "./SecurityMonitoringStandardRuleQueryCreate";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
@@ -624,11 +627,13 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
     "new_value",
     "geo_data",
+    "event_count",
   ],
   SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
   SecurityMonitoringRuleTypeCreate: ["log_detection", "workload_security"],
   SecurityMonitoringRuleTypeRead: [
     "log_detection",
+    "signal_correlation",
     "infrastructure_configuration",
     "workload_security",
     "cloud_configuration",
@@ -639,6 +644,7 @@ const enumsMap: { [key: string]: any[] } = {
     "testing_or_maintenance",
     "other",
   ],
+  SecurityMonitoringSignalRuleTypeCreate: ["signal_correlation"],
   SecurityMonitoringSignalState: ["open", "archived", "under_review"],
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
@@ -1020,13 +1026,10 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
   SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
   SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
-  SecurityMonitoringRuleCreatePayload: SecurityMonitoringRuleCreatePayload,
   SecurityMonitoringRuleImpossibleTravelOptions:
     SecurityMonitoringRuleImpossibleTravelOptions,
   SecurityMonitoringRuleNewValueOptions: SecurityMonitoringRuleNewValueOptions,
   SecurityMonitoringRuleOptions: SecurityMonitoringRuleOptions,
-  SecurityMonitoringRuleQuery: SecurityMonitoringRuleQuery,
-  SecurityMonitoringRuleQueryCreate: SecurityMonitoringRuleQueryCreate,
   SecurityMonitoringRuleResponse: SecurityMonitoringRuleResponse,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
   SecurityMonitoringSignal: SecurityMonitoringSignal,
@@ -1048,6 +1051,11 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalListRequestFilter,
   SecurityMonitoringSignalListRequestPage:
     SecurityMonitoringSignalListRequestPage,
+  SecurityMonitoringSignalRuleCreatePayload:
+    SecurityMonitoringSignalRuleCreatePayload,
+  SecurityMonitoringSignalRuleQuery: SecurityMonitoringSignalRuleQuery,
+  SecurityMonitoringSignalRuleQueryCreate:
+    SecurityMonitoringSignalRuleQueryCreate,
   SecurityMonitoringSignalStateUpdateAttributes:
     SecurityMonitoringSignalStateUpdateAttributes,
   SecurityMonitoringSignalStateUpdateData:
@@ -1067,6 +1075,11 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalsListResponseMeta,
   SecurityMonitoringSignalsListResponseMetaPage:
     SecurityMonitoringSignalsListResponseMetaPage,
+  SecurityMonitoringStandardRuleCreatePayload:
+    SecurityMonitoringStandardRuleCreatePayload,
+  SecurityMonitoringStandardRuleQuery: SecurityMonitoringStandardRuleQuery,
+  SecurityMonitoringStandardRuleQueryCreate:
+    SecurityMonitoringStandardRuleQueryCreate,
   SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
@@ -1139,6 +1152,14 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  SecurityMonitoringRuleCreatePayload: [
+    "SecurityMonitoringStandardRuleCreatePayload",
+    "SecurityMonitoringSignalRuleCreatePayload",
+  ],
+  SecurityMonitoringRuleQuery: [
+    "SecurityMonitoringStandardRuleQuery",
+    "SecurityMonitoringSignalRuleQuery",
+  ],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };
 
