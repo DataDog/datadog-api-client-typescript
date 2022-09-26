@@ -6,10 +6,12 @@
 
 export type SecurityMonitoringRuleTypeRead =
   | typeof LOG_DETECTION
+  | typeof SIGNAL_CORRELATION
   | typeof INFRASTRUCTURE_CONFIGURATION
   | typeof WORKLOAD_SECURITY
   | typeof CLOUD_CONFIGURATION;
 export const LOG_DETECTION = "log_detection";
+export const SIGNAL_CORRELATION = "signal_correlation";
 export const INFRASTRUCTURE_CONFIGURATION = "infrastructure_configuration";
 export const WORKLOAD_SECURITY = "workload_security";
 export const CLOUD_CONFIGURATION = "cloud_configuration";
