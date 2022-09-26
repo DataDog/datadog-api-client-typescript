@@ -131,7 +131,6 @@ export function createConfiguration(
       "v2.getIncidentTeam": false,
       "v2.listIncidentTeams": false,
       "v2.updateIncidentTeam": false,
-      "v2.getEstimatedCostByOrg": false,
     },
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
     authMethods: configureAuthMethods(authMethods),

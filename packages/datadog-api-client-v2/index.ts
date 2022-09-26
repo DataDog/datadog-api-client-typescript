@@ -200,6 +200,7 @@ export {
 export {
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
+  UsageMeteringApiGetHistoricalCostByOrgRequest,
   UsageMeteringApiGetHourlyUsageRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
