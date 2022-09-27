@@ -6,7 +6,7 @@
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
-import { SecurityMonitoringSignalRuleQueryCreate } from "./SecurityMonitoringSignalRuleQueryCreate";
+import { SecurityMonitoringSignalRuleQuery } from "./SecurityMonitoringSignalRuleQuery";
 import { SecurityMonitoringSignalRuleTypeCreate } from "./SecurityMonitoringSignalRuleTypeCreate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -46,7 +46,7 @@ export class SecurityMonitoringSignalRuleCreatePayload {
   /**
    * Queries for selecting signals which are part of the rule.
    */
-  "queries": Array<SecurityMonitoringSignalRuleQueryCreate>;
+  "queries": Array<SecurityMonitoringSignalRuleQuery>;
   /**
    * Tags for generated signals.
    */
@@ -100,7 +100,7 @@ export class SecurityMonitoringSignalRuleCreatePayload {
     },
     queries: {
       baseName: "queries",
-      type: "Array<SecurityMonitoringSignalRuleQueryCreate>",
+      type: "Array<SecurityMonitoringSignalRuleQuery>",
       required: true,
     },
     tags: {

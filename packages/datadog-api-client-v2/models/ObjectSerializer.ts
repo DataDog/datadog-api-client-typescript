@@ -366,7 +366,6 @@ import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringS
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
 import { SecurityMonitoringSignalRuleCreatePayload } from "./SecurityMonitoringSignalRuleCreatePayload";
 import { SecurityMonitoringSignalRuleQuery } from "./SecurityMonitoringSignalRuleQuery";
-import { SecurityMonitoringSignalRuleQueryCreate } from "./SecurityMonitoringSignalRuleQueryCreate";
 import { SecurityMonitoringSignalStateUpdateAttributes } from "./SecurityMonitoringSignalStateUpdateAttributes";
 import { SecurityMonitoringSignalStateUpdateData } from "./SecurityMonitoringSignalStateUpdateData";
 import { SecurityMonitoringSignalStateUpdateRequest } from "./SecurityMonitoringSignalStateUpdateRequest";
@@ -379,7 +378,6 @@ import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringS
 import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
 import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitoringStandardRuleCreatePayload";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
-import { SecurityMonitoringStandardRuleQueryCreate } from "./SecurityMonitoringStandardRuleQueryCreate";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
@@ -1054,8 +1052,6 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringSignalRuleCreatePayload:
     SecurityMonitoringSignalRuleCreatePayload,
   SecurityMonitoringSignalRuleQuery: SecurityMonitoringSignalRuleQuery,
-  SecurityMonitoringSignalRuleQueryCreate:
-    SecurityMonitoringSignalRuleQueryCreate,
   SecurityMonitoringSignalStateUpdateAttributes:
     SecurityMonitoringSignalStateUpdateAttributes,
   SecurityMonitoringSignalStateUpdateData:
@@ -1078,8 +1074,6 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringStandardRuleCreatePayload:
     SecurityMonitoringStandardRuleCreatePayload,
   SecurityMonitoringStandardRuleQuery: SecurityMonitoringStandardRuleQuery,
-  SecurityMonitoringStandardRuleQueryCreate:
-    SecurityMonitoringStandardRuleQueryCreate,
   SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
