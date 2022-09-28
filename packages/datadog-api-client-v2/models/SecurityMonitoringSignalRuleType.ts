@@ -4,5 +4,5 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SecurityMonitoringSignalRuleTypeCreate = typeof SIGNAL_CORRELATION;
+export type SecurityMonitoringSignalRuleType = typeof SIGNAL_CORRELATION;
 export const SIGNAL_CORRELATION = "signal_correlation";
