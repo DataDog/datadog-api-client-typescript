@@ -94,6 +94,16 @@ import { HourlyUsageMetadata } from "./HourlyUsageMetadata";
 import { HourlyUsagePagination } from "./HourlyUsagePagination";
 import { HourlyUsageResponse } from "./HourlyUsageResponse";
 import { IdPMetadataFormData } from "./IdPMetadataFormData";
+import { IncidentAttachmentData } from "./IncidentAttachmentData";
+import { IncidentAttachmentLinkAttributes } from "./IncidentAttachmentLinkAttributes";
+import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
+import { IncidentAttachmentPostmortemAttributes } from "./IncidentAttachmentPostmortemAttributes";
+import { IncidentAttachmentRelationships } from "./IncidentAttachmentRelationships";
+import { IncidentAttachmentUpdateData } from "./IncidentAttachmentUpdateData";
+import { IncidentAttachmentUpdateRequest } from "./IncidentAttachmentUpdateRequest";
+import { IncidentAttachmentUpdateResponse } from "./IncidentAttachmentUpdateResponse";
+import { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./IncidentAttachmentsPostmortemAttributesAttachmentObject";
+import { IncidentAttachmentsResponse } from "./IncidentAttachmentsResponse";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
@@ -291,6 +301,8 @@ import { RUMResponseMetadata } from "./RUMResponseMetadata";
 import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
+import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
+import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
@@ -498,6 +510,11 @@ const enumsMap: { [key: string]: any[] } = {
     "observability_pipelines_bytes_processed",
     "lambda_traced_invocations_count",
   ],
+  IncidentAttachmentAttachmentType: ["link", "postmortem"],
+  IncidentAttachmentLinkAttachmentType: ["link"],
+  IncidentAttachmentPostmortemAttachmentType: ["postmortem"],
+  IncidentAttachmentRelatedObject: ["users"],
+  IncidentAttachmentType: ["incident_attachments"],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
   IncidentFieldAttributesValueType: [
     "multiselect",
@@ -507,7 +524,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IncidentIntegrationMetadataType: ["incident_integrations"],
   IncidentPostmortemType: ["incident_postmortems"],
-  IncidentRelatedObject: ["users"],
+  IncidentRelatedObject: ["users", "attachments"],
   IncidentServiceType: ["services"],
   IncidentTeamType: ["teams"],
   IncidentTimelineCellMarkdownContentType: ["markdown"],
@@ -759,6 +776,19 @@ const typeMap: { [index: string]: any } = {
   HourlyUsagePagination: HourlyUsagePagination,
   HourlyUsageResponse: HourlyUsageResponse,
   IdPMetadataFormData: IdPMetadataFormData,
+  IncidentAttachmentData: IncidentAttachmentData,
+  IncidentAttachmentLinkAttributes: IncidentAttachmentLinkAttributes,
+  IncidentAttachmentLinkAttributesAttachmentObject:
+    IncidentAttachmentLinkAttributesAttachmentObject,
+  IncidentAttachmentPostmortemAttributes:
+    IncidentAttachmentPostmortemAttributes,
+  IncidentAttachmentRelationships: IncidentAttachmentRelationships,
+  IncidentAttachmentUpdateData: IncidentAttachmentUpdateData,
+  IncidentAttachmentUpdateRequest: IncidentAttachmentUpdateRequest,
+  IncidentAttachmentUpdateResponse: IncidentAttachmentUpdateResponse,
+  IncidentAttachmentsPostmortemAttributesAttachmentObject:
+    IncidentAttachmentsPostmortemAttributesAttachmentObject,
+  IncidentAttachmentsResponse: IncidentAttachmentsResponse,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
   IncidentCreateRelationships: IncidentCreateRelationships,
@@ -964,6 +994,8 @@ const typeMap: { [index: string]: any } = {
   RUMResponsePage: RUMResponsePage,
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
+  RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
+  RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
   RelationshipToIncidentIntegrationMetadataData:
     RelationshipToIncidentIntegrationMetadataData,
   RelationshipToIncidentIntegrationMetadatas:
@@ -1112,11 +1144,20 @@ const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User"],
   ApplicationKeyResponseIncludedItem: ["User", "Role"],
   AuthNMappingIncluded: ["SAMLAssertionAttribute", "Role"],
+  IncidentAttachmentAttributes: [
+    "IncidentAttachmentPostmortemAttributes",
+    "IncidentAttachmentLinkAttributes",
+  ],
+  IncidentAttachmentUpdateAttributes: [
+    "IncidentAttachmentPostmortemAttributes",
+    "IncidentAttachmentLinkAttributes",
+  ],
+  IncidentAttachmentsResponseIncludedItem: ["User"],
   IncidentFieldAttributes: [
     "IncidentFieldAttributesSingleValue",
     "IncidentFieldAttributesMultipleValue",
   ],
-  IncidentResponseIncludedItem: ["User"],
+  IncidentResponseIncludedItem: ["User", "IncidentAttachmentData"],
   IncidentServiceIncludedItems: ["User"],
   IncidentTeamIncludedItems: ["User"],
   IncidentTimelineCellCreateAttributes: [
