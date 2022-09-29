@@ -679,6 +679,8 @@ export { ScatterPlotWidgetDefinitionRequests } from "./models/ScatterPlotWidgetD
 export { ScatterPlotWidgetDefinitionType } from "./models/ScatterPlotWidgetDefinitionType";
 export { ScatterplotWidgetFormula } from "./models/ScatterplotWidgetFormula";
 export { SearchServiceLevelObjective } from "./models/SearchServiceLevelObjective";
+export { SearchServiceLevelObjectiveAttributes } from "./models/SearchServiceLevelObjectiveAttributes";
+export { SearchServiceLevelObjectiveData } from "./models/SearchServiceLevelObjectiveData";
 export { SearchSLOQuery } from "./models/SearchSLOQuery";
 export { SearchSLOResponse } from "./models/SearchSLOResponse";
 export { SearchSLOResponseData } from "./models/SearchSLOResponseData";
