@@ -3,16 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentAttachmentData } from "./IncidentAttachmentData";
 import { User } from "./User";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * An object related to an incident that is included in the response.
+ * An object related to an attachment that is included in the response.
  */
 
-export type IncidentResponseIncludedItem =
-  | User
-  | IncidentAttachmentData
-  | UnparsedObject;
+export type IncidentAttachmentsResponseIncludedItem = User | UnparsedObject;

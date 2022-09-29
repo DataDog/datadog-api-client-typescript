@@ -57,8 +57,10 @@ export {
   IncidentsApiCreateIncidentRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiGetIncidentRequest,
+  IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentsRequest,
   IncidentsApiUpdateIncidentRequest,
+  IncidentsApiUpdateIncidentAttachmentsRequest,
   IncidentsApi,
 } from "./apis/IncidentsApi";
 
@@ -339,6 +341,24 @@ export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogErrors } from "./models/HTTPLogErrors";
 export { HTTPLogItem } from "./models/HTTPLogItem";
 export { IdPMetadataFormData } from "./models/IdPMetadataFormData";
+export { IncidentAttachmentAttachmentType } from "./models/IncidentAttachmentAttachmentType";
+export { IncidentAttachmentAttributes } from "./models/IncidentAttachmentAttributes";
+export { IncidentAttachmentData } from "./models/IncidentAttachmentData";
+export { IncidentAttachmentLinkAttachmentType } from "./models/IncidentAttachmentLinkAttachmentType";
+export { IncidentAttachmentLinkAttributes } from "./models/IncidentAttachmentLinkAttributes";
+export { IncidentAttachmentLinkAttributesAttachmentObject } from "./models/IncidentAttachmentLinkAttributesAttachmentObject";
+export { IncidentAttachmentPostmortemAttachmentType } from "./models/IncidentAttachmentPostmortemAttachmentType";
+export { IncidentAttachmentPostmortemAttributes } from "./models/IncidentAttachmentPostmortemAttributes";
+export { IncidentAttachmentRelatedObject } from "./models/IncidentAttachmentRelatedObject";
+export { IncidentAttachmentRelationships } from "./models/IncidentAttachmentRelationships";
+export { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./models/IncidentAttachmentsPostmortemAttributesAttachmentObject";
+export { IncidentAttachmentsResponse } from "./models/IncidentAttachmentsResponse";
+export { IncidentAttachmentsResponseIncludedItem } from "./models/IncidentAttachmentsResponseIncludedItem";
+export { IncidentAttachmentType } from "./models/IncidentAttachmentType";
+export { IncidentAttachmentUpdateAttributes } from "./models/IncidentAttachmentUpdateAttributes";
+export { IncidentAttachmentUpdateData } from "./models/IncidentAttachmentUpdateData";
+export { IncidentAttachmentUpdateRequest } from "./models/IncidentAttachmentUpdateRequest";
+export { IncidentAttachmentUpdateResponse } from "./models/IncidentAttachmentUpdateResponse";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
 export { IncidentCreateRelationships } from "./models/IncidentCreateRelationships";
@@ -561,6 +581,8 @@ export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
 export { QuerySortOrder } from "./models/QuerySortOrder";
+export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
+export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";
 export { RelationshipToIncidentIntegrationMetadataData } from "./models/RelationshipToIncidentIntegrationMetadataData";
 export { RelationshipToIncidentIntegrationMetadatas } from "./models/RelationshipToIncidentIntegrationMetadatas";
 export { RelationshipToIncidentPostmortem } from "./models/RelationshipToIncidentPostmortem";

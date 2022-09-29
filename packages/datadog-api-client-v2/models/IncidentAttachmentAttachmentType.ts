@@ -4,6 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type IncidentRelatedObject = typeof USERS | typeof ATTACHMENTS;
-export const USERS = "users";
-export const ATTACHMENTS = "attachments";
+export type IncidentAttachmentAttachmentType = typeof LINK | typeof POSTMORTEM;
+export const LINK = "link";
+export const POSTMORTEM = "postmortem";

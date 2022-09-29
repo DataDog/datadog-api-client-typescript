@@ -54,10 +54,6 @@ export class IncidentResponseAttributes {
    */
   "notificationHandles"?: Array<IncidentNotificationHandle>;
   /**
-   * The UUID of the postmortem object attached to the incident.
-   */
-  "postmortemId"?: string;
-  /**
    * The monotonically increasing integer ID for the incident.
    */
   "publicId"?: number;
@@ -141,10 +137,6 @@ export class IncidentResponseAttributes {
     notificationHandles: {
       baseName: "notification_handles",
       type: "Array<IncidentNotificationHandle>",
-    },
-    postmortemId: {
-      baseName: "postmortem_id",
-      type: "string",
     },
     publicId: {
       baseName: "public_id",
