@@ -34,7 +34,7 @@ export class SecurityMonitoringSignalRuleQuery {
   /**
    * Rule ID to match on signals.
    */
-  "ruleId"?: string;
+  "ruleId": string;
 
   /**
    * @ignore
@@ -69,6 +69,7 @@ export class SecurityMonitoringSignalRuleQuery {
     ruleId: {
       baseName: "ruleId",
       type: "string",
+      required: true,
     },
   };
 

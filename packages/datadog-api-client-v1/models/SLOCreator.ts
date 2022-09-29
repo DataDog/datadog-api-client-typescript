@@ -17,7 +17,7 @@ export class SLOCreator {
   /**
    * User ID of the creator.
    */
-  "id"?: string;
+  "id"?: number;
   /**
    * Name of the creator.
    */
@@ -38,7 +38,8 @@ export class SLOCreator {
     },
     id: {
       baseName: "id",
-      type: "string",
+      type: "number",
+      format: "int64",
     },
     name: {
       baseName: "name",

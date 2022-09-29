@@ -44,6 +44,7 @@ const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
         distinctFields: [],
         groupByFields: [],
         metrics: [],
+        query: "a > 3",
       },
     ],
     tags: [],

@@ -4,21 +4,29 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
-import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
+import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
-import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
+import { SecurityMonitoringRuleTypeRead } from "./SecurityMonitoringRuleTypeRead";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Create a new rule.
+ * Rule.
  */
-export class SecurityMonitoringStandardRuleCreatePayload {
+export class SecurityMonitoringStandardRuleResponse {
   /**
    * Cases for generating signals.
    */
-  "cases": Array<SecurityMonitoringRuleCaseCreate>;
+  "cases"?: Array<SecurityMonitoringRuleCase>;
+  /**
+   * When the rule was created, timestamp in milliseconds.
+   */
+  "createdAt"?: number;
+  /**
+   * User ID of the user who created the rule.
+   */
+  "creationAuthorId"?: number;
   /**
    * Additional queries to filter matched events before they are processed.
    */
@@ -28,25 +36,37 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    */
   "hasExtendedTitle"?: boolean;
   /**
+   * The ID of the rule.
+   */
+  "id"?: string;
+  /**
+   * Whether the rule is included by default.
+   */
+  "isDefault"?: boolean;
+  /**
+   * Whether the rule has been deleted.
+   */
+  "isDeleted"?: boolean;
+  /**
    * Whether the rule is enabled.
    */
-  "isEnabled": boolean;
+  "isEnabled"?: boolean;
   /**
    * Message for generated signals.
    */
-  "message": string;
+  "message"?: string;
   /**
    * The name of the rule.
    */
-  "name": string;
+  "name"?: string;
   /**
    * Options on rules.
    */
-  "options": SecurityMonitoringRuleOptions;
+  "options"?: SecurityMonitoringRuleOptions;
   /**
    * Queries for selecting logs which are part of the rule.
    */
-  "queries": Array<SecurityMonitoringStandardRuleQuery>;
+  "queries"?: Array<SecurityMonitoringStandardRuleQuery>;
   /**
    * Tags for generated signals.
    */
@@ -54,7 +74,15 @@ export class SecurityMonitoringStandardRuleCreatePayload {
   /**
    * The rule type.
    */
-  "type"?: SecurityMonitoringRuleTypeCreate;
+  "type"?: SecurityMonitoringRuleTypeRead;
+  /**
+   * User ID of the user who updated the rule.
+   */
+  "updateAuthorId"?: number;
+  /**
+   * The version of the rule.
+   */
+  "version"?: number;
 
   /**
    * @ignore
@@ -67,8 +95,17 @@ export class SecurityMonitoringStandardRuleCreatePayload {
   static readonly attributeTypeMap: AttributeTypeMap = {
     cases: {
       baseName: "cases",
-      type: "Array<SecurityMonitoringRuleCaseCreate>",
-      required: true,
+      type: "Array<SecurityMonitoringRuleCase>",
+    },
+    createdAt: {
+      baseName: "createdAt",
+      type: "number",
+      format: "int64",
+    },
+    creationAuthorId: {
+      baseName: "creationAuthorId",
+      type: "number",
+      format: "int64",
     },
     filters: {
       baseName: "filters",
@@ -78,30 +115,37 @@ export class SecurityMonitoringStandardRuleCreatePayload {
       baseName: "hasExtendedTitle",
       type: "boolean",
     },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    isDefault: {
+      baseName: "isDefault",
+      type: "boolean",
+    },
+    isDeleted: {
+      baseName: "isDeleted",
+      type: "boolean",
+    },
     isEnabled: {
       baseName: "isEnabled",
       type: "boolean",
-      required: true,
     },
     message: {
       baseName: "message",
       type: "string",
-      required: true,
     },
     name: {
       baseName: "name",
       type: "string",
-      required: true,
     },
     options: {
       baseName: "options",
       type: "SecurityMonitoringRuleOptions",
-      required: true,
     },
     queries: {
       baseName: "queries",
       type: "Array<SecurityMonitoringStandardRuleQuery>",
-      required: true,
     },
     tags: {
       baseName: "tags",
@@ -109,7 +153,17 @@ export class SecurityMonitoringStandardRuleCreatePayload {
     },
     type: {
       baseName: "type",
-      type: "SecurityMonitoringRuleTypeCreate",
+      type: "SecurityMonitoringRuleTypeRead",
+    },
+    updateAuthorId: {
+      baseName: "updateAuthorId",
+      type: "number",
+      format: "int64",
+    },
+    version: {
+      baseName: "version",
+      type: "number",
+      format: "int64",
     },
   };
 
@@ -117,7 +171,7 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringStandardRuleCreatePayload.attributeTypeMap;
+    return SecurityMonitoringStandardRuleResponse.attributeTypeMap;
   }
 
   public constructor() {}
