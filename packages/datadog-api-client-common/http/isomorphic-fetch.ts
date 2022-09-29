@@ -95,7 +95,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     const body = request.getBody()
       ? JSON.stringify(request.getBody(), null, 2).replace(/\n/g, "\n\t")
       : "";
-    const compress = request.getHttpConfig().compress || true;
+    const compress = request.getHttpConfig().compress ?? true;
 
     console.debug(
       "\nrequest: {\n",
@@ -113,15 +113,10 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       /\n/g,
       "\n\t"
     );
-    const body = response.body
-      ? JSON.stringify(response.body, null, 2).replace(/\n/g, "\n\t")
-      : "";
-
     console.debug(
       "response: {\n",
       `\tstatus: ${httpStatusCode}\n`,
-      `\theaders: ${headers}\n`,
-      `\tbody: ${body}\n}\n`
+      `\theaders: ${headers}\n`
     );
   }
 }
