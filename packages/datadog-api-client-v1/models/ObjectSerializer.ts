@@ -315,6 +315,8 @@ import { SearchSLOResponseMeta } from "./SearchSLOResponseMeta";
 import { SearchSLOResponseMetaPage } from "./SearchSLOResponseMetaPage";
 import { SearchSLOThreshold } from "./SearchSLOThreshold";
 import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
+import { SearchServiceLevelObjectiveAttributes } from "./SearchServiceLevelObjectiveAttributes";
+import { SearchServiceLevelObjectiveData } from "./SearchServiceLevelObjectiveData";
 import { Series } from "./Series";
 import { ServiceCheck } from "./ServiceCheck";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
@@ -1636,6 +1638,8 @@ const typeMap: { [index: string]: any } = {
   SearchSLOResponseMetaPage: SearchSLOResponseMetaPage,
   SearchSLOThreshold: SearchSLOThreshold,
   SearchServiceLevelObjective: SearchServiceLevelObjective,
+  SearchServiceLevelObjectiveAttributes: SearchServiceLevelObjectiveAttributes,
+  SearchServiceLevelObjectiveData: SearchServiceLevelObjectiveData,
   Series: Series,
   ServiceCheck: ServiceCheck,
   ServiceLevelObjective: ServiceLevelObjective,

@@ -19,7 +19,7 @@ export class SearchSLOResponseDataAttributes {
   /**
    * SLOs
    */
-  "slo"?: Array<SearchServiceLevelObjective>;
+  "slos"?: Array<SearchServiceLevelObjective>;
 
   /**
    * @ignore
@@ -34,8 +34,8 @@ export class SearchSLOResponseDataAttributes {
       baseName: "facets",
       type: "SearchSLOResponseDataAttributesFacets",
     },
-    slo: {
-      baseName: "slo",
+    slos: {
+      baseName: "slos",
       type: "Array<SearchServiceLevelObjective>",
     },
   };
