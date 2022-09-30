@@ -15,6 +15,70 @@ const templateFunctions: { [key: string]: any } = {
   timestamp: relativeTime(false),
 };
 
+const reservedKeywords: string[] = [
+  "abstract",
+  "await",
+  "boolean",
+  "break",
+  "byte",
+  "case",
+  "catch",
+  "char",
+  "class",
+  "const",
+  "continue",
+  "debugger",
+  "default",
+  "delete",
+  "do",
+  "double",
+  "else",
+  "enum",
+  "export",
+  "extends",
+  "false",
+  "final",
+  "finally",
+  "float",
+  "for",
+  "function",
+  "goto",
+  "if",
+  "implements",
+  "import",
+  "in",
+  "instanceof",
+  "int",
+  "interface",
+  "let",
+  "long",
+  "native",
+  "new",
+  "null",
+  "package",
+  "private",
+  "protected",
+  "public",
+  "return",
+  "short",
+  "static",
+  "super",
+  "switch",
+  "synchronized",
+  "this",
+  "throw",
+  "transient",
+  "true",
+  "try",
+  "typeof",
+  "var",
+  "void",
+  "volatile",
+  "while",
+  "with",
+  "yield",
+];
+
 function relativeTime(iso: boolean): any {
   const timeRE = /now( *([+-]) *(\d+)([smhdMy]))?/;
   return (data: any, arg: string): string => {
@@ -68,7 +132,10 @@ function pathLookup(data: any, dottedPath: string): any {
           result = value[part];
         } else if (part.toAttributeName() in value) {
           result = value[part.toAttributeName()];
-        } else if ("unparsedObject" in value && part in value["unparsedObject"]) {
+        } else if (
+          "unparsedObject" in value &&
+          part in value["unparsedObject"]
+        ) {
           result = value["unparsedObject"][part];
         } else {
           throw new Error(
@@ -105,11 +172,13 @@ String.prototype.toOperationName = function (): string {
 };
 
 String.prototype.toAttributeName = function (): string {
-  return String(this)
+  const attrName: string = String(this)
     .replace(/[^A-Za-z0-9]+(.)/g, function (...matches) {
       return matches[1].toUpperCase();
     })
     .replace(/[^A-Za-z0-9]+/g, "");
+
+  return reservedKeywords.includes(attrName) ? `_${attrName}` : attrName;
 };
 
 function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
