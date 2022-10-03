@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 1.4.0 / 2022-10-03
+
+### Fixed
+* Handle errors in deserialization errors by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/836
+* Refactor RuleQuery models by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/854
+* Fix SearchSLO response structure by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/856
+* Fix debug output by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/857
+### Added
+* Add ListActiveConfigurations endpoint and add new filter[queried] param to list tag configurations endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/785
+* Add doesNotExist to synthetics operator enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/825
+* Add TopologyMapWidget to dashboard schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/828
+* Add Overall Status support to SLO Search API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/830
+* Add APM Fargate to Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/824
+* [dashboards] Add support for template variable multiselect by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/835
+* Add storage option to widget query definitions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/840
+* Add support for retrieving a security signal by ID by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/848
+* Add support for signal correlation API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/841
+* Add support for SLO List widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/847
+* Add new historical_cost endpoint, and update estimate_cost by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/839
+* Add support for incident attachment APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/852
+
+## New Contributors
+* @nkzou made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/822
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.3.0...v1.4.0
+
 ## 1.3.0 / 2022-08-31
 
 ### Fixed
