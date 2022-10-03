@@ -7,6 +7,9 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.RUMApi(configuration);
 
+// there is a valid "rum_application" in the system
+const RUM_APPLICATION_DATA_ID = process.env.RUM_APPLICATION_DATA_ID as string;
+
 const params: v2.RUMApiUpdateRUMApplicationRequest = {
   body: {
     data: {
@@ -14,11 +17,11 @@ const params: v2.RUMApiUpdateRUMApplicationRequest = {
         name: "updated_name_for_my_existing_rum_application",
         type: "browser",
       },
-      id: "abcd1234-0000-0000-abcd-1234abcd5678",
+      id: RUM_APPLICATION_DATA_ID,
       type: "rum_application_update",
     },
   },
-  id: "id",
+  id: RUM_APPLICATION_DATA_ID,
 };
 
 apiInstance
