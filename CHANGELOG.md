@@ -13,7 +13,7 @@
 * Add TopologyMapWidget to dashboard schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/828
 * Add Overall Status support to SLO Search API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/830
 * Add APM Fargate to Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/824
-* [dashboards] Add support for template variable multiselect by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/835
+* Add support for template variable multiselect in dashboards by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/835
 * Add storage option to widget query definitions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/840
 * Add support for retrieving a security signal by ID by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/848
 * Add support for signal correlation API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/841
