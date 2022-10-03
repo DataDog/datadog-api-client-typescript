@@ -102,6 +102,14 @@ export class MonitorOptions {
    */
   "notifyAudit"?: boolean;
   /**
+   * Controls what granularity a monitor alerts on. Only available for multi-alerts.
+   * For instance, a monitor grouped by `cluster`, `namespace`, `pod` can be configured to only notify on each
+   * new `cluster` violating the alert conditions by setting `notify_by` to `["cluster"]`. Tags mentioned
+   * in `notify_by` have to be a subset of the grouping tags in the query.
+   * For example, a query grouped by `cluster`, `namespace` cannot notify on `region`.
+   */
+  "notifyBy"?: Array<string>;
+  /**
    * A Boolean indicating whether this monitor notifies when data stops reporting.
    */
   "notifyNoData"?: boolean;
@@ -231,6 +239,10 @@ export class MonitorOptions {
     notifyAudit: {
       baseName: "notify_audit",
       type: "boolean",
+    },
+    notifyBy: {
+      baseName: "notify_by",
+      type: "Array<string>",
     },
     notifyNoData: {
       baseName: "notify_no_data",
