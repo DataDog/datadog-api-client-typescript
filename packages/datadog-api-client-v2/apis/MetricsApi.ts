@@ -1752,7 +1752,7 @@ export class MetricsApi {
   }
 
   /**
-   * Returns all metrics (matching additional filters if specified).
+   * Returns all metrics that can be configured in the Metrics Summary page or with Metrics without Limits™ (matching additional filters if specified).
    * @param param The request object
    */
   public listTagConfigurations(
