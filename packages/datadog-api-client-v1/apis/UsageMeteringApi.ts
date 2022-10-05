@@ -5966,7 +5966,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get usage across your multi-org account. You must have the multi-org feature enabled.
+   * Get all usage across your account.
    * @param param The request object
    */
   public getUsageSummary(
