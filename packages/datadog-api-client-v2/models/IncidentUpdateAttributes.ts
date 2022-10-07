@@ -41,10 +41,6 @@ export class IncidentUpdateAttributes {
    */
   "notificationHandles"?: Array<IncidentNotificationHandle>;
   /**
-   * Timestamp when the incident's state was set to resolved.
-   */
-  "resolved"?: Date;
-  /**
    * The title of the incident, which summarizes what happened.
    */
   "title"?: string;
@@ -88,11 +84,6 @@ export class IncidentUpdateAttributes {
     notificationHandles: {
       baseName: "notification_handles",
       type: "Array<IncidentNotificationHandle>",
-    },
-    resolved: {
-      baseName: "resolved",
-      type: "Date",
-      format: "date-time",
     },
     title: {
       baseName: "title",
