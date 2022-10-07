@@ -67,6 +67,7 @@ export class MonitorType {
     createdAt: {
       baseName: "created_at",
       type: "number",
+      format: "int64",
     },
     groupStatus: {
       baseName: "group_status",
