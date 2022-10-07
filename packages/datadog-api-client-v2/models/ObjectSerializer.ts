@@ -378,6 +378,7 @@ import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSig
 import { SecurityMonitoringSignalRuleCreatePayload } from "./SecurityMonitoringSignalRuleCreatePayload";
 import { SecurityMonitoringSignalRuleQuery } from "./SecurityMonitoringSignalRuleQuery";
 import { SecurityMonitoringSignalRuleResponse } from "./SecurityMonitoringSignalRuleResponse";
+import { SecurityMonitoringSignalRuleResponseQuery } from "./SecurityMonitoringSignalRuleResponseQuery";
 import { SecurityMonitoringSignalStateUpdateAttributes } from "./SecurityMonitoringSignalStateUpdateAttributes";
 import { SecurityMonitoringSignalStateUpdateData } from "./SecurityMonitoringSignalStateUpdateData";
 import { SecurityMonitoringSignalStateUpdateRequest } from "./SecurityMonitoringSignalStateUpdateRequest";
@@ -1084,6 +1085,8 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalRuleCreatePayload,
   SecurityMonitoringSignalRuleQuery: SecurityMonitoringSignalRuleQuery,
   SecurityMonitoringSignalRuleResponse: SecurityMonitoringSignalRuleResponse,
+  SecurityMonitoringSignalRuleResponseQuery:
+    SecurityMonitoringSignalRuleResponseQuery,
   SecurityMonitoringSignalStateUpdateAttributes:
     SecurityMonitoringSignalStateUpdateAttributes,
   SecurityMonitoringSignalStateUpdateData:

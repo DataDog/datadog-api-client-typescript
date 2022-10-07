@@ -724,6 +724,7 @@ export { SecurityMonitoringSignalListRequestPage } from "./models/SecurityMonito
 export { SecurityMonitoringSignalRuleCreatePayload } from "./models/SecurityMonitoringSignalRuleCreatePayload";
 export { SecurityMonitoringSignalRuleQuery } from "./models/SecurityMonitoringSignalRuleQuery";
 export { SecurityMonitoringSignalRuleResponse } from "./models/SecurityMonitoringSignalRuleResponse";
+export { SecurityMonitoringSignalRuleResponseQuery } from "./models/SecurityMonitoringSignalRuleResponseQuery";
 export { SecurityMonitoringSignalRuleType } from "./models/SecurityMonitoringSignalRuleType";
 export { SecurityMonitoringSignalsListResponse } from "./models/SecurityMonitoringSignalsListResponse";
 export { SecurityMonitoringSignalsListResponseLinks } from "./models/SecurityMonitoringSignalsListResponseLinks";
