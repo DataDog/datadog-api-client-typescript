@@ -49,7 +49,7 @@ export class SyntheticsBrowserTest {
    */
   "status"?: SyntheticsTestPauseStatus;
   /**
-   * The steps of the test.
+   * Array of steps for the test.
    */
   "steps"?: Array<SyntheticsStep>;
   /**
