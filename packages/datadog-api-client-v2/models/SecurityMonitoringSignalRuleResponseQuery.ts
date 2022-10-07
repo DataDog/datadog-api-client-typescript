@@ -10,7 +10,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Query for matching rule on signals.
  */
-export class SecurityMonitoringSignalRuleQuery {
+export class SecurityMonitoringSignalRuleResponseQuery {
   /**
    * The aggregation type.
    */
@@ -24,6 +24,10 @@ export class SecurityMonitoringSignalRuleQuery {
    */
   "correlatedQueryIndex"?: number;
   /**
+   * Default Rule ID to match on signals.
+   */
+  "defaultRuleId"?: string;
+  /**
    * Group of target fields to aggregate over when using the new value aggregations.
    */
   "metrics"?: Array<string>;
@@ -34,7 +38,7 @@ export class SecurityMonitoringSignalRuleQuery {
   /**
    * Rule ID to match on signals.
    */
-  "ruleId": string;
+  "ruleId"?: string;
 
   /**
    * @ignore
@@ -58,6 +62,10 @@ export class SecurityMonitoringSignalRuleQuery {
       type: "number",
       format: "int32",
     },
+    defaultRuleId: {
+      baseName: "defaultRuleId",
+      type: "string",
+    },
     metrics: {
       baseName: "metrics",
       type: "Array<string>",
@@ -69,7 +77,6 @@ export class SecurityMonitoringSignalRuleQuery {
     ruleId: {
       baseName: "ruleId",
       type: "string",
-      required: true,
     },
   };
 
@@ -77,7 +84,7 @@ export class SecurityMonitoringSignalRuleQuery {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalRuleQuery.attributeTypeMap;
+    return SecurityMonitoringSignalRuleResponseQuery.attributeTypeMap;
   }
 
   public constructor() {}
