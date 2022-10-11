@@ -157,15 +157,12 @@ export class LogsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
+      let body: LogsAPIErrorResponse;
       try {
-        const body: LogsAPIErrorResponse = ObjectSerializer.deserialize(
+        body = ObjectSerializer.deserialize(
           bodyText,
           "LogsAPIErrorResponse"
         ) as LogsAPIErrorResponse;
-        throw new ApiException<LogsAPIErrorResponse>(
-          response.httpStatusCode,
-          body
-        );
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
         throw new ApiException<LogsAPIErrorResponse>(
@@ -173,18 +170,22 @@ export class LogsApiResponseProcessor {
           bodyText
         );
       }
+      throw new ApiException<LogsAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
     if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
       );
+      let body: APIErrorResponse;
       try {
-        const body: APIErrorResponse = ObjectSerializer.deserialize(
+        body = ObjectSerializer.deserialize(
           bodyText,
           "APIErrorResponse"
         ) as APIErrorResponse;
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
@@ -192,6 +193,7 @@ export class LogsApiResponseProcessor {
           bodyText
         );
       }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -234,28 +236,29 @@ export class LogsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
+      let body: HTTPLogError;
       try {
-        const body: HTTPLogError = ObjectSerializer.deserialize(
+        body = ObjectSerializer.deserialize(
           bodyText,
           "HTTPLogError"
         ) as HTTPLogError;
-        throw new ApiException<HTTPLogError>(response.httpStatusCode, body);
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
         throw new ApiException<HTTPLogError>(response.httpStatusCode, bodyText);
       }
+      throw new ApiException<HTTPLogError>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode == 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
       );
+      let body: APIErrorResponse;
       try {
-        const body: APIErrorResponse = ObjectSerializer.deserialize(
+        body = ObjectSerializer.deserialize(
           bodyText,
           "APIErrorResponse"
         ) as APIErrorResponse;
-        throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
@@ -263,6 +266,7 @@ export class LogsApiResponseProcessor {
           bodyText
         );
       }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml

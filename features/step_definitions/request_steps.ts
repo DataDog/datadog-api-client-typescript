@@ -132,7 +132,11 @@ When("the request is sent", async function (this: World) {
       );
     }
   } catch (error) {
-    this.response = error;
+    if (error instanceof datadogApiClient.client.ApiException) {
+      this.response = error.body;
+    } else {
+      this.response = error;
+    }
     logger.debug(error);
     if (this.requestContext === undefined) {
       throw error;
@@ -193,7 +197,11 @@ When("the request with pagination is sent", async function (this: World) {
     }
     this.response = response;
   } catch (error) {
-    this.response = error;
+    if (error instanceof datadogApiClient.client.ApiException) {
+      this.response = error.body;
+    } else {
+      this.response = error;
+    }
     logger.debug(error);
     if (this.requestContext === undefined) {
       throw error;
