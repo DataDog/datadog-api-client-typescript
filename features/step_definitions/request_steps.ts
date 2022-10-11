@@ -2,7 +2,7 @@ import { Given, Then, When, AfterAll } from "@cucumber/cucumber";
 import { expect } from "chai";
 import { World } from "../support/world";
 
-import { fixKeys, pathLookup } from "../support/templating";
+import { getProperty, pathLookup } from "../support/templating";
 import { Store } from "../support/store";
 import { buildUndoFor, UndoActions } from "../support/undo";
 import * as datadogApiClient from "../../index";
@@ -11,6 +11,7 @@ import path from "path";
 
 import { compressSync } from "zstd.ts";
 import log from "loglevel";
+import { ScenariosModelMappings } from "../support/scenarios_model_mapping";
 const logger = log.getLogger("testing")
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
@@ -35,14 +36,14 @@ Given(
 );
 
 Given(/body with value (.*)/, function (this: World, body: string) {
-  this.opts["body"] = JSON.parse(body.templated(this.fixtures), fixKeys);
+  this.opts["body"] = JSON.parse(body.templated(this.fixtures));
 });
 
 Given(/body from file "(.*)"/, function (this: World, filename: string) {
   const content = fs
     .readFileSync(path.join(__dirname, `../${this.apiVersion}`, filename))
     .toString();
-  this.opts["body"] = JSON.parse(content.templated(this.fixtures), fixKeys);
+  this.opts["body"] = JSON.parse(content.templated(this.fixtures));
 });
 
 Given(
@@ -108,6 +109,17 @@ When("the request is sent", async function (this: World) {
       `missing undo for ${this.operationId} in ${this.apiVersion}`
     );
   }
+
+  // Deserialize obejcts into correct model types
+  const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
+  Object.keys(this.opts).forEach(key => {
+    this.opts[key] = objectSerializer.deserialize(
+      this.opts[key],
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`].body.type,
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`].body.format
+      )
+  });
+
   // store request context from response processor
   Store((...args) => {
     this.requestContext = args[0];
@@ -233,7 +245,7 @@ Then(
   /the response "([^"]+)" is equal to (.*)/,
   function (this: World, responsePath: string, value: string) {
     expect(pathLookup(this.response, responsePath)).to.deep.equal(
-      JSON.parse(value.templated(this.fixtures), fixKeys)
+      JSON.parse(value.templated(this.fixtures))
     );
   }
 );

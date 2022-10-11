@@ -5,9 +5,10 @@ import fs from "fs";
 import path from "path";
 
 import { World } from "../support/world";
-import { fixKeys, getProperty, pathLookup } from "./templating";
+import { getProperty, pathLookup } from "./templating";
 import { UndoActions, buildUndoFor } from "./undo";
 import * as datadogApiClient from "../../index";
+import { ScenariosModelMappings } from "./scenarios_model_mapping";
 
 interface IOperationParameter {
   name: string;
@@ -88,7 +89,6 @@ for (const apiVersion of Versions) {
           if (p.value !== undefined) {
             opts[p.name.toAttributeName()] = JSON.parse(
               p.value?.templated(this.fixtures),
-              fixKeys
             );
           }
           if (p.source !== undefined) {
@@ -99,6 +99,15 @@ for (const apiVersion of Versions) {
           }
         }
       }
+
+      // Deserialize obejcts into correct model types
+      const objectSerializer = getProperty(datadogApiClient, apiVersion).ObjectSerializer;
+      Object.keys(opts).forEach(key => {
+        opts[key] = objectSerializer.deserialize(
+          opts[key],
+          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`].body.type,
+          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`].body.format)
+      });
 
       let result: any = {};
       // example: await v1.IPRangesApi(v1.createConfiguration({authMethod: {...}})).getIPRanges({});

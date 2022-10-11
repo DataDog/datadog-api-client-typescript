@@ -71,6 +71,10 @@ def cli(specs, output):
         "index.ts": env.get_template("index.j2"),
     }
 
+    test_scenarios_files = {
+        "scenarios_model_mapping.ts": env.get_template("scenarios_model_mapping.j2")
+    }
+
     all_specs = {}
     all_apis = {}
     for spec_path in specs:
@@ -127,3 +131,10 @@ def cli(specs, output):
         filename.parent.mkdir(parents=True, exist_ok=True)
         with filename.open("w+") as fp:
             fp.write(template.render(apis=all_apis))
+
+    # Parameter mappings for bdd tests
+    scenarios_test_output = pathlib.Path("../features/support/")
+    for name, template in test_scenarios_files.items():
+        filename = scenarios_test_output / name
+        with filename.open("w") as fp:
+            fp.write(template.render(all_apis=all_apis))
