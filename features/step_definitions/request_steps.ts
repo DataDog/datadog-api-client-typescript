@@ -115,8 +115,8 @@ When("the request is sent", async function (this: World) {
   Object.keys(this.opts).forEach(key => {
     this.opts[key] = objectSerializer.deserialize(
       this.opts[key],
-      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`].body.type,
-      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`].body.format
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].type,
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].format
       )
   });
 

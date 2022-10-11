@@ -105,8 +105,8 @@ for (const apiVersion of Versions) {
       Object.keys(opts).forEach(key => {
         opts[key] = objectSerializer.deserialize(
           opts[key],
-          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`].body.type,
-          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`].body.format)
+          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].type,
+          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].format)
       });
 
       let result: any = {};
