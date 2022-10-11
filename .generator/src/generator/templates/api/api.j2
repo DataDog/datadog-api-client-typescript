@@ -182,16 +182,17 @@ export class {{ className }}ResponseProcessor {
       return body;
       {%- else %}
       const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
+      let body: {{ responseType }};
       try {
-        const body: {{ responseType }} = ObjectSerializer.deserialize(
+        body = ObjectSerializer.deserialize(
           bodyText,
           "{{ responseType }}"
         ) as {{ responseType }};
-        throw new ApiException<{{ responseType }}>(response.httpStatusCode, body);
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
         throw new ApiException<{{ responseType }}>(response.httpStatusCode, bodyText);
       } 
+      throw new ApiException<{{ responseType }}>(response.httpStatusCode, body);
       {%- endif %}
       {%- else %}
       {%- if responseCodes[0].startswith("2") %}
