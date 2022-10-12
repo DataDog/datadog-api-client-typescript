@@ -133,6 +133,14 @@ When("the request is sent", async function (this: World) {
     } else {
       this.response = await apiInstance[this.operationId.toOperationName()]();
     }
+
+    const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
+    this.response = objectSerializer.serialize(
+      this.response,
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`]["operationResponseType"],
+      "",
+    )
+
     if (undoAction.undo.type == "unsafe") {
       this.undo.push(
         buildUndoFor(

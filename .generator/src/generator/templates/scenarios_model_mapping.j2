@@ -1,4 +1,4 @@
-export const ScenariosModelMappings: {[key: string]: {[key: string]: {[key: string]: string}}} = {
+export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
 {%- for version, apis in all_apis.items() %}
 {%- for _, operations in apis.items() %}
 {%- for path, method, operation in operations %}
@@ -6,11 +6,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: {[key: stri
 {%- if operationParams|length > 0 %}
     "{{ version }}.{{ operation['operationId'] }}": {
         {%- for name, parameter in operation|parameters %}
-            "{{ name|attribute_name }}": {
-                "type": "{{ get_type_for_parameter(parameter) }}",
-                "format": "{{ get_format_for_schema(parameter) }}",
-                },
+        "{{ name|attribute_name }}": {
+            "type": "{{ get_type_for_parameter(parameter) }}",
+            "format": "{{ get_format_for_schema(parameter) }}",
+            },
         {%- endfor %}
+        "operationResponseType": "{{ operation|return_type }}",
     },
 {%- endif %}
 {%- endfor %}

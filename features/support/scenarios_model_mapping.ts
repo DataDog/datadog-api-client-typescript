@@ -1,3366 +1,3702 @@
-export const ScenariosModelMappings: {[key: string]: {[key: string]: {[key: string]: string}}} = {
+export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.CreateAPIKey": {
-            "body": {
-                "type": "ApiKey",
-                "format": "",
-                },
+        "body": {
+            "type": "ApiKey",
+            "format": "",
+            },
+        "operationResponseType": "ApiKeyResponse",
     },
     "v1.DeleteAPIKey": {
-            "key": {
-                "type": "string",
-                "format": "",
-                },
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApiKeyResponse",
     },
     "v1.GetAPIKey": {
-            "key": {
-                "type": "string",
-                "format": "",
-                },
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApiKeyResponse",
     },
     "v1.UpdateAPIKey": {
-            "key": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "ApiKey",
-                "format": "",
-                },
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApiKey",
+            "format": "",
+            },
+        "operationResponseType": "ApiKeyResponse",
     },
     "v1.CreateApplicationKey": {
-            "body": {
-                "type": "ApplicationKey",
-                "format": "",
-                },
+        "body": {
+            "type": "ApplicationKey",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v1.DeleteApplicationKey": {
-            "key": {
-                "type": "string",
-                "format": "",
-                },
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v1.GetApplicationKey": {
-            "key": {
-                "type": "string",
-                "format": "",
-                },
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v1.UpdateApplicationKey": {
-            "key": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "ApplicationKey",
-                "format": "",
-                },
+        "key": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApplicationKey",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v1.SubmitServiceCheck": {
-            "body": {
-                "type": "Array<ServiceCheck>",
-                "format": "",
-                },
+        "body": {
+            "type": "Array<ServiceCheck>",
+            "format": "",
+            },
+        "operationResponseType": "IntakePayloadAccepted",
     },
     "v1.GetDailyCustomReports": {
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sortDir": {
-                "type": "UsageSortDirection",
-                "format": "",
-                },
-            "sort": {
-                "type": "UsageSort",
-                "format": "",
-                },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sortDir": {
+            "type": "UsageSortDirection",
+            "format": "",
+            },
+        "sort": {
+            "type": "UsageSort",
+            "format": "",
+            },
+        "operationResponseType": "UsageCustomReportsResponse",
     },
     "v1.GetSpecifiedDailyCustomReports": {
-            "reportId": {
-                "type": "string",
-                "format": "",
-                },
+        "reportId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsageSpecifiedCustomReportsResponse",
     },
     "v1.GetMonthlyCustomReports": {
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sortDir": {
-                "type": "UsageSortDirection",
-                "format": "",
-                },
-            "sort": {
-                "type": "UsageSort",
-                "format": "",
-                },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sortDir": {
+            "type": "UsageSortDirection",
+            "format": "",
+            },
+        "sort": {
+            "type": "UsageSort",
+            "format": "",
+            },
+        "operationResponseType": "UsageCustomReportsResponse",
     },
     "v1.GetSpecifiedMonthlyCustomReports": {
-            "reportId": {
-                "type": "string",
-                "format": "",
-                },
+        "reportId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsageSpecifiedCustomReportsResponse",
     },
     "v1.GetUsageAnalyzedLogs": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageAnalyzedLogsResponse",
     },
     "v1.GetUsageAttribution": {
-            "startMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "fields": {
-                "type": "UsageAttributionSupportedMetrics",
-                "format": "",
-                },
-            "endMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "sortDirection": {
-                "type": "UsageSortDirection",
-                "format": "",
-                },
-            "sortName": {
-                "type": "UsageAttributionSort",
-                "format": "",
-                },
-            "includeDescendants": {
-                "type": "boolean",
-                "format": "",
-                },
-            "offset": {
-                "type": "number",
-                "format": "int64",
-                },
-            "limit": {
-                "type": "number",
-                "format": "int64",
-                },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "fields": {
+            "type": "UsageAttributionSupportedMetrics",
+            "format": "",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sortDirection": {
+            "type": "UsageSortDirection",
+            "format": "",
+            },
+        "sortName": {
+            "type": "UsageAttributionSort",
+            "format": "",
+            },
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "offset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "UsageAttributionResponse",
     },
     "v1.GetUsageAuditLogs": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageAuditLogsResponse",
     },
     "v1.GetUsageLambda": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageLambdaResponse",
     },
     "v1.GetUsageBillableSummary": {
-            "month": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "month": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageBillableSummaryResponse",
     },
     "v1.GetUsageCIApp": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageCIVisibilityResponse",
     },
     "v1.GetUsageCloudSecurityPostureManagement": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageCloudSecurityPostureManagementResponse",
     },
     "v1.GetUsageCWS": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageCWSResponse",
     },
     "v1.GetUsageDBM": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageDBMResponse",
     },
     "v1.GetUsageFargate": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageFargateResponse",
     },
     "v1.GetUsageHosts": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageHostsResponse",
     },
     "v1.GetHourlyUsageAttribution": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "usageType": {
-                "type": "HourlyUsageAttributionUsageType",
-                "format": "",
-                },
-            "nextRecordId": {
-                "type": "string",
-                "format": "",
-                },
-            "tagBreakdownKeys": {
-                "type": "string",
-                "format": "",
-                },
-            "includeDescendants": {
-                "type": "boolean",
-                "format": "",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "usageType": {
+            "type": "HourlyUsageAttributionUsageType",
+            "format": "",
+            },
+        "nextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "tagBreakdownKeys": {
+            "type": "string",
+            "format": "",
+            },
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "HourlyUsageAttributionResponse",
     },
     "v1.GetIncidentManagement": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageIncidentManagementResponse",
     },
     "v1.GetUsageIndexedSpans": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageIndexedSpansResponse",
     },
     "v1.GetIngestedSpans": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageIngestedSpansResponse",
     },
     "v1.GetUsageInternetOfThings": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageIoTResponse",
     },
     "v1.GetUsageLogs": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageLogsResponse",
     },
     "v1.GetUsageLogsByRetention": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageLogsByRetentionResponse",
     },
     "v1.GetUsageLogsByIndex": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "indexName": {
-                "type": "Array<string>",
-                "format": "",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "indexName": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "UsageLogsByIndexResponse",
     },
     "v1.GetMonthlyUsageAttribution": {
-            "startMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "fields": {
-                "type": "MonthlyUsageAttributionSupportedMetrics",
-                "format": "",
-                },
-            "sortDirection": {
-                "type": "UsageSortDirection",
-                "format": "",
-                },
-            "sortName": {
-                "type": "MonthlyUsageAttributionSupportedMetrics",
-                "format": "",
-                },
-            "tagBreakdownKeys": {
-                "type": "string",
-                "format": "",
-                },
-            "nextRecordId": {
-                "type": "string",
-                "format": "",
-                },
-            "includeDescendants": {
-                "type": "boolean",
-                "format": "",
-                },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "fields": {
+            "type": "MonthlyUsageAttributionSupportedMetrics",
+            "format": "",
+            },
+        "sortDirection": {
+            "type": "UsageSortDirection",
+            "format": "",
+            },
+        "sortName": {
+            "type": "MonthlyUsageAttributionSupportedMetrics",
+            "format": "",
+            },
+        "tagBreakdownKeys": {
+            "type": "string",
+            "format": "",
+            },
+        "nextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "MonthlyUsageAttributionResponse",
     },
     "v1.GetUsageNetworkFlows": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageNetworkFlowsResponse",
     },
     "v1.GetUsageNetworkHosts": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageNetworkHostsResponse",
     },
     "v1.GetUsageOnlineArchive": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageOnlineArchiveResponse",
     },
     "v1.GetUsageProfiling": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageProfilingResponse",
     },
     "v1.GetUsageRumUnits": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageRumUnitsResponse",
     },
     "v1.GetUsageRumSessions": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "type": {
-                "type": "string",
-                "format": "",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "type": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsageRumSessionsResponse",
     },
     "v1.GetUsageSDS": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageSDSResponse",
     },
     "v1.GetUsageSNMP": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageSNMPResponse",
     },
     "v1.GetUsageSummary": {
-            "startMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "includeOrgDetails": {
-                "type": "boolean",
-                "format": "",
-                },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "includeOrgDetails": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "UsageSummaryResponse",
     },
     "v1.GetUsageSynthetics": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageSyntheticsResponse",
     },
     "v1.GetUsageSyntheticsAPI": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageSyntheticsAPIResponse",
     },
     "v1.GetUsageSyntheticsBrowser": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageSyntheticsBrowserResponse",
     },
     "v1.GetUsageTimeseries": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageTimeseriesResponse",
     },
     "v1.GetUsageTopAvgMetrics": {
-            "month": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "day": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "names": {
-                "type": "Array<string>",
-                "format": "",
-                },
-            "limit": {
-                "type": "number",
-                "format": "int32",
-                },
-            "nextRecordId": {
-                "type": "string",
-                "format": "",
-                },
+        "month": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "day": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "names": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "nextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsageTopAvgMetricsResponse",
     },
     "v1.DeleteDashboards": {
-            "body": {
-                "type": "DashboardBulkDeleteRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "DashboardBulkDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.ListDashboards": {
-            "filterShared": {
-                "type": "boolean",
-                "format": "",
-                },
-            "filterDeleted": {
-                "type": "boolean",
-                "format": "",
-                },
+        "filterShared": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterDeleted": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "DashboardSummary",
     },
     "v1.RestoreDashboards": {
-            "body": {
-                "type": "DashboardRestoreRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "DashboardRestoreRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.CreateDashboard": {
-            "body": {
-                "type": "Dashboard",
-                "format": "",
-                },
+        "body": {
+            "type": "Dashboard",
+            "format": "",
+            },
+        "operationResponseType": "Dashboard",
     },
     "v1.DeleteDashboard": {
-            "dashboardId": {
-                "type": "string",
-                "format": "",
-                },
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DashboardDeleteResponse",
     },
     "v1.GetDashboard": {
-            "dashboardId": {
-                "type": "string",
-                "format": "",
-                },
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Dashboard",
     },
     "v1.UpdateDashboard": {
-            "dashboardId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "Dashboard",
-                "format": "",
-                },
+        "dashboardId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "Dashboard",
+            "format": "",
+            },
+        "operationResponseType": "Dashboard",
     },
     "v1.CreateDashboardList": {
-            "body": {
-                "type": "DashboardList",
-                "format": "",
-                },
+        "body": {
+            "type": "DashboardList",
+            "format": "",
+            },
+        "operationResponseType": "DashboardList",
     },
     "v1.DeleteDashboardList": {
-            "listId": {
-                "type": "number",
-                "format": "int64",
-                },
+        "listId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "DashboardListDeleteResponse",
     },
     "v1.GetDashboardList": {
-            "listId": {
-                "type": "number",
-                "format": "int64",
-                },
+        "listId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "DashboardList",
     },
     "v1.UpdateDashboardList": {
-            "listId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "body": {
-                "type": "DashboardList",
-                "format": "",
-                },
+        "listId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "DashboardList",
+            "format": "",
+            },
+        "operationResponseType": "DashboardList",
     },
     "v1.SubmitDistributionPoints": {
-            "contentEncoding": {
-                "type": "DistributionPointsContentEncoding",
-                "format": "",
-                },
-            "body": {
-                "type": "DistributionPointsPayload",
-                "format": "",
-                },
+        "contentEncoding": {
+            "type": "DistributionPointsContentEncoding",
+            "format": "",
+            },
+        "body": {
+            "type": "DistributionPointsPayload",
+            "format": "",
+            },
+        "operationResponseType": "IntakePayloadAccepted",
     },
     "v1.ListActiveMetrics": {
-            "from": {
-                "type": "number",
-                "format": "int64",
-                },
-            "host": {
-                "type": "string",
-                "format": "",
-                },
-            "tagFilter": {
-                "type": "string",
-                "format": "",
-                },
+        "from": {
+            "type": "number",
+            "format": "int64",
+            },
+        "host": {
+            "type": "string",
+            "format": "",
+            },
+        "tagFilter": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MetricsListResponse",
     },
     "v1.GetMetricMetadata": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MetricMetadata",
     },
     "v1.UpdateMetricMetadata": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "MetricMetadata",
-                "format": "",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MetricMetadata",
+            "format": "",
+            },
+        "operationResponseType": "MetricMetadata",
     },
     "v1.QueryMetrics": {
-            "from": {
-                "type": "number",
-                "format": "int64",
-                },
-            "to": {
-                "type": "number",
-                "format": "int64",
-                },
-            "query": {
-                "type": "string",
-                "format": "",
-                },
+        "from": {
+            "type": "number",
+            "format": "int64",
+            },
+        "to": {
+            "type": "number",
+            "format": "int64",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MetricsQueryResponse",
     },
     "v1.ListMetrics": {
-            "q": {
-                "type": "string",
-                "format": "",
-                },
+        "q": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MetricSearchResponse",
     },
     "v1.SubmitMetrics": {
-            "contentEncoding": {
-                "type": "MetricContentEncoding",
-                "format": "",
-                },
-            "body": {
-                "type": "MetricsPayload",
-                "format": "",
-                },
+        "contentEncoding": {
+            "type": "MetricContentEncoding",
+            "format": "",
+            },
+        "body": {
+            "type": "MetricsPayload",
+            "format": "",
+            },
+        "operationResponseType": "IntakePayloadAccepted",
     },
     "v1.ListDowntimes": {
-            "currentOnly": {
-                "type": "boolean",
-                "format": "",
-                },
+        "currentOnly": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "Array<Downtime>",
     },
     "v1.CreateDowntime": {
-            "body": {
-                "type": "Downtime",
-                "format": "",
-                },
+        "body": {
+            "type": "Downtime",
+            "format": "",
+            },
+        "operationResponseType": "Downtime",
     },
     "v1.CancelDowntimesByScope": {
-            "body": {
-                "type": "CancelDowntimesByScopeRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "CancelDowntimesByScopeRequest",
+            "format": "",
+            },
+        "operationResponseType": "CanceledDowntimesIds",
     },
     "v1.CancelDowntime": {
-            "downtimeId": {
-                "type": "number",
-                "format": "int64",
-                },
+        "downtimeId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetDowntime": {
-            "downtimeId": {
-                "type": "number",
-                "format": "int64",
-                },
+        "downtimeId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "Downtime",
     },
     "v1.UpdateDowntime": {
-            "downtimeId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "body": {
-                "type": "Downtime",
-                "format": "",
-                },
+        "downtimeId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "Downtime",
+            "format": "",
+            },
+        "operationResponseType": "Downtime",
     },
     "v1.ListMonitorDowntimes": {
-            "monitorId": {
-                "type": "number",
-                "format": "int64",
-                },
+        "monitorId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "Array<Downtime>",
     },
     "v1.ListEvents": {
-            "start": {
-                "type": "number",
-                "format": "int64",
-                },
-            "end": {
-                "type": "number",
-                "format": "int64",
-                },
-            "priority": {
-                "type": "EventPriority",
-                "format": "",
-                },
-            "sources": {
-                "type": "string",
-                "format": "",
-                },
-            "tags": {
-                "type": "string",
-                "format": "",
-                },
-            "unaggregated": {
-                "type": "boolean",
-                "format": "",
-                },
-            "excludeAggregate": {
-                "type": "boolean",
-                "format": "",
-                },
-            "page": {
-                "type": "number",
-                "format": "int32",
-                },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "priority": {
+            "type": "EventPriority",
+            "format": "",
+            },
+        "sources": {
+            "type": "string",
+            "format": "",
+            },
+        "tags": {
+            "type": "string",
+            "format": "",
+            },
+        "unaggregated": {
+            "type": "boolean",
+            "format": "",
+            },
+        "excludeAggregate": {
+            "type": "boolean",
+            "format": "",
+            },
+        "page": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "EventListResponse",
     },
     "v1.CreateEvent": {
-            "body": {
-                "type": "EventCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "EventCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "EventCreateResponse",
     },
     "v1.GetEvent": {
-            "eventId": {
-                "type": "number",
-                "format": "int64",
-                },
+        "eventId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "EventResponse",
     },
     "v1.GetGraphSnapshot": {
-            "metricQuery": {
-                "type": "string",
-                "format": "",
-                },
-            "start": {
-                "type": "number",
-                "format": "int64",
-                },
-            "end": {
-                "type": "number",
-                "format": "int64",
-                },
-            "eventQuery": {
-                "type": "string",
-                "format": "",
-                },
-            "graphDef": {
-                "type": "string",
-                "format": "",
-                },
-            "title": {
-                "type": "string",
-                "format": "",
-                },
-            "height": {
-                "type": "number",
-                "format": "int64",
-                },
-            "width": {
-                "type": "number",
-                "format": "int64",
-                },
+        "metricQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "end": {
+            "type": "number",
+            "format": "int64",
+            },
+        "eventQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "graphDef": {
+            "type": "string",
+            "format": "",
+            },
+        "title": {
+            "type": "string",
+            "format": "",
+            },
+        "height": {
+            "type": "number",
+            "format": "int64",
+            },
+        "width": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "GraphSnapshot",
     },
     "v1.MuteHost": {
-            "hostName": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "HostMuteSettings",
-                "format": "",
-                },
+        "hostName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "HostMuteSettings",
+            "format": "",
+            },
+        "operationResponseType": "HostMuteResponse",
     },
     "v1.UnmuteHost": {
-            "hostName": {
-                "type": "string",
-                "format": "",
-                },
+        "hostName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HostMuteResponse",
     },
     "v1.ListHosts": {
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
-            "sortField": {
-                "type": "string",
-                "format": "",
-                },
-            "sortDir": {
-                "type": "string",
-                "format": "",
-                },
-            "start": {
-                "type": "number",
-                "format": "int64",
-                },
-            "count": {
-                "type": "number",
-                "format": "int64",
-                },
-            "from": {
-                "type": "number",
-                "format": "int64",
-                },
-            "includeMutedHostsData": {
-                "type": "boolean",
-                "format": "",
-                },
-            "includeHostsMetadata": {
-                "type": "boolean",
-                "format": "",
-                },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "sortField": {
+            "type": "string",
+            "format": "",
+            },
+        "sortDir": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "count": {
+            "type": "number",
+            "format": "int64",
+            },
+        "from": {
+            "type": "number",
+            "format": "int64",
+            },
+        "includeMutedHostsData": {
+            "type": "boolean",
+            "format": "",
+            },
+        "includeHostsMetadata": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "HostListResponse",
     },
     "v1.GetHostTotals": {
-            "from": {
-                "type": "number",
-                "format": "int64",
-                },
+        "from": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "HostTotals",
     },
     "v1.DeleteAWSAccount": {
-            "body": {
-                "type": "AWSAccountDeleteRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSAccountDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.ListAWSAccounts": {
-            "accountId": {
-                "type": "string",
-                "format": "",
-                },
-            "roleName": {
-                "type": "string",
-                "format": "",
-                },
-            "accessKeyId": {
-                "type": "string",
-                "format": "",
-                },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "roleName": {
+            "type": "string",
+            "format": "",
+            },
+        "accessKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AWSAccountListResponse",
     },
     "v1.CreateAWSAccount": {
-            "body": {
-                "type": "AWSAccount",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSAccount",
+            "format": "",
+            },
+        "operationResponseType": "AWSAccountCreateResponse",
     },
     "v1.UpdateAWSAccount": {
-            "accountId": {
-                "type": "string",
-                "format": "",
-                },
-            "roleName": {
-                "type": "string",
-                "format": "",
-                },
-            "accessKeyId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "AWSAccount",
-                "format": "",
-                },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "roleName": {
+            "type": "string",
+            "format": "",
+            },
+        "accessKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AWSAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.DeleteAWSTagFilter": {
-            "body": {
-                "type": "AWSTagFilterDeleteRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSTagFilterDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.ListAWSTagFilters": {
-            "accountId": {
-                "type": "string",
-                "format": "",
-                },
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AWSTagFilterListResponse",
     },
     "v1.CreateAWSTagFilter": {
-            "body": {
-                "type": "AWSTagFilterCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSTagFilterCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.CreateNewAWSExternalID": {
-            "body": {
-                "type": "AWSAccount",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSAccount",
+            "format": "",
+            },
+        "operationResponseType": "AWSAccountCreateResponse",
     },
     "v1.DeleteAWSLambdaARN": {
-            "body": {
-                "type": "AWSAccountAndLambdaRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSAccountAndLambdaRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.CreateAWSLambdaARN": {
-            "body": {
-                "type": "AWSAccountAndLambdaRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSAccountAndLambdaRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.CheckAWSLogsLambdaAsync": {
-            "body": {
-                "type": "AWSAccountAndLambdaRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSAccountAndLambdaRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSLogsAsyncResponse",
     },
     "v1.EnableAWSLogServices": {
-            "body": {
-                "type": "AWSLogsServicesRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSLogsServicesRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.CheckAWSLogsServicesAsync": {
-            "body": {
-                "type": "AWSLogsServicesRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AWSLogsServicesRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSLogsAsyncResponse",
     },
     "v1.DeleteAzureIntegration": {
-            "body": {
-                "type": "AzureAccount",
-                "format": "",
-                },
+        "body": {
+            "type": "AzureAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.CreateAzureIntegration": {
-            "body": {
-                "type": "AzureAccount",
-                "format": "",
-                },
+        "body": {
+            "type": "AzureAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.UpdateAzureIntegration": {
-            "body": {
-                "type": "AzureAccount",
-                "format": "",
-                },
+        "body": {
+            "type": "AzureAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.UpdateAzureHostFilters": {
-            "body": {
-                "type": "AzureAccount",
-                "format": "",
-                },
+        "body": {
+            "type": "AzureAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.DeleteGCPIntegration": {
-            "body": {
-                "type": "GCPAccount",
-                "format": "",
-                },
+        "body": {
+            "type": "GCPAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.CreateGCPIntegration": {
-            "body": {
-                "type": "GCPAccount",
-                "format": "",
-                },
+        "body": {
+            "type": "GCPAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.UpdateGCPIntegration": {
-            "body": {
-                "type": "GCPAccount",
-                "format": "",
-                },
+        "body": {
+            "type": "GCPAccount",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.CreatePagerDutyIntegrationService": {
-            "body": {
-                "type": "PagerDutyService",
-                "format": "",
-                },
+        "body": {
+            "type": "PagerDutyService",
+            "format": "",
+            },
+        "operationResponseType": "PagerDutyServiceName",
     },
     "v1.DeletePagerDutyIntegrationService": {
-            "serviceName": {
-                "type": "string",
-                "format": "",
-                },
+        "serviceName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetPagerDutyIntegrationService": {
-            "serviceName": {
-                "type": "string",
-                "format": "",
-                },
+        "serviceName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PagerDutyServiceName",
     },
     "v1.UpdatePagerDutyIntegrationService": {
-            "serviceName": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "PagerDutyServiceKey",
-                "format": "",
-                },
+        "serviceName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "PagerDutyServiceKey",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetSlackIntegrationChannels": {
-            "accountName": {
-                "type": "string",
-                "format": "",
-                },
+        "accountName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Array<SlackIntegrationChannel>",
     },
     "v1.CreateSlackIntegrationChannel": {
-            "accountName": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SlackIntegrationChannel",
-                "format": "",
-                },
+        "accountName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SlackIntegrationChannel",
+            "format": "",
+            },
+        "operationResponseType": "SlackIntegrationChannel",
     },
     "v1.RemoveSlackIntegrationChannel": {
-            "accountName": {
-                "type": "string",
-                "format": "",
-                },
-            "channelName": {
-                "type": "string",
-                "format": "",
-                },
+        "accountName": {
+            "type": "string",
+            "format": "",
+            },
+        "channelName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetSlackIntegrationChannel": {
-            "accountName": {
-                "type": "string",
-                "format": "",
-                },
-            "channelName": {
-                "type": "string",
-                "format": "",
-                },
+        "accountName": {
+            "type": "string",
+            "format": "",
+            },
+        "channelName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SlackIntegrationChannel",
     },
     "v1.UpdateSlackIntegrationChannel": {
-            "accountName": {
-                "type": "string",
-                "format": "",
-                },
-            "channelName": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SlackIntegrationChannel",
-                "format": "",
-                },
+        "accountName": {
+            "type": "string",
+            "format": "",
+            },
+        "channelName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SlackIntegrationChannel",
+            "format": "",
+            },
+        "operationResponseType": "SlackIntegrationChannel",
     },
     "v1.CreateWebhooksIntegrationCustomVariable": {
-            "body": {
-                "type": "WebhooksIntegrationCustomVariable",
-                "format": "",
-                },
+        "body": {
+            "type": "WebhooksIntegrationCustomVariable",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksIntegrationCustomVariableResponse",
     },
     "v1.DeleteWebhooksIntegrationCustomVariable": {
-            "customVariableName": {
-                "type": "string",
-                "format": "",
-                },
+        "customVariableName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetWebhooksIntegrationCustomVariable": {
-            "customVariableName": {
-                "type": "string",
-                "format": "",
-                },
+        "customVariableName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksIntegrationCustomVariableResponse",
     },
     "v1.UpdateWebhooksIntegrationCustomVariable": {
-            "customVariableName": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "WebhooksIntegrationCustomVariableUpdateRequest",
-                "format": "",
-                },
+        "customVariableName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "WebhooksIntegrationCustomVariableUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksIntegrationCustomVariableResponse",
     },
     "v1.CreateWebhooksIntegration": {
-            "body": {
-                "type": "WebhooksIntegration",
-                "format": "",
-                },
+        "body": {
+            "type": "WebhooksIntegration",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksIntegration",
     },
     "v1.DeleteWebhooksIntegration": {
-            "webhookName": {
-                "type": "string",
-                "format": "",
-                },
+        "webhookName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetWebhooksIntegration": {
-            "webhookName": {
-                "type": "string",
-                "format": "",
-                },
+        "webhookName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksIntegration",
     },
     "v1.UpdateWebhooksIntegration": {
-            "webhookName": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "WebhooksIntegrationUpdateRequest",
-                "format": "",
-                },
+        "webhookName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "WebhooksIntegrationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "WebhooksIntegration",
     },
     "v1.ListLogs": {
-            "body": {
-                "type": "LogsListRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsListRequest",
+            "format": "",
+            },
+        "operationResponseType": "LogsListResponse",
     },
     "v1.SubmitLog": {
-            "contentEncoding": {
-                "type": "ContentEncoding",
-                "format": "",
-                },
-            "ddtags": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "Array<HTTPLogItem>",
-                "format": "",
-                },
+        "contentEncoding": {
+            "type": "ContentEncoding",
+            "format": "",
+            },
+        "ddtags": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "Array<HTTPLogItem>",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.UpdateLogsIndexOrder": {
-            "body": {
-                "type": "LogsIndexesOrder",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsIndexesOrder",
+            "format": "",
+            },
+        "operationResponseType": "LogsIndexesOrder",
     },
     "v1.CreateLogsIndex": {
-            "body": {
-                "type": "LogsIndex",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsIndex",
+            "format": "",
+            },
+        "operationResponseType": "LogsIndex",
     },
     "v1.GetLogsIndex": {
-            "name": {
-                "type": "string",
-                "format": "",
-                },
+        "name": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LogsIndex",
     },
     "v1.UpdateLogsIndex": {
-            "name": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "LogsIndexUpdateRequest",
-                "format": "",
-                },
+        "name": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LogsIndexUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LogsIndex",
     },
     "v1.UpdateLogsPipelineOrder": {
-            "body": {
-                "type": "LogsPipelinesOrder",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsPipelinesOrder",
+            "format": "",
+            },
+        "operationResponseType": "LogsPipelinesOrder",
     },
     "v1.CreateLogsPipeline": {
-            "body": {
-                "type": "LogsPipeline",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsPipeline",
+            "format": "",
+            },
+        "operationResponseType": "LogsPipeline",
     },
     "v1.DeleteLogsPipeline": {
-            "pipelineId": {
-                "type": "string",
-                "format": "",
-                },
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetLogsPipeline": {
-            "pipelineId": {
-                "type": "string",
-                "format": "",
-                },
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LogsPipeline",
     },
     "v1.UpdateLogsPipeline": {
-            "pipelineId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "LogsPipeline",
-                "format": "",
-                },
+        "pipelineId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LogsPipeline",
+            "format": "",
+            },
+        "operationResponseType": "LogsPipeline",
     },
     "v1.ListMonitors": {
-            "groupStates": {
-                "type": "string",
-                "format": "",
-                },
-            "name": {
-                "type": "string",
-                "format": "",
-                },
-            "tags": {
-                "type": "string",
-                "format": "",
-                },
-            "monitorTags": {
-                "type": "string",
-                "format": "",
-                },
-            "withDowntimes": {
-                "type": "boolean",
-                "format": "",
-                },
-            "idOffset": {
-                "type": "number",
-                "format": "int64",
-                },
-            "page": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageSize": {
-                "type": "number",
-                "format": "int32",
-                },
+        "groupStates": {
+            "type": "string",
+            "format": "",
+            },
+        "name": {
+            "type": "string",
+            "format": "",
+            },
+        "tags": {
+            "type": "string",
+            "format": "",
+            },
+        "monitorTags": {
+            "type": "string",
+            "format": "",
+            },
+        "withDowntimes": {
+            "type": "boolean",
+            "format": "",
+            },
+        "idOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "page": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "Array<Monitor>",
     },
     "v1.CreateMonitor": {
-            "body": {
-                "type": "Monitor",
-                "format": "",
-                },
+        "body": {
+            "type": "Monitor",
+            "format": "",
+            },
+        "operationResponseType": "Monitor",
     },
     "v1.CheckCanDeleteMonitor": {
-            "monitorIds": {
-                "type": "Array<number>",
-                "format": "int64",
-                },
+        "monitorIds": {
+            "type": "Array<number>",
+            "format": "int64",
+            },
+        "operationResponseType": "CheckCanDeleteMonitorResponse",
     },
     "v1.SearchMonitorGroups": {
-            "query": {
-                "type": "string",
-                "format": "",
-                },
-            "page": {
-                "type": "number",
-                "format": "int64",
-                },
-            "perPage": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "string",
-                "format": "",
-                },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "page": {
+            "type": "number",
+            "format": "int64",
+            },
+        "perPage": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MonitorGroupSearchResponse",
     },
     "v1.SearchMonitors": {
-            "query": {
-                "type": "string",
-                "format": "",
-                },
-            "page": {
-                "type": "number",
-                "format": "int64",
-                },
-            "perPage": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "string",
-                "format": "",
-                },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "page": {
+            "type": "number",
+            "format": "int64",
+            },
+        "perPage": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MonitorSearchResponse",
     },
     "v1.ValidateMonitor": {
-            "body": {
-                "type": "Monitor",
-                "format": "",
-                },
+        "body": {
+            "type": "Monitor",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.DeleteMonitor": {
-            "monitorId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "force": {
-                "type": "string",
-                "format": "",
-                },
+        "monitorId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "force": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeletedMonitor",
     },
     "v1.GetMonitor": {
-            "monitorId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "groupStates": {
-                "type": "string",
-                "format": "",
-                },
+        "monitorId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "groupStates": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "Monitor",
     },
     "v1.UpdateMonitor": {
-            "monitorId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "body": {
-                "type": "MonitorUpdateRequest",
-                "format": "",
-                },
+        "monitorId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "MonitorUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "Monitor",
     },
     "v1.ValidateExistingMonitor": {
-            "monitorId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "body": {
-                "type": "Monitor",
-                "format": "",
-                },
+        "monitorId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "Monitor",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v1.ListNotebooks": {
-            "authorHandle": {
-                "type": "string",
-                "format": "",
-                },
-            "excludeAuthorHandle": {
-                "type": "string",
-                "format": "",
-                },
-            "start": {
-                "type": "number",
-                "format": "int64",
-                },
-            "count": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sortField": {
-                "type": "string",
-                "format": "",
-                },
-            "sortDir": {
-                "type": "string",
-                "format": "",
-                },
-            "query": {
-                "type": "string",
-                "format": "",
-                },
-            "includeCells": {
-                "type": "boolean",
-                "format": "",
-                },
-            "isTemplate": {
-                "type": "boolean",
-                "format": "",
-                },
-            "type": {
-                "type": "string",
-                "format": "",
-                },
+        "authorHandle": {
+            "type": "string",
+            "format": "",
+            },
+        "excludeAuthorHandle": {
+            "type": "string",
+            "format": "",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
+        "count": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sortField": {
+            "type": "string",
+            "format": "",
+            },
+        "sortDir": {
+            "type": "string",
+            "format": "",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "includeCells": {
+            "type": "boolean",
+            "format": "",
+            },
+        "isTemplate": {
+            "type": "boolean",
+            "format": "",
+            },
+        "type": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "NotebooksResponse",
     },
     "v1.CreateNotebook": {
-            "body": {
-                "type": "NotebookCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "NotebookCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "NotebookResponse",
     },
     "v1.DeleteNotebook": {
-            "notebookId": {
-                "type": "number",
-                "format": "int64",
-                },
+        "notebookId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetNotebook": {
-            "notebookId": {
-                "type": "number",
-                "format": "int64",
-                },
+        "notebookId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "NotebookResponse",
     },
     "v1.UpdateNotebook": {
-            "notebookId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "body": {
-                "type": "NotebookUpdateRequest",
-                "format": "",
-                },
+        "notebookId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "NotebookUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "NotebookResponse",
     },
     "v1.CreateChildOrg": {
-            "body": {
-                "type": "OrganizationCreateBody",
-                "format": "",
-                },
+        "body": {
+            "type": "OrganizationCreateBody",
+            "format": "",
+            },
+        "operationResponseType": "OrganizationCreateResponse",
     },
     "v1.GetOrg": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OrganizationResponse",
     },
     "v1.UpdateOrg": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "Organization",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "Organization",
+            "format": "",
+            },
+        "operationResponseType": "OrganizationResponse",
     },
     "v1.DowngradeOrg": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OrgDowngradedResponse",
     },
     "v1.UploadIdPForOrg": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
-            "idpFile": {
-                "type": "HttpFile",
-                "format": "binary",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "idpFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "IdpResponse",
     },
     "v1.AddSecurityMonitoringSignalToIncident": {
-            "signalId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "AddSignalToIncidentRequest",
-                "format": "",
-                },
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AddSignalToIncidentRequest",
+            "format": "",
+            },
+        "operationResponseType": "SuccessfulSignalUpdateResponse",
     },
     "v1.EditSecurityMonitoringSignalAssignee": {
-            "signalId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SignalAssigneeUpdateRequest",
-                "format": "",
-                },
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SignalAssigneeUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SuccessfulSignalUpdateResponse",
     },
     "v1.EditSecurityMonitoringSignalState": {
-            "signalId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SignalStateUpdateRequest",
-                "format": "",
-                },
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SignalStateUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SuccessfulSignalUpdateResponse",
     },
     "v1.ListSLOs": {
-            "ids": {
-                "type": "string",
-                "format": "",
-                },
-            "query": {
-                "type": "string",
-                "format": "",
-                },
-            "tagsQuery": {
-                "type": "string",
-                "format": "",
-                },
-            "metricsQuery": {
-                "type": "string",
-                "format": "",
-                },
-            "limit": {
-                "type": "number",
-                "format": "int64",
-                },
-            "offset": {
-                "type": "number",
-                "format": "int64",
-                },
+        "ids": {
+            "type": "string",
+            "format": "",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "tagsQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "metricsQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "offset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SLOListResponse",
     },
     "v1.CreateSLO": {
-            "body": {
-                "type": "ServiceLevelObjectiveRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "ServiceLevelObjectiveRequest",
+            "format": "",
+            },
+        "operationResponseType": "SLOListResponse",
     },
     "v1.DeleteSLOTimeframeInBulk": {
-            "body": {
-                "type": "{ [key: string]: Array<SLOTimeframe>; }",
-                "format": "",
-                },
+        "body": {
+            "type": "{ [key: string]: Array<SLOTimeframe>; }",
+            "format": "",
+            },
+        "operationResponseType": "SLOBulkDeleteResponse",
     },
     "v1.CheckCanDeleteSLO": {
-            "ids": {
-                "type": "string",
-                "format": "",
-                },
+        "ids": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CheckCanDeleteSLOResponse",
     },
     "v1.SearchSLO": {
-            "query": {
-                "type": "string",
-                "format": "",
-                },
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "includeFacets": {
-                "type": "boolean",
-                "format": "",
-                },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "includeFacets": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "SearchSLOResponse",
     },
     "v1.DeleteSLO": {
-            "sloId": {
-                "type": "string",
-                "format": "",
-                },
-            "force": {
-                "type": "string",
-                "format": "",
-                },
+        "sloId": {
+            "type": "string",
+            "format": "",
+            },
+        "force": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SLODeleteResponse",
     },
     "v1.GetSLO": {
-            "sloId": {
-                "type": "string",
-                "format": "",
-                },
-            "withConfiguredAlertIds": {
-                "type": "boolean",
-                "format": "",
-                },
+        "sloId": {
+            "type": "string",
+            "format": "",
+            },
+        "withConfiguredAlertIds": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "SLOResponse",
     },
     "v1.UpdateSLO": {
-            "sloId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "ServiceLevelObjective",
-                "format": "",
-                },
+        "sloId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ServiceLevelObjective",
+            "format": "",
+            },
+        "operationResponseType": "SLOListResponse",
     },
     "v1.GetSLOCorrections": {
-            "sloId": {
-                "type": "string",
-                "format": "",
-                },
+        "sloId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SLOCorrectionListResponse",
     },
     "v1.GetSLOHistory": {
-            "sloId": {
-                "type": "string",
-                "format": "",
-                },
-            "fromTs": {
-                "type": "number",
-                "format": "int64",
-                },
-            "toTs": {
-                "type": "number",
-                "format": "int64",
-                },
-            "target": {
-                "type": "number",
-                "format": "double",
-                },
-            "applyCorrection": {
-                "type": "boolean",
-                "format": "",
-                },
+        "sloId": {
+            "type": "string",
+            "format": "",
+            },
+        "fromTs": {
+            "type": "number",
+            "format": "int64",
+            },
+        "toTs": {
+            "type": "number",
+            "format": "int64",
+            },
+        "target": {
+            "type": "number",
+            "format": "double",
+            },
+        "applyCorrection": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "SLOHistoryResponse",
     },
     "v1.CreateSLOCorrection": {
-            "body": {
-                "type": "SLOCorrectionCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "SLOCorrectionCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SLOCorrectionResponse",
     },
     "v1.DeleteSLOCorrection": {
-            "sloCorrectionId": {
-                "type": "string",
-                "format": "",
-                },
+        "sloCorrectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetSLOCorrection": {
-            "sloCorrectionId": {
-                "type": "string",
-                "format": "",
-                },
+        "sloCorrectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SLOCorrectionResponse",
     },
     "v1.UpdateSLOCorrection": {
-            "sloCorrectionId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SLOCorrectionUpdateRequest",
-                "format": "",
-                },
+        "sloCorrectionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SLOCorrectionUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SLOCorrectionResponse",
     },
     "v1.GetSyntheticsCIBatch": {
-            "batchId": {
-                "type": "string",
-                "format": "",
-                },
+        "batchId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsBatchDetails",
     },
     "v1.CreatePrivateLocation": {
-            "body": {
-                "type": "SyntheticsPrivateLocation",
-                "format": "",
-                },
+        "body": {
+            "type": "SyntheticsPrivateLocation",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsPrivateLocationCreationResponse",
     },
     "v1.DeletePrivateLocation": {
-            "locationId": {
-                "type": "string",
-                "format": "",
-                },
+        "locationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetPrivateLocation": {
-            "locationId": {
-                "type": "string",
-                "format": "",
-                },
+        "locationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsPrivateLocation",
     },
     "v1.UpdatePrivateLocation": {
-            "locationId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SyntheticsPrivateLocation",
-                "format": "",
-                },
+        "locationId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsPrivateLocation",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsPrivateLocation",
     },
     "v1.CreateSyntheticsAPITest": {
-            "body": {
-                "type": "SyntheticsAPITest",
-                "format": "",
-                },
+        "body": {
+            "type": "SyntheticsAPITest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsAPITest",
     },
     "v1.GetAPITest": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsAPITest",
     },
     "v1.UpdateAPITest": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SyntheticsAPITest",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsAPITest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsAPITest",
     },
     "v1.CreateSyntheticsBrowserTest": {
-            "body": {
-                "type": "SyntheticsBrowserTest",
-                "format": "",
-                },
+        "body": {
+            "type": "SyntheticsBrowserTest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsBrowserTest",
     },
     "v1.GetBrowserTest": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsBrowserTest",
     },
     "v1.UpdateBrowserTest": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SyntheticsBrowserTest",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsBrowserTest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsBrowserTest",
     },
     "v1.GetBrowserTestLatestResults": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
-            "fromTs": {
-                "type": "number",
-                "format": "int64",
-                },
-            "toTs": {
-                "type": "number",
-                "format": "int64",
-                },
-            "probeDc": {
-                "type": "Array<string>",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "fromTs": {
+            "type": "number",
+            "format": "int64",
+            },
+        "toTs": {
+            "type": "number",
+            "format": "int64",
+            },
+        "probeDc": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsGetBrowserTestLatestResultsResponse",
     },
     "v1.GetBrowserTestResult": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
-            "resultId": {
-                "type": "string",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "resultId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsBrowserTestResultFull",
     },
     "v1.DeleteTests": {
-            "body": {
-                "type": "SyntheticsDeleteTestsPayload",
-                "format": "",
-                },
+        "body": {
+            "type": "SyntheticsDeleteTestsPayload",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsDeleteTestsResponse",
     },
     "v1.TriggerTests": {
-            "body": {
-                "type": "SyntheticsTriggerBody",
-                "format": "",
-                },
+        "body": {
+            "type": "SyntheticsTriggerBody",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsTriggerCITestsResponse",
     },
     "v1.TriggerCITests": {
-            "body": {
-                "type": "SyntheticsCITestBody",
-                "format": "",
-                },
+        "body": {
+            "type": "SyntheticsCITestBody",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsTriggerCITestsResponse",
     },
     "v1.GetTest": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsTestDetails",
     },
     "v1.GetAPITestLatestResults": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
-            "fromTs": {
-                "type": "number",
-                "format": "int64",
-                },
-            "toTs": {
-                "type": "number",
-                "format": "int64",
-                },
-            "probeDc": {
-                "type": "Array<string>",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "fromTs": {
+            "type": "number",
+            "format": "int64",
+            },
+        "toTs": {
+            "type": "number",
+            "format": "int64",
+            },
+        "probeDc": {
+            "type": "Array<string>",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsGetAPITestLatestResultsResponse",
     },
     "v1.GetAPITestResult": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
-            "resultId": {
-                "type": "string",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "resultId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsAPITestResultFull",
     },
     "v1.UpdateTestPauseStatus": {
-            "publicId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SyntheticsUpdateTestPauseStatusPayload",
-                "format": "",
-                },
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsUpdateTestPauseStatusPayload",
+            "format": "",
+            },
+        "operationResponseType": "boolean",
     },
     "v1.CreateGlobalVariable": {
-            "body": {
-                "type": "SyntheticsGlobalVariable",
-                "format": "",
-                },
+        "body": {
+            "type": "SyntheticsGlobalVariable",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsGlobalVariable",
     },
     "v1.DeleteGlobalVariable": {
-            "variableId": {
-                "type": "string",
-                "format": "",
-                },
+        "variableId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetGlobalVariable": {
-            "variableId": {
-                "type": "string",
-                "format": "",
-                },
+        "variableId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsGlobalVariable",
     },
     "v1.EditGlobalVariable": {
-            "variableId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SyntheticsGlobalVariable",
-                "format": "",
-                },
+        "variableId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsGlobalVariable",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsGlobalVariable",
     },
     "v1.ListHostTags": {
-            "source": {
-                "type": "string",
-                "format": "",
-                },
+        "source": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TagToHosts",
     },
     "v1.DeleteHostTags": {
-            "hostName": {
-                "type": "string",
-                "format": "",
-                },
-            "source": {
-                "type": "string",
-                "format": "",
-                },
+        "hostName": {
+            "type": "string",
+            "format": "",
+            },
+        "source": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v1.GetHostTags": {
-            "hostName": {
-                "type": "string",
-                "format": "",
-                },
-            "source": {
-                "type": "string",
-                "format": "",
-                },
+        "hostName": {
+            "type": "string",
+            "format": "",
+            },
+        "source": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HostTags",
     },
     "v1.CreateHostTags": {
-            "hostName": {
-                "type": "string",
-                "format": "",
-                },
-            "source": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "HostTags",
-                "format": "",
-                },
+        "hostName": {
+            "type": "string",
+            "format": "",
+            },
+        "source": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "HostTags",
+            "format": "",
+            },
+        "operationResponseType": "HostTags",
     },
     "v1.UpdateHostTags": {
-            "hostName": {
-                "type": "string",
-                "format": "",
-                },
-            "source": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "HostTags",
-                "format": "",
-                },
+        "hostName": {
+            "type": "string",
+            "format": "",
+            },
+        "source": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "HostTags",
+            "format": "",
+            },
+        "operationResponseType": "HostTags",
     },
     "v1.CreateUser": {
-            "body": {
-                "type": "User",
-                "format": "",
-                },
+        "body": {
+            "type": "User",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
     },
     "v1.DisableUser": {
-            "userHandle": {
-                "type": "string",
-                "format": "email",
-                },
+        "userHandle": {
+            "type": "string",
+            "format": "email",
+            },
+        "operationResponseType": "UserDisableResponse",
     },
     "v1.GetUser": {
-            "userHandle": {
-                "type": "string",
-                "format": "email",
-                },
+        "userHandle": {
+            "type": "string",
+            "format": "email",
+            },
+        "operationResponseType": "UserResponse",
     },
     "v1.UpdateUser": {
-            "userHandle": {
-                "type": "string",
-                "format": "email",
-                },
-            "body": {
-                "type": "User",
-                "format": "",
-                },
+        "userHandle": {
+            "type": "string",
+            "format": "email",
+            },
+        "body": {
+            "type": "User",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
     },
     "v2.ListAPIKeys": {
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "APIKeysSort",
-                "format": "",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
-            "filterCreatedAtStart": {
-                "type": "string",
-                "format": "",
-                },
-            "filterCreatedAtEnd": {
-                "type": "string",
-                "format": "",
-                },
-            "filterModifiedAtStart": {
-                "type": "string",
-                "format": "",
-                },
-            "filterModifiedAtEnd": {
-                "type": "string",
-                "format": "",
-                },
-            "include": {
-                "type": "string",
-                "format": "",
-                },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "APIKeysSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCreatedAtStart": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCreatedAtEnd": {
+            "type": "string",
+            "format": "",
+            },
+        "filterModifiedAtStart": {
+            "type": "string",
+            "format": "",
+            },
+        "filterModifiedAtEnd": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "APIKeysResponse",
     },
     "v2.CreateAPIKey": {
-            "body": {
-                "type": "APIKeyCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "APIKeyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "APIKeyResponse",
     },
     "v2.DeleteAPIKey": {
-            "apiKeyId": {
-                "type": "string",
-                "format": "",
-                },
+        "apiKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetAPIKey": {
-            "apiKeyId": {
-                "type": "string",
-                "format": "",
-                },
-            "include": {
-                "type": "string",
-                "format": "",
-                },
+        "apiKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "APIKeyResponse",
     },
     "v2.UpdateAPIKey": {
-            "apiKeyId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "APIKeyUpdateRequest",
-                "format": "",
-                },
+        "apiKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "APIKeyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "APIKeyResponse",
     },
     "v2.ListApplicationKeys": {
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "ApplicationKeysSort",
-                "format": "",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
-            "filterCreatedAtStart": {
-                "type": "string",
-                "format": "",
-                },
-            "filterCreatedAtEnd": {
-                "type": "string",
-                "format": "",
-                },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "ApplicationKeysSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCreatedAtStart": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCreatedAtEnd": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListApplicationKeysResponse",
     },
     "v2.DeleteApplicationKey": {
-            "appKeyId": {
-                "type": "string",
-                "format": "",
-                },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetApplicationKey": {
-            "appKeyId": {
-                "type": "string",
-                "format": "",
-                },
-            "include": {
-                "type": "string",
-                "format": "",
-                },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v2.UpdateApplicationKey": {
-            "appKeyId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "ApplicationKeyUpdateRequest",
-                "format": "",
-                },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApplicationKeyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v2.ListCurrentUserApplicationKeys": {
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "ApplicationKeysSort",
-                "format": "",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
-            "filterCreatedAtStart": {
-                "type": "string",
-                "format": "",
-                },
-            "filterCreatedAtEnd": {
-                "type": "string",
-                "format": "",
-                },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "ApplicationKeysSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCreatedAtStart": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCreatedAtEnd": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListApplicationKeysResponse",
     },
     "v2.CreateCurrentUserApplicationKey": {
-            "body": {
-                "type": "ApplicationKeyCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "ApplicationKeyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v2.DeleteCurrentUserApplicationKey": {
-            "appKeyId": {
-                "type": "string",
-                "format": "",
-                },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetCurrentUserApplicationKey": {
-            "appKeyId": {
-                "type": "string",
-                "format": "",
-                },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v2.UpdateCurrentUserApplicationKey": {
-            "appKeyId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "ApplicationKeyUpdateRequest",
-                "format": "",
-                },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApplicationKeyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v2.ListAuditLogs": {
-            "filterQuery": {
-                "type": "string",
-                "format": "",
-                },
-            "filterFrom": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "filterTo": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "sort": {
-                "type": "AuditLogsSort",
-                "format": "",
-                },
-            "pageCursor": {
-                "type": "string",
-                "format": "",
-                },
-            "pageLimit": {
-                "type": "number",
-                "format": "int32",
-                },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "AuditLogsSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "AuditLogsEventsResponse",
     },
     "v2.SearchAuditLogs": {
-            "body": {
-                "type": "AuditLogsSearchEventsRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AuditLogsSearchEventsRequest",
+            "format": "",
+            },
+        "operationResponseType": "AuditLogsEventsResponse",
     },
     "v2.ListAuthNMappings": {
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "AuthNMappingsSort",
-                "format": "",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "AuthNMappingsSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AuthNMappingsResponse",
     },
     "v2.CreateAuthNMapping": {
-            "body": {
-                "type": "AuthNMappingCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "AuthNMappingCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AuthNMappingResponse",
     },
     "v2.DeleteAuthNMapping": {
-            "authnMappingId": {
-                "type": "string",
-                "format": "",
-                },
+        "authnMappingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetAuthNMapping": {
-            "authnMappingId": {
-                "type": "string",
-                "format": "",
-                },
+        "authnMappingId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AuthNMappingResponse",
     },
     "v2.UpdateAuthNMapping": {
-            "authnMappingId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "AuthNMappingUpdateRequest",
-                "format": "",
-                },
+        "authnMappingId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AuthNMappingUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AuthNMappingResponse",
     },
     "v2.DeleteDashboardListItems": {
-            "dashboardListId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "body": {
-                "type": "DashboardListDeleteItemsRequest",
-                "format": "",
-                },
+        "dashboardListId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "DashboardListDeleteItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DashboardListDeleteItemsResponse",
     },
     "v2.GetDashboardListItems": {
-            "dashboardListId": {
-                "type": "number",
-                "format": "int64",
-                },
+        "dashboardListId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "DashboardListItems",
     },
     "v2.CreateDashboardListItems": {
-            "dashboardListId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "body": {
-                "type": "DashboardListAddItemsRequest",
-                "format": "",
-                },
+        "dashboardListId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "DashboardListAddItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DashboardListAddItemsResponse",
     },
     "v2.UpdateDashboardListItems": {
-            "dashboardListId": {
-                "type": "number",
-                "format": "int64",
-                },
-            "body": {
-                "type": "DashboardListUpdateItemsRequest",
-                "format": "",
-                },
+        "dashboardListId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "body": {
+            "type": "DashboardListUpdateItemsRequest",
+            "format": "",
+            },
+        "operationResponseType": "DashboardListUpdateItemsResponse",
     },
     "v2.ListEvents": {
-            "filterQuery": {
-                "type": "string",
-                "format": "",
-                },
-            "filterFrom": {
-                "type": "string",
-                "format": "",
-                },
-            "filterTo": {
-                "type": "string",
-                "format": "",
-                },
-            "sort": {
-                "type": "EventsSort",
-                "format": "",
-                },
-            "pageCursor": {
-                "type": "string",
-                "format": "",
-                },
-            "pageLimit": {
-                "type": "number",
-                "format": "int32",
-                },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTo": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "EventsSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "EventsListResponse",
     },
     "v2.SearchEvents": {
-            "body": {
-                "type": "EventsListRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "EventsListRequest",
+            "format": "",
+            },
+        "operationResponseType": "EventsListResponse",
     },
     "v2.ListIncidents": {
-            "include": {
-                "type": "Array<IncidentRelatedObject>",
-                "format": "",
-                },
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageOffset": {
-                "type": "number",
-                "format": "int64",
-                },
+        "include": {
+            "type": "Array<IncidentRelatedObject>",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "IncidentsResponse",
     },
     "v2.CreateIncident": {
-            "body": {
-                "type": "IncidentCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "IncidentCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentResponse",
     },
     "v2.DeleteIncident": {
-            "incidentId": {
-                "type": "string",
-                "format": "",
-                },
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetIncident": {
-            "incidentId": {
-                "type": "string",
-                "format": "",
-                },
-            "include": {
-                "type": "Array<IncidentRelatedObject>",
-                "format": "",
-                },
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<IncidentRelatedObject>",
+            "format": "",
+            },
+        "operationResponseType": "IncidentResponse",
     },
     "v2.UpdateIncident": {
-            "incidentId": {
-                "type": "string",
-                "format": "",
-                },
-            "include": {
-                "type": "Array<IncidentRelatedObject>",
-                "format": "",
-                },
-            "body": {
-                "type": "IncidentUpdateRequest",
-                "format": "",
-                },
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<IncidentRelatedObject>",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentResponse",
     },
     "v2.ListIncidentAttachments": {
-            "incidentId": {
-                "type": "string",
-                "format": "",
-                },
-            "include": {
-                "type": "Array<IncidentAttachmentRelatedObject>",
-                "format": "",
-                },
-            "filterAttachmentType": {
-                "type": "Array<IncidentAttachmentAttachmentType>",
-                "format": "",
-                },
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<IncidentAttachmentRelatedObject>",
+            "format": "",
+            },
+        "filterAttachmentType": {
+            "type": "Array<IncidentAttachmentAttachmentType>",
+            "format": "",
+            },
+        "operationResponseType": "IncidentAttachmentsResponse",
     },
     "v2.UpdateIncidentAttachments": {
-            "incidentId": {
-                "type": "string",
-                "format": "",
-                },
-            "include": {
-                "type": "Array<IncidentAttachmentRelatedObject>",
-                "format": "",
-                },
-            "body": {
-                "type": "IncidentAttachmentUpdateRequest",
-                "format": "",
-                },
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<IncidentAttachmentRelatedObject>",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentAttachmentUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentAttachmentUpdateResponse",
     },
     "v2.CreateOpsgenieService": {
-            "body": {
-                "type": "OpsgenieServiceCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "OpsgenieServiceCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpsgenieServiceResponse",
     },
     "v2.DeleteOpsgenieService": {
-            "integrationServiceId": {
-                "type": "string",
-                "format": "",
-                },
+        "integrationServiceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetOpsgenieService": {
-            "integrationServiceId": {
-                "type": "string",
-                "format": "",
-                },
+        "integrationServiceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OpsgenieServiceResponse",
     },
     "v2.UpdateOpsgenieService": {
-            "integrationServiceId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "OpsgenieServiceUpdateRequest",
-                "format": "",
-                },
+        "integrationServiceId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OpsgenieServiceUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OpsgenieServiceResponse",
     },
     "v2.SubmitLog": {
-            "contentEncoding": {
-                "type": "ContentEncoding",
-                "format": "",
-                },
-            "ddtags": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "Array<HTTPLogItem>",
-                "format": "",
-                },
+        "contentEncoding": {
+            "type": "ContentEncoding",
+            "format": "",
+            },
+        "ddtags": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "Array<HTTPLogItem>",
+            "format": "",
+            },
+        "operationResponseType": "any",
     },
     "v2.AggregateLogs": {
-            "body": {
-                "type": "LogsAggregateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsAggregateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LogsAggregateResponse",
     },
     "v2.ListLogsGet": {
-            "filterQuery": {
-                "type": "string",
-                "format": "",
-                },
-            "filterIndex": {
-                "type": "string",
-                "format": "",
-                },
-            "filterFrom": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "filterTo": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "sort": {
-                "type": "LogsSort",
-                "format": "",
-                },
-            "pageCursor": {
-                "type": "string",
-                "format": "",
-                },
-            "pageLimit": {
-                "type": "number",
-                "format": "int32",
-                },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIndex": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "LogsSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "LogsListResponse",
     },
     "v2.ListLogs": {
-            "body": {
-                "type": "LogsListRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsListRequest",
+            "format": "",
+            },
+        "operationResponseType": "LogsListResponse",
     },
     "v2.UpdateLogsArchiveOrder": {
-            "body": {
-                "type": "LogsArchiveOrder",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsArchiveOrder",
+            "format": "",
+            },
+        "operationResponseType": "LogsArchiveOrder",
     },
     "v2.CreateLogsArchive": {
-            "body": {
-                "type": "LogsArchiveCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsArchiveCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LogsArchive",
     },
     "v2.DeleteLogsArchive": {
-            "archiveId": {
-                "type": "string",
-                "format": "",
-                },
+        "archiveId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetLogsArchive": {
-            "archiveId": {
-                "type": "string",
-                "format": "",
-                },
+        "archiveId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LogsArchive",
     },
     "v2.UpdateLogsArchive": {
-            "archiveId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "LogsArchiveCreateRequest",
-                "format": "",
-                },
+        "archiveId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LogsArchiveCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LogsArchive",
     },
     "v2.RemoveRoleFromArchive": {
-            "archiveId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "RelationshipToRole",
-                "format": "",
-                },
+        "archiveId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToRole",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.ListArchiveReadRoles": {
-            "archiveId": {
-                "type": "string",
-                "format": "",
-                },
+        "archiveId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RolesResponse",
     },
     "v2.AddReadRoleToArchive": {
-            "archiveId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "RelationshipToRole",
-                "format": "",
-                },
+        "archiveId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToRole",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.CreateLogsMetric": {
-            "body": {
-                "type": "LogsMetricCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "LogsMetricCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LogsMetricResponse",
     },
     "v2.DeleteLogsMetric": {
-            "metricId": {
-                "type": "string",
-                "format": "",
-                },
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetLogsMetric": {
-            "metricId": {
-                "type": "string",
-                "format": "",
-                },
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "LogsMetricResponse",
     },
     "v2.UpdateLogsMetric": {
-            "metricId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "LogsMetricUpdateRequest",
-                "format": "",
-                },
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "LogsMetricUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "LogsMetricResponse",
     },
     "v2.ListTagConfigurations": {
-            "filterConfigured": {
-                "type": "boolean",
-                "format": "",
-                },
-            "filterTagsConfigured": {
-                "type": "string",
-                "format": "",
-                },
-            "filterMetricType": {
-                "type": "MetricTagConfigurationMetricTypes",
-                "format": "",
-                },
-            "filterIncludePercentiles": {
-                "type": "boolean",
-                "format": "",
-                },
-            "filterQueried": {
-                "type": "boolean",
-                "format": "",
-                },
-            "filterTags": {
-                "type": "string",
-                "format": "",
-                },
-            "windowSeconds": {
-                "type": "number",
-                "format": "int64",
-                },
+        "filterConfigured": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterTagsConfigured": {
+            "type": "string",
+            "format": "",
+            },
+        "filterMetricType": {
+            "type": "MetricTagConfigurationMetricTypes",
+            "format": "",
+            },
+        "filterIncludePercentiles": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterQueried": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "windowSeconds": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "MetricsAndMetricTagConfigurationsResponse",
     },
     "v2.DeleteBulkTagsMetricsConfiguration": {
-            "body": {
-                "type": "MetricBulkTagConfigDeleteRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "MetricBulkTagConfigDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "MetricBulkTagConfigResponse",
     },
     "v2.CreateBulkTagsMetricsConfiguration": {
-            "body": {
-                "type": "MetricBulkTagConfigCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "MetricBulkTagConfigCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MetricBulkTagConfigResponse",
     },
     "v2.ListActiveMetricConfigurations": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
-            "windowSeconds": {
-                "type": "number",
-                "format": "int64",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "windowSeconds": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "MetricSuggestedTagsAndAggregationsResponse",
     },
     "v2.ListTagsByMetricName": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MetricAllTagsResponse",
     },
     "v2.EstimateMetricsOutputSeries": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
-            "filterGroups": {
-                "type": "string",
-                "format": "",
-                },
-            "filterHoursAgo": {
-                "type": "number",
-                "format": "",
-                },
-            "filterNumAggregations": {
-                "type": "number",
-                "format": "",
-                },
-            "filterPct": {
-                "type": "boolean",
-                "format": "",
-                },
-            "filterTimespanH": {
-                "type": "number",
-                "format": "",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterGroups": {
+            "type": "string",
+            "format": "",
+            },
+        "filterHoursAgo": {
+            "type": "number",
+            "format": "",
+            },
+        "filterNumAggregations": {
+            "type": "number",
+            "format": "",
+            },
+        "filterPct": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterTimespanH": {
+            "type": "number",
+            "format": "",
+            },
+        "operationResponseType": "MetricEstimateResponse",
     },
     "v2.DeleteTagConfiguration": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.ListTagConfigurationByName": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MetricTagConfigurationResponse",
     },
     "v2.UpdateTagConfiguration": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "MetricTagConfigurationUpdateRequest",
-                "format": "",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MetricTagConfigurationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MetricTagConfigurationResponse",
     },
     "v2.CreateTagConfiguration": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "MetricTagConfigurationCreateRequest",
-                "format": "",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MetricTagConfigurationCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MetricTagConfigurationResponse",
     },
     "v2.ListVolumesByMetricName": {
-            "metricName": {
-                "type": "string",
-                "format": "",
-                },
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MetricVolumesResponse",
     },
     "v2.SubmitMetrics": {
-            "contentEncoding": {
-                "type": "MetricContentEncoding",
-                "format": "",
-                },
-            "body": {
-                "type": "MetricPayload",
-                "format": "",
-                },
+        "contentEncoding": {
+            "type": "MetricContentEncoding",
+            "format": "",
+            },
+        "body": {
+            "type": "MetricPayload",
+            "format": "",
+            },
+        "operationResponseType": "IntakePayloadAccepted",
     },
     "v2.ListRoles": {
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "RolesSort",
-                "format": "",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "RolesSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RolesResponse",
     },
     "v2.CreateRole": {
-            "body": {
-                "type": "RoleCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "RoleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RoleCreateResponse",
     },
     "v2.DeleteRole": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetRole": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RoleResponse",
     },
     "v2.UpdateRole": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "RoleUpdateRequest",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RoleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RoleUpdateResponse",
     },
     "v2.CloneRole": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "RoleCloneRequest",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RoleCloneRequest",
+            "format": "",
+            },
+        "operationResponseType": "RoleResponse",
     },
     "v2.RemovePermissionFromRole": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "RelationshipToPermission",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToPermission",
+            "format": "",
+            },
+        "operationResponseType": "PermissionsResponse",
     },
     "v2.ListRolePermissions": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PermissionsResponse",
     },
     "v2.AddPermissionToRole": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "RelationshipToPermission",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToPermission",
+            "format": "",
+            },
+        "operationResponseType": "PermissionsResponse",
     },
     "v2.RemoveUserFromRole": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "RelationshipToUser",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToUser",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
     },
     "v2.ListRoleUsers": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "string",
-                "format": "",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
     },
     "v2.AddUserToRole": {
-            "roleId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "RelationshipToUser",
-                "format": "",
-                },
+        "roleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RelationshipToUser",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
     },
     "v2.ListProcesses": {
-            "search": {
-                "type": "string",
-                "format": "",
-                },
-            "tags": {
-                "type": "string",
-                "format": "",
-                },
-            "from": {
-                "type": "number",
-                "format": "int64",
-                },
-            "to": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageLimit": {
-                "type": "number",
-                "format": "int32",
-                },
-            "pageCursor": {
-                "type": "string",
-                "format": "",
-                },
+        "search": {
+            "type": "string",
+            "format": "",
+            },
+        "tags": {
+            "type": "string",
+            "format": "",
+            },
+        "from": {
+            "type": "number",
+            "format": "int64",
+            },
+        "to": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProcessSummariesResponse",
     },
     "v2.AggregateRUMEvents": {
-            "body": {
-                "type": "RUMAggregateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "RUMAggregateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RUMAnalyticsAggregateResponse",
     },
     "v2.CreateRUMApplication": {
-            "body": {
-                "type": "RUMApplicationCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "RUMApplicationCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RUMApplicationResponse",
     },
     "v2.DeleteRUMApplication": {
-            "id": {
-                "type": "string",
-                "format": "",
-                },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetRUMApplication": {
-            "id": {
-                "type": "string",
-                "format": "",
-                },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RUMApplicationResponse",
     },
     "v2.UpdateRUMApplication": {
-            "id": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "RUMApplicationUpdateRequest",
-                "format": "",
-                },
+        "id": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RUMApplicationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RUMApplicationResponse",
     },
     "v2.ListRUMEvents": {
-            "filterQuery": {
-                "type": "string",
-                "format": "",
-                },
-            "filterFrom": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "filterTo": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "sort": {
-                "type": "RUMSort",
-                "format": "",
-                },
-            "pageCursor": {
-                "type": "string",
-                "format": "",
-                },
-            "pageLimit": {
-                "type": "number",
-                "format": "int32",
-                },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "RUMSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "RUMEventsResponse",
     },
     "v2.SearchRUMEvents": {
-            "body": {
-                "type": "RUMSearchEventsRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "RUMSearchEventsRequest",
+            "format": "",
+            },
+        "operationResponseType": "RUMEventsResponse",
     },
     "v2.UploadIdPMetadata": {
-            "idpFile": {
-                "type": "HttpFile",
-                "format": "binary",
-                },
+        "idpFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "void",
     },
     "v2.CreateCloudWorkloadSecurityAgentRule": {
-            "body": {
-                "type": "CloudWorkloadSecurityAgentRuleCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "CloudWorkloadSecurityAgentRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
     "v2.DeleteCloudWorkloadSecurityAgentRule": {
-            "agentRuleId": {
-                "type": "string",
-                "format": "",
-                },
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetCloudWorkloadSecurityAgentRule": {
-            "agentRuleId": {
-                "type": "string",
-                "format": "",
-                },
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
     "v2.UpdateCloudWorkloadSecurityAgentRule": {
-            "agentRuleId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "CloudWorkloadSecurityAgentRuleUpdateRequest",
-                "format": "",
-                },
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CloudWorkloadSecurityAgentRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
     "v2.CreateSecurityFilter": {
-            "body": {
-                "type": "SecurityFilterCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "SecurityFilterCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityFilterResponse",
     },
     "v2.DeleteSecurityFilter": {
-            "securityFilterId": {
-                "type": "string",
-                "format": "",
-                },
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetSecurityFilter": {
-            "securityFilterId": {
-                "type": "string",
-                "format": "",
-                },
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityFilterResponse",
     },
     "v2.UpdateSecurityFilter": {
-            "securityFilterId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SecurityFilterUpdateRequest",
-                "format": "",
-                },
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityFilterUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityFilterResponse",
     },
     "v2.ListSecurityMonitoringRules": {
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SecurityMonitoringListRulesResponse",
     },
     "v2.CreateSecurityMonitoringRule": {
-            "body": {
-                "type": "SecurityMonitoringRuleCreatePayload",
-                "format": "",
-                },
+        "body": {
+            "type": "SecurityMonitoringRuleCreatePayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
     },
     "v2.DeleteSecurityMonitoringRule": {
-            "ruleId": {
-                "type": "string",
-                "format": "",
-                },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetSecurityMonitoringRule": {
-            "ruleId": {
-                "type": "string",
-                "format": "",
-                },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
     },
     "v2.UpdateSecurityMonitoringRule": {
-            "ruleId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SecurityMonitoringRuleUpdatePayload",
-                "format": "",
-                },
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringRuleUpdatePayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
     },
     "v2.ListSecurityMonitoringSignals": {
-            "filterQuery": {
-                "type": "string",
-                "format": "",
-                },
-            "filterFrom": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "filterTo": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "sort": {
-                "type": "SecurityMonitoringSignalsSort",
-                "format": "",
-                },
-            "pageCursor": {
-                "type": "string",
-                "format": "",
-                },
-            "pageLimit": {
-                "type": "number",
-                "format": "int32",
-                },
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "SecurityMonitoringSignalsSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsListResponse",
     },
     "v2.SearchSecurityMonitoringSignals": {
-            "body": {
-                "type": "SecurityMonitoringSignalListRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "SecurityMonitoringSignalListRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsListResponse",
     },
     "v2.GetSecurityMonitoringSignal": {
-            "signalId": {
-                "type": "string",
-                "format": "",
-                },
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignal",
     },
     "v2.EditSecurityMonitoringSignalAssignee": {
-            "signalId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SecurityMonitoringSignalAssigneeUpdateRequest",
-                "format": "",
-                },
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalAssigneeUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
     "v2.EditSecurityMonitoringSignalIncidents": {
-            "signalId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SecurityMonitoringSignalIncidentsUpdateRequest",
-                "format": "",
-                },
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalIncidentsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
     "v2.EditSecurityMonitoringSignalState": {
-            "signalId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "SecurityMonitoringSignalStateUpdateRequest",
-                "format": "",
-                },
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalStateUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
     "v2.CreateServiceAccount": {
-            "body": {
-                "type": "ServiceAccountCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "ServiceAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
     },
     "v2.SendInvitations": {
-            "body": {
-                "type": "UserInvitationsRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "UserInvitationsRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserInvitationsResponse",
     },
     "v2.GetInvitation": {
-            "userInvitationUuid": {
-                "type": "string",
-                "format": "",
-                },
+        "userInvitationUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserInvitationResponse",
     },
     "v2.ListUsers": {
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "string",
-                "format": "",
-                },
-            "sortDir": {
-                "type": "QuerySortOrder",
-                "format": "",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
-            "filterStatus": {
-                "type": "string",
-                "format": "",
-                },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "sortDir": {
+            "type": "QuerySortOrder",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterStatus": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsersResponse",
     },
     "v2.CreateUser": {
-            "body": {
-                "type": "UserCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "UserCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
     },
     "v2.DisableUser": {
-            "userId": {
-                "type": "string",
-                "format": "",
-                },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetUser": {
-            "userId": {
-                "type": "string",
-                "format": "",
-                },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
     },
     "v2.UpdateUser": {
-            "userId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "UserUpdateRequest",
-                "format": "",
-                },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UserUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
     },
     "v2.ListUserOrganizations": {
-            "userId": {
-                "type": "string",
-                "format": "",
-                },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserResponse",
     },
     "v2.ListUserPermissions": {
-            "userId": {
-                "type": "string",
-                "format": "",
-                },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PermissionsResponse",
     },
     "v2.ListServiceAccountApplicationKeys": {
-            "serviceAccountId": {
-                "type": "string",
-                "format": "",
-                },
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageNumber": {
-                "type": "number",
-                "format": "int64",
-                },
-            "sort": {
-                "type": "ApplicationKeysSort",
-                "format": "",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
-            "filterCreatedAtStart": {
-                "type": "string",
-                "format": "",
-                },
-            "filterCreatedAtEnd": {
-                "type": "string",
-                "format": "",
-                },
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "ApplicationKeysSort",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCreatedAtStart": {
+            "type": "string",
+            "format": "",
+            },
+        "filterCreatedAtEnd": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListApplicationKeysResponse",
     },
     "v2.CreateServiceAccountApplicationKey": {
-            "serviceAccountId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "ApplicationKeyCreateRequest",
-                "format": "",
-                },
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApplicationKeyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ApplicationKeyResponse",
     },
     "v2.DeleteServiceAccountApplicationKey": {
-            "serviceAccountId": {
-                "type": "string",
-                "format": "",
-                },
-            "appKeyId": {
-                "type": "string",
-                "format": "",
-                },
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetServiceAccountApplicationKey": {
-            "serviceAccountId": {
-                "type": "string",
-                "format": "",
-                },
-            "appKeyId": {
-                "type": "string",
-                "format": "",
-                },
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PartialApplicationKeyResponse",
     },
     "v2.UpdateServiceAccountApplicationKey": {
-            "serviceAccountId": {
-                "type": "string",
-                "format": "",
-                },
-            "appKeyId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "ApplicationKeyUpdateRequest",
-                "format": "",
-                },
+        "serviceAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "appKeyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ApplicationKeyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "PartialApplicationKeyResponse",
     },
     "v2.ListIncidentServices": {
-            "include": {
-                "type": "IncidentRelatedObject",
-                "format": "",
-                },
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageOffset": {
-                "type": "number",
-                "format": "int64",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
+        "include": {
+            "type": "IncidentRelatedObject",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentServicesResponse",
     },
     "v2.CreateIncidentService": {
-            "body": {
-                "type": "IncidentServiceCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "IncidentServiceCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentServiceResponse",
     },
     "v2.DeleteIncidentService": {
-            "serviceId": {
-                "type": "string",
-                "format": "",
-                },
+        "serviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetIncidentService": {
-            "serviceId": {
-                "type": "string",
-                "format": "",
-                },
-            "include": {
-                "type": "IncidentRelatedObject",
-                "format": "",
-                },
+        "serviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "IncidentRelatedObject",
+            "format": "",
+            },
+        "operationResponseType": "IncidentServiceResponse",
     },
     "v2.UpdateIncidentService": {
-            "serviceId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "IncidentServiceUpdateRequest",
-                "format": "",
-                },
+        "serviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentServiceUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentServiceResponse",
     },
     "v2.ListIncidentTeams": {
-            "include": {
-                "type": "IncidentRelatedObject",
-                "format": "",
-                },
-            "pageSize": {
-                "type": "number",
-                "format": "int64",
-                },
-            "pageOffset": {
-                "type": "number",
-                "format": "int64",
-                },
-            "filter": {
-                "type": "string",
-                "format": "",
-                },
+        "include": {
+            "type": "IncidentRelatedObject",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTeamsResponse",
     },
     "v2.CreateIncidentTeam": {
-            "body": {
-                "type": "IncidentTeamCreateRequest",
-                "format": "",
-                },
+        "body": {
+            "type": "IncidentTeamCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTeamResponse",
     },
     "v2.DeleteIncidentTeam": {
-            "teamId": {
-                "type": "string",
-                "format": "",
-                },
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
     },
     "v2.GetIncidentTeam": {
-            "teamId": {
-                "type": "string",
-                "format": "",
-                },
-            "include": {
-                "type": "IncidentRelatedObject",
-                "format": "",
-                },
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "IncidentRelatedObject",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTeamResponse",
     },
     "v2.UpdateIncidentTeam": {
-            "teamId": {
-                "type": "string",
-                "format": "",
-                },
-            "body": {
-                "type": "IncidentTeamUpdateRequest",
-                "format": "",
-                },
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentTeamUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTeamResponse",
     },
     "v2.GetUsageApplicationSecurityMonitoring": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageApplicationSecurityMonitoringResponse",
     },
     "v2.GetCostByOrg": {
-            "startMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "CostByOrgResponse",
     },
     "v2.GetEstimatedCostByOrg": {
-            "view": {
-                "type": "string",
-                "format": "",
-                },
-            "startMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "startDate": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endDate": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "view": {
+            "type": "string",
+            "format": "",
+            },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "startDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "CostByOrgResponse",
     },
     "v2.GetHistoricalCostByOrg": {
-            "view": {
-                "type": "string",
-                "format": "",
-                },
-            "startMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endMonth": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "view": {
+            "type": "string",
+            "format": "",
+            },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "CostByOrgResponse",
     },
     "v2.GetHourlyUsage": {
-            "filterTimestampStart": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "filterTimestampEnd": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "filterProductFamilies": {
-                "type": "string",
-                "format": "",
-                },
-            "filterIncludeDescendants": {
-                "type": "boolean",
-                "format": "",
-                },
-            "filterVersions": {
-                "type": "string",
-                "format": "",
-                },
-            "pageLimit": {
-                "type": "number",
-                "format": "int32",
-                },
-            "pageNextRecordId": {
-                "type": "string",
-                "format": "",
-                },
+        "filterTimestampStart": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTimestampEnd": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterProductFamilies": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIncludeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterVersions": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageNextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HourlyUsageResponse",
     },
     "v2.GetUsageLambdaTracedInvocations": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageLambdaTracedInvocationsResponse",
     },
     "v2.GetUsageObservabilityPipelines": {
-            "startHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
-            "endHr": {
-                "type": "Date",
-                "format": "date-time",
-                },
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageObservabilityPipelinesResponse",
     },
 }
