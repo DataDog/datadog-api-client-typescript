@@ -26,7 +26,9 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
         url: "https://gdrive/mydoc",
       },
     ],
-    extensions: {},
+    extensions: {
+      myorgextension: "extensionvalue",
+    },
     integrations: {
       opsgenie: {
         region: "US",
@@ -56,7 +58,7 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
 
 apiInstance
   .createOrUpdateServiceDefinitions(params)
-  .then((data: v2.ServiceDefinitionListResponse) => {
+  .then((data: v2.ServiceDefinitionCreateResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

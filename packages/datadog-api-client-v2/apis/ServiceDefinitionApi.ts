@@ -18,10 +18,10 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { ServiceDefinitionCreateResponse } from "../models/ServiceDefinitionCreateResponse";
 import { ServiceDefinitionGetResponse } from "../models/ServiceDefinitionGetResponse";
-import { ServiceDefinitionListResponse } from "../models/ServiceDefinitionListResponse";
 import { ServiceDefinitionsCreateRequest } from "../models/ServiceDefinitionsCreateRequest";
-import { ServiceDefinitionsCreateResponse } from "../models/ServiceDefinitionsCreateResponse";
+import { ServiceDefinitionsListResponse } from "../models/ServiceDefinitionsListResponse";
 
 export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
   public async createOrUpdateServiceDefinitions(
@@ -176,15 +176,16 @@ export class ServiceDefinitionApiResponseProcessor {
    */
   public async createOrUpdateServiceDefinitions(
     response: ResponseContext
-  ): Promise<ServiceDefinitionListResponse> {
+  ): Promise<ServiceDefinitionCreateResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode == 200) {
-      const body: ServiceDefinitionListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ServiceDefinitionListResponse"
-      ) as ServiceDefinitionListResponse;
+      const body: ServiceDefinitionCreateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ServiceDefinitionCreateResponse"
+        ) as ServiceDefinitionCreateResponse;
       return body;
     }
     if (
@@ -215,11 +216,12 @@ export class ServiceDefinitionApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ServiceDefinitionListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ServiceDefinitionListResponse",
-        ""
-      ) as ServiceDefinitionListResponse;
+      const body: ServiceDefinitionCreateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ServiceDefinitionCreateResponse",
+          ""
+        ) as ServiceDefinitionCreateResponse;
       return body;
     }
 
@@ -362,16 +364,15 @@ export class ServiceDefinitionApiResponseProcessor {
    */
   public async listServiceDefinitions(
     response: ResponseContext
-  ): Promise<ServiceDefinitionsCreateResponse> {
+  ): Promise<ServiceDefinitionsListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode == 200) {
-      const body: ServiceDefinitionsCreateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ServiceDefinitionsCreateResponse"
-        ) as ServiceDefinitionsCreateResponse;
+      const body: ServiceDefinitionsListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ServiceDefinitionsListResponse"
+      ) as ServiceDefinitionsListResponse;
       return body;
     }
     if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
@@ -397,12 +398,11 @@ export class ServiceDefinitionApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ServiceDefinitionsCreateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "ServiceDefinitionsCreateResponse",
-          ""
-        ) as ServiceDefinitionsCreateResponse;
+      const body: ServiceDefinitionsListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ServiceDefinitionsListResponse",
+        ""
+      ) as ServiceDefinitionsListResponse;
       return body;
     }
 
@@ -462,7 +462,7 @@ export class ServiceDefinitionApi {
   public createOrUpdateServiceDefinitions(
     param: ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest,
     options?: Configuration
-  ): Promise<ServiceDefinitionListResponse> {
+  ): Promise<ServiceDefinitionCreateResponse> {
     const requestContextPromise =
       this.requestFactory.createOrUpdateServiceDefinitions(param.body, options);
     return requestContextPromise.then((requestContext) => {
@@ -526,7 +526,7 @@ export class ServiceDefinitionApi {
    */
   public listServiceDefinitions(
     options?: Configuration
-  ): Promise<ServiceDefinitionsCreateResponse> {
+  ): Promise<ServiceDefinitionsListResponse> {
     const requestContextPromise =
       this.requestFactory.listServiceDefinitions(options);
     return requestContextPromise.then((requestContext) => {

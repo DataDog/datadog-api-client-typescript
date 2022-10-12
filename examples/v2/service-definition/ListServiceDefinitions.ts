@@ -9,7 +9,7 @@ const apiInstance = new v2.ServiceDefinitionApi(configuration);
 
 apiInstance
   .listServiceDefinitions()
-  .then((data: v2.ServiceDefinitionsCreateResponse) => {
+  .then((data: v2.ServiceDefinitionsListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

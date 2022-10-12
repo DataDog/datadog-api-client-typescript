@@ -8,11 +8,11 @@ import { ServiceDefinitionData } from "./ServiceDefinitionData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Get service definitions response.
+ * Create service definitions response.
  */
-export class ServiceDefinitionListResponse {
+export class ServiceDefinitionsListResponse {
   /**
-   * Get service definitions response payload.
+   * Data representing service definitions.
    */
   "data"?: Array<ServiceDefinitionData>;
 
@@ -35,7 +35,7 @@ export class ServiceDefinitionListResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionListResponse.attributeTypeMap;
+    return ServiceDefinitionsListResponse.attributeTypeMap;
   }
 
   public constructor() {}

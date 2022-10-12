@@ -8,7 +8,7 @@ import { ServiceDefinitionV2SlackType } from "./ServiceDefinitionV2SlackType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Service owner's slack channel.
+ * Service owner's Slack channel.
  */
 export class ServiceDefinitionV2Slack {
   /**

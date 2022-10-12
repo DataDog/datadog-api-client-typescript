@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ServiceDefinitionV1Org {
   /**
-   * App feature for which this service supports.
+   * App feature this service supports.
    */
   "application"?: string;
   /**

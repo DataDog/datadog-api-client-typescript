@@ -396,10 +396,10 @@ import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
+import { ServiceDefinitionCreateResponse } from "./ServiceDefinitionCreateResponse";
 import { ServiceDefinitionData } from "./ServiceDefinitionData";
 import { ServiceDefinitionDataAttributes } from "./ServiceDefinitionDataAttributes";
 import { ServiceDefinitionGetResponse } from "./ServiceDefinitionGetResponse";
-import { ServiceDefinitionListResponse } from "./ServiceDefinitionListResponse";
 import { ServiceDefinitionMeta } from "./ServiceDefinitionMeta";
 import { ServiceDefinitionV1 } from "./ServiceDefinitionV1";
 import { ServiceDefinitionV1Contact } from "./ServiceDefinitionV1Contact";
@@ -415,7 +415,7 @@ import { ServiceDefinitionV2Link } from "./ServiceDefinitionV2Link";
 import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
 import { ServiceDefinitionV2Repo } from "./ServiceDefinitionV2Repo";
 import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
-import { ServiceDefinitionsCreateResponse } from "./ServiceDefinitionsCreateResponse";
+import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -1162,10 +1162,10 @@ const typeMap: { [index: string]: any } = {
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,
+  ServiceDefinitionCreateResponse: ServiceDefinitionCreateResponse,
   ServiceDefinitionData: ServiceDefinitionData,
   ServiceDefinitionDataAttributes: ServiceDefinitionDataAttributes,
   ServiceDefinitionGetResponse: ServiceDefinitionGetResponse,
-  ServiceDefinitionListResponse: ServiceDefinitionListResponse,
   ServiceDefinitionMeta: ServiceDefinitionMeta,
   ServiceDefinitionV1: ServiceDefinitionV1,
   ServiceDefinitionV1Contact: ServiceDefinitionV1Contact,
@@ -1181,7 +1181,7 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionV2Opsgenie: ServiceDefinitionV2Opsgenie,
   ServiceDefinitionV2Repo: ServiceDefinitionV2Repo,
   ServiceDefinitionV2Slack: ServiceDefinitionV2Slack,
-  ServiceDefinitionsCreateResponse: ServiceDefinitionsCreateResponse,
+  ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,

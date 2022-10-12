@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ServiceDefinitionV1Integrations {
   /**
-   * PagerDuty service url for the service.
+   * PagerDuty service URL for the service.
    */
   "pagerduty"?: string;
 

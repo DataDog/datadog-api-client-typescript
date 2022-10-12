@@ -8379,6 +8379,15 @@ components:
       required:
       - data
       type: object
+    ServiceDefinitionCreateResponse:
+      description: Create service definitions response.
+      properties:
+        data:
+          description: Create service definitions response payload.
+          items:
+            $ref: '#/components/schemas/ServiceDefinitionData'
+          type: array
+      type: object
     ServiceDefinitionData:
       description: Service definition data.
       properties:
@@ -8401,15 +8410,6 @@ components:
       properties:
         data:
           $ref: '#/components/schemas/ServiceDefinitionData'
-      type: object
-    ServiceDefinitionListResponse:
-      description: Get service definitions response.
-      properties:
-        data:
-          description: Get service definitions response payload.
-          items:
-            $ref: '#/components/schemas/ServiceDefinitionData'
-          type: array
       type: object
     ServiceDefinitionMeta:
       description: Metadata about a service definition.
@@ -8490,7 +8490,7 @@ components:
           format: email
           type: string
         slack:
-          description: "Service owner\u2019s slack channel."
+          description: "Service owner\u2019s Slack channel."
           example: https://yourcompany.slack.com/archives/channel123
           type: string
     ServiceDefinitionV1Info:
@@ -8526,7 +8526,7 @@ components:
       description: Org related information about the service.
       properties:
         application:
-          description: App feature for which this service supports.
+          description: App feature this service supports.
           example: E-Commerce
           type: string
         team:
@@ -8535,7 +8535,7 @@ components:
           type: string
       type: object
     ServiceDefinitionV1Pagerduty:
-      description: PagerDuty service url for the service.
+      description: PagerDuty service URL for the service.
       example: https://my-org.pagerduty.com/service-directory/PMyService
       type: string
     ServiceDefinitionV1Resource:
@@ -8588,7 +8588,7 @@ components:
       example: v1
       type: string
       x-enum-varnames:
-      - v1
+      - V1
     ServiceDefinitionV2:
       description: Service definition V2 for providing service metadata and integrations.
       properties:
@@ -8794,7 +8794,7 @@ components:
       - url
       type: object
     ServiceDefinitionV2Slack:
-      description: Service owner's slack channel.
+      description: Service owner's Slack channel.
       properties:
         contact:
           description: Slack Channel.
@@ -8832,7 +8832,7 @@ components:
       oneOf:
       - $ref: '#/components/schemas/ServiceDefinitionV2'
       - $ref: '#/components/schemas/ServiceDefinitionRaw'
-    ServiceDefinitionsCreateResponse:
+    ServiceDefinitionsListResponse:
       description: Create service definitions response.
       properties:
         data:
@@ -14400,7 +14400,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceDefinitionsCreateResponse'
+                $ref: '#/components/schemas/ServiceDefinitionsListResponse'
           description: OK
         '403':
           $ref: '#/components/responses/ForbiddenResponse'
@@ -14424,7 +14424,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ServiceDefinitionListResponse'
+                $ref: '#/components/schemas/ServiceDefinitionCreateResponse'
           description: CREATED
         '400':
           $ref: '#/components/responses/BadRequestResponse'

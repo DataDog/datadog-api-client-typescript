@@ -15,7 +15,7 @@ export class ServiceDefinitionV1Contact {
    */
   "email"?: string;
   /**
-   * Service owner’s slack channel.
+   * Service owner’s Slack channel.
    */
   "slack"?: string;
 

@@ -753,14 +753,14 @@ export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageU
 export { ServiceAccountCreateAttributes } from "./models/ServiceAccountCreateAttributes";
 export { ServiceAccountCreateData } from "./models/ServiceAccountCreateData";
 export { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
+export { ServiceDefinitionCreateResponse } from "./models/ServiceDefinitionCreateResponse";
 export { ServiceDefinitionData } from "./models/ServiceDefinitionData";
 export { ServiceDefinitionDataAttributes } from "./models/ServiceDefinitionDataAttributes";
 export { ServiceDefinitionGetResponse } from "./models/ServiceDefinitionGetResponse";
-export { ServiceDefinitionListResponse } from "./models/ServiceDefinitionListResponse";
 export { ServiceDefinitionMeta } from "./models/ServiceDefinitionMeta";
 export { ServiceDefinitionSchema } from "./models/ServiceDefinitionSchema";
 export { ServiceDefinitionsCreateRequest } from "./models/ServiceDefinitionsCreateRequest";
-export { ServiceDefinitionsCreateResponse } from "./models/ServiceDefinitionsCreateResponse";
+export { ServiceDefinitionsListResponse } from "./models/ServiceDefinitionsListResponse";
 export { ServiceDefinitionV1 } from "./models/ServiceDefinitionV1";
 export { ServiceDefinitionV1Contact } from "./models/ServiceDefinitionV1Contact";
 export { ServiceDefinitionV1Info } from "./models/ServiceDefinitionV1Info";

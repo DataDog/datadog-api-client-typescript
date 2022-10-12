@@ -4,5 +4,5 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type ServiceDefinitionV1Version = typeof v1;
-export const v1 = "v1";
+export type ServiceDefinitionV1Version = typeof V1;
+export const V1 = "v1";
