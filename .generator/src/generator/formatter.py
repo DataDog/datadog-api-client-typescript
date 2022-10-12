@@ -382,6 +382,7 @@ def format_data_with_schema_dict(
     if parameters == "":
         # TODO select oneOf based on data
         warnings.warn(f"No schema matched for {data}")
+        parameters = ", ".join(f"{k}: \"{v}\"" for k, v in data.items())
 
     return f"{{\n{parameters}}}"
 

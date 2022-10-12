@@ -396,6 +396,26 @@ import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
+import { ServiceDefinitionCreateResponse } from "./ServiceDefinitionCreateResponse";
+import { ServiceDefinitionData } from "./ServiceDefinitionData";
+import { ServiceDefinitionDataAttributes } from "./ServiceDefinitionDataAttributes";
+import { ServiceDefinitionGetResponse } from "./ServiceDefinitionGetResponse";
+import { ServiceDefinitionMeta } from "./ServiceDefinitionMeta";
+import { ServiceDefinitionV1 } from "./ServiceDefinitionV1";
+import { ServiceDefinitionV1Contact } from "./ServiceDefinitionV1Contact";
+import { ServiceDefinitionV1Info } from "./ServiceDefinitionV1Info";
+import { ServiceDefinitionV1Integrations } from "./ServiceDefinitionV1Integrations";
+import { ServiceDefinitionV1Org } from "./ServiceDefinitionV1Org";
+import { ServiceDefinitionV1Resource } from "./ServiceDefinitionV1Resource";
+import { ServiceDefinitionV2 } from "./ServiceDefinitionV2";
+import { ServiceDefinitionV2Doc } from "./ServiceDefinitionV2Doc";
+import { ServiceDefinitionV2Email } from "./ServiceDefinitionV2Email";
+import { ServiceDefinitionV2Integrations } from "./ServiceDefinitionV2Integrations";
+import { ServiceDefinitionV2Link } from "./ServiceDefinitionV2Link";
+import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
+import { ServiceDefinitionV2Repo } from "./ServiceDefinitionV2Repo";
+import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
+import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -664,6 +684,33 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityMonitoringSignalState: ["open", "archived", "under_review"],
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
+  ServiceDefinitionV1ResourceType: [
+    "doc",
+    "wiki",
+    "runbook",
+    "url",
+    "repo",
+    "dashboard",
+    "oncall",
+    "code",
+    "link",
+  ],
+  ServiceDefinitionV1Version: ["v1"],
+  ServiceDefinitionV2EmailType: ["email"],
+  ServiceDefinitionV2LinkType: [
+    "doc",
+    "wiki",
+    "runbook",
+    "url",
+    "repo",
+    "dashboard",
+    "oncall",
+    "code",
+    "link",
+  ],
+  ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
+  ServiceDefinitionV2SlackType: ["slack"],
+  ServiceDefinitionV2Version: ["v2"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
   UsersType: ["users"],
@@ -1115,6 +1162,26 @@ const typeMap: { [index: string]: any } = {
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,
+  ServiceDefinitionCreateResponse: ServiceDefinitionCreateResponse,
+  ServiceDefinitionData: ServiceDefinitionData,
+  ServiceDefinitionDataAttributes: ServiceDefinitionDataAttributes,
+  ServiceDefinitionGetResponse: ServiceDefinitionGetResponse,
+  ServiceDefinitionMeta: ServiceDefinitionMeta,
+  ServiceDefinitionV1: ServiceDefinitionV1,
+  ServiceDefinitionV1Contact: ServiceDefinitionV1Contact,
+  ServiceDefinitionV1Info: ServiceDefinitionV1Info,
+  ServiceDefinitionV1Integrations: ServiceDefinitionV1Integrations,
+  ServiceDefinitionV1Org: ServiceDefinitionV1Org,
+  ServiceDefinitionV1Resource: ServiceDefinitionV1Resource,
+  ServiceDefinitionV2: ServiceDefinitionV2,
+  ServiceDefinitionV2Doc: ServiceDefinitionV2Doc,
+  ServiceDefinitionV2Email: ServiceDefinitionV2Email,
+  ServiceDefinitionV2Integrations: ServiceDefinitionV2Integrations,
+  ServiceDefinitionV2Link: ServiceDefinitionV2Link,
+  ServiceDefinitionV2Opsgenie: ServiceDefinitionV2Opsgenie,
+  ServiceDefinitionV2Repo: ServiceDefinitionV2Repo,
+  ServiceDefinitionV2Slack: ServiceDefinitionV2Slack,
+  ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
@@ -1204,6 +1271,12 @@ const oneOfMap: { [index: string]: string[] } = {
     "SecurityMonitoringStandardRuleResponse",
     "SecurityMonitoringSignalRuleResponse",
   ],
+  ServiceDefinitionSchema: ["ServiceDefinitionV1", "ServiceDefinitionV2"],
+  ServiceDefinitionV2Contact: [
+    "ServiceDefinitionV2Email",
+    "ServiceDefinitionV2Slack",
+  ],
+  ServiceDefinitionsCreateRequest: ["ServiceDefinitionV2", "string"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };
 
