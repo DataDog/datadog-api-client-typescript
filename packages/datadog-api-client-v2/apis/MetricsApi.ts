@@ -260,13 +260,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterHoursAgo !== undefined) {
       requestContext.setQueryParam(
         "filter[hours_ago]",
-        ObjectSerializer.serialize(filterHoursAgo, "number", "")
+        ObjectSerializer.serialize(filterHoursAgo, "number", "int32")
       );
     }
     if (filterNumAggregations !== undefined) {
       requestContext.setQueryParam(
         "filter[num_aggregations]",
-        ObjectSerializer.serialize(filterNumAggregations, "number", "")
+        ObjectSerializer.serialize(filterNumAggregations, "number", "int32")
       );
     }
     if (filterPct !== undefined) {
@@ -278,7 +278,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterTimespanH !== undefined) {
       requestContext.setQueryParam(
         "filter[timespan_h]",
-        ObjectSerializer.serialize(filterTimespanH, "number", "")
+        ObjectSerializer.serialize(filterTimespanH, "number", "int32")
       );
     }
 

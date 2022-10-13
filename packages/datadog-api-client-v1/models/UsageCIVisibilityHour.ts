@@ -47,18 +47,22 @@ export class UsageCIVisibilityHour {
     ciPipelineIndexedSpans: {
       baseName: "ci_pipeline_indexed_spans",
       type: "number",
+      format: "int64",
     },
     ciTestIndexedSpans: {
       baseName: "ci_test_indexed_spans",
       type: "number",
+      format: "int64",
     },
     ciVisibilityPipelineCommitters: {
       baseName: "ci_visibility_pipeline_committers",
       type: "number",
+      format: "int64",
     },
     ciVisibilityTestCommitters: {
       baseName: "ci_visibility_test_committers",
       type: "number",
+      format: "int64",
     },
     orgName: {
       baseName: "org_name",

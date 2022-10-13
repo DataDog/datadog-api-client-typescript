@@ -44,6 +44,7 @@ export class UsageOnlineArchiveHour {
     onlineArchiveEventsCount: {
       baseName: "online_archive_events_count",
       type: "number",
+      format: "int64",
     },
     orgName: {
       baseName: "org_name",

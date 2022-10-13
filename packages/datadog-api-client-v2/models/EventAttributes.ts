@@ -147,6 +147,7 @@ export class EventAttributes {
     monitorId: {
       baseName: "monitor_id",
       type: "number",
+      format: "int64",
     },
     priority: {
       baseName: "priority",
@@ -155,6 +156,7 @@ export class EventAttributes {
     relatedEventId: {
       baseName: "related_event_id",
       type: "number",
+      format: "int64",
     },
     service: {
       baseName: "service",
