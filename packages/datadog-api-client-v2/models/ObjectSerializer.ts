@@ -53,6 +53,24 @@ import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurit
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "./CloudWorkloadSecurityAgentRulesListResponse";
+import { ConfluentAccountCreateRequest } from "./ConfluentAccountCreateRequest";
+import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
+import { ConfluentAccountCreateRequestData } from "./ConfluentAccountCreateRequestData";
+import { ConfluentAccountResourceAttributes } from "./ConfluentAccountResourceAttributes";
+import { ConfluentAccountResponse } from "./ConfluentAccountResponse";
+import { ConfluentAccountResponseAttributes } from "./ConfluentAccountResponseAttributes";
+import { ConfluentAccountResponseData } from "./ConfluentAccountResponseData";
+import { ConfluentAccountUpdateRequest } from "./ConfluentAccountUpdateRequest";
+import { ConfluentAccountUpdateRequestAttributes } from "./ConfluentAccountUpdateRequestAttributes";
+import { ConfluentAccountUpdateRequestData } from "./ConfluentAccountUpdateRequestData";
+import { ConfluentAccountsResponse } from "./ConfluentAccountsResponse";
+import { ConfluentResourceRequest } from "./ConfluentResourceRequest";
+import { ConfluentResourceRequestAttributes } from "./ConfluentResourceRequestAttributes";
+import { ConfluentResourceRequestData } from "./ConfluentResourceRequestData";
+import { ConfluentResourceResponse } from "./ConfluentResourceResponse";
+import { ConfluentResourceResponseAttributes } from "./ConfluentResourceResponseAttributes";
+import { ConfluentResourceResponseData } from "./ConfluentResourceResponseData";
+import { ConfluentResourcesResponse } from "./ConfluentResourcesResponse";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
@@ -504,6 +522,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   AuthNMappingsType: ["authn_mappings"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
+  ConfluentAccountType: ["confluent-cloud-accounts"],
+  ConfluentResourceType: ["confluent-cloud-resources"],
   ContentEncoding: ["identity", "gzip", "deflate"],
   CostByOrgType: ["cost_by_org"],
   DashboardType: [
@@ -783,6 +803,26 @@ const typeMap: { [index: string]: any } = {
     CloudWorkloadSecurityAgentRuleUpdaterAttributes,
   CloudWorkloadSecurityAgentRulesListResponse:
     CloudWorkloadSecurityAgentRulesListResponse,
+  ConfluentAccountCreateRequest: ConfluentAccountCreateRequest,
+  ConfluentAccountCreateRequestAttributes:
+    ConfluentAccountCreateRequestAttributes,
+  ConfluentAccountCreateRequestData: ConfluentAccountCreateRequestData,
+  ConfluentAccountResourceAttributes: ConfluentAccountResourceAttributes,
+  ConfluentAccountResponse: ConfluentAccountResponse,
+  ConfluentAccountResponseAttributes: ConfluentAccountResponseAttributes,
+  ConfluentAccountResponseData: ConfluentAccountResponseData,
+  ConfluentAccountUpdateRequest: ConfluentAccountUpdateRequest,
+  ConfluentAccountUpdateRequestAttributes:
+    ConfluentAccountUpdateRequestAttributes,
+  ConfluentAccountUpdateRequestData: ConfluentAccountUpdateRequestData,
+  ConfluentAccountsResponse: ConfluentAccountsResponse,
+  ConfluentResourceRequest: ConfluentResourceRequest,
+  ConfluentResourceRequestAttributes: ConfluentResourceRequestAttributes,
+  ConfluentResourceRequestData: ConfluentResourceRequestData,
+  ConfluentResourceResponse: ConfluentResourceResponse,
+  ConfluentResourceResponseAttributes: ConfluentResourceResponseAttributes,
+  ConfluentResourceResponseData: ConfluentResourceResponseData,
+  ConfluentResourcesResponse: ConfluentResourcesResponse,
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
