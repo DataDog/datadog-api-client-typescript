@@ -1564,9 +1564,37 @@ export class ObjectSerializer {
 
       const instance = new typeMap[type]();
       const attributesMap = typeMap[type].getAttributeTypeMap();
+      const extraAttributes = Object.keys(data)
+        .filter(
+          (key) => !Object.prototype.hasOwnProperty.call(attributesMap, key)
+        )
+        .reduce((obj, key) => {
+          return Object.assign(obj, {
+            [key]: data[key],
+          });
+        }, {});
+
+      if (Object.keys(extraAttributes).length !== 0) {
+        if (!data.additionalProperties) {
+          data.additionalProperties = {};
+        }
+        Object.assign(data.additionalProperties, extraAttributes);
+      }
 
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
+        if (attributeName == "additionalProperties") {
+          if (data.additionalProperties) {
+            for (const key in data.additionalProperties) {
+              instance[key] = ObjectSerializer.serialize(
+                data.additionalProperties[key],
+                attributeObj.type,
+                attributeObj.format
+              );
+            }
+          }
+          continue;
+        }
         instance[attributeName] = ObjectSerializer.deserialize(
           data[attributeObj.baseName],
           attributeObj.type,
