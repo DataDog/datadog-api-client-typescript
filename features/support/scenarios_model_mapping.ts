@@ -1,4 +1,10 @@
 export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
+    "v1.GetIPRanges": {
+        "operationResponseType": "IPRanges",
+    },
+    "v1.ListAPIKeys": {
+        "operationResponseType": "ApiKeyListResponse",
+    },
     "v1.CreateAPIKey": {
         "body": {
             "type": "ApiKey",
@@ -30,6 +36,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "ApiKeyResponse",
+    },
+    "v1.ListApplicationKeys": {
+        "operationResponseType": "ApplicationKeyListResponse",
     },
     "v1.CreateApplicationKey": {
         "body": {
@@ -637,6 +646,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Dashboard",
     },
+    "v1.ListDashboardLists": {
+        "operationResponseType": "DashboardListListResponse",
+    },
     "v1.CreateDashboardList": {
         "body": {
             "type": "DashboardList",
@@ -991,6 +1003,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
+    "v1.ListAvailableAWSNamespaces": {
+        "operationResponseType": "Array<string>",
+    },
     "v1.DeleteAWSTagFilter": {
         "body": {
             "type": "AWSTagFilterDeleteRequest",
@@ -1026,6 +1041,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
+    "v1.ListAWSLogsIntegrations": {
+        "operationResponseType": "Array<AWSLogsListResponse>",
+    },
     "v1.CreateAWSLambdaARN": {
         "body": {
             "type": "AWSAccountAndLambdaRequest",
@@ -1039,6 +1057,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "AWSLogsAsyncResponse",
+    },
+    "v1.ListAWSLogsServices": {
+        "operationResponseType": "Array<AWSLogsListServicesResponse>",
     },
     "v1.EnableAWSLogServices": {
         "body": {
@@ -1060,6 +1081,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "any",
+    },
+    "v1.ListAzureIntegration": {
+        "operationResponseType": "Array<AzureAccount>",
     },
     "v1.CreateAzureIntegration": {
         "body": {
@@ -1088,6 +1112,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "any",
+    },
+    "v1.ListGCPIntegration": {
+        "operationResponseType": "Array<GCPAccount>",
     },
     "v1.CreateGCPIntegration": {
         "body": {
@@ -1276,12 +1303,18 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "any",
     },
+    "v1.GetLogsIndexOrder": {
+        "operationResponseType": "LogsIndexesOrder",
+    },
     "v1.UpdateLogsIndexOrder": {
         "body": {
             "type": "LogsIndexesOrder",
             "format": "",
             },
         "operationResponseType": "LogsIndexesOrder",
+    },
+    "v1.ListLogIndexes": {
+        "operationResponseType": "LogsIndexListResponse",
     },
     "v1.CreateLogsIndex": {
         "body": {
@@ -1308,12 +1341,18 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsIndex",
     },
+    "v1.GetLogsPipelineOrder": {
+        "operationResponseType": "LogsPipelinesOrder",
+    },
     "v1.UpdateLogsPipelineOrder": {
         "body": {
             "type": "LogsPipelinesOrder",
             "format": "",
             },
         "operationResponseType": "LogsPipelinesOrder",
+    },
+    "v1.ListLogsPipelines": {
+        "operationResponseType": "Array<LogsPipeline>",
     },
     "v1.CreateLogsPipeline": {
         "body": {
@@ -1560,6 +1599,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "NotebookResponse",
     },
+    "v1.ListOrgs": {
+        "operationResponseType": "OrganizationListResponse",
+    },
     "v1.CreateChildOrg": {
         "body": {
             "type": "OrganizationCreateBody",
@@ -1766,6 +1808,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SLOHistoryResponse",
     },
+    "v1.ListSLOCorrection": {
+        "operationResponseType": "SLOCorrectionListResponse",
+    },
     "v1.CreateSLOCorrection": {
         "body": {
             "type": "SLOCorrectionCreateRequest",
@@ -1805,6 +1850,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsBatchDetails",
     },
+    "v1.ListLocations": {
+        "operationResponseType": "SyntheticsLocations",
+    },
     "v1.CreatePrivateLocation": {
         "body": {
             "type": "SyntheticsPrivateLocation",
@@ -1836,6 +1884,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SyntheticsPrivateLocation",
+    },
+    "v1.ListTests": {
+        "operationResponseType": "SyntheticsListTestsResponse",
     },
     "v1.CreateSyntheticsAPITest": {
         "body": {
@@ -1986,6 +2037,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "boolean",
     },
+    "v1.ListGlobalVariables": {
+        "operationResponseType": "SyntheticsListGlobalVariablesResponse",
+    },
     "v1.CreateGlobalVariable": {
         "body": {
             "type": "SyntheticsGlobalVariable",
@@ -2077,6 +2131,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "HostTags",
     },
+    "v1.ListUsers": {
+        "operationResponseType": "UserListResponse",
+    },
     "v1.CreateUser": {
         "body": {
             "type": "User",
@@ -2108,6 +2165,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "UserResponse",
+    },
+    "v1.Validate": {
+        "operationResponseType": "AuthenticationValidationResponse",
     },
     "v2.ListAPIKeys": {
         "pageSize": {
@@ -2543,6 +2603,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentAttachmentUpdateResponse",
     },
+    "v2.ListOpsgenieServices": {
+        "operationResponseType": "OpsgenieServicesResponse",
+    },
     "v2.CreateOpsgenieService": {
         "body": {
             "type": "OpsgenieServiceCreateRequest",
@@ -2574,6 +2637,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "OpsgenieServiceResponse",
+    },
+    "v2.ListConfluentAccount": {
+        "operationResponseType": "ConfluentAccountsResponse",
     },
     "v2.CreateConfluentAccount": {
         "body": {
@@ -2722,12 +2788,18 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "LogsListResponse",
     },
+    "v2.GetLogsArchiveOrder": {
+        "operationResponseType": "LogsArchiveOrder",
+    },
     "v2.UpdateLogsArchiveOrder": {
         "body": {
             "type": "LogsArchiveOrder",
             "format": "",
             },
         "operationResponseType": "LogsArchiveOrder",
+    },
+    "v2.ListLogsArchives": {
+        "operationResponseType": "LogsArchives",
     },
     "v2.CreateLogsArchive": {
         "body": {
@@ -2789,6 +2861,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "void",
+    },
+    "v2.ListLogsMetrics": {
+        "operationResponseType": "LogsMetricsResponse",
     },
     "v2.CreateLogsMetric": {
         "body": {
@@ -2966,6 +3041,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IntakePayloadAccepted",
     },
+    "v2.ListPermissions": {
+        "operationResponseType": "PermissionsResponse",
+    },
     "v2.ListRoles": {
         "pageSize": {
             "type": "number",
@@ -3136,6 +3214,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "RUMAnalyticsAggregateResponse",
     },
+    "v2.GetRUMApplications": {
+        "operationResponseType": "RUMApplicationsResponse",
+    },
     "v2.CreateRUMApplication": {
         "body": {
             "type": "RUMApplicationCreateRequest",
@@ -3209,6 +3290,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
+    "v2.DownloadCloudWorkloadPolicyFile": {
+        "operationResponseType": "HttpFile",
+    },
+    "v2.ListCloudWorkloadSecurityAgentRules": {
+        "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
+    },
     "v2.CreateCloudWorkloadSecurityAgentRule": {
         "body": {
             "type": "CloudWorkloadSecurityAgentRuleCreateRequest",
@@ -3240,6 +3327,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
+    "v2.ListSecurityFilters": {
+        "operationResponseType": "SecurityFiltersResponse",
     },
     "v2.CreateSecurityFilter": {
         "body": {
@@ -3617,6 +3707,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentServiceResponse",
+    },
+    "v2.ListServiceDefinitions": {
+        "operationResponseType": "ServiceDefinitionsListResponse",
     },
     "v2.CreateOrUpdateServiceDefinitions": {
         "body": {
