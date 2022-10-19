@@ -537,7 +537,11 @@ import { WidgetMarker } from "./WidgetMarker";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetStyle } from "./WidgetStyle";
 import { WidgetTime } from "./WidgetTime";
-import { UnparsedObject } from "../../datadog-api-client-common/util";
+import {
+  dateFromRFC3339String,
+  dateToRFC3339String,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
 
 const primitives = [
@@ -2045,12 +2049,8 @@ export class ObjectSerializer {
       if ("string" == typeof data) {
         return data;
       }
-      if (format == "date") {
-        let month = data.getMonth() + 1;
-        month = month < 10 ? "0" + month.toString() : month.toString();
-        let day = data.getDate();
-        day = day < 10 ? "0" + day.toString() : day.toString();
-        return data.getFullYear() + "-" + month + "-" + day;
+      if (format == "date" || format == "date-time") {
+        return dateToRFC3339String(data);
       } else {
         return data.toISOString();
       }
@@ -2202,7 +2202,7 @@ export class ObjectSerializer {
       }
       return transformedData;
     } else if (type === "Date") {
-      return new Date(data);
+      return dateFromRFC3339String(data);
     } else {
       if (enumsMap[type]) {
         return data;

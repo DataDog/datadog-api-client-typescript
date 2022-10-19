@@ -2575,6 +2575,93 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OpsgenieServiceResponse",
     },
+    "v2.CreateConfluentAccount": {
+        "body": {
+            "type": "ConfluentAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ConfluentAccountResponse",
+    },
+    "v2.DeleteConfluentAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetConfluentAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ConfluentAccountResponse",
+    },
+    "v2.UpdateConfluentAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ConfluentAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ConfluentAccountResponse",
+    },
+    "v2.ListConfluentResource": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ConfluentResourcesResponse",
+    },
+    "v2.CreateConfluentResource": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ConfluentResourceRequest",
+            "format": "",
+            },
+        "operationResponseType": "ConfluentResourceResponse",
+    },
+    "v2.DeleteConfluentResource": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetConfluentResource": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ConfluentResourceResponse",
+    },
+    "v2.UpdateConfluentResource": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ConfluentResourceRequest",
+            "format": "",
+            },
+        "operationResponseType": "ConfluentResourceResponse",
+    },
     "v2.SubmitLog": {
         "contentEncoding": {
             "type": "ContentEncoding",
@@ -2809,11 +2896,11 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "filterHoursAgo": {
             "type": "number",
-            "format": "",
+            "format": "int32",
             },
         "filterNumAggregations": {
             "type": "number",
-            "format": "",
+            "format": "int32",
             },
         "filterPct": {
             "type": "boolean",
@@ -2821,7 +2908,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "filterTimespanH": {
             "type": "number",
-            "format": "",
+            "format": "int32",
             },
         "operationResponseType": "MetricEstimateResponse",
     },
@@ -3530,6 +3617,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentServiceResponse",
+    },
+    "v2.CreateOrUpdateServiceDefinitions": {
+        "body": {
+            "type": "ServiceDefinitionsCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ServiceDefinitionCreateResponse",
+    },
+    "v2.DeleteServiceDefinition": {
+        "serviceName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetServiceDefinition": {
+        "serviceName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ServiceDefinitionGetResponse",
     },
     "v2.ListIncidentTeams": {
         "include": {
