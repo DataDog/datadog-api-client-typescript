@@ -200,6 +200,16 @@ When("the request with pagination is sent", async function (this: World) {
   }
   const apiInstance = new api[`${this.apiName}Api`](configuration);
 
+  // Deserialize obejcts into correct model types
+  const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
+  Object.keys(this.opts).forEach(key => {
+    this.opts[key] = objectSerializer.deserialize(
+      this.opts[key],
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].type,
+      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`][key].format
+      )
+  });
+
   // store request context from response processor
   Store((...args) => {
     this.requestContext = args[0];

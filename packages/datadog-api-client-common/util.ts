@@ -49,7 +49,7 @@ export function dateToRFC3339String(date: Date | DDate): string {
   const second = date.getUTCSeconds();
   let msec = date.getUTCMilliseconds().toString();
 
-  msec = +msec === 0 ? "" : `.${msec}`;
+  msec = +msec === 0 ? "" : `.${pad(+msec, 3)}`;
 
   return (
     year +
@@ -69,8 +69,13 @@ export function dateToRFC3339String(date: Date | DDate): string {
 }
 
 // Helpers
-function pad(num: number): string {
-  return num < 10 ? "0" + num.toString() : num.toString();
+function pad(num: number, len = 2): string {
+  let paddedNum = num.toString();
+  if (paddedNum.length < len) {
+    paddedNum = "0".repeat(len - paddedNum.length) + paddedNum;
+  }
+
+  return paddedNum;
 }
 
 function getRFC3339TimezoneOffset(date: Date | DDate): string {
