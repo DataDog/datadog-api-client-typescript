@@ -2205,9 +2205,11 @@ export class ObjectSerializer {
       return dateFromRFC3339String(data);
     } else {
       if (enumsMap[type]) {
-        return data;
+        if (enumsMap[type].includes(data)) {
+          return data;
+        }
+        throw new TypeError(`unknown enum value '${data}'`);
       }
-
       if (oneOfMap[type]) {
         const oneOfs: any[] = [];
         for (const oneOf of oneOfMap[type]) {
