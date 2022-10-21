@@ -24,12 +24,12 @@ export class SecurityMonitoringStandardRuleQuery {
    */
   "groupByFields"?: Array<string>;
   /**
-   * The target field to aggregate over when using the sum or max
-   * aggregations.
+   * (Deprecated) The target field to aggregate over when using the sum or max
+   * aggregations. `metrics` field should be used instead.
    */
   "metric"?: string;
   /**
-   * Group of target fields to aggregate over when using the new value aggregations.
+   * Group of target fields to aggregate over when using the sum, max, geo data, or new value aggregations. The sum, max, and geo data aggregations only accept one value in this list, whereas the new value aggregation accepts up to five values.
    */
   "metrics"?: Array<string>;
   /**

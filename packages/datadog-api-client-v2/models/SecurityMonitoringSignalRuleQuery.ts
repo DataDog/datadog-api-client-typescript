@@ -24,7 +24,7 @@ export class SecurityMonitoringSignalRuleQuery {
    */
   "correlatedQueryIndex"?: number;
   /**
-   * Group of target fields to aggregate over when using the new value aggregations.
+   * Group of target fields to aggregate over.
    */
   "metrics"?: Array<string>;
   /**
