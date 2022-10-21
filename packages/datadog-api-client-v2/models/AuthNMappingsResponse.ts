@@ -7,6 +7,8 @@ import { AuthNMapping } from "./AuthNMapping";
 import { AuthNMappingIncluded } from "./AuthNMappingIncluded";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class AuthNMappingsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

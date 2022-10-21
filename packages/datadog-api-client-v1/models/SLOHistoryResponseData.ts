@@ -10,6 +10,8 @@ import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { SLOTypeNumeric } from "./SLOTypeNumeric";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -71,7 +73,7 @@ export class SLOHistoryResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

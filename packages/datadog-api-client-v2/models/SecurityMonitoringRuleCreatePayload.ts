@@ -8,6 +8,8 @@ import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitorin
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Create a new rule.
  */

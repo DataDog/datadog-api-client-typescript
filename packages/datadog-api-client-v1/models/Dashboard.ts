@@ -9,6 +9,8 @@ import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { Widget } from "./Widget";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -86,7 +88,7 @@ export class Dashboard {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

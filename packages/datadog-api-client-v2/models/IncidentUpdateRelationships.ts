@@ -7,6 +7,8 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class IncidentUpdateRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

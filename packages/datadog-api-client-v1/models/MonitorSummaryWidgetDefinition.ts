@@ -10,6 +10,8 @@ import { WidgetMonitorSummarySort } from "./WidgetMonitorSummarySort";
 import { WidgetSummaryType } from "./WidgetSummaryType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -76,7 +78,7 @@ export class MonitorSummaryWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

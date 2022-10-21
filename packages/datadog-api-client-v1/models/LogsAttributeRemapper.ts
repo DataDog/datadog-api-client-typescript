@@ -6,6 +6,8 @@
 import { LogsAttributeRemapperType } from "./LogsAttributeRemapperType";
 import { TargetFormatType } from "./TargetFormatType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -60,7 +62,7 @@ export class LogsAttributeRemapper {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -6,6 +6,8 @@
 import { SyntheticsPrivateLocation } from "./SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponseResultEncryption } from "./SyntheticsPrivateLocationCreationResponseResultEncryption";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -28,7 +30,7 @@ export class SyntheticsPrivateLocationCreationResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

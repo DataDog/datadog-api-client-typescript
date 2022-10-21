@@ -8,6 +8,8 @@ import { IncidentAttachmentPostmortemAttributes } from "./IncidentAttachmentPost
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Incident attachment attributes.
  */

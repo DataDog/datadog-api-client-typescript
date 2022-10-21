@@ -6,6 +6,8 @@
 import { SignalArchiveReason } from "./SignalArchiveReason";
 import { SignalTriageState } from "./SignalTriageState";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -32,7 +34,7 @@ export class SignalStateUpdateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

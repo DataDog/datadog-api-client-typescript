@@ -8,6 +8,8 @@ import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSin
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Dynamic fields for which selections can be made, with field names as keys.
  */

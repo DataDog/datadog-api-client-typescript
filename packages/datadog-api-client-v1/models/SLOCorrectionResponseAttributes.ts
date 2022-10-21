@@ -7,6 +7,8 @@ import { Creator } from "./Creator";
 import { SLOCorrectionCategory } from "./SLOCorrectionCategory";
 import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponseAttributesModifier";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -66,7 +68,7 @@ export class SLOCorrectionResponseAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -5,6 +5,8 @@
  */
 import { SLOTimeframe } from "./SLOTimeframe";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -44,7 +46,7 @@ export class SLOThreshold {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -6,6 +6,8 @@
 import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
 import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -24,7 +26,7 @@ export class SyntheticsCIBatchMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

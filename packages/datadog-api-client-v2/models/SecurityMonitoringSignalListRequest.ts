@@ -7,6 +7,8 @@ import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringS
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
 import { SecurityMonitoringSignalsSort } from "./SecurityMonitoringSignalsSort";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class SecurityMonitoringSignalListRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

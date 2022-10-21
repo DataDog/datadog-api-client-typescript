@@ -5,6 +5,8 @@
  */
 import { DashboardLayoutType } from "./DashboardLayoutType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -51,7 +53,7 @@ export class DashboardSummaryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

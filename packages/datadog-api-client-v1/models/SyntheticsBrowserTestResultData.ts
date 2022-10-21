@@ -7,6 +7,8 @@ import { SyntheticsBrowserTestResultFailure } from "./SyntheticsBrowserTestResul
 import { SyntheticsDevice } from "./SyntheticsDevice";
 import { SyntheticsStepDetail } from "./SyntheticsStepDetail";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -66,7 +68,7 @@ export class SyntheticsBrowserTestResultData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

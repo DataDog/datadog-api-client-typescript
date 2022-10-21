@@ -5,6 +5,8 @@
  */
 import { RoleCreateResponseData } from "./RoleCreateResponseData";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -19,7 +21,7 @@ export class RoleCreateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

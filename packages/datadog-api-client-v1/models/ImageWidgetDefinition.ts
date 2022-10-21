@@ -9,6 +9,8 @@ import { WidgetImageSizing } from "./WidgetImageSizing";
 import { WidgetMargin } from "./WidgetMargin";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -57,7 +59,7 @@ export class ImageWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -7,6 +7,8 @@ import { Log } from "./Log";
 import { LogsListResponseLinks } from "./LogsListResponseLinks";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class LogsListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -5,6 +5,8 @@
  */
 import { WidgetLiveSpan } from "./WidgetLiveSpan";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -19,7 +21,7 @@ export class NotebookRelativeTime {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

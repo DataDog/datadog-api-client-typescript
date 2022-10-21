@@ -5,6 +5,8 @@
  */
 import { SLOHistoryMetricsSeries } from "./SLOHistoryMetricsSeries";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -51,7 +53,7 @@ export class SLOHistoryMetrics {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

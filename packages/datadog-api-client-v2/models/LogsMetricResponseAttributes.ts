@@ -7,6 +7,8 @@ import { LogsMetricResponseCompute } from "./LogsMetricResponseCompute";
 import { LogsMetricResponseFilter } from "./LogsMetricResponseFilter";
 import { LogsMetricResponseGroupBy } from "./LogsMetricResponseGroupBy";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class LogsMetricResponseAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

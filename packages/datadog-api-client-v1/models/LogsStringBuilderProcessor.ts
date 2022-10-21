@@ -5,6 +5,8 @@
  */
 import { LogsStringBuilderProcessorType } from "./LogsStringBuilderProcessorType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -52,7 +54,7 @@ export class LogsStringBuilderProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

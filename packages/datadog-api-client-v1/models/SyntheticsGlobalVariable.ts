@@ -7,6 +7,8 @@ import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAt
 import { SyntheticsGlobalVariableParseTestOptions } from "./SyntheticsGlobalVariableParseTestOptions";
 import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -49,7 +51,7 @@ export class SyntheticsGlobalVariable {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

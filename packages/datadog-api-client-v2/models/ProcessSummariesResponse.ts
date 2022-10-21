@@ -6,6 +6,8 @@
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummary } from "./ProcessSummary";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -24,7 +26,7 @@ export class ProcessSummariesResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -8,6 +8,8 @@ import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttach
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToUser } from "./RelationshipToUser";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -38,7 +40,7 @@ export class IncidentResponseRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

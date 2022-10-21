@@ -6,6 +6,8 @@
 import { ApmStatsQueryColumnType } from "./ApmStatsQueryColumnType";
 import { ApmStatsQueryRowType } from "./ApmStatsQueryRowType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -44,7 +46,7 @@ export class ApmStatsQueryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

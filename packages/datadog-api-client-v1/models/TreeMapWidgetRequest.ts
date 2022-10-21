@@ -7,6 +7,8 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { WidgetFormula } from "./WidgetFormula";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -33,7 +35,7 @@ export class TreeMapWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

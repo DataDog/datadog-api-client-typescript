@@ -6,6 +6,8 @@
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -24,7 +26,7 @@ export class PartialApplicationKeyResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

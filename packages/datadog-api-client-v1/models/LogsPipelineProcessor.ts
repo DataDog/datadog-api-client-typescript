@@ -7,6 +7,8 @@ import { LogsFilter } from "./LogsFilter";
 import { LogsPipelineProcessorType } from "./LogsPipelineProcessorType";
 import { LogsProcessor } from "./LogsProcessor";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -41,7 +43,7 @@ export class LogsPipelineProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -6,6 +6,8 @@
 import { MonthlyUsageAttributionBody } from "./MonthlyUsageAttributionBody";
 import { MonthlyUsageAttributionMetadata } from "./MonthlyUsageAttributionMetadata";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -24,7 +26,7 @@ export class MonthlyUsageAttributionResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

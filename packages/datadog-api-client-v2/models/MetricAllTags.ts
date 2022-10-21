@@ -6,6 +6,8 @@
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
 import { MetricType } from "./MetricType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -28,7 +30,7 @@ export class MetricAllTags {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

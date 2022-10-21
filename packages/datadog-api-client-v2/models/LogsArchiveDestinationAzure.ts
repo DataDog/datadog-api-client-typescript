@@ -6,6 +6,8 @@
 import { LogsArchiveDestinationAzureType } from "./LogsArchiveDestinationAzureType";
 import { LogsArchiveIntegrationAzure } from "./LogsArchiveIntegrationAzure";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -40,7 +42,7 @@ export class LogsArchiveDestinationAzure {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

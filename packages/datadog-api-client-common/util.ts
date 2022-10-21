@@ -1,7 +1,7 @@
 export class UnparsedObject {
-  unparsedObject: any;
+  _data: any;
   constructor(data: any) {
-    this.unparsedObject = data;
+    this._data = data;
   }
 }
 

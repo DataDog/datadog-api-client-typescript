@@ -8,6 +8,8 @@ import { MetricMetadata } from "./MetricMetadata";
 import { MetricPoint } from "./MetricPoint";
 import { MetricResource } from "./MetricResource";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -55,7 +57,7 @@ export class MetricSeries {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

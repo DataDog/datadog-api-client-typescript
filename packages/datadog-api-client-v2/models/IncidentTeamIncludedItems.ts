@@ -7,6 +7,8 @@ import { User } from "./User";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * An object related to an incident team which is present in the included payload.
  */

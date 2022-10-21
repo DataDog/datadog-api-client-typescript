@@ -8,6 +8,8 @@ import { NotebookGraphSize } from "./NotebookGraphSize";
 import { NotebookSplitBy } from "./NotebookSplitBy";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -34,7 +36,7 @@ export class NotebookToplistCellAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

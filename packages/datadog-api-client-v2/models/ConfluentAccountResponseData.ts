@@ -6,6 +6,8 @@
 import { ConfluentAccountResponseAttributes } from "./ConfluentAccountResponseAttributes";
 import { ConfluentAccountType } from "./ConfluentAccountType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -28,7 +30,7 @@ export class ConfluentAccountResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

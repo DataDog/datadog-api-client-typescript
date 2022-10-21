@@ -7,6 +7,8 @@ import { SLOListWidgetDefinitionType } from "./SLOListWidgetDefinitionType";
 import { SLOListWidgetRequest } from "./SLOListWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -37,7 +39,7 @@ export class SLOListWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -6,6 +6,8 @@
 import { DowntimeChild } from "./DowntimeChild";
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -103,7 +105,7 @@ export class Downtime {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

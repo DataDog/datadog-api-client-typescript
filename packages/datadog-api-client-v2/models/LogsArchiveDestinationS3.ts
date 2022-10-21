@@ -6,6 +6,8 @@
 import { LogsArchiveDestinationS3Type } from "./LogsArchiveDestinationS3Type";
 import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -32,7 +34,7 @@ export class LogsArchiveDestinationS3 {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

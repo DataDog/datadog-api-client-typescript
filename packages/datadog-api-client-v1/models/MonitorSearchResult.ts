@@ -8,6 +8,8 @@ import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorSearchResultNotification } from "./MonitorSearchResultNotification";
 import { MonitorType } from "./MonitorType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -73,7 +75,7 @@ export class MonitorSearchResult {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

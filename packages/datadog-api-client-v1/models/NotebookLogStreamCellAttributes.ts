@@ -7,6 +7,8 @@ import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { NotebookCellTime } from "./NotebookCellTime";
 import { NotebookGraphSize } from "./NotebookGraphSize";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class NotebookLogStreamCellAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

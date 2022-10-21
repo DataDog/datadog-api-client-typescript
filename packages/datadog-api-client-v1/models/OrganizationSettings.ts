@@ -9,6 +9,8 @@ import { OrganizationSettingsSamlAutocreateUsersDomains } from "./OrganizationSe
 import { OrganizationSettingsSamlIdpInitiatedLogin } from "./OrganizationSettingsSamlIdpInitiatedLogin";
 import { OrganizationSettingsSamlStrictMode } from "./OrganizationSettingsSamlStrictMode";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -60,7 +62,7 @@ export class OrganizationSettings {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -6,6 +6,8 @@
 import { NotebookCellCreateRequestAttributes } from "./NotebookCellCreateRequestAttributes";
 import { NotebookCellResourceType } from "./NotebookCellResourceType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -25,7 +27,7 @@ export class NotebookCellCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

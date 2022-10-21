@@ -6,6 +6,8 @@
 import { ApplicationKeysType } from "./ApplicationKeysType";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -28,7 +30,7 @@ export class ApplicationKeyUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

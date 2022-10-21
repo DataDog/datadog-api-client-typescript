@@ -6,6 +6,8 @@
 import { HourlyUsageAttributionBody } from "./HourlyUsageAttributionBody";
 import { HourlyUsageAttributionMetadata } from "./HourlyUsageAttributionMetadata";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -24,7 +26,7 @@ export class HourlyUsageAttributionResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

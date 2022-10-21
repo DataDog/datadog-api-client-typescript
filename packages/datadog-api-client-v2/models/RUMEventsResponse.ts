@@ -7,6 +7,8 @@ import { RUMEvent } from "./RUMEvent";
 import { RUMResponseLinks } from "./RUMResponseLinks";
 import { RUMResponseMetadata } from "./RUMResponseMetadata";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class RUMEventsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

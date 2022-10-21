@@ -6,6 +6,8 @@
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -28,7 +30,7 @@ export class ScatterPlotWidgetDefinitionRequests {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

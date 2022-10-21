@@ -8,6 +8,8 @@ import { ApplicationKey } from "./ApplicationKey";
 import { Organization } from "./Organization";
 import { User } from "./User";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -34,7 +36,7 @@ export class OrganizationCreateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

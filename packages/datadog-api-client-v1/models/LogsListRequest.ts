@@ -6,6 +6,8 @@
 import { LogsListRequestTime } from "./LogsListRequestTime";
 import { LogsSort } from "./LogsSort";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -45,7 +47,7 @@ export class LogsListRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

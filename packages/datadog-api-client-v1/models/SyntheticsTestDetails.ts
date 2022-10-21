@@ -11,6 +11,8 @@ import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestPauseStatus } from "./SyntheticsTestPauseStatus";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -75,7 +77,7 @@ export class SyntheticsTestDetails {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

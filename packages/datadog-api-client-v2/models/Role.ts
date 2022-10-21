@@ -7,6 +7,8 @@ import { RoleAttributes } from "./RoleAttributes";
 import { RoleResponseRelationships } from "./RoleResponseRelationships";
 import { RolesType } from "./RolesType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -33,7 +35,7 @@ export class Role {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -8,6 +8,8 @@ import { SecurityMonitoringStandardRuleResponse } from "./SecurityMonitoringStan
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Create a new rule.
  */

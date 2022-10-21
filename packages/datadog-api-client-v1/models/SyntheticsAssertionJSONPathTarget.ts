@@ -7,6 +7,8 @@ import { SyntheticsAssertionJSONPathOperator } from "./SyntheticsAssertionJSONPa
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -33,7 +35,7 @@ export class SyntheticsAssertionJSONPathTarget {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

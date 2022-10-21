@@ -9,6 +9,8 @@ import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMet
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Query definition for Distribution Widget Histogram Request
  */

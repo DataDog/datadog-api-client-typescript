@@ -6,6 +6,8 @@
 import { SyntheticsPrivateLocationMetadata } from "./SyntheticsPrivateLocationMetadata";
 import { SyntheticsPrivateLocationSecrets } from "./SyntheticsPrivateLocationSecrets";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -40,7 +42,7 @@ export class SyntheticsPrivateLocation {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

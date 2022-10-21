@@ -8,6 +8,8 @@ import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -95,7 +97,7 @@ export class ServiceLevelObjective {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

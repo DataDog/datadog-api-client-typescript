@@ -6,6 +6,8 @@
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
 import { MetricDistinctVolumeType } from "./MetricDistinctVolumeType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -28,7 +30,7 @@ export class MetricDistinctVolume {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

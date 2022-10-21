@@ -6,6 +6,8 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The value to use for logs that don't have the facet used to group by
  */

@@ -6,6 +6,8 @@
 import { EventsResponseMetadataPage } from "./EventsResponseMetadataPage";
 import { EventsWarning } from "./EventsWarning";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -33,7 +35,7 @@ export class EventsResponseMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

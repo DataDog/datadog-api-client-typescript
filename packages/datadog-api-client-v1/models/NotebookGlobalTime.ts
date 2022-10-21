@@ -8,6 +8,8 @@ import { NotebookRelativeTime } from "./NotebookRelativeTime";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Notebook global timeframe.
  */

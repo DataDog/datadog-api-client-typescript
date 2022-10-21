@@ -7,6 +7,8 @@ import { LogsByRetentionMonthlyUsage } from "./LogsByRetentionMonthlyUsage";
 import { LogsByRetentionOrgs } from "./LogsByRetentionOrgs";
 import { LogsRetentionAggSumUsage } from "./LogsRetentionAggSumUsage";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class LogsByRetention {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

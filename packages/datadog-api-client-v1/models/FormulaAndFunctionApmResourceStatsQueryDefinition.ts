@@ -6,6 +6,8 @@
 import { FormulaAndFunctionApmResourceStatName } from "./FormulaAndFunctionApmResourceStatName";
 import { FormulaAndFunctionApmResourceStatsDataSource } from "./FormulaAndFunctionApmResourceStatsDataSource";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -56,7 +58,7 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

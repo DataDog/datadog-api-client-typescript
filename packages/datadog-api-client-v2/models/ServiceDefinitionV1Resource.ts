@@ -5,6 +5,8 @@
  */
 import { ServiceDefinitionV1ResourceType } from "./ServiceDefinitionV1ResourceType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -27,7 +29,7 @@ export class ServiceDefinitionV1Resource {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

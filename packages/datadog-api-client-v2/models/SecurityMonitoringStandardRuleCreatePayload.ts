@@ -9,6 +9,8 @@ import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -59,7 +61,7 @@ export class SecurityMonitoringStandardRuleCreatePayload {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

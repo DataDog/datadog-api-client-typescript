@@ -9,6 +9,8 @@ import { LogsArchiveDestinationS3 } from "./LogsArchiveDestinationS3";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * An archive's destination.
  */

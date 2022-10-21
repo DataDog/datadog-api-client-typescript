@@ -5,6 +5,8 @@
  */
 import { LogsLookupProcessorType } from "./LogsLookupProcessorType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -50,7 +52,7 @@ export class LogsLookupProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

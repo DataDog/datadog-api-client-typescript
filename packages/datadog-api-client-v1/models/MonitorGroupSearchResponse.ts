@@ -7,6 +7,8 @@ import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCo
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class MonitorGroupSearchResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

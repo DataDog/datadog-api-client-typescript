@@ -6,6 +6,8 @@
 import { TimeseriesBackgroundType } from "./TimeseriesBackgroundType";
 import { WidgetAxis } from "./WidgetAxis";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -24,7 +26,7 @@ export class TimeseriesBackground {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

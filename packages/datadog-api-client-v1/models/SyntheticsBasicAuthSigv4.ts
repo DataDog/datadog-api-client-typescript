@@ -5,6 +5,8 @@
  */
 import { SyntheticsBasicAuthSigv4Type } from "./SyntheticsBasicAuthSigv4Type";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -39,7 +41,7 @@ export class SyntheticsBasicAuthSigv4 {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

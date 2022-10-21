@@ -11,6 +11,8 @@ import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTime } from "./WidgetTime";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -53,7 +55,7 @@ export class TreeMapWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

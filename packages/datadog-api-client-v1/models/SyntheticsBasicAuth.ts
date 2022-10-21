@@ -10,6 +10,8 @@ import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Object to handle basic authentication when performing the test.
  */

@@ -7,6 +7,8 @@ import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsResponseLinks } from "./AuditLogsResponseLinks";
 import { AuditLogsResponseMetadata } from "./AuditLogsResponseMetadata";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class AuditLogsEventsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

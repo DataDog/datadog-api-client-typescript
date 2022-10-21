@@ -7,6 +7,8 @@ import { LogsMetricCompute } from "./LogsMetricCompute";
 import { LogsMetricFilter } from "./LogsMetricFilter";
 import { LogsMetricGroupBy } from "./LogsMetricGroupBy";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class LogsMetricCreateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

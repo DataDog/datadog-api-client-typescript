@@ -6,6 +6,8 @@
 import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
 import { ConfluentAccountType } from "./ConfluentAccountType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -24,7 +26,7 @@ export class ConfluentAccountCreateRequestData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

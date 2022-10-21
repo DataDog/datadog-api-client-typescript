@@ -8,6 +8,8 @@ import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -74,7 +76,7 @@ export class SyntheticsCITest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

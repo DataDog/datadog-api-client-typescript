@@ -6,6 +6,8 @@
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
 import { SLOBulkDeleteResponseData } from "./SLOBulkDeleteResponseData";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class SLOBulkDeleteResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

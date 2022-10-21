@@ -5,6 +5,8 @@
  */
 import { AWSLogsLambda } from "./AWSLogsLambda";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -27,7 +29,7 @@ export class AWSLogsListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

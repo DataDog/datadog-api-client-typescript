@@ -6,6 +6,8 @@
 import { LogsArchiveDestination } from "./LogsArchiveDestination";
 import { LogsArchiveState } from "./LogsArchiveState";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -45,7 +47,7 @@ export class LogsArchiveAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

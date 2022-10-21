@@ -5,6 +5,8 @@
  */
 import { DashboardListItem } from "./DashboardListItem";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -23,7 +25,7 @@ export class DashboardListItems {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

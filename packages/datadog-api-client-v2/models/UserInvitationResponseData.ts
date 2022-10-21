@@ -6,6 +6,8 @@
 import { UserInvitationDataAttributes } from "./UserInvitationDataAttributes";
 import { UserInvitationsType } from "./UserInvitationsType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -28,7 +30,7 @@ export class UserInvitationResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

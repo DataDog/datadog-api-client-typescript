@@ -6,6 +6,8 @@
 import { APIKeyCreateAttributes } from "./APIKeyCreateAttributes";
 import { APIKeysType } from "./APIKeysType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -24,7 +26,7 @@ export class APIKeyCreateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

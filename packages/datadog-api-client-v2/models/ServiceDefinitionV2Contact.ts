@@ -8,6 +8,8 @@ import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Service owner's contacts information.
  */

@@ -10,6 +10,8 @@ import { SyntheticsPlayingTab } from "./SyntheticsPlayingTab";
 import { SyntheticsStepDetailWarning } from "./SyntheticsStepDetailWarning";
 import { SyntheticsStepType } from "./SyntheticsStepType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -89,7 +91,7 @@ export class SyntheticsStepDetail {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

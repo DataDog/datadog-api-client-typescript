@@ -8,6 +8,8 @@ import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Object describing the assertions type, their associated operator,
  * which property they apply, and upon which target.

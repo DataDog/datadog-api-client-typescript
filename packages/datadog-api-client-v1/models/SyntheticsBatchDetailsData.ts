@@ -7,6 +7,8 @@ import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsStatus } from "./SyntheticsStatus";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class SyntheticsBatchDetailsData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

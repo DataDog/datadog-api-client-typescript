@@ -8,6 +8,8 @@ import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTickEdge } from "./WidgetTickEdge";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -58,7 +60,7 @@ export class NoteWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

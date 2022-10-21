@@ -7,6 +7,8 @@ import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMResponseStatus } from "./RUMResponseStatus";
 import { RUMWarning } from "./RUMWarning";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -38,7 +40,7 @@ export class RUMResponseMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

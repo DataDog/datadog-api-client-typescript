@@ -12,6 +12,8 @@ import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -62,7 +64,7 @@ export class IPRanges {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

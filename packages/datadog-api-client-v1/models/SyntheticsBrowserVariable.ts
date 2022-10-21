@@ -5,6 +5,8 @@
  */
 import { SyntheticsBrowserVariableType } from "./SyntheticsBrowserVariableType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -36,7 +38,7 @@ export class SyntheticsBrowserVariable {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

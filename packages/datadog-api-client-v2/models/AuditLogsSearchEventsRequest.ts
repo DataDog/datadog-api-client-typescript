@@ -8,6 +8,8 @@ import { AuditLogsQueryOptions } from "./AuditLogsQueryOptions";
 import { AuditLogsQueryPageOptions } from "./AuditLogsQueryPageOptions";
 import { AuditLogsSort } from "./AuditLogsSort";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -35,7 +37,7 @@ export class AuditLogsSearchEventsRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

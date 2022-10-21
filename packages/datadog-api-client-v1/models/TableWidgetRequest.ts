@@ -14,6 +14,8 @@ import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSort } from "./WidgetSort";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -100,7 +102,7 @@ export class TableWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

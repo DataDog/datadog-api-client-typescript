@@ -9,6 +9,8 @@ import { SLOCreator } from "./SLOCreator";
 import { SLOOverallStatuses } from "./SLOOverallStatuses";
 import { SLOType } from "./SLOType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -93,7 +95,7 @@ export class SearchServiceLevelObjectiveAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

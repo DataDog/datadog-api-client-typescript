@@ -5,6 +5,8 @@
  */
 import { SyntheticsStepType } from "./SyntheticsStepType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -39,7 +41,7 @@ export class SyntheticsStep {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

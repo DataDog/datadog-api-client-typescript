@@ -6,6 +6,8 @@
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
 import { LogsCategoryProcessorType } from "./LogsCategoryProcessorType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -49,7 +51,7 @@ export class LogsCategoryProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

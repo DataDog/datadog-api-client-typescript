@@ -6,6 +6,8 @@
 import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
 import { PartialAPIKey } from "./PartialAPIKey";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -24,7 +26,7 @@ export class APIKeysResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

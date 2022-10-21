@@ -8,6 +8,8 @@ import { MetricTagConfiguration } from "./MetricTagConfiguration";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Object for a metrics and metric tag configurations.
  */

@@ -8,6 +8,8 @@ import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandar
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Query for matching rule.
  */

@@ -5,6 +5,8 @@
  */
 import { IncidentAttachmentUpdateData } from "./IncidentAttachmentUpdateData";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -22,7 +24,7 @@ export class IncidentAttachmentUpdateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

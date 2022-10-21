@@ -11,6 +11,8 @@ import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionPr
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * A formula and function query.
  */

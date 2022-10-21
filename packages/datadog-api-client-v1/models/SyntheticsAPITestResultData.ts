@@ -8,6 +8,8 @@ import { SyntheticsSSLCertificate } from "./SyntheticsSSLCertificate";
 import { SyntheticsTestProcessStatus } from "./SyntheticsTestProcessStatus";
 import { SyntheticsTiming } from "./SyntheticsTiming";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -55,7 +57,7 @@ export class SyntheticsAPITestResultData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

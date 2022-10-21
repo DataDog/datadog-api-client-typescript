@@ -7,6 +7,8 @@ import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimeline
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The timeline cell's attributes for a create request.
  */

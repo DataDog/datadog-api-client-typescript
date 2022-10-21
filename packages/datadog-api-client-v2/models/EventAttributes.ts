@@ -8,6 +8,8 @@ import { EventPriority } from "./EventPriority";
 import { EventStatusType } from "./EventStatusType";
 import { MonitorType } from "./MonitorType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -100,7 +102,7 @@ export class EventAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

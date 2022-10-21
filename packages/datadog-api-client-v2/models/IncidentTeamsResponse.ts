@@ -7,6 +7,8 @@ import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentTeamIncludedItems } from "./IncidentTeamIncludedItems";
 import { IncidentTeamResponseData } from "./IncidentTeamResponseData";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class IncidentTeamsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

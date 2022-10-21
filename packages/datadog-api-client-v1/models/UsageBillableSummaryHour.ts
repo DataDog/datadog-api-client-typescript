@@ -5,6 +5,8 @@
  */
 import { UsageBillableSummaryKeys } from "./UsageBillableSummaryKeys";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -51,7 +53,7 @@ export class UsageBillableSummaryHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

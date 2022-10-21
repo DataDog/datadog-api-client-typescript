@@ -6,6 +6,8 @@
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class SLOListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

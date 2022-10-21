@@ -6,6 +6,8 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * A resulting object to put the given computes in over all the matching records.
  */

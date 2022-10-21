@@ -8,6 +8,8 @@ import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTimeWindows } from "./WidgetTimeWindows";
 import { WidgetViewMode } from "./WidgetViewMode";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -58,7 +60,7 @@ export class SLOWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

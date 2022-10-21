@@ -7,6 +7,8 @@ import { EventResponse } from "./EventResponse";
 import { EventsListResponseLinks } from "./EventsListResponseLinks";
 import { EventsResponseMetadata } from "./EventsResponseMetadata";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -29,7 +31,7 @@ export class EventsListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -5,6 +5,8 @@
  */
 import { OpsgenieServiceRegionType } from "./OpsgenieServiceRegionType";
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
@@ -31,7 +33,7 @@ export class OpsgenieServiceUpdateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore
