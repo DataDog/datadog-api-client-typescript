@@ -14,6 +14,20 @@ export {
 } from "./apis/AuthNMappingsApi";
 
 export {
+  CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest,
+  CIVisibilityPipelinesApiListCIAppPipelineEventsRequest,
+  CIVisibilityPipelinesApiSearchCIAppPipelineEventsRequest,
+  CIVisibilityPipelinesApi,
+} from "./apis/CIVisibilityPipelinesApi";
+
+export {
+  CIVisibilityTestsApiAggregateCIAppTestEventsRequest,
+  CIVisibilityTestsApiListCIAppTestEventsRequest,
+  CIVisibilityTestsApiSearchCIAppTestEventsRequest,
+  CIVisibilityTestsApi,
+} from "./apis/CIVisibilityTestsApi";
+
+export {
   CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
@@ -299,6 +313,46 @@ export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
+export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
+export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
+export { CIAppAggregateSort } from "./models/CIAppAggregateSort";
+export { CIAppAggregateSortType } from "./models/CIAppAggregateSortType";
+export { CIAppAggregationFunction } from "./models/CIAppAggregationFunction";
+export { CIAppCompute } from "./models/CIAppCompute";
+export { CIAppComputeType } from "./models/CIAppComputeType";
+export { CIAppEventAttributes } from "./models/CIAppEventAttributes";
+export { CIAppGroupByHistogram } from "./models/CIAppGroupByHistogram";
+export { CIAppGroupByMissing } from "./models/CIAppGroupByMissing";
+export { CIAppGroupByTotal } from "./models/CIAppGroupByTotal";
+export { CIAppPipelineEvent } from "./models/CIAppPipelineEvent";
+export { CIAppPipelineEventsRequest } from "./models/CIAppPipelineEventsRequest";
+export { CIAppPipelineEventsResponse } from "./models/CIAppPipelineEventsResponse";
+export { CIAppPipelineEventTypeName } from "./models/CIAppPipelineEventTypeName";
+export { CIAppPipelinesAggregateRequest } from "./models/CIAppPipelinesAggregateRequest";
+export { CIAppPipelinesAggregationBucketsResponse } from "./models/CIAppPipelinesAggregationBucketsResponse";
+export { CIAppPipelinesAnalyticsAggregateResponse } from "./models/CIAppPipelinesAnalyticsAggregateResponse";
+export { CIAppPipelinesBucketResponse } from "./models/CIAppPipelinesBucketResponse";
+export { CIAppPipelinesGroupBy } from "./models/CIAppPipelinesGroupBy";
+export { CIAppPipelinesQueryFilter } from "./models/CIAppPipelinesQueryFilter";
+export { CIAppQueryOptions } from "./models/CIAppQueryOptions";
+export { CIAppQueryPageOptions } from "./models/CIAppQueryPageOptions";
+export { CIAppResponseLinks } from "./models/CIAppResponseLinks";
+export { CIAppResponseMetadata } from "./models/CIAppResponseMetadata";
+export { CIAppResponsePage } from "./models/CIAppResponsePage";
+export { CIAppResponseStatus } from "./models/CIAppResponseStatus";
+export { CIAppSort } from "./models/CIAppSort";
+export { CIAppSortOrder } from "./models/CIAppSortOrder";
+export { CIAppTestEvent } from "./models/CIAppTestEvent";
+export { CIAppTestEventsRequest } from "./models/CIAppTestEventsRequest";
+export { CIAppTestEventsResponse } from "./models/CIAppTestEventsResponse";
+export { CIAppTestEventTypeName } from "./models/CIAppTestEventTypeName";
+export { CIAppTestsAggregateRequest } from "./models/CIAppTestsAggregateRequest";
+export { CIAppTestsAggregationBucketsResponse } from "./models/CIAppTestsAggregationBucketsResponse";
+export { CIAppTestsAnalyticsAggregateResponse } from "./models/CIAppTestsAnalyticsAggregateResponse";
+export { CIAppTestsBucketResponse } from "./models/CIAppTestsBucketResponse";
+export { CIAppTestsGroupBy } from "./models/CIAppTestsGroupBy";
+export { CIAppTestsQueryFilter } from "./models/CIAppTestsQueryFilter";
+export { CIAppWarning } from "./models/CIAppWarning";
 export { CloudWorkloadSecurityAgentRuleAttributes } from "./models/CloudWorkloadSecurityAgentRuleAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./models/CloudWorkloadSecurityAgentRuleCreateAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateData } from "./models/CloudWorkloadSecurityAgentRuleCreateData";
