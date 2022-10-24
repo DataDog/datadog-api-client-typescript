@@ -2254,23 +2254,18 @@ export class ObjectSerializer {
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
         if (attributeName == "additionalProperties") {
-          if (data.additionalProperties) {
-            for (const key in data.additionalProperties) {
-              instance[key] = ObjectSerializer.deserialize(
-                data.additionalProperties[key],
-                attributeObj.type,
-                attributeObj.format
-              );
-            }
-          }
-
           if (extraAttributes.length > 0) {
+            if (!instance.additionalProperties) {
+              instance.additionalProperties = {};
+            }
+
             for (const key in extraAttributes) {
-              instance[extraAttributes[key]] = ObjectSerializer.deserialize(
-                data[extraAttributes[key]],
-                attributeObj.type,
-                attributeObj.format
-              );
+              instance.additionalProperties[extraAttributes[key]] =
+                ObjectSerializer.deserialize(
+                  data[extraAttributes[key]],
+                  attributeObj.type,
+                  attributeObj.format
+                );
             }
           }
           continue;
