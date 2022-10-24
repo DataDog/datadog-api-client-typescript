@@ -9,9 +9,10 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The top list visualization enables you to display a list of Tag value like hostname or service with the most or least of any metric value, such as highest consumers of CPU, hosts with the least disk space, etc.

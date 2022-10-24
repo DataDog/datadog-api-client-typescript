@@ -5,9 +5,10 @@
  */
 import { ConfluentAccountResponseData } from "./ConfluentAccountResponseData";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The expected response schema when getting a Confluent account.

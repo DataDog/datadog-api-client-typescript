@@ -5,9 +5,10 @@
  */
 import { UsageLambdaHour } from "./UsageLambdaHour";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the number of lambda functions and sum of the invocations of all lambda functions

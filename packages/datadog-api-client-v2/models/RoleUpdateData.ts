@@ -7,9 +7,10 @@ import { RoleRelationships } from "./RoleRelationships";
 import { RolesType } from "./RolesType";
 import { RoleUpdateAttributes } from "./RoleUpdateAttributes";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Data related to the update of a role.

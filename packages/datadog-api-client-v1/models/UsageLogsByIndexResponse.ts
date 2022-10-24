@@ -5,9 +5,10 @@
  */
 import { UsageLogsByIndexHour } from "./UsageLogsByIndexHour";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the number of indexed logs for each hour and index for a given organization.

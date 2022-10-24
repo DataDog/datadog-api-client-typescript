@@ -6,9 +6,10 @@
 import { EventsResponseMetadataPage } from "./EventsResponseMetadataPage";
 import { EventsWarning } from "./EventsWarning";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.

@@ -7,10 +7,9 @@ import { {{ classname }} } from "./{{ classname }}";
 {%- endfor %}
 
 import { HttpFile } from "../../datadog-api-client-common/http/http";
-import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 {% if "enum" not in model -%}
-import { AttributeTypeMap{%- if "oneOf" in model %}, UnparsedObject{% endif %} } from "../../datadog-api-client-common/util";
+import { AttributeTypeMap, UnparsedObject } from "../../datadog-api-client-common/util";
 {%- endif %}
 
 {% if "description" in model %}

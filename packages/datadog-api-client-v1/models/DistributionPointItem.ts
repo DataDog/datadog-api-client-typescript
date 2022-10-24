@@ -6,8 +6,6 @@
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 /**
  * List of distribution point.
  */

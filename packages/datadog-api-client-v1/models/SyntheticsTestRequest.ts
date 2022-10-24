@@ -8,9 +8,10 @@ import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the Synthetic test request.

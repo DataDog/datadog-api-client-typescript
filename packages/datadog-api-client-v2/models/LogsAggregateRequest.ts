@@ -9,9 +9,10 @@ import { LogsGroupBy } from "./LogsGroupBy";
 import { LogsQueryFilter } from "./LogsQueryFilter";
 import { LogsQueryOptions } from "./LogsQueryOptions";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The object sent with the request to retrieve a list of logs from your organization.

@@ -5,9 +5,10 @@
  */
 import { IncidentAttachmentUpdateData } from "./IncidentAttachmentUpdateData";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The update request for an incident's attachments.

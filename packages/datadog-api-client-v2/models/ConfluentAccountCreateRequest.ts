@@ -5,9 +5,10 @@
  */
 import { ConfluentAccountCreateRequestData } from "./ConfluentAccountCreateRequestData";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Payload schema when adding a Confluent account.

@@ -7,9 +7,10 @@ import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMResponseStatus } from "./RUMResponseStatus";
 import { RUMWarning } from "./RUMWarning";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.

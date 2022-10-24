@@ -6,9 +6,10 @@
 import { WidgetComparator } from "./WidgetComparator";
 import { WidgetPalette } from "./WidgetPalette";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Define a conditional format for the widget.

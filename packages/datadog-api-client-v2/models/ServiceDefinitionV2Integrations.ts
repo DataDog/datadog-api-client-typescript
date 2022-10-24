@@ -5,9 +5,10 @@
  */
 import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Third party integrations that Datadog supports.

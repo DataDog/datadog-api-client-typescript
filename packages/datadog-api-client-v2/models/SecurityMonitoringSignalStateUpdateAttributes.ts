@@ -6,9 +6,10 @@
 import { SecurityMonitoringSignalArchiveReason } from "./SecurityMonitoringSignalArchiveReason";
 import { SecurityMonitoringSignalState } from "./SecurityMonitoringSignalState";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the change of state of a security signal.

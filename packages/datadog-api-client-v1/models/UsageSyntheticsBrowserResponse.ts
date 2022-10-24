@@ -5,9 +5,10 @@
  */
 import { UsageSyntheticsBrowserHour } from "./UsageSyntheticsBrowserHour";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the number of Synthetics Browser tests run for each hour for a given organization.

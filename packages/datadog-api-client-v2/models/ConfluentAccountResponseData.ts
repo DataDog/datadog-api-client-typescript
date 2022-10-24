@@ -6,9 +6,10 @@
 import { ConfluentAccountResponseAttributes } from "./ConfluentAccountResponseAttributes";
 import { ConfluentAccountType } from "./ConfluentAccountType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * An API key and API secret pair that represents a Confluent account.

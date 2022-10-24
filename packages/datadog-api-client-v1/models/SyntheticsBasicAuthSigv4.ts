@@ -5,9 +5,10 @@
  */
 import { SyntheticsBasicAuthSigv4Type } from "./SyntheticsBasicAuthSigv4Type";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object to handle `SIGV4` authentication when performing the test.

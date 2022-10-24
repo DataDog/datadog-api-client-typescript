@@ -6,9 +6,10 @@
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
 import { OpsgenieServiceType } from "./OpsgenieServiceType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Opsgenie service data for a create request.

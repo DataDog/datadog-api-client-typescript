@@ -6,9 +6,10 @@
 import { ConfluentResourceRequestAttributes } from "./ConfluentResourceRequestAttributes";
 import { ConfluentResourceType } from "./ConfluentResourceType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * JSON:API request for updating a Confluent resource.

@@ -8,8 +8,6 @@ import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 /**
  * Included data in the AuthN Mapping response.
  */

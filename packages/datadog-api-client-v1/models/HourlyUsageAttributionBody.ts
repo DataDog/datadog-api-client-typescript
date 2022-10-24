@@ -5,9 +5,10 @@
  */
 import { HourlyUsageAttributionUsageType } from "./HourlyUsageAttributionUsageType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The usage for one set of tags for one hour.

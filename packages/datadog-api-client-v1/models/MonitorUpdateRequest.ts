@@ -9,9 +9,10 @@ import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
 import { MonitorType } from "./MonitorType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a monitor update request.

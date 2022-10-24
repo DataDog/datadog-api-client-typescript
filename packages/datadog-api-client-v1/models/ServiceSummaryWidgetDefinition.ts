@@ -9,9 +9,10 @@ import { WidgetSizeFormat } from "./WidgetSizeFormat";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The service summary displays the graphs of a chosen service in your screenboard. Only available on FREE layout dashboards.

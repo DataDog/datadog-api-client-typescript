@@ -6,9 +6,10 @@
 import { NotebookCreateDataAttributes } from "./NotebookCreateDataAttributes";
 import { NotebookResourceType } from "./NotebookResourceType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The data for a notebook create request.

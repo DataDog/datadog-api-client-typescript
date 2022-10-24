@@ -5,9 +5,10 @@
  */
 import { MetricBulkTagConfigCreate } from "./MetricBulkTagConfigCreate";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Wrapper object for a single bulk tag configuration request.

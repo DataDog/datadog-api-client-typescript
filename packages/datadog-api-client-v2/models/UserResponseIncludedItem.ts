@@ -9,8 +9,6 @@ import { Role } from "./Role";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 /**
  * An object related to a user.
  */

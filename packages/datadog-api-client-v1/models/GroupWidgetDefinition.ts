@@ -8,9 +8,10 @@ import { Widget } from "./Widget";
 import { WidgetLayoutType } from "./WidgetLayoutType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The groups widget allows you to keep similar graphs together on your timeboard. Each group has a custom header, can hold one to many graphs, and is collapsible.

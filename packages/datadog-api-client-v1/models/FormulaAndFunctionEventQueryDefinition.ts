@@ -8,9 +8,10 @@ import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFuncti
 import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQueryGroupBy";
 import { FormulaAndFunctionEventsDataSource } from "./FormulaAndFunctionEventsDataSource";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * A formula and functions events query.

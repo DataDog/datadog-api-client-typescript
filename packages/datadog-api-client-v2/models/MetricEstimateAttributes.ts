@@ -5,9 +5,10 @@
  */
 import { MetricEstimateType } from "./MetricEstimateType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the definition of a metric estimate attribute.

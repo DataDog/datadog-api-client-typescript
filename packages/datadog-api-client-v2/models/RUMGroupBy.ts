@@ -8,9 +8,10 @@ import { RUMGroupByHistogram } from "./RUMGroupByHistogram";
 import { RUMGroupByMissing } from "./RUMGroupByMissing";
 import { RUMGroupByTotal } from "./RUMGroupByTotal";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * A group-by rule.

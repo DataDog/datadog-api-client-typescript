@@ -5,9 +5,10 @@
  */
 import { DashboardResourceType } from "./DashboardResourceType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Dashboard bulk action request data.

@@ -5,9 +5,10 @@
  */
 import { NotebooksResponsePage } from "./NotebooksResponsePage";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Searches metadata returned by the API.

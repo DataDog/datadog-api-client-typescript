@@ -6,9 +6,10 @@
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterMeta } from "./SecurityFilterMeta";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * All the available security filters objects.

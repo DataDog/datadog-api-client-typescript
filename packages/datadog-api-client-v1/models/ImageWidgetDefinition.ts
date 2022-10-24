@@ -9,9 +9,10 @@ import { WidgetImageSizing } from "./WidgetImageSizing";
 import { WidgetMargin } from "./WidgetMargin";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The image widget allows you to embed an image on your dashboard. An image can be a PNG, JPG, or animated GIF. Only available on FREE layout dashboards.

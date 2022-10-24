@@ -6,9 +6,10 @@
 import { LogsListRequestTime } from "./LogsListRequestTime";
 import { LogsSort } from "./LogsSort";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object to send with the request to retrieve a list of logs from your Organization.

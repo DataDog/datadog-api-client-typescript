@@ -7,9 +7,10 @@ import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { ListStreamResponseFormat } from "./ListStreamResponseFormat";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Updated list stream widget.

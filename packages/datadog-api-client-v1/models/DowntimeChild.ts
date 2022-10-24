@@ -5,9 +5,10 @@
  */
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The downtime object definition of the active child for the original parent recurring downtime. This

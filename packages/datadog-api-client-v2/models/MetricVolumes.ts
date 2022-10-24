@@ -8,8 +8,6 @@ import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 /**
  * Possible response objects for a metric's volume.
  */

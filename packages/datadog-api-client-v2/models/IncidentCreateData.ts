@@ -7,9 +7,10 @@ import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentType } from "./IncidentType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Incident data for a create request.

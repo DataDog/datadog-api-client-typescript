@@ -6,9 +6,10 @@
 import { LogsMetricType } from "./LogsMetricType";
 import { LogsMetricUpdateAttributes } from "./LogsMetricUpdateAttributes";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The new log-based metric properties.

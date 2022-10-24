@@ -7,9 +7,10 @@ import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Datadog API key.

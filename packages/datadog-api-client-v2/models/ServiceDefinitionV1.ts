@@ -10,9 +10,10 @@ import { ServiceDefinitionV1Org } from "./ServiceDefinitionV1Org";
 import { ServiceDefinitionV1Resource } from "./ServiceDefinitionV1Resource";
 import { ServiceDefinitionV1Version } from "./ServiceDefinitionV1Version";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Deprecated - Service definition V1 for providing additional service metadata and integrations.

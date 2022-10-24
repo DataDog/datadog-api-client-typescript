@@ -6,9 +6,10 @@
 import { IncidentAttachmentPostmortemAttachmentType } from "./IncidentAttachmentPostmortemAttachmentType";
 import { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./IncidentAttachmentsPostmortemAttributesAttachmentObject";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The attributes object for a postmortem attachment.

@@ -4,9 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The list of current AWS services for which Datadog offers automatic log collection.

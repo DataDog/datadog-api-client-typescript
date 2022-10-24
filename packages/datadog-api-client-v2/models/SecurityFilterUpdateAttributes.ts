@@ -6,9 +6,10 @@
 import { SecurityFilterExclusionFilter } from "./SecurityFilterExclusionFilter";
 import { SecurityFilterFilteredDataType } from "./SecurityFilterFilteredDataType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The security filters properties to be updated.

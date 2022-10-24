@@ -5,9 +5,10 @@
  */
 import { LogsTraceRemapperType } from "./LogsTraceRemapperType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * There are two ways to improve correlation between application traces and logs.

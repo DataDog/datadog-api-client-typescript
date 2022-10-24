@@ -8,9 +8,10 @@ import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTimeWindows } from "./WidgetTimeWindows";
 import { WidgetViewMode } from "./WidgetViewMode";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Use the SLO and uptime widget to track your SLOs (Service Level Objectives) and uptime on screenboards and timeboards.

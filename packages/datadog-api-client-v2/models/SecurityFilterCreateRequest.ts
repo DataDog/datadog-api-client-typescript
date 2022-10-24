@@ -5,9 +5,10 @@
  */
 import { SecurityFilterCreateData } from "./SecurityFilterCreateData";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Request object that includes the security filter that you would like to create.

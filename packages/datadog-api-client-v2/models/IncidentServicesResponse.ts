@@ -7,9 +7,10 @@ import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentServiceIncludedItems } from "./IncidentServiceIncludedItems";
 import { IncidentServiceResponseData } from "./IncidentServiceResponseData";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response with a list of incident service payloads.

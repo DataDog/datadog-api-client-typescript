@@ -5,9 +5,10 @@
  */
 import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdateData";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Request object that includes the metric that you would like to edit the tag configuration on.

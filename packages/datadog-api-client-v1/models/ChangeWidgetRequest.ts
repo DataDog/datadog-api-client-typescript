@@ -13,9 +13,10 @@ import { WidgetFormula } from "./WidgetFormula";
 import { WidgetOrderBy } from "./WidgetOrderBy";
 import { WidgetSort } from "./WidgetSort";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Updated change widget.

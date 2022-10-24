@@ -7,9 +7,10 @@ import { AuditLogsResponsePage } from "./AuditLogsResponsePage";
 import { AuditLogsResponseStatus } from "./AuditLogsResponseStatus";
 import { AuditLogsWarning } from "./AuditLogsWarning";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.

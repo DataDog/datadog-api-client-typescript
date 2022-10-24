@@ -5,9 +5,10 @@
  */
 import { UsageRumSessionsHour } from "./UsageRumSessionsHour";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the number of RUM Sessions for each hour for a given organization.

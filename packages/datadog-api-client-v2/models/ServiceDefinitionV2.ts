@@ -10,9 +10,10 @@ import { ServiceDefinitionV2Link } from "./ServiceDefinitionV2Link";
 import { ServiceDefinitionV2Repo } from "./ServiceDefinitionV2Repo";
 import { ServiceDefinitionV2Version } from "./ServiceDefinitionV2Version";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Service definition V2 for providing service metadata and integrations.

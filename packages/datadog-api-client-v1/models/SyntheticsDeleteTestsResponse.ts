@@ -5,9 +5,10 @@
  */
 import { SyntheticsDeletedTest } from "./SyntheticsDeletedTest";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response object for deleting Synthetic tests.

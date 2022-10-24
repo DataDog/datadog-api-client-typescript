@@ -6,9 +6,10 @@
 import { LogsAggregationFunction } from "./LogsAggregationFunction";
 import { LogsComputeType } from "./LogsComputeType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * A compute rule to compute metrics or timeseries

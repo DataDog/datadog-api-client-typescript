@@ -6,9 +6,10 @@
 import { EventResponseAttributes } from "./EventResponseAttributes";
 import { EventType } from "./EventType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The object description of an event after being processed and stored by Datadog.

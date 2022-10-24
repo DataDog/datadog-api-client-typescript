@@ -7,9 +7,10 @@ import { RUMEvent } from "./RUMEvent";
 import { RUMResponseLinks } from "./RUMResponseLinks";
 import { RUMResponseMetadata } from "./RUMResponseMetadata";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response object with all events matching the request and pagination information.

@@ -6,9 +6,10 @@
 import { SyntheticsTriggerCITestLocation } from "./SyntheticsTriggerCITestLocation";
 import { SyntheticsTriggerCITestRunResult } from "./SyntheticsTriggerCITestRunResult";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object containing information about the tests triggered.

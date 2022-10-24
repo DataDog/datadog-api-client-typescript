@@ -37,8 +37,6 @@ import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 /**
  * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
  */

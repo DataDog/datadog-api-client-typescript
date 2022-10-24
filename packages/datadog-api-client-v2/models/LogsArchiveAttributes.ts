@@ -6,9 +6,10 @@
 import { LogsArchiveDestination } from "./LogsArchiveDestination";
 import { LogsArchiveState } from "./LogsArchiveState";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The attributes associated with the archive.

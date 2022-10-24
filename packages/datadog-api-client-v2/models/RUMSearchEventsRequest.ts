@@ -8,9 +8,10 @@ import { RUMQueryOptions } from "./RUMQueryOptions";
 import { RUMQueryPageOptions } from "./RUMQueryPageOptions";
 import { RUMSort } from "./RUMSort";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The request for a RUM events list.

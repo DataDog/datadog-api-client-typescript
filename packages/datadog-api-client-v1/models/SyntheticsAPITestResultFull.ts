@@ -7,9 +7,10 @@ import { SyntheticsAPITestResultData } from "./SyntheticsAPITestResultData";
 import { SyntheticsAPITestResultFullCheck } from "./SyntheticsAPITestResultFullCheck";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object returned describing a API test result.

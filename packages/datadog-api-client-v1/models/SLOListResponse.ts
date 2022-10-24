@@ -6,9 +6,10 @@
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * A response with one or more service level objective.

@@ -5,9 +5,10 @@
  */
 import { LogsIndex } from "./LogsIndex";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object with all Index configurations for a given organization.

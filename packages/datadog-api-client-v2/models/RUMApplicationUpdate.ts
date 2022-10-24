@@ -6,9 +6,10 @@
 import { RUMApplicationUpdateAttributes } from "./RUMApplicationUpdateAttributes";
 import { RUMApplicationUpdateType } from "./RUMApplicationUpdateType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * RUM application update.

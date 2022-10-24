@@ -6,9 +6,10 @@
 import { MetricActiveConfigurationType } from "./MetricActiveConfigurationType";
 import { MetricSuggestedTagsAttributes } from "./MetricSuggestedTagsAttributes";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object for a single metric's actively queried tags and aggregations.

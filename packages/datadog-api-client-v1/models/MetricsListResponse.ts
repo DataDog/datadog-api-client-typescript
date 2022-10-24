@@ -4,9 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object listing all metric names stored by Datadog since a given time.

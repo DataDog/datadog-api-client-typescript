@@ -8,8 +8,6 @@ import { ServiceDefinitionV2 } from "./ServiceDefinitionV2";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 /**
  * Service definition schema.
  */

@@ -5,9 +5,10 @@
  */
 import { DashboardListItemRequest } from "./DashboardListItemRequest";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Request containing a list of dashboards to add.

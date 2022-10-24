@@ -5,9 +5,10 @@
  */
 import { LogsStatusRemapperType } from "./LogsStatusRemapperType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Use this Processor if you want to assign some attributes as the official status.

@@ -7,9 +7,10 @@ import { SyntheticsBatchResult } from "./SyntheticsBatchResult";
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 import { SyntheticsStatus } from "./SyntheticsStatus";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Wrapper object that contains the details of a batch.

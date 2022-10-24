@@ -5,9 +5,10 @@
  */
 import { UsageSummaryDateOrg } from "./UsageSummaryDateOrg";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response with hourly report of all data billed by Datadog all organizations.

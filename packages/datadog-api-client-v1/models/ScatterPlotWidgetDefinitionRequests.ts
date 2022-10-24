@@ -6,9 +6,10 @@
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Widget definition.

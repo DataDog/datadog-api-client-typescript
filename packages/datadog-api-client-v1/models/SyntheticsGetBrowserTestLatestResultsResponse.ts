@@ -5,9 +5,10 @@
  */
 import { SyntheticsBrowserTestResultShort } from "./SyntheticsBrowserTestResultShort";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object with the latest Synthetic browser test run.

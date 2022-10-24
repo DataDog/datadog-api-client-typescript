@@ -5,9 +5,10 @@
  */
 import { UsageCWSHour } from "./UsageCWSHour";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the Cloud Workload Security usage for each hour for a given organization.

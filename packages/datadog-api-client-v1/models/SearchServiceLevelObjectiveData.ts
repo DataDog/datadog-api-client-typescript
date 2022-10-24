@@ -5,9 +5,10 @@
  */
 import { SearchServiceLevelObjectiveAttributes } from "./SearchServiceLevelObjectiveAttributes";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective ID and attributes.

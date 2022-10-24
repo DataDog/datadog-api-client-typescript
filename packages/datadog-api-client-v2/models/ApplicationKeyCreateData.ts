@@ -6,9 +6,10 @@
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeysType } from "./ApplicationKeysType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object used to create an application key.

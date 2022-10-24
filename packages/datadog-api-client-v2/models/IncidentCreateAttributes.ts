@@ -7,9 +7,10 @@ import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentTimelineCellCreateAttributes } from "./IncidentTimelineCellCreateAttributes";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The incident's attributes for a create request.

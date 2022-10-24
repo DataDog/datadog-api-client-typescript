@@ -7,9 +7,10 @@ import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCo
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The response of a monitor group search.

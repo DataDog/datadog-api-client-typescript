@@ -7,9 +7,10 @@ import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The incident's relationships for an update request.

@@ -7,9 +7,10 @@ import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefi
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { WidgetFormula } from "./WidgetFormula";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * An updated treemap widget.

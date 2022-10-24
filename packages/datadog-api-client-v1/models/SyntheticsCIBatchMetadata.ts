@@ -6,9 +6,10 @@
 import { SyntheticsCIBatchMetadataCI } from "./SyntheticsCIBatchMetadataCI";
 import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Metadata for the Synthetics tests run.

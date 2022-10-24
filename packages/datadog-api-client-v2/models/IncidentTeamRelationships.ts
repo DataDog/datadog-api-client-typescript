@@ -5,9 +5,10 @@
  */
 import { RelationshipToUser } from "./RelationshipToUser";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The incident team's relationships.

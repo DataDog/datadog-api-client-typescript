@@ -6,9 +6,10 @@
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
 import { ProcessSummaryType } from "./ProcessSummaryType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Process summary object.

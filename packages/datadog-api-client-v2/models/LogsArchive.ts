@@ -5,9 +5,10 @@
  */
 import { LogsArchiveDefinition } from "./LogsArchiveDefinition";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The logs archive.

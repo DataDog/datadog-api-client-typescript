@@ -6,9 +6,10 @@
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SLOCorrection } from "./SLOCorrection";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * A list of  SLO correction objects.

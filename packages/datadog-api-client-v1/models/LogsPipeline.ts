@@ -6,9 +6,10 @@
 import { LogsFilter } from "./LogsFilter";
 import { LogsProcessor } from "./LogsProcessor";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Pipelines and processors operate on incoming logs,

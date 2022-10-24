@@ -5,9 +5,10 @@
  */
 import { RelationshipToRoles } from "./RelationshipToRoles";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Relationships of the user object.

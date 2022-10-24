@@ -5,9 +5,10 @@
  */
 import { UsageDataObject } from "./UsageDataObject";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Observability Pipelines usage response.

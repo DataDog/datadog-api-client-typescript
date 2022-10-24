@@ -6,9 +6,10 @@
 import { NotebookCellResourceType } from "./NotebookCellResourceType";
 import { NotebookCellUpdateRequestAttributes } from "./NotebookCellUpdateRequestAttributes";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The description of a notebook cell update request.

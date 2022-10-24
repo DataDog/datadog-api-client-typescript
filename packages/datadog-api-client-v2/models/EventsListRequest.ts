@@ -8,9 +8,10 @@ import { EventsQueryOptions } from "./EventsQueryOptions";
 import { EventsRequestPage } from "./EventsRequestPage";
 import { EventsSort } from "./EventsSort";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The object sent with the request to retrieve a list of events from your organization.

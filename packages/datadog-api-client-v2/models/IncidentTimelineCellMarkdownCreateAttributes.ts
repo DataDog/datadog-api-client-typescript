@@ -6,9 +6,10 @@
 import { IncidentTimelineCellMarkdownContentType } from "./IncidentTimelineCellMarkdownContentType";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Timeline cell data for Markdown timeline cells for a create request.

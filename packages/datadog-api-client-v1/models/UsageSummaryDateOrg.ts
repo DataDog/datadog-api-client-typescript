@@ -4,9 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Global hourly report of all data billed by Datadog for a given organization.

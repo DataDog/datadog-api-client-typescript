@@ -6,9 +6,10 @@
 import { User } from "./User";
 import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response containing information about a single user.

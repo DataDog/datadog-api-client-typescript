@@ -7,9 +7,10 @@ import { EventResponse } from "./EventResponse";
 import { EventsListResponseLinks } from "./EventsListResponseLinks";
 import { EventsResponseMetadata } from "./EventsResponseMetadata";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The response object with all events matching the request and pagination information.

@@ -5,9 +5,10 @@
  */
 import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The Slack channel configuration.

@@ -6,9 +6,10 @@
 import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
 import { ConfluentAccountType } from "./ConfluentAccountType";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The data body for adding a Confluent account.

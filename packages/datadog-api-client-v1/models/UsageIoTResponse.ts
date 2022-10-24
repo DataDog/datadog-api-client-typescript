@@ -5,9 +5,10 @@
  */
 import { UsageIoTHour } from "./UsageIoTHour";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the IoT usage for each hour for a given organization.

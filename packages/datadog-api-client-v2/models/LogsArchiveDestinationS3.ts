@@ -6,9 +6,10 @@
 import { LogsArchiveDestinationS3Type } from "./LogsArchiveDestinationS3Type";
 import { LogsArchiveIntegrationS3 } from "./LogsArchiveIntegrationS3";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The S3 archive destination.

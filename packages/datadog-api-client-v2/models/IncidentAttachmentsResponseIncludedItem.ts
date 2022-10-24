@@ -7,8 +7,6 @@ import { User } from "./User";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
 /**
  * An object related to an attachment that is included in the response.
  */

@@ -6,9 +6,10 @@
 import { AlertValueWidgetDefinitionType } from "./AlertValueWidgetDefinitionType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import { UnparsedObject } from "../../datadog-api-client-common/util";
-
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Alert values are query values showing the current value of the metric in any monitor defined on your system.
