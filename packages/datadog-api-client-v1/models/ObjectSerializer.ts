@@ -2091,17 +2091,6 @@ export class ObjectSerializer {
       // get the map for the correct type.
       const attributesMap = typeMap[type].getAttributeTypeMap();
       const instance: { [index: string]: any } = {};
-      let extraAttributes: any = [];
-      if ("additionalProperties" in attributesMap) {
-        const attributesBaseNames = Object.keys(attributesMap).reduce(
-          (o, key) => Object.assign(o, { [attributesMap[key].baseName]: "" }),
-          {}
-        );
-        extraAttributes = Object.keys(data).filter(
-          (key) =>
-            !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
-        );
-      }
 
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
@@ -2110,16 +2099,6 @@ export class ObjectSerializer {
             for (const key in data.additionalProperties) {
               instance[key] = ObjectSerializer.serialize(
                 data.additionalProperties[key],
-                attributeObj.type,
-                attributeObj.format
-              );
-            }
-          }
-
-          if (extraAttributes.length > 0) {
-            for (const key in extraAttributes) {
-              instance[extraAttributes[key]] = ObjectSerializer.serialize(
-                data[extraAttributes[key]],
                 attributeObj.type,
                 attributeObj.format
               );
