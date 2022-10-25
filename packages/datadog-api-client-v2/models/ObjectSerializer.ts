@@ -1328,6 +1328,8 @@ export class ObjectSerializer {
   public static serialize(data: any, type: string, format: string): any {
     if (data == undefined || type == "any") {
       return data;
+    } else if (data instanceof UnparsedObject) {
+      return data._data;
     } else if (
       primitives.includes(type.toLowerCase()) &&
       typeof data == type.toLowerCase()
@@ -1451,13 +1453,10 @@ export class ObjectSerializer {
             `missing required property '${attributeObj.baseName}'`
           );
         }
+      }
 
-        if (
-          enumsMap[attributeObj.type] &&
-          !enumsMap[attributeObj.type].includes(instance[attributeObj.baseName])
-        ) {
-          instance.unparsedObject = instance[attributeObj.baseName];
-        }
+      if (data.unparsedObject) {
+        Object.assign(instance, data.unparsedObject._data);
       }
       return instance;
     }
@@ -1483,9 +1482,13 @@ export class ObjectSerializer {
       );
       const transformedData: any[] = [];
       for (const element of data) {
-        transformedData.push(
-          ObjectSerializer.deserialize(element, subType, format)
-        );
+        try {
+          transformedData.push(
+            ObjectSerializer.deserialize(element, subType, format)
+          );
+        } catch {
+          transformedData.push(new UnparsedObject(element));
+        }
       }
       return transformedData;
     } else if (type.startsWith(TUPLE_PREFIX)) {
@@ -1549,6 +1552,7 @@ export class ObjectSerializer {
 
       const instance = new typeMap[type]();
       const attributesMap = typeMap[type].getAttributeTypeMap();
+      const unparsedObjectData: any = {};
       let extraAttributes: any = [];
       if ("additionalProperties" in attributesMap) {
         const attributesBaseNames = Object.keys(attributesMap).reduce(
@@ -1580,23 +1584,25 @@ export class ObjectSerializer {
           }
           continue;
         }
-        instance[attributeName] = ObjectSerializer.deserialize(
-          data[attributeObj.baseName],
-          attributeObj.type,
-          attributeObj.format
-        );
+        try {
+          instance[attributeName] = ObjectSerializer.deserialize(
+            data[attributeObj.baseName],
+            attributeObj.type,
+            attributeObj.format
+          );
+        } catch {
+          unparsedObjectData[attributeObj.baseName] =
+            data[attributeObj.baseName];
+        }
+
         // check for required properties
         if (attributeObj?.required && instance[attributeName] === undefined) {
           throw new Error(`missing required property '${attributeName}'`);
         }
+      }
 
-        // check for enum values
-        if (
-          enumsMap[attributeObj.type] &&
-          !enumsMap[attributeObj.type].includes(instance[attributeName])
-        ) {
-          instance.unparsedObject = instance[attributeName];
-        }
+      if (Object.keys(unparsedObjectData).length > 0) {
+        instance.unparsedObject = new UnparsedObject(unparsedObjectData);
       }
 
       return instance;
