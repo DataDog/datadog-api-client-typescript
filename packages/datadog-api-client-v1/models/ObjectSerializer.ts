@@ -540,6 +540,7 @@ import { WidgetTime } from "./WidgetTime";
 import {
   dateFromRFC3339String,
   dateToRFC3339String,
+  containsUnparsed,
   UnparsedObject,
 } from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
@@ -2201,7 +2202,7 @@ export class ObjectSerializer {
         for (const oneOf of oneOfMap[type]) {
           try {
             const d = ObjectSerializer.deserialize(data, oneOf, format);
-            if (d?.unparsedObject === undefined) {
+            if (!containsUnparsed(d)) {
               oneOfs.push(d);
             }
           } catch (e) {
