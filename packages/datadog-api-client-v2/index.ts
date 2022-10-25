@@ -582,6 +582,7 @@ export { LogsResponseMetadata } from "./models/LogsResponseMetadata";
 export { LogsResponseMetadataPage } from "./models/LogsResponseMetadataPage";
 export { LogsSort } from "./models/LogsSort";
 export { LogsSortOrder } from "./models/LogsSortOrder";
+export { LogsStorageTier } from "./models/LogsStorageTier";
 export { LogsWarning } from "./models/LogsWarning";
 export { LogType } from "./models/LogType";
 export { Metric } from "./models/Metric";

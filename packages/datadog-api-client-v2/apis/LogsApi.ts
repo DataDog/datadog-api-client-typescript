@@ -28,6 +28,7 @@ import { LogsListRequest } from "../models/LogsListRequest";
 import { LogsListRequestPage } from "../models/LogsListRequestPage";
 import { LogsListResponse } from "../models/LogsListResponse";
 import { LogsSort } from "../models/LogsSort";
+import { LogsStorageTier } from "../models/LogsStorageTier";
 
 export class LogsApiRequestFactory extends BaseAPIRequestFactory {
   public async aggregateLogs(
@@ -116,6 +117,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     filterIndex?: string,
     filterFrom?: Date,
     filterTo?: Date,
+    filterStorageTier?: LogsStorageTier,
     sort?: LogsSort,
     pageCursor?: string,
     pageLimit?: number,
@@ -157,6 +159,12 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[to]",
         ObjectSerializer.serialize(filterTo, "Date", "date-time")
+      );
+    }
+    if (filterStorageTier !== undefined) {
+      requestContext.setQueryParam(
+        "filter[storage_tier]",
+        ObjectSerializer.serialize(filterStorageTier, "LogsStorageTier", "")
       );
     }
     if (sort !== undefined) {
@@ -537,6 +545,11 @@ export interface LogsApiListLogsGetRequest {
    */
   filterTo?: Date;
   /**
+   * Specifies the storage type to be used
+   * @type LogsStorageTier
+   */
+  filterStorageTier?: LogsStorageTier;
+  /**
    * Order of logs in results.
    * @type LogsSort
    */
@@ -719,6 +732,7 @@ export class LogsApi {
       param.filterIndex,
       param.filterFrom,
       param.filterTo,
+      param.filterStorageTier,
       param.sort,
       param.pageCursor,
       param.pageLimit,
@@ -751,6 +765,7 @@ export class LogsApi {
         param.filterIndex,
         param.filterFrom,
         param.filterTo,
+        param.filterStorageTier,
         param.sort,
         param.pageCursor,
         param.pageLimit,
