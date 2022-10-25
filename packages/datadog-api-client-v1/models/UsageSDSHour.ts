@@ -11,6 +11,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class UsageSDSHour {
   /**
+   * The total number of bytes scanned of APM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
+   */
+  "apmScannedBytes"?: number;
+  /**
+   * The total number of bytes scanned of Events usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
+   */
+  "eventsScannedBytes"?: number;
+  /**
    * The hour for the usage.
    */
   "hour"?: Date;
@@ -27,6 +35,10 @@ export class UsageSDSHour {
    */
   "publicId"?: string;
   /**
+   * The total number of bytes scanned of RUM usage across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
+   */
+  "rumScannedBytes"?: number;
+  /**
    * The total number of bytes scanned across all usage types by the Sensitive Data Scanner from the start of the given hour’s month until the given hour.
    */
   "totalScannedBytes"?: number;
@@ -40,6 +52,16 @@ export class UsageSDSHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    apmScannedBytes: {
+      baseName: "apm_scanned_bytes",
+      type: "number",
+      format: "int64",
+    },
+    eventsScannedBytes: {
+      baseName: "events_scanned_bytes",
+      type: "number",
+      format: "int64",
+    },
     hour: {
       baseName: "hour",
       type: "Date",
@@ -57,6 +79,11 @@ export class UsageSDSHour {
     publicId: {
       baseName: "public_id",
       type: "string",
+    },
+    rumScannedBytes: {
+      baseName: "rum_scanned_bytes",
+      type: "number",
+      format: "int64",
     },
     totalScannedBytes: {
       baseName: "total_scanned_bytes",

@@ -255,9 +255,21 @@ export class UsageSummaryDateOrg {
    */
   "rumUnitsSum"?: number;
   /**
+   * Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for the given org.
+   */
+  "sdsApmScannedBytesSum"?: number;
+  /**
+   * Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the current date for the given org.
+   */
+  "sdsEventsScannedBytesSum"?: number;
+  /**
    * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for the given org.
    */
   "sdsLogsScannedBytesSum"?: number;
+  /**
+   * Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for the given org.
+   */
+  "sdsRumScannedBytesSum"?: number;
   /**
    * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for the given org.
    */
@@ -593,8 +605,23 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    sdsApmScannedBytesSum: {
+      baseName: "sds_apm_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsEventsScannedBytesSum: {
+      baseName: "sds_events_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
     sdsLogsScannedBytesSum: {
       baseName: "sds_logs_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsRumScannedBytesSum: {
+      baseName: "sds_rum_scanned_bytes_sum",
       type: "number",
       format: "int64",
     },
