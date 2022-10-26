@@ -7,7 +7,15 @@
 export type MonitorFormulaAndFunctionEventsDataSource =
   | typeof RUM
   | typeof CI_PIPELINES
-  | typeof CI_TESTS;
+  | typeof CI_TESTS
+  | typeof AUDIT
+  | typeof EVENTS
+  | typeof LOGS
+  | typeof SPANS;
 export const RUM = "rum";
 export const CI_PIPELINES = "ci_pipelines";
 export const CI_TESTS = "ci_tests";
+export const AUDIT = "audit";
+export const EVENTS = "events";
+export const LOGS = "logs";
+export const SPANS = "spans";
