@@ -754,6 +754,10 @@ const enumsMap: { [key: string]: any[] } = {
     "rum",
     "ci_pipelines",
     "ci_tests",
+    "audit",
+    "events",
+    "logs",
+    "spans",
   ],
   MonitorOverallStates: [
     "Alert",
