@@ -192,6 +192,8 @@ import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCo
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
+import { MonitorOptionsSchedulingOptions } from "./MonitorOptionsSchedulingOptions";
+import { MonitorOptionsSchedulingOptionsEvaluationWindow } from "./MonitorOptionsSchedulingOptionsEvaluationWindow";
 import { MonitorSearchCountItem } from "./MonitorSearchCountItem";
 import { MonitorSearchResponse } from "./MonitorSearchResponse";
 import { MonitorSearchResponseCounts } from "./MonitorSearchResponseCounts";
@@ -1514,6 +1516,9 @@ const typeMap: { [index: string]: any } = {
   MonitorGroupSearchResult: MonitorGroupSearchResult,
   MonitorOptions: MonitorOptions,
   MonitorOptionsAggregation: MonitorOptionsAggregation,
+  MonitorOptionsSchedulingOptions: MonitorOptionsSchedulingOptions,
+  MonitorOptionsSchedulingOptionsEvaluationWindow:
+    MonitorOptionsSchedulingOptionsEvaluationWindow,
   MonitorSearchCountItem: MonitorSearchCountItem,
   MonitorSearchResponse: MonitorSearchResponse,
   MonitorSearchResponseCounts: MonitorSearchResponseCounts,
