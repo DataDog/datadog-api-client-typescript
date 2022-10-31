@@ -1136,7 +1136,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage by product family
+   * Get hourly usage by product family.
    * @param param The request object
    */
   public getHourlyUsage(
