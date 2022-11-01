@@ -47,6 +47,8 @@ export type UsageAttributionSupportedMetrics =
   | typeof ESTIMATED_INGESTED_SPANS_PERCENTAGE
   | typeof APM_FARGATE_USAGE
   | typeof APM_FARGATE_PERCENTAGE
+  | typeof APPSEC_FARGATE_USAGE
+  | typeof APPSEC_FARGATE_PERCENTAGE
   | typeof ALL;
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CONTAINER_USAGE = "container_usage";
@@ -94,4 +96,6 @@ export const ESTIMATED_INGESTED_SPANS_PERCENTAGE =
   "estimated_ingested_spans_percentage";
 export const APM_FARGATE_USAGE = "apm_fargate_usage";
 export const APM_FARGATE_PERCENTAGE = "apm_fargate_percentage";
+export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
+export const APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage";
 export const ALL = "*";

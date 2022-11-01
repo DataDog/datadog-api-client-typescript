@@ -27,6 +27,10 @@ export class UsageSummaryDateOrg {
    */
   "apmHostTop99p"?: number;
   /**
+   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current months for the given org.
+   */
+  "appsecFargateCountAvg"?: number;
+  /**
    * Shows the sum of all audit logs lines indexed over all hours in the current date for the given org.
    */
   "auditLogsLinesIndexedSum"?: number;
@@ -321,6 +325,11 @@ export class UsageSummaryDateOrg {
     },
     apmHostTop99p: {
       baseName: "apm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    appsecFargateCountAvg: {
+      baseName: "appsec_fargate_count_avg",
       type: "number",
       format: "int64",
     },

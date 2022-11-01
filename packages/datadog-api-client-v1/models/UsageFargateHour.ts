@@ -15,6 +15,10 @@ export class UsageFargateHour {
    */
   "apmFargateCount"?: number;
   /**
+   * The Application Security Monitoring ECS Fargate tasks during the given hour.
+   */
+  "appsecFargateCount"?: number;
+  /**
    * The average profiled task count for Fargate Profiling.
    */
   "avgProfiledFargateTasks"?: number;
@@ -46,6 +50,11 @@ export class UsageFargateHour {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apmFargateCount: {
       baseName: "apm_fargate_count",
+      type: "number",
+      format: "int64",
+    },
+    appsecFargateCount: {
+      baseName: "appsec_fargate_count",
       type: "number",
       format: "int64",
     },
