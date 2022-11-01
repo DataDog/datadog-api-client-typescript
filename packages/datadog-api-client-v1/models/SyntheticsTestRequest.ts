@@ -27,6 +27,10 @@ export class SyntheticsTestRequest {
    */
   "body"?: string;
   /**
+   * Request body type. Supported values are `text/plain`, `application/json`, `text/xml`, `text/html`, `application/x-www-form-urlencoded`, `GraphQL`, or `None`.
+   */
+  "bodyType"?: string;
+  /**
    * Client certificate to use when performing the test request.
    */
   "certificate"?: SyntheticsTestRequestCertificate;
@@ -128,6 +132,10 @@ export class SyntheticsTestRequest {
     },
     body: {
       baseName: "body",
+      type: "string",
+    },
+    bodyType: {
+      baseName: "bodyType",
       type: "string",
     },
     certificate: {
