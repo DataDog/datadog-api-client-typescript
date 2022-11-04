@@ -68,7 +68,7 @@ export interface ConfigurationParameters {
  * @param conf partial configuration
  */
 export function createConfiguration(conf: ConfigurationParameters = {}): Configuration {
-  if (process !== undefined && process.env.DD_SITE) {
+  if (typeof process !== 'undefined' && process.env.DD_SITE) {
     const serverConf = server1.getConfiguration();
     server1.setVariables({"site": process.env.DD_SITE} as (typeof serverConf));
     for (const op in operationServers) {
@@ -79,7 +79,7 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
   const authMethods = conf.authMethods || {};
   {%- for name, schema in openapi.components.securitySchemes.items()  %}
   {%- if schema.get("type") == "apiKey" and schema.get("in") == "header" %}
-  if (!("{{ name }}" in authMethods) && process !== undefined && process.env.{{ schema["x-env-name"] }}) {
+  if (!("{{ name }}" in authMethods) && typeof process !== 'undefined' && process.env.{{ schema["x-env-name"] }}) {
     authMethods["{{ name }}"] = process.env.{{ schema["x-env-name"] }};
   }
   {%- endif %}
