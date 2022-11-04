@@ -9,7 +9,7 @@ const apiInstance = new v2.UsageMeteringApi(configuration);
 
 const params: v2.UsageMeteringApiGetEstimatedCostByOrgRequest = {
   view: "sub-org",
-  startMonth: new Date(new Date().getTime() + -5 * 86400 * 1000),
+  startMonth: new Date(),
 };
 
 apiInstance
