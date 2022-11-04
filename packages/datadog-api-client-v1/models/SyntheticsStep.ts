@@ -24,10 +24,6 @@ export class SyntheticsStep {
    */
   "name"?: string;
   /**
-   * A boolean set to not take a screenshot for the step.
-   */
-  "noScreenshot"?: boolean;
-  /**
    * The parameters of the step.
    */
   "params"?: any;
@@ -60,10 +56,6 @@ export class SyntheticsStep {
     name: {
       baseName: "name",
       type: "string",
-    },
-    noScreenshot: {
-      baseName: "noScreenshot",
-      type: "boolean",
     },
     params: {
       baseName: "params",

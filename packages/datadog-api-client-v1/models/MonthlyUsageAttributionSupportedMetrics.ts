@@ -9,8 +9,6 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof API_PERCENTAGE
   | typeof APM_FARGATE_USAGE
   | typeof APM_FARGATE_PERCENTAGE
-  | typeof APPSEC_FARGATE_USAGE
-  | typeof APPSEC_FARGATE_PERCENTAGE
   | typeof APM_HOST_USAGE
   | typeof APM_HOST_PERCENTAGE
   | typeof APPSEC_USAGE
@@ -64,8 +62,6 @@ export const API_USAGE = "api_usage";
 export const API_PERCENTAGE = "api_percentage";
 export const APM_FARGATE_USAGE = "apm_fargate_usage";
 export const APM_FARGATE_PERCENTAGE = "apm_fargate_percentage";
-export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
-export const APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage";
 export const APM_HOST_USAGE = "apm_host_usage";
 export const APM_HOST_PERCENTAGE = "apm_host_percentage";
 export const APPSEC_USAGE = "appsec_usage";

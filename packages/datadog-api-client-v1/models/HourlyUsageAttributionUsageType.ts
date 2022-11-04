@@ -8,7 +8,6 @@ export type HourlyUsageAttributionUsageType =
   | typeof API_USAGE
   | typeof APM_FARGATE_USAGE
   | typeof APM_HOST_USAGE
-  | typeof APPSEC_FARGATE_USAGE
   | typeof APPSEC_USAGE
   | typeof BROWSER_USAGE
   | typeof CONTAINER_USAGE
@@ -35,7 +34,6 @@ export type HourlyUsageAttributionUsageType =
 export const API_USAGE = "api_usage";
 export const APM_FARGATE_USAGE = "apm_fargate_usage";
 export const APM_HOST_USAGE = "apm_host_usage";
-export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
 export const APPSEC_USAGE = "appsec_usage";
 export const BROWSER_USAGE = "browser_usage";
 export const CONTAINER_USAGE = "container_usage";
