@@ -7,6 +7,7 @@ import {
 import fetch from "cross-fetch";
 import pako from "pako";
 import bufferFrom from "buffer-from";
+import { isBrowser } from "../util";
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
@@ -25,6 +26,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     }
 
     const headers = request.getHeaders();
+
     if (typeof body === "string") {
       if (headers["Content-Encoding"] == "gzip") {
         body = bufferFrom(pako.gzip(body).buffer);
@@ -39,12 +41,14 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       }
     }
 
-    if (!headers["Accept-Encoding"]) {
-      if (compress) {
-        headers["Accept-Encoding"] = "gzip,deflate";
-      } else {
-        // We need to enforce it otherwise node-fetch will set a default
-        headers["Accept-Encoding"] = "identity";
+    if (!isBrowser) {
+      if (!headers["Accept-Encoding"]) {
+        if (compress) {
+          headers["Accept-Encoding"] = "gzip,deflate";
+        } else {
+          // We need to enforce it otherwise node-fetch will set a default
+          headers["Accept-Encoding"] = "identity";
+        }
       }
     }
 
