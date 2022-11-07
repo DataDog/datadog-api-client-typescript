@@ -9,7 +9,10 @@ import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The object sent with the request to retrieve aggregation buckets of test events from your organization.
@@ -40,7 +43,7 @@ export class CIAppTestsAggregateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

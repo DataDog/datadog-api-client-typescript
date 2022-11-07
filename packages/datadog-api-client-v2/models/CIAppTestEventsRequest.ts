@@ -8,7 +8,10 @@ import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 import { CIAppSort } from "./CIAppSort";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The request for a tests search.
@@ -35,7 +38,7 @@ export class CIAppTestEventsRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

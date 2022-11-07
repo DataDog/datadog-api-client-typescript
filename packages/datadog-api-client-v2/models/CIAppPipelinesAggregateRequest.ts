@@ -9,7 +9,10 @@ import { CIAppPipelinesQueryFilter } from "./CIAppPipelinesQueryFilter";
 import { CIAppQueryOptions } from "./CIAppQueryOptions";
 import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The object sent with the request to retrieve aggregation buckets of pipeline events from your organization.
@@ -40,7 +43,7 @@ export class CIAppPipelinesAggregateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

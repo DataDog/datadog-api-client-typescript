@@ -2444,6 +2444,88 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AuthNMappingResponse",
     },
+    "v2.AggregateCIAppPipelineEvents": {
+        "body": {
+            "type": "CIAppPipelinesAggregateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CIAppPipelinesAnalyticsAggregateResponse",
+    },
+    "v2.ListCIAppPipelineEvents": {
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "CIAppSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "CIAppPipelineEventsResponse",
+    },
+    "v2.SearchCIAppPipelineEvents": {
+        "body": {
+            "type": "CIAppPipelineEventsRequest",
+            "format": "",
+            },
+        "operationResponseType": "CIAppPipelineEventsResponse",
+    },
+    "v2.AggregateCIAppTestEvents": {
+        "body": {
+            "type": "CIAppTestsAggregateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CIAppTestsAnalyticsAggregateResponse",
+    },
+    "v2.ListCIAppTestEvents": {
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "CIAppSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "CIAppTestEventsResponse",
+    },
+    "v2.SearchCIAppTestEvents": {
+        "body": {
+            "type": "CIAppTestEventsRequest",
+            "format": "",
+            },
+        "operationResponseType": "CIAppTestEventsResponse",
+    },
     "v2.DeleteDashboardListItems": {
         "dashboardListId": {
             "type": "number",
@@ -2766,6 +2848,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "filterTo": {
             "type": "Date",
             "format": "date-time",
+            },
+        "filterStorageTier": {
+            "type": "LogsStorageTier",
+            "format": "",
             },
         "sort": {
             "type": "LogsSort",

@@ -6,7 +6,10 @@
 import { CIAppEventAttributes } from "./CIAppEventAttributes";
 import { CIAppTestEventTypeName } from "./CIAppTestEventTypeName";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object description of test event after being processed and stored by Datadog.
@@ -28,7 +31,7 @@ export class CIAppTestEvent {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

@@ -5,7 +5,10 @@
  */
 import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The query results.
@@ -19,7 +22,7 @@ export class CIAppTestsAggregationBucketsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

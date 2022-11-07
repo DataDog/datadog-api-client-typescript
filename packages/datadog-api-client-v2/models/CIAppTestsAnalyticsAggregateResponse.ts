@@ -7,7 +7,10 @@ import { CIAppResponseLinks } from "./CIAppResponseLinks";
 import { CIAppResponseMetadata } from "./CIAppResponseMetadata";
 import { CIAppTestsAggregationBucketsResponse } from "./CIAppTestsAggregationBucketsResponse";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * The response object for the test events aggregate API endpoint.
@@ -29,7 +32,7 @@ export class CIAppTestsAnalyticsAggregateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore

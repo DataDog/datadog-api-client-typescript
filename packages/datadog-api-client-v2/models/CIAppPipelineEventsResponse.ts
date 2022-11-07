@@ -7,7 +7,10 @@ import { CIAppPipelineEvent } from "./CIAppPipelineEvent";
 import { CIAppResponseLinks } from "./CIAppResponseLinks";
 import { CIAppResponseMetadata } from "./CIAppResponseMetadata";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Response object with all pipeline events matching the request and pagination information.
@@ -29,7 +32,7 @@ export class CIAppPipelineEventsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore
