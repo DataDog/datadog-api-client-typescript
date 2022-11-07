@@ -2,8 +2,7 @@ import { version } from "./version";
 
 export let userAgent: string;
 if (typeof process !== 'undefined' && process.release.name === 'node') {
-    const os = require("os");
-    userAgent = `datadog-api-client-typescript/${version} (node ${process.versions.node}; os ${os.type()}; arch ${os.arch()})`
+    userAgent = `datadog-api-client-typescript/${version} (node ${process.versions.node}; os ${process.platform}; arch ${process.arch})`
 } else if (typeof window !== "undefined" && typeof window.document !== "undefined") {
     // we don't set user-agent headers in browsers
 } else {
