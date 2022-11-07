@@ -14,6 +14,12 @@ export type AttributeTypeMap = {
   };
 };
 
+export const isBrowser: boolean =
+  typeof window !== "undefined" && typeof window.document !== "undefined";
+
+export const isNode: boolean =
+  typeof process !== "undefined" && process.release.name === "node";
+
 export class DDate extends Date {
   rfc3339TzOffset: string | undefined;
 }
