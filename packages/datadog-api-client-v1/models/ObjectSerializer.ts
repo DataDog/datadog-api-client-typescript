@@ -192,6 +192,8 @@ import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCo
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
+import { MonitorOptionsSchedulingOptions } from "./MonitorOptionsSchedulingOptions";
+import { MonitorOptionsSchedulingOptionsEvaluationWindow } from "./MonitorOptionsSchedulingOptionsEvaluationWindow";
 import { MonitorSearchCountItem } from "./MonitorSearchCountItem";
 import { MonitorSearchResponse } from "./MonitorSearchResponse";
 import { MonitorSearchResponseCounts } from "./MonitorSearchResponseCounts";
@@ -676,6 +678,7 @@ const enumsMap: { [key: string]: any[] } = {
     "api_usage",
     "apm_fargate_usage",
     "apm_host_usage",
+    "appsec_fargate_usage",
     "appsec_usage",
     "browser_usage",
     "container_usage",
@@ -759,6 +762,10 @@ const enumsMap: { [key: string]: any[] } = {
     "rum",
     "ci_pipelines",
     "ci_tests",
+    "audit",
+    "events",
+    "logs",
+    "spans",
   ],
   MonitorOverallStates: [
     "Alert",
@@ -794,6 +801,8 @@ const enumsMap: { [key: string]: any[] } = {
     "api_percentage",
     "apm_fargate_usage",
     "apm_fargate_percentage",
+    "appsec_fargate_usage",
+    "appsec_fargate_percentage",
     "apm_host_usage",
     "apm_host_percentage",
     "appsec_usage",
@@ -1147,6 +1156,8 @@ const enumsMap: { [key: string]: any[] } = {
     "estimated_ingested_spans_percentage",
     "apm_fargate_usage",
     "apm_fargate_percentage",
+    "appsec_fargate_usage",
+    "appsec_fargate_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1191,6 +1202,8 @@ const enumsMap: { [key: string]: any[] } = {
     "estimated_ingested_spans_percentage",
     "apm_fargate_usage",
     "apm_fargate_percentage",
+    "appsec_fargate_usage",
+    "appsec_fargate_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],
@@ -1515,6 +1528,9 @@ const typeMap: { [index: string]: any } = {
   MonitorGroupSearchResult: MonitorGroupSearchResult,
   MonitorOptions: MonitorOptions,
   MonitorOptionsAggregation: MonitorOptionsAggregation,
+  MonitorOptionsSchedulingOptions: MonitorOptionsSchedulingOptions,
+  MonitorOptionsSchedulingOptionsEvaluationWindow:
+    MonitorOptionsSchedulingOptionsEvaluationWindow,
   MonitorSearchCountItem: MonitorSearchCountItem,
   MonitorSearchResponse: MonitorSearchResponse,
   MonitorSearchResponseCounts: MonitorSearchResponseCounts,

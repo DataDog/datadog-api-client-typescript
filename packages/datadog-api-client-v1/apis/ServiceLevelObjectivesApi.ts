@@ -300,11 +300,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'getSLOHistory'");
-    if (!_config.unstableOperations["v1.getSLOHistory"]) {
-      throw new Error("Unstable operation 'getSLOHistory' is disabled");
-    }
-
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
       throw new RequiredError(

@@ -38,6 +38,14 @@ export class UsageAttributionValues {
    */
   "apmHostUsage"?: number;
   /**
+   * The percentage of Application Security Monitoring ECS Fargate task usage by tag(s).
+   */
+  "appsecFargatePercentage"?: number;
+  /**
+   * The Application Security Monitoring ECS Fargate task usage by tag(s).
+   */
+  "appsecFargateUsage"?: number;
+  /**
    * The percentage of Application Security Monitoring host usage by tag(s).
    */
   "appsecPercentage"?: number;
@@ -242,6 +250,16 @@ export class UsageAttributionValues {
     },
     apmHostUsage: {
       baseName: "apm_host_usage",
+      type: "number",
+      format: "double",
+    },
+    appsecFargatePercentage: {
+      baseName: "appsec_fargate_percentage",
+      type: "number",
+      format: "double",
+    },
+    appsecFargateUsage: {
+      baseName: "appsec_fargate_usage",
       type: "number",
       format: "double",
     },

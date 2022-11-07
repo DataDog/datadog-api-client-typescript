@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LogsStorageTier } from "./LogsStorageTier";
 
 import {
   AttributeTypeMap,
@@ -25,6 +26,10 @@ export class LogsQueryFilter {
    * The search query - following the log search syntax.
    */
   "query"?: string;
+  /**
+   * Specifies storage type as indexes or online-archives
+   */
+  "storageTier"?: LogsStorageTier;
   /**
    * The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
    */
@@ -50,6 +55,10 @@ export class LogsQueryFilter {
     query: {
       baseName: "query",
       type: "string",
+    },
+    storageTier: {
+      baseName: "storage_tier",
+      type: "LogsStorageTier",
     },
     to: {
       baseName: "to",

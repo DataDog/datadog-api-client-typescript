@@ -40,6 +40,35 @@ import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucketValueTimeseriesPoint";
+import { CIAppAggregateSort } from "./CIAppAggregateSort";
+import { CIAppCompute } from "./CIAppCompute";
+import { CIAppEventAttributes } from "./CIAppEventAttributes";
+import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
+import { CIAppPipelineEvent } from "./CIAppPipelineEvent";
+import { CIAppPipelineEventsRequest } from "./CIAppPipelineEventsRequest";
+import { CIAppPipelineEventsResponse } from "./CIAppPipelineEventsResponse";
+import { CIAppPipelinesAggregateRequest } from "./CIAppPipelinesAggregateRequest";
+import { CIAppPipelinesAggregationBucketsResponse } from "./CIAppPipelinesAggregationBucketsResponse";
+import { CIAppPipelinesAnalyticsAggregateResponse } from "./CIAppPipelinesAnalyticsAggregateResponse";
+import { CIAppPipelinesBucketResponse } from "./CIAppPipelinesBucketResponse";
+import { CIAppPipelinesGroupBy } from "./CIAppPipelinesGroupBy";
+import { CIAppPipelinesQueryFilter } from "./CIAppPipelinesQueryFilter";
+import { CIAppQueryOptions } from "./CIAppQueryOptions";
+import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
+import { CIAppResponseLinks } from "./CIAppResponseLinks";
+import { CIAppResponseMetadata } from "./CIAppResponseMetadata";
+import { CIAppResponsePage } from "./CIAppResponsePage";
+import { CIAppTestEvent } from "./CIAppTestEvent";
+import { CIAppTestEventsRequest } from "./CIAppTestEventsRequest";
+import { CIAppTestEventsResponse } from "./CIAppTestEventsResponse";
+import { CIAppTestsAggregateRequest } from "./CIAppTestsAggregateRequest";
+import { CIAppTestsAggregationBucketsResponse } from "./CIAppTestsAggregationBucketsResponse";
+import { CIAppTestsAnalyticsAggregateResponse } from "./CIAppTestsAnalyticsAggregateResponse";
+import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
+import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
+import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
+import { CIAppWarning } from "./CIAppWarning";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
@@ -526,6 +555,27 @@ const enumsMap: { [key: string]: any[] } = {
     "-saml_assertion_attribute.attribute_value",
   ],
   AuthNMappingsType: ["authn_mappings"],
+  CIAppAggregateSortType: ["alphabetical", "measure"],
+  CIAppAggregationFunction: [
+    "count",
+    "cardinality",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+    "median",
+  ],
+  CIAppComputeType: ["timeseries", "total"],
+  CIAppPipelineEventTypeName: ["cipipeline"],
+  CIAppResponseStatus: ["done", "timeout"],
+  CIAppSort: ["timestamp", "-timestamp"],
+  CIAppSortOrder: ["asc", "desc"],
+  CIAppTestEventTypeName: ["citest"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
   ConfluentResourceType: ["confluent-cloud-resources"],
@@ -603,6 +653,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsMetricType: ["logs_metrics"],
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
+  LogsStorageTier: ["indexes", "online-archives"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
   MetricContentEncoding: ["deflate", "zstd1", "gzip"],
@@ -784,6 +835,38 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  CIAppAggregateBucketValueTimeseriesPoint:
+    CIAppAggregateBucketValueTimeseriesPoint,
+  CIAppAggregateSort: CIAppAggregateSort,
+  CIAppCompute: CIAppCompute,
+  CIAppEventAttributes: CIAppEventAttributes,
+  CIAppGroupByHistogram: CIAppGroupByHistogram,
+  CIAppPipelineEvent: CIAppPipelineEvent,
+  CIAppPipelineEventsRequest: CIAppPipelineEventsRequest,
+  CIAppPipelineEventsResponse: CIAppPipelineEventsResponse,
+  CIAppPipelinesAggregateRequest: CIAppPipelinesAggregateRequest,
+  CIAppPipelinesAggregationBucketsResponse:
+    CIAppPipelinesAggregationBucketsResponse,
+  CIAppPipelinesAnalyticsAggregateResponse:
+    CIAppPipelinesAnalyticsAggregateResponse,
+  CIAppPipelinesBucketResponse: CIAppPipelinesBucketResponse,
+  CIAppPipelinesGroupBy: CIAppPipelinesGroupBy,
+  CIAppPipelinesQueryFilter: CIAppPipelinesQueryFilter,
+  CIAppQueryOptions: CIAppQueryOptions,
+  CIAppQueryPageOptions: CIAppQueryPageOptions,
+  CIAppResponseLinks: CIAppResponseLinks,
+  CIAppResponseMetadata: CIAppResponseMetadata,
+  CIAppResponsePage: CIAppResponsePage,
+  CIAppTestEvent: CIAppTestEvent,
+  CIAppTestEventsRequest: CIAppTestEventsRequest,
+  CIAppTestEventsResponse: CIAppTestEventsResponse,
+  CIAppTestsAggregateRequest: CIAppTestsAggregateRequest,
+  CIAppTestsAggregationBucketsResponse: CIAppTestsAggregationBucketsResponse,
+  CIAppTestsAnalyticsAggregateResponse: CIAppTestsAnalyticsAggregateResponse,
+  CIAppTestsBucketResponse: CIAppTestsBucketResponse,
+  CIAppTestsGroupBy: CIAppTestsGroupBy,
+  CIAppTestsQueryFilter: CIAppTestsQueryFilter,
+  CIAppWarning: CIAppWarning,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
@@ -1259,6 +1342,13 @@ const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User"],
   ApplicationKeyResponseIncludedItem: ["User", "Role"],
   AuthNMappingIncluded: ["SAMLAssertionAttribute", "Role"],
+  CIAppAggregateBucketValue: [
+    "string",
+    "number",
+    "Array<CIAppAggregateBucketValueTimeseriesPoint>",
+  ],
+  CIAppGroupByMissing: ["string", "number"],
+  CIAppGroupByTotal: ["boolean", "string", "number"],
   IncidentAttachmentAttributes: [
     "IncidentAttachmentPostmortemAttributes",
     "IncidentAttachmentLinkAttributes",

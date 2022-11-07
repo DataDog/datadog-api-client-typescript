@@ -6,6 +6,7 @@
 import { MonitorDeviceID } from "./MonitorDeviceID";
 import { MonitorFormulaAndFunctionQueryDefinition } from "./MonitorFormulaAndFunctionQueryDefinition";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
+import { MonitorOptionsSchedulingOptions } from "./MonitorOptionsSchedulingOptions";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholds } from "./MonitorThresholds";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
@@ -145,6 +146,10 @@ export class MonitorOptions {
    */
   "requireFullWindow"?: boolean;
   /**
+   * Configuration options for scheduling.
+   */
+  "schedulingOptions"?: MonitorOptionsSchedulingOptions;
+  /**
    * Information about the downtime applied to the monitor.
    */
   "silenced"?: { [key: string]: number };
@@ -273,6 +278,10 @@ export class MonitorOptions {
     requireFullWindow: {
       baseName: "require_full_window",
       type: "boolean",
+    },
+    schedulingOptions: {
+      baseName: "scheduling_options",
+      type: "MonitorOptionsSchedulingOptions",
     },
     silenced: {
       baseName: "silenced",

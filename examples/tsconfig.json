@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "strict": true,
-    "target": "es5",
+    "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
@@ -15,7 +15,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "noLib": false,
-    "lib": ["es5", "es6", "es7"],
+    "lib": ["es6", "es7"],
     "outDir": "../../dist"
   },
   "exclude": ["dist", "features", "node_modules", "generated"],

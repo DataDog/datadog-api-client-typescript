@@ -1086,7 +1086,8 @@ export class UsageMeteringApi {
 
   /**
    * Get estimated cost across multi-org and single root-org accounts.
-   * Estimated cost data is only available for the current month and previous month.
+   * Estimated cost data is only available for the current month and previous month
+   * and is delayed by up to 72 hours from when it was incurred.
    * To access historical costs prior to this, use the `/historical_cost` endpoint.
    * @param param The request object
    */
@@ -1136,7 +1137,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage by product family
+   * Get hourly usage by product family.
    * @param param The request object
    */
   public getHourlyUsage(
