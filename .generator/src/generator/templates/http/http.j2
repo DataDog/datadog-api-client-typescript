@@ -2,6 +2,7 @@ import { userAgent } from "../../../userAgent";
 // TODO: evaluate if we can easily get rid of this library
 import FormData from "form-data";
 import URLParse from "url-parse";
+import { isBrowser } from "../util";
 
 /**
  * Interface for aborting fetch requests.
@@ -82,7 +83,7 @@ export interface HttpConfiguration {
  * Represents an HTTP request context
  */
 export class RequestContext {
-  private headers: { [key: string]: string } = { "user-agent": userAgent };
+  private headers: { [key: string]: string } = {};
   private body: RequestBody = undefined;
   private url: URLParse;
   private httpConfig: HttpConfiguration = {};
@@ -95,6 +96,9 @@ export class RequestContext {
    */
   public constructor(url: string, private httpMethod: HttpMethod) {
     this.url = new URLParse(url, true);
+    if (!isBrowser) {
+      this.headers = { "user-agent": userAgent };
+    }
   }
 
   /*
