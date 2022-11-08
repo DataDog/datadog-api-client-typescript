@@ -786,6 +786,9 @@ export { SyntheticsAssertionJSONPathTargetTarget } from "./models/SyntheticsAsse
 export { SyntheticsAssertionOperator } from "./models/SyntheticsAssertionOperator";
 export { SyntheticsAssertionTarget } from "./models/SyntheticsAssertionTarget";
 export { SyntheticsAssertionType } from "./models/SyntheticsAssertionType";
+export { SyntheticsAssertionXPathOperator } from "./models/SyntheticsAssertionXPathOperator";
+export { SyntheticsAssertionXPathTarget } from "./models/SyntheticsAssertionXPathTarget";
+export { SyntheticsAssertionXPathTargetTarget } from "./models/SyntheticsAssertionXPathTargetTarget";
 export { SyntheticsBasicAuth } from "./models/SyntheticsBasicAuth";
 export { SyntheticsBasicAuthDigest } from "./models/SyntheticsBasicAuthDigest";
 export { SyntheticsBasicAuthDigestType } from "./models/SyntheticsBasicAuthDigestType";
