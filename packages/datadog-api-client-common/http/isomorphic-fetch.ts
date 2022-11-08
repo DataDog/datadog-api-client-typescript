@@ -4,10 +4,10 @@ import {
   ResponseContext,
   ZstdCompressorCallback,
 } from "./http";
-import fetch from "cross-fetch";
+import { fetch as crossFetch } from "cross-fetch";
 import pako from "pako";
 import bufferFrom from "buffer-from";
-import { isBrowser } from "../util";
+import { isBrowser, isNode } from "../util";
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
@@ -52,27 +52,57 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       }
     }
 
-    const resultPromise = fetch(request.getUrl(), {
-      method: method,
-      body: body as any,
-      headers: headers,
-      signal: request.getHttpConfig().signal,
-    }).then((resp: any) => {
-      const headers: { [name: string]: string } = {};
-      resp.headers.forEach((value: string, name: string) => {
-        headers[name] = value;
-      });
+    let resultPromise: Promise<ResponseContext>;
 
-      const body = {
-        text: () => resp.text(),
-        binary: () => resp.buffer(),
-      };
-      const response = new ResponseContext(resp.status, headers, body);
-      if (this.debug) {
-        this.logResponse(response);
-      }
-      return response;
-    });
+    // On non-node environments, use native fetch if available.
+    // `cross-fetch` incorrectly assumes all browsers have XHR available.
+    // See https://github.com/lquixada/cross-fetch/issues/78
+    // TODO: Remove once once above issue is resolved.
+    if (!isNode && typeof fetch === "function") {
+      resultPromise = fetch(request.getUrl(), {
+        method: method,
+        body: body as any,
+        headers: headers,
+        signal: request.getHttpConfig().signal,
+      }).then((resp: any) => {
+        const headers: { [name: string]: string } = {};
+        resp.headers.forEach((value: string, name: string) => {
+          headers[name] = value;
+        });
+
+        const body = {
+          text: () => resp.text(),
+          binary: () => resp.buffer(),
+        };
+        const response = new ResponseContext(resp.status, headers, body);
+        if (this.debug) {
+          this.logResponse(response);
+        }
+        return response;
+      });
+    } else {
+      resultPromise = crossFetch(request.getUrl(), {
+        method: method,
+        body: body as any,
+        headers: headers,
+        signal: request.getHttpConfig().signal,
+      }).then((resp: any) => {
+        const headers: { [name: string]: string } = {};
+        resp.headers.forEach((value: string, name: string) => {
+          headers[name] = value;
+        });
+
+        const body = {
+          text: () => resp.text(),
+          binary: () => resp.buffer(),
+        };
+        const response = new ResponseContext(resp.status, headers, body);
+        if (this.debug) {
+          this.logResponse(response);
+        }
+        return response;
+      });
+    }
 
     return resultPromise;
   }
