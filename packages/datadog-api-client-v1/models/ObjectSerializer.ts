@@ -347,6 +347,8 @@ import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
+import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
+import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
 import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
 import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
@@ -971,6 +973,7 @@ const enumsMap: { [key: string]: any[] } = {
     "grpcHealthcheckStatus",
     "connection",
   ],
+  SyntheticsAssertionXPathOperator: ["validatesXPath"],
   SyntheticsBasicAuthDigestType: ["digest"],
   SyntheticsBasicAuthNTLMType: ["ntlm"],
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
@@ -1105,6 +1108,14 @@ const enumsMap: { [key: string]: any[] } = {
     "scheduled",
     "finished",
     "finished_with_error",
+  ],
+  SyntheticsTestRequestBodyType: [
+    "text/plain",
+    "application/json",
+    "text/xml",
+    "text/html",
+    "application/x-www-form-urlencoded",
+    "graphql",
   ],
   SyntheticsWarningType: ["user_locator"],
   TableWidgetCellDisplayMode: ["number", "bar"],
@@ -1690,6 +1701,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
+  SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
+  SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
   SyntheticsBasicAuthDigest: SyntheticsBasicAuthDigest,
   SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
   SyntheticsBasicAuthSigv4: SyntheticsBasicAuthSigv4,
@@ -1968,6 +1981,7 @@ const oneOfMap: { [index: string]: string[] } = {
   SyntheticsAssertion: [
     "SyntheticsAssertionTarget",
     "SyntheticsAssertionJSONPathTarget",
+    "SyntheticsAssertionXPathTarget",
   ],
   SyntheticsBasicAuth: [
     "SyntheticsBasicAuthWeb",

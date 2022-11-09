@@ -5,6 +5,7 @@
  */
 import { HTTPMethod } from "./HTTPMethod";
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
+import { SyntheticsTestRequestBodyType } from "./SyntheticsTestRequestBodyType";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
 
@@ -29,6 +30,10 @@ export class SyntheticsTestRequest {
    * Body to include in the test.
    */
   "body"?: string;
+  /**
+   * Type of the request body.
+   */
+  "bodyType"?: SyntheticsTestRequestBodyType;
   /**
    * Client certificate to use when performing the test request.
    */
@@ -132,6 +137,10 @@ export class SyntheticsTestRequest {
     body: {
       baseName: "body",
       type: "string",
+    },
+    bodyType: {
+      baseName: "bodyType",
+      type: "SyntheticsTestRequestBodyType",
     },
     certificate: {
       baseName: "certificate",

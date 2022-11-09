@@ -786,6 +786,9 @@ export { SyntheticsAssertionJSONPathTargetTarget } from "./models/SyntheticsAsse
 export { SyntheticsAssertionOperator } from "./models/SyntheticsAssertionOperator";
 export { SyntheticsAssertionTarget } from "./models/SyntheticsAssertionTarget";
 export { SyntheticsAssertionType } from "./models/SyntheticsAssertionType";
+export { SyntheticsAssertionXPathOperator } from "./models/SyntheticsAssertionXPathOperator";
+export { SyntheticsAssertionXPathTarget } from "./models/SyntheticsAssertionXPathTarget";
+export { SyntheticsAssertionXPathTargetTarget } from "./models/SyntheticsAssertionXPathTargetTarget";
 export { SyntheticsBasicAuth } from "./models/SyntheticsBasicAuth";
 export { SyntheticsBasicAuthDigest } from "./models/SyntheticsBasicAuthDigest";
 export { SyntheticsBasicAuthDigestType } from "./models/SyntheticsBasicAuthDigestType";
@@ -871,6 +874,7 @@ export { SyntheticsTestOptionsRetry } from "./models/SyntheticsTestOptionsRetry"
 export { SyntheticsTestPauseStatus } from "./models/SyntheticsTestPauseStatus";
 export { SyntheticsTestProcessStatus } from "./models/SyntheticsTestProcessStatus";
 export { SyntheticsTestRequest } from "./models/SyntheticsTestRequest";
+export { SyntheticsTestRequestBodyType } from "./models/SyntheticsTestRequestBodyType";
 export { SyntheticsTestRequestCertificate } from "./models/SyntheticsTestRequestCertificate";
 export { SyntheticsTestRequestCertificateItem } from "./models/SyntheticsTestRequestCertificateItem";
 export { SyntheticsTestRequestProxy } from "./models/SyntheticsTestRequestProxy";

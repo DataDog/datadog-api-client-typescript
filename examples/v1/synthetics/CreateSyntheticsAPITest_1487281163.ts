@@ -31,6 +31,15 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           },
           type: "body",
         },
+        {
+          operator: "validatesXPath",
+          target: {
+            xPath: "target-xpath",
+            targetValue: "0",
+            operator: "contains",
+          },
+          type: "body",
+        },
       ],
       configVariables: [
         {
