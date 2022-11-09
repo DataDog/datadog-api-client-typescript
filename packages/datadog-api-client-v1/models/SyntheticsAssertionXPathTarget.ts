@@ -7,7 +7,10 @@ import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
 import { SyntheticsAssertionXPathOperator } from "./SyntheticsAssertionXPathOperator";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * An assertion for the `validatesXPath` operator.
@@ -33,7 +36,7 @@ export class SyntheticsAssertionXPathTarget {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore
