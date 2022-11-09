@@ -23,6 +23,7 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
           type: "web",
           username: "my_username",
         },
+        bodyType: "text/plain",
         certificate: {
           cert: {},
           key: {},

@@ -874,6 +874,7 @@ export { SyntheticsTestOptionsRetry } from "./models/SyntheticsTestOptionsRetry"
 export { SyntheticsTestPauseStatus } from "./models/SyntheticsTestPauseStatus";
 export { SyntheticsTestProcessStatus } from "./models/SyntheticsTestProcessStatus";
 export { SyntheticsTestRequest } from "./models/SyntheticsTestRequest";
+export { SyntheticsTestRequestBodyType } from "./models/SyntheticsTestRequestBodyType";
 export { SyntheticsTestRequestCertificate } from "./models/SyntheticsTestRequestCertificate";
 export { SyntheticsTestRequestCertificateItem } from "./models/SyntheticsTestRequestCertificateItem";
 export { SyntheticsTestRequestProxy } from "./models/SyntheticsTestRequestProxy";
