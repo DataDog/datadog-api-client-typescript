@@ -53,8 +53,8 @@ export function dateToRFC3339String(date: Date | DDate): string {
   const hour = date.getUTCHours() + +tzHour;
   const minute = date.getUTCMinutes() + +tzMin;
   const second = date.getUTCSeconds();
-  let msec = date.getUTCMilliseconds().toString();
 
+  let msec = date.getUTCMilliseconds().toString();
   msec = +msec === 0 ? "" : `.${pad(+msec, 3)}`;
 
   return (
@@ -94,6 +94,8 @@ function pad(num: number, len = 2): string {
   let paddedNum = num.toString();
   if (paddedNum.length < len) {
     paddedNum = "0".repeat(len - paddedNum.length) + paddedNum;
+  } else if (paddedNum.length > len) {
+    paddedNum = paddedNum.slice(0, len);
   }
 
   return paddedNum;
