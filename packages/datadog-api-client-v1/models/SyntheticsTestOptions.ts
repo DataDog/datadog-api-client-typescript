@@ -21,7 +21,7 @@ export class SyntheticsTestOptions {
    */
   "acceptSelfSigned"?: boolean;
   /**
-   * Allows loading insecure content for an HTTP request in an API test.
+   * Allows loading insecure content for an HTTP request.
    */
   "allowInsecure"?: boolean;
   /**
@@ -49,7 +49,7 @@ export class SyntheticsTestOptions {
    */
   "followRedirects"?: boolean;
   /**
-   * Ignore server certificate error for browser tests.
+   * Ignore server certificate error.
    */
   "ignoreServerCertificateError"?: boolean;
   /**
