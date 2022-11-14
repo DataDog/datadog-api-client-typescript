@@ -32,7 +32,8 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
     integrations: {
       opsgenie: {
         region: "US",
-        serviceId: "123e4567-e89b-12d3-a456-426614174000",
+        serviceUrl:
+          "https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000",
       },
       pagerduty: "https://my-org.pagerduty.com/service-directory/PMyService",
     },

@@ -8,8 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.ServiceDefinitionApi(configuration);
 
 const params: v2.ServiceDefinitionApiGetServiceDefinitionRequest = {
-  serviceName:
-    "service-Example-Get_a_single_service_definition_returns_OK_response",
+  serviceName: "service-definition-test",
 };
 
 apiInstance
