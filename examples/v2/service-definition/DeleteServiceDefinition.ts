@@ -8,8 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.ServiceDefinitionApi(configuration);
 
 const params: v2.ServiceDefinitionApiDeleteServiceDefinitionRequest = {
-  serviceName:
-    "service-Example-Delete_a_single_service_definition_returns_OK_response",
+  serviceName: "service-definition-test",
 };
 
 apiInstance
