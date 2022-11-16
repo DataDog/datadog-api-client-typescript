@@ -12,7 +12,7 @@ const MONTHLY_USAGE_ATTRIBUTION_METADATA_PAGINATION_NEXT_RECORD_ID = process.env
   .MONTHLY_USAGE_ATTRIBUTION_METADATA_PAGINATION_NEXT_RECORD_ID as string;
 
 const params: v1.UsageMeteringApiGetMonthlyUsageAttributionRequest = {
-  startMonth: new Date(new Date().getTime() / 1000 + -3 * 86400),
+  startMonth: new Date(new Date().getTime() + -3 * 86400 * 1000),
   fields: "infra_host_usage",
   nextRecordId: MONTHLY_USAGE_ATTRIBUTION_METADATA_PAGINATION_NEXT_RECORD_ID,
 };

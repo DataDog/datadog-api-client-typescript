@@ -19,6 +19,14 @@ export class MonthlyUsageAttributionValues {
    */
   "apiUsage"?: number;
   /**
+   * The percentage of APM ECS Fargate task usage by tag(s).
+   */
+  "apmFargatePercentage"?: number;
+  /**
+   * The APM ECS Fargate task usage by tag(s).
+   */
+  "apmFargateUsage"?: number;
+  /**
    * The percentage of APM host usage by tag(s).
    */
   "apmHostPercentage"?: number;
@@ -26,6 +34,14 @@ export class MonthlyUsageAttributionValues {
    * The APM host usage by tag(s).
    */
   "apmHostUsage"?: number;
+  /**
+   * The percentage of Application Security Monitoring ECS Fargate task usage by tag(s).
+   */
+  "appsecFargatePercentage"?: number;
+  /**
+   * The Application Security Monitoring ECS Fargate task usage by tag(s).
+   */
+  "appsecFargateUsage"?: number;
   /**
    * The percentage of Application Security Monitoring host usage by tag(s).
    */
@@ -74,6 +90,14 @@ export class MonthlyUsageAttributionValues {
    * The estimated indexed spans usage by tag(s). This field is in private beta.
    */
   "estimatedIndexedSpansUsage"?: number;
+  /**
+   * The percentage of estimated live ingested logs usage by tag(s). This field is in private beta.
+   */
+  "estimatedIngestedLogsPercentage"?: number;
+  /**
+   * The estimated live ingested logs usage by tag(s). This field is in private beta.
+   */
+  "estimatedIngestedLogsUsage"?: number;
   /**
    * The percentage of estimated ingested spans usage by tag(s). This field is in private beta.
    */
@@ -174,6 +198,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    apmFargatePercentage: {
+      baseName: "apm_fargate_percentage",
+      type: "number",
+      format: "double",
+    },
+    apmFargateUsage: {
+      baseName: "apm_fargate_usage",
+      type: "number",
+      format: "double",
+    },
     apmHostPercentage: {
       baseName: "apm_host_percentage",
       type: "number",
@@ -181,6 +215,16 @@ export class MonthlyUsageAttributionValues {
     },
     apmHostUsage: {
       baseName: "apm_host_usage",
+      type: "number",
+      format: "double",
+    },
+    appsecFargatePercentage: {
+      baseName: "appsec_fargate_percentage",
+      type: "number",
+      format: "double",
+    },
+    appsecFargateUsage: {
+      baseName: "appsec_fargate_usage",
       type: "number",
       format: "double",
     },
@@ -241,6 +285,16 @@ export class MonthlyUsageAttributionValues {
     },
     estimatedIndexedSpansUsage: {
       baseName: "estimated_indexed_spans_usage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIngestedLogsPercentage: {
+      baseName: "estimated_ingested_logs_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedIngestedLogsUsage: {
+      baseName: "estimated_ingested_logs_usage",
       type: "number",
       format: "double",
     },

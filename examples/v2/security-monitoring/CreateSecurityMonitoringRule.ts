@@ -36,6 +36,7 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
     message: "Test rule",
     tags: [],
     isEnabled: true,
+    type: "log_detection",
   },
 };
 

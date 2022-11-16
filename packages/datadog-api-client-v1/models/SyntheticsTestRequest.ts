@@ -5,6 +5,7 @@
  */
 import { HTTPMethod } from "./HTTPMethod";
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
+import { SyntheticsTestRequestBodyType } from "./SyntheticsTestRequestBodyType";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
 
@@ -27,9 +28,17 @@ export class SyntheticsTestRequest {
    */
   "body"?: string;
   /**
+   * Type of the request body.
+   */
+  "bodyType"?: SyntheticsTestRequestBodyType;
+  /**
    * Client certificate to use when performing the test request.
    */
   "certificate"?: SyntheticsTestRequestCertificate;
+  /**
+   * By default, the client certificate is applied on the domain of the starting URL for browser tests. If you want your client certificate to be applied on other domains instead, add them in `certificateDomains`.
+   */
+  "certificateDomains"?: Array<string>;
   /**
    * DNS server to use for DNS tests.
    */
@@ -126,9 +135,17 @@ export class SyntheticsTestRequest {
       baseName: "body",
       type: "string",
     },
+    bodyType: {
+      baseName: "bodyType",
+      type: "SyntheticsTestRequestBodyType",
+    },
     certificate: {
       baseName: "certificate",
       type: "SyntheticsTestRequestCertificate",
+    },
+    certificateDomains: {
+      baseName: "certificateDomains",
+      type: "Array<string>",
     },
     dnsServer: {
       baseName: "dnsServer",

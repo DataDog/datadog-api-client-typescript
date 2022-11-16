@@ -16,7 +16,6 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CostByOrgResponse } from "../models/CostByOrgResponse";
@@ -79,7 +78,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getEstimatedCostByOrg(
-    view: string,
+    view?: string,
     startMonth?: Date,
     endMonth?: Date,
     startDate?: Date,
@@ -87,18 +86,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getEstimatedCostByOrg'");
-    if (!_config.unstableOperations["v2.getEstimatedCostByOrg"]) {
-      throw new Error("Unstable operation 'getEstimatedCostByOrg' is disabled");
-    }
-
-    // verify required parameter 'view' is not null or undefined
-    if (view === null || view === undefined) {
-      throw new RequiredError(
-        "Required parameter view was null or undefined when calling getEstimatedCostByOrg."
-      );
-    }
 
     // Path Params
     const localVarPath = "/api/v2/usage/estimated_cost";
@@ -143,6 +130,65 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "end_date",
         ObjectSerializer.serialize(endDate, "Date", "date-time")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getHistoricalCostByOrg(
+    startMonth: Date,
+    view?: string,
+    endMonth?: Date,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'startMonth' is not null or undefined
+    if (startMonth === null || startMonth === undefined) {
+      throw new RequiredError(
+        "Required parameter startMonth was null or undefined when calling getHistoricalCostByOrg."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/historical_cost";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.UsageMeteringApi.getHistoricalCostByOrg"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (view !== undefined) {
+      requestContext.setQueryParam(
+        "view",
+        ObjectSerializer.serialize(view, "string", "")
+      );
+    }
+    if (startMonth !== undefined) {
+      requestContext.setQueryParam(
+        "start_month",
+        ObjectSerializer.serialize(startMonth, "Date", "date-time")
+      );
+    }
+    if (endMonth !== undefined) {
+      requestContext.setQueryParam(
+        "end_month",
+        ObjectSerializer.serialize(endMonth, "Date", "date-time")
       );
     }
 
@@ -421,37 +467,36 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: CostByOrgResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "CostByOrgResponse",
-        ""
+        "CostByOrgResponse"
       ) as CostByOrgResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -484,7 +529,40 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
+      const body: CostByOrgResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CostByOrgResponse"
+      ) as CostByOrgResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostByOrgResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CostByOrgResponse",
@@ -492,29 +570,57 @@ export class UsageMeteringApiResponseProcessor {
       ) as CostByOrgResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getHistoricalCostByOrg
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getHistoricalCostByOrg(
+    response: ResponseContext
+  ): Promise<CostByOrgResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: CostByOrgResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
+        "CostByOrgResponse"
+      ) as CostByOrgResponse;
+      return body;
     }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -547,37 +653,36 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: HourlyUsageResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "HourlyUsageResponse",
-        ""
+        "HourlyUsageResponse"
       ) as HourlyUsageResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -610,38 +715,37 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: UsageApplicationSecurityMonitoringResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageApplicationSecurityMonitoringResponse",
-          ""
+          "UsageApplicationSecurityMonitoringResponse"
         ) as UsageApplicationSecurityMonitoringResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -675,38 +779,37 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: UsageLambdaTracedInvocationsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageLambdaTracedInvocationsResponse",
-          ""
+          "UsageLambdaTracedInvocationsResponse"
         ) as UsageLambdaTracedInvocationsResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -740,38 +843,37 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: UsageObservabilityPipelinesResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "UsageObservabilityPipelinesResponse",
-          ""
+          "UsageObservabilityPipelinesResponse"
         ) as UsageObservabilityPipelinesResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -808,10 +910,10 @@ export interface UsageMeteringApiGetCostByOrgRequest {
 
 export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
   /**
-   * String to specify whether cost is broken down at a parent-org level or at the sub-org level. Currently, only the 'sub-org' view is supported.
+   * String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`. Defaults to `summary`.
    * @type string
    */
-  view: string;
+  view?: string;
   /**
    * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past)
    * @type Date
@@ -832,6 +934,24 @@ export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
    * @type Date
    */
   endDate?: Date;
+}
+
+export interface UsageMeteringApiGetHistoricalCostByOrgRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month.
+   * @type Date
+   */
+  startMonth: Date;
+  /**
+   * String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`.  Defaults to `summary`.
+   * @type string
+   */
+  view?: string;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
+   * @type Date
+   */
+  endMonth?: Date;
 }
 
 export interface UsageMeteringApiGetHourlyUsageRequest {
@@ -939,7 +1059,11 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get cost across multi-org account. Cost by org data for a given month becomes available no later than the 16th of the following month.
+   * Get cost across multi-org account.
+   * Cost by org data for a given month becomes available no later than the 16th of the following month.
+   * **Note:** This endpoint has been deprecated. Please use the new endpoint
+   * [`/historical_cost`](https://docs.datadoghq.com/api/latest/usage-metering/#get-historical-cost-across-your-account)
+   * instead.
    * @param param The request object
    */
   public getCostByOrg(
@@ -962,11 +1086,13 @@ export class UsageMeteringApi {
 
   /**
    * Get estimated cost across multi-org and single root-org accounts.
-   * Estimated cost data is only available for the current month and previous month. To access historical costs prior to this, use the /cost_by_org endpoint.
+   * Estimated cost data is only available for the current month and previous month
+   * and is delayed by up to 72 hours from when it was incurred.
+   * To access historical costs prior to this, use the `/historical_cost` endpoint.
    * @param param The request object
    */
   public getEstimatedCostByOrg(
-    param: UsageMeteringApiGetEstimatedCostByOrgRequest,
+    param: UsageMeteringApiGetEstimatedCostByOrgRequest = {},
     options?: Configuration
   ): Promise<CostByOrgResponse> {
     const requestContextPromise = this.requestFactory.getEstimatedCostByOrg(
@@ -987,7 +1113,31 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage by product family
+   * Get historical cost across multi-org and single root-org accounts.
+   * Cost data for a given month becomes available no later than the 16th of the following month.
+   * @param param The request object
+   */
+  public getHistoricalCostByOrg(
+    param: UsageMeteringApiGetHistoricalCostByOrgRequest,
+    options?: Configuration
+  ): Promise<CostByOrgResponse> {
+    const requestContextPromise = this.requestFactory.getHistoricalCostByOrg(
+      param.startMonth,
+      param.view,
+      param.endMonth,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getHistoricalCostByOrg(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get hourly usage by product family.
    * @param param The request object
    */
   public getHourlyUsage(

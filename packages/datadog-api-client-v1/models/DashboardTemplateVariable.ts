@@ -15,9 +15,13 @@ export class DashboardTemplateVariable {
    */
   "availableValues"?: Array<string>;
   /**
-   * The default value for the template variable on dashboard load.
+   * (deprecated) The default value for the template variable on dashboard load. Cannot be used in conjunction with `defaults`.
    */
   "_default"?: string;
+  /**
+   * One or many default values for template variables on load. If more than one default is specified, they will be unioned together with `OR`. Cannot be used in conjunction with `default`.
+   */
+  "defaults"?: Array<string>;
   /**
    * The name of the variable.
    */
@@ -43,6 +47,10 @@ export class DashboardTemplateVariable {
     _default: {
       baseName: "default",
       type: "string",
+    },
+    defaults: {
+      baseName: "defaults",
+      type: "Array<string>",
     },
     name: {
       baseName: "name",

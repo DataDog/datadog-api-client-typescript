@@ -23,6 +23,10 @@ export class ListStreamQuery {
    * Widget query.
    */
   "queryString": string;
+  /**
+   * Option for storage location. Feature in Private Beta.
+   */
+  "storage"?: string;
 
   /**
    * @ignore
@@ -46,6 +50,10 @@ export class ListStreamQuery {
       baseName: "query_string",
       type: "string",
       required: true,
+    },
+    storage: {
+      baseName: "storage",
+      type: "string",
     },
   };
 

@@ -192,6 +192,8 @@ import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCo
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
+import { MonitorOptionsSchedulingOptions } from "./MonitorOptionsSchedulingOptions";
+import { MonitorOptionsSchedulingOptionsEvaluationWindow } from "./MonitorOptionsSchedulingOptionsEvaluationWindow";
 import { MonitorSearchCountItem } from "./MonitorSearchCountItem";
 import { MonitorSearchResponse } from "./MonitorSearchResponse";
 import { MonitorSearchResponseCounts } from "./MonitorSearchResponseCounts";
@@ -274,6 +276,7 @@ import { SLOCorrectionResponseAttributesModifier } from "./SLOCorrectionResponse
 import { SLOCorrectionUpdateData } from "./SLOCorrectionUpdateData";
 import { SLOCorrectionUpdateRequest } from "./SLOCorrectionUpdateRequest";
 import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateRequestAttributes";
+import { SLOCreator } from "./SLOCreator";
 import { SLODeleteResponse } from "./SLODeleteResponse";
 import { SLOHistoryMetrics } from "./SLOHistoryMetrics";
 import { SLOHistoryMetricsSeries } from "./SLOHistoryMetricsSeries";
@@ -288,6 +291,11 @@ import { SLOHistorySLIData } from "./SLOHistorySLIData";
 import { SLOListResponse } from "./SLOListResponse";
 import { SLOListResponseMetadata } from "./SLOListResponseMetadata";
 import { SLOListResponseMetadataPage } from "./SLOListResponseMetadataPage";
+import { SLOListWidgetDefinition } from "./SLOListWidgetDefinition";
+import { SLOListWidgetQuery } from "./SLOListWidgetQuery";
+import { SLOListWidgetRequest } from "./SLOListWidgetRequest";
+import { SLOOverallStatuses } from "./SLOOverallStatuses";
+import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
 import { SLOResponse } from "./SLOResponse";
 import { SLOResponseData } from "./SLOResponseData";
 import { SLOThreshold } from "./SLOThreshold";
@@ -297,6 +305,7 @@ import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ScatterPlotWidgetDefinitionRequests } from "./ScatterPlotWidgetDefinitionRequests";
 import { ScatterplotTableRequest } from "./ScatterplotTableRequest";
 import { ScatterplotWidgetFormula } from "./ScatterplotWidgetFormula";
+import { SearchSLOQuery } from "./SearchSLOQuery";
 import { SearchSLOResponse } from "./SearchSLOResponse";
 import { SearchSLOResponseData } from "./SearchSLOResponseData";
 import { SearchSLOResponseDataAttributes } from "./SearchSLOResponseDataAttributes";
@@ -306,6 +315,10 @@ import { SearchSLOResponseDataAttributesFacetsObjectString } from "./SearchSLORe
 import { SearchSLOResponseLinks } from "./SearchSLOResponseLinks";
 import { SearchSLOResponseMeta } from "./SearchSLOResponseMeta";
 import { SearchSLOResponseMetaPage } from "./SearchSLOResponseMetaPage";
+import { SearchSLOThreshold } from "./SearchSLOThreshold";
+import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
+import { SearchServiceLevelObjectiveAttributes } from "./SearchServiceLevelObjectiveAttributes";
+import { SearchServiceLevelObjectiveData } from "./SearchServiceLevelObjectiveData";
 import { Series } from "./Series";
 import { ServiceCheck } from "./ServiceCheck";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
@@ -334,6 +347,8 @@ import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
+import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
+import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
 import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
 import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
@@ -416,6 +431,9 @@ import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAli
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
+import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
+import { TopologyQuery } from "./TopologyQuery";
+import { TopologyRequest } from "./TopologyRequest";
 import { TreeMapWidgetDefinition } from "./TreeMapWidgetDefinition";
 import { TreeMapWidgetRequest } from "./TreeMapWidgetRequest";
 import { UsageAnalyzedLogsHour } from "./UsageAnalyzedLogsHour";
@@ -629,6 +647,7 @@ const enumsMap: { [key: string]: any[] } = {
     "profiles",
     "audit",
     "events",
+    "ci_tests",
   ],
   FormulaAndFunctionMetricAggregation: [
     "avg",
@@ -654,7 +673,9 @@ const enumsMap: { [key: string]: any[] } = {
   HostMapWidgetDefinitionType: ["hostmap"],
   HourlyUsageAttributionUsageType: [
     "api_usage",
+    "apm_fargate_usage",
     "apm_host_usage",
+    "appsec_fargate_usage",
     "appsec_usage",
     "browser_usage",
     "container_usage",
@@ -666,6 +687,7 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_hosts_usage",
     "dbm_queries_usage",
     "estimated_indexed_logs_usage",
+    "estimated_ingested_logs_usage",
     "estimated_indexed_spans_usage",
     "estimated_ingested_spans_usage",
     "fargate_usage",
@@ -707,7 +729,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsTraceRemapperType: ["trace-id-remapper"],
   LogsURLParserType: ["url-parser"],
   LogsUserAgentParserType: ["user-agent-parser"],
-  MetricContentEncoding: ["deflate"],
+  MetricContentEncoding: ["deflate", "gzip"],
   MonitorDeviceID: [
     "laptop_large",
     "tablet",
@@ -737,6 +759,10 @@ const enumsMap: { [key: string]: any[] } = {
     "rum",
     "ci_pipelines",
     "ci_tests",
+    "audit",
+    "events",
+    "logs",
+    "spans",
   ],
   MonitorOverallStates: [
     "Alert",
@@ -770,6 +796,10 @@ const enumsMap: { [key: string]: any[] } = {
   MonthlyUsageAttributionSupportedMetrics: [
     "api_usage",
     "api_percentage",
+    "apm_fargate_usage",
+    "apm_fargate_percentage",
+    "appsec_fargate_usage",
+    "appsec_fargate_percentage",
     "apm_host_usage",
     "apm_host_percentage",
     "appsec_usage",
@@ -794,6 +824,8 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_queries_usage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
+    "estimated_ingested_logs_usage",
+    "estimated_ingested_logs_percentage",
     "estimated_indexed_spans_usage",
     "estimated_indexed_spans_percentage",
     "estimated_ingested_spans_usage",
@@ -848,6 +880,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   SLOCorrectionType: ["correction"],
   SLOErrorTimeframe: ["7d", "30d", "90d", "all"],
+  SLOListWidgetDefinitionType: ["slo_list"],
+  SLOListWidgetRequestType: ["slo_list"],
   SLOTimeframe: ["7d", "30d", "90d", "custom"],
   SLOType: ["metric", "monitor"],
   SLOTypeNumeric: [0, 1],
@@ -855,6 +889,7 @@ const enumsMap: { [key: string]: any[] } = {
   ScatterPlotWidgetDefinitionType: ["scatterplot"],
   ScatterplotDimension: ["x", "y", "radius", "color"],
   ScatterplotWidgetAggregator: ["avg", "last", "max", "min", "sum"],
+  SearchSLOTimeframe: ["7d", "30d", "90d"],
   ServiceCheckStatus: [0, 1, 2, 3],
   ServiceMapWidgetDefinitionType: ["servicemap"],
   ServiceSummaryWidgetDefinitionType: ["trace_service"],
@@ -913,6 +948,7 @@ const enumsMap: { [key: string]: any[] } = {
     "validates",
     "isInMoreThan",
     "isInLessThan",
+    "doesNotExist",
   ],
   SyntheticsAssertionType: [
     "body",
@@ -933,6 +969,7 @@ const enumsMap: { [key: string]: any[] } = {
     "grpcHealthcheckStatus",
     "connection",
   ],
+  SyntheticsAssertionXPathOperator: ["validatesXPath"],
   SyntheticsBasicAuthDigestType: ["digest"],
   SyntheticsBasicAuthNTLMType: ["ntlm"],
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
@@ -1012,7 +1049,11 @@ const enumsMap: { [key: string]: any[] } = {
     "edge.tablet",
     "edge.mobile_small",
   ],
-  SyntheticsGlobalVariableParseTestOptionsType: ["http_body", "http_header"],
+  SyntheticsGlobalVariableParseTestOptionsType: [
+    "http_body",
+    "http_header",
+    "local_variable",
+  ],
   SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
   SyntheticsPlayingTab: [-1, 0, 1, 2, 3],
   SyntheticsStatus: ["passed", "skipped", "failed"],
@@ -1064,6 +1105,14 @@ const enumsMap: { [key: string]: any[] } = {
     "finished",
     "finished_with_error",
   ],
+  SyntheticsTestRequestBodyType: [
+    "text/plain",
+    "application/json",
+    "text/xml",
+    "text/html",
+    "application/x-www-form-urlencoded",
+    "graphql",
+  ],
   SyntheticsWarningType: ["user_locator"],
   TableWidgetCellDisplayMode: ["number", "bar"],
   TableWidgetDefinitionType: ["query_table"],
@@ -1074,6 +1123,9 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
   TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
   ToplistWidgetDefinitionType: ["toplist"],
+  TopologyMapWidgetDefinitionType: ["topology_map"],
+  TopologyQueryDataSource: ["data_streams", "service_map"],
+  TopologyRequestType: ["topology"],
   TreeMapColorBy: ["user"],
   TreeMapGroupBy: ["user", "family", "process"],
   TreeMapSizeBy: ["pct_cpu", "pct_mem"],
@@ -1103,10 +1155,16 @@ const enumsMap: { [key: string]: any[] } = {
     "lambda_invocations_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
+    "estimated_ingested_logs_usage",
+    "estimated_ingested_logs_percentage",
     "estimated_indexed_spans_usage",
     "estimated_indexed_spans_percentage",
     "estimated_ingested_spans_usage",
     "estimated_ingested_spans_percentage",
+    "apm_fargate_usage",
+    "apm_fargate_percentage",
+    "appsec_fargate_usage",
+    "appsec_fargate_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1141,12 +1199,18 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_queries_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
+    "estimated_ingested_logs_usage",
+    "estimated_ingested_logs_percentage",
     "appsec_usage",
     "appsec_percentage",
     "estimated_indexed_spans_usage",
     "estimated_indexed_spans_percentage",
     "estimated_ingested_spans_usage",
     "estimated_ingested_spans_percentage",
+    "apm_fargate_usage",
+    "apm_fargate_percentage",
+    "appsec_fargate_usage",
+    "appsec_fargate_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],
@@ -1471,6 +1535,9 @@ const typeMap: { [index: string]: any } = {
   MonitorGroupSearchResult: MonitorGroupSearchResult,
   MonitorOptions: MonitorOptions,
   MonitorOptionsAggregation: MonitorOptionsAggregation,
+  MonitorOptionsSchedulingOptions: MonitorOptionsSchedulingOptions,
+  MonitorOptionsSchedulingOptionsEvaluationWindow:
+    MonitorOptionsSchedulingOptionsEvaluationWindow,
   MonitorSearchCountItem: MonitorSearchCountItem,
   MonitorSearchResponse: MonitorSearchResponse,
   MonitorSearchResponseCounts: MonitorSearchResponseCounts,
@@ -1556,6 +1623,7 @@ const typeMap: { [index: string]: any } = {
   SLOCorrectionUpdateData: SLOCorrectionUpdateData,
   SLOCorrectionUpdateRequest: SLOCorrectionUpdateRequest,
   SLOCorrectionUpdateRequestAttributes: SLOCorrectionUpdateRequestAttributes,
+  SLOCreator: SLOCreator,
   SLODeleteResponse: SLODeleteResponse,
   SLOHistoryMetrics: SLOHistoryMetrics,
   SLOHistoryMetricsSeries: SLOHistoryMetricsSeries,
@@ -1570,6 +1638,11 @@ const typeMap: { [index: string]: any } = {
   SLOListResponse: SLOListResponse,
   SLOListResponseMetadata: SLOListResponseMetadata,
   SLOListResponseMetadataPage: SLOListResponseMetadataPage,
+  SLOListWidgetDefinition: SLOListWidgetDefinition,
+  SLOListWidgetQuery: SLOListWidgetQuery,
+  SLOListWidgetRequest: SLOListWidgetRequest,
+  SLOOverallStatuses: SLOOverallStatuses,
+  SLORawErrorBudgetRemaining: SLORawErrorBudgetRemaining,
   SLOResponse: SLOResponse,
   SLOResponseData: SLOResponseData,
   SLOThreshold: SLOThreshold,
@@ -1579,6 +1652,7 @@ const typeMap: { [index: string]: any } = {
   ScatterPlotWidgetDefinitionRequests: ScatterPlotWidgetDefinitionRequests,
   ScatterplotTableRequest: ScatterplotTableRequest,
   ScatterplotWidgetFormula: ScatterplotWidgetFormula,
+  SearchSLOQuery: SearchSLOQuery,
   SearchSLOResponse: SearchSLOResponse,
   SearchSLOResponseData: SearchSLOResponseData,
   SearchSLOResponseDataAttributes: SearchSLOResponseDataAttributes,
@@ -1590,6 +1664,10 @@ const typeMap: { [index: string]: any } = {
   SearchSLOResponseLinks: SearchSLOResponseLinks,
   SearchSLOResponseMeta: SearchSLOResponseMeta,
   SearchSLOResponseMetaPage: SearchSLOResponseMetaPage,
+  SearchSLOThreshold: SearchSLOThreshold,
+  SearchServiceLevelObjective: SearchServiceLevelObjective,
+  SearchServiceLevelObjectiveAttributes: SearchServiceLevelObjectiveAttributes,
+  SearchServiceLevelObjectiveData: SearchServiceLevelObjectiveData,
   Series: Series,
   ServiceCheck: ServiceCheck,
   ServiceLevelObjective: ServiceLevelObjective,
@@ -1619,6 +1697,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
+  SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
+  SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
   SyntheticsBasicAuthDigest: SyntheticsBasicAuthDigest,
   SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
   SyntheticsBasicAuthSigv4: SyntheticsBasicAuthSigv4,
@@ -1710,6 +1790,9 @@ const typeMap: { [index: string]: any } = {
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,
   ToplistWidgetDefinition: ToplistWidgetDefinition,
   ToplistWidgetRequest: ToplistWidgetRequest,
+  TopologyMapWidgetDefinition: TopologyMapWidgetDefinition,
+  TopologyQuery: TopologyQuery,
+  TopologyRequest: TopologyRequest,
   TreeMapWidgetDefinition: TreeMapWidgetDefinition,
   TreeMapWidgetRequest: TreeMapWidgetRequest,
   UsageAnalyzedLogsHour: UsageAnalyzedLogsHour,
@@ -1894,6 +1977,7 @@ const oneOfMap: { [index: string]: string[] } = {
   SyntheticsAssertion: [
     "SyntheticsAssertionTarget",
     "SyntheticsAssertionJSONPathTarget",
+    "SyntheticsAssertionXPathTarget",
   ],
   SyntheticsBasicAuth: [
     "SyntheticsBasicAuthWeb",
@@ -1922,6 +2006,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "QueryValueWidgetDefinition",
     "ScatterPlotWidgetDefinition",
     "SLOWidgetDefinition",
+    "SLOListWidgetDefinition",
     "ServiceMapWidgetDefinition",
     "ServiceSummaryWidgetDefinition",
     "SunburstWidgetDefinition",
@@ -1931,6 +2016,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "TreeMapWidgetDefinition",
     "ListStreamWidgetDefinition",
     "FunnelWidgetDefinition",
+    "TopologyMapWidgetDefinition",
   ],
 };
 

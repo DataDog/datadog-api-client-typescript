@@ -3,8 +3,6 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 This repository contains a Node.js API client for the [Datadog API](https://docs.datadoghq.com/api/).
-The code is generated using [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
-and [apigentools](https://github.com/DataDog/apigentools).
 
 ## How to install
 
@@ -161,9 +159,126 @@ async function main() {
 main();
 ```
 
+### Zstd compression
+
+Zstd compression support requires users to supply their own zstd compressor callback function.
+The callback should accept string arg and return compressed Buffer data.
+Callback signature `(body: string) => Buffer`.
+For example, using `zstd.ts` package:
+
+```typescript
+import { compressSync } from 'zstd.ts'
+import { client, v2 } from "@datadog/datadog-api-client";
+
+async function main() {
+  const configurationOpts = {
+    zstdCompressorCallback: (body: string) => compressSync({input: Buffer.from(body, "utf8")})
+  }
+  const configuration = client.createConfiguration(configurationOpts);
+  const apiInstance = new v2.MetricsApi(configuration);
+  const params: v2.MetricsApiSubmitMetricsRequest = {
+      body: {
+          series: [
+              {
+                  metric: "system.load.1",
+                  type: 0,
+                  points: [
+                      {
+                          timestamp: Math.round(new Date().getTime() / 1000),
+                          value: 0.7,
+                      },
+                  ],
+              },
+          ],
+      },
+      contentEncoding: "zstd1",
+  };
+
+  apiInstance.submitMetrics(params).then((data: v2.IntakePayloadAccepted) => {
+    console.log(
+      "API called successfully. Returned data: " + JSON.stringify(data)
+    );
+  }).catch((error: any) => console.error(error));
+}
+
+main();
+```
+
+### Configure proxy
+
+You can provide custom `HttpLibrary` implementation with proxy support to `configuration` object. See example below:
+
+```typescript
+import pako from "pako";
+import bufferFrom from "buffer-from";
+import fetch from "node-fetch";
+import { HttpsProxyAgent } from "https-proxy-agent";
+import { v1, client } from "@datadog/datadog-api-client";
+
+const proxyAgent = new HttpsProxyAgent('http://127.0.0.11:3128');
+
+class HttpLibraryWithProxy implements client.HttpLibrary {
+    public debug = false;
+
+    public send(request: client.RequestContext): Promise<client.ResponseContext> {
+        const method = request.getHttpMethod().toString();
+        let body = request.getBody();
+
+        let compress = request.getHttpConfig().compress;
+        if (compress === undefined) {
+            compress = true;
+        }
+
+        const headers = request.getHeaders();
+        if (typeof body === "string") {
+            if (headers["Content-Encoding"] == "gzip") {
+                body = bufferFrom(pako.gzip(body).buffer);
+            } else if (headers["Content-Encoding"] == "deflate") {
+                body = bufferFrom(pako.deflate(body).buffer);
+            }
+        }
+
+        const resultPromise = fetch(request.getUrl(), {
+            method: method,
+            body: body as any,
+            headers: headers,
+            signal: request.getHttpConfig().signal,
+            compress: compress,
+            agent: proxyAgent,
+        }).then((resp: any) => {
+            const headers: { [name: string]: string } = {};
+            resp.headers.forEach((value: string, name: string) => {
+                headers[name] = value;
+            });
+
+            const body = {
+                text: () => resp.text(),
+                binary: () => resp.buffer(),
+            };
+            const response = new client.ResponseContext(resp.status, headers, body);
+            return response;
+        });
+
+        return resultPromise;
+    }
+}
+
+const configuration = client.createConfiguration({httpApi: new HttpLibraryWithProxy()});
+const apiInstance = new v1.DashboardsApi(configuration);
+
+apiInstance
+    .listDashboards()
+    .then((data: v1.DashboardSummary) => {
+        console.log(
+            "API called successfully. Returned data: " + JSON.stringify(data)
+        );
+    })
+    .catch((error: any) => console.error(error));
+```
+
 ## Documentation
 
-Documentation for API endpoints can be found in in [Github pages][github pages].
+Documentation for API endpoints can be found in [GitHub pages][github pages].
 
 ## Contributing
 

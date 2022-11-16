@@ -4,8 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
+import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
-import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -14,6 +14,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The incident's relationships from a response.
  */
 export class IncidentResponseRelationships {
+  /**
+   * A relationship reference for attachments.
+   */
+  "attachments"?: RelationshipToIncidentAttachment;
   /**
    * Relationship to user.
    */
@@ -30,10 +34,6 @@ export class IncidentResponseRelationships {
    * Relationship to user.
    */
   "lastModifiedByUser"?: RelationshipToUser;
-  /**
-   * A relationship reference for postmortems.
-   */
-  "postmortem"?: RelationshipToIncidentPostmortem;
 
   /**
    * @ignore
@@ -44,6 +44,10 @@ export class IncidentResponseRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    attachments: {
+      baseName: "attachments",
+      type: "RelationshipToIncidentAttachment",
+    },
     commanderUser: {
       baseName: "commander_user",
       type: "NullableRelationshipToUser",
@@ -59,10 +63,6 @@ export class IncidentResponseRelationships {
     lastModifiedByUser: {
       baseName: "last_modified_by_user",
       type: "RelationshipToUser",
-    },
-    postmortem: {
-      baseName: "postmortem",
-      type: "RelationshipToIncidentPostmortem",
     },
   };
 

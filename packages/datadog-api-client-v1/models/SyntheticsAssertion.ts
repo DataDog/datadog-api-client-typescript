@@ -5,6 +5,7 @@
  */
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
+import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -16,4 +17,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type SyntheticsAssertion =
   | SyntheticsAssertionTarget
   | SyntheticsAssertionJSONPathTarget
+  | SyntheticsAssertionXPathTarget
   | UnparsedObject;

@@ -14,12 +14,39 @@ export {
 } from "./apis/AuthNMappingsApi";
 
 export {
+  CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest,
+  CIVisibilityPipelinesApiListCIAppPipelineEventsRequest,
+  CIVisibilityPipelinesApiSearchCIAppPipelineEventsRequest,
+  CIVisibilityPipelinesApi,
+} from "./apis/CIVisibilityPipelinesApi";
+
+export {
+  CIVisibilityTestsApiAggregateCIAppTestEventsRequest,
+  CIVisibilityTestsApiListCIAppTestEventsRequest,
+  CIVisibilityTestsApiSearchCIAppTestEventsRequest,
+  CIVisibilityTestsApi,
+} from "./apis/CIVisibilityTestsApi";
+
+export {
   CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApi,
 } from "./apis/CloudWorkloadSecurityApi";
+
+export {
+  ConfluentCloudApiCreateConfluentAccountRequest,
+  ConfluentCloudApiCreateConfluentResourceRequest,
+  ConfluentCloudApiDeleteConfluentAccountRequest,
+  ConfluentCloudApiDeleteConfluentResourceRequest,
+  ConfluentCloudApiGetConfluentAccountRequest,
+  ConfluentCloudApiGetConfluentResourceRequest,
+  ConfluentCloudApiListConfluentResourceRequest,
+  ConfluentCloudApiUpdateConfluentAccountRequest,
+  ConfluentCloudApiUpdateConfluentResourceRequest,
+  ConfluentCloudApi,
+} from "./apis/ConfluentCloudApi";
 
 export {
   DashboardListsApiCreateDashboardListItemsRequest,
@@ -57,8 +84,10 @@ export {
   IncidentsApiCreateIncidentRequest,
   IncidentsApiDeleteIncidentRequest,
   IncidentsApiGetIncidentRequest,
+  IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentsRequest,
   IncidentsApiUpdateIncidentRequest,
+  IncidentsApiUpdateIncidentAttachmentsRequest,
   IncidentsApi,
 } from "./apis/IncidentsApi";
 
@@ -114,6 +143,7 @@ export {
   MetricsApiDeleteBulkTagsMetricsConfigurationRequest,
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiEstimateMetricsOutputSeriesRequest,
+  MetricsApiListActiveMetricConfigurationsRequest,
   MetricsApiListTagConfigurationByNameRequest,
   MetricsApiListTagConfigurationsRequest,
   MetricsApiListTagsByMetricNameRequest,
@@ -178,6 +208,7 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
@@ -196,8 +227,16 @@ export {
 } from "./apis/ServiceAccountsApi";
 
 export {
+  ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest,
+  ServiceDefinitionApiDeleteServiceDefinitionRequest,
+  ServiceDefinitionApiGetServiceDefinitionRequest,
+  ServiceDefinitionApi,
+} from "./apis/ServiceDefinitionApi";
+
+export {
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
+  UsageMeteringApiGetHistoricalCostByOrgRequest,
   UsageMeteringApiGetHourlyUsageRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
@@ -274,6 +313,46 @@ export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
+export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
+export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
+export { CIAppAggregateSort } from "./models/CIAppAggregateSort";
+export { CIAppAggregateSortType } from "./models/CIAppAggregateSortType";
+export { CIAppAggregationFunction } from "./models/CIAppAggregationFunction";
+export { CIAppCompute } from "./models/CIAppCompute";
+export { CIAppComputeType } from "./models/CIAppComputeType";
+export { CIAppEventAttributes } from "./models/CIAppEventAttributes";
+export { CIAppGroupByHistogram } from "./models/CIAppGroupByHistogram";
+export { CIAppGroupByMissing } from "./models/CIAppGroupByMissing";
+export { CIAppGroupByTotal } from "./models/CIAppGroupByTotal";
+export { CIAppPipelineEvent } from "./models/CIAppPipelineEvent";
+export { CIAppPipelineEventsRequest } from "./models/CIAppPipelineEventsRequest";
+export { CIAppPipelineEventsResponse } from "./models/CIAppPipelineEventsResponse";
+export { CIAppPipelineEventTypeName } from "./models/CIAppPipelineEventTypeName";
+export { CIAppPipelinesAggregateRequest } from "./models/CIAppPipelinesAggregateRequest";
+export { CIAppPipelinesAggregationBucketsResponse } from "./models/CIAppPipelinesAggregationBucketsResponse";
+export { CIAppPipelinesAnalyticsAggregateResponse } from "./models/CIAppPipelinesAnalyticsAggregateResponse";
+export { CIAppPipelinesBucketResponse } from "./models/CIAppPipelinesBucketResponse";
+export { CIAppPipelinesGroupBy } from "./models/CIAppPipelinesGroupBy";
+export { CIAppPipelinesQueryFilter } from "./models/CIAppPipelinesQueryFilter";
+export { CIAppQueryOptions } from "./models/CIAppQueryOptions";
+export { CIAppQueryPageOptions } from "./models/CIAppQueryPageOptions";
+export { CIAppResponseLinks } from "./models/CIAppResponseLinks";
+export { CIAppResponseMetadata } from "./models/CIAppResponseMetadata";
+export { CIAppResponsePage } from "./models/CIAppResponsePage";
+export { CIAppResponseStatus } from "./models/CIAppResponseStatus";
+export { CIAppSort } from "./models/CIAppSort";
+export { CIAppSortOrder } from "./models/CIAppSortOrder";
+export { CIAppTestEvent } from "./models/CIAppTestEvent";
+export { CIAppTestEventsRequest } from "./models/CIAppTestEventsRequest";
+export { CIAppTestEventsResponse } from "./models/CIAppTestEventsResponse";
+export { CIAppTestEventTypeName } from "./models/CIAppTestEventTypeName";
+export { CIAppTestsAggregateRequest } from "./models/CIAppTestsAggregateRequest";
+export { CIAppTestsAggregationBucketsResponse } from "./models/CIAppTestsAggregationBucketsResponse";
+export { CIAppTestsAnalyticsAggregateResponse } from "./models/CIAppTestsAnalyticsAggregateResponse";
+export { CIAppTestsBucketResponse } from "./models/CIAppTestsBucketResponse";
+export { CIAppTestsGroupBy } from "./models/CIAppTestsGroupBy";
+export { CIAppTestsQueryFilter } from "./models/CIAppTestsQueryFilter";
+export { CIAppWarning } from "./models/CIAppWarning";
 export { CloudWorkloadSecurityAgentRuleAttributes } from "./models/CloudWorkloadSecurityAgentRuleAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./models/CloudWorkloadSecurityAgentRuleCreateAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateData } from "./models/CloudWorkloadSecurityAgentRuleCreateData";
@@ -287,6 +366,26 @@ export { CloudWorkloadSecurityAgentRuleUpdateAttributes } from "./models/CloudWo
 export { CloudWorkloadSecurityAgentRuleUpdateData } from "./models/CloudWorkloadSecurityAgentRuleUpdateData";
 export { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./models/CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 export { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./models/CloudWorkloadSecurityAgentRuleUpdateRequest";
+export { ConfluentAccountCreateRequest } from "./models/ConfluentAccountCreateRequest";
+export { ConfluentAccountCreateRequestAttributes } from "./models/ConfluentAccountCreateRequestAttributes";
+export { ConfluentAccountCreateRequestData } from "./models/ConfluentAccountCreateRequestData";
+export { ConfluentAccountResourceAttributes } from "./models/ConfluentAccountResourceAttributes";
+export { ConfluentAccountResponse } from "./models/ConfluentAccountResponse";
+export { ConfluentAccountResponseAttributes } from "./models/ConfluentAccountResponseAttributes";
+export { ConfluentAccountResponseData } from "./models/ConfluentAccountResponseData";
+export { ConfluentAccountsResponse } from "./models/ConfluentAccountsResponse";
+export { ConfluentAccountType } from "./models/ConfluentAccountType";
+export { ConfluentAccountUpdateRequest } from "./models/ConfluentAccountUpdateRequest";
+export { ConfluentAccountUpdateRequestAttributes } from "./models/ConfluentAccountUpdateRequestAttributes";
+export { ConfluentAccountUpdateRequestData } from "./models/ConfluentAccountUpdateRequestData";
+export { ConfluentResourceRequest } from "./models/ConfluentResourceRequest";
+export { ConfluentResourceRequestAttributes } from "./models/ConfluentResourceRequestAttributes";
+export { ConfluentResourceRequestData } from "./models/ConfluentResourceRequestData";
+export { ConfluentResourceResponse } from "./models/ConfluentResourceResponse";
+export { ConfluentResourceResponseAttributes } from "./models/ConfluentResourceResponseAttributes";
+export { ConfluentResourceResponseData } from "./models/ConfluentResourceResponseData";
+export { ConfluentResourcesResponse } from "./models/ConfluentResourcesResponse";
+export { ConfluentResourceType } from "./models/ConfluentResourceType";
 export { ContentEncoding } from "./models/ContentEncoding";
 export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
@@ -336,6 +435,24 @@ export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogErrors } from "./models/HTTPLogErrors";
 export { HTTPLogItem } from "./models/HTTPLogItem";
 export { IdPMetadataFormData } from "./models/IdPMetadataFormData";
+export { IncidentAttachmentAttachmentType } from "./models/IncidentAttachmentAttachmentType";
+export { IncidentAttachmentAttributes } from "./models/IncidentAttachmentAttributes";
+export { IncidentAttachmentData } from "./models/IncidentAttachmentData";
+export { IncidentAttachmentLinkAttachmentType } from "./models/IncidentAttachmentLinkAttachmentType";
+export { IncidentAttachmentLinkAttributes } from "./models/IncidentAttachmentLinkAttributes";
+export { IncidentAttachmentLinkAttributesAttachmentObject } from "./models/IncidentAttachmentLinkAttributesAttachmentObject";
+export { IncidentAttachmentPostmortemAttachmentType } from "./models/IncidentAttachmentPostmortemAttachmentType";
+export { IncidentAttachmentPostmortemAttributes } from "./models/IncidentAttachmentPostmortemAttributes";
+export { IncidentAttachmentRelatedObject } from "./models/IncidentAttachmentRelatedObject";
+export { IncidentAttachmentRelationships } from "./models/IncidentAttachmentRelationships";
+export { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./models/IncidentAttachmentsPostmortemAttributesAttachmentObject";
+export { IncidentAttachmentsResponse } from "./models/IncidentAttachmentsResponse";
+export { IncidentAttachmentsResponseIncludedItem } from "./models/IncidentAttachmentsResponseIncludedItem";
+export { IncidentAttachmentType } from "./models/IncidentAttachmentType";
+export { IncidentAttachmentUpdateAttributes } from "./models/IncidentAttachmentUpdateAttributes";
+export { IncidentAttachmentUpdateData } from "./models/IncidentAttachmentUpdateData";
+export { IncidentAttachmentUpdateRequest } from "./models/IncidentAttachmentUpdateRequest";
+export { IncidentAttachmentUpdateResponse } from "./models/IncidentAttachmentUpdateResponse";
 export { IncidentCreateAttributes } from "./models/IncidentCreateAttributes";
 export { IncidentCreateData } from "./models/IncidentCreateData";
 export { IncidentCreateRelationships } from "./models/IncidentCreateRelationships";
@@ -465,9 +582,11 @@ export { LogsResponseMetadata } from "./models/LogsResponseMetadata";
 export { LogsResponseMetadataPage } from "./models/LogsResponseMetadataPage";
 export { LogsSort } from "./models/LogsSort";
 export { LogsSortOrder } from "./models/LogsSortOrder";
+export { LogsStorageTier } from "./models/LogsStorageTier";
 export { LogsWarning } from "./models/LogsWarning";
 export { LogType } from "./models/LogType";
 export { Metric } from "./models/Metric";
+export { MetricActiveConfigurationType } from "./models/MetricActiveConfigurationType";
 export { MetricAllTags } from "./models/MetricAllTags";
 export { MetricAllTagsAttributes } from "./models/MetricAllTagsAttributes";
 export { MetricAllTagsResponse } from "./models/MetricAllTagsResponse";
@@ -505,6 +624,9 @@ export { MetricResource } from "./models/MetricResource";
 export { MetricsAndMetricTagConfigurations } from "./models/MetricsAndMetricTagConfigurations";
 export { MetricsAndMetricTagConfigurationsResponse } from "./models/MetricsAndMetricTagConfigurationsResponse";
 export { MetricSeries } from "./models/MetricSeries";
+export { MetricSuggestedTagsAndAggregations } from "./models/MetricSuggestedTagsAndAggregations";
+export { MetricSuggestedTagsAndAggregationsResponse } from "./models/MetricSuggestedTagsAndAggregationsResponse";
+export { MetricSuggestedTagsAttributes } from "./models/MetricSuggestedTagsAttributes";
 export { MetricTagConfiguration } from "./models/MetricTagConfiguration";
 export { MetricTagConfigurationAttributes } from "./models/MetricTagConfigurationAttributes";
 export { MetricTagConfigurationCreateAttributes } from "./models/MetricTagConfigurationCreateAttributes";
@@ -554,6 +676,8 @@ export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
 export { QuerySortOrder } from "./models/QuerySortOrder";
+export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
+export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";
 export { RelationshipToIncidentIntegrationMetadataData } from "./models/RelationshipToIncidentIntegrationMetadataData";
 export { RelationshipToIncidentIntegrationMetadatas } from "./models/RelationshipToIncidentIntegrationMetadatas";
 export { RelationshipToIncidentPostmortem } from "./models/RelationshipToIncidentPostmortem";
@@ -675,7 +799,6 @@ export { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./models
 export { SecurityMonitoringRuleOptions } from "./models/SecurityMonitoringRuleOptions";
 export { SecurityMonitoringRuleQuery } from "./models/SecurityMonitoringRuleQuery";
 export { SecurityMonitoringRuleQueryAggregation } from "./models/SecurityMonitoringRuleQueryAggregation";
-export { SecurityMonitoringRuleQueryCreate } from "./models/SecurityMonitoringRuleQueryCreate";
 export { SecurityMonitoringRuleResponse } from "./models/SecurityMonitoringRuleResponse";
 export { SecurityMonitoringRuleSeverity } from "./models/SecurityMonitoringRuleSeverity";
 export { SecurityMonitoringRuleTypeCreate } from "./models/SecurityMonitoringRuleTypeCreate";
@@ -693,6 +816,11 @@ export { SecurityMonitoringSignalIncidentsUpdateRequest } from "./models/Securit
 export { SecurityMonitoringSignalListRequest } from "./models/SecurityMonitoringSignalListRequest";
 export { SecurityMonitoringSignalListRequestFilter } from "./models/SecurityMonitoringSignalListRequestFilter";
 export { SecurityMonitoringSignalListRequestPage } from "./models/SecurityMonitoringSignalListRequestPage";
+export { SecurityMonitoringSignalRuleCreatePayload } from "./models/SecurityMonitoringSignalRuleCreatePayload";
+export { SecurityMonitoringSignalRuleQuery } from "./models/SecurityMonitoringSignalRuleQuery";
+export { SecurityMonitoringSignalRuleResponse } from "./models/SecurityMonitoringSignalRuleResponse";
+export { SecurityMonitoringSignalRuleResponseQuery } from "./models/SecurityMonitoringSignalRuleResponseQuery";
+export { SecurityMonitoringSignalRuleType } from "./models/SecurityMonitoringSignalRuleType";
 export { SecurityMonitoringSignalsListResponse } from "./models/SecurityMonitoringSignalsListResponse";
 export { SecurityMonitoringSignalsListResponseLinks } from "./models/SecurityMonitoringSignalsListResponseLinks";
 export { SecurityMonitoringSignalsListResponseMeta } from "./models/SecurityMonitoringSignalsListResponseMeta";
@@ -706,10 +834,43 @@ export { SecurityMonitoringSignalTriageAttributes } from "./models/SecurityMonit
 export { SecurityMonitoringSignalTriageUpdateData } from "./models/SecurityMonitoringSignalTriageUpdateData";
 export { SecurityMonitoringSignalTriageUpdateResponse } from "./models/SecurityMonitoringSignalTriageUpdateResponse";
 export { SecurityMonitoringSignalType } from "./models/SecurityMonitoringSignalType";
+export { SecurityMonitoringStandardRuleCreatePayload } from "./models/SecurityMonitoringStandardRuleCreatePayload";
+export { SecurityMonitoringStandardRuleQuery } from "./models/SecurityMonitoringStandardRuleQuery";
+export { SecurityMonitoringStandardRuleResponse } from "./models/SecurityMonitoringStandardRuleResponse";
 export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageUser";
 export { ServiceAccountCreateAttributes } from "./models/ServiceAccountCreateAttributes";
 export { ServiceAccountCreateData } from "./models/ServiceAccountCreateData";
 export { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
+export { ServiceDefinitionCreateResponse } from "./models/ServiceDefinitionCreateResponse";
+export { ServiceDefinitionData } from "./models/ServiceDefinitionData";
+export { ServiceDefinitionDataAttributes } from "./models/ServiceDefinitionDataAttributes";
+export { ServiceDefinitionGetResponse } from "./models/ServiceDefinitionGetResponse";
+export { ServiceDefinitionMeta } from "./models/ServiceDefinitionMeta";
+export { ServiceDefinitionSchema } from "./models/ServiceDefinitionSchema";
+export { ServiceDefinitionsCreateRequest } from "./models/ServiceDefinitionsCreateRequest";
+export { ServiceDefinitionsListResponse } from "./models/ServiceDefinitionsListResponse";
+export { ServiceDefinitionV1 } from "./models/ServiceDefinitionV1";
+export { ServiceDefinitionV1Contact } from "./models/ServiceDefinitionV1Contact";
+export { ServiceDefinitionV1Info } from "./models/ServiceDefinitionV1Info";
+export { ServiceDefinitionV1Integrations } from "./models/ServiceDefinitionV1Integrations";
+export { ServiceDefinitionV1Org } from "./models/ServiceDefinitionV1Org";
+export { ServiceDefinitionV1Resource } from "./models/ServiceDefinitionV1Resource";
+export { ServiceDefinitionV1ResourceType } from "./models/ServiceDefinitionV1ResourceType";
+export { ServiceDefinitionV1Version } from "./models/ServiceDefinitionV1Version";
+export { ServiceDefinitionV2 } from "./models/ServiceDefinitionV2";
+export { ServiceDefinitionV2Contact } from "./models/ServiceDefinitionV2Contact";
+export { ServiceDefinitionV2Doc } from "./models/ServiceDefinitionV2Doc";
+export { ServiceDefinitionV2Email } from "./models/ServiceDefinitionV2Email";
+export { ServiceDefinitionV2EmailType } from "./models/ServiceDefinitionV2EmailType";
+export { ServiceDefinitionV2Integrations } from "./models/ServiceDefinitionV2Integrations";
+export { ServiceDefinitionV2Link } from "./models/ServiceDefinitionV2Link";
+export { ServiceDefinitionV2LinkType } from "./models/ServiceDefinitionV2LinkType";
+export { ServiceDefinitionV2Opsgenie } from "./models/ServiceDefinitionV2Opsgenie";
+export { ServiceDefinitionV2OpsgenieRegion } from "./models/ServiceDefinitionV2OpsgenieRegion";
+export { ServiceDefinitionV2Repo } from "./models/ServiceDefinitionV2Repo";
+export { ServiceDefinitionV2Slack } from "./models/ServiceDefinitionV2Slack";
+export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackType";
+export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
 export { UsageDataObject } from "./models/UsageDataObject";

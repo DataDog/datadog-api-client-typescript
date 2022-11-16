@@ -5,7 +5,6 @@
 import { client, v1 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v1.getSLOHistory"] = true;
 const apiInstance = new v1.ServiceLevelObjectivesApi(configuration);
 
 // there is a valid "slo" in the system
@@ -14,7 +13,7 @@ const SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
 const params: v1.ServiceLevelObjectivesApiGetSLOHistoryRequest = {
   sloId: SLO_DATA_0_ID,
   fromTs: Math.round(
-    new Date(new Date().getTime() / 1000 + -1 * 86400).getTime() / 1000
+    new Date(new Date().getTime() + -1 * 86400 * 1000).getTime() / 1000
   ),
   toTs: Math.round(new Date().getTime() / 1000),
 };

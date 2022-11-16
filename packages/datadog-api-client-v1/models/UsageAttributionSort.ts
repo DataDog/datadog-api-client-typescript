@@ -29,10 +29,16 @@ export type UsageAttributionSort =
   | typeof LAMBDA_INVOCATIONS_PERCENTAGE
   | typeof ESTIMATED_INDEXED_LOGS_USAGE
   | typeof ESTIMATED_INDEXED_LOGS_PERCENTAGE
+  | typeof ESTIMATED_INGESTED_LOGS_USAGE
+  | typeof ESTIMATED_INGESTED_LOGS_PERCENTAGE
   | typeof ESTIMATED_INDEXED_SPANS_USAGE
   | typeof ESTIMATED_INDEXED_SPANS_PERCENTAGE
   | typeof ESTIMATED_INGESTED_SPANS_USAGE
-  | typeof ESTIMATED_INGESTED_SPANS_PERCENTAGE;
+  | typeof ESTIMATED_INGESTED_SPANS_PERCENTAGE
+  | typeof APM_FARGATE_USAGE
+  | typeof APM_FARGATE_PERCENTAGE
+  | typeof APPSEC_FARGATE_USAGE
+  | typeof APPSEC_FARGATE_PERCENTAGE;
 export const API_PERCENTAGE = "api_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const APM_HOST_USAGE = "apm_host_usage";
@@ -58,9 +64,16 @@ export const LAMBDA_INVOCATIONS_PERCENTAGE = "lambda_invocations_percentage";
 export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
 export const ESTIMATED_INDEXED_LOGS_PERCENTAGE =
   "estimated_indexed_logs_percentage";
+export const ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage";
+export const ESTIMATED_INGESTED_LOGS_PERCENTAGE =
+  "estimated_ingested_logs_percentage";
 export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
 export const ESTIMATED_INDEXED_SPANS_PERCENTAGE =
   "estimated_indexed_spans_percentage";
 export const ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage";
 export const ESTIMATED_INGESTED_SPANS_PERCENTAGE =
   "estimated_ingested_spans_percentage";
+export const APM_FARGATE_USAGE = "apm_fargate_usage";
+export const APM_FARGATE_PERCENTAGE = "apm_fargate_percentage";
+export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
+export const APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage";

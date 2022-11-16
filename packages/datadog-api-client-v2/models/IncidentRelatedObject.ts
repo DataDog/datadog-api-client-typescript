@@ -4,5 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type IncidentRelatedObject = typeof USERS;
+export type IncidentRelatedObject = typeof USERS | typeof ATTACHMENTS;
 export const USERS = "users";
+export const ATTACHMENTS = "attachments";

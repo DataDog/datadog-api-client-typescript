@@ -67,10 +67,12 @@ export class MonitorType {
     createdAt: {
       baseName: "created_at",
       type: "number",
+      format: "int64",
     },
     groupStatus: {
       baseName: "group_status",
       type: "number",
+      format: "int32",
     },
     groups: {
       baseName: "groups",
@@ -79,6 +81,7 @@ export class MonitorType {
     id: {
       baseName: "id",
       type: "number",
+      format: "int64",
     },
     message: {
       baseName: "message",
@@ -87,6 +90,7 @@ export class MonitorType {
     modified: {
       baseName: "modified",
       type: "number",
+      format: "int64",
     },
     name: {
       baseName: "name",

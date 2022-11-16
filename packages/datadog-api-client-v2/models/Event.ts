@@ -47,6 +47,7 @@ export class Event {
     sourceId: {
       baseName: "source_id",
       type: "number",
+      format: "int64",
     },
     type: {
       baseName: "type",

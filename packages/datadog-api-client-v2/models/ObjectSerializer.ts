@@ -40,6 +40,35 @@ import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucketValueTimeseriesPoint";
+import { CIAppAggregateSort } from "./CIAppAggregateSort";
+import { CIAppCompute } from "./CIAppCompute";
+import { CIAppEventAttributes } from "./CIAppEventAttributes";
+import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
+import { CIAppPipelineEvent } from "./CIAppPipelineEvent";
+import { CIAppPipelineEventsRequest } from "./CIAppPipelineEventsRequest";
+import { CIAppPipelineEventsResponse } from "./CIAppPipelineEventsResponse";
+import { CIAppPipelinesAggregateRequest } from "./CIAppPipelinesAggregateRequest";
+import { CIAppPipelinesAggregationBucketsResponse } from "./CIAppPipelinesAggregationBucketsResponse";
+import { CIAppPipelinesAnalyticsAggregateResponse } from "./CIAppPipelinesAnalyticsAggregateResponse";
+import { CIAppPipelinesBucketResponse } from "./CIAppPipelinesBucketResponse";
+import { CIAppPipelinesGroupBy } from "./CIAppPipelinesGroupBy";
+import { CIAppPipelinesQueryFilter } from "./CIAppPipelinesQueryFilter";
+import { CIAppQueryOptions } from "./CIAppQueryOptions";
+import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
+import { CIAppResponseLinks } from "./CIAppResponseLinks";
+import { CIAppResponseMetadata } from "./CIAppResponseMetadata";
+import { CIAppResponsePage } from "./CIAppResponsePage";
+import { CIAppTestEvent } from "./CIAppTestEvent";
+import { CIAppTestEventsRequest } from "./CIAppTestEventsRequest";
+import { CIAppTestEventsResponse } from "./CIAppTestEventsResponse";
+import { CIAppTestsAggregateRequest } from "./CIAppTestsAggregateRequest";
+import { CIAppTestsAggregationBucketsResponse } from "./CIAppTestsAggregationBucketsResponse";
+import { CIAppTestsAnalyticsAggregateResponse } from "./CIAppTestsAnalyticsAggregateResponse";
+import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
+import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
+import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
+import { CIAppWarning } from "./CIAppWarning";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
@@ -53,6 +82,24 @@ import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurit
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "./CloudWorkloadSecurityAgentRulesListResponse";
+import { ConfluentAccountCreateRequest } from "./ConfluentAccountCreateRequest";
+import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
+import { ConfluentAccountCreateRequestData } from "./ConfluentAccountCreateRequestData";
+import { ConfluentAccountResourceAttributes } from "./ConfluentAccountResourceAttributes";
+import { ConfluentAccountResponse } from "./ConfluentAccountResponse";
+import { ConfluentAccountResponseAttributes } from "./ConfluentAccountResponseAttributes";
+import { ConfluentAccountResponseData } from "./ConfluentAccountResponseData";
+import { ConfluentAccountUpdateRequest } from "./ConfluentAccountUpdateRequest";
+import { ConfluentAccountUpdateRequestAttributes } from "./ConfluentAccountUpdateRequestAttributes";
+import { ConfluentAccountUpdateRequestData } from "./ConfluentAccountUpdateRequestData";
+import { ConfluentAccountsResponse } from "./ConfluentAccountsResponse";
+import { ConfluentResourceRequest } from "./ConfluentResourceRequest";
+import { ConfluentResourceRequestAttributes } from "./ConfluentResourceRequestAttributes";
+import { ConfluentResourceRequestData } from "./ConfluentResourceRequestData";
+import { ConfluentResourceResponse } from "./ConfluentResourceResponse";
+import { ConfluentResourceResponseAttributes } from "./ConfluentResourceResponseAttributes";
+import { ConfluentResourceResponseData } from "./ConfluentResourceResponseData";
+import { ConfluentResourcesResponse } from "./ConfluentResourcesResponse";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
@@ -94,6 +141,16 @@ import { HourlyUsageMetadata } from "./HourlyUsageMetadata";
 import { HourlyUsagePagination } from "./HourlyUsagePagination";
 import { HourlyUsageResponse } from "./HourlyUsageResponse";
 import { IdPMetadataFormData } from "./IdPMetadataFormData";
+import { IncidentAttachmentData } from "./IncidentAttachmentData";
+import { IncidentAttachmentLinkAttributes } from "./IncidentAttachmentLinkAttributes";
+import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
+import { IncidentAttachmentPostmortemAttributes } from "./IncidentAttachmentPostmortemAttributes";
+import { IncidentAttachmentRelationships } from "./IncidentAttachmentRelationships";
+import { IncidentAttachmentUpdateData } from "./IncidentAttachmentUpdateData";
+import { IncidentAttachmentUpdateRequest } from "./IncidentAttachmentUpdateRequest";
+import { IncidentAttachmentUpdateResponse } from "./IncidentAttachmentUpdateResponse";
+import { IncidentAttachmentsPostmortemAttributesAttachmentObject } from "./IncidentAttachmentsPostmortemAttributesAttachmentObject";
+import { IncidentAttachmentsResponse } from "./IncidentAttachmentsResponse";
 import { IncidentCreateAttributes } from "./IncidentCreateAttributes";
 import { IncidentCreateData } from "./IncidentCreateData";
 import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
@@ -218,6 +275,9 @@ import { MetricPayload } from "./MetricPayload";
 import { MetricPoint } from "./MetricPoint";
 import { MetricResource } from "./MetricResource";
 import { MetricSeries } from "./MetricSeries";
+import { MetricSuggestedTagsAndAggregations } from "./MetricSuggestedTagsAndAggregations";
+import { MetricSuggestedTagsAndAggregationsResponse } from "./MetricSuggestedTagsAndAggregationsResponse";
+import { MetricSuggestedTagsAttributes } from "./MetricSuggestedTagsAttributes";
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
 import { MetricTagConfigurationAttributes } from "./MetricTagConfigurationAttributes";
 import { MetricTagConfigurationCreateAttributes } from "./MetricTagConfigurationCreateAttributes";
@@ -288,6 +348,8 @@ import { RUMResponseMetadata } from "./RUMResponseMetadata";
 import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
+import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
+import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
@@ -345,13 +407,9 @@ import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
-import { SecurityMonitoringRuleCreatePayload } from "./SecurityMonitoringRuleCreatePayload";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
-import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
-import { SecurityMonitoringRuleQueryCreate } from "./SecurityMonitoringRuleQueryCreate";
-import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./SecurityMonitoringSignalAssigneeUpdateAttributes";
@@ -364,6 +422,10 @@ import { SecurityMonitoringSignalIncidentsUpdateRequest } from "./SecurityMonito
 import { SecurityMonitoringSignalListRequest } from "./SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringSignalListRequestFilter";
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
+import { SecurityMonitoringSignalRuleCreatePayload } from "./SecurityMonitoringSignalRuleCreatePayload";
+import { SecurityMonitoringSignalRuleQuery } from "./SecurityMonitoringSignalRuleQuery";
+import { SecurityMonitoringSignalRuleResponse } from "./SecurityMonitoringSignalRuleResponse";
+import { SecurityMonitoringSignalRuleResponseQuery } from "./SecurityMonitoringSignalRuleResponseQuery";
 import { SecurityMonitoringSignalStateUpdateAttributes } from "./SecurityMonitoringSignalStateUpdateAttributes";
 import { SecurityMonitoringSignalStateUpdateData } from "./SecurityMonitoringSignalStateUpdateData";
 import { SecurityMonitoringSignalStateUpdateRequest } from "./SecurityMonitoringSignalStateUpdateRequest";
@@ -374,10 +436,33 @@ import { SecurityMonitoringSignalsListResponse } from "./SecurityMonitoringSigna
 import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoringSignalsListResponseLinks";
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
 import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
+import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitoringStandardRuleCreatePayload";
+import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
+import { SecurityMonitoringStandardRuleResponse } from "./SecurityMonitoringStandardRuleResponse";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
+import { ServiceDefinitionCreateResponse } from "./ServiceDefinitionCreateResponse";
+import { ServiceDefinitionData } from "./ServiceDefinitionData";
+import { ServiceDefinitionDataAttributes } from "./ServiceDefinitionDataAttributes";
+import { ServiceDefinitionGetResponse } from "./ServiceDefinitionGetResponse";
+import { ServiceDefinitionMeta } from "./ServiceDefinitionMeta";
+import { ServiceDefinitionV1 } from "./ServiceDefinitionV1";
+import { ServiceDefinitionV1Contact } from "./ServiceDefinitionV1Contact";
+import { ServiceDefinitionV1Info } from "./ServiceDefinitionV1Info";
+import { ServiceDefinitionV1Integrations } from "./ServiceDefinitionV1Integrations";
+import { ServiceDefinitionV1Org } from "./ServiceDefinitionV1Org";
+import { ServiceDefinitionV1Resource } from "./ServiceDefinitionV1Resource";
+import { ServiceDefinitionV2 } from "./ServiceDefinitionV2";
+import { ServiceDefinitionV2Doc } from "./ServiceDefinitionV2Doc";
+import { ServiceDefinitionV2Email } from "./ServiceDefinitionV2Email";
+import { ServiceDefinitionV2Integrations } from "./ServiceDefinitionV2Integrations";
+import { ServiceDefinitionV2Link } from "./ServiceDefinitionV2Link";
+import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
+import { ServiceDefinitionV2Repo } from "./ServiceDefinitionV2Repo";
+import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
+import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -465,7 +550,30 @@ const enumsMap: { [key: string]: any[] } = {
     "-saml_assertion_attribute.attribute_value",
   ],
   AuthNMappingsType: ["authn_mappings"],
+  CIAppAggregateSortType: ["alphabetical", "measure"],
+  CIAppAggregationFunction: [
+    "count",
+    "cardinality",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+    "median",
+  ],
+  CIAppComputeType: ["timeseries", "total"],
+  CIAppPipelineEventTypeName: ["cipipeline"],
+  CIAppResponseStatus: ["done", "timeout"],
+  CIAppSort: ["timestamp", "-timestamp"],
+  CIAppSortOrder: ["asc", "desc"],
+  CIAppTestEventTypeName: ["citest"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
+  ConfluentAccountType: ["confluent-cloud-accounts"],
+  ConfluentResourceType: ["confluent-cloud-resources"],
   ContentEncoding: ["identity", "gzip", "deflate"],
   CostByOrgType: ["cost_by_org"],
   DashboardType: [
@@ -493,6 +601,11 @@ const enumsMap: { [key: string]: any[] } = {
     "observability_pipelines_bytes_processed",
     "lambda_traced_invocations_count",
   ],
+  IncidentAttachmentAttachmentType: ["link", "postmortem"],
+  IncidentAttachmentLinkAttachmentType: ["link"],
+  IncidentAttachmentPostmortemAttachmentType: ["postmortem"],
+  IncidentAttachmentRelatedObject: ["users"],
+  IncidentAttachmentType: ["incident_attachments"],
   IncidentFieldAttributesSingleValueType: ["dropdown", "textbox"],
   IncidentFieldAttributesValueType: [
     "multiselect",
@@ -502,7 +615,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   IncidentIntegrationMetadataType: ["incident_integrations"],
   IncidentPostmortemType: ["incident_postmortems"],
-  IncidentRelatedObject: ["users"],
+  IncidentRelatedObject: ["users", "attachments"],
   IncidentServiceType: ["services"],
   IncidentTeamType: ["teams"],
   IncidentTimelineCellMarkdownContentType: ["markdown"],
@@ -535,8 +648,10 @@ const enumsMap: { [key: string]: any[] } = {
   LogsMetricType: ["logs_metrics"],
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
+  LogsStorageTier: ["indexes", "online-archives"],
+  MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
-  MetricContentEncoding: ["deflate"],
+  MetricContentEncoding: ["deflate", "zstd1", "gzip"],
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
   MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
   MetricDistinctVolumeType: ["distinct_metric_volumes"],
@@ -620,6 +735,7 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
     "new_value",
     "geo_data",
+    "event_count",
   ],
   SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
   SecurityMonitoringRuleTypeCreate: ["log_detection", "workload_security"],
@@ -635,9 +751,37 @@ const enumsMap: { [key: string]: any[] } = {
     "testing_or_maintenance",
     "other",
   ],
+  SecurityMonitoringSignalRuleType: ["signal_correlation"],
   SecurityMonitoringSignalState: ["open", "archived", "under_review"],
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
+  ServiceDefinitionV1ResourceType: [
+    "doc",
+    "wiki",
+    "runbook",
+    "url",
+    "repo",
+    "dashboard",
+    "oncall",
+    "code",
+    "link",
+  ],
+  ServiceDefinitionV1Version: ["v1"],
+  ServiceDefinitionV2EmailType: ["email"],
+  ServiceDefinitionV2LinkType: [
+    "doc",
+    "wiki",
+    "runbook",
+    "url",
+    "repo",
+    "dashboard",
+    "oncall",
+    "code",
+    "link",
+  ],
+  ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
+  ServiceDefinitionV2SlackType: ["slack"],
+  ServiceDefinitionV2Version: ["v2"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
   UsersType: ["users"],
@@ -686,6 +830,38 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  CIAppAggregateBucketValueTimeseriesPoint:
+    CIAppAggregateBucketValueTimeseriesPoint,
+  CIAppAggregateSort: CIAppAggregateSort,
+  CIAppCompute: CIAppCompute,
+  CIAppEventAttributes: CIAppEventAttributes,
+  CIAppGroupByHistogram: CIAppGroupByHistogram,
+  CIAppPipelineEvent: CIAppPipelineEvent,
+  CIAppPipelineEventsRequest: CIAppPipelineEventsRequest,
+  CIAppPipelineEventsResponse: CIAppPipelineEventsResponse,
+  CIAppPipelinesAggregateRequest: CIAppPipelinesAggregateRequest,
+  CIAppPipelinesAggregationBucketsResponse:
+    CIAppPipelinesAggregationBucketsResponse,
+  CIAppPipelinesAnalyticsAggregateResponse:
+    CIAppPipelinesAnalyticsAggregateResponse,
+  CIAppPipelinesBucketResponse: CIAppPipelinesBucketResponse,
+  CIAppPipelinesGroupBy: CIAppPipelinesGroupBy,
+  CIAppPipelinesQueryFilter: CIAppPipelinesQueryFilter,
+  CIAppQueryOptions: CIAppQueryOptions,
+  CIAppQueryPageOptions: CIAppQueryPageOptions,
+  CIAppResponseLinks: CIAppResponseLinks,
+  CIAppResponseMetadata: CIAppResponseMetadata,
+  CIAppResponsePage: CIAppResponsePage,
+  CIAppTestEvent: CIAppTestEvent,
+  CIAppTestEventsRequest: CIAppTestEventsRequest,
+  CIAppTestEventsResponse: CIAppTestEventsResponse,
+  CIAppTestsAggregateRequest: CIAppTestsAggregateRequest,
+  CIAppTestsAggregationBucketsResponse: CIAppTestsAggregationBucketsResponse,
+  CIAppTestsAnalyticsAggregateResponse: CIAppTestsAnalyticsAggregateResponse,
+  CIAppTestsBucketResponse: CIAppTestsBucketResponse,
+  CIAppTestsGroupBy: CIAppTestsGroupBy,
+  CIAppTestsQueryFilter: CIAppTestsQueryFilter,
+  CIAppWarning: CIAppWarning,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
@@ -710,6 +886,26 @@ const typeMap: { [index: string]: any } = {
     CloudWorkloadSecurityAgentRuleUpdaterAttributes,
   CloudWorkloadSecurityAgentRulesListResponse:
     CloudWorkloadSecurityAgentRulesListResponse,
+  ConfluentAccountCreateRequest: ConfluentAccountCreateRequest,
+  ConfluentAccountCreateRequestAttributes:
+    ConfluentAccountCreateRequestAttributes,
+  ConfluentAccountCreateRequestData: ConfluentAccountCreateRequestData,
+  ConfluentAccountResourceAttributes: ConfluentAccountResourceAttributes,
+  ConfluentAccountResponse: ConfluentAccountResponse,
+  ConfluentAccountResponseAttributes: ConfluentAccountResponseAttributes,
+  ConfluentAccountResponseData: ConfluentAccountResponseData,
+  ConfluentAccountUpdateRequest: ConfluentAccountUpdateRequest,
+  ConfluentAccountUpdateRequestAttributes:
+    ConfluentAccountUpdateRequestAttributes,
+  ConfluentAccountUpdateRequestData: ConfluentAccountUpdateRequestData,
+  ConfluentAccountsResponse: ConfluentAccountsResponse,
+  ConfluentResourceRequest: ConfluentResourceRequest,
+  ConfluentResourceRequestAttributes: ConfluentResourceRequestAttributes,
+  ConfluentResourceRequestData: ConfluentResourceRequestData,
+  ConfluentResourceResponse: ConfluentResourceResponse,
+  ConfluentResourceResponseAttributes: ConfluentResourceResponseAttributes,
+  ConfluentResourceResponseData: ConfluentResourceResponseData,
+  ConfluentResourcesResponse: ConfluentResourcesResponse,
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
@@ -751,6 +947,19 @@ const typeMap: { [index: string]: any } = {
   HourlyUsagePagination: HourlyUsagePagination,
   HourlyUsageResponse: HourlyUsageResponse,
   IdPMetadataFormData: IdPMetadataFormData,
+  IncidentAttachmentData: IncidentAttachmentData,
+  IncidentAttachmentLinkAttributes: IncidentAttachmentLinkAttributes,
+  IncidentAttachmentLinkAttributesAttachmentObject:
+    IncidentAttachmentLinkAttributesAttachmentObject,
+  IncidentAttachmentPostmortemAttributes:
+    IncidentAttachmentPostmortemAttributes,
+  IncidentAttachmentRelationships: IncidentAttachmentRelationships,
+  IncidentAttachmentUpdateData: IncidentAttachmentUpdateData,
+  IncidentAttachmentUpdateRequest: IncidentAttachmentUpdateRequest,
+  IncidentAttachmentUpdateResponse: IncidentAttachmentUpdateResponse,
+  IncidentAttachmentsPostmortemAttributesAttachmentObject:
+    IncidentAttachmentsPostmortemAttributesAttachmentObject,
+  IncidentAttachmentsResponse: IncidentAttachmentsResponse,
   IncidentCreateAttributes: IncidentCreateAttributes,
   IncidentCreateData: IncidentCreateData,
   IncidentCreateRelationships: IncidentCreateRelationships,
@@ -878,6 +1087,10 @@ const typeMap: { [index: string]: any } = {
   MetricPoint: MetricPoint,
   MetricResource: MetricResource,
   MetricSeries: MetricSeries,
+  MetricSuggestedTagsAndAggregations: MetricSuggestedTagsAndAggregations,
+  MetricSuggestedTagsAndAggregationsResponse:
+    MetricSuggestedTagsAndAggregationsResponse,
+  MetricSuggestedTagsAttributes: MetricSuggestedTagsAttributes,
   MetricTagConfiguration: MetricTagConfiguration,
   MetricTagConfigurationAttributes: MetricTagConfigurationAttributes,
   MetricTagConfigurationCreateAttributes:
@@ -952,6 +1165,8 @@ const typeMap: { [index: string]: any } = {
   RUMResponsePage: RUMResponsePage,
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
+  RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
+  RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
   RelationshipToIncidentIntegrationMetadataData:
     RelationshipToIncidentIntegrationMetadataData,
   RelationshipToIncidentIntegrationMetadatas:
@@ -1012,14 +1227,10 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
   SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
   SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
-  SecurityMonitoringRuleCreatePayload: SecurityMonitoringRuleCreatePayload,
   SecurityMonitoringRuleImpossibleTravelOptions:
     SecurityMonitoringRuleImpossibleTravelOptions,
   SecurityMonitoringRuleNewValueOptions: SecurityMonitoringRuleNewValueOptions,
   SecurityMonitoringRuleOptions: SecurityMonitoringRuleOptions,
-  SecurityMonitoringRuleQuery: SecurityMonitoringRuleQuery,
-  SecurityMonitoringRuleQueryCreate: SecurityMonitoringRuleQueryCreate,
-  SecurityMonitoringRuleResponse: SecurityMonitoringRuleResponse,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
   SecurityMonitoringSignal: SecurityMonitoringSignal,
   SecurityMonitoringSignalAssigneeUpdateAttributes:
@@ -1040,6 +1251,12 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalListRequestFilter,
   SecurityMonitoringSignalListRequestPage:
     SecurityMonitoringSignalListRequestPage,
+  SecurityMonitoringSignalRuleCreatePayload:
+    SecurityMonitoringSignalRuleCreatePayload,
+  SecurityMonitoringSignalRuleQuery: SecurityMonitoringSignalRuleQuery,
+  SecurityMonitoringSignalRuleResponse: SecurityMonitoringSignalRuleResponse,
+  SecurityMonitoringSignalRuleResponseQuery:
+    SecurityMonitoringSignalRuleResponseQuery,
   SecurityMonitoringSignalStateUpdateAttributes:
     SecurityMonitoringSignalStateUpdateAttributes,
   SecurityMonitoringSignalStateUpdateData:
@@ -1059,10 +1276,35 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalsListResponseMeta,
   SecurityMonitoringSignalsListResponseMetaPage:
     SecurityMonitoringSignalsListResponseMetaPage,
+  SecurityMonitoringStandardRuleCreatePayload:
+    SecurityMonitoringStandardRuleCreatePayload,
+  SecurityMonitoringStandardRuleQuery: SecurityMonitoringStandardRuleQuery,
+  SecurityMonitoringStandardRuleResponse:
+    SecurityMonitoringStandardRuleResponse,
   SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,
+  ServiceDefinitionCreateResponse: ServiceDefinitionCreateResponse,
+  ServiceDefinitionData: ServiceDefinitionData,
+  ServiceDefinitionDataAttributes: ServiceDefinitionDataAttributes,
+  ServiceDefinitionGetResponse: ServiceDefinitionGetResponse,
+  ServiceDefinitionMeta: ServiceDefinitionMeta,
+  ServiceDefinitionV1: ServiceDefinitionV1,
+  ServiceDefinitionV1Contact: ServiceDefinitionV1Contact,
+  ServiceDefinitionV1Info: ServiceDefinitionV1Info,
+  ServiceDefinitionV1Integrations: ServiceDefinitionV1Integrations,
+  ServiceDefinitionV1Org: ServiceDefinitionV1Org,
+  ServiceDefinitionV1Resource: ServiceDefinitionV1Resource,
+  ServiceDefinitionV2: ServiceDefinitionV2,
+  ServiceDefinitionV2Doc: ServiceDefinitionV2Doc,
+  ServiceDefinitionV2Email: ServiceDefinitionV2Email,
+  ServiceDefinitionV2Integrations: ServiceDefinitionV2Integrations,
+  ServiceDefinitionV2Link: ServiceDefinitionV2Link,
+  ServiceDefinitionV2Opsgenie: ServiceDefinitionV2Opsgenie,
+  ServiceDefinitionV2Repo: ServiceDefinitionV2Repo,
+  ServiceDefinitionV2Slack: ServiceDefinitionV2Slack,
+  ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
@@ -1095,11 +1337,27 @@ const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User"],
   ApplicationKeyResponseIncludedItem: ["User", "Role"],
   AuthNMappingIncluded: ["SAMLAssertionAttribute", "Role"],
+  CIAppAggregateBucketValue: [
+    "string",
+    "number",
+    "Array<CIAppAggregateBucketValueTimeseriesPoint>",
+  ],
+  CIAppGroupByMissing: ["string", "number"],
+  CIAppGroupByTotal: ["boolean", "string", "number"],
+  IncidentAttachmentAttributes: [
+    "IncidentAttachmentPostmortemAttributes",
+    "IncidentAttachmentLinkAttributes",
+  ],
+  IncidentAttachmentUpdateAttributes: [
+    "IncidentAttachmentPostmortemAttributes",
+    "IncidentAttachmentLinkAttributes",
+  ],
+  IncidentAttachmentsResponseIncludedItem: ["User"],
   IncidentFieldAttributes: [
     "IncidentFieldAttributesSingleValue",
     "IncidentFieldAttributesMultipleValue",
   ],
-  IncidentResponseIncludedItem: ["User"],
+  IncidentResponseIncludedItem: ["User", "IncidentAttachmentData"],
   IncidentServiceIncludedItems: ["User"],
   IncidentTeamIncludedItems: ["User"],
   IncidentTimelineCellCreateAttributes: [
@@ -1131,6 +1389,24 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  SecurityMonitoringRuleCreatePayload: [
+    "SecurityMonitoringStandardRuleCreatePayload",
+    "SecurityMonitoringSignalRuleCreatePayload",
+  ],
+  SecurityMonitoringRuleQuery: [
+    "SecurityMonitoringStandardRuleQuery",
+    "SecurityMonitoringSignalRuleQuery",
+  ],
+  SecurityMonitoringRuleResponse: [
+    "SecurityMonitoringStandardRuleResponse",
+    "SecurityMonitoringSignalRuleResponse",
+  ],
+  ServiceDefinitionSchema: ["ServiceDefinitionV1", "ServiceDefinitionV2"],
+  ServiceDefinitionV2Contact: [
+    "ServiceDefinitionV2Email",
+    "ServiceDefinitionV2Slack",
+  ],
+  ServiceDefinitionsCreateRequest: ["ServiceDefinitionV2", "string"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };
 

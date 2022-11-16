@@ -21,7 +21,7 @@ export class SyntheticsTestOptions {
    */
   "acceptSelfSigned"?: boolean;
   /**
-   * Allows loading insecure content for an HTTP request.
+   * Allows loading insecure content for an HTTP request in an API test.
    */
   "allowInsecure"?: boolean;
   /**
@@ -41,9 +41,21 @@ export class SyntheticsTestOptions {
    */
   "disableCors"?: boolean;
   /**
+   * Disable Content Security Policy for browser tests.
+   */
+  "disableCsp"?: boolean;
+  /**
    * For API HTTP test, whether or not the test should follow redirects.
    */
   "followRedirects"?: boolean;
+  /**
+   * Ignore server certificate error for browser tests.
+   */
+  "ignoreServerCertificateError"?: boolean;
+  /**
+   * Timeout before declaring the initial step as failed (in seconds) for browser tests.
+   */
+  "initialNavigationTimeout"?: number;
   /**
    * Minimum amount of time in failure required to trigger an alert.
    */
@@ -130,9 +142,22 @@ export class SyntheticsTestOptions {
       baseName: "disableCors",
       type: "boolean",
     },
+    disableCsp: {
+      baseName: "disableCsp",
+      type: "boolean",
+    },
     followRedirects: {
       baseName: "follow_redirects",
       type: "boolean",
+    },
+    ignoreServerCertificateError: {
+      baseName: "ignoreServerCertificateError",
+      type: "boolean",
+    },
+    initialNavigationTimeout: {
+      baseName: "initialNavigationTimeout",
+      type: "number",
+      format: "int64",
     },
     minFailureDuration: {
       baseName: "min_failure_duration",

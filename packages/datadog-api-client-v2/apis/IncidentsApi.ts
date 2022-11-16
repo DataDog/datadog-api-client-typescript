@@ -16,9 +16,13 @@ import {
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
-import { isCodeInRange } from "../../datadog-api-client-common/util";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { IncidentAttachmentAttachmentType } from "../models/IncidentAttachmentAttachmentType";
+import { IncidentAttachmentRelatedObject } from "../models/IncidentAttachmentRelatedObject";
+import { IncidentAttachmentsResponse } from "../models/IncidentAttachmentsResponse";
+import { IncidentAttachmentUpdateRequest } from "../models/IncidentAttachmentUpdateRequest";
+import { IncidentAttachmentUpdateResponse } from "../models/IncidentAttachmentUpdateResponse";
 import { IncidentCreateRequest } from "../models/IncidentCreateRequest";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
 import { IncidentResponse } from "../models/IncidentResponse";
@@ -170,6 +174,74 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async listIncidentAttachments(
+    incidentId: string,
+    include?: Array<IncidentAttachmentRelatedObject>,
+    filterAttachmentType?: Array<IncidentAttachmentAttachmentType>,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listIncidentAttachments'");
+    if (!_config.unstableOperations["v2.listIncidentAttachments"]) {
+      throw new Error(
+        "Unstable operation 'listIncidentAttachments' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError(
+        "Required parameter incidentId was null or undefined when calling listIncidentAttachments."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/attachments".replace(
+      "{" + "incident_id" + "}",
+      encodeURIComponent(String(incidentId))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.IncidentsApi.listIncidentAttachments"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<IncidentAttachmentRelatedObject>",
+          ""
+        )
+      );
+    }
+    if (filterAttachmentType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[attachment_type]",
+        ObjectSerializer.serialize(
+          filterAttachmentType,
+          "Array<IncidentAttachmentAttachmentType>",
+          ""
+        )
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listIncidents(
     include?: Array<IncidentRelatedObject>,
     pageSize?: number,
@@ -293,6 +365,81 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     return requestContext;
   }
+
+  public async updateIncidentAttachments(
+    incidentId: string,
+    body: IncidentAttachmentUpdateRequest,
+    include?: Array<IncidentAttachmentRelatedObject>,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateIncidentAttachments'");
+    if (!_config.unstableOperations["v2.updateIncidentAttachments"]) {
+      throw new Error(
+        "Unstable operation 'updateIncidentAttachments' is disabled"
+      );
+    }
+
+    // verify required parameter 'incidentId' is not null or undefined
+    if (incidentId === null || incidentId === undefined) {
+      throw new RequiredError(
+        "Required parameter incidentId was null or undefined when calling updateIncidentAttachments."
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "Required parameter body was null or undefined when calling updateIncidentAttachments."
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/{incident_id}/attachments".replace(
+      "{" + "incident_id" + "}",
+      encodeURIComponent(String(incidentId))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.IncidentsApi.updateIncidentAttachments"
+    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<IncidentAttachmentRelatedObject>",
+          ""
+        )
+      );
+    }
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "IncidentAttachmentUpdateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
 }
 
 export class IncidentsApiResponseProcessor {
@@ -309,53 +456,38 @@ export class IncidentsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("201", response.httpStatusCode)) {
+    if (response.httpStatusCode == 201) {
       const body: IncidentResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse",
-        ""
+        "IncidentResponse"
       ) as IncidentResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("404", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(404, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 401 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -386,48 +518,34 @@ export class IncidentsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("204", response.httpStatusCode)) {
+    if (response.httpStatusCode == 204) {
       return;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("404", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(404, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 401 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -460,53 +578,38 @@ export class IncidentsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: IncidentResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse",
-        ""
+        "IncidentResponse"
       ) as IncidentResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("404", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(404, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 401 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -530,6 +633,70 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listIncidentAttachments
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listIncidentAttachments(
+    response: ResponseContext
+  ): Promise<IncidentAttachmentsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: IncidentAttachmentsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentAttachmentsResponse"
+      ) as IncidentAttachmentsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 401 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentAttachmentsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentAttachmentsResponse",
+        ""
+      ) as IncidentAttachmentsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listIncidents
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -539,53 +706,38 @@ export class IncidentsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: IncidentsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentsResponse",
-        ""
+        "IncidentsResponse"
       ) as IncidentsResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("404", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(404, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 401 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -618,53 +770,38 @@ export class IncidentsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (isCodeInRange("200", response.httpStatusCode)) {
+    if (response.httpStatusCode == 200) {
       const body: IncidentResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "IncidentResponse",
-        ""
+        "IncidentResponse"
       ) as IncidentResponse;
       return body;
     }
-    if (isCodeInRange("400", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(400, body);
-    }
-    if (isCodeInRange("401", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(401, body);
-    }
-    if (isCodeInRange("403", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(403, body);
-    }
-    if (isCodeInRange("404", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(404, body);
-    }
-    if (isCodeInRange("429", response.httpStatusCode)) {
-      const body: APIErrorResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "APIErrorResponse",
-        ""
-      ) as APIErrorResponse;
-      throw new ApiException<APIErrorResponse>(429, body);
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 401 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -674,6 +811,72 @@ export class IncidentsApiResponseProcessor {
         "IncidentResponse",
         ""
       ) as IncidentResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateIncidentAttachments
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateIncidentAttachments(
+    response: ResponseContext
+  ): Promise<IncidentAttachmentUpdateResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: IncidentAttachmentUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentAttachmentUpdateResponse"
+        ) as IncidentAttachmentUpdateResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 401 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentAttachmentUpdateResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "IncidentAttachmentUpdateResponse",
+          ""
+        ) as IncidentAttachmentUpdateResponse;
       return body;
     }
 
@@ -714,6 +917,24 @@ export interface IncidentsApiGetIncidentRequest {
   include?: Array<IncidentRelatedObject>;
 }
 
+export interface IncidentsApiListIncidentAttachmentsRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Specifies which types of related objects are included in the response.
+   * @type Array<IncidentAttachmentRelatedObject>
+   */
+  include?: Array<IncidentAttachmentRelatedObject>;
+  /**
+   * Specifies which types of attachments are included in the response.
+   * @type Array<IncidentAttachmentAttachmentType>
+   */
+  filterAttachmentType?: Array<IncidentAttachmentAttachmentType>;
+}
+
 export interface IncidentsApiListIncidentsRequest {
   /**
    * Specifies which types of related objects should be included in the response.
@@ -748,6 +969,24 @@ export interface IncidentsApiUpdateIncidentRequest {
    * @type Array<IncidentRelatedObject>
    */
   include?: Array<IncidentRelatedObject>;
+}
+
+export interface IncidentsApiUpdateIncidentAttachmentsRequest {
+  /**
+   * The UUID of the incident.
+   * @type string
+   */
+  incidentId: string;
+  /**
+   * Incident Attachment Payload.
+   * @type IncidentAttachmentUpdateRequest
+   */
+  body: IncidentAttachmentUpdateRequest;
+  /**
+   * Specifies which types of related objects are included in the response.
+   * @type Array<IncidentAttachmentRelatedObject>
+   */
+  include?: Array<IncidentAttachmentRelatedObject>;
 }
 
 export class IncidentsApi {
@@ -827,6 +1066,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get all attachments for a given incident.
+   * @param param The request object
+   */
+  public listIncidentAttachments(
+    param: IncidentsApiListIncidentAttachmentsRequest,
+    options?: Configuration
+  ): Promise<IncidentAttachmentsResponse> {
+    const requestContextPromise = this.requestFactory.listIncidentAttachments(
+      param.incidentId,
+      param.include,
+      param.filterAttachmentType,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listIncidentAttachments(
+            responseContext
+          );
         });
     });
   }
@@ -918,6 +1182,31 @@ export class IncidentsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateIncident(responseContext);
+        });
+    });
+  }
+
+  /**
+   * The bulk update endpoint for creating, updating, and deleting attachments for a given incident.
+   * @param param The request object
+   */
+  public updateIncidentAttachments(
+    param: IncidentsApiUpdateIncidentAttachmentsRequest,
+    options?: Configuration
+  ): Promise<IncidentAttachmentUpdateResponse> {
+    const requestContextPromise = this.requestFactory.updateIncidentAttachments(
+      param.incidentId,
+      param.body,
+      param.include,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updateIncidentAttachments(
+            responseContext
+          );
         });
     });
   }

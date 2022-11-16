@@ -28,6 +28,16 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
               target: 200,
             },
           ],
+          extractedValues: [
+            {
+              field: "server",
+              name: "EXTRACTED_VALUE",
+              parser: {
+                type: "raw",
+              },
+              type: "http_header",
+            },
+          ],
           isCritical: true,
           name: "request is sent",
           request: {

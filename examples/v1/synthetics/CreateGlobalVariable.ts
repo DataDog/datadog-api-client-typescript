@@ -16,6 +16,7 @@ const params: v1.SyntheticsApiCreateGlobalVariableRequest = {
     name: "MY_VARIABLE",
     parseTestOptions: {
       field: "content-type",
+      localVariableName: "LOCAL_VARIABLE",
       parser: {
         type: "regex",
         value: ".*",

@@ -6,6 +6,7 @@
 import { MonitorDeviceID } from "./MonitorDeviceID";
 import { MonitorFormulaAndFunctionQueryDefinition } from "./MonitorFormulaAndFunctionQueryDefinition";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
+import { MonitorOptionsSchedulingOptions } from "./MonitorOptionsSchedulingOptions";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholds } from "./MonitorThresholds";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
@@ -102,6 +103,15 @@ export class MonitorOptions {
    */
   "notifyAudit"?: boolean;
   /**
+   * Controls what granularity a monitor alerts on. Only available for monitors with groupings.
+   * For instance, a monitor grouped by `cluster`, `namespace`, and `pod` can be configured to only notify on each
+   * new `cluster` violating the alert conditions by setting `notify_by` to `["cluster"]`. Tags mentioned
+   * in `notify_by` must be a subset of the grouping tags in the query.
+   * For example, a query grouped by `cluster` and `namespace` cannot notify on `region`.
+   * Setting `notify_by` to `[*]` configures the monitor to notify as a simple-alert.
+   */
+  "notifyBy"?: Array<string>;
+  /**
    * A Boolean indicating whether this monitor notifies when data stops reporting.
    */
   "notifyNoData"?: boolean;
@@ -109,7 +119,7 @@ export class MonitorOptions {
    * Controls how groups or monitors are treated if an evaluation does not return any data points.
    * The default option results in different behavior depending on the monitor query type.
    * For monitors using Count queries, an empty monitor evaluation is treated as 0 and is compared to the threshold conditions.
-   * For monitor using any query type other than Count, for example Gauge or Rate, the monitor shows the last known status.
+   * For monitors using any query type other than Count, for example Gauge, Measure, or Rate, the monitor shows the last known status.
    * This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
    */
   "onMissingData"?: OnMissingDataOption;
@@ -132,6 +142,10 @@ export class MonitorOptions {
    * otherwise some evaluations are skipped. Default is false.
    */
   "requireFullWindow"?: boolean;
+  /**
+   * Configuration options for scheduling.
+   */
+  "schedulingOptions"?: MonitorOptionsSchedulingOptions;
   /**
    * Information about the downtime applied to the monitor.
    */
@@ -232,6 +246,10 @@ export class MonitorOptions {
       baseName: "notify_audit",
       type: "boolean",
     },
+    notifyBy: {
+      baseName: "notify_by",
+      type: "Array<string>",
+    },
     notifyNoData: {
       baseName: "notify_no_data",
       type: "boolean",
@@ -257,6 +275,10 @@ export class MonitorOptions {
     requireFullWindow: {
       baseName: "require_full_window",
       type: "boolean",
+    },
+    schedulingOptions: {
+      baseName: "scheduling_options",
+      type: "MonitorOptionsSchedulingOptions",
     },
     silenced: {
       baseName: "silenced",

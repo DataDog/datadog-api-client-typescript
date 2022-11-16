@@ -1,5 +1,5 @@
 /**
- * List tag configurations returns "Success" response
+ * Get a list of metrics returns "Success" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

@@ -18,7 +18,7 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
       period: 1,
       weekDays: ["Mon", "Tue", "Wed", "Thu", "Fri"],
       untilDate: Math.round(
-        new Date(new Date().getTime() / 1000 + 21 * 86400).getTime() / 1000
+        new Date(new Date().getTime() + 21 * 86400 * 1000).getTime() / 1000
       ),
     },
   },

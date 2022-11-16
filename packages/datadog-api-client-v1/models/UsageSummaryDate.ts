@@ -20,9 +20,17 @@ export class UsageSummaryDate {
    */
   "apmAzureAppServiceHostTop99p"?: number;
   /**
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current date for all organizations.
+   */
+  "apmFargateCountAvg"?: number;
+  /**
    * Shows the 99th percentile of all distinct APM hosts over all hours in the current date for all organizations.
    */
   "apmHostTop99p"?: number;
+  /**
+   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current date for all organizations.
+   */
+  "appsecFargateCountAvg"?: number;
   /**
    * Shows the sum of audit logs lines indexed over all hours in the current date for all organizations.
    */
@@ -91,6 +99,10 @@ export class UsageSummaryDate {
    * Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current date for all organizations.
    */
   "cspmAasHostTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in the current date for all organizations.
+   */
+  "cspmAwsHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for all organizations.
    */
@@ -240,9 +252,21 @@ export class UsageSummaryDate {
    */
   "rumUnitsSum"?: number;
   /**
+   * Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
+   */
+  "sdsApmScannedBytesSum"?: number;
+  /**
+   * Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
+   */
+  "sdsEventsScannedBytesSum"?: number;
+  /**
    * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for all organizations.
    */
   "sdsLogsScannedBytesSum"?: number;
+  /**
+   * Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
+   */
+  "sdsRumScannedBytesSum"?: number;
   /**
    * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for all organizations.
    */
@@ -287,8 +311,18 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    apmFargateCountAvg: {
+      baseName: "apm_fargate_count_avg",
+      type: "number",
+      format: "int64",
+    },
     apmHostTop99p: {
       baseName: "apm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    appsecFargateCountAvg: {
+      baseName: "appsec_fargate_count_avg",
       type: "number",
       format: "int64",
     },
@@ -374,6 +408,11 @@ export class UsageSummaryDate {
     },
     cspmAasHostTop99p: {
       baseName: "cspm_aas_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    cspmAwsHostTop99p: {
+      baseName: "cspm_aws_host_top99p",
       type: "number",
       format: "int64",
     },
@@ -561,8 +600,23 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    sdsApmScannedBytesSum: {
+      baseName: "sds_apm_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsEventsScannedBytesSum: {
+      baseName: "sds_events_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
     sdsLogsScannedBytesSum: {
       baseName: "sds_logs_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsRumScannedBytesSum: {
+      baseName: "sds_rum_scanned_bytes_sum",
       type: "number",
       format: "int64",
     },

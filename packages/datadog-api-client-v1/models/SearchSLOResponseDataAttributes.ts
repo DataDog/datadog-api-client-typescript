@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
 import { SearchSLOResponseDataAttributesFacets } from "./SearchSLOResponseDataAttributesFacets";
-import { ServiceLevelObjective } from "./ServiceLevelObjective";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -19,7 +19,7 @@ export class SearchSLOResponseDataAttributes {
   /**
    * SLOs
    */
-  "slo"?: Array<ServiceLevelObjective>;
+  "slos"?: Array<SearchServiceLevelObjective>;
 
   /**
    * @ignore
@@ -34,9 +34,9 @@ export class SearchSLOResponseDataAttributes {
       baseName: "facets",
       type: "SearchSLOResponseDataAttributesFacets",
     },
-    slo: {
-      baseName: "slo",
-      type: "Array<ServiceLevelObjective>",
+    slos: {
+      baseName: "slos",
+      type: "Array<SearchServiceLevelObjective>",
     },
   };
 

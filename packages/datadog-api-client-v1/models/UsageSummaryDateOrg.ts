@@ -19,9 +19,17 @@ export class UsageSummaryDateOrg {
    */
   "apmAzureAppServiceHostTop99p"?: number;
   /**
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current months for the given org.
+   */
+  "apmFargateCountAvg"?: number;
+  /**
    * Shows the 99th percentile of all distinct APM hosts over all hours in the current date for the given org.
    */
   "apmHostTop99p"?: number;
+  /**
+   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current months for the given org.
+   */
+  "appsecFargateCountAvg"?: number;
   /**
    * Shows the sum of all audit logs lines indexed over all hours in the current date for the given org.
    */
@@ -90,6 +98,10 @@ export class UsageSummaryDateOrg {
    * Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current date for the given org.
    */
   "cspmAasHostTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in the current date for the given org.
+   */
+  "cspmAwsHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for the given org.
    */
@@ -227,6 +239,10 @@ export class UsageSummaryDateOrg {
    */
   "publicId"?: string;
   /**
+   * The region of the organization.
+   */
+  "region"?: string;
+  /**
    * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for the given org.
    */
   "rumBrowserAndMobileSessionCount"?: number;
@@ -243,9 +259,21 @@ export class UsageSummaryDateOrg {
    */
   "rumUnitsSum"?: number;
   /**
+   * Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for the given org.
+   */
+  "sdsApmScannedBytesSum"?: number;
+  /**
+   * Sum of all event stream events bytes scanned with sensitive data scanner over all hours in the current date for the given org.
+   */
+  "sdsEventsScannedBytesSum"?: number;
+  /**
    * Shows the sum of all bytes scanned of logs usage by the Sensitive Data Scanner over all hours in the current month for the given org.
    */
   "sdsLogsScannedBytesSum"?: number;
+  /**
+   * Sum of all RUM bytes scanned with sensitive data scanner over all hours in the current date for the given org.
+   */
+  "sdsRumScannedBytesSum"?: number;
   /**
    * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for the given org.
    */
@@ -290,8 +318,18 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    apmFargateCountAvg: {
+      baseName: "apm_fargate_count_avg",
+      type: "number",
+      format: "int64",
+    },
     apmHostTop99p: {
       baseName: "apm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    appsecFargateCountAvg: {
+      baseName: "appsec_fargate_count_avg",
       type: "number",
       format: "int64",
     },
@@ -377,6 +415,11 @@ export class UsageSummaryDateOrg {
     },
     cspmAasHostTop99p: {
       baseName: "cspm_aas_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    cspmAwsHostTop99p: {
+      baseName: "cspm_aws_host_top99p",
       type: "number",
       format: "int64",
     },
@@ -547,6 +590,10 @@ export class UsageSummaryDateOrg {
       baseName: "public_id",
       type: "string",
     },
+    region: {
+      baseName: "region",
+      type: "string",
+    },
     rumBrowserAndMobileSessionCount: {
       baseName: "rum_browser_and_mobile_session_count",
       type: "number",
@@ -567,8 +614,23 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    sdsApmScannedBytesSum: {
+      baseName: "sds_apm_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsEventsScannedBytesSum: {
+      baseName: "sds_events_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
     sdsLogsScannedBytesSum: {
       baseName: "sds_logs_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    sdsRumScannedBytesSum: {
+      baseName: "sds_rum_scanned_bytes_sum",
       type: "number",
       format: "int64",
     },

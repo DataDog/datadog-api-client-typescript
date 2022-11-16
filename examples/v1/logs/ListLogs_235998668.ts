@@ -13,7 +13,7 @@ const params: v1.LogsApiListLogsRequest = {
     query: "host:Test*",
     sort: "asc",
     time: {
-      from: new Date(new Date().getTime() / 1000 + -1 * 3600),
+      from: new Date(new Date().getTime() + -1 * 3600 * 1000),
       timezone: "Europe/Paris",
       to: new Date(),
     },

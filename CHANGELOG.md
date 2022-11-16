@@ -1,5 +1,100 @@
 # CHANGELOG
 
+## 1.6.0 / 2022-11-16
+
+### Fixed
+* Remove node specific checks and unblock running in workers by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/899
+* Fallback on `cross-fetch` only when `fetch` is not available by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/900
+* Fix service catalog schema change by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/906
+### Added
+* Add support for CI Visibility API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/880
+* Add support for querying logs in Online Archives by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/871
+* Add new SDS fields to usage API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/881
+* Remove Beta status for SLO history endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/883
+* Update formula and function monitor enum datasource by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/889
+* Add scheduling_options to monitor definition by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/890
+* Appsec Fargate Public Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/893
+* Adds noScreenshot to SyntheticsStep by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/895
+* Add support for xpath assertions in synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/876
+* Add bodyType to Synthetics request by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/901
+### Changed
+* Target es6 javascript by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/887
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.5.0...v1.6.0
+
+## 1.5.0 / 2022-10-24
+
+### Fixed
+* Add Default Rule ID in SignalRuleResponseQuery by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/868
+* Remove incident's resolved attribute from update requests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/869
+* Fix event monitor created_at by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/870
+* Fix error handling in APIs by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/875
+* Fix spectral rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/873
+### Added
+* Add notify_by monitor option by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/862
+* Add support for service definitions APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/874
+* Add support for confluent cloud integration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/813
+### Deprecated
+* Deprecate metric field of Security Monitoring Rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/878
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.4.0...v1.5.0
+
+## 1.4.0 / 2022-10-03
+
+### Fixed
+* Handle errors in deserialization errors by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/836
+* Refactor RuleQuery models by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/854
+* Fix SearchSLO response structure by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/856
+* Fix debug output by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/857
+### Added
+* Add ListActiveConfigurations endpoint and add new filter[queried] param to list tag configurations endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/785
+* Add doesNotExist to synthetics operator enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/825
+* Add TopologyMapWidget to dashboard schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/828
+* Add Overall Status support to SLO Search API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/830
+* Add APM Fargate to Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/824
+* Add support for template variable multiselect in dashboards by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/835
+* Add storage option to widget query definitions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/840
+* Add support for retrieving a security signal by ID by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/848
+* Add support for signal correlation API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/841
+* Add support for SLO List widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/847
+* Add new historical_cost endpoint, and update estimate_cost by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/839
+* Add support for incident attachment APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/852
+
+## New Contributors
+* @nkzou made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/822
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.3.0...v1.4.0
+
+## 1.3.0 / 2022-08-31
+
+### Fixed
+* Update Pagerduty operation `DeletePagerDutyIntegrationService` response status code by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/778
+### Added
+* Add support for digest auth in synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/786
+* Add support for RUM application endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/787
+* add priority parameters for dashboard monitor summary widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/794
+* Add `logs_pattern_stream` to `list_stream` widget source by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/797
+* Add group_retention_duration and on_missing_data monitor options by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/789
+* Expose CSPM aws host count in Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/809
+* Add support for configuring zstdCompressorCallback by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/811
+* Add estimated ingested logs attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/779
+* Add org region to usage summary and billable usage summary by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/804
+* add compression methods to metric payloads by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/775
+* Add role relationships to RoleUpdateData by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/806
+* Add `ci_tests` enum to FormulaAndFunctionEventsDataSource by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/805
+* Add missing options and request option to synthetics test by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/796
+* Add support for global variable from multistep synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/765
+### Changed
+* update deprecated usage attribution API docs to direct users to migra… by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/798
+* [Synthetics] remove started form eventType enum by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/800
+
+## New Contributors
+* @victorien-provenzano made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/791
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.2.0...v1.3.0
+
 ## 1.2.0 / 2022-08-01
 
 ### Fixed

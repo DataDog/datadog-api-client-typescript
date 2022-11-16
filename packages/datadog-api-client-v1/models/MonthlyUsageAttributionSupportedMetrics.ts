@@ -7,6 +7,10 @@
 export type MonthlyUsageAttributionSupportedMetrics =
   | typeof API_USAGE
   | typeof API_PERCENTAGE
+  | typeof APM_FARGATE_USAGE
+  | typeof APM_FARGATE_PERCENTAGE
+  | typeof APPSEC_FARGATE_USAGE
+  | typeof APPSEC_FARGATE_PERCENTAGE
   | typeof APM_HOST_USAGE
   | typeof APM_HOST_PERCENTAGE
   | typeof APPSEC_USAGE
@@ -31,6 +35,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof DBM_QUERIES_USAGE
   | typeof ESTIMATED_INDEXED_LOGS_USAGE
   | typeof ESTIMATED_INDEXED_LOGS_PERCENTAGE
+  | typeof ESTIMATED_INGESTED_LOGS_USAGE
+  | typeof ESTIMATED_INGESTED_LOGS_PERCENTAGE
   | typeof ESTIMATED_INDEXED_SPANS_USAGE
   | typeof ESTIMATED_INDEXED_SPANS_PERCENTAGE
   | typeof ESTIMATED_INGESTED_SPANS_USAGE
@@ -56,6 +62,10 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof ALL;
 export const API_USAGE = "api_usage";
 export const API_PERCENTAGE = "api_percentage";
+export const APM_FARGATE_USAGE = "apm_fargate_usage";
+export const APM_FARGATE_PERCENTAGE = "apm_fargate_percentage";
+export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
+export const APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage";
 export const APM_HOST_USAGE = "apm_host_usage";
 export const APM_HOST_PERCENTAGE = "apm_host_percentage";
 export const APPSEC_USAGE = "appsec_usage";
@@ -81,6 +91,9 @@ export const DBM_QUERIES_USAGE = "dbm_queries_usage";
 export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
 export const ESTIMATED_INDEXED_LOGS_PERCENTAGE =
   "estimated_indexed_logs_percentage";
+export const ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage";
+export const ESTIMATED_INGESTED_LOGS_PERCENTAGE =
+  "estimated_ingested_logs_percentage";
 export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
 export const ESTIMATED_INDEXED_SPANS_PERCENTAGE =
   "estimated_indexed_spans_percentage";

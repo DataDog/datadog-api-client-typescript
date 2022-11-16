@@ -11,7 +11,7 @@ const params: v1.MonitorsApiValidateMonitorRequest = {
   body: {
     name: "Example-Validate_a_multi_alert_monitor_returns_OK_response",
     type: "log alert",
-    query: `logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2`,
+    query: `logs("service:foo AND type:error").index("main").rollup("count").by("source,status").last("5m") > 2`,
     message: "some message Notify: @hipchat-channel",
     tags: ["test:examplevalidateamultialertmonitorreturnsokresponse", "env:ci"],
     priority: 3,
@@ -26,6 +26,7 @@ const params: v1.MonitorsApiValidateMonitorRequest = {
       newHostDelay: 600,
       noDataTimeframe: undefined,
       notifyAudit: false,
+      notifyBy: ["status"],
       notifyNoData: false,
       onMissingData: "show_and_notify_no_data",
       renotifyInterval: 60,

@@ -7,49 +7,40 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
+// there is a valid "security_rule" in the system
+const SECURITY_RULE_ID = process.env.SECURITY_RULE_ID as string;
+
 const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
   body: {
-    cases: [
-      {
-        notifications: [],
-        status: "critical",
-      },
-    ],
-    filters: [
-      {
-        action: "require",
-      },
-    ],
-    hasExtendedTitle: true,
-    options: {
-      decreaseCriticalityBasedOnEnv: false,
-      detectionMethod: "threshold",
-      evaluationWindow: 0,
-      hardcodedEvaluatorType: "log4shell",
-      impossibleTravelOptions: {
-        baselineUserLocations: true,
-      },
-      keepAlive: 0,
-      maxSignalDuration: 0,
-      newValueOptions: {
-        forgetAfter: 1,
-        learningDuration: 0,
-        learningMethod: "duration",
-        learningThreshold: 0,
-      },
-    },
+    name: "Example-Update_an_existing_rule_returns_OK_response-Updated",
     queries: [
       {
+        query: "@test:true",
         aggregation: "count",
-        distinctFields: [],
         groupByFields: [],
+        distinctFields: [],
         metrics: [],
       },
     ],
+    filters: [],
+    cases: [
+      {
+        name: "",
+        status: "info",
+        condition: "a > 0",
+        notifications: [],
+      },
+    ],
+    options: {
+      evaluationWindow: 900,
+      keepAlive: 3600,
+      maxSignalDuration: 86400,
+    },
+    message: "Test rule",
     tags: [],
-    version: 1,
+    isEnabled: true,
   },
-  ruleId: "rule_id",
+  ruleId: SECURITY_RULE_ID,
 };
 
 apiInstance
