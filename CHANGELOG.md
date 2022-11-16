@@ -1,5 +1,29 @@
 # CHANGELOG
 
+## 1.6.0 / 2022-11-16
+
+### Fixed
+* Remove node specific checks and unblock running in workers by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/899
+* Fallback on `cross-fetch` only when `fetch` is not available by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/900
+* Fix service catalog schema change by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/906
+### Added
+* Add support for CI Visibility API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/880
+* Add support for querying logs in Online Archives by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/871
+* Add new SDS fields to usage API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/881
+* Remove Beta status for SLO history endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/883
+* Update formula and function monitor enum datasource by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/886
+* Update formula and function monitor enum datasource by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/889
+* Add scheduling_options to monitor definition by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/890
+* Appsec Fargate Public Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/893
+* Adds noScreenshot to SyntheticsStep by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/895
+* Add support for xpath assertions in synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/876
+* Add bodyType to Synthetics request by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/901
+### Changed
+* Target es6 javascript by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/887
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.5.0...v1.6.0
+
 ## 1.5.0 / 2022-10-24
 
 ### Fixed
