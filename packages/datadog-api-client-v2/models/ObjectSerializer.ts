@@ -114,6 +114,22 @@ import { DashboardListItemResponse } from "./DashboardListItemResponse";
 import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
+import { DashboardReport } from "./DashboardReport";
+import { DashboardReportAttributes } from "./DashboardReportAttributes";
+import { DashboardReportCreate } from "./DashboardReportCreate";
+import { DashboardReportCreateAttributes } from "./DashboardReportCreateAttributes";
+import { DashboardReportCreateRequest } from "./DashboardReportCreateRequest";
+import { DashboardReportDestination } from "./DashboardReportDestination";
+import { DashboardReportDestinationEmail } from "./DashboardReportDestinationEmail";
+import { DashboardReportRelationships } from "./DashboardReportRelationships";
+import { DashboardReportRelationshipsDashboard } from "./DashboardReportRelationshipsDashboard";
+import { DashboardReportRelationshipsDashboardData } from "./DashboardReportRelationshipsDashboardData";
+import { DashboardReportResponse } from "./DashboardReportResponse";
+import { DashboardReportSchedule } from "./DashboardReportSchedule";
+import { DashboardReportUpdateAttributes } from "./DashboardReportUpdateAttributes";
+import { DashboardReportUpdateRequest } from "./DashboardReportUpdateRequest";
+import { DashboardReportUpdateRequestData } from "./DashboardReportUpdateRequestData";
+import { DashboardReportsResponse } from "./DashboardReportsResponse";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventResponse } from "./EventResponse";
@@ -576,6 +592,103 @@ const enumsMap: { [key: string]: any[] } = {
   ConfluentResourceType: ["confluent-cloud-resources"],
   ContentEncoding: ["identity", "gzip", "deflate"],
   CostByOrgType: ["cost_by_org"],
+  DashboardReportResourceType: ["dashboards"],
+  DashboardReportScheduleFrequency: [
+    "1d",
+    "2d",
+    "3d",
+    "4d",
+    "5d",
+    "6d",
+    "1w",
+    "2w",
+    "3w",
+    "1mo",
+    "2mo",
+    "3mo",
+    "4mo",
+    "5mo",
+    "6mo",
+    "7mo",
+    "8mo",
+    "9mo",
+    "10mo",
+    "11mo",
+    "12mo",
+  ],
+  DashboardReportScheduleRepeatAt: [
+    "00:00",
+    "00:30",
+    "01:00",
+    "01:30",
+    "02:00",
+    "02:30",
+    "03:00",
+    "03:30",
+    "04:00",
+    "04:30",
+    "05:00",
+    "05:30",
+    "06:00",
+    "06:30",
+    "07:00",
+    "07:30",
+    "08:00",
+    "08:30",
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "12:00",
+    "12:30",
+    "13:00",
+    "13:30",
+    "14:00",
+    "14:30",
+    "15:00",
+    "15:30",
+    "16:00",
+    "16:30",
+    "17:00",
+    "17:30",
+    "18:00",
+    "18:30",
+    "19:00",
+    "19:30",
+    "20:00",
+    "20:30",
+    "21:00",
+    "21:30",
+    "22:00",
+    "22:30",
+    "23:00",
+    "23:30",
+  ],
+  DashboardReportScheduleRepeatOnDayOfMonth: ["1st", "15th", null],
+  DashboardReportScheduleRepeatOnDayOfWeek: [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    null,
+  ],
+  DashboardReportTimeframe: [
+    "5m",
+    "15m",
+    "30m",
+    "1h",
+    "4h",
+    "1d",
+    "2d",
+    "1w",
+    "1mo",
+  ],
+  DashboardReportType: ["dashboard_reports"],
   DashboardType: [
     "custom_timeboard",
     "custom_screenboard",
@@ -583,7 +696,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
-  EventPriority: ["normal", "low"],
+  EventPriority: ["normal", "low", null],
   EventStatusType: [
     "failure",
     "error",
@@ -920,6 +1033,23 @@ const typeMap: { [index: string]: any } = {
   DashboardListItems: DashboardListItems,
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
+  DashboardReport: DashboardReport,
+  DashboardReportAttributes: DashboardReportAttributes,
+  DashboardReportCreate: DashboardReportCreate,
+  DashboardReportCreateAttributes: DashboardReportCreateAttributes,
+  DashboardReportCreateRequest: DashboardReportCreateRequest,
+  DashboardReportDestination: DashboardReportDestination,
+  DashboardReportDestinationEmail: DashboardReportDestinationEmail,
+  DashboardReportRelationships: DashboardReportRelationships,
+  DashboardReportRelationshipsDashboard: DashboardReportRelationshipsDashboard,
+  DashboardReportRelationshipsDashboardData:
+    DashboardReportRelationshipsDashboardData,
+  DashboardReportResponse: DashboardReportResponse,
+  DashboardReportSchedule: DashboardReportSchedule,
+  DashboardReportUpdateAttributes: DashboardReportUpdateAttributes,
+  DashboardReportUpdateRequest: DashboardReportUpdateRequest,
+  DashboardReportUpdateRequestData: DashboardReportUpdateRequestData,
+  DashboardReportsResponse: DashboardReportsResponse,
   Event: Event,
   EventAttributes: EventAttributes,
   EventResponse: EventResponse,

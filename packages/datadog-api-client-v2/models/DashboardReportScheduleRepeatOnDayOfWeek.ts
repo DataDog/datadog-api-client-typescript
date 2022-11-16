@@ -1,0 +1,25 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+
+export type DashboardReportScheduleRepeatOnDayOfWeek =
+  | typeof DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_MONDAY
+  | typeof DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_TUESDAY
+  | typeof DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_WEDNESDAY
+  | typeof DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_THURSDAY
+  | typeof DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_FRIDAY
+  | typeof DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_SATURDAY
+  | typeof DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_SUNDAY;
+export const DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_MONDAY = "Monday";
+export const DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_TUESDAY =
+  "Tuesday";
+export const DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_WEDNESDAY =
+  "Wednesday";
+export const DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_THURSDAY =
+  "Thursday";
+export const DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_FRIDAY = "Friday";
+export const DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_SATURDAY =
+  "Saturday";
+export const DASHBOARD_REPORT_SCHEDULE_REPEAT_ON_DAY_OF_WEEK_SUNDAY = "Sunday";

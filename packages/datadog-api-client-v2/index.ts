@@ -57,6 +57,15 @@ export {
 } from "./apis/DashboardListsApi";
 
 export {
+  DashboardReportsApiCreateDashboardReportConfigRequest,
+  DashboardReportsApiDeleteDashboardReportConfigRequest,
+  DashboardReportsApiGetDashboardReportConfigRequest,
+  DashboardReportsApiGetDashboardReportConfigsListRequest,
+  DashboardReportsApiUpdateDashboardReportConfigRequest,
+  DashboardReportsApi,
+} from "./apis/DashboardReportsApi";
+
+export {
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
   EventsApi,
@@ -402,6 +411,29 @@ export { DashboardListItemResponse } from "./models/DashboardListItemResponse";
 export { DashboardListItems } from "./models/DashboardListItems";
 export { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateItemsRequest";
 export { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
+export { DashboardReport } from "./models/DashboardReport";
+export { DashboardReportAttributes } from "./models/DashboardReportAttributes";
+export { DashboardReportCreate } from "./models/DashboardReportCreate";
+export { DashboardReportCreateAttributes } from "./models/DashboardReportCreateAttributes";
+export { DashboardReportCreateRequest } from "./models/DashboardReportCreateRequest";
+export { DashboardReportDestination } from "./models/DashboardReportDestination";
+export { DashboardReportDestinationEmail } from "./models/DashboardReportDestinationEmail";
+export { DashboardReportRelationships } from "./models/DashboardReportRelationships";
+export { DashboardReportRelationshipsDashboard } from "./models/DashboardReportRelationshipsDashboard";
+export { DashboardReportRelationshipsDashboardData } from "./models/DashboardReportRelationshipsDashboardData";
+export { DashboardReportResourceType } from "./models/DashboardReportResourceType";
+export { DashboardReportResponse } from "./models/DashboardReportResponse";
+export { DashboardReportSchedule } from "./models/DashboardReportSchedule";
+export { DashboardReportScheduleFrequency } from "./models/DashboardReportScheduleFrequency";
+export { DashboardReportScheduleRepeatAt } from "./models/DashboardReportScheduleRepeatAt";
+export { DashboardReportScheduleRepeatOnDayOfMonth } from "./models/DashboardReportScheduleRepeatOnDayOfMonth";
+export { DashboardReportScheduleRepeatOnDayOfWeek } from "./models/DashboardReportScheduleRepeatOnDayOfWeek";
+export { DashboardReportsResponse } from "./models/DashboardReportsResponse";
+export { DashboardReportTimeframe } from "./models/DashboardReportTimeframe";
+export { DashboardReportType } from "./models/DashboardReportType";
+export { DashboardReportUpdateAttributes } from "./models/DashboardReportUpdateAttributes";
+export { DashboardReportUpdateRequest } from "./models/DashboardReportUpdateRequest";
+export { DashboardReportUpdateRequestData } from "./models/DashboardReportUpdateRequestData";
 export { DashboardType } from "./models/DashboardType";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
