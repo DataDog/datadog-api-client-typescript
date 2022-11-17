@@ -115,6 +115,10 @@ export class UsageSummaryDateOrg {
    */
   "cspmContainerHwm"?: number;
   /**
+   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in the current date for the given org.
+   */
+  "cspmGcpHostTop99p"?: number;
+  /**
    * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current date for the given org.
    */
   "cspmHostTop99p"?: number;
@@ -435,6 +439,11 @@ export class UsageSummaryDateOrg {
     },
     cspmContainerHwm: {
       baseName: "cspm_container_hwm",
+      type: "number",
+      format: "int64",
+    },
+    cspmGcpHostTop99p: {
+      baseName: "cspm_gcp_host_top99p",
       type: "number",
       format: "int64",
     },

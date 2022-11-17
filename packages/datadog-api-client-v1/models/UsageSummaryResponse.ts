@@ -121,6 +121,10 @@ export class UsageSummaryResponse {
    */
   "cspmContainerHwmSum"?: number;
   /**
+   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in the current months for all organizations.
+   */
+  "cspmGcpHostTop99pSum"?: number;
+  /**
    * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current months for all organizations.
    */
   "cspmHostTop99pSum"?: number;
@@ -470,6 +474,11 @@ export class UsageSummaryResponse {
     },
     cspmContainerHwmSum: {
       baseName: "cspm_container_hwm_sum",
+      type: "number",
+      format: "int64",
+    },
+    cspmGcpHostTop99pSum: {
+      baseName: "cspm_gcp_host_top99p_sum",
       type: "number",
       format: "int64",
     },
