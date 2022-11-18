@@ -185,6 +185,7 @@ export {
   ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest,
+  ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApi,
 } from "./apis/ServiceLevelObjectiveCorrectionsApi";
