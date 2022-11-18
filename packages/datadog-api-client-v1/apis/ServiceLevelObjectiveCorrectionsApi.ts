@@ -141,6 +141,8 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   }
 
   public async listSLOCorrection(
+    offset?: number,
+    limit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -155,6 +157,20 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (offset !== undefined) {
+      requestContext.setQueryParam(
+        "offset",
+        ObjectSerializer.serialize(offset, "number", "int64")
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -549,6 +565,19 @@ export interface ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest {
   sloCorrectionId: string;
 }
 
+export interface ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest {
+  /**
+   * The specific offset to use as the beginning of the returned response.
+   * @type number
+   */
+  offset?: number;
+  /**
+   * The number of SLO corrections to return in the response. Default is 25.
+   * @type number
+   */
+  limit?: number;
+}
+
 export interface ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest {
   /**
    * The ID of the SLO correction object.
@@ -649,10 +678,14 @@ export class ServiceLevelObjectiveCorrectionsApi {
    * @param param The request object
    */
   public listSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest = {},
     options?: Configuration
   ): Promise<SLOCorrectionListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSLOCorrection(options);
+    const requestContextPromise = this.requestFactory.listSLOCorrection(
+      param.offset,
+      param.limit,
+      options
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
