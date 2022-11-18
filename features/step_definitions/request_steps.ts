@@ -185,7 +185,7 @@ When("the request with pagination is sent", async function (this: World) {
     this.requestContext = args[0];
   })(apiInstance.responseProcessor);
   try {
-    let response = [];
+    let response: any = [];
     if (Object.keys(this.opts).length) {
       for await (const item of apiInstance[this.operationId.toOperationName() + "WithPagination"](this.opts)) {
         response.push(item);
