@@ -672,6 +672,7 @@ export { QuerySortOrder } from "./models/QuerySortOrder";
 export { QueryValueWidgetDefinition } from "./models/QueryValueWidgetDefinition";
 export { QueryValueWidgetDefinitionType } from "./models/QueryValueWidgetDefinitionType";
 export { QueryValueWidgetRequest } from "./models/QueryValueWidgetRequest";
+export { ReferenceTableLogsLookupProcessor } from "./models/ReferenceTableLogsLookupProcessor";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { ScatterplotDimension } from "./models/ScatterplotDimension";
 export { ScatterPlotRequest } from "./models/ScatterPlotRequest";

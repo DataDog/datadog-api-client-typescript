@@ -18,6 +18,7 @@ import { LogsStringBuilderProcessor } from "./LogsStringBuilderProcessor";
 import { LogsTraceRemapper } from "./LogsTraceRemapper";
 import { LogsURLParser } from "./LogsURLParser";
 import { LogsUserAgentParser } from "./LogsUserAgentParser";
+import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -40,5 +41,6 @@ export type LogsProcessor =
   | LogsPipelineProcessor
   | LogsGeoIPParser
   | LogsLookupProcessor
+  | ReferenceTableLogsLookupProcessor
   | LogsTraceRemapper
   | UnparsedObject;
