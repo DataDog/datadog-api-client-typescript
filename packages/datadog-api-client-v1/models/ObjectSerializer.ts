@@ -261,6 +261,7 @@ import { Pagination } from "./Pagination";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
+import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
 import { SLOBulkDeleteResponse } from "./SLOBulkDeleteResponse";
@@ -1606,6 +1607,7 @@ const typeMap: { [index: string]: any } = {
   ProcessQueryDefinition: ProcessQueryDefinition,
   QueryValueWidgetDefinition: QueryValueWidgetDefinition,
   QueryValueWidgetRequest: QueryValueWidgetRequest,
+  ReferenceTableLogsLookupProcessor: ReferenceTableLogsLookupProcessor,
   ResponseMetaAttributes: ResponseMetaAttributes,
   SLOBulkDeleteError: SLOBulkDeleteError,
   SLOBulkDeleteResponse: SLOBulkDeleteResponse,
@@ -1934,6 +1936,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsPipelineProcessor",
     "LogsGeoIPParser",
     "LogsLookupProcessor",
+    "ReferenceTableLogsLookupProcessor",
     "LogsTraceRemapper",
   ],
   MonitorFormulaAndFunctionQueryDefinition: [
