@@ -228,6 +228,10 @@ export class UsageSummaryDate {
    */
   "onlineArchiveEventsCountSum"?: number;
   /**
+   * Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
+   */
+  "opentelemetryApmHostTop99p"?: number;
+  /**
    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
    */
   "opentelemetryHostTop99p"?: number;
@@ -572,6 +576,11 @@ export class UsageSummaryDate {
     },
     onlineArchiveEventsCountSum: {
       baseName: "online_archive_events_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    opentelemetryApmHostTop99p: {
+      baseName: "opentelemetry_apm_host_top99p",
       type: "number",
       format: "int64",
     },
