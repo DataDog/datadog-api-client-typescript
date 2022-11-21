@@ -3,27 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LogsMetricComputeAggregationType } from "./LogsMetricComputeAggregationType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The compute rule to compute the log-based metric.
  */
-export class LogsMetricCompute {
-  /**
-   * The type of aggregation to use.
-   */
-  "aggregationType": LogsMetricComputeAggregationType;
+export class LogsMetricUpdateCompute {
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics.
    * Only present when the `aggregation_type` is `distribution`.
    */
   "includePercentiles"?: boolean;
-  /**
-   * The path to the value the log-based metric will aggregate on (only used if the aggregation type is a "distribution").
-   */
-  "path"?: string;
 
   /**
    * @ignore
@@ -34,18 +25,9 @@ export class LogsMetricCompute {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    aggregationType: {
-      baseName: "aggregation_type",
-      type: "LogsMetricComputeAggregationType",
-      required: true,
-    },
     includePercentiles: {
       baseName: "include_percentiles",
       type: "boolean",
-    },
-    path: {
-      baseName: "path",
-      type: "string",
     },
   };
 
@@ -53,7 +35,7 @@ export class LogsMetricCompute {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricCompute.attributeTypeMap;
+    return LogsMetricUpdateCompute.attributeTypeMap;
   }
 
   public constructor() {}
