@@ -1,5 +1,5 @@
 /**
- * Create a log-based metric returns "OK" response
+ * Update a log-based metric with include_percentiles field returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -7,24 +7,26 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.LogsMetricsApi(configuration);
 
-const params: v2.LogsMetricsApiCreateLogsMetricRequest = {
+// there is a valid "logs_metric_percentile" in the system
+const LOGS_METRIC_PERCENTILE_DATA_ID = process.env
+  .LOGS_METRIC_PERCENTILE_DATA_ID as string;
+
+const params: v2.LogsMetricsApiUpdateLogsMetricRequest = {
   body: {
     data: {
-      id: "Example-Create_a_log_based_metric_returns_OK_response",
       type: "logs_metrics",
       attributes: {
         compute: {
-          aggregationType: "distribution",
-          includePercentiles: true,
-          path: "@duration",
+          includePercentiles: false,
         },
       },
     },
   },
+  metricId: LOGS_METRIC_PERCENTILE_DATA_ID,
 };
 
 apiInstance
-  .createLogsMetric(params)
+  .updateLogsMetric(params)
   .then((data: v2.LogsMetricResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

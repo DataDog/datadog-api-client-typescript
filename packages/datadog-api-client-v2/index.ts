@@ -574,6 +574,7 @@ export { LogsMetricResponseGroupBy } from "./models/LogsMetricResponseGroupBy";
 export { LogsMetricsResponse } from "./models/LogsMetricsResponse";
 export { LogsMetricType } from "./models/LogsMetricType";
 export { LogsMetricUpdateAttributes } from "./models/LogsMetricUpdateAttributes";
+export { LogsMetricUpdateCompute } from "./models/LogsMetricUpdateCompute";
 export { LogsMetricUpdateData } from "./models/LogsMetricUpdateData";
 export { LogsMetricUpdateRequest } from "./models/LogsMetricUpdateRequest";
 export { LogsQueryFilter } from "./models/LogsQueryFilter";

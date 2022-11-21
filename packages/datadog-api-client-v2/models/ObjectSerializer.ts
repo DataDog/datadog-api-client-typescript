@@ -240,6 +240,7 @@ import { LogsMetricResponseData } from "./LogsMetricResponseData";
 import { LogsMetricResponseFilter } from "./LogsMetricResponseFilter";
 import { LogsMetricResponseGroupBy } from "./LogsMetricResponseGroupBy";
 import { LogsMetricUpdateAttributes } from "./LogsMetricUpdateAttributes";
+import { LogsMetricUpdateCompute } from "./LogsMetricUpdateCompute";
 import { LogsMetricUpdateData } from "./LogsMetricUpdateData";
 import { LogsMetricUpdateRequest } from "./LogsMetricUpdateRequest";
 import { LogsMetricsResponse } from "./LogsMetricsResponse";
@@ -1056,6 +1057,7 @@ const typeMap: { [index: string]: any } = {
   LogsMetricResponseFilter: LogsMetricResponseFilter,
   LogsMetricResponseGroupBy: LogsMetricResponseGroupBy,
   LogsMetricUpdateAttributes: LogsMetricUpdateAttributes,
+  LogsMetricUpdateCompute: LogsMetricUpdateCompute,
   LogsMetricUpdateData: LogsMetricUpdateData,
   LogsMetricUpdateRequest: LogsMetricUpdateRequest,
   LogsMetricsResponse: LogsMetricsResponse,
