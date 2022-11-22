@@ -352,6 +352,8 @@ import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
 import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
+import { SyntheticsBasicAuthOauthClient } from "./SyntheticsBasicAuthOauthClient";
+import { SyntheticsBasicAuthOauthROP } from "./SyntheticsBasicAuthOauthROP";
 import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
 import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
 import { SyntheticsBatchDetails } from "./SyntheticsBatchDetails";
@@ -972,6 +974,9 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsAssertionXPathOperator: ["validatesXPath"],
   SyntheticsBasicAuthDigestType: ["digest"],
   SyntheticsBasicAuthNTLMType: ["ntlm"],
+  SyntheticsBasicAuthOauthClientType: ["oauth-client"],
+  SyntheticsBasicAuthOauthROPType: ["oauth-rop"],
+  SyntheticsBasicAuthOauthTokenApiAuthentication: ["header", "body"],
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
   SyntheticsBasicAuthWebType: ["web"],
   SyntheticsBrowserErrorType: ["network", "js"],
@@ -1702,6 +1707,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
   SyntheticsBasicAuthDigest: SyntheticsBasicAuthDigest,
   SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
+  SyntheticsBasicAuthOauthClient: SyntheticsBasicAuthOauthClient,
+  SyntheticsBasicAuthOauthROP: SyntheticsBasicAuthOauthROP,
   SyntheticsBasicAuthSigv4: SyntheticsBasicAuthSigv4,
   SyntheticsBasicAuthWeb: SyntheticsBasicAuthWeb,
   SyntheticsBatchDetails: SyntheticsBatchDetails,
@@ -1986,6 +1993,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthSigv4",
     "SyntheticsBasicAuthNTLM",
     "SyntheticsBasicAuthDigest",
+    "SyntheticsBasicAuthOauthClient",
+    "SyntheticsBasicAuthOauthROP",
   ],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
