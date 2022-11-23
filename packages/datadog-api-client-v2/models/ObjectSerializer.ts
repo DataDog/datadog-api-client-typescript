@@ -240,7 +240,6 @@ import { LogsMetricResponseData } from "./LogsMetricResponseData";
 import { LogsMetricResponseFilter } from "./LogsMetricResponseFilter";
 import { LogsMetricResponseGroupBy } from "./LogsMetricResponseGroupBy";
 import { LogsMetricUpdateAttributes } from "./LogsMetricUpdateAttributes";
-import { LogsMetricUpdateCompute } from "./LogsMetricUpdateCompute";
 import { LogsMetricUpdateData } from "./LogsMetricUpdateData";
 import { LogsMetricUpdateRequest } from "./LogsMetricUpdateRequest";
 import { LogsMetricsResponse } from "./LogsMetricsResponse";
@@ -565,10 +564,6 @@ const enumsMap: { [key: string]: any[] } = {
     "max",
     "avg",
     "median",
-    "latest",
-    "earliest",
-    "most_frequent",
-    "delta",
   ],
   CIAppComputeType: ["timeseries", "total"],
   CIAppPipelineEventTypeName: ["cipipeline"],
@@ -1057,7 +1052,6 @@ const typeMap: { [index: string]: any } = {
   LogsMetricResponseFilter: LogsMetricResponseFilter,
   LogsMetricResponseGroupBy: LogsMetricResponseGroupBy,
   LogsMetricUpdateAttributes: LogsMetricUpdateAttributes,
-  LogsMetricUpdateCompute: LogsMetricUpdateCompute,
   LogsMetricUpdateData: LogsMetricUpdateData,
   LogsMetricUpdateRequest: LogsMetricUpdateRequest,
   LogsMetricsResponse: LogsMetricsResponse,

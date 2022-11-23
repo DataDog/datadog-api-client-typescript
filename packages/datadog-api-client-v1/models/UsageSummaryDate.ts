@@ -116,10 +116,6 @@ export class UsageSummaryDate {
    */
   "cspmContainerHwm"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in the current date for all organizations.
-   */
-  "cspmGcpHostTop99p"?: number;
-  /**
    * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current date for all organizations.
    */
   "cspmHostTop99p"?: number;
@@ -227,10 +223,6 @@ export class UsageSummaryDate {
    * Sum of all online archived events over all hours in the current date for all organizations.
    */
   "onlineArchiveEventsCountSum"?: number;
-  /**
-   * Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
-   */
-  "opentelemetryApmHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
    */
@@ -439,11 +431,6 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
-    cspmGcpHostTop99p: {
-      baseName: "cspm_gcp_host_top99p",
-      type: "number",
-      format: "int64",
-    },
     cspmHostTop99p: {
       baseName: "cspm_host_top99p",
       type: "number",
@@ -576,11 +563,6 @@ export class UsageSummaryDate {
     },
     onlineArchiveEventsCountSum: {
       baseName: "online_archive_events_count_sum",
-      type: "number",
-      format: "int64",
-    },
-    opentelemetryApmHostTop99p: {
-      baseName: "opentelemetry_apm_host_top99p",
       type: "number",
       format: "int64",
     },

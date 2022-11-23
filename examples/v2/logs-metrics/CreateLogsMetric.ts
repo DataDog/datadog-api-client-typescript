@@ -14,9 +14,7 @@ const params: v2.LogsMetricsApiCreateLogsMetricRequest = {
       type: "logs_metrics",
       attributes: {
         compute: {
-          aggregationType: "distribution",
-          includePercentiles: true,
-          path: "@duration",
+          aggregationType: "count",
         },
       },
     },

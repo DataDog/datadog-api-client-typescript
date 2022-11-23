@@ -16,7 +16,7 @@ export class AuditLogsQueryOptions {
    */
   "timeOffset"?: number;
   /**
-   * The timezone can be specified as GMT, UTC, an offset from UTC (like UTC+1), or as a Timezone Database identifier (like America/New_York).
+   * Timezone code. Can be specified as an offset, for example: "UTC+03:00".
    */
   "timezone"?: string;
 

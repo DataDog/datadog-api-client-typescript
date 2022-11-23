@@ -185,7 +185,6 @@ export {
   ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApiDeleteSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest,
-  ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest,
   ServiceLevelObjectiveCorrectionsApi,
 } from "./apis/ServiceLevelObjectiveCorrectionsApi";
@@ -672,7 +671,6 @@ export { QuerySortOrder } from "./models/QuerySortOrder";
 export { QueryValueWidgetDefinition } from "./models/QueryValueWidgetDefinition";
 export { QueryValueWidgetDefinitionType } from "./models/QueryValueWidgetDefinitionType";
 export { QueryValueWidgetRequest } from "./models/QueryValueWidgetRequest";
-export { ReferenceTableLogsLookupProcessor } from "./models/ReferenceTableLogsLookupProcessor";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { ScatterplotDimension } from "./models/ScatterplotDimension";
 export { ScatterPlotRequest } from "./models/ScatterPlotRequest";
@@ -796,11 +794,6 @@ export { SyntheticsBasicAuthDigest } from "./models/SyntheticsBasicAuthDigest";
 export { SyntheticsBasicAuthDigestType } from "./models/SyntheticsBasicAuthDigestType";
 export { SyntheticsBasicAuthNTLM } from "./models/SyntheticsBasicAuthNTLM";
 export { SyntheticsBasicAuthNTLMType } from "./models/SyntheticsBasicAuthNTLMType";
-export { SyntheticsBasicAuthOauthClient } from "./models/SyntheticsBasicAuthOauthClient";
-export { SyntheticsBasicAuthOauthClientType } from "./models/SyntheticsBasicAuthOauthClientType";
-export { SyntheticsBasicAuthOauthROP } from "./models/SyntheticsBasicAuthOauthROP";
-export { SyntheticsBasicAuthOauthROPType } from "./models/SyntheticsBasicAuthOauthROPType";
-export { SyntheticsBasicAuthOauthTokenApiAuthentication } from "./models/SyntheticsBasicAuthOauthTokenApiAuthentication";
 export { SyntheticsBasicAuthSigv4 } from "./models/SyntheticsBasicAuthSigv4";
 export { SyntheticsBasicAuthSigv4Type } from "./models/SyntheticsBasicAuthSigv4Type";
 export { SyntheticsBasicAuthWeb } from "./models/SyntheticsBasicAuthWeb";

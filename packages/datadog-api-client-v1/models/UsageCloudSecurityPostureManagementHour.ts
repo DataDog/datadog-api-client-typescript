@@ -31,10 +31,6 @@ export class UsageCloudSecurityPostureManagementHour {
    */
   "containerCount"?: number;
   /**
-   * The number of Cloud Security Posture Management GCP hosts during a given hour.
-   */
-  "gcpHostCount"?: number;
-  /**
    * The total number of Cloud Security Posture Management hosts during a given hour.
    */
   "hostCount"?: number;
@@ -82,11 +78,6 @@ export class UsageCloudSecurityPostureManagementHour {
     },
     containerCount: {
       baseName: "container_count",
-      type: "number",
-      format: "double",
-    },
-    gcpHostCount: {
-      baseName: "gcp_host_count",
       type: "number",
       format: "double",
     },

@@ -36,7 +36,7 @@ export class MetricTagConfigurationAttributes {
    */
   "createdAt"?: Date;
   /**
-   * Toggle to include or exclude percentile aggregations for distribution metrics.
+   * Toggle to turn on/off percentile aggregations for distribution metrics.
    * Only present when the `metric_type` is `distribution`.
    */
   "includePercentiles"?: boolean;

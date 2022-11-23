@@ -67,10 +67,6 @@ export class UsageHostHour {
    */
   "infraAzureAppService"?: number;
   /**
-   * Contains the total number of hosts using APM reported by Datadog exporter for the OpenTelemetry Collector.
-   */
-  "opentelemetryApmHostCount"?: number;
-  /**
    * Contains the total number of hosts reported by Datadog exporter for the OpenTelemetry Collector.
    */
   "opentelemetryHostCount"?: number;
@@ -154,11 +150,6 @@ export class UsageHostHour {
     },
     infraAzureAppService: {
       baseName: "infra_azure_app_service",
-      type: "number",
-      format: "int64",
-    },
-    opentelemetryApmHostCount: {
-      baseName: "opentelemetry_apm_host_count",
       type: "number",
       format: "int64",
     },
