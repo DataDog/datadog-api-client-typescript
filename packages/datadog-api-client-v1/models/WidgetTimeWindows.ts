@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Define a time window.
+ */
+
 export type WidgetTimeWindows =
   | typeof SEVEN_DAYS
   | typeof THIRTY_DAYS

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * HTTP header used to compress the media-type.
+ */
+
 export type DistributionPointsContentEncoding = typeof DEFLATE;
 export const DEFLATE = "deflate";

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Size of the widget.
+ */
+
 export type WidgetSizeFormat = typeof SMALL | typeof MEDIUM | typeof LARGE;
 export const SMALL = "small";
 export const MEDIUM = "medium";

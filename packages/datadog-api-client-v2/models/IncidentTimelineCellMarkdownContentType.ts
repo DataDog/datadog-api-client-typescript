@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the Markdown timeline cell.
+ */
+
 export type IncidentTimelineCellMarkdownContentType = typeof MARKDOWN;
 export const MARKDOWN = "markdown";

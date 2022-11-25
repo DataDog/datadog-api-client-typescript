@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of event.
+ */
+
 export type SecurityMonitoringSignalType = typeof SIGNAL;
 export const SIGNAL = "signal";

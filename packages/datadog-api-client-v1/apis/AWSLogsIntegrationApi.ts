@@ -33,9 +33,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling checkAWSLogsLambdaAsync."
-      );
+      throw new RequiredError("body", "checkAWSLogsLambdaAsync");
     }
 
     // Path Params
@@ -78,9 +76,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling checkAWSLogsServicesAsync."
-      );
+      throw new RequiredError("body", "checkAWSLogsServicesAsync");
     }
 
     // Path Params
@@ -122,9 +118,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createAWSLambdaARN."
-      );
+      throw new RequiredError("body", "createAWSLambdaARN");
     }
 
     // Path Params
@@ -166,9 +160,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling deleteAWSLambdaARN."
-      );
+      throw new RequiredError("body", "deleteAWSLambdaARN");
     }
 
     // Path Params
@@ -210,9 +202,7 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling enableAWSLogServices."
-      );
+      throw new RequiredError("body", "enableAWSLogServices");
     }
 
     // Path Params

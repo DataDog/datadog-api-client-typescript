@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The namespace associated with the tag filter entry.
+ */
+
 export type AWSNamespace =
   | typeof ELB
   | typeof APPLICATION_ELB

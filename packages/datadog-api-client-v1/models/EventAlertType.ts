@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * If an alert event is enabled, set its type.
+ * For example, `error`, `warning`, `info`, `success`, `user_update`,
+ * `recommendation`, and `snapshot`.
+ */
+
 export type EventAlertType =
   | typeof ERROR
   | typeof WARNING

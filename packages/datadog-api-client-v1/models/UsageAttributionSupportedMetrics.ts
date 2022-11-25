@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Supported fields for usage attribution requests (valid requests contain one or more metrics, or `*` for all).
+ */
+
 export type UsageAttributionSupportedMetrics =
   | typeof CUSTOM_TIMESERIES_USAGE
   | typeof CONTAINER_USAGE

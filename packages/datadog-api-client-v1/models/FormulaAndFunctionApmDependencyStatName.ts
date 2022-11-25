@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * APM statistic.
+ */
+
 export type FormulaAndFunctionApmDependencyStatName =
   | typeof AVG_DURATION
   | typeof AVG_ROOT_DURATION

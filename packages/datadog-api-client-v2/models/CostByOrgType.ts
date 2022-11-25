@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of cost data.
+ */
+
 export type CostByOrgType = typeof COST_BY_ORG;
 export const COST_BY_ORG = "cost_by_org";

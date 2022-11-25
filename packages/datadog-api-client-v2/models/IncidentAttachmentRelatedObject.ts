@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The object related to an incident attachment.
+ */
+
 export type IncidentAttachmentRelatedObject = typeof USERS;
 export const USERS = "users";

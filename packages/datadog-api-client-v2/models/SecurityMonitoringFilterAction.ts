@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of filtering action.
+ */
+
 export type SecurityMonitoringFilterAction = typeof REQUIRE | typeof SUPPRESS;
 export const REQUIRE = "require";
 export const SUPPRESS = "suppress";

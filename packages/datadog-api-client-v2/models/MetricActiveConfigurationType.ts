@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The metric actively queried configuration resource type.
+ */
+
 export type MetricActiveConfigurationType =
   typeof ACTIVELY_QUERIED_CONFIGURATIONS;
 export const ACTIVELY_QUERIED_CONFIGURATIONS =

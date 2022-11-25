@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Sort parameters when querying events.
+ */
+
 export type CIAppSort =
   | typeof TIMESTAMP_ASCENDING
   | typeof TIMESTAMP_DESCENDING;

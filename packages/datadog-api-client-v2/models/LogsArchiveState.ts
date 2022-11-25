@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The state of the archive.
+ */
+
 export type LogsArchiveState =
   | typeof UNKNOWN
   | typeof WORKING

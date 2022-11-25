@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The direction to sort by.
+ */
+
 export type UsageSortDirection = typeof DESC | typeof ASC;
 export const DESC = "desc";
 export const ASC = "asc";

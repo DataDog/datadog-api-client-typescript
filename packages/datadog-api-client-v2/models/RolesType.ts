@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Roles type.
+ */
+
 export type RolesType = typeof ROLES;
 export const ROLES = "roles";

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The order to use, ascending or descending.
+ */
+
 export type RUMSortOrder = typeof ASCENDING | typeof DESCENDING;
 export const ASCENDING = "asc";
 export const DESCENDING = "desc";

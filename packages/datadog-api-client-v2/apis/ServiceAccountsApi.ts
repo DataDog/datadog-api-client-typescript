@@ -36,21 +36,20 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling createServiceAccountApplicationKey."
+        "serviceAccountId",
+        "createServiceAccountApplicationKey"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createServiceAccountApplicationKey."
-      );
+      throw new RequiredError("body", "createServiceAccountApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
-        "{" + "service_account_id" + "}",
+        "{service_account_id}",
         encodeURIComponent(String(serviceAccountId))
       );
 
@@ -92,28 +91,24 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling deleteServiceAccountApplicationKey."
+        "serviceAccountId",
+        "deleteServiceAccountApplicationKey"
       );
     }
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling deleteServiceAccountApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "deleteServiceAccountApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
         .replace(
-          "{" + "service_account_id" + "}",
+          "{service_account_id}",
           encodeURIComponent(String(serviceAccountId))
         )
-        .replace(
-          "{" + "app_key_id" + "}",
-          encodeURIComponent(String(appKeyId))
-        );
+        .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -142,28 +137,24 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling getServiceAccountApplicationKey."
+        "serviceAccountId",
+        "getServiceAccountApplicationKey"
       );
     }
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling getServiceAccountApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "getServiceAccountApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
         .replace(
-          "{" + "service_account_id" + "}",
+          "{service_account_id}",
           encodeURIComponent(String(serviceAccountId))
         )
-        .replace(
-          "{" + "app_key_id" + "}",
-          encodeURIComponent(String(appKeyId))
-        );
+        .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -197,14 +188,15 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling listServiceAccountApplicationKeys."
+        "serviceAccountId",
+        "listServiceAccountApplicationKeys"
       );
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
-        "{" + "service_account_id" + "}",
+        "{service_account_id}",
         encodeURIComponent(String(serviceAccountId))
       );
 
@@ -274,35 +266,29 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling updateServiceAccountApplicationKey."
+        "serviceAccountId",
+        "updateServiceAccountApplicationKey"
       );
     }
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling updateServiceAccountApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "updateServiceAccountApplicationKey");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateServiceAccountApplicationKey."
-      );
+      throw new RequiredError("body", "updateServiceAccountApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
         .replace(
-          "{" + "service_account_id" + "}",
+          "{service_account_id}",
           encodeURIComponent(String(serviceAccountId))
         )
-        .replace(
-          "{" + "app_key_id" + "}",
-          encodeURIComponent(String(appKeyId))
-        );
+        .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
     const requestContext = getServer(

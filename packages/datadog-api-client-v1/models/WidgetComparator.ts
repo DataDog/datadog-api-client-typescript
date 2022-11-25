@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Comparator to apply.
+ */
+
 export type WidgetComparator =
   | typeof GREATER_THAN
   | typeof GREATER_THAN_OR_EQUAL_TO

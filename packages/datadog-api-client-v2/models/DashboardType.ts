@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of the dashboard.
+ */
+
 export type DashboardType =
   | typeof CUSTOM_TIMEBOARD
   | typeof CUSTOM_SCREENBOARD

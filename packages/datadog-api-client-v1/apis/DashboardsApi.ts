@@ -33,9 +33,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createDashboard."
-      );
+      throw new RequiredError("body", "createDashboard");
     }
 
     // Path Params
@@ -78,14 +76,12 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'dashboardId' is not null or undefined
     if (dashboardId === null || dashboardId === undefined) {
-      throw new RequiredError(
-        "Required parameter dashboardId was null or undefined when calling deleteDashboard."
-      );
+      throw new RequiredError("dashboardId", "deleteDashboard");
     }
 
     // Path Params
     const localVarPath = "/api/v1/dashboard/{dashboard_id}".replace(
-      "{" + "dashboard_id" + "}",
+      "{dashboard_id}",
       encodeURIComponent(String(dashboardId))
     );
 
@@ -115,9 +111,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling deleteDashboards."
-      );
+      throw new RequiredError("body", "deleteDashboards");
     }
 
     // Path Params
@@ -160,14 +154,12 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'dashboardId' is not null or undefined
     if (dashboardId === null || dashboardId === undefined) {
-      throw new RequiredError(
-        "Required parameter dashboardId was null or undefined when calling getDashboard."
-      );
+      throw new RequiredError("dashboardId", "getDashboard");
     }
 
     // Path Params
     const localVarPath = "/api/v1/dashboard/{dashboard_id}".replace(
-      "{" + "dashboard_id" + "}",
+      "{dashboard_id}",
       encodeURIComponent(String(dashboardId))
     );
 
@@ -239,9 +231,7 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling restoreDashboards."
-      );
+      throw new RequiredError("body", "restoreDashboards");
     }
 
     // Path Params
@@ -285,21 +275,17 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'dashboardId' is not null or undefined
     if (dashboardId === null || dashboardId === undefined) {
-      throw new RequiredError(
-        "Required parameter dashboardId was null or undefined when calling updateDashboard."
-      );
+      throw new RequiredError("dashboardId", "updateDashboard");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateDashboard."
-      );
+      throw new RequiredError("body", "updateDashboard");
     }
 
     // Path Params
     const localVarPath = "/api/v1/dashboard/{dashboard_id}".replace(
-      "{" + "dashboard_id" + "}",
+      "{dashboard_id}",
       encodeURIComponent(String(dashboardId))
     );
 

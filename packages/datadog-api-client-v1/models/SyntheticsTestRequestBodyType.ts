@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the request body.
+ */
+
 export type SyntheticsTestRequestBodyType =
   | typeof TEXT_PLAIN
   | typeof APPLICATION_JSON

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * ID of the device the Synthetics monitor is running on. Same as `SyntheticsDeviceID`.
+ */
+
 export type MonitorDeviceID =
   | typeof LAPTOP_LARGE
   | typeof TABLET

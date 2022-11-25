@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Integration metadata resource type.
+ */
+
 export type IncidentIntegrationMetadataType = typeof INCIDENT_INTEGRATIONS;
 export const INCIDENT_INTEGRATIONS = "incident_integrations";

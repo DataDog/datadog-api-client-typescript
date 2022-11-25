@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The level of detail for the request.
+ */
+
 export type ApmStatsQueryRowType =
   | typeof SERVICE
   | typeof RESOURCE

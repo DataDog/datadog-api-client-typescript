@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The sort parameters when querying events.
+ */
+
 export type EventsSort =
   | typeof TIMESTAMP_ASCENDING
   | typeof TIMESTAMP_DESCENDING;

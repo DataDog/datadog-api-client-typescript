@@ -45,9 +45,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSecurityFilter."
-      );
+      throw new RequiredError("body", "createSecurityFilter");
     }
 
     // Path Params
@@ -91,9 +89,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSecurityMonitoringRule."
-      );
+      throw new RequiredError("body", "createSecurityMonitoringRule");
     }
 
     // Path Params
@@ -140,15 +136,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'securityFilterId' is not null or undefined
     if (securityFilterId === null || securityFilterId === undefined) {
-      throw new RequiredError(
-        "Required parameter securityFilterId was null or undefined when calling deleteSecurityFilter."
-      );
+      throw new RequiredError("securityFilterId", "deleteSecurityFilter");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-        "{" + "security_filter_id" + "}",
+        "{security_filter_id}",
         encodeURIComponent(String(securityFilterId))
       );
 
@@ -178,14 +172,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError(
-        "Required parameter ruleId was null or undefined when calling deleteSecurityMonitoringRule."
-      );
+      throw new RequiredError("ruleId", "deleteSecurityMonitoringRule");
     }
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/rules/{rule_id}".replace(
-      "{" + "rule_id" + "}",
+      "{rule_id}",
       encodeURIComponent(String(ruleId))
     );
 
@@ -217,21 +209,20 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
       throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalAssignee."
+        "signalId",
+        "editSecurityMonitoringSignalAssignee"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalAssignee."
-      );
+      throw new RequiredError("body", "editSecurityMonitoringSignalAssignee");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/signals/{signal_id}/assignee".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -277,21 +268,20 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
       throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalIncidents."
+        "signalId",
+        "editSecurityMonitoringSignalIncidents"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalIncidents."
-      );
+      throw new RequiredError("body", "editSecurityMonitoringSignalIncidents");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/signals/{signal_id}/incidents".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -336,22 +326,18 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
-      throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalState."
-      );
+      throw new RequiredError("signalId", "editSecurityMonitoringSignalState");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalState."
-      );
+      throw new RequiredError("body", "editSecurityMonitoringSignalState");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/signals/{signal_id}/state".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -395,15 +381,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'securityFilterId' is not null or undefined
     if (securityFilterId === null || securityFilterId === undefined) {
-      throw new RequiredError(
-        "Required parameter securityFilterId was null or undefined when calling getSecurityFilter."
-      );
+      throw new RequiredError("securityFilterId", "getSecurityFilter");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-        "{" + "security_filter_id" + "}",
+        "{security_filter_id}",
         encodeURIComponent(String(securityFilterId))
       );
 
@@ -433,14 +417,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError(
-        "Required parameter ruleId was null or undefined when calling getSecurityMonitoringRule."
-      );
+      throw new RequiredError("ruleId", "getSecurityMonitoringRule");
     }
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/rules/{rule_id}".replace(
-      "{" + "rule_id" + "}",
+      "{rule_id}",
       encodeURIComponent(String(ruleId))
     );
 
@@ -470,15 +452,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
-      throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling getSecurityMonitoringSignal."
-      );
+      throw new RequiredError("signalId", "getSecurityMonitoringSignal");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/signals/{signal_id}".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -690,22 +670,18 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'securityFilterId' is not null or undefined
     if (securityFilterId === null || securityFilterId === undefined) {
-      throw new RequiredError(
-        "Required parameter securityFilterId was null or undefined when calling updateSecurityFilter."
-      );
+      throw new RequiredError("securityFilterId", "updateSecurityFilter");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateSecurityFilter."
-      );
+      throw new RequiredError("body", "updateSecurityFilter");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-        "{" + "security_filter_id" + "}",
+        "{security_filter_id}",
         encodeURIComponent(String(securityFilterId))
       );
 
@@ -747,21 +723,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError(
-        "Required parameter ruleId was null or undefined when calling updateSecurityMonitoringRule."
-      );
+      throw new RequiredError("ruleId", "updateSecurityMonitoringRule");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateSecurityMonitoringRule."
-      );
+      throw new RequiredError("body", "updateSecurityMonitoringRule");
     }
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/rules/{rule_id}".replace(
-      "{" + "rule_id" + "}",
+      "{rule_id}",
       encodeURIComponent(String(ruleId))
     );
 

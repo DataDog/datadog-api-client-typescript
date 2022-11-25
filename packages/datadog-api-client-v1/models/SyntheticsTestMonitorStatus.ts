@@ -4,6 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The status of your Synthetic monitor.
+ * * `O` for not triggered
+ * * `1` for triggered
+ * * `2` for no data
+ */
+
 export type SyntheticsTestMonitorStatus =
   | typeof UNTRIGGERED
   | typeof TRIGGERED

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Data source for APM resource stats queries.
+ */
+
 export type FormulaAndFunctionApmResourceStatsDataSource =
   typeof APM_RESOURCE_STATS;
 export const APM_RESOURCE_STATS = "apm_resource_stats";

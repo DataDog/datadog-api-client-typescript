@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the image widget.
+ */
+
 export type ImageWidgetDefinitionType = typeof IMAGE;
 export const IMAGE = "image";

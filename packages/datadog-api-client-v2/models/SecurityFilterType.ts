@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of the resource. The value should always be `security_filters`.
+ */
+
 export type SecurityFilterType = typeof SECURITY_FILTERS;
 export const SECURITY_FILTERS = "security_filters";

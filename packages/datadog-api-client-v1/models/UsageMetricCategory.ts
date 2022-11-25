@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Contains the metric category.
+ */
+
 export type UsageMetricCategory = typeof STANDARD | typeof CUSTOM;
 export const STANDARD = "standard";
 export const CUSTOM = "custom";

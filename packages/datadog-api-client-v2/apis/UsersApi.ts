@@ -38,9 +38,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createServiceAccount."
-      );
+      throw new RequiredError("body", "createServiceAccount");
     }
 
     // Path Params
@@ -82,9 +80,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createUser."
-      );
+      throw new RequiredError("body", "createUser");
     }
 
     // Path Params
@@ -127,14 +123,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
-      throw new RequiredError(
-        "Required parameter userId was null or undefined when calling disableUser."
-      );
+      throw new RequiredError("userId", "disableUser");
     }
 
     // Path Params
     const localVarPath = "/api/v2/users/{user_id}".replace(
-      "{" + "user_id" + "}",
+      "{user_id}",
       encodeURIComponent(String(userId))
     );
 
@@ -164,15 +158,13 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'userInvitationUuid' is not null or undefined
     if (userInvitationUuid === null || userInvitationUuid === undefined) {
-      throw new RequiredError(
-        "Required parameter userInvitationUuid was null or undefined when calling getInvitation."
-      );
+      throw new RequiredError("userInvitationUuid", "getInvitation");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/user_invitations/{user_invitation_uuid}".replace(
-        "{" + "user_invitation_uuid" + "}",
+        "{user_invitation_uuid}",
         encodeURIComponent(String(userInvitationUuid))
       );
 
@@ -202,14 +194,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
-      throw new RequiredError(
-        "Required parameter userId was null or undefined when calling getUser."
-      );
+      throw new RequiredError("userId", "getUser");
     }
 
     // Path Params
     const localVarPath = "/api/v2/users/{user_id}".replace(
-      "{" + "user_id" + "}",
+      "{user_id}",
       encodeURIComponent(String(userId))
     );
 
@@ -239,14 +229,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
-      throw new RequiredError(
-        "Required parameter userId was null or undefined when calling listUserOrganizations."
-      );
+      throw new RequiredError("userId", "listUserOrganizations");
     }
 
     // Path Params
     const localVarPath = "/api/v2/users/{user_id}/orgs".replace(
-      "{" + "user_id" + "}",
+      "{user_id}",
       encodeURIComponent(String(userId))
     );
 
@@ -276,14 +264,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
-      throw new RequiredError(
-        "Required parameter userId was null or undefined when calling listUserPermissions."
-      );
+      throw new RequiredError("userId", "listUserPermissions");
     }
 
     // Path Params
     const localVarPath = "/api/v2/users/{user_id}/permissions".replace(
-      "{" + "user_id" + "}",
+      "{user_id}",
       encodeURIComponent(String(userId))
     );
 
@@ -383,9 +369,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling sendInvitations."
-      );
+      throw new RequiredError("body", "sendInvitations");
     }
 
     // Path Params
@@ -429,21 +413,17 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'userId' is not null or undefined
     if (userId === null || userId === undefined) {
-      throw new RequiredError(
-        "Required parameter userId was null or undefined when calling updateUser."
-      );
+      throw new RequiredError("userId", "updateUser");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateUser."
-      );
+      throw new RequiredError("body", "updateUser");
     }
 
     // Path Params
     const localVarPath = "/api/v2/users/{user_id}".replace(
-      "{" + "user_id" + "}",
+      "{user_id}",
       encodeURIComponent(String(userId))
     );
 

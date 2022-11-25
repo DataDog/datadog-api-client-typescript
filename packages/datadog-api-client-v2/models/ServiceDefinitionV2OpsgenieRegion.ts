@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Opsgenie instance region.
+ */
+
 export type ServiceDefinitionV2OpsgenieRegion = typeof US | typeof EU;
 export const US = "US";
 export const EU = "EU";

@@ -30,9 +30,7 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling submitServiceCheck."
-      );
+      throw new RequiredError("body", "submitServiceCheck");
     }
 
     // Path Params

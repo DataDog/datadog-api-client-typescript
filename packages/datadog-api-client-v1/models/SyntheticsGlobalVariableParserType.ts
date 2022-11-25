@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of parser for a Synthetics global variable from a synthetics test.
+ */
+
 export type SyntheticsGlobalVariableParserType =
   | typeof RAW
   | typeof JSON_PATH

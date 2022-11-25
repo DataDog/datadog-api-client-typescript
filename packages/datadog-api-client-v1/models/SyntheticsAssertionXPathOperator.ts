@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Assertion operator to apply.
+ */
+
 export type SyntheticsAssertionXPathOperator = typeof VALIDATES_X_PATH;
 export const VALIDATES_X_PATH = "validatesXPath";

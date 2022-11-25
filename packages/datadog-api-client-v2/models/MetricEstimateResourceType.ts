@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The metric estimate resource type.
+ */
+
 export type MetricEstimateResourceType = typeof METRIC_CARDINALITY_ESTIMATE;
 export const METRIC_CARDINALITY_ESTIMATE = "metric_cardinality_estimate";

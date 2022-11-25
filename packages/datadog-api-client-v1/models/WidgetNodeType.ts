@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Which type of node to use in the map.
+ */
+
 export type WidgetNodeType = typeof HOST | typeof CONTAINER;
 export const HOST = "host";
 export const CONTAINER = "container";

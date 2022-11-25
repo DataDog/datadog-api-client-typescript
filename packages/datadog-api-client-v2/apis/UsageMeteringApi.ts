@@ -34,9 +34,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError(
-        "Required parameter startMonth was null or undefined when calling getCostByOrg."
-      );
+      throw new RequiredError("startMonth", "getCostByOrg");
     }
 
     // Path Params
@@ -153,9 +151,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError(
-        "Required parameter startMonth was null or undefined when calling getHistoricalCostByOrg."
-      );
+      throw new RequiredError("startMonth", "getHistoricalCostByOrg");
     }
 
     // Path Params
@@ -216,16 +212,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'filterTimestampStart' is not null or undefined
     if (filterTimestampStart === null || filterTimestampStart === undefined) {
-      throw new RequiredError(
-        "Required parameter filterTimestampStart was null or undefined when calling getHourlyUsage."
-      );
+      throw new RequiredError("filterTimestampStart", "getHourlyUsage");
     }
 
     // verify required parameter 'filterProductFamilies' is not null or undefined
     if (filterProductFamilies === null || filterProductFamilies === undefined) {
-      throw new RequiredError(
-        "Required parameter filterProductFamilies was null or undefined when calling getHourlyUsage."
-      );
+      throw new RequiredError("filterProductFamilies", "getHourlyUsage");
     }
 
     // Path Params
@@ -306,7 +298,8 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
       throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageApplicationSecurityMonitoring."
+        "startHr",
+        "getUsageApplicationSecurityMonitoring"
       );
     }
 
@@ -357,9 +350,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageLambdaTracedInvocations."
-      );
+      throw new RequiredError("startHr", "getUsageLambdaTracedInvocations");
     }
 
     // Path Params
@@ -409,9 +400,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageObservabilityPipelines."
-      );
+      throw new RequiredError("startHr", "getUsageObservabilityPipelines");
     }
 
     // Path Params

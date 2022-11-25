@@ -32,9 +32,7 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createOpsgenieService."
-      );
+      throw new RequiredError("body", "createOpsgenieService");
     }
 
     // Path Params
@@ -76,15 +74,13 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'integrationServiceId' is not null or undefined
     if (integrationServiceId === null || integrationServiceId === undefined) {
-      throw new RequiredError(
-        "Required parameter integrationServiceId was null or undefined when calling deleteOpsgenieService."
-      );
+      throw new RequiredError("integrationServiceId", "deleteOpsgenieService");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
-        "{" + "integration_service_id" + "}",
+        "{integration_service_id}",
         encodeURIComponent(String(integrationServiceId))
       );
 
@@ -113,15 +109,13 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'integrationServiceId' is not null or undefined
     if (integrationServiceId === null || integrationServiceId === undefined) {
-      throw new RequiredError(
-        "Required parameter integrationServiceId was null or undefined when calling getOpsgenieService."
-      );
+      throw new RequiredError("integrationServiceId", "getOpsgenieService");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
-        "{" + "integration_service_id" + "}",
+        "{integration_service_id}",
         encodeURIComponent(String(integrationServiceId))
       );
 
@@ -176,22 +170,18 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'integrationServiceId' is not null or undefined
     if (integrationServiceId === null || integrationServiceId === undefined) {
-      throw new RequiredError(
-        "Required parameter integrationServiceId was null or undefined when calling updateOpsgenieService."
-      );
+      throw new RequiredError("integrationServiceId", "updateOpsgenieService");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateOpsgenieService."
-      );
+      throw new RequiredError("body", "updateOpsgenieService");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integration/opsgenie/services/{integration_service_id}".replace(
-        "{" + "integration_service_id" + "}",
+        "{integration_service_id}",
         encodeURIComponent(String(integrationServiceId))
       );
 

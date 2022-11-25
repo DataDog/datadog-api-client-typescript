@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Layout type of the group.
+ */
+
 export type WidgetLayoutType = typeof ORDERED;
 export const ORDERED = "ordered";

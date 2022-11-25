@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * User invitations type.
+ */
+
 export type UserInvitationsType = typeof USER_INVITATIONS;
 export const USER_INVITATIONS = "user_invitations";

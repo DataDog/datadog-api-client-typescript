@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * If an alert event is enabled, its status is one of the following:
+ * `failure`, `error`, `warning`, `info`, `success`, `user_update`,
+ * `recommendation`, or `snapshot`.
+ */
+
 export type EventStatusType =
   | typeof FAILURE
   | typeof ERROR

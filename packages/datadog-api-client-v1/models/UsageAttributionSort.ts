@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The field to sort by.
+ */
+
 export type UsageAttributionSort =
   | typeof API_PERCENTAGE
   | typeof SNMP_USAGE

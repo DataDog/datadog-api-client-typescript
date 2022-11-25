@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the S3 archive destination.
+ */
+
 export type LogsArchiveDestinationS3Type = typeof S3;
 export const S3 = "s3";

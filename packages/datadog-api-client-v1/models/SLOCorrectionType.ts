@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * SLO correction resource type.
+ */
+
 export type SLOCorrectionType = typeof CORRECTION;
 export const CORRECTION = "correction";

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Data sources that rely on the process backend.
+ */
+
 export type FormulaAndFunctionProcessQueryDataSource =
   | typeof PROCESS
   | typeof CONTAINER;

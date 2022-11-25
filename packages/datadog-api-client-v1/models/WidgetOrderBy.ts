@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * What to order by.
+ */
+
 export type WidgetOrderBy =
   | typeof CHANGE
   | typeof NAME

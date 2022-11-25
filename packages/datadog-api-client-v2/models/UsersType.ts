@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Users resource type.
+ */
+
 export type UsersType = typeof USERS;
 export const USERS = "users";

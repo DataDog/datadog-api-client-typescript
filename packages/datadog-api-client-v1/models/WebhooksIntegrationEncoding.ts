@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Encoding type. Can be given either `json` or `form`.
+ */
+
 export type WebhooksIntegrationEncoding = typeof JSON | typeof FORM;
 export const JSON = "json";
 export const FORM = "form";

@@ -41,21 +41,17 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling addPermissionToRole."
-      );
+      throw new RequiredError("roleId", "addPermissionToRole");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling addPermissionToRole."
-      );
+      throw new RequiredError("body", "addPermissionToRole");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}/permissions".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 
@@ -97,21 +93,17 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling addUserToRole."
-      );
+      throw new RequiredError("roleId", "addUserToRole");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling addUserToRole."
-      );
+      throw new RequiredError("body", "addUserToRole");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}/users".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 
@@ -153,21 +145,17 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling cloneRole."
-      );
+      throw new RequiredError("roleId", "cloneRole");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling cloneRole."
-      );
+      throw new RequiredError("body", "cloneRole");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}/clone".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 
@@ -208,9 +196,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createRole."
-      );
+      throw new RequiredError("body", "createRole");
     }
 
     // Path Params
@@ -253,14 +239,12 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling deleteRole."
-      );
+      throw new RequiredError("roleId", "deleteRole");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 
@@ -290,14 +274,12 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling getRole."
-      );
+      throw new RequiredError("roleId", "getRole");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 
@@ -353,14 +335,12 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling listRolePermissions."
-      );
+      throw new RequiredError("roleId", "listRolePermissions");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}/permissions".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 
@@ -450,14 +430,12 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling listRoleUsers."
-      );
+      throw new RequiredError("roleId", "listRoleUsers");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}/users".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 
@@ -514,21 +492,17 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling removePermissionFromRole."
-      );
+      throw new RequiredError("roleId", "removePermissionFromRole");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling removePermissionFromRole."
-      );
+      throw new RequiredError("body", "removePermissionFromRole");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}/permissions".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 
@@ -570,21 +544,17 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling removeUserFromRole."
-      );
+      throw new RequiredError("roleId", "removeUserFromRole");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling removeUserFromRole."
-      );
+      throw new RequiredError("body", "removeUserFromRole");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}/users".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 
@@ -626,21 +596,17 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'roleId' is not null or undefined
     if (roleId === null || roleId === undefined) {
-      throw new RequiredError(
-        "Required parameter roleId was null or undefined when calling updateRole."
-      );
+      throw new RequiredError("roleId", "updateRole");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateRole."
-      );
+      throw new RequiredError("body", "updateRole");
     }
 
     // Path Params
     const localVarPath = "/api/v2/roles/{role_id}".replace(
-      "{" + "role_id" + "}",
+      "{role_id}",
       encodeURIComponent(String(roleId))
     );
 

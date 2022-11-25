@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the note widget.
+ */
+
 export type NoteWidgetDefinitionType = typeof NOTE;
 export const NOTE = "note";

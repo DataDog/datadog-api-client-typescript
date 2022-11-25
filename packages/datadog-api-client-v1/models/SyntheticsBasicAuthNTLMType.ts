@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of authentication to use when performing the test.
+ */
+
 export type SyntheticsBasicAuthNTLMType = typeof NTLM;
 export const NTLM = "ntlm";

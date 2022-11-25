@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Data source for event platform-based queries.
+ */
+
 export type MonitorFormulaAndFunctionEventsDataSource =
   | typeof RUM
   | typeof CI_PIPELINES

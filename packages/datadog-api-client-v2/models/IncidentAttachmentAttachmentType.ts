@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of the incident attachment attributes.
+ */
+
 export type IncidentAttachmentAttachmentType = typeof LINK | typeof POSTMORTEM;
 export const LINK = "link";
 export const POSTMORTEM = "postmortem";

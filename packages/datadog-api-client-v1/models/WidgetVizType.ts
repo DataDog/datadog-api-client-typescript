@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Whether to display the Alert Graph as a timeseries or a top list.
+ */
+
 export type WidgetVizType = typeof TIMESERIES | typeof TOPLIST;
 export const TIMESERIES = "timeseries";
 export const TOPLIST = "toplist";

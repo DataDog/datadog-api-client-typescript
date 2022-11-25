@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The rule type.
+ */
+
 export type SecurityMonitoringRuleTypeRead =
   | typeof LOG_DETECTION
   | typeof INFRASTRUCTURE_CONFIGURATION

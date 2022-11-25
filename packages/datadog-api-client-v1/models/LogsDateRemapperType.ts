@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs date remapper.
+ */
+
 export type LogsDateRemapperType = typeof DATE_REMAPPER;
 export const DATE_REMAPPER = "date-remapper";

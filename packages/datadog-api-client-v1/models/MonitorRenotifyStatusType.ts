@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The different statuses for which renotification is supported.
+ */
+
 export type MonitorRenotifyStatusType =
   | typeof ALERT
   | typeof WARN

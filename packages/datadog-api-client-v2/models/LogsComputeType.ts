@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of compute
+ */
+
 export type LogsComputeType = typeof TIMESERIES | typeof TOTAL;
 export const TIMESERIES = "timeseries";
 export const TOTAL = "total";

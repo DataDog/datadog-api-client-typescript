@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * RUM application response type.
+ */
+
 export type RUMApplicationType = typeof RUM_APPLICATION;
 export const RUM_APPLICATION = "rum_application";

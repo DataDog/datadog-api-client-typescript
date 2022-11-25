@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Data source for event platform-based queries.
+ */
+
 export type FormulaAndFunctionEventsDataSource =
   | typeof LOGS
   | typeof SPANS

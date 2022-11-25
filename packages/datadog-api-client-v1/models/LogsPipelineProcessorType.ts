@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs pipeline processor.
+ */
+
 export type LogsPipelineProcessorType = typeof PIPELINE;
 export const PIPELINE = "pipeline";

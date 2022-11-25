@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Data source for metrics queries.
+ */
+
 export type FormulaAndFunctionMetricDataSource = typeof METRICS;
 export const METRICS = "metrics";

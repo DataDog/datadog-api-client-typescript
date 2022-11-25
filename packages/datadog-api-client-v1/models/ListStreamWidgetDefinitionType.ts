@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the list stream widget.
+ */
+
 export type ListStreamWidgetDefinitionType = typeof LIST_STREAM;
 export const LIST_STREAM = "list_stream";

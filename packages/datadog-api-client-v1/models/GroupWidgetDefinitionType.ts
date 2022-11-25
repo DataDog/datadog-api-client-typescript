@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the group widget.
+ */
+
 export type GroupWidgetDefinitionType = typeof GROUP;
 export const GROUP = "group";

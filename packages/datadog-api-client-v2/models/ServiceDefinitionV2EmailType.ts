@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Contact type.
+ */
+
 export type ServiceDefinitionV2EmailType = typeof EMAIL;
 export const EMAIL = "email";

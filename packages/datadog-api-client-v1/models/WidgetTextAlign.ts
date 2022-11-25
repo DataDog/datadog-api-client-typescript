@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * How to align the text on the widget.
+ */
+
 export type WidgetTextAlign = typeof CENTER | typeof LEFT | typeof RIGHT;
 export const CENTER = "center";
 export const LEFT = "left";

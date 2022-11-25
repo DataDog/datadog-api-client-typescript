@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the event.
+ */
+
 export type LogType = typeof LOG;
 export const LOG = "log";

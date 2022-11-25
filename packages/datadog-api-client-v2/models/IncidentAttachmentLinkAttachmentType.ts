@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of link attachment attributes.
+ */
+
 export type IncidentAttachmentLinkAttachmentType = typeof LINK;
 export const LINK = "link";

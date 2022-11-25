@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Link type.
+ */
+
 export type ServiceDefinitionV2LinkType =
   | typeof DOC
   | typeof WIKI

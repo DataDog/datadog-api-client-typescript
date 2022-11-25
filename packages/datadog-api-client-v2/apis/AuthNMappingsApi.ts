@@ -33,9 +33,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createAuthNMapping."
-      );
+      throw new RequiredError("body", "createAuthNMapping");
     }
 
     // Path Params
@@ -78,14 +76,12 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'authnMappingId' is not null or undefined
     if (authnMappingId === null || authnMappingId === undefined) {
-      throw new RequiredError(
-        "Required parameter authnMappingId was null or undefined when calling deleteAuthNMapping."
-      );
+      throw new RequiredError("authnMappingId", "deleteAuthNMapping");
     }
 
     // Path Params
     const localVarPath = "/api/v2/authn_mappings/{authn_mapping_id}".replace(
-      "{" + "authn_mapping_id" + "}",
+      "{authn_mapping_id}",
       encodeURIComponent(String(authnMappingId))
     );
 
@@ -115,14 +111,12 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'authnMappingId' is not null or undefined
     if (authnMappingId === null || authnMappingId === undefined) {
-      throw new RequiredError(
-        "Required parameter authnMappingId was null or undefined when calling getAuthNMapping."
-      );
+      throw new RequiredError("authnMappingId", "getAuthNMapping");
     }
 
     // Path Params
     const localVarPath = "/api/v2/authn_mappings/{authn_mapping_id}".replace(
-      "{" + "authn_mapping_id" + "}",
+      "{authn_mapping_id}",
       encodeURIComponent(String(authnMappingId))
     );
 
@@ -209,21 +203,17 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'authnMappingId' is not null or undefined
     if (authnMappingId === null || authnMappingId === undefined) {
-      throw new RequiredError(
-        "Required parameter authnMappingId was null or undefined when calling updateAuthNMapping."
-      );
+      throw new RequiredError("authnMappingId", "updateAuthNMapping");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateAuthNMapping."
-      );
+      throw new RequiredError("body", "updateAuthNMapping");
     }
 
     // Path Params
     const localVarPath = "/api/v2/authn_mappings/{authn_mapping_id}".replace(
-      "{" + "authn_mapping_id" + "}",
+      "{authn_mapping_id}",
       encodeURIComponent(String(authnMappingId))
     );
 

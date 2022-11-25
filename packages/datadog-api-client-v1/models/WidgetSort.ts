@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Widget sorting methods.
+ */
+
 export type WidgetSort = typeof ASCENDING | typeof DESCENDING;
 export const ASCENDING = "asc";
 export const DESCENDING = "desc";

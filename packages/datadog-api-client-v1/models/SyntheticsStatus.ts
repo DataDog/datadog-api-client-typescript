@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Determines whether or not the batch has passed, failed, or is in progress.
+ */
+
 export type SyntheticsStatus = typeof PASSED | typeof skipped | typeof failed;
 export const PASSED = "passed";
 export const skipped = "skipped";

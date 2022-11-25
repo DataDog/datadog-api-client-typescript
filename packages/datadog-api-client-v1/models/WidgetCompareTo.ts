@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Timeframe used for the change comparison.
+ */
+
 export type WidgetCompareTo =
   | typeof HOUR_BEFORE
   | typeof DAY_BEFORE

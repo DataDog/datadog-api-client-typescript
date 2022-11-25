@@ -39,9 +39,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling aggregateRUMEvents."
-      );
+      throw new RequiredError("body", "aggregateRUMEvents");
     }
 
     // Path Params
@@ -84,9 +82,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createRUMApplication."
-      );
+      throw new RequiredError("body", "createRUMApplication");
     }
 
     // Path Params
@@ -128,14 +124,12 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError(
-        "Required parameter id was null or undefined when calling deleteRUMApplication."
-      );
+      throw new RequiredError("id", "deleteRUMApplication");
     }
 
     // Path Params
     const localVarPath = "/api/v2/rum/applications/{id}".replace(
-      "{" + "id" + "}",
+      "{id}",
       encodeURIComponent(String(id))
     );
 
@@ -164,14 +158,12 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError(
-        "Required parameter id was null or undefined when calling getRUMApplication."
-      );
+      throw new RequiredError("id", "getRUMApplication");
     }
 
     // Path Params
     const localVarPath = "/api/v2/rum/applications/{id}".replace(
-      "{" + "id" + "}",
+      "{id}",
       encodeURIComponent(String(id))
     );
 
@@ -295,9 +287,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling searchRUMEvents."
-      );
+      throw new RequiredError("body", "searchRUMEvents");
     }
 
     // Path Params
@@ -341,21 +331,17 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'id' is not null or undefined
     if (id === null || id === undefined) {
-      throw new RequiredError(
-        "Required parameter id was null or undefined when calling updateRUMApplication."
-      );
+      throw new RequiredError("id", "updateRUMApplication");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateRUMApplication."
-      );
+      throw new RequiredError("body", "updateRUMApplication");
     }
 
     // Path Params
     const localVarPath = "/api/v2/rum/applications/{id}".replace(
-      "{" + "id" + "}",
+      "{id}",
       encodeURIComponent(String(id))
     );
 

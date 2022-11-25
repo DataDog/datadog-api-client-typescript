@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * A space aggregation for use in query.
+ */
+
 export type MetricCustomSpaceAggregation =
   | typeof AVG
   | typeof MAX

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The aggregation type.
+ */
+
 export type SecurityMonitoringRuleQueryAggregation =
   | typeof COUNT
   | typeof CARDINALITY

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The filtered data type.
+ */
+
 export type SecurityFilterFilteredDataType = typeof LOGS;
 export const LOGS = "logs";

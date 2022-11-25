@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of basic authentication to use when performing the test.
+ */
+
 export type SyntheticsBasicAuthWebType = typeof WEB;
 export const WEB = "web";

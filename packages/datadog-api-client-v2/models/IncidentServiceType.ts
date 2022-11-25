@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Incident service resource type.
+ */
+
 export type IncidentServiceType = typeof SERVICES;
 export const SERVICES = "services";

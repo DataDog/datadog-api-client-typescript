@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Widget request type.
+ */
+
 export type TopologyRequestType = typeof TOPOLOGY;
 export const TOPOLOGY = "topology";

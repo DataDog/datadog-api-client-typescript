@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Vertical alignment.
+ */
+
 export type WidgetVerticalAlign = typeof CENTER | typeof TOP | typeof BOTTOM;
 export const CENTER = "center";
 export const TOP = "top";

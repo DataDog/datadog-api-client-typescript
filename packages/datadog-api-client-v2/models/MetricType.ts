@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The metric resource type.
+ */
+
 export type MetricType = typeof METRICS;
 export const METRICS = "metrics";

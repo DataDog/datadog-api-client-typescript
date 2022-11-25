@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Which summary type should be used.
+ */
+
 export type WidgetSummaryType =
   | typeof MONITORS
   | typeof GROUPS

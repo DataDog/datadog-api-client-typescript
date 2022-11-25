@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The SLO time window options.
+ */
+
 export type SLOTimeframe =
   | typeof SEVEN_DAYS
   | typeof THIRTY_DAYS

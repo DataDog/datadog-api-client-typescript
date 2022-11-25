@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of the distribution point.
+ */
+
 export type DistributionPointsType = typeof DISTRIBUTION;
 export const DISTRIBUTION = "distribution";

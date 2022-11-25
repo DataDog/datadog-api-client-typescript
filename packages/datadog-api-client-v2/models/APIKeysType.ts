@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * API Keys resource type.
+ */
+
 export type APIKeysType = typeof API_KEYS;
 export const API_KEYS = "api_keys";

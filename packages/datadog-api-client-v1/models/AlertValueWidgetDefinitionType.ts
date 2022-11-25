@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the alert value widget.
+ */
+
 export type AlertValueWidgetDefinitionType = typeof ALERT_VALUE;
 export const ALERT_VALUE = "alert_value";

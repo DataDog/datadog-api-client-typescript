@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of display to use for the request.
+ */
+
 export type WidgetDisplayType = typeof AREA | typeof BARS | typeof LINE;
 export const AREA = "area";
 export const BARS = "bars";

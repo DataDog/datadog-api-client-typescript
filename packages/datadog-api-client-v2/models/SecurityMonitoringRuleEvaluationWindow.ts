@@ -4,6 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * A time window is specified to match when at least one of the cases matches true. This is a sliding window
+ * and evaluates in real time.
+ */
+
 export type SecurityMonitoringRuleEvaluationWindow =
   | typeof ZERO_MINUTES
   | typeof ONE_MINUTE
