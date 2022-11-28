@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The status of a service check.
+ */
+
 export type ServiceCheckStatus =
   | typeof OK
   | typeof WARNING

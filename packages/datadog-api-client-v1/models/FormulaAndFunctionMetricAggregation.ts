@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The aggregation methods available for metrics queries.
+ */
+
 export type FormulaAndFunctionMetricAggregation =
   | typeof AVG
   | typeof MIN

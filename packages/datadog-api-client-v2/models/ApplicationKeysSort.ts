@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Sorting options
+ */
+
 export type ApplicationKeysSort =
   | typeof CREATED_AT_ASCENDING
   | typeof CREATED_AT_DESCENDING

@@ -4,6 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
+ * This time is calculated from the first seen timestamp.
+ */
+
 export type SecurityMonitoringRuleMaxSignalDuration =
   | typeof ZERO_MINUTES
   | typeof ONE_MINUTE

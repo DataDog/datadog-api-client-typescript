@@ -32,21 +32,17 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
-      throw new RequiredError(
-        "Required parameter hostName was null or undefined when calling createHostTags."
-      );
+      throw new RequiredError("hostName", "createHostTags");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createHostTags."
-      );
+      throw new RequiredError("body", "createHostTags");
     }
 
     // Path Params
     const localVarPath = "/api/v1/tags/hosts/{host_name}".replace(
-      "{" + "host_name" + "}",
+      "{host_name}",
       encodeURIComponent(String(hostName))
     );
 
@@ -95,14 +91,12 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
-      throw new RequiredError(
-        "Required parameter hostName was null or undefined when calling deleteHostTags."
-      );
+      throw new RequiredError("hostName", "deleteHostTags");
     }
 
     // Path Params
     const localVarPath = "/api/v1/tags/hosts/{host_name}".replace(
-      "{" + "host_name" + "}",
+      "{host_name}",
       encodeURIComponent(String(hostName))
     );
 
@@ -140,14 +134,12 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
-      throw new RequiredError(
-        "Required parameter hostName was null or undefined when calling getHostTags."
-      );
+      throw new RequiredError("hostName", "getHostTags");
     }
 
     // Path Params
     const localVarPath = "/api/v1/tags/hosts/{host_name}".replace(
-      "{" + "host_name" + "}",
+      "{host_name}",
       encodeURIComponent(String(hostName))
     );
 
@@ -221,21 +213,17 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
-      throw new RequiredError(
-        "Required parameter hostName was null or undefined when calling updateHostTags."
-      );
+      throw new RequiredError("hostName", "updateHostTags");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateHostTags."
-      );
+      throw new RequiredError("body", "updateHostTags");
     }
 
     // Path Params
     const localVarPath = "/api/v1/tags/hosts/{host_name}".replace(
-      "{" + "host_name" + "}",
+      "{host_name}",
       encodeURIComponent(String(hostName))
     );
 

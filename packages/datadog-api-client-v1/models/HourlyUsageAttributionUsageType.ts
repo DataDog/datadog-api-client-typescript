@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Supported products for hourly usage attribution requests.
+ */
+
 export type HourlyUsageAttributionUsageType =
   | typeof API_USAGE
   | typeof APM_FARGATE_USAGE

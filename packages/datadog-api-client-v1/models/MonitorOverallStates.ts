@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The different states your monitor can be in.
+ */
+
 export type MonitorOverallStates =
   | typeof ALERT
   | typeof IGNORED

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of assertion to apply in an API test.
+ */
+
 export type SyntheticsCheckType =
   | typeof EQUALS
   | typeof NOT_EQUALS

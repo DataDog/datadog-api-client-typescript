@@ -4,6 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
+ * `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
+ */
+
 export type SyntheticsTestDetailsSubType =
   | typeof HTTP
   | typeof SSL

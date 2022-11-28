@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Usage type that is being measured.
+ */
+
 export type HourlyUsageType =
   | typeof APP_SEC_HOST_COUNT
   | typeof OBSERVABILITY_PIPELINES_BYTES_PROCESSSED

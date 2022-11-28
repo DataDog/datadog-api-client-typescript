@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Time-ascending `asc` or time-descending `desc` results.
+ */
+
 export type LogsSort = typeof TIME_ASCENDING | typeof TIME_DESCENDING;
 export const TIME_ASCENDING = "asc";
 export const TIME_DESCENDING = "desc";

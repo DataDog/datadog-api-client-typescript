@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of sorting algorithm.
+ */
+
 export type RUMAggregateSortType = typeof ALPHABETICAL | typeof MEASURE;
 export const ALPHABETICAL = "alphabetical";
 export const MEASURE = "measure";

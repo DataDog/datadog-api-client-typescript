@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Whether or not to show a table legend.
+ */
+
 export type SunburstWidgetLegendTableType = typeof TABLE | typeof NONE;
 export const TABLE = "table";
 export const NONE = "none";

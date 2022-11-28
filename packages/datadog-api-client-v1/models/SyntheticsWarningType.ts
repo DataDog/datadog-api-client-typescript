@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * User locator used.
+ */
+
 export type SyntheticsWarningType = typeof USER_LOCATOR;
 export const USER_LOCATOR = "user_locator";

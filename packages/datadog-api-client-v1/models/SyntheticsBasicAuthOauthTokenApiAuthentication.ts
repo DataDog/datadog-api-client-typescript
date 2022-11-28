@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of token to use when performing the authentication.
+ */
+
 export type SyntheticsBasicAuthOauthTokenApiAuthentication =
   | typeof HEADER
   | typeof BODY;

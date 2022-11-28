@@ -32,9 +32,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createOrUpdateServiceDefinitions."
-      );
+      throw new RequiredError("body", "createOrUpdateServiceDefinitions");
     }
 
     // Path Params
@@ -76,14 +74,12 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceName' is not null or undefined
     if (serviceName === null || serviceName === undefined) {
-      throw new RequiredError(
-        "Required parameter serviceName was null or undefined when calling deleteServiceDefinition."
-      );
+      throw new RequiredError("serviceName", "deleteServiceDefinition");
     }
 
     // Path Params
     const localVarPath = "/api/v2/services/definitions/{service_name}".replace(
-      "{" + "service_name" + "}",
+      "{service_name}",
       encodeURIComponent(String(serviceName))
     );
 
@@ -112,14 +108,12 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceName' is not null or undefined
     if (serviceName === null || serviceName === undefined) {
-      throw new RequiredError(
-        "Required parameter serviceName was null or undefined when calling getServiceDefinition."
-      );
+      throw new RequiredError("serviceName", "getServiceDefinition");
     }
 
     // Path Params
     const localVarPath = "/api/v2/services/definitions/{service_name}".replace(
-      "{" + "service_name" + "}",
+      "{service_name}",
       encodeURIComponent(String(serviceName))
     );
 

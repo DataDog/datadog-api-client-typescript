@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the log stream widget.
+ */
+
 export type LogStreamWidgetDefinitionType = typeof LOG_STREAM;
 export const LOG_STREAM = "log_stream";

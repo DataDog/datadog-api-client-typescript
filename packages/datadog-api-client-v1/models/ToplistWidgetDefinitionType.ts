@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the top list widget.
+ */
+
 export type ToplistWidgetDefinitionType = typeof TOPLIST;
 export const TOPLIST = "toplist";

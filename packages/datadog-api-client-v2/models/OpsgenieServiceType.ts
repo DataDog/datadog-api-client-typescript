@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Opsgenie service resource type.
+ */
+
 export type OpsgenieServiceType = typeof OPSGENIE_SERVICE;
 export const OPSGENIE_SERVICE = "opsgenie-service";

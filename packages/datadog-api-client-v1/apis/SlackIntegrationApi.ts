@@ -30,22 +30,18 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError(
-        "Required parameter accountName was null or undefined when calling createSlackIntegrationChannel."
-      );
+      throw new RequiredError("accountName", "createSlackIntegrationChannel");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSlackIntegrationChannel."
-      );
+      throw new RequiredError("body", "createSlackIntegrationChannel");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
-        "{" + "account_name" + "}",
+        "{account_name}",
         encodeURIComponent(String(accountName))
       );
 
@@ -86,29 +82,19 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError(
-        "Required parameter accountName was null or undefined when calling getSlackIntegrationChannel."
-      );
+      throw new RequiredError("accountName", "getSlackIntegrationChannel");
     }
 
     // verify required parameter 'channelName' is not null or undefined
     if (channelName === null || channelName === undefined) {
-      throw new RequiredError(
-        "Required parameter channelName was null or undefined when calling getSlackIntegrationChannel."
-      );
+      throw new RequiredError("channelName", "getSlackIntegrationChannel");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-        .replace(
-          "{" + "account_name" + "}",
-          encodeURIComponent(String(accountName))
-        )
-        .replace(
-          "{" + "channel_name" + "}",
-          encodeURIComponent(String(channelName))
-        );
+        .replace("{account_name}", encodeURIComponent(String(accountName)))
+        .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -135,15 +121,13 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError(
-        "Required parameter accountName was null or undefined when calling getSlackIntegrationChannels."
-      );
+      throw new RequiredError("accountName", "getSlackIntegrationChannels");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/slack/configuration/accounts/{account_name}/channels".replace(
-        "{" + "account_name" + "}",
+        "{account_name}",
         encodeURIComponent(String(accountName))
       );
 
@@ -173,29 +157,19 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError(
-        "Required parameter accountName was null or undefined when calling removeSlackIntegrationChannel."
-      );
+      throw new RequiredError("accountName", "removeSlackIntegrationChannel");
     }
 
     // verify required parameter 'channelName' is not null or undefined
     if (channelName === null || channelName === undefined) {
-      throw new RequiredError(
-        "Required parameter channelName was null or undefined when calling removeSlackIntegrationChannel."
-      );
+      throw new RequiredError("channelName", "removeSlackIntegrationChannel");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-        .replace(
-          "{" + "account_name" + "}",
-          encodeURIComponent(String(accountName))
-        )
-        .replace(
-          "{" + "channel_name" + "}",
-          encodeURIComponent(String(channelName))
-        );
+        .replace("{account_name}", encodeURIComponent(String(accountName)))
+        .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -224,36 +198,24 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountName' is not null or undefined
     if (accountName === null || accountName === undefined) {
-      throw new RequiredError(
-        "Required parameter accountName was null or undefined when calling updateSlackIntegrationChannel."
-      );
+      throw new RequiredError("accountName", "updateSlackIntegrationChannel");
     }
 
     // verify required parameter 'channelName' is not null or undefined
     if (channelName === null || channelName === undefined) {
-      throw new RequiredError(
-        "Required parameter channelName was null or undefined when calling updateSlackIntegrationChannel."
-      );
+      throw new RequiredError("channelName", "updateSlackIntegrationChannel");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateSlackIntegrationChannel."
-      );
+      throw new RequiredError("body", "updateSlackIntegrationChannel");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}"
-        .replace(
-          "{" + "account_name" + "}",
-          encodeURIComponent(String(accountName))
-        )
-        .replace(
-          "{" + "channel_name" + "}",
-          encodeURIComponent(String(channelName))
-        );
+        .replace("{account_name}", encodeURIComponent(String(accountName)))
+        .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
     const requestContext = getServer(

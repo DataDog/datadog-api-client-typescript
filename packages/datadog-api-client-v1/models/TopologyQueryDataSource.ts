@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Name of the data source
+ */
+
 export type TopologyQueryDataSource = typeof DATA_STREAMS | typeof SERVICE_MAP;
 export const DATA_STREAMS = "data_streams";
 export const SERVICE_MAP = "service_map";

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Dimension of the Scatterplot.
+ */
+
 export type ScatterplotDimension =
   | typeof X
   | typeof Y

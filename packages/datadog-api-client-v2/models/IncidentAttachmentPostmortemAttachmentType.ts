@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of postmortem attachment attributes.
+ */
+
 export type IncidentAttachmentPostmortemAttachmentType = typeof POSTMORTEM;
 export const POSTMORTEM = "postmortem";

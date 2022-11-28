@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Color palette to apply.
+ */
+
 export type WidgetPalette =
   | typeof BLUE
   | typeof CUSTOM_BACKGROUND

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the geomap widget.
+ */
+
 export type GeomapWidgetDefinitionType = typeof GEOMAP;
 export const GEOMAP = "geomap";

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * RUM application update type.
+ */
+
 export type RUMApplicationUpdateType = typeof RUM_APPLICATION_UPDATE;
 export const RUM_APPLICATION_UPDATE = "rum_application_update";

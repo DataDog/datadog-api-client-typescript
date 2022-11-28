@@ -38,9 +38,7 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createIncidentTeam."
-      );
+      throw new RequiredError("body", "createIncidentTeam");
     }
 
     // Path Params
@@ -88,14 +86,12 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'teamId' is not null or undefined
     if (teamId === null || teamId === undefined) {
-      throw new RequiredError(
-        "Required parameter teamId was null or undefined when calling deleteIncidentTeam."
-      );
+      throw new RequiredError("teamId", "deleteIncidentTeam");
     }
 
     // Path Params
     const localVarPath = "/api/v2/teams/{team_id}".replace(
-      "{" + "team_id" + "}",
+      "{team_id}",
       encodeURIComponent(String(teamId))
     );
 
@@ -131,14 +127,12 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'teamId' is not null or undefined
     if (teamId === null || teamId === undefined) {
-      throw new RequiredError(
-        "Required parameter teamId was null or undefined when calling getIncidentTeam."
-      );
+      throw new RequiredError("teamId", "getIncidentTeam");
     }
 
     // Path Params
     const localVarPath = "/api/v2/teams/{team_id}".replace(
-      "{" + "team_id" + "}",
+      "{team_id}",
       encodeURIComponent(String(teamId))
     );
 
@@ -243,21 +237,17 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'teamId' is not null or undefined
     if (teamId === null || teamId === undefined) {
-      throw new RequiredError(
-        "Required parameter teamId was null or undefined when calling updateIncidentTeam."
-      );
+      throw new RequiredError("teamId", "updateIncidentTeam");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateIncidentTeam."
-      );
+      throw new RequiredError("body", "updateIncidentTeam");
     }
 
     // Path Params
     const localVarPath = "/api/v2/teams/{team_id}".replace(
-      "{" + "team_id" + "}",
+      "{team_id}",
       encodeURIComponent(String(teamId))
     );
 

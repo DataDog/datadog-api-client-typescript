@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Sort parameters when querying events.
+ */
+
 export type RUMSort = typeof TIMESTAMP_ASCENDING | typeof TIMESTAMP_DESCENDING;
 export const TIMESTAMP_ASCENDING = "timestamp";
 export const TIMESTAMP_DESCENDING = "-timestamp";

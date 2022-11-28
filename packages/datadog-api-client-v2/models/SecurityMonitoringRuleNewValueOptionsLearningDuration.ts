@@ -4,6 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The duration in days during which values are learned, and after which signals will be generated for values that
+ * weren't learned. If set to 0, a signal will be generated for all new values after the first value is learned.
+ */
+
 export type SecurityMonitoringRuleNewValueOptionsLearningDuration =
   | typeof ZERO_DAYS
   | typeof ONE_DAY

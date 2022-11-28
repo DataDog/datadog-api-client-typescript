@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Data source for APM dependency stats queries.
+ */
+
 export type FormulaAndFunctionApmDependencyStatsDataSource =
   typeof APM_DEPENDENCY_STATS;
 export const APM_DEPENDENCY_STATS = "apm_dependency_stats";

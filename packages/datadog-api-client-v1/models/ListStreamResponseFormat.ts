@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Widget response format.
+ */
+
 export type ListStreamResponseFormat = typeof EVENT_LIST;
 export const EVENT_LIST = "event_list";

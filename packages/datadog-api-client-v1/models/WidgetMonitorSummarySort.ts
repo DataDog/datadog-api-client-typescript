@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Widget sorting methods.
+ */
+
 export type WidgetMonitorSummarySort =
   | typeof NAME
   | typeof GROUP

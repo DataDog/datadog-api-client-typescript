@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of usage data.
+ */
+
 export type UsageTimeSeriesType = typeof USAGE_TIMESERIES;
 export const USAGE_TIMESERIES = "usage_timeseries";

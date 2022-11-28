@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Layout of the legend.
+ */
+
 export type TimeseriesWidgetLegendLayout =
   | typeof AUTO
   | typeof HORIZONTAL

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Widget request type.
+ */
+
 export type SLOListWidgetRequestType = typeof SLO_LIST;
 export const SLO_LIST = "slo_list";

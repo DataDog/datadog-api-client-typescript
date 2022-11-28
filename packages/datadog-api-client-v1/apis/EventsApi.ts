@@ -33,9 +33,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createEvent."
-      );
+      throw new RequiredError("body", "createEvent");
     }
 
     // Path Params
@@ -74,14 +72,12 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'eventId' is not null or undefined
     if (eventId === null || eventId === undefined) {
-      throw new RequiredError(
-        "Required parameter eventId was null or undefined when calling getEvent."
-      );
+      throw new RequiredError("eventId", "getEvent");
     }
 
     // Path Params
     const localVarPath = "/api/v1/events/{event_id}".replace(
-      "{" + "event_id" + "}",
+      "{event_id}",
       encodeURIComponent(String(eventId))
     );
 
@@ -118,16 +114,12 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'start' is not null or undefined
     if (start === null || start === undefined) {
-      throw new RequiredError(
-        "Required parameter start was null or undefined when calling listEvents."
-      );
+      throw new RequiredError("start", "listEvents");
     }
 
     // verify required parameter 'end' is not null or undefined
     if (end === null || end === undefined) {
-      throw new RequiredError(
-        "Required parameter end was null or undefined when calling listEvents."
-      );
+      throw new RequiredError("end", "listEvents");
     }
 
     // Path Params

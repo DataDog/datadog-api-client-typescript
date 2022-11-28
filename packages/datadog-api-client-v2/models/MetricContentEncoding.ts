@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * HTTP header used to compress the media-type.
+ */
+
 export type MetricContentEncoding = typeof DEFLATE | typeof ZSTD1 | typeof GZIP;
 export const DEFLATE = "deflate";
 export const ZSTD1 = "zstd1";

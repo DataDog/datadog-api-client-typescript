@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Reason why a signal has been archived.
+ */
+
 export type SignalArchiveReason =
   | typeof NONE
   | typeof FALSE_POSITIVE

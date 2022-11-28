@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The HTTP method.
+ */
+
 export type HTTPMethod =
   | typeof GET
   | typeof POST

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the Notebook resource.
+ */
+
 export type NotebookResourceType = typeof NOTEBOOKS;
 export const NOTEBOOKS = "notebooks";

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the service summary widget.
+ */
+
 export type ServiceSummaryWidgetDefinitionType = typeof TRACE_SERVICE;
 export const TRACE_SERVICE = "trace_service";

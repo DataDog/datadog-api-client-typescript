@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the heat map widget.
+ */
+
 export type HeatMapWidgetDefinitionType = typeof HEATMAP;
 export const HEATMAP = "heatmap";

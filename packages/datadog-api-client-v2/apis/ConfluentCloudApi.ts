@@ -35,9 +35,7 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createConfluentAccount."
-      );
+      throw new RequiredError("body", "createConfluentAccount");
     }
 
     // Path Params
@@ -80,22 +78,18 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "Required parameter accountId was null or undefined when calling createConfluentResource."
-      );
+      throw new RequiredError("accountId", "createConfluentResource");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createConfluentResource."
-      );
+      throw new RequiredError("body", "createConfluentResource");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
-        "{" + "account_id" + "}",
+        "{account_id}",
         encodeURIComponent(String(accountId))
       );
 
@@ -135,15 +129,13 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "Required parameter accountId was null or undefined when calling deleteConfluentAccount."
-      );
+      throw new RequiredError("accountId", "deleteConfluentAccount");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
-        "{" + "account_id" + "}",
+        "{account_id}",
         encodeURIComponent(String(accountId))
       );
 
@@ -173,29 +165,19 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "Required parameter accountId was null or undefined when calling deleteConfluentResource."
-      );
+      throw new RequiredError("accountId", "deleteConfluentResource");
     }
 
     // verify required parameter 'resourceId' is not null or undefined
     if (resourceId === null || resourceId === undefined) {
-      throw new RequiredError(
-        "Required parameter resourceId was null or undefined when calling deleteConfluentResource."
-      );
+      throw new RequiredError("resourceId", "deleteConfluentResource");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}"
-        .replace(
-          "{" + "account_id" + "}",
-          encodeURIComponent(String(accountId))
-        )
-        .replace(
-          "{" + "resource_id" + "}",
-          encodeURIComponent(String(resourceId))
-        );
+        .replace("{account_id}", encodeURIComponent(String(accountId)))
+        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -222,15 +204,13 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "Required parameter accountId was null or undefined when calling getConfluentAccount."
-      );
+      throw new RequiredError("accountId", "getConfluentAccount");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
-        "{" + "account_id" + "}",
+        "{account_id}",
         encodeURIComponent(String(accountId))
       );
 
@@ -260,29 +240,19 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "Required parameter accountId was null or undefined when calling getConfluentResource."
-      );
+      throw new RequiredError("accountId", "getConfluentResource");
     }
 
     // verify required parameter 'resourceId' is not null or undefined
     if (resourceId === null || resourceId === undefined) {
-      throw new RequiredError(
-        "Required parameter resourceId was null or undefined when calling getConfluentResource."
-      );
+      throw new RequiredError("resourceId", "getConfluentResource");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}"
-        .replace(
-          "{" + "account_id" + "}",
-          encodeURIComponent(String(accountId))
-        )
-        .replace(
-          "{" + "resource_id" + "}",
-          encodeURIComponent(String(resourceId))
-        );
+        .replace("{account_id}", encodeURIComponent(String(accountId)))
+        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -334,15 +304,13 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "Required parameter accountId was null or undefined when calling listConfluentResource."
-      );
+      throw new RequiredError("accountId", "listConfluentResource");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources".replace(
-        "{" + "account_id" + "}",
+        "{account_id}",
         encodeURIComponent(String(accountId))
       );
 
@@ -372,22 +340,18 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "Required parameter accountId was null or undefined when calling updateConfluentAccount."
-      );
+      throw new RequiredError("accountId", "updateConfluentAccount");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateConfluentAccount."
-      );
+      throw new RequiredError("body", "updateConfluentAccount");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integrations/confluent-cloud/accounts/{account_id}".replace(
-        "{" + "account_id" + "}",
+        "{account_id}",
         encodeURIComponent(String(accountId))
       );
 
@@ -429,36 +393,24 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "Required parameter accountId was null or undefined when calling updateConfluentResource."
-      );
+      throw new RequiredError("accountId", "updateConfluentResource");
     }
 
     // verify required parameter 'resourceId' is not null or undefined
     if (resourceId === null || resourceId === undefined) {
-      throw new RequiredError(
-        "Required parameter resourceId was null or undefined when calling updateConfluentResource."
-      );
+      throw new RequiredError("resourceId", "updateConfluentResource");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateConfluentResource."
-      );
+      throw new RequiredError("body", "updateConfluentResource");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/integrations/confluent-cloud/accounts/{account_id}/resources/{resource_id}"
-        .replace(
-          "{" + "account_id" + "}",
-          encodeURIComponent(String(accountId))
-        )
-        .replace(
-          "{" + "resource_id" + "}",
-          encodeURIComponent(String(resourceId))
-        );
+        .replace("{account_id}", encodeURIComponent(String(accountId)))
+        .replace("{resource_id}", encodeURIComponent(String(resourceId)));
 
     // Make Request Context
     const requestContext = getServer(

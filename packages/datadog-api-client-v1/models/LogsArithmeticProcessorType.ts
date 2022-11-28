@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs arithmetic processor.
+ */
+
 export type LogsArithmeticProcessorType = typeof ARITHMETIC_PROCESSOR;
 export const ARITHMETIC_PROCESSOR = "arithmetic-processor";

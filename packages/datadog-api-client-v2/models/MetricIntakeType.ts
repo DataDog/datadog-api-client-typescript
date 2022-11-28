@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of metric. The available types are `0` (unspecified), `1` (count), `2` (rate), and `3` (gauge).
+ */
+
 export type MetricIntakeType =
   | typeof UNSPECIFIED
   | typeof COUNT

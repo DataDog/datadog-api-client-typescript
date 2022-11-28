@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the markdown cell.
+ */
+
 export type NotebookMarkdownCellDefinitionType = typeof MARKDOWN;
 export const MARKDOWN = "markdown";

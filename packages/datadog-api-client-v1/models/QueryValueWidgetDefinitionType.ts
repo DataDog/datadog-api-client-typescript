@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the query value widget.
+ */
+
 export type QueryValueWidgetDefinitionType = typeof QUERY_VALUE;
 export const QUERY_VALUE = "query_value";

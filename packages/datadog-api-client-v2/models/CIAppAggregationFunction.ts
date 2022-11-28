@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * An aggregation function.
+ */
+
 export type CIAppAggregationFunction =
   | typeof COUNT
   | typeof CARDINALITY

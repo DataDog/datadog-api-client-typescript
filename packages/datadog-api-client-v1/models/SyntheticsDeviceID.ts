@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The device ID.
+ */
+
 export type SyntheticsDeviceID =
   | typeof LAPTOP_LARGE
   | typeof TABLET

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of GeoIP parser.
+ */
+
 export type LogsGeoIPParserType = typeof GEO_IP_PARSER;
 export const GEO_IP_PARSER = "geo-ip-parser";

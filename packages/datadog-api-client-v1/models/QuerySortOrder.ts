@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Direction of sort.
+ */
+
 export type QuerySortOrder = typeof ASC | typeof DESC;
 export const ASC = "asc";
 export const DESC = "desc";

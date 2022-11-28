@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Organizations resource type.
+ */
+
 export type OrganizationsType = typeof ORGS;
 export const ORGS = "orgs";

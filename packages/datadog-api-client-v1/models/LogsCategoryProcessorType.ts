@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs category processor.
+ */
+
 export type LogsCategoryProcessorType = typeof CATEGORY_PROCESSOR;
 export const CATEGORY_PROCESSOR = "category-processor";

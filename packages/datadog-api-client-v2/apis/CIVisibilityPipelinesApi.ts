@@ -35,9 +35,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling aggregateCIAppPipelineEvents."
-      );
+      throw new RequiredError("body", "aggregateCIAppPipelineEvents");
     }
 
     // Path Params

@@ -32,9 +32,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSLOCorrection."
-      );
+      throw new RequiredError("body", "createSLOCorrection");
     }
 
     // Path Params
@@ -76,14 +74,12 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloCorrectionId was null or undefined when calling deleteSLOCorrection."
-      );
+      throw new RequiredError("sloCorrectionId", "deleteSLOCorrection");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/correction/{slo_correction_id}".replace(
-      "{" + "slo_correction_id" + "}",
+      "{slo_correction_id}",
       encodeURIComponent(String(sloCorrectionId))
     );
 
@@ -112,14 +108,12 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloCorrectionId was null or undefined when calling getSLOCorrection."
-      );
+      throw new RequiredError("sloCorrectionId", "getSLOCorrection");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/correction/{slo_correction_id}".replace(
-      "{" + "slo_correction_id" + "}",
+      "{slo_correction_id}",
       encodeURIComponent(String(sloCorrectionId))
     );
 
@@ -190,21 +184,17 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloCorrectionId was null or undefined when calling updateSLOCorrection."
-      );
+      throw new RequiredError("sloCorrectionId", "updateSLOCorrection");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateSLOCorrection."
-      );
+      throw new RequiredError("body", "updateSLOCorrection");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/correction/{slo_correction_id}".replace(
-      "{" + "slo_correction_id" + "}",
+      "{slo_correction_id}",
       encodeURIComponent(String(sloCorrectionId))
     );
 

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the monitor summary widget.
+ */
+
 export type MonitorSummaryWidgetDefinitionType = typeof MANAGE_STATUS;
 export const MANAGE_STATUS = "manage_status";

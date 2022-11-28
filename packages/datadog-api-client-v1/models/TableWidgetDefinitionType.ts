@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the table widget.
+ */
+
 export type TableWidgetDefinitionType = typeof QUERY_TABLE;
 export const QUERY_TABLE = "query_table";

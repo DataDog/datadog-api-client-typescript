@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Error type returned by a browser test.
+ */
+
 export type SyntheticsBrowserErrorType = typeof NETWORK | typeof JS;
 export const NETWORK = "network";
 export const JS = "js";

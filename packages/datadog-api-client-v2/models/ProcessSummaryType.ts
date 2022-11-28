@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of process summary.
+ */
+
 export type ProcessSummaryType = typeof PROCESS;
 export const PROCESS = "process";

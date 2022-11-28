@@ -35,9 +35,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createAWSAccount."
-      );
+      throw new RequiredError("body", "createAWSAccount");
     }
 
     // Path Params
@@ -79,9 +77,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createAWSTagFilter."
-      );
+      throw new RequiredError("body", "createAWSTagFilter");
     }
 
     // Path Params
@@ -123,9 +119,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createNewAWSExternalID."
-      );
+      throw new RequiredError("body", "createNewAWSExternalID");
     }
 
     // Path Params
@@ -167,9 +161,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling deleteAWSAccount."
-      );
+      throw new RequiredError("body", "deleteAWSAccount");
     }
 
     // Path Params
@@ -211,9 +203,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling deleteAWSTagFilter."
-      );
+      throw new RequiredError("body", "deleteAWSTagFilter");
     }
 
     // Path Params
@@ -328,9 +318,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'accountId' is not null or undefined
     if (accountId === null || accountId === undefined) {
-      throw new RequiredError(
-        "Required parameter accountId was null or undefined when calling listAWSTagFilters."
-      );
+      throw new RequiredError("accountId", "listAWSTagFilters");
     }
 
     // Path Params
@@ -372,9 +360,7 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateAWSAccount."
-      );
+      throw new RequiredError("body", "updateAWSAccount");
     }
 
     // Path Params

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The metric's type.
+ */
+
 export type MetricTagConfigurationMetricTypes =
   | typeof GAUGE
   | typeof COUNT

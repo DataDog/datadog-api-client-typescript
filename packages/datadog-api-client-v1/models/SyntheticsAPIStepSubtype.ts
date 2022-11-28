@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The subtype of the Synthetic multistep API test step, currently only supporting `http`.
+ */
+
 export type SyntheticsAPIStepSubtype = typeof HTTP;
 export const HTTP = "http";

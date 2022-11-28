@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of reports.
+ */
+
 export type UsageReportsType = typeof REPORTS;
 export const REPORTS = "reports";

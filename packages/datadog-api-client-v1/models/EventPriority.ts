@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The priority of the event. For example, `normal` or `low`.
+ */
+
 export type EventPriority = typeof NORMAL | typeof LOW;
 export const NORMAL = "normal";
 export const LOW = "low";

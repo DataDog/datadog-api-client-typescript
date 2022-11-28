@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The size of the graph.
+ */
+
 export type NotebookGraphSize =
   | typeof EXTRA_SMALL
   | typeof SMALL

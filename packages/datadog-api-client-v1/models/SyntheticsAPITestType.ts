@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the Synthetic test, `api`.
+ */
+
 export type SyntheticsAPITestType = typeof API;
 export const API = "api";

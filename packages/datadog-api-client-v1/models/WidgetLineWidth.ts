@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Width of line displayed.
+ */
+
 export type WidgetLineWidth = typeof NORMAL | typeof THICK | typeof THIN;
 export const NORMAL = "normal";
 export const THICK = "thick";

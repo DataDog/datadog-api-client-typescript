@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Incident Team resource type.
+ */
+
 export type IncidentTeamType = typeof TEAMS;
 export const TEAMS = "teams";

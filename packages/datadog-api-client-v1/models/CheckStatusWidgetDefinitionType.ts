@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the check status widget.
+ */
+
 export type CheckStatusWidgetDefinitionType = typeof CHECK_STATUS;
 export const CHECK_STATUS = "check_status";

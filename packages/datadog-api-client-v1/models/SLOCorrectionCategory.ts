@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Category the SLO correction belongs to.
+ */
+
 export type SLOCorrectionCategory =
   | typeof SCHEDULED_MAINTENANCE
   | typeof OUTSIDE_BUSINESS_HOURS

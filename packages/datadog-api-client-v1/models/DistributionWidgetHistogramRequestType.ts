@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Request type for the histogram request.
+ */
+
 export type DistributionWidgetHistogramRequestType = typeof HISTOGRAM;
 export const HISTOGRAM = "histogram";

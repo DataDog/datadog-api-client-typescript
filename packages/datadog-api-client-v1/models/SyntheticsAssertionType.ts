@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the assertion.
+ */
+
 export type SyntheticsAssertionType =
   | typeof BODY
   | typeof HEADER

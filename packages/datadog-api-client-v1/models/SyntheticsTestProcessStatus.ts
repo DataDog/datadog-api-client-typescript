@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Status of a Synthetic test.
+ */
+
 export type SyntheticsTestProcessStatus =
   | typeof NOT_SCHEDULED
   | typeof SCHEDULED

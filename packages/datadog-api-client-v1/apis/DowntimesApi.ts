@@ -31,14 +31,12 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'downtimeId' is not null or undefined
     if (downtimeId === null || downtimeId === undefined) {
-      throw new RequiredError(
-        "Required parameter downtimeId was null or undefined when calling cancelDowntime."
-      );
+      throw new RequiredError("downtimeId", "cancelDowntime");
     }
 
     // Path Params
     const localVarPath = "/api/v1/downtime/{downtime_id}".replace(
-      "{" + "downtime_id" + "}",
+      "{downtime_id}",
       encodeURIComponent(String(downtimeId))
     );
 
@@ -68,9 +66,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling cancelDowntimesByScope."
-      );
+      throw new RequiredError("body", "cancelDowntimesByScope");
     }
 
     // Path Params
@@ -113,9 +109,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createDowntime."
-      );
+      throw new RequiredError("body", "createDowntime");
     }
 
     // Path Params
@@ -158,14 +152,12 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'downtimeId' is not null or undefined
     if (downtimeId === null || downtimeId === undefined) {
-      throw new RequiredError(
-        "Required parameter downtimeId was null or undefined when calling getDowntime."
-      );
+      throw new RequiredError("downtimeId", "getDowntime");
     }
 
     // Path Params
     const localVarPath = "/api/v1/downtime/{downtime_id}".replace(
-      "{" + "downtime_id" + "}",
+      "{downtime_id}",
       encodeURIComponent(String(downtimeId))
     );
 
@@ -230,14 +222,12 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'monitorId' is not null or undefined
     if (monitorId === null || monitorId === undefined) {
-      throw new RequiredError(
-        "Required parameter monitorId was null or undefined when calling listMonitorDowntimes."
-      );
+      throw new RequiredError("monitorId", "listMonitorDowntimes");
     }
 
     // Path Params
     const localVarPath = "/api/v1/monitor/{monitor_id}/downtimes".replace(
-      "{" + "monitor_id" + "}",
+      "{monitor_id}",
       encodeURIComponent(String(monitorId))
     );
 
@@ -268,21 +258,17 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'downtimeId' is not null or undefined
     if (downtimeId === null || downtimeId === undefined) {
-      throw new RequiredError(
-        "Required parameter downtimeId was null or undefined when calling updateDowntime."
-      );
+      throw new RequiredError("downtimeId", "updateDowntime");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateDowntime."
-      );
+      throw new RequiredError("body", "updateDowntime");
     }
 
     // Path Params
     const localVarPath = "/api/v1/downtime/{downtime_id}".replace(
-      "{" + "downtime_id" + "}",
+      "{downtime_id}",
       encodeURIComponent(String(downtimeId))
     );
 

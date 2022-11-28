@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Number of columns to display.
+ */
+
 export type WidgetServiceSummaryDisplayFormat =
   | typeof ONE_COLUMN
   | typeof TWO_COLUMN

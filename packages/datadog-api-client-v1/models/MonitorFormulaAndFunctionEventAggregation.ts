@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Aggregation methods for event platform queries.
+ */
+
 export type MonitorFormulaAndFunctionEventAggregation =
   | typeof COUNT
   | typeof CARDINALITY

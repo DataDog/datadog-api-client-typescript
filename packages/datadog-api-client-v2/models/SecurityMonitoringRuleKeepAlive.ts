@@ -4,6 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Once a signal is generated, the signal will remain “open” if a case is matched at least once within
+ * this keep alive window.
+ */
+
 export type SecurityMonitoringRuleKeepAlive =
   | typeof ZERO_MINUTES
   | typeof ONE_MINUTE

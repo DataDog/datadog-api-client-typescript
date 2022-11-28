@@ -38,9 +38,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createAPIKey."
-      );
+      throw new RequiredError("body", "createAPIKey");
     }
 
     // Path Params
@@ -82,9 +80,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createCurrentUserApplicationKey."
-      );
+      throw new RequiredError("body", "createCurrentUserApplicationKey");
     }
 
     // Path Params
@@ -126,14 +122,12 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'apiKeyId' is not null or undefined
     if (apiKeyId === null || apiKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter apiKeyId was null or undefined when calling deleteAPIKey."
-      );
+      throw new RequiredError("apiKeyId", "deleteAPIKey");
     }
 
     // Path Params
     const localVarPath = "/api/v2/api_keys/{api_key_id}".replace(
-      "{" + "api_key_id" + "}",
+      "{api_key_id}",
       encodeURIComponent(String(apiKeyId))
     );
 
@@ -162,14 +156,12 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling deleteApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "deleteApplicationKey");
     }
 
     // Path Params
     const localVarPath = "/api/v2/application_keys/{app_key_id}".replace(
-      "{" + "app_key_id" + "}",
+      "{app_key_id}",
       encodeURIComponent(String(appKeyId))
     );
 
@@ -198,15 +190,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling deleteCurrentUserApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "deleteCurrentUserApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/current_user/application_keys/{app_key_id}".replace(
-        "{" + "app_key_id" + "}",
+        "{app_key_id}",
         encodeURIComponent(String(appKeyId))
       );
 
@@ -236,14 +226,12 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'apiKeyId' is not null or undefined
     if (apiKeyId === null || apiKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter apiKeyId was null or undefined when calling getAPIKey."
-      );
+      throw new RequiredError("apiKeyId", "getAPIKey");
     }
 
     // Path Params
     const localVarPath = "/api/v2/api_keys/{api_key_id}".replace(
-      "{" + "api_key_id" + "}",
+      "{api_key_id}",
       encodeURIComponent(String(apiKeyId))
     );
 
@@ -281,14 +269,12 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling getApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "getApplicationKey");
     }
 
     // Path Params
     const localVarPath = "/api/v2/application_keys/{app_key_id}".replace(
-      "{" + "app_key_id" + "}",
+      "{app_key_id}",
       encodeURIComponent(String(appKeyId))
     );
 
@@ -325,15 +311,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling getCurrentUserApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "getCurrentUserApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/current_user/application_keys/{app_key_id}".replace(
-        "{" + "app_key_id" + "}",
+        "{app_key_id}",
         encodeURIComponent(String(appKeyId))
       );
 
@@ -591,21 +575,17 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'apiKeyId' is not null or undefined
     if (apiKeyId === null || apiKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter apiKeyId was null or undefined when calling updateAPIKey."
-      );
+      throw new RequiredError("apiKeyId", "updateAPIKey");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateAPIKey."
-      );
+      throw new RequiredError("body", "updateAPIKey");
     }
 
     // Path Params
     const localVarPath = "/api/v2/api_keys/{api_key_id}".replace(
-      "{" + "api_key_id" + "}",
+      "{api_key_id}",
       encodeURIComponent(String(apiKeyId))
     );
 
@@ -646,21 +626,17 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling updateApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "updateApplicationKey");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateApplicationKey."
-      );
+      throw new RequiredError("body", "updateApplicationKey");
     }
 
     // Path Params
     const localVarPath = "/api/v2/application_keys/{app_key_id}".replace(
-      "{" + "app_key_id" + "}",
+      "{app_key_id}",
       encodeURIComponent(String(appKeyId))
     );
 
@@ -701,22 +677,18 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling updateCurrentUserApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "updateCurrentUserApplicationKey");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateCurrentUserApplicationKey."
-      );
+      throw new RequiredError("body", "updateCurrentUserApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/current_user/application_keys/{app_key_id}".replace(
-        "{" + "app_key_id" + "}",
+        "{app_key_id}",
         encodeURIComponent(String(appKeyId))
       );
 

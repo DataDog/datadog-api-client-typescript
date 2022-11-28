@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Dashboard resource type.
+ */
+
 export type DashboardResourceType = typeof DASHBOARD;
 export const DASHBOARD = "dashboard";

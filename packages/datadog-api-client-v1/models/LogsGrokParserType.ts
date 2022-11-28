@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs grok parser.
+ */
+
 export type LogsGrokParserType = typeof GROK_PARSER;
 export const GROK_PARSER = "grok-parser";
