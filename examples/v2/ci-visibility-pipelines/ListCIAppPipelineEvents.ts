@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.CIVisibilityPipelinesApi(configuration);
 
 const params: v2.CIVisibilityPipelinesApiListCIAppPipelineEventsRequest = {
-  filterQuery: "@ci.provider.instance:circleci",
+  filterQuery: "@ci.provider.name:circleci",
   filterFrom: new Date(new Date().getTime() + -30 * 60 * 1000),
   filterTo: new Date(),
   pageLimit: 5,
