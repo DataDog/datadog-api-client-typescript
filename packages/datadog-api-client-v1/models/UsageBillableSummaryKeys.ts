@@ -42,7 +42,15 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
+  "applicationSecurityFargateAverage"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
   "applicationSecurityHostSum"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
+  "applicationSecurityHostTop99"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -67,6 +75,14 @@ export class UsageBillableSummaryKeys {
    * Response with properties for each aggregated usage type.
    */
   "ciTestingSum"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
+  "cloudCostManagementAverage"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
+  "cloudCostManagementSum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -194,6 +210,10 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
+  "logsForwardingSum"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
   "logsIndexed15daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
@@ -302,6 +322,18 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
+  "serverlessApmSum"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
+  "serverlessInfraAverage"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
+  "serverlessInfraSum"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
   "serverlessInvocationSum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
@@ -315,6 +347,10 @@ export class UsageBillableSummaryKeys {
    * Response with properties for each aggregated usage type.
    */
   "syntheticsApiTestsSum"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
+  "syntheticsAppTestingMaximum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -365,8 +401,16 @@ export class UsageBillableSummaryKeys {
       baseName: "apm_trace_search_sum",
       type: "UsageBillableSummaryBody",
     },
+    applicationSecurityFargateAverage: {
+      baseName: "application_security_fargate_average",
+      type: "UsageBillableSummaryBody",
+    },
     applicationSecurityHostSum: {
       baseName: "application_security_host_sum",
+      type: "UsageBillableSummaryBody",
+    },
+    applicationSecurityHostTop99: {
+      baseName: "application_security_host_top99",
       type: "UsageBillableSummaryBody",
     },
     ciPipelineIndexedSpansSum: {
@@ -391,6 +435,14 @@ export class UsageBillableSummaryKeys {
     },
     ciTestingSum: {
       baseName: "ci_testing_sum",
+      type: "UsageBillableSummaryBody",
+    },
+    cloudCostManagementAverage: {
+      baseName: "cloud_cost_management_average",
+      type: "UsageBillableSummaryBody",
+    },
+    cloudCostManagementSum: {
+      baseName: "cloud_cost_management_sum",
       type: "UsageBillableSummaryBody",
     },
     cspmContainerSum: {
@@ -517,6 +569,10 @@ export class UsageBillableSummaryKeys {
       baseName: "lambda_function_sum",
       type: "UsageBillableSummaryBody",
     },
+    logsForwardingSum: {
+      baseName: "logs_forwarding_sum",
+      type: "UsageBillableSummaryBody",
+    },
     logsIndexed15daySum: {
       baseName: "logs_indexed_15day_sum",
       type: "UsageBillableSummaryBody",
@@ -625,6 +681,18 @@ export class UsageBillableSummaryKeys {
       baseName: "sensitive_data_scanner_sum",
       type: "UsageBillableSummaryBody",
     },
+    serverlessApmSum: {
+      baseName: "serverless_apm_sum",
+      type: "UsageBillableSummaryBody",
+    },
+    serverlessInfraAverage: {
+      baseName: "serverless_infra_average",
+      type: "UsageBillableSummaryBody",
+    },
+    serverlessInfraSum: {
+      baseName: "serverless_infra_sum",
+      type: "UsageBillableSummaryBody",
+    },
     serverlessInvocationSum: {
       baseName: "serverless_invocation_sum",
       type: "UsageBillableSummaryBody",
@@ -639,6 +707,10 @@ export class UsageBillableSummaryKeys {
     },
     syntheticsApiTestsSum: {
       baseName: "synthetics_api_tests_sum",
+      type: "UsageBillableSummaryBody",
+    },
+    syntheticsAppTestingMaximum: {
+      baseName: "synthetics_app_testing_maximum",
       type: "UsageBillableSummaryBody",
     },
     syntheticsBrowserChecksSum: {
