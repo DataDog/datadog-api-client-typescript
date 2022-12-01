@@ -67,6 +67,22 @@ export class MonthlyUsageAttributionValues {
    */
   "containerUsage"?: number;
   /**
+   * The percentage of CSPM container usage by tag(s).
+   */
+  "cspmContainersPercentage"?: number;
+  /**
+   * The CSPM container usage by tag(s).
+   */
+  "cspmContainersUsage"?: number;
+  /**
+   * The percentage of CSPM host usage by by tag(s).
+   */
+  "cspmHostsPercentage"?: number;
+  /**
+   * The CSPM host usage by tag(s).
+   */
+  "cspmHostsUsage"?: number;
+  /**
    * The percentage of custom metrics usage by tag(s).
    */
   "customTimeseriesPercentage"?: number;
@@ -74,6 +90,38 @@ export class MonthlyUsageAttributionValues {
    * The custom metrics usage by tag(s).
    */
   "customTimeseriesUsage"?: number;
+  /**
+   * The percentage of Cloud Workload Security container usage by tag(s).
+   */
+  "cwsContainersPercentage"?: number;
+  /**
+   * The Cloud Workload Security container usage by tag(s).
+   */
+  "cwsContainersUsage"?: number;
+  /**
+   * The percentage of Cloud Workload Security host usage by tag(s).
+   */
+  "cwsHostsPercentage"?: number;
+  /**
+   * The Cloud Workload Security host usage by tag(s).
+   */
+  "cwsHostsUsage"?: number;
+  /**
+   * The percentage of Database Monitoring host usage by tag(s).
+   */
+  "dbmHostsPercentage"?: number;
+  /**
+   * The Database Monitoring host usage by tag(s).
+   */
+  "dbmHostsUsage"?: number;
+  /**
+   * The percentage of Database Monitoring queries usage by tag(s).
+   */
+  "dbmQueriesPercentage"?: number;
+  /**
+   * The Database Monitoring queries usage by tag(s).
+   */
+  "dbmQueriesUsage"?: number;
   /**
    * The percentage of estimated live indexed logs usage by tag(s). This field is in private beta.
    */
@@ -258,6 +306,26 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    cspmContainersPercentage: {
+      baseName: "cspm_containers_percentage",
+      type: "number",
+      format: "double",
+    },
+    cspmContainersUsage: {
+      baseName: "cspm_containers_usage",
+      type: "number",
+      format: "double",
+    },
+    cspmHostsPercentage: {
+      baseName: "cspm_hosts_percentage",
+      type: "number",
+      format: "double",
+    },
+    cspmHostsUsage: {
+      baseName: "cspm_hosts_usage",
+      type: "number",
+      format: "double",
+    },
     customTimeseriesPercentage: {
       baseName: "custom_timeseries_percentage",
       type: "number",
@@ -265,6 +333,46 @@ export class MonthlyUsageAttributionValues {
     },
     customTimeseriesUsage: {
       baseName: "custom_timeseries_usage",
+      type: "number",
+      format: "double",
+    },
+    cwsContainersPercentage: {
+      baseName: "cws_containers_percentage",
+      type: "number",
+      format: "double",
+    },
+    cwsContainersUsage: {
+      baseName: "cws_containers_usage",
+      type: "number",
+      format: "double",
+    },
+    cwsHostsPercentage: {
+      baseName: "cws_hosts_percentage",
+      type: "number",
+      format: "double",
+    },
+    cwsHostsUsage: {
+      baseName: "cws_hosts_usage",
+      type: "number",
+      format: "double",
+    },
+    dbmHostsPercentage: {
+      baseName: "dbm_hosts_percentage",
+      type: "number",
+      format: "double",
+    },
+    dbmHostsUsage: {
+      baseName: "dbm_hosts_usage",
+      type: "number",
+      format: "double",
+    },
+    dbmQueriesPercentage: {
+      baseName: "dbm_queries_percentage",
+      type: "number",
+      format: "double",
+    },
+    dbmQueriesUsage: {
+      baseName: "dbm_queries_usage",
       type: "number",
       format: "double",
     },
