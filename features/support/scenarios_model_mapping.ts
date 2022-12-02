@@ -1809,6 +1809,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "SLOHistoryResponse",
     },
     "v1.ListSLOCorrection": {
+        "offset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "limit": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "SLOCorrectionListResponse",
     },
     "v1.CreateSLOCorrection": {

@@ -5,7 +5,10 @@
  */
 import { SyntheticsBasicAuthOauthROPType } from "./SyntheticsBasicAuthOauthROPType";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import {
+  AttributeTypeMap,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 
 /**
  * Object to handle `oauth rop` authentication when performing the test.
@@ -51,7 +54,7 @@ export class SyntheticsBasicAuthOauthROP {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "unparsedObject"?: UnparsedObject;
 
   /**
    * @ignore
