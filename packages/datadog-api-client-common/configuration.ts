@@ -92,10 +92,20 @@ export function createConfiguration(
   }
 
   const authMethods = conf.authMethods || {};
-  if (!("apiKeyAuth" in authMethods) && process.env && process.env.DD_API_KEY) {
+  if (
+    !("apiKeyAuth" in authMethods) &&
+    typeof process !== "undefined" &&
+    process.env &&
+    process.env.DD_API_KEY
+  ) {
     authMethods["apiKeyAuth"] = process.env.DD_API_KEY;
   }
-  if (!("appKeyAuth" in authMethods) && process.env && process.env.DD_APP_KEY) {
+  if (
+    !("appKeyAuth" in authMethods) &&
+    typeof process !== "undefined" &&
+    process.env &&
+    process.env.DD_APP_KEY
+  ) {
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
   }
 
