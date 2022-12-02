@@ -79,7 +79,7 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
   const authMethods = conf.authMethods || {};
   {%- for name, schema in openapi.components.securitySchemes.items()  %}
   {%- if schema.get("type") == "apiKey" and schema.get("in") == "header" %}
-  if (!("{{ name }}" in authMethods) && process.env && process.env.{{ schema["x-env-name"] }}) {
+  if (!("{{ name }}" in authMethods) && typeof process !== "undefined" && process.env && process.env.{{ schema["x-env-name"] }}) {
     authMethods["{{ name }}"] = process.env.{{ schema["x-env-name"] }};
   }
   {%- endif %}
