@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Specifies storage type as indexes or online-archives
+ */
+
 export type LogsStorageTier = typeof INDEXES | typeof ONLINE_ARCHIVES;
 export const INDEXES = "indexes";
 export const ONLINE_ARCHIVES = "online-archives";

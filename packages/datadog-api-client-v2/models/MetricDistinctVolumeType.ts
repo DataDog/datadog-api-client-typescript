@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The metric distinct volume type.
+ */
+
 export type MetricDistinctVolumeType = typeof DISTINCT_METRIC_VOLUMES;
 export const DISTINCT_METRIC_VOLUMES = "distinct_metric_volumes";

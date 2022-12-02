@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Source from which to query items to display in the stream.
+ */
+
 export type ListStreamSource =
   | typeof LOGS_STREAM
   | typeof AUDIT_STREAM

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Controls the display of the search bar.
+ */
+
 export type TableWidgetHasSearchBar =
   | typeof ALWAYS
   | typeof NEVER

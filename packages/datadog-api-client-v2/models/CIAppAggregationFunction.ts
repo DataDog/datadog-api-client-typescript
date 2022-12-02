@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * An aggregation function.
+ */
+
 export type CIAppAggregationFunction =
   | typeof COUNT
   | typeof CARDINALITY
@@ -16,7 +20,11 @@ export type CIAppAggregationFunction =
   | typeof MIN
   | typeof MAX
   | typeof AVG
-  | typeof MEDIAN;
+  | typeof MEDIAN
+  | typeof LATEST
+  | typeof EARLIEST
+  | typeof MOST_FREQUENT
+  | typeof DELTA;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const PERCENTILE_75 = "pc75";
@@ -29,3 +37,7 @@ export const MIN = "min";
 export const MAX = "max";
 export const AVG = "avg";
 export const MEDIAN = "median";
+export const LATEST = "latest";
+export const EARLIEST = "earliest";
+export const MOST_FREQUENT = "most_frequent";
+export const DELTA = "delta";

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * (deprecated) The attribute formerly used to group elements in the widget.
+ */
+
 export type TreeMapGroupBy = typeof USER | typeof FAMILY | typeof PROCESS;
 export const USER = "user";
 export const FAMILY = "family";

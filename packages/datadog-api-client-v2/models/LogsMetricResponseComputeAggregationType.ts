@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of aggregation to use.
+ */
+
 export type LogsMetricResponseComputeAggregationType =
   | typeof COUNT
   | typeof DISTRIBUTION;

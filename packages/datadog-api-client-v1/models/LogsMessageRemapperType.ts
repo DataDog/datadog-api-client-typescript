@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs message remapper.
+ */
+
 export type LogsMessageRemapperType = typeof MESSAGE_REMAPPER;
 export const MESSAGE_REMAPPER = "message-remapper";

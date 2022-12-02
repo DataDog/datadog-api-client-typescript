@@ -9,6 +9,8 @@ const apiInstance = new v1.LogsIndexesApi(configuration);
 
 const params: v1.LogsIndexesApiUpdateLogsIndexRequest = {
   body: {
+    dailyLimit: 300000000,
+    disableDailyLimit: false,
     exclusionFilters: [
       {
         filter: {
@@ -21,6 +23,7 @@ const params: v1.LogsIndexesApiUpdateLogsIndexRequest = {
     filter: {
       query: "source:python",
     },
+    numRetentionDays: 15,
   },
   name: "name",
 };

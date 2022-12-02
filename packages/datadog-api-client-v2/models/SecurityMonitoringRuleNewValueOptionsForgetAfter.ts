@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The duration in days after which a learned value is forgotten.
+ */
+
 export type SecurityMonitoringRuleNewValueOptionsForgetAfter =
   | typeof ONE_DAY
   | typeof TWO_DAYS

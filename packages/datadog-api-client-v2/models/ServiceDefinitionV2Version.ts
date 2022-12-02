@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Schema version being used.
+ */
+
 export type ServiceDefinitionV2Version = typeof V2;
 export const V2 = "v2";

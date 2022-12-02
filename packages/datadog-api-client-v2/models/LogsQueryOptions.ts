@@ -19,7 +19,7 @@ export class LogsQueryOptions {
    */
   "timeOffset"?: number;
   /**
-   * The timezone can be specified both as an offset, for example: "UTC+03:00".
+   * The timezone can be specified as GMT, UTC, an offset from UTC (like UTC+1), or as a Timezone Database identifier (like America/New_York).
    */
   "timezone"?: string;
 

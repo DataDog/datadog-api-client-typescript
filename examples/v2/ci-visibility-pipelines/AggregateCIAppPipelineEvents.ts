@@ -18,8 +18,7 @@ const params: v2.CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest = {
     ],
     filter: {
       from: "now-15m",
-      query:
-        "@ci.provider.name:github AND @ci.provider.instance:github-actions",
+      query: "@ci.provider.name:(gitlab OR github)",
       to: "now",
     },
     groupBy: [

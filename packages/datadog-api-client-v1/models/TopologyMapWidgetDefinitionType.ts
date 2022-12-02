@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the topology map widget.
+ */
+
 export type TopologyMapWidgetDefinitionType = typeof TOPOLOGY_MAP;
 export const TOPOLOGY_MAP = "topology_map";

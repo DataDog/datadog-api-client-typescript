@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Legend column.
+ */
+
 export type TimeseriesWidgetLegendColumn =
   | typeof VALUE
   | typeof AVG

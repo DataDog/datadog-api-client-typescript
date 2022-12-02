@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the distribution widget.
+ */
+
 export type DistributionWidgetDefinitionType = typeof DISTRIBUTION;
 export const DISTRIBUTION = "distribution";

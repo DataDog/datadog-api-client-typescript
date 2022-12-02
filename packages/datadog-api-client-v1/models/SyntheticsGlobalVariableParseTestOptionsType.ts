@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Property of the Synthetics Test Response to use for a Synthetics global variable.
+ */
+
 export type SyntheticsGlobalVariableParseTestOptionsType =
   | typeof HTTP_BODY
   | typeof HTTP_HEADER

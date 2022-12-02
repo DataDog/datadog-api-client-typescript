@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the Synthetic test, `browser`.
+ */
+
 export type SyntheticsBrowserTestType = typeof BROWSER;
 export const BROWSER = "browser";

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Error code that can be returned by a Synthetic test.
+ */
+
 export type SyntheticsBrowserTestFailureCode =
   | typeof API_REQUEST_FAILURE
   | typeof ASSERTION_FAILURE

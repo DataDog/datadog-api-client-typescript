@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The kind of grouping to use.
+ */
+
 export type WidgetGrouping = typeof CHECK | typeof CLUSTER;
 export const CHECK = "check";
 export const CLUSTER = "cluster";

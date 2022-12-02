@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The new triage state of the signal.
+ */
+
 export type SignalTriageState =
   | typeof OPEN
   | typeof ARCHIVED

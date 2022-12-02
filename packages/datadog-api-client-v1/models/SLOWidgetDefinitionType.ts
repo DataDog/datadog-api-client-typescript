@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the SLO widget.
+ */
+
 export type SLOWidgetDefinitionType = typeof SLO;
 export const SLO = "slo";

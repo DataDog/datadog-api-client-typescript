@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The region for the Opsgenie service.
+ */
+
 export type OpsgenieServiceRegionType = typeof US | typeof EU | typeof CUSTOM;
 export const US = "us";
 export const EU = "eu";

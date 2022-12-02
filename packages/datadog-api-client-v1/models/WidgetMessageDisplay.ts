@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Amount of log lines to display
+ */
+
 export type WidgetMessageDisplay =
   | typeof INLINE
   | typeof EXPANDED_MEDIUM

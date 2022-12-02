@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Define a display mode for the table cell.
+ */
+
 export type TableWidgetCellDisplayMode = typeof NUMBER | typeof BAR;
 export const NUMBER = "number";
 export const BAR = "bar";

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The metric ingested and indexed volume type.
+ */
+
 export type MetricIngestedIndexedVolumeType = typeof METRIC_VOLUMES;
 export const METRIC_VOLUMES = "metric_volumes";

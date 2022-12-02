@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the iframe widget.
+ */
+
 export type IFrameWidgetDefinitionType = typeof IFRAME;
 export const IFRAME = "iframe";

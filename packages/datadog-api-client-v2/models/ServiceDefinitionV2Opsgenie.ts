@@ -19,9 +19,9 @@ export class ServiceDefinitionV2Opsgenie {
    */
   "region"?: ServiceDefinitionV2OpsgenieRegion;
   /**
-   * Opsgenie service id.
+   * Opsgenie service url.
    */
-  "serviceId": string;
+  "serviceUrl": string;
 
   /**
    * @ignore
@@ -36,8 +36,8 @@ export class ServiceDefinitionV2Opsgenie {
       baseName: "region",
       type: "ServiceDefinitionV2OpsgenieRegion",
     },
-    serviceId: {
-      baseName: "service-id",
+    serviceUrl: {
+      baseName: "service-url",
       type: "string",
       required: true,
     },

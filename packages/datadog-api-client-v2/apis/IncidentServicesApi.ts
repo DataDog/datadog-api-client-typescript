@@ -38,9 +38,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createIncidentService."
-      );
+      throw new RequiredError("body", "createIncidentService");
     }
 
     // Path Params
@@ -88,14 +86,12 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceId' is not null or undefined
     if (serviceId === null || serviceId === undefined) {
-      throw new RequiredError(
-        "Required parameter serviceId was null or undefined when calling deleteIncidentService."
-      );
+      throw new RequiredError("serviceId", "deleteIncidentService");
     }
 
     // Path Params
     const localVarPath = "/api/v2/services/{service_id}".replace(
-      "{" + "service_id" + "}",
+      "{service_id}",
       encodeURIComponent(String(serviceId))
     );
 
@@ -131,14 +127,12 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceId' is not null or undefined
     if (serviceId === null || serviceId === undefined) {
-      throw new RequiredError(
-        "Required parameter serviceId was null or undefined when calling getIncidentService."
-      );
+      throw new RequiredError("serviceId", "getIncidentService");
     }
 
     // Path Params
     const localVarPath = "/api/v2/services/{service_id}".replace(
-      "{" + "service_id" + "}",
+      "{service_id}",
       encodeURIComponent(String(serviceId))
     );
 
@@ -243,21 +237,17 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'serviceId' is not null or undefined
     if (serviceId === null || serviceId === undefined) {
-      throw new RequiredError(
-        "Required parameter serviceId was null or undefined when calling updateIncidentService."
-      );
+      throw new RequiredError("serviceId", "updateIncidentService");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateIncidentService."
-      );
+      throw new RequiredError("body", "updateIncidentService");
     }
 
     // Path Params
     const localVarPath = "/api/v2/services/{service_id}".replace(
-      "{" + "service_id" + "}",
+      "{service_id}",
       encodeURIComponent(String(serviceId))
     );
 

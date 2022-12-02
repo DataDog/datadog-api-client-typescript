@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the host map widget.
+ */
+
 export type HostMapWidgetDefinitionType = typeof HOSTMAP;
 export const HOSTMAP = "hostmap";

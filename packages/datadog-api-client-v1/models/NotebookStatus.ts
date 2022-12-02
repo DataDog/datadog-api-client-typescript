@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Publication status of the notebook. For now, always "published".
+ */
+
 export type NotebookStatus = typeof PUBLISHED;
 export const PUBLISHED = "published";

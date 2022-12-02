@@ -44,9 +44,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createIncident."
-      );
+      throw new RequiredError("body", "createIncident");
     }
 
     // Path Params
@@ -94,14 +92,12 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
-      throw new RequiredError(
-        "Required parameter incidentId was null or undefined when calling deleteIncident."
-      );
+      throw new RequiredError("incidentId", "deleteIncident");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/{incident_id}".replace(
-      "{" + "incident_id" + "}",
+      "{incident_id}",
       encodeURIComponent(String(incidentId))
     );
 
@@ -137,14 +133,12 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
-      throw new RequiredError(
-        "Required parameter incidentId was null or undefined when calling getIncident."
-      );
+      throw new RequiredError("incidentId", "getIncident");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/{incident_id}".replace(
-      "{" + "incident_id" + "}",
+      "{incident_id}",
       encodeURIComponent(String(incidentId))
     );
 
@@ -191,14 +185,12 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
-      throw new RequiredError(
-        "Required parameter incidentId was null or undefined when calling listIncidentAttachments."
-      );
+      throw new RequiredError("incidentId", "listIncidentAttachments");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/{incident_id}/attachments".replace(
-      "{" + "incident_id" + "}",
+      "{incident_id}",
       encodeURIComponent(String(incidentId))
     );
 
@@ -311,21 +303,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
-      throw new RequiredError(
-        "Required parameter incidentId was null or undefined when calling updateIncident."
-      );
+      throw new RequiredError("incidentId", "updateIncident");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateIncident."
-      );
+      throw new RequiredError("body", "updateIncident");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/{incident_id}".replace(
-      "{" + "incident_id" + "}",
+      "{incident_id}",
       encodeURIComponent(String(incidentId))
     );
 
@@ -383,21 +371,17 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'incidentId' is not null or undefined
     if (incidentId === null || incidentId === undefined) {
-      throw new RequiredError(
-        "Required parameter incidentId was null or undefined when calling updateIncidentAttachments."
-      );
+      throw new RequiredError("incidentId", "updateIncidentAttachments");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateIncidentAttachments."
-      );
+      throw new RequiredError("body", "updateIncidentAttachments");
     }
 
     // Path Params
     const localVarPath = "/api/v2/incidents/{incident_id}/attachments".replace(
-      "{" + "incident_id" + "}",
+      "{incident_id}",
       encodeURIComponent(String(incidentId))
     );
 

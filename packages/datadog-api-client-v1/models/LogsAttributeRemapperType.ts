@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs attribute remapper.
+ */
+
 export type LogsAttributeRemapperType = typeof ATTRIBUTE_REMAPPER;
 export const ATTRIBUTE_REMAPPER = "attribute-remapper";

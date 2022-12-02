@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Incident postmortem resource type.
+ */
+
 export type IncidentPostmortemType = typeof INCIDENT_POSTMORTEMS;
 export const INCIDENT_POSTMORTEMS = "incident_postmortems";

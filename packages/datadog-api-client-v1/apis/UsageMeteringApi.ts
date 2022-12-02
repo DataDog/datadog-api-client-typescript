@@ -134,16 +134,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getHourlyUsageAttribution."
-      );
+      throw new RequiredError("startHr", "getHourlyUsageAttribution");
     }
 
     // verify required parameter 'usageType' is not null or undefined
     if (usageType === null || usageType === undefined) {
-      throw new RequiredError(
-        "Required parameter usageType was null or undefined when calling getHourlyUsageAttribution."
-      );
+      throw new RequiredError("usageType", "getHourlyUsageAttribution");
     }
 
     // Path Params
@@ -221,9 +217,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getIncidentManagement."
-      );
+      throw new RequiredError("startHr", "getIncidentManagement");
     }
 
     // Path Params
@@ -273,9 +267,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getIngestedSpans."
-      );
+      throw new RequiredError("startHr", "getIngestedSpans");
     }
 
     // Path Params
@@ -390,16 +382,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError(
-        "Required parameter startMonth was null or undefined when calling getMonthlyUsageAttribution."
-      );
+      throw new RequiredError("startMonth", "getMonthlyUsageAttribution");
     }
 
     // verify required parameter 'fields' is not null or undefined
     if (fields === null || fields === undefined) {
-      throw new RequiredError(
-        "Required parameter fields was null or undefined when calling getMonthlyUsageAttribution."
-      );
+      throw new RequiredError("fields", "getMonthlyUsageAttribution");
     }
 
     // Path Params
@@ -492,14 +480,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'reportId' is not null or undefined
     if (reportId === null || reportId === undefined) {
-      throw new RequiredError(
-        "Required parameter reportId was null or undefined when calling getSpecifiedDailyCustomReports."
-      );
+      throw new RequiredError("reportId", "getSpecifiedDailyCustomReports");
     }
 
     // Path Params
     const localVarPath = "/api/v1/daily_custom_reports/{report_id}".replace(
-      "{" + "report_id" + "}",
+      "{report_id}",
       encodeURIComponent(String(reportId))
     );
 
@@ -532,14 +518,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'reportId' is not null or undefined
     if (reportId === null || reportId === undefined) {
-      throw new RequiredError(
-        "Required parameter reportId was null or undefined when calling getSpecifiedMonthlyCustomReports."
-      );
+      throw new RequiredError("reportId", "getSpecifiedMonthlyCustomReports");
     }
 
     // Path Params
     const localVarPath = "/api/v1/monthly_custom_reports/{report_id}".replace(
-      "{" + "report_id" + "}",
+      "{report_id}",
       encodeURIComponent(String(reportId))
     );
 
@@ -573,9 +557,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageAnalyzedLogs."
-      );
+      throw new RequiredError("startHr", "getUsageAnalyzedLogs");
     }
 
     // Path Params
@@ -631,16 +613,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError(
-        "Required parameter startMonth was null or undefined when calling getUsageAttribution."
-      );
+      throw new RequiredError("startMonth", "getUsageAttribution");
     }
 
     // verify required parameter 'fields' is not null or undefined
     if (fields === null || fields === undefined) {
-      throw new RequiredError(
-        "Required parameter fields was null or undefined when calling getUsageAttribution."
-      );
+      throw new RequiredError("fields", "getUsageAttribution");
     }
 
     // Path Params
@@ -730,9 +708,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageAuditLogs."
-      );
+      throw new RequiredError("startHr", "getUsageAuditLogs");
     }
 
     // Path Params
@@ -820,9 +796,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageCIApp."
-      );
+      throw new RequiredError("startHr", "getUsageCIApp");
     }
 
     // Path Params
@@ -873,7 +847,8 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
       throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageCloudSecurityPostureManagement."
+        "startHr",
+        "getUsageCloudSecurityPostureManagement"
       );
     }
 
@@ -924,9 +899,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageCWS."
-      );
+      throw new RequiredError("startHr", "getUsageCWS");
     }
 
     // Path Params
@@ -976,9 +949,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageDBM."
-      );
+      throw new RequiredError("startHr", "getUsageDBM");
     }
 
     // Path Params
@@ -1028,9 +999,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageFargate."
-      );
+      throw new RequiredError("startHr", "getUsageFargate");
     }
 
     // Path Params
@@ -1080,9 +1049,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageHosts."
-      );
+      throw new RequiredError("startHr", "getUsageHosts");
     }
 
     // Path Params
@@ -1132,9 +1099,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageIndexedSpans."
-      );
+      throw new RequiredError("startHr", "getUsageIndexedSpans");
     }
 
     // Path Params
@@ -1184,9 +1149,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageInternetOfThings."
-      );
+      throw new RequiredError("startHr", "getUsageInternetOfThings");
     }
 
     // Path Params
@@ -1236,9 +1199,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageLambda."
-      );
+      throw new RequiredError("startHr", "getUsageLambda");
     }
 
     // Path Params
@@ -1288,9 +1249,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageLogs."
-      );
+      throw new RequiredError("startHr", "getUsageLogs");
     }
 
     // Path Params
@@ -1341,9 +1300,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageLogsByIndex."
-      );
+      throw new RequiredError("startHr", "getUsageLogsByIndex");
     }
 
     // Path Params
@@ -1399,9 +1356,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageLogsByRetention."
-      );
+      throw new RequiredError("startHr", "getUsageLogsByRetention");
     }
 
     // Path Params
@@ -1451,9 +1406,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageNetworkFlows."
-      );
+      throw new RequiredError("startHr", "getUsageNetworkFlows");
     }
 
     // Path Params
@@ -1503,9 +1456,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageNetworkHosts."
-      );
+      throw new RequiredError("startHr", "getUsageNetworkHosts");
     }
 
     // Path Params
@@ -1555,9 +1506,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageOnlineArchive."
-      );
+      throw new RequiredError("startHr", "getUsageOnlineArchive");
     }
 
     // Path Params
@@ -1607,9 +1556,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageProfiling."
-      );
+      throw new RequiredError("startHr", "getUsageProfiling");
     }
 
     // Path Params
@@ -1660,9 +1607,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageRumSessions."
-      );
+      throw new RequiredError("startHr", "getUsageRumSessions");
     }
 
     // Path Params
@@ -1718,9 +1663,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageRumUnits."
-      );
+      throw new RequiredError("startHr", "getUsageRumUnits");
     }
 
     // Path Params
@@ -1770,9 +1713,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageSDS."
-      );
+      throw new RequiredError("startHr", "getUsageSDS");
     }
 
     // Path Params
@@ -1822,9 +1763,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageSNMP."
-      );
+      throw new RequiredError("startHr", "getUsageSNMP");
     }
 
     // Path Params
@@ -1875,9 +1814,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError(
-        "Required parameter startMonth was null or undefined when calling getUsageSummary."
-      );
+      throw new RequiredError("startMonth", "getUsageSummary");
     }
 
     // Path Params
@@ -1933,9 +1870,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageSynthetics."
-      );
+      throw new RequiredError("startHr", "getUsageSynthetics");
     }
 
     // Path Params
@@ -1985,9 +1920,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageSyntheticsAPI."
-      );
+      throw new RequiredError("startHr", "getUsageSyntheticsAPI");
     }
 
     // Path Params
@@ -2037,9 +1970,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageSyntheticsBrowser."
-      );
+      throw new RequiredError("startHr", "getUsageSyntheticsBrowser");
     }
 
     // Path Params
@@ -2089,9 +2020,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageTimeseries."
-      );
+      throw new RequiredError("startHr", "getUsageTimeseries");
     }
 
     // Path Params

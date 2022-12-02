@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * (deprecated) The attribute formerly used to determine color in the widget.
+ */
+
 export type TreeMapColorBy = typeof USER;
 export const USER = "user";

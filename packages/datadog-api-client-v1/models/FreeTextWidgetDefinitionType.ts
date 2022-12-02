@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the free text widget.
+ */
+
 export type FreeTextWidgetDefinitionType = typeof FREE_TEXT;
 export const FREE_TEXT = "free_text";

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs lookup processor.
+ */
+
 export type LogsLookupProcessorType = typeof LOOKUP_PROCESSOR;
 export const LOOKUP_PROCESSOR = "lookup-processor";

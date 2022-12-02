@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * A time aggregation for use in query.
+ */
+
 export type MetricCustomTimeAggregation =
   | typeof AVG
   | typeof COUNT

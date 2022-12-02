@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * APM resource stat name.
+ */
+
 export type FormulaAndFunctionApmResourceStatName =
   | typeof ERRORS
   | typeof ERROR_RATE

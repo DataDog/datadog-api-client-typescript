@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the multiple value field definitions.
+ */
+
 export type IncidentFieldAttributesValueType =
   | typeof MULTISELECT
   | typeof TEXTARRAY

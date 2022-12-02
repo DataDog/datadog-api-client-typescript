@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Error code that can be returned by a Synthetic test.
+ */
+
 export type SyntheticsApiTestFailureCode =
   | typeof BODY_TOO_LARGE
   | typeof DENIED

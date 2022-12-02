@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Metadata type of the notebook.
+ */
+
 export type NotebookMetadataType =
   | typeof POSTMORTEM
   | typeof RUNBOOK

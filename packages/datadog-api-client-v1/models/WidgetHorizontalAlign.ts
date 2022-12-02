@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Horizontal alignment.
+ */
+
 export type WidgetHorizontalAlign = typeof CENTER | typeof LEFT | typeof RIGHT;
 export const CENTER = "center";
 export const LEFT = "left";

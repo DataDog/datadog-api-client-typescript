@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * AuthN Mappings resource type.
+ */
+
 export type AuthNMappingsType = typeof AUTHN_MAPPINGS;
 export const AUTHN_MAPPINGS = "authn_mappings";

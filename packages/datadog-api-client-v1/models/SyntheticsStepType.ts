@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Step type used in your Synthetic test.
+ */
+
 export type SyntheticsStepType =
   | typeof ASSERT_CURRENT_URL
   | typeof ASSERT_ELEMENT_ATTRIBUTE

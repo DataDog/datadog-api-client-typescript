@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the Synthetic test, either `api` or `browser`.
+ */
+
 export type SyntheticsTestDetailsType = typeof API | typeof BROWSER;
 export const API = "api";
 export const BROWSER = "browser";

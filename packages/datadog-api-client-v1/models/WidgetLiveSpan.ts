@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The available timeframes depend on the widget you are using.
+ */
+
 export type WidgetLiveSpan =
   | typeof PAST_ONE_MINUTE
   | typeof PAST_FIVE_MINUTES

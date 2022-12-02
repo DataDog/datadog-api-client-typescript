@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The type of the resource. The value should always be logs_metrics.
+ */
+
 export type LogsMetricType = typeof LOGS_METRICS;
 export const LOGS_METRICS = "logs_metrics";

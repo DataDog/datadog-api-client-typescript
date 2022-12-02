@@ -39,9 +39,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'ids' is not null or undefined
     if (ids === null || ids === undefined) {
-      throw new RequiredError(
-        "Required parameter ids was null or undefined when calling checkCanDeleteSLO."
-      );
+      throw new RequiredError("ids", "checkCanDeleteSLO");
     }
 
     // Path Params
@@ -80,9 +78,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSLO."
-      );
+      throw new RequiredError("body", "createSLO");
     }
 
     // Path Params
@@ -125,14 +121,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloId was null or undefined when calling deleteSLO."
-      );
+      throw new RequiredError("sloId", "deleteSLO");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/{slo_id}".replace(
-      "{" + "slo_id" + "}",
+      "{slo_id}",
       encodeURIComponent(String(sloId))
     );
 
@@ -169,9 +163,7 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling deleteSLOTimeframeInBulk."
-      );
+      throw new RequiredError("body", "deleteSLOTimeframeInBulk");
     }
 
     // Path Params
@@ -218,14 +210,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloId was null or undefined when calling getSLO."
-      );
+      throw new RequiredError("sloId", "getSLO");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/{slo_id}".replace(
-      "{" + "slo_id" + "}",
+      "{slo_id}",
       encodeURIComponent(String(sloId))
     );
 
@@ -262,14 +252,12 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloId was null or undefined when calling getSLOCorrections."
-      );
+      throw new RequiredError("sloId", "getSLOCorrections");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/{slo_id}/corrections".replace(
-      "{" + "slo_id" + "}",
+      "{slo_id}",
       encodeURIComponent(String(sloId))
     );
 
@@ -302,28 +290,22 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloId was null or undefined when calling getSLOHistory."
-      );
+      throw new RequiredError("sloId", "getSLOHistory");
     }
 
     // verify required parameter 'fromTs' is not null or undefined
     if (fromTs === null || fromTs === undefined) {
-      throw new RequiredError(
-        "Required parameter fromTs was null or undefined when calling getSLOHistory."
-      );
+      throw new RequiredError("fromTs", "getSLOHistory");
     }
 
     // verify required parameter 'toTs' is not null or undefined
     if (toTs === null || toTs === undefined) {
-      throw new RequiredError(
-        "Required parameter toTs was null or undefined when calling getSLOHistory."
-      );
+      throw new RequiredError("toTs", "getSLOHistory");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/{slo_id}/history".replace(
-      "{" + "slo_id" + "}",
+      "{slo_id}",
       encodeURIComponent(String(sloId))
     );
 
@@ -508,21 +490,17 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 
     // verify required parameter 'sloId' is not null or undefined
     if (sloId === null || sloId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloId was null or undefined when calling updateSLO."
-      );
+      throw new RequiredError("sloId", "updateSLO");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateSLO."
-      );
+      throw new RequiredError("body", "updateSLO");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/{slo_id}".replace(
-      "{" + "slo_id" + "}",
+      "{slo_id}",
       encodeURIComponent(String(sloId))
     );
 

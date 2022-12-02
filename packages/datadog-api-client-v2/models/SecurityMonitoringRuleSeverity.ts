@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Severity of the Security Signal.
+ */
+
 export type SecurityMonitoringRuleSeverity =
   | typeof INFO
   | typeof LOW

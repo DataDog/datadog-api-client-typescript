@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the treemap widget.
+ */
+
 export type TreeMapWidgetDefinitionType = typeof TREEMAP;
 export const TREEMAP = "treemap";

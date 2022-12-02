@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The status of the response.
+ */
+
 export type RUMResponseStatus = typeof DONE | typeof TIMEOUT;
 export const DONE = "done";
 export const TIMEOUT = "timeout";

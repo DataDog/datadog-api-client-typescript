@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of funnel widget.
+ */
+
 export type FunnelWidgetDefinitionType = typeof FUNNEL;
 export const FUNNEL = "funnel";

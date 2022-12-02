@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Navigate between different tabs for your browser test.
+ */
+
 export type SyntheticsPlayingTab =
   | typeof MAIN_TAB
   | typeof NEW_TAB

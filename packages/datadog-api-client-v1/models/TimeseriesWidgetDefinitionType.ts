@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the timeseries widget.
+ */
+
 export type TimeseriesWidgetDefinitionType = typeof TIMESERIES;
 export const TIMESERIES = "timeseries";

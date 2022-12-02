@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the scatter plot widget.
+ */
+
 export type ScatterPlotWidgetDefinitionType = typeof SCATTERPLOT;
 export const SCATTERPLOT = "scatterplot";

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The detection method.
+ */
+
 export type SecurityMonitoringRuleDetectionMethod =
   | typeof THRESHOLD
   | typeof NEW_VALUE

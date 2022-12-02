@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs trace remapper.
+ */
+
 export type LogsTraceRemapperType = typeof TRACE_ID_REMAPPER;
 export const TRACE_ID_REMAPPER = "trace-id-remapper";

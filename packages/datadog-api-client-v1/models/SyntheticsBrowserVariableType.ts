@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of browser test variable.
+ */
+
 export type SyntheticsBrowserVariableType =
   | typeof ELEMENT
   | typeof EMAIL

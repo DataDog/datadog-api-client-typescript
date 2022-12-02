@@ -32,9 +32,7 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createLogsMetric."
-      );
+      throw new RequiredError("body", "createLogsMetric");
     }
 
     // Path Params
@@ -76,14 +74,12 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricId' is not null or undefined
     if (metricId === null || metricId === undefined) {
-      throw new RequiredError(
-        "Required parameter metricId was null or undefined when calling deleteLogsMetric."
-      );
+      throw new RequiredError("metricId", "deleteLogsMetric");
     }
 
     // Path Params
     const localVarPath = "/api/v2/logs/config/metrics/{metric_id}".replace(
-      "{" + "metric_id" + "}",
+      "{metric_id}",
       encodeURIComponent(String(metricId))
     );
 
@@ -112,14 +108,12 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricId' is not null or undefined
     if (metricId === null || metricId === undefined) {
-      throw new RequiredError(
-        "Required parameter metricId was null or undefined when calling getLogsMetric."
-      );
+      throw new RequiredError("metricId", "getLogsMetric");
     }
 
     // Path Params
     const localVarPath = "/api/v2/logs/config/metrics/{metric_id}".replace(
-      "{" + "metric_id" + "}",
+      "{metric_id}",
       encodeURIComponent(String(metricId))
     );
 
@@ -176,21 +170,17 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricId' is not null or undefined
     if (metricId === null || metricId === undefined) {
-      throw new RequiredError(
-        "Required parameter metricId was null or undefined when calling updateLogsMetric."
-      );
+      throw new RequiredError("metricId", "updateLogsMetric");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateLogsMetric."
-      );
+      throw new RequiredError("body", "updateLogsMetric");
     }
 
     // Path Params
     const localVarPath = "/api/v2/logs/config/metrics/{metric_id}".replace(
-      "{" + "metric_id" + "}",
+      "{metric_id}",
       encodeURIComponent(String(metricId))
     );
 

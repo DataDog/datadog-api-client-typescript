@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * What to display on the widget.
+ */
+
 export type WidgetMonitorSummaryDisplayFormat =
   | typeof COUNTS
   | typeof COUNTS_AND_LIST

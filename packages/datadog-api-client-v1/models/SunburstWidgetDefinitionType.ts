@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the Sunburst widget.
+ */
+
 export type SunburstWidgetDefinitionType = typeof SUNBURST;
 export const SUNBURST = "sunburst";

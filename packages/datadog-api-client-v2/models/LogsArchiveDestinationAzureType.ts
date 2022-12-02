@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the Azure archive destination.
+ */
+
 export type LogsArchiveDestinationAzureType = typeof AZURE;
 export const AZURE = "azure";

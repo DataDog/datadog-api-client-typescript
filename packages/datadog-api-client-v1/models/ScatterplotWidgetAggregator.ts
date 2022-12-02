@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Aggregator used for the request.
+ */
+
 export type ScatterplotWidgetAggregator =
   | typeof AVERAGE
   | typeof LAST

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * RUM application creation type.
+ */
+
 export type RUMApplicationCreateType = typeof RUM_APPLICATION_CREATE;
 export const RUM_APPLICATION_CREATE = "rum_application_create";

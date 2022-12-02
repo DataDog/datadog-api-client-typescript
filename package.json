@@ -92,24 +92,24 @@
     "@types/pollyjs__utils": "^2.6.1",
     "@types/react": ">=16",
     "@types/url-parse": "^1.4.3",
-    "@typescript-eslint/eslint-plugin": "^4.15.0",
-    "@typescript-eslint/parser": "^4.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
     "chai": "^4.2.0",
     "dd-trace": "^2.1.1",
-    "eslint": "^7.19.0",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint": "^8.28.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-unused-imports": "^1.1.1",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "jest": "^27.0.6",
-    "prettier": "^2.4.0",
+    "prettier": "^2.8.0",
     "ts-jest": "^27.0.4",
-    "ts-node": "^9.1.1",
-    "typedoc": "^0.22.11",
-    "typescript": "4.5.5",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.23.21",
+    "typescript": "4.8.4",
     "zstd.ts": "^1.1.3"
   },
   "engines": {
     "node": ">=12.0.0"
   },
-  "version": "1.5.1-beta.0"
+  "version": "1.6.1-beta.0"
 }

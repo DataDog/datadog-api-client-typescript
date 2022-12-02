@@ -5,6 +5,7 @@
  */
 import { LogsMetricFilter } from "./LogsMetricFilter";
 import { LogsMetricGroupBy } from "./LogsMetricGroupBy";
+import { LogsMetricUpdateCompute } from "./LogsMetricUpdateCompute";
 
 import {
   AttributeTypeMap,
@@ -15,6 +16,10 @@ import {
  * The log-based metric properties that will be updated.
  */
 export class LogsMetricUpdateAttributes {
+  /**
+   * The compute rule to compute the log-based metric.
+   */
+  "compute"?: LogsMetricUpdateCompute;
   /**
    * The log-based metric filter. Logs matching this filter will be aggregated in this metric.
    */
@@ -33,6 +38,10 @@ export class LogsMetricUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    compute: {
+      baseName: "compute",
+      type: "LogsMetricUpdateCompute",
+    },
     filter: {
       baseName: "filter",
       type: "LogsMetricFilter",

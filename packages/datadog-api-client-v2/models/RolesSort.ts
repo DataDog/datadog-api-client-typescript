@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Sorting options for roles.
+ */
+
 export type RolesSort =
   | typeof NAME_ASCENDING
   | typeof NAME_DESCENDING

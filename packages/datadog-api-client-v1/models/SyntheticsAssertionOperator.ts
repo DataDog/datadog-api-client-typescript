@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Assertion operator to apply.
+ */
+
 export type SyntheticsAssertionOperator =
   | typeof CONTAINS
   | typeof DOES_NOT_CONTAIN

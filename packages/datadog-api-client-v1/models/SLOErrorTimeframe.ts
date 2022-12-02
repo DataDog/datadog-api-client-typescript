@@ -4,6 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The timeframe of the threshold associated with this error
+ * or "all" if all thresholds are affected.
+ */
+
 export type SLOErrorTimeframe =
   | typeof SEVEN_DAYS
   | typeof THIRTY_DAYS

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * HTTP header used to compress the media-type.
+ */
+
 export type ContentEncoding = typeof IDENTITY | typeof GZIP | typeof DEFLATE;
 export const IDENTITY = "identity";
 export const GZIP = "gzip";

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the configuration variable.
+ */
+
 export type SyntheticsConfigVariableType = typeof GLOBAL | typeof TEXT;
 export const GLOBAL = "global";
 export const TEXT = "text";

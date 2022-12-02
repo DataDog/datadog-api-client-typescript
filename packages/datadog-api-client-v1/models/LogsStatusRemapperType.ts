@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs status remapper.
+ */
+
 export type LogsStatusRemapperType = typeof STATUS_REMAPPER;
 export const STATUS_REMAPPER = "status-remapper";

@@ -46,14 +46,14 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter '{{ name|attribute_name }}' is not null or undefined
     if ({{ name|attribute_name }} === null || {{ name|attribute_name }} === undefined) {
-      throw new RequiredError('Required parameter {{ name|attribute_name }} was null or undefined when calling {{ operationId }}.');
+      throw new RequiredError('{{ name|attribute_name }}', '{{ operationId }}');
     }
     {%- endfor %}
 
     // Path Params
     const localVarPath = '{{ path }}'
       {%- for name, parameter in pathParams %}
-      .replace('{' + '{{ name }}' + '}', encodeURIComponent(String({{ name|attribute_name }})))
+      .replace('{% raw %}{{% endraw %}{{ name }}{% raw %}}{% endraw %}', encodeURIComponent(String({{ name|attribute_name }})))
       {%- endfor %};
 
     // Make Request Context

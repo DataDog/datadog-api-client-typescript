@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Execution rule for a Synthetics test.
+ */
+
 export type SyntheticsTestExecutionRule =
   | typeof BLOCKING
   | typeof NON_BLOCKING

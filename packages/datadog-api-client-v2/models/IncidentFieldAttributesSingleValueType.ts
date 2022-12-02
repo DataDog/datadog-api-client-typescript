@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the single value field definitions.
+ */
+
 export type IncidentFieldAttributesSingleValueType =
   | typeof DROPDOWN
   | typeof TEXTBOX;

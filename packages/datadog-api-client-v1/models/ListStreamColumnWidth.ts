@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Widget column width.
+ */
+
 export type ListStreamColumnWidth = typeof AUTO | typeof COMPACT | typeof FULL;
 export const AUTO = "auto";
 export const COMPACT = "compact";

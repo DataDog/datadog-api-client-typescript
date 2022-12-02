@@ -43,9 +43,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createBulkTagsMetricsConfiguration."
-      );
+      throw new RequiredError("body", "createBulkTagsMetricsConfiguration");
     }
 
     // Path Params
@@ -88,21 +86,17 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling createTagConfiguration."
-      );
+      throw new RequiredError("metricName", "createTagConfiguration");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createTagConfiguration."
-      );
+      throw new RequiredError("body", "createTagConfiguration");
     }
 
     // Path Params
     const localVarPath = "/api/v2/metrics/{metric_name}/tags".replace(
-      "{" + "metric_name" + "}",
+      "{metric_name}",
       encodeURIComponent(String(metricName))
     );
 
@@ -146,9 +140,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling deleteBulkTagsMetricsConfiguration."
-      );
+      throw new RequiredError("body", "deleteBulkTagsMetricsConfiguration");
     }
 
     // Path Params
@@ -190,14 +182,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling deleteTagConfiguration."
-      );
+      throw new RequiredError("metricName", "deleteTagConfiguration");
     }
 
     // Path Params
     const localVarPath = "/api/v2/metrics/{metric_name}/tags".replace(
-      "{" + "metric_name" + "}",
+      "{metric_name}",
       encodeURIComponent(String(metricName))
     );
 
@@ -231,14 +221,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling estimateMetricsOutputSeries."
-      );
+      throw new RequiredError("metricName", "estimateMetricsOutputSeries");
     }
 
     // Path Params
     const localVarPath = "/api/v2/metrics/{metric_name}/estimate".replace(
-      "{" + "metric_name" + "}",
+      "{metric_name}",
       encodeURIComponent(String(metricName))
     );
 
@@ -301,15 +289,13 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling listActiveMetricConfigurations."
-      );
+      throw new RequiredError("metricName", "listActiveMetricConfigurations");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/metrics/{metric_name}/active-configurations".replace(
-        "{" + "metric_name" + "}",
+        "{metric_name}",
         encodeURIComponent(String(metricName))
       );
 
@@ -347,14 +333,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling listTagConfigurationByName."
-      );
+      throw new RequiredError("metricName", "listTagConfigurationByName");
     }
 
     // Path Params
     const localVarPath = "/api/v2/metrics/{metric_name}/tags".replace(
-      "{" + "metric_name" + "}",
+      "{metric_name}",
       encodeURIComponent(String(metricName))
     );
 
@@ -465,14 +449,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling listTagsByMetricName."
-      );
+      throw new RequiredError("metricName", "listTagsByMetricName");
     }
 
     // Path Params
     const localVarPath = "/api/v2/metrics/{metric_name}/all-tags".replace(
-      "{" + "metric_name" + "}",
+      "{metric_name}",
       encodeURIComponent(String(metricName))
     );
 
@@ -502,14 +484,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling listVolumesByMetricName."
-      );
+      throw new RequiredError("metricName", "listVolumesByMetricName");
     }
 
     // Path Params
     const localVarPath = "/api/v2/metrics/{metric_name}/volumes".replace(
-      "{" + "metric_name" + "}",
+      "{metric_name}",
       encodeURIComponent(String(metricName))
     );
 
@@ -540,9 +520,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling submitMetrics."
-      );
+      throw new RequiredError("body", "submitMetrics");
     }
 
     // Path Params
@@ -590,21 +568,17 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling updateTagConfiguration."
-      );
+      throw new RequiredError("metricName", "updateTagConfiguration");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateTagConfiguration."
-      );
+      throw new RequiredError("body", "updateTagConfiguration");
     }
 
     // Path Params
     const localVarPath = "/api/v2/metrics/{metric_name}/tags".replace(
-      "{" + "metric_name" + "}",
+      "{metric_name}",
       encodeURIComponent(String(metricName))
     );
 

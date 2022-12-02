@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Define how you want the SLO to be displayed.
+ */
+
 export type WidgetViewMode = typeof OVERALL | typeof COMPONENT | typeof BOTH;
 export const OVERALL = "overall";
 export const COMPONENT = "component";

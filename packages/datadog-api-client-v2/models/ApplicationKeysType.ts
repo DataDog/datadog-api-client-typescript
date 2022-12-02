@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Application Keys resource type.
+ */
+
 export type ApplicationKeysType = typeof APPLICATION_KEYS;
 export const APPLICATION_KEYS = "application_keys";

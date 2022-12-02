@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Permissions resource type.
+ */
+
 export type PermissionsType = typeof PERMISSIONS;
 export const PERMISSIONS = "permissions";

@@ -34,9 +34,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'monitorIds' is not null or undefined
     if (monitorIds === null || monitorIds === undefined) {
-      throw new RequiredError(
-        "Required parameter monitorIds was null or undefined when calling checkCanDeleteMonitor."
-      );
+      throw new RequiredError("monitorIds", "checkCanDeleteMonitor");
     }
 
     // Path Params
@@ -76,9 +74,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createMonitor."
-      );
+      throw new RequiredError("body", "createMonitor");
     }
 
     // Path Params
@@ -122,14 +118,12 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'monitorId' is not null or undefined
     if (monitorId === null || monitorId === undefined) {
-      throw new RequiredError(
-        "Required parameter monitorId was null or undefined when calling deleteMonitor."
-      );
+      throw new RequiredError("monitorId", "deleteMonitor");
     }
 
     // Path Params
     const localVarPath = "/api/v1/monitor/{monitor_id}".replace(
-      "{" + "monitor_id" + "}",
+      "{monitor_id}",
       encodeURIComponent(String(monitorId))
     );
 
@@ -168,14 +162,12 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'monitorId' is not null or undefined
     if (monitorId === null || monitorId === undefined) {
-      throw new RequiredError(
-        "Required parameter monitorId was null or undefined when calling getMonitor."
-      );
+      throw new RequiredError("monitorId", "getMonitor");
     }
 
     // Path Params
     const localVarPath = "/api/v1/monitor/{monitor_id}".replace(
-      "{" + "monitor_id" + "}",
+      "{monitor_id}",
       encodeURIComponent(String(monitorId))
     );
 
@@ -410,21 +402,17 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'monitorId' is not null or undefined
     if (monitorId === null || monitorId === undefined) {
-      throw new RequiredError(
-        "Required parameter monitorId was null or undefined when calling updateMonitor."
-      );
+      throw new RequiredError("monitorId", "updateMonitor");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateMonitor."
-      );
+      throw new RequiredError("body", "updateMonitor");
     }
 
     // Path Params
     const localVarPath = "/api/v1/monitor/{monitor_id}".replace(
-      "{" + "monitor_id" + "}",
+      "{monitor_id}",
       encodeURIComponent(String(monitorId))
     );
 
@@ -466,21 +454,17 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'monitorId' is not null or undefined
     if (monitorId === null || monitorId === undefined) {
-      throw new RequiredError(
-        "Required parameter monitorId was null or undefined when calling validateExistingMonitor."
-      );
+      throw new RequiredError("monitorId", "validateExistingMonitor");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling validateExistingMonitor."
-      );
+      throw new RequiredError("body", "validateExistingMonitor");
     }
 
     // Path Params
     const localVarPath = "/api/v1/monitor/{monitor_id}/validate".replace(
-      "{" + "monitor_id" + "}",
+      "{monitor_id}",
       encodeURIComponent(String(monitorId))
     );
 
@@ -521,9 +505,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling validateMonitor."
-      );
+      throw new RequiredError("body", "validateMonitor");
     }
 
     // Path Params

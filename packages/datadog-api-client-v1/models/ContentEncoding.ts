@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * HTTP header used to compress the media-type.
+ */
+
 export type ContentEncoding = typeof GZIP | typeof DEFLATE;
 export const GZIP = "gzip";
 export const DEFLATE = "deflate";

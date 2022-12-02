@@ -14,7 +14,7 @@ import {
  */
 export class RUMQueryFilter {
   /**
-   * The minimum time for the requested events; supports date, math, and regular timestamps (in milliseconds).
+   * The minimum time for the requested events; supports date (in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format with full date, hours, minutes, and the `Z` UTC indicator - seconds and fractional seconds are optional), math, and regular timestamps (in milliseconds).
    */
   "from"?: string;
   /**
@@ -22,7 +22,7 @@ export class RUMQueryFilter {
    */
   "query"?: string;
   /**
-   * The maximum time for the requested events; supports date, math, and regular timestamps (in milliseconds).
+   * The maximum time for the requested events; supports date (in [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format with full date, hours, minutes, and the `Z` UTC indicator - seconds and fractional seconds are optional), math, and regular timestamps (in milliseconds).
    */
   "to"?: string;
 

@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of the GCS archive destination.
+ */
+
 export type LogsArchiveDestinationGCSType = typeof GCS;
 export const GCS = "gcs";

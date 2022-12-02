@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
+ */
+
 export type AccessRole =
   | typeof STANDARD
   | typeof ADMIN

@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Supported metrics for monthly usage attribution requests.
+ */
+
 export type MonthlyUsageAttributionSupportedMetrics =
   | typeof API_USAGE
   | typeof API_PERCENTAGE

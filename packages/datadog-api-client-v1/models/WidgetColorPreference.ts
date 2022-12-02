@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Which color to use on the widget.
+ */
+
 export type WidgetColorPreference = typeof BACKGROUND | typeof TEXT;
 export const BACKGROUND = "background";
 export const TEXT = "text";

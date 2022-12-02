@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Size to use to display an event.
+ */
+
 export type WidgetEventSize = typeof SMALL | typeof LARGE;
 export const SMALL = "s";
 export const LARGE = "l";

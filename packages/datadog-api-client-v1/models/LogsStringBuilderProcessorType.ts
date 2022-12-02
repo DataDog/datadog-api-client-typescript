@@ -4,5 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Type of logs string builder processor.
+ */
+
 export type LogsStringBuilderProcessorType = typeof STRING_BUILDER_PROCESSOR;
 export const STRING_BUILDER_PROCESSOR = "string-builder-processor";

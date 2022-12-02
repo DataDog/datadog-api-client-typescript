@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * The field to sort by.
+ */
+
 export type UsageSort =
   | typeof COMPUTED_ON
   | typeof SIZE

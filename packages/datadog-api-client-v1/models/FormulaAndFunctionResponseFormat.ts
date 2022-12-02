@@ -4,6 +4,10 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+/**
+ * Timeseries or Scalar response.
+ */
+
 export type FormulaAndFunctionResponseFormat =
   | typeof TIMESERIES
   | typeof SCALAR;
