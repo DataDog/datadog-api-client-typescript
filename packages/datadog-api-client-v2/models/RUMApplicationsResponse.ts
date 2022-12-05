@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RUMApplication } from "./RUMApplication";
+import { RUMApplicationList } from "./RUMApplicationList";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +14,7 @@ export class RUMApplicationsResponse {
   /**
    * RUM applications array response.
    */
-  "data"?: Array<RUMApplication>;
+  "data"?: Array<RUMApplicationList>;
 
   /**
    * @ignore
@@ -27,7 +27,7 @@ export class RUMApplicationsResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<RUMApplication>",
+      type: "Array<RUMApplicationList>",
     },
   };
 
