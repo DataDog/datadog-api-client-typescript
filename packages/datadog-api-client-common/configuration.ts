@@ -16,7 +16,6 @@ import {
   AuthMethods,
   AuthMethodsConfiguration,
 } from "./auth";
-import { isNode } from "./util";
 
 export interface Configuration {
   readonly baseServer?: BaseServerConfiguration;
@@ -84,7 +83,7 @@ export interface ConfigurationParameters {
 export function createConfiguration(
   conf: ConfigurationParameters = {}
 ): Configuration {
-  if (isNode && process.env.DD_SITE) {
+  if (typeof process !== "undefined" && process.env && process.env.DD_SITE) {
     const serverConf = server1.getConfiguration();
     server1.setVariables({ site: process.env.DD_SITE } as typeof serverConf);
     for (const op in operationServers) {
@@ -93,10 +92,20 @@ export function createConfiguration(
   }
 
   const authMethods = conf.authMethods || {};
-  if (!("apiKeyAuth" in authMethods) && isNode && process.env.DD_API_KEY) {
+  if (
+    !("apiKeyAuth" in authMethods) &&
+    typeof process !== "undefined" &&
+    process.env &&
+    process.env.DD_API_KEY
+  ) {
     authMethods["apiKeyAuth"] = process.env.DD_API_KEY;
   }
-  if (!("appKeyAuth" in authMethods) && isNode && process.env.DD_APP_KEY) {
+  if (
+    !("appKeyAuth" in authMethods) &&
+    typeof process !== "undefined" &&
+    process.env &&
+    process.env.DD_APP_KEY
+  ) {
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
   }
 
