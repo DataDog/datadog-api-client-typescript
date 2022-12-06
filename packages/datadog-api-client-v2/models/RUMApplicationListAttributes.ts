@@ -7,17 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * RUM application attributes.
+ * RUM application list attributes.
  */
-export class RUMApplicationAttributes {
+export class RUMApplicationListAttributes {
   /**
    * ID of the RUM application.
    */
   "applicationId": string;
-  /**
-   * Client token of the RUM application.
-   */
-  "clientToken": string;
   /**
    * Timestamp in ms of the creation date.
    */
@@ -66,11 +62,6 @@ export class RUMApplicationAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     applicationId: {
       baseName: "application_id",
-      type: "string",
-      required: true,
-    },
-    clientToken: {
-      baseName: "client_token",
       type: "string",
       required: true,
     },
@@ -126,7 +117,7 @@ export class RUMApplicationAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMApplicationAttributes.attributeTypeMap;
+    return RUMApplicationListAttributes.attributeTypeMap;
   }
 
   public constructor() {}
