@@ -75,7 +75,7 @@ test('TestDeserializationUnknownNestedOneOfInList', () => {
 
     expect(result?.unparsedObject).toBe(undefined);
     expect(result.config.assertions.length).toBe(3);
-    expect(result.config.assertions[2].unparsedObject["operator"]).toBe("A non existent operator");
+    expect(result.config.assertions[2]._data["operator"]).toBe("A non existent operator");
   }
 );
 
@@ -151,7 +151,7 @@ test('TestDeserializationUnknownNestedEnumInList', () => {
 
     expect(result?.unparsedObject).toBe(undefined);
     expect(result.options.deviceIds.length).toBe(3);
-    expect(result.options.deviceIds[2]).toBe("A non existent device ID");
+    expect(result.options.deviceIds[2]._data).toBe("A non existent device ID");
   }
 );
 
@@ -197,6 +197,8 @@ test('TestDeserializationUnknownTopLevelEnum', () => {
     ObjectSerializerV1.parse(data, "application/json"),
     "SyntheticsBrowserTest",
     "");
+
+    console.log(JSON.stringify(result))
 
     expect(result?.unparsedObject).not.toBe(undefined);
     expect(result.unparsedObject["type"]).toBe("A non existent test type");
@@ -250,8 +252,8 @@ test('TestDeserializationUnknownNestedEnum', () => {
     expect(result?.unparsedObject).toBe(undefined);
     expect(result.config.unparsedObject).toBe(undefined);
     expect(result.config.request.unparsedObject).not.toBe(undefined);
-    expect(result.config.request.unparsedObject["method"]).toBe("A non existent method");
-    expect(result.config.request.unparsedObject["timeout"]).toBe(30.0);
+    expect(result.config.request.unparsedObject._data["method"]).toBe("A non existent method");
+    expect(result.config.request.timeout).toBe(30.0);
   }
 );
 
@@ -290,6 +292,6 @@ test('TestDeserializationUnknownNestedOneOf', () => {
 
     expect(result?.unparsedObject).toBe(undefined);
     expect(result.data.attributes.unparsedObject).toBe(undefined);
-    expect(result.data.attributes.destination.unparsedObject["type"]).toBe("A non existent destination");
+    expect(result.data.attributes.destination._data["type"]).toBe("A non existent destination");
   }
 );
