@@ -19,11 +19,11 @@ export class FormulaAndFunctionProcessQueryDefinition {
   /**
    * The aggregation methods available for metrics queries.
    */
-  "aggregator"?: FormulaAndFunctionMetricAggregation;
+  "aggregator"?: FormulaAndFunctionMetricAggregation | UnparsedObject;
   /**
    * Data sources that rely on the process backend.
    */
-  "dataSource": FormulaAndFunctionProcessQueryDataSource;
+  "dataSource": FormulaAndFunctionProcessQueryDataSource | UnparsedObject;
   /**
    * Whether to normalize the CPU percentages.
    */
@@ -43,7 +43,7 @@ export class FormulaAndFunctionProcessQueryDefinition {
   /**
    * Direction of sort.
    */
-  "sort"?: QuerySortOrder;
+  "sort"?: QuerySortOrder | UnparsedObject;
   /**
    * An array of tags to filter by.
    */

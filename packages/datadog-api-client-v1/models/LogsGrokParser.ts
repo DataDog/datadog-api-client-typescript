@@ -39,7 +39,7 @@ export class LogsGrokParser {
   /**
    * Type of logs grok parser.
    */
-  "type": LogsGrokParserType;
+  "type": LogsGrokParserType | UnparsedObject;
 
   /**
    * @ignore

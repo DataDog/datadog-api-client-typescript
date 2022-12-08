@@ -26,7 +26,7 @@ export class NotebooksResponseData {
   /**
    * Type of the Notebook resource.
    */
-  "type": NotebookResourceType;
+  "type": NotebookResourceType | UnparsedObject;
 
   /**
    * @ignore

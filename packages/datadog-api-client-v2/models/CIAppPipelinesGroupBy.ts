@@ -33,7 +33,7 @@ export class CIAppPipelinesGroupBy {
   /**
    * The value to use for logs that don't have the facet used to group-by.
    */
-  "missing"?: CIAppGroupByMissing;
+  "missing"?: CIAppGroupByMissing | UnparsedObject;
   /**
    * A sort rule.
    */
@@ -41,7 +41,7 @@ export class CIAppPipelinesGroupBy {
   /**
    * A resulting object to put the given computes in over all the matching records.
    */
-  "total"?: CIAppGroupByTotal;
+  "total"?: CIAppGroupByTotal | UnparsedObject;
 
   /**
    * @ignore

@@ -21,7 +21,7 @@ export class WidgetFormulaLimit {
   /**
    * Direction of sort.
    */
-  "order"?: QuerySortOrder;
+  "order"?: QuerySortOrder | UnparsedObject;
 
   /**
    * @ignore

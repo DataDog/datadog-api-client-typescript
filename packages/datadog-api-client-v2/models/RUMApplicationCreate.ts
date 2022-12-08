@@ -22,7 +22,7 @@ export class RUMApplicationCreate {
   /**
    * RUM application creation type.
    */
-  "type": RUMApplicationCreateType;
+  "type": RUMApplicationCreateType | UnparsedObject;
 
   /**
    * @ignore

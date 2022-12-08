@@ -30,7 +30,7 @@ export class OrganizationSettings {
   /**
    * The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
    */
-  "samlAutocreateAccessRole"?: AccessRole;
+  "samlAutocreateAccessRole"?: AccessRole | UnparsedObject;
   /**
    * Has two properties, `enabled` (boolean) and `domains`, which is a list of domains without the @ symbol.
    */

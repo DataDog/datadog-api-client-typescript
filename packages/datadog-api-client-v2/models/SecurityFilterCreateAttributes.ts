@@ -22,7 +22,7 @@ export class SecurityFilterCreateAttributes {
   /**
    * The filtered data type.
    */
-  "filteredDataType": SecurityFilterFilteredDataType;
+  "filteredDataType": SecurityFilterFilteredDataType | UnparsedObject;
   /**
    * Whether the security filter is enabled.
    */

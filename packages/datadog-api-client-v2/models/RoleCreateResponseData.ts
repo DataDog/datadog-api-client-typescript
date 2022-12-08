@@ -31,7 +31,7 @@ export class RoleCreateResponseData {
   /**
    * Roles type.
    */
-  "type": RolesType;
+  "type": RolesType | UnparsedObject;
 
   /**
    * @ignore

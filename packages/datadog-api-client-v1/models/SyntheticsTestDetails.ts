@@ -56,7 +56,7 @@ export class SyntheticsTestDetails {
    * Define whether you want to start (`live`) or pause (`paused`) a
    * Synthetic test.
    */
-  "status"?: SyntheticsTestPauseStatus;
+  "status"?: SyntheticsTestPauseStatus | UnparsedObject;
   /**
    * For browser test, the steps of the test.
    */
@@ -65,7 +65,7 @@ export class SyntheticsTestDetails {
    * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
    * `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
    */
-  "subtype"?: SyntheticsTestDetailsSubType;
+  "subtype"?: SyntheticsTestDetailsSubType | UnparsedObject;
   /**
    * Array of tags attached to the test.
    */
@@ -73,7 +73,7 @@ export class SyntheticsTestDetails {
   /**
    * Type of the Synthetic test, either `api` or `browser`.
    */
-  "type"?: SyntheticsTestDetailsType;
+  "type"?: SyntheticsTestDetailsType | UnparsedObject;
 
   /**
    * @ignore

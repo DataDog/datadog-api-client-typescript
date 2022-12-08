@@ -25,7 +25,7 @@ export class EventCreateRequest {
    * For example, `error`, `warning`, `info`, `success`, `user_update`,
    * `recommendation`, and `snapshot`.
    */
-  "alertType"?: EventAlertType;
+  "alertType"?: EventAlertType | UnparsedObject;
   /**
    * POSIX timestamp of the event. Must be sent as an integer (that is no quotes).
    * Limited to events no older than 18 hours
@@ -43,7 +43,7 @@ export class EventCreateRequest {
   /**
    * The priority of the event. For example, `normal` or `low`.
    */
-  "priority"?: EventPriority;
+  "priority"?: EventPriority | UnparsedObject;
   /**
    * ID of the parent event. Must be sent as an integer (that is no quotes).
    */

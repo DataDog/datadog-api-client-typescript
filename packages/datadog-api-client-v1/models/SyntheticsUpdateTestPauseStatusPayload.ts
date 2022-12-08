@@ -18,7 +18,7 @@ export class SyntheticsUpdateTestPauseStatusPayload {
    * Define whether you want to start (`live`) or pause (`paused`) a
    * Synthetic test.
    */
-  "newStatus"?: SyntheticsTestPauseStatus;
+  "newStatus"?: SyntheticsTestPauseStatus | UnparsedObject;
 
   /**
    * @ignore

@@ -19,7 +19,7 @@ export class SyntheticsAssertionJSONPathTarget {
   /**
    * Assertion operator to apply.
    */
-  "operator": SyntheticsAssertionJSONPathOperator;
+  "operator": SyntheticsAssertionJSONPathOperator | UnparsedObject;
   /**
    * The associated assertion property.
    */
@@ -31,7 +31,7 @@ export class SyntheticsAssertionJSONPathTarget {
   /**
    * Type of the assertion.
    */
-  "type": SyntheticsAssertionType;
+  "type": SyntheticsAssertionType | UnparsedObject;
 
   /**
    * @ignore

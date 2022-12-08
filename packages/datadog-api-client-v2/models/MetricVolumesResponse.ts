@@ -17,7 +17,7 @@ export class MetricVolumesResponse {
   /**
    * Possible response objects for a metric's volume.
    */
-  "data"?: MetricVolumes;
+  "data"?: MetricVolumes | UnparsedObject;
 
   /**
    * @ignore

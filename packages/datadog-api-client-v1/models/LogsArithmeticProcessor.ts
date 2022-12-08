@@ -58,7 +58,7 @@ export class LogsArithmeticProcessor {
   /**
    * Type of logs arithmetic processor.
    */
-  "type": LogsArithmeticProcessorType;
+  "type": LogsArithmeticProcessorType | UnparsedObject;
 
   /**
    * @ignore

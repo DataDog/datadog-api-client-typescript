@@ -35,7 +35,7 @@ export class EventTimelineWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -43,7 +43,7 @@ export class EventTimelineWidgetDefinition {
   /**
    * Type of the event timeline widget.
    */
-  "type": EventTimelineWidgetDefinitionType;
+  "type": EventTimelineWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore

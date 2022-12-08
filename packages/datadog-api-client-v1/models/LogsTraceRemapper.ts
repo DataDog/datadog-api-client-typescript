@@ -34,7 +34,7 @@ export class LogsTraceRemapper {
   /**
    * Type of logs trace remapper.
    */
-  "type": LogsTraceRemapperType;
+  "type": LogsTraceRemapperType | UnparsedObject;
 
   /**
    * @ignore

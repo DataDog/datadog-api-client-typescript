@@ -38,7 +38,7 @@ export class TimeseriesWidgetDefinition {
   /**
    * Layout of the legend.
    */
-  "legendLayout"?: TimeseriesWidgetLegendLayout;
+  "legendLayout"?: TimeseriesWidgetLegendLayout | UnparsedObject;
   /**
    * Available legend sizes for a widget. Should be one of "0", "2", "4", "8", "16", or "auto".
    */
@@ -70,7 +70,7 @@ export class TimeseriesWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -78,7 +78,7 @@ export class TimeseriesWidgetDefinition {
   /**
    * Type of the timeseries widget.
    */
-  "type": TimeseriesWidgetDefinitionType;
+  "type": TimeseriesWidgetDefinitionType | UnparsedObject;
   /**
    * Axis controls for the widget.
    */

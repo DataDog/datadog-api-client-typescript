@@ -42,7 +42,7 @@ export class MetricTagConfigurationCreateAttributes {
   /**
    * The metric's type.
    */
-  "metricType": MetricTagConfigurationMetricTypes;
+  "metricType": MetricTagConfigurationMetricTypes | UnparsedObject;
   /**
    * A list of tag keys that will be queryable for your metric.
    */

@@ -17,7 +17,7 @@ export class User {
   /**
    * The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
    */
-  "accessRole"?: AccessRole;
+  "accessRole"?: AccessRole | UnparsedObject;
   /**
    * The new disabled status of the user.
    */

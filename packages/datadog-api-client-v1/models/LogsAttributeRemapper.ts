@@ -50,7 +50,7 @@ export class LogsAttributeRemapper {
    * If the cast is not possible, the original type is kept. `string`, `integer`, or `double` are the possible types.
    * If the `target_type` is `tag`, this parameter may not be specified.
    */
-  "targetFormat"?: TargetFormatType;
+  "targetFormat"?: TargetFormatType | UnparsedObject;
   /**
    * Defines if the final attribute or tag name is from log `attribute` or `tag`.
    */
@@ -58,7 +58,7 @@ export class LogsAttributeRemapper {
   /**
    * Type of logs attribute remapper.
    */
-  "type": LogsAttributeRemapperType;
+  "type": LogsAttributeRemapperType | UnparsedObject;
 
   /**
    * @ignore

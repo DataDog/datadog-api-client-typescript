@@ -19,7 +19,7 @@ export class SyntheticsAssertionXPathTarget {
   /**
    * Assertion operator to apply.
    */
-  "operator": SyntheticsAssertionXPathOperator;
+  "operator": SyntheticsAssertionXPathOperator | UnparsedObject;
   /**
    * The associated assertion property.
    */
@@ -31,7 +31,7 @@ export class SyntheticsAssertionXPathTarget {
   /**
    * Type of the assertion.
    */
-  "type": SyntheticsAssertionType;
+  "type": SyntheticsAssertionType | UnparsedObject;
 
   /**
    * @ignore

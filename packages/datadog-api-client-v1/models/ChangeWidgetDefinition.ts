@@ -40,7 +40,7 @@ export class ChangeWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -48,7 +48,7 @@ export class ChangeWidgetDefinition {
   /**
    * Type of the change widget.
    */
-  "type": ChangeWidgetDefinitionType;
+  "type": ChangeWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore

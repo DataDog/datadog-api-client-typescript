@@ -25,7 +25,7 @@ export class SunburstWidgetLegendInlineAutomatic {
   /**
    * Whether to show the legend inline or let it be automatically generated.
    */
-  "type": SunburstWidgetLegendInlineAutomaticType;
+  "type": SunburstWidgetLegendInlineAutomaticType | UnparsedObject;
 
   /**
    * @ignore

@@ -62,7 +62,7 @@ export class EventAttributes {
   /**
    * The priority of the event's monitor. For example, `normal` or `low`.
    */
-  "priority"?: EventPriority;
+  "priority"?: EventPriority | UnparsedObject;
   /**
    * Related event ID.
    */
@@ -86,7 +86,7 @@ export class EventAttributes {
    * `failure`, `error`, `warning`, `info`, `success`, `user_update`,
    * `recommendation`, or `snapshot`.
    */
-  "status"?: EventStatusType;
+  "status"?: EventStatusType | UnparsedObject;
   /**
    * A list of tags to apply to the event.
    */

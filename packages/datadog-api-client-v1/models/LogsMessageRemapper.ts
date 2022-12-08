@@ -34,7 +34,7 @@ export class LogsMessageRemapper {
   /**
    * Type of logs message remapper.
    */
-  "type": LogsMessageRemapperType;
+  "type": LogsMessageRemapperType | UnparsedObject;
 
   /**
    * @ignore

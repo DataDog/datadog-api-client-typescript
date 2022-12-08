@@ -26,7 +26,7 @@ export class CIAppPipelineEvent {
   /**
    * Type of the event.
    */
-  "type"?: CIAppPipelineEventTypeName;
+  "type"?: CIAppPipelineEventTypeName | UnparsedObject;
 
   /**
    * @ignore

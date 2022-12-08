@@ -33,7 +33,7 @@ export class RUMGroupBy {
   /**
    * The value to use for logs that don't have the facet used to group by.
    */
-  "missing"?: RUMGroupByMissing;
+  "missing"?: RUMGroupByMissing | UnparsedObject;
   /**
    * A sort rule.
    */
@@ -41,7 +41,7 @@ export class RUMGroupBy {
   /**
    * A resulting object to put the given computes in over all the matching records.
    */
-  "total"?: RUMGroupByTotal;
+  "total"?: RUMGroupByTotal | UnparsedObject;
 
   /**
    * @ignore

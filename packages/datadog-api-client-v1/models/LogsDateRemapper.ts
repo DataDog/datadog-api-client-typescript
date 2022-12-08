@@ -47,7 +47,7 @@ export class LogsDateRemapper {
   /**
    * Type of logs date remapper.
    */
-  "type": LogsDateRemapperType;
+  "type": LogsDateRemapperType | UnparsedObject;
 
   /**
    * @ignore

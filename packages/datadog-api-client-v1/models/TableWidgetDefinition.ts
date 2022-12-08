@@ -26,7 +26,7 @@ export class TableWidgetDefinition {
   /**
    * Controls the display of the search bar.
    */
-  "hasSearchBar"?: TableWidgetHasSearchBar;
+  "hasSearchBar"?: TableWidgetHasSearchBar | UnparsedObject;
   /**
    * Widget definition.
    */
@@ -42,7 +42,7 @@ export class TableWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -50,7 +50,7 @@ export class TableWidgetDefinition {
   /**
    * Type of the table widget.
    */
-  "type": TableWidgetDefinitionType;
+  "type": TableWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore

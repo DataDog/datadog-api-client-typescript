@@ -26,7 +26,7 @@ export class OpsgenieServiceResponseData {
   /**
    * Opsgenie service resource type.
    */
-  "type": OpsgenieServiceType;
+  "type": OpsgenieServiceType | UnparsedObject;
 
   /**
    * @ignore

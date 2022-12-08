@@ -46,7 +46,7 @@ export class MetricTagConfigurationAttributes {
   /**
    * The metric's type.
    */
-  "metricType"?: MetricTagConfigurationMetricTypes;
+  "metricType"?: MetricTagConfigurationMetricTypes | UnparsedObject;
   /**
    * Timestamp when the tag configuration was last modified.
    */

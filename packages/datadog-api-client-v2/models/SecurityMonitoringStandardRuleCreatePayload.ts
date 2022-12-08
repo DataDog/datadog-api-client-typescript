@@ -57,7 +57,7 @@ export class SecurityMonitoringStandardRuleCreatePayload {
   /**
    * The rule type.
    */
-  "type"?: SecurityMonitoringRuleTypeCreate;
+  "type"?: SecurityMonitoringRuleTypeCreate | UnparsedObject;
 
   /**
    * @ignore

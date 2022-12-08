@@ -38,7 +38,7 @@ export class LogsArchiveDestinationAzure {
   /**
    * Type of the Azure archive destination.
    */
-  "type": LogsArchiveDestinationAzureType;
+  "type": LogsArchiveDestinationAzureType | UnparsedObject;
 
   /**
    * @ignore

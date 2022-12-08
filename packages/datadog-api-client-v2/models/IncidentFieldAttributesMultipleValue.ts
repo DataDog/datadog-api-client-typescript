@@ -17,7 +17,7 @@ export class IncidentFieldAttributesMultipleValue {
   /**
    * Type of the multiple value field definitions.
    */
-  "type"?: IncidentFieldAttributesValueType;
+  "type"?: IncidentFieldAttributesValueType | UnparsedObject;
   /**
    * The multiple values selected for this field.
    */

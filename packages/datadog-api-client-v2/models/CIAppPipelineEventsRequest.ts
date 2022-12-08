@@ -33,7 +33,7 @@ export class CIAppPipelineEventsRequest {
   /**
    * Sort parameters when querying events.
    */
-  "sort"?: CIAppSort;
+  "sort"?: CIAppSort | UnparsedObject;
 
   /**
    * @ignore

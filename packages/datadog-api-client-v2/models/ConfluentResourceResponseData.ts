@@ -26,7 +26,7 @@ export class ConfluentResourceResponseData {
   /**
    * The JSON:API type for this request.
    */
-  "type": ConfluentResourceType;
+  "type": ConfluentResourceType | UnparsedObject;
 
   /**
    * @ignore

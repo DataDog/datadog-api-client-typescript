@@ -63,7 +63,7 @@ export class MonitorSearchResult {
   /**
    * The different states your monitor can be in.
    */
-  "status"?: MonitorOverallStates;
+  "status"?: MonitorOverallStates | UnparsedObject;
   /**
    * Tags associated with the monitor.
    */
@@ -71,7 +71,7 @@ export class MonitorSearchResult {
   /**
    * The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
    */
-  "type"?: MonitorType;
+  "type"?: MonitorType | UnparsedObject;
 
   /**
    * @ignore

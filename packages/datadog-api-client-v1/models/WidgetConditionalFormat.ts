@@ -18,7 +18,7 @@ export class WidgetConditionalFormat {
   /**
    * Comparator to apply.
    */
-  "comparator": WidgetComparator;
+  "comparator": WidgetComparator | UnparsedObject;
   /**
    * Color palette to apply to the background, same values available as palette.
    */
@@ -42,7 +42,7 @@ export class WidgetConditionalFormat {
   /**
    * Color palette to apply.
    */
-  "palette": WidgetPalette;
+  "palette": WidgetPalette | UnparsedObject;
   /**
    * Defines the displayed timeframe.
    */

@@ -32,7 +32,7 @@ export class TopologyMapWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -40,7 +40,7 @@ export class TopologyMapWidgetDefinition {
   /**
    * Type of the topology map widget.
    */
-  "type": TopologyMapWidgetDefinitionType;
+  "type": TopologyMapWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore

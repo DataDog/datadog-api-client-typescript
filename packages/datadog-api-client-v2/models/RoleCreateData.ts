@@ -27,7 +27,7 @@ export class RoleCreateData {
   /**
    * Roles type.
    */
-  "type"?: RolesType;
+  "type"?: RolesType | UnparsedObject;
 
   /**
    * @ignore

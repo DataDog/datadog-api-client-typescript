@@ -22,7 +22,7 @@ export class APIKeyCreateData {
   /**
    * API Keys resource type.
    */
-  "type": APIKeysType;
+  "type": APIKeysType | UnparsedObject;
 
   /**
    * @ignore

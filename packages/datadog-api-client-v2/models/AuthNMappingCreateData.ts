@@ -27,7 +27,7 @@ export class AuthNMappingCreateData {
   /**
    * AuthN Mappings resource type.
    */
-  "type": AuthNMappingsType;
+  "type": AuthNMappingsType | UnparsedObject;
 
   /**
    * @ignore

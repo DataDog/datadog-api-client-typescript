@@ -21,7 +21,7 @@ export class ServiceDefinitionV1Resource {
   /**
    * Link type.
    */
-  "type": ServiceDefinitionV1ResourceType;
+  "type": ServiceDefinitionV1ResourceType | UnparsedObject;
   /**
    * Link URL.
    */

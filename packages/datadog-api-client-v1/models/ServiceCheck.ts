@@ -29,7 +29,7 @@ export class ServiceCheck {
   /**
    * The status of a service check.
    */
-  "status": ServiceCheckStatus;
+  "status": ServiceCheckStatus | UnparsedObject;
   /**
    * Tags related to a check.
    */

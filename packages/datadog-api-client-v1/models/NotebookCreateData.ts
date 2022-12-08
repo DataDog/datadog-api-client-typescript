@@ -22,7 +22,7 @@ export class NotebookCreateData {
   /**
    * Type of the Notebook resource.
    */
-  "type": NotebookResourceType;
+  "type": NotebookResourceType | UnparsedObject;
 
   /**
    * @ignore

@@ -18,7 +18,7 @@ export class LogsArchiveAttributes {
   /**
    * An archive's destination.
    */
-  "destination": LogsArchiveDestination | null;
+  "destination": LogsArchiveDestination | UnparsedObject | null;
   /**
    * To store the tags in the archive, set the value "true".
    * If it is set to "false", the tags will be deleted when the logs are sent to the archive.
@@ -43,7 +43,7 @@ export class LogsArchiveAttributes {
   /**
    * The state of the archive.
    */
-  "state"?: LogsArchiveState;
+  "state"?: LogsArchiveState | UnparsedObject;
 
   /**
    * @ignore

@@ -23,7 +23,7 @@ export class QueryValueWidgetRequest {
   /**
    * Aggregator used for the request.
    */
-  "aggregator"?: WidgetAggregator;
+  "aggregator"?: WidgetAggregator | UnparsedObject;
   /**
    * The log query.
    */
@@ -71,7 +71,7 @@ export class QueryValueWidgetRequest {
   /**
    * Timeseries or Scalar response.
    */
-  "responseFormat"?: FormulaAndFunctionResponseFormat;
+  "responseFormat"?: FormulaAndFunctionResponseFormat | UnparsedObject;
   /**
    * The log query.
    */

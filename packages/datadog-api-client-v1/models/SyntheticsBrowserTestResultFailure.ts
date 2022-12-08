@@ -17,7 +17,7 @@ export class SyntheticsBrowserTestResultFailure {
   /**
    * Error code that can be returned by a Synthetic test.
    */
-  "code"?: SyntheticsBrowserTestFailureCode;
+  "code"?: SyntheticsBrowserTestFailureCode | UnparsedObject;
   /**
    * The browser test error message.
    */

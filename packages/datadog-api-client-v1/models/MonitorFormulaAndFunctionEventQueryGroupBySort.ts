@@ -18,7 +18,7 @@ export class MonitorFormulaAndFunctionEventQueryGroupBySort {
   /**
    * Aggregation methods for event platform queries.
    */
-  "aggregation": MonitorFormulaAndFunctionEventAggregation;
+  "aggregation": MonitorFormulaAndFunctionEventAggregation | UnparsedObject;
   /**
    * Metric used for sorting group by results.
    */
@@ -26,7 +26,7 @@ export class MonitorFormulaAndFunctionEventQueryGroupBySort {
   /**
    * Direction of sort.
    */
-  "order"?: QuerySortOrder;
+  "order"?: QuerySortOrder | UnparsedObject;
 
   /**
    * @ignore

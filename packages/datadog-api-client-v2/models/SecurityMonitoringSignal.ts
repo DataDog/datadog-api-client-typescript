@@ -27,7 +27,7 @@ export class SecurityMonitoringSignal {
   /**
    * The type of event.
    */
-  "type"?: SecurityMonitoringSignalType;
+  "type"?: SecurityMonitoringSignalType | UnparsedObject;
 
   /**
    * @ignore

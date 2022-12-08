@@ -18,7 +18,7 @@ export class FormulaAndFunctionEventQueryGroupBySort {
   /**
    * Aggregation methods for event platform queries.
    */
-  "aggregation": FormulaAndFunctionEventAggregation;
+  "aggregation": FormulaAndFunctionEventAggregation | UnparsedObject;
   /**
    * Metric used for sorting group by results.
    */
@@ -26,7 +26,7 @@ export class FormulaAndFunctionEventQueryGroupBySort {
   /**
    * Direction of sort.
    */
-  "order"?: QuerySortOrder;
+  "order"?: QuerySortOrder | UnparsedObject;
 
   /**
    * @ignore

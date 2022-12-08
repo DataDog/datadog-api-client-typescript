@@ -21,7 +21,7 @@ export class RelationshipToOrganizationData {
   /**
    * Organizations resource type.
    */
-  "type": OrganizationsType;
+  "type": OrganizationsType | UnparsedObject;
 
   /**
    * @ignore

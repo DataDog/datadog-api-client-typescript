@@ -30,7 +30,7 @@ export class SyntheticsParsingOptions {
   /**
    * Property of the Synthetics Test Response to use for a Synthetics global variable.
    */
-  "type"?: SyntheticsGlobalVariableParseTestOptionsType;
+  "type"?: SyntheticsGlobalVariableParseTestOptionsType | UnparsedObject;
 
   /**
    * @ignore

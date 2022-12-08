@@ -17,7 +17,7 @@ export class LogsMetricResponseCompute {
   /**
    * The type of aggregation to use.
    */
-  "aggregationType"?: LogsMetricResponseComputeAggregationType;
+  "aggregationType"?: LogsMetricResponseComputeAggregationType | UnparsedObject;
   /**
    * Toggle to include or exclude percentile aggregations for distribution metrics.
    * Only present when the `aggregation_type` is `distribution`.

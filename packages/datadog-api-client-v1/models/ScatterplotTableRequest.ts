@@ -27,7 +27,7 @@ export class ScatterplotTableRequest {
   /**
    * Timeseries or Scalar response.
    */
-  "responseFormat"?: FormulaAndFunctionResponseFormat;
+  "responseFormat"?: FormulaAndFunctionResponseFormat | UnparsedObject;
 
   /**
    * @ignore

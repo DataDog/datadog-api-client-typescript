@@ -22,7 +22,7 @@ export class LogsMetricUpdateData {
   /**
    * The type of the resource. The value should always be logs_metrics.
    */
-  "type": LogsMetricType;
+  "type": LogsMetricType | UnparsedObject;
 
   /**
    * @ignore

@@ -32,7 +32,7 @@ export class LogsServiceRemapper {
   /**
    * Type of logs service remapper.
    */
-  "type": LogsServiceRemapperType;
+  "type": LogsServiceRemapperType | UnparsedObject;
 
   /**
    * @ignore

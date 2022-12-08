@@ -21,7 +21,7 @@ export class RelationshipToUserData {
   /**
    * Users resource type.
    */
-  "type": UsersType;
+  "type": UsersType | UnparsedObject;
 
   /**
    * @ignore

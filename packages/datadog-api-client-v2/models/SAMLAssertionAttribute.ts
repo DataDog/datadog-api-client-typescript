@@ -26,7 +26,7 @@ export class SAMLAssertionAttribute {
   /**
    * SAML assertion attributes resource type.
    */
-  "type": SAMLAssertionAttributesType;
+  "type": SAMLAssertionAttributesType | UnparsedObject;
 
   /**
    * @ignore

@@ -26,7 +26,7 @@ export class UsageSpecifiedCustomReportsData {
   /**
    * The type of reports.
    */
-  "type"?: UsageReportsType;
+  "type"?: UsageReportsType | UnparsedObject;
 
   /**
    * @ignore

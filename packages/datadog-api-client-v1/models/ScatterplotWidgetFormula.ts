@@ -21,7 +21,7 @@ export class ScatterplotWidgetFormula {
   /**
    * Dimension of the Scatterplot.
    */
-  "dimension": ScatterplotDimension;
+  "dimension": ScatterplotDimension | UnparsedObject;
   /**
    * String expression built from queries, formulas, and functions.
    */

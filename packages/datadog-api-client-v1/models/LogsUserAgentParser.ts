@@ -38,7 +38,7 @@ export class LogsUserAgentParser {
   /**
    * Type of logs User-Agent parser.
    */
-  "type": LogsUserAgentParserType;
+  "type": LogsUserAgentParserType | UnparsedObject;
 
   /**
    * @ignore

@@ -32,7 +32,7 @@ export class FunnelWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * The size of the title.
    */
@@ -40,7 +40,7 @@ export class FunnelWidgetDefinition {
   /**
    * Type of funnel widget.
    */
-  "type": FunnelWidgetDefinitionType;
+  "type": FunnelWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore

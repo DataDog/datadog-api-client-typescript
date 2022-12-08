@@ -25,7 +25,7 @@ export class SyntheticsBasicAuthNTLM {
   /**
    * The type of authentication to use when performing the test.
    */
-  "type": SyntheticsBasicAuthNTLMType;
+  "type": SyntheticsBasicAuthNTLMType | UnparsedObject;
   /**
    * Username for the authentication to use when performing the test.
    */

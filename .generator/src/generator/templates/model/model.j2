@@ -22,12 +22,14 @@ export class {{ name }} {
 {%- for attr, schema in model.get("properties", {}).items() %}
 {%- set isRequired = attr in model.get("required", []) %}
 {%- set isNullable = schema.nullable %}
+{%- set isEnum = "enum" in schema %}
+{%- set isOneOf = "oneOf" in schema %}
 {%- if schema.description %}
   /**
 {{ schema.description|docstring }}
   */
 {%- endif %}
-  "{{ attr|attribute_name }}"{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isRequired and isNullable %}|null{%- endif %};
+  "{{ attr|attribute_name }}"{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isEnum or isOneOf %}|UnparsedObject{%- endif %}{%- if isRequired and isNullable %}|null{%- endif %};
 {%- endfor %}
 {%- if model.get("additionalProperties") %}
 

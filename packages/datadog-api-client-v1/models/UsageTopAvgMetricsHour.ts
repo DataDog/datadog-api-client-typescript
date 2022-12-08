@@ -25,7 +25,7 @@ export class UsageTopAvgMetricsHour {
   /**
    * Contains the metric category.
    */
-  "metricCategory"?: UsageMetricCategory;
+  "metricCategory"?: UsageMetricCategory | UnparsedObject;
   /**
    * Contains the custom metric name.
    */

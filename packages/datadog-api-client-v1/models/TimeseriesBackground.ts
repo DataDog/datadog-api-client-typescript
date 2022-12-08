@@ -18,7 +18,7 @@ export class TimeseriesBackground {
   /**
    * Timeseries is made using an area or bars.
    */
-  "type": TimeseriesBackgroundType;
+  "type": TimeseriesBackgroundType | UnparsedObject;
   /**
    * Axis controls for the widget.
    */

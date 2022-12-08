@@ -21,7 +21,7 @@ export class NotebookMarkdownCellDefinition {
   /**
    * Type of the markdown cell.
    */
-  "type": NotebookMarkdownCellDefinitionType;
+  "type": NotebookMarkdownCellDefinitionType | UnparsedObject;
 
   /**
    * @ignore

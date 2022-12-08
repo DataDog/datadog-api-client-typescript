@@ -18,11 +18,11 @@ export class FormulaAndFunctionMetricQueryDefinition {
   /**
    * The aggregation methods available for metrics queries.
    */
-  "aggregator"?: FormulaAndFunctionMetricAggregation;
+  "aggregator"?: FormulaAndFunctionMetricAggregation | UnparsedObject;
   /**
    * Data source for metrics queries.
    */
-  "dataSource": FormulaAndFunctionMetricDataSource;
+  "dataSource": FormulaAndFunctionMetricDataSource | UnparsedObject;
   /**
    * Name of the query for use in formulas.
    */

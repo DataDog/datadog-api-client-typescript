@@ -21,7 +21,7 @@ export class RelationshipToIncidentPostmortemData {
   /**
    * Incident postmortem resource type.
    */
-  "type": IncidentPostmortemType;
+  "type": IncidentPostmortemType | UnparsedObject;
 
   /**
    * @ignore

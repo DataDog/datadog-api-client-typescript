@@ -24,7 +24,7 @@ export class FormulaAndFunctionEventQueryDefinition {
   /**
    * Data source for event platform-based queries.
    */
-  "dataSource": FormulaAndFunctionEventsDataSource;
+  "dataSource": FormulaAndFunctionEventsDataSource | UnparsedObject;
   /**
    * Group by options.
    */

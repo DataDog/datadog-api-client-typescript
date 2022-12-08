@@ -26,7 +26,7 @@ export class MetricAllTags {
   /**
    * The metric resource type.
    */
-  "type"?: MetricType;
+  "type"?: MetricType | UnparsedObject;
 
   /**
    * @ignore

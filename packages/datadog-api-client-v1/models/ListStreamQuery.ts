@@ -17,7 +17,7 @@ export class ListStreamQuery {
   /**
    * Source from which to query items to display in the stream.
    */
-  "dataSource": ListStreamSource;
+  "dataSource": ListStreamSource | UnparsedObject;
   /**
    * List of indexes.
    */

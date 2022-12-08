@@ -31,7 +31,7 @@ export class PartialApplicationKey {
   /**
    * Application Keys resource type.
    */
-  "type"?: ApplicationKeysType;
+  "type"?: ApplicationKeysType | UnparsedObject;
 
   /**
    * @ignore

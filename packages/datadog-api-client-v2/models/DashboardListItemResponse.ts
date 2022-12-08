@@ -21,7 +21,7 @@ export class DashboardListItemResponse {
   /**
    * The type of the dashboard.
    */
-  "type": DashboardType;
+  "type": DashboardType | UnparsedObject;
 
   /**
    * @ignore

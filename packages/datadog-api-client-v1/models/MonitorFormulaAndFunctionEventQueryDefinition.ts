@@ -24,7 +24,7 @@ export class MonitorFormulaAndFunctionEventQueryDefinition {
   /**
    * Data source for event platform-based queries.
    */
-  "dataSource": MonitorFormulaAndFunctionEventsDataSource;
+  "dataSource": MonitorFormulaAndFunctionEventsDataSource | UnparsedObject;
   /**
    * Group by options.
    */

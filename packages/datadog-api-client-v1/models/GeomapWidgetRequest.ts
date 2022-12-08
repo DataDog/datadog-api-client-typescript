@@ -36,7 +36,7 @@ export class GeomapWidgetRequest {
   /**
    * Timeseries or Scalar response.
    */
-  "responseFormat"?: FormulaAndFunctionResponseFormat;
+  "responseFormat"?: FormulaAndFunctionResponseFormat | UnparsedObject;
   /**
    * The log query.
    */

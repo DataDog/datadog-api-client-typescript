@@ -31,7 +31,7 @@ export class RUMResponseMetadata {
   /**
    * The status of the response.
    */
-  "status"?: RUMResponseStatus;
+  "status"?: RUMResponseStatus | UnparsedObject;
   /**
    * A list of warnings (non-fatal errors) encountered. Partial results may return if
    * warnings are present in the response.

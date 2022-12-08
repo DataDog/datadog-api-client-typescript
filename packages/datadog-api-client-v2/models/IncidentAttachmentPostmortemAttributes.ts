@@ -22,7 +22,7 @@ export class IncidentAttachmentPostmortemAttributes {
   /**
    * The type of postmortem attachment attributes.
    */
-  "attachmentType": IncidentAttachmentPostmortemAttachmentType;
+  "attachmentType": IncidentAttachmentPostmortemAttachmentType | UnparsedObject;
 
   /**
    * @ignore

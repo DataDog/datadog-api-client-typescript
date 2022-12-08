@@ -26,7 +26,7 @@ export class Log {
   /**
    * Type of the event.
    */
-  "type"?: LogType;
+  "type"?: LogType | UnparsedObject;
 
   /**
    * @ignore

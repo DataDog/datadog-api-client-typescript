@@ -46,7 +46,7 @@ export class ServiceDefinitionV1 {
   /**
    * Schema version being used.
    */
-  "schemaVersion": ServiceDefinitionV1Version;
+  "schemaVersion": ServiceDefinitionV1Version | UnparsedObject;
   /**
    * A set of custom tags.
    */

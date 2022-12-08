@@ -17,7 +17,7 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
   /**
    * Aggregation methods for event platform queries.
    */
-  "aggregation": MonitorFormulaAndFunctionEventAggregation;
+  "aggregation": MonitorFormulaAndFunctionEventAggregation | UnparsedObject;
   /**
    * A time interval in milliseconds.
    */

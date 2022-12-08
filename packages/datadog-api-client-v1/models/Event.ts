@@ -20,7 +20,7 @@ export class Event {
    * For example, `error`, `warning`, `info`, `success`, `user_update`,
    * `recommendation`, and `snapshot`.
    */
-  "alertType"?: EventAlertType;
+  "alertType"?: EventAlertType | UnparsedObject;
   /**
    * POSIX timestamp of the event. Must be sent as an integer (that is no quotes).
    * Limited to events no older than 18 hours.
@@ -51,7 +51,7 @@ export class Event {
   /**
    * The priority of the event. For example, `normal` or `low`.
    */
-  "priority"?: EventPriority;
+  "priority"?: EventPriority | UnparsedObject;
   /**
    * The type of event being posted. Option examples include nagios, hudson, jenkins, my_apps, chef, puppet, git, bitbucket, etc.
    * The list of standard source attribute values [available here](https://docs.datadoghq.com/integrations/faq/list-of-api-source-attribute-value).

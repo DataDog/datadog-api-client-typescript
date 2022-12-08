@@ -26,7 +26,7 @@ export class CostByOrg {
   /**
    * Type of cost data.
    */
-  "type"?: CostByOrgType;
+  "type"?: CostByOrgType | UnparsedObject;
 
   /**
    * @ignore

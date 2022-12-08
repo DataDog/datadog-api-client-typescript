@@ -17,7 +17,7 @@ export class IFrameWidgetDefinition {
   /**
    * Type of the iframe widget.
    */
-  "type": IFrameWidgetDefinitionType;
+  "type": IFrameWidgetDefinitionType | UnparsedObject;
   /**
    * URL of the iframe.
    */

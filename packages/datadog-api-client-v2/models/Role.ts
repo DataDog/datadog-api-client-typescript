@@ -31,7 +31,7 @@ export class Role {
   /**
    * Roles type.
    */
-  "type": RolesType;
+  "type": RolesType | UnparsedObject;
 
   /**
    * @ignore

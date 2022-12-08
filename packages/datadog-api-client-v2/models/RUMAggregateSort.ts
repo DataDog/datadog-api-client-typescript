@@ -19,7 +19,7 @@ export class RUMAggregateSort {
   /**
    * An aggregation function.
    */
-  "aggregation"?: RUMAggregationFunction;
+  "aggregation"?: RUMAggregationFunction | UnparsedObject;
   /**
    * The metric to sort by (only used for `type=measure`).
    */
@@ -27,11 +27,11 @@ export class RUMAggregateSort {
   /**
    * The order to use, ascending or descending.
    */
-  "order"?: RUMSortOrder;
+  "order"?: RUMSortOrder | UnparsedObject;
   /**
    * The type of sorting algorithm.
    */
-  "type"?: RUMAggregateSortType;
+  "type"?: RUMAggregateSortType | UnparsedObject;
 
   /**
    * @ignore

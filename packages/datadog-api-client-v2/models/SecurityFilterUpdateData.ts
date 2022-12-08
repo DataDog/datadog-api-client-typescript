@@ -22,7 +22,7 @@ export class SecurityFilterUpdateData {
   /**
    * The type of the resource. The value should always be `security_filters`.
    */
-  "type": SecurityFilterType;
+  "type": SecurityFilterType | UnparsedObject;
 
   /**
    * @ignore

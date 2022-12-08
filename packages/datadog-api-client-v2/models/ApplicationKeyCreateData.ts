@@ -22,7 +22,7 @@ export class ApplicationKeyCreateData {
   /**
    * Application Keys resource type.
    */
-  "type": ApplicationKeysType;
+  "type": ApplicationKeysType | UnparsedObject;
 
   /**
    * @ignore

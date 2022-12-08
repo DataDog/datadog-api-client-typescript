@@ -26,7 +26,7 @@ export class Permission {
   /**
    * Permissions resource type.
    */
-  "type": PermissionsType;
+  "type": PermissionsType | UnparsedObject;
 
   /**
    * @ignore

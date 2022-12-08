@@ -21,7 +21,7 @@ export class SyntheticsStepDetailWarning {
   /**
    * User locator used.
    */
-  "type": SyntheticsWarningType;
+  "type": SyntheticsWarningType | UnparsedObject;
 
   /**
    * @ignore

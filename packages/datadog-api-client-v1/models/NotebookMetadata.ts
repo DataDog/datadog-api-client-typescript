@@ -25,7 +25,7 @@ export class NotebookMetadata {
   /**
    * Metadata type of the notebook.
    */
-  "type"?: NotebookMetadataType;
+  "type"?: NotebookMetadataType | UnparsedObject;
 
   /**
    * @ignore

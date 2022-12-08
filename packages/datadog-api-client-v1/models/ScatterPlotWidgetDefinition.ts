@@ -42,7 +42,7 @@ export class ScatterPlotWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -50,7 +50,7 @@ export class ScatterPlotWidgetDefinition {
   /**
    * Type of the scatter plot widget.
    */
-  "type": ScatterPlotWidgetDefinitionType;
+  "type": ScatterPlotWidgetDefinitionType | UnparsedObject;
   /**
    * Axis controls for the widget.
    */

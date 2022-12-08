@@ -22,7 +22,7 @@ export class ApmStatsQueryColumnType {
   /**
    * Define a display mode for the table cell.
    */
-  "cellDisplayMode"?: TableWidgetCellDisplayMode;
+  "cellDisplayMode"?: TableWidgetCellDisplayMode | UnparsedObject;
   /**
    * Column name.
    */
@@ -30,7 +30,7 @@ export class ApmStatsQueryColumnType {
   /**
    * Widget sorting methods.
    */
-  "order"?: WidgetSort;
+  "order"?: WidgetSort | UnparsedObject;
 
   /**
    * @ignore

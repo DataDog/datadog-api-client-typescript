@@ -50,7 +50,7 @@ export class SyntheticsBrowserTest {
    * Define whether you want to start (`live`) or pause (`paused`) a
    * Synthetic test.
    */
-  "status"?: SyntheticsTestPauseStatus;
+  "status"?: SyntheticsTestPauseStatus | UnparsedObject;
   /**
    * Array of steps for the test.
    */
@@ -62,7 +62,7 @@ export class SyntheticsBrowserTest {
   /**
    * Type of the Synthetic test, `browser`.
    */
-  "type": SyntheticsBrowserTestType;
+  "type": SyntheticsBrowserTestType | UnparsedObject;
 
   /**
    * @ignore

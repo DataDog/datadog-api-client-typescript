@@ -27,7 +27,7 @@ export class SLOBulkDeleteError {
    * The timeframe of the threshold associated with this error
    * or "all" if all thresholds are affected.
    */
-  "timeframe": SLOErrorTimeframe;
+  "timeframe": SLOErrorTimeframe | UnparsedObject;
 
   /**
    * @ignore

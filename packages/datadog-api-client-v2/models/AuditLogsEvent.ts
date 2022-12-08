@@ -26,7 +26,7 @@ export class AuditLogsEvent {
   /**
    * Type of the event.
    */
-  "type"?: AuditLogsEventType;
+  "type"?: AuditLogsEventType | UnparsedObject;
 
   /**
    * @ignore

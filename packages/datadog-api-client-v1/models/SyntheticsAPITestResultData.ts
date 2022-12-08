@@ -24,7 +24,7 @@ export class SyntheticsAPITestResultData {
   /**
    * Status of a Synthetic test.
    */
-  "eventType"?: SyntheticsTestProcessStatus;
+  "eventType"?: SyntheticsTestProcessStatus | UnparsedObject;
   /**
    * The API test failure details.
    */

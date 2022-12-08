@@ -30,11 +30,11 @@ export class FreeTextWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "textAlign"?: WidgetTextAlign;
+  "textAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Type of the free text widget.
    */
-  "type": FreeTextWidgetDefinitionType;
+  "type": FreeTextWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore

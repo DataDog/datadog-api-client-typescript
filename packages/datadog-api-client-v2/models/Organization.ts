@@ -26,7 +26,7 @@ export class Organization {
   /**
    * Organizations resource type.
    */
-  "type": OrganizationsType;
+  "type": OrganizationsType | UnparsedObject;
 
   /**
    * @ignore

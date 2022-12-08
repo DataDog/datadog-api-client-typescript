@@ -34,7 +34,7 @@ export class DistributionPointsSeries {
   /**
    * The type of the distribution point.
    */
-  "type"?: DistributionPointsType;
+  "type"?: DistributionPointsType | UnparsedObject;
 
   /**
    * @ignore

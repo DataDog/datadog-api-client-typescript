@@ -21,7 +21,7 @@ export class EventStreamWidgetDefinition {
   /**
    * Size to use to display an event.
    */
-  "eventSize"?: WidgetEventSize;
+  "eventSize"?: WidgetEventSize | UnparsedObject;
   /**
    * Query to filter the event stream with.
    */
@@ -41,7 +41,7 @@ export class EventStreamWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -49,7 +49,7 @@ export class EventStreamWidgetDefinition {
   /**
    * Type of the event stream widget.
    */
-  "type": EventStreamWidgetDefinitionType;
+  "type": EventStreamWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore

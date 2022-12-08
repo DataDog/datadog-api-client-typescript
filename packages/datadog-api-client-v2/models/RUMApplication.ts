@@ -26,7 +26,7 @@ export class RUMApplication {
   /**
    * RUM application response type.
    */
-  "type": RUMApplicationType;
+  "type": RUMApplicationType | UnparsedObject;
 
   /**
    * @ignore

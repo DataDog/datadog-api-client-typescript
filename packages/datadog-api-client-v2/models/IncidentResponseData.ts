@@ -31,7 +31,7 @@ export class IncidentResponseData {
   /**
    * Incident resource type.
    */
-  "type": IncidentType;
+  "type": IncidentType | UnparsedObject;
 
   /**
    * @ignore

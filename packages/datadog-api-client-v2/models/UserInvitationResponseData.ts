@@ -26,7 +26,7 @@ export class UserInvitationResponseData {
   /**
    * User invitations type.
    */
-  "type"?: UserInvitationsType;
+  "type"?: UserInvitationsType | UnparsedObject;
 
   /**
    * @ignore

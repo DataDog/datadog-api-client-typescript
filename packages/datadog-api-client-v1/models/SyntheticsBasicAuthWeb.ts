@@ -21,7 +21,7 @@ export class SyntheticsBasicAuthWeb {
   /**
    * The type of basic authentication to use when performing the test.
    */
-  "type"?: SyntheticsBasicAuthWebType;
+  "type"?: SyntheticsBasicAuthWebType | UnparsedObject;
   /**
    * Username to use for the basic authentication.
    */

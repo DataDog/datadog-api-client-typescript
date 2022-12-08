@@ -22,11 +22,11 @@ export class SignalStateUpdateRequest {
   /**
    * Reason why a signal has been archived.
    */
-  "archiveReason"?: SignalArchiveReason;
+  "archiveReason"?: SignalArchiveReason | UnparsedObject;
   /**
    * The new triage state of the signal.
    */
-  "state": SignalTriageState;
+  "state": SignalTriageState | UnparsedObject;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
    */

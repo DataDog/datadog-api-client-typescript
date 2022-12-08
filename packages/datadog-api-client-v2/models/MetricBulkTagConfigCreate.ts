@@ -26,7 +26,7 @@ export class MetricBulkTagConfigCreate {
   /**
    * The metric bulk configure tags resource.
    */
-  "type": MetricBulkConfigureTagsType;
+  "type": MetricBulkConfigureTagsType | UnparsedObject;
 
   /**
    * @ignore

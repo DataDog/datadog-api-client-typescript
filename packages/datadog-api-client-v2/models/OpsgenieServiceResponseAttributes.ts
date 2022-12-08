@@ -25,7 +25,7 @@ export class OpsgenieServiceResponseAttributes {
   /**
    * The region for the Opsgenie service.
    */
-  "region"?: OpsgenieServiceRegionType;
+  "region"?: OpsgenieServiceRegionType | UnparsedObject;
 
   /**
    * @ignore

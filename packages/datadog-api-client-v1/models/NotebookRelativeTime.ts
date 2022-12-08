@@ -17,7 +17,7 @@ export class NotebookRelativeTime {
   /**
    * The available timeframes depend on the widget you are using.
    */
-  "liveSpan": WidgetLiveSpan;
+  "liveSpan": WidgetLiveSpan | UnparsedObject;
 
   /**
    * @ignore

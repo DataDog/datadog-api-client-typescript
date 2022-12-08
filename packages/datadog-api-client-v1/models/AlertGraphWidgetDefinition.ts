@@ -32,7 +32,7 @@ export class AlertGraphWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -40,11 +40,11 @@ export class AlertGraphWidgetDefinition {
   /**
    * Type of the alert graph widget.
    */
-  "type": AlertGraphWidgetDefinitionType;
+  "type": AlertGraphWidgetDefinitionType | UnparsedObject;
   /**
    * Whether to display the Alert Graph as a timeseries or a top list.
    */
-  "vizType": WidgetVizType;
+  "vizType": WidgetVizType | UnparsedObject;
 
   /**
    * @ignore

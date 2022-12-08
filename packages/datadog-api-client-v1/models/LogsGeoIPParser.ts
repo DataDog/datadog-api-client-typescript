@@ -34,7 +34,7 @@ export class LogsGeoIPParser {
   /**
    * Type of GeoIP parser.
    */
-  "type": LogsGeoIPParserType;
+  "type": LogsGeoIPParserType | UnparsedObject;
 
   /**
    * @ignore

@@ -30,7 +30,7 @@ export class SunburstWidgetDefinition {
   /**
    * Configuration of the legend.
    */
-  "legend"?: SunburstWidgetLegend;
+  "legend"?: SunburstWidgetLegend | UnparsedObject;
   /**
    * List of sunburst widget requests.
    */
@@ -46,7 +46,7 @@ export class SunburstWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -54,7 +54,7 @@ export class SunburstWidgetDefinition {
   /**
    * Type of the Sunburst widget.
    */
-  "type": SunburstWidgetDefinitionType;
+  "type": SunburstWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore

@@ -19,7 +19,7 @@ export class IncidentAttachmentData {
   /**
    * The attributes object for an attachment.
    */
-  "attributes": IncidentAttachmentAttributes;
+  "attributes": IncidentAttachmentAttributes | UnparsedObject;
   /**
    * A unique identifier that represents the incident attachment.
    */
@@ -31,7 +31,7 @@ export class IncidentAttachmentData {
   /**
    * The incident attachment resource type.
    */
-  "type": IncidentAttachmentType;
+  "type": IncidentAttachmentType | UnparsedObject;
 
   /**
    * @ignore

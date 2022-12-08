@@ -26,7 +26,7 @@ export class MetricIngestedIndexedVolume {
   /**
    * The metric ingested and indexed volume type.
    */
-  "type"?: MetricIngestedIndexedVolumeType;
+  "type"?: MetricIngestedIndexedVolumeType | UnparsedObject;
 
   /**
    * @ignore

@@ -21,7 +21,7 @@ export class DashboardBulkActionData {
   /**
    * Dashboard resource type.
    */
-  "type": DashboardResourceType;
+  "type": DashboardResourceType | UnparsedObject;
 
   /**
    * @ignore

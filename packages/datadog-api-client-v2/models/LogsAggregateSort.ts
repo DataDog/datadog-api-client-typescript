@@ -19,7 +19,7 @@ export class LogsAggregateSort {
   /**
    * An aggregation function
    */
-  "aggregation"?: LogsAggregationFunction;
+  "aggregation"?: LogsAggregationFunction | UnparsedObject;
   /**
    * The metric to sort by (only used for `type=measure`)
    */
@@ -27,11 +27,11 @@ export class LogsAggregateSort {
   /**
    * The order to use, ascending or descending
    */
-  "order"?: LogsSortOrder;
+  "order"?: LogsSortOrder | UnparsedObject;
   /**
    * The type of sorting algorithm
    */
-  "type"?: LogsAggregateSortType;
+  "type"?: LogsAggregateSortType | UnparsedObject;
 
   /**
    * @ignore

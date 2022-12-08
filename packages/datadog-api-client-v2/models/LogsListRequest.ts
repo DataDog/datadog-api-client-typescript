@@ -33,7 +33,7 @@ export class LogsListRequest {
   /**
    * Sort parameters when querying logs.
    */
-  "sort"?: LogsSort;
+  "sort"?: LogsSort | UnparsedObject;
 
   /**
    * @ignore

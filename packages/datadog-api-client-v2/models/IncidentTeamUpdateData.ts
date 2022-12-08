@@ -31,7 +31,7 @@ export class IncidentTeamUpdateData {
   /**
    * Incident Team resource type.
    */
-  "type": IncidentTeamType;
+  "type": IncidentTeamType | UnparsedObject;
 
   /**
    * @ignore

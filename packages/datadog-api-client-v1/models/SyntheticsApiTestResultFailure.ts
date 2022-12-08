@@ -17,7 +17,7 @@ export class SyntheticsApiTestResultFailure {
   /**
    * Error code that can be returned by a Synthetic test.
    */
-  "code"?: SyntheticsApiTestFailureCode;
+  "code"?: SyntheticsApiTestFailureCode | UnparsedObject;
   /**
    * The API test error message.
    */

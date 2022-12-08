@@ -30,7 +30,7 @@ export class SLOThreshold {
   /**
    * The SLO time window options.
    */
-  "timeframe": SLOTimeframe;
+  "timeframe": SLOTimeframe | UnparsedObject;
   /**
    * The warning value for the service level objective.
    */

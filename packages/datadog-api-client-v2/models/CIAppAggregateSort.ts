@@ -19,7 +19,7 @@ export class CIAppAggregateSort {
   /**
    * An aggregation function.
    */
-  "aggregation"?: CIAppAggregationFunction;
+  "aggregation"?: CIAppAggregationFunction | UnparsedObject;
   /**
    * The metric to sort by (only used for `type=measure`).
    */
@@ -27,11 +27,11 @@ export class CIAppAggregateSort {
   /**
    * The order to use, ascending or descending.
    */
-  "order"?: CIAppSortOrder;
+  "order"?: CIAppSortOrder | UnparsedObject;
   /**
    * The type of sorting algorithm.
    */
-  "type"?: CIAppAggregateSortType;
+  "type"?: CIAppAggregateSortType | UnparsedObject;
 
   /**
    * @ignore

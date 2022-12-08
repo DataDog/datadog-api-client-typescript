@@ -24,7 +24,7 @@ export class WebhooksIntegrationUpdateRequest {
   /**
    * Encoding type. Can be given either `json` or `form`.
    */
-  "encodeAs"?: WebhooksIntegrationEncoding;
+  "encodeAs"?: WebhooksIntegrationEncoding | UnparsedObject;
   /**
    * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
    * Learn more on how to use it in

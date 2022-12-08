@@ -22,7 +22,7 @@ export class SLOCorrectionUpdateData {
   /**
    * SLO correction resource type.
    */
-  "type"?: SLOCorrectionType;
+  "type"?: SLOCorrectionType | UnparsedObject;
 
   /**
    * @ignore

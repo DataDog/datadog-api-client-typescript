@@ -19,7 +19,7 @@ export class NotebookCellResponse {
    * The attributes of a notebook cell response. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
    * `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
    */
-  "attributes": NotebookCellResponseAttributes;
+  "attributes": NotebookCellResponseAttributes | UnparsedObject;
   /**
    * Notebook cell ID.
    */
@@ -27,7 +27,7 @@ export class NotebookCellResponse {
   /**
    * Type of the Notebook Cell resource.
    */
-  "type": NotebookCellResourceType;
+  "type": NotebookCellResourceType | UnparsedObject;
 
   /**
    * @ignore

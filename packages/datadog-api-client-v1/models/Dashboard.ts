@@ -46,7 +46,7 @@ export class Dashboard {
   /**
    * Layout type of the dashboard.
    */
-  "layoutType": DashboardLayoutType;
+  "layoutType": DashboardLayoutType | UnparsedObject;
   /**
    * Modification date of the dashboard.
    */
@@ -60,7 +60,7 @@ export class Dashboard {
    * If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',
    * widgets should not have layouts.
    */
-  "reflowType"?: DashboardReflowType;
+  "reflowType"?: DashboardReflowType | UnparsedObject;
   /**
    * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
    */

@@ -28,7 +28,7 @@ export class GroupWidgetDefinition {
   /**
    * Layout type of the group.
    */
-  "layoutType": WidgetLayoutType;
+  "layoutType": WidgetLayoutType | UnparsedObject;
   /**
    * Whether to show the title or not.
    */
@@ -40,11 +40,11 @@ export class GroupWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Type of the group widget.
    */
-  "type": GroupWidgetDefinitionType;
+  "type": GroupWidgetDefinitionType | UnparsedObject;
   /**
    * List of widget groups.
    */

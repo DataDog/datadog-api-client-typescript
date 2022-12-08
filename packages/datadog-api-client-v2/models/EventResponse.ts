@@ -26,7 +26,7 @@ export class EventResponse {
   /**
    * Type of the event.
    */
-  "type"?: EventType;
+  "type"?: EventType | UnparsedObject;
 
   /**
    * @ignore

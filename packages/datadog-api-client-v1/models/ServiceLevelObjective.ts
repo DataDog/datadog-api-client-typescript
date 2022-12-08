@@ -93,7 +93,7 @@ export class ServiceLevelObjective {
   /**
    * The type of the service level objective.
    */
-  "type": SLOType;
+  "type": SLOType | UnparsedObject;
 
   /**
    * @ignore

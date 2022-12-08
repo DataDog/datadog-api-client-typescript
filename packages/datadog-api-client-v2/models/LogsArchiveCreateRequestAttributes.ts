@@ -17,7 +17,7 @@ export class LogsArchiveCreateRequestAttributes {
   /**
    * An archive's destination.
    */
-  "destination": LogsArchiveCreateRequestDestination;
+  "destination": LogsArchiveCreateRequestDestination | UnparsedObject;
   /**
    * To store the tags in the archive, set the value "true".
    * If it is set to "false", the tags will be deleted when the logs are sent to the archive.

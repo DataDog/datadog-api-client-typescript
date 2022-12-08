@@ -37,7 +37,7 @@ export class MonitorStateGroup {
   /**
    * The different states your monitor can be in.
    */
-  "status"?: MonitorOverallStates;
+  "status"?: MonitorOverallStates | UnparsedObject;
 
   /**
    * @ignore

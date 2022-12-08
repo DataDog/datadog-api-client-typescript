@@ -52,7 +52,7 @@ export class DistributionWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -60,7 +60,7 @@ export class DistributionWidgetDefinition {
   /**
    * Type of the distribution widget.
    */
-  "type": DistributionWidgetDefinitionType;
+  "type": DistributionWidgetDefinitionType | UnparsedObject;
   /**
    * X Axis controls for the distribution widget.
    */

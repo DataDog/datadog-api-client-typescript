@@ -22,7 +22,7 @@ export class ServiceDefinitionDataAttributes {
   /**
    * Service definition schema.
    */
-  "schema"?: ServiceDefinitionSchema;
+  "schema"?: ServiceDefinitionSchema | UnparsedObject;
 
   /**
    * @ignore

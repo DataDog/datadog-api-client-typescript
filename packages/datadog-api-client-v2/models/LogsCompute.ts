@@ -18,7 +18,7 @@ export class LogsCompute {
   /**
    * An aggregation function
    */
-  "aggregation": LogsAggregationFunction;
+  "aggregation": LogsAggregationFunction | UnparsedObject;
   /**
    * The time buckets' size (only used for type=timeseries)
    * Defaults to a resolution of 150 points
@@ -31,7 +31,7 @@ export class LogsCompute {
   /**
    * The type of compute
    */
-  "type"?: LogsComputeType;
+  "type"?: LogsComputeType | UnparsedObject;
 
   /**
    * @ignore

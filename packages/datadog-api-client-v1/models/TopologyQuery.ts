@@ -17,7 +17,7 @@ export class TopologyQuery {
   /**
    * Name of the data source
    */
-  "dataSource"?: TopologyQueryDataSource;
+  "dataSource"?: TopologyQueryDataSource | UnparsedObject;
   /**
    * Your environment and primary tag (or * if enabled for your account).
    */

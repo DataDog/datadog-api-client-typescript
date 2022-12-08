@@ -27,7 +27,7 @@ export class UserCreateData {
   /**
    * Users resource type.
    */
-  "type": UsersType;
+  "type": UsersType | UnparsedObject;
 
   /**
    * @ignore

@@ -20,7 +20,7 @@ export class SyntheticsBatchResult {
   /**
    * The device ID.
    */
-  "device"?: SyntheticsDeviceID;
+  "device"?: SyntheticsDeviceID | UnparsedObject;
   /**
    * Total duration in millisecond of the test.
    */
@@ -28,7 +28,7 @@ export class SyntheticsBatchResult {
   /**
    * Execution rule for a Synthetics test.
    */
-  "executionRule"?: SyntheticsTestExecutionRule;
+  "executionRule"?: SyntheticsTestExecutionRule | UnparsedObject;
   /**
    * Name of the location.
    */
@@ -44,7 +44,7 @@ export class SyntheticsBatchResult {
   /**
    * Determines whether or not the batch has passed, failed, or is in progress.
    */
-  "status"?: SyntheticsStatus;
+  "status"?: SyntheticsStatus | UnparsedObject;
   /**
    * Name of the test.
    */
@@ -56,7 +56,7 @@ export class SyntheticsBatchResult {
   /**
    * Type of the Synthetic test, either `api` or `browser`.
    */
-  "testType"?: SyntheticsTestDetailsType;
+  "testType"?: SyntheticsTestDetailsType | UnparsedObject;
 
   /**
    * @ignore

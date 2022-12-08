@@ -26,7 +26,7 @@ export class MetricSuggestedTagsAndAggregations {
   /**
    * The metric actively queried configuration resource type.
    */
-  "type"?: MetricActiveConfigurationType;
+  "type"?: MetricActiveConfigurationType | UnparsedObject;
 
   /**
    * @ignore

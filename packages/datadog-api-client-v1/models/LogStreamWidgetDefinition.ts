@@ -33,7 +33,7 @@ export class LogStreamWidgetDefinition {
   /**
    * Amount of log lines to display
    */
-  "messageDisplay"?: WidgetMessageDisplay;
+  "messageDisplay"?: WidgetMessageDisplay | UnparsedObject;
   /**
    * Query to filter the log stream with.
    */
@@ -61,7 +61,7 @@ export class LogStreamWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -69,7 +69,7 @@ export class LogStreamWidgetDefinition {
   /**
    * Type of the log stream widget.
    */
-  "type": LogStreamWidgetDefinitionType;
+  "type": LogStreamWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore

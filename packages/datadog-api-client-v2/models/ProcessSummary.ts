@@ -26,7 +26,7 @@ export class ProcessSummary {
   /**
    * Type of process summary.
    */
-  "type"?: ProcessSummaryType;
+  "type"?: ProcessSummaryType | UnparsedObject;
 
   /**
    * @ignore

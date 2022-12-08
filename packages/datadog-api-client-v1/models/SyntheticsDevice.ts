@@ -21,7 +21,7 @@ export class SyntheticsDevice {
   /**
    * The device ID.
    */
-  "id": SyntheticsDeviceID;
+  "id": SyntheticsDeviceID | UnparsedObject;
   /**
    * Whether or not the device is a mobile.
    */

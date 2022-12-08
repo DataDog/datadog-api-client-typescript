@@ -37,7 +37,7 @@ export class DashboardSummaryDefinition {
   /**
    * Layout type of the dashboard.
    */
-  "layoutType"?: DashboardLayoutType;
+  "layoutType"?: DashboardLayoutType | UnparsedObject;
   /**
    * Modification date of the dashboard.
    */

@@ -40,7 +40,7 @@ export class SLOWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign;
+  "titleAlign"?: WidgetTextAlign | UnparsedObject;
   /**
    * Size of the title.
    */
@@ -48,11 +48,11 @@ export class SLOWidgetDefinition {
   /**
    * Type of the SLO widget.
    */
-  "type": SLOWidgetDefinitionType;
+  "type": SLOWidgetDefinitionType | UnparsedObject;
   /**
    * Define how you want the SLO to be displayed.
    */
-  "viewMode"?: WidgetViewMode;
+  "viewMode"?: WidgetViewMode | UnparsedObject;
   /**
    * Type of view displayed by the widget.
    */

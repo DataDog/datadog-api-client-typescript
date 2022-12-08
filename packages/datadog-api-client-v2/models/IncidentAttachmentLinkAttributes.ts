@@ -22,7 +22,7 @@ export class IncidentAttachmentLinkAttributes {
   /**
    * The type of link attachment attributes.
    */
-  "attachmentType": IncidentAttachmentLinkAttachmentType;
+  "attachmentType": IncidentAttachmentLinkAttachmentType | UnparsedObject;
 
   /**
    * @ignore

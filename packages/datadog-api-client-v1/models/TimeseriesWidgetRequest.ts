@@ -32,7 +32,7 @@ export class TimeseriesWidgetRequest {
   /**
    * Type of display to use for the request.
    */
-  "displayType"?: WidgetDisplayType;
+  "displayType"?: WidgetDisplayType | UnparsedObject;
   /**
    * The log query.
    */
@@ -76,7 +76,7 @@ export class TimeseriesWidgetRequest {
   /**
    * Timeseries or Scalar response.
    */
-  "responseFormat"?: FormulaAndFunctionResponseFormat;
+  "responseFormat"?: FormulaAndFunctionResponseFormat | UnparsedObject;
   /**
    * The log query.
    */

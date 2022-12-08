@@ -18,7 +18,7 @@ export class FunnelQuery {
   /**
    * Source from which to query items to display in the funnel.
    */
-  "dataSource": FunnelSource;
+  "dataSource": FunnelSource | UnparsedObject;
   /**
    * The widget query.
    */

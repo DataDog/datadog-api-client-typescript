@@ -21,7 +21,7 @@ export class SyntheticsBasicAuthDigest {
   /**
    * The type of basic authentication to use when performing the test.
    */
-  "type"?: SyntheticsBasicAuthDigestType;
+  "type"?: SyntheticsBasicAuthDigestType | UnparsedObject;
   /**
    * Username to use for the digest authentication.
    */

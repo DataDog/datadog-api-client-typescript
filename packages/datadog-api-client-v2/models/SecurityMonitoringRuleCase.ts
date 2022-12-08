@@ -30,7 +30,7 @@ export class SecurityMonitoringRuleCase {
   /**
    * Severity of the Security Signal.
    */
-  "status"?: SecurityMonitoringRuleSeverity;
+  "status"?: SecurityMonitoringRuleSeverity | UnparsedObject;
 
   /**
    * @ignore

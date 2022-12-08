@@ -23,7 +23,7 @@ export class TreeMapWidgetDefinition {
   /**
    * (deprecated) The attribute formerly used to determine color in the widget.
    */
-  "colorBy"?: TreeMapColorBy;
+  "colorBy"?: TreeMapColorBy | UnparsedObject;
   /**
    * List of custom links.
    */
@@ -31,7 +31,7 @@ export class TreeMapWidgetDefinition {
   /**
    * (deprecated) The attribute formerly used to group elements in the widget.
    */
-  "groupBy"?: TreeMapGroupBy;
+  "groupBy"?: TreeMapGroupBy | UnparsedObject;
   /**
    * List of treemap widget requests.
    */
@@ -39,7 +39,7 @@ export class TreeMapWidgetDefinition {
   /**
    * (deprecated) The attribute formerly used to determine size in the widget.
    */
-  "sizeBy"?: TreeMapSizeBy;
+  "sizeBy"?: TreeMapSizeBy | UnparsedObject;
   /**
    * Time setting for the widget.
    */
@@ -51,7 +51,7 @@ export class TreeMapWidgetDefinition {
   /**
    * Type of the treemap widget.
    */
-  "type": TreeMapWidgetDefinitionType;
+  "type": TreeMapWidgetDefinitionType | UnparsedObject;
 
   /**
    * @ignore
