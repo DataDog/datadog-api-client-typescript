@@ -299,3 +299,41 @@ test('TestDeserializationUnknownNestedOneOf', () => {
     expect(result.data.attributes.destination._data["type"]).toBe("A non existent destination");
   }
 );
+
+test('TestDeserializationNoUnparsed', () => {
+    const data = `
+    {
+        "data": {
+            "type": "archives",
+            "id": "n_XDSxVpScepiBnyhysj_A",
+            "attributes": {
+                "name": "my first azure archive",
+                "query": "service:toto",
+                "state": "UNKNOWN",
+                "destination": {
+                    "container": "my-container",
+                    "storage_account": "storageaccount",
+                    "path": "/path/blou",
+                    "type": "azure",
+                    "integration": {
+                        "tenant_id": "tf-TestAccDatadogLogsArchiveAzure_basic-local-1624981538",
+                        "client_id": "testc7f6-1234-5678-9101-3fcbf464test"
+                    }
+                },
+                "rehydration_tags": [],
+                "include_tags": false
+            }
+        }
+    }
+    `;
+  
+  
+    const result = ObjectSerializerV2.deserialize(
+      ObjectSerializerV2.parse(data, "application/json"),
+      "LogsArchive",
+      "");
+  
+      expect(result._unparsed).toBe(undefined);
+    }
+  );
+  
