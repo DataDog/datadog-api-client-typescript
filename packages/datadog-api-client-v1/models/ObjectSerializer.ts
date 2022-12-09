@@ -547,7 +547,6 @@ import { WidgetTime } from "./WidgetTime";
 import {
   dateFromRFC3339String,
   dateToRFC3339String,
-  containsUnparsed,
   UnparsedObject,
 } from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
@@ -2191,13 +2190,9 @@ export class ObjectSerializer {
       );
       const transformedData: any[] = [];
       for (const element of data) {
-        try {
-          transformedData.push(
-            ObjectSerializer.deserialize(element, subType, format)
-          );
-        } catch {
-          transformedData.push(new UnparsedObject(element));
-        }
+        transformedData.push(
+          ObjectSerializer.deserialize(element, subType, format)
+        );
       }
       return transformedData;
     } else if (type.startsWith(TUPLE_PREFIX)) {
@@ -2241,7 +2236,7 @@ export class ObjectSerializer {
         for (const oneOf of oneOfMap[type]) {
           try {
             const d = ObjectSerializer.deserialize(data, oneOf, format);
-            if (!containsUnparsed(d)) {
+            if (!d?._unparsed) {
               oneOfs.push(d);
             }
           } catch (e) {
@@ -2302,6 +2297,22 @@ export class ObjectSerializer {
         // check for required properties
         if (attributeObj?.required && instance[attributeName] === undefined) {
           throw new Error(`missing required property '${attributeName}'`);
+        }
+
+        if (
+          instance[attributeName] instanceof UnparsedObject ||
+          instance[attributeName]?._unparsed
+        ) {
+          instance._unparsed = true;
+        }
+
+        if (Array.isArray(instance[attributeName])) {
+          for (const d of instance[attributeName]) {
+            if (d?._unparsed) {
+              instance._unparsed = true;
+              break;
+            }
+          }
         }
       }
 

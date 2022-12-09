@@ -76,21 +76,6 @@ export function dateToRFC3339String(date: Date | DDate): string {
   );
 }
 
-export function containsUnparsed(data: any): boolean {
-  if (data instanceof UnparsedObject) {
-    return true;
-  }
-
-  for (const [key, value] of Object.entries(data)) {
-    if (typeof value == "object") {
-      if (containsUnparsed(value)) {
-        return true;
-      }
-    }
-  }
-  return false;
-}
-
 // Helpers
 function pad(num: number, len = 2): string {
   let paddedNum = num.toString();
