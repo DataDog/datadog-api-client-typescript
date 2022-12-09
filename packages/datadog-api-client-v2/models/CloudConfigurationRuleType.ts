@@ -5,9 +5,8 @@
  */
 
 /**
- * The type of gRPC call to perform.
+ * The rule type.
  */
 
-export type SyntheticsTestCallType = typeof HEALTHCHECK | typeof UNARY;
-export const HEALTHCHECK = "healthcheck";
-export const UNARY = "unary";
+export type CloudConfigurationRuleType = typeof CLOUD_CONFIGURATION;
+export const CLOUD_CONFIGURATION = "cloud_configuration";

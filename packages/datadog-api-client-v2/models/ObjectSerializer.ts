@@ -70,6 +70,11 @@ import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 import { CIAppWarning } from "./CIAppWarning";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
+import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
+import { CloudConfigurationRuleCaseCreate } from "./CloudConfigurationRuleCaseCreate";
+import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurationRuleComplianceSignalOptions";
+import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCreatePayload";
+import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
@@ -578,6 +583,7 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppSort: ["timestamp", "-timestamp"],
   CIAppSortOrder: ["asc", "desc"],
   CIAppTestEventTypeName: ["citest"],
+  CloudConfigurationRuleType: ["cloud_configuration"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
   ConfluentResourceType: ["confluent-cloud-resources"],
@@ -871,6 +877,12 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
   CIAppWarning: CIAppWarning,
   ChargebackBreakdown: ChargebackBreakdown,
+  CloudConfigurationRegoRule: CloudConfigurationRegoRule,
+  CloudConfigurationRuleCaseCreate: CloudConfigurationRuleCaseCreate,
+  CloudConfigurationRuleComplianceSignalOptions:
+    CloudConfigurationRuleComplianceSignalOptions,
+  CloudConfigurationRuleCreatePayload: CloudConfigurationRuleCreatePayload,
+  CloudConfigurationRuleOptions: CloudConfigurationRuleOptions,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
   CloudWorkloadSecurityAgentRuleCreateAttributes:
@@ -1403,6 +1415,7 @@ const oneOfMap: { [index: string]: string[] } = {
   SecurityMonitoringRuleCreatePayload: [
     "SecurityMonitoringStandardRuleCreatePayload",
     "SecurityMonitoringSignalRuleCreatePayload",
+    "CloudConfigurationRuleCreatePayload",
   ],
   SecurityMonitoringRuleQuery: [
     "SecurityMonitoringStandardRuleQuery",

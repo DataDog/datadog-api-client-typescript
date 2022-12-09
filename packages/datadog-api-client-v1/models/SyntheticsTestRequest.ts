@@ -3,8 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { HTTPMethod } from "./HTTPMethod";
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
-import { SyntheticsTestCallType } from "./SyntheticsTestCallType";
 import { SyntheticsTestRequestBodyType } from "./SyntheticsTestRequestBodyType";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
@@ -31,10 +31,6 @@ export class SyntheticsTestRequest {
    * Type of the request body.
    */
   "bodyType"?: SyntheticsTestRequestBodyType;
-  /**
-   * The type of gRPC call to perform.
-   */
-  "callType"?: SyntheticsTestCallType;
   /**
    * Client certificate to use when performing the test request.
    */
@@ -72,9 +68,9 @@ export class SyntheticsTestRequest {
    */
   "metadata"?: { [key: string]: string };
   /**
-   * Either the HTTP method/verb to use or a gRPC method available on the service set in the `service` field. Required if `subtype` is `HTTP` or if `subtype` is `grpc` and `callType` is `unary`.
+   * The HTTP method.
    */
-  "method"?: string;
+  "method"?: HTTPMethod;
   /**
    * Determines whether or not to save the response body.
    */
@@ -102,7 +98,7 @@ export class SyntheticsTestRequest {
    */
   "servername"?: string;
   /**
-   * The gRPC service on which you want to perform the gRPC call.
+   * gRPC service on which you want to perform the healthcheck.
    */
   "service"?: string;
   /**
@@ -143,10 +139,6 @@ export class SyntheticsTestRequest {
       baseName: "bodyType",
       type: "SyntheticsTestRequestBodyType",
     },
-    callType: {
-      baseName: "callType",
-      type: "SyntheticsTestCallType",
-    },
     certificate: {
       baseName: "certificate",
       type: "SyntheticsTestRequestCertificate",
@@ -186,7 +178,7 @@ export class SyntheticsTestRequest {
     },
     method: {
       baseName: "method",
-      type: "string",
+      type: "HTTPMethod",
     },
     noSavingResponseBody: {
       baseName: "noSavingResponseBody",

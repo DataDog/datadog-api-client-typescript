@@ -470,6 +470,7 @@ export { HourlyUsageAttributionResponse } from "./models/HourlyUsageAttributionR
 export { HourlyUsageAttributionUsageType } from "./models/HourlyUsageAttributionUsageType";
 export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogItem } from "./models/HTTPLogItem";
+export { HTTPMethod } from "./models/HTTPMethod";
 export { IdpFormData } from "./models/IdpFormData";
 export { IdpResponse } from "./models/IdpResponse";
 export { IFrameWidgetDefinition } from "./models/IFrameWidgetDefinition";
@@ -867,7 +868,6 @@ export { SyntheticsStep } from "./models/SyntheticsStep";
 export { SyntheticsStepDetail } from "./models/SyntheticsStepDetail";
 export { SyntheticsStepDetailWarning } from "./models/SyntheticsStepDetailWarning";
 export { SyntheticsStepType } from "./models/SyntheticsStepType";
-export { SyntheticsTestCallType } from "./models/SyntheticsTestCallType";
 export { SyntheticsTestCiOptions } from "./models/SyntheticsTestCiOptions";
 export { SyntheticsTestConfig } from "./models/SyntheticsTestConfig";
 export { SyntheticsTestDetails } from "./models/SyntheticsTestDetails";
