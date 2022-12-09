@@ -166,7 +166,7 @@ export class ObjectSerializer {
       const subType: string = type.substring(ARRAY_PREFIX.length, type.length - 1);
       const transformedData: any[] = [];
       for (const element of data) {
-          transformedData.push(ObjectSerializer.deserialize(element, subType, format));
+        transformedData.push(ObjectSerializer.deserialize(element, subType, format));
       }
       return transformedData;
     } else if (type.startsWith(TUPLE_PREFIX)) {
@@ -257,7 +257,7 @@ export class ObjectSerializer {
 
         if (Array.isArray(instance[attributeName])) {
           for (const d of instance[attributeName]) {
-            if (d?._unparsed) {
+            if (d instanceof UnparsedObject || d?._unparsed) {
               instance._unparsed = true
               break
             }

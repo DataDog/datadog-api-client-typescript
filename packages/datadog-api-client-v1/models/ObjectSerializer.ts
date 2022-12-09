@@ -2308,7 +2308,7 @@ export class ObjectSerializer {
 
         if (Array.isArray(instance[attributeName])) {
           for (const d of instance[attributeName]) {
-            if (d?._unparsed) {
+            if (d instanceof UnparsedObject || d?._unparsed) {
               instance._unparsed = true;
               break;
             }

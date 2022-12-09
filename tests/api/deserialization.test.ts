@@ -75,6 +75,7 @@ test('TestDeserializationUnknownNestedOneOfInList', () => {
     "");
 
     expect(result?.unparsedObject).toBe(undefined);
+    expect(result._unparsed).toBe(true);
     expect(result.config.assertions.length).toBe(3);
     expect(result.config.assertions[2]._data["operator"]).toBe("A non existent operator");
   }
@@ -151,6 +152,7 @@ test('TestDeserializationUnknownNestedEnumInList', () => {
     "");
 
     expect(result?.unparsedObject).toBe(undefined);
+    expect(result._unparsed).toBe(true);
     expect(result.options.deviceIds.length).toBe(3);
     expect(result.options.deviceIds[2]._data).toBe("A non existent device ID");
   }
@@ -200,6 +202,7 @@ test('TestDeserializationUnknownTopLevelEnum', () => {
     "");
 
     expect(result?.type).toBeInstanceOf(UnparsedObject);
+    expect(result._unparsed).toBe(true);
     expect(result.type._data).toBe("A non existent test type");
     expect(result.name).toBe("Check on www.10.0.0.1.xip.io");
   }
@@ -249,6 +252,7 @@ test('TestDeserializationUnknownNestedEnum', () => {
     "");
 
     expect(result?.unparsedObject).toBe(undefined);
+    expect(result._unparsed).toBe(true);
     expect(result.config.unparsedObject).toBe(undefined);
     expect(result.config.assertions[0]).toBeInstanceOf(UnparsedObject);
     expect(result.config.assertions[0]._data["operator"]).toBe("not-an-operator");
@@ -290,6 +294,7 @@ test('TestDeserializationUnknownNestedOneOf', () => {
     "");
 
     expect(result?.unparsedObject).toBe(undefined);
+    expect(result._unparsed).toBe(true);
     expect(result.data.attributes.unparsedObject).toBe(undefined);
     expect(result.data.attributes.destination._data["type"]).toBe("A non existent destination");
   }
