@@ -2167,9 +2167,6 @@ export class ObjectSerializer {
         }
       }
 
-      if (data.unparsedObject) {
-        Object.assign(instance, data.unparsedObject._data);
-      }
       return instance;
     }
   }
@@ -2296,25 +2293,17 @@ export class ObjectSerializer {
           }
           continue;
         }
-        try {
-          instance[attributeName] = ObjectSerializer.deserialize(
-            data[attributeObj.baseName],
-            attributeObj.type,
-            attributeObj.format
-          );
-        } catch {
-          unparsedObjectData[attributeObj.baseName] =
-            data[attributeObj.baseName];
-        }
+
+        instance[attributeName] = ObjectSerializer.deserialize(
+          data[attributeObj.baseName],
+          attributeObj.type,
+          attributeObj.format
+        );
 
         // check for required properties
         if (attributeObj?.required && instance[attributeName] === undefined) {
           throw new Error(`missing required property '${attributeName}'`);
         }
-      }
-
-      if (Object.keys(unparsedObjectData).length > 0) {
-        instance.unparsedObject = new UnparsedObject(unparsedObjectData);
       }
 
       return instance;
