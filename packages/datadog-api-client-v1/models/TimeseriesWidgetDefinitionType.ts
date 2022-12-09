@@ -8,5 +8,5 @@
  * Type of the timeseries widget.
  */
 
-export type TimeseriesWidgetDefinitionType = typeof TIMESERIES;
+export type TimeseriesWidgetDefinitionType = typeof TIMESERIES | UnparsedObject;
 export const TIMESERIES = "timeseries";

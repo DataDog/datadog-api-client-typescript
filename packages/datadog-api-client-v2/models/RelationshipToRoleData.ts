@@ -21,7 +21,7 @@ export class RelationshipToRoleData {
   /**
    * Roles type.
    */
-  "type"?: RolesType | UnparsedObject;
+  "type"?: RolesType;
 
   /**
    * @ignore

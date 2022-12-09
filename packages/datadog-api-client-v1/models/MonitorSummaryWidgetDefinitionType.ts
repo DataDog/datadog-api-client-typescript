@@ -8,5 +8,7 @@
  * Type of the monitor summary widget.
  */
 
-export type MonitorSummaryWidgetDefinitionType = typeof MANAGE_STATUS;
+export type MonitorSummaryWidgetDefinitionType =
+  | typeof MANAGE_STATUS
+  | UnparsedObject;
 export const MANAGE_STATUS = "manage_status";

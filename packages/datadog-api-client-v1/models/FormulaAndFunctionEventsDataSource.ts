@@ -17,7 +17,8 @@ export type FormulaAndFunctionEventsDataSource =
   | typeof PROFILES
   | typeof AUDIT
   | typeof EVENTS
-  | typeof CI_TESTS;
+  | typeof CI_TESTS
+  | UnparsedObject;
 export const LOGS = "logs";
 export const SPANS = "spans";
 export const NETWORK = "network";

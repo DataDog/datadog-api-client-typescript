@@ -31,7 +31,7 @@ export class TreeMapWidgetRequest {
   /**
    * Timeseries or Scalar response.
    */
-  "responseFormat"?: FormulaAndFunctionResponseFormat | UnparsedObject;
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
 
   /**
    * @ignore

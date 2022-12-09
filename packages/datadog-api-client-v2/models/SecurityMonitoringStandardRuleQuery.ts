@@ -17,7 +17,7 @@ export class SecurityMonitoringStandardRuleQuery {
   /**
    * The aggregation type.
    */
-  "aggregation"?: SecurityMonitoringRuleQueryAggregation | UnparsedObject;
+  "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
    * Field for which the cardinality is measured. Sent as an array.
    */

@@ -8,5 +8,5 @@
  * Type of the Azure archive destination.
  */
 
-export type LogsArchiveDestinationAzureType = typeof AZURE;
+export type LogsArchiveDestinationAzureType = typeof AZURE | UnparsedObject;
 export const AZURE = "azure";

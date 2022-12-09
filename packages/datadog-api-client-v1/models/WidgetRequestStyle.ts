@@ -18,11 +18,11 @@ export class WidgetRequestStyle {
   /**
    * Type of lines displayed.
    */
-  "lineType"?: WidgetLineType | UnparsedObject;
+  "lineType"?: WidgetLineType;
   /**
    * Width of line displayed.
    */
-  "lineWidth"?: WidgetLineWidth | UnparsedObject;
+  "lineWidth"?: WidgetLineWidth;
   /**
    * Color palette to apply to the widget.
    */

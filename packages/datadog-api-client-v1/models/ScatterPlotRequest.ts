@@ -19,7 +19,7 @@ export class ScatterPlotRequest {
   /**
    * Aggregator used for the request.
    */
-  "aggregator"?: ScatterplotWidgetAggregator | UnparsedObject;
+  "aggregator"?: ScatterplotWidgetAggregator;
   /**
    * The log query.
    */

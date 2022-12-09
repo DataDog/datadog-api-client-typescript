@@ -34,7 +34,7 @@ export class UsageAttributesObject {
   /**
    * Usage type that is being measured.
    */
-  "usageType"?: HourlyUsageType | UnparsedObject;
+  "usageType"?: HourlyUsageType;
 
   /**
    * @ignore

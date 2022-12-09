@@ -43,7 +43,7 @@ export class ReferenceTableLogsLookupProcessor {
   /**
    * Type of logs lookup processor.
    */
-  "type": LogsLookupProcessorType | UnparsedObject;
+  "type": LogsLookupProcessorType;
 
   /**
    * @ignore

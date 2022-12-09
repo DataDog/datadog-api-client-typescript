@@ -29,18 +29,16 @@ export class SecurityMonitoringRuleOptions {
   /**
    * The detection method.
    */
-  "detectionMethod"?: SecurityMonitoringRuleDetectionMethod | UnparsedObject;
+  "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
   /**
    * A time window is specified to match when at least one of the cases matches true. This is a sliding window
    * and evaluates in real time.
    */
-  "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow | UnparsedObject;
+  "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
   /**
    * Hardcoded evaluator type.
    */
-  "hardcodedEvaluatorType"?:
-    | SecurityMonitoringRuleHardcodedEvaluatorType
-    | UnparsedObject;
+  "hardcodedEvaluatorType"?: SecurityMonitoringRuleHardcodedEvaluatorType;
   /**
    * Options on impossible travel rules.
    */
@@ -49,14 +47,12 @@ export class SecurityMonitoringRuleOptions {
    * Once a signal is generated, the signal will remain “open” if a case is matched at least once within
    * this keep alive window.
    */
-  "keepAlive"?: SecurityMonitoringRuleKeepAlive | UnparsedObject;
+  "keepAlive"?: SecurityMonitoringRuleKeepAlive;
   /**
    * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
    * This time is calculated from the first seen timestamp.
    */
-  "maxSignalDuration"?:
-    | SecurityMonitoringRuleMaxSignalDuration
-    | UnparsedObject;
+  "maxSignalDuration"?: SecurityMonitoringRuleMaxSignalDuration;
   /**
    * Options on new value rules.
    */

@@ -32,7 +32,7 @@ export class CheckStatusWidgetDefinition {
   /**
    * The kind of grouping to use.
    */
-  "grouping": WidgetGrouping | UnparsedObject;
+  "grouping": WidgetGrouping;
   /**
    * List of tags used to filter the groups reporting a cluster check.
    */
@@ -48,7 +48,7 @@ export class CheckStatusWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -56,7 +56,7 @@ export class CheckStatusWidgetDefinition {
   /**
    * Type of the check status widget.
    */
-  "type": CheckStatusWidgetDefinitionType | UnparsedObject;
+  "type": CheckStatusWidgetDefinitionType;
 
   /**
    * @ignore

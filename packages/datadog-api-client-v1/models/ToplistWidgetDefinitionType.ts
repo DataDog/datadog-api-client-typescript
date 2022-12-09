@@ -8,5 +8,5 @@
  * Type of the top list widget.
  */
 
-export type ToplistWidgetDefinitionType = typeof TOPLIST;
+export type ToplistWidgetDefinitionType = typeof TOPLIST | UnparsedObject;
 export const TOPLIST = "toplist";

@@ -25,7 +25,8 @@ export type SyntheticsAssertionType =
   | typeof NETWORK_HOP
   | typeof RECEIVED_MESSAGE
   | typeof GRPC_HEALTHCHECK_STATUS
-  | typeof CONNECTION;
+  | typeof CONNECTION
+  | UnparsedObject;
 export const BODY = "body";
 export const HEADER = "header";
 export const STATUS_CODE = "statusCode";

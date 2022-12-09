@@ -24,7 +24,7 @@ export class NotebookHeatMapCellAttributes {
   /**
    * The size of the graph.
    */
-  "graphSize"?: NotebookGraphSize | UnparsedObject;
+  "graphSize"?: NotebookGraphSize;
   /**
    * Object describing how to split the graph to display multiple visualizations per request.
    */
@@ -32,7 +32,7 @@ export class NotebookHeatMapCellAttributes {
   /**
    * Timeframe for the notebook cell. When 'null', the notebook global time is used.
    */
-  "time"?: NotebookCellTime | UnparsedObject;
+  "time"?: NotebookCellTime;
 
   /**
    * @ignore

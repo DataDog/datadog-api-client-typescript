@@ -26,7 +26,7 @@ export class SyntheticsStepDetail {
   /**
    * Type of assertion to apply in an API test.
    */
-  "checkType"?: SyntheticsCheckType | UnparsedObject;
+  "checkType"?: SyntheticsCheckType;
   /**
    * Description of the test.
    */
@@ -42,7 +42,7 @@ export class SyntheticsStepDetail {
   /**
    * Navigate between different tabs for your browser test.
    */
-  "playingTab"?: SyntheticsPlayingTab | UnparsedObject;
+  "playingTab"?: SyntheticsPlayingTab;
   /**
    * Whether or not screenshots where collected by the test.
    */
@@ -71,7 +71,7 @@ export class SyntheticsStepDetail {
   /**
    * Step type used in your Synthetic test.
    */
-  "type"?: SyntheticsStepType | UnparsedObject;
+  "type"?: SyntheticsStepType;
   /**
    * URL to perform the step against.
    */

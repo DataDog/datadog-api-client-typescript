@@ -17,7 +17,7 @@ export class IncidentFieldAttributesSingleValue {
   /**
    * Type of the single value field definitions.
    */
-  "type"?: IncidentFieldAttributesSingleValueType | UnparsedObject;
+  "type"?: IncidentFieldAttributesSingleValueType;
   /**
    * The single value selected for this field.
    */

@@ -57,7 +57,7 @@ export class MonitorUpdateRequest {
   /**
    * The different states your monitor can be in.
    */
-  "overallState"?: MonitorOverallStates | UnparsedObject;
+  "overallState"?: MonitorOverallStates;
   /**
    * Integer from 1 (high) to 5 (low) indicating alert severity.
    */
@@ -81,7 +81,7 @@ export class MonitorUpdateRequest {
   /**
    * The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
    */
-  "type"?: MonitorType | UnparsedObject;
+  "type"?: MonitorType;
 
   /**
    * @ignore

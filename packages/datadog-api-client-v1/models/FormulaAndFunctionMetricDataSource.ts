@@ -8,5 +8,7 @@
  * Data source for metrics queries.
  */
 
-export type FormulaAndFunctionMetricDataSource = typeof METRICS;
+export type FormulaAndFunctionMetricDataSource =
+  | typeof METRICS
+  | UnparsedObject;
 export const METRICS = "metrics";

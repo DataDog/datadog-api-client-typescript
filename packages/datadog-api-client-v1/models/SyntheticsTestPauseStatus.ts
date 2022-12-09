@@ -9,6 +9,9 @@
  * Synthetic test.
  */
 
-export type SyntheticsTestPauseStatus = typeof LIVE | typeof PAUSED;
+export type SyntheticsTestPauseStatus =
+  | typeof LIVE
+  | typeof PAUSED
+  | UnparsedObject;
 export const LIVE = "live";
 export const PAUSED = "paused";

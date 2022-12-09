@@ -2237,7 +2237,7 @@ export class ObjectSerializer {
         if (enumsMap[type].includes(data)) {
           return data;
         }
-        throw new TypeError(`unknown enum value '${data}'`);
+        return new UnparsedObject(data);
       }
       if (oneOfMap[type]) {
         const oneOfs: any[] = [];

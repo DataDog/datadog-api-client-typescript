@@ -17,7 +17,8 @@ export type MonitorDeviceID =
   | typeof CHROME_MOBILE_SMALL
   | typeof FIREFOX_LAPTOP_LARGE
   | typeof FIREFOX_TABLET
-  | typeof FIREFOX_MOBILE_SMALL;
+  | typeof FIREFOX_MOBILE_SMALL
+  | UnparsedObject;
 export const LAPTOP_LARGE = "laptop_large";
 export const TABLET = "tablet";
 export const MOBILE_SMALL = "mobile_small";

@@ -47,7 +47,7 @@ export class LogsCategoryProcessor {
   /**
    * Type of logs category processor.
    */
-  "type": LogsCategoryProcessorType | UnparsedObject;
+  "type": LogsCategoryProcessorType;
 
   /**
    * @ignore

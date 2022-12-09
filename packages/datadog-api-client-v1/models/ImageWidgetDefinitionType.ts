@@ -8,5 +8,5 @@
  * Type of the image widget.
  */
 
-export type ImageWidgetDefinitionType = typeof IMAGE;
+export type ImageWidgetDefinitionType = typeof IMAGE | UnparsedObject;
 export const IMAGE = "image";

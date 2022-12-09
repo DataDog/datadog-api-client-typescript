@@ -8,5 +8,5 @@
  * The filtered data type.
  */
 
-export type SecurityFilterFilteredDataType = typeof LOGS;
+export type SecurityFilterFilteredDataType = typeof LOGS | UnparsedObject;
 export const LOGS = "logs";

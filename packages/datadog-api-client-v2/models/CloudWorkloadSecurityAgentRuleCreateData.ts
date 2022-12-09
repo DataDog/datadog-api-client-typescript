@@ -22,7 +22,7 @@ export class CloudWorkloadSecurityAgentRuleCreateData {
   /**
    * The type of the resource. The value should always be `agent_rule`.
    */
-  "type": CloudWorkloadSecurityAgentRuleType | UnparsedObject;
+  "type": CloudWorkloadSecurityAgentRuleType;
 
   /**
    * @ignore

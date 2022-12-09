@@ -8,5 +8,5 @@
  * Type of usage data.
  */
 
-export type UsageTimeSeriesType = typeof USAGE_TIMESERIES;
+export type UsageTimeSeriesType = typeof USAGE_TIMESERIES | UnparsedObject;
 export const USAGE_TIMESERIES = "usage_timeseries";

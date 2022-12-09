@@ -12,7 +12,8 @@ export type MetricTagConfigurationMetricTypes =
   | typeof GAUGE
   | typeof COUNT
   | typeof RATE
-  | typeof DISTRIBUTION;
+  | typeof DISTRIBUTION
+  | UnparsedObject;
 export const GAUGE = "gauge";
 export const COUNT = "count";
 export const RATE = "rate";

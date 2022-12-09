@@ -15,7 +15,8 @@ export type FormulaAndFunctionApmDependencyStatName =
   | typeof ERROR_RATE
   | typeof PCT_EXEC_TIME
   | typeof PCT_OF_TRACES
-  | typeof TOTAL_TRACES_COUNT;
+  | typeof TOTAL_TRACES_COUNT
+  | UnparsedObject;
 export const AVG_DURATION = "avg_duration";
 export const AVG_ROOT_DURATION = "avg_root_duration";
 export const AVG_SPANS_PER_TRACE = "avg_spans_per_trace";

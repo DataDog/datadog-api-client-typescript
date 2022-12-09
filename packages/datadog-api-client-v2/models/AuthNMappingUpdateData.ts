@@ -31,7 +31,7 @@ export class AuthNMappingUpdateData {
   /**
    * AuthN Mappings resource type.
    */
-  "type": AuthNMappingsType | UnparsedObject;
+  "type": AuthNMappingsType;
 
   /**
    * @ignore

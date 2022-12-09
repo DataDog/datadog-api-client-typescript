@@ -8,6 +8,9 @@
  * The status of the response
  */
 
-export type LogsAggregateResponseStatus = typeof DONE | typeof TIMEOUT;
+export type LogsAggregateResponseStatus =
+  | typeof DONE
+  | typeof TIMEOUT
+  | UnparsedObject;
 export const DONE = "done";
 export const TIMEOUT = "timeout";

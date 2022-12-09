@@ -23,7 +23,7 @@ export class WidgetFormula {
   /**
    * Define a display mode for the table cell.
    */
-  "cellDisplayMode"?: TableWidgetCellDisplayMode | UnparsedObject;
+  "cellDisplayMode"?: TableWidgetCellDisplayMode;
   /**
    * List of conditional formats.
    */

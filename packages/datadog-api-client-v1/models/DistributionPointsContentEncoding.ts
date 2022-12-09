@@ -8,5 +8,5 @@
  * HTTP header used to compress the media-type.
  */
 
-export type DistributionPointsContentEncoding = typeof DEFLATE;
+export type DistributionPointsContentEncoding = typeof DEFLATE | UnparsedObject;
 export const DEFLATE = "deflate";

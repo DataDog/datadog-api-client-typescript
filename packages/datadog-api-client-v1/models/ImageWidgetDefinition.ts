@@ -29,21 +29,21 @@ export class ImageWidgetDefinition {
   /**
    * Horizontal alignment.
    */
-  "horizontalAlign"?: WidgetHorizontalAlign | UnparsedObject;
+  "horizontalAlign"?: WidgetHorizontalAlign;
   /**
    * Size of the margins around the image.
    * **Note**: `small` and `large` values are deprecated.
    */
-  "margin"?: WidgetMargin | UnparsedObject;
+  "margin"?: WidgetMargin;
   /**
    * How to size the image on the widget. The values are based on the image `object-fit` CSS properties.
    * **Note**: `zoom`, `fit` and `center` values are deprecated.
    */
-  "sizing"?: WidgetImageSizing | UnparsedObject;
+  "sizing"?: WidgetImageSizing;
   /**
    * Type of the image widget.
    */
-  "type": ImageWidgetDefinitionType | UnparsedObject;
+  "type": ImageWidgetDefinitionType;
   /**
    * URL of the image.
    */
@@ -55,7 +55,7 @@ export class ImageWidgetDefinition {
   /**
    * Vertical alignment.
    */
-  "verticalAlign"?: WidgetVerticalAlign | UnparsedObject;
+  "verticalAlign"?: WidgetVerticalAlign;
 
   /**
    * @ignore

@@ -8,5 +8,5 @@
  * Type of the geomap widget.
  */
 
-export type GeomapWidgetDefinitionType = typeof GEOMAP;
+export type GeomapWidgetDefinitionType = typeof GEOMAP | UnparsedObject;
 export const GEOMAP = "geomap";

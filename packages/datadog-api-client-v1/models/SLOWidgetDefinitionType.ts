@@ -8,5 +8,5 @@
  * Type of the SLO widget.
  */
 
-export type SLOWidgetDefinitionType = typeof SLO;
+export type SLOWidgetDefinitionType = typeof SLO | UnparsedObject;
 export const SLO = "slo";

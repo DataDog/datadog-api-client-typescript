@@ -12,7 +12,8 @@ export type SLOCorrectionCategory =
   | typeof SCHEDULED_MAINTENANCE
   | typeof OUTSIDE_BUSINESS_HOURS
   | typeof DEPLOYMENT
-  | typeof OTHER;
+  | typeof OTHER
+  | UnparsedObject;
 export const SCHEDULED_MAINTENANCE = "Scheduled Maintenance";
 export const OUTSIDE_BUSINESS_HOURS = "Outside Business Hours";
 export const DEPLOYMENT = "Deployment";

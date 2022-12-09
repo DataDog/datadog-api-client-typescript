@@ -18,7 +18,7 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   /**
    * Data source for APM dependency stats queries.
    */
-  "dataSource": FormulaAndFunctionApmDependencyStatsDataSource | UnparsedObject;
+  "dataSource": FormulaAndFunctionApmDependencyStatsDataSource;
   /**
    * APM environment.
    */
@@ -54,7 +54,7 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   /**
    * APM statistic.
    */
-  "stat": FormulaAndFunctionApmDependencyStatName | UnparsedObject;
+  "stat": FormulaAndFunctionApmDependencyStatName;
 
   /**
    * @ignore

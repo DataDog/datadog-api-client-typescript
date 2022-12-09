@@ -17,7 +17,7 @@ export class SyntheticsTestCiOptions {
   /**
    * Execution rule for a Synthetics test.
    */
-  "executionRule"?: SyntheticsTestExecutionRule | UnparsedObject;
+  "executionRule"?: SyntheticsTestExecutionRule;
 
   /**
    * @ignore

@@ -17,7 +17,7 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
   /**
    * Aggregation methods for event platform queries.
    */
-  "aggregation": FormulaAndFunctionEventAggregation | UnparsedObject;
+  "aggregation": FormulaAndFunctionEventAggregation;
   /**
    * A time interval in milliseconds.
    */

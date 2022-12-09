@@ -40,11 +40,11 @@ export class NoteWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "textAlign"?: WidgetTextAlign | UnparsedObject;
+  "textAlign"?: WidgetTextAlign;
   /**
    * Define how you want to align the text on the widget.
    */
-  "tickEdge"?: WidgetTickEdge | UnparsedObject;
+  "tickEdge"?: WidgetTickEdge;
   /**
    * Where to position the tick on an edge.
    */
@@ -52,11 +52,11 @@ export class NoteWidgetDefinition {
   /**
    * Type of the note widget.
    */
-  "type": NoteWidgetDefinitionType | UnparsedObject;
+  "type": NoteWidgetDefinitionType;
   /**
    * Vertical alignment.
    */
-  "verticalAlign"?: WidgetVerticalAlign | UnparsedObject;
+  "verticalAlign"?: WidgetVerticalAlign;
 
   /**
    * @ignore

@@ -18,7 +18,8 @@ export type SyntheticsTestDetailsSubType =
   | typeof ICMP
   | typeof UDP
   | typeof WEBSOCKET
-  | typeof GRPC;
+  | typeof GRPC
+  | UnparsedObject;
 export const HTTP = "http";
 export const SSL = "ssl";
 export const TCP = "tcp";

@@ -8,6 +8,6 @@
  * HTTP header used to compress the media-type.
  */
 
-export type ContentEncoding = typeof GZIP | typeof DEFLATE;
+export type ContentEncoding = typeof GZIP | typeof DEFLATE | UnparsedObject;
 export const GZIP = "gzip";
 export const DEFLATE = "deflate";

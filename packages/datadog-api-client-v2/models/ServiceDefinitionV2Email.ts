@@ -25,7 +25,7 @@ export class ServiceDefinitionV2Email {
   /**
    * Contact type.
    */
-  "type": ServiceDefinitionV2EmailType | UnparsedObject;
+  "type": ServiceDefinitionV2EmailType;
 
   /**
    * @ignore

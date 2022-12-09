@@ -18,7 +18,7 @@ export class CIAppCompute {
   /**
    * An aggregation function.
    */
-  "aggregation": CIAppAggregationFunction | UnparsedObject;
+  "aggregation": CIAppAggregationFunction;
   /**
    * The time buckets' size (only used for type=timeseries)
    * Defaults to a resolution of 150 points.
@@ -31,7 +31,7 @@ export class CIAppCompute {
   /**
    * The type of compute.
    */
-  "type"?: CIAppComputeType | UnparsedObject;
+  "type"?: CIAppComputeType;
 
   /**
    * @ignore

@@ -17,7 +17,8 @@ export type ServiceDefinitionV1ResourceType =
   | typeof DASHBOARD
   | typeof ONCALL
   | typeof CODE
-  | typeof LINK;
+  | typeof LINK
+  | UnparsedObject;
 export const DOC = "doc";
 export const WIKI = "wiki";
 export const RUNBOOK = "runbook";

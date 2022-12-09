@@ -21,7 +21,7 @@ export class AWSTagFilterDeleteRequest {
   /**
    * The namespace associated with the tag filter entry.
    */
-  "namespace"?: AWSNamespace | UnparsedObject;
+  "namespace"?: AWSNamespace;
 
   /**
    * @ignore

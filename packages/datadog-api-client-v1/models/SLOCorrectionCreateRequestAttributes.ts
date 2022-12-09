@@ -17,7 +17,7 @@ export class SLOCorrectionCreateRequestAttributes {
   /**
    * Category the SLO correction belongs to.
    */
-  "category": SLOCorrectionCategory | UnparsedObject;
+  "category": SLOCorrectionCategory;
   /**
    * Description of the correction being made.
    */

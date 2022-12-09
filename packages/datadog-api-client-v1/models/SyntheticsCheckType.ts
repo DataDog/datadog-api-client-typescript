@@ -22,7 +22,8 @@ export type SyntheticsCheckType =
   | typeof MATCH_REGEX
   | typeof BETWEEN
   | typeof IS_EMPTY
-  | typeof NOT_IS_EMPTY;
+  | typeof NOT_IS_EMPTY
+  | UnparsedObject;
 export const EQUALS = "equals";
 export const NOT_EQUALS = "notEquals";
 export const CONTAINS = "contains";

@@ -27,7 +27,7 @@ export class ListStreamWidgetRequest {
   /**
    * Widget response format.
    */
-  "responseFormat": ListStreamResponseFormat | UnparsedObject;
+  "responseFormat": ListStreamResponseFormat;
 
   /**
    * @ignore

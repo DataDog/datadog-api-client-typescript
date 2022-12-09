@@ -14,7 +14,8 @@
 export type SyntheticsTestMonitorStatus =
   | typeof UNTRIGGERED
   | typeof TRIGGERED
-  | typeof NO_DATA;
+  | typeof NO_DATA
+  | UnparsedObject;
 export const UNTRIGGERED = 0;
 export const TRIGGERED = 1;
 export const NO_DATA = 2;

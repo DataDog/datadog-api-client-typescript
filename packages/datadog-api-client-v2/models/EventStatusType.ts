@@ -18,7 +18,8 @@ export type EventStatusType =
   | typeof SUCCESS
   | typeof USER_UPDATE
   | typeof RECOMMENDATION
-  | typeof SNAPSHOT;
+  | typeof SNAPSHOT
+  | UnparsedObject;
 export const FAILURE = "failure";
 export const ERROR = "error";
 export const WARNING = "warning";

@@ -13,7 +13,8 @@ export type NotebookGraphSize =
   | typeof SMALL
   | typeof MEDIUM
   | typeof LARGE
-  | typeof EXTRA_LARGE;
+  | typeof EXTRA_LARGE
+  | UnparsedObject;
 export const EXTRA_SMALL = "xs";
 export const SMALL = "s";
 export const MEDIUM = "m";

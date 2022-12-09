@@ -49,7 +49,7 @@ export class HourlyUsageAttributionBody {
   /**
    * Supported products for hourly usage attribution requests.
    */
-  "usageType"?: HourlyUsageAttributionUsageType | UnparsedObject;
+  "usageType"?: HourlyUsageAttributionUsageType;
 
   /**
    * @ignore

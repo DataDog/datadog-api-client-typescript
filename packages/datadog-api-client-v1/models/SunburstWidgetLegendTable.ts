@@ -17,7 +17,7 @@ export class SunburstWidgetLegendTable {
   /**
    * Whether or not to show a table legend.
    */
-  "type": SunburstWidgetLegendTableType | UnparsedObject;
+  "type": SunburstWidgetLegendTableType;
 
   /**
    * @ignore

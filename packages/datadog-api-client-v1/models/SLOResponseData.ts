@@ -97,7 +97,7 @@ export class SLOResponseData {
   /**
    * The type of the service level objective.
    */
-  "type"?: SLOType | UnparsedObject;
+  "type"?: SLOType;
 
   /**
    * @ignore

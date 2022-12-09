@@ -13,7 +13,8 @@ export type SecurityMonitoringRuleSeverity =
   | typeof LOW
   | typeof MEDIUM
   | typeof HIGH
-  | typeof CRITICAL;
+  | typeof CRITICAL
+  | UnparsedObject;
 export const INFO = "info";
 export const LOW = "low";
 export const MEDIUM = "medium";

@@ -14,7 +14,8 @@ export type ApplicationKeysSort =
   | typeof LAST4_ASCENDING
   | typeof LAST4_DESCENDING
   | typeof NAME_ASCENDING
-  | typeof NAME_DESCENDING;
+  | typeof NAME_DESCENDING
+  | UnparsedObject;
 export const CREATED_AT_ASCENDING = "created_at";
 export const CREATED_AT_DESCENDING = "-created_at";
 export const LAST4_ASCENDING = "last4";

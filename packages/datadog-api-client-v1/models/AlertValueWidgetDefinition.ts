@@ -26,7 +26,7 @@ export class AlertValueWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "textAlign"?: WidgetTextAlign | UnparsedObject;
+  "textAlign"?: WidgetTextAlign;
   /**
    * Title of the widget.
    */
@@ -34,7 +34,7 @@ export class AlertValueWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of value in the widget.
    */
@@ -42,7 +42,7 @@ export class AlertValueWidgetDefinition {
   /**
    * Type of the alert value widget.
    */
-  "type": AlertValueWidgetDefinitionType | UnparsedObject;
+  "type": AlertValueWidgetDefinitionType;
   /**
    * Unit to display with the value.
    */

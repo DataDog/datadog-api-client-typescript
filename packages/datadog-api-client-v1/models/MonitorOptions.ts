@@ -125,7 +125,7 @@ export class MonitorOptions {
    * For monitors using any query type other than Count, for example Gauge, Measure, or Rate, the monitor shows the last known status.
    * This option is only available for APM Trace Analytics, Audit Trail, CI, Error Tracking, Event, Logs, and RUM monitors.
    */
-  "onMissingData"?: OnMissingDataOption | UnparsedObject;
+  "onMissingData"?: OnMissingDataOption;
   /**
    * The number of minutes after the last notification before a monitor re-notifies on the current status.
    * It only re-notifies if it’s not resolved.

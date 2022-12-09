@@ -8,6 +8,6 @@
  * The type of the service level objective.
  */
 
-export type SLOType = typeof METRIC | typeof MONITOR;
+export type SLOType = typeof METRIC | typeof MONITOR | UnparsedObject;
 export const METRIC = "metric";
 export const MONITOR = "monitor";

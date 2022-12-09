@@ -35,7 +35,7 @@ export class ServiceMapWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -43,7 +43,7 @@ export class ServiceMapWidgetDefinition {
   /**
    * Type of the service map widget.
    */
-  "type": ServiceMapWidgetDefinitionType | UnparsedObject;
+  "type": ServiceMapWidgetDefinitionType;
 
   /**
    * @ignore

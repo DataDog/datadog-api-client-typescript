@@ -38,7 +38,7 @@ export class ApmStatsQueryDefinition {
   /**
    * The level of detail for the request.
    */
-  "rowType": ApmStatsQueryRowType | UnparsedObject;
+  "rowType": ApmStatsQueryRowType;
   /**
    * Service name.
    */

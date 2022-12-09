@@ -17,7 +17,7 @@ export class ServiceDefinitionV2Opsgenie {
   /**
    * Opsgenie instance region.
    */
-  "region"?: ServiceDefinitionV2OpsgenieRegion | UnparsedObject;
+  "region"?: ServiceDefinitionV2OpsgenieRegion;
   /**
    * Opsgenie service url.
    */

@@ -33,7 +33,7 @@ export class RUMSearchEventsRequest {
   /**
    * Sort parameters when querying events.
    */
-  "sort"?: RUMSort | UnparsedObject;
+  "sort"?: RUMSort;
 
   /**
    * @ignore

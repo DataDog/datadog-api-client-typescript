@@ -37,7 +37,7 @@ export class ToplistWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -45,7 +45,7 @@ export class ToplistWidgetDefinition {
   /**
    * Type of the top list widget.
    */
-  "type": ToplistWidgetDefinitionType | UnparsedObject;
+  "type": ToplistWidgetDefinitionType;
 
   /**
    * @ignore

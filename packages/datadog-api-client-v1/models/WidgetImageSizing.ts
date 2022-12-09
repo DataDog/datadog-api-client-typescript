@@ -17,7 +17,8 @@ export type WidgetImageSizing =
   | typeof SCALEDOWN
   | typeof ZOOM
   | typeof FIT
-  | typeof CENTER;
+  | typeof CENTER
+  | UnparsedObject;
 export const FILL = "fill";
 export const CONTAIN = "contain";
 export const COVER = "cover";

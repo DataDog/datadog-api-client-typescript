@@ -10,6 +10,7 @@
 
 export type SecurityMonitoringRuleNewValueOptionsLearningMethod =
   | typeof DURATION
-  | typeof THRESHOLD;
+  | typeof THRESHOLD
+  | UnparsedObject;
 export const DURATION = "duration";
 export const THRESHOLD = "threshold";

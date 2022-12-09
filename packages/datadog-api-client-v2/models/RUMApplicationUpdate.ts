@@ -26,7 +26,7 @@ export class RUMApplicationUpdate {
   /**
    * RUM application update type.
    */
-  "type": RUMApplicationUpdateType | UnparsedObject;
+  "type": RUMApplicationUpdateType;
 
   /**
    * @ignore

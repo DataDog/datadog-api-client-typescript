@@ -8,6 +8,9 @@
  * Which color to use on the widget.
  */
 
-export type WidgetColorPreference = typeof BACKGROUND | typeof TEXT;
+export type WidgetColorPreference =
+  | typeof BACKGROUND
+  | typeof TEXT
+  | UnparsedObject;
 export const BACKGROUND = "background";
 export const TEXT = "text";

@@ -21,7 +21,7 @@ export class ListStreamColumn {
   /**
    * Widget column width.
    */
-  "width": ListStreamColumnWidth | UnparsedObject;
+  "width": ListStreamColumnWidth;
 
   /**
    * @ignore

@@ -19,7 +19,7 @@ export class NotebookCellUpdateRequest {
    * The attributes of a notebook cell in update cell request. Valid cell types are `markdown`, `timeseries`, `toplist`, `heatmap`, `distribution`,
    * `log_stream`. [More information on each graph visualization type.](https://docs.datadoghq.com/dashboards/widgets/)
    */
-  "attributes": NotebookCellUpdateRequestAttributes | UnparsedObject;
+  "attributes": NotebookCellUpdateRequestAttributes;
   /**
    * Notebook cell ID.
    */
@@ -27,7 +27,7 @@ export class NotebookCellUpdateRequest {
   /**
    * Type of the Notebook Cell resource.
    */
-  "type": NotebookCellResourceType | UnparsedObject;
+  "type": NotebookCellResourceType;
 
   /**
    * @ignore

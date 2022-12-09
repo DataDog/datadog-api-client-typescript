@@ -23,11 +23,11 @@ export class NotebookLogStreamCellAttributes {
   /**
    * The size of the graph.
    */
-  "graphSize"?: NotebookGraphSize | UnparsedObject;
+  "graphSize"?: NotebookGraphSize;
   /**
    * Timeframe for the notebook cell. When 'null', the notebook global time is used.
    */
-  "time"?: NotebookCellTime | UnparsedObject;
+  "time"?: NotebookCellTime;
 
   /**
    * @ignore

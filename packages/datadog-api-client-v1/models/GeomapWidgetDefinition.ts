@@ -46,7 +46,7 @@ export class GeomapWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * The size of the title.
    */
@@ -54,7 +54,7 @@ export class GeomapWidgetDefinition {
   /**
    * Type of the geomap widget.
    */
-  "type": GeomapWidgetDefinitionType | UnparsedObject;
+  "type": GeomapWidgetDefinitionType;
   /**
    * The view of the world that the map should render.
    */

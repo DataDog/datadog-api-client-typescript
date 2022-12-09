@@ -41,7 +41,7 @@ export class ListStreamWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -49,7 +49,7 @@ export class ListStreamWidgetDefinition {
   /**
    * Type of the list stream widget.
    */
-  "type": ListStreamWidgetDefinitionType | UnparsedObject;
+  "type": ListStreamWidgetDefinitionType;
 
   /**
    * @ignore

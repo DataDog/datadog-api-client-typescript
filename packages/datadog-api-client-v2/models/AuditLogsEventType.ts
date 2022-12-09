@@ -8,5 +8,5 @@
  * Type of the event.
  */
 
-export type AuditLogsEventType = typeof Audit;
+export type AuditLogsEventType = typeof Audit | UnparsedObject;
 export const Audit = "audit";

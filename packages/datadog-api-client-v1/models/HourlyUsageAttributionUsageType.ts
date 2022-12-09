@@ -35,7 +35,8 @@ export type HourlyUsageAttributionUsageType =
   | typeof NPM_HOST_USAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_HOST_USAGE
-  | typeof SNMP_USAGE;
+  | typeof SNMP_USAGE
+  | UnparsedObject;
 export const API_USAGE = "api_usage";
 export const APM_FARGATE_USAGE = "apm_fargate_usage";
 export const APM_HOST_USAGE = "apm_host_usage";

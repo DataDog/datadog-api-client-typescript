@@ -21,7 +21,8 @@ export type SecurityMonitoringRuleMaxSignalDuration =
   | typeof THREE_HOURS
   | typeof SIX_HOURS
   | typeof TWELVE_HOURS
-  | typeof ONE_DAY;
+  | typeof ONE_DAY
+  | UnparsedObject;
 export const ZERO_MINUTES = 0;
 export const ONE_MINUTE = 60;
 export const FIVE_MINUTES = 300;

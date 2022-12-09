@@ -21,7 +21,7 @@ export class ServiceDefinitionV2Link {
   /**
    * Link type.
    */
-  "type": ServiceDefinitionV2LinkType | UnparsedObject;
+  "type": ServiceDefinitionV2LinkType;
   /**
    * Link URL.
    */

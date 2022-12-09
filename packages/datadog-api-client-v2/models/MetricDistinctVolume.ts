@@ -26,7 +26,7 @@ export class MetricDistinctVolume {
   /**
    * The metric distinct volume type.
    */
-  "type"?: MetricDistinctVolumeType | UnparsedObject;
+  "type"?: MetricDistinctVolumeType;
 
   /**
    * @ignore

@@ -8,5 +8,5 @@
  * The subtype of the Synthetic multistep API test step, currently only supporting `http`.
  */
 
-export type SyntheticsAPIStepSubtype = typeof HTTP;
+export type SyntheticsAPIStepSubtype = typeof HTTP | UnparsedObject;
 export const HTTP = "http";

@@ -22,7 +22,7 @@ export class WebhooksIntegration {
   /**
    * Encoding type. Can be given either `json` or `form`.
    */
-  "encodeAs"?: WebhooksIntegrationEncoding | UnparsedObject;
+  "encodeAs"?: WebhooksIntegrationEncoding;
   /**
    * The name of the webhook. It corresponds with `<WEBHOOK_NAME>`.
    * Learn more on how to use it in

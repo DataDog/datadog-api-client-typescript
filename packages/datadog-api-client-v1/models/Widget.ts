@@ -23,7 +23,7 @@ export class Widget {
   /**
    * [Definition of the widget](https://docs.datadoghq.com/dashboards/widgets/).
    */
-  "definition": WidgetDefinition | UnparsedObject;
+  "definition": WidgetDefinition;
   /**
    * ID of the widget.
    */

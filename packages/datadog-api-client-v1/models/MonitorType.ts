@@ -24,7 +24,8 @@ export type MonitorType =
   | typeof AUDIT_ALERT
   | typeof CI_PIPELINES_ALERT
   | typeof CI_TESTS_ALERT
-  | typeof ERROR_TRACKING_ALERT;
+  | typeof ERROR_TRACKING_ALERT
+  | UnparsedObject;
 export const COMPOSITE = "composite";
 export const EVENT_ALERT = "event alert";
 export const LOG_ALERT = "log alert";

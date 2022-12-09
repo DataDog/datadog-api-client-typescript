@@ -10,6 +10,6 @@
  * Ignored in create/update requests.
  */
 
-export type SLOTypeNumeric = typeof MONITOR | typeof METRIC;
+export type SLOTypeNumeric = typeof MONITOR | typeof METRIC | UnparsedObject;
 export const MONITOR = 0;
 export const METRIC = 1;

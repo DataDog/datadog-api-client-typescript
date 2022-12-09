@@ -27,7 +27,7 @@ export class SLOListWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -35,7 +35,7 @@ export class SLOListWidgetDefinition {
   /**
    * Type of the SLO List widget.
    */
-  "type": SLOListWidgetDefinitionType | UnparsedObject;
+  "type": SLOListWidgetDefinitionType;
 
   /**
    * @ignore

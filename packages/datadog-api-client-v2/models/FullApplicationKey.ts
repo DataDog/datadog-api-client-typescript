@@ -31,7 +31,7 @@ export class FullApplicationKey {
   /**
    * Application Keys resource type.
    */
-  "type"?: ApplicationKeysType | UnparsedObject;
+  "type"?: ApplicationKeysType;
 
   /**
    * @ignore

@@ -11,7 +11,8 @@
 export type TableWidgetHasSearchBar =
   | typeof ALWAYS
   | typeof NEVER
-  | typeof AUTO;
+  | typeof AUTO
+  | UnparsedObject;
 export const ALWAYS = "always";
 export const NEVER = "never";
 export const AUTO = "auto";

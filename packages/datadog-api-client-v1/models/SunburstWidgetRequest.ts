@@ -61,7 +61,7 @@ export class SunburstWidgetRequest {
   /**
    * Timeseries or Scalar response.
    */
-  "responseFormat"?: FormulaAndFunctionResponseFormat | UnparsedObject;
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**
    * The log query.
    */

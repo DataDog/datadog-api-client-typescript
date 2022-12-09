@@ -14,7 +14,8 @@ export type TargetFormatType =
   | typeof AUTO
   | typeof STRING
   | typeof INTEGER
-  | typeof DOUBLE;
+  | typeof DOUBLE
+  | UnparsedObject;
 export const AUTO = "auto";
 export const STRING = "string";
 export const INTEGER = "integer";

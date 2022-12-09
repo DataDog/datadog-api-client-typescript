@@ -37,7 +37,7 @@ export class LogsURLParser {
   /**
    * Type of logs URL parser.
    */
-  "type": LogsURLParserType | UnparsedObject;
+  "type": LogsURLParserType;
 
   /**
    * @ignore

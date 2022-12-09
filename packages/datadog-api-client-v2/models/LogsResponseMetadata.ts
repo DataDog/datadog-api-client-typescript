@@ -31,7 +31,7 @@ export class LogsResponseMetadata {
   /**
    * The status of the response
    */
-  "status"?: LogsAggregateResponseStatus | UnparsedObject;
+  "status"?: LogsAggregateResponseStatus;
   /**
    * A list of warnings (non fatal errors) encountered, partial results might be returned if
    * warnings are present in the response.

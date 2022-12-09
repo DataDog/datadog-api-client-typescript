@@ -15,7 +15,8 @@ export type MonitorOverallStates =
   | typeof OK
   | typeof SKIPPED
   | typeof UNKNOWN
-  | typeof WARN;
+  | typeof WARN
+  | UnparsedObject;
 export const ALERT = "Alert";
 export const IGNORED = "Ignored";
 export const NO_DATA = "No Data";

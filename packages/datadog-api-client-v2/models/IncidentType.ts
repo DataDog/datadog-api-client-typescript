@@ -8,5 +8,5 @@
  * Incident resource type.
  */
 
-export type IncidentType = typeof INCIDENTS;
+export type IncidentType = typeof INCIDENTS | UnparsedObject;
 export const INCIDENTS = "incidents";

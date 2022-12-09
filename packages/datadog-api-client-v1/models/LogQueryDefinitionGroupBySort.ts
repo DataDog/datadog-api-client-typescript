@@ -25,7 +25,7 @@ export class LogQueryDefinitionGroupBySort {
   /**
    * Widget sorting methods.
    */
-  "order": WidgetSort | UnparsedObject;
+  "order": WidgetSort;
 
   /**
    * @ignore

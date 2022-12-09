@@ -11,7 +11,8 @@
 export type SyntheticsTestExecutionRule =
   | typeof BLOCKING
   | typeof NON_BLOCKING
-  | typeof SKIPPED;
+  | typeof SKIPPED
+  | UnparsedObject;
 export const BLOCKING = "blocking";
 export const NON_BLOCKING = "non_blocking";
 export const SKIPPED = "skipped";

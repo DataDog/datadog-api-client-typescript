@@ -8,5 +8,5 @@
  * Type of the event.
  */
 
-export type RUMEventType = typeof RUM;
+export type RUMEventType = typeof RUM | UnparsedObject;
 export const RUM = "rum";

@@ -19,7 +19,7 @@ export class SLOCorrectionResponseAttributes {
   /**
    * Category the SLO correction belongs to.
    */
-  "category"?: SLOCorrectionCategory | UnparsedObject;
+  "category"?: SLOCorrectionCategory;
   /**
    * The epoch timestamp of when the correction was created at.
    */

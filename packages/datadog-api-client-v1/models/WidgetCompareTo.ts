@@ -12,7 +12,8 @@ export type WidgetCompareTo =
   | typeof HOUR_BEFORE
   | typeof DAY_BEFORE
   | typeof WEEK_BEFORE
-  | typeof MONTH_BEFORE;
+  | typeof MONTH_BEFORE
+  | UnparsedObject;
 export const HOUR_BEFORE = "hour_before";
 export const DAY_BEFORE = "day_before";
 export const WEEK_BEFORE = "week_before";

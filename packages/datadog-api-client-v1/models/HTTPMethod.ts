@@ -15,7 +15,8 @@ export type HTTPMethod =
   | typeof PUT
   | typeof DELETE
   | typeof HEAD
-  | typeof OPTIONS;
+  | typeof OPTIONS
+  | UnparsedObject;
 export const GET = "GET";
 export const POST = "POST";
 export const PATCH = "PATCH";

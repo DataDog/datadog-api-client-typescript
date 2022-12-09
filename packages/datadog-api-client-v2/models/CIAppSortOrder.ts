@@ -8,6 +8,9 @@
  * The order to use, ascending or descending.
  */
 
-export type CIAppSortOrder = typeof ASCENDING | typeof DESCENDING;
+export type CIAppSortOrder =
+  | typeof ASCENDING
+  | typeof DESCENDING
+  | UnparsedObject;
 export const ASCENDING = "asc";
 export const DESCENDING = "desc";

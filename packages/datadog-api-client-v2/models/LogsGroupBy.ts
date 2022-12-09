@@ -33,7 +33,7 @@ export class LogsGroupBy {
   /**
    * The value to use for logs that don't have the facet used to group by
    */
-  "missing"?: LogsGroupByMissing | UnparsedObject;
+  "missing"?: LogsGroupByMissing;
   /**
    * A sort rule
    */
@@ -41,7 +41,7 @@ export class LogsGroupBy {
   /**
    * A resulting object to put the given computes in over all the matching records.
    */
-  "total"?: LogsGroupByTotal | UnparsedObject;
+  "total"?: LogsGroupByTotal;
 
   /**
    * @ignore

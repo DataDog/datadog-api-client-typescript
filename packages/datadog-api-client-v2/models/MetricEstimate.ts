@@ -26,7 +26,7 @@ export class MetricEstimate {
   /**
    * The metric estimate resource type.
    */
-  "type"?: MetricEstimateResourceType | UnparsedObject;
+  "type"?: MetricEstimateResourceType;
 
   /**
    * @ignore

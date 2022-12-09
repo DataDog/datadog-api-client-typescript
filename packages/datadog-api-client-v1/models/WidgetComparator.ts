@@ -12,7 +12,8 @@ export type WidgetComparator =
   | typeof GREATER_THAN
   | typeof GREATER_THAN_OR_EQUAL_TO
   | typeof LESS_THAN
-  | typeof LESS_THAN_OR_EQUAL_TO;
+  | typeof LESS_THAN_OR_EQUAL_TO
+  | UnparsedObject;
 export const GREATER_THAN = ">";
 export const GREATER_THAN_OR_EQUAL_TO = ">=";
 export const LESS_THAN = "<";

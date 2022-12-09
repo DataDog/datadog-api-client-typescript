@@ -17,7 +17,7 @@ export class WidgetTime {
   /**
    * The available timeframes depend on the widget you are using.
    */
-  "liveSpan"?: WidgetLiveSpan | UnparsedObject;
+  "liveSpan"?: WidgetLiveSpan;
 
   /**
    * @ignore

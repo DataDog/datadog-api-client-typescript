@@ -41,7 +41,8 @@ export type SyntheticsBrowserTestFailureCode =
   | typeof UPLOAD_FILES_ELEMENT_TYPE
   | typeof UPLOAD_FILES_DIALOG
   | typeof UPLOAD_FILES_DYNAMIC_ELEMENT
-  | typeof UPLOAD_FILES_NAME;
+  | typeof UPLOAD_FILES_NAME
+  | UnparsedObject;
 export const API_REQUEST_FAILURE = "API_REQUEST_FAILURE";
 export const ASSERTION_FAILURE = "ASSERTION_FAILURE";
 export const DOWNLOAD_FILE_TOO_LARGE = "DOWNLOAD_FILE_TOO_LARGE";

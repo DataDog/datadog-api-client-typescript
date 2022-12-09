@@ -8,5 +8,5 @@
  * Incident service resource type.
  */
 
-export type IncidentServiceType = typeof SERVICES;
+export type IncidentServiceType = typeof SERVICES | UnparsedObject;
 export const SERVICES = "services";

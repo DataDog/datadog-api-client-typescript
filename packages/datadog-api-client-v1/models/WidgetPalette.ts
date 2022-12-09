@@ -27,7 +27,8 @@ export type WidgetPalette =
   | typeof YELLOW_ON_WHITE
   | typeof BLACK_ON_LIGHT_YELLOW
   | typeof BLACK_ON_LIGHT_GREEN
-  | typeof BLACK_ON_LIGHT_RED;
+  | typeof BLACK_ON_LIGHT_RED
+  | UnparsedObject;
 export const BLUE = "blue";
 export const CUSTOM_BACKGROUND = "custom_bg";
 export const CUSTOM_IMAGE = "custom_image";

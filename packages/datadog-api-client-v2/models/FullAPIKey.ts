@@ -31,7 +31,7 @@ export class FullAPIKey {
   /**
    * API Keys resource type.
    */
-  "type"?: APIKeysType | UnparsedObject;
+  "type"?: APIKeysType;
 
   /**
    * @ignore

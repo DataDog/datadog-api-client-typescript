@@ -43,7 +43,7 @@ export class SLOOverallStatuses {
   /**
    * The SLO time window options.
    */
-  "timeframe"?: SLOTimeframe | UnparsedObject;
+  "timeframe"?: SLOTimeframe;
 
   /**
    * @ignore

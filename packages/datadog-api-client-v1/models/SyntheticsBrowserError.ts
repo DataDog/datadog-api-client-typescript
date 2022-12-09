@@ -29,7 +29,7 @@ export class SyntheticsBrowserError {
   /**
    * Error type returned by a browser test.
    */
-  "type": SyntheticsBrowserErrorType | UnparsedObject;
+  "type": SyntheticsBrowserErrorType;
 
   /**
    * @ignore

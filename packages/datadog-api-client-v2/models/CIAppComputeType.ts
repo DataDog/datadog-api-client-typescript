@@ -8,6 +8,9 @@
  * The type of compute.
  */
 
-export type CIAppComputeType = typeof TIMESERIES | typeof TOTAL;
+export type CIAppComputeType =
+  | typeof TIMESERIES
+  | typeof TOTAL
+  | UnparsedObject;
 export const TIMESERIES = "timeseries";
 export const TOTAL = "total";

@@ -42,7 +42,7 @@ export class QueryValueWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "textAlign"?: WidgetTextAlign | UnparsedObject;
+  "textAlign"?: WidgetTextAlign;
   /**
    * Time setting for the widget.
    */
@@ -58,7 +58,7 @@ export class QueryValueWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -66,7 +66,7 @@ export class QueryValueWidgetDefinition {
   /**
    * Type of the query value widget.
    */
-  "type": QueryValueWidgetDefinitionType | UnparsedObject;
+  "type": QueryValueWidgetDefinitionType;
 
   /**
    * @ignore

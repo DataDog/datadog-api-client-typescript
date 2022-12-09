@@ -25,7 +25,7 @@ export class SyntheticsTestRequest {
   /**
    * Object to handle basic authentication when performing the test.
    */
-  "basicAuth"?: SyntheticsBasicAuth | UnparsedObject;
+  "basicAuth"?: SyntheticsBasicAuth;
   /**
    * Body to include in the test.
    */
@@ -33,7 +33,7 @@ export class SyntheticsTestRequest {
   /**
    * Type of the request body.
    */
-  "bodyType"?: SyntheticsTestRequestBodyType | UnparsedObject;
+  "bodyType"?: SyntheticsTestRequestBodyType;
   /**
    * Client certificate to use when performing the test request.
    */
@@ -73,7 +73,7 @@ export class SyntheticsTestRequest {
   /**
    * The HTTP method.
    */
-  "method"?: HTTPMethod | UnparsedObject;
+  "method"?: HTTPMethod;
   /**
    * Determines whether or not to save the response body.
    */

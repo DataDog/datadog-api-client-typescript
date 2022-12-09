@@ -54,11 +54,11 @@ export class DistributionWidgetRequest {
   /**
    * Query definition for Distribution Widget Histogram Request
    */
-  "query"?: DistributionWidgetHistogramRequestQuery | UnparsedObject;
+  "query"?: DistributionWidgetHistogramRequestQuery;
   /**
    * Request type for the histogram request.
    */
-  "requestType"?: DistributionWidgetHistogramRequestType | UnparsedObject;
+  "requestType"?: DistributionWidgetHistogramRequestType;
   /**
    * The log query.
    */

@@ -10,6 +10,7 @@
 
 export type SecurityMonitoringRuleTypeCreate =
   | typeof LOG_DETECTION
-  | typeof WORKLOAD_SECURITY;
+  | typeof WORKLOAD_SECURITY
+  | UnparsedObject;
 export const LOG_DETECTION = "log_detection";
 export const WORKLOAD_SECURITY = "workload_security";

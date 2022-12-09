@@ -8,5 +8,5 @@
  * RUM application response type.
  */
 
-export type RUMApplicationType = typeof RUM_APPLICATION;
+export type RUMApplicationType = typeof RUM_APPLICATION | UnparsedObject;
 export const RUM_APPLICATION = "rum_application";

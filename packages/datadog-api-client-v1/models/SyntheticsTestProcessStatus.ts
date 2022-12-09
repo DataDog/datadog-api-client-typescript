@@ -12,7 +12,8 @@ export type SyntheticsTestProcessStatus =
   | typeof NOT_SCHEDULED
   | typeof SCHEDULED
   | typeof FINISHED
-  | typeof FINISHED_WITH_ERROR;
+  | typeof FINISHED_WITH_ERROR
+  | UnparsedObject;
 export const NOT_SCHEDULED = "not_scheduled";
 export const SCHEDULED = "scheduled";
 export const FINISHED = "finished";

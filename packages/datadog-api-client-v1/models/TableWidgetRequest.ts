@@ -26,7 +26,7 @@ export class TableWidgetRequest {
   /**
    * Aggregator used for the request.
    */
-  "aggregator"?: WidgetAggregator | UnparsedObject;
+  "aggregator"?: WidgetAggregator;
   /**
    * The column name (defaults to the metric name).
    */
@@ -70,7 +70,7 @@ export class TableWidgetRequest {
   /**
    * Widget sorting methods.
    */
-  "order"?: WidgetSort | UnparsedObject;
+  "order"?: WidgetSort;
   /**
    * The process query to use in the widget.
    */
@@ -90,7 +90,7 @@ export class TableWidgetRequest {
   /**
    * Timeseries or Scalar response.
    */
-  "responseFormat"?: FormulaAndFunctionResponseFormat | UnparsedObject;
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**
    * The log query.
    */

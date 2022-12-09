@@ -34,7 +34,8 @@ export type SyntheticsApiTestFailureCode =
   | typeof TUNNEL
   | typeof WEBSOCKET
   | typeof UNKNOWN
-  | typeof INTERNAL_ERROR;
+  | typeof INTERNAL_ERROR
+  | UnparsedObject;
 export const BODY_TOO_LARGE = "BODY_TOO_LARGE";
 export const DENIED = "DENIED";
 export const TOO_MANY_REDIRECTS = "TOO_MANY_REDIRECTS";

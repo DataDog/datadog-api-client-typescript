@@ -10,6 +10,7 @@
 
 export type LogsMetricComputeAggregationType =
   | typeof COUNT
-  | typeof DISTRIBUTION;
+  | typeof DISTRIBUTION
+  | UnparsedObject;
 export const COUNT = "count";
 export const DISTRIBUTION = "distribution";

@@ -11,7 +11,8 @@
 export type SignalTriageState =
   | typeof OPEN
   | typeof ARCHIVED
-  | typeof UNDER_REVIEW;
+  | typeof UNDER_REVIEW
+  | UnparsedObject;
 export const OPEN = "open";
 export const ARCHIVED = "archived";
 export const UNDER_REVIEW = "under_review";

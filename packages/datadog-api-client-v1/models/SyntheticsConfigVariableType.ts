@@ -8,6 +8,9 @@
  * Type of the configuration variable.
  */
 
-export type SyntheticsConfigVariableType = typeof GLOBAL | typeof TEXT;
+export type SyntheticsConfigVariableType =
+  | typeof GLOBAL
+  | typeof TEXT
+  | UnparsedObject;
 export const GLOBAL = "global";
 export const TEXT = "text";

@@ -21,7 +21,7 @@ export class RelationshipToPermissionData {
   /**
    * Permissions resource type.
    */
-  "type"?: PermissionsType | UnparsedObject;
+  "type"?: PermissionsType;
 
   /**
    * @ignore

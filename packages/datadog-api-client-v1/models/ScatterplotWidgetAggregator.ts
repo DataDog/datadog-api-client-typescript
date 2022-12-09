@@ -13,7 +13,8 @@ export type ScatterplotWidgetAggregator =
   | typeof LAST
   | typeof MAXIMUM
   | typeof MINIMUM
-  | typeof SUM;
+  | typeof SUM
+  | UnparsedObject;
 export const AVERAGE = "avg";
 export const LAST = "last";
 export const MAXIMUM = "max";

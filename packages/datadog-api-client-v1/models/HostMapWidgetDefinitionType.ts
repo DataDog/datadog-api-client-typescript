@@ -8,5 +8,5 @@
  * Type of the host map widget.
  */
 
-export type HostMapWidgetDefinitionType = typeof HOSTMAP;
+export type HostMapWidgetDefinitionType = typeof HOSTMAP | UnparsedObject;
 export const HOSTMAP = "hostmap";

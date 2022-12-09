@@ -13,7 +13,8 @@ export type ListStreamSource =
   | typeof AUDIT_STREAM
   | typeof RUM_ISSUE_STREAM
   | typeof APM_ISSUE_STREAM
-  | typeof LOGS_PATTERN_STREAM;
+  | typeof LOGS_PATTERN_STREAM
+  | UnparsedObject;
 export const LOGS_STREAM = "logs_stream";
 export const AUDIT_STREAM = "audit_stream";
 export const RUM_ISSUE_STREAM = "rum_issue_stream";

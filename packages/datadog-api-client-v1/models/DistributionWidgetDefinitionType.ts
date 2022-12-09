@@ -8,5 +8,7 @@
  * Type of the distribution widget.
  */
 
-export type DistributionWidgetDefinitionType = typeof DISTRIBUTION;
+export type DistributionWidgetDefinitionType =
+  | typeof DISTRIBUTION
+  | UnparsedObject;
 export const DISTRIBUTION = "distribution";

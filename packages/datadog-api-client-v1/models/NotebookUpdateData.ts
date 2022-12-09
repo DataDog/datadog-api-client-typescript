@@ -22,7 +22,7 @@ export class NotebookUpdateData {
   /**
    * Type of the Notebook resource.
    */
-  "type": NotebookResourceType | UnparsedObject;
+  "type": NotebookResourceType;
 
   /**
    * @ignore

@@ -8,5 +8,5 @@
  * Incident Team resource type.
  */
 
-export type IncidentTeamType = typeof TEAMS;
+export type IncidentTeamType = typeof TEAMS | UnparsedObject;
 export const TEAMS = "teams";

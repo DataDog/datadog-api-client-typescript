@@ -8,5 +8,5 @@
  * Type of logs status remapper.
  */
 
-export type LogsStatusRemapperType = typeof STATUS_REMAPPER;
+export type LogsStatusRemapperType = typeof STATUS_REMAPPER | UnparsedObject;
 export const STATUS_REMAPPER = "status-remapper";

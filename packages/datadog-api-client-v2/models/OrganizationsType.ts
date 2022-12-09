@@ -8,5 +8,5 @@
  * Organizations resource type.
  */
 
-export type OrganizationsType = typeof ORGS;
+export type OrganizationsType = typeof ORGS | UnparsedObject;
 export const ORGS = "orgs";

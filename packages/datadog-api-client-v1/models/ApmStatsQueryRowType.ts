@@ -11,7 +11,8 @@
 export type ApmStatsQueryRowType =
   | typeof SERVICE
   | typeof RESOURCE
-  | typeof SPAN;
+  | typeof SPAN
+  | UnparsedObject;
 export const SERVICE = "service";
 export const RESOURCE = "resource";
 export const SPAN = "span";

@@ -12,7 +12,8 @@
 export type SecurityMonitoringRuleNewValueOptionsLearningDuration =
   | typeof ZERO_DAYS
   | typeof ONE_DAY
-  | typeof SEVEN_DAYS;
+  | typeof SEVEN_DAYS
+  | UnparsedObject;
 export const ZERO_DAYS = 0;
 export const ONE_DAY = 1;
 export const SEVEN_DAYS = 7;

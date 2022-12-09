@@ -26,7 +26,7 @@ export class RUMEvent {
   /**
    * Type of the event.
    */
-  "type"?: RUMEventType | UnparsedObject;
+  "type"?: RUMEventType;
 
   /**
    * @ignore

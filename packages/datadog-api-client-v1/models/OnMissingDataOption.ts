@@ -16,7 +16,8 @@ export type OnMissingDataOption =
   | typeof DEFAULT
   | typeof SHOW_NO_DATA
   | typeof SHOW_AND_NOTIFY_NO_DATA
-  | typeof RESOLVE;
+  | typeof RESOLVE
+  | UnparsedObject;
 export const DEFAULT = "default";
 export const SHOW_NO_DATA = "show_no_data";
 export const SHOW_AND_NOTIFY_NO_DATA = "show_and_notify_no_data";

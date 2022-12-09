@@ -12,7 +12,8 @@ export type AccessRole =
   | typeof STANDARD
   | typeof ADMIN
   | typeof READ_ONLY
-  | typeof ERROR;
+  | typeof ERROR
+  | UnparsedObject;
 export const STANDARD = "st";
 export const ADMIN = "adm";
 export const READ_ONLY = "ro";

@@ -51,7 +51,7 @@ export class HeatMapWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -59,7 +59,7 @@ export class HeatMapWidgetDefinition {
   /**
    * Type of the heat map widget.
    */
-  "type": HeatMapWidgetDefinitionType | UnparsedObject;
+  "type": HeatMapWidgetDefinitionType;
   /**
    * Axis controls for the widget.
    */

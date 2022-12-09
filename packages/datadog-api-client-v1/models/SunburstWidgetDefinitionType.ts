@@ -8,5 +8,5 @@
  * Type of the Sunburst widget.
  */
 
-export type SunburstWidgetDefinitionType = typeof SUNBURST;
+export type SunburstWidgetDefinitionType = typeof SUNBURST | UnparsedObject;
 export const SUNBURST = "sunburst";

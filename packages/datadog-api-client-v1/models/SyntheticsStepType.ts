@@ -33,7 +33,8 @@ export type SyntheticsStepType =
   | typeof SELECT_OPTION
   | typeof TYPE_TEXT
   | typeof UPLOAD_FILES
-  | typeof WAIT;
+  | typeof WAIT
+  | UnparsedObject;
 export const ASSERT_CURRENT_URL = "assertCurrentUrl";
 export const ASSERT_ELEMENT_ATTRIBUTE = "assertElementAttribute";
 export const ASSERT_ELEMENT_CONTENT = "assertElementContent";

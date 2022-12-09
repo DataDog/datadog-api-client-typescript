@@ -82,7 +82,7 @@ export class SearchServiceLevelObjectiveAttributes {
   /**
    * The type of the service level objective.
    */
-  "sloType"?: SLOType | UnparsedObject;
+  "sloType"?: SLOType;
   /**
    * Tags with the `team` tag key.
    */

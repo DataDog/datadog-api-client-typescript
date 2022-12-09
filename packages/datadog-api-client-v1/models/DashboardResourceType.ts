@@ -8,5 +8,5 @@
  * Dashboard resource type.
  */
 
-export type DashboardResourceType = typeof DASHBOARD;
+export type DashboardResourceType = typeof DASHBOARD | UnparsedObject;
 export const DASHBOARD = "dashboard";

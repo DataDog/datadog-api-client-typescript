@@ -58,7 +58,7 @@ export class DashboardListItem {
   /**
    * The type of the dashboard.
    */
-  "type": DashboardType | UnparsedObject;
+  "type": DashboardType;
   /**
    * URL path to the dashboard.
    */

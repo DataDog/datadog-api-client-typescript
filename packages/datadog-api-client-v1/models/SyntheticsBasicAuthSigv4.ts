@@ -37,7 +37,7 @@ export class SyntheticsBasicAuthSigv4 {
   /**
    * The type of authentication to use when performing the test.
    */
-  "type": SyntheticsBasicAuthSigv4Type | UnparsedObject;
+  "type": SyntheticsBasicAuthSigv4Type;
 
   /**
    * @ignore

@@ -11,7 +11,8 @@
 export type WidgetSummaryType =
   | typeof MONITORS
   | typeof GROUPS
-  | typeof COMBINED;
+  | typeof COMBINED
+  | UnparsedObject;
 export const MONITORS = "monitors";
 export const GROUPS = "groups";
 export const COMBINED = "combined";

@@ -77,7 +77,7 @@ export class SecurityMonitoringStandardRuleResponse {
   /**
    * The rule type.
    */
-  "type"?: SecurityMonitoringRuleTypeRead | UnparsedObject;
+  "type"?: SecurityMonitoringRuleTypeRead;
   /**
    * User ID of the user who updated the rule.
    */

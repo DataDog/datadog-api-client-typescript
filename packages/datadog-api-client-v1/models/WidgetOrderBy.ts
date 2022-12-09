@@ -12,7 +12,8 @@ export type WidgetOrderBy =
   | typeof CHANGE
   | typeof NAME
   | typeof PRESENT
-  | typeof PAST;
+  | typeof PAST
+  | UnparsedObject;
 export const CHANGE = "change";
 export const NAME = "name";
 export const PRESENT = "present";

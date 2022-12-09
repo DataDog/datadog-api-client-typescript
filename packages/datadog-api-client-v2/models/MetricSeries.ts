@@ -49,7 +49,7 @@ export class MetricSeries {
   /**
    * The type of metric. The available types are `0` (unspecified), `1` (count), `2` (rate), and `3` (gauge).
    */
-  "type"?: MetricIntakeType | UnparsedObject;
+  "type"?: MetricIntakeType;
   /**
    * The unit of point value.
    */

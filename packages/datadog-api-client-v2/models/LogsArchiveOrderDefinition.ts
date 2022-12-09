@@ -22,7 +22,7 @@ export class LogsArchiveOrderDefinition {
   /**
    * Type of the archive order definition.
    */
-  "type": LogsArchiveOrderDefinitionType | UnparsedObject;
+  "type": LogsArchiveOrderDefinitionType;
 
   /**
    * @ignore

@@ -17,7 +17,7 @@ export class SecurityMonitoringFilter {
   /**
    * The type of filtering action.
    */
-  "action"?: SecurityMonitoringFilterAction | UnparsedObject;
+  "action"?: SecurityMonitoringFilterAction;
   /**
    * Query for selecting logs to apply the filtering action.
    */

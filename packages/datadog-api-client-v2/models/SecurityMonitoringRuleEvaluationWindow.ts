@@ -17,7 +17,8 @@ export type SecurityMonitoringRuleEvaluationWindow =
   | typeof FIFTEEN_MINUTES
   | typeof THIRTY_MINUTES
   | typeof ONE_HOUR
-  | typeof TWO_HOURS;
+  | typeof TWO_HOURS
+  | UnparsedObject;
 export const ZERO_MINUTES = 0;
 export const ONE_MINUTE = 60;
 export const FIVE_MINUTES = 300;

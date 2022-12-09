@@ -12,7 +12,8 @@ export type ScatterplotDimension =
   | typeof X
   | typeof Y
   | typeof RADIUS
-  | typeof COLOR;
+  | typeof COLOR
+  | UnparsedObject;
 export const X = "x";
 export const Y = "y";
 export const RADIUS = "radius";

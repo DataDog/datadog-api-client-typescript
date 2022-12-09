@@ -10,6 +10,7 @@
 
 export type FormulaAndFunctionResponseFormat =
   | typeof TIMESERIES
-  | typeof SCALAR;
+  | typeof SCALAR
+  | UnparsedObject;
 export const TIMESERIES = "timeseries";
 export const SCALAR = "scalar";

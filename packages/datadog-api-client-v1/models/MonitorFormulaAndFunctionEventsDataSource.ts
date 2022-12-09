@@ -15,7 +15,8 @@ export type MonitorFormulaAndFunctionEventsDataSource =
   | typeof AUDIT
   | typeof EVENTS
   | typeof LOGS
-  | typeof SPANS;
+  | typeof SPANS
+  | UnparsedObject;
 export const RUM = "rum";
 export const CI_PIPELINES = "ci_pipelines";
 export const CI_TESTS = "ci_tests";

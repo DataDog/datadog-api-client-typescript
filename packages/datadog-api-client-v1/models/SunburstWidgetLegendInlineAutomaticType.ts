@@ -10,6 +10,7 @@
 
 export type SunburstWidgetLegendInlineAutomaticType =
   | typeof INLINE
-  | typeof AUTOMATIC;
+  | typeof AUTOMATIC
+  | UnparsedObject;
 export const INLINE = "inline";
 export const AUTOMATIC = "automatic";

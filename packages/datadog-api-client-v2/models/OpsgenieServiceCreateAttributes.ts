@@ -29,7 +29,7 @@ export class OpsgenieServiceCreateAttributes {
   /**
    * The region for the Opsgenie service.
    */
-  "region": OpsgenieServiceRegionType | UnparsedObject;
+  "region": OpsgenieServiceRegionType;
 
   /**
    * @ignore

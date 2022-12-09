@@ -8,5 +8,5 @@
  * Type of the service map widget.
  */
 
-export type ServiceMapWidgetDefinitionType = typeof SERVICEMAP;
+export type ServiceMapWidgetDefinitionType = typeof SERVICEMAP | UnparsedObject;
 export const SERVICEMAP = "servicemap";

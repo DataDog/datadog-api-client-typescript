@@ -26,7 +26,7 @@ export class MetricTagConfiguration {
   /**
    * The metric tag configuration resource type.
    */
-  "type"?: MetricTagConfigurationType | UnparsedObject;
+  "type"?: MetricTagConfigurationType;
 
   /**
    * @ignore

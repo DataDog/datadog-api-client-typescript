@@ -46,7 +46,7 @@ export class SyntheticsAPITestResultFull {
    * * `1` for triggered
    * * `2` for no data
    */
-  "status"?: SyntheticsTestMonitorStatus | UnparsedObject;
+  "status"?: SyntheticsTestMonitorStatus;
 
   /**
    * @ignore

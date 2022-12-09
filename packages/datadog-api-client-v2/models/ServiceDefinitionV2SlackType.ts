@@ -8,5 +8,5 @@
  * Contact type.
  */
 
-export type ServiceDefinitionV2SlackType = typeof SLACK;
+export type ServiceDefinitionV2SlackType = typeof SLACK | UnparsedObject;
 export const SLACK = "slack";

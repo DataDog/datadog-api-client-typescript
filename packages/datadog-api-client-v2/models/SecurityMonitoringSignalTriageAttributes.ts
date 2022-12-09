@@ -31,7 +31,7 @@ export class SecurityMonitoringSignalTriageAttributes {
   /**
    * Reason a signal is archived.
    */
-  "archiveReason"?: SecurityMonitoringSignalArchiveReason | UnparsedObject;
+  "archiveReason"?: SecurityMonitoringSignalArchiveReason;
   /**
    * Object representing a given user entity.
    */
@@ -43,7 +43,7 @@ export class SecurityMonitoringSignalTriageAttributes {
   /**
    * The new triage state of the signal.
    */
-  "state": SecurityMonitoringSignalState | UnparsedObject;
+  "state": SecurityMonitoringSignalState;
   /**
    * Timestamp of the last update to the signal state.
    */

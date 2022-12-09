@@ -18,7 +18,7 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
   /**
    * Type of the Markdown timeline cell.
    */
-  "cellType": IncidentTimelineCellMarkdownContentType | UnparsedObject;
+  "cellType": IncidentTimelineCellMarkdownContentType;
   /**
    * The Markdown timeline cell contents.
    */

@@ -14,7 +14,8 @@ export type SecurityMonitoringRuleNewValueOptionsForgetAfter =
   | typeof ONE_WEEK
   | typeof TWO_WEEKS
   | typeof THREE_WEEKS
-  | typeof FOUR_WEEKS;
+  | typeof FOUR_WEEKS
+  | UnparsedObject;
 export const ONE_DAY = 1;
 export const TWO_DAYS = 2;
 export const ONE_WEEK = 7;

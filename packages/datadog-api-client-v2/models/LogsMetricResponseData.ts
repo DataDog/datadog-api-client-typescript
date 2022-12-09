@@ -26,7 +26,7 @@ export class LogsMetricResponseData {
   /**
    * The type of the resource. The value should always be logs_metrics.
    */
-  "type"?: LogsMetricType | UnparsedObject;
+  "type"?: LogsMetricType;
 
   /**
    * @ignore

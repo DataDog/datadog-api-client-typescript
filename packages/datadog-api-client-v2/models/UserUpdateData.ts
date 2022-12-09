@@ -26,7 +26,7 @@ export class UserUpdateData {
   /**
    * Users resource type.
    */
-  "type": UsersType | UnparsedObject;
+  "type": UsersType;
 
   /**
    * @ignore

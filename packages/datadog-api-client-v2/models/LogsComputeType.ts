@@ -8,6 +8,6 @@
  * The type of compute
  */
 
-export type LogsComputeType = typeof TIMESERIES | typeof TOTAL;
+export type LogsComputeType = typeof TIMESERIES | typeof TOTAL | UnparsedObject;
 export const TIMESERIES = "timeseries";
 export const TOTAL = "total";

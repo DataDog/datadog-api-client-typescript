@@ -20,7 +20,8 @@ export type SyntheticsDeviceID =
   | typeof FIREFOX_MOBILE_SMALL
   | typeof EDGE_LAPTOP_LARGE
   | typeof EDGE_TABLET
-  | typeof EDGE_MOBILE_SMALL;
+  | typeof EDGE_MOBILE_SMALL
+  | UnparsedObject;
 export const LAPTOP_LARGE = "laptop_large";
 export const TABLET = "tablet";
 export const MOBILE_SMALL = "mobile_small";

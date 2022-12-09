@@ -31,7 +31,7 @@ export class User {
   /**
    * Users resource type.
    */
-  "type"?: UsersType | UnparsedObject;
+  "type"?: UsersType;
 
   /**
    * @ignore

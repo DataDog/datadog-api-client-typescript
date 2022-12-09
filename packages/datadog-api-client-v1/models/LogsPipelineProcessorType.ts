@@ -8,5 +8,5 @@
  * Type of logs pipeline processor.
  */
 
-export type LogsPipelineProcessorType = typeof PIPELINE;
+export type LogsPipelineProcessorType = typeof PIPELINE | UnparsedObject;
 export const PIPELINE = "pipeline";

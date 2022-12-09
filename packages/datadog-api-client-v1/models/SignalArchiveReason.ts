@@ -12,7 +12,8 @@ export type SignalArchiveReason =
   | typeof NONE
   | typeof FALSE_POSITIVE
   | typeof TESTING_OR_MAINTENANCE
-  | typeof OTHER;
+  | typeof OTHER
+  | UnparsedObject;
 export const NONE = "none";
 export const FALSE_POSITIVE = "false_positive";
 export const TESTING_OR_MAINTENANCE = "testing_or_maintenance";

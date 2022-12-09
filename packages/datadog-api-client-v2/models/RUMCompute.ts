@@ -18,7 +18,7 @@ export class RUMCompute {
   /**
    * An aggregation function.
    */
-  "aggregation": RUMAggregationFunction | UnparsedObject;
+  "aggregation": RUMAggregationFunction;
   /**
    * The time buckets' size (only used for type=timeseries)
    * Defaults to a resolution of 150 points.
@@ -31,7 +31,7 @@ export class RUMCompute {
   /**
    * The type of compute.
    */
-  "type"?: RUMComputeType | UnparsedObject;
+  "type"?: RUMComputeType;
 
   /**
    * @ignore

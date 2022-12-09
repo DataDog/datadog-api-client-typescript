@@ -18,7 +18,7 @@ export class SyntheticsAssertionTarget {
   /**
    * Assertion operator to apply.
    */
-  "operator": SyntheticsAssertionOperator | UnparsedObject;
+  "operator": SyntheticsAssertionOperator;
   /**
    * The associated assertion property.
    */
@@ -30,7 +30,7 @@ export class SyntheticsAssertionTarget {
   /**
    * Type of the assertion.
    */
-  "type": SyntheticsAssertionType | UnparsedObject;
+  "type": SyntheticsAssertionType;
 
   /**
    * @ignore

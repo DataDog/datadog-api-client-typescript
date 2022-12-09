@@ -50,12 +50,12 @@ export class SyntheticsAPITest {
    * Define whether you want to start (`live`) or pause (`paused`) a
    * Synthetic test.
    */
-  "status"?: SyntheticsTestPauseStatus | UnparsedObject;
+  "status"?: SyntheticsTestPauseStatus;
   /**
    * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
    * `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
    */
-  "subtype"?: SyntheticsTestDetailsSubType | UnparsedObject;
+  "subtype"?: SyntheticsTestDetailsSubType;
   /**
    * Array of tags attached to the test.
    */
@@ -63,7 +63,7 @@ export class SyntheticsAPITest {
   /**
    * Type of the Synthetic test, `api`.
    */
-  "type": SyntheticsAPITestType | UnparsedObject;
+  "type": SyntheticsAPITestType;
 
   /**
    * @ignore

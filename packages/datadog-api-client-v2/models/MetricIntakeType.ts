@@ -12,7 +12,8 @@ export type MetricIntakeType =
   | typeof UNSPECIFIED
   | typeof COUNT
   | typeof RATE
-  | typeof GAUGE;
+  | typeof GAUGE
+  | UnparsedObject;
 export const UNSPECIFIED = 0;
 export const COUNT = 1;
 export const RATE = 2;

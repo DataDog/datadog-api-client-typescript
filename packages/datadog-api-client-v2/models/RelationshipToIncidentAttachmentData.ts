@@ -21,7 +21,7 @@ export class RelationshipToIncidentAttachmentData {
   /**
    * The incident attachment resource type.
    */
-  "type": IncidentAttachmentType | UnparsedObject;
+  "type": IncidentAttachmentType;
 
   /**
    * @ignore

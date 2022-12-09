@@ -8,5 +8,5 @@
  * Type of the event.
  */
 
-export type LogType = typeof LOG;
+export type LogType = typeof LOG | UnparsedObject;
 export const LOG = "log";

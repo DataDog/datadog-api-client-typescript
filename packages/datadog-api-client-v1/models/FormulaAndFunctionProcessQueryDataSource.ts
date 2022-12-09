@@ -10,6 +10,7 @@
 
 export type FormulaAndFunctionProcessQueryDataSource =
   | typeof PROCESS
-  | typeof CONTAINER;
+  | typeof CONTAINER
+  | UnparsedObject;
 export const PROCESS = "process";
 export const CONTAINER = "container";

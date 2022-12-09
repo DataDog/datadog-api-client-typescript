@@ -8,5 +8,5 @@
  * Type of logs lookup processor.
  */
 
-export type LogsLookupProcessorType = typeof LOOKUP_PROCESSOR;
+export type LogsLookupProcessorType = typeof LOOKUP_PROCESSOR | UnparsedObject;
 export const LOOKUP_PROCESSOR = "lookup-processor";

@@ -29,7 +29,7 @@ export class LogsQueryFilter {
   /**
    * Specifies storage type as indexes or online-archives
    */
-  "storageTier"?: LogsStorageTier | UnparsedObject;
+  "storageTier"?: LogsStorageTier;
   /**
    * The maximum time for the requested logs, supports date math and regular timestamps (milliseconds).
    */

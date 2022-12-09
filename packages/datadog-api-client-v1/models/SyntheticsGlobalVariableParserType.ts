@@ -12,7 +12,8 @@ export type SyntheticsGlobalVariableParserType =
   | typeof RAW
   | typeof JSON_PATH
   | typeof REGEX
-  | typeof X_PATH;
+  | typeof X_PATH
+  | UnparsedObject;
 export const RAW = "raw";
 export const JSON_PATH = "json_path";
 export const REGEX = "regex";

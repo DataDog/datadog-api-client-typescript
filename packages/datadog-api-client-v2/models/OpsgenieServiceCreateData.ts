@@ -22,7 +22,7 @@ export class OpsgenieServiceCreateData {
   /**
    * Opsgenie service resource type.
    */
-  "type": OpsgenieServiceType | UnparsedObject;
+  "type": OpsgenieServiceType;
 
   /**
    * @ignore

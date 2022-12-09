@@ -26,7 +26,7 @@ export class CIAppTestEvent {
   /**
    * Type of the event.
    */
-  "type"?: CIAppTestEventTypeName | UnparsedObject;
+  "type"?: CIAppTestEventTypeName;
 
   /**
    * @ignore

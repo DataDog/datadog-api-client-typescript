@@ -24,7 +24,8 @@ export type CIAppAggregationFunction =
   | typeof LATEST
   | typeof EARLIEST
   | typeof MOST_FREQUENT
-  | typeof DELTA;
+  | typeof DELTA
+  | UnparsedObject;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const PERCENTILE_75 = "pc75";

@@ -23,7 +23,8 @@ export type WidgetLiveSpan =
   | typeof PAST_THREE_MONTHS
   | typeof PAST_SIX_MONTHS
   | typeof PAST_ONE_YEAR
-  | typeof ALERT;
+  | typeof ALERT
+  | UnparsedObject;
 export const PAST_ONE_MINUTE = "1m";
 export const PAST_FIVE_MINUTES = "5m";
 export const PAST_TEN_MINUTES = "10m";

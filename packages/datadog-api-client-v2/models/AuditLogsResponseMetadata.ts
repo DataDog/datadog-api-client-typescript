@@ -31,7 +31,7 @@ export class AuditLogsResponseMetadata {
   /**
    * The status of the response.
    */
-  "status"?: AuditLogsResponseStatus | UnparsedObject;
+  "status"?: AuditLogsResponseStatus;
   /**
    * A list of warnings (non-fatal errors) encountered. Partial results may return if
    * warnings are present in the response.

@@ -22,14 +22,12 @@ export class {{ name }} {
 {%- for attr, schema in model.get("properties", {}).items() %}
 {%- set isRequired = attr in model.get("required", []) %}
 {%- set isNullable = schema.nullable %}
-{%- set isEnum = "enum" in schema %}
-{%- set isOneOf = "oneOf" in schema %}
 {%- if schema.description %}
   /**
 {{ schema.description|docstring }}
   */
 {%- endif %}
-  "{{ attr|attribute_name }}"{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isEnum or isOneOf %}|UnparsedObject{%- endif %}{%- if isRequired and isNullable %}|null{%- endif %};
+  "{{ attr|attribute_name }}"{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isRequired and isNullable %}|null{%- endif %};
 {%- endfor %}
 {%- if model.get("additionalProperties") %}
 
@@ -118,7 +116,7 @@ export class {{ name }} {
 
 
 {%- if "enum" in model %}
-export type {{ name }} = {% for index, value in enumerate(model.enum) %}typeof {{ model["x-enum-varnames"][index] or value.upper() }} {%- if not loop.last %}| {% endif %}{%- endfor %};
+export type {{ name }} = {% for index, value in enumerate(model.enum) %}typeof {{ model["x-enum-varnames"][index] or value.upper() }} {%- if not loop.last %}| {% endif %}{%- if loop.last %} | UnparsedObject{%- endif %}{%- endfor %};
 {%- for index, value in enumerate(model.enum) %}
 export const {{ model["x-enum-varnames"][index] or value.upper() }} = {{ value|format_value }};
 {%- endfor %}

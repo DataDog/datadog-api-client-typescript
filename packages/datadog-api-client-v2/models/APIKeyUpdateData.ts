@@ -26,7 +26,7 @@ export class APIKeyUpdateData {
   /**
    * API Keys resource type.
    */
-  "type": APIKeysType | UnparsedObject;
+  "type": APIKeysType;
 
   /**
    * @ignore

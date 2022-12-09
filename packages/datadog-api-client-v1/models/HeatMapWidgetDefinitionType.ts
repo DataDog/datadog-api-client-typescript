@@ -8,5 +8,5 @@
  * Type of the heat map widget.
  */
 
-export type HeatMapWidgetDefinitionType = typeof HEATMAP;
+export type HeatMapWidgetDefinitionType = typeof HEATMAP | UnparsedObject;
 export const HEATMAP = "heatmap";

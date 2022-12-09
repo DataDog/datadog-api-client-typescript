@@ -33,7 +33,7 @@ export class AuditLogsSearchEventsRequest {
   /**
    * Sort parameters when querying events.
    */
-  "sort"?: AuditLogsSort | UnparsedObject;
+  "sort"?: AuditLogsSort;
 
   /**
    * @ignore

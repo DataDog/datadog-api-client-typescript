@@ -33,7 +33,7 @@ export class SyntheticsConfigVariable {
   /**
    * Type of the configuration variable.
    */
-  "type": SyntheticsConfigVariableType | UnparsedObject;
+  "type": SyntheticsConfigVariableType;
 
   /**
    * @ignore

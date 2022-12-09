@@ -33,7 +33,7 @@ export class EventsListRequest {
   /**
    * The sort parameters when querying events.
    */
-  "sort"?: EventsSort | UnparsedObject;
+  "sort"?: EventsSort;
 
   /**
    * @ignore

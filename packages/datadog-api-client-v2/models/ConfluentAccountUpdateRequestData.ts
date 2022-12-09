@@ -22,7 +22,7 @@ export class ConfluentAccountUpdateRequestData {
   /**
    * The JSON:API type for this API. Should always be `confluent-cloud-accounts`.
    */
-  "type": ConfluentAccountType | UnparsedObject;
+  "type": ConfluentAccountType;
 
   /**
    * @ignore

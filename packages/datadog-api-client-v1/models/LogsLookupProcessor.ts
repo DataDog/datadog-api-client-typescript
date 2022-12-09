@@ -48,7 +48,7 @@ export class LogsLookupProcessor {
   /**
    * Type of logs lookup processor.
    */
-  "type": LogsLookupProcessorType | UnparsedObject;
+  "type": LogsLookupProcessorType;
 
   /**
    * @ignore

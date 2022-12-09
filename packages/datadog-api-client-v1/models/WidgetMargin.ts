@@ -14,7 +14,8 @@ export type WidgetMargin =
   | typeof MD
   | typeof LG
   | typeof SMALL
-  | typeof LARGE;
+  | typeof LARGE
+  | UnparsedObject;
 export const SM = "sm";
 export const MD = "md";
 export const LG = "lg";

@@ -22,7 +22,7 @@ export class TopologyRequest {
   /**
    * Widget request type.
    */
-  "requestType"?: TopologyRequestType | UnparsedObject;
+  "requestType"?: TopologyRequestType;
 
   /**
    * @ignore

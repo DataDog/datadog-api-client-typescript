@@ -21,7 +21,7 @@ export class WidgetFieldSort {
   /**
    * Widget sorting methods.
    */
-  "order": WidgetSort | UnparsedObject;
+  "order": WidgetSort;
 
   /**
    * @ignore

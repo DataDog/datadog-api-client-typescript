@@ -17,7 +17,7 @@ export class SecurityMonitoringSignalRuleQuery {
   /**
    * The aggregation type.
    */
-  "aggregation"?: SecurityMonitoringRuleQueryAggregation | UnparsedObject;
+  "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
    * Fields to group by.
    */

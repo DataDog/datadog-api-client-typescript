@@ -12,7 +12,8 @@ export type WidgetTickEdge =
   | typeof BOTTOM
   | typeof LEFT
   | typeof RIGHT
-  | typeof TOP;
+  | typeof TOP
+  | UnparsedObject;
 export const BOTTOM = "bottom";
 export const LEFT = "left";
 export const RIGHT = "right";

@@ -8,5 +8,5 @@
  * Type of the event.
  */
 
-export type CIAppPipelineEventTypeName = typeof cipipeline;
+export type CIAppPipelineEventTypeName = typeof cipipeline | UnparsedObject;
 export const cipipeline = "cipipeline";

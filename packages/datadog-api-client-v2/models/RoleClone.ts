@@ -22,7 +22,7 @@ export class RoleClone {
   /**
    * Roles type.
    */
-  "type": RolesType | UnparsedObject;
+  "type": RolesType;
 
   /**
    * @ignore

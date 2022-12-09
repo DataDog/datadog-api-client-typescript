@@ -8,5 +8,5 @@
  * Roles type.
  */
 
-export type RolesType = typeof ROLES;
+export type RolesType = typeof ROLES | UnparsedObject;
 export const ROLES = "roles";

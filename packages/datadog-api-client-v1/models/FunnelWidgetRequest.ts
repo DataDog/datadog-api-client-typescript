@@ -22,7 +22,7 @@ export class FunnelWidgetRequest {
   /**
    * Widget request type.
    */
-  "requestType": FunnelRequestType | UnparsedObject;
+  "requestType": FunnelRequestType;
 
   /**
    * @ignore

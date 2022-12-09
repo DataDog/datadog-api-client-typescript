@@ -42,13 +42,11 @@ export class SyntheticsBasicAuthOauthClient {
   /**
    * Type of token to use when performing the authentication.
    */
-  "tokenApiAuthentication":
-    | SyntheticsBasicAuthOauthTokenApiAuthentication
-    | UnparsedObject;
+  "tokenApiAuthentication": SyntheticsBasicAuthOauthTokenApiAuthentication;
   /**
    * The type of basic authentication to use when performing the test.
    */
-  "type"?: SyntheticsBasicAuthOauthClientType | UnparsedObject;
+  "type"?: SyntheticsBasicAuthOauthClientType;
 
   /**
    * @ignore

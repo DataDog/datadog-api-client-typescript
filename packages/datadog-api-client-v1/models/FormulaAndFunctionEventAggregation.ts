@@ -20,7 +20,8 @@ export type FormulaAndFunctionEventAggregation =
   | typeof SUM
   | typeof MIN
   | typeof MAX
-  | typeof AVG;
+  | typeof AVG
+  | UnparsedObject;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const MEDIAN = "median";

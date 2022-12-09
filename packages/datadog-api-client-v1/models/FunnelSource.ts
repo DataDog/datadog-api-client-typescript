@@ -8,5 +8,5 @@
  * Source from which to query items to display in the funnel.
  */
 
-export type FunnelSource = typeof RUM;
+export type FunnelSource = typeof RUM | UnparsedObject;
 export const RUM = "rum";

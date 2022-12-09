@@ -50,7 +50,7 @@ export class LogsStringBuilderProcessor {
   /**
    * Type of logs string builder processor.
    */
-  "type": LogsStringBuilderProcessorType | UnparsedObject;
+  "type": LogsStringBuilderProcessorType;
 
   /**
    * @ignore

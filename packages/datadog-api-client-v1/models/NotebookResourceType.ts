@@ -8,5 +8,5 @@
  * Type of the Notebook resource.
  */
 
-export type NotebookResourceType = typeof NOTEBOOKS;
+export type NotebookResourceType = typeof NOTEBOOKS | UnparsedObject;
 export const NOTEBOOKS = "notebooks";

@@ -17,7 +17,7 @@ export class SyntheticsVariableParser {
   /**
    * Type of parser for a Synthetics global variable from a synthetics test.
    */
-  "type": SyntheticsGlobalVariableParserType | UnparsedObject;
+  "type": SyntheticsGlobalVariableParserType;
   /**
    * Regex or JSON path used for the parser. Not used with type `raw`.
    */

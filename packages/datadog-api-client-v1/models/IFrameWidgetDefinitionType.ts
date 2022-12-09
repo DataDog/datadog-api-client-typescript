@@ -8,5 +8,5 @@
  * Type of the iframe widget.
  */
 
-export type IFrameWidgetDefinitionType = typeof IFRAME;
+export type IFrameWidgetDefinitionType = typeof IFRAME | UnparsedObject;
 export const IFRAME = "iframe";

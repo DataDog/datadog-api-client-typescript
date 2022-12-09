@@ -8,6 +8,6 @@
  * Direction of sort.
  */
 
-export type QuerySortOrder = typeof ASC | typeof DESC;
+export type QuerySortOrder = typeof ASC | typeof DESC | UnparsedObject;
 export const ASC = "asc";
 export const DESC = "desc";

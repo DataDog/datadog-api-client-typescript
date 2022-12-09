@@ -26,7 +26,7 @@ export class HourlyUsage {
   /**
    * Type of usage data.
    */
-  "type"?: UsageTimeSeriesType | UnparsedObject;
+  "type"?: UsageTimeSeriesType;
 
   /**
    * @ignore

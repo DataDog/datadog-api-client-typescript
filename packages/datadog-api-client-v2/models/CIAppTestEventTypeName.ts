@@ -8,5 +8,5 @@
  * Type of the event.
  */
 
-export type CIAppTestEventTypeName = typeof citest;
+export type CIAppTestEventTypeName = typeof citest | UnparsedObject;
 export const citest = "citest";

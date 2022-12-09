@@ -57,7 +57,7 @@ export class SecurityMonitoringSignalRuleCreatePayload {
   /**
    * The rule type.
    */
-  "type"?: SecurityMonitoringSignalRuleType | UnparsedObject;
+  "type"?: SecurityMonitoringSignalRuleType;
 
   /**
    * @ignore

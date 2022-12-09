@@ -13,7 +13,8 @@ export type MetricCustomTimeAggregation =
   | typeof COUNT
   | typeof MAX
   | typeof MIN
-  | typeof SUM;
+  | typeof SUM
+  | UnparsedObject;
 export const AVG = "avg";
 export const COUNT = "count";
 export const MAX = "max";

@@ -13,7 +13,8 @@ export type NotebookMetadataType =
   | typeof RUNBOOK
   | typeof INVESTIGATION
   | typeof DOCUMENTATION
-  | typeof REPORT;
+  | typeof REPORT
+  | UnparsedObject;
 export const POSTMORTEM = "postmortem";
 export const RUNBOOK = "runbook";
 export const INVESTIGATION = "investigation";

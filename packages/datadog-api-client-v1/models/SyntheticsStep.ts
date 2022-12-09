@@ -41,7 +41,7 @@ export class SyntheticsStep {
   /**
    * Step type used in your Synthetic test.
    */
-  "type"?: SyntheticsStepType | UnparsedObject;
+  "type"?: SyntheticsStepType;
 
   /**
    * @ignore

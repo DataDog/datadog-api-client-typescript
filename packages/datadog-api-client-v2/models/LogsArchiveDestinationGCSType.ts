@@ -8,5 +8,5 @@
  * Type of the GCS archive destination.
  */
 
-export type LogsArchiveDestinationGCSType = typeof GCS;
+export type LogsArchiveDestinationGCSType = typeof GCS | UnparsedObject;
 export const GCS = "gcs";

@@ -63,13 +63,13 @@ export class SLOHistoryResponseData {
   /**
    * The type of the service level objective.
    */
-  "type"?: SLOType | UnparsedObject;
+  "type"?: SLOType;
   /**
    * A numeric representation of the type of the service level objective (`0` for
    * monitor, `1` for metric). Always included in service level objective responses.
    * Ignored in create/update requests.
    */
-  "typeId"?: SLOTypeNumeric | UnparsedObject;
+  "typeId"?: SLOTypeNumeric;
 
   /**
    * @ignore

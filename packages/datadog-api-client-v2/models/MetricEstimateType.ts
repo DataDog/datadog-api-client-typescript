@@ -11,7 +11,8 @@
 export type MetricEstimateType =
   | typeof COUNT_OR_GAUGE
   | typeof DISTRIBUTION
-  | typeof PERCENTILE;
+  | typeof PERCENTILE
+  | UnparsedObject;
 export const COUNT_OR_GAUGE = "count_or_gauge";
 export const DISTRIBUTION = "distribution";
 export const PERCENTILE = "percentile";

@@ -31,7 +31,7 @@ export class LogsListRequest {
   /**
    * Time-ascending `asc` or time-descending `desc` results.
    */
-  "sort"?: LogsSort | UnparsedObject;
+  "sort"?: LogsSort;
   /**
    * Hash identifier of the first log to return in the list, available in a log `id` attribute.
    * This parameter is used for the pagination feature.

@@ -8,5 +8,5 @@
  * Type of the SLO List widget.
  */
 
-export type SLOListWidgetDefinitionType = typeof SLO_LIST;
+export type SLOListWidgetDefinitionType = typeof SLO_LIST | UnparsedObject;
 export const SLO_LIST = "slo_list";

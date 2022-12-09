@@ -45,11 +45,11 @@ export class NotebookResponseDataAttributes {
   /**
    * Publication status of the notebook. For now, always "published".
    */
-  "status"?: NotebookStatus | UnparsedObject;
+  "status"?: NotebookStatus;
   /**
    * Notebook global timeframe.
    */
-  "time": NotebookGlobalTime | UnparsedObject;
+  "time": NotebookGlobalTime;
 
   /**
    * @ignore

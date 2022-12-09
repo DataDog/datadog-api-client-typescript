@@ -34,7 +34,7 @@ export class SyntheticsBrowserVariable {
   /**
    * Type of browser test variable.
    */
-  "type": SyntheticsBrowserVariableType | UnparsedObject;
+  "type": SyntheticsBrowserVariableType;
 
   /**
    * @ignore

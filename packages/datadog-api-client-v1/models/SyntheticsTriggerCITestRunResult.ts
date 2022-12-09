@@ -17,7 +17,7 @@ export class SyntheticsTriggerCITestRunResult {
   /**
    * The device ID.
    */
-  "device"?: SyntheticsDeviceID | UnparsedObject;
+  "device"?: SyntheticsDeviceID;
   /**
    * The location ID of the test run.
    */

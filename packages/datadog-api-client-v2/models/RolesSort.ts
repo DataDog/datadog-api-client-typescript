@@ -14,7 +14,8 @@ export type RolesSort =
   | typeof MODIFIED_AT_ASCENDING
   | typeof MODIFIED_AT_DESCENDING
   | typeof USER_COUNT_ASCENDING
-  | typeof USER_COUNT_DESCENDING;
+  | typeof USER_COUNT_DESCENDING
+  | UnparsedObject;
 export const NAME_ASCENDING = "name";
 export const NAME_DESCENDING = "-name";
 export const MODIFIED_AT_ASCENDING = "modified_at";

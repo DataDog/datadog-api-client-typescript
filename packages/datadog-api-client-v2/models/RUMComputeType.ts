@@ -8,6 +8,6 @@
  * The type of compute.
  */
 
-export type RUMComputeType = typeof TIMESERIES | typeof TOTAL;
+export type RUMComputeType = typeof TIMESERIES | typeof TOTAL | UnparsedObject;
 export const TIMESERIES = "timeseries";
 export const TOTAL = "total";

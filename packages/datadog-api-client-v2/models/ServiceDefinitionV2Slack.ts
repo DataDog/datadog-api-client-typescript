@@ -25,7 +25,7 @@ export class ServiceDefinitionV2Slack {
   /**
    * Contact type.
    */
-  "type": ServiceDefinitionV2SlackType | UnparsedObject;
+  "type": ServiceDefinitionV2SlackType;
 
   /**
    * @ignore

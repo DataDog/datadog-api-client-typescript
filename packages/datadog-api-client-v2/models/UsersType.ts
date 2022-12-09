@@ -8,5 +8,5 @@
  * Users resource type.
  */
 
-export type UsersType = typeof USERS;
+export type UsersType = typeof USERS | UnparsedObject;
 export const USERS = "users";

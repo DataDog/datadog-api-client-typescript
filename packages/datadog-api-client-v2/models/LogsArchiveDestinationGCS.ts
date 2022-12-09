@@ -30,7 +30,7 @@ export class LogsArchiveDestinationGCS {
   /**
    * Type of the GCS archive destination.
    */
-  "type": LogsArchiveDestinationGCSType | UnparsedObject;
+  "type": LogsArchiveDestinationGCSType;
 
   /**
    * @ignore

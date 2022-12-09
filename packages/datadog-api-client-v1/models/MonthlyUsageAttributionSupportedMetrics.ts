@@ -63,7 +63,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof PROFILED_HOST_PERCENTAGE
   | typeof SNMP_USAGE
   | typeof SNMP_PERCENTAGE
-  | typeof ALL;
+  | typeof ALL
+  | UnparsedObject;
 export const API_USAGE = "api_usage";
 export const API_PERCENTAGE = "api_percentage";
 export const APM_FARGATE_USAGE = "apm_fargate_usage";

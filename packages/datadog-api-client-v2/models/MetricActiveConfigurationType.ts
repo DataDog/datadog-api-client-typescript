@@ -9,6 +9,7 @@
  */
 
 export type MetricActiveConfigurationType =
-  typeof ACTIVELY_QUERIED_CONFIGURATIONS;
+  | typeof ACTIVELY_QUERIED_CONFIGURATIONS
+  | UnparsedObject;
 export const ACTIVELY_QUERIED_CONFIGURATIONS =
   "actively_queried_configurations";

@@ -29,11 +29,11 @@ export class ChangeWidgetRequest {
   /**
    * Show the absolute or the relative change.
    */
-  "changeType"?: WidgetChangeType | UnparsedObject;
+  "changeType"?: WidgetChangeType;
   /**
    * Timeframe used for the change comparison.
    */
-  "compareTo"?: WidgetCompareTo | UnparsedObject;
+  "compareTo"?: WidgetCompareTo;
   /**
    * The log query.
    */
@@ -57,11 +57,11 @@ export class ChangeWidgetRequest {
   /**
    * What to order by.
    */
-  "orderBy"?: WidgetOrderBy | UnparsedObject;
+  "orderBy"?: WidgetOrderBy;
   /**
    * Widget sorting methods.
    */
-  "orderDir"?: WidgetSort | UnparsedObject;
+  "orderDir"?: WidgetSort;
   /**
    * The process query to use in the widget.
    */
@@ -81,7 +81,7 @@ export class ChangeWidgetRequest {
   /**
    * Timeseries or Scalar response.
    */
-  "responseFormat"?: FormulaAndFunctionResponseFormat | UnparsedObject;
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**
    * The log query.
    */

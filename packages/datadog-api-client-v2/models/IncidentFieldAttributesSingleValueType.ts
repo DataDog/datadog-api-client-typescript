@@ -10,6 +10,7 @@
 
 export type IncidentFieldAttributesSingleValueType =
   | typeof DROPDOWN
-  | typeof TEXTBOX;
+  | typeof TEXTBOX
+  | UnparsedObject;
 export const DROPDOWN = "dropdown";
 export const TEXTBOX = "textbox";

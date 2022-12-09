@@ -18,11 +18,11 @@ export class MetricCustomAggregation {
   /**
    * A space aggregation for use in query.
    */
-  "space": MetricCustomSpaceAggregation | UnparsedObject;
+  "space": MetricCustomSpaceAggregation;
   /**
    * A time aggregation for use in query.
    */
-  "time": MetricCustomTimeAggregation | UnparsedObject;
+  "time": MetricCustomTimeAggregation;
 
   /**
    * @ignore

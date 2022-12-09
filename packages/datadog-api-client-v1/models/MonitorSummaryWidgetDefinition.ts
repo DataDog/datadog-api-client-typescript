@@ -22,7 +22,7 @@ export class MonitorSummaryWidgetDefinition {
   /**
    * Which color to use on the widget.
    */
-  "colorPreference"?: WidgetColorPreference | UnparsedObject;
+  "colorPreference"?: WidgetColorPreference;
   /**
    * The number of monitors to display.
    */
@@ -30,7 +30,7 @@ export class MonitorSummaryWidgetDefinition {
   /**
    * What to display on the widget.
    */
-  "displayFormat"?: WidgetMonitorSummaryDisplayFormat | UnparsedObject;
+  "displayFormat"?: WidgetMonitorSummaryDisplayFormat;
   /**
    * Whether to show counts of 0 or not.
    */
@@ -50,7 +50,7 @@ export class MonitorSummaryWidgetDefinition {
   /**
    * Widget sorting methods.
    */
-  "sort"?: WidgetMonitorSummarySort | UnparsedObject;
+  "sort"?: WidgetMonitorSummarySort;
   /**
    * The start of the list. Typically 0.
    */
@@ -58,7 +58,7 @@ export class MonitorSummaryWidgetDefinition {
   /**
    * Which summary type should be used.
    */
-  "summaryType"?: WidgetSummaryType | UnparsedObject;
+  "summaryType"?: WidgetSummaryType;
   /**
    * Title of the widget.
    */
@@ -66,7 +66,7 @@ export class MonitorSummaryWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -74,7 +74,7 @@ export class MonitorSummaryWidgetDefinition {
   /**
    * Type of the monitor summary widget.
    */
-  "type": MonitorSummaryWidgetDefinitionType | UnparsedObject;
+  "type": MonitorSummaryWidgetDefinitionType;
 
   /**
    * @ignore

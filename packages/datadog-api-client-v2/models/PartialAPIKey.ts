@@ -31,7 +31,7 @@ export class PartialAPIKey {
   /**
    * API Keys resource type.
    */
-  "type"?: APIKeysType | UnparsedObject;
+  "type"?: APIKeysType;
 
   /**
    * @ignore

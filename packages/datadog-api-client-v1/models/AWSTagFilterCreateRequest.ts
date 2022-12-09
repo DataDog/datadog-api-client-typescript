@@ -21,7 +21,7 @@ export class AWSTagFilterCreateRequest {
   /**
    * The namespace associated with the tag filter entry.
    */
-  "namespace"?: AWSNamespace | UnparsedObject;
+  "namespace"?: AWSNamespace;
   /**
    * The tag filter string.
    */

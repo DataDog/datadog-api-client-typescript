@@ -24,7 +24,7 @@ export class SyntheticsCITest {
   /**
    * Object to handle basic authentication when performing the test.
    */
-  "basicAuth"?: SyntheticsBasicAuth | UnparsedObject;
+  "basicAuth"?: SyntheticsBasicAuth;
   /**
    * Body to include in the test.
    */

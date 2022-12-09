@@ -10,6 +10,6 @@
  * widgets should not have layouts.
  */
 
-export type DashboardReflowType = typeof AUTO | typeof FIXED;
+export type DashboardReflowType = typeof AUTO | typeof FIXED | UnparsedObject;
 export const AUTO = "auto";
 export const FIXED = "fixed";

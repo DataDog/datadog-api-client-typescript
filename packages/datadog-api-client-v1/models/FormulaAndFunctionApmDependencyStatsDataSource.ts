@@ -9,5 +9,6 @@
  */
 
 export type FormulaAndFunctionApmDependencyStatsDataSource =
-  typeof APM_DEPENDENCY_STATS;
+  | typeof APM_DEPENDENCY_STATS
+  | UnparsedObject;
 export const APM_DEPENDENCY_STATS = "apm_dependency_stats";

@@ -21,7 +21,7 @@ export class ServiceSummaryWidgetDefinition {
   /**
    * Number of columns to display.
    */
-  "displayFormat"?: WidgetServiceSummaryDisplayFormat | UnparsedObject;
+  "displayFormat"?: WidgetServiceSummaryDisplayFormat;
   /**
    * APM environment.
    */
@@ -57,7 +57,7 @@ export class ServiceSummaryWidgetDefinition {
   /**
    * Size of the widget.
    */
-  "sizeFormat"?: WidgetSizeFormat | UnparsedObject;
+  "sizeFormat"?: WidgetSizeFormat;
   /**
    * APM span name.
    */
@@ -73,7 +73,7 @@ export class ServiceSummaryWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -81,7 +81,7 @@ export class ServiceSummaryWidgetDefinition {
   /**
    * Type of the service summary widget.
    */
-  "type": ServiceSummaryWidgetDefinitionType | UnparsedObject;
+  "type": ServiceSummaryWidgetDefinitionType;
 
   /**
    * @ignore

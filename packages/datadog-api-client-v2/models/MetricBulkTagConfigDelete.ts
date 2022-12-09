@@ -26,7 +26,7 @@ export class MetricBulkTagConfigDelete {
   /**
    * The metric bulk configure tags resource.
    */
-  "type": MetricBulkConfigureTagsType | UnparsedObject;
+  "type": MetricBulkConfigureTagsType;
 
   /**
    * @ignore

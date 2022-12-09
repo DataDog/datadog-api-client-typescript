@@ -25,7 +25,8 @@ export type WidgetMonitorSummarySort =
   | typeof TRIGGERED_ASCENDING
   | typeof TRIGGERED_DESCENDING
   | typeof PRIORITY_ASCENDING
-  | typeof PRIORITY_DESCENDING;
+  | typeof PRIORITY_DESCENDING
+  | UnparsedObject;
 export const NAME = "name";
 export const GROUP = "group";
 export const STATUS = "status";

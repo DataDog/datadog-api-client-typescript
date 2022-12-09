@@ -21,7 +21,7 @@ export class RelationshipToIncidentIntegrationMetadataData {
   /**
    * Integration metadata resource type.
    */
-  "type": IncidentIntegrationMetadataType | UnparsedObject;
+  "type": IncidentIntegrationMetadataType;
 
   /**
    * @ignore

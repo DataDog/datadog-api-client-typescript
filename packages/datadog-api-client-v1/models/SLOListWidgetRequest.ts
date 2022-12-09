@@ -22,7 +22,7 @@ export class SLOListWidgetRequest {
   /**
    * Widget request type.
    */
-  "requestType": SLOListWidgetRequestType | UnparsedObject;
+  "requestType": SLOListWidgetRequestType;
 
   /**
    * @ignore

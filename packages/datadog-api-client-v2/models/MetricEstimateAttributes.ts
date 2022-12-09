@@ -17,7 +17,7 @@ export class MetricEstimateAttributes {
   /**
    * Estimate type based on the queried configuration. By default, `count_or_gauge` is returned. `distribution` is returned for distribution metrics without percentiles enabled. Lastly, `percentile` is returned if `filter[pct]=true` is queried with a distribution metric.
    */
-  "estimateType"?: MetricEstimateType | UnparsedObject;
+  "estimateType"?: MetricEstimateType;
   /**
    * Timestamp when the cardinality estimate was requested.
    */

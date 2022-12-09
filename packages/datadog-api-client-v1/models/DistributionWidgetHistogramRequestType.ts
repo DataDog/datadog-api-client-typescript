@@ -8,5 +8,7 @@
  * Request type for the histogram request.
  */
 
-export type DistributionWidgetHistogramRequestType = typeof HISTOGRAM;
+export type DistributionWidgetHistogramRequestType =
+  | typeof HISTOGRAM
+  | UnparsedObject;
 export const HISTOGRAM = "histogram";

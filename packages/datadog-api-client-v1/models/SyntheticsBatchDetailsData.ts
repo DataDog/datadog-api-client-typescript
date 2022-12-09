@@ -27,7 +27,7 @@ export class SyntheticsBatchDetailsData {
   /**
    * Determines whether or not the batch has passed, failed, or is in progress.
    */
-  "status"?: SyntheticsStatus | UnparsedObject;
+  "status"?: SyntheticsStatus;
 
   /**
    * @ignore

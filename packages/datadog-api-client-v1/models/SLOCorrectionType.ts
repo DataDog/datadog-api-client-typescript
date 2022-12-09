@@ -8,5 +8,5 @@
  * SLO correction resource type.
  */
 
-export type SLOCorrectionType = typeof CORRECTION;
+export type SLOCorrectionType = typeof CORRECTION | UnparsedObject;
 export const CORRECTION = "correction";

@@ -45,7 +45,7 @@ export class SyntheticsBasicAuthOauthROP {
   /**
    * The type of basic authentication to use when performing the test.
    */
-  "type"?: SyntheticsBasicAuthOauthROPType | UnparsedObject;
+  "type"?: SyntheticsBasicAuthOauthROPType;
   /**
    * Username to use when performing the authentication.
    */

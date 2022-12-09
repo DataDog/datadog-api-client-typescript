@@ -38,7 +38,7 @@ export class HostMapWidgetDefinition {
   /**
    * Which type of node to use in the map.
    */
-  "nodeType"?: WidgetNodeType | UnparsedObject;
+  "nodeType"?: WidgetNodeType;
   /**
    * Notes on the title.
    */
@@ -62,7 +62,7 @@ export class HostMapWidgetDefinition {
   /**
    * How to align the text on the widget.
    */
-  "titleAlign"?: WidgetTextAlign | UnparsedObject;
+  "titleAlign"?: WidgetTextAlign;
   /**
    * Size of the title.
    */
@@ -70,7 +70,7 @@ export class HostMapWidgetDefinition {
   /**
    * Type of the host map widget.
    */
-  "type": HostMapWidgetDefinitionType | UnparsedObject;
+  "type": HostMapWidgetDefinitionType;
 
   /**
    * @ignore

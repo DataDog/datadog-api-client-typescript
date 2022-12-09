@@ -12,7 +12,8 @@ export type MetricCustomSpaceAggregation =
   | typeof AVG
   | typeof MAX
   | typeof MIN
-  | typeof SUM;
+  | typeof SUM
+  | UnparsedObject;
 export const AVG = "avg";
 export const MAX = "max";
 export const MIN = "min";

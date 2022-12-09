@@ -14,7 +14,8 @@ export type WidgetAggregator =
   | typeof MAXIMUM
   | typeof MINIMUM
   | typeof SUM
-  | typeof PERCENTILE;
+  | typeof PERCENTILE
+  | UnparsedObject;
 export const AVERAGE = "avg";
 export const LAST = "last";
 export const MAXIMUM = "max";

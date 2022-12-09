@@ -8,5 +8,5 @@
  * Type of the group widget.
  */
 
-export type GroupWidgetDefinitionType = typeof GROUP;
+export type GroupWidgetDefinitionType = typeof GROUP | UnparsedObject;
 export const GROUP = "group";

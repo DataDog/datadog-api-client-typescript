@@ -15,7 +15,8 @@ export type AWSNamespace =
   | typeof RDS
   | typeof CUSTOM
   | typeof NETWORK_ELB
-  | typeof LAMBDA;
+  | typeof LAMBDA
+  | UnparsedObject;
 export const ELB = "elb";
 export const APPLICATION_ELB = "application_elb";
 export const SQS = "sqs";

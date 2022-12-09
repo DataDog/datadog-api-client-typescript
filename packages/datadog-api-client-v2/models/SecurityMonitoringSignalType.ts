@@ -8,5 +8,5 @@
  * The type of event.
  */
 
-export type SecurityMonitoringSignalType = typeof SIGNAL;
+export type SecurityMonitoringSignalType = typeof SIGNAL | UnparsedObject;
 export const SIGNAL = "signal";

@@ -30,7 +30,7 @@ export class LogsArchiveDestinationS3 {
   /**
    * Type of the S3 archive destination.
    */
-  "type": LogsArchiveDestinationS3Type | UnparsedObject;
+  "type": LogsArchiveDestinationS3Type;
 
   /**
    * @ignore

@@ -8,5 +8,5 @@
  * Type of the event.
  */
 
-export type EventType = typeof EVENT;
+export type EventType = typeof EVENT | UnparsedObject;
 export const EVENT = "event";

@@ -22,7 +22,7 @@ export class UserInvitationData {
   /**
    * User invitations type.
    */
-  "type": UserInvitationsType | UnparsedObject;
+  "type": UserInvitationsType;
 
   /**
    * @ignore

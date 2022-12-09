@@ -8,5 +8,7 @@
  * Type of the check status widget.
  */
 
-export type CheckStatusWidgetDefinitionType = typeof CHECK_STATUS;
+export type CheckStatusWidgetDefinitionType =
+  | typeof CHECK_STATUS
+  | UnparsedObject;
 export const CHECK_STATUS = "check_status";

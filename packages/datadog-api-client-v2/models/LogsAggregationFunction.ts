@@ -20,7 +20,8 @@ export type LogsAggregationFunction =
   | typeof MIN
   | typeof MAX
   | typeof AVG
-  | typeof MEDIAN;
+  | typeof MEDIAN
+  | UnparsedObject;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const PERCENTILE_75 = "pc75";

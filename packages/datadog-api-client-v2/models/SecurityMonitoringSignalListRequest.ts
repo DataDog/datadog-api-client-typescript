@@ -27,7 +27,7 @@ export class SecurityMonitoringSignalListRequest {
   /**
    * The sort parameters used for querying security signals.
    */
-  "sort"?: SecurityMonitoringSignalsSort | UnparsedObject;
+  "sort"?: SecurityMonitoringSignalsSort;
 
   /**
    * @ignore

@@ -39,7 +39,7 @@ export class LogsPipelineProcessor {
   /**
    * Type of logs pipeline processor.
    */
-  "type": LogsPipelineProcessorType | UnparsedObject;
+  "type": LogsPipelineProcessorType;
 
   /**
    * @ignore

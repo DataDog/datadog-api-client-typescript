@@ -18,7 +18,7 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
   /**
    * Data source for APM resource stats queries.
    */
-  "dataSource": FormulaAndFunctionApmResourceStatsDataSource | UnparsedObject;
+  "dataSource": FormulaAndFunctionApmResourceStatsDataSource;
   /**
    * APM environment.
    */
@@ -54,7 +54,7 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
   /**
    * APM resource stat name.
    */
-  "stat": FormulaAndFunctionApmResourceStatName | UnparsedObject;
+  "stat": FormulaAndFunctionApmResourceStatName;
 
   /**
    * @ignore

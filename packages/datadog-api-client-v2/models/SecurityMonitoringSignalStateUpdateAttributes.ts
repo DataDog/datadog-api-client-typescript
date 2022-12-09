@@ -22,11 +22,11 @@ export class SecurityMonitoringSignalStateUpdateAttributes {
   /**
    * Reason a signal is archived.
    */
-  "archiveReason"?: SecurityMonitoringSignalArchiveReason | UnparsedObject;
+  "archiveReason"?: SecurityMonitoringSignalArchiveReason;
   /**
    * The new triage state of the signal.
    */
-  "state": SecurityMonitoringSignalState | UnparsedObject;
+  "state": SecurityMonitoringSignalState;
   /**
    * Version of the updated signal. If server side version is higher, update will be rejected.
    */

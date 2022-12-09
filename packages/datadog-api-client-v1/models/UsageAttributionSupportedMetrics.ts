@@ -53,7 +53,8 @@ export type UsageAttributionSupportedMetrics =
   | typeof APM_FARGATE_PERCENTAGE
   | typeof APPSEC_FARGATE_USAGE
   | typeof APPSEC_FARGATE_PERCENTAGE
-  | typeof ALL;
+  | typeof ALL
+  | UnparsedObject;
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CONTAINER_USAGE = "container_usage";
 export const SNMP_PERCENTAGE = "snmp_percentage";

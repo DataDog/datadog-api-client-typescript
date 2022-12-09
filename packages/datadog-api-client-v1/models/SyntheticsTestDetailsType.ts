@@ -8,6 +8,9 @@
  * Type of the Synthetic test, either `api` or `browser`.
  */
 
-export type SyntheticsTestDetailsType = typeof API | typeof BROWSER;
+export type SyntheticsTestDetailsType =
+  | typeof API
+  | typeof BROWSER
+  | UnparsedObject;
 export const API = "api";
 export const BROWSER = "browser";

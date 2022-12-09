@@ -46,7 +46,7 @@ export class LogsStatusRemapper {
   /**
    * Type of logs status remapper.
    */
-  "type": LogsStatusRemapperType | UnparsedObject;
+  "type": LogsStatusRemapperType;
 
   /**
    * @ignore

@@ -8,5 +8,5 @@
  * Type of the Synthetic test, `api`.
  */
 
-export type SyntheticsAPITestType = typeof API;
+export type SyntheticsAPITestType = typeof API | UnparsedObject;
 export const API = "api";

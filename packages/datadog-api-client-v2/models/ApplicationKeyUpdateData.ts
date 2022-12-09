@@ -26,7 +26,7 @@ export class ApplicationKeyUpdateData {
   /**
    * Application Keys resource type.
    */
-  "type": ApplicationKeysType | UnparsedObject;
+  "type": ApplicationKeysType;
 
   /**
    * @ignore

@@ -50,7 +50,7 @@ export class SyntheticsAPIStep {
   /**
    * The subtype of the Synthetic multistep API test step, currently only supporting `http`.
    */
-  "subtype": SyntheticsAPIStepSubtype | UnparsedObject;
+  "subtype": SyntheticsAPIStepSubtype;
 
   /**
    * @ignore

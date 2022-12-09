@@ -8,5 +8,5 @@
  * Type of process summary.
  */
 
-export type ProcessSummaryType = typeof PROCESS;
+export type ProcessSummaryType = typeof PROCESS | UnparsedObject;
 export const PROCESS = "process";

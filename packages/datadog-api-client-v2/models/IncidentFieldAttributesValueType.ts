@@ -12,7 +12,8 @@ export type IncidentFieldAttributesValueType =
   | typeof MULTISELECT
   | typeof TEXTARRAY
   | typeof METRICTAG
-  | typeof AUTOCOMPLETE;
+  | typeof AUTOCOMPLETE
+  | UnparsedObject;
 export const MULTISELECT = "multiselect";
 export const TEXTARRAY = "textarray";
 export const METRICTAG = "metrictag";

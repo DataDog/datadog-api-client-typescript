@@ -8,5 +8,7 @@
  * The rule type.
  */
 
-export type SecurityMonitoringSignalRuleType = typeof SIGNAL_CORRELATION;
+export type SecurityMonitoringSignalRuleType =
+  | typeof SIGNAL_CORRELATION
+  | UnparsedObject;
 export const SIGNAL_CORRELATION = "signal_correlation";
