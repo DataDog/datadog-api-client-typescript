@@ -671,7 +671,6 @@ const enumsMap: { [key: string]: any[] } = {
   FunnelWidgetDefinitionType: ["funnel"],
   GeomapWidgetDefinitionType: ["geomap"],
   GroupWidgetDefinitionType: ["group"],
-  HTTPMethod: ["GET", "POST", "PATCH", "PUT", "DELETE", "HEAD", "OPTIONS"],
   HeatMapWidgetDefinitionType: ["heatmap"],
   HostMapWidgetDefinitionType: ["hostmap"],
   HourlyUsageAttributionUsageType: [
@@ -1089,6 +1088,7 @@ const enumsMap: { [key: string]: any[] } = {
     "uploadFiles",
     "wait",
   ],
+  SyntheticsTestCallType: ["healthcheck", "unary"],
   SyntheticsTestDetailsSubType: [
     "http",
     "ssl",
