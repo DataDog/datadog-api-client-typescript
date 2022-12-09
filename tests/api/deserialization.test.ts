@@ -225,12 +225,12 @@ test('TestDeserializationUnknownNestedEnum', () => {
       "config": {
           "request": {
               "url": "https://www.10.0.0.1.xip.io",
-              "method": "A non existent method",
+              "method": "GET",
               "timeout": 30
           },
           "assertions": [
               {
-                  "operator": "is",
+                  "operator": "not-an-operator",
                   "type": "statusCode",
                   "target": 200
               }
@@ -250,9 +250,9 @@ test('TestDeserializationUnknownNestedEnum', () => {
 
     expect(result?.unparsedObject).toBe(undefined);
     expect(result.config.unparsedObject).toBe(undefined);
-    expect(result.config.request.method).toBeInstanceOf(UnparsedObject);
-    expect(result.config.request.method._data).toBe("A non existent method");
-    expect(result.config.request.timeout).toBe(30.0);
+    expect(result.config.assertions[0]).toBeInstanceOf(UnparsedObject);
+    expect(result.config.assertions[0]._data["operator"]).toBe("not-an-operator");
+    expect(result.config.assertions[0]._data["target"]).toBe(200);
   }
 );
 
