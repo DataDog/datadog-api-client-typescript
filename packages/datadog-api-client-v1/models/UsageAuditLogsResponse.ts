@@ -5,10 +5,7 @@
  */
 import { UsageAuditLogsHour } from "./UsageAuditLogsHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the audit logs usage for each hour for a given organization.
@@ -22,7 +19,7 @@ export class UsageAuditLogsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

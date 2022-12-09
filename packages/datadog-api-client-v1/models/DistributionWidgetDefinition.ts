@@ -11,10 +11,7 @@ import { WidgetMarker } from "./WidgetMarker";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The Distribution visualization is another way of showing metrics
@@ -73,7 +70,7 @@ export class DistributionWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

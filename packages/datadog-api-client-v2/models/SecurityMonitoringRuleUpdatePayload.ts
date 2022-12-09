@@ -8,10 +8,7 @@ import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Update an existing rule.
@@ -61,7 +58,7 @@ export class SecurityMonitoringRuleUpdatePayload {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

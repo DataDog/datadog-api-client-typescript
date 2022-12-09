@@ -6,10 +6,7 @@
 import { MonitorFormulaAndFunctionEventAggregation } from "./MonitorFormulaAndFunctionEventAggregation";
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Options for sorting group by results.
@@ -31,7 +28,7 @@ export class MonitorFormulaAndFunctionEventQueryGroupBySort {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

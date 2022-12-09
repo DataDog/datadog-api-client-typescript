@@ -5,10 +5,7 @@
  */
 import { ServiceDefinitionV2SlackType } from "./ServiceDefinitionV2SlackType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Service owner's Slack channel.
@@ -30,7 +27,7 @@ export class ServiceDefinitionV2Slack {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

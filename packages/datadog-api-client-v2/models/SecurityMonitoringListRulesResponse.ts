@@ -6,10 +6,7 @@
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { SecurityMonitoringRuleResponse } from "./SecurityMonitoringRuleResponse";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of rules.
@@ -27,7 +24,7 @@ export class SecurityMonitoringListRulesResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

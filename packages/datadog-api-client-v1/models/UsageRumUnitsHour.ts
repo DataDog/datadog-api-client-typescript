@@ -4,10 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Number of RUM Units used for each hour for a given organization (data available as of November 1, 2021).
@@ -37,7 +34,7 @@ export class UsageRumUnitsHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

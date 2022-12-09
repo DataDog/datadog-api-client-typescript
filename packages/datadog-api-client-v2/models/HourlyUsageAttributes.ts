@@ -5,10 +5,7 @@
  */
 import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes of hourly usage for a product family for an org for a time period.
@@ -42,7 +39,7 @@ export class HourlyUsageAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

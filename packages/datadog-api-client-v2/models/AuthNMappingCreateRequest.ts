@@ -5,10 +5,7 @@
  */
 import { AuthNMappingCreateData } from "./AuthNMappingCreateData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request for creating an AuthN Mapping.
@@ -22,7 +19,7 @@ export class AuthNMappingCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,10 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the issuer of a SSL certificate.
@@ -41,7 +38,7 @@ export class SyntheticsSSLCertificateIssuer {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

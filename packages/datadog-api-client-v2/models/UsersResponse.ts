@@ -7,10 +7,7 @@ import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { User } from "./User";
 import { UserResponseIncludedItem } from "./UserResponseIncludedItem";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing information about multiple users.
@@ -32,7 +29,7 @@ export class UsersResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

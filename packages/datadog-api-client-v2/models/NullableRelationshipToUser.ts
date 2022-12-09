@@ -5,10 +5,7 @@
  */
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationship to user.
@@ -22,7 +19,7 @@ export class NullableRelationshipToUser {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

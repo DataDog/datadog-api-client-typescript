@@ -8,10 +8,7 @@ import { MetricMetadata } from "./MetricMetadata";
 import { MetricPoint } from "./MetricPoint";
 import { MetricResource } from "./MetricResource";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A metric to submit to Datadog.
@@ -58,7 +55,7 @@ export class MetricSeries {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

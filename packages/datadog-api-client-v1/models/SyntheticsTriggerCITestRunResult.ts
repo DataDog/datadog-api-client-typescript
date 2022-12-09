@@ -5,10 +5,7 @@
  */
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Information about a single test run.
@@ -34,7 +31,7 @@ export class SyntheticsTriggerCITestRunResult {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

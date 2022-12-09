@@ -6,10 +6,7 @@
 import { FormulaAndFunctionApmDependencyStatName } from "./FormulaAndFunctionApmDependencyStatName";
 import { FormulaAndFunctionApmDependencyStatsDataSource } from "./FormulaAndFunctionApmDependencyStatsDataSource";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A formula and functions APM dependency stats query.
@@ -59,7 +56,7 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

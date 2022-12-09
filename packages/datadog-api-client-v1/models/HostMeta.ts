@@ -5,10 +5,7 @@
  */
 import { HostMetaInstallMethod } from "./HostMetaInstallMethod";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata associated with your host.
@@ -78,7 +75,7 @@ export class HostMeta {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

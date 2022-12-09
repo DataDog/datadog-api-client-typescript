@@ -7,10 +7,7 @@ import { ServiceMapWidgetDefinitionType } from "./ServiceMapWidgetDefinitionType
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * This widget displays a map of a service to all of the services that call it, and all of the services that it calls.
@@ -48,7 +45,7 @@ export class ServiceMapWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

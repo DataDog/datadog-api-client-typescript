@@ -6,10 +6,7 @@
 import { SLOHistoryResponseData } from "./SLOHistoryResponseData";
 import { SLOHistoryResponseError } from "./SLOHistoryResponseError";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective history response.
@@ -27,7 +24,7 @@ export class SLOHistoryResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

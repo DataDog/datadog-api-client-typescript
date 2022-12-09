@@ -6,10 +6,7 @@
 import { SyntheticsCIBatchMetadataPipeline } from "./SyntheticsCIBatchMetadataPipeline";
 import { SyntheticsCIBatchMetadataProvider } from "./SyntheticsCIBatchMetadataProvider";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Description of the CI provider.
@@ -27,7 +24,7 @@ export class SyntheticsCIBatchMetadataCI {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

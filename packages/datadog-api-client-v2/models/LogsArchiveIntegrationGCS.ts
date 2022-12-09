@@ -4,10 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The GCS archive's integration destination.
@@ -25,7 +22,7 @@ export class LogsArchiveIntegrationGCS {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

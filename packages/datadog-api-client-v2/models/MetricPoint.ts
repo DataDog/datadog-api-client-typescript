@@ -4,10 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A point object is of the form `{POSIX_timestamp, numeric_value}`.
@@ -26,7 +23,7 @@ export class MetricPoint {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

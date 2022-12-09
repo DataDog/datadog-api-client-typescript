@@ -5,10 +5,7 @@
  */
 import { UsageHostHour } from "./UsageHostHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Host usage response.
@@ -22,7 +19,7 @@ export class UsageHostsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Create request for an Opsgenie service.
@@ -22,7 +19,7 @@ export class OpsgenieServiceCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

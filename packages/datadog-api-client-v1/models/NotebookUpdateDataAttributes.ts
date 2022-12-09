@@ -8,10 +8,7 @@ import { NotebookMetadata } from "./NotebookMetadata";
 import { NotebookStatus } from "./NotebookStatus";
 import { NotebookUpdateCell } from "./NotebookUpdateCell";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The data attributes of a notebook.
@@ -41,7 +38,7 @@ export class NotebookUpdateDataAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -7,10 +7,7 @@ import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentTimelineCellCreateAttributes } from "./IncidentTimelineCellCreateAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The incident's attributes for a create request.
@@ -40,7 +37,7 @@ export class IncidentCreateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

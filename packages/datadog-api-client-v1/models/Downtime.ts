@@ -6,10 +6,7 @@
 import { DowntimeChild } from "./DowntimeChild";
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Downtiming gives you greater control over monitor notifications by
@@ -106,7 +103,7 @@ export class Downtime {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -7,10 +7,7 @@ import { UserCreateAttributes } from "./UserCreateAttributes";
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to create a user.
@@ -32,7 +29,7 @@ export class UserCreateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

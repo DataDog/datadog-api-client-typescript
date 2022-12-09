@@ -5,10 +5,7 @@
  */
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Create a service account.
@@ -22,7 +19,7 @@ export class ServiceAccountCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

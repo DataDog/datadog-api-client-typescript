@@ -6,10 +6,7 @@
 import { SyntheticsBasicAuthOauthClientType } from "./SyntheticsBasicAuthOauthClientType";
 import { SyntheticsBasicAuthOauthTokenApiAuthentication } from "./SyntheticsBasicAuthOauthTokenApiAuthentication";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to handle `oauth client` authentication when performing the test.
@@ -51,7 +48,7 @@ export class SyntheticsBasicAuthOauthClient {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

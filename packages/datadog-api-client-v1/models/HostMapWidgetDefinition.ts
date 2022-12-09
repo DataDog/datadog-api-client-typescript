@@ -10,10 +10,7 @@ import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetNodeType } from "./WidgetNodeType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The host map widget graphs any metric across your hosts using the same visualization available from the main Host Map page.
@@ -75,7 +72,7 @@ export class HostMapWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

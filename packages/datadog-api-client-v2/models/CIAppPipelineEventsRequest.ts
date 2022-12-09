@@ -8,10 +8,7 @@ import { CIAppQueryOptions } from "./CIAppQueryOptions";
 import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 import { CIAppSort } from "./CIAppSort";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The request for a pipelines search.
@@ -38,7 +35,7 @@ export class CIAppPipelineEventsRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { RUMApplicationList } from "./RUMApplicationList";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * RUM applications response.
@@ -22,7 +19,7 @@ export class RUMApplicationsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

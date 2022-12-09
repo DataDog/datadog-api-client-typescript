@@ -6,10 +6,7 @@
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsFilter } from "./LogsFilter";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a Datadog Log index.
@@ -47,7 +44,7 @@ export class LogsIndex {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the definition of a metric tag configuration to be updated.
@@ -46,7 +43,7 @@ export class MetricTagConfigurationUpdateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

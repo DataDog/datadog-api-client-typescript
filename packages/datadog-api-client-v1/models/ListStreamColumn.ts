@@ -5,10 +5,7 @@
  */
 import { ListStreamColumnWidth } from "./ListStreamColumnWidth";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Widget column.
@@ -26,7 +23,7 @@ export class ListStreamColumn {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

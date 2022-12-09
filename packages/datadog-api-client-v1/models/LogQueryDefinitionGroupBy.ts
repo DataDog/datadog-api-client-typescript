@@ -5,10 +5,7 @@
  */
 import { LogQueryDefinitionGroupBySort } from "./LogQueryDefinitionGroupBySort";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Defined items in the group.
@@ -30,7 +27,7 @@ export class LogQueryDefinitionGroupBy {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -8,10 +8,7 @@ import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective object includes a service level indicator, thresholds
@@ -98,7 +95,7 @@ export class ServiceLevelObjective {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

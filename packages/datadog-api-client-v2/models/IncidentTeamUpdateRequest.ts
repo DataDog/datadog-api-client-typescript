@@ -5,10 +5,7 @@
  */
 import { IncidentTeamUpdateData } from "./IncidentTeamUpdateData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Update request with an incident team payload.
@@ -22,7 +19,7 @@ export class IncidentTeamUpdateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

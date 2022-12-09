@@ -5,10 +5,7 @@
  */
 import { MetricSearchResponseResults } from "./MetricSearchResponseResults";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing the list of metrics matching the search query.
@@ -22,7 +19,7 @@ export class MetricSearchResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

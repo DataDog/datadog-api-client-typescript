@@ -5,10 +5,7 @@
  */
 import { LogsMessageRemapperType } from "./LogsMessageRemapperType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The message is a key attribute in Datadog.
@@ -39,7 +36,7 @@ export class LogsMessageRemapper {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

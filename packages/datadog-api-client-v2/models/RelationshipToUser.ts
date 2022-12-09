@@ -5,10 +5,7 @@
  */
 import { RelationshipToUserData } from "./RelationshipToUserData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationship to user.
@@ -22,7 +19,7 @@ export class RelationshipToUser {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

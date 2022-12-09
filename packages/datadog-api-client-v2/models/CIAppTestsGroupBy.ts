@@ -8,10 +8,7 @@ import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
 import { CIAppGroupByMissing } from "./CIAppGroupByMissing";
 import { CIAppGroupByTotal } from "./CIAppGroupByTotal";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A group-by rule.
@@ -46,7 +43,7 @@ export class CIAppTestsGroupBy {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The relationships the incident will have with other resources once created.
@@ -22,7 +19,7 @@ export class IncidentCreateRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

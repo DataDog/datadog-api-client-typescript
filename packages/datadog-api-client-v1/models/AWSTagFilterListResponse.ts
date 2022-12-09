@@ -5,10 +5,7 @@
  */
 import { AWSTagFilter } from "./AWSTagFilter";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An array of tag filter rules by `namespace` and tag filter string.
@@ -22,7 +19,7 @@ export class AWSTagFilterListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

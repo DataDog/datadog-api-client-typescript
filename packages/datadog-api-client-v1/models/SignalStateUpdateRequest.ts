@@ -6,10 +6,7 @@
 import { SignalArchiveReason } from "./SignalArchiveReason";
 import { SignalTriageState } from "./SignalTriageState";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the change of state for a given state.
@@ -35,7 +32,7 @@ export class SignalStateUpdateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

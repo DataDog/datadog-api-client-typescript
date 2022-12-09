@@ -9,10 +9,7 @@ import { LogsGroupBy } from "./LogsGroupBy";
 import { LogsQueryFilter } from "./LogsQueryFilter";
 import { LogsQueryOptions } from "./LogsQueryOptions";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object sent with the request to retrieve a list of logs from your organization.
@@ -43,7 +40,7 @@ export class LogsAggregateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

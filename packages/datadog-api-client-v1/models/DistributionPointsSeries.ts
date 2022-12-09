@@ -6,10 +6,7 @@
 import { DistributionPointItem } from "./DistributionPointItem";
 import { DistributionPointsType } from "./DistributionPointsType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A distribution points metric to submit to Datadog.
@@ -39,7 +36,7 @@ export class DistributionPointsSeries {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

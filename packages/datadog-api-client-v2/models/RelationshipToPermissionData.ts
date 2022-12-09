@@ -5,10 +5,7 @@
  */
 import { PermissionsType } from "./PermissionsType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationship to permission object.
@@ -26,7 +23,7 @@ export class RelationshipToPermissionData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

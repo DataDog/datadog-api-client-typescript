@@ -5,10 +5,7 @@
  */
 import { AWSAccount } from "./AWSAccount";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of enabled AWS accounts.
@@ -22,7 +19,7 @@ export class AWSAccountListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

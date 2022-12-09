@@ -5,10 +5,7 @@
  */
 import { SearchServiceLevelObjectiveAttributes } from "./SearchServiceLevelObjectiveAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective ID and attributes.
@@ -33,7 +30,7 @@ export class SearchServiceLevelObjectiveData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

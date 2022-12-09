@@ -6,10 +6,7 @@
 import { HourlyUsageType } from "./HourlyUsageType";
 import { UsageTimeSeriesObject } from "./UsageTimeSeriesObject";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Usage attributes data.
@@ -39,7 +36,7 @@ export class UsageAttributesObject {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

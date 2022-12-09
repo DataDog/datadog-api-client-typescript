@@ -6,10 +6,7 @@
 import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
 import { SearchSLOResponseDataAttributesFacets } from "./SearchSLOResponseDataAttributesFacets";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes
@@ -27,7 +24,7 @@ export class SearchSLOResponseDataAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -7,10 +7,7 @@ import { SecurityMonitoringSignalArchiveReason } from "./SecurityMonitoringSigna
 import { SecurityMonitoringSignalState } from "./SecurityMonitoringSignalState";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing a triage state update operation over a security signal.
@@ -56,7 +53,7 @@ export class SecurityMonitoringSignalTriageAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

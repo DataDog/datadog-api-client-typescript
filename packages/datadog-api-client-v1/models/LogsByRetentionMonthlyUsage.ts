@@ -5,10 +5,7 @@
  */
 import { LogsRetentionSumUsage } from "./LogsRetentionSumUsage";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing a summary of indexed logs usage by retention period for a single month.
@@ -26,7 +23,7 @@ export class LogsByRetentionMonthlyUsage {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

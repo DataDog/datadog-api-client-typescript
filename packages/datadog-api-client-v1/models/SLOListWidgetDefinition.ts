@@ -7,10 +7,7 @@ import { SLOListWidgetDefinitionType } from "./SLOListWidgetDefinitionType";
 import { SLOListWidgetRequest } from "./SLOListWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Use the SLO List widget to track your SLOs (Service Level Objectives) on dashboards.
@@ -40,7 +37,7 @@ export class SLOListWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

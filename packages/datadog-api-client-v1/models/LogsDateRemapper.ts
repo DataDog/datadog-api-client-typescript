@@ -5,10 +5,7 @@
  */
 import { LogsDateRemapperType } from "./LogsDateRemapperType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * As Datadog receives logs, it timestamps them using the value(s) from any of these default attributes.
@@ -52,7 +49,7 @@ export class LogsDateRemapper {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

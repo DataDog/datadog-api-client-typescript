@@ -6,10 +6,7 @@
 import { UsageCustomReportsAttributes } from "./UsageCustomReportsAttributes";
 import { UsageReportsType } from "./UsageReportsType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The response containing the date and type for custom reports.
@@ -31,7 +28,7 @@ export class UsageCustomReportsData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

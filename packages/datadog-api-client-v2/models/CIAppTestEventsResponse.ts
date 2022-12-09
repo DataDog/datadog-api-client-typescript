@@ -7,10 +7,7 @@ import { CIAppResponseLinks } from "./CIAppResponseLinks";
 import { CIAppResponseMetadata } from "./CIAppResponseMetadata";
 import { CIAppTestEvent } from "./CIAppTestEvent";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response object with all test events matching the request and pagination information.
@@ -32,7 +29,7 @@ export class CIAppTestEventsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

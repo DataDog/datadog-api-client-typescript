@@ -7,10 +7,7 @@ import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Formula to be used in a widget query.
@@ -40,7 +37,7 @@ export class WidgetFormula {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

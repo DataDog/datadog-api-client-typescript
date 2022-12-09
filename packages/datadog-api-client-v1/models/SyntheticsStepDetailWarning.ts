@@ -5,10 +5,7 @@
  */
 import { SyntheticsWarningType } from "./SyntheticsWarningType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object collecting warnings for a given step.
@@ -26,7 +23,7 @@ export class SyntheticsStepDetailWarning {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

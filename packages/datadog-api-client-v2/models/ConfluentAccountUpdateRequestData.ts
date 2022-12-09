@@ -6,10 +6,7 @@
 import { ConfluentAccountType } from "./ConfluentAccountType";
 import { ConfluentAccountUpdateRequestAttributes } from "./ConfluentAccountUpdateRequestAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Data object for updating a Confluent account.
@@ -27,7 +24,7 @@ export class ConfluentAccountUpdateRequestData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

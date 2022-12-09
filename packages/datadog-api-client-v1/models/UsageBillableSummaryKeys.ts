@@ -5,10 +5,7 @@
  */
 import { UsageBillableSummaryBody } from "./UsageBillableSummaryBody";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response with aggregated usage types.
@@ -370,7 +367,7 @@ export class UsageBillableSummaryKeys {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

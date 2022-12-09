@@ -5,10 +5,7 @@
  */
 import { NotebookMarkdownCellDefinition } from "./NotebookMarkdownCellDefinition";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes of a notebook `markdown` cell.
@@ -22,7 +19,7 @@ export class NotebookMarkdownCellAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

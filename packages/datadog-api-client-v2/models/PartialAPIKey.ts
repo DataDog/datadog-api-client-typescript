@@ -7,10 +7,7 @@ import { APIKeyRelationships } from "./APIKeyRelationships";
 import { APIKeysType } from "./APIKeysType";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Partial Datadog API key.
@@ -36,7 +33,7 @@ export class PartialAPIKey {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

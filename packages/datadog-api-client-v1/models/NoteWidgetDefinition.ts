@@ -8,10 +8,7 @@ import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTickEdge } from "./WidgetTickEdge";
 import { WidgetVerticalAlign } from "./WidgetVerticalAlign";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The notes and links widget is similar to free text widget, but allows for more formatting options.
@@ -61,7 +58,7 @@ export class NoteWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { LogsLookupProcessorType } from "./LogsLookupProcessorType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Use the Lookup Processor to define a mapping between a log attribute
@@ -53,7 +50,7 @@ export class LogsLookupProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

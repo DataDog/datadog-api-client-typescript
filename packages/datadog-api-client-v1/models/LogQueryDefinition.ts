@@ -7,10 +7,7 @@ import { LogQueryDefinitionGroupBy } from "./LogQueryDefinitionGroupBy";
 import { LogQueryDefinitionSearch } from "./LogQueryDefinitionSearch";
 import { LogsQueryCompute } from "./LogsQueryCompute";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The log query.
@@ -40,7 +37,7 @@ export class LogQueryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

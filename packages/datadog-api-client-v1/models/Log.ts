@@ -5,10 +5,7 @@
  */
 import { LogContent } from "./LogContent";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing a log after being processed and stored by Datadog.
@@ -26,7 +23,7 @@ export class Log {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

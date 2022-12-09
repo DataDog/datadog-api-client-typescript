@@ -5,10 +5,7 @@
  */
 import { SyntheticsLocation } from "./SyntheticsLocation";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of Synthetics locations.
@@ -22,7 +19,7 @@ export class SyntheticsLocations {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -6,10 +6,7 @@
 
 import { HttpFile } from "../../datadog-api-client-common/http/http";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the IdP configuration.
@@ -23,7 +20,7 @@ export class IdpFormData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

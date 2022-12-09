@@ -5,10 +5,7 @@
  */
 import { SyntheticsDevice } from "./SyntheticsDevice";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object with the result of the last browser test run.
@@ -38,7 +35,7 @@ export class SyntheticsBrowserTestResultShortResult {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

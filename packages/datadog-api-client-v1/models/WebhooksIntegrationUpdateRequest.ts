@@ -5,10 +5,7 @@
  */
 import { WebhooksIntegrationEncoding } from "./WebhooksIntegrationEncoding";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Update request of a Webhooks integration object.
@@ -46,7 +43,7 @@ export class WebhooksIntegrationUpdateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

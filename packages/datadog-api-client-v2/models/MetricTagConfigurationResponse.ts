@@ -5,10 +5,7 @@
  */
 import { MetricTagConfiguration } from "./MetricTagConfiguration";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response object which includes a single metric's tag configuration.
@@ -22,7 +19,7 @@ export class MetricTagConfigurationResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

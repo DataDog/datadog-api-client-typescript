@@ -8,10 +8,7 @@ import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
 import { RelationshipToRoles } from "./RelationshipToRoles";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationships of the user object returned by the API.
@@ -37,7 +34,7 @@ export class UserResponseRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

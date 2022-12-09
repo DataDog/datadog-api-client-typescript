@@ -5,10 +5,7 @@
  */
 import { NotebookMetadataType } from "./NotebookMetadataType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata associated with the notebook.
@@ -30,7 +27,7 @@ export class NotebookMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

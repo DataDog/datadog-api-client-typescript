@@ -5,10 +5,7 @@
  */
 import { ConfluentResourceResponseData } from "./ConfluentResourceResponseData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response schema when interacting with a Confluent resource.
@@ -22,7 +19,7 @@ export class ConfluentResourceResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { UsageSyntheticsAPIHour } from "./UsageSyntheticsAPIHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the number of Synthetics API tests run for each hour for a given organization.
@@ -22,7 +19,7 @@ export class UsageSyntheticsAPIResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

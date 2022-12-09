@@ -5,10 +5,7 @@
  */
 import { DashboardListItemRequest } from "./DashboardListItemRequest";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request containing the list of dashboards to update to.
@@ -22,7 +19,7 @@ export class DashboardListUpdateItemsRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

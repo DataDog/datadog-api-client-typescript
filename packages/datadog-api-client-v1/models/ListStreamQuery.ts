@@ -5,10 +5,7 @@
  */
 import { ListStreamSource } from "./ListStreamSource";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Updated list stream widget.
@@ -34,7 +31,7 @@ export class ListStreamQuery {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

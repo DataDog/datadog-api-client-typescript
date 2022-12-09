@@ -7,10 +7,7 @@ import { RUMAggregateSortType } from "./RUMAggregateSortType";
 import { RUMAggregationFunction } from "./RUMAggregationFunction";
 import { RUMSortOrder } from "./RUMSortOrder";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A sort rule.
@@ -36,7 +33,7 @@ export class RUMAggregateSort {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { MetricOrigin } from "./MetricOrigin";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Metadata for the metric.
@@ -22,7 +19,7 @@ export class MetricMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

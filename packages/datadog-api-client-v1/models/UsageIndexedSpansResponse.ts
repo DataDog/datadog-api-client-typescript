@@ -5,10 +5,7 @@
  */
 import { UsageIndexedSpansHour } from "./UsageIndexedSpansHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A response containing indexed spans usage.
@@ -22,7 +19,7 @@ export class UsageIndexedSpansResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -7,10 +7,7 @@ import { AuthNMappingsType } from "./AuthNMappingsType";
 import { AuthNMappingUpdateAttributes } from "./AuthNMappingUpdateAttributes";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Data for updating an AuthN Mapping.
@@ -36,7 +33,7 @@ export class AuthNMappingUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { DashboardResourceType } from "./DashboardResourceType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Dashboard bulk action request data.
@@ -26,7 +23,7 @@ export class DashboardBulkActionData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

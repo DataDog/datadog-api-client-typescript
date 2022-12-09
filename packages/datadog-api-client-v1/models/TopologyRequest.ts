@@ -6,10 +6,7 @@
 import { TopologyQuery } from "./TopologyQuery";
 import { TopologyRequestType } from "./TopologyRequestType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request that will return nodes and edges to be used by topology map.
@@ -27,7 +24,7 @@ export class TopologyRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

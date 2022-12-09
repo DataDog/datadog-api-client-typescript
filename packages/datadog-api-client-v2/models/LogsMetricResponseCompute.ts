@@ -5,10 +5,7 @@
  */
 import { LogsMetricResponseComputeAggregationType } from "./LogsMetricResponseComputeAggregationType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The compute rule to compute the log-based metric.
@@ -31,7 +28,7 @@ export class LogsMetricResponseCompute {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

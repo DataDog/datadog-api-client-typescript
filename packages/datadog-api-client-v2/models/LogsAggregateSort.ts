@@ -7,10 +7,7 @@ import { LogsAggregateSortType } from "./LogsAggregateSortType";
 import { LogsAggregationFunction } from "./LogsAggregationFunction";
 import { LogsSortOrder } from "./LogsSortOrder";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A sort rule
@@ -36,7 +33,7 @@ export class LogsAggregateSort {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

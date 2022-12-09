@@ -5,10 +5,7 @@
  */
 import { LogsAggregateBucketValue } from "./LogsAggregateBucketValue";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A bucket values
@@ -26,7 +23,7 @@ export class LogsAggregateBucket {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

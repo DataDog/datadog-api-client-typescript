@@ -7,10 +7,7 @@ import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes
 import { UserRelationships } from "./UserRelationships";
 import { UsersType } from "./UsersType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to create a service account User.
@@ -32,7 +29,7 @@ export class ServiceAccountCreateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

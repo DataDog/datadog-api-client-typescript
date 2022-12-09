@@ -5,10 +5,7 @@
  */
 import { UsageAttributionValues } from "./UsageAttributionValues";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Usage Summary by tag for a given organization.
@@ -50,7 +47,7 @@ export class UsageAttributionBody {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

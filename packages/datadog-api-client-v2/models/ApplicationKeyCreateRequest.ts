@@ -5,10 +5,7 @@
  */
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request used to create an application key.
@@ -22,7 +19,7 @@ export class ApplicationKeyCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

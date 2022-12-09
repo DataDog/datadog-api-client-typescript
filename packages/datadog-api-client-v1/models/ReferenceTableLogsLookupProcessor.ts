@@ -5,10 +5,7 @@
  */
 import { LogsLookupProcessorType } from "./LogsLookupProcessorType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * **Note**: Reference Tables are in public beta.
@@ -48,7 +45,7 @@ export class ReferenceTableLogsLookupProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

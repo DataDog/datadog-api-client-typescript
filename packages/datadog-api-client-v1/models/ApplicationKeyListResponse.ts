@@ -5,10 +5,7 @@
  */
 import { ApplicationKey } from "./ApplicationKey";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An application key response.
@@ -22,7 +19,7 @@ export class ApplicationKeyListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

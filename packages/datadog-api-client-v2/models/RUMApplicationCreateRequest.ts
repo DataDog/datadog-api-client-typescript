@@ -5,10 +5,7 @@
  */
 import { RUMApplicationCreate } from "./RUMApplicationCreate";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * RUM application creation request attributes.
@@ -22,7 +19,7 @@ export class RUMApplicationCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

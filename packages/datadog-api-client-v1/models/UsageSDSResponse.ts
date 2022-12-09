@@ -5,10 +5,7 @@
  */
 import { UsageSDSHour } from "./UsageSDSHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the Sensitive Data Scanner usage for each hour for a given organization.
@@ -22,7 +19,7 @@ export class UsageSDSResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

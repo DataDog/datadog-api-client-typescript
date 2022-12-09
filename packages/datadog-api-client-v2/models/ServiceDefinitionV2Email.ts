@@ -5,10 +5,7 @@
  */
 import { ServiceDefinitionV2EmailType } from "./ServiceDefinitionV2EmailType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Service owner's email.
@@ -30,7 +27,7 @@ export class ServiceDefinitionV2Email {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

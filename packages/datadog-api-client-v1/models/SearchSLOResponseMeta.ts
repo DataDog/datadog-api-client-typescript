@@ -5,10 +5,7 @@
  */
 import { SearchSLOResponseMetaPage } from "./SearchSLOResponseMetaPage";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Searches metadata returned by the API.
@@ -22,7 +19,7 @@ export class SearchSLOResponseMeta {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

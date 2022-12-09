@@ -6,10 +6,7 @@
 import { SyntheticsSSLCertificateIssuer } from "./SyntheticsSSLCertificateIssuer";
 import { SyntheticsSSLCertificateSubject } from "./SyntheticsSSLCertificateSubject";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the SSL certificate used for a Synthetic test.
@@ -67,7 +64,7 @@ export class SyntheticsSSLCertificate {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -6,10 +6,7 @@
 import { OpsgenieServiceType } from "./OpsgenieServiceType";
 import { OpsgenieServiceUpdateAttributes } from "./OpsgenieServiceUpdateAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Opsgenie service for an update request.
@@ -31,7 +28,7 @@ export class OpsgenieServiceUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

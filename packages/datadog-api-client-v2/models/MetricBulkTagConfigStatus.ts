@@ -6,10 +6,7 @@
 import { MetricBulkConfigureTagsType } from "./MetricBulkConfigureTagsType";
 import { MetricBulkTagConfigStatusAttributes } from "./MetricBulkTagConfigStatusAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The status of a request to bulk configure metric tags.
@@ -32,7 +29,7 @@ export class MetricBulkTagConfigStatus {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

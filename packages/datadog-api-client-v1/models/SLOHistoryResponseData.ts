@@ -10,10 +10,7 @@ import { SLOThreshold } from "./SLOThreshold";
 import { SLOType } from "./SLOType";
 import { SLOTypeNumeric } from "./SLOTypeNumeric";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An array of service level objective objects.
@@ -74,7 +71,7 @@ export class SLOHistoryResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

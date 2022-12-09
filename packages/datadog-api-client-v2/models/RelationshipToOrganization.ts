@@ -5,10 +5,7 @@
  */
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationship to an organization.
@@ -22,7 +19,7 @@ export class RelationshipToOrganization {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

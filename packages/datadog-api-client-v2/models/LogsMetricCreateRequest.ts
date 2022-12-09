@@ -5,10 +5,7 @@
  */
 import { LogsMetricCreateData } from "./LogsMetricCreateData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The new log-based metric body.
@@ -22,7 +19,7 @@ export class LogsMetricCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

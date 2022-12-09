@@ -12,10 +12,7 @@ import { MonitorThresholds } from "./MonitorThresholds";
 import { MonitorThresholdWindowOptions } from "./MonitorThresholdWindowOptions";
 import { OnMissingDataOption } from "./OnMissingDataOption";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of options associated with your monitor.
@@ -177,7 +174,7 @@ export class MonitorOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

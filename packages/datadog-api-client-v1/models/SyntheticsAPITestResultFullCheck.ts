@@ -5,10 +5,7 @@
  */
 import { SyntheticsTestConfig } from "./SyntheticsTestConfig";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the API test configuration.
@@ -22,7 +19,7 @@ export class SyntheticsAPITestResultFullCheck {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

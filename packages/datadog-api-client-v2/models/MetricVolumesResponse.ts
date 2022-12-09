@@ -5,10 +5,7 @@
  */
 import { MetricVolumes } from "./MetricVolumes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response object which includes a single metric's volume.
@@ -22,7 +19,7 @@ export class MetricVolumesResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

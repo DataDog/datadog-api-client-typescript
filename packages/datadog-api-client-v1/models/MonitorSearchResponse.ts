@@ -7,10 +7,7 @@ import { MonitorSearchResponseCounts } from "./MonitorSearchResponseCounts";
 import { MonitorSearchResponseMetadata } from "./MonitorSearchResponseMetadata";
 import { MonitorSearchResult } from "./MonitorSearchResult";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The response form a monitor search.
@@ -32,7 +29,7 @@ export class MonitorSearchResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

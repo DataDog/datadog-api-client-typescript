@@ -5,10 +5,7 @@
  */
 import { RoleCreateResponseData } from "./RoleCreateResponseData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing information about a created role.
@@ -22,7 +19,7 @@ export class RoleCreateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

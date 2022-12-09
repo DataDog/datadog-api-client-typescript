@@ -5,10 +5,7 @@
  */
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Template variables saved views.
@@ -26,7 +23,7 @@ export class DashboardTemplateVariablePreset {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

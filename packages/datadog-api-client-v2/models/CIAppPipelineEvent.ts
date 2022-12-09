@@ -6,10 +6,7 @@
 import { CIAppEventAttributes } from "./CIAppEventAttributes";
 import { CIAppPipelineEventTypeName } from "./CIAppPipelineEventTypeName";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object description of a pipeline event after being processed and stored by Datadog.
@@ -31,7 +28,7 @@ export class CIAppPipelineEvent {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

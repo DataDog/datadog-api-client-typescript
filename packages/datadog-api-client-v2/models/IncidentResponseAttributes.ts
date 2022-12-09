@@ -6,10 +6,7 @@
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The incident's attributes from a response.
@@ -89,7 +86,7 @@ export class IncidentResponseAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

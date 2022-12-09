@@ -7,10 +7,7 @@ import { CIAppResponsePage } from "./CIAppResponsePage";
 import { CIAppResponseStatus } from "./CIAppResponseStatus";
 import { CIAppWarning } from "./CIAppWarning";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata associated with a request.
@@ -41,7 +38,7 @@ export class CIAppResponseMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

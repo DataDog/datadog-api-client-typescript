@@ -6,10 +6,7 @@
 import { Creator } from "./Creator";
 import { DashboardType } from "./DashboardType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A dashboard within a list.
@@ -67,7 +64,7 @@ export class DashboardListItem {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

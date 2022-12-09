@@ -5,10 +5,7 @@
  */
 import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A relationship reference for an integration metadata object.
@@ -26,7 +23,7 @@ export class RelationshipToIncidentIntegrationMetadataData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

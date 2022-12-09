@@ -6,10 +6,7 @@
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgType } from "./CostByOrgType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Cost data.
@@ -31,7 +28,7 @@ export class CostByOrg {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

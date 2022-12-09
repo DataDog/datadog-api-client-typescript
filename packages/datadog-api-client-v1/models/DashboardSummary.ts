@@ -5,10 +5,7 @@
  */
 import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Dashboard summary response.
@@ -22,7 +19,7 @@ export class DashboardSummary {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

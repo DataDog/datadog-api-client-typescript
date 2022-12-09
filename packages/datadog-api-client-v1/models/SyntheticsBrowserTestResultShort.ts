@@ -6,10 +6,7 @@
 import { SyntheticsBrowserTestResultShortResult } from "./SyntheticsBrowserTestResultShortResult";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object with the results of a single Synthetic browser test.
@@ -42,7 +39,7 @@ export class SyntheticsBrowserTestResultShort {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { WidgetSort } from "./WidgetSort";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Which column and order to sort by
@@ -26,7 +23,7 @@ export class WidgetFieldSort {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

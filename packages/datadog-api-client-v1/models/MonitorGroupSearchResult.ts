@@ -5,10 +5,7 @@
  */
 import { MonitorOverallStates } from "./MonitorOverallStates";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A single monitor group search result.
@@ -46,7 +43,7 @@ export class MonitorGroupSearchResult {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

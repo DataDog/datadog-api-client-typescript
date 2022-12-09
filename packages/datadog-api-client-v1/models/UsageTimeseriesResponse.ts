@@ -5,10 +5,7 @@
  */
 import { UsageTimeseriesHour } from "./UsageTimeseriesHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing hourly usage of timeseries.
@@ -22,7 +19,7 @@ export class UsageTimeseriesResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

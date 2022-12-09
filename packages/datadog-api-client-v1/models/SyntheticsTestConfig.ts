@@ -8,10 +8,7 @@ import { SyntheticsBrowserVariable } from "./SyntheticsBrowserVariable";
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration object for a Synthetic test.
@@ -37,7 +34,7 @@ export class SyntheticsTestConfig {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

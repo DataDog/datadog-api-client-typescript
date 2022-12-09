@@ -5,10 +5,7 @@
  */
 import { UsageDBMHour } from "./UsageDBMHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the Database Monitoring usage for each hour for a given organization.
@@ -22,7 +19,7 @@ export class UsageDBMResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

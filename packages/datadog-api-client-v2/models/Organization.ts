@@ -6,10 +6,7 @@
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { OrganizationsType } from "./OrganizationsType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Organization object.
@@ -31,7 +28,7 @@ export class Organization {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

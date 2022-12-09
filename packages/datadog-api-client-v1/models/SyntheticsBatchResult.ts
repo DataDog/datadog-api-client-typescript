@@ -8,10 +8,7 @@ import { SyntheticsStatus } from "./SyntheticsStatus";
 import { SyntheticsTestDetailsType } from "./SyntheticsTestDetailsType";
 import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object with the results of a Synthetics batch.
@@ -61,7 +58,7 @@ export class SyntheticsBatchResult {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

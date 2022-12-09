@@ -6,10 +6,7 @@
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
 import { SLOBulkDeleteResponseData } from "./SLOBulkDeleteResponseData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The bulk partial delete service level objective object endpoint
@@ -32,7 +29,7 @@ export class SLOBulkDeleteResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

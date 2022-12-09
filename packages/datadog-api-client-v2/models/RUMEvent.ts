@@ -6,10 +6,7 @@
 import { RUMEventAttributes } from "./RUMEventAttributes";
 import { RUMEventType } from "./RUMEventType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object description of a RUM event after being processed and stored by Datadog.
@@ -31,7 +28,7 @@ export class RUMEvent {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

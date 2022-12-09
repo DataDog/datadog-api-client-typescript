@@ -5,10 +5,7 @@
  */
 import { ServiceDefinitionData } from "./ServiceDefinitionData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Get service definition response.
@@ -22,7 +19,7 @@ export class ServiceDefinitionGetResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

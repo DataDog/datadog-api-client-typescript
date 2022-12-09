@@ -5,10 +5,7 @@
  */
 import { SunburstWidgetLegendTableType } from "./SunburstWidgetLegendTableType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Configuration of table-based legend.
@@ -22,7 +19,7 @@ export class SunburstWidgetLegendTable {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

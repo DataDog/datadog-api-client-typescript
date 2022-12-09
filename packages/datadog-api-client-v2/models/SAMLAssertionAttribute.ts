@@ -6,10 +6,7 @@
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { SAMLAssertionAttributesType } from "./SAMLAssertionAttributesType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * SAML assertion attribute.
@@ -31,7 +28,7 @@ export class SAMLAssertionAttribute {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

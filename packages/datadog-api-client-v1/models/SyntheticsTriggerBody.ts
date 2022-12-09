@@ -5,10 +5,7 @@
  */
 import { SyntheticsTriggerTest } from "./SyntheticsTriggerTest";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the synthetics tests to trigger.
@@ -22,7 +19,7 @@ export class SyntheticsTriggerBody {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

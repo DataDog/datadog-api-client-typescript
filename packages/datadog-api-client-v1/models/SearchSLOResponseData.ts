@@ -5,10 +5,7 @@
  */
 import { SearchSLOResponseDataAttributes } from "./SearchSLOResponseDataAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Data from search SLO response.
@@ -26,7 +23,7 @@ export class SearchSLOResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

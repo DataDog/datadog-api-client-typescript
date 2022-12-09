@@ -7,10 +7,7 @@ import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
 import { AuthNMappingRelationships } from "./AuthNMappingRelationships";
 import { AuthNMappingsType } from "./AuthNMappingsType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The AuthN Mapping object returned by API.
@@ -36,7 +33,7 @@ export class AuthNMapping {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

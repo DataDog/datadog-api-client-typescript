@@ -7,10 +7,7 @@ import { CIAppAggregateSortType } from "./CIAppAggregateSortType";
 import { CIAppAggregationFunction } from "./CIAppAggregationFunction";
 import { CIAppSortOrder } from "./CIAppSortOrder";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A sort rule.
@@ -36,7 +33,7 @@ export class CIAppAggregateSort {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

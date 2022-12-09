@@ -6,10 +6,7 @@
 import { LogsArchiveDestinationGCSType } from "./LogsArchiveDestinationGCSType";
 import { LogsArchiveIntegrationGCS } from "./LogsArchiveIntegrationGCS";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The GCS archive destination.
@@ -35,7 +32,7 @@ export class LogsArchiveDestinationGCS {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

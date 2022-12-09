@@ -5,10 +5,7 @@
  */
 import { LogsMetricResponseData } from "./LogsMetricResponseData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * All the available log-based metric objects.
@@ -22,7 +19,7 @@ export class LogsMetricsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

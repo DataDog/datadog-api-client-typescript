@@ -5,10 +5,7 @@
  */
 import { ServiceDefinitionV2OpsgenieRegion } from "./ServiceDefinitionV2OpsgenieRegion";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Opsgenie integration for the service.
@@ -26,7 +23,7 @@ export class ServiceDefinitionV2Opsgenie {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

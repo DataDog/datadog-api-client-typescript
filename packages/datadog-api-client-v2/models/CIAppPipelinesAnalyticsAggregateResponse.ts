@@ -7,10 +7,7 @@ import { CIAppPipelinesAggregationBucketsResponse } from "./CIAppPipelinesAggreg
 import { CIAppResponseLinks } from "./CIAppResponseLinks";
 import { CIAppResponseMetadata } from "./CIAppResponseMetadata";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The response object for the pipeline events aggregate API endpoint.
@@ -32,7 +29,7 @@ export class CIAppPipelinesAnalyticsAggregateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

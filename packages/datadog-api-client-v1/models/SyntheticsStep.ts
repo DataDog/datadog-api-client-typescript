@@ -5,10 +5,7 @@
  */
 import { SyntheticsStepType } from "./SyntheticsStepType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The steps used in a Synthetics browser test.
@@ -46,7 +43,7 @@ export class SyntheticsStep {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

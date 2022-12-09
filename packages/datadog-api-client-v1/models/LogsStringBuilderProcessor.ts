@@ -5,10 +5,7 @@
  */
 import { LogsStringBuilderProcessorType } from "./LogsStringBuilderProcessorType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Use the string builder processor to add a new attribute (without spaces or special characters)
@@ -55,7 +52,7 @@ export class LogsStringBuilderProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

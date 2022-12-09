@@ -5,10 +5,7 @@
  */
 import { SyntheticsCIBatchMetadata } from "./SyntheticsCIBatchMetadata";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Test configuration for Synthetics
@@ -26,7 +23,7 @@ export class SyntheticsTriggerTest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

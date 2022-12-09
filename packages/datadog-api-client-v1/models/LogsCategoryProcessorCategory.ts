@@ -5,10 +5,7 @@
  */
 import { LogsFilter } from "./LogsFilter";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the logs filter.
@@ -26,7 +23,7 @@ export class LogsCategoryProcessorCategory {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

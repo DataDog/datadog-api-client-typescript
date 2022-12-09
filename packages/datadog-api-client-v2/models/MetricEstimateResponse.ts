@@ -5,10 +5,7 @@
  */
 import { MetricEstimate } from "./MetricEstimate";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response object that includes metric cardinality estimates.
@@ -22,7 +19,7 @@ export class MetricEstimateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

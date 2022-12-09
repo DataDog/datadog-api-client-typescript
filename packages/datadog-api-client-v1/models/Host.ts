@@ -6,10 +6,7 @@
 import { HostMeta } from "./HostMeta";
 import { HostMetrics } from "./HostMetrics";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object representing a host.
@@ -75,7 +72,7 @@ export class Host {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

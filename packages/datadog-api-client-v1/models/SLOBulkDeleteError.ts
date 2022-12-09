@@ -5,10 +5,7 @@
  */
 import { SLOErrorTimeframe } from "./SLOErrorTimeframe";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the error.
@@ -32,7 +29,7 @@ export class SLOBulkDeleteError {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

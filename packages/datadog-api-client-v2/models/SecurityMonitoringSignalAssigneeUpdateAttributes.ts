@@ -5,10 +5,7 @@
  */
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes describing the new assignee of a security signal.
@@ -26,7 +23,7 @@ export class SecurityMonitoringSignalAssigneeUpdateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { UsageFargateHour } from "./UsageFargateHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the number of Fargate tasks run and hourly usage.
@@ -22,7 +19,7 @@ export class UsageFargateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { WidgetLiveSpan } from "./WidgetLiveSpan";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Time setting for the widget.
@@ -22,7 +19,7 @@ export class WidgetTime {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

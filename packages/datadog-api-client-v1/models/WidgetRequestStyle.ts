@@ -6,10 +6,7 @@
 import { WidgetLineType } from "./WidgetLineType";
 import { WidgetLineWidth } from "./WidgetLineWidth";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Define request widget style.
@@ -31,7 +28,7 @@ export class WidgetRequestStyle {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

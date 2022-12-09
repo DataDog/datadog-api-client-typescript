@@ -6,10 +6,7 @@
 import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricAggregation";
 import { FormulaAndFunctionMetricDataSource } from "./FormulaAndFunctionMetricDataSource";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A formula and functions metrics query.
@@ -35,7 +32,7 @@ export class FormulaAndFunctionMetricQueryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

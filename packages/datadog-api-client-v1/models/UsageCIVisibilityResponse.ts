@@ -5,10 +5,7 @@
  */
 import { UsageCIVisibilityHour } from "./UsageCIVisibilityHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * CI visibility usage response
@@ -22,7 +19,7 @@ export class UsageCIVisibilityResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

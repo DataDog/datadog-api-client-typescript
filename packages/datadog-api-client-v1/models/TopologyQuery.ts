@@ -5,10 +5,7 @@
  */
 import { TopologyQueryDataSource } from "./TopologyQueryDataSource";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Query to service-based topology data sources like the service map or data streams.
@@ -30,7 +27,7 @@ export class TopologyQuery {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

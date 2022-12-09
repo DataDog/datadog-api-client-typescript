@@ -5,10 +5,7 @@
  */
 import { SearchSLOTimeframe } from "./SearchSLOTimeframe";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * SLO thresholds (target and optionally warning) for a single time window.
@@ -47,7 +44,7 @@ export class SearchSLOThreshold {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

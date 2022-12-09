@@ -5,10 +5,7 @@
  */
 import { ConfluentAccountResponseData } from "./ConfluentAccountResponseData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The expected response schema when getting a Confluent account.
@@ -22,7 +19,7 @@ export class ConfluentAccountResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

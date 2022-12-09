@@ -5,10 +5,7 @@
  */
 import { UsageMetricCategory } from "./UsageMetricCategory";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Number of hourly recorded custom metrics for a given organization.
@@ -34,7 +31,7 @@ export class UsageTopAvgMetricsHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -6,10 +6,7 @@
 import { IncidentTimelineCellMarkdownContentType } from "./IncidentTimelineCellMarkdownContentType";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Timeline cell data for Markdown timeline cells for a create request.
@@ -31,7 +28,7 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -6,10 +6,7 @@
 import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
 import { SLOTimeframe } from "./SLOTimeframe";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Overall status of the SLO by timeframes.
@@ -48,7 +45,7 @@ export class SLOOverallStatuses {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

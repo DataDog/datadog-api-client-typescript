@@ -6,10 +6,7 @@
 import { WidgetComparator } from "./WidgetComparator";
 import { WidgetPalette } from "./WidgetPalette";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Define a conditional format for the widget.
@@ -55,7 +52,7 @@ export class WidgetConditionalFormat {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

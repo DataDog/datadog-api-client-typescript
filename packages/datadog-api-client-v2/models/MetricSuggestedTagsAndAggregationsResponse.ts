@@ -5,10 +5,7 @@
  */
 import { MetricSuggestedTagsAndAggregations } from "./MetricSuggestedTagsAndAggregations";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response object that includes a single metric's actively queried tags and aggregations.
@@ -22,7 +19,7 @@ export class MetricSuggestedTagsAndAggregationsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

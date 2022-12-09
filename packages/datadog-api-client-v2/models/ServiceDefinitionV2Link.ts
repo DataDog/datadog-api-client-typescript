@@ -5,10 +5,7 @@
  */
 import { ServiceDefinitionV2LinkType } from "./ServiceDefinitionV2LinkType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Service's external links.
@@ -30,7 +27,7 @@ export class ServiceDefinitionV2Link {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

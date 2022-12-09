@@ -5,10 +5,7 @@
  */
 import { SyntheticsBasicAuthWebType } from "./SyntheticsBasicAuthWebType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to handle basic authentication when performing the test.
@@ -30,7 +27,7 @@ export class SyntheticsBasicAuthWeb {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

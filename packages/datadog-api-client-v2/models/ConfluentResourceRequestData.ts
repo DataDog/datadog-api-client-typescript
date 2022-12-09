@@ -6,10 +6,7 @@
 import { ConfluentResourceRequestAttributes } from "./ConfluentResourceRequestAttributes";
 import { ConfluentResourceType } from "./ConfluentResourceType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * JSON:API request for updating a Confluent resource.
@@ -31,7 +28,7 @@ export class ConfluentResourceRequestData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

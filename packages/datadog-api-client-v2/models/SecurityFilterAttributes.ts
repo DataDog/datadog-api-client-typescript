@@ -6,10 +6,7 @@
 import { SecurityFilterExclusionFilterResponse } from "./SecurityFilterExclusionFilterResponse";
 import { SecurityFilterFilteredDataType } from "./SecurityFilterFilteredDataType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object describing a security filter.
@@ -47,7 +44,7 @@ export class SecurityFilterAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

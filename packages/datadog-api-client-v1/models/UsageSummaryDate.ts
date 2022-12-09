@@ -5,10 +5,7 @@
  */
 import { UsageSummaryDateOrg } from "./UsageSummaryDateOrg";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response with hourly report of all data billed by Datadog all organizations.
@@ -306,7 +303,7 @@ export class UsageSummaryDate {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

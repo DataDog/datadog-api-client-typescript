@@ -5,10 +5,7 @@
  */
 import { MetricAllTags } from "./MetricAllTags";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response object that includes a single metric's indexed tags.
@@ -22,7 +19,7 @@ export class MetricAllTagsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

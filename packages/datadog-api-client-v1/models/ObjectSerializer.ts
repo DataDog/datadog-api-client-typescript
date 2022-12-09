@@ -2261,7 +2261,6 @@ export class ObjectSerializer {
 
       const instance = new typeMap[type]();
       const attributesMap = typeMap[type].getAttributeTypeMap();
-      const unparsedObjectData: any = {};
       let extraAttributes: any = [];
       if ("additionalProperties" in attributesMap) {
         const attributesBaseNames = Object.keys(attributesMap).reduce(

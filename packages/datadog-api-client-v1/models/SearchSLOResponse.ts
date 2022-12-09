@@ -7,10 +7,7 @@ import { SearchSLOResponseData } from "./SearchSLOResponseData";
 import { SearchSLOResponseLinks } from "./SearchSLOResponseLinks";
 import { SearchSLOResponseMeta } from "./SearchSLOResponseMeta";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A search SLO response containing results from the search query.
@@ -32,7 +29,7 @@ export class SearchSLOResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

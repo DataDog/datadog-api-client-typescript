@@ -5,10 +5,7 @@
  */
 import { LogsGeoIPParserType } from "./LogsGeoIPParserType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The GeoIP parser takes an IP address attribute and extracts if available
@@ -39,7 +36,7 @@ export class LogsGeoIPParser {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -6,10 +6,7 @@
 import { OrganizationBilling } from "./OrganizationBilling";
 import { OrganizationSubscription } from "./OrganizationSubscription";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing an organization to create.
@@ -31,7 +28,7 @@ export class OrganizationCreateBody {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

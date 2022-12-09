@@ -6,10 +6,7 @@
 import { IncidentAttachmentLinkAttachmentType } from "./IncidentAttachmentLinkAttachmentType";
 import { IncidentAttachmentLinkAttributesAttachmentObject } from "./IncidentAttachmentLinkAttributesAttachmentObject";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The attributes object for a link attachment.
@@ -27,7 +24,7 @@ export class IncidentAttachmentLinkAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

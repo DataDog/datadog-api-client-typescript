@@ -5,10 +5,7 @@
  */
 import { UserInvitationData } from "./UserInvitationData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to invite users to join the organization.
@@ -22,7 +19,7 @@ export class UserInvitationsRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -6,10 +6,7 @@
 import { MetricTagConfigurationCreateAttributes } from "./MetricTagConfigurationCreateAttributes";
 import { MetricTagConfigurationType } from "./MetricTagConfigurationType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object for a single metric to be configure tags on.
@@ -31,7 +28,7 @@ export class MetricTagConfigurationCreateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

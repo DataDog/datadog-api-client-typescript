@@ -5,10 +5,7 @@
  */
 import { ApiKey } from "./ApiKey";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * List of API and application keys available for a given organization.
@@ -22,7 +19,7 @@ export class ApiKeyListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

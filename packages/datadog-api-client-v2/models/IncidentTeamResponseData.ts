@@ -7,10 +7,7 @@ import { IncidentTeamRelationships } from "./IncidentTeamRelationships";
 import { IncidentTeamResponseAttributes } from "./IncidentTeamResponseAttributes";
 import { IncidentTeamType } from "./IncidentTeamType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Incident Team data from a response.
@@ -36,7 +33,7 @@ export class IncidentTeamResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

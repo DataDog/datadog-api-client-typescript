@@ -8,10 +8,7 @@ import { TopologyRequest } from "./TopologyRequest";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * This widget displays a topology of nodes and edges for different data sources. It replaces the service map widget.
@@ -45,7 +42,7 @@ export class TopologyMapWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

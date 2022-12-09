@@ -7,10 +7,7 @@ import { FormulaAndFunctionMetricAggregation } from "./FormulaAndFunctionMetricA
 import { FormulaAndFunctionProcessQueryDataSource } from "./FormulaAndFunctionProcessQueryDataSource";
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Process query using formulas and functions.
@@ -56,7 +53,7 @@ export class FormulaAndFunctionProcessQueryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

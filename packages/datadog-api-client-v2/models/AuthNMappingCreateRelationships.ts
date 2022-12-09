@@ -5,10 +5,7 @@
  */
 import { RelationshipToRole } from "./RelationshipToRole";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationship of AuthN Mapping create object to Role.
@@ -22,7 +19,7 @@ export class AuthNMappingCreateRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { LogsUserAgentParserType } from "./LogsUserAgentParserType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The User-Agent parser takes a User-Agent attribute and extracts the OS, browser, device, and other user data.
@@ -43,7 +40,7 @@ export class LogsUserAgentParser {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

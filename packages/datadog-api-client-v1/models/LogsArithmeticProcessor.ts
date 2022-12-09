@@ -5,10 +5,7 @@
  */
 import { LogsArithmeticProcessorType } from "./LogsArithmeticProcessorType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Use the Arithmetic Processor to add a new attribute (without spaces or special characters
@@ -63,7 +60,7 @@ export class LogsArithmeticProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

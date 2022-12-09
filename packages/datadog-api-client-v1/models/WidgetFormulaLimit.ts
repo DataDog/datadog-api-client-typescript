@@ -5,10 +5,7 @@
  */
 import { QuerySortOrder } from "./QuerySortOrder";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Options for limiting results returned.
@@ -26,7 +23,7 @@ export class WidgetFormulaLimit {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

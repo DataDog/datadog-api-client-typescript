@@ -5,10 +5,7 @@
  */
 import { LogsArchiveCreateRequestDefinition } from "./LogsArchiveCreateRequestDefinition";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The logs archive.
@@ -22,7 +19,7 @@ export class LogsArchiveCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

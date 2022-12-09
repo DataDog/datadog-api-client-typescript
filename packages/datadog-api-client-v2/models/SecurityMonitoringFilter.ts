@@ -5,10 +5,7 @@
  */
 import { SecurityMonitoringFilterAction } from "./SecurityMonitoringFilterAction";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The rule's suppression filter.
@@ -26,7 +23,7 @@ export class SecurityMonitoringFilter {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

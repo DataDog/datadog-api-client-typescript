@@ -6,10 +6,7 @@
 import { NotebooksResponseData } from "./NotebooksResponseData";
 import { NotebooksResponseMeta } from "./NotebooksResponseMeta";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Notebooks get all response.
@@ -27,7 +24,7 @@ export class NotebooksResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

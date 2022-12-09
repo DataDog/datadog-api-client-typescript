@@ -8,10 +8,7 @@ import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFo
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An updated geomap widget.
@@ -49,7 +46,7 @@ export class GeomapWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

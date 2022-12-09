@@ -6,10 +6,7 @@
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Relationships of the role object.
@@ -27,7 +24,7 @@ export class RoleRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { SLOCorrectionCreateData } from "./SLOCorrectionCreateData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An object that defines a correction to be applied to an SLO.
@@ -22,7 +19,7 @@ export class SLOCorrectionCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

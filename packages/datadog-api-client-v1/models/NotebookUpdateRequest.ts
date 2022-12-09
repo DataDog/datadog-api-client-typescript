@@ -5,10 +5,7 @@
  */
 import { NotebookUpdateData } from "./NotebookUpdateData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The description of a notebook update request.
@@ -22,7 +19,7 @@ export class NotebookUpdateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

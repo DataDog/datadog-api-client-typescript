@@ -6,10 +6,7 @@
 import { NotebookCreateDataAttributes } from "./NotebookCreateDataAttributes";
 import { NotebookResourceType } from "./NotebookResourceType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The data for a notebook create request.
@@ -27,7 +24,7 @@ export class NotebookCreateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

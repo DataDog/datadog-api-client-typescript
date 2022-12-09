@@ -5,10 +5,7 @@
  */
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A relationship reference for attachments.
@@ -22,7 +19,7 @@ export class RelationshipToIncidentAttachment {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

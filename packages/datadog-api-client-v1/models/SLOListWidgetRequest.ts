@@ -6,10 +6,7 @@
 import { SLOListWidgetQuery } from "./SLOListWidgetQuery";
 import { SLOListWidgetRequestType } from "./SLOListWidgetRequestType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Updated SLO List widget.
@@ -27,7 +24,7 @@ export class SLOListWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { MetricSeries } from "./MetricSeries";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metrics' payload.
@@ -22,7 +19,7 @@ export class MetricPayload {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

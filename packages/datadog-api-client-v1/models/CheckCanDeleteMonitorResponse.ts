@@ -5,10 +5,7 @@
  */
 import { CheckCanDeleteMonitorResponseData } from "./CheckCanDeleteMonitorResponseData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response of monitor IDs that can or can't be safely deleted.
@@ -26,7 +23,7 @@ export class CheckCanDeleteMonitorResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

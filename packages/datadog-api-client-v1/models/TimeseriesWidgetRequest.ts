@@ -12,10 +12,7 @@ import { WidgetDisplayType } from "./WidgetDisplayType";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Updated timeseries widget.
@@ -93,7 +90,7 @@ export class TimeseriesWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

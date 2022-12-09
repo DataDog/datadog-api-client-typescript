@@ -5,10 +5,7 @@
  */
 import { MetricBulkTagConfigDelete } from "./MetricBulkTagConfigDelete";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Wrapper object for a single bulk tag deletion request.
@@ -22,7 +19,7 @@ export class MetricBulkTagConfigDeleteRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

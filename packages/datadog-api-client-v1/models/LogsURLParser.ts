@@ -5,10 +5,7 @@
  */
 import { LogsURLParserType } from "./LogsURLParserType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * This processor extracts query parameters and other important parameters from a URL.
@@ -42,7 +39,7 @@ export class LogsURLParser {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

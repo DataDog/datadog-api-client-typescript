@@ -9,10 +9,7 @@ import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object describing the extra options for a Synthetic test.
@@ -115,7 +112,7 @@ export class SyntheticsTestOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { CostByOrg } from "./CostByOrg";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Chargeback Summary response.
@@ -22,7 +19,7 @@ export class CostByOrgResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

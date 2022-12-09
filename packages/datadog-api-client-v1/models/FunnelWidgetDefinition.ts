@@ -8,10 +8,7 @@ import { FunnelWidgetRequest } from "./FunnelWidgetRequest";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The funnel visualization displays a funnel of user sessions that maps a sequence of view navigation and user interaction in your application.
@@ -45,7 +42,7 @@ export class FunnelWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { SyntheticsApiTestFailureCode } from "./SyntheticsApiTestFailureCode";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The API test failure details.
@@ -26,7 +23,7 @@ export class SyntheticsApiTestResultFailure {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

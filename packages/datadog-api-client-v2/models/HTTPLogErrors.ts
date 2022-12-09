@@ -5,10 +5,7 @@
  */
 import { HTTPLogError } from "./HTTPLogError";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Invalid query performed.
@@ -22,7 +19,7 @@ export class HTTPLogErrors {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

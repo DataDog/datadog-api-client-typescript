@@ -5,10 +5,7 @@
  */
 import { IncidentFieldAttributesSingleValueType } from "./IncidentFieldAttributesSingleValueType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A field with a single value selected.
@@ -26,7 +23,7 @@ export class IncidentFieldAttributesSingleValue {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

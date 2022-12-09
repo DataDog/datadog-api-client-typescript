@@ -5,10 +5,7 @@
  */
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Dashboard restore request body.
@@ -22,7 +19,7 @@ export class DashboardRestoreRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

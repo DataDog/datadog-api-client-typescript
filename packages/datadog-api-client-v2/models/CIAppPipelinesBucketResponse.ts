@@ -5,10 +5,7 @@
  */
 import { CIAppAggregateBucketValue } from "./CIAppAggregateBucketValue";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Bucket values.
@@ -26,7 +23,7 @@ export class CIAppPipelinesBucketResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

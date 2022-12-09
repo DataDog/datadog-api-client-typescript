@@ -6,10 +6,7 @@
 import { UsersType } from "./UsersType";
 import { UserUpdateAttributes } from "./UserUpdateAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to update a user.
@@ -31,7 +28,7 @@ export class UserUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

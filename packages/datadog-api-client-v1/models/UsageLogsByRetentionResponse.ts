@@ -5,10 +5,7 @@
  */
 import { UsageLogsByRetentionHour } from "./UsageLogsByRetentionHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the indexed logs usage broken down by retention period for an organization during a given hour.
@@ -22,7 +19,7 @@ export class UsageLogsByRetentionResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

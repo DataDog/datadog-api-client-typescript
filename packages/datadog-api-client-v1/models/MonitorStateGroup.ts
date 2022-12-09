@@ -5,10 +5,7 @@
  */
 import { MonitorOverallStates } from "./MonitorOverallStates";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Monitor state for a single group.
@@ -42,7 +39,7 @@ export class MonitorStateGroup {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { MonitorSearchCountItem } from "./MonitorSearchCountItem";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The counts of monitor groups per different criteria.
@@ -26,7 +23,7 @@ export class MonitorGroupSearchResponseCounts {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

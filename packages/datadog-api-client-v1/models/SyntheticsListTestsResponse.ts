@@ -5,10 +5,7 @@
  */
 import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing an array of Synthetic tests configuration.
@@ -22,7 +19,7 @@ export class SyntheticsListTestsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

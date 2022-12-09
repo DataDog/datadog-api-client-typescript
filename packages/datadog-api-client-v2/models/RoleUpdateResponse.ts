@@ -5,10 +5,7 @@
  */
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing information about an updated role.
@@ -22,7 +19,7 @@ export class RoleUpdateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

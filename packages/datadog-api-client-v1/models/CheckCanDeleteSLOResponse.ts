@@ -5,10 +5,7 @@
  */
 import { CheckCanDeleteSLOResponseData } from "./CheckCanDeleteSLOResponseData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A service level objective response containing the requested object.
@@ -26,7 +23,7 @@ export class CheckCanDeleteSLOResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

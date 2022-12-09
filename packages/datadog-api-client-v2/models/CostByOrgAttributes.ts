@@ -5,10 +5,7 @@
  */
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Cost attributes data.
@@ -38,7 +35,7 @@ export class CostByOrgAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

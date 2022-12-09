@@ -9,10 +9,7 @@ import { WidgetMessageDisplay } from "./WidgetMessageDisplay";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The Log Stream displays a log flow matching the defined query. Only available on FREE layout dashboards.
@@ -74,7 +71,7 @@ export class LogStreamWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

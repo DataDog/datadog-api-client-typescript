@@ -5,10 +5,7 @@
  */
 import { UsageSNMPHour } from "./UsageSNMPHour";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response containing the number of SNMP devices for each hour for a given organization.
@@ -22,7 +19,7 @@ export class UsageSNMPResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

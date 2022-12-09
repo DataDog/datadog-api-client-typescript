@@ -5,10 +5,7 @@
  */
 import { MetricsQueryMetadata } from "./MetricsQueryMetadata";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response Object that includes your query and the list of metrics retrieved.
@@ -54,7 +51,7 @@ export class MetricsQueryResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

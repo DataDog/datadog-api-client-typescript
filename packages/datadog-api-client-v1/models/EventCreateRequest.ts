@@ -6,10 +6,7 @@
 import { EventAlertType } from "./EventAlertType";
 import { EventPriority } from "./EventPriority";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object representing an event.
@@ -71,7 +68,7 @@ export class EventCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

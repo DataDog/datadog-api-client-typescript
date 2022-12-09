@@ -5,10 +5,7 @@
  */
 import { SyntheticsBasicAuthDigestType } from "./SyntheticsBasicAuthDigestType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to handle digest authentication when performing the test.
@@ -30,7 +27,7 @@ export class SyntheticsBasicAuthDigest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

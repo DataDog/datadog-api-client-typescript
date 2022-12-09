@@ -5,10 +5,7 @@
  */
 import { SecurityMonitoringRuleSeverity } from "./SecurityMonitoringRuleSeverity";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Case when signal is generated.
@@ -35,7 +32,7 @@ export class SecurityMonitoringRuleCase {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

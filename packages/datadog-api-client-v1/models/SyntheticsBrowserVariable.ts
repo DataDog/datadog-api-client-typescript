@@ -5,10 +5,7 @@
  */
 import { SyntheticsBrowserVariableType } from "./SyntheticsBrowserVariableType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object defining a variable that can be used in your browser test.
@@ -39,7 +36,7 @@ export class SyntheticsBrowserVariable {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

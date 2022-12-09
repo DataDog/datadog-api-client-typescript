@@ -5,10 +5,7 @@
  */
 import { RoleClone } from "./RoleClone";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Request to create a role by cloning an existing role.
@@ -22,7 +19,7 @@ export class RoleCloneRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

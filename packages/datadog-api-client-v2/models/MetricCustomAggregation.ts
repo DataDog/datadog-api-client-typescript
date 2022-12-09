@@ -6,10 +6,7 @@
 import { MetricCustomSpaceAggregation } from "./MetricCustomSpaceAggregation";
 import { MetricCustomTimeAggregation } from "./MetricCustomTimeAggregation";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A time and space aggregation combination for use in query.
@@ -27,7 +24,7 @@ export class MetricCustomAggregation {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

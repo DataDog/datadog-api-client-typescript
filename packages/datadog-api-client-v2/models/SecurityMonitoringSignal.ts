@@ -6,10 +6,7 @@
 import { SecurityMonitoringSignalAttributes } from "./SecurityMonitoringSignalAttributes";
 import { SecurityMonitoringSignalType } from "./SecurityMonitoringSignalType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object description of a security signal.
@@ -32,7 +29,7 @@ export class SecurityMonitoringSignal {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

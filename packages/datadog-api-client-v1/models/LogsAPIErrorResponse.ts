@@ -5,10 +5,7 @@
  */
 import { LogsAPIError } from "./LogsAPIError";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Response returned by the Logs API when errors occur.
@@ -22,7 +19,7 @@ export class LogsAPIErrorResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -6,10 +6,7 @@
 import { UserInvitationRelationships } from "./UserInvitationRelationships";
 import { UserInvitationsType } from "./UserInvitationsType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object to create a user invitation.
@@ -27,7 +24,7 @@ export class UserInvitationData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

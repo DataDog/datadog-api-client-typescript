@@ -8,10 +8,7 @@ import { LogsGroupByHistogram } from "./LogsGroupByHistogram";
 import { LogsGroupByMissing } from "./LogsGroupByMissing";
 import { LogsGroupByTotal } from "./LogsGroupByTotal";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A group by rule
@@ -46,7 +43,7 @@ export class LogsGroupBy {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The metadata object containing pagination metadata.
@@ -22,7 +19,7 @@ export class IncidentResponseMeta {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { SyntheticsBatchDetailsData } from "./SyntheticsBatchDetailsData";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Details about a batch response.
@@ -22,7 +19,7 @@ export class SyntheticsBatchDetails {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

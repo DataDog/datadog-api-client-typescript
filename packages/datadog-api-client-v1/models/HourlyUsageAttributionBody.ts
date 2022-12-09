@@ -5,10 +5,7 @@
  */
 import { HourlyUsageAttributionUsageType } from "./HourlyUsageAttributionUsageType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The usage for one set of tags for one hour.
@@ -54,7 +51,7 @@ export class HourlyUsageAttributionBody {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

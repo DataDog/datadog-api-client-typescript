@@ -5,10 +5,7 @@
  */
 import { DistributionPointsSeries } from "./DistributionPointsSeries";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The distribution points payload.
@@ -22,7 +19,7 @@ export class DistributionPointsPayload {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

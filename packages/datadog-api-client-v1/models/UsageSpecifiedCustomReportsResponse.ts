@@ -6,10 +6,7 @@
 import { UsageSpecifiedCustomReportsData } from "./UsageSpecifiedCustomReportsData";
 import { UsageSpecifiedCustomReportsMeta } from "./UsageSpecifiedCustomReportsMeta";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Returns available specified custom reports.
@@ -27,7 +24,7 @@ export class UsageSpecifiedCustomReportsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

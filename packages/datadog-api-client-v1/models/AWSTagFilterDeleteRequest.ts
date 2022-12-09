@@ -5,10 +5,7 @@
  */
 import { AWSNamespace } from "./AWSNamespace";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The objects used to delete an AWS tag filter entry.
@@ -26,7 +23,7 @@ export class AWSTagFilterDeleteRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

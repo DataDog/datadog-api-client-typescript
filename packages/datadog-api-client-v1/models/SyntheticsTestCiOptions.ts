@@ -5,10 +5,7 @@
  */
 import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * CI/CD options for a Synthetic test.
@@ -22,7 +19,7 @@ export class SyntheticsTestCiOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

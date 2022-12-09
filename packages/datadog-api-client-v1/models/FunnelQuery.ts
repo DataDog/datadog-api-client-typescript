@@ -6,10 +6,7 @@
 import { FunnelSource } from "./FunnelSource";
 import { FunnelStep } from "./FunnelStep";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Updated funnel widget.
@@ -31,7 +28,7 @@ export class FunnelQuery {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

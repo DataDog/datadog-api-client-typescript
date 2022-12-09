@@ -6,10 +6,7 @@
 import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
 import { SyntheticsTestMonitorStatus } from "./SyntheticsTestMonitorStatus";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object with the results of a single Synthetic API test.
@@ -42,7 +39,7 @@ export class SyntheticsAPITestResultShort {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

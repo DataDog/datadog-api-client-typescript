@@ -7,10 +7,7 @@ import { IncidentServiceRelationships } from "./IncidentServiceRelationships";
 import { IncidentServiceType } from "./IncidentServiceType";
 import { IncidentServiceUpdateAttributes } from "./IncidentServiceUpdateAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Incident Service payload for update requests.
@@ -36,7 +33,7 @@ export class IncidentServiceUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

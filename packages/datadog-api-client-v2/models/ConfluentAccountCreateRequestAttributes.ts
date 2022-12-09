@@ -5,10 +5,7 @@
  */
 import { ConfluentAccountResourceAttributes } from "./ConfluentAccountResourceAttributes";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Attributes associated with the account creation request.
@@ -34,7 +31,7 @@ export class ConfluentAccountCreateRequestAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

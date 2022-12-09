@@ -5,10 +5,7 @@
  */
 import { SyntheticsBrowserErrorType } from "./SyntheticsBrowserErrorType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Error response object for a browser test.
@@ -34,7 +31,7 @@ export class SyntheticsBrowserError {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

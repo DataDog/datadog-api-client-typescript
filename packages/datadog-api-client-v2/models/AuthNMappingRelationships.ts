@@ -6,10 +6,7 @@
 import { RelationshipToRole } from "./RelationshipToRole";
 import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * All relationships associated with AuthN Mapping.
@@ -27,7 +24,7 @@ export class AuthNMappingRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -5,10 +5,7 @@
  */
 import { ServiceCheckStatus } from "./ServiceCheckStatus";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * An object containing service check and status.
@@ -42,7 +39,7 @@ export class ServiceCheck {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

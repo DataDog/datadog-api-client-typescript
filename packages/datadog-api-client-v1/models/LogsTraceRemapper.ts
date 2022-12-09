@@ -5,10 +5,7 @@
  */
 import { LogsTraceRemapperType } from "./LogsTraceRemapperType";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * There are two ways to improve correlation between application traces and logs.
@@ -39,7 +36,7 @@ export class LogsTraceRemapper {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

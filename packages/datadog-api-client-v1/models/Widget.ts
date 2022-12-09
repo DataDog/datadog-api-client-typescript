@@ -6,10 +6,7 @@
 import { WidgetDefinition } from "./WidgetDefinition";
 import { WidgetLayout } from "./WidgetLayout";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Information about widget.
@@ -36,7 +33,7 @@ export class Widget {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

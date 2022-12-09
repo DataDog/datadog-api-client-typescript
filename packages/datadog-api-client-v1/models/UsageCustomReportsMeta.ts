@@ -5,10 +5,7 @@
  */
 import { UsageCustomReportsPage } from "./UsageCustomReportsPage";
 
-import {
-  AttributeTypeMap,
-  UnparsedObject,
-} from "../../datadog-api-client-common/util";
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The object containing document metadata.
@@ -22,7 +19,7 @@ export class UsageCustomReportsMeta {
   /**
    * @ignore
    */
-  "unparsedObject"?: UnparsedObject;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
