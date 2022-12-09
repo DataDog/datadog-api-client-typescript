@@ -329,6 +329,8 @@ import { RUMApplicationAttributes } from "./RUMApplicationAttributes";
 import { RUMApplicationCreate } from "./RUMApplicationCreate";
 import { RUMApplicationCreateAttributes } from "./RUMApplicationCreateAttributes";
 import { RUMApplicationCreateRequest } from "./RUMApplicationCreateRequest";
+import { RUMApplicationList } from "./RUMApplicationList";
+import { RUMApplicationListAttributes } from "./RUMApplicationListAttributes";
 import { RUMApplicationResponse } from "./RUMApplicationResponse";
 import { RUMApplicationUpdate } from "./RUMApplicationUpdate";
 import { RUMApplicationUpdateAttributes } from "./RUMApplicationUpdateAttributes";
@@ -694,6 +696,7 @@ const enumsMap: { [key: string]: any[] } = {
     "median",
   ],
   RUMApplicationCreateType: ["rum_application_create"],
+  RUMApplicationListType: ["rum_application"],
   RUMApplicationType: ["rum_application"],
   RUMApplicationUpdateType: ["rum_application_update"],
   RUMComputeType: ["timeseries", "total"],
@@ -1156,6 +1159,8 @@ const typeMap: { [index: string]: any } = {
   RUMApplicationCreate: RUMApplicationCreate,
   RUMApplicationCreateAttributes: RUMApplicationCreateAttributes,
   RUMApplicationCreateRequest: RUMApplicationCreateRequest,
+  RUMApplicationList: RUMApplicationList,
+  RUMApplicationListAttributes: RUMApplicationListAttributes,
   RUMApplicationResponse: RUMApplicationResponse,
   RUMApplicationUpdate: RUMApplicationUpdate,
   RUMApplicationUpdateAttributes: RUMApplicationUpdateAttributes,

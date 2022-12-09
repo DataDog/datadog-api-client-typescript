@@ -18,6 +18,7 @@ export const isBrowser: boolean =
   typeof window !== "undefined" && typeof window.document !== "undefined";
 
 export const isNode: boolean =
+<<<<<<< HEAD
   typeof process !== "undefined" && process.release.name === "node";
 
 export class DDate extends Date {
@@ -115,3 +116,8 @@ function getRFC3339TimezoneOffset(date: Date | DDate): string {
   offset = Math.abs(offset);
   return offsetSign + pad(Math.floor(offset / 60)) + ":" + pad(offset % 60);
 }
+=======
+  typeof process !== "undefined" &&
+  process.release &&
+  process.release.name === "node";
+>>>>>>> master
