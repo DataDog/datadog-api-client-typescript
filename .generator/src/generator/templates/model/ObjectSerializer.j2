@@ -3,7 +3,7 @@
 import { {{ name }} } from "./{{ name }}";
 {%- endif %}
 {%- endfor %}
-import { dateFromRFC3339String, dateToRFC3339String, containsUnparsed, UnparsedObject } from "../../datadog-api-client-common/util";
+import { dateFromRFC3339String, dateToRFC3339String, UnparsedObject } from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
 
 const primitives = [
