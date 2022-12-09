@@ -16,7 +16,7 @@ yarn run check-licenses || exit 1
 
 
 # Run unit tests
-if [ "$RECORD" == "false" ]; then
+if [ "${RECORD:-false}" == "false" ]; then
     yarn run jest-test
     if [ "$?" -ne "0" ]; then
         exit $?

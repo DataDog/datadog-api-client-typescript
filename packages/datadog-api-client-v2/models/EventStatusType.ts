@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * If an alert event is enabled, its status is one of the following:
  * `failure`, `error`, `warning`, `info`, `success`, `user_update`,

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Reflow type for a **new dashboard layout** dashboard. Set this only when layout type is 'ordered'.
  * If set to 'fixed', the dashboard expects all widgets to have a layout, and if it's set to 'auto',

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Controls how groups or monitors are treated if an evaluation does not return any data points.
  * The default option results in different behavior depending on the monitor query type.

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
  */

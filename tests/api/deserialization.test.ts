@@ -1,4 +1,5 @@
 
+import { UnparsedObject } from '../../packages/datadog-api-client-common/util';
 import { ObjectSerializer as ObjectSerializerV1 } from '../../packages/datadog-api-client-v1/models/ObjectSerializer';
 import { ObjectSerializer as ObjectSerializerV2 } from '../../packages/datadog-api-client-v2/models/ObjectSerializer';
 
@@ -198,11 +199,9 @@ test('TestDeserializationUnknownTopLevelEnum', () => {
     "SyntheticsBrowserTest",
     "");
 
-    console.log(JSON.stringify(result))
-
-    expect(result?.unparsedObject).not.toBe(undefined);
-    expect(result.unparsedObject["type"]).toBe("A non existent test type");
-    expect(result.unparsedObject["name"]).toBe("Check on www.10.0.0.1.xip.io");
+    expect(result?.type).toBeInstanceOf(UnparsedObject);
+    expect(result.type._data).toBe("A non existent test type");
+    expect(result.name).toBe("Check on www.10.0.0.1.xip.io");
   }
 );
 
@@ -251,8 +250,8 @@ test('TestDeserializationUnknownNestedEnum', () => {
 
     expect(result?.unparsedObject).toBe(undefined);
     expect(result.config.unparsedObject).toBe(undefined);
-    expect(result.config.request.unparsedObject).not.toBe(undefined);
-    expect(result.config.request.unparsedObject._data["method"]).toBe("A non existent method");
+    expect(result.config.request.method).toBeInstanceOf(UnparsedObject);
+    expect(result.config.request.method._data).toBe("A non existent method");
     expect(result.config.request.timeout).toBe(30.0);
   }
 );

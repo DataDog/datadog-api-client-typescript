@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * If an alert event is enabled, set its type.
  * For example, `error`, `warning`, `info`, `success`, `user_update`,

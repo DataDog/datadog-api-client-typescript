@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of metric. The available types are `0` (unspecified), `1` (count), `2` (rate), and `3` (gauge).
  */

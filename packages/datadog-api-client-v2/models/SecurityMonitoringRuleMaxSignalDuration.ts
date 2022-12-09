@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
  * This time is calculated from the first seen timestamp.

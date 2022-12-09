@@ -12,6 +12,10 @@ import { HttpFile } from "../../datadog-api-client-common/http/http";
 import { AttributeTypeMap, UnparsedObject } from "../../datadog-api-client-common/util";
 {%- endif %}
 
+{% if "enum" in model -%}
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+{%- endif %}
+
 {% if "description" in model %}
 /**
 {{ model.description|docstring(indent=1) }}

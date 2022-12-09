@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * ID of the device the Synthetics monitor is running on. Same as `SyntheticsDeviceID`.
  */
