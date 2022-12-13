@@ -1123,7 +1123,7 @@ export interface UsersApiListUserPermissionsRequest {
 
 export interface UsersApiListUsersRequest {
   /**
-   * Size for a given page.
+   * Size for a given page. The maximum allowed value is 5000.
    * @type number
    */
   pageSize?: number;
