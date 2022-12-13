@@ -539,6 +539,7 @@ import { WidgetEvent } from "./WidgetEvent";
 import { WidgetFieldSort } from "./WidgetFieldSort";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
+import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
 import { WidgetLayout } from "./WidgetLayout";
 import { WidgetMarker } from "./WidgetMarker";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
@@ -1907,6 +1908,7 @@ const typeMap: { [index: string]: any } = {
   WidgetFieldSort: WidgetFieldSort,
   WidgetFormula: WidgetFormula,
   WidgetFormulaLimit: WidgetFormulaLimit,
+  WidgetFormulaStyle: WidgetFormulaStyle,
   WidgetLayout: WidgetLayout,
   WidgetMarker: WidgetMarker,
   WidgetRequestStyle: WidgetRequestStyle,
