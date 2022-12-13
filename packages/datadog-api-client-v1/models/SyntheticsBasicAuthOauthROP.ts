@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsBasicAuthOauthROPType } from "./SyntheticsBasicAuthOauthROPType";
+import { SyntheticsBasicAuthOauthTokenApiAuthentication } from "./SyntheticsBasicAuthOauthTokenApiAuthentication";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -39,6 +40,10 @@ export class SyntheticsBasicAuthOauthROP {
    * Scope to use when performing the authentication.
    */
   "scope"?: string;
+  /**
+   * Type of token to use when performing the authentication.
+   */
+  "tokenApiAuthentication": SyntheticsBasicAuthOauthTokenApiAuthentication;
   /**
    * The type of basic authentication to use when performing the test.
    */
@@ -86,6 +91,11 @@ export class SyntheticsBasicAuthOauthROP {
     scope: {
       baseName: "scope",
       type: "string",
+    },
+    tokenApiAuthentication: {
+      baseName: "tokenApiAuthentication",
+      type: "SyntheticsBasicAuthOauthTokenApiAuthentication",
+      required: true,
     },
     type: {
       baseName: "type",
