@@ -1039,6 +1039,7 @@ export { WidgetEventSize } from "./models/WidgetEventSize";
 export { WidgetFieldSort } from "./models/WidgetFieldSort";
 export { WidgetFormula } from "./models/WidgetFormula";
 export { WidgetFormulaLimit } from "./models/WidgetFormulaLimit";
+export { WidgetFormulaStyle } from "./models/WidgetFormulaStyle";
 export { WidgetGrouping } from "./models/WidgetGrouping";
 export { WidgetHorizontalAlign } from "./models/WidgetHorizontalAlign";
 export { WidgetImageSizing } from "./models/WidgetImageSizing";
