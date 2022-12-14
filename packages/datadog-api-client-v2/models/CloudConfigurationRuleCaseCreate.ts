@@ -23,7 +23,7 @@ export class CloudConfigurationRuleCaseCreate {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

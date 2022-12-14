@@ -22,7 +22,7 @@ export class CloudConfigurationRuleComplianceSignalOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
