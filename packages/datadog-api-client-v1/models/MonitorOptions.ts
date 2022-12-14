@@ -31,6 +31,10 @@ export class MonitorOptions {
    */
   "enableLogsSample"?: boolean;
   /**
+   * Whether or not to send a list of samples when the monitor triggers. This is only used by CI Test and Pipeline monitors.
+   */
+  "enableSamples"?: boolean;
+  /**
    * We recommend using the [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify),
    * block in the original message instead.
    * A message to include with a re-notification. Supports the `@username` notification we allow elsewhere.
@@ -190,6 +194,10 @@ export class MonitorOptions {
     },
     enableLogsSample: {
       baseName: "enable_logs_sample",
+      type: "boolean",
+    },
+    enableSamples: {
+      baseName: "enable_samples",
       type: "boolean",
     },
     escalationMessage: {
