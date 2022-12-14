@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurationRuleComplianceSignalOptions";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
@@ -18,6 +19,10 @@ export class SecurityMonitoringRuleUpdatePayload {
    * Cases for generating signals.
    */
   "cases"?: Array<SecurityMonitoringRuleCase>;
+  /**
+   * How to generate compliance signals. Useful for cloud_configuration rules only.
+   */
+  "complianceSignalOptions"?: CloudConfigurationRuleComplianceSignalOptions;
   /**
    * Additional queries to filter matched events before they are processed.
    */
@@ -67,6 +72,10 @@ export class SecurityMonitoringRuleUpdatePayload {
     cases: {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
+    },
+    complianceSignalOptions: {
+      baseName: "complianceSignalOptions",
+      type: "CloudConfigurationRuleComplianceSignalOptions",
     },
     filters: {
       baseName: "filters",

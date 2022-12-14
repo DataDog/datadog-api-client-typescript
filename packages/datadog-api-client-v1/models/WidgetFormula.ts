@@ -6,6 +6,7 @@
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
+import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -33,6 +34,10 @@ export class WidgetFormula {
    * Options for limiting results returned.
    */
   "limit"?: WidgetFormulaLimit;
+  /**
+   * Styling options for widget formulas.
+   */
+  "style"?: WidgetFormulaStyle;
 
   /**
    * @ignore
@@ -63,6 +68,10 @@ export class WidgetFormula {
     limit: {
       baseName: "limit",
       type: "WidgetFormulaLimit",
+    },
+    style: {
+      baseName: "style",
+      type: "WidgetFormulaStyle",
     },
   };
 
