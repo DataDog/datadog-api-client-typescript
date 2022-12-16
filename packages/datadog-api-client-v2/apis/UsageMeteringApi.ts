@@ -955,7 +955,7 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
    * `infra_hosts`, `incident_management`, `indexed_logs`, `indexed_spans`, `ingested_spans`, `iot`,
    * `lambda_traced_invocations`, `logs`, `network_flows`, `network_hosts`, `observability_pipelines`,
    * `online_archive`, `profiling`, `rum`, `rum_browser_sessions`, `rum_mobile_sessions`, `sds`, `snmp`,
-   * `synthetics_api`, `synthetics_browser`, and `timeseries`.
+   * `synthetics_api`, `synthetics_browser`, `synthetics_parallel_testing`, and `timeseries`.
    * @type string
    */
   filterProductFamilies: string;
