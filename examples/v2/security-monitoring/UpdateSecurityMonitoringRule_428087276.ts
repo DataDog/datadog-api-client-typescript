@@ -23,6 +23,7 @@ const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
     ],
     options: {
       complianceRuleOptions: {
+        resourceType: "gcp_compute_disk",
         regoRule: {
           policy: `package datadog
 `,

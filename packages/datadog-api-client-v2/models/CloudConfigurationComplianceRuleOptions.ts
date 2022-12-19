@@ -20,6 +20,10 @@ export class CloudConfigurationComplianceRuleOptions {
    * Rule details.
    */
   "regoRule": CloudConfigurationRegoRule;
+  /**
+   * Main resource type to be checked by the rule. It should be specified again in `regoRule.resourceTypes`.
+   */
+  "resourceType": string;
 
   /**
    * @ignore
@@ -37,6 +41,11 @@ export class CloudConfigurationComplianceRuleOptions {
     regoRule: {
       baseName: "regoRule",
       type: "CloudConfigurationRegoRule",
+      required: true,
+    },
+    resourceType: {
+      baseName: "resourceType",
+      type: "string",
       required: true,
     },
   };
