@@ -19,7 +19,7 @@ export class SensitiveDataScannerConfigurationRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

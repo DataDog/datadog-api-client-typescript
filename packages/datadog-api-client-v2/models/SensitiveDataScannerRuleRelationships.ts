@@ -24,7 +24,7 @@ export class SensitiveDataScannerRuleRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

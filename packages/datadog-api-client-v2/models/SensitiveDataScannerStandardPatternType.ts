@@ -4,11 +4,14 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Sensitive Data Scanner standard pattern type.
  */
 
 export type SensitiveDataScannerStandardPatternType =
-  typeof SENSITIVE_DATA_SCANNER_STANDARD_PATTERN;
+  | typeof SENSITIVE_DATA_SCANNER_STANDARD_PATTERN
+  | UnparsedObject;
 export const SENSITIVE_DATA_SCANNER_STANDARD_PATTERN =
   "sensitive_data_scanner_standard_pattern";

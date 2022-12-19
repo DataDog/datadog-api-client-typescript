@@ -19,7 +19,7 @@ export class SensitiveDataScannerRuleDeleteResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

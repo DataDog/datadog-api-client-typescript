@@ -18,7 +18,7 @@ export class SensitiveDataScannerMetaVersionOnly {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -33,7 +33,7 @@ export class SensitiveDataScannerGroupUpdate {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

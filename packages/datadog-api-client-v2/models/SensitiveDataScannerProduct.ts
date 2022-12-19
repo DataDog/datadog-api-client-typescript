@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Datadog product onto which Sensitive Data Scanner can be activated.
  */
@@ -12,7 +14,8 @@ export type SensitiveDataScannerProduct =
   | typeof LOGS
   | typeof RUM
   | typeof EVENTS
-  | typeof APM;
+  | typeof APM
+  | UnparsedObject;
 export const LOGS = "logs";
 export const RUM = "rum";
 export const EVENTS = "events";

@@ -19,7 +19,7 @@ export class SensitiveDataScannerStandardPatternsResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

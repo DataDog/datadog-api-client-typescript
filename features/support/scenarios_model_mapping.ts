@@ -1894,6 +1894,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "SyntheticsPrivateLocation",
     },
     "v1.ListTests": {
+        "pageSize": {
+            "type": "string",
+            "format": "",
+            },
+        "pageNumber": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "SyntheticsListTestsResponse",
     },
     "v1.CreateSyntheticsAPITest": {
@@ -3573,6 +3581,77 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
+    },
+    "v2.ListScanningGroups": {
+        "operationResponseType": "SensitiveDataScannerGetConfigResponse",
+    },
+    "v2.ReorderScanningGroups": {
+        "body": {
+            "type": "SensitiveDataScannerConfigRequest",
+            "format": "",
+            },
+        "operationResponseType": "SensitiveDataScannerReorderGroupsResponse",
+    },
+    "v2.CreateScanningGroup": {
+        "body": {
+            "type": "SensitiveDataScannerGroupCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SensitiveDataScannerCreateGroupResponse",
+    },
+    "v2.DeleteScanningGroup": {
+        "groupId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SensitiveDataScannerGroupDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "SensitiveDataScannerGroupDeleteResponse",
+    },
+    "v2.UpdateScanningGroup": {
+        "groupId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SensitiveDataScannerGroupUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SensitiveDataScannerGroupUpdateResponse",
+    },
+    "v2.CreateScanningRule": {
+        "body": {
+            "type": "SensitiveDataScannerRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SensitiveDataScannerCreateRuleResponse",
+    },
+    "v2.DeleteScanningRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SensitiveDataScannerRuleDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "SensitiveDataScannerRuleDeleteResponse",
+    },
+    "v2.UpdateScanningRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SensitiveDataScannerRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SensitiveDataScannerRuleUpdateResponse",
+    },
+    "v2.ListStandardPatterns": {
+        "operationResponseType": "SensitiveDataScannerStandardPatternsResponseData",
     },
     "v2.CreateServiceAccount": {
         "body": {

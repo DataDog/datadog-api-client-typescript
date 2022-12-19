@@ -28,7 +28,7 @@ export class SensitiveDataScannerGetConfigResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
