@@ -1,5 +1,5 @@
 /**
- * Get the list of all tests returns "OK - Returns the list of all Synthetic tests." response
+ * Get the list of all Synthetic tests returns "OK - Returns the list of all Synthetic tests." response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
