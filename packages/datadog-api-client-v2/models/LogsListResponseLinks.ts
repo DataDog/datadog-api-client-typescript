@@ -19,7 +19,7 @@ export class LogsListResponseLinks {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

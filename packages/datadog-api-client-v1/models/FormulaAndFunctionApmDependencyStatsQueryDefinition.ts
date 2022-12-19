@@ -56,7 +56,7 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

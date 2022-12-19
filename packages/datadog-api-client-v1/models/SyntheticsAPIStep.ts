@@ -52,7 +52,7 @@ export class SyntheticsAPIStep {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

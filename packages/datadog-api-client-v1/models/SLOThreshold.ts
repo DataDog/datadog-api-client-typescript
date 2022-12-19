@@ -44,7 +44,7 @@ export class SLOThreshold {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -35,7 +35,7 @@ export class LogsListRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

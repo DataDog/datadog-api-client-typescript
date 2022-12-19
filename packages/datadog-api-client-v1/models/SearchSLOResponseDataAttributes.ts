@@ -24,7 +24,7 @@ export class SearchSLOResponseDataAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

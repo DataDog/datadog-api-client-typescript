@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * User locator used.
  */
 
-export type SyntheticsWarningType = typeof USER_LOCATOR;
+export type SyntheticsWarningType = typeof USER_LOCATOR | UnparsedObject;
 export const USER_LOCATOR = "user_locator";

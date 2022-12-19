@@ -46,7 +46,7 @@ export class UsageRumSessionsHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

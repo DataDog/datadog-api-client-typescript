@@ -23,7 +23,7 @@ export class WidgetFieldSort {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

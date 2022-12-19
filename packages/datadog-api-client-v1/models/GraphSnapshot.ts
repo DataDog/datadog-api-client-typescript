@@ -28,7 +28,7 @@ export class GraphSnapshot {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

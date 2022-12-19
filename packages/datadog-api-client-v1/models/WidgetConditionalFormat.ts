@@ -52,7 +52,7 @@ export class WidgetConditionalFormat {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * An aggregation function.
  */
@@ -24,7 +26,8 @@ export type CIAppAggregationFunction =
   | typeof LATEST
   | typeof EARLIEST
   | typeof MOST_FREQUENT
-  | typeof DELTA;
+  | typeof DELTA
+  | UnparsedObject;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const PERCENTILE_75 = "pc75";

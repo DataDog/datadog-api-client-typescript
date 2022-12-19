@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Assertion operator to apply.
  */
 
-export type SyntheticsAssertionXPathOperator = typeof VALIDATES_X_PATH;
+export type SyntheticsAssertionXPathOperator =
+  | typeof VALIDATES_X_PATH
+  | UnparsedObject;
 export const VALIDATES_X_PATH = "validatesXPath";

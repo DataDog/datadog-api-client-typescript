@@ -26,7 +26,7 @@ export class DashboardTemplateVariablePresetValue {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

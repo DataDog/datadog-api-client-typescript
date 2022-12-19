@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of funnel widget.
  */
 
-export type FunnelWidgetDefinitionType = typeof FUNNEL;
+export type FunnelWidgetDefinitionType = typeof FUNNEL | UnparsedObject;
 export const FUNNEL = "funnel";

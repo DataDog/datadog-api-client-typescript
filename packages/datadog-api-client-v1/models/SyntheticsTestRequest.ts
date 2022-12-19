@@ -121,7 +121,7 @@ export class SyntheticsTestRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

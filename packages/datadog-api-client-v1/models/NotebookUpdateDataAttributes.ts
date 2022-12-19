@@ -38,7 +38,7 @@ export class NotebookUpdateDataAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

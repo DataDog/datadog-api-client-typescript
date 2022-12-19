@@ -19,7 +19,7 @@ export class SyntheticsLocations {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

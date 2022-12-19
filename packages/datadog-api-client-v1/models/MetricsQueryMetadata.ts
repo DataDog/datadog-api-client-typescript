@@ -69,7 +69,7 @@ export class MetricsQueryMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

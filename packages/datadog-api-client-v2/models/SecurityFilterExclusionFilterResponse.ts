@@ -22,7 +22,7 @@ export class SecurityFilterExclusionFilterResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

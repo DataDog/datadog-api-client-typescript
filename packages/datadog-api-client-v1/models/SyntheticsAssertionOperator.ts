@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Assertion operator to apply.
  */
@@ -22,7 +24,8 @@ export type SyntheticsAssertionOperator =
   | typeof VALIDATES
   | typeof IS_IN_MORE_DAYS_THAN
   | typeof IS_IN_LESS_DAYS_THAN
-  | typeof DOES_NOT_EXIST;
+  | typeof DOES_NOT_EXIST
+  | UnparsedObject;
 export const CONTAINS = "contains";
 export const DOES_NOT_CONTAIN = "doesNotContain";
 export const IS = "is";

@@ -20,7 +20,7 @@ export class SyntheticsTestOptionsMonitorOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

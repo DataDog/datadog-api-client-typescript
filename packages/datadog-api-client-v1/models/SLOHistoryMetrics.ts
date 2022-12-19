@@ -51,7 +51,7 @@ export class SLOHistoryMetrics {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

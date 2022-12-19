@@ -19,7 +19,7 @@ export class RUMAggregationBucketsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

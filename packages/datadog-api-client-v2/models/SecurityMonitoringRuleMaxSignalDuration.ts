@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * A signal will “close” regardless of the query being matched once the time exceeds the maximum duration.
  * This time is calculated from the first seen timestamp.
@@ -21,7 +23,8 @@ export type SecurityMonitoringRuleMaxSignalDuration =
   | typeof THREE_HOURS
   | typeof SIX_HOURS
   | typeof TWELVE_HOURS
-  | typeof ONE_DAY;
+  | typeof ONE_DAY
+  | UnparsedObject;
 export const ZERO_MINUTES = 0;
 export const ONE_MINUTE = 60;
 export const FIVE_MINUTES = 300;

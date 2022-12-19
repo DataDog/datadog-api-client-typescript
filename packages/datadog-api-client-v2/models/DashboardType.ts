@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of the dashboard.
  */
@@ -13,7 +15,8 @@ export type DashboardType =
   | typeof CUSTOM_SCREENBOARD
   | typeof INTEGRATION_SCREENBOARD
   | typeof INTEGRATION_TIMEBOARD
-  | typeof HOST_TIMEBOARD;
+  | typeof HOST_TIMEBOARD
+  | UnparsedObject;
 export const CUSTOM_TIMEBOARD = "custom_timeboard";
 export const CUSTOM_SCREENBOARD = "custom_screenboard";
 export const INTEGRATION_SCREENBOARD = "integration_screenboard";

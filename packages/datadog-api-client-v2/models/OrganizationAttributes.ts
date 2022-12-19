@@ -46,7 +46,7 @@ export class OrganizationAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

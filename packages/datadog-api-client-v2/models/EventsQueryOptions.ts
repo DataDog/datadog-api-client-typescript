@@ -23,7 +23,7 @@ export class EventsQueryOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

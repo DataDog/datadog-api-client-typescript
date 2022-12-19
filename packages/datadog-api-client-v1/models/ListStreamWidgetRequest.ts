@@ -29,7 +29,7 @@ export class ListStreamWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

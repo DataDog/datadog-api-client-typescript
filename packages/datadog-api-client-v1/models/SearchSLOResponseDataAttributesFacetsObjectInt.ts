@@ -22,7 +22,7 @@ export class SearchSLOResponseDataAttributesFacetsObjectInt {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Once a signal is generated, the signal will remain “open” if a case is matched at least once within
  * this keep alive window.
@@ -19,7 +21,8 @@ export type SecurityMonitoringRuleKeepAlive =
   | typeof ONE_HOUR
   | typeof TWO_HOURS
   | typeof THREE_HOURS
-  | typeof SIX_HOURS;
+  | typeof SIX_HOURS
+  | UnparsedObject;
 export const ZERO_MINUTES = 0;
 export const ONE_MINUTE = 60;
 export const FIVE_MINUTES = 300;

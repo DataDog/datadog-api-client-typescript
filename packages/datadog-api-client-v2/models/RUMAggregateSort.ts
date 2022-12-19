@@ -33,7 +33,7 @@ export class RUMAggregateSort {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

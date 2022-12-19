@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the replacement text. None means no replacement.
  * hash means the data will be stubbed. replacement_string means that
@@ -18,7 +20,8 @@ export type SensitiveDataScannerTextReplacementType =
   | typeof HASH
   | typeof REPLACEMENT_STRING
   | typeof PARTIAL_REPLACEMENT_FROM_BEGINNING
-  | typeof PARTIAL_REPLACEMENT_FROM_END;
+  | typeof PARTIAL_REPLACEMENT_FROM_END
+  | UnparsedObject;
 export const NONE = "none";
 export const HASH = "hash";
 export const REPLACEMENT_STRING = "replacement_string";

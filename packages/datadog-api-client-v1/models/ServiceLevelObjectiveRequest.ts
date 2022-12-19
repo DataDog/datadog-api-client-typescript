@@ -63,7 +63,7 @@ export class ServiceLevelObjectiveRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

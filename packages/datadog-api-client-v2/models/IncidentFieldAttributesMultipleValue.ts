@@ -23,7 +23,7 @@ export class IncidentFieldAttributesMultipleValue {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

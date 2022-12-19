@@ -40,7 +40,7 @@ export class SyntheticsPrivateLocation {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

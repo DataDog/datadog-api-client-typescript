@@ -24,7 +24,7 @@ export class APIKeysResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

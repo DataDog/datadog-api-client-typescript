@@ -44,7 +44,7 @@ export class ApmStatsQueryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

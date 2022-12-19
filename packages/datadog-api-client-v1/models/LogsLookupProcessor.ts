@@ -50,7 +50,7 @@ export class LogsLookupProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

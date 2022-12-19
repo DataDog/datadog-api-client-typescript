@@ -45,7 +45,7 @@ export class EventTimelineWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

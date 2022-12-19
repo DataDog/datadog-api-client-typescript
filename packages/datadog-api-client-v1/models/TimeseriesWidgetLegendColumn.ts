@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Legend column.
  */
@@ -13,7 +15,8 @@ export type TimeseriesWidgetLegendColumn =
   | typeof AVG
   | typeof SUM
   | typeof MIN
-  | typeof MAX;
+  | typeof MAX
+  | UnparsedObject;
 export const VALUE = "value";
 export const AVG = "avg";
 export const SUM = "sum";

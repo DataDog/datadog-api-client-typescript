@@ -4,12 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of aggregation to use.
  */
 
 export type LogsMetricComputeAggregationType =
   | typeof COUNT
-  | typeof DISTRIBUTION;
+  | typeof DISTRIBUTION
+  | UnparsedObject;
 export const COUNT = "count";
 export const DISTRIBUTION = "distribution";

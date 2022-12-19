@@ -39,7 +39,7 @@ export class SyntheticsAPITestResultShort {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

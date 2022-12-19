@@ -19,7 +19,7 @@ export class AuthNMappingCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -29,7 +29,7 @@ export class CIAppGroupByHistogram {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

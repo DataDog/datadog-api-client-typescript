@@ -60,7 +60,7 @@ export class LogsArithmeticProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

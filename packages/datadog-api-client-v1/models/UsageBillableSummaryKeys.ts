@@ -367,7 +367,7 @@ export class UsageBillableSummaryKeys {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

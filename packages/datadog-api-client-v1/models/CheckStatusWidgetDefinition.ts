@@ -58,7 +58,7 @@ export class CheckStatusWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

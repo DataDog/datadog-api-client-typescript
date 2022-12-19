@@ -29,7 +29,7 @@ export class SLOBulkDeleteError {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -36,7 +36,7 @@ export class LogsTraceRemapper {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

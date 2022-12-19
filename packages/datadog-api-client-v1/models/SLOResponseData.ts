@@ -99,7 +99,7 @@ export class SLOResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

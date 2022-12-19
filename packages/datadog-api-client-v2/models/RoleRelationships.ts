@@ -24,7 +24,7 @@ export class RoleRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -23,7 +23,7 @@ export class ServiceDefinitionData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

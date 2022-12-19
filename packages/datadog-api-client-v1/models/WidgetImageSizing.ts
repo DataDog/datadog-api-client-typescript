@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * How to size the image on the widget. The values are based on the image `object-fit` CSS properties.
  * **Note**: `zoom`, `fit` and `center` values are deprecated.
@@ -17,7 +19,8 @@ export type WidgetImageSizing =
   | typeof SCALEDOWN
   | typeof ZOOM
   | typeof FIT
-  | typeof CENTER;
+  | typeof CENTER
+  | UnparsedObject;
 export const FILL = "fill";
 export const CONTAIN = "contain";
 export const COVER = "cover";

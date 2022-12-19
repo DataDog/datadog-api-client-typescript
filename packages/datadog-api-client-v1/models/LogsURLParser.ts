@@ -39,7 +39,7 @@ export class LogsURLParser {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

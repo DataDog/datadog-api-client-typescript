@@ -60,7 +60,7 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the distribution widget.
  */
 
-export type DistributionWidgetDefinitionType = typeof DISTRIBUTION;
+export type DistributionWidgetDefinitionType =
+  | typeof DISTRIBUTION
+  | UnparsedObject;
 export const DISTRIBUTION = "distribution";

@@ -18,7 +18,7 @@ export class SecurityFilterMeta {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

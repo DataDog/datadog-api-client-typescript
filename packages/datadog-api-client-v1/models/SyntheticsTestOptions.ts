@@ -112,7 +112,7 @@ export class SyntheticsTestOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

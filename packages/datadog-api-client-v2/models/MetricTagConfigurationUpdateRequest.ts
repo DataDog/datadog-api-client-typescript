@@ -19,7 +19,7 @@ export class MetricTagConfigurationUpdateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

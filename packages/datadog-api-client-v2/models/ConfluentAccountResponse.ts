@@ -19,7 +19,7 @@ export class ConfluentAccountResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

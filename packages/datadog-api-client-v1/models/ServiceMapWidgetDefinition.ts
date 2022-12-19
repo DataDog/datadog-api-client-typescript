@@ -45,7 +45,7 @@ export class ServiceMapWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

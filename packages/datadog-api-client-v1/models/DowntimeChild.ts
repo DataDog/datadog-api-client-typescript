@@ -95,7 +95,7 @@ export class DowntimeChild {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

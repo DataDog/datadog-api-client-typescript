@@ -34,7 +34,7 @@ export class NotebookTimeseriesCellAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Metadata type of the notebook.
  */
@@ -13,7 +15,8 @@ export type NotebookMetadataType =
   | typeof RUNBOOK
   | typeof INVESTIGATION
   | typeof DOCUMENTATION
-  | typeof REPORT;
+  | typeof REPORT
+  | UnparsedObject;
 export const POSTMORTEM = "postmortem";
 export const RUNBOOK = "runbook";
 export const INVESTIGATION = "investigation";

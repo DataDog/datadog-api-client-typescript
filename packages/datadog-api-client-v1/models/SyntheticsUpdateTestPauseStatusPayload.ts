@@ -20,7 +20,7 @@ export class SyntheticsUpdateTestPauseStatusPayload {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

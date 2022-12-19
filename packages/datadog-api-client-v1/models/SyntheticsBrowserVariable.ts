@@ -36,7 +36,7 @@ export class SyntheticsBrowserVariable {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

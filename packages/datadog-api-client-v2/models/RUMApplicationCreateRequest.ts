@@ -19,7 +19,7 @@ export class RUMApplicationCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

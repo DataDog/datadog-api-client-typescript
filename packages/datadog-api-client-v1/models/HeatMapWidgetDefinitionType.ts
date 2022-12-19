@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the heat map widget.
  */
 
-export type HeatMapWidgetDefinitionType = typeof HEATMAP;
+export type HeatMapWidgetDefinitionType = typeof HEATMAP | UnparsedObject;
 export const HEATMAP = "heatmap";

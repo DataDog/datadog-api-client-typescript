@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the event timeline widget.
  */
 
-export type EventTimelineWidgetDefinitionType = typeof EVENT_TIMELINE;
+export type EventTimelineWidgetDefinitionType =
+  | typeof EVENT_TIMELINE
+  | UnparsedObject;
 export const EVENT_TIMELINE = "event_timeline";

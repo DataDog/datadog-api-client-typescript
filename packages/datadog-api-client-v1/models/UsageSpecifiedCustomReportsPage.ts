@@ -18,7 +18,7 @@ export class UsageSpecifiedCustomReportsPage {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Dashboard resource type.
  */
 
-export type DashboardResourceType = typeof DASHBOARD;
+export type DashboardResourceType = typeof DASHBOARD | UnparsedObject;
 export const DASHBOARD = "dashboard";

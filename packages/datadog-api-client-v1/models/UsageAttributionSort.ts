@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The field to sort by.
  */
@@ -42,7 +44,8 @@ export type UsageAttributionSort =
   | typeof APM_FARGATE_USAGE
   | typeof APM_FARGATE_PERCENTAGE
   | typeof APPSEC_FARGATE_USAGE
-  | typeof APPSEC_FARGATE_PERCENTAGE;
+  | typeof APPSEC_FARGATE_PERCENTAGE
+  | UnparsedObject;
 export const API_PERCENTAGE = "api_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const APM_HOST_USAGE = "apm_host_usage";

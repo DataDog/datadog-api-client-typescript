@@ -34,7 +34,7 @@ export class MetricsQueryUnit {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

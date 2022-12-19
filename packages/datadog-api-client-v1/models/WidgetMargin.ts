@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Size of the margins around the image.
  * **Note**: `small` and `large` values are deprecated.
@@ -14,7 +16,8 @@ export type WidgetMargin =
   | typeof MD
   | typeof LG
   | typeof SMALL
-  | typeof LARGE;
+  | typeof LARGE
+  | UnparsedObject;
 export const SM = "sm";
 export const MD = "md";
 export const LG = "lg";

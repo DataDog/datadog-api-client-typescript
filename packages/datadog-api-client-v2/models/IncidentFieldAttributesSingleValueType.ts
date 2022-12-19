@@ -4,12 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the single value field definitions.
  */
 
 export type IncidentFieldAttributesSingleValueType =
   | typeof DROPDOWN
-  | typeof TEXTBOX;
+  | typeof TEXTBOX
+  | UnparsedObject;
 export const DROPDOWN = "dropdown";
 export const TEXTBOX = "textbox";

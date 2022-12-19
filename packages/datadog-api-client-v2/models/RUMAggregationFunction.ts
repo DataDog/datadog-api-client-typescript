@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * An aggregation function.
  */
@@ -20,7 +22,8 @@ export type RUMAggregationFunction =
   | typeof MIN
   | typeof MAX
   | typeof AVG
-  | typeof MEDIAN;
+  | typeof MEDIAN
+  | UnparsedObject;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const PERCENTILE_75 = "pc75";

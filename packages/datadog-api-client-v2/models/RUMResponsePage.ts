@@ -18,7 +18,7 @@ export class RUMResponsePage {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

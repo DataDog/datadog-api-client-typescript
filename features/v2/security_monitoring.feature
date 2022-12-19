@@ -188,7 +188,7 @@ Feature: Security Monitoring
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @team:DataDog/k9-cloud-security-platform @with-pagination
+  @team:DataDog/k9-cloud-security-platform @with-pagination
   Scenario: Get a list of security signals returns "OK" response with pagination
     Given new "SearchSecurityMonitoringSignals" request
     And body with value {"filter": {"from": "{{ timeISO("now-15m") }}", "query": "security:attack status:high", "to": "{{ timeISO("now") }}"}, "page": {"limit": 2}, "sort": "timestamp"}

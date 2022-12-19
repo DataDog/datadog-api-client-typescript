@@ -4,12 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Whether to show the legend inline or let it be automatically generated.
  */
 
 export type SunburstWidgetLegendInlineAutomaticType =
   | typeof INLINE
-  | typeof AUTOMATIC;
+  | typeof AUTOMATIC
+  | UnparsedObject;
 export const INLINE = "inline";
 export const AUTOMATIC = "automatic";

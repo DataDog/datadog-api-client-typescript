@@ -35,7 +35,7 @@ export class CIAppTestEventsRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

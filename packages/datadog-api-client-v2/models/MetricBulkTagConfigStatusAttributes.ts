@@ -26,7 +26,7 @@ export class MetricBulkTagConfigStatusAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

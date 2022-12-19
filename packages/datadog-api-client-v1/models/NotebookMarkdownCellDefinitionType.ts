@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the markdown cell.
  */
 
-export type NotebookMarkdownCellDefinitionType = typeof MARKDOWN;
+export type NotebookMarkdownCellDefinitionType =
+  | typeof MARKDOWN
+  | UnparsedObject;
 export const MARKDOWN = "markdown";

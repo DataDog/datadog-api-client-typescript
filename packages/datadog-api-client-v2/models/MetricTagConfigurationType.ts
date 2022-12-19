@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The metric tag configuration resource type.
  */
 
-export type MetricTagConfigurationType = typeof MANAGE_TAGS;
+export type MetricTagConfigurationType = typeof MANAGE_TAGS | UnparsedObject;
 export const MANAGE_TAGS = "manage_tags";

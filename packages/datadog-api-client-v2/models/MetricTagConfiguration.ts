@@ -28,7 +28,7 @@ export class MetricTagConfiguration {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

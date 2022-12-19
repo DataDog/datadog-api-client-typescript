@@ -27,7 +27,7 @@ export class TopologyQuery {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

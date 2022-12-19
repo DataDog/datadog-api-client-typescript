@@ -19,7 +19,7 @@ export class UsageCIVisibilityResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -23,7 +23,7 @@ export class SyntheticsBrowserTestResultFailure {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

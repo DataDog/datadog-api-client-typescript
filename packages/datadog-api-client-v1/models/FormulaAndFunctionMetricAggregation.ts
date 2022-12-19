@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The aggregation methods available for metrics queries.
  */
@@ -16,7 +18,8 @@ export type FormulaAndFunctionMetricAggregation =
   | typeof LAST
   | typeof AREA
   | typeof L2NORM
-  | typeof PERCENTILE;
+  | typeof PERCENTILE
+  | UnparsedObject;
 export const AVG = "avg";
 export const MIN = "min";
 export const MAX = "max";

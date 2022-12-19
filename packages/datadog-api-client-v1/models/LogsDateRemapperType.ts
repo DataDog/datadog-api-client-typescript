@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of logs date remapper.
  */
 
-export type LogsDateRemapperType = typeof DATE_REMAPPER;
+export type LogsDateRemapperType = typeof DATE_REMAPPER | UnparsedObject;
 export const DATE_REMAPPER = "date-remapper";

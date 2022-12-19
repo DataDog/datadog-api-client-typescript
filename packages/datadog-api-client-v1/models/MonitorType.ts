@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of the monitor. For more information about `type`, see the [monitor options](https://docs.datadoghq.com/monitors/guide/monitor_api_options/) docs.
  */
@@ -24,7 +26,8 @@ export type MonitorType =
   | typeof AUDIT_ALERT
   | typeof CI_PIPELINES_ALERT
   | typeof CI_TESTS_ALERT
-  | typeof ERROR_TRACKING_ALERT;
+  | typeof ERROR_TRACKING_ALERT
+  | UnparsedObject;
 export const COMPOSITE = "composite";
 export const EVENT_ALERT = "event alert";
 export const LOG_ALERT = "log alert";

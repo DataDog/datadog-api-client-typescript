@@ -43,7 +43,7 @@ export class SyntheticsStep {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

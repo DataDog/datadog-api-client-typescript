@@ -30,7 +30,7 @@ export class UsageNetworkFlowsHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

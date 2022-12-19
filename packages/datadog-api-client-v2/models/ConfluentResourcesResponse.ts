@@ -19,7 +19,7 @@ export class ConfluentResourcesResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

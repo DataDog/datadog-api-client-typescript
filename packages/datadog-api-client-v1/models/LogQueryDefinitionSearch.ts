@@ -18,7 +18,7 @@ export class LogQueryDefinitionSearch {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

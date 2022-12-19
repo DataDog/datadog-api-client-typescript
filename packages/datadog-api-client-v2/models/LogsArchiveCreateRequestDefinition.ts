@@ -23,7 +23,7 @@ export class LogsArchiveCreateRequestDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

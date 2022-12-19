@@ -29,7 +29,7 @@ export class CIAppPipelineEventsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

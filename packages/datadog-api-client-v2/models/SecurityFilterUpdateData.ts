@@ -24,7 +24,7 @@ export class SecurityFilterUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

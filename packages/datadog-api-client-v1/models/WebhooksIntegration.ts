@@ -41,7 +41,7 @@ export class WebhooksIntegration {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

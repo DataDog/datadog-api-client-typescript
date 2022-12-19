@@ -24,7 +24,7 @@ export class AuthNMappingRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

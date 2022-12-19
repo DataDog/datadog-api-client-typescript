@@ -91,7 +91,7 @@ export class UsageHostHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -51,7 +51,7 @@ export class HourlyUsageAttributionBody {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,10 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of filtering action.
  */
 
-export type SecurityMonitoringFilterAction = typeof REQUIRE | typeof SUPPRESS;
+export type SecurityMonitoringFilterAction =
+  | typeof REQUIRE
+  | typeof SUPPRESS
+  | UnparsedObject;
 export const REQUIRE = "require";
 export const SUPPRESS = "suppress";

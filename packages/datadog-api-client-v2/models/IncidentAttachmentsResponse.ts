@@ -24,7 +24,7 @@ export class IncidentAttachmentsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

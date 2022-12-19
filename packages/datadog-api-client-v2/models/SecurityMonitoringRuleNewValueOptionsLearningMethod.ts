@@ -4,12 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The learning method used to determine when signals should be generated for values that weren't learned.
  */
 
 export type SecurityMonitoringRuleNewValueOptionsLearningMethod =
   | typeof DURATION
-  | typeof THRESHOLD;
+  | typeof THRESHOLD
+  | UnparsedObject;
 export const DURATION = "duration";
 export const THRESHOLD = "threshold";

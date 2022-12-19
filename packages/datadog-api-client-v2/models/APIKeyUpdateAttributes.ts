@@ -18,7 +18,7 @@ export class APIKeyUpdateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

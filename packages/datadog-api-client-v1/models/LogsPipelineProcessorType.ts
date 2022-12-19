@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of logs pipeline processor.
  */
 
-export type LogsPipelineProcessorType = typeof PIPELINE;
+export type LogsPipelineProcessorType = typeof PIPELINE | UnparsedObject;
 export const PIPELINE = "pipeline";

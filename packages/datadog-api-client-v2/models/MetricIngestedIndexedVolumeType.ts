@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The metric ingested and indexed volume type.
  */
 
-export type MetricIngestedIndexedVolumeType = typeof METRIC_VOLUMES;
+export type MetricIngestedIndexedVolumeType =
+  | typeof METRIC_VOLUMES
+  | UnparsedObject;
 export const METRIC_VOLUMES = "metric_volumes";

@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The filtered data type.
  */
 
-export type SecurityFilterFilteredDataType = typeof LOGS;
+export type SecurityFilterFilteredDataType = typeof LOGS | UnparsedObject;
 export const LOGS = "logs";

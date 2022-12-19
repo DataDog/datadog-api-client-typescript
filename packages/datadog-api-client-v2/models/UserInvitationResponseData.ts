@@ -28,7 +28,7 @@ export class UserInvitationResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

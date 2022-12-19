@@ -39,7 +39,7 @@ export class MonitorStateGroup {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

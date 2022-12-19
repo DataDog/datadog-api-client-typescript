@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The level of detail for the request.
  */
@@ -11,7 +13,8 @@
 export type ApmStatsQueryRowType =
   | typeof SERVICE
   | typeof RESOURCE
-  | typeof SPAN;
+  | typeof SPAN
+  | UnparsedObject;
 export const SERVICE = "service";
 export const RESOURCE = "resource";
 export const SPAN = "span";

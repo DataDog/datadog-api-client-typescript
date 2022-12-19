@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Controls how groups or monitors are treated if an evaluation does not return any data points.
  * The default option results in different behavior depending on the monitor query type.
@@ -16,7 +18,8 @@ export type OnMissingDataOption =
   | typeof DEFAULT
   | typeof SHOW_NO_DATA
   | typeof SHOW_AND_NOTIFY_NO_DATA
-  | typeof RESOLVE;
+  | typeof RESOLVE
+  | UnparsedObject;
 export const DEFAULT = "default";
 export const SHOW_NO_DATA = "show_no_data";
 export const SHOW_AND_NOTIFY_NO_DATA = "show_and_notify_no_data";

@@ -49,7 +49,7 @@ export class LogsDateRemapper {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

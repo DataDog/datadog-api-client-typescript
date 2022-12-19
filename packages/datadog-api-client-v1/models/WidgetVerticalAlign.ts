@@ -4,11 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Vertical alignment.
  */
 
-export type WidgetVerticalAlign = typeof CENTER | typeof TOP | typeof BOTTOM;
+export type WidgetVerticalAlign =
+  | typeof CENTER
+  | typeof TOP
+  | typeof BOTTOM
+  | UnparsedObject;
 export const CENTER = "center";
 export const TOP = "top";
 export const BOTTOM = "bottom";

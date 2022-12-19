@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The status of a service check.
  */
@@ -12,7 +14,8 @@ export type ServiceCheckStatus =
   | typeof OK
   | typeof WARNING
   | typeof CRITICAL
-  | typeof UNKNOWN;
+  | typeof UNKNOWN
+  | UnparsedObject;
 export const OK = 0;
 export const WARNING = 1;
 export const CRITICAL = 2;

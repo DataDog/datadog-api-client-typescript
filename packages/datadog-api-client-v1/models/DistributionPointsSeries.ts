@@ -36,7 +36,7 @@ export class DistributionPointsSeries {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

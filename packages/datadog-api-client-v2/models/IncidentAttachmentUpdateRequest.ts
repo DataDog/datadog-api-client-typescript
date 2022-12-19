@@ -22,7 +22,7 @@ export class IncidentAttachmentUpdateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

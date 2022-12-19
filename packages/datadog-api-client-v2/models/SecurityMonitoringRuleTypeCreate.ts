@@ -4,12 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The rule type.
  */
 
 export type SecurityMonitoringRuleTypeCreate =
   | typeof LOG_DETECTION
-  | typeof WORKLOAD_SECURITY;
+  | typeof WORKLOAD_SECURITY
+  | UnparsedObject;
 export const LOG_DETECTION = "log_detection";
 export const WORKLOAD_SECURITY = "workload_security";

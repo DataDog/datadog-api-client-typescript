@@ -28,7 +28,7 @@ export class ScatterPlotWidgetDefinitionRequests {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Category the SLO correction belongs to.
  */
@@ -12,7 +14,8 @@ export type SLOCorrectionCategory =
   | typeof SCHEDULED_MAINTENANCE
   | typeof OUTSIDE_BUSINESS_HOURS
   | typeof DEPLOYMENT
-  | typeof OTHER;
+  | typeof OTHER
+  | UnparsedObject;
 export const SCHEDULED_MAINTENANCE = "Scheduled Maintenance";
 export const OUTSIDE_BUSINESS_HOURS = "Outside Business Hours";
 export const DEPLOYMENT = "Deployment";

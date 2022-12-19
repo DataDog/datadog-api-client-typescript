@@ -34,7 +34,7 @@ export class NotebookToplistCellAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

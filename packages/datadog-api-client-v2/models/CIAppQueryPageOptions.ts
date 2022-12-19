@@ -22,7 +22,7 @@ export class CIAppQueryPageOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

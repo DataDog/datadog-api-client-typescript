@@ -40,7 +40,7 @@ export class CIAppTestsAggregateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

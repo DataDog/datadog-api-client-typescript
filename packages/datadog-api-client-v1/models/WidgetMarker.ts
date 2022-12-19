@@ -33,7 +33,7 @@ export class WidgetMarker {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -307,7 +307,7 @@ export class UsageSummaryDate {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

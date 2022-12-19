@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * What to order by.
  */
@@ -12,7 +14,8 @@ export type WidgetOrderBy =
   | typeof CHANGE
   | typeof NAME
   | typeof PRESENT
-  | typeof PAST;
+  | typeof PAST
+  | UnparsedObject;
 export const CHANGE = "change";
 export const NAME = "name";
 export const PRESENT = "present";

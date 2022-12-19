@@ -43,7 +43,7 @@ export class WebhooksIntegrationUpdateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

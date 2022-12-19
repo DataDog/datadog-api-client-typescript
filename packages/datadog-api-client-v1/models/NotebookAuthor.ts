@@ -50,7 +50,7 @@ export class NotebookAuthor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

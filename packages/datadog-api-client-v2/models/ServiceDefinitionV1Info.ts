@@ -30,7 +30,7 @@ export class ServiceDefinitionV1Info {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

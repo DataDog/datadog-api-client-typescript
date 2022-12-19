@@ -90,7 +90,7 @@ export class TimeseriesWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

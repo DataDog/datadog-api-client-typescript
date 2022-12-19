@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The rule type.
  */
@@ -12,7 +14,8 @@ export type SecurityMonitoringRuleTypeRead =
   | typeof LOG_DETECTION
   | typeof INFRASTRUCTURE_CONFIGURATION
   | typeof WORKLOAD_SECURITY
-  | typeof CLOUD_CONFIGURATION;
+  | typeof CLOUD_CONFIGURATION
+  | UnparsedObject;
 export const LOG_DETECTION = "log_detection";
 export const INFRASTRUCTURE_CONFIGURATION = "infrastructure_configuration";
 export const WORKLOAD_SECURITY = "workload_security";

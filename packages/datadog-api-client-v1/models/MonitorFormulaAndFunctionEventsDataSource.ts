@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Data source for event platform-based queries.
  */
@@ -15,7 +17,8 @@ export type MonitorFormulaAndFunctionEventsDataSource =
   | typeof AUDIT
   | typeof EVENTS
   | typeof LOGS
-  | typeof SPANS;
+  | typeof SPANS
+  | UnparsedObject;
 export const RUM = "rum";
 export const CI_PIPELINES = "ci_pipelines";
 export const CI_TESTS = "ci_tests";

@@ -33,7 +33,7 @@ export class SyntheticsAssertionJSONPathTarget {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

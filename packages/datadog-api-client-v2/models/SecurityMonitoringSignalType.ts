@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of event.
  */
 
-export type SecurityMonitoringSignalType = typeof SIGNAL;
+export type SecurityMonitoringSignalType = typeof SIGNAL | UnparsedObject;
 export const SIGNAL = "signal";

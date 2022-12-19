@@ -19,7 +19,7 @@ export class SensitiveDataScannerGroupList {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

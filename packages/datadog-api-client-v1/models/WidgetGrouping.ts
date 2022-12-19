@@ -4,10 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The kind of grouping to use.
  */
 
-export type WidgetGrouping = typeof CHECK | typeof CLUSTER;
+export type WidgetGrouping = typeof CHECK | typeof CLUSTER | UnparsedObject;
 export const CHECK = "check";
 export const CLUSTER = "cluster";

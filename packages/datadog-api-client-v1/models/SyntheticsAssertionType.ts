@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the assertion.
  */
@@ -25,7 +27,8 @@ export type SyntheticsAssertionType =
   | typeof NETWORK_HOP
   | typeof RECEIVED_MESSAGE
   | typeof GRPC_HEALTHCHECK_STATUS
-  | typeof CONNECTION;
+  | typeof CONNECTION
+  | UnparsedObject;
 export const BODY = "body";
 export const HEADER = "header";
 export const STATUS_CODE = "statusCode";

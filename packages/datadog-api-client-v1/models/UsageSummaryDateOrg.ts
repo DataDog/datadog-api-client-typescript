@@ -314,7 +314,7 @@ export class UsageSummaryDateOrg {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

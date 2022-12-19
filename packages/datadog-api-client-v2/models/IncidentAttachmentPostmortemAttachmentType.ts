@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of postmortem attachment attributes.
  */
 
-export type IncidentAttachmentPostmortemAttachmentType = typeof POSTMORTEM;
+export type IncidentAttachmentPostmortemAttachmentType =
+  | typeof POSTMORTEM
+  | UnparsedObject;
 export const POSTMORTEM = "postmortem";

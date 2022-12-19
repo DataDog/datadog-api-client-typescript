@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Permissions resource type.
  */
 
-export type PermissionsType = typeof PERMISSIONS;
+export type PermissionsType = typeof PERMISSIONS | UnparsedObject;
 export const PERMISSIONS = "permissions";

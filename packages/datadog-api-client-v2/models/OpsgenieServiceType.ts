@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Opsgenie service resource type.
  */
 
-export type OpsgenieServiceType = typeof OPSGENIE_SERVICE;
+export type OpsgenieServiceType = typeof OPSGENIE_SERVICE | UnparsedObject;
 export const OPSGENIE_SERVICE = "opsgenie-service";

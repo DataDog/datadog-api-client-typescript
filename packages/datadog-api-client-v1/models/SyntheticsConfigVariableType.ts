@@ -4,10 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the configuration variable.
  */
 
-export type SyntheticsConfigVariableType = typeof GLOBAL | typeof TEXT;
+export type SyntheticsConfigVariableType =
+  | typeof GLOBAL
+  | typeof TEXT
+  | UnparsedObject;
 export const GLOBAL = "global";
 export const TEXT = "text";

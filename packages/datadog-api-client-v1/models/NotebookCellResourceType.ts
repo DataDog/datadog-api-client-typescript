@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the Notebook Cell resource.
  */
 
-export type NotebookCellResourceType = typeof NOTEBOOK_CELLS;
+export type NotebookCellResourceType = typeof NOTEBOOK_CELLS | UnparsedObject;
 export const NOTEBOOK_CELLS = "notebook_cells";

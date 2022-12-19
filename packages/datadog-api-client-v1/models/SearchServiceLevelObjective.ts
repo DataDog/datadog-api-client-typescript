@@ -19,7 +19,7 @@ export class SearchServiceLevelObjective {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Widget response format.
  */
 
-export type ListStreamResponseFormat = typeof EVENT_LIST;
+export type ListStreamResponseFormat = typeof EVENT_LIST | UnparsedObject;
 export const EVENT_LIST = "event_list";

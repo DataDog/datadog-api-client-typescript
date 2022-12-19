@@ -19,7 +19,7 @@ export class ApplicationKeyCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

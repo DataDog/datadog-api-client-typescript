@@ -23,7 +23,7 @@ export class SyntheticsGlobalVariableValue {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

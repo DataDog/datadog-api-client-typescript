@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The field to sort by.
  */
@@ -12,7 +14,8 @@ export type UsageSort =
   | typeof COMPUTED_ON
   | typeof SIZE
   | typeof START_DATE
-  | typeof END_DATE;
+  | typeof END_DATE
+  | UnparsedObject;
 export const COMPUTED_ON = "computed_on";
 export const SIZE = "size";
 export const START_DATE = "start_date";

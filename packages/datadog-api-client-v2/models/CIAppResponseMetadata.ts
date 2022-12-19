@@ -38,7 +38,7 @@ export class CIAppResponseMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

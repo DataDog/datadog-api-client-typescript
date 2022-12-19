@@ -25,7 +25,7 @@ export class WidgetEvent {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

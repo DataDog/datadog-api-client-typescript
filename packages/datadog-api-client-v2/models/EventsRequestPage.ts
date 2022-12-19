@@ -22,7 +22,7 @@ export class EventsRequestPage {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

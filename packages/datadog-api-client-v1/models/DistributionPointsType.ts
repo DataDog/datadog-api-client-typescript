@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of the distribution point.
  */
 
-export type DistributionPointsType = typeof DISTRIBUTION;
+export type DistributionPointsType = typeof DISTRIBUTION | UnparsedObject;
 export const DISTRIBUTION = "distribution";

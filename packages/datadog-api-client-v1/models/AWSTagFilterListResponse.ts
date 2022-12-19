@@ -19,7 +19,7 @@ export class AWSTagFilterListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

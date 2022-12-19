@@ -41,7 +41,7 @@ export class LogsPipelineProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

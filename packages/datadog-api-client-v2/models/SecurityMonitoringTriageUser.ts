@@ -30,7 +30,7 @@ export class SecurityMonitoringTriageUser {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

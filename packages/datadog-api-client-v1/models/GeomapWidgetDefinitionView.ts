@@ -18,7 +18,7 @@ export class GeomapWidgetDefinitionView {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

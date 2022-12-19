@@ -22,7 +22,7 @@ export class UsageTimeSeriesObject {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

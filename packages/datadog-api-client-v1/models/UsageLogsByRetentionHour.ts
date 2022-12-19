@@ -38,7 +38,7 @@ export class UsageLogsByRetentionHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -26,7 +26,7 @@ export class UsageTopAvgMetricsPagination {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

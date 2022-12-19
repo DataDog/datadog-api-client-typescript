@@ -20,7 +20,7 @@ export class LogsIndexesOrder {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

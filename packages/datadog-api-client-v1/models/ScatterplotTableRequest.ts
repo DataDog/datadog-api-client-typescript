@@ -29,7 +29,7 @@ export class ScatterplotTableRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The size of the graph.
  */
@@ -13,7 +15,8 @@ export type NotebookGraphSize =
   | typeof SMALL
   | typeof MEDIUM
   | typeof LARGE
-  | typeof EXTRA_LARGE;
+  | typeof EXTRA_LARGE
+  | UnparsedObject;
 export const EXTRA_SMALL = "xs";
 export const SMALL = "s";
 export const MEDIUM = "m";

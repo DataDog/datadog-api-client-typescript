@@ -29,7 +29,7 @@ export class SecurityMonitoringSignal {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

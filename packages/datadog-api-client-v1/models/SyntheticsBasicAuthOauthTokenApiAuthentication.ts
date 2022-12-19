@@ -4,12 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of token to use when performing the authentication.
  */
 
 export type SyntheticsBasicAuthOauthTokenApiAuthentication =
   | typeof HEADER
-  | typeof BODY;
+  | typeof BODY
+  | UnparsedObject;
 export const HEADER = "header";
 export const BODY = "body";

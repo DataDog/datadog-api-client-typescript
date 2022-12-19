@@ -33,7 +33,7 @@ export class TreeMapWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

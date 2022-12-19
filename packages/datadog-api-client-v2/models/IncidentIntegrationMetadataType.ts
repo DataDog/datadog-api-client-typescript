@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Integration metadata resource type.
  */
 
-export type IncidentIntegrationMetadataType = typeof INCIDENT_INTEGRATIONS;
+export type IncidentIntegrationMetadataType =
+  | typeof INCIDENT_INTEGRATIONS
+  | UnparsedObject;
 export const INCIDENT_INTEGRATIONS = "incident_integrations";

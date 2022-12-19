@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The detection method.
  */
@@ -13,7 +15,8 @@ export type SecurityMonitoringRuleDetectionMethod =
   | typeof NEW_VALUE
   | typeof ANOMALY_DETECTION
   | typeof IMPOSSIBLE_TRAVEL
-  | typeof HARDCODED;
+  | typeof HARDCODED
+  | UnparsedObject;
 export const THRESHOLD = "threshold";
 export const NEW_VALUE = "new_value";
 export const ANOMALY_DETECTION = "anomaly_detection";

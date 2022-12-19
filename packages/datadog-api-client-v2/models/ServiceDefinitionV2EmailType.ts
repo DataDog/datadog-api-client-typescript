@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Contact type.
  */
 
-export type ServiceDefinitionV2EmailType = typeof EMAIL;
+export type ServiceDefinitionV2EmailType = typeof EMAIL | UnparsedObject;
 export const EMAIL = "email";

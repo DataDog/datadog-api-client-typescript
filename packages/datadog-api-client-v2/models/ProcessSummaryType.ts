@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of process summary.
  */
 
-export type ProcessSummaryType = typeof PROCESS;
+export type ProcessSummaryType = typeof PROCESS | UnparsedObject;
 export const PROCESS = "process";

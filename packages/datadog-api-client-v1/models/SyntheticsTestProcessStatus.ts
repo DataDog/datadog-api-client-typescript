@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Status of a Synthetic test.
  */
@@ -12,7 +14,8 @@ export type SyntheticsTestProcessStatus =
   | typeof NOT_SCHEDULED
   | typeof SCHEDULED
   | typeof FINISHED
-  | typeof FINISHED_WITH_ERROR;
+  | typeof FINISHED_WITH_ERROR
+  | UnparsedObject;
 export const NOT_SCHEDULED = "not_scheduled";
 export const SCHEDULED = "scheduled";
 export const FINISHED = "finished";

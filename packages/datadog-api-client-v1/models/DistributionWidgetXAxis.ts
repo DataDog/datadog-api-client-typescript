@@ -30,7 +30,7 @@ export class DistributionWidgetXAxis {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

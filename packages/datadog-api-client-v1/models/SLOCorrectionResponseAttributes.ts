@@ -66,7 +66,7 @@ export class SLOCorrectionResponseAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

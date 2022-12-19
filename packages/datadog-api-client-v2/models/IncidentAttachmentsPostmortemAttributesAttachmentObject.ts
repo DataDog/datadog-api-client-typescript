@@ -22,7 +22,7 @@ export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

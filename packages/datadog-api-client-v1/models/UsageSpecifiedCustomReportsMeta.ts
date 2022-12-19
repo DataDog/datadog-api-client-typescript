@@ -19,7 +19,7 @@ export class UsageSpecifiedCustomReportsMeta {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

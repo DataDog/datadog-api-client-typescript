@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Sensitive Data Scanner rule type.
  */
 
-export type SensitiveDataScannerRuleType = typeof SENSITIVE_DATA_SCANNER_RULE;
+export type SensitiveDataScannerRuleType =
+  | typeof SENSITIVE_DATA_SCANNER_RULE
+  | UnparsedObject;
 export const SENSITIVE_DATA_SCANNER_RULE = "sensitive_data_scanner_rule";

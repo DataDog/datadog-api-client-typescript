@@ -29,7 +29,7 @@ export class CIAppTestsAnalyticsAggregateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

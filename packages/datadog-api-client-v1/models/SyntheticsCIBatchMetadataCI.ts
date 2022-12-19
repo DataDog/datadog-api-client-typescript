@@ -24,7 +24,7 @@ export class SyntheticsCIBatchMetadataCI {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

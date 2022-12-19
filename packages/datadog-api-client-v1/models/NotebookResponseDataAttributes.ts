@@ -51,7 +51,7 @@ export class NotebookResponseDataAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

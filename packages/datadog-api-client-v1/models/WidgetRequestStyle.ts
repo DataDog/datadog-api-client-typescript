@@ -28,7 +28,7 @@ export class WidgetRequestStyle {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

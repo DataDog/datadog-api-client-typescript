@@ -19,7 +19,7 @@ export class LogsByRetentionOrgs {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

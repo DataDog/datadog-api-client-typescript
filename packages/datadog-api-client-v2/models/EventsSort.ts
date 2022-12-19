@@ -4,12 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The sort parameters when querying events.
  */
 
 export type EventsSort =
   | typeof TIMESTAMP_ASCENDING
-  | typeof TIMESTAMP_DESCENDING;
+  | typeof TIMESTAMP_DESCENDING
+  | UnparsedObject;
 export const TIMESTAMP_ASCENDING = "timestamp";
 export const TIMESTAMP_DESCENDING = "-timestamp";

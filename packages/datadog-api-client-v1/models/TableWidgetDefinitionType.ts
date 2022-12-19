@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the table widget.
  */
 
-export type TableWidgetDefinitionType = typeof QUERY_TABLE;
+export type TableWidgetDefinitionType = typeof QUERY_TABLE | UnparsedObject;
 export const QUERY_TABLE = "query_table";

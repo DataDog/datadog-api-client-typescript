@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The device ID.
  */
@@ -20,7 +22,8 @@ export type SyntheticsDeviceID =
   | typeof FIREFOX_MOBILE_SMALL
   | typeof EDGE_LAPTOP_LARGE
   | typeof EDGE_TABLET
-  | typeof EDGE_MOBILE_SMALL;
+  | typeof EDGE_MOBILE_SMALL
+  | UnparsedObject;
 export const LAPTOP_LARGE = "laptop_large";
 export const TABLET = "tablet";
 export const MOBILE_SMALL = "mobile_small";

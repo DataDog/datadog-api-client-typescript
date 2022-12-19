@@ -30,7 +30,7 @@ export class ServiceDefinitionMeta {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

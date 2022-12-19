@@ -28,7 +28,7 @@ export class MetricAllTags {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

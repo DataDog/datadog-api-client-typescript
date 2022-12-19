@@ -32,7 +32,7 @@ export class SyntheticsAssertionTarget {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

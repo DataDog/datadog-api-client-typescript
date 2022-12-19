@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * (deprecated) The attribute formerly used to determine color in the widget.
  */
 
-export type TreeMapColorBy = typeof USER;
+export type TreeMapColorBy = typeof USER | UnparsedObject;
 export const USER = "user";

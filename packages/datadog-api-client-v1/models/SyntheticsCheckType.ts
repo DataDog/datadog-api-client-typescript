@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of assertion to apply in an API test.
  */
@@ -22,7 +24,8 @@ export type SyntheticsCheckType =
   | typeof MATCH_REGEX
   | typeof BETWEEN
   | typeof IS_EMPTY
-  | typeof NOT_IS_EMPTY;
+  | typeof NOT_IS_EMPTY
+  | UnparsedObject;
 export const EQUALS = "equals";
 export const NOT_EQUALS = "notEquals";
 export const CONTAINS = "contains";

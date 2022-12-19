@@ -19,7 +19,7 @@ export class UsageIndexedSpansResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

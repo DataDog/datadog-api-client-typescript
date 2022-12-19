@@ -72,7 +72,7 @@ export class DistributionWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

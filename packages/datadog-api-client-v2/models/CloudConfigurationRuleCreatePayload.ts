@@ -50,7 +50,7 @@ export class CloudConfigurationRuleCreatePayload {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

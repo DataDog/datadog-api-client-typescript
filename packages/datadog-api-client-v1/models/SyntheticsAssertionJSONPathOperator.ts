@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Assertion operator to apply.
  */
 
-export type SyntheticsAssertionJSONPathOperator = typeof VALIDATES_JSON_PATH;
+export type SyntheticsAssertionJSONPathOperator =
+  | typeof VALIDATES_JSON_PATH
+  | UnparsedObject;
 export const VALIDATES_JSON_PATH = "validatesJSONPath";

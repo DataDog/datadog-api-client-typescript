@@ -28,7 +28,7 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

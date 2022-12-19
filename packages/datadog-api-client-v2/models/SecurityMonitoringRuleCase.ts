@@ -32,7 +32,7 @@ export class SecurityMonitoringRuleCase {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

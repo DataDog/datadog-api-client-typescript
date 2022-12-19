@@ -4,10 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of gRPC call to perform.
  */
 
-export type SyntheticsTestCallType = typeof HEALTHCHECK | typeof UNARY;
+export type SyntheticsTestCallType =
+  | typeof HEALTHCHECK
+  | typeof UNARY
+  | UnparsedObject;
 export const HEALTHCHECK = "healthcheck";
 export const UNARY = "unary";

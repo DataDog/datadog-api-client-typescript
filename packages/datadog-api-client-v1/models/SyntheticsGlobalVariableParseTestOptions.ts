@@ -32,7 +32,7 @@ export class SyntheticsGlobalVariableParseTestOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

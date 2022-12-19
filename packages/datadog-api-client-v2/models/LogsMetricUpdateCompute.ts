@@ -19,7 +19,7 @@ export class LogsMetricUpdateCompute {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

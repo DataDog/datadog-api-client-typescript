@@ -19,7 +19,7 @@ export class CloudWorkloadSecurityAgentRulesListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

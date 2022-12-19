@@ -30,7 +30,7 @@ export class UsageOnlineArchiveHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -24,7 +24,7 @@ export class ListApplicationKeysResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

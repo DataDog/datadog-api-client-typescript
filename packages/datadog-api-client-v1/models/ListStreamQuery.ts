@@ -31,7 +31,7 @@ export class ListStreamQuery {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

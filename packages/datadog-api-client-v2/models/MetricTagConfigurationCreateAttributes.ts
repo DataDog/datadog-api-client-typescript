@@ -48,7 +48,7 @@ export class MetricTagConfigurationCreateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

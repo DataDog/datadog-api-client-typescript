@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The status of your Synthetic monitor.
  * * `O` for not triggered
@@ -14,7 +16,8 @@
 export type SyntheticsTestMonitorStatus =
   | typeof UNTRIGGERED
   | typeof TRIGGERED
-  | typeof NO_DATA;
+  | typeof NO_DATA
+  | UnparsedObject;
 export const UNTRIGGERED = 0;
 export const TRIGGERED = 1;
 export const NO_DATA = 2;

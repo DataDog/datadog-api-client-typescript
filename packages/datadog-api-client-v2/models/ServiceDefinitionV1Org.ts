@@ -22,7 +22,7 @@ export class ServiceDefinitionV1Org {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

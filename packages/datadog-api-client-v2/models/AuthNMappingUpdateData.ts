@@ -33,7 +33,7 @@ export class AuthNMappingUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of authentication to use when performing the test.
  */
 
-export type SyntheticsBasicAuthNTLMType = typeof NTLM;
+export type SyntheticsBasicAuthNTLMType = typeof NTLM | UnparsedObject;
 export const NTLM = "ntlm";

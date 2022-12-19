@@ -48,7 +48,7 @@ export class SyntheticsBasicAuthOauthClient {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

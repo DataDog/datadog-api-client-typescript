@@ -1,4 +1,5 @@
 
+import { UnparsedObject } from '../../packages/datadog-api-client-common/util';
 import { ObjectSerializer as ObjectSerializerV1 } from '../../packages/datadog-api-client-v1/models/ObjectSerializer';
 import { ObjectSerializer as ObjectSerializerV2 } from '../../packages/datadog-api-client-v2/models/ObjectSerializer';
 
@@ -74,8 +75,9 @@ test('TestDeserializationUnknownNestedOneOfInList', () => {
     "");
 
     expect(result?.unparsedObject).toBe(undefined);
+    expect(result._unparsed).toBe(true);
     expect(result.config.assertions.length).toBe(3);
-    expect(result.config.assertions[2].unparsedObject["operator"]).toBe("A non existent operator");
+    expect(result.config.assertions[2]._data["operator"]).toBe("A non existent operator");
   }
 );
 
@@ -150,8 +152,9 @@ test('TestDeserializationUnknownNestedEnumInList', () => {
     "");
 
     expect(result?.unparsedObject).toBe(undefined);
+    expect(result._unparsed).toBe(true);
     expect(result.options.deviceIds.length).toBe(3);
-    expect(result.options.deviceIds[2]).toBe("A non existent device ID");
+    expect(result.options.deviceIds[2]._data).toBe("A non existent device ID");
   }
 );
 
@@ -198,9 +201,10 @@ test('TestDeserializationUnknownTopLevelEnum', () => {
     "SyntheticsBrowserTest",
     "");
 
-    expect(result?.unparsedObject).not.toBe(undefined);
-    expect(result.unparsedObject["type"]).toBe("A non existent test type");
-    expect(result.unparsedObject["name"]).toBe("Check on www.10.0.0.1.xip.io");
+    expect(result?.type).toBeInstanceOf(UnparsedObject);
+    expect(result._unparsed).toBe(true);
+    expect(result.type._data).toBe("A non existent test type");
+    expect(result.name).toBe("Check on www.10.0.0.1.xip.io");
   }
 );
 
@@ -224,12 +228,12 @@ test('TestDeserializationUnknownNestedEnum', () => {
       "config": {
           "request": {
               "url": "https://www.10.0.0.1.xip.io",
-              "method": "A non existent method",
+              "method": "GET",
               "timeout": 30
           },
           "assertions": [
               {
-                  "operator": "is",
+                  "operator": "not-an-operator",
                   "type": "statusCode",
                   "target": 200
               }
@@ -248,10 +252,11 @@ test('TestDeserializationUnknownNestedEnum', () => {
     "");
 
     expect(result?.unparsedObject).toBe(undefined);
+    expect(result._unparsed).toBe(true);
     expect(result.config.unparsedObject).toBe(undefined);
-    expect(result.config.request.unparsedObject).not.toBe(undefined);
-    expect(result.config.request.unparsedObject["method"]).toBe("A non existent method");
-    expect(result.config.request.unparsedObject["timeout"]).toBe(30.0);
+    expect(result.config.assertions[0]).toBeInstanceOf(UnparsedObject);
+    expect(result.config.assertions[0]._data["operator"]).toBe("not-an-operator");
+    expect(result.config.assertions[0]._data["target"]).toBe(200);
   }
 );
 
@@ -289,7 +294,46 @@ test('TestDeserializationUnknownNestedOneOf', () => {
     "");
 
     expect(result?.unparsedObject).toBe(undefined);
+    expect(result._unparsed).toBe(true);
     expect(result.data.attributes.unparsedObject).toBe(undefined);
-    expect(result.data.attributes.destination.unparsedObject["type"]).toBe("A non existent destination");
+    expect(result.data.attributes.destination._data["type"]).toBe("A non existent destination");
   }
 );
+
+test('TestDeserializationNoUnparsed', () => {
+    const data = `
+    {
+        "data": {
+            "type": "archives",
+            "id": "n_XDSxVpScepiBnyhysj_A",
+            "attributes": {
+                "name": "my first azure archive",
+                "query": "service:toto",
+                "state": "UNKNOWN",
+                "destination": {
+                    "container": "my-container",
+                    "storage_account": "storageaccount",
+                    "path": "/path/blou",
+                    "type": "azure",
+                    "integration": {
+                        "tenant_id": "tf-TestAccDatadogLogsArchiveAzure_basic-local-1624981538",
+                        "client_id": "testc7f6-1234-5678-9101-3fcbf464test"
+                    }
+                },
+                "rehydration_tags": [],
+                "include_tags": false
+            }
+        }
+    }
+    `;
+  
+  
+    const result = ObjectSerializerV2.deserialize(
+      ObjectSerializerV2.parse(data, "application/json"),
+      "LogsArchive",
+      "");
+  
+      expect(result._unparsed).toBe(undefined);
+    }
+  );
+  

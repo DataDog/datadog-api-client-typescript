@@ -18,7 +18,7 @@ export class LogsMetricFilter {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

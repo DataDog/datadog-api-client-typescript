@@ -23,7 +23,7 @@ export class HostMapWidgetDefinitionRequests {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

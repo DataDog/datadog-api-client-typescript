@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Aggregation methods for event platform queries.
  */
@@ -20,7 +22,8 @@ export type MonitorFormulaAndFunctionEventAggregation =
   | typeof SUM
   | typeof MIN
   | typeof MAX
-  | typeof AVG;
+  | typeof AVG
+  | UnparsedObject;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
 export const MEDIAN = "median";

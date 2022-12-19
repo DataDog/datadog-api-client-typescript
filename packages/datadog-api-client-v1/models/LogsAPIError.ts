@@ -26,7 +26,7 @@ export class LogsAPIError {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

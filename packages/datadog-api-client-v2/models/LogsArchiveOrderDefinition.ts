@@ -24,7 +24,7 @@ export class LogsArchiveOrderDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

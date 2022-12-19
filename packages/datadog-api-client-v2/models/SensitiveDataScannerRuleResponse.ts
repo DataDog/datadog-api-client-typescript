@@ -33,7 +33,7 @@ export class SensitiveDataScannerRuleResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

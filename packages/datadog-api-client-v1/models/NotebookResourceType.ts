@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the Notebook resource.
  */
 
-export type NotebookResourceType = typeof NOTEBOOKS;
+export type NotebookResourceType = typeof NOTEBOOKS | UnparsedObject;
 export const NOTEBOOKS = "notebooks";

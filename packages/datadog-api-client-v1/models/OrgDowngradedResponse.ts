@@ -18,7 +18,7 @@ export class OrgDowngradedResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

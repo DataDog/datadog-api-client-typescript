@@ -23,7 +23,7 @@ export class SyntheticsApiTestResultFailure {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

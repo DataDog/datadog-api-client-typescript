@@ -28,7 +28,7 @@ export class LogsMetricCompute {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

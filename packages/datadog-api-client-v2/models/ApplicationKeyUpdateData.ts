@@ -28,7 +28,7 @@ export class ApplicationKeyUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

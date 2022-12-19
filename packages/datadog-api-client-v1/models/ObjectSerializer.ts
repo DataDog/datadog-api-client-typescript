@@ -545,7 +545,11 @@ import { WidgetMarker } from "./WidgetMarker";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetStyle } from "./WidgetStyle";
 import { WidgetTime } from "./WidgetTime";
-import { UnparsedObject } from "../../datadog-api-client-common/util";
+import {
+  dateFromRFC3339String,
+  dateToRFC3339String,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
 
 const primitives = [
@@ -2037,6 +2041,8 @@ export class ObjectSerializer {
   public static serialize(data: any, type: string, format: string): any {
     if (data == undefined || type == "any") {
       return data;
+    } else if (data instanceof UnparsedObject) {
+      return data._data;
     } else if (
       primitives.includes(type.toLowerCase()) &&
       typeof data == type.toLowerCase()
@@ -2089,12 +2095,8 @@ export class ObjectSerializer {
       if ("string" == typeof data) {
         return data;
       }
-      if (format == "date") {
-        let month = data.getMonth() + 1;
-        month = month < 10 ? "0" + month.toString() : month.toString();
-        let day = data.getDate();
-        day = day < 10 ? "0" + day.toString() : day.toString();
-        return data.getFullYear() + "-" + month + "-" + day;
+      if (format == "date" || format == "date-time") {
+        return dateToRFC3339String(data);
       } else {
         return data.toISOString();
       }
@@ -2136,23 +2138,6 @@ export class ObjectSerializer {
       const attributesMap = typeMap[type].getAttributeTypeMap();
       const instance: { [index: string]: any } = {};
 
-      const extraAttributes = Object.keys(data)
-        .filter(
-          (key) => !Object.prototype.hasOwnProperty.call(attributesMap, key)
-        )
-        .reduce((obj, key) => {
-          return Object.assign(obj, {
-            [key]: data[key],
-          });
-        }, {});
-
-      if (Object.keys(extraAttributes).length !== 0) {
-        if (!data.additionalProperties) {
-          data.additionalProperties = {};
-        }
-        Object.assign(data.additionalProperties, extraAttributes);
-      }
-
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
         if (attributeName == "additionalProperties") {
@@ -2181,14 +2166,8 @@ export class ObjectSerializer {
             `missing required property '${attributeObj.baseName}'`
           );
         }
-
-        if (
-          enumsMap[attributeObj.type] &&
-          !enumsMap[attributeObj.type].includes(instance[attributeObj.baseName])
-        ) {
-          instance.unparsedObject = instance[attributeObj.baseName];
-        }
       }
+
       return instance;
     }
   }
@@ -2246,18 +2225,20 @@ export class ObjectSerializer {
       }
       return transformedData;
     } else if (type === "Date") {
-      return new Date(data);
+      return dateFromRFC3339String(data);
     } else {
       if (enumsMap[type]) {
-        return data;
+        if (enumsMap[type].includes(data)) {
+          return data;
+        }
+        return new UnparsedObject(data);
       }
-
       if (oneOfMap[type]) {
         const oneOfs: any[] = [];
         for (const oneOf of oneOfMap[type]) {
           try {
             const d = ObjectSerializer.deserialize(data, oneOf, format);
-            if (d?.unparsedObject === undefined) {
+            if (!d?._unparsed) {
               oneOfs.push(d);
             }
           } catch (e) {
@@ -2277,25 +2258,63 @@ export class ObjectSerializer {
 
       const instance = new typeMap[type]();
       const attributesMap = typeMap[type].getAttributeTypeMap();
+      let extraAttributes: any = [];
+      if ("additionalProperties" in attributesMap) {
+        const attributesBaseNames = Object.keys(attributesMap).reduce(
+          (o, key) => Object.assign(o, { [attributesMap[key].baseName]: "" }),
+          {}
+        );
+        extraAttributes = Object.keys(data).filter(
+          (key) =>
+            !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
+        );
+      }
 
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
+        if (attributeName == "additionalProperties") {
+          if (extraAttributes.length > 0) {
+            if (!instance.additionalProperties) {
+              instance.additionalProperties = {};
+            }
+
+            for (const key in extraAttributes) {
+              instance.additionalProperties[extraAttributes[key]] =
+                ObjectSerializer.deserialize(
+                  data[extraAttributes[key]],
+                  attributeObj.type,
+                  attributeObj.format
+                );
+            }
+          }
+          continue;
+        }
+
         instance[attributeName] = ObjectSerializer.deserialize(
           data[attributeObj.baseName],
           attributeObj.type,
           attributeObj.format
         );
+
         // check for required properties
         if (attributeObj?.required && instance[attributeName] === undefined) {
           throw new Error(`missing required property '${attributeName}'`);
         }
 
-        // check for enum values
         if (
-          enumsMap[attributeObj.type] &&
-          !enumsMap[attributeObj.type].includes(instance[attributeName])
+          instance[attributeName] instanceof UnparsedObject ||
+          instance[attributeName]?._unparsed
         ) {
-          instance.unparsedObject = instance[attributeName];
+          instance._unparsed = true;
+        }
+
+        if (Array.isArray(instance[attributeName])) {
+          for (const d of instance[attributeName]) {
+            if (d instanceof UnparsedObject || d?._unparsed) {
+              instance._unparsed = true;
+              break;
+            }
+          }
         }
       }
 

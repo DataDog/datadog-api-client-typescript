@@ -74,7 +74,7 @@ export class SyntheticsCITest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

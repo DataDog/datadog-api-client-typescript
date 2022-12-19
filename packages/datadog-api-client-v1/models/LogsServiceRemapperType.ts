@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of logs service remapper.
  */
 
-export type LogsServiceRemapperType = typeof SERVICE_REMAPPER;
+export type LogsServiceRemapperType = typeof SERVICE_REMAPPER | UnparsedObject;
 export const SERVICE_REMAPPER = "service-remapper";

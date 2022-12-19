@@ -4,11 +4,14 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The metric actively queried configuration resource type.
  */
 
 export type MetricActiveConfigurationType =
-  typeof ACTIVELY_QUERIED_CONFIGURATIONS;
+  | typeof ACTIVELY_QUERIED_CONFIGURATIONS
+  | UnparsedObject;
 export const ACTIVELY_QUERIED_CONFIGURATIONS =
   "actively_queried_configurations";

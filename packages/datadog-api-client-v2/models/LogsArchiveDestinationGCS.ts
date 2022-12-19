@@ -32,7 +32,7 @@ export class LogsArchiveDestinationGCS {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

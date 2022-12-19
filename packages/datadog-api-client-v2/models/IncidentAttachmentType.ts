@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The incident attachment resource type.
  */
 
-export type IncidentAttachmentType = typeof INCIDENT_ATTACHMENTS;
+export type IncidentAttachmentType =
+  | typeof INCIDENT_ATTACHMENTS
+  | UnparsedObject;
 export const INCIDENT_ATTACHMENTS = "incident_attachments";

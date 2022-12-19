@@ -93,7 +93,7 @@ export class SearchServiceLevelObjectiveAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -48,7 +48,7 @@ export class SLOCorrectionCreateRequestAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The metric distinct volume type.
  */
 
-export type MetricDistinctVolumeType = typeof DISTINCT_METRIC_VOLUMES;
+export type MetricDistinctVolumeType =
+  | typeof DISTINCT_METRIC_VOLUMES
+  | UnparsedObject;
 export const DISTINCT_METRIC_VOLUMES = "distinct_metric_volumes";

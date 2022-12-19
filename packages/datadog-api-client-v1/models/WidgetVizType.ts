@@ -4,10 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Whether to display the Alert Graph as a timeseries or a top list.
  */
 
-export type WidgetVizType = typeof TIMESERIES | typeof TOPLIST;
+export type WidgetVizType = typeof TIMESERIES | typeof TOPLIST | UnparsedObject;
 export const TIMESERIES = "timeseries";
 export const TOPLIST = "toplist";

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Supported fields for usage attribution requests (valid requests contain one or more metrics, or `*` for all).
  */
@@ -53,7 +55,8 @@ export type UsageAttributionSupportedMetrics =
   | typeof APM_FARGATE_PERCENTAGE
   | typeof APPSEC_FARGATE_USAGE
   | typeof APPSEC_FARGATE_PERCENTAGE
-  | typeof ALL;
+  | typeof ALL
+  | UnparsedObject;
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CONTAINER_USAGE = "container_usage";
 export const SNMP_PERCENTAGE = "snmp_percentage";

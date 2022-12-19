@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The metric resource type.
  */
 
-export type MetricType = typeof METRICS;
+export type MetricType = typeof METRICS | UnparsedObject;
 export const METRICS = "metrics";

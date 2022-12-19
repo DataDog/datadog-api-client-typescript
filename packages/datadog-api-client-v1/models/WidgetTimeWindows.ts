@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Define a time window.
  */
@@ -16,7 +18,8 @@ export type WidgetTimeWindows =
   | typeof PREVIOUS_WEEK
   | typeof MONTH_TO_DATE
   | typeof PREVIOUS_MONTH
-  | typeof GLOBAL_TIME;
+  | typeof GLOBAL_TIME
+  | UnparsedObject;
 export const SEVEN_DAYS = "7d";
 export const THIRTY_DAYS = "30d";
 export const NINETY_DAYS = "90d";

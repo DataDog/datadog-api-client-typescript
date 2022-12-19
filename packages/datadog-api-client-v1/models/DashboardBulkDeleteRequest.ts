@@ -19,7 +19,7 @@ export class DashboardBulkDeleteRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

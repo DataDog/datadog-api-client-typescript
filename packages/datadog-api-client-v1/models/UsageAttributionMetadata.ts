@@ -24,7 +24,7 @@ export class UsageAttributionMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

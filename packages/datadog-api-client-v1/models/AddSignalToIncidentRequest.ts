@@ -26,7 +26,7 @@ export class AddSignalToIncidentRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

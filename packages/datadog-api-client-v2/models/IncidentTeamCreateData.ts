@@ -29,7 +29,7 @@ export class IncidentTeamCreateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

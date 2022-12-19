@@ -27,7 +27,7 @@ export class UsageTopAvgMetricsMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

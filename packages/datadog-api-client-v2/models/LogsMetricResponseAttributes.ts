@@ -29,7 +29,7 @@ export class LogsMetricResponseAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

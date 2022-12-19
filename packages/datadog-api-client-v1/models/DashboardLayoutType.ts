@@ -4,10 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Layout type of the dashboard.
  */
 
-export type DashboardLayoutType = typeof ORDERED | typeof FREE;
+export type DashboardLayoutType = typeof ORDERED | typeof FREE | UnparsedObject;
 export const ORDERED = "ordered";
 export const FREE = "free";

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Navigate between different tabs for your browser test.
  */
@@ -13,7 +15,8 @@ export type SyntheticsPlayingTab =
   | typeof NEW_TAB
   | typeof TAB_1
   | typeof TAB_2
-  | typeof TAB_3;
+  | typeof TAB_3
+  | UnparsedObject;
 export const MAIN_TAB = -1;
 export const NEW_TAB = 0;
 export const TAB_1 = 1;

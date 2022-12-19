@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the event stream widget.
  */
 
-export type EventStreamWidgetDefinitionType = typeof EVENT_STREAM;
+export type EventStreamWidgetDefinitionType =
+  | typeof EVENT_STREAM
+  | UnparsedObject;
 export const EVENT_STREAM = "event_stream";

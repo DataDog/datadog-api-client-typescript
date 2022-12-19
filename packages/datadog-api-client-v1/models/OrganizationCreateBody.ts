@@ -28,7 +28,7 @@ export class OrganizationCreateBody {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

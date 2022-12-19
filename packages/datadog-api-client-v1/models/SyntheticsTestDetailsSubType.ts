@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The subtype of the Synthetic API test, `http`, `ssl`, `tcp`,
  * `dns`, `icmp`, `udp`, `websocket`, `grpc` or `multi`.
@@ -18,7 +20,8 @@ export type SyntheticsTestDetailsSubType =
   | typeof ICMP
   | typeof UDP
   | typeof WEBSOCKET
-  | typeof GRPC;
+  | typeof GRPC
+  | UnparsedObject;
 export const HTTP = "http";
 export const SSL = "ssl";
 export const TCP = "tcp";

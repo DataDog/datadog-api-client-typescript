@@ -19,7 +19,7 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

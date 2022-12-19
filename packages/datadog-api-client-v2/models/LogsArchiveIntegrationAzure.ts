@@ -22,7 +22,7 @@ export class LogsArchiveIntegrationAzure {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

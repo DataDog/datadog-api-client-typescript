@@ -24,7 +24,7 @@ export class SLOListWidgetRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

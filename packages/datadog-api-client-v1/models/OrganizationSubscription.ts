@@ -18,7 +18,7 @@ export class OrganizationSubscription {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

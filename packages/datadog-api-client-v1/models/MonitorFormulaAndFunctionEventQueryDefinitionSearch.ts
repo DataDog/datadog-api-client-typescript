@@ -18,7 +18,7 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

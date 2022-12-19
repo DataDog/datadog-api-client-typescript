@@ -19,7 +19,7 @@ export class OpsgenieServicesResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

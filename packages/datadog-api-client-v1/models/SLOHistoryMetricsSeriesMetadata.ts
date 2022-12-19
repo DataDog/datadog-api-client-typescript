@@ -41,7 +41,7 @@ export class SLOHistoryMetricsSeriesMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

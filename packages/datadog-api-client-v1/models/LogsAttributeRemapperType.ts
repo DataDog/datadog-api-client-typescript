@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of logs attribute remapper.
  */
 
-export type LogsAttributeRemapperType = typeof ATTRIBUTE_REMAPPER;
+export type LogsAttributeRemapperType =
+  | typeof ATTRIBUTE_REMAPPER
+  | UnparsedObject;
 export const ATTRIBUTE_REMAPPER = "attribute-remapper";

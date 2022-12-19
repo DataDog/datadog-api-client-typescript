@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Application Keys resource type.
  */
 
-export type ApplicationKeysType = typeof APPLICATION_KEYS;
+export type ApplicationKeysType = typeof APPLICATION_KEYS | UnparsedObject;
 export const APPLICATION_KEYS = "application_keys";

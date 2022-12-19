@@ -23,7 +23,7 @@ export class ServiceDefinitionV2Integrations {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

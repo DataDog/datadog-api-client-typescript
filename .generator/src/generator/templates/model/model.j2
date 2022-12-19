@@ -8,8 +8,12 @@ import { {{ classname }} } from "./{{ classname }}";
 
 import { HttpFile } from "../../datadog-api-client-common/http/http";
 
-{% if "enum" not in model -%}
-import { AttributeTypeMap{%- if "oneOf" in model %}, UnparsedObject{% endif %} } from "../../datadog-api-client-common/util";
+{% if "enum" not in model and "oneOf" not in model -%}
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+{%- endif %}
+
+{% if "enum" in model or "oneOf" in model -%}
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 {%- endif %}
 
 {% if "description" in model %}
@@ -42,7 +46,7 @@ export class {{ name }} {
   /**
    * @ignore
    */
-  "unparsedObject"?:any;
+  "_unparsed"?: boolean;
   {%- if "items" not in model %}
 
   /**
@@ -116,7 +120,7 @@ export class {{ name }} {
 
 
 {%- if "enum" in model %}
-export type {{ name }} = {% for index, value in enumerate(model.enum) %}typeof {{ model["x-enum-varnames"][index] or value.upper() }} {%- if not loop.last %}| {% endif %}{%- endfor %};
+export type {{ name }} = {% for index, value in enumerate(model.enum) %}typeof {{ model["x-enum-varnames"][index] or value.upper() }} {%- if not loop.last %}| {% endif %}{%- if loop.last %} | UnparsedObject{%- endif %}{%- endfor %};
 {%- for index, value in enumerate(model.enum) %}
 export const {{ model["x-enum-varnames"][index] or value.upper() }} = {{ value|format_value }};
 {%- endfor %}

@@ -33,7 +33,7 @@ export class FullApplicationKey {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

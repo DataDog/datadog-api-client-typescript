@@ -4,12 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Timeseries or Scalar response.
  */
 
 export type FormulaAndFunctionResponseFormat =
   | typeof TIMESERIES
-  | typeof SCALAR;
+  | typeof SCALAR
+  | UnparsedObject;
 export const TIMESERIES = "timeseries";
 export const SCALAR = "scalar";

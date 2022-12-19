@@ -30,7 +30,7 @@ export class MonitorSearchResponseMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

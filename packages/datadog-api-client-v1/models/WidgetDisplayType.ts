@@ -4,11 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of display to use for the request.
  */
 
-export type WidgetDisplayType = typeof AREA | typeof BARS | typeof LINE;
+export type WidgetDisplayType =
+  | typeof AREA
+  | typeof BARS
+  | typeof LINE
+  | UnparsedObject;
 export const AREA = "area";
 export const BARS = "bars";
 export const LINE = "line";

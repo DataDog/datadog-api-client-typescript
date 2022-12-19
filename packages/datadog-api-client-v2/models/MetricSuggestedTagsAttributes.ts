@@ -23,7 +23,7 @@ export class MetricSuggestedTagsAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

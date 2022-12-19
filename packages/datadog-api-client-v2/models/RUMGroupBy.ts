@@ -43,7 +43,7 @@ export class RUMGroupBy {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

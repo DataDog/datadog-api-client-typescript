@@ -42,7 +42,7 @@ export class UsageBillableSummaryBody {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

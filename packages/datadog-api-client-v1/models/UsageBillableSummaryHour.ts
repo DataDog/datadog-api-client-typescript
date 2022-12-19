@@ -51,7 +51,7 @@ export class UsageBillableSummaryHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

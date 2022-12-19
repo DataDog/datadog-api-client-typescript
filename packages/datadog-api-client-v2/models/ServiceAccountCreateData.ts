@@ -29,7 +29,7 @@ export class ServiceAccountCreateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

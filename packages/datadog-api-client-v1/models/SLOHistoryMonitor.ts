@@ -65,7 +65,7 @@ export class SLOHistoryMonitor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -71,7 +71,7 @@ export class SLOHistoryResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

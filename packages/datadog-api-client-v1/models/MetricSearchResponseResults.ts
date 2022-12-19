@@ -18,7 +18,7 @@ export class MetricSearchResponseResults {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

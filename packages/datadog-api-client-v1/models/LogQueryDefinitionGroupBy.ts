@@ -27,7 +27,7 @@ export class LogQueryDefinitionGroupBy {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

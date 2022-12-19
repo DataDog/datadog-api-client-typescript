@@ -87,7 +87,7 @@ export class SecurityMonitoringSignalRuleResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Widget sorting methods.
  */
@@ -25,7 +27,8 @@ export type WidgetMonitorSummarySort =
   | typeof TRIGGERED_ASCENDING
   | typeof TRIGGERED_DESCENDING
   | typeof PRIORITY_ASCENDING
-  | typeof PRIORITY_DESCENDING;
+  | typeof PRIORITY_DESCENDING
+  | UnparsedObject;
 export const NAME = "name";
 export const GROUP = "group";
 export const STATUS = "status";

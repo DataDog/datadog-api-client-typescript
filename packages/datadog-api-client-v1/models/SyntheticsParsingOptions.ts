@@ -32,7 +32,7 @@ export class SyntheticsParsingOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

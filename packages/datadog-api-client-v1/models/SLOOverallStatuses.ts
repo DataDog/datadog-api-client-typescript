@@ -45,7 +45,7 @@ export class SLOOverallStatuses {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

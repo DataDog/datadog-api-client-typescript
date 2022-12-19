@@ -4,10 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Sort parameters when querying logs.
  */
 
-export type LogsSort = typeof TIMESTAMP_ASCENDING | typeof TIMESTAMP_DESCENDING;
+export type LogsSort =
+  | typeof TIMESTAMP_ASCENDING
+  | typeof TIMESTAMP_DESCENDING
+  | UnparsedObject;
 export const TIMESTAMP_ASCENDING = "timestamp";
 export const TIMESTAMP_DESCENDING = "-timestamp";

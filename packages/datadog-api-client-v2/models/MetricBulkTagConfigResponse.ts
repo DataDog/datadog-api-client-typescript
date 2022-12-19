@@ -20,7 +20,7 @@ export class MetricBulkTagConfigResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

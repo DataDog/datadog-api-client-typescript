@@ -4,10 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * (deprecated) The attribute formerly used to determine size in the widget.
  */
 
-export type TreeMapSizeBy = typeof PCT_CPU | typeof PCT_MEM;
+export type TreeMapSizeBy = typeof PCT_CPU | typeof PCT_MEM | UnparsedObject;
 export const PCT_CPU = "pct_cpu";
 export const PCT_MEM = "pct_mem";

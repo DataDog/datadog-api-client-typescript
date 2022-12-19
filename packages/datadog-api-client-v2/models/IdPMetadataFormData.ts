@@ -20,7 +20,7 @@ export class IdPMetadataFormData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

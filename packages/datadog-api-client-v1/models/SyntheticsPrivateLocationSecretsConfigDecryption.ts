@@ -18,7 +18,7 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

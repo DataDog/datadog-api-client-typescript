@@ -4,10 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The type of the service level objective.
  */
 
-export type SLOType = typeof METRIC | typeof MONITOR;
+export type SLOType = typeof METRIC | typeof MONITOR | UnparsedObject;
 export const METRIC = "metric";
 export const MONITOR = "monitor";

@@ -23,7 +23,7 @@ export class CIAppPipelinesBucketResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

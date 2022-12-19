@@ -54,7 +54,7 @@ export class UsageCloudSecurityPostureManagementHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

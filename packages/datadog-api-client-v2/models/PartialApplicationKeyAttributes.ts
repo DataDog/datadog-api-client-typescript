@@ -30,7 +30,7 @@ export class PartialApplicationKeyAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

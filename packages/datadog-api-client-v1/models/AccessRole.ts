@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The access role of the user. Options are **st** (standard user), **adm** (admin user), or **ro** (read-only user).
  */
@@ -12,7 +14,8 @@ export type AccessRole =
   | typeof STANDARD
   | typeof ADMIN
   | typeof READ_ONLY
-  | typeof ERROR;
+  | typeof ERROR
+  | UnparsedObject;
 export const STANDARD = "st";
 export const ADMIN = "adm";
 export const READ_ONLY = "ro";

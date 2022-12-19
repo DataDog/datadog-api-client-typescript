@@ -59,7 +59,7 @@ export class SecurityMonitoringStandardRuleCreatePayload {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

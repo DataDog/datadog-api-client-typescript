@@ -28,7 +28,7 @@ export class MetricEstimate {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

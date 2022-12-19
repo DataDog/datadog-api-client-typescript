@@ -22,7 +22,7 @@ export class LogsArchiveIntegrationS3 {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

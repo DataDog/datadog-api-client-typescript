@@ -31,7 +31,7 @@ export class UsageTopAvgMetricsHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

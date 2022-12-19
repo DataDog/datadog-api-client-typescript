@@ -56,7 +56,7 @@ export class SyntheticsBasicAuthOauthROP {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

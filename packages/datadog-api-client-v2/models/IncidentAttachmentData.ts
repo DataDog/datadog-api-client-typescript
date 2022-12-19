@@ -33,7 +33,7 @@ export class IncidentAttachmentData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

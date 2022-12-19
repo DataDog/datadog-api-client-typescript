@@ -27,7 +27,7 @@ export class ServiceDefinitionV2Email {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -33,7 +33,7 @@ export class RoleCreateResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

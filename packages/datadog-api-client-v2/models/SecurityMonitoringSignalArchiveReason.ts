@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Reason a signal is archived.
  */
@@ -12,7 +14,8 @@ export type SecurityMonitoringSignalArchiveReason =
   | typeof NONE
   | typeof FALSE_POSITIVE
   | typeof TESTING_OR_MAINTENANCE
-  | typeof OTHER;
+  | typeof OTHER
+  | UnparsedObject;
 export const NONE = "none";
 export const FALSE_POSITIVE = "false_positive";
 export const TESTING_OR_MAINTENANCE = "testing_or_maintenance";

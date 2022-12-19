@@ -4,9 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the monitor summary widget.
  */
 
-export type MonitorSummaryWidgetDefinitionType = typeof MANAGE_STATUS;
+export type MonitorSummaryWidgetDefinitionType =
+  | typeof MANAGE_STATUS
+  | UnparsedObject;
 export const MANAGE_STATUS = "manage_status";

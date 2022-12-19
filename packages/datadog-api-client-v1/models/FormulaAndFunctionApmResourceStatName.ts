@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * APM resource stat name.
  */
@@ -19,7 +21,8 @@ export type FormulaAndFunctionApmResourceStatName =
   | typeof LATENCY_P75
   | typeof LATENCY_P90
   | typeof LATENCY_P95
-  | typeof LATENCY_P99;
+  | typeof LATENCY_P99
+  | UnparsedObject;
 export const ERRORS = "errors";
 export const ERROR_RATE = "error_rate";
 export const HITS = "hits";

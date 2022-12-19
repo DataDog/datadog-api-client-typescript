@@ -24,7 +24,7 @@ export class ApplicationKeyCreateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

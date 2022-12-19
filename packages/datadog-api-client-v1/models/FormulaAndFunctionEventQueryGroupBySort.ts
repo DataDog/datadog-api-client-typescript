@@ -28,7 +28,7 @@ export class FormulaAndFunctionEventQueryGroupBySort {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -23,7 +23,7 @@ export class SyntheticsTriggerTest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,10 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The status of the response.
  */
 
-export type RUMResponseStatus = typeof DONE | typeof TIMEOUT;
+export type RUMResponseStatus = typeof DONE | typeof TIMEOUT | UnparsedObject;
 export const DONE = "done";
 export const TIMEOUT = "timeout";

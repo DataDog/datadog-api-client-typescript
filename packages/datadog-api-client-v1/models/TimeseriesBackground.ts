@@ -24,7 +24,7 @@ export class TimeseriesBackground {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

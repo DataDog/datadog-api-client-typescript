@@ -26,7 +26,7 @@ export class NotebookAbsoluteTime {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

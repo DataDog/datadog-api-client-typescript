@@ -30,7 +30,7 @@ export class UsageIncidentManagementHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

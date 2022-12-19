@@ -18,7 +18,7 @@ export class IncidentTeamCreateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

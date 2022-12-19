@@ -19,7 +19,7 @@ export class EventsResponseMetadataPage {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

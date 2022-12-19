@@ -35,7 +35,7 @@ export class SyntheticsConfigVariable {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

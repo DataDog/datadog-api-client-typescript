@@ -27,7 +27,7 @@ export class SunburstWidgetLegendInlineAutomatic {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

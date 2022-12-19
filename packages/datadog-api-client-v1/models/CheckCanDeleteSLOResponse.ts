@@ -23,7 +23,7 @@ export class CheckCanDeleteSLOResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

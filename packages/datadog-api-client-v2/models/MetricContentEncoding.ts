@@ -4,11 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * HTTP header used to compress the media-type.
  */
 
-export type MetricContentEncoding = typeof DEFLATE | typeof ZSTD1 | typeof GZIP;
+export type MetricContentEncoding =
+  | typeof DEFLATE
+  | typeof ZSTD1
+  | typeof GZIP
+  | UnparsedObject;
 export const DEFLATE = "deflate";
 export const ZSTD1 = "zstd1";
 export const GZIP = "gzip";

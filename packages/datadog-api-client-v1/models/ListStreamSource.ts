@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Source from which to query items to display in the stream.
  */
@@ -13,7 +15,8 @@ export type ListStreamSource =
   | typeof AUDIT_STREAM
   | typeof RUM_ISSUE_STREAM
   | typeof APM_ISSUE_STREAM
-  | typeof LOGS_PATTERN_STREAM;
+  | typeof LOGS_PATTERN_STREAM
+  | UnparsedObject;
 export const LOGS_STREAM = "logs_stream";
 export const AUDIT_STREAM = "audit_stream";
 export const RUM_ISSUE_STREAM = "rum_issue_stream";

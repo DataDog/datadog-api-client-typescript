@@ -20,7 +20,7 @@ export class CancelDowntimesByScopeRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

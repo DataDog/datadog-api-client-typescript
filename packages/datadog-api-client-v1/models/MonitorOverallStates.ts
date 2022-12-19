@@ -4,6 +4,8 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * The different states your monitor can be in.
  */
@@ -15,7 +17,8 @@ export type MonitorOverallStates =
   | typeof OK
   | typeof SKIPPED
   | typeof UNKNOWN
-  | typeof WARN;
+  | typeof WARN
+  | UnparsedObject;
 export const ALERT = "Alert";
 export const IGNORED = "Ignored";
 export const NO_DATA = "No Data";

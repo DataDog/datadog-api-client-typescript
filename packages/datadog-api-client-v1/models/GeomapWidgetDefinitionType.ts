@@ -4,9 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Type of the geomap widget.
  */
 
-export type GeomapWidgetDefinitionType = typeof GEOMAP;
+export type GeomapWidgetDefinitionType = typeof GEOMAP | UnparsedObject;
 export const GEOMAP = "geomap";

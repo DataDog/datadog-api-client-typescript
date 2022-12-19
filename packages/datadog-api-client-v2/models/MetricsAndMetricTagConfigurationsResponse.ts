@@ -19,7 +19,7 @@ export class MetricsAndMetricTagConfigurationsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -28,7 +28,7 @@ export class SensitiveDataScannerReorderConfig {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

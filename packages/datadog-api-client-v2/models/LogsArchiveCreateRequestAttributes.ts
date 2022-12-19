@@ -40,7 +40,7 @@ export class LogsArchiveCreateRequestAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -30,7 +30,7 @@ export class UsageSyntheticsBrowserHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

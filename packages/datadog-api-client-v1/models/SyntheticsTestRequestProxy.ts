@@ -22,7 +22,7 @@ export class SyntheticsTestRequestProxy {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

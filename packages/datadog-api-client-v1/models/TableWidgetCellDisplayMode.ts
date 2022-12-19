@@ -4,10 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
 /**
  * Define a display mode for the table cell.
  */
 
-export type TableWidgetCellDisplayMode = typeof NUMBER | typeof BAR;
+export type TableWidgetCellDisplayMode =
+  | typeof NUMBER
+  | typeof BAR
+  | UnparsedObject;
 export const NUMBER = "number";
 export const BAR = "bar";

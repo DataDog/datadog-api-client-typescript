@@ -23,7 +23,7 @@ export class AWSTagFilterDeleteRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

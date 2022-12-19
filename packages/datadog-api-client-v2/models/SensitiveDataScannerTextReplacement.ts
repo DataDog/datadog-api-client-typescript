@@ -33,7 +33,7 @@ export class SensitiveDataScannerTextReplacement {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
