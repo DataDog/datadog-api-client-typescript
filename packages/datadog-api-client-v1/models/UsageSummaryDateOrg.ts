@@ -295,6 +295,10 @@ export class UsageSummaryDateOrg {
    */
   "syntheticsCheckCallsCountSum"?: number;
   /**
+   * Shows the high-water mark of used synthetics parallel testing slots over all hours in the current date for the given org.
+   */
+  "syntheticsParallelTestingMaxSlotsHwm"?: number;
+  /**
    * Shows the sum of all Indexed Spans indexed over all hours in the current date for the given org.
    */
   "traceSearchIndexedEventsCountSum"?: number;
@@ -664,6 +668,11 @@ export class UsageSummaryDateOrg {
     },
     syntheticsCheckCallsCountSum: {
       baseName: "synthetics_check_calls_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    syntheticsParallelTestingMaxSlotsHwm: {
+      baseName: "synthetics_parallel_testing_max_slots_hwm",
       type: "number",
       format: "int64",
     },

@@ -414,7 +414,7 @@ export interface EventsApiListEventsRequest {
    */
   sources?: string;
   /**
-   * A comma separated list indicating what tags, if any, should be used to filter the list of monitors by scope.
+   * A comma separated list indicating what tags, if any, should be used to filter the list of events.
    * @type string
    */
   tags?: string;

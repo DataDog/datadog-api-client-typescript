@@ -16576,6 +16576,11 @@ components:
             the current date for all organizations.
           format: int64
           type: integer
+        synthetics_parallel_testing_max_slots_hwm:
+          description: Shows the high-water mark of used synthetics parallel testing
+            slots over all hours in the current date for all organizations.
+          format: int64
+          type: integer
         trace_search_indexed_events_count_sum:
           description: Shows the sum of all Indexed Spans indexed over all hours in
             the current date for all organizations.
@@ -16943,6 +16948,11 @@ components:
         synthetics_check_calls_count_sum:
           description: Shows the sum of all Synthetic API tests over all hours in
             the current date for the given org.
+          format: int64
+          type: integer
+        synthetics_parallel_testing_max_slots_hwm:
+          description: Shows the high-water mark of used synthetics parallel testing
+            slots over all hours in the current date for the given org.
           format: int64
           type: integer
         trace_search_indexed_events_count_sum:
@@ -17354,6 +17364,11 @@ components:
         synthetics_check_calls_count_agg_sum:
           description: Shows the sum of all Synthetic API tests over all hours in
             the current months for all organizations.
+          format: int64
+          type: integer
+        synthetics_parallel_testing_max_slots_hwm_sum:
+          description: Shows the sum of the high-water marks of used synthetics parallel
+            testing slots over all hours in the current month for all organizations.
           format: int64
           type: integer
         trace_search_indexed_events_count_agg_sum:
@@ -20090,7 +20105,7 @@ paths:
         schema:
           type: string
       - description: A comma separated list indicating what tags, if any, should be
-          used to filter the list of monitors by scope.
+          used to filter the list of events.
         example: host:host0
         in: query
         name: tags
@@ -25950,6 +25965,18 @@ paths:
     get:
       description: Get the list of all Synthetic tests.
       operationId: ListTests
+      parameters:
+      - description: Used for pagination. The number of tests returned in the page.
+        in: query
+        name: page_size
+        schema:
+          type: string
+      - description: Used for pagination. Which page you want to retrieve. Starts
+          at zero.
+        in: query
+        name: page_number
+        schema:
+          type: string
       responses:
         '200':
           content:
@@ -25976,7 +26003,7 @@ paths:
         appKeyAuth: []
       - AuthZ:
         - synthetics_read
-      summary: Get the list of all tests
+      summary: Get the list of all Synthetic tests
       tags:
       - Synthetics
   /api/v1/synthetics/tests/api:
