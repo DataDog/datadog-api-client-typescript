@@ -237,7 +237,6 @@ export {
   SyntheticsApiGetPrivateLocationRequest,
   SyntheticsApiGetSyntheticsCIBatchRequest,
   SyntheticsApiGetTestRequest,
-  SyntheticsApiListTestsRequest,
   SyntheticsApiTriggerCITestsRequest,
   SyntheticsApiTriggerTestsRequest,
   SyntheticsApiUpdateAPITestRequest,

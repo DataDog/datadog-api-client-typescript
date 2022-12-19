@@ -840,11 +840,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listTests(
-    pageSize?: string,
-    pageNumber?: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
+  public async listTests(_options?: Configuration): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
@@ -857,20 +853,6 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-    if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page_size",
-        ObjectSerializer.serialize(pageSize, "string", "")
-      );
-    }
-    if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page_number",
-        ObjectSerializer.serialize(pageNumber, "string", "")
-      );
-    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -3026,19 +3008,6 @@ export interface SyntheticsApiGetTestRequest {
   publicId: string;
 }
 
-export interface SyntheticsApiListTestsRequest {
-  /**
-   * Used for pagination. The number of tests returned in the page.
-   * @type string
-   */
-  pageSize?: string;
-  /**
-   * Used for pagination. Which page you want to retrieve. Starts at zero.
-   * @type string
-   */
-  pageNumber?: string;
-}
-
 export interface SyntheticsApiTriggerCITestsRequest {
   /**
    * Details of the test to trigger.
@@ -3559,14 +3528,9 @@ export class SyntheticsApi {
    * @param param The request object
    */
   public listTests(
-    param: SyntheticsApiListTestsRequest = {},
     options?: Configuration
   ): Promise<SyntheticsListTestsResponse> {
-    const requestContextPromise = this.requestFactory.listTests(
-      param.pageSize,
-      param.pageNumber,
-      options
-    );
+    const requestContextPromise = this.requestFactory.listTests(options);
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
