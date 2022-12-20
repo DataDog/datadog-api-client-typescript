@@ -9,6 +9,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Options for cloud_configuration rules.
+ * Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
  */
 export class CloudConfigurationComplianceRuleOptions {
   /**
@@ -19,11 +20,11 @@ export class CloudConfigurationComplianceRuleOptions {
   /**
    * Rule details.
    */
-  "regoRule": CloudConfigurationRegoRule;
+  "regoRule"?: CloudConfigurationRegoRule;
   /**
    * Main resource type to be checked by the rule. It should be specified again in `regoRule.resourceTypes`.
    */
-  "resourceType": string;
+  "resourceType"?: string;
 
   /**
    * @ignore
@@ -41,12 +42,10 @@ export class CloudConfigurationComplianceRuleOptions {
     regoRule: {
       baseName: "regoRule",
       type: "CloudConfigurationRegoRule",
-      required: true,
     },
     resourceType: {
       baseName: "resourceType",
       type: "string",
-      required: true,
     },
   };
 
