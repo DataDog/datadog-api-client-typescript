@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 1.7.0 / 2022-12-20
+
+### Fixed
+* Add missing response fields to MTD usage attribution endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/935
+* Reduce and relax `isNode` check by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/938
+* Fix missing field in Synthetics tests authentication configuration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/940
+* Validate BDD models in tests by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/904
+* Mark `hosts` response version fields as nullable by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/937
+### Added
+* Add fields for CSPM GCP usage by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/911
+* Add offset and limit parameter to SLO correction API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/916
+* Add documentation for Logs Pipelines ReferenceTableLogsLookupProcessor  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/915
+* Adding new field for the usage metering infra hosts by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/919
+* Add `include_percentiles` field in Logs Custom Metrics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/896
+* Add OAuth support for Synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/923
+* Add new billable summary fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/932
+* RUM Applications Management API add client_token by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/918
+* Support GRPC unary calls in Synthetics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/930
+* Add style object to dashboard widget formulas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/945
+* Add enable_samples monitor option by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/948
+* Update security_monitoring endpoints for cloud_configuration rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/949
+* Add support for sensitive data scanner APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/942
+* Add synthetics_parallel_testing to Usage Metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/951
+* Synthetics add pagination params to get all tests endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/952
+### Changed
+* Bump `typescript` to latest by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/905
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.6.0...v1.7.0
+
 ## 1.6.0 / 2022-11-16
 
 ### Fixed
