@@ -20,6 +20,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 export class SecurityMonitoringRuleOptions {
   /**
    * Options for cloud_configuration rules.
+   * Fields `resourceType` and `regoRule` are mandatory when managing custom `cloud_configuration` rules.
    */
   "complianceRuleOptions"?: CloudConfigurationComplianceRuleOptions;
   /**
