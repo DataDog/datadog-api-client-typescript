@@ -14,7 +14,7 @@ export class CIAppPipelinesBucketResponse {
   /**
    * The key-value pairs for each group-by.
    */
-  "by"?: { [key: string]: string };
+  "by"?: { [key: string]: any };
   /**
    * A map of the metric name to value for regular compute, or a list of values for a timeseries.
    */
@@ -31,7 +31,7 @@ export class CIAppPipelinesBucketResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     by: {
       baseName: "by",
-      type: "{ [key: string]: string; }",
+      type: "{ [key: string]: any; }",
     },
     computes: {
       baseName: "computes",
