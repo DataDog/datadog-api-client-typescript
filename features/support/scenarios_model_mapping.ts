@@ -3132,6 +3132,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MetricVolumesResponse",
     },
+    "v2.QueryScalarData": {
+        "body": {
+            "type": "ScalarFormulaQueryRequest",
+            "format": "",
+            },
+        "operationResponseType": "ScalarFormulaQueryResponse",
+    },
+    "v2.QueryTimeseriesData": {
+        "body": {
+            "type": "TimeseriesFormulaQueryRequest",
+            "format": "",
+            },
+        "operationResponseType": "TimeseriesFormulaQueryResponse",
+    },
     "v2.SubmitMetrics": {
         "contentEncoding": {
             "type": "MetricContentEncoding",

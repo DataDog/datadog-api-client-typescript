@@ -124,6 +124,8 @@ export function createConfiguration(
       "v2.listIncidents": false,
       "v2.updateIncident": false,
       "v2.updateIncidentAttachments": false,
+      "v2.queryScalarData": false,
+      "v2.queryTimeseriesData": false,
       "v2.createIncidentService": false,
       "v2.deleteIncidentService": false,
       "v2.getIncidentService": false,

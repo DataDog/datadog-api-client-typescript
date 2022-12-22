@@ -148,6 +148,8 @@ export {
   MetricsApiListTagConfigurationsRequest,
   MetricsApiListTagsByMetricNameRequest,
   MetricsApiListVolumesByMetricNameRequest,
+  MetricsApiQueryScalarDataRequest,
+  MetricsApiQueryTimeseriesDataRequest,
   MetricsApiSubmitMetricsRequest,
   MetricsApiUpdateTagConfigurationRequest,
   MetricsApi,
@@ -426,6 +428,11 @@ export { EventAttributes } from "./models/EventAttributes";
 export { EventPriority } from "./models/EventPriority";
 export { EventResponse } from "./models/EventResponse";
 export { EventResponseAttributes } from "./models/EventResponseAttributes";
+export { EventsAggregation } from "./models/EventsAggregation";
+export { EventsCompute } from "./models/EventsCompute";
+export { EventsDataSource } from "./models/EventsDataSource";
+export { EventsGroupBy } from "./models/EventsGroupBy";
+export { EventsGroupBySort } from "./models/EventsGroupBySort";
 export { EventsListRequest } from "./models/EventsListRequest";
 export { EventsListResponse } from "./models/EventsListResponse";
 export { EventsListResponseLinks } from "./models/EventsListResponseLinks";
@@ -434,10 +441,15 @@ export { EventsQueryOptions } from "./models/EventsQueryOptions";
 export { EventsRequestPage } from "./models/EventsRequestPage";
 export { EventsResponseMetadata } from "./models/EventsResponseMetadata";
 export { EventsResponseMetadataPage } from "./models/EventsResponseMetadataPage";
+export { EventsScalarQuery } from "./models/EventsScalarQuery";
+export { EventsSearch } from "./models/EventsSearch";
 export { EventsSort } from "./models/EventsSort";
+export { EventsSortType } from "./models/EventsSortType";
 export { EventStatusType } from "./models/EventStatusType";
+export { EventsTimeseriesQuery } from "./models/EventsTimeseriesQuery";
 export { EventsWarning } from "./models/EventsWarning";
 export { EventType } from "./models/EventType";
+export { FormulaLimit } from "./models/FormulaLimit";
 export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
@@ -640,9 +652,13 @@ export { MetricOrigin } from "./models/MetricOrigin";
 export { MetricPayload } from "./models/MetricPayload";
 export { MetricPoint } from "./models/MetricPoint";
 export { MetricResource } from "./models/MetricResource";
+export { MetricsAggregator } from "./models/MetricsAggregator";
 export { MetricsAndMetricTagConfigurations } from "./models/MetricsAndMetricTagConfigurations";
 export { MetricsAndMetricTagConfigurationsResponse } from "./models/MetricsAndMetricTagConfigurationsResponse";
+export { MetricsDataSource } from "./models/MetricsDataSource";
 export { MetricSeries } from "./models/MetricSeries";
+export { MetricsScalarQuery } from "./models/MetricsScalarQuery";
+export { MetricsTimeseriesQuery } from "./models/MetricsTimeseriesQuery";
 export { MetricSuggestedTagsAndAggregations } from "./models/MetricSuggestedTagsAndAggregations";
 export { MetricSuggestedTagsAndAggregationsResponse } from "./models/MetricSuggestedTagsAndAggregationsResponse";
 export { MetricSuggestedTagsAttributes } from "./models/MetricSuggestedTagsAttributes";
@@ -694,6 +710,7 @@ export { ProcessSummariesResponse } from "./models/ProcessSummariesResponse";
 export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
+export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
 export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";
@@ -786,6 +803,16 @@ export { RUMWarning } from "./models/RUMWarning";
 export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
 export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
 export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
+export { ScalarColumn } from "./models/ScalarColumn";
+export { ScalarFormulaQueryRequest } from "./models/ScalarFormulaQueryRequest";
+export { ScalarFormulaQueryResponse } from "./models/ScalarFormulaQueryResponse";
+export { ScalarFormulaRequest } from "./models/ScalarFormulaRequest";
+export { ScalarFormulaRequestAttributes } from "./models/ScalarFormulaRequestAttributes";
+export { ScalarFormulaRequestType } from "./models/ScalarFormulaRequestType";
+export { ScalarFormulaResponseAtrributes } from "./models/ScalarFormulaResponseAtrributes";
+export { ScalarFormulaResponseType } from "./models/ScalarFormulaResponseType";
+export { ScalarQuery } from "./models/ScalarQuery";
+export { ScalarResponse } from "./models/ScalarResponse";
 export { SecurityFilter } from "./models/SecurityFilter";
 export { SecurityFilterAttributes } from "./models/SecurityFilterAttributes";
 export { SecurityFilterCreateAttributes } from "./models/SecurityFilterCreateAttributes";
@@ -947,6 +974,17 @@ export { ServiceDefinitionV2Repo } from "./models/ServiceDefinitionV2Repo";
 export { ServiceDefinitionV2Slack } from "./models/ServiceDefinitionV2Slack";
 export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackType";
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
+export { TimeseriesFormulaQueryRequest } from "./models/TimeseriesFormulaQueryRequest";
+export { TimeseriesFormulaQueryResponse } from "./models/TimeseriesFormulaQueryResponse";
+export { TimeseriesFormulaRequest } from "./models/TimeseriesFormulaRequest";
+export { TimeseriesFormulaRequestAttributes } from "./models/TimeseriesFormulaRequestAttributes";
+export { TimeseriesFormulaRequestType } from "./models/TimeseriesFormulaRequestType";
+export { TimeseriesFormulaResponseType } from "./models/TimeseriesFormulaResponseType";
+export { TimeseriesQuery } from "./models/TimeseriesQuery";
+export { TimeseriesResponse } from "./models/TimeseriesResponse";
+export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttributes";
+export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
+export { Unit } from "./models/Unit";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
 export { UsageDataObject } from "./models/UsageDataObject";
