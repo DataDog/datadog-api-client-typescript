@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The status of a service check.
+ * The status of a service check. Set to `0` for OK, `1` for warning, `2` for critical, and `3` for unknown.
  */
 
 export type ServiceCheckStatus =
