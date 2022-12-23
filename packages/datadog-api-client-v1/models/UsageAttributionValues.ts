@@ -155,6 +155,14 @@ export class UsageAttributionValues {
    */
   "estimatedIngestedSpansUsage"?: number;
   /**
+   * The percentage of estimated rum sessions usage by tag(s). This field is in private beta.
+   */
+  "estimatedRumSessionsPercentage"?: number;
+  /**
+   * The estimated rum sessions usage by tag(s). This field is in private beta.
+   */
+  "estimatedRumSessionsUsage"?: number;
+  /**
    * The percentage of infrastructure host usage by tag(s).
    */
   "infraHostPercentage"?: number;
@@ -397,6 +405,16 @@ export class UsageAttributionValues {
     },
     estimatedIngestedSpansUsage: {
       baseName: "estimated_ingested_spans_usage",
+      type: "number",
+      format: "double",
+    },
+    estimatedRumSessionsPercentage: {
+      baseName: "estimated_rum_sessions_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedRumSessionsUsage: {
+      baseName: "estimated_rum_sessions_usage",
       type: "number",
       format: "double",
     },
