@@ -124,6 +124,9 @@ import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventResponse } from "./EventResponse";
 import { EventResponseAttributes } from "./EventResponseAttributes";
+import { EventsCompute } from "./EventsCompute";
+import { EventsGroupBy } from "./EventsGroupBy";
+import { EventsGroupBySort } from "./EventsGroupBySort";
 import { EventsListRequest } from "./EventsListRequest";
 import { EventsListResponse } from "./EventsListResponse";
 import { EventsListResponseLinks } from "./EventsListResponseLinks";
@@ -132,7 +135,11 @@ import { EventsQueryOptions } from "./EventsQueryOptions";
 import { EventsRequestPage } from "./EventsRequestPage";
 import { EventsResponseMetadata } from "./EventsResponseMetadata";
 import { EventsResponseMetadataPage } from "./EventsResponseMetadataPage";
+import { EventsScalarQuery } from "./EventsScalarQuery";
+import { EventsSearch } from "./EventsSearch";
+import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { EventsWarning } from "./EventsWarning";
+import { FormulaLimit } from "./FormulaLimit";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
@@ -296,6 +303,8 @@ import { MetricTagConfigurationUpdateData } from "./MetricTagConfigurationUpdate
 import { MetricTagConfigurationUpdateRequest } from "./MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
+import { MetricsScalarQuery } from "./MetricsScalarQuery";
+import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
 import { MonitorType } from "./MonitorType";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
@@ -325,6 +334,7 @@ import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
 import { RUMAggregateSort } from "./RUMAggregateSort";
@@ -399,6 +409,13 @@ import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
+import { ScalarColumn } from "./ScalarColumn";
+import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
+import { ScalarFormulaQueryResponse } from "./ScalarFormulaQueryResponse";
+import { ScalarFormulaRequest } from "./ScalarFormulaRequest";
+import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes";
+import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
+import { ScalarResponse } from "./ScalarResponse";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
 import { SecurityFilterCreateAttributes } from "./SecurityFilterCreateAttributes";
@@ -519,6 +536,14 @@ import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
 import { ServiceDefinitionV2Repo } from "./ServiceDefinitionV2Repo";
 import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
+import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
+import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
+import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
+import { TimeseriesFormulaRequestAttributes } from "./TimeseriesFormulaRequestAttributes";
+import { TimeseriesResponse } from "./TimeseriesResponse";
+import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
+import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
+import { Unit } from "./Unit";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -660,7 +685,22 @@ const enumsMap: { [key: string]: any[] } = {
     "snapshot",
   ],
   EventType: ["event"],
+  EventsAggregation: [
+    "count",
+    "cardinality",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+  ],
+  EventsDataSource: ["logs"],
   EventsSort: ["timestamp", "-timestamp"],
+  EventsSortType: ["alphabetical", "measure"],
   HourlyUsageType: [
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
@@ -727,6 +767,8 @@ const enumsMap: { [key: string]: any[] } = {
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
+  MetricsAggregator: ["avg", "min", "max", "sum", "last"],
+  MetricsDataSource: ["metrics"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
   OrganizationsType: ["orgs"],
@@ -767,6 +809,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RolesType: ["roles"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
+  ScalarFormulaRequestType: ["scalar_request"],
+  ScalarFormulaResponseType: ["scalar_response"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
@@ -864,6 +908,8 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  TimeseriesFormulaRequestType: ["timeseries_request"],
+  TimeseriesFormulaResponseType: ["timeseries_response"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
   UsersType: ["users"],
@@ -1014,6 +1060,9 @@ const typeMap: { [index: string]: any } = {
   EventAttributes: EventAttributes,
   EventResponse: EventResponse,
   EventResponseAttributes: EventResponseAttributes,
+  EventsCompute: EventsCompute,
+  EventsGroupBy: EventsGroupBy,
+  EventsGroupBySort: EventsGroupBySort,
   EventsListRequest: EventsListRequest,
   EventsListResponse: EventsListResponse,
   EventsListResponseLinks: EventsListResponseLinks,
@@ -1022,7 +1071,11 @@ const typeMap: { [index: string]: any } = {
   EventsRequestPage: EventsRequestPage,
   EventsResponseMetadata: EventsResponseMetadata,
   EventsResponseMetadataPage: EventsResponseMetadataPage,
+  EventsScalarQuery: EventsScalarQuery,
+  EventsSearch: EventsSearch,
+  EventsTimeseriesQuery: EventsTimeseriesQuery,
   EventsWarning: EventsWarning,
+  FormulaLimit: FormulaLimit,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
@@ -1196,6 +1249,8 @@ const typeMap: { [index: string]: any } = {
   MetricVolumesResponse: MetricVolumesResponse,
   MetricsAndMetricTagConfigurationsResponse:
     MetricsAndMetricTagConfigurationsResponse,
+  MetricsScalarQuery: MetricsScalarQuery,
+  MetricsTimeseriesQuery: MetricsTimeseriesQuery,
   MonitorType: MonitorType,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
@@ -1225,6 +1280,7 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
+  QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
   RUMAggregateRequest: RUMAggregateRequest,
@@ -1303,6 +1359,13 @@ const typeMap: { [index: string]: any } = {
   RolesResponse: RolesResponse,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
+  ScalarColumn: ScalarColumn,
+  ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
+  ScalarFormulaQueryResponse: ScalarFormulaQueryResponse,
+  ScalarFormulaRequest: ScalarFormulaRequest,
+  ScalarFormulaRequestAttributes: ScalarFormulaRequestAttributes,
+  ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
+  ScalarResponse: ScalarResponse,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
   SecurityFilterCreateAttributes: SecurityFilterCreateAttributes,
@@ -1462,6 +1525,14 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionV2Repo: ServiceDefinitionV2Repo,
   ServiceDefinitionV2Slack: ServiceDefinitionV2Slack,
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
+  TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
+  TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
+  TimeseriesFormulaRequest: TimeseriesFormulaRequest,
+  TimeseriesFormulaRequestAttributes: TimeseriesFormulaRequestAttributes,
+  TimeseriesResponse: TimeseriesResponse,
+  TimeseriesResponseAttributes: TimeseriesResponseAttributes,
+  TimeseriesResponseSeries: TimeseriesResponseSeries,
+  Unit: Unit,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
@@ -1546,6 +1617,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
   SecurityMonitoringRuleCreatePayload: [
     "SecurityMonitoringStandardRuleCreatePayload",
     "SecurityMonitoringSignalRuleCreatePayload",
@@ -1569,6 +1641,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ServiceDefinitionV2Slack",
   ],
   ServiceDefinitionsCreateRequest: ["ServiceDefinitionV2", "string"],
+  TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };
 
