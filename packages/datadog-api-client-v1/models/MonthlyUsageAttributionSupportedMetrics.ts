@@ -65,6 +65,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof PROFILED_HOST_PERCENTAGE
   | typeof SNMP_USAGE
   | typeof SNMP_PERCENTAGE
+  | typeof ESTIMATED_RUM_SESSIONS_USAGE
+  | typeof ESTIMATED_RUM_SESSIONS_PERCENTAGE
   | typeof ALL
   | UnparsedObject;
 export const API_USAGE = "api_usage";
@@ -125,4 +127,7 @@ export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const PROFILED_HOST_PERCENTAGE = "profiled_host_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const SNMP_PERCENTAGE = "snmp_percentage";
+export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
+export const ESTIMATED_RUM_SESSIONS_PERCENTAGE =
+  "estimated_rum_sessions_percentage";
 export const ALL = "*";

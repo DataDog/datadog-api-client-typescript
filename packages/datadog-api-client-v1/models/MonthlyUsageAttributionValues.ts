@@ -155,6 +155,14 @@ export class MonthlyUsageAttributionValues {
    */
   "estimatedIngestedSpansUsage"?: number;
   /**
+   * The percentage of estimated rum sessions usage by tag(s). This field is in private beta.
+   */
+  "estimatedRumSessionsPercentage"?: number;
+  /**
+   * The estimated rum sessions usage by tag(s). This field is in private beta.
+   */
+  "estimatedRumSessionsUsage"?: number;
+  /**
    * The percentage of Fargate usage by tags.
    */
   "fargatePercentage"?: number;
@@ -413,6 +421,16 @@ export class MonthlyUsageAttributionValues {
     },
     estimatedIngestedSpansUsage: {
       baseName: "estimated_ingested_spans_usage",
+      type: "number",
+      format: "double",
+    },
+    estimatedRumSessionsPercentage: {
+      baseName: "estimated_rum_sessions_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedRumSessionsUsage: {
+      baseName: "estimated_rum_sessions_usage",
       type: "number",
       format: "double",
     },

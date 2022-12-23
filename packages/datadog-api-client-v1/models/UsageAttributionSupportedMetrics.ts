@@ -55,6 +55,8 @@ export type UsageAttributionSupportedMetrics =
   | typeof APM_FARGATE_PERCENTAGE
   | typeof APPSEC_FARGATE_USAGE
   | typeof APPSEC_FARGATE_PERCENTAGE
+  | typeof ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE
+  | typeof ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE
   | typeof ALL
   | UnparsedObject;
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
@@ -105,4 +107,8 @@ export const APM_FARGATE_USAGE = "apm_fargate_usage";
 export const APM_FARGATE_PERCENTAGE = "apm_fargate_percentage";
 export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
 export const APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage";
+export const ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE =
+  "estimated_rum_usage_attribution_usage";
+export const ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE =
+  "estimated_rum_usage_attribution_percentage";
 export const ALL = "*";
