@@ -59,6 +59,14 @@ export class MonthlyUsageAttributionValues {
    */
   "browserUsage"?: number;
   /**
+   * The percentage of container usage without the Datadog Agent by tag(s).
+   */
+  "contPercentage"?: number;
+  /**
+   * The container usage without Datadog agent by tag(s).
+   */
+  "contUsage"?: number;
+  /**
    * The percentage of container usage by tag(s).
    */
   "containerPercentage"?: number;
@@ -301,6 +309,16 @@ export class MonthlyUsageAttributionValues {
     },
     browserUsage: {
       baseName: "browser_usage",
+      type: "number",
+      format: "double",
+    },
+    contPercentage: {
+      baseName: "cont_percentage",
+      type: "number",
+      format: "double",
+    },
+    contUsage: {
+      baseName: "cont_usage",
       type: "number",
       format: "double",
     },
