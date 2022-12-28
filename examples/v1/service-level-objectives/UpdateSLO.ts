@@ -22,6 +22,9 @@ const params: v1.ServiceLevelObjectivesApiUpdateSLORequest = {
         warning: 98.0,
       },
     ],
+    timeframe: "7d",
+    targetThreshold: 97.0,
+    warningThreshold: 98,
     query: {
       numerator: "sum:httpservice.hits{code:2xx}.as_count()",
       denominator: "sum:httpservice.hits{!code:3xx}.as_count()",

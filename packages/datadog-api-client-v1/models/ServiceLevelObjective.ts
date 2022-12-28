@@ -6,6 +6,7 @@
 import { Creator } from "./Creator";
 import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
 import { SLOThreshold } from "./SLOThreshold";
+import { SLOTimeframe } from "./SLOTimeframe";
 import { SLOType } from "./SLOType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -83,14 +84,30 @@ export class ServiceLevelObjective {
    */
   "tags"?: Array<string>;
   /**
+   * The target threshold such that when the service level indicator is above this
+   * threshold over the given timeframe, the objective is being met.
+   */
+  "targetThreshold"?: number;
+  /**
    * The thresholds (timeframes and associated targets) for this service level
    * objective object.
    */
   "thresholds": Array<SLOThreshold>;
   /**
+   * The SLO time window options.
+   */
+  "timeframe"?: SLOTimeframe;
+  /**
    * The type of the service level objective.
    */
   "type": SLOType;
+  /**
+   * The optional warning threshold such that when the service level indicator is
+   * below this value for the given threshold, but above the target threshold, the
+   * objective appears in a "warning" state. This value must be greater than the target
+   * threshold.
+   */
+  "warningThreshold"?: number;
 
   /**
    * @ignore
@@ -149,15 +166,29 @@ export class ServiceLevelObjective {
       baseName: "tags",
       type: "Array<string>",
     },
+    targetThreshold: {
+      baseName: "target_threshold",
+      type: "number",
+      format: "double",
+    },
     thresholds: {
       baseName: "thresholds",
       type: "Array<SLOThreshold>",
       required: true,
     },
+    timeframe: {
+      baseName: "timeframe",
+      type: "SLOTimeframe",
+    },
     type: {
       baseName: "type",
       type: "SLOType",
       required: true,
+    },
+    warningThreshold: {
+      baseName: "warning_threshold",
+      type: "number",
+      format: "double",
     },
   };
 
