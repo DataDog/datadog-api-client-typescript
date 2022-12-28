@@ -28,6 +28,9 @@ const params: v1.ServiceLevelObjectivesApiCreateSLORequest = {
         warningDisplay: "98.0",
       },
     ],
+    timeframe: "7d",
+    targetThreshold: 97.0,
+    warningThreshold: 98,
   },
 };
 
