@@ -39,6 +39,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof PROFILED_HOST_USAGE
   | typeof SNMP_USAGE
   | typeof ESTIMATED_RUM_SESSIONS_USAGE
+  | typeof CONT_USAGE
   | UnparsedObject;
 export const API_USAGE = "api_usage";
 export const APM_FARGATE_USAGE = "apm_fargate_usage";
@@ -68,3 +69,4 @@ export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const SNMP_USAGE = "snmp_usage";
 export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
+export const CONT_USAGE = "cont_usage";
