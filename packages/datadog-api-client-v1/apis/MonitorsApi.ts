@@ -1416,6 +1416,8 @@ export class MonitorsApi {
    * - audit: `audit alert`
    * - error-tracking: `error-tracking alert`
    *
+   * **Note**: Synthetic monitors are created through the Synthetics API. See the [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more information.
+   *
    * #### Query Types
    *
    * **Metric Alert Query**

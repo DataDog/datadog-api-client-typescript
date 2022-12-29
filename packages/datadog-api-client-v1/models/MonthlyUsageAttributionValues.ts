@@ -63,7 +63,7 @@ export class MonthlyUsageAttributionValues {
    */
   "contPercentage"?: number;
   /**
-   * The container usage without Datadog agent by tag(s).
+   * The container usage without the Datadog Agent by tag(s).
    */
   "contUsage"?: number;
   /**
