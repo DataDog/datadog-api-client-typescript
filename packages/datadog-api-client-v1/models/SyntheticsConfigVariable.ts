@@ -28,6 +28,10 @@ export class SyntheticsConfigVariable {
    */
   "pattern"?: string;
   /**
+   * Whether the value of this variable will be obfuscated in test results.
+   */
+  "secure"?: boolean;
+  /**
    * Type of the configuration variable.
    */
   "type": SyntheticsConfigVariableType;
@@ -57,6 +61,10 @@ export class SyntheticsConfigVariable {
     pattern: {
       baseName: "pattern",
       type: "string",
+    },
+    secure: {
+      baseName: "secure",
+      type: "boolean",
     },
     type: {
       baseName: "type",
