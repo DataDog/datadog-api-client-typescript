@@ -74,7 +74,6 @@ test('TestDeserializationUnknownNestedOneOfInList', () => {
     "SyntheticsAPITest",
     "");
 
-    expect(result?.unparsedObject).toBe(undefined);
     expect(result._unparsed).toBe(true);
     expect(result.config.assertions.length).toBe(3);
     expect(result.config.assertions[2]._data["operator"]).toBe("A non existent operator");
@@ -151,7 +150,6 @@ test('TestDeserializationUnknownNestedEnumInList', () => {
     "SyntheticsBrowserTest",
     "");
 
-    expect(result?.unparsedObject).toBe(undefined);
     expect(result._unparsed).toBe(true);
     expect(result.options.deviceIds.length).toBe(3);
     expect(result.options.deviceIds[2]._data).toBe("A non existent device ID");
@@ -251,9 +249,7 @@ test('TestDeserializationUnknownNestedEnum', () => {
     "SyntheticsAPITest",
     "");
 
-    expect(result?.unparsedObject).toBe(undefined);
     expect(result._unparsed).toBe(true);
-    expect(result.config.unparsedObject).toBe(undefined);
     expect(result.config.assertions[0]).toBeInstanceOf(UnparsedObject);
     expect(result.config.assertions[0]._data["operator"]).toBe("not-an-operator");
     expect(result.config.assertions[0]._data["target"]).toBe(200);
@@ -293,9 +289,7 @@ test('TestDeserializationUnknownNestedOneOf', () => {
     "LogsArchive",
     "");
 
-    expect(result?.unparsedObject).toBe(undefined);
     expect(result._unparsed).toBe(true);
-    expect(result.data.attributes.unparsedObject).toBe(undefined);
     expect(result.data.attributes.destination._data["type"]).toBe("A non existent destination");
   }
 );
