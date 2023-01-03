@@ -17,6 +17,7 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
           name: "PROPERTY",
           pattern: "content-type",
           type: "text",
+          secure: true,
         },
       ],
       request: {

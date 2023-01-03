@@ -14,6 +14,7 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
       configVariables: [
         {
           name: "VARIABLE_NAME",
+          secure: false,
           type: "text",
         },
       ],
