@@ -14,7 +14,7 @@ export class LogsAggregateBucket {
   /**
    * The key, value pairs for each group by
    */
-  "by"?: { [key: string]: string };
+  "by"?: { [key: string]: any };
   /**
    * A map of the metric name -> value for regular compute or list of values for a timeseries
    */
@@ -31,7 +31,7 @@ export class LogsAggregateBucket {
   static readonly attributeTypeMap: AttributeTypeMap = {
     by: {
       baseName: "by",
-      type: "{ [key: string]: string; }",
+      type: "{ [key: string]: any; }",
     },
     computes: {
       baseName: "computes",
