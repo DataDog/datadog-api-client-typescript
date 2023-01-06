@@ -86,6 +86,7 @@ export {
   IncidentsApiGetIncidentRequest,
   IncidentsApiListIncidentAttachmentsRequest,
   IncidentsApiListIncidentsRequest,
+  IncidentsApiSearchIncidentsRequest,
   IncidentsApiUpdateIncidentRequest,
   IncidentsApiUpdateIncidentAttachmentsRequest,
   IncidentsApi,
@@ -503,6 +504,18 @@ export { IncidentResponseIncludedItem } from "./models/IncidentResponseIncludedI
 export { IncidentResponseMeta } from "./models/IncidentResponseMeta";
 export { IncidentResponseMetaPagination } from "./models/IncidentResponseMetaPagination";
 export { IncidentResponseRelationships } from "./models/IncidentResponseRelationships";
+export { IncidentSearchResponse } from "./models/IncidentSearchResponse";
+export { IncidentSearchResponseAttributes } from "./models/IncidentSearchResponseAttributes";
+export { IncidentSearchResponseData } from "./models/IncidentSearchResponseData";
+export { IncidentSearchResponseFacetsData } from "./models/IncidentSearchResponseFacetsData";
+export { IncidentSearchResponseFieldFacetData } from "./models/IncidentSearchResponseFieldFacetData";
+export { IncidentSearchResponseIncidentsData } from "./models/IncidentSearchResponseIncidentsData";
+export { IncidentSearchResponseNumericFacetData } from "./models/IncidentSearchResponseNumericFacetData";
+export { IncidentSearchResponseNumericFacetDataAggregates } from "./models/IncidentSearchResponseNumericFacetDataAggregates";
+export { IncidentSearchResponsePropertyFieldFacetData } from "./models/IncidentSearchResponsePropertyFieldFacetData";
+export { IncidentSearchResponseUserFacetData } from "./models/IncidentSearchResponseUserFacetData";
+export { IncidentSearchResultsType } from "./models/IncidentSearchResultsType";
+export { IncidentSearchSortOrder } from "./models/IncidentSearchSortOrder";
 export { IncidentServiceCreateAttributes } from "./models/IncidentServiceCreateAttributes";
 export { IncidentServiceCreateData } from "./models/IncidentServiceCreateData";
 export { IncidentServiceCreateRequest } from "./models/IncidentServiceCreateRequest";

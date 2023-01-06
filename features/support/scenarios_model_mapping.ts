@@ -2638,6 +2638,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentResponse",
     },
+    "v2.SearchIncidents": {
+        "include": {
+            "type": "IncidentRelatedObject",
+            "format": "",
+            },
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "IncidentSearchSortOrder",
+            "format": "",
+            },
+        "operationResponseType": "IncidentSearchResponse",
+    },
     "v2.DeleteIncident": {
         "incidentId": {
             "type": "string",

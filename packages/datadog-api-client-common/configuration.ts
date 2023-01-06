@@ -122,6 +122,7 @@ export function createConfiguration(
       "v2.getIncident": false,
       "v2.listIncidentAttachments": false,
       "v2.listIncidents": false,
+      "v2.searchIncidents": false,
       "v2.updateIncident": false,
       "v2.updateIncidentAttachments": false,
       "v2.queryScalarData": false,

@@ -27,6 +27,8 @@ import { IncidentCreateRequest } from "../models/IncidentCreateRequest";
 import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
 import { IncidentResponse } from "../models/IncidentResponse";
 import { IncidentResponseData } from "../models/IncidentResponseData";
+import { IncidentSearchResponse } from "../models/IncidentSearchResponse";
+import { IncidentSearchSortOrder } from "../models/IncidentSearchSortOrder";
 import { IncidentsResponse } from "../models/IncidentsResponse";
 import { IncidentUpdateRequest } from "../models/IncidentUpdateRequest";
 
@@ -275,6 +277,65 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[offset]",
         ObjectSerializer.serialize(pageOffset, "number", "int64")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async searchIncidents(
+    query: string,
+    include?: IncidentRelatedObject,
+    sort?: IncidentSearchSortOrder,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'searchIncidents'");
+    if (!_config.unstableOperations["v2.searchIncidents"]) {
+      throw new Error("Unstable operation 'searchIncidents' is disabled");
+    }
+
+    // verify required parameter 'query' is not null or undefined
+    if (query === null || query === undefined) {
+      throw new RequiredError("query", "searchIncidents");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/incidents/search";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.IncidentsApi.searchIncidents"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "IncidentRelatedObject", "")
+      );
+    }
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        ObjectSerializer.serialize(query, "string", "")
+      );
+    }
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "IncidentSearchSortOrder", "")
       );
     }
 
@@ -745,6 +806,70 @@ export class IncidentsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to searchIncidents
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async searchIncidents(
+    response: ResponseContext
+  ): Promise<IncidentSearchResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: IncidentSearchResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentSearchResponse"
+      ) as IncidentSearchResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 401 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: IncidentSearchResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "IncidentSearchResponse",
+        ""
+      ) as IncidentSearchResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateIncident
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -935,6 +1060,30 @@ export interface IncidentsApiListIncidentsRequest {
    * @type number
    */
   pageOffset?: number;
+}
+
+export interface IncidentsApiSearchIncidentsRequest {
+  /**
+   * Specifies which incidents should be returned. After entering a search query in your [Incidents page][1],
+   * use the query parameter value in the URL of the page as the value for this parameter.
+   *
+   * The query can contain any number of incident facets joined by `ANDs`, along with multiple values for each of
+   * those facets joined by `OR`s, for instance: `query="state:active AND severity:(SEV-2 OR SEV-1)"`.
+   *
+   * [1]: https://app.datadoghq.com/incidents
+   * @type string
+   */
+  query: string;
+  /**
+   * Specifies which types of related objects should be included in the response.
+   * @type IncidentRelatedObject
+   */
+  include?: IncidentRelatedObject;
+  /**
+   * Specifies the order of returned incidents.
+   * @type IncidentSearchSortOrder
+   */
+  sort?: IncidentSearchSortOrder;
 }
 
 export interface IncidentsApiUpdateIncidentRequest {
@@ -1145,6 +1294,29 @@ export class IncidentsApi {
         param.pageOffset = param.pageOffset + pageSize;
       }
     }
+  }
+
+  /**
+   * Search for incidents matching a certain query.
+   * @param param The request object
+   */
+  public searchIncidents(
+    param: IncidentsApiSearchIncidentsRequest,
+    options?: Configuration
+  ): Promise<IncidentSearchResponse> {
+    const requestContextPromise = this.requestFactory.searchIncidents(
+      param.query,
+      param.include,
+      param.sort,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.searchIncidents(responseContext);
+        });
+    });
   }
 
   /**
