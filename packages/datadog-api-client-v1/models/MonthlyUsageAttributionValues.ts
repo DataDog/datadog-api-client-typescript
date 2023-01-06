@@ -187,14 +187,6 @@ export class MonthlyUsageAttributionValues {
    */
   "functionsUsage"?: number;
   /**
-   * The percentage of indexed logs usage by tags.
-   */
-  "indexedLogsPercentage"?: number;
-  /**
-   * The indexed logs usage by tags.
-   */
-  "indexedLogsUsage"?: number;
-  /**
    * The percentage of infrastructure host usage by tag(s).
    */
   "infraHostPercentage"?: number;
@@ -469,16 +461,6 @@ export class MonthlyUsageAttributionValues {
     },
     functionsUsage: {
       baseName: "functions_usage",
-      type: "number",
-      format: "double",
-    },
-    indexedLogsPercentage: {
-      baseName: "indexed_logs_percentage",
-      type: "number",
-      format: "double",
-    },
-    indexedLogsUsage: {
-      baseName: "indexed_logs_usage",
       type: "number",
       format: "double",
     },

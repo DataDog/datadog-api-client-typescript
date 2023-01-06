@@ -31,7 +31,6 @@ export type HourlyUsageAttributionUsageType =
   | typeof ESTIMATED_INGESTED_SPANS_USAGE
   | typeof FARGATE_USAGE
   | typeof FUNCTIONS_USAGE
-  | typeof INDEXED_LOGS_USAGE
   | typeof INFRA_HOST_USAGE
   | typeof INVOCATIONS_USAGE
   | typeof NPM_HOST_USAGE
@@ -61,7 +60,6 @@ export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
 export const ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage";
 export const FARGATE_USAGE = "fargate_usage";
 export const FUNCTIONS_USAGE = "functions_usage";
-export const INDEXED_LOGS_USAGE = "indexed_logs_usage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INVOCATIONS_USAGE = "invocations_usage";
 export const NPM_HOST_USAGE = "npm_host_usage";
