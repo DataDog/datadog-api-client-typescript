@@ -177,6 +177,16 @@ import { IncidentResponseData } from "./IncidentResponseData";
 import { IncidentResponseMeta } from "./IncidentResponseMeta";
 import { IncidentResponseMetaPagination } from "./IncidentResponseMetaPagination";
 import { IncidentResponseRelationships } from "./IncidentResponseRelationships";
+import { IncidentSearchResponse } from "./IncidentSearchResponse";
+import { IncidentSearchResponseAttributes } from "./IncidentSearchResponseAttributes";
+import { IncidentSearchResponseData } from "./IncidentSearchResponseData";
+import { IncidentSearchResponseFacetsData } from "./IncidentSearchResponseFacetsData";
+import { IncidentSearchResponseFieldFacetData } from "./IncidentSearchResponseFieldFacetData";
+import { IncidentSearchResponseIncidentsData } from "./IncidentSearchResponseIncidentsData";
+import { IncidentSearchResponseNumericFacetData } from "./IncidentSearchResponseNumericFacetData";
+import { IncidentSearchResponseNumericFacetDataAggregates } from "./IncidentSearchResponseNumericFacetDataAggregates";
+import { IncidentSearchResponsePropertyFieldFacetData } from "./IncidentSearchResponsePropertyFieldFacetData";
+import { IncidentSearchResponseUserFacetData } from "./IncidentSearchResponseUserFacetData";
 import { IncidentServiceCreateAttributes } from "./IncidentServiceCreateAttributes";
 import { IncidentServiceCreateData } from "./IncidentServiceCreateData";
 import { IncidentServiceCreateRequest } from "./IncidentServiceCreateRequest";
@@ -721,6 +731,8 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentIntegrationMetadataType: ["incident_integrations"],
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
+  IncidentSearchResultsType: ["incidents_search_results"],
+  IncidentSearchSortOrder: ["created", "-created"],
   IncidentServiceType: ["services"],
   IncidentTeamType: ["teams"],
   IncidentTimelineCellMarkdownContentType: ["markdown"],
@@ -1116,6 +1128,19 @@ const typeMap: { [index: string]: any } = {
   IncidentResponseMeta: IncidentResponseMeta,
   IncidentResponseMetaPagination: IncidentResponseMetaPagination,
   IncidentResponseRelationships: IncidentResponseRelationships,
+  IncidentSearchResponse: IncidentSearchResponse,
+  IncidentSearchResponseAttributes: IncidentSearchResponseAttributes,
+  IncidentSearchResponseData: IncidentSearchResponseData,
+  IncidentSearchResponseFacetsData: IncidentSearchResponseFacetsData,
+  IncidentSearchResponseFieldFacetData: IncidentSearchResponseFieldFacetData,
+  IncidentSearchResponseIncidentsData: IncidentSearchResponseIncidentsData,
+  IncidentSearchResponseNumericFacetData:
+    IncidentSearchResponseNumericFacetData,
+  IncidentSearchResponseNumericFacetDataAggregates:
+    IncidentSearchResponseNumericFacetDataAggregates,
+  IncidentSearchResponsePropertyFieldFacetData:
+    IncidentSearchResponsePropertyFieldFacetData,
+  IncidentSearchResponseUserFacetData: IncidentSearchResponseUserFacetData,
   IncidentServiceCreateAttributes: IncidentServiceCreateAttributes,
   IncidentServiceCreateData: IncidentServiceCreateData,
   IncidentServiceCreateRequest: IncidentServiceCreateRequest,
