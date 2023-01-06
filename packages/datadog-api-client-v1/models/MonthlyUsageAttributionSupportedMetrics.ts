@@ -51,8 +51,6 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof FARGATE_PERCENTAGE
   | typeof FUNCTIONS_USAGE
   | typeof FUNCTIONS_PERCENTAGE
-  | typeof INDEXED_LOGS_USAGE
-  | typeof INDEXED_LOGS_PERCENTAGE
   | typeof INFRA_HOST_USAGE
   | typeof INFRA_HOST_PERCENTAGE
   | typeof INVOCATIONS_USAGE
@@ -115,8 +113,6 @@ export const FARGATE_USAGE = "fargate_usage";
 export const FARGATE_PERCENTAGE = "fargate_percentage";
 export const FUNCTIONS_USAGE = "functions_usage";
 export const FUNCTIONS_PERCENTAGE = "functions_percentage";
-export const INDEXED_LOGS_USAGE = "indexed_logs_usage";
-export const INDEXED_LOGS_PERCENTAGE = "indexed_logs_percentage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INFRA_HOST_PERCENTAGE = "infra_host_percentage";
 export const INVOCATIONS_USAGE = "invocations_usage";
