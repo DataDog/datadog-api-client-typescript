@@ -19,6 +19,12 @@ const params: v1.SyntheticsApiCreateGlobalVariableRequest = {
     value: {
       secure: false,
       value: "",
+      options: {
+        totpParameters: {
+          digits: 6,
+          refreshInterval: 30,
+        },
+      },
     },
     parseTestPublicId: SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID,
     parseTestOptions: {

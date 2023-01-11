@@ -843,9 +843,11 @@ export { SyntheticsGetAPITestLatestResultsResponse } from "./models/SyntheticsGe
 export { SyntheticsGetBrowserTestLatestResultsResponse } from "./models/SyntheticsGetBrowserTestLatestResultsResponse";
 export { SyntheticsGlobalVariable } from "./models/SyntheticsGlobalVariable";
 export { SyntheticsGlobalVariableAttributes } from "./models/SyntheticsGlobalVariableAttributes";
+export { SyntheticsGlobalVariableOptions } from "./models/SyntheticsGlobalVariableOptions";
 export { SyntheticsGlobalVariableParserType } from "./models/SyntheticsGlobalVariableParserType";
 export { SyntheticsGlobalVariableParseTestOptions } from "./models/SyntheticsGlobalVariableParseTestOptions";
 export { SyntheticsGlobalVariableParseTestOptionsType } from "./models/SyntheticsGlobalVariableParseTestOptionsType";
+export { SyntheticsGlobalVariableTOTPParameters } from "./models/SyntheticsGlobalVariableTOTPParameters";
 export { SyntheticsGlobalVariableValue } from "./models/SyntheticsGlobalVariableValue";
 export { SyntheticsListGlobalVariablesResponse } from "./models/SyntheticsListGlobalVariablesResponse";
 export { SyntheticsListTestsResponse } from "./models/SyntheticsListTestsResponse";
