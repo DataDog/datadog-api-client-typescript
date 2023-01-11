@@ -5,7 +5,6 @@
  */
 import { CIAppCompute } from "./CIAppCompute";
 import { CIAppQueryOptions } from "./CIAppQueryOptions";
-import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 
@@ -32,10 +31,6 @@ export class CIAppTestsAggregateRequest {
    * Only supply timezone or time offset, not both. Otherwise, the query fails.
    */
   "options"?: CIAppQueryOptions;
-  /**
-   * Paging attributes for listing events.
-   */
-  "page"?: CIAppQueryPageOptions;
 
   /**
    * @ignore
@@ -61,10 +56,6 @@ export class CIAppTestsAggregateRequest {
     options: {
       baseName: "options",
       type: "CIAppQueryOptions",
-    },
-    page: {
-      baseName: "page",
-      type: "CIAppQueryPageOptions",
     },
   };
 

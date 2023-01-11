@@ -34,9 +34,6 @@ const params: v2.CIVisibilityTestsApiAggregateCIAppTestEventsRequest = {
     options: {
       timezone: "GMT",
     },
-    page: {
-      limit: 25,
-    },
   },
 };
 

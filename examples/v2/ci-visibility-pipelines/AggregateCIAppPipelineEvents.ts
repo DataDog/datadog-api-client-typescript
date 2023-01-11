@@ -31,9 +31,6 @@ const params: v2.CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest = {
     options: {
       timezone: "GMT",
     },
-    page: {
-      limit: 25,
-    },
   },
 };
 
