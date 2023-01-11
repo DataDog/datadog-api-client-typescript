@@ -5,7 +5,7 @@
  */
 import { CIAppPipelineEvent } from "./CIAppPipelineEvent";
 import { CIAppResponseLinks } from "./CIAppResponseLinks";
-import { CIAppResponseMetadataWithPagination } from "./CIAppResponseMetadataWithPagination";
+import { CIAppResponseMetadata } from "./CIAppResponseMetadata";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -24,7 +24,7 @@ export class CIAppPipelineEventsResponse {
   /**
    * The metadata associated with a request.
    */
-  "meta"?: CIAppResponseMetadataWithPagination;
+  "meta"?: CIAppResponseMetadata;
 
   /**
    * @ignore
@@ -45,7 +45,7 @@ export class CIAppPipelineEventsResponse {
     },
     meta: {
       baseName: "meta",
-      type: "CIAppResponseMetadataWithPagination",
+      type: "CIAppResponseMetadata",
     },
   };
 

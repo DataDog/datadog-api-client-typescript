@@ -352,7 +352,6 @@ export { CIAppQueryOptions } from "./models/CIAppQueryOptions";
 export { CIAppQueryPageOptions } from "./models/CIAppQueryPageOptions";
 export { CIAppResponseLinks } from "./models/CIAppResponseLinks";
 export { CIAppResponseMetadata } from "./models/CIAppResponseMetadata";
-export { CIAppResponseMetadataWithPagination } from "./models/CIAppResponseMetadataWithPagination";
 export { CIAppResponsePage } from "./models/CIAppResponsePage";
 export { CIAppResponseStatus } from "./models/CIAppResponseStatus";
 export { CIAppSort } from "./models/CIAppSort";

@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CIAppResponsePage } from "./CIAppResponsePage";
 import { CIAppResponseStatus } from "./CIAppResponseStatus";
 import { CIAppWarning } from "./CIAppWarning";
 
@@ -16,6 +17,10 @@ export class CIAppResponseMetadata {
    * The time elapsed in milliseconds.
    */
   "elapsed"?: number;
+  /**
+   * Paging attributes.
+   */
+  "page"?: CIAppResponsePage;
   /**
    * The identifier of the request.
    */
@@ -43,6 +48,10 @@ export class CIAppResponseMetadata {
       baseName: "elapsed",
       type: "number",
       format: "int64",
+    },
+    page: {
+      baseName: "page",
+      type: "CIAppResponsePage",
     },
     requestId: {
       baseName: "request_id",

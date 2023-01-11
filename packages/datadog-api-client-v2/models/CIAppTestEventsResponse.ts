@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { CIAppResponseLinks } from "./CIAppResponseLinks";
-import { CIAppResponseMetadataWithPagination } from "./CIAppResponseMetadataWithPagination";
+import { CIAppResponseMetadata } from "./CIAppResponseMetadata";
 import { CIAppTestEvent } from "./CIAppTestEvent";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -24,7 +24,7 @@ export class CIAppTestEventsResponse {
   /**
    * The metadata associated with a request.
    */
-  "meta"?: CIAppResponseMetadataWithPagination;
+  "meta"?: CIAppResponseMetadata;
 
   /**
    * @ignore
@@ -45,7 +45,7 @@ export class CIAppTestEventsResponse {
     },
     meta: {
       baseName: "meta",
-      type: "CIAppResponseMetadataWithPagination",
+      type: "CIAppResponseMetadata",
     },
   };
 

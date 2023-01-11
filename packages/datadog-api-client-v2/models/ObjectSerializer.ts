@@ -58,7 +58,6 @@ import { CIAppQueryOptions } from "./CIAppQueryOptions";
 import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 import { CIAppResponseLinks } from "./CIAppResponseLinks";
 import { CIAppResponseMetadata } from "./CIAppResponseMetadata";
-import { CIAppResponseMetadataWithPagination } from "./CIAppResponseMetadataWithPagination";
 import { CIAppResponsePage } from "./CIAppResponsePage";
 import { CIAppTestEvent } from "./CIAppTestEvent";
 import { CIAppTestEventsRequest } from "./CIAppTestEventsRequest";
@@ -992,7 +991,6 @@ const typeMap: { [index: string]: any } = {
   CIAppQueryPageOptions: CIAppQueryPageOptions,
   CIAppResponseLinks: CIAppResponseLinks,
   CIAppResponseMetadata: CIAppResponseMetadata,
-  CIAppResponseMetadataWithPagination: CIAppResponseMetadataWithPagination,
   CIAppResponsePage: CIAppResponsePage,
   CIAppTestEvent: CIAppTestEvent,
   CIAppTestEventsRequest: CIAppTestEventsRequest,
