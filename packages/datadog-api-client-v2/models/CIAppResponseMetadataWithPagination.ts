@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CIAppResponsePage } from "./CIAppResponsePage";
 import { CIAppResponseStatus } from "./CIAppResponseStatus";
 import { CIAppWarning } from "./CIAppWarning";
 
@@ -11,11 +12,15 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * The metadata associated with a request.
  */
-export class CIAppResponseMetadata {
+export class CIAppResponseMetadataWithPagination {
   /**
    * The time elapsed in milliseconds.
    */
   "elapsed"?: number;
+  /**
+   * Paging attributes.
+   */
+  "page"?: CIAppResponsePage;
   /**
    * The identifier of the request.
    */
@@ -44,6 +49,10 @@ export class CIAppResponseMetadata {
       type: "number",
       format: "int64",
     },
+    page: {
+      baseName: "page",
+      type: "CIAppResponsePage",
+    },
     requestId: {
       baseName: "request_id",
       type: "string",
@@ -62,7 +71,7 @@ export class CIAppResponseMetadata {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppResponseMetadata.attributeTypeMap;
+    return CIAppResponseMetadataWithPagination.attributeTypeMap;
   }
 
   public constructor() {}

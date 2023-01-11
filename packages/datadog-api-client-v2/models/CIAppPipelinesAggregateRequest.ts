@@ -7,7 +7,6 @@ import { CIAppCompute } from "./CIAppCompute";
 import { CIAppPipelinesGroupBy } from "./CIAppPipelinesGroupBy";
 import { CIAppPipelinesQueryFilter } from "./CIAppPipelinesQueryFilter";
 import { CIAppQueryOptions } from "./CIAppQueryOptions";
-import { CIAppQueryPageOptions } from "./CIAppQueryPageOptions";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -32,10 +31,6 @@ export class CIAppPipelinesAggregateRequest {
    * Only supply timezone or time offset, not both. Otherwise, the query fails.
    */
   "options"?: CIAppQueryOptions;
-  /**
-   * Paging attributes for listing events.
-   */
-  "page"?: CIAppQueryPageOptions;
 
   /**
    * @ignore
@@ -61,10 +56,6 @@ export class CIAppPipelinesAggregateRequest {
     options: {
       baseName: "options",
       type: "CIAppQueryOptions",
-    },
-    page: {
-      baseName: "page",
-      type: "CIAppQueryPageOptions",
     },
   };
 
