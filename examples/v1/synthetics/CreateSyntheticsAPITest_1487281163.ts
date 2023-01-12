@@ -102,7 +102,6 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         interval: 10,
       },
       tickEvery: 60,
-      httpVersion: "http2",
     },
     subtype: "http",
     tags: ["testing:api"],

@@ -6,7 +6,6 @@
 import { SyntheticsBrowserTestRumSettings } from "./SyntheticsBrowserTestRumSettings";
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
-import { SyntheticsTestOptionsHTTPVersion } from "./SyntheticsTestOptionsHTTPVersion";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 
@@ -49,10 +48,6 @@ export class SyntheticsTestOptions {
    * For API HTTP test, whether or not the test should follow redirects.
    */
   "followRedirects"?: boolean;
-  /**
-   * HTTP version to use for a Synthetic test.
-   */
-  "httpVersion"?: SyntheticsTestOptionsHTTPVersion;
   /**
    * Ignore server certificate error for browser tests.
    */
@@ -154,10 +149,6 @@ export class SyntheticsTestOptions {
     followRedirects: {
       baseName: "follow_redirects",
       type: "boolean",
-    },
-    httpVersion: {
-      baseName: "httpVersion",
-      type: "SyntheticsTestOptionsHTTPVersion",
     },
     ignoreServerCertificateError: {
       baseName: "ignoreServerCertificateError",
