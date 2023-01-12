@@ -879,6 +879,7 @@ export { SyntheticsTestDetailsType } from "./models/SyntheticsTestDetailsType";
 export { SyntheticsTestExecutionRule } from "./models/SyntheticsTestExecutionRule";
 export { SyntheticsTestMonitorStatus } from "./models/SyntheticsTestMonitorStatus";
 export { SyntheticsTestOptions } from "./models/SyntheticsTestOptions";
+export { SyntheticsTestOptionsHTTPVersion } from "./models/SyntheticsTestOptionsHTTPVersion";
 export { SyntheticsTestOptionsMonitorOptions } from "./models/SyntheticsTestOptionsMonitorOptions";
 export { SyntheticsTestOptionsRetry } from "./models/SyntheticsTestOptionsRetry";
 export { SyntheticsTestPauseStatus } from "./models/SyntheticsTestPauseStatus";

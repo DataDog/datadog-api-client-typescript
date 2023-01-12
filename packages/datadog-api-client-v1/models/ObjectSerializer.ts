@@ -1113,6 +1113,7 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsTestDetailsType: ["api", "browser"],
   SyntheticsTestExecutionRule: ["blocking", "non_blocking", "skipped"],
   SyntheticsTestMonitorStatus: [0, 1, 2],
+  SyntheticsTestOptionsHTTPVersion: ["http1", "http2", "any"],
   SyntheticsTestPauseStatus: ["live", "paused"],
   SyntheticsTestProcessStatus: [
     "not_scheduled",

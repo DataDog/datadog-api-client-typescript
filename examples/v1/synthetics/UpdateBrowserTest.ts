@@ -52,6 +52,7 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         executionRule: "blocking",
       },
       deviceIds: ["laptop_large"],
+      httpVersion: "http1",
       monitorOptions: {},
       restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
       retry: {},
