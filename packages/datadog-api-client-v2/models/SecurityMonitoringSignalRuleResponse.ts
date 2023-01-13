@@ -28,6 +28,10 @@ export class SecurityMonitoringSignalRuleResponse {
    */
   "creationAuthorId"?: number;
   /**
+   * When the rule will be deprecated, timestamp in milliseconds.
+   */
+  "deprecationDate"?: number;
+  /**
    * Additional queries to filter matched events before they are processed.
    */
   "filters"?: Array<SecurityMonitoringFilter>;
@@ -104,6 +108,11 @@ export class SecurityMonitoringSignalRuleResponse {
     },
     creationAuthorId: {
       baseName: "creationAuthorId",
+      type: "number",
+      format: "int64",
+    },
+    deprecationDate: {
+      baseName: "deprecationDate",
       type: "number",
       format: "int64",
     },
