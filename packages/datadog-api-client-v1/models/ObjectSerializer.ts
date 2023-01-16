@@ -125,6 +125,8 @@ import { IdpResponse } from "./IdpResponse";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { ListStreamColumn } from "./ListStreamColumn";
+import { ListStreamComputeItems } from "./ListStreamComputeItems";
+import { ListStreamGroupByItems } from "./ListStreamGroupByItems";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { ListStreamWidgetDefinition } from "./ListStreamWidgetDefinition";
 import { ListStreamWidgetRequest } from "./ListStreamWidgetRequest";
@@ -713,6 +715,23 @@ const enumsMap: { [key: string]: any[] } = {
   IFrameWidgetDefinitionType: ["iframe"],
   ImageWidgetDefinitionType: ["image"],
   ListStreamColumnWidth: ["auto", "compact", "full"],
+  ListStreamComputeAggregation: [
+    "count",
+    "cardinality",
+    "median",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+    "earliest",
+    "latest",
+    "most_frequent",
+  ],
   ListStreamResponseFormat: ["event_list"],
   ListStreamSource: [
     "logs_stream",
@@ -720,6 +739,7 @@ const enumsMap: { [key: string]: any[] } = {
     "rum_issue_stream",
     "apm_issue_stream",
     "logs_pattern_stream",
+    "logs_transaction_stream",
   ],
   ListStreamWidgetDefinitionType: ["list_stream"],
   LogStreamWidgetDefinitionType: ["log_stream"],
@@ -1483,6 +1503,8 @@ const typeMap: { [index: string]: any } = {
   ImageWidgetDefinition: ImageWidgetDefinition,
   IntakePayloadAccepted: IntakePayloadAccepted,
   ListStreamColumn: ListStreamColumn,
+  ListStreamComputeItems: ListStreamComputeItems,
+  ListStreamGroupByItems: ListStreamGroupByItems,
   ListStreamQuery: ListStreamQuery,
   ListStreamWidgetDefinition: ListStreamWidgetDefinition,
   ListStreamWidgetRequest: ListStreamWidgetRequest,
