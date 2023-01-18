@@ -885,6 +885,8 @@ export { SyntheticsTestOptions } from "./models/SyntheticsTestOptions";
 export { SyntheticsTestOptionsHTTPVersion } from "./models/SyntheticsTestOptionsHTTPVersion";
 export { SyntheticsTestOptionsMonitorOptions } from "./models/SyntheticsTestOptionsMonitorOptions";
 export { SyntheticsTestOptionsRetry } from "./models/SyntheticsTestOptionsRetry";
+export { SyntheticsTestOptionsScheduling } from "./models/SyntheticsTestOptionsScheduling";
+export { SyntheticsTestOptionsSchedulingTimeframe } from "./models/SyntheticsTestOptionsSchedulingTimeframe";
 export { SyntheticsTestPauseStatus } from "./models/SyntheticsTestPauseStatus";
 export { SyntheticsTestProcessStatus } from "./models/SyntheticsTestProcessStatus";
 export { SyntheticsTestRequest } from "./models/SyntheticsTestRequest";

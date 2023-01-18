@@ -417,6 +417,8 @@ import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
+import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
+import { SyntheticsTestOptionsSchedulingTimeframe } from "./SyntheticsTestOptionsSchedulingTimeframe";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
@@ -1816,6 +1818,9 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestOptions: SyntheticsTestOptions,
   SyntheticsTestOptionsMonitorOptions: SyntheticsTestOptionsMonitorOptions,
   SyntheticsTestOptionsRetry: SyntheticsTestOptionsRetry,
+  SyntheticsTestOptionsScheduling: SyntheticsTestOptionsScheduling,
+  SyntheticsTestOptionsSchedulingTimeframe:
+    SyntheticsTestOptionsSchedulingTimeframe,
   SyntheticsTestRequest: SyntheticsTestRequest,
   SyntheticsTestRequestCertificate: SyntheticsTestRequestCertificate,
   SyntheticsTestRequestCertificateItem: SyntheticsTestRequestCertificateItem,
