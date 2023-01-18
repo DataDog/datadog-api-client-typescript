@@ -39,6 +39,21 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         clientTokenId: 12345,
         isEnabled: true,
       },
+      scheduling: {
+        timeframes: [
+          {
+            day: 1,
+            from: "07:00",
+            to: "16:00",
+          },
+          {
+            day: 3,
+            from: "07:00",
+            to: "16:00",
+          },
+        ],
+        timezone: "America/New_York",
+      },
     },
     status: "live",
     subtype: "http",
