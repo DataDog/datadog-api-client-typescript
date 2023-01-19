@@ -796,6 +796,12 @@ const enumsMap: { [key: string]: any[] } = {
     "logs",
     "spans",
   ],
+  MonitorOptionsNotificationPresets: [
+    "show_all",
+    "hide_query",
+    "hide_handles",
+    "hide_all",
+  ],
   MonitorOverallStates: [
     "Alert",
     "Ignored",
