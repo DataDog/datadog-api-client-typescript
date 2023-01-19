@@ -16,7 +16,7 @@ export class SyntheticsTestOptionsScheduling {
    */
   "timeframes"?: Array<SyntheticsTestOptionsSchedulingTimeframe>;
   /**
-   * Timezone on which the timeframe are based.
+   * Timezone in which the timeframe is based.
    */
   "timezone"?: string;
 
