@@ -2751,6 +2751,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OpsgenieServiceResponse",
     },
+    "v2.ListCloudflareAccounts": {
+        "operationResponseType": "CloudflareAccountsResponse",
+    },
+    "v2.CreateCloudflareAccount": {
+        "body": {
+            "type": "CloudflareAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudflareAccountResponse",
+    },
+    "v2.DeleteCloudflareAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetCloudflareAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CloudflareAccountResponse",
+    },
+    "v2.UpdateCloudflareAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CloudflareAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudflareAccountResponse",
+    },
     "v2.ListConfluentAccount": {
         "operationResponseType": "ConfluentAccountsResponse",
     },
