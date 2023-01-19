@@ -89,6 +89,16 @@ import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurit
 import { CloudWorkloadSecurityAgentRuleUpdateRequest } from "./CloudWorkloadSecurityAgentRuleUpdateRequest";
 import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 import { CloudWorkloadSecurityAgentRulesListResponse } from "./CloudWorkloadSecurityAgentRulesListResponse";
+import { CloudflareAccountCreateRequest } from "./CloudflareAccountCreateRequest";
+import { CloudflareAccountCreateRequestAttributes } from "./CloudflareAccountCreateRequestAttributes";
+import { CloudflareAccountCreateRequestData } from "./CloudflareAccountCreateRequestData";
+import { CloudflareAccountResponse } from "./CloudflareAccountResponse";
+import { CloudflareAccountResponseAttributes } from "./CloudflareAccountResponseAttributes";
+import { CloudflareAccountResponseData } from "./CloudflareAccountResponseData";
+import { CloudflareAccountUpdateRequest } from "./CloudflareAccountUpdateRequest";
+import { CloudflareAccountUpdateRequestAttributes } from "./CloudflareAccountUpdateRequestAttributes";
+import { CloudflareAccountUpdateRequestData } from "./CloudflareAccountUpdateRequestData";
+import { CloudflareAccountsResponse } from "./CloudflareAccountsResponse";
 import { ConfluentAccountCreateRequest } from "./ConfluentAccountCreateRequest";
 import { ConfluentAccountCreateRequestAttributes } from "./ConfluentAccountCreateRequestAttributes";
 import { ConfluentAccountCreateRequestData } from "./ConfluentAccountCreateRequestData";
@@ -673,6 +683,7 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppTestEventTypeName: ["citest"],
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
+  CloudflareAccountType: ["cloudflare-accounts"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
   ConfluentResourceType: ["confluent-cloud-resources"],
   ContentEncoding: ["identity", "gzip", "deflate"],
@@ -1036,6 +1047,18 @@ const typeMap: { [index: string]: any } = {
     CloudWorkloadSecurityAgentRuleUpdaterAttributes,
   CloudWorkloadSecurityAgentRulesListResponse:
     CloudWorkloadSecurityAgentRulesListResponse,
+  CloudflareAccountCreateRequest: CloudflareAccountCreateRequest,
+  CloudflareAccountCreateRequestAttributes:
+    CloudflareAccountCreateRequestAttributes,
+  CloudflareAccountCreateRequestData: CloudflareAccountCreateRequestData,
+  CloudflareAccountResponse: CloudflareAccountResponse,
+  CloudflareAccountResponseAttributes: CloudflareAccountResponseAttributes,
+  CloudflareAccountResponseData: CloudflareAccountResponseData,
+  CloudflareAccountUpdateRequest: CloudflareAccountUpdateRequest,
+  CloudflareAccountUpdateRequestAttributes:
+    CloudflareAccountUpdateRequestAttributes,
+  CloudflareAccountUpdateRequestData: CloudflareAccountUpdateRequestData,
+  CloudflareAccountsResponse: CloudflareAccountsResponse,
   ConfluentAccountCreateRequest: ConfluentAccountCreateRequest,
   ConfluentAccountCreateRequestAttributes:
     ConfluentAccountCreateRequestAttributes,

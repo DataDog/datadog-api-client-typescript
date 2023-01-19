@@ -36,6 +36,14 @@ export {
 } from "./apis/CloudWorkloadSecurityApi";
 
 export {
+  CloudflareIntegrationApiCreateCloudflareAccountRequest,
+  CloudflareIntegrationApiDeleteCloudflareAccountRequest,
+  CloudflareIntegrationApiGetCloudflareAccountRequest,
+  CloudflareIntegrationApiUpdateCloudflareAccountRequest,
+  CloudflareIntegrationApi,
+} from "./apis/CloudflareIntegrationApi";
+
+export {
   ConfluentCloudApiCreateConfluentAccountRequest,
   ConfluentCloudApiCreateConfluentResourceRequest,
   ConfluentCloudApiDeleteConfluentAccountRequest,
@@ -375,6 +383,17 @@ export { CloudConfigurationRuleComplianceSignalOptions } from "./models/CloudCon
 export { CloudConfigurationRuleCreatePayload } from "./models/CloudConfigurationRuleCreatePayload";
 export { CloudConfigurationRuleOptions } from "./models/CloudConfigurationRuleOptions";
 export { CloudConfigurationRuleType } from "./models/CloudConfigurationRuleType";
+export { CloudflareAccountCreateRequest } from "./models/CloudflareAccountCreateRequest";
+export { CloudflareAccountCreateRequestAttributes } from "./models/CloudflareAccountCreateRequestAttributes";
+export { CloudflareAccountCreateRequestData } from "./models/CloudflareAccountCreateRequestData";
+export { CloudflareAccountResponse } from "./models/CloudflareAccountResponse";
+export { CloudflareAccountResponseAttributes } from "./models/CloudflareAccountResponseAttributes";
+export { CloudflareAccountResponseData } from "./models/CloudflareAccountResponseData";
+export { CloudflareAccountsResponse } from "./models/CloudflareAccountsResponse";
+export { CloudflareAccountType } from "./models/CloudflareAccountType";
+export { CloudflareAccountUpdateRequest } from "./models/CloudflareAccountUpdateRequest";
+export { CloudflareAccountUpdateRequestAttributes } from "./models/CloudflareAccountUpdateRequestAttributes";
+export { CloudflareAccountUpdateRequestData } from "./models/CloudflareAccountUpdateRequestData";
 export { CloudWorkloadSecurityAgentRuleAttributes } from "./models/CloudWorkloadSecurityAgentRuleAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./models/CloudWorkloadSecurityAgentRuleCreateAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateData } from "./models/CloudWorkloadSecurityAgentRuleCreateData";
