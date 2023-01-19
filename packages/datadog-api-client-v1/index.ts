@@ -585,6 +585,7 @@ export { MonitorGroupSearchResponseCounts } from "./models/MonitorGroupSearchRes
 export { MonitorGroupSearchResult } from "./models/MonitorGroupSearchResult";
 export { MonitorOptions } from "./models/MonitorOptions";
 export { MonitorOptionsAggregation } from "./models/MonitorOptionsAggregation";
+export { MonitorOptionsNotificationPresets } from "./models/MonitorOptionsNotificationPresets";
 export { MonitorOptionsSchedulingOptions } from "./models/MonitorOptionsSchedulingOptions";
 export { MonitorOptionsSchedulingOptionsEvaluationWindow } from "./models/MonitorOptionsSchedulingOptionsEvaluationWindow";
 export { MonitorOverallStates } from "./models/MonitorOverallStates";

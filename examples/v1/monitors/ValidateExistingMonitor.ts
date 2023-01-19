@@ -30,6 +30,7 @@ const params: v1.MonitorsApiValidateExistingMonitorRequest = {
       notifyAudit: false,
       notifyNoData: false,
       onMissingData: "show_and_notify_no_data",
+      notificationPresetName: "hide_handles",
       renotifyInterval: 60,
       requireFullWindow: true,
       timeoutH: 24,

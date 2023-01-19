@@ -6,6 +6,7 @@
 import { MonitorDeviceID } from "./MonitorDeviceID";
 import { MonitorFormulaAndFunctionQueryDefinition } from "./MonitorFormulaAndFunctionQueryDefinition";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
+import { MonitorOptionsNotificationPresets } from "./MonitorOptionsNotificationPresets";
 import { MonitorOptionsSchedulingOptions } from "./MonitorOptionsSchedulingOptions";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholds } from "./MonitorThresholds";
@@ -102,6 +103,10 @@ export class MonitorOptions {
    * If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
    */
   "noDataTimeframe"?: number;
+  /**
+   * Toggles the display of additional content sent in the monitor notification.
+   */
+  "notificationPresetName"?: MonitorOptionsNotificationPresets;
   /**
    * A Boolean indicating whether tagged users is notified on changes to this monitor.
    */
@@ -249,6 +254,10 @@ export class MonitorOptions {
       baseName: "no_data_timeframe",
       type: "number",
       format: "int64",
+    },
+    notificationPresetName: {
+      baseName: "notification_preset_name",
+      type: "MonitorOptionsNotificationPresets",
     },
     notifyAudit: {
       baseName: "notify_audit",
