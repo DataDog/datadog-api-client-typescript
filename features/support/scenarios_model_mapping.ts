@@ -2876,6 +2876,96 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ConfluentResourceResponse",
     },
+    "v2.ListFastlyAccounts": {
+        "operationResponseType": "FastlyAccountsResponse",
+    },
+    "v2.CreateFastlyAccount": {
+        "body": {
+            "type": "FastlyAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "FastlyAccountResponse",
+    },
+    "v2.DeleteFastlyAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetFastlyAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FastlyAccountResponse",
+    },
+    "v2.UpdateFastlyAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "FastlyAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "FastlyAccountResponse",
+    },
+    "v2.ListFastlyServices": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FastlyServicesResponse",
+    },
+    "v2.CreateFastlyService": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "FastlyServiceRequest",
+            "format": "",
+            },
+        "operationResponseType": "FastlyServiceResponse",
+    },
+    "v2.DeleteFastlyService": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "serviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetFastlyService": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "serviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "FastlyServiceResponse",
+    },
+    "v2.UpdateFastlyService": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "serviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "FastlyServiceRequest",
+            "format": "",
+            },
+        "operationResponseType": "FastlyServiceResponse",
+    },
     "v2.SubmitLog": {
         "contentEncoding": {
             "type": "ContentEncoding",

@@ -150,6 +150,22 @@ import { EventsScalarQuery } from "./EventsScalarQuery";
 import { EventsSearch } from "./EventsSearch";
 import { EventsTimeseriesQuery } from "./EventsTimeseriesQuery";
 import { EventsWarning } from "./EventsWarning";
+import { FastlyAccounResponseAttributes } from "./FastlyAccounResponseAttributes";
+import { FastlyAccountCreateRequest } from "./FastlyAccountCreateRequest";
+import { FastlyAccountCreateRequestAttributes } from "./FastlyAccountCreateRequestAttributes";
+import { FastlyAccountCreateRequestData } from "./FastlyAccountCreateRequestData";
+import { FastlyAccountResponse } from "./FastlyAccountResponse";
+import { FastlyAccountResponseData } from "./FastlyAccountResponseData";
+import { FastlyAccountUpdateRequest } from "./FastlyAccountUpdateRequest";
+import { FastlyAccountUpdateRequestAttributes } from "./FastlyAccountUpdateRequestAttributes";
+import { FastlyAccountUpdateRequestData } from "./FastlyAccountUpdateRequestData";
+import { FastlyAccountsResponse } from "./FastlyAccountsResponse";
+import { FastlyService } from "./FastlyService";
+import { FastlyServiceAttributes } from "./FastlyServiceAttributes";
+import { FastlyServiceData } from "./FastlyServiceData";
+import { FastlyServiceRequest } from "./FastlyServiceRequest";
+import { FastlyServiceResponse } from "./FastlyServiceResponse";
+import { FastlyServicesResponse } from "./FastlyServicesResponse";
 import { FormulaLimit } from "./FormulaLimit";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
@@ -723,6 +739,8 @@ const enumsMap: { [key: string]: any[] } = {
   EventsDataSource: ["logs"],
   EventsSort: ["timestamp", "-timestamp"],
   EventsSortType: ["alphabetical", "measure"],
+  FastlyAccountType: ["fastly-accounts"],
+  FastlyServiceType: ["fastly-services"],
   HourlyUsageType: [
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
@@ -1112,6 +1130,22 @@ const typeMap: { [index: string]: any } = {
   EventsSearch: EventsSearch,
   EventsTimeseriesQuery: EventsTimeseriesQuery,
   EventsWarning: EventsWarning,
+  FastlyAccounResponseAttributes: FastlyAccounResponseAttributes,
+  FastlyAccountCreateRequest: FastlyAccountCreateRequest,
+  FastlyAccountCreateRequestAttributes: FastlyAccountCreateRequestAttributes,
+  FastlyAccountCreateRequestData: FastlyAccountCreateRequestData,
+  FastlyAccountResponse: FastlyAccountResponse,
+  FastlyAccountResponseData: FastlyAccountResponseData,
+  FastlyAccountUpdateRequest: FastlyAccountUpdateRequest,
+  FastlyAccountUpdateRequestAttributes: FastlyAccountUpdateRequestAttributes,
+  FastlyAccountUpdateRequestData: FastlyAccountUpdateRequestData,
+  FastlyAccountsResponse: FastlyAccountsResponse,
+  FastlyService: FastlyService,
+  FastlyServiceAttributes: FastlyServiceAttributes,
+  FastlyServiceData: FastlyServiceData,
+  FastlyServiceRequest: FastlyServiceRequest,
+  FastlyServiceResponse: FastlyServiceResponse,
+  FastlyServicesResponse: FastlyServicesResponse,
   FormulaLimit: FormulaLimit,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
