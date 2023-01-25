@@ -18,6 +18,8 @@ const params: v2.SensitiveDataScannerApiCreateScanningRuleRequest = {
       attributes: {
         name: "Example-Create_Scanning_Rule_returns_OK_response",
         pattern: "pattern",
+        namespaces: ["admin"],
+        excludedNamespaces: ["admin.name"],
         textReplacement: {
           type: "none",
         },
