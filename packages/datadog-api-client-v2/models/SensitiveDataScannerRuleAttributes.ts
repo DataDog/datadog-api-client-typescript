@@ -16,9 +16,9 @@ export class SensitiveDataScannerRuleAttributes {
    */
   "description"?: string;
   /**
-   * Attributes excluded from the scan.
+   * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
    */
-  "excludedAttributes"?: Array<string>;
+  "excludedNamespaces"?: Array<string>;
   /**
    * Whether or not the rule is enabled.
    */
@@ -27,6 +27,11 @@ export class SensitiveDataScannerRuleAttributes {
    * Name of the rule.
    */
   "name"?: string;
+  /**
+   * Attributes included in the scan. If namespaces is empty or missing, all attributes except excluded_namespaces are scanned.
+   * If both are missing the whole event is scanned.
+   */
+  "namespaces"?: Array<string>;
   /**
    * Not included if there is a relationship to a standard pattern.
    */
@@ -53,8 +58,8 @@ export class SensitiveDataScannerRuleAttributes {
       baseName: "description",
       type: "string",
     },
-    excludedAttributes: {
-      baseName: "excluded_attributes",
+    excludedNamespaces: {
+      baseName: "excluded_namespaces",
       type: "Array<string>",
     },
     isEnabled: {
@@ -64,6 +69,10 @@ export class SensitiveDataScannerRuleAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    namespaces: {
+      baseName: "namespaces",
+      type: "Array<string>",
     },
     pattern: {
       baseName: "pattern",
