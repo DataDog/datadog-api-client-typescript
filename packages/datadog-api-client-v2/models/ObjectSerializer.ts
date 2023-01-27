@@ -342,6 +342,18 @@ import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
 import { MetricsScalarQuery } from "./MetricsScalarQuery";
 import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
+import { MonitorConfigPolicyAttributeCreateRequest } from "./MonitorConfigPolicyAttributeCreateRequest";
+import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAttributeEditRequest";
+import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
+import { MonitorConfigPolicyCreateData } from "./MonitorConfigPolicyCreateData";
+import { MonitorConfigPolicyCreateRequest } from "./MonitorConfigPolicyCreateRequest";
+import { MonitorConfigPolicyEditData } from "./MonitorConfigPolicyEditData";
+import { MonitorConfigPolicyEditRequest } from "./MonitorConfigPolicyEditRequest";
+import { MonitorConfigPolicyListResponse } from "./MonitorConfigPolicyListResponse";
+import { MonitorConfigPolicyResponse } from "./MonitorConfigPolicyResponse";
+import { MonitorConfigPolicyResponseData } from "./MonitorConfigPolicyResponseData";
+import { MonitorConfigPolicyTagPolicy } from "./MonitorConfigPolicyTagPolicy";
+import { MonitorConfigPolicyTagPolicyCreateRequest } from "./MonitorConfigPolicyTagPolicyCreateRequest";
 import { MonitorType } from "./MonitorType";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
@@ -811,6 +823,8 @@ const enumsMap: { [key: string]: any[] } = {
   MetricType: ["metrics"],
   MetricsAggregator: ["avg", "min", "max", "sum", "last"],
   MetricsDataSource: ["metrics"],
+  MonitorConfigPolicyResourceType: ["monitor-config-policy"],
+  MonitorConfigPolicyType: ["tag"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
   OrganizationsType: ["orgs"],
@@ -1335,6 +1349,21 @@ const typeMap: { [index: string]: any } = {
     MetricsAndMetricTagConfigurationsResponse,
   MetricsScalarQuery: MetricsScalarQuery,
   MetricsTimeseriesQuery: MetricsTimeseriesQuery,
+  MonitorConfigPolicyAttributeCreateRequest:
+    MonitorConfigPolicyAttributeCreateRequest,
+  MonitorConfigPolicyAttributeEditRequest:
+    MonitorConfigPolicyAttributeEditRequest,
+  MonitorConfigPolicyAttributeResponse: MonitorConfigPolicyAttributeResponse,
+  MonitorConfigPolicyCreateData: MonitorConfigPolicyCreateData,
+  MonitorConfigPolicyCreateRequest: MonitorConfigPolicyCreateRequest,
+  MonitorConfigPolicyEditData: MonitorConfigPolicyEditData,
+  MonitorConfigPolicyEditRequest: MonitorConfigPolicyEditRequest,
+  MonitorConfigPolicyListResponse: MonitorConfigPolicyListResponse,
+  MonitorConfigPolicyResponse: MonitorConfigPolicyResponse,
+  MonitorConfigPolicyResponseData: MonitorConfigPolicyResponseData,
+  MonitorConfigPolicyTagPolicy: MonitorConfigPolicyTagPolicy,
+  MonitorConfigPolicyTagPolicyCreateRequest:
+    MonitorConfigPolicyTagPolicyCreateRequest,
   MonitorType: MonitorType,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
@@ -1694,6 +1723,10 @@ const oneOfMap: { [index: string]: string[] } = {
   LogsGroupByTotal: ["boolean", "string", "number"],
   MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
   MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
+  MonitorConfigPolicyPolicy: ["MonitorConfigPolicyTagPolicy"],
+  MonitorConfigPolicyPolicyCreateRequest: [
+    "MonitorConfigPolicyTagPolicyCreateRequest",
+  ],
   RUMAggregateBucketValue: [
     "string",
     "number",
