@@ -131,6 +131,7 @@ import { DashboardListItemResponse } from "./DashboardListItemResponse";
 import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
+import { DataScalarColumn } from "./DataScalarColumn";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventResponse } from "./EventResponse";
@@ -171,6 +172,7 @@ import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
+import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
 import { HTTPLogItem } from "./HTTPLogItem";
@@ -458,12 +460,12 @@ import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
-import { ScalarColumn } from "./ScalarColumn";
 import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "./ScalarFormulaQueryResponse";
 import { ScalarFormulaRequest } from "./ScalarFormulaRequest";
 import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes";
 import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
+import { ScalarMeta } from "./ScalarMeta";
 import { ScalarResponse } from "./ScalarResponse";
 import { SecurityFilter } from "./SecurityFilter";
 import { SecurityFilterAttributes } from "./SecurityFilterAttributes";
@@ -1125,6 +1127,7 @@ const typeMap: { [index: string]: any } = {
   DashboardListItems: DashboardListItems,
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
+  DataScalarColumn: DataScalarColumn,
   Event: Event,
   EventAttributes: EventAttributes,
   EventResponse: EventResponse,
@@ -1165,6 +1168,7 @@ const typeMap: { [index: string]: any } = {
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
+  GroupScalarColumn: GroupScalarColumn,
   HTTPLogError: HTTPLogError,
   HTTPLogErrors: HTTPLogErrors,
   HTTPLogItem: HTTPLogItem,
@@ -1472,12 +1476,12 @@ const typeMap: { [index: string]: any } = {
   RolesResponse: RolesResponse,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
-  ScalarColumn: ScalarColumn,
   ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
   ScalarFormulaQueryResponse: ScalarFormulaQueryResponse,
   ScalarFormulaRequest: ScalarFormulaRequest,
   ScalarFormulaRequestAttributes: ScalarFormulaRequestAttributes,
   ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
+  ScalarMeta: ScalarMeta,
   ScalarResponse: ScalarResponse,
   SecurityFilter: SecurityFilter,
   SecurityFilterAttributes: SecurityFilterAttributes,
@@ -1734,6 +1738,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   RUMGroupByMissing: ["string", "number"],
   RUMGroupByTotal: ["boolean", "string", "number"],
+  ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
   SecurityMonitoringRuleCreatePayload: [
     "SecurityMonitoringStandardRuleCreatePayload",
