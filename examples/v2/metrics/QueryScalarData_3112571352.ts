@@ -1,44 +1,45 @@
 /**
- * Query timeseries data across multiple products returns "OK" response
+ * Scalar cross product query returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.queryTimeseriesData"] = true;
+configuration.unstableOperations["v2.queryScalarData"] = true;
 const apiInstance = new v2.MetricsApi(configuration);
 
-const params: v2.MetricsApiQueryTimeseriesDataRequest = {
+const params: v2.MetricsApiQueryScalarDataRequest = {
   body: {
     data: {
       attributes: {
         formulas: [
           {
-            formula: "a+b",
+            formula: "a",
             limit: {
               count: 10,
               order: "desc",
             },
           },
         ],
-        from: 1568899800000,
-        interval: 5000,
+        from: 1671612804000,
         queries: [
           {
+            aggregator: "avg",
             dataSource: "metrics",
-            query: "avg:system.cpu.user{*} by {env}",
+            query: "avg:system.cpu.user{*}",
+            name: "a",
           },
         ],
-        to: 1568923200000,
+        to: 1671620004000,
       },
-      type: "timeseries_request",
+      type: "scalar_request",
     },
   },
 };
 
 apiInstance
-  .queryTimeseriesData(params)
-  .then((data: v2.TimeseriesFormulaQueryResponse) => {
+  .queryScalarData(params)
+  .then((data: v2.ScalarFormulaQueryResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

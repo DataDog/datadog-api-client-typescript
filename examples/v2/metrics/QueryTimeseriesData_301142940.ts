@@ -1,5 +1,5 @@
 /**
- * Query timeseries data across multiple products returns "OK" response
+ * Timeseries cross product query returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -14,22 +14,23 @@ const params: v2.MetricsApiQueryTimeseriesDataRequest = {
       attributes: {
         formulas: [
           {
-            formula: "a+b",
+            formula: "a",
             limit: {
               count: 10,
               order: "desc",
             },
           },
         ],
-        from: 1568899800000,
+        from: 1671612804000,
         interval: 5000,
         queries: [
           {
             dataSource: "metrics",
-            query: "avg:system.cpu.user{*} by {env}",
+            query: "avg:system.cpu.user{*}",
+            name: "a",
           },
         ],
-        to: 1568923200000,
+        to: 1671620004000,
       },
       type: "timeseries_request",
     },

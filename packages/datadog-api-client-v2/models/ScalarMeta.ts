@@ -3,18 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScalarColumn } from "./ScalarColumn";
+import { Unit } from "./Unit";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The object describing a scalar response.
+ * Metadata for the resulting numerical values.
  */
-export class ScalarFormulaResponseAtrributes {
+export class ScalarMeta {
   /**
-   * List of response columns, each corresponding to an individual formula or query in the request and with values in parallel arrays matching the series list.
+   * Detailed information about the unit.
+   * First element describes the "primary unit" (for example, `bytes` in `bytes per second`).
+   * The second element describes the "per unit" (for example, `second` in `bytes per second`).
+   * If the second element is not present, the API returns null.
    */
-  "columns"?: Array<ScalarColumn>;
+  "unit"?: Array<Unit>;
 
   /**
    * @ignore
@@ -25,9 +28,9 @@ export class ScalarFormulaResponseAtrributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    columns: {
-      baseName: "columns",
-      type: "Array<ScalarColumn>",
+    unit: {
+      baseName: "unit",
+      type: "Array<Unit>",
     },
   };
 
@@ -35,7 +38,7 @@ export class ScalarFormulaResponseAtrributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarFormulaResponseAtrributes.attributeTypeMap;
+    return ScalarMeta.attributeTypeMap;
   }
 
   public constructor() {}

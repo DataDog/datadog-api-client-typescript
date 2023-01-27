@@ -1,5 +1,5 @@
 /**
- * Scalar cross product query returns "OK" response
+ * Query scalar data across multiple products returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -14,23 +14,22 @@ const params: v2.MetricsApiQueryScalarDataRequest = {
       attributes: {
         formulas: [
           {
-            formula: "a",
+            formula: "a+b",
             limit: {
               count: 10,
               order: "desc",
             },
           },
         ],
-        from: 1671612804000,
+        from: 1568899800000,
         queries: [
           {
             aggregator: "avg",
             dataSource: "metrics",
-            query: "avg:system.cpu.user{*}",
-            name: "a",
+            query: "avg:system.cpu.user{*} by {env}",
           },
         ],
-        to: 1671620004000,
+        to: 1568923200000,
       },
       type: "scalar_request",
     },
