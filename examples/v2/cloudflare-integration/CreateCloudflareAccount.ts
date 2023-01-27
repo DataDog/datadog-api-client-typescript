@@ -13,7 +13,7 @@ const params: v2.CloudflareIntegrationApiCreateCloudflareAccountRequest = {
       attributes: {
         apiKey: "6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu",
         email: "new@email",
-        name: "test-name",
+        name: "exampleaddcloudflareaccountreturnscreatedresponse",
       },
       type: "cloudflare-accounts",
     },
