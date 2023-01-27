@@ -21,8 +21,8 @@ const params: v1.ServiceLevelObjectivesApiCreateSLORequest = {
     tags: ["env:prod", "app:core"],
     thresholds: [
       {
-        target: 95.0,
-        targetDisplay: "95.0",
+        target: 97.0,
+        targetDisplay: "97.0",
         timeframe: "7d",
         warning: 98,
         warningDisplay: "98.0",
