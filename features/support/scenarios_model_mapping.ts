@@ -3297,6 +3297,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IntakePayloadAccepted",
     },
+    "v2.ListMonitorConfigPolicies": {
+        "operationResponseType": "MonitorConfigPolicyListResponse",
+    },
+    "v2.CreateMonitorConfigPolicy": {
+        "body": {
+            "type": "MonitorConfigPolicyCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "MonitorConfigPolicyResponse",
+    },
+    "v2.DeleteMonitorConfigPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetMonitorConfigPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MonitorConfigPolicyResponse",
+    },
+    "v2.UpdateMonitorConfigPolicy": {
+        "policyId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MonitorConfigPolicyEditRequest",
+            "format": "",
+            },
+        "operationResponseType": "MonitorConfigPolicyResponse",
+    },
     "v2.ListPermissions": {
         "operationResponseType": "PermissionsResponse",
     },
