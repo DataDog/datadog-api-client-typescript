@@ -15,6 +15,7 @@ interface iOperationParameter {
 }
 
 interface iUndo {
+  tags: string[];
   type: "safe" | "unsafe" | "idempotent";
   operationId: string;
   parameters: iOperationParameter[];
@@ -44,8 +45,10 @@ function buildUndoFor(
   response: any
 ): { (): void } {
   return async function () {
-    const apiName = operationUndo.tag.replace(/\s/g, "");
-    const operationName = operationUndo.undo.operationId.toOperationName();
+    var apiName = operationUndo.tag.replace(/\s/g, "");
+    if (operationUndo.undo.tags != null) {
+      apiName = operationUndo.undo.tags[0]
+    }    const operationName = operationUndo.undo.operationId.toOperationName();
 
     const api = getProperty(datadogApiClient, apiVersion);
     const configurationOpts = {
