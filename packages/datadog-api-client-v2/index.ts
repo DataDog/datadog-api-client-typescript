@@ -261,6 +261,7 @@ export {
 } from "./apis/SensitiveDataScannerApi";
 
 export {
+  ServiceAccountsApiCreateServiceAccountRequest,
   ServiceAccountsApiCreateServiceAccountApplicationKeyRequest,
   ServiceAccountsApiDeleteServiceAccountApplicationKeyRequest,
   ServiceAccountsApiGetServiceAccountApplicationKeyRequest,
@@ -288,7 +289,6 @@ export {
 } from "./apis/UsageMeteringApi";
 
 export {
-  UsersApiCreateServiceAccountRequest,
   UsersApiCreateUserRequest,
   UsersApiDisableUserRequest,
   UsersApiGetInvitationRequest,
