@@ -47,7 +47,7 @@ function buildUndoFor(
   return async function () {
     var apiName = operationUndo.tag.replace(/\s/g, "");
     if (operationUndo.undo.tag != null) {
-      apiName = operationUndo.undo.tag
+      apiName = operationUndo.undo.tag.replace(/\s/g, "");
     }
     const operationName = operationUndo.undo.operationId.toOperationName();
 
