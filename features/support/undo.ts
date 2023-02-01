@@ -15,7 +15,7 @@ interface iOperationParameter {
 }
 
 interface iUndo {
-  tags: string[];
+  tag: string;
   type: "safe" | "unsafe" | "idempotent";
   operationId: string;
   parameters: iOperationParameter[];
@@ -46,8 +46,8 @@ function buildUndoFor(
 ): { (): void } {
   return async function () {
     var apiName = operationUndo.tag.replace(/\s/g, "");
-    if (operationUndo.undo.tags != null) {
-      apiName = operationUndo.undo.tags[0]
+    if (operationUndo.undo.tag != null) {
+      apiName = operationUndo.undo.tag
     }
     const operationName = operationUndo.undo.operationId.toOperationName();
 
