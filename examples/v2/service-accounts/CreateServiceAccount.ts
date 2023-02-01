@@ -5,12 +5,12 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-const apiInstance = new v2.UsersApi(configuration);
+const apiInstance = new v2.ServiceAccountsApi(configuration);
 
 // there is a valid "role" in the system
 const ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
 
-const params: v2.UsersApiCreateServiceAccountRequest = {
+const params: v2.ServiceAccountsApiCreateServiceAccountRequest = {
   body: {
     data: {
       type: "users",
