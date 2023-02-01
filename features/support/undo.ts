@@ -48,7 +48,8 @@ function buildUndoFor(
     var apiName = operationUndo.tag.replace(/\s/g, "");
     if (operationUndo.undo.tags != null) {
       apiName = operationUndo.undo.tags[0]
-    }    const operationName = operationUndo.undo.operationId.toOperationName();
+    }
+    const operationName = operationUndo.undo.operationId.toOperationName();
 
     const api = getProperty(datadogApiClient, apiVersion);
     const configurationOpts = {
