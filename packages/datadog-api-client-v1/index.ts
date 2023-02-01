@@ -678,6 +678,9 @@ export { QueryValueWidgetDefinitionType } from "./models/QueryValueWidgetDefinit
 export { QueryValueWidgetRequest } from "./models/QueryValueWidgetRequest";
 export { ReferenceTableLogsLookupProcessor } from "./models/ReferenceTableLogsLookupProcessor";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
+export { RunWorkflowWidgetDefinition } from "./models/RunWorkflowWidgetDefinition";
+export { RunWorkflowWidgetDefinitionType } from "./models/RunWorkflowWidgetDefinitionType";
+export { RunWorkflowWidgetInput } from "./models/RunWorkflowWidgetInput";
 export { ScatterplotDimension } from "./models/ScatterplotDimension";
 export { ScatterPlotRequest } from "./models/ScatterPlotRequest";
 export { ScatterplotTableRequest } from "./models/ScatterplotTableRequest";
