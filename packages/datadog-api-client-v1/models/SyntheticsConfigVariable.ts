@@ -28,7 +28,7 @@ export class SyntheticsConfigVariable {
    */
   "pattern"?: string;
   /**
-   * Whether the value of this variable will be obfuscated in test results.
+   * Whether the value of this variable will be obfuscated in test results. Only for config variables of type `text`.
    */
   "secure"?: boolean;
   /**
