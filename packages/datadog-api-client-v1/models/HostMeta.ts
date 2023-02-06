@@ -38,7 +38,7 @@ export class HostMeta {
   /**
    * An array of Mac versions.
    */
-  "macV"?: Array<string>;
+  "macV"?: Array<any>;
   /**
    * The machine architecture.
    */
@@ -108,7 +108,7 @@ export class HostMeta {
     },
     macV: {
       baseName: "macV",
-      type: "Array<string>",
+      type: "Array<any>",
     },
     machine: {
       baseName: "machine",
