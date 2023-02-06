@@ -28,6 +28,10 @@ export class CostByOrgAttributes {
    */
   "publicId"?: string;
   /**
+   * The region of the Datadog instance that the organization belongs to.
+   */
+  "region"?: string;
+  /**
    * The total cost of products for the month.
    */
   "totalCost"?: number;
@@ -56,6 +60,10 @@ export class CostByOrgAttributes {
     },
     publicId: {
       baseName: "public_id",
+      type: "string",
+    },
+    region: {
+      baseName: "region",
       type: "string",
     },
     totalCost: {
