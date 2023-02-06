@@ -18,6 +18,7 @@ export type SecurityMonitoringRuleQueryAggregation =
   | typeof NEW_VALUE
   | typeof GEO_DATA
   | typeof EVENT_COUNT
+  | typeof NONE
   | UnparsedObject;
 export const COUNT = "count";
 export const CARDINALITY = "cardinality";
@@ -26,3 +27,4 @@ export const MAX = "max";
 export const NEW_VALUE = "new_value";
 export const GEO_DATA = "geo_data";
 export const EVENT_COUNT = "event_count";
+export const NONE = "none";

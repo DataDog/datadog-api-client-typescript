@@ -878,6 +878,7 @@ const enumsMap: { [key: string]: any[] } = {
     "anomaly_detection",
     "impossible_travel",
     "hardcoded",
+    "third_party",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
     0, 60, 300, 600, 900, 1800, 3600, 7200,
@@ -904,6 +905,7 @@ const enumsMap: { [key: string]: any[] } = {
     "new_value",
     "geo_data",
     "event_count",
+    "none",
   ],
   SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
   SecurityMonitoringRuleTypeCreate: ["log_detection", "workload_security"],
