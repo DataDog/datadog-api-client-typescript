@@ -265,8 +265,6 @@ import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
 import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
-import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
-import { RunWorkflowWidgetInput } from "./RunWorkflowWidgetInput";
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
 import { SLOBulkDeleteResponse } from "./SLOBulkDeleteResponse";
 import { SLOBulkDeleteResponseData } from "./SLOBulkDeleteResponseData";
@@ -913,7 +911,6 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   QuerySortOrder: ["asc", "desc"],
   QueryValueWidgetDefinitionType: ["query_value"],
-  RunWorkflowWidgetDefinitionType: ["run_workflow"],
   SLOCorrectionCategory: [
     "Scheduled Maintenance",
     "Outside Business Hours",
@@ -1662,8 +1659,6 @@ const typeMap: { [index: string]: any } = {
   QueryValueWidgetRequest: QueryValueWidgetRequest,
   ReferenceTableLogsLookupProcessor: ReferenceTableLogsLookupProcessor,
   ResponseMetaAttributes: ResponseMetaAttributes,
-  RunWorkflowWidgetDefinition: RunWorkflowWidgetDefinition,
-  RunWorkflowWidgetInput: RunWorkflowWidgetInput,
   SLOBulkDeleteError: SLOBulkDeleteError,
   SLOBulkDeleteResponse: SLOBulkDeleteResponse,
   SLOBulkDeleteResponseData: SLOBulkDeleteResponseData,
@@ -2072,7 +2067,6 @@ const oneOfMap: { [index: string]: string[] } = {
     "MonitorSummaryWidgetDefinition",
     "NoteWidgetDefinition",
     "QueryValueWidgetDefinition",
-    "RunWorkflowWidgetDefinition",
     "ScatterPlotWidgetDefinition",
     "SLOWidgetDefinition",
     "SLOListWidgetDefinition",

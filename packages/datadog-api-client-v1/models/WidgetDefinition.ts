@@ -23,7 +23,6 @@ import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { MonitorSummaryWidgetDefinition } from "./MonitorSummaryWidgetDefinition";
 import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
-import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
 import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
@@ -61,7 +60,6 @@ export type WidgetDefinition =
   | MonitorSummaryWidgetDefinition
   | NoteWidgetDefinition
   | QueryValueWidgetDefinition
-  | RunWorkflowWidgetDefinition
   | ScatterPlotWidgetDefinition
   | SLOWidgetDefinition
   | SLOListWidgetDefinition
