@@ -1,3 +1,5 @@
+import { UnparsedObject } from "../../packages/datadog-api-client-common/util";
+
 declare global {
   interface String {
     templated(data: { [key: string]: any }): string;
@@ -68,11 +70,8 @@ function pathLookup(data: any, dottedPath: string): any {
           result = value[part];
         } else if (part.toAttributeName() in value) {
           result = value[part.toAttributeName()];
-        } else if (
-          "unparsedObject" in value &&
-          part in value["unparsedObject"]
-        ) {
-          result = value["unparsedObject"][part];
+        } else if (value instanceof UnparsedObject && part in value["_data"]) {
+          result = value["_data"][part];
         } else {
           throw new Error(
             `${part} not found in ${JSON.stringify(
@@ -81,9 +80,28 @@ function pathLookup(data: any, dottedPath: string): any {
           );
         }
       }
+      if (result instanceof UnparsedObject) {
+        result = result["_data"]
+      }
     }
   }
+
   return result;
+}
+
+function getTypeForValue(pathResult: any): string {
+  let _type: string = "";
+
+  if (pathResult?.constructor?.name) {
+    if (pathResult.constructor?.name == "Array") {
+      if (pathResult[0]?.constructor?.name) {
+        _type = `Array<${pathResult[0].constructor.name}>`
+      }
+    } else {
+      _type = pathResult.constructor.name
+    }
+  }
+  return _type;
 }
 
 String.prototype.templated = function (data: { [key: string]: any }): string {
@@ -120,4 +138,4 @@ function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
   return obj[key];
 }
 
-export { pathLookup, getProperty };
+export { pathLookup, getProperty, getTypeForValue };

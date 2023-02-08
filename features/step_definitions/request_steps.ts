@@ -2,7 +2,7 @@ import { Given, Then, When, AfterAll } from "@cucumber/cucumber";
 import { expect } from "chai";
 import { World } from "../support/world";
 
-import { getProperty, pathLookup } from "../support/templating";
+import { getProperty, pathLookup, getTypeForValue } from "../support/templating";
 import { Store } from "../support/store";
 import { buildUndoFor, UndoActions } from "../support/undo";
 import * as datadogApiClient from "../../index";
@@ -12,6 +12,7 @@ import path from "path";
 import { compressSync } from "zstd.ts";
 import log from "loglevel";
 import { ScenariosModelMappings } from "../support/scenarios_model_mapping";
+import _ from "lodash";
 const logger = log.getLogger("testing")
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
@@ -134,13 +135,6 @@ When("the request is sent", async function (this: World) {
       this.response = await apiInstance[this.operationId.toOperationName()]();
     }
 
-    const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
-    this.response = objectSerializer.serialize(
-      this.response,
-      ScenariosModelMappings[`${this.apiVersion}.${this.operationId}`]["operationResponseType"],
-      "",
-    )
-
     if (undoAction.undo.type == "unsafe") {
       this.undo.push(
         buildUndoFor(
@@ -262,9 +256,16 @@ Then(
 Then(
   /the response "([^"]+)" is equal to (.*)/,
   function (this: World, responsePath: string, value: string) {
-    expect(pathLookup(this.response, responsePath)).to.deep.equal(
-      JSON.parse(value.templated(this.fixtures))
-    );
+    const pathResult = pathLookup(this.response, responsePath)
+    const _type = getTypeForValue(pathResult)
+    const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
+    let templatedFixtureValue = JSON.parse(value.templated(this.fixtures))
+
+    if (_type) {
+      templatedFixtureValue = objectSerializer.deserialize(templatedFixtureValue, _type, "")
+    }
+
+    expect(pathResult).to.deep.equal(templatedFixtureValue);
   }
 );
 
