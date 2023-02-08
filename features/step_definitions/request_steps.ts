@@ -257,10 +257,10 @@ Then(
   function (this: World, responsePath: string, value: string) {
     const pathResult = pathLookup(this.response, responsePath)
     const _type = getTypeForValue(pathResult)
-    const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
     let templatedFixtureValue = JSON.parse(value.templated(this.fixtures))
 
     if (_type) {
+      const objectSerializer = getProperty(datadogApiClient, this.apiVersion).ObjectSerializer;
       templatedFixtureValue = objectSerializer.deserialize(templatedFixtureValue, _type, "")
     }
 
