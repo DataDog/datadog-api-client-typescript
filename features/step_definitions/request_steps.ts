@@ -12,7 +12,6 @@ import path from "path";
 import { compressSync } from "zstd.ts";
 import log from "loglevel";
 import { ScenariosModelMappings } from "../support/scenarios_model_mapping";
-import _ from "lodash";
 const logger = log.getLogger("testing")
 logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
