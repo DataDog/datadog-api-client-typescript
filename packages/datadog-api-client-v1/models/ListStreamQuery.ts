@@ -6,6 +6,7 @@
 import { ListStreamComputeItems } from "./ListStreamComputeItems";
 import { ListStreamGroupByItems } from "./ListStreamGroupByItems";
 import { ListStreamSource } from "./ListStreamSource";
+import { WidgetEventSize } from "./WidgetEventSize";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -21,6 +22,10 @@ export class ListStreamQuery {
    * Source from which to query items to display in the stream.
    */
   "dataSource": ListStreamSource;
+  /**
+   * Size to use to display an event.
+   */
+  "eventSize"?: WidgetEventSize;
   /**
    * Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 3 items) or logs_transaction_stream (one group by item is required) list stream source.
    */
@@ -55,6 +60,10 @@ export class ListStreamQuery {
       baseName: "data_source",
       type: "ListStreamSource",
       required: true,
+    },
+    eventSize: {
+      baseName: "event_size",
+      type: "WidgetEventSize",
     },
     groupBy: {
       baseName: "group_by",
