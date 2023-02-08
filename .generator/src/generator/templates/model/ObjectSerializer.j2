@@ -94,8 +94,6 @@ export class ObjectSerializer {
       } else {
         return data.toISOString();
       }
-    } else if (type === "HttpFile") {
-      return data
     } else {
       if (enumsMap[type]) {
         if (enumsMap[type].includes(data)) {

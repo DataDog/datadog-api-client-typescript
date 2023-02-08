@@ -2278,7 +2278,11 @@ export class ObjectSerializer {
       }
       return transformedData;
     } else if (type === "Date") {
-      return dateFromRFC3339String(data);
+      try {
+        return dateFromRFC3339String(data);
+      } catch {
+        return new Date(data);
+      }
     } else {
       if (enumsMap[type]) {
         if (enumsMap[type].includes(data)) {
