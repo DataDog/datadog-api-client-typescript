@@ -215,6 +215,11 @@ export {
 } from "./apis/RUMApi";
 
 export {
+  RestrictionPoliciesApiGetRestrictionPolicyRequest,
+  RestrictionPoliciesApi,
+} from "./apis/RestrictionPoliciesApi";
+
+export {
   RolesApiAddPermissionToRoleRequest,
   RolesApiAddUserToRoleRequest,
   RolesApiCloneRoleRequest,
@@ -325,6 +330,7 @@ export { ApplicationKeysType } from "./models/ApplicationKeysType";
 export { ApplicationKeyUpdateAttributes } from "./models/ApplicationKeyUpdateAttributes";
 export { ApplicationKeyUpdateData } from "./models/ApplicationKeyUpdateData";
 export { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
+export { Attributes } from "./models/Attributes";
 export { AuditLogsEvent } from "./models/AuditLogsEvent";
 export { AuditLogsEventAttributes } from "./models/AuditLogsEventAttributes";
 export { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
@@ -355,6 +361,7 @@ export { AuthNMappingUpdateAttributes } from "./models/AuthNMappingUpdateAttribu
 export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
+export { Binding } from "./models/Binding";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
@@ -515,6 +522,7 @@ export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
+export { GetRestrictionPolicyResponse } from "./models/GetRestrictionPolicyResponse";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
 export { HourlyUsage } from "./models/HourlyUsage";
 export { HourlyUsageAttributes } from "./models/HourlyUsageAttributes";
@@ -823,6 +831,8 @@ export { RelationshipToUser } from "./models/RelationshipToUser";
 export { RelationshipToUserData } from "./models/RelationshipToUserData";
 export { RelationshipToUsers } from "./models/RelationshipToUsers";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
+export { RestrictionPolicy } from "./models/RestrictionPolicy";
+export { RestrictionPolicyType } from "./models/RestrictionPolicyType";
 export { Role } from "./models/Role";
 export { RoleAttributes } from "./models/RoleAttributes";
 export { RoleClone } from "./models/RoleClone";

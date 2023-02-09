@@ -23,8 +23,6 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof APPSEC_PERCENTAGE
   | typeof BROWSER_USAGE
   | typeof BROWSER_PERCENTAGE
-  | typeof CONTAINER_EXCL_AGENT_USAGE
-  | typeof CONTAINER_EXCL_AGENT_PERCENTAGE
   | typeof CONTAINER_USAGE
   | typeof CONTAINER_PERCENTAGE
   | typeof CSPM_CONTAINERS_PERCENTAGE
@@ -67,6 +65,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof SNMP_PERCENTAGE
   | typeof ESTIMATED_RUM_SESSIONS_USAGE
   | typeof ESTIMATED_RUM_SESSIONS_PERCENTAGE
+  | typeof CONT_USAGE
+  | typeof CONT_PERCENTAGE
   | typeof ALL
   | UnparsedObject;
 export const API_USAGE = "api_usage";
@@ -81,9 +81,6 @@ export const APPSEC_USAGE = "appsec_usage";
 export const APPSEC_PERCENTAGE = "appsec_percentage";
 export const BROWSER_USAGE = "browser_usage";
 export const BROWSER_PERCENTAGE = "browser_percentage";
-export const CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage";
-export const CONTAINER_EXCL_AGENT_PERCENTAGE =
-  "container_excl_agent_percentage";
 export const CONTAINER_USAGE = "container_usage";
 export const CONTAINER_PERCENTAGE = "container_percentage";
 export const CSPM_CONTAINERS_PERCENTAGE = "cspm_containers_percentage";
@@ -131,4 +128,6 @@ export const SNMP_PERCENTAGE = "snmp_percentage";
 export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
 export const ESTIMATED_RUM_SESSIONS_PERCENTAGE =
   "estimated_rum_sessions_percentage";
+export const CONT_USAGE = "cont_usage";
+export const CONT_PERCENTAGE = "cont_percentage";
 export const ALL = "*";

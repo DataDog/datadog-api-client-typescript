@@ -16,6 +16,7 @@ import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { Attributes } from "./Attributes";
 import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventsResponse } from "./AuditLogsEventsResponse";
@@ -40,6 +41,7 @@ import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { Binding } from "./Binding";
 import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucketValueTimeseriesPoint";
 import { CIAppAggregateSort } from "./CIAppAggregateSort";
 import { CIAppCompute } from "./CIAppCompute";
@@ -172,6 +174,7 @@ import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
+import { GetRestrictionPolicyResponse } from "./GetRestrictionPolicyResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
@@ -439,6 +442,7 @@ import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
+import { RestrictionPolicy } from "./RestrictionPolicy";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleClone } from "./RoleClone";
@@ -857,6 +861,7 @@ const enumsMap: { [key: string]: any[] } = {
   RUMResponseStatus: ["done", "timeout"],
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
+  RestrictionPolicyType: ["restriction_policy"],
   RolesSort: [
     "name",
     "-name",
@@ -994,6 +999,7 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  Attributes: Attributes,
   AuditLogsEvent: AuditLogsEvent,
   AuditLogsEventAttributes: AuditLogsEventAttributes,
   AuditLogsEventsResponse: AuditLogsEventsResponse,
@@ -1018,6 +1024,7 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  Binding: Binding,
   CIAppAggregateBucketValueTimeseriesPoint:
     CIAppAggregateBucketValueTimeseriesPoint,
   CIAppAggregateSort: CIAppAggregateSort,
@@ -1170,6 +1177,7 @@ const typeMap: { [index: string]: any } = {
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
+  GetRestrictionPolicyResponse: GetRestrictionPolicyResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPLogError: HTTPLogError,
   HTTPLogErrors: HTTPLogErrors,
@@ -1457,6 +1465,7 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserData: RelationshipToUserData,
   RelationshipToUsers: RelationshipToUsers,
   ResponseMetaAttributes: ResponseMetaAttributes,
+  RestrictionPolicy: RestrictionPolicy,
   Role: Role,
   RoleAttributes: RoleAttributes,
   RoleClone: RoleClone,
