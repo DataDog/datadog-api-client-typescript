@@ -87,6 +87,10 @@ export class UsageSummaryDateOrg {
    */
   "ciVisibilityTestCommittersHwm"?: number;
   /**
+   * Host count average of Cloud Cost Management for the given date and given org.
+   */
+  "cloudCostManagementHostCountAvg"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current date for the given org.
    */
   "containerAvg"?: number;
@@ -412,6 +416,11 @@ export class UsageSummaryDateOrg {
     },
     ciVisibilityTestCommittersHwm: {
       baseName: "ci_visibility_test_committers_hwm",
+      type: "number",
+      format: "int64",
+    },
+    cloudCostManagementHostCountAvg: {
+      baseName: "cloud_cost_management_host_count_avg",
       type: "number",
       format: "int64",
     },
