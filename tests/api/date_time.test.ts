@@ -1,3 +1,4 @@
+import { MonthlyUsageAttributionResponse } from '../../packages/datadog-api-client-v1/models/MonthlyUsageAttributionResponse';
 import { ObjectSerializer as ObjectSerializerV1 } from '../../packages/datadog-api-client-v1/models/ObjectSerializer';
 
 test('TestDeserializationOfInvalidDates', () => {
@@ -38,6 +39,7 @@ test('TestDeserializationOfInvalidDates', () => {
     "");
 
     // Invalid dates should be deserialized into an Invalid Date instance
-    expect(result.usage[0].updatedAt).toBeNaN;
+    expect(result).toBeInstanceOf(MonthlyUsageAttributionResponse)
+    expect(result.usage[0].updatedAt).toBeInstanceOf(Date);
   }
 );
