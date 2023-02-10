@@ -148,7 +148,7 @@ When("the request is sent", async function (this: World) {
     if (error instanceof datadogApiClient.client.ApiException) {
       this.response = error.body;
     } else {
-      this.response = error;
+      throw error;
     }
     logger.debug(error);
     if (this.requestContext === undefined) {
@@ -223,7 +223,7 @@ When("the request with pagination is sent", async function (this: World) {
     if (error instanceof datadogApiClient.client.ApiException) {
       this.response = error.body;
     } else {
-      this.response = error;
+      throw error;
     }
     logger.debug(error);
     if (this.requestContext === undefined) {
