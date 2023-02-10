@@ -115,6 +115,7 @@ import { IPPrefixesAPI } from "./IPPrefixesAPI";
 import { IPPrefixesAPM } from "./IPPrefixesAPM";
 import { IPPrefixesAgents } from "./IPPrefixesAgents";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
+import { IPPrefixesOrchestrator } from "./IPPrefixesOrchestrator";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
@@ -1505,6 +1506,7 @@ const typeMap: { [index: string]: any } = {
   IPPrefixesAPM: IPPrefixesAPM,
   IPPrefixesAgents: IPPrefixesAgents,
   IPPrefixesLogs: IPPrefixesLogs,
+  IPPrefixesOrchestrator: IPPrefixesOrchestrator,
   IPPrefixesProcess: IPPrefixesProcess,
   IPPrefixesSynthetics: IPPrefixesSynthetics,
   IPPrefixesSyntheticsPrivateLocations: IPPrefixesSyntheticsPrivateLocations,
