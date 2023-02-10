@@ -482,6 +482,7 @@ export { IPPrefixesAgents } from "./models/IPPrefixesAgents";
 export { IPPrefixesAPI } from "./models/IPPrefixesAPI";
 export { IPPrefixesAPM } from "./models/IPPrefixesAPM";
 export { IPPrefixesLogs } from "./models/IPPrefixesLogs";
+export { IPPrefixesOrchestrator } from "./models/IPPrefixesOrchestrator";
 export { IPPrefixesProcess } from "./models/IPPrefixesProcess";
 export { IPPrefixesSynthetics } from "./models/IPPrefixesSynthetics";
 export { IPPrefixesSyntheticsPrivateLocations } from "./models/IPPrefixesSyntheticsPrivateLocations";
