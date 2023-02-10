@@ -7,6 +7,7 @@ import { IPPrefixesAgents } from "./IPPrefixesAgents";
 import { IPPrefixesAPI } from "./IPPrefixesAPI";
 import { IPPrefixesAPM } from "./IPPrefixesAPM";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
+import { IPPrefixesOrchestrator } from "./IPPrefixesOrchestrator";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
@@ -38,6 +39,10 @@ export class IPRanges {
    * Date when last updated, in the form `YYYY-MM-DD-hh-mm-ss`.
    */
   "modified"?: string;
+  /**
+   * Available prefix information for the Orchestrator endpoints.
+   */
+  "orchestrator"?: IPPrefixesOrchestrator;
   /**
    * Available prefix information for the Process endpoints.
    */
@@ -87,6 +92,10 @@ export class IPRanges {
     modified: {
       baseName: "modified",
       type: "string",
+    },
+    orchestrator: {
+      baseName: "orchestrator",
+      type: "IPPrefixesOrchestrator",
     },
     process: {
       baseName: "process",
