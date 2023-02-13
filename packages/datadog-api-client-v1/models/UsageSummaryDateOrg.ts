@@ -95,6 +95,10 @@ export class UsageSummaryDateOrg {
    */
   "containerAvg"?: number;
   /**
+   * Shows the average of containers without the Datadog Agent over all hours in the current date for the given organization.
+   */
+  "containerExclAgentAvg"?: number;
+  /**
    * Shows the high-water mark of all distinct containers over all hours in the current date for the given org.
    */
   "containerHwm"?: number;
@@ -426,6 +430,11 @@ export class UsageSummaryDateOrg {
     },
     containerAvg: {
       baseName: "container_avg",
+      type: "number",
+      format: "int64",
+    },
+    containerExclAgentAvg: {
+      baseName: "container_excl_agent_avg",
       type: "number",
       format: "int64",
     },

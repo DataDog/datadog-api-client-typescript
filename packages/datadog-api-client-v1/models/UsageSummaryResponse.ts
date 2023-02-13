@@ -101,6 +101,10 @@ export class UsageSummaryResponse {
    */
   "containerAvgSum"?: number;
   /**
+   * Shows the average of the containers without the Datadog Agent over all hours in the current month for all organizations.
+   */
+  "containerExclAgentAvgSum"?: number;
+  /**
    * Shows the sum of the high-water marks of all distinct containers over all hours in the current months for all organizations.
    */
   "containerHwmSum"?: number;
@@ -461,6 +465,11 @@ export class UsageSummaryResponse {
     },
     containerAvgSum: {
       baseName: "container_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    containerExclAgentAvgSum: {
+      baseName: "container_excl_agent_avg_sum",
       type: "number",
       format: "int64",
     },

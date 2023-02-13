@@ -88,9 +88,17 @@ export class UsageSummaryDate {
    */
   "ciVisibilityTestCommittersHwm"?: number;
   /**
+   * Host count average of Cloud Cost Management for the given date and given organization.
+   */
+  "cloudCostManagementHostCountAvg"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current date for all organizations.
    */
   "containerAvg"?: number;
+  /**
+   * Shows the average of containers without the Datadog Agent over all hours in the current date for all organizations.
+   */
+  "containerExclAgentAvg"?: number;
   /**
    * Shows the high-water mark of all distinct containers over all hours in the current date for all organizations.
    */
@@ -408,8 +416,18 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    cloudCostManagementHostCountAvg: {
+      baseName: "cloud_cost_management_host_count_avg",
+      type: "number",
+      format: "int64",
+    },
     containerAvg: {
       baseName: "container_avg",
+      type: "number",
+      format: "int64",
+    },
+    containerExclAgentAvg: {
+      baseName: "container_excl_agent_avg",
       type: "number",
       format: "int64",
     },
