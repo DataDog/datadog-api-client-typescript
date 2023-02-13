@@ -7,8 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * A data source that is powered by the Metrics backend.
+ * A data source that is powered by the Metrics platform.
  */
 
-export type MetricsDataSource = typeof METRICS | UnparsedObject;
+export type MetricsDataSource =
+  | typeof METRICS
+  | typeof CLOUD_COST
+  | UnparsedObject;
 export const METRICS = "metrics";
+export const CLOUD_COST = "cloud_cost";

@@ -824,7 +824,7 @@ const enumsMap: { [key: string]: any[] } = {
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
   MetricsAggregator: ["avg", "min", "max", "sum", "last"],
-  MetricsDataSource: ["metrics"],
+  MetricsDataSource: ["metrics", "cloud_cost"],
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],

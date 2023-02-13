@@ -17,7 +17,7 @@ export class MetricsScalarQuery {
    */
   "aggregator": MetricsAggregator;
   /**
-   * A data source that is powered by the Metrics backend.
+   * A data source that is powered by the Metrics platform.
    */
   "dataSource": MetricsDataSource;
   /**
