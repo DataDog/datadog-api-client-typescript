@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricsTimeseriesQuery {
   /**
-   * A data source that is powered by the Metrics backend.
+   * A data source that is powered by the Metrics platform.
    */
   "dataSource": MetricsDataSource;
   /**
