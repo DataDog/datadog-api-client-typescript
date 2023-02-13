@@ -93,6 +93,10 @@ export class UsageSummaryResponse {
    */
   "ciVisibilityTestCommittersHwmSum"?: number;
   /**
+   * Sum of the host count average for Cloud Cost Management.
+   */
+  "cloudCostManagementHostCountAvgSum"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current months for all organizations.
    */
   "containerAvgSum"?: number;
@@ -447,6 +451,11 @@ export class UsageSummaryResponse {
     },
     ciVisibilityTestCommittersHwmSum: {
       baseName: "ci_visibility_test_committers_hwm_sum",
+      type: "number",
+      format: "int64",
+    },
+    cloudCostManagementHostCountAvgSum: {
+      baseName: "cloud_cost_management_host_count_avg_sum",
       type: "number",
       format: "int64",
     },
