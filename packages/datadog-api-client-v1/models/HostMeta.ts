@@ -26,7 +26,7 @@ export class HostMeta {
   /**
    * An array of Mac versions.
    */
-  "fbsdV"?: Array<string>;
+  "fbsdV"?: Array<any>;
   /**
    * JSON string containing system information.
    */
@@ -46,7 +46,7 @@ export class HostMeta {
   /**
    * Array of Unix versions.
    */
-  "nixV"?: Array<string>;
+  "nixV"?: Array<any>;
   /**
    * The OS platform.
    */
@@ -70,7 +70,7 @@ export class HostMeta {
   /**
    * An array of Windows versions.
    */
-  "winV"?: Array<string>;
+  "winV"?: Array<any>;
 
   /**
    * @ignore
@@ -96,7 +96,7 @@ export class HostMeta {
     },
     fbsdV: {
       baseName: "fbsdV",
-      type: "Array<string>",
+      type: "Array<any>",
     },
     gohai: {
       baseName: "gohai",
@@ -116,7 +116,7 @@ export class HostMeta {
     },
     nixV: {
       baseName: "nixV",
-      type: "Array<string>",
+      type: "Array<any>",
     },
     platform: {
       baseName: "platform",
@@ -140,7 +140,7 @@ export class HostMeta {
     },
     winV: {
       baseName: "winV",
-      type: "Array<string>",
+      type: "Array<any>",
     },
   };
 
