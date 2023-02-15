@@ -7,6 +7,7 @@ import { SearchSLOQuery } from "./SearchSLOQuery";
 import { SearchSLOThreshold } from "./SearchSLOThreshold";
 import { SLOCreator } from "./SLOCreator";
 import { SLOOverallStatuses } from "./SLOOverallStatuses";
+import { SLOStatus } from "./SLOStatus";
 import { SLOType } from "./SLOType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -81,6 +82,10 @@ export class SearchServiceLevelObjectiveAttributes {
    */
   "sloType"?: SLOType;
   /**
+   * Status of the SLO's primary timeframe.
+   */
+  "status"?: SLOStatus;
+  /**
    * Tags with the `team` tag key.
    */
   "teamTags"?: Array<string>;
@@ -153,6 +158,10 @@ export class SearchServiceLevelObjectiveAttributes {
     sloType: {
       baseName: "slo_type",
       type: "SLOType",
+    },
+    status: {
+      baseName: "status",
+      type: "SLOStatus",
     },
     teamTags: {
       baseName: "team_tags",

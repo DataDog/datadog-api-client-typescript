@@ -762,6 +762,8 @@ export { SLOOverallStatuses } from "./models/SLOOverallStatuses";
 export { SLORawErrorBudgetRemaining } from "./models/SLORawErrorBudgetRemaining";
 export { SLOResponse } from "./models/SLOResponse";
 export { SLOResponseData } from "./models/SLOResponseData";
+export { SLOState } from "./models/SLOState";
+export { SLOStatus } from "./models/SLOStatus";
 export { SLOThreshold } from "./models/SLOThreshold";
 export { SLOTimeframe } from "./models/SLOTimeframe";
 export { SLOType } from "./models/SLOType";

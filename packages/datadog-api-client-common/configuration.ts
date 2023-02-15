@@ -114,7 +114,6 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
-      "v1.searchSLO": false,
       "v2.listEvents": false,
       "v2.searchEvents": false,
       "v2.createIncident": false,

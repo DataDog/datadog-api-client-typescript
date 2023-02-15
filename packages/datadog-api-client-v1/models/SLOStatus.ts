@@ -5,18 +5,17 @@
  */
 import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
 import { SLOState } from "./SLOState";
-import { SLOTimeframe } from "./SLOTimeframe";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Overall status of the SLO by timeframes.
+ * Status of the SLO's primary timeframe.
  */
-export class SLOOverallStatuses {
+export class SLOStatus {
   /**
    * Error message if SLO status or error budget could not be calculated.
    */
-  "error"?: string;
+  "calculationError"?: string;
   /**
    * Remaining error budget of the SLO in percentage.
    */
@@ -31,25 +30,17 @@ export class SLOOverallStatuses {
    */
   "rawErrorBudgetRemaining"?: SLORawErrorBudgetRemaining;
   /**
-   * The amount of decimal places the SLI value is accurate to.
+   * The current service level indicator (SLI) of the SLO, also known as 'status'. This is a percentage value from 0-100 (inclusive).
+   */
+  "sli"?: number;
+  /**
+   * The number of decimal places the SLI value is accurate to.
    */
   "spanPrecision"?: number;
   /**
    * State of the SLO.
    */
   "state"?: SLOState;
-  /**
-   * The status of the SLO.
-   */
-  "status"?: number;
-  /**
-   * The target of the SLO.
-   */
-  "target"?: number;
-  /**
-   * The SLO time window options.
-   */
-  "timeframe"?: SLOTimeframe;
 
   /**
    * @ignore
@@ -60,8 +51,8 @@ export class SLOOverallStatuses {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    error: {
-      baseName: "error",
+    calculationError: {
+      baseName: "calculation_error",
       type: "string",
     },
     errorBudgetRemaining: {
@@ -78,6 +69,11 @@ export class SLOOverallStatuses {
       baseName: "raw_error_budget_remaining",
       type: "SLORawErrorBudgetRemaining",
     },
+    sli: {
+      baseName: "sli",
+      type: "number",
+      format: "double",
+    },
     spanPrecision: {
       baseName: "span_precision",
       type: "number",
@@ -87,27 +83,13 @@ export class SLOOverallStatuses {
       baseName: "state",
       type: "SLOState",
     },
-    status: {
-      baseName: "status",
-      type: "number",
-      format: "double",
-    },
-    target: {
-      baseName: "target",
-      type: "number",
-      format: "double",
-    },
-    timeframe: {
-      baseName: "timeframe",
-      type: "SLOTimeframe",
-    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOOverallStatuses.attributeTypeMap;
+    return SLOStatus.attributeTypeMap;
   }
 
   public constructor() {}

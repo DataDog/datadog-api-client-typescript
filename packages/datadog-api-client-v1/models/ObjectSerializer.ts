@@ -304,6 +304,7 @@ import { SLOOverallStatuses } from "./SLOOverallStatuses";
 import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
 import { SLOResponse } from "./SLOResponse";
 import { SLOResponseData } from "./SLOResponseData";
+import { SLOStatus } from "./SLOStatus";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
@@ -926,6 +927,7 @@ const enumsMap: { [key: string]: any[] } = {
   SLOErrorTimeframe: ["7d", "30d", "90d", "all"],
   SLOListWidgetDefinitionType: ["slo_list"],
   SLOListWidgetRequestType: ["slo_list"],
+  SLOState: ["breached", "warning", "ok", "no_data"],
   SLOTimeframe: ["7d", "30d", "90d", "custom"],
   SLOType: ["metric", "monitor"],
   SLOTypeNumeric: [0, 1],
@@ -1704,6 +1706,7 @@ const typeMap: { [index: string]: any } = {
   SLORawErrorBudgetRemaining: SLORawErrorBudgetRemaining,
   SLOResponse: SLOResponse,
   SLOResponseData: SLOResponseData,
+  SLOStatus: SLOStatus,
   SLOThreshold: SLOThreshold,
   SLOWidgetDefinition: SLOWidgetDefinition,
   ScatterPlotRequest: ScatterPlotRequest,

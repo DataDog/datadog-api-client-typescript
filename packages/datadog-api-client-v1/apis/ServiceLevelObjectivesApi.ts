@@ -430,11 +430,6 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'searchSLO'");
-    if (!_config.unstableOperations["v1.searchSLO"]) {
-      throw new Error("Unstable operation 'searchSLO' is disabled");
-    }
-
     // Path Params
     const localVarPath = "/api/v1/slo/search";
 
