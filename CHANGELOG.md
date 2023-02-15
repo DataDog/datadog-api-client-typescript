@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## 1.10.0 / 2023-02-15
+
+### Fixed
+* More resilient `date-time` deserialization by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/1009
+* Set hosts versions as `type any` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1022
+### Added
+* Add orchestrator section in IP ranges by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1013
+* Add Cloud Cost Management fields to Usage Metering endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1019
+* Add cloud-cost as a supported query data source by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1007
+* Add Cloud Cost And Container Excl Agent Usage Fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1023
+* Add SLO status and error budget remaining to search API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1028
+* Add `sort` field to SLOListWidgetQuery by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1026
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.9.0...v1.10.0
+
 ## 1.9.0 / 2023-02-08
 
 ### Fixed
