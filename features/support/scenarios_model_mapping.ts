@@ -3498,6 +3498,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProcessSummariesResponse",
     },
+    "v2.DeleteRestrictionPolicy": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetRestrictionPolicy": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RestrictionPolicyResponse",
+    },
+    "v2.UpdateRestrictionPolicy": {
+        "resourceId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RestrictionPolicyUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RestrictionPolicyResponse",
+    },
     "v2.AggregateRUMEvents": {
         "body": {
             "type": "RUMAggregateRequest",

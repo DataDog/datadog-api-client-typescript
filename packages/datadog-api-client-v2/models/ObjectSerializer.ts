@@ -439,6 +439,11 @@ import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
+import { RestrictionPolicy } from "./RestrictionPolicy";
+import { RestrictionPolicyAttributes } from "./RestrictionPolicyAttributes";
+import { RestrictionPolicyBinding } from "./RestrictionPolicyBinding";
+import { RestrictionPolicyResponse } from "./RestrictionPolicyResponse";
+import { RestrictionPolicyUpdateRequest } from "./RestrictionPolicyUpdateRequest";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleClone } from "./RoleClone";
@@ -857,6 +862,7 @@ const enumsMap: { [key: string]: any[] } = {
   RUMResponseStatus: ["done", "timeout"],
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
+  RestrictionPolicyType: ["restriction_policy"],
   RolesSort: [
     "name",
     "-name",
@@ -1457,6 +1463,11 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserData: RelationshipToUserData,
   RelationshipToUsers: RelationshipToUsers,
   ResponseMetaAttributes: ResponseMetaAttributes,
+  RestrictionPolicy: RestrictionPolicy,
+  RestrictionPolicyAttributes: RestrictionPolicyAttributes,
+  RestrictionPolicyBinding: RestrictionPolicyBinding,
+  RestrictionPolicyResponse: RestrictionPolicyResponse,
+  RestrictionPolicyUpdateRequest: RestrictionPolicyUpdateRequest,
   Role: Role,
   RoleAttributes: RoleAttributes,
   RoleClone: RoleClone,
