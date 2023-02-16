@@ -215,6 +215,13 @@ export {
 } from "./apis/RUMApi";
 
 export {
+  RestrictionPoliciesApiDeleteRestrictionPolicyRequest,
+  RestrictionPoliciesApiGetRestrictionPolicyRequest,
+  RestrictionPoliciesApiUpdateRestrictionPolicyRequest,
+  RestrictionPoliciesApi,
+} from "./apis/RestrictionPoliciesApi";
+
+export {
   RolesApiAddPermissionToRoleRequest,
   RolesApiAddUserToRoleRequest,
   RolesApiCloneRoleRequest,
@@ -823,6 +830,12 @@ export { RelationshipToUser } from "./models/RelationshipToUser";
 export { RelationshipToUserData } from "./models/RelationshipToUserData";
 export { RelationshipToUsers } from "./models/RelationshipToUsers";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
+export { RestrictionPolicy } from "./models/RestrictionPolicy";
+export { RestrictionPolicyAttributes } from "./models/RestrictionPolicyAttributes";
+export { RestrictionPolicyBinding } from "./models/RestrictionPolicyBinding";
+export { RestrictionPolicyResponse } from "./models/RestrictionPolicyResponse";
+export { RestrictionPolicyType } from "./models/RestrictionPolicyType";
+export { RestrictionPolicyUpdateRequest } from "./models/RestrictionPolicyUpdateRequest";
 export { Role } from "./models/Role";
 export { RoleAttributes } from "./models/RoleAttributes";
 export { RoleClone } from "./models/RoleClone";
