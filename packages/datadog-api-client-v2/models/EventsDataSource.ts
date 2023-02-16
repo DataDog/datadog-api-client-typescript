@@ -10,5 +10,6 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * A data source that is powered by the Events Platform.
  */
 
-export type EventsDataSource = typeof LOGS | UnparsedObject;
+export type EventsDataSource = typeof LOGS | typeof RUM | UnparsedObject;
 export const LOGS = "logs";
+export const RUM = "rum";
