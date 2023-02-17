@@ -35,6 +35,10 @@ export class UsageRumSessionsHour {
    */
   "sessionCountAndroid"?: number;
   /**
+   * Contains the number of mobile RUM Sessions on Flutter (data available beginning March 1, 2023).
+   */
+  "sessionCountFlutter"?: number;
+  /**
    * Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
    */
   "sessionCountIos"?: number;
@@ -77,6 +81,11 @@ export class UsageRumSessionsHour {
     },
     sessionCountAndroid: {
       baseName: "session_count_android",
+      type: "number",
+      format: "int64",
+    },
+    sessionCountFlutter: {
+      baseName: "session_count_flutter",
       type: "number",
       format: "int64",
     },
