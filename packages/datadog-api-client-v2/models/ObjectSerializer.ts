@@ -182,6 +182,13 @@ import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
 import { HourlyUsageMetadata } from "./HourlyUsageMetadata";
 import { HourlyUsagePagination } from "./HourlyUsagePagination";
 import { HourlyUsageResponse } from "./HourlyUsageResponse";
+import { IPAllowlistAttributes } from "./IPAllowlistAttributes";
+import { IPAllowlistData } from "./IPAllowlistData";
+import { IPAllowlistEntry } from "./IPAllowlistEntry";
+import { IPAllowlistEntryAttributes } from "./IPAllowlistEntryAttributes";
+import { IPAllowlistEntryData } from "./IPAllowlistEntryData";
+import { IPAllowlistResponse } from "./IPAllowlistResponse";
+import { IPAllowlistUpdateRequest } from "./IPAllowlistUpdateRequest";
 import { IdPMetadataFormData } from "./IdPMetadataFormData";
 import { IncidentAttachmentData } from "./IncidentAttachmentData";
 import { IncidentAttachmentLinkAttributes } from "./IncidentAttachmentLinkAttributes";
@@ -768,6 +775,8 @@ const enumsMap: { [key: string]: any[] } = {
     "observability_pipelines_bytes_processed",
     "lambda_traced_invocations_count",
   ],
+  IPAllowlistEntryType: ["ip_allowlist_entry"],
+  IPAllowlistType: ["ip_allowlist"],
   IncidentAttachmentAttachmentType: ["link", "postmortem"],
   IncidentAttachmentLinkAttachmentType: ["link"],
   IncidentAttachmentPostmortemAttachmentType: ["postmortem"],
@@ -1199,6 +1208,13 @@ const typeMap: { [index: string]: any } = {
   HourlyUsageMetadata: HourlyUsageMetadata,
   HourlyUsagePagination: HourlyUsagePagination,
   HourlyUsageResponse: HourlyUsageResponse,
+  IPAllowlistAttributes: IPAllowlistAttributes,
+  IPAllowlistData: IPAllowlistData,
+  IPAllowlistEntry: IPAllowlistEntry,
+  IPAllowlistEntryAttributes: IPAllowlistEntryAttributes,
+  IPAllowlistEntryData: IPAllowlistEntryData,
+  IPAllowlistResponse: IPAllowlistResponse,
+  IPAllowlistUpdateRequest: IPAllowlistUpdateRequest,
   IdPMetadataFormData: IdPMetadataFormData,
   IncidentAttachmentData: IncidentAttachmentData,
   IncidentAttachmentLinkAttributes: IncidentAttachmentLinkAttributes,
