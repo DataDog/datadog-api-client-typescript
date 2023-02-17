@@ -2966,6 +2966,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FastlyServiceResponse",
     },
+    "v2.GetIPAllowlist": {
+        "operationResponseType": "IPAllowlistResponse",
+    },
+    "v2.UpdateIPAllowlist": {
+        "body": {
+            "type": "IPAllowlistUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IPAllowlistResponse",
+    },
     "v2.SubmitLog": {
         "contentEncoding": {
             "type": "ContentEncoding",

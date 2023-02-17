@@ -84,6 +84,11 @@ export {
 } from "./apis/FastlyIntegrationApi";
 
 export {
+  IPAllowlistApiUpdateIPAllowlistRequest,
+  IPAllowlistApi,
+} from "./apis/IPAllowlistApi";
+
+export {
   IncidentServicesApiCreateIncidentServiceRequest,
   IncidentServicesApiDeleteIncidentServiceRequest,
   IncidentServicesApiGetIncidentServiceRequest,
@@ -626,6 +631,15 @@ export { IncidentUpdateData } from "./models/IncidentUpdateData";
 export { IncidentUpdateRelationships } from "./models/IncidentUpdateRelationships";
 export { IncidentUpdateRequest } from "./models/IncidentUpdateRequest";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
+export { IPAllowlistAttributes } from "./models/IPAllowlistAttributes";
+export { IPAllowlistData } from "./models/IPAllowlistData";
+export { IPAllowlistEntry } from "./models/IPAllowlistEntry";
+export { IPAllowlistEntryAttributes } from "./models/IPAllowlistEntryAttributes";
+export { IPAllowlistEntryData } from "./models/IPAllowlistEntryData";
+export { IPAllowlistEntryType } from "./models/IPAllowlistEntryType";
+export { IPAllowlistResponse } from "./models/IPAllowlistResponse";
+export { IPAllowlistType } from "./models/IPAllowlistType";
+export { IPAllowlistUpdateRequest } from "./models/IPAllowlistUpdateRequest";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
 export { Log } from "./models/Log";
 export { LogAttributes } from "./models/LogAttributes";
