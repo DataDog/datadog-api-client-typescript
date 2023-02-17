@@ -4032,6 +4032,16 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ServiceDefinitionGetResponse",
     },
+    "v2.GetOnDemandConcurrencyCap": {
+        "operationResponseType": "OnDemandConcurrencyCapResponse",
+    },
+    "v2.SetOnDemandConcurrencyCap": {
+        "body": {
+            "type": "OnDemandConcurrencyCapAttributes",
+            "format": "",
+            },
+        "operationResponseType": "OnDemandConcurrencyCapResponse",
+    },
     "v2.ListIncidentTeams": {
         "include": {
             "type": "IncidentRelatedObject",

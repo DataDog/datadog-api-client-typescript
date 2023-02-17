@@ -359,6 +359,9 @@ import { MonitorConfigPolicyTagPolicyCreateRequest } from "./MonitorConfigPolicy
 import { MonitorType } from "./MonitorType";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
+import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
+import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
+import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 import { OpsgenieServiceCreateRequest } from "./OpsgenieServiceCreateRequest";
@@ -1389,6 +1392,9 @@ const typeMap: { [index: string]: any } = {
   MonitorType: MonitorType,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
+  OnDemandConcurrencyCap: OnDemandConcurrencyCap,
+  OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
+  OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
   OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
   OpsgenieServiceCreateData: OpsgenieServiceCreateData,
   OpsgenieServiceCreateRequest: OpsgenieServiceCreateRequest,

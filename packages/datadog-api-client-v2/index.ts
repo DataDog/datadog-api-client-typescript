@@ -285,6 +285,11 @@ export {
 } from "./apis/ServiceDefinitionApi";
 
 export {
+  SyntheticsApiSetOnDemandConcurrencyCapRequest,
+  SyntheticsApi,
+} from "./apis/SyntheticsApi";
+
+export {
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetHistoricalCostByOrgRequest,
@@ -776,6 +781,9 @@ export { MonitorConfigPolicyType } from "./models/MonitorConfigPolicyType";
 export { MonitorType } from "./models/MonitorType";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
+export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
+export { OnDemandConcurrencyCapAttributes } from "./models/OnDemandConcurrencyCapAttributes";
+export { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapResponse";
 export { OpsgenieServiceCreateAttributes } from "./models/OpsgenieServiceCreateAttributes";
 export { OpsgenieServiceCreateData } from "./models/OpsgenieServiceCreateData";
 export { OpsgenieServiceCreateRequest } from "./models/OpsgenieServiceCreateRequest";
