@@ -95,7 +95,7 @@
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "chai": "^4.2.0",
-    "dd-trace": "^2.1.1",
+    "dd-trace": "^3.14.0",
     "eslint": "^8.28.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",
