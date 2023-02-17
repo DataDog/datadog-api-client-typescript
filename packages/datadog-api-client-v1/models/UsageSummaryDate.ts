@@ -204,6 +204,10 @@ export class UsageSummaryDate {
    */
   "mobileRumSessionCountAndroidSum"?: number;
   /**
+   * Shows the sum of all mobile RUM Sessions on Flutter over all hours in the current date for all organizations.
+   */
+  "mobileRumSessionCountFlutterSum"?: number;
+  /**
    * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all organizations.
    */
   "mobileRumSessionCountIosSum"?: number;
@@ -558,6 +562,11 @@ export class UsageSummaryDate {
     },
     mobileRumSessionCountAndroidSum: {
       baseName: "mobile_rum_session_count_android_sum",
+      type: "number",
+      format: "int64",
+    },
+    mobileRumSessionCountFlutterSum: {
+      baseName: "mobile_rum_session_count_flutter_sum",
       type: "number",
       format: "int64",
     },
