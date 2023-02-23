@@ -219,6 +219,14 @@ export class MonthlyUsageAttributionValues {
    */
   "profiledContainerUsage"?: number;
   /**
+   * The percentage of profiled Fargate task usage by tag(s).
+   */
+  "profiledFargatePercentage"?: number;
+  /**
+   * The profiled Fargate task usage by tag(s).
+   */
+  "profiledFargateUsage"?: number;
+  /**
    * The percentage of profiled hosts usage by tag(s).
    */
   "profiledHostPercentage"?: number;
@@ -501,6 +509,16 @@ export class MonthlyUsageAttributionValues {
     },
     profiledContainerUsage: {
       baseName: "profiled_container_usage",
+      type: "number",
+      format: "double",
+    },
+    profiledFargatePercentage: {
+      baseName: "profiled_fargate_percentage",
+      type: "number",
+      format: "double",
+    },
+    profiledFargateUsage: {
+      baseName: "profiled_fargate_usage",
       type: "number",
       format: "double",
     },
