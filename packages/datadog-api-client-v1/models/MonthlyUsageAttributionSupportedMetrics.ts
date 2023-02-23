@@ -61,6 +61,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof NPM_HOST_PERCENTAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_CONTAINER_PERCENTAGE
+  | typeof PROFILED_FARGATE_USAGE
+  | typeof PROFILED_FARGATE_PERCENTAGE
   | typeof PROFILED_HOST_USAGE
   | typeof PROFILED_HOST_PERCENTAGE
   | typeof SNMP_USAGE
@@ -124,6 +126,8 @@ export const NPM_HOST_USAGE = "npm_host_usage";
 export const NPM_HOST_PERCENTAGE = "npm_host_percentage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage";
+export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
+export const PROFILED_FARGATE_PERCENTAGE = "profiled_fargate_percentage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const PROFILED_HOST_PERCENTAGE = "profiled_host_percentage";
 export const SNMP_USAGE = "snmp_usage";

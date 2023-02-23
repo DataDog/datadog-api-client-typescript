@@ -36,6 +36,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof INVOCATIONS_USAGE
   | typeof NPM_HOST_USAGE
   | typeof PROFILED_CONTAINER_USAGE
+  | typeof PROFILED_FARGATE_USAGE
   | typeof PROFILED_HOST_USAGE
   | typeof SNMP_USAGE
   | typeof ESTIMATED_RUM_SESSIONS_USAGE
@@ -65,6 +66,7 @@ export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INVOCATIONS_USAGE = "invocations_usage";
 export const NPM_HOST_USAGE = "npm_host_usage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
+export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const SNMP_USAGE = "snmp_usage";
 export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
