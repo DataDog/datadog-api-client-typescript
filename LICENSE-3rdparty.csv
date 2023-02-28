@@ -7,25 +7,17 @@ Component,Licence,Copyright
 @types/buffer-from,MIT,Copyright Nat Burns
 @types/chai,MIT,Copyright Microsoft Corporation
 @types/jest,MIT,Copyright Microsoft Corporation
-@types/lodash,MIT,Copyright Microsoft Corporation
 @types/node,MIT,Copyright Microsoft Corporation
 @types/pako,MIT,Copyright Caleb Eggensperger Muhammet Öztürk
-@types/pollyjs__adapter-node-http,MIT,Copyright Microsoft Corporation
-@types/pollyjs__core,MIT,Copyright Microsoft Corporation
-@types/pollyjs__persister-fs,MIT,Copyright Microsoft Corporation
-@types/pollyjs__utils,MIT,Copyright Microsoft Corporation
-@types/react,MIT,Copyright Microsoft Corporation
 @types/url-parse,MIT,Copyright Microsoft Corporation
 @typescript-eslint/eslint-plugin,MIT,Copyright (c) 2019 TypeScript ESLint and other contributors
 @typescript-eslint/parser,BSD-2-Clause,
-btoa,(MIT OR Apache-2.0),
 buffer-from,MIT,Copyright (c) 2016, 2018 Linus Unnebäck
 chai,MIT,Copyright (c) 2017 Chai.js Assertion Library
 cross-fetch,MIT,Copyright (c) 2017 Leonardo Quixadá
 jest,MIT,Copyright (c) Facebook, Inc. and its affiliates.
 ts-jest,MIT,Copyright (c) 2016-2018
 dd-trace,BSD-3-Clause,Copyright 2016-Present Datadog Inc.
-durations,MIT,Copyright (c) 2015, Joel Edwards
 es6-promise,MIT,Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
 eslint-plugin-import,MIT,Copyright (c) 2015 Ben Mosher
 eslint-plugin-node,MIT,Copyright (c) 2015 Toru Nagashima
