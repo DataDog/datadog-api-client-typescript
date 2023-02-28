@@ -13,6 +13,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type ListStreamSource =
   | typeof LOGS_STREAM
   | typeof AUDIT_STREAM
+  | typeof CI_PIPELINE_STREAM
   | typeof RUM_ISSUE_STREAM
   | typeof APM_ISSUE_STREAM
   | typeof LOGS_PATTERN_STREAM
@@ -21,6 +22,7 @@ export type ListStreamSource =
   | UnparsedObject;
 export const LOGS_STREAM = "logs_stream";
 export const AUDIT_STREAM = "audit_stream";
+export const CI_PIPELINE_STREAM = "ci_pipeline_stream";
 export const RUM_ISSUE_STREAM = "rum_issue_stream";
 export const APM_ISSUE_STREAM = "apm_issue_stream";
 export const LOGS_PATTERN_STREAM = "logs_pattern_stream";
