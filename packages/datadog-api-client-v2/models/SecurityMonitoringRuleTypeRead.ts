@@ -15,8 +15,10 @@ export type SecurityMonitoringRuleTypeRead =
   | typeof INFRASTRUCTURE_CONFIGURATION
   | typeof WORKLOAD_SECURITY
   | typeof CLOUD_CONFIGURATION
+  | typeof APPLICATION_SECURITY
   | UnparsedObject;
 export const LOG_DETECTION = "log_detection";
 export const INFRASTRUCTURE_CONFIGURATION = "infrastructure_configuration";
 export const WORKLOAD_SECURITY = "workload_security";
 export const CLOUD_CONFIGURATION = "cloud_configuration";
+export const APPLICATION_SECURITY = "application_security";
