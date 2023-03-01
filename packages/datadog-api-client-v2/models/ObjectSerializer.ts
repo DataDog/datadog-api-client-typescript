@@ -942,6 +942,7 @@ const enumsMap: { [key: string]: any[] } = {
     "infrastructure_configuration",
     "workload_security",
     "cloud_configuration",
+    "application_security",
   ],
   SecurityMonitoringSignalArchiveReason: [
     "none",
