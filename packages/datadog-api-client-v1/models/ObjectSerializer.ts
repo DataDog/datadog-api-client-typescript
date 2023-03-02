@@ -745,6 +745,7 @@ const enumsMap: { [key: string]: any[] } = {
     "logs_stream",
     "audit_stream",
     "ci_pipeline_stream",
+    "ci_test_stream",
     "rum_issue_stream",
     "apm_issue_stream",
     "logs_pattern_stream",
