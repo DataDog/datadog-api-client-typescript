@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
+import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A relationship reference for multiple integration metadata objects.
+ * Incident integration metadata for the Jira integration.
  */
-export class RelationshipToIncidentIntegrationMetadatas {
+export class JiraIntegrationMetadata {
   /**
-   * Integration metadata relationship array
+   * Array of Jira issues in this integration metadata.
    */
-  "data": Array<RelationshipToIncidentIntegrationMetadataData>;
+  "issues": Array<JiraIntegrationMetadataIssuesItem>;
 
   /**
    * @ignore
@@ -25,9 +25,9 @@ export class RelationshipToIncidentIntegrationMetadatas {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RelationshipToIncidentIntegrationMetadataData>",
+    issues: {
+      baseName: "issues",
+      type: "Array<JiraIntegrationMetadataIssuesItem>",
       required: true,
     },
   };
@@ -36,7 +36,7 @@ export class RelationshipToIncidentIntegrationMetadatas {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentIntegrationMetadatas.attributeTypeMap;
+    return JiraIntegrationMetadata.attributeTypeMap;
   }
 
   public constructor() {}

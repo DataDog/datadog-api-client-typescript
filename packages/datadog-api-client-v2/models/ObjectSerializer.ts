@@ -206,6 +206,14 @@ import { IncidentCreateRelationships } from "./IncidentCreateRelationships";
 import { IncidentCreateRequest } from "./IncidentCreateRequest";
 import { IncidentFieldAttributesMultipleValue } from "./IncidentFieldAttributesMultipleValue";
 import { IncidentFieldAttributesSingleValue } from "./IncidentFieldAttributesSingleValue";
+import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMetadataAttributes";
+import { IncidentIntegrationMetadataCreateData } from "./IncidentIntegrationMetadataCreateData";
+import { IncidentIntegrationMetadataCreateRequest } from "./IncidentIntegrationMetadataCreateRequest";
+import { IncidentIntegrationMetadataListResponse } from "./IncidentIntegrationMetadataListResponse";
+import { IncidentIntegrationMetadataPatchData } from "./IncidentIntegrationMetadataPatchData";
+import { IncidentIntegrationMetadataPatchRequest } from "./IncidentIntegrationMetadataPatchRequest";
+import { IncidentIntegrationMetadataResponse } from "./IncidentIntegrationMetadataResponse";
+import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMetadataResponseData";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
@@ -253,6 +261,8 @@ import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentsResponse } from "./IncidentsResponse";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
+import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
@@ -602,6 +612,8 @@ import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
 import { ServiceDefinitionV2Repo } from "./ServiceDefinitionV2Repo";
 import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
+import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
+import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
@@ -1236,6 +1248,18 @@ const typeMap: { [index: string]: any } = {
   IncidentCreateRequest: IncidentCreateRequest,
   IncidentFieldAttributesMultipleValue: IncidentFieldAttributesMultipleValue,
   IncidentFieldAttributesSingleValue: IncidentFieldAttributesSingleValue,
+  IncidentIntegrationMetadataAttributes: IncidentIntegrationMetadataAttributes,
+  IncidentIntegrationMetadataCreateData: IncidentIntegrationMetadataCreateData,
+  IncidentIntegrationMetadataCreateRequest:
+    IncidentIntegrationMetadataCreateRequest,
+  IncidentIntegrationMetadataListResponse:
+    IncidentIntegrationMetadataListResponse,
+  IncidentIntegrationMetadataPatchData: IncidentIntegrationMetadataPatchData,
+  IncidentIntegrationMetadataPatchRequest:
+    IncidentIntegrationMetadataPatchRequest,
+  IncidentIntegrationMetadataResponse: IncidentIntegrationMetadataResponse,
+  IncidentIntegrationMetadataResponseData:
+    IncidentIntegrationMetadataResponseData,
   IncidentNotificationHandle: IncidentNotificationHandle,
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
@@ -1288,6 +1312,8 @@ const typeMap: { [index: string]: any } = {
   IncidentUpdateRequest: IncidentUpdateRequest,
   IncidentsResponse: IncidentsResponse,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  JiraIntegrationMetadata: JiraIntegrationMetadata,
+  JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
   Log: Log,
   LogAttributes: LogAttributes,
@@ -1688,6 +1714,8 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionV2Repo: ServiceDefinitionV2Repo,
   ServiceDefinitionV2Slack: ServiceDefinitionV2Slack,
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
+  SlackIntegrationMetadata: SlackIntegrationMetadata,
+  SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
   TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
   TimeseriesFormulaRequest: TimeseriesFormulaRequest,
@@ -1748,6 +1776,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "IncidentFieldAttributesSingleValue",
     "IncidentFieldAttributesMultipleValue",
   ],
+  IncidentIntegrationMetadataMetadata: [
+    "SlackIntegrationMetadata",
+    "JiraIntegrationMetadata",
+  ],
+  IncidentIntegrationMetadataResponseIncludedItem: ["User"],
   IncidentResponseIncludedItem: ["User", "IncidentAttachmentData"],
   IncidentServiceIncludedItems: ["User"],
   IncidentTeamIncludedItems: ["User"],

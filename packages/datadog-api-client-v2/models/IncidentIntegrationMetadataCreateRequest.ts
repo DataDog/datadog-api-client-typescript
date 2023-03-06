@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
+import { IncidentIntegrationMetadataCreateData } from "./IncidentIntegrationMetadataCreateData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A relationship reference for multiple integration metadata objects.
+ * Create request for an incident integration metadata.
  */
-export class RelationshipToIncidentIntegrationMetadatas {
+export class IncidentIntegrationMetadataCreateRequest {
   /**
-   * Integration metadata relationship array
+   * Incident integration metadata data for a create request.
    */
-  "data": Array<RelationshipToIncidentIntegrationMetadataData>;
+  "data": IncidentIntegrationMetadataCreateData;
 
   /**
    * @ignore
@@ -27,7 +27,7 @@ export class RelationshipToIncidentIntegrationMetadatas {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<RelationshipToIncidentIntegrationMetadataData>",
+      type: "IncidentIntegrationMetadataCreateData",
       required: true,
     },
   };
@@ -36,7 +36,7 @@ export class RelationshipToIncidentIntegrationMetadatas {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentIntegrationMetadatas.attributeTypeMap;
+    return IncidentIntegrationMetadataCreateRequest.attributeTypeMap;
   }
 
   public constructor() {}

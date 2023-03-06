@@ -2716,6 +2716,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentAttachmentUpdateResponse",
     },
+    "v2.ListIncidentIntegrations": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentIntegrationMetadataListResponse",
+    },
+    "v2.CreateIncidentIntegration": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentIntegrationMetadataCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentIntegrationMetadataResponse",
+    },
+    "v2.DeleteIncidentIntegration": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "integrationMetadataId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetIncidentIntegration": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "integrationMetadataId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentIntegrationMetadataResponse",
+    },
+    "v2.UpdateIncidentIntegration": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "integrationMetadataId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentIntegrationMetadataPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentIntegrationMetadataResponse",
+    },
     "v2.ListOpsgenieServices": {
         "operationResponseType": "OpsgenieServicesResponse",
     },
