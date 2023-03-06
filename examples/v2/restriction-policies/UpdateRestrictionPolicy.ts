@@ -12,7 +12,7 @@ const apiInstance = new v2.RestrictionPoliciesApi(configuration);
 const params: v2.RestrictionPoliciesApiUpdateRestrictionPolicyRequest = {
   body: {
     data: {
-      id: "dashboard:abc-def-ghi",
+      id: "dashboard:test-update",
       type: "restriction_policy",
       attributes: {
         bindings: [
@@ -24,7 +24,7 @@ const params: v2.RestrictionPoliciesApiUpdateRestrictionPolicyRequest = {
       },
     },
   },
-  resourceId: "dashboard:abc-def-ghi",
+  resourceId: "dashboard:test-update",
 };
 
 apiInstance

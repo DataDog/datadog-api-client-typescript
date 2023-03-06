@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.RestrictionPoliciesApi(configuration);
 
 const params: v2.RestrictionPoliciesApiDeleteRestrictionPolicyRequest = {
-  resourceId: "dashboard:abc-def-ghi",
+  resourceId: "dashboard:test-delete",
 };
 
 apiInstance
