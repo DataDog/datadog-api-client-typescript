@@ -3,32 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { IncidentType } from "./IncidentType";
-import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
-import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
+import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMetadataAttributes";
+import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Incident data for an update request.
+ * Incident integration metadata from a response.
  */
-export class IncidentUpdateData {
+export class IncidentIntegrationMetadataResponseData {
   /**
-   * The incident's attributes for an update request.
+   * Incident integration metadata's attributes for a create request.
    */
-  "attributes"?: IncidentUpdateAttributes;
+  "attributes"?: IncidentIntegrationMetadataAttributes;
   /**
-   * The incident's ID.
+   * The incident integration metadata's ID.
    */
   "id": string;
   /**
-   * The incident's relationships for an update request.
+   * Integration metadata resource type.
    */
-  "relationships"?: IncidentUpdateRelationships;
-  /**
-   * Incident resource type.
-   */
-  "type": IncidentType;
+  "type": IncidentIntegrationMetadataType;
 
   /**
    * @ignore
@@ -41,20 +36,16 @@ export class IncidentUpdateData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "IncidentUpdateAttributes",
+      type: "IncidentIntegrationMetadataAttributes",
     },
     id: {
       baseName: "id",
       type: "string",
       required: true,
     },
-    relationships: {
-      baseName: "relationships",
-      type: "IncidentUpdateRelationships",
-    },
     type: {
       baseName: "type",
-      type: "IncidentType",
+      type: "IncidentIntegrationMetadataType",
       required: true,
     },
   };
@@ -63,7 +54,7 @@ export class IncidentUpdateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentUpdateData.attributeTypeMap;
+    return IncidentIntegrationMetadataResponseData.attributeTypeMap;
   }
 
   public constructor() {}

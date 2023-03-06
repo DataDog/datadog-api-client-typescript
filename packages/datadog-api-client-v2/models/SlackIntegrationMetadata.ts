@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
+import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A relationship reference for multiple integration metadata objects.
+ * Incident integration metadata for the Slack integration.
  */
-export class RelationshipToIncidentIntegrationMetadatas {
+export class SlackIntegrationMetadata {
   /**
-   * Integration metadata relationship array
+   * Array of Slack channels in this integration metadata.
    */
-  "data": Array<RelationshipToIncidentIntegrationMetadataData>;
+  "channels": Array<SlackIntegrationMetadataChannelItem>;
 
   /**
    * @ignore
@@ -25,9 +25,9 @@ export class RelationshipToIncidentIntegrationMetadatas {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Array<RelationshipToIncidentIntegrationMetadataData>",
+    channels: {
+      baseName: "channels",
+      type: "Array<SlackIntegrationMetadataChannelItem>",
       required: true,
     },
   };
@@ -36,7 +36,7 @@ export class RelationshipToIncidentIntegrationMetadatas {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentIntegrationMetadatas.attributeTypeMap;
+    return SlackIntegrationMetadata.attributeTypeMap;
   }
 
   public constructor() {}

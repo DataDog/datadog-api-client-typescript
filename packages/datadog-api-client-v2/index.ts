@@ -108,13 +108,18 @@ export {
 
 export {
   IncidentsApiCreateIncidentRequest,
+  IncidentsApiCreateIncidentIntegrationRequest,
   IncidentsApiDeleteIncidentRequest,
+  IncidentsApiDeleteIncidentIntegrationRequest,
   IncidentsApiGetIncidentRequest,
+  IncidentsApiGetIncidentIntegrationRequest,
   IncidentsApiListIncidentAttachmentsRequest,
+  IncidentsApiListIncidentIntegrationsRequest,
   IncidentsApiListIncidentsRequest,
   IncidentsApiSearchIncidentsRequest,
   IncidentsApiUpdateIncidentRequest,
   IncidentsApiUpdateIncidentAttachmentsRequest,
+  IncidentsApiUpdateIncidentIntegrationRequest,
   IncidentsApi,
 } from "./apis/IncidentsApi";
 
@@ -571,6 +576,16 @@ export { IncidentFieldAttributesMultipleValue } from "./models/IncidentFieldAttr
 export { IncidentFieldAttributesSingleValue } from "./models/IncidentFieldAttributesSingleValue";
 export { IncidentFieldAttributesSingleValueType } from "./models/IncidentFieldAttributesSingleValueType";
 export { IncidentFieldAttributesValueType } from "./models/IncidentFieldAttributesValueType";
+export { IncidentIntegrationMetadataAttributes } from "./models/IncidentIntegrationMetadataAttributes";
+export { IncidentIntegrationMetadataCreateData } from "./models/IncidentIntegrationMetadataCreateData";
+export { IncidentIntegrationMetadataCreateRequest } from "./models/IncidentIntegrationMetadataCreateRequest";
+export { IncidentIntegrationMetadataListResponse } from "./models/IncidentIntegrationMetadataListResponse";
+export { IncidentIntegrationMetadataMetadata } from "./models/IncidentIntegrationMetadataMetadata";
+export { IncidentIntegrationMetadataPatchData } from "./models/IncidentIntegrationMetadataPatchData";
+export { IncidentIntegrationMetadataPatchRequest } from "./models/IncidentIntegrationMetadataPatchRequest";
+export { IncidentIntegrationMetadataResponse } from "./models/IncidentIntegrationMetadataResponse";
+export { IncidentIntegrationMetadataResponseData } from "./models/IncidentIntegrationMetadataResponseData";
+export { IncidentIntegrationMetadataResponseIncludedItem } from "./models/IncidentIntegrationMetadataResponseIncludedItem";
 export { IncidentIntegrationMetadataType } from "./models/IncidentIntegrationMetadataType";
 export { IncidentNotificationHandle } from "./models/IncidentNotificationHandle";
 export { IncidentPostmortemType } from "./models/IncidentPostmortemType";
@@ -640,6 +655,8 @@ export { IPAllowlistEntryType } from "./models/IPAllowlistEntryType";
 export { IPAllowlistResponse } from "./models/IPAllowlistResponse";
 export { IPAllowlistType } from "./models/IPAllowlistType";
 export { IPAllowlistUpdateRequest } from "./models/IPAllowlistUpdateRequest";
+export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
+export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
 export { Log } from "./models/Log";
 export { LogAttributes } from "./models/LogAttributes";
@@ -1100,6 +1117,8 @@ export { ServiceDefinitionV2Repo } from "./models/ServiceDefinitionV2Repo";
 export { ServiceDefinitionV2Slack } from "./models/ServiceDefinitionV2Slack";
 export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackType";
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
+export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
+export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { TimeseriesFormulaQueryRequest } from "./models/TimeseriesFormulaQueryRequest";
 export { TimeseriesFormulaQueryResponse } from "./models/TimeseriesFormulaQueryResponse";
 export { TimeseriesFormulaRequest } from "./models/TimeseriesFormulaRequest";
