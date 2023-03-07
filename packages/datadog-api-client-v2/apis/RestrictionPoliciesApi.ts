@@ -328,7 +328,7 @@ export class RestrictionPoliciesApiResponseProcessor {
 
 export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
    * @type string
    */
   resourceId: string;
@@ -336,7 +336,7 @@ export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
    * @type string
    */
   resourceId: string;
@@ -344,7 +344,7 @@ export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
    * @type string
    */
   resourceId: string;
@@ -425,6 +425,7 @@ export class RestrictionPoliciesApi {
    * - Dashboards: `dashboard`
    * - Notebooks: `notebook`
    * - Security Rules: `security-rule`
+   * - Service Level Objectives: `slo`
    * @param param The request object
    */
   public updateRestrictionPolicy(
