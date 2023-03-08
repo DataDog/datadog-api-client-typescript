@@ -182,12 +182,12 @@ export class SnapshotsApiResponseProcessor {
 
 export interface SnapshotsApiGetGraphSnapshotRequest {
   /**
-   * The POSIX timestamp of the start of the query in seconds.
+   * The POSIX timestamp of the start of the query.
    * @type number
    */
   start: number;
   /**
-   * The POSIX timestamp of the end of the query in seconds.
+   * The POSIX timestamp of the end of the query.
    * @type number
    */
   end: number;
