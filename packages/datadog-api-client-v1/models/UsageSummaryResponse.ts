@@ -37,6 +37,10 @@ export class UsageSummaryResponse {
    */
   "auditLogsLinesIndexedAggSum"?: number;
   /**
+   * Shows the total number of organizations that had Audit Trail enabled over a specific number of months.
+   */
+  "auditTrailEnabledHwmSum"?: number;
+  /**
    * Shows the average of all profiled Fargate tasks over all hours in the current months for all organizations.
    */
   "avgProfiledFargateTasksSum"?: number;
@@ -389,6 +393,11 @@ export class UsageSummaryResponse {
     },
     auditLogsLinesIndexedAggSum: {
       baseName: "audit_logs_lines_indexed_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    auditTrailEnabledHwmSum: {
+      baseName: "audit_trail_enabled_hwm_sum",
       type: "number",
       format: "int64",
     },

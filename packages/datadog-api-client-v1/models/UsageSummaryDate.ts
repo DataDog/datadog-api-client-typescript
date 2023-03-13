@@ -36,6 +36,10 @@ export class UsageSummaryDate {
    */
   "auditLogsLinesIndexedSum"?: number;
   /**
+   * Shows the number of organizations that had Audit Trail enabled in the current date.
+   */
+  "auditTrailEnabledHwm"?: number;
+  /**
    * The average profiled task count for Fargate Profiling.
    */
   "avgProfiledFargateTasks"?: number;
@@ -352,6 +356,11 @@ export class UsageSummaryDate {
     },
     auditLogsLinesIndexedSum: {
       baseName: "audit_logs_lines_indexed_sum",
+      type: "number",
+      format: "int64",
+    },
+    auditTrailEnabledHwm: {
+      baseName: "audit_trail_enabled_hwm",
       type: "number",
       format: "int64",
     },
