@@ -255,6 +255,15 @@ import { IncidentTeamUpdateRequest } from "./IncidentTeamUpdateRequest";
 import { IncidentTeamsResponse } from "./IncidentTeamsResponse";
 import { IncidentTimelineCellMarkdownCreateAttributes } from "./IncidentTimelineCellMarkdownCreateAttributes";
 import { IncidentTimelineCellMarkdownCreateAttributesContent } from "./IncidentTimelineCellMarkdownCreateAttributesContent";
+import { IncidentTodoAnonymousAssignee } from "./IncidentTodoAnonymousAssignee";
+import { IncidentTodoAttributes } from "./IncidentTodoAttributes";
+import { IncidentTodoCreateData } from "./IncidentTodoCreateData";
+import { IncidentTodoCreateRequest } from "./IncidentTodoCreateRequest";
+import { IncidentTodoListResponse } from "./IncidentTodoListResponse";
+import { IncidentTodoPatchData } from "./IncidentTodoPatchData";
+import { IncidentTodoPatchRequest } from "./IncidentTodoPatchRequest";
+import { IncidentTodoResponse } from "./IncidentTodoResponse";
+import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
 import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
 import { IncidentUpdateData } from "./IncidentUpdateData";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
@@ -809,6 +818,8 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentServiceType: ["services"],
   IncidentTeamType: ["teams"],
   IncidentTimelineCellMarkdownContentType: ["markdown"],
+  IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
+  IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
   LogType: ["log"],
   LogsAggregateResponseStatus: ["done", "timeout"],
@@ -1306,6 +1317,15 @@ const typeMap: { [index: string]: any } = {
     IncidentTimelineCellMarkdownCreateAttributes,
   IncidentTimelineCellMarkdownCreateAttributesContent:
     IncidentTimelineCellMarkdownCreateAttributesContent,
+  IncidentTodoAnonymousAssignee: IncidentTodoAnonymousAssignee,
+  IncidentTodoAttributes: IncidentTodoAttributes,
+  IncidentTodoCreateData: IncidentTodoCreateData,
+  IncidentTodoCreateRequest: IncidentTodoCreateRequest,
+  IncidentTodoListResponse: IncidentTodoListResponse,
+  IncidentTodoPatchData: IncidentTodoPatchData,
+  IncidentTodoPatchRequest: IncidentTodoPatchRequest,
+  IncidentTodoResponse: IncidentTodoResponse,
+  IncidentTodoResponseData: IncidentTodoResponseData,
   IncidentUpdateAttributes: IncidentUpdateAttributes,
   IncidentUpdateData: IncidentUpdateData,
   IncidentUpdateRelationships: IncidentUpdateRelationships,
@@ -1787,6 +1807,8 @@ const oneOfMap: { [index: string]: string[] } = {
   IncidentTimelineCellCreateAttributes: [
     "IncidentTimelineCellMarkdownCreateAttributes",
   ],
+  IncidentTodoAssignee: ["string", "IncidentTodoAnonymousAssignee"],
+  IncidentTodoResponseIncludedItem: ["User"],
   LogsAggregateBucketValue: [
     "string",
     "number",
