@@ -2771,6 +2771,61 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentIntegrationMetadataResponse",
     },
+    "v2.ListIncidentTodos": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTodoListResponse",
+    },
+    "v2.CreateIncidentTodo": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentTodoCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTodoResponse",
+    },
+    "v2.DeleteIncidentTodo": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "todoId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetIncidentTodo": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "todoId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTodoResponse",
+    },
+    "v2.UpdateIncidentTodo": {
+        "incidentId": {
+            "type": "string",
+            "format": "",
+            },
+        "todoId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "IncidentTodoPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "IncidentTodoResponse",
+    },
     "v2.ListOpsgenieServices": {
         "operationResponseType": "OpsgenieServicesResponse",
     },
