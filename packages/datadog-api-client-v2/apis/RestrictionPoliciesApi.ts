@@ -426,6 +426,15 @@ export class RestrictionPoliciesApi {
    * - Notebooks: `notebook`
    * - Security Rules: `security-rule`
    * - Service Level Objectives: `slo`
+   *
+   * #### Supported relations for resources
+   * Resource Type            | Supported Relations
+   * -------------------------|--------------------------
+   * Connections              | `viewer`, `editor`, `resolver`
+   * Dashboards               | `viewer`, `editor`
+   * Notebooks                | `viewer`, `editor`
+   * Security Rules           | `viewer`, `editor`
+   * Service Level Objectives | `viewer`, `editor`
    * @param param The request object
    */
   public updateRestrictionPolicy(
