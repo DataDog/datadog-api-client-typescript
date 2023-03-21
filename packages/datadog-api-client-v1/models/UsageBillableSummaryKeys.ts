@@ -50,7 +50,7 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
-  "applicationSecurityHostTop99"?: UsageBillableSummaryBody;
+  "applicationSecurityHostTop99p"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
    */
@@ -409,8 +409,8 @@ export class UsageBillableSummaryKeys {
       baseName: "application_security_host_sum",
       type: "UsageBillableSummaryBody",
     },
-    applicationSecurityHostTop99: {
-      baseName: "application_security_host_top99",
+    applicationSecurityHostTop99p: {
+      baseName: "application_security_host_top99p",
       type: "UsageBillableSummaryBody",
     },
     ciPipelineIndexedSpansSum: {
