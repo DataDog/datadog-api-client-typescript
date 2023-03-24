@@ -91,11 +91,19 @@ export class MonthlyUsageAttributionValues {
    */
   "cspmHostsUsage"?: number;
   /**
-   * The percentage of custom metrics usage by tag(s).
+   * The percentage of ingested custom metrics usage by tag(s).
+   */
+  "customIngestedTimeseriesPercentage"?: number;
+  /**
+   * The ingested custom metrics usage by tag(s).
+   */
+  "customIngestedTimeseriesUsage"?: number;
+  /**
+   * The percentage of indexed custom metrics usage by tag(s).
    */
   "customTimeseriesPercentage"?: number;
   /**
-   * The custom metrics usage by tag(s).
+   * The indexed custom metrics usage by tag(s).
    */
   "customTimeseriesUsage"?: number;
   /**
@@ -349,6 +357,16 @@ export class MonthlyUsageAttributionValues {
     },
     cspmHostsUsage: {
       baseName: "cspm_hosts_usage",
+      type: "number",
+      format: "double",
+    },
+    customIngestedTimeseriesPercentage: {
+      baseName: "custom_ingested_timeseries_percentage",
+      type: "number",
+      format: "double",
+    },
+    customIngestedTimeseriesUsage: {
+      baseName: "custom_ingested_timeseries_usage",
       type: "number",
       format: "double",
     },

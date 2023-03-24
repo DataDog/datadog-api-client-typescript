@@ -21,6 +21,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof CONTAINER_USAGE
   | typeof CSPM_CONTAINERS_USAGE
   | typeof CSPM_HOSTS_USAGE
+  | typeof CUSTOM_INGESTED_TIMESERIES_USAGE
   | typeof CUSTOM_TIMESERIES_USAGE
   | typeof CWS_CONTAINERS_USAGE
   | typeof CWS_HOSTS_USAGE
@@ -51,6 +52,8 @@ export const CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage";
 export const CONTAINER_USAGE = "container_usage";
 export const CSPM_CONTAINERS_USAGE = "cspm_containers_usage";
 export const CSPM_HOSTS_USAGE = "cspm_hosts_usage";
+export const CUSTOM_INGESTED_TIMESERIES_USAGE =
+  "custom_ingested_timeseries_usage";
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CWS_CONTAINERS_USAGE = "cws_containers_usage";
 export const CWS_HOSTS_USAGE = "cws_hosts_usage";
