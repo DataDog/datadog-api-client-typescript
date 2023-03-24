@@ -11,7 +11,7 @@ const params: v2.AuditApiSearchAuditLogsRequest = {
   body: {
     filter: {
       from: "now-15m",
-      query: "@type:session AND @session.type:user",
+      query: "@evt.name:Request @auth_method:API_AND_APP_KEY",
       to: "now",
     },
     options: {
