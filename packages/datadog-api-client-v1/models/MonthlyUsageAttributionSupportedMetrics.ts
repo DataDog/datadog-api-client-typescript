@@ -33,6 +33,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof CSPM_HOSTS_USAGE
   | typeof CUSTOM_TIMESERIES_USAGE
   | typeof CUSTOM_TIMESERIES_PERCENTAGE
+  | typeof CUSTOM_INGESTED_TIMESERIES_USAGE
+  | typeof CUSTOM_INGESTED_TIMESERIES_PERCENTAGE
   | typeof CWS_CONTAINERS_PERCENTAGE
   | typeof CWS_CONTAINERS_USAGE
   | typeof CWS_HOSTS_PERCENTAGE
@@ -94,6 +96,10 @@ export const CSPM_HOSTS_PERCENTAGE = "cspm_hosts_percentage";
 export const CSPM_HOSTS_USAGE = "cspm_hosts_usage";
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage";
+export const CUSTOM_INGESTED_TIMESERIES_USAGE =
+  "custom_ingested_timeseries_usage";
+export const CUSTOM_INGESTED_TIMESERIES_PERCENTAGE =
+  "custom_ingested_timeseries_percentage";
 export const CWS_CONTAINERS_PERCENTAGE = "cws_containers_percentage";
 export const CWS_CONTAINERS_USAGE = "cws_containers_usage";
 export const CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage";
