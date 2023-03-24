@@ -181,6 +181,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listDowntimes(
     currentOnly?: boolean,
+    withCreator?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -201,6 +202,12 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "current_only",
         ObjectSerializer.serialize(currentOnly, "boolean", "")
+      );
+    }
+    if (withCreator !== undefined) {
+      requestContext.setQueryParam(
+        "with_creator",
+        ObjectSerializer.serialize(withCreator, "boolean", "")
       );
     }
 
@@ -762,6 +769,11 @@ export interface DowntimesApiListDowntimesRequest {
    * @type boolean
    */
   currentOnly?: boolean;
+  /**
+   * Return creator information.
+   * @type boolean
+   */
+  withCreator?: boolean;
 }
 
 export interface DowntimesApiListMonitorDowntimesRequest {
@@ -896,6 +908,7 @@ export class DowntimesApi {
   ): Promise<Array<Downtime>> {
     const requestContextPromise = this.requestFactory.listDowntimes(
       param.currentOnly,
+      param.withCreator,
       options
     );
     return requestContextPromise.then((requestContext) => {

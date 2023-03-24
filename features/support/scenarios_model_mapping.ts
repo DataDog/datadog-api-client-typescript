@@ -763,6 +763,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "withCreator": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "Array<Downtime>",
     },
     "v1.CreateDowntime": {
