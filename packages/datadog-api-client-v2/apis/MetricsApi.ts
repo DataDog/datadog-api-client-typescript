@@ -644,7 +644,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Body Params
     const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
+      "application/x-protobuf",
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
