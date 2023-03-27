@@ -63,6 +63,10 @@ export class Dashboard {
    */
   "restrictedRoles"?: Array<string>;
   /**
+   * List of team names representing ownership of a dashboard.
+   */
+  "tags"?: Array<string>;
+  /**
    * Array of template variables saved views.
    */
   "templateVariablePresets"?: Array<DashboardTemplateVariablePreset>;
@@ -137,6 +141,10 @@ export class Dashboard {
     },
     restrictedRoles: {
       baseName: "restricted_roles",
+      type: "Array<string>",
+    },
+    tags: {
+      baseName: "tags",
       type: "Array<string>",
     },
     templateVariablePresets: {
