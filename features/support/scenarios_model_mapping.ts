@@ -2655,6 +2655,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "IncidentSearchSortOrder",
             "format": "",
             },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "IncidentSearchResponse",
     },
     "v2.DeleteIncident": {

@@ -227,6 +227,7 @@ import { IncidentSearchResponseData } from "./IncidentSearchResponseData";
 import { IncidentSearchResponseFacetsData } from "./IncidentSearchResponseFacetsData";
 import { IncidentSearchResponseFieldFacetData } from "./IncidentSearchResponseFieldFacetData";
 import { IncidentSearchResponseIncidentsData } from "./IncidentSearchResponseIncidentsData";
+import { IncidentSearchResponseMeta } from "./IncidentSearchResponseMeta";
 import { IncidentSearchResponseNumericFacetData } from "./IncidentSearchResponseNumericFacetData";
 import { IncidentSearchResponseNumericFacetDataAggregates } from "./IncidentSearchResponseNumericFacetDataAggregates";
 import { IncidentSearchResponsePropertyFieldFacetData } from "./IncidentSearchResponsePropertyFieldFacetData";
@@ -1284,6 +1285,7 @@ const typeMap: { [index: string]: any } = {
   IncidentSearchResponseFacetsData: IncidentSearchResponseFacetsData,
   IncidentSearchResponseFieldFacetData: IncidentSearchResponseFieldFacetData,
   IncidentSearchResponseIncidentsData: IncidentSearchResponseIncidentsData,
+  IncidentSearchResponseMeta: IncidentSearchResponseMeta,
   IncidentSearchResponseNumericFacetData:
     IncidentSearchResponseNumericFacetData,
   IncidentSearchResponseNumericFacetDataAggregates:
