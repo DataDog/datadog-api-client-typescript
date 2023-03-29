@@ -615,6 +615,13 @@ import { ServiceDefinitionV1Org } from "./ServiceDefinitionV1Org";
 import { ServiceDefinitionV1Resource } from "./ServiceDefinitionV1Resource";
 import { ServiceDefinitionV2 } from "./ServiceDefinitionV2";
 import { ServiceDefinitionV2Doc } from "./ServiceDefinitionV2Doc";
+import { ServiceDefinitionV2Dot1 } from "./ServiceDefinitionV2Dot1";
+import { ServiceDefinitionV2Dot1Email } from "./ServiceDefinitionV2Dot1Email";
+import { ServiceDefinitionV2Dot1Integrations } from "./ServiceDefinitionV2Dot1Integrations";
+import { ServiceDefinitionV2Dot1Link } from "./ServiceDefinitionV2Dot1Link";
+import { ServiceDefinitionV2Dot1Opsgenie } from "./ServiceDefinitionV2Dot1Opsgenie";
+import { ServiceDefinitionV2Dot1Pagerduty } from "./ServiceDefinitionV2Dot1Pagerduty";
+import { ServiceDefinitionV2Dot1Slack } from "./ServiceDefinitionV2Dot1Slack";
 import { ServiceDefinitionV2Email } from "./ServiceDefinitionV2Email";
 import { ServiceDefinitionV2Integrations } from "./ServiceDefinitionV2Integrations";
 import { ServiceDefinitionV2Link } from "./ServiceDefinitionV2Link";
@@ -1006,6 +1013,17 @@ const enumsMap: { [key: string]: any[] } = {
     "link",
   ],
   ServiceDefinitionV1Version: ["v1"],
+  ServiceDefinitionV2Dot1EmailType: ["email"],
+  ServiceDefinitionV2Dot1LinkType: [
+    "doc",
+    "repo",
+    "runbook",
+    "dashboard",
+    "other",
+  ],
+  ServiceDefinitionV2Dot1OpsgenieRegion: ["US", "EU"],
+  ServiceDefinitionV2Dot1SlackType: ["slack"],
+  ServiceDefinitionV2Dot1Version: ["v2.1"],
   ServiceDefinitionV2EmailType: ["email"],
   ServiceDefinitionV2LinkType: [
     "doc",
@@ -1729,6 +1747,13 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionV1Resource: ServiceDefinitionV1Resource,
   ServiceDefinitionV2: ServiceDefinitionV2,
   ServiceDefinitionV2Doc: ServiceDefinitionV2Doc,
+  ServiceDefinitionV2Dot1: ServiceDefinitionV2Dot1,
+  ServiceDefinitionV2Dot1Email: ServiceDefinitionV2Dot1Email,
+  ServiceDefinitionV2Dot1Integrations: ServiceDefinitionV2Dot1Integrations,
+  ServiceDefinitionV2Dot1Link: ServiceDefinitionV2Dot1Link,
+  ServiceDefinitionV2Dot1Opsgenie: ServiceDefinitionV2Dot1Opsgenie,
+  ServiceDefinitionV2Dot1Pagerduty: ServiceDefinitionV2Dot1Pagerduty,
+  ServiceDefinitionV2Dot1Slack: ServiceDefinitionV2Dot1Slack,
   ServiceDefinitionV2Email: ServiceDefinitionV2Email,
   ServiceDefinitionV2Integrations: ServiceDefinitionV2Integrations,
   ServiceDefinitionV2Link: ServiceDefinitionV2Link,
@@ -1860,12 +1885,24 @@ const oneOfMap: { [index: string]: string[] } = {
     "SensitiveDataScannerRuleIncludedItem",
     "SensitiveDataScannerGroupIncludedItem",
   ],
-  ServiceDefinitionSchema: ["ServiceDefinitionV1", "ServiceDefinitionV2"],
+  ServiceDefinitionSchema: [
+    "ServiceDefinitionV1",
+    "ServiceDefinitionV2",
+    "ServiceDefinitionV2Dot1",
+  ],
   ServiceDefinitionV2Contact: [
     "ServiceDefinitionV2Email",
     "ServiceDefinitionV2Slack",
   ],
-  ServiceDefinitionsCreateRequest: ["ServiceDefinitionV2", "string"],
+  ServiceDefinitionV2Dot1Contact: [
+    "ServiceDefinitionV2Dot1Email",
+    "ServiceDefinitionV2Dot1Slack",
+  ],
+  ServiceDefinitionsCreateRequest: [
+    "ServiceDefinitionV2Dot1",
+    "ServiceDefinitionV2",
+    "string",
+  ],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };

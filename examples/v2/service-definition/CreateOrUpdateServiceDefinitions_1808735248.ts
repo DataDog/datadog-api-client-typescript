@@ -1,5 +1,5 @@
 /**
- * Create or update service definition returns "CREATED" response
+ * Create or update service definition using schema v2 returns "CREATED" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -9,7 +9,6 @@ const apiInstance = new v2.ServiceDefinitionApi(configuration);
 
 const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
   body: {
-    application: "my-app",
     contacts: [
       {
         contact: "contact@datadoghq.com",
@@ -17,10 +16,18 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
         type: "email",
       },
     ],
-    ddService: "my-service",
-    description: "My service description",
+    ddService:
+      "service-examplecreateorupdateservicedefinitionusingschemav2returnscreatedresponse",
+    ddTeam: "my-team",
+    docs: [
+      {
+        name: "Architecture",
+        provider: "google drive",
+        url: "https://gdrive/mydoc",
+      },
+    ],
     extensions: {
-      "myorg/extension": "extensionValue",
+      myorgextension: "extensionvalue",
     },
     integrations: {
       opsgenie: {
@@ -28,23 +35,25 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
         serviceUrl:
           "https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000",
       },
-      pagerduty: {
-        serviceUrl: "https://my-org.pagerduty.com/service-directory/PMyService",
-      },
+      pagerduty: "https://my-org.pagerduty.com/service-directory/PMyService",
     },
-    lifecycle: "sandbox",
     links: [
       {
         name: "Runbook",
-        provider: "Github",
         type: "runbook",
         url: "https://my-runbook",
       },
     ],
-    schemaVersion: "v2.1",
+    repos: [
+      {
+        name: "Source Code",
+        provider: "GitHub",
+        url: "https://github.com/DataDog/schema",
+      },
+    ],
+    schemaVersion: "v2",
     tags: ["my:tag", "service:tag"],
     team: "my-team",
-    tier: "High",
   },
 };
 
