@@ -17,7 +17,7 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
       },
     ],
     ddService:
-      "service-Example-Create_or_update_service_definition_using_schema_v2_1_returns_CREATED_response",
+      "service-examplecreateorupdateservicedefinitionusingschemav21returnscreatedresponse",
     extensions: {
       myorgextension: "extensionvalue",
     },
