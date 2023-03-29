@@ -5,6 +5,7 @@
  */
 import { IncidentResponseIncludedItem } from "./IncidentResponseIncludedItem";
 import { IncidentSearchResponseData } from "./IncidentSearchResponseData";
+import { IncidentSearchResponseMeta } from "./IncidentSearchResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -20,6 +21,10 @@ export class IncidentSearchResponse {
    * Included related resources that the user requested.
    */
   "included"?: Array<IncidentResponseIncludedItem>;
+  /**
+   * The metadata object containing pagination metadata.
+   */
+  "meta"?: IncidentSearchResponseMeta;
 
   /**
    * @ignore
@@ -38,6 +43,10 @@ export class IncidentSearchResponse {
     included: {
       baseName: "included",
       type: "Array<IncidentResponseIncludedItem>",
+    },
+    meta: {
+      baseName: "meta",
+      type: "IncidentSearchResponseMeta",
     },
   };
 

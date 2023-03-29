@@ -608,6 +608,7 @@ export { IncidentSearchResponseData } from "./models/IncidentSearchResponseData"
 export { IncidentSearchResponseFacetsData } from "./models/IncidentSearchResponseFacetsData";
 export { IncidentSearchResponseFieldFacetData } from "./models/IncidentSearchResponseFieldFacetData";
 export { IncidentSearchResponseIncidentsData } from "./models/IncidentSearchResponseIncidentsData";
+export { IncidentSearchResponseMeta } from "./models/IncidentSearchResponseMeta";
 export { IncidentSearchResponseNumericFacetData } from "./models/IncidentSearchResponseNumericFacetData";
 export { IncidentSearchResponseNumericFacetDataAggregates } from "./models/IncidentSearchResponseNumericFacetDataAggregates";
 export { IncidentSearchResponsePropertyFieldFacetData } from "./models/IncidentSearchResponsePropertyFieldFacetData";

@@ -32,6 +32,7 @@ import { IncidentRelatedObject } from "../models/IncidentRelatedObject";
 import { IncidentResponse } from "../models/IncidentResponse";
 import { IncidentResponseData } from "../models/IncidentResponseData";
 import { IncidentSearchResponse } from "../models/IncidentSearchResponse";
+import { IncidentSearchResponseIncidentsData } from "../models/IncidentSearchResponseIncidentsData";
 import { IncidentSearchSortOrder } from "../models/IncidentSearchSortOrder";
 import { IncidentsResponse } from "../models/IncidentsResponse";
 import { IncidentTodoCreateRequest } from "../models/IncidentTodoCreateRequest";
@@ -708,6 +709,8 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     query: string,
     include?: IncidentRelatedObject,
     sort?: IncidentSearchSortOrder,
+    pageSize?: number,
+    pageOffset?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -750,6 +753,18 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort",
         ObjectSerializer.serialize(sort, "IncidentSearchSortOrder", "")
+      );
+    }
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64")
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64")
       );
     }
 
@@ -2368,6 +2383,16 @@ export interface IncidentsApiSearchIncidentsRequest {
    * @type IncidentSearchSortOrder
    */
   sort?: IncidentSearchSortOrder;
+  /**
+   * Size for a given page. The maximum allowed value is 5000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific offset to use as the beginning of the returned page.
+   * @type number
+   */
+  pageOffset?: number;
 }
 
 export interface IncidentsApiUpdateIncidentRequest {
@@ -2808,6 +2833,8 @@ export class IncidentsApi {
       param.query,
       param.include,
       param.sort,
+      param.pageSize,
+      param.pageOffset,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -2817,6 +2844,61 @@ export class IncidentsApi {
           return this.responseProcessor.searchIncidents(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of searchIncidents returning a generator with all the items.
+   */
+  public async *searchIncidentsWithPagination(
+    param: IncidentsApiSearchIncidentsRequest,
+    options?: Configuration
+  ): AsyncGenerator<IncidentSearchResponseIncidentsData> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.searchIncidents(
+        param.query,
+        param.include,
+        param.sort,
+        param.pageSize,
+        param.pageOffset,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.searchIncidents(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const responseDataAttributes = responseData.attributes;
+      if (responseDataAttributes === undefined) {
+        break;
+      }
+      const responseDataAttributesIncidents = responseDataAttributes.incidents;
+      if (responseDataAttributesIncidents === undefined) {
+        break;
+      }
+      const results = responseDataAttributesIncidents;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = param.pageOffset + pageSize;
+      }
+    }
   }
 
   /**
