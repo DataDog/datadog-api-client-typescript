@@ -3,17 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ServiceDefinitionV2 } from "./ServiceDefinitionV2";
-import { ServiceDefinitionV2Dot1 } from "./ServiceDefinitionV2Dot1";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Create service definitions request.
+ * Contact type.
  */
 
-export type ServiceDefinitionsCreateRequest =
-  | ServiceDefinitionV2Dot1
-  | ServiceDefinitionV2
-  | string
-  | UnparsedObject;
+export type ServiceDefinitionV2Dot1EmailType = typeof EMAIL | UnparsedObject;
+export const EMAIL = "email";

@@ -3,17 +3,16 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ServiceDefinitionV2 } from "./ServiceDefinitionV2";
-import { ServiceDefinitionV2Dot1 } from "./ServiceDefinitionV2Dot1";
+import { ServiceDefinitionV2Dot1Email } from "./ServiceDefinitionV2Dot1Email";
+import { ServiceDefinitionV2Dot1Slack } from "./ServiceDefinitionV2Dot1Slack";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Create service definitions request.
+ * Service owner's contacts information.
  */
 
-export type ServiceDefinitionsCreateRequest =
-  | ServiceDefinitionV2Dot1
-  | ServiceDefinitionV2
-  | string
+export type ServiceDefinitionV2Dot1Contact =
+  | ServiceDefinitionV2Dot1Email
+  | ServiceDefinitionV2Dot1Slack
   | UnparsedObject;
