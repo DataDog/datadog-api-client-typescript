@@ -2379,6 +2379,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
+    "v2.ListSpansMetrics": {
+        "operationResponseType": "SpansMetricsResponse",
+    },
+    "v2.CreateSpansMetric": {
+        "body": {
+            "type": "SpansMetricCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SpansMetricResponse",
+    },
+    "v2.DeleteSpansMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSpansMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SpansMetricResponse",
+    },
+    "v2.UpdateSpansMetric": {
+        "metricId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SpansMetricUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SpansMetricResponse",
+    },
     "v2.ListAuditLogs": {
         "filterQuery": {
             "type": "string",
