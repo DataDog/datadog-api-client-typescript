@@ -465,8 +465,14 @@ import { RelationshipToRoleData } from "./RelationshipToRoleData";
 import { RelationshipToRoles } from "./RelationshipToRoles";
 import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
 import { RelationshipToSAMLAssertionAttributeData } from "./RelationshipToSAMLAssertionAttributeData";
+import { RelationshipToTeamLinkData } from "./RelationshipToTeamLinkData";
+import { RelationshipToTeamLinks } from "./RelationshipToTeamLinks";
 import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
+import { RelationshipToUserTeamPermission } from "./RelationshipToUserTeamPermission";
+import { RelationshipToUserTeamPermissionData } from "./RelationshipToUserTeamPermissionData";
+import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
+import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
@@ -631,6 +637,33 @@ import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
+import { Team } from "./Team";
+import { TeamAttributes } from "./TeamAttributes";
+import { TeamCreate } from "./TeamCreate";
+import { TeamCreateAttributes } from "./TeamCreateAttributes";
+import { TeamCreateRelationships } from "./TeamCreateRelationships";
+import { TeamCreateRequest } from "./TeamCreateRequest";
+import { TeamData } from "./TeamData";
+import { TeamLink } from "./TeamLink";
+import { TeamLinkAttributes } from "./TeamLinkAttributes";
+import { TeamLinkCreate } from "./TeamLinkCreate";
+import { TeamLinkCreateRequest } from "./TeamLinkCreateRequest";
+import { TeamLinkResponse } from "./TeamLinkResponse";
+import { TeamLinksResponse } from "./TeamLinksResponse";
+import { TeamPermissionSetting } from "./TeamPermissionSetting";
+import { TeamPermissionSettingAttributes } from "./TeamPermissionSettingAttributes";
+import { TeamPermissionSettingResponse } from "./TeamPermissionSettingResponse";
+import { TeamPermissionSettingUpdate } from "./TeamPermissionSettingUpdate";
+import { TeamPermissionSettingUpdateAttributes } from "./TeamPermissionSettingUpdateAttributes";
+import { TeamPermissionSettingUpdateRequest } from "./TeamPermissionSettingUpdateRequest";
+import { TeamPermissionSettingsResponse } from "./TeamPermissionSettingsResponse";
+import { TeamRelationships } from "./TeamRelationships";
+import { TeamResponse } from "./TeamResponse";
+import { TeamUpdate } from "./TeamUpdate";
+import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
+import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
+import { TeamUpdateRequest } from "./TeamUpdateRequest";
+import { TeamsResponse } from "./TeamsResponse";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
@@ -660,6 +693,17 @@ import { UserInvitationsResponse } from "./UserInvitationsResponse";
 import { UserRelationships } from "./UserRelationships";
 import { UserResponse } from "./UserResponse";
 import { UserResponseRelationships } from "./UserResponseRelationships";
+import { UserTeam } from "./UserTeam";
+import { UserTeamAttributes } from "./UserTeamAttributes";
+import { UserTeamCreate } from "./UserTeamCreate";
+import { UserTeamPermission } from "./UserTeamPermission";
+import { UserTeamPermissionAttributes } from "./UserTeamPermissionAttributes";
+import { UserTeamRelationships } from "./UserTeamRelationships";
+import { UserTeamRequest } from "./UserTeamRequest";
+import { UserTeamResponse } from "./UserTeamResponse";
+import { UserTeamUpdate } from "./UserTeamUpdate";
+import { UserTeamUpdateRequest } from "./UserTeamUpdateRequest";
+import { UserTeamsResponse } from "./UserTeamsResponse";
 import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
@@ -799,6 +843,18 @@ const enumsMap: { [key: string]: any[] } = {
   EventsSortType: ["alphabetical", "measure"],
   FastlyAccountType: ["fastly-accounts"],
   FastlyServiceType: ["fastly-services"],
+  GetAllTeamsInclude: ["team_links", "user_team_permissions"],
+  GetAllTeamsSort: ["name", "-name", "user_count", "-user_count"],
+  GetTeamMembershipsSort: [
+    "manager_name",
+    "-manager_name",
+    "name",
+    "-name",
+    "handle",
+    "-handle",
+    "email",
+    "-email",
+  ],
   HourlyUsageType: [
     "app_sec_host_count",
     "observability_pipelines_bytes_processed",
@@ -1039,10 +1095,25 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  TeamLinkType: ["team_links"],
+  TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
+  TeamPermissionSettingType: ["team_permission_settings"],
+  TeamPermissionSettingValue: [
+    "admins",
+    "members",
+    "organization",
+    "user_access_manage",
+    "teams_manage",
+  ],
+  TeamType: ["team"],
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
+  UserTeamPermissionType: ["user_team_permissions"],
+  UserTeamRole: ["admin"],
+  UserTeamType: ["team_memberships"],
+  UserTeamUserType: ["users"],
   UsersType: ["users"],
 };
 
@@ -1558,8 +1629,14 @@ const typeMap: { [index: string]: any } = {
   RelationshipToSAMLAssertionAttribute: RelationshipToSAMLAssertionAttribute,
   RelationshipToSAMLAssertionAttributeData:
     RelationshipToSAMLAssertionAttributeData,
+  RelationshipToTeamLinkData: RelationshipToTeamLinkData,
+  RelationshipToTeamLinks: RelationshipToTeamLinks,
   RelationshipToUser: RelationshipToUser,
   RelationshipToUserData: RelationshipToUserData,
+  RelationshipToUserTeamPermission: RelationshipToUserTeamPermission,
+  RelationshipToUserTeamPermissionData: RelationshipToUserTeamPermissionData,
+  RelationshipToUserTeamUser: RelationshipToUserTeamUser,
+  RelationshipToUserTeamUserData: RelationshipToUserTeamUserData,
   RelationshipToUsers: RelationshipToUsers,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
@@ -1763,6 +1840,33 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
+  Team: Team,
+  TeamAttributes: TeamAttributes,
+  TeamCreate: TeamCreate,
+  TeamCreateAttributes: TeamCreateAttributes,
+  TeamCreateRelationships: TeamCreateRelationships,
+  TeamCreateRequest: TeamCreateRequest,
+  TeamData: TeamData,
+  TeamLink: TeamLink,
+  TeamLinkAttributes: TeamLinkAttributes,
+  TeamLinkCreate: TeamLinkCreate,
+  TeamLinkCreateRequest: TeamLinkCreateRequest,
+  TeamLinkResponse: TeamLinkResponse,
+  TeamLinksResponse: TeamLinksResponse,
+  TeamPermissionSetting: TeamPermissionSetting,
+  TeamPermissionSettingAttributes: TeamPermissionSettingAttributes,
+  TeamPermissionSettingResponse: TeamPermissionSettingResponse,
+  TeamPermissionSettingUpdate: TeamPermissionSettingUpdate,
+  TeamPermissionSettingUpdateAttributes: TeamPermissionSettingUpdateAttributes,
+  TeamPermissionSettingUpdateRequest: TeamPermissionSettingUpdateRequest,
+  TeamPermissionSettingsResponse: TeamPermissionSettingsResponse,
+  TeamRelationships: TeamRelationships,
+  TeamResponse: TeamResponse,
+  TeamUpdate: TeamUpdate,
+  TeamUpdateAttributes: TeamUpdateAttributes,
+  TeamUpdateRelationships: TeamUpdateRelationships,
+  TeamUpdateRequest: TeamUpdateRequest,
+  TeamsResponse: TeamsResponse,
   TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
   TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
   TimeseriesFormulaRequest: TimeseriesFormulaRequest,
@@ -1793,6 +1897,17 @@ const typeMap: { [index: string]: any } = {
   UserRelationships: UserRelationships,
   UserResponse: UserResponse,
   UserResponseRelationships: UserResponseRelationships,
+  UserTeam: UserTeam,
+  UserTeamAttributes: UserTeamAttributes,
+  UserTeamCreate: UserTeamCreate,
+  UserTeamPermission: UserTeamPermission,
+  UserTeamPermissionAttributes: UserTeamPermissionAttributes,
+  UserTeamRelationships: UserTeamRelationships,
+  UserTeamRequest: UserTeamRequest,
+  UserTeamResponse: UserTeamResponse,
+  UserTeamUpdate: UserTeamUpdate,
+  UserTeamUpdateRequest: UserTeamUpdateRequest,
+  UserTeamsResponse: UserTeamsResponse,
   UserUpdateAttributes: UserUpdateAttributes,
   UserUpdateData: UserUpdateData,
   UserUpdateRequest: UserUpdateRequest,
@@ -1903,6 +2018,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ServiceDefinitionV2",
     "string",
   ],
+  TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
 };
