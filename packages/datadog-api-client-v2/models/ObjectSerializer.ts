@@ -637,6 +637,23 @@ import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
+import { SpansMetricCompute } from "./SpansMetricCompute";
+import { SpansMetricCreateAttributes } from "./SpansMetricCreateAttributes";
+import { SpansMetricCreateData } from "./SpansMetricCreateData";
+import { SpansMetricCreateRequest } from "./SpansMetricCreateRequest";
+import { SpansMetricFilter } from "./SpansMetricFilter";
+import { SpansMetricGroupBy } from "./SpansMetricGroupBy";
+import { SpansMetricResponse } from "./SpansMetricResponse";
+import { SpansMetricResponseAttributes } from "./SpansMetricResponseAttributes";
+import { SpansMetricResponseCompute } from "./SpansMetricResponseCompute";
+import { SpansMetricResponseData } from "./SpansMetricResponseData";
+import { SpansMetricResponseFilter } from "./SpansMetricResponseFilter";
+import { SpansMetricResponseGroupBy } from "./SpansMetricResponseGroupBy";
+import { SpansMetricUpdateAttributes } from "./SpansMetricUpdateAttributes";
+import { SpansMetricUpdateCompute } from "./SpansMetricUpdateCompute";
+import { SpansMetricUpdateData } from "./SpansMetricUpdateData";
+import { SpansMetricUpdateRequest } from "./SpansMetricUpdateRequest";
+import { SpansMetricsResponse } from "./SpansMetricsResponse";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
 import { TeamCreate } from "./TeamCreate";
@@ -1095,6 +1112,8 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  SpansMetricComputeAggregationType: ["count", "distribution"],
+  SpansMetricType: ["spans_metrics"],
   TeamLinkType: ["team_links"],
   TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
   TeamPermissionSettingType: ["team_permission_settings"],
@@ -1840,6 +1859,23 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
+  SpansMetricCompute: SpansMetricCompute,
+  SpansMetricCreateAttributes: SpansMetricCreateAttributes,
+  SpansMetricCreateData: SpansMetricCreateData,
+  SpansMetricCreateRequest: SpansMetricCreateRequest,
+  SpansMetricFilter: SpansMetricFilter,
+  SpansMetricGroupBy: SpansMetricGroupBy,
+  SpansMetricResponse: SpansMetricResponse,
+  SpansMetricResponseAttributes: SpansMetricResponseAttributes,
+  SpansMetricResponseCompute: SpansMetricResponseCompute,
+  SpansMetricResponseData: SpansMetricResponseData,
+  SpansMetricResponseFilter: SpansMetricResponseFilter,
+  SpansMetricResponseGroupBy: SpansMetricResponseGroupBy,
+  SpansMetricUpdateAttributes: SpansMetricUpdateAttributes,
+  SpansMetricUpdateCompute: SpansMetricUpdateCompute,
+  SpansMetricUpdateData: SpansMetricUpdateData,
+  SpansMetricUpdateRequest: SpansMetricUpdateRequest,
+  SpansMetricsResponse: SpansMetricsResponse,
   Team: Team,
   TeamAttributes: TeamAttributes,
   TeamCreate: TeamCreate,
