@@ -305,6 +305,26 @@ export {
 } from "./apis/SyntheticsApi";
 
 export {
+  TeamsApiCreateTeamRequest,
+  TeamsApiCreateTeamLinkRequest,
+  TeamsApiCreateTeamMembershipRequest,
+  TeamsApiGetAllTeamsRequest,
+  TeamsApiGetTeamRequest,
+  TeamsApiGetTeamLinkRequest,
+  TeamsApiGetTeamLinksRequest,
+  TeamsApiGetTeamMembershipsRequest,
+  TeamsApiGetTeamPermissionSettingsRequest,
+  TeamsApiRemoveTeamRequest,
+  TeamsApiRemoveTeamLinkRequest,
+  TeamsApiRemoveTeamMembershipRequest,
+  TeamsApiUpdateTeamRequest,
+  TeamsApiUpdateTeamLinkRequest,
+  TeamsApiUpdateTeamMembershipRequest,
+  TeamsApiUpdateTeamPermissionSettingRequest,
+  TeamsApi,
+} from "./apis/TeamsApi";
+
+export {
   UsageMeteringApiGetCostByOrgRequest,
   UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetHistoricalCostByOrgRequest,
@@ -542,6 +562,9 @@ export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
+export { GetAllTeamsInclude } from "./models/GetAllTeamsInclude";
+export { GetAllTeamsSort } from "./models/GetAllTeamsSort";
+export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
 export { HourlyUsage } from "./models/HourlyUsage";
 export { HourlyUsageAttributes } from "./models/HourlyUsageAttributes";
@@ -884,9 +907,15 @@ export { RelationshipToRoleData } from "./models/RelationshipToRoleData";
 export { RelationshipToRoles } from "./models/RelationshipToRoles";
 export { RelationshipToSAMLAssertionAttribute } from "./models/RelationshipToSAMLAssertionAttribute";
 export { RelationshipToSAMLAssertionAttributeData } from "./models/RelationshipToSAMLAssertionAttributeData";
+export { RelationshipToTeamLinkData } from "./models/RelationshipToTeamLinkData";
+export { RelationshipToTeamLinks } from "./models/RelationshipToTeamLinks";
 export { RelationshipToUser } from "./models/RelationshipToUser";
 export { RelationshipToUserData } from "./models/RelationshipToUserData";
 export { RelationshipToUsers } from "./models/RelationshipToUsers";
+export { RelationshipToUserTeamPermission } from "./models/RelationshipToUserTeamPermission";
+export { RelationshipToUserTeamPermissionData } from "./models/RelationshipToUserTeamPermissionData";
+export { RelationshipToUserTeamUser } from "./models/RelationshipToUserTeamUser";
+export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamUserData";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RestrictionPolicy } from "./models/RestrictionPolicy";
 export { RestrictionPolicyAttributes } from "./models/RestrictionPolicyAttributes";
@@ -1151,6 +1180,39 @@ export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackT
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
+export { Team } from "./models/Team";
+export { TeamAttributes } from "./models/TeamAttributes";
+export { TeamCreate } from "./models/TeamCreate";
+export { TeamCreateAttributes } from "./models/TeamCreateAttributes";
+export { TeamCreateRelationships } from "./models/TeamCreateRelationships";
+export { TeamCreateRequest } from "./models/TeamCreateRequest";
+export { TeamData } from "./models/TeamData";
+export { TeamIncluded } from "./models/TeamIncluded";
+export { TeamLink } from "./models/TeamLink";
+export { TeamLinkAttributes } from "./models/TeamLinkAttributes";
+export { TeamLinkCreate } from "./models/TeamLinkCreate";
+export { TeamLinkCreateRequest } from "./models/TeamLinkCreateRequest";
+export { TeamLinkResponse } from "./models/TeamLinkResponse";
+export { TeamLinksResponse } from "./models/TeamLinksResponse";
+export { TeamLinkType } from "./models/TeamLinkType";
+export { TeamPermissionSetting } from "./models/TeamPermissionSetting";
+export { TeamPermissionSettingAttributes } from "./models/TeamPermissionSettingAttributes";
+export { TeamPermissionSettingResponse } from "./models/TeamPermissionSettingResponse";
+export { TeamPermissionSettingSerializerAction } from "./models/TeamPermissionSettingSerializerAction";
+export { TeamPermissionSettingsResponse } from "./models/TeamPermissionSettingsResponse";
+export { TeamPermissionSettingType } from "./models/TeamPermissionSettingType";
+export { TeamPermissionSettingUpdate } from "./models/TeamPermissionSettingUpdate";
+export { TeamPermissionSettingUpdateAttributes } from "./models/TeamPermissionSettingUpdateAttributes";
+export { TeamPermissionSettingUpdateRequest } from "./models/TeamPermissionSettingUpdateRequest";
+export { TeamPermissionSettingValue } from "./models/TeamPermissionSettingValue";
+export { TeamRelationships } from "./models/TeamRelationships";
+export { TeamResponse } from "./models/TeamResponse";
+export { TeamsResponse } from "./models/TeamsResponse";
+export { TeamType } from "./models/TeamType";
+export { TeamUpdate } from "./models/TeamUpdate";
+export { TeamUpdateAttributes } from "./models/TeamUpdateAttributes";
+export { TeamUpdateRelationships } from "./models/TeamUpdateRelationships";
+export { TeamUpdateRequest } from "./models/TeamUpdateRequest";
 export { TimeseriesFormulaQueryRequest } from "./models/TimeseriesFormulaQueryRequest";
 export { TimeseriesFormulaQueryResponse } from "./models/TimeseriesFormulaQueryResponse";
 export { TimeseriesFormulaRequest } from "./models/TimeseriesFormulaRequest";
@@ -1188,6 +1250,21 @@ export { UserResponseIncludedItem } from "./models/UserResponseIncludedItem";
 export { UserResponseRelationships } from "./models/UserResponseRelationships";
 export { UsersResponse } from "./models/UsersResponse";
 export { UsersType } from "./models/UsersType";
+export { UserTeam } from "./models/UserTeam";
+export { UserTeamAttributes } from "./models/UserTeamAttributes";
+export { UserTeamCreate } from "./models/UserTeamCreate";
+export { UserTeamPermission } from "./models/UserTeamPermission";
+export { UserTeamPermissionAttributes } from "./models/UserTeamPermissionAttributes";
+export { UserTeamPermissionType } from "./models/UserTeamPermissionType";
+export { UserTeamRelationships } from "./models/UserTeamRelationships";
+export { UserTeamRequest } from "./models/UserTeamRequest";
+export { UserTeamResponse } from "./models/UserTeamResponse";
+export { UserTeamRole } from "./models/UserTeamRole";
+export { UserTeamsResponse } from "./models/UserTeamsResponse";
+export { UserTeamType } from "./models/UserTeamType";
+export { UserTeamUpdate } from "./models/UserTeamUpdate";
+export { UserTeamUpdateRequest } from "./models/UserTeamUpdateRequest";
+export { UserTeamUserType } from "./models/UserTeamUserType";
 export { UserUpdateAttributes } from "./models/UserUpdateAttributes";
 export { UserUpdateData } from "./models/UserUpdateData";
 export { UserUpdateRequest } from "./models/UserUpdateRequest";

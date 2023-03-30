@@ -4174,6 +4174,202 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },
+    "v2.GetAllTeams": {
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "GetAllTeamsSort",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<GetAllTeamsInclude>",
+            "format": "",
+            },
+        "filterKeyword": {
+            "type": "string",
+            "format": "",
+            },
+        "filterMe": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "TeamsResponse",
+    },
+    "v2.CreateTeam": {
+        "body": {
+            "type": "TeamCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamResponse",
+    },
+    "v2.RemoveTeam": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetTeam": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamResponse",
+    },
+    "v2.UpdateTeam": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TeamUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamResponse",
+    },
+    "v2.GetTeamLinks": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamLinksResponse",
+    },
+    "v2.CreateTeamLink": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TeamLinkCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamLinkResponse",
+    },
+    "v2.RemoveTeamLink": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "linkId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetTeamLink": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "linkId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamLinkResponse",
+    },
+    "v2.UpdateTeamLink": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "linkId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TeamLinkCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamLinkResponse",
+    },
+    "v2.GetTeamMemberships": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "GetTeamMembershipsSort",
+            "format": "",
+            },
+        "filterKeyword": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserTeamsResponse",
+    },
+    "v2.CreateTeamMembership": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UserTeamRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserTeamResponse",
+    },
+    "v2.RemoveTeamMembership": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.UpdateTeamMembership": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "userId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UserTeamUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "UserTeamResponse",
+    },
+    "v2.GetTeamPermissionSettings": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "TeamPermissionSettingsResponse",
+    },
+    "v2.UpdateTeamPermissionSetting": {
+        "teamId": {
+            "type": "string",
+            "format": "",
+            },
+        "action": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "TeamPermissionSettingUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "TeamPermissionSettingResponse",
+    },
     "v2.ListIncidentTeams": {
         "include": {
             "type": "IncidentRelatedObject",
