@@ -71,6 +71,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof SNMP_PERCENTAGE
   | typeof ESTIMATED_RUM_SESSIONS_USAGE
   | typeof ESTIMATED_RUM_SESSIONS_PERCENTAGE
+  | typeof UNIVERSAL_SERVICE_MONITORING_USAGE
+  | typeof UNIVERSAL_SERVICE_MONITORING_PERCENTAGE
   | typeof ALL
   | UnparsedObject;
 export const API_USAGE = "api_usage";
@@ -141,4 +143,8 @@ export const SNMP_PERCENTAGE = "snmp_percentage";
 export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
 export const ESTIMATED_RUM_SESSIONS_PERCENTAGE =
   "estimated_rum_sessions_percentage";
+export const UNIVERSAL_SERVICE_MONITORING_USAGE =
+  "universal_service_monitoring_usage";
+export const UNIVERSAL_SERVICE_MONITORING_PERCENTAGE =
+  "universal_service_monitoring_percentage";
 export const ALL = "*";

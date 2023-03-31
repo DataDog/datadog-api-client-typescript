@@ -353,6 +353,10 @@ export class UsageSummaryResponse {
    */
   "usage"?: Array<UsageSummaryDate>;
   /**
+   * Shows the 99th percentile of all Universal Service Monitoring hosts over all hours in the current months for all organizations.
+   */
+  "usmHostCountTop99pSum"?: number;
+  /**
    * Shows the 99th percentile of all vSphere hosts over all hours in the current months for all organizations.
    */
   "vsphereHostTop99pSum"?: number;
@@ -788,6 +792,11 @@ export class UsageSummaryResponse {
     usage: {
       baseName: "usage",
       type: "Array<UsageSummaryDate>",
+    },
+    usmHostCountTop99pSum: {
+      baseName: "usm_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
     },
     vsphereHostTop99pSum: {
       baseName: "vsphere_host_top99p_sum",
