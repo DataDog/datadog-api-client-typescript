@@ -316,15 +316,15 @@ export {
   TeamsApiCreateTeamRequest,
   TeamsApiCreateTeamLinkRequest,
   TeamsApiCreateTeamMembershipRequest,
-  TeamsApiGetAllTeamsRequest,
+  TeamsApiDeleteTeamRequest,
+  TeamsApiDeleteTeamLinkRequest,
+  TeamsApiDeleteTeamMembershipRequest,
   TeamsApiGetTeamRequest,
   TeamsApiGetTeamLinkRequest,
   TeamsApiGetTeamLinksRequest,
   TeamsApiGetTeamMembershipsRequest,
   TeamsApiGetTeamPermissionSettingsRequest,
-  TeamsApiRemoveTeamRequest,
-  TeamsApiRemoveTeamLinkRequest,
-  TeamsApiRemoveTeamMembershipRequest,
+  TeamsApiListTeamsRequest,
   TeamsApiUpdateTeamRequest,
   TeamsApiUpdateTeamLinkRequest,
   TeamsApiUpdateTeamMembershipRequest,
@@ -570,8 +570,6 @@ export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
-export { GetAllTeamsInclude } from "./models/GetAllTeamsInclude";
-export { GetAllTeamsSort } from "./models/GetAllTeamsSort";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
 export { HourlyUsage } from "./models/HourlyUsage";
@@ -708,6 +706,8 @@ export { IPAllowlistUpdateRequest } from "./models/IPAllowlistUpdateRequest";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
+export { ListTeamsInclude } from "./models/ListTeamsInclude";
+export { ListTeamsSort } from "./models/ListTeamsSort";
 export { Log } from "./models/Log";
 export { LogAttributes } from "./models/LogAttributes";
 export { LogsAggregateBucket } from "./models/LogsAggregateBucket";

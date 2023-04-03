@@ -10,7 +10,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Specifies the order of the returned teams
  */
 
-export type GetAllTeamsSort =
+export type ListTeamsSort =
   | typeof NAME
   | typeof _NAME
   | typeof USER_COUNT
