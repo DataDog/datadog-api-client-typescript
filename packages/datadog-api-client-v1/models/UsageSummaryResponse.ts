@@ -349,6 +349,10 @@ export class UsageSummaryResponse {
    */
   "twolIngestedEventsBytesAggSum"?: number;
   /**
+   * Shows the 99th percentile of all Universal Service Monitoring hosts over all hours in the current months for all organizations.
+   */
+  "universalServiceMonitoringHostTop99pSum"?: number;
+  /**
    * An array of objects regarding hourly usage.
    */
   "usage"?: Array<UsageSummaryDate>;
@@ -782,6 +786,11 @@ export class UsageSummaryResponse {
     },
     twolIngestedEventsBytesAggSum: {
       baseName: "twol_ingested_events_bytes_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    universalServiceMonitoringHostTop99pSum: {
+      baseName: "universal_service_monitoring_host_top99p_sum",
       type: "number",
       format: "int64",
     },
