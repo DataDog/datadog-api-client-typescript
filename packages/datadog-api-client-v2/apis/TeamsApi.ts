@@ -18,9 +18,9 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
-import { GetAllTeamsInclude } from "../models/GetAllTeamsInclude";
-import { GetAllTeamsSort } from "../models/GetAllTeamsSort";
 import { GetTeamMembershipsSort } from "../models/GetTeamMembershipsSort";
+import { ListTeamsInclude } from "../models/ListTeamsInclude";
+import { ListTeamsSort } from "../models/ListTeamsSort";
 import { TeamCreateRequest } from "../models/TeamCreateRequest";
 import { TeamLinkCreateRequest } from "../models/TeamLinkCreateRequest";
 import { TeamLinkResponse } from "../models/TeamLinkResponse";
@@ -184,65 +184,110 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getAllTeams(
-    pageNumber?: number,
-    pageSize?: number,
-    sort?: GetAllTeamsSort,
-    include?: Array<GetAllTeamsInclude>,
-    filterKeyword?: string,
-    filterMe?: boolean,
+  public async deleteTeam(
+    teamId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "deleteTeam");
+    }
+
     // Path Params
-    const localVarPath = "/api/v2/team";
+    const localVarPath = "/api/v2/team/{team_id}".replace(
+      "{team_id}",
+      encodeURIComponent(String(teamId))
+    );
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "v2.TeamsApi.getAllTeams"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
+      "v2.TeamsApi.deleteTeam"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Query Params
-    if (pageNumber !== undefined) {
-      requestContext.setQueryParam(
-        "page[number]",
-        ObjectSerializer.serialize(pageNumber, "number", "int64")
-      );
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteTeamLink(
+    teamId: string,
+    linkId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "deleteTeamLink");
     }
-    if (pageSize !== undefined) {
-      requestContext.setQueryParam(
-        "page[size]",
-        ObjectSerializer.serialize(pageSize, "number", "int64")
-      );
+
+    // verify required parameter 'linkId' is not null or undefined
+    if (linkId === null || linkId === undefined) {
+      throw new RequiredError("linkId", "deleteTeamLink");
     }
-    if (sort !== undefined) {
-      requestContext.setQueryParam(
-        "sort",
-        ObjectSerializer.serialize(sort, "GetAllTeamsSort", "")
-      );
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{link_id}", encodeURIComponent(String(linkId)));
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.TeamsApi.deleteTeamLink"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deleteTeamMembership(
+    teamId: string,
+    userId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'teamId' is not null or undefined
+    if (teamId === null || teamId === undefined) {
+      throw new RequiredError("teamId", "deleteTeamMembership");
     }
-    if (include !== undefined) {
-      requestContext.setQueryParam(
-        "include",
-        ObjectSerializer.serialize(include, "Array<GetAllTeamsInclude>", "")
-      );
+
+    // verify required parameter 'userId' is not null or undefined
+    if (userId === null || userId === undefined) {
+      throw new RequiredError("userId", "deleteTeamMembership");
     }
-    if (filterKeyword !== undefined) {
-      requestContext.setQueryParam(
-        "filter[keyword]",
-        ObjectSerializer.serialize(filterKeyword, "string", "")
-      );
-    }
-    if (filterMe !== undefined) {
-      requestContext.setQueryParam(
-        "filter[me]",
-        ObjectSerializer.serialize(filterMe, "boolean", "")
-      );
-    }
+
+    // Path Params
+    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}"
+      .replace("{team_id}", encodeURIComponent(String(teamId)))
+      .replace("{user_id}", encodeURIComponent(String(userId)));
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.TeamsApi.deleteTeamMembership"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -464,110 +509,65 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async removeTeam(
-    teamId: string,
+  public async listTeams(
+    pageNumber?: number,
+    pageSize?: number,
+    sort?: ListTeamsSort,
+    include?: Array<ListTeamsInclude>,
+    filterKeyword?: string,
+    filterMe?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    // verify required parameter 'teamId' is not null or undefined
-    if (teamId === null || teamId === undefined) {
-      throw new RequiredError("teamId", "removeTeam");
-    }
-
     // Path Params
-    const localVarPath = "/api/v2/team/{team_id}".replace(
-      "{team_id}",
-      encodeURIComponent(String(teamId))
-    );
+    const localVarPath = "/api/v2/team";
 
     // Make Request Context
     const requestContext = getServer(
       _config,
-      "v2.TeamsApi.removeTeam"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "*/*");
+      "v2.TeamsApi.listTeams"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async removeTeamLink(
-    teamId: string,
-    linkId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'teamId' is not null or undefined
-    if (teamId === null || teamId === undefined) {
-      throw new RequiredError("teamId", "removeTeamLink");
+    // Query Params
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64")
+      );
     }
-
-    // verify required parameter 'linkId' is not null or undefined
-    if (linkId === null || linkId === undefined) {
-      throw new RequiredError("linkId", "removeTeamLink");
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64")
+      );
     }
-
-    // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/links/{link_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{link_id}", encodeURIComponent(String(linkId)));
-
-    // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.TeamsApi.removeTeamLink"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "*/*");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async removeTeamMembership(
-    teamId: string,
-    userId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'teamId' is not null or undefined
-    if (teamId === null || teamId === undefined) {
-      throw new RequiredError("teamId", "removeTeamMembership");
+    if (sort !== undefined) {
+      requestContext.setQueryParam(
+        "sort",
+        ObjectSerializer.serialize(sort, "ListTeamsSort", "")
+      );
     }
-
-    // verify required parameter 'userId' is not null or undefined
-    if (userId === null || userId === undefined) {
-      throw new RequiredError("userId", "removeTeamMembership");
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "Array<ListTeamsInclude>", "")
+      );
     }
-
-    // Path Params
-    const localVarPath = "/api/v2/team/{team_id}/memberships/{user_id}"
-      .replace("{team_id}", encodeURIComponent(String(teamId)))
-      .replace("{user_id}", encodeURIComponent(String(userId)));
-
-    // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.TeamsApi.removeTeamMembership"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "*/*");
-    requestContext.setHttpConfig(_config.httpConfig);
+    if (filterKeyword !== undefined) {
+      requestContext.setQueryParam(
+        "filter[keyword]",
+        ObjectSerializer.serialize(filterKeyword, "string", "")
+      );
+    }
+    if (filterMe !== undefined) {
+      requestContext.setQueryParam(
+        "filter[me]",
+        ObjectSerializer.serialize(filterMe, "boolean", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -992,21 +992,17 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getAllTeams
+   * @params response Response returned by the server for a request to deleteTeam
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async getAllTeams(response: ResponseContext): Promise<TeamsResponse> {
+  public async deleteTeam(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
-      const body: TeamsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamsResponse"
-      ) as TeamsResponse;
-      return body;
+    if (response.httpStatusCode == 204) {
+      return;
     }
-    if (response.httpStatusCode == 429) {
+    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1029,11 +1025,115 @@ export class TeamsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: TeamsResponse = ObjectSerializer.deserialize(
+      const body: void = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "TeamsResponse",
+        "void",
         ""
-      ) as TeamsResponse;
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteTeamLink
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteTeamLink(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 204) {
+      return;
+    }
+    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deleteTeamMembership
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteTeamMembership(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 204) {
+      return;
+    }
+    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
       return body;
     }
 
@@ -1336,69 +1436,21 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to removeTeam
+   * @params response Response returned by the server for a request to listTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async removeTeam(response: ResponseContext): Promise<void> {
+  public async listTeams(response: ResponseContext): Promise<TeamsResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
-      return;
-    }
-    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
+    if (response.httpStatusCode == 200) {
+      const body: TeamsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
+        "TeamsResponse"
+      ) as TeamsResponse;
       return body;
     }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to removeTeamLink
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async removeTeamLink(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode == 204) {
-      return;
-    }
-    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode == 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1421,63 +1473,11 @@ export class TeamsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
+      const body: TeamsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
+        "TeamsResponse",
         ""
-      ) as void;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to removeTeamMembership
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async removeTeamMembership(response: ResponseContext): Promise<void> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode == 204) {
-      return;
-    }
-    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
+      ) as TeamsResponse;
       return body;
     }
 
@@ -1755,37 +1755,38 @@ export interface TeamsApiCreateTeamMembershipRequest {
   body: UserTeamRequest;
 }
 
-export interface TeamsApiGetAllTeamsRequest {
+export interface TeamsApiDeleteTeamRequest {
   /**
-   * Specific page number to return.
-   * @type number
-   */
-  pageNumber?: number;
-  /**
-   * Size for a given page. The maximum allowed value is 5000.
-   * @type number
-   */
-  pageSize?: number;
-  /**
-   * Specifies the order of the returned teams
-   * @type GetAllTeamsSort
-   */
-  sort?: GetAllTeamsSort;
-  /**
-   * Included related resources optionally requested. Allowed enum values: `team_links, user_team_permissions`
-   * @type Array<GetAllTeamsInclude>
-   */
-  include?: Array<GetAllTeamsInclude>;
-  /**
-   * Search query. Can be team name, team handle, or email of team member
+   * None
    * @type string
    */
-  filterKeyword?: string;
+  teamId: string;
+}
+
+export interface TeamsApiDeleteTeamLinkRequest {
   /**
-   * When true, only returns teams the current user belongs to
-   * @type boolean
+   * None
+   * @type string
    */
-  filterMe?: boolean;
+  teamId: string;
+  /**
+   * None
+   * @type string
+   */
+  linkId: string;
+}
+
+export interface TeamsApiDeleteTeamMembershipRequest {
+  /**
+   * None
+   * @type string
+   */
+  teamId: string;
+  /**
+   * None
+   * @type string
+   */
+  userId: string;
 }
 
 export interface TeamsApiGetTeamRequest {
@@ -1853,38 +1854,37 @@ export interface TeamsApiGetTeamPermissionSettingsRequest {
   teamId: string;
 }
 
-export interface TeamsApiRemoveTeamRequest {
+export interface TeamsApiListTeamsRequest {
   /**
-   * None
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+  /**
+   * Size for a given page. The maximum allowed value is 5000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specifies the order of the returned teams
+   * @type ListTeamsSort
+   */
+  sort?: ListTeamsSort;
+  /**
+   * Included related resources optionally requested. Allowed enum values: `team_links, user_team_permissions`
+   * @type Array<ListTeamsInclude>
+   */
+  include?: Array<ListTeamsInclude>;
+  /**
+   * Search query. Can be team name, team handle, or email of team member
    * @type string
    */
-  teamId: string;
-}
-
-export interface TeamsApiRemoveTeamLinkRequest {
+  filterKeyword?: string;
   /**
-   * None
-   * @type string
+   * When true, only returns teams the current user belongs to
+   * @type boolean
    */
-  teamId: string;
-  /**
-   * None
-   * @type string
-   */
-  linkId: string;
-}
-
-export interface TeamsApiRemoveTeamMembershipRequest {
-  /**
-   * None
-   * @type string
-   */
-  teamId: string;
-  /**
-   * None
-   * @type string
-   */
-  userId: string;
+  filterMe?: boolean;
 }
 
 export interface TeamsApiUpdateTeamRequest {
@@ -2034,28 +2034,66 @@ export class TeamsApi {
   }
 
   /**
-   * Get all teams.
-   * Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
+   * Remove a team using the team's `id`.
    * @param param The request object
    */
-  public getAllTeams(
-    param: TeamsApiGetAllTeamsRequest = {},
+  public deleteTeam(
+    param: TeamsApiDeleteTeamRequest,
     options?: Configuration
-  ): Promise<TeamsResponse> {
-    const requestContextPromise = this.requestFactory.getAllTeams(
-      param.pageNumber,
-      param.pageSize,
-      param.sort,
-      param.include,
-      param.filterKeyword,
-      param.filterMe,
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteTeam(
+      param.teamId,
       options
     );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.getAllTeams(responseContext);
+          return this.responseProcessor.deleteTeam(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove a link from a team.
+   * @param param The request object
+   */
+  public deleteTeamLink(
+    param: TeamsApiDeleteTeamLinkRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteTeamLink(
+      param.teamId,
+      param.linkId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTeamLink(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Remove a user from a team.
+   * @param param The request object
+   */
+  public deleteTeamMembership(
+    param: TeamsApiDeleteTeamMembershipRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteTeamMembership(
+      param.teamId,
+      param.userId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteTeamMembership(responseContext);
         });
     });
   }
@@ -2173,66 +2211,28 @@ export class TeamsApi {
   }
 
   /**
-   * Remove a team using the team's `id`.
+   * Get all teams.
+   * Can be used to search for teams using the `filter[keyword]` and `filter[me]` query parameters.
    * @param param The request object
    */
-  public removeTeam(
-    param: TeamsApiRemoveTeamRequest,
+  public listTeams(
+    param: TeamsApiListTeamsRequest = {},
     options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.removeTeam(
-      param.teamId,
+  ): Promise<TeamsResponse> {
+    const requestContextPromise = this.requestFactory.listTeams(
+      param.pageNumber,
+      param.pageSize,
+      param.sort,
+      param.include,
+      param.filterKeyword,
+      param.filterMe,
       options
     );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.removeTeam(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Remove a link from a team.
-   * @param param The request object
-   */
-  public removeTeamLink(
-    param: TeamsApiRemoveTeamLinkRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.removeTeamLink(
-      param.teamId,
-      param.linkId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.removeTeamLink(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Remove a user from a team.
-   * @param param The request object
-   */
-  public removeTeamMembership(
-    param: TeamsApiRemoveTeamMembershipRequest,
-    options?: Configuration
-  ): Promise<void> {
-    const requestContextPromise = this.requestFactory.removeTeamMembership(
-      param.teamId,
-      param.userId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.removeTeamMembership(responseContext);
+          return this.responseProcessor.listTeams(responseContext);
         });
     });
   }

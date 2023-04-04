@@ -10,12 +10,12 @@ const apiInstance = new v2.TeamsApi(configuration);
 // there is a valid "dd_team" in the system
 const DD_TEAM_DATA_ID = process.env.DD_TEAM_DATA_ID as string;
 
-const params: v2.TeamsApiRemoveTeamRequest = {
+const params: v2.TeamsApiDeleteTeamRequest = {
   teamId: DD_TEAM_DATA_ID,
 };
 
 apiInstance
-  .removeTeam(params)
+  .deleteTeam(params)
   .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)

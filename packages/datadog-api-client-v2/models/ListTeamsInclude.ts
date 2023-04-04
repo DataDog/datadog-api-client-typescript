@@ -10,7 +10,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Included related resources optionally requested.
  */
 
-export type GetAllTeamsInclude =
+export type ListTeamsInclude =
   | typeof TEAM_LINKS
   | typeof USER_TEAM_PERMISSIONS
   | UnparsedObject;

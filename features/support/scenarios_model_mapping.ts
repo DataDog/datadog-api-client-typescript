@@ -4209,7 +4209,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },
-    "v2.GetAllTeams": {
+    "v2.ListTeams": {
         "pageNumber": {
             "type": "number",
             "format": "int64",
@@ -4219,11 +4219,11 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "sort": {
-            "type": "GetAllTeamsSort",
+            "type": "ListTeamsSort",
             "format": "",
             },
         "include": {
-            "type": "Array<GetAllTeamsInclude>",
+            "type": "Array<ListTeamsInclude>",
             "format": "",
             },
         "filterKeyword": {
@@ -4243,7 +4243,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TeamResponse",
     },
-    "v2.RemoveTeam": {
+    "v2.DeleteTeam": {
         "teamId": {
             "type": "string",
             "format": "",
@@ -4286,7 +4286,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TeamLinkResponse",
     },
-    "v2.RemoveTeamLink": {
+    "v2.DeleteTeamLink": {
         "teamId": {
             "type": "string",
             "format": "",
@@ -4357,7 +4357,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UserTeamResponse",
     },
-    "v2.RemoveTeamMembership": {
+    "v2.DeleteTeamMembership": {
         "teamId": {
             "type": "string",
             "format": "",

@@ -860,8 +860,6 @@ const enumsMap: { [key: string]: any[] } = {
   EventsSortType: ["alphabetical", "measure"],
   FastlyAccountType: ["fastly-accounts"],
   FastlyServiceType: ["fastly-services"],
-  GetAllTeamsInclude: ["team_links", "user_team_permissions"],
-  GetAllTeamsSort: ["name", "-name", "user_count", "-user_count"],
   GetTeamMembershipsSort: [
     "manager_name",
     "-manager_name",
@@ -902,6 +900,8 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
   IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
+  ListTeamsInclude: ["team_links", "user_team_permissions"],
+  ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
   LogsAggregateResponseStatus: ["done", "timeout"],
   LogsAggregateSortType: ["alphabetical", "measure"],

@@ -13,13 +13,13 @@ const DD_TEAM_DATA_ID = process.env.DD_TEAM_DATA_ID as string;
 // there is a valid "team_link" in the system
 const TEAM_LINK_DATA_ID = process.env.TEAM_LINK_DATA_ID as string;
 
-const params: v2.TeamsApiRemoveTeamLinkRequest = {
+const params: v2.TeamsApiDeleteTeamLinkRequest = {
   teamId: DD_TEAM_DATA_ID,
   linkId: TEAM_LINK_DATA_ID,
 };
 
 apiInstance
-  .removeTeamLink(params)
+  .deleteTeamLink(params)
   .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
