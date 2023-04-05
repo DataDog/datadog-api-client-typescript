@@ -296,6 +296,7 @@ export {
   ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest,
   ServiceDefinitionApiDeleteServiceDefinitionRequest,
   ServiceDefinitionApiGetServiceDefinitionRequest,
+  ServiceDefinitionApiListServiceDefinitionsRequest,
   ServiceDefinitionApi,
 } from "./apis/ServiceDefinitionApi";
 
@@ -1169,6 +1170,8 @@ export { ServiceDefinitionV2Dot1EmailType } from "./models/ServiceDefinitionV2Do
 export { ServiceDefinitionV2Dot1Integrations } from "./models/ServiceDefinitionV2Dot1Integrations";
 export { ServiceDefinitionV2Dot1Link } from "./models/ServiceDefinitionV2Dot1Link";
 export { ServiceDefinitionV2Dot1LinkType } from "./models/ServiceDefinitionV2Dot1LinkType";
+export { ServiceDefinitionV2Dot1MSTeams } from "./models/ServiceDefinitionV2Dot1MSTeams";
+export { ServiceDefinitionV2Dot1MSTeamsType } from "./models/ServiceDefinitionV2Dot1MSTeamsType";
 export { ServiceDefinitionV2Dot1Opsgenie } from "./models/ServiceDefinitionV2Dot1Opsgenie";
 export { ServiceDefinitionV2Dot1OpsgenieRegion } from "./models/ServiceDefinitionV2Dot1OpsgenieRegion";
 export { ServiceDefinitionV2Dot1Pagerduty } from "./models/ServiceDefinitionV2Dot1Pagerduty";
@@ -1180,6 +1183,8 @@ export { ServiceDefinitionV2EmailType } from "./models/ServiceDefinitionV2EmailT
 export { ServiceDefinitionV2Integrations } from "./models/ServiceDefinitionV2Integrations";
 export { ServiceDefinitionV2Link } from "./models/ServiceDefinitionV2Link";
 export { ServiceDefinitionV2LinkType } from "./models/ServiceDefinitionV2LinkType";
+export { ServiceDefinitionV2MSTeams } from "./models/ServiceDefinitionV2MSTeams";
+export { ServiceDefinitionV2MSTeamsType } from "./models/ServiceDefinitionV2MSTeamsType";
 export { ServiceDefinitionV2Opsgenie } from "./models/ServiceDefinitionV2Opsgenie";
 export { ServiceDefinitionV2OpsgenieRegion } from "./models/ServiceDefinitionV2OpsgenieRegion";
 export { ServiceDefinitionV2Repo } from "./models/ServiceDefinitionV2Repo";

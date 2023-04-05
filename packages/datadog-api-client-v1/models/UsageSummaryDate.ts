@@ -316,10 +316,6 @@ export class UsageSummaryDate {
    */
   "twolIngestedEventsBytesSum"?: number;
   /**
-   * Shows the 99th percentile of all universal service management hosts over all hours in the current date for the given org.
-   */
-  "universalServiceMonitoringHostTop99p"?: number;
-  /**
    * Shows the 99th percentile of all vSphere hosts over all hours in the current date for all organizations.
    */
   "vsphereHostTop99p"?: number;
@@ -709,11 +705,6 @@ export class UsageSummaryDate {
     },
     twolIngestedEventsBytesSum: {
       baseName: "twol_ingested_events_bytes_sum",
-      type: "number",
-      format: "int64",
-    },
-    universalServiceMonitoringHostTop99p: {
-      baseName: "universal_service_monitoring_host_top99p",
       type: "number",
       format: "int64",
     },

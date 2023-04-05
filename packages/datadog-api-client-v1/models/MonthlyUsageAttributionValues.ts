@@ -250,14 +250,6 @@ export class MonthlyUsageAttributionValues {
    * The network device usage by tag(s).
    */
   "snmpUsage"?: number;
-  /**
-   * The percentage of universal service monitoring usage by tag(s).
-   */
-  "universalServiceMonitoringPercentage"?: number;
-  /**
-   * The universal service monitoring usage by tag(s).
-   */
-  "universalServiceMonitoringUsage"?: number;
 
   /**
    * @ignore
@@ -565,16 +557,6 @@ export class MonthlyUsageAttributionValues {
     },
     snmpUsage: {
       baseName: "snmp_usage",
-      type: "number",
-      format: "double",
-    },
-    universalServiceMonitoringPercentage: {
-      baseName: "universal_service_monitoring_percentage",
-      type: "number",
-      format: "double",
-    },
-    universalServiceMonitoringUsage: {
-      baseName: "universal_service_monitoring_usage",
       type: "number",
       format: "double",
     },
