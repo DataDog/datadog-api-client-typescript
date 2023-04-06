@@ -37,7 +37,7 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
         baselineUserLocations: false,
       },
     },
-    name: "Example-Create_a_detection_rule_with_type_impossible_travel_returns_OK_response",
+    name: "Example-Security-Monitoring",
     type: "log_detection",
     tags: [],
     filters: [],

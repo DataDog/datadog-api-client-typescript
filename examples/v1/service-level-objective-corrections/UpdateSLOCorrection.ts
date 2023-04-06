@@ -16,7 +16,7 @@ const params: v1.ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest =
       data: {
         attributes: {
           category: "Deployment",
-          description: "Example-Update_an_SLO_correction_returns_OK_response",
+          description: "Example-Service-Level-Objective-Correction",
           end: Math.round(
             new Date(new Date().getTime() + 1 * 3600 * 1000).getTime() / 1000
           ),

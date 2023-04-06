@@ -16,8 +16,7 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
         type: "email",
       },
     ],
-    ddService:
-      "service-examplecreateorupdateservicedefinitionusingschemav2returnscreatedresponse",
+    ddService: "service-exampleservicedefinition",
     ddTeam: "my-team",
     docs: [
       {

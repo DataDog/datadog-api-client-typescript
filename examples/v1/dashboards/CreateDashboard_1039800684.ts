@@ -10,8 +10,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     layoutType: "ordered",
-    title:
-      "Example-Create_a_new_dashboard_with_logs_pattern_stream_list_stream_widget with list_stream widget",
+    title: "Example-Dashboard with list_stream widget",
     widgets: [
       {
         definition: {

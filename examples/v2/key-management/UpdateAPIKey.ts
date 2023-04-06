@@ -16,7 +16,7 @@ const params: v2.KeyManagementApiUpdateAPIKeyRequest = {
       type: "api_keys",
       id: API_KEY_DATA_ID,
       attributes: {
-        name: "Example-Edit_an_API_key_returns_OK_response",
+        name: "Example-Key-Management",
       },
     },
   },

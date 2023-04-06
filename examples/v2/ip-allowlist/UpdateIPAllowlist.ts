@@ -15,7 +15,7 @@ const params: v2.IPAllowlistApiUpdateIPAllowlistRequest = {
           {
             data: {
               attributes: {
-                note: "Example-Update_IP_Allowlist_returns_OK_response",
+                note: "Example-IP-Allowlist",
                 cidrBlock: "127.0.0.1",
               },
               type: "ip_allowlist_entry",

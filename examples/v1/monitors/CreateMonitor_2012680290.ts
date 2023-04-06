@@ -9,7 +9,7 @@ const apiInstance = new v1.MonitorsApi(configuration);
 
 const params: v1.MonitorsApiCreateMonitorRequest = {
   body: {
-    name: "Example-Create_a_metric_monitor_returns_OK_response",
+    name: "Example-Monitor",
     type: "metric alert",
     query: "avg(current_1mo):avg:system.load.5{*} > 0.5",
     message: "some message Notify: @hipchat-channel",

@@ -26,7 +26,7 @@ const params: v2.SpansMetricsApiCreateSpansMetricRequest = {
           },
         ],
       },
-      id: "ExampleCreateaspanbasedmetricreturnsOKresponse",
+      id: "ExampleSpansMetric",
       type: "spans_metrics",
     },
   },

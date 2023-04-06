@@ -16,7 +16,7 @@ const params: v2.SensitiveDataScannerApiCreateScanningGroupRequest = {
     data: {
       type: "sensitive_data_scanner_group",
       attributes: {
-        name: "Example-Create_Scanning_Group_returns_OK_response",
+        name: "Example-Sensitive-Data-Scanner",
         isEnabled: false,
         productList: ["logs"],
         filter: {

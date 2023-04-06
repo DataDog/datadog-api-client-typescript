@@ -16,8 +16,7 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
         type: "email",
       },
     ],
-    ddService:
-      "service-examplecreateorupdateservicedefinitionusingschemav21returnscreatedresponse",
+    ddService: "service-exampleservicedefinition",
     extensions: {
       myorgextension: "extensionvalue",
     },

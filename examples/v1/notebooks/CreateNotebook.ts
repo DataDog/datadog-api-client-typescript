@@ -61,7 +61,7 @@ y = 6;
             type: "notebook_cells",
           },
         ],
-        name: "Example-Create_a_notebook_returns_OK_response",
+        name: "Example-Notebook",
         status: "published",
         time: {
           liveSpan: "1h",

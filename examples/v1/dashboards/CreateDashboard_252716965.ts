@@ -9,8 +9,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title:
-      "Example-Create_a_distribution_widget_using_a_histogram_request_containing_a_formulas_and_functions_metrics_q",
+    title: "Example-Dashboard",
     widgets: [
       {
         definition: {

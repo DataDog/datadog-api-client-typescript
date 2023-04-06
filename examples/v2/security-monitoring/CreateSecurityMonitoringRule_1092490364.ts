@@ -10,7 +10,7 @@ const apiInstance = new v2.SecurityMonitoringApi(configuration);
 const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
   body: {
     type: "cloud_configuration",
-    name: "Example-Create_a_cloud_configuration_rule_returns_OK_response_cloud",
+    name: "Example-Security-Monitoring_cloud",
     isEnabled: false,
     cases: [
       {

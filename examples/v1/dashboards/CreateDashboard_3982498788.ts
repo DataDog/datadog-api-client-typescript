@@ -10,8 +10,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     layoutType: "ordered",
-    title:
-      "Example-Create_a_new_dashboard_with_timeseries_widget_containing_style_attributes with timeseries widget",
+    title: "Example-Dashboard with timeseries widget",
     widgets: [
       {
         definition: {

@@ -9,8 +9,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title:
-      "Example-Create_a_new_dashboard_with_formulas_and_functions_scatterplot_widget",
+    title: "Example-Dashboard",
     widgets: [
       {
         id: 5346764334358972,

@@ -13,7 +13,7 @@ const params: v2.IncidentServicesApiCreateIncidentServiceRequest = {
     data: {
       type: "services",
       attributes: {
-        name: "Example-Create_a_new_incident_service_returns_CREATED_response",
+        name: "Example-Incident-Service",
       },
     },
   },

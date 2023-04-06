@@ -20,7 +20,7 @@ const params: v2.IncidentsApiUpdateIncidentAttachmentsRequest = {
           attachmentType: "link",
           attachment: {
             documentUrl: "https://www.example.com/doc",
-            title: "Example-Create_an_incident_attachment_returns_OK_response",
+            title: "Example-Incident",
           },
         },
       },
