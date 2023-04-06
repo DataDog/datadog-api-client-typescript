@@ -20,7 +20,7 @@ const params: v2.SensitiveDataScannerApiUpdateScanningGroupRequest = {
       id: GROUP_DATA_ID,
       type: "sensitive_data_scanner_group",
       attributes: {
-        name: "Example-Update_Scanning_Group_returns_OK_response",
+        name: "Example-Sensitive-Data-Scanner",
         isEnabled: false,
         productList: ["logs"],
         filter: {

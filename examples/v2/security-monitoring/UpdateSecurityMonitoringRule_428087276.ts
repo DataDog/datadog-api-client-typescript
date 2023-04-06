@@ -13,7 +13,7 @@ const CLOUD_CONFIGURATION_RULE_ID = process.env
 
 const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
   body: {
-    name: "Example-Update_a_cloud_configuration_rule_s_details_returns_OK_response_cloud_updated",
+    name: "Example-Security-Monitoring_cloud_updated",
     isEnabled: false,
     cases: [
       {

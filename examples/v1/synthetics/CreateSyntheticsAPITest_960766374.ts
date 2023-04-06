@@ -63,8 +63,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           },
         },
         headers: {
-          unique:
-            "examplecreateanapihttpwithoauthroptestreturnsokreturnsthecreatedtestdetailsresponse",
+          unique: "examplesynthetic",
         },
         method: "GET",
         timeout: 10,
@@ -89,15 +88,14 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     },
     locations: ["aws:us-east-2"],
     message: "BDD test payload: synthetics_api_http_test_payload.json",
-    name: "Example-Create_an_API_HTTP_with_oauth_rop_test_returns_OK_Returns_the_created_test_details_response",
+    name: "Example-Synthetic",
     options: {
       acceptSelfSigned: false,
       allowInsecure: true,
       followRedirects: true,
       minFailureDuration: 10,
       minLocationFailed: 1,
-      monitorName:
-        "Example-Create_an_API_HTTP_with_oauth_rop_test_returns_OK_Returns_the_created_test_details_response",
+      monitorName: "Example-Synthetic",
       monitorPriority: 5,
       retry: {
         count: 3,

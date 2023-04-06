@@ -13,8 +13,7 @@ const DASHBOARD_ID = process.env.DASHBOARD_ID as string;
 const params: v1.DashboardsApiUpdateDashboardRequest = {
   body: {
     layoutType: "ordered",
-    title:
-      "Example-Update_a_dashboard_with_tags_returns_OK_response with list_stream widget",
+    title: "Example-Dashboard with list_stream widget",
     description: "Updated description",
     tags: ["team:foo", "team:bar"],
     widgets: [

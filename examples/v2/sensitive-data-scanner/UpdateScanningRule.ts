@@ -20,7 +20,7 @@ const params: v2.SensitiveDataScannerApiUpdateScanningRuleRequest = {
       id: RULE_DATA_ID,
       type: "sensitive_data_scanner_rule",
       attributes: {
-        name: "Example-Update_Scanning_Rule_returns_OK_response",
+        name: "Example-Sensitive-Data-Scanner",
         pattern: "pattern",
         textReplacement: {
           type: "none",

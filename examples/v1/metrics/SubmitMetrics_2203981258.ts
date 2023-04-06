@@ -14,9 +14,7 @@ const params: v1.MetricsApiSubmitMetricsRequest = {
         metric: "system.load.1",
         type: "gauge",
         points: [[Math.round(new Date().getTime() / 1000), 1.1]],
-        tags: [
-          "test:ExampleSubmitdeflatemetricsreturnsPayloadacceptedresponse",
-        ],
+        tags: ["test:ExampleMetric"],
       },
     ],
   },

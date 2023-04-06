@@ -9,8 +9,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title:
-      "Example-Create_a_new_dashboard_with_sunburst_widget_and_metrics_data",
+    title: "Example-Dashboard",
     widgets: [
       {
         definition: {

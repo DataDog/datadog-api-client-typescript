@@ -28,15 +28,14 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
     },
     locations: ["aws:us-east-2"],
     message: "BDD test payload: synthetics_api_grpc_test_payload.json",
-    name: "Example-Create_an_API_GRPC_test_returns_OK_Returns_the_created_test_details_response",
+    name: "Example-Synthetic",
     options: {
       minFailureDuration: 0,
       minLocationFailed: 1,
       monitorOptions: {
         renotifyInterval: 0,
       },
-      monitorName:
-        "Example-Create_an_API_GRPC_test_returns_OK_Returns_the_created_test_details_response",
+      monitorName: "Example-Synthetic",
       tickEvery: 60,
     },
     subtype: "grpc",

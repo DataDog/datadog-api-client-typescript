@@ -16,10 +16,7 @@ const params: v2.MetricsApiCreateBulkTagsMetricsConfigurationRequest = {
     data: {
       attributes: {
         emails: [USER_DATA_ATTRIBUTES_EMAIL],
-        tags: [
-          "test",
-          "exampleconfiguretagsformultiplemetricsreturnsacceptedresponse",
-        ],
+        tags: ["test", "examplemetric"],
       },
       id: "system.load.1",
       type: "metric_bulk_configure_tags",

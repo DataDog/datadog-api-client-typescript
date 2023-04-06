@@ -12,13 +12,12 @@ const ROLE_DATA_ID = process.env.ROLE_DATA_ID as string;
 
 const params: v1.SyntheticsApiCreatePrivateLocationRequest = {
   body: {
-    description:
-      "Test Example-Create_a_private_location_returns_OK_response description",
+    description: "Test Example-Synthetic description",
     metadata: {
       restrictedRoles: [ROLE_DATA_ID],
     },
-    name: "Example-Create_a_private_location_returns_OK_response",
-    tags: ["test:examplecreateaprivatelocationreturnsokresponse"],
+    name: "Example-Synthetic",
+    tags: ["test:examplesynthetic"],
   },
 };
 

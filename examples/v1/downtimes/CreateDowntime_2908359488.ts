@@ -9,7 +9,7 @@ const apiInstance = new v1.DowntimesApi(configuration);
 
 const params: v1.DowntimesApiCreateDowntimeRequest = {
   body: {
-    message: "Example-Schedule_a_downtime_until_date",
+    message: "Example-Downtime",
     recurrence: {
       period: 1,
       type: "weeks",

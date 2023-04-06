@@ -11,8 +11,8 @@ const params: v2.FastlyIntegrationApiCreateFastlyAccountRequest = {
   body: {
     data: {
       attributes: {
-        apiKey: "ExampleAddFastlyaccountreturnsCREATEDresponse",
-        name: "Example-Add_Fastly_account_returns_CREATED_response",
+        apiKey: "ExampleFastlyIntegration",
+        name: "Example-Fastly-Integration",
         services: [],
       },
       type: "fastly-accounts",

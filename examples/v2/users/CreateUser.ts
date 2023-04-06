@@ -13,7 +13,7 @@ const params: v2.UsersApiCreateUserRequest = {
       type: "users",
       attributes: {
         name: "Datadog API Client Python",
-        email: "Example-Create_a_user_returns_OK_response@datadoghq.com",
+        email: "Example-User@datadoghq.com",
       },
     },
   },

@@ -12,11 +12,11 @@ const MONITOR_ID = parseInt(process.env.MONITOR_ID as string);
 
 const params: v1.MonitorsApiValidateExistingMonitorRequest = {
   body: {
-    name: "Example-Validate_an_existing_monitor_returns_OK_response",
+    name: "Example-Monitor",
     type: "log alert",
     query: `logs("service:foo AND type:error").index("main").rollup("count").by("source").last("5m") > 2`,
     message: "some message Notify: @hipchat-channel",
-    tags: ["test:examplevalidateanexistingmonitorreturnsokresponse", "env:ci"],
+    tags: ["test:examplemonitor", "env:ci"],
     priority: 3,
     options: {
       enableLogsSample: true,

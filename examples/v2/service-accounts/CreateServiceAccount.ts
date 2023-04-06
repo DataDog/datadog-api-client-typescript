@@ -16,8 +16,7 @@ const params: v2.ServiceAccountsApiCreateServiceAccountRequest = {
       type: "users",
       attributes: {
         name: "Test API Client",
-        email:
-          "Example-Create_a_service_account_returns_OK_response@datadoghq.com",
+        email: "Example-Service-Account@datadoghq.com",
         serviceAccount: true,
       },
       relationships: {

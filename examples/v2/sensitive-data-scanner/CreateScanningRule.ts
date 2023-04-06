@@ -16,7 +16,7 @@ const params: v2.SensitiveDataScannerApiCreateScanningRuleRequest = {
     data: {
       type: "sensitive_data_scanner_rule",
       attributes: {
-        name: "Example-Create_Scanning_Rule_returns_OK_response",
+        name: "Example-Sensitive-Data-Scanner",
         pattern: "pattern",
         namespaces: ["admin"],
         excludedNamespaces: ["admin.name"],
