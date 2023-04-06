@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ServiceDefinitionV2Dot1Email } from "./ServiceDefinitionV2Dot1Email";
-import { ServiceDefinitionV2Dot1MSTeams } from "./ServiceDefinitionV2Dot1MSTeams";
 import { ServiceDefinitionV2Dot1Slack } from "./ServiceDefinitionV2Dot1Slack";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -16,5 +15,4 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type ServiceDefinitionV2Dot1Contact =
   | ServiceDefinitionV2Dot1Email
   | ServiceDefinitionV2Dot1Slack
-  | ServiceDefinitionV2Dot1MSTeams
   | UnparsedObject;
