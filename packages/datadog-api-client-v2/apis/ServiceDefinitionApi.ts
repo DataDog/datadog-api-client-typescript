@@ -19,6 +19,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ServiceDefinitionCreateResponse } from "../models/ServiceDefinitionCreateResponse";
+import { ServiceDefinitionData } from "../models/ServiceDefinitionData";
 import { ServiceDefinitionGetResponse } from "../models/ServiceDefinitionGetResponse";
 import { ServiceDefinitionsCreateRequest } from "../models/ServiceDefinitionsCreateRequest";
 import { ServiceDefinitionsListResponse } from "../models/ServiceDefinitionsListResponse";
@@ -135,6 +136,8 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listServiceDefinitions(
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -149,6 +152,20 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page[size]",
+        ObjectSerializer.serialize(pageSize, "number", "int64")
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -432,6 +449,19 @@ export interface ServiceDefinitionApiGetServiceDefinitionRequest {
   serviceName: string;
 }
 
+export interface ServiceDefinitionApiListServiceDefinitionsRequest {
+  /**
+   * Size for a given page. The maximum allowed value is 5000.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * Specific page number to return.
+   * @type number
+   */
+  pageNumber?: number;
+}
+
 export class ServiceDefinitionApi {
   private requestFactory: ServiceDefinitionApiRequestFactory;
   private responseProcessor: ServiceDefinitionApiResponseProcessor;
@@ -519,10 +549,14 @@ export class ServiceDefinitionApi {
    * @param param The request object
    */
   public listServiceDefinitions(
+    param: ServiceDefinitionApiListServiceDefinitionsRequest = {},
     options?: Configuration
   ): Promise<ServiceDefinitionsListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listServiceDefinitions(options);
+    const requestContextPromise = this.requestFactory.listServiceDefinitions(
+      param.pageSize,
+      param.pageNumber,
+      options
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -530,5 +564,49 @@ export class ServiceDefinitionApi {
           return this.responseProcessor.listServiceDefinitions(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listServiceDefinitions returning a generator with all the items.
+   */
+  public async *listServiceDefinitionsWithPagination(
+    param: ServiceDefinitionApiListServiceDefinitionsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<ServiceDefinitionData> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listServiceDefinitions(
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listServiceDefinitions(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageNumber === undefined) {
+        param.pageNumber = pageSize;
+      } else {
+        param.pageNumber = param.pageNumber + pageSize;
+      }
+    }
   }
 }
