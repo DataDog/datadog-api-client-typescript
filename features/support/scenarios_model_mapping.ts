@@ -4176,14 +4176,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "IncidentServiceResponse",
     },
     "v2.ListServiceDefinitions": {
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
         "operationResponseType": "ServiceDefinitionsListResponse",
     },
     "v2.CreateOrUpdateServiceDefinitions": {

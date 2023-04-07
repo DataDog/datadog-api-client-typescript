@@ -173,10 +173,6 @@ export class UsageSummaryResponse {
    */
   "fargateTasksCountHwmSum"?: number;
   /**
-   * Shows the sum of all logs forwarding bytes over all hours in the current months for all organizations (data available as of April 1, 2023)
-   */
-  "forwardingEventsBytesAggSum"?: number;
-  /**
    * Shows the 99th percentile of all GCP hosts over all hours in the current months for all organizations.
    */
   "gcpHostTop99pSum"?: number;
@@ -571,11 +567,6 @@ export class UsageSummaryResponse {
     },
     fargateTasksCountHwmSum: {
       baseName: "fargate_tasks_count_hwm_sum",
-      type: "number",
-      format: "int64",
-    },
-    forwardingEventsBytesAggSum: {
-      baseName: "forwarding_events_bytes_agg_sum",
       type: "number",
       format: "int64",
     },

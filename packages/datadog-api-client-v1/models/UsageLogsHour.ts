@@ -27,10 +27,6 @@ export class UsageLogsHour {
    */
   "ingestedEventsBytes"?: number;
   /**
-   * Contains the number of logs forwarded bytes (data available as of April 1st 2023)
-   */
-  "logsForwardingEventsBytes"?: number;
-  /**
    * Contains the number of live log events indexed (data available as of December 1, 2020).
    */
   "logsLiveIndexedCount"?: number;
@@ -81,11 +77,6 @@ export class UsageLogsHour {
     },
     ingestedEventsBytes: {
       baseName: "ingested_events_bytes",
-      type: "number",
-      format: "int64",
-    },
-    logsForwardingEventsBytes: {
-      baseName: "logs_forwarding_events_bytes",
       type: "number",
       format: "int64",
     },

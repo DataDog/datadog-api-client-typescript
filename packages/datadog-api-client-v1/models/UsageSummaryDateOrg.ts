@@ -163,10 +163,6 @@ export class UsageSummaryDateOrg {
    */
   "fargateTasksCountHwm"?: number;
   /**
-   * Shows the sum of all log bytes forwarded over all hours in the current date for the given org.
-   */
-  "forwardingEventsBytesSum"?: number;
-  /**
    * Shows the 99th percentile of all GCP hosts over all hours in the current date for the given org.
    */
   "gcpHostTop99p"?: number;
@@ -531,11 +527,6 @@ export class UsageSummaryDateOrg {
     },
     fargateTasksCountHwm: {
       baseName: "fargate_tasks_count_hwm",
-      type: "number",
-      format: "int64",
-    },
-    forwardingEventsBytesSum: {
-      baseName: "forwarding_events_bytes_sum",
       type: "number",
       format: "int64",
     },

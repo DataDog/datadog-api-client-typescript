@@ -296,7 +296,6 @@ export {
   ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest,
   ServiceDefinitionApiDeleteServiceDefinitionRequest,
   ServiceDefinitionApiGetServiceDefinitionRequest,
-  ServiceDefinitionApiListServiceDefinitionsRequest,
   ServiceDefinitionApi,
 } from "./apis/ServiceDefinitionApi";
 
