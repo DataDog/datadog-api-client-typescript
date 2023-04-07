@@ -44,6 +44,10 @@ export class SyntheticsTestRequest {
    */
   "certificateDomains"?: Array<string>;
   /**
+   * A protobuf JSON descriptor that needs to be gzipped first then base64 encoded.
+   */
+  "compressedJsonDescriptor"?: string;
+  /**
    * DNS server to use for DNS tests.
    */
   "dnsServer"?: string;
@@ -154,6 +158,10 @@ export class SyntheticsTestRequest {
     certificateDomains: {
       baseName: "certificateDomains",
       type: "Array<string>",
+    },
+    compressedJsonDescriptor: {
+      baseName: "compressedJsonDescriptor",
+      type: "string",
     },
     dnsServer: {
       baseName: "dnsServer",
