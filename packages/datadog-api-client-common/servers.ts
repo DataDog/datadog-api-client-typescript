@@ -63,6 +63,7 @@ export const server1 = new ServerConfiguration<{
     | "datadoghq.com"
     | "us3.datadoghq.com"
     | "us5.datadoghq.com"
+    | "ap1.datadoghq.com"
     | "datadoghq.eu"
     | "ddog-gov.com";
   subdomain: string;
@@ -96,6 +97,7 @@ export const operationServers: {
         | "datadoghq.com"
         | "us3.datadoghq.com"
         | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
         | "datadoghq.eu"
         | "ddog-gov.com";
       subdomain: string;
@@ -122,6 +124,7 @@ export const operationServers: {
         | "datadoghq.com"
         | "us3.datadoghq.com"
         | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
         | "datadoghq.eu"
         | "ddog-gov.com";
       subdomain: string;
@@ -151,6 +154,7 @@ export const operationServers: {
         | "datadoghq.eu"
         | "us3.datadoghq.com"
         | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
         | "ddog-gov.com";
       subdomain: string;
     }>("https://{subdomain}.{site}", {
@@ -178,6 +182,7 @@ export const operationServers: {
         | "datadoghq.com"
         | "us3.datadoghq.com"
         | "us5.datadoghq.com"
+        | "ap1.datadoghq.com"
         | "datadoghq.eu"
         | "ddog-gov.com";
       subdomain: string;
