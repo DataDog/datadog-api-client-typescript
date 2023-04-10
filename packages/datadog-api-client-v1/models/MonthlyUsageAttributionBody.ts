@@ -24,6 +24,10 @@ export class MonthlyUsageAttributionBody {
    */
   "publicId"?: string;
   /**
+   * The region of the Datadog instance that the organization belongs to.
+   */
+  "region"?: string;
+  /**
    * The source of the usage attribution tag configuration and the selected tags in the format `<source_org_name>:::<selected tag 1>///<selected tag 2>///<selected tag 3>`.
    */
   "tagConfigSource"?: string;
@@ -64,6 +68,10 @@ export class MonthlyUsageAttributionBody {
     },
     publicId: {
       baseName: "public_id",
+      type: "string",
+    },
+    region: {
+      baseName: "region",
       type: "string",
     },
     tagConfigSource: {
