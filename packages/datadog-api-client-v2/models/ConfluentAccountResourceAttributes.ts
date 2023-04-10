@@ -17,7 +17,7 @@ export class ConfluentAccountResourceAttributes {
   /**
    * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
    */
-  "resourceType"?: string;
+  "resourceType": string;
   /**
    * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
    */
@@ -39,6 +39,7 @@ export class ConfluentAccountResourceAttributes {
     resourceType: {
       baseName: "resource_type",
       type: "string",
+      required: true,
     },
     tags: {
       baseName: "tags",
