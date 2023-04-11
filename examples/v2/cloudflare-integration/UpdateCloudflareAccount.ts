@@ -15,7 +15,7 @@ const params: v2.CloudflareIntegrationApiUpdateCloudflareAccountRequest = {
   body: {
     data: {
       attributes: {
-        apiKey: "6Zm7WEgKzAlCnt_4exfEK0mSoeHHAaDf41O1AAfu",
+        apiKey: "fakekey",
         email: "new@email",
       },
       type: "cloudflare-accounts",
