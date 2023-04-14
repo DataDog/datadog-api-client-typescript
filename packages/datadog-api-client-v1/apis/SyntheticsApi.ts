@@ -3318,7 +3318,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the last 50 test results summaries for a given Synthetics API test.
+   * Get the last 150 test results summaries for a given Synthetics API test.
    * @param param The request object
    */
   public getAPITestLatestResults(
@@ -3388,7 +3388,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the last 50 test results summaries for a given Synthetics Browser test.
+   * Get the last 150 test results summaries for a given Synthetics Browser test.
    * @param param The request object
    */
   public getBrowserTestLatestResults(
