@@ -88,7 +88,7 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
       _config,
       "v2.SpansMetricsApi.deleteSpansMetric"
     ).makeRequestContext(localVarPath, HttpMethod.DELETE);
-    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -284,12 +284,16 @@ export class SpansMetricsApiResponseProcessor {
    * @params response Response returned by the server for a request to deleteSpansMetric
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteSpansMetric(response: ResponseContext): Promise<void> {
+  public async deleteSpansMetric(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode == 200) {
-      return;
+      const body: any = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "any"
+      ) as any;
+      return body;
     }
     if (
       response.httpStatusCode == 403 ||
@@ -318,11 +322,11 @@ export class SpansMetricsApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
+      const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
+        "any",
         ""
-      ) as void;
+      ) as any;
       return body;
     }
 
@@ -600,7 +604,7 @@ export class SpansMetricsApi {
   public deleteSpansMetric(
     param: SpansMetricsApiDeleteSpansMetricRequest,
     options?: Configuration
-  ): Promise<void> {
+  ): Promise<any> {
     const requestContextPromise = this.requestFactory.deleteSpansMetric(
       param.metricId,
       options

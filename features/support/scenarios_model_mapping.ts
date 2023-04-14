@@ -2394,7 +2394,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "void",
+        "operationResponseType": "any",
     },
     "v2.GetSpansMetric": {
         "metricId": {
