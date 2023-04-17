@@ -621,6 +621,75 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "Dashboard",
     },
+    "v1.CreatePublicDashboard": {
+        "body": {
+            "type": "SharedDashboard",
+            "format": "",
+            },
+        "operationResponseType": "SharedDashboard",
+    },
+    "v1.DeletePublicDashboard": {
+        "token": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DeleteSharedDashboardResponse",
+    },
+    "v1.GetPublicDashboard": {
+        "token": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SharedDashboard",
+    },
+    "v1.UpdatePublicDashboard": {
+        "token": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SharedDashboardUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SharedDashboard",
+    },
+    "v1.DeletePublicDashboardInvitation": {
+        "token": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SharedDashboardInvites",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v1.GetPublicDashboardInvitations": {
+        "token": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SharedDashboardInvites",
+    },
+    "v1.SendPublicDashboardInvitation": {
+        "token": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SharedDashboardInvites",
+            "format": "",
+            },
+        "operationResponseType": "SharedDashboardInvites",
+    },
     "v1.DeleteDashboard": {
         "dashboardId": {
             "type": "string",

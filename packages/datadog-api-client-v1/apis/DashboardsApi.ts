@@ -23,6 +23,10 @@ import { DashboardBulkDeleteRequest } from "../models/DashboardBulkDeleteRequest
 import { DashboardDeleteResponse } from "../models/DashboardDeleteResponse";
 import { DashboardRestoreRequest } from "../models/DashboardRestoreRequest";
 import { DashboardSummary } from "../models/DashboardSummary";
+import { DeleteSharedDashboardResponse } from "../models/DeleteSharedDashboardResponse";
+import { SharedDashboard } from "../models/SharedDashboard";
+import { SharedDashboardInvites } from "../models/SharedDashboardInvites";
+import { SharedDashboardUpdateRequest } from "../models/SharedDashboardUpdateRequest";
 
 export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
   public async createDashboard(
@@ -54,6 +58,49 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Dashboard", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createPublicDashboard(
+    body: SharedDashboard,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createPublicDashboard");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/dashboard/public";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.DashboardsApi.createPublicDashboard"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SharedDashboard", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -146,6 +193,93 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deletePublicDashboard(
+    token: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'token' is not null or undefined
+    if (token === null || token === undefined) {
+      throw new RequiredError("token", "deletePublicDashboard");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/dashboard/public/{token}".replace(
+      "{token}",
+      encodeURIComponent(String(token))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.DashboardsApi.deletePublicDashboard"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async deletePublicDashboardInvitation(
+    token: string,
+    body: SharedDashboardInvites,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'token' is not null or undefined
+    if (token === null || token === undefined) {
+      throw new RequiredError("token", "deletePublicDashboardInvitation");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "deletePublicDashboardInvitation");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/dashboard/public/{token}/invitation".replace(
+      "{token}",
+      encodeURIComponent(String(token))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.DashboardsApi.deletePublicDashboardInvitation"
+    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SharedDashboardInvites", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getDashboard(
     dashboardId: string,
     _options?: Configuration
@@ -170,6 +304,92 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getPublicDashboard(
+    token: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'token' is not null or undefined
+    if (token === null || token === undefined) {
+      throw new RequiredError("token", "getPublicDashboard");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/dashboard/public/{token}".replace(
+      "{token}",
+      encodeURIComponent(String(token))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.DashboardsApi.getPublicDashboard"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getPublicDashboardInvitations(
+    token: string,
+    pageSize?: number,
+    pageNumber?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'token' is not null or undefined
+    if (token === null || token === undefined) {
+      throw new RequiredError("token", "getPublicDashboardInvitations");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/dashboard/public/{token}/invitation".replace(
+      "{token}",
+      encodeURIComponent(String(token))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.DashboardsApi.getPublicDashboardInvitations"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page_size",
+        ObjectSerializer.serialize(pageSize, "number", "int64")
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page_number",
+        ObjectSerializer.serialize(pageNumber, "number", "int64")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -266,6 +486,58 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async sendPublicDashboardInvitation(
+    token: string,
+    body: SharedDashboardInvites,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'token' is not null or undefined
+    if (token === null || token === undefined) {
+      throw new RequiredError("token", "sendPublicDashboardInvitation");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "sendPublicDashboardInvitation");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/dashboard/public/{token}/invitation".replace(
+      "{token}",
+      encodeURIComponent(String(token))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.DashboardsApi.sendPublicDashboardInvitation"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SharedDashboardInvites", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateDashboard(
     dashboardId: string,
     body: Dashboard,
@@ -304,6 +576,58 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "Dashboard", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async updatePublicDashboard(
+    token: string,
+    body: SharedDashboardUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'token' is not null or undefined
+    if (token === null || token === undefined) {
+      throw new RequiredError("token", "updatePublicDashboard");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "updatePublicDashboard");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/dashboard/public/{token}".replace(
+      "{token}",
+      encodeURIComponent(String(token))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.DashboardsApi.updatePublicDashboard"
+    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SharedDashboardUpdateRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -370,6 +694,69 @@ export class DashboardsApiResponseProcessor {
         "Dashboard",
         ""
       ) as Dashboard;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createPublicDashboard
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createPublicDashboard(
+    response: ResponseContext
+  ): Promise<SharedDashboard> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: SharedDashboard = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboard"
+      ) as SharedDashboard;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SharedDashboard = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboard",
+        ""
+      ) as SharedDashboard;
       return body;
     }
 
@@ -503,6 +890,126 @@ export class DashboardsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deletePublicDashboard
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deletePublicDashboard(
+    response: ResponseContext
+  ): Promise<DeleteSharedDashboardResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: DeleteSharedDashboardResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeleteSharedDashboardResponse"
+      ) as DeleteSharedDashboardResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: DeleteSharedDashboardResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "DeleteSharedDashboardResponse",
+        ""
+      ) as DeleteSharedDashboardResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to deletePublicDashboardInvitation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deletePublicDashboardInvitation(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getDashboard
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -549,6 +1056,130 @@ export class DashboardsApiResponseProcessor {
         "Dashboard",
         ""
       ) as Dashboard;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getPublicDashboard
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getPublicDashboard(
+    response: ResponseContext
+  ): Promise<SharedDashboard> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: SharedDashboard = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboard"
+      ) as SharedDashboard;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SharedDashboard = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboard",
+        ""
+      ) as SharedDashboard;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getPublicDashboardInvitations
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getPublicDashboardInvitations(
+    response: ResponseContext
+  ): Promise<SharedDashboardInvites> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: SharedDashboardInvites = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboardInvites"
+      ) as SharedDashboardInvites;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SharedDashboardInvites = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboardInvites",
+        ""
+      ) as SharedDashboardInvites;
       return body;
     }
 
@@ -678,6 +1309,69 @@ export class DashboardsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to sendPublicDashboardInvitation
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async sendPublicDashboardInvitation(
+    response: ResponseContext
+  ): Promise<SharedDashboardInvites> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 201) {
+      const body: SharedDashboardInvites = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboardInvites"
+      ) as SharedDashboardInvites;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SharedDashboardInvites = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboardInvites",
+        ""
+      ) as SharedDashboardInvites;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateDashboard
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -734,6 +1428,69 @@ export class DashboardsApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updatePublicDashboard
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updatePublicDashboard(
+    response: ResponseContext
+  ): Promise<SharedDashboard> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: SharedDashboard = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboard"
+      ) as SharedDashboard;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SharedDashboard = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SharedDashboard",
+        ""
+      ) as SharedDashboard;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface DashboardsApiCreateDashboardRequest {
@@ -742,6 +1499,14 @@ export interface DashboardsApiCreateDashboardRequest {
    * @type Dashboard
    */
   body: Dashboard;
+}
+
+export interface DashboardsApiCreatePublicDashboardRequest {
+  /**
+   * Create a shared dashboard request body.
+   * @type SharedDashboard
+   */
+  body: SharedDashboard;
 }
 
 export interface DashboardsApiDeleteDashboardRequest {
@@ -760,12 +1525,59 @@ export interface DashboardsApiDeleteDashboardsRequest {
   body: DashboardBulkDeleteRequest;
 }
 
+export interface DashboardsApiDeletePublicDashboardRequest {
+  /**
+   * The token of the shared dashboard.
+   * @type string
+   */
+  token: string;
+}
+
+export interface DashboardsApiDeletePublicDashboardInvitationRequest {
+  /**
+   * The token of the shared dashboard.
+   * @type string
+   */
+  token: string;
+  /**
+   * Shared Dashboard Invitation deletion request body.
+   * @type SharedDashboardInvites
+   */
+  body: SharedDashboardInvites;
+}
+
 export interface DashboardsApiGetDashboardRequest {
   /**
    * The ID of the dashboard.
    * @type string
    */
   dashboardId: string;
+}
+
+export interface DashboardsApiGetPublicDashboardRequest {
+  /**
+   * The token of the shared dashboard. Generated when a dashboard is shared.
+   * @type string
+   */
+  token: string;
+}
+
+export interface DashboardsApiGetPublicDashboardInvitationsRequest {
+  /**
+   * Token of the shared dashboard for which to fetch invitations.
+   * @type string
+   */
+  token: string;
+  /**
+   * The number of records to return in a single request.
+   * @type number
+   */
+  pageSize?: number;
+  /**
+   * The page to access (base 0).
+   * @type number
+   */
+  pageNumber?: number;
 }
 
 export interface DashboardsApiListDashboardsRequest {
@@ -791,6 +1603,19 @@ export interface DashboardsApiRestoreDashboardsRequest {
   body: DashboardRestoreRequest;
 }
 
+export interface DashboardsApiSendPublicDashboardInvitationRequest {
+  /**
+   * The token of the shared dashboard.
+   * @type string
+   */
+  token: string;
+  /**
+   * Shared Dashboard Invitation request body.
+   * @type SharedDashboardInvites
+   */
+  body: SharedDashboardInvites;
+}
+
 export interface DashboardsApiUpdateDashboardRequest {
   /**
    * The ID of the dashboard.
@@ -802,6 +1627,19 @@ export interface DashboardsApiUpdateDashboardRequest {
    * @type Dashboard
    */
   body: Dashboard;
+}
+
+export interface DashboardsApiUpdatePublicDashboardRequest {
+  /**
+   * The token of the shared dashboard.
+   * @type string
+   */
+  token: string;
+  /**
+   * Update Dashboard request body.
+   * @type SharedDashboardUpdateRequest
+   */
+  body: SharedDashboardUpdateRequest;
 }
 
 export class DashboardsApi {
@@ -839,6 +1677,27 @@ export class DashboardsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.createDashboard(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Share a specified private dashboard, generating a URL at which it can be publicly viewed.
+   * @param param The request object
+   */
+  public createPublicDashboard(
+    param: DashboardsApiCreatePublicDashboardRequest,
+    options?: Configuration
+  ): Promise<SharedDashboard> {
+    const requestContextPromise = this.requestFactory.createPublicDashboard(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createPublicDashboard(responseContext);
         });
     });
   }
@@ -886,6 +1745,52 @@ export class DashboardsApi {
   }
 
   /**
+   * Revoke the public URL for a dashboard (rendering it private) associated with the specified token.
+   * @param param The request object
+   */
+  public deletePublicDashboard(
+    param: DashboardsApiDeletePublicDashboardRequest,
+    options?: Configuration
+  ): Promise<DeleteSharedDashboardResponse> {
+    const requestContextPromise = this.requestFactory.deletePublicDashboard(
+      param.token,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deletePublicDashboard(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Revoke previously sent invitation emails and active sessions used to access a given shared dashboard for specific email addresses.
+   * @param param The request object
+   */
+  public deletePublicDashboardInvitation(
+    param: DashboardsApiDeletePublicDashboardInvitationRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deletePublicDashboardInvitation(
+        param.token,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deletePublicDashboardInvitation(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Get a dashboard using the specified ID.
    * @param param The request object
    */
@@ -902,6 +1807,53 @@ export class DashboardsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getDashboard(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Fetch an existing shared dashboard's sharing metadata associated with the specified token.
+   * @param param The request object
+   */
+  public getPublicDashboard(
+    param: DashboardsApiGetPublicDashboardRequest,
+    options?: Configuration
+  ): Promise<SharedDashboard> {
+    const requestContextPromise = this.requestFactory.getPublicDashboard(
+      param.token,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getPublicDashboard(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Describe the invitations that exist for the given shared dashboard (paginated).
+   * @param param The request object
+   */
+  public getPublicDashboardInvitations(
+    param: DashboardsApiGetPublicDashboardInvitationsRequest,
+    options?: Configuration
+  ): Promise<SharedDashboardInvites> {
+    const requestContextPromise =
+      this.requestFactory.getPublicDashboardInvitations(
+        param.token,
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getPublicDashboardInvitations(
+            responseContext
+          );
         });
     });
   }
@@ -953,6 +1905,31 @@ export class DashboardsApi {
   }
 
   /**
+   * Send emails to specified email addresses containing links to access a given authenticated shared dashboard. Email addresses must already belong to the authenticated shared dashboard's share_list.
+   * @param param The request object
+   */
+  public sendPublicDashboardInvitation(
+    param: DashboardsApiSendPublicDashboardInvitationRequest,
+    options?: Configuration
+  ): Promise<SharedDashboardInvites> {
+    const requestContextPromise =
+      this.requestFactory.sendPublicDashboardInvitation(
+        param.token,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.sendPublicDashboardInvitation(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Update a dashboard using the specified ID.
    * @param param The request object
    */
@@ -970,6 +1947,28 @@ export class DashboardsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.updateDashboard(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a shared dashboard associated with the specified token.
+   * @param param The request object
+   */
+  public updatePublicDashboard(
+    param: DashboardsApiUpdatePublicDashboardRequest,
+    options?: Configuration
+  ): Promise<SharedDashboard> {
+    const requestContextPromise = this.requestFactory.updatePublicDashboard(
+      param.token,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.updatePublicDashboard(responseContext);
         });
     });
   }

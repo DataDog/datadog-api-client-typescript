@@ -41,6 +41,7 @@ import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "./DashboardDeleteResponse";
+import { DashboardGlobalTime } from "./DashboardGlobalTime";
 import { DashboardList } from "./DashboardList";
 import { DashboardListDeleteResponse } from "./DashboardListDeleteResponse";
 import { DashboardListListResponse } from "./DashboardListListResponse";
@@ -50,6 +51,7 @@ import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
+import { DeleteSharedDashboardResponse } from "./DeleteSharedDashboardResponse";
 import { DeletedMonitor } from "./DeletedMonitor";
 import { DistributionPointsPayload } from "./DistributionPointsPayload";
 import { DistributionPointsSeries } from "./DistributionPointsSeries";
@@ -326,6 +328,7 @@ import { SearchSLOThreshold } from "./SearchSLOThreshold";
 import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
 import { SearchServiceLevelObjectiveAttributes } from "./SearchServiceLevelObjectiveAttributes";
 import { SearchServiceLevelObjectiveData } from "./SearchServiceLevelObjectiveData";
+import { SelectableTemplateVariableItems } from "./SelectableTemplateVariableItems";
 import { Series } from "./Series";
 import { ServiceCheck } from "./ServiceCheck";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
@@ -333,6 +336,15 @@ import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
 import { ServiceLevelObjectiveRequest } from "./ServiceLevelObjectiveRequest";
 import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
+import { SharedDashboard } from "./SharedDashboard";
+import { SharedDashboardAuthor } from "./SharedDashboardAuthor";
+import { SharedDashboardInvites } from "./SharedDashboardInvites";
+import { SharedDashboardInvitesDataObject } from "./SharedDashboardInvitesDataObject";
+import { SharedDashboardInvitesDataObjectAttributes } from "./SharedDashboardInvitesDataObjectAttributes";
+import { SharedDashboardInvitesMeta } from "./SharedDashboardInvitesMeta";
+import { SharedDashboardInvitesMetaPage } from "./SharedDashboardInvitesMetaPage";
+import { SharedDashboardUpdateRequest } from "./SharedDashboardUpdateRequest";
+import { SharedDashboardUpdateRequestGlobalTime } from "./SharedDashboardUpdateRequestGlobalTime";
 import { SignalAssigneeUpdateRequest } from "./SignalAssigneeUpdateRequest";
 import { SignalStateUpdateRequest } from "./SignalStateUpdateRequest";
 import { SlackIntegrationChannel } from "./SlackIntegrationChannel";
@@ -599,9 +611,22 @@ const enumsMap: { [key: string]: any[] } = {
   ChangeWidgetDefinitionType: ["change"],
   CheckStatusWidgetDefinitionType: ["check_status"],
   ContentEncoding: ["gzip", "deflate"],
+  DashboardGlobalTimeLiveSpan: [
+    "15m",
+    "1h",
+    "4h",
+    "1d",
+    "2d",
+    "1w",
+    "1mo",
+    "3mo",
+  ],
+  DashboardInviteType: ["public_dashboard_invitation"],
   DashboardLayoutType: ["ordered", "free"],
   DashboardReflowType: ["auto", "fixed"],
   DashboardResourceType: ["dashboard"],
+  DashboardShareType: ["open", "invite"],
+  DashboardType: ["custom_timeboard", "custom_screenboard"],
   DistributionPointsContentEncoding: ["deflate"],
   DistributionPointsType: ["distribution"],
   DistributionWidgetDefinitionType: ["distribution"],
@@ -1439,6 +1464,7 @@ const typeMap: { [index: string]: any } = {
   DashboardBulkActionData: DashboardBulkActionData,
   DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
   DashboardDeleteResponse: DashboardDeleteResponse,
+  DashboardGlobalTime: DashboardGlobalTime,
   DashboardList: DashboardList,
   DashboardListDeleteResponse: DashboardListDeleteResponse,
   DashboardListListResponse: DashboardListListResponse,
@@ -1448,6 +1474,7 @@ const typeMap: { [index: string]: any } = {
   DashboardTemplateVariable: DashboardTemplateVariable,
   DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
   DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
+  DeleteSharedDashboardResponse: DeleteSharedDashboardResponse,
   DeletedMonitor: DeletedMonitor,
   DistributionPointsPayload: DistributionPointsPayload,
   DistributionPointsSeries: DistributionPointsSeries,
@@ -1743,6 +1770,7 @@ const typeMap: { [index: string]: any } = {
   SearchServiceLevelObjective: SearchServiceLevelObjective,
   SearchServiceLevelObjectiveAttributes: SearchServiceLevelObjectiveAttributes,
   SearchServiceLevelObjectiveData: SearchServiceLevelObjectiveData,
+  SelectableTemplateVariableItems: SelectableTemplateVariableItems,
   Series: Series,
   ServiceCheck: ServiceCheck,
   ServiceLevelObjective: ServiceLevelObjective,
@@ -1750,6 +1778,17 @@ const typeMap: { [index: string]: any } = {
   ServiceLevelObjectiveRequest: ServiceLevelObjectiveRequest,
   ServiceMapWidgetDefinition: ServiceMapWidgetDefinition,
   ServiceSummaryWidgetDefinition: ServiceSummaryWidgetDefinition,
+  SharedDashboard: SharedDashboard,
+  SharedDashboardAuthor: SharedDashboardAuthor,
+  SharedDashboardInvites: SharedDashboardInvites,
+  SharedDashboardInvitesDataObject: SharedDashboardInvitesDataObject,
+  SharedDashboardInvitesDataObjectAttributes:
+    SharedDashboardInvitesDataObjectAttributes,
+  SharedDashboardInvitesMeta: SharedDashboardInvitesMeta,
+  SharedDashboardInvitesMetaPage: SharedDashboardInvitesMetaPage,
+  SharedDashboardUpdateRequest: SharedDashboardUpdateRequest,
+  SharedDashboardUpdateRequestGlobalTime:
+    SharedDashboardUpdateRequestGlobalTime,
   SignalAssigneeUpdateRequest: SignalAssigneeUpdateRequest,
   SignalStateUpdateRequest: SignalStateUpdateRequest,
   SlackIntegrationChannel: SlackIntegrationChannel,
@@ -2054,6 +2093,10 @@ const oneOfMap: { [index: string]: string[] } = {
   NotebookUpdateCell: [
     "NotebookCellCreateRequest",
     "NotebookCellUpdateRequest",
+  ],
+  SharedDashboardInvitesData: [
+    "SharedDashboardInvitesDataObject",
+    "Array<SharedDashboardInvitesDataObject>",
   ],
   SunburstWidgetLegend: [
     "SunburstWidgetLegendTable",

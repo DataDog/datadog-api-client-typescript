@@ -39,12 +39,19 @@ export {
 
 export {
   DashboardsApiCreateDashboardRequest,
+  DashboardsApiCreatePublicDashboardRequest,
   DashboardsApiDeleteDashboardRequest,
   DashboardsApiDeleteDashboardsRequest,
+  DashboardsApiDeletePublicDashboardRequest,
+  DashboardsApiDeletePublicDashboardInvitationRequest,
   DashboardsApiGetDashboardRequest,
+  DashboardsApiGetPublicDashboardRequest,
+  DashboardsApiGetPublicDashboardInvitationsRequest,
   DashboardsApiListDashboardsRequest,
   DashboardsApiRestoreDashboardsRequest,
+  DashboardsApiSendPublicDashboardInvitationRequest,
   DashboardsApiUpdateDashboardRequest,
+  DashboardsApiUpdatePublicDashboardRequest,
   DashboardsApi,
 } from "./apis/DashboardsApi";
 
@@ -369,6 +376,9 @@ export { Dashboard } from "./models/Dashboard";
 export { DashboardBulkActionData } from "./models/DashboardBulkActionData";
 export { DashboardBulkDeleteRequest } from "./models/DashboardBulkDeleteRequest";
 export { DashboardDeleteResponse } from "./models/DashboardDeleteResponse";
+export { DashboardGlobalTime } from "./models/DashboardGlobalTime";
+export { DashboardGlobalTimeLiveSpan } from "./models/DashboardGlobalTimeLiveSpan";
+export { DashboardInviteType } from "./models/DashboardInviteType";
 export { DashboardLayoutType } from "./models/DashboardLayoutType";
 export { DashboardList } from "./models/DashboardList";
 export { DashboardListDeleteResponse } from "./models/DashboardListDeleteResponse";
@@ -376,12 +386,15 @@ export { DashboardListListResponse } from "./models/DashboardListListResponse";
 export { DashboardReflowType } from "./models/DashboardReflowType";
 export { DashboardResourceType } from "./models/DashboardResourceType";
 export { DashboardRestoreRequest } from "./models/DashboardRestoreRequest";
+export { DashboardShareType } from "./models/DashboardShareType";
 export { DashboardSummary } from "./models/DashboardSummary";
 export { DashboardSummaryDefinition } from "./models/DashboardSummaryDefinition";
 export { DashboardTemplateVariable } from "./models/DashboardTemplateVariable";
 export { DashboardTemplateVariablePreset } from "./models/DashboardTemplateVariablePreset";
 export { DashboardTemplateVariablePresetValue } from "./models/DashboardTemplateVariablePresetValue";
+export { DashboardType } from "./models/DashboardType";
 export { DeletedMonitor } from "./models/DeletedMonitor";
+export { DeleteSharedDashboardResponse } from "./models/DeleteSharedDashboardResponse";
 export { DistributionPointItem } from "./models/DistributionPointItem";
 export { DistributionPointsContentEncoding } from "./models/DistributionPointsContentEncoding";
 export { DistributionPointsPayload } from "./models/DistributionPointsPayload";
@@ -705,6 +718,7 @@ export { SearchSLOResponseMeta } from "./models/SearchSLOResponseMeta";
 export { SearchSLOResponseMetaPage } from "./models/SearchSLOResponseMetaPage";
 export { SearchSLOThreshold } from "./models/SearchSLOThreshold";
 export { SearchSLOTimeframe } from "./models/SearchSLOTimeframe";
+export { SelectableTemplateVariableItems } from "./models/SelectableTemplateVariableItems";
 export { Series } from "./models/Series";
 export { ServiceCheck } from "./models/ServiceCheck";
 export { ServiceCheckStatus } from "./models/ServiceCheckStatus";
@@ -715,6 +729,16 @@ export { ServiceMapWidgetDefinition } from "./models/ServiceMapWidgetDefinition"
 export { ServiceMapWidgetDefinitionType } from "./models/ServiceMapWidgetDefinitionType";
 export { ServiceSummaryWidgetDefinition } from "./models/ServiceSummaryWidgetDefinition";
 export { ServiceSummaryWidgetDefinitionType } from "./models/ServiceSummaryWidgetDefinitionType";
+export { SharedDashboard } from "./models/SharedDashboard";
+export { SharedDashboardAuthor } from "./models/SharedDashboardAuthor";
+export { SharedDashboardInvites } from "./models/SharedDashboardInvites";
+export { SharedDashboardInvitesData } from "./models/SharedDashboardInvitesData";
+export { SharedDashboardInvitesDataObject } from "./models/SharedDashboardInvitesDataObject";
+export { SharedDashboardInvitesDataObjectAttributes } from "./models/SharedDashboardInvitesDataObjectAttributes";
+export { SharedDashboardInvitesMeta } from "./models/SharedDashboardInvitesMeta";
+export { SharedDashboardInvitesMetaPage } from "./models/SharedDashboardInvitesMetaPage";
+export { SharedDashboardUpdateRequest } from "./models/SharedDashboardUpdateRequest";
+export { SharedDashboardUpdateRequestGlobalTime } from "./models/SharedDashboardUpdateRequestGlobalTime";
 export { SignalArchiveReason } from "./models/SignalArchiveReason";
 export { SignalAssigneeUpdateRequest } from "./models/SignalAssigneeUpdateRequest";
 export { SignalStateUpdateRequest } from "./models/SignalStateUpdateRequest";
