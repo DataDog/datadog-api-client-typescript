@@ -260,9 +260,11 @@ export {
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
+  SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
+  SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
@@ -522,6 +524,9 @@ export { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateIte
 export { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
 export { DashboardType } from "./models/DashboardType";
 export { DataScalarColumn } from "./models/DataScalarColumn";
+export { DetailedFinding } from "./models/DetailedFinding";
+export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
+export { DetailedFindingType } from "./models/DetailedFindingType";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventPriority } from "./models/EventPriority";
@@ -566,11 +571,20 @@ export { FastlyServiceRequest } from "./models/FastlyServiceRequest";
 export { FastlyServiceResponse } from "./models/FastlyServiceResponse";
 export { FastlyServicesResponse } from "./models/FastlyServicesResponse";
 export { FastlyServiceType } from "./models/FastlyServiceType";
+export { Finding } from "./models/Finding";
+export { FindingAttributes } from "./models/FindingAttributes";
+export { FindingEvaluation } from "./models/FindingEvaluation";
+export { FindingMute } from "./models/FindingMute";
+export { FindingMuteReason } from "./models/FindingMuteReason";
+export { FindingRule } from "./models/FindingRule";
+export { FindingStatus } from "./models/FindingStatus";
+export { FindingType } from "./models/FindingType";
 export { FormulaLimit } from "./models/FormulaLimit";
 export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
+export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
 export { HourlyUsage } from "./models/HourlyUsage";
@@ -707,6 +721,9 @@ export { IPAllowlistUpdateRequest } from "./models/IPAllowlistUpdateRequest";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
+export { ListFindingsMeta } from "./models/ListFindingsMeta";
+export { ListFindingsPage } from "./models/ListFindingsPage";
+export { ListFindingsResponse } from "./models/ListFindingsResponse";
 export { ListTeamsInclude } from "./models/ListTeamsInclude";
 export { ListTeamsSort } from "./models/ListTeamsSort";
 export { Log } from "./models/Log";

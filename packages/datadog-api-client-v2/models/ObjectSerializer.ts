@@ -132,6 +132,8 @@ import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
 import { DataScalarColumn } from "./DataScalarColumn";
+import { DetailedFinding } from "./DetailedFinding";
+import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventResponse } from "./EventResponse";
@@ -167,11 +169,16 @@ import { FastlyServiceData } from "./FastlyServiceData";
 import { FastlyServiceRequest } from "./FastlyServiceRequest";
 import { FastlyServiceResponse } from "./FastlyServiceResponse";
 import { FastlyServicesResponse } from "./FastlyServicesResponse";
+import { Finding } from "./Finding";
+import { FindingAttributes } from "./FindingAttributes";
+import { FindingMute } from "./FindingMute";
+import { FindingRule } from "./FindingRule";
 import { FormulaLimit } from "./FormulaLimit";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
+import { GetFindingResponse } from "./GetFindingResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
@@ -274,6 +281,9 @@ import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
+import { ListFindingsMeta } from "./ListFindingsMeta";
+import { ListFindingsPage } from "./ListFindingsPage";
+import { ListFindingsResponse } from "./ListFindingsResponse";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
@@ -832,6 +842,7 @@ const enumsMap: { [key: string]: any[] } = {
     "integration_timeboard",
     "host_timeboard",
   ],
+  DetailedFindingType: ["detailed_finding"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
     "failure",
@@ -862,6 +873,15 @@ const enumsMap: { [key: string]: any[] } = {
   EventsSortType: ["alphabetical", "measure"],
   FastlyAccountType: ["fastly-accounts"],
   FastlyServiceType: ["fastly-services"],
+  FindingEvaluation: ["pass", "fail"],
+  FindingMuteReason: [
+    "ACCEPTED_RISK",
+    "PENDING_FIX",
+    "FALSE_POSITIVE",
+    "OTHER",
+  ],
+  FindingStatus: ["critical", "high", "medium", "low", "info"],
+  FindingType: ["finding"],
   GetTeamMembershipsSort: [
     "manager_name",
     "-manager_name",
@@ -1295,6 +1315,8 @@ const typeMap: { [index: string]: any } = {
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
   DataScalarColumn: DataScalarColumn,
+  DetailedFinding: DetailedFinding,
+  DetailedFindingAttributes: DetailedFindingAttributes,
   Event: Event,
   EventAttributes: EventAttributes,
   EventResponse: EventResponse,
@@ -1330,11 +1352,16 @@ const typeMap: { [index: string]: any } = {
   FastlyServiceRequest: FastlyServiceRequest,
   FastlyServiceResponse: FastlyServiceResponse,
   FastlyServicesResponse: FastlyServicesResponse,
+  Finding: Finding,
+  FindingAttributes: FindingAttributes,
+  FindingMute: FindingMute,
+  FindingRule: FindingRule,
   FormulaLimit: FormulaLimit,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
+  GetFindingResponse: GetFindingResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPLogError: HTTPLogError,
   HTTPLogErrors: HTTPLogErrors,
@@ -1449,6 +1476,9 @@ const typeMap: { [index: string]: any } = {
   JiraIntegrationMetadata: JiraIntegrationMetadata,
   JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
+  ListFindingsMeta: ListFindingsMeta,
+  ListFindingsPage: ListFindingsPage,
+  ListFindingsResponse: ListFindingsResponse,
   Log: Log,
   LogAttributes: LogAttributes,
   LogsAggregateBucket: LogsAggregateBucket,

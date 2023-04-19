@@ -18,6 +18,10 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { FindingEvaluation } from "../models/FindingEvaluation";
+import { FindingStatus } from "../models/FindingStatus";
+import { GetFindingResponse } from "../models/GetFindingResponse";
+import { ListFindingsResponse } from "../models/ListFindingsResponse";
 import { SecurityFilterCreateRequest } from "../models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
 import { SecurityFiltersResponse } from "../models/SecurityFiltersResponse";
@@ -373,6 +377,47 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getFinding(
+    findingId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getFinding'");
+    if (!_config.unstableOperations["v2.getFinding"]) {
+      throw new Error("Unstable operation 'getFinding' is disabled");
+    }
+
+    // verify required parameter 'findingId' is not null or undefined
+    if (findingId === null || findingId === undefined) {
+      throw new RequiredError("findingId", "getFinding");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/posture_management/findings/{finding_id}".replace(
+        "{finding_id}",
+        encodeURIComponent(String(findingId))
+      );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.SecurityMonitoringApi.getFinding"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getSecurityFilter(
     securityFilterId: string,
     _options?: Configuration
@@ -469,6 +514,123 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listFindings(
+    limit?: number,
+    snapshotTimestamp?: number,
+    pageCursor?: string,
+    filterTags?: string,
+    filterEvaluationChangedAt?: string,
+    filterMuted?: boolean,
+    filterRuleId?: string,
+    filterRuleName?: string,
+    filterResourceType?: string,
+    filterDiscoveryTimestamp?: string,
+    filterEvaluation?: FindingEvaluation,
+    filterStatus?: FindingStatus,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listFindings'");
+    if (!_config.unstableOperations["v2.listFindings"]) {
+      throw new Error("Unstable operation 'listFindings' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/posture_management/findings";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.SecurityMonitoringApi.listFindings"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64")
+      );
+    }
+    if (snapshotTimestamp !== undefined) {
+      requestContext.setQueryParam(
+        "snapshot_timestamp",
+        ObjectSerializer.serialize(snapshotTimestamp, "number", "int64")
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", "")
+      );
+    }
+    if (filterTags !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tags]",
+        ObjectSerializer.serialize(filterTags, "string", "")
+      );
+    }
+    if (filterEvaluationChangedAt !== undefined) {
+      requestContext.setQueryParam(
+        "filter[evaluation_changed_at]",
+        ObjectSerializer.serialize(filterEvaluationChangedAt, "string", "")
+      );
+    }
+    if (filterMuted !== undefined) {
+      requestContext.setQueryParam(
+        "filter[muted]",
+        ObjectSerializer.serialize(filterMuted, "boolean", "")
+      );
+    }
+    if (filterRuleId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule_id]",
+        ObjectSerializer.serialize(filterRuleId, "string", "")
+      );
+    }
+    if (filterRuleName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule_name]",
+        ObjectSerializer.serialize(filterRuleName, "string", "")
+      );
+    }
+    if (filterResourceType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[resource_type]",
+        ObjectSerializer.serialize(filterResourceType, "string", "")
+      );
+    }
+    if (filterDiscoveryTimestamp !== undefined) {
+      requestContext.setQueryParam(
+        "filter[discovery_timestamp]",
+        ObjectSerializer.serialize(filterDiscoveryTimestamp, "string", "")
+      );
+    }
+    if (filterEvaluation !== undefined) {
+      requestContext.setQueryParam(
+        "filter[evaluation]",
+        ObjectSerializer.serialize(filterEvaluation, "FindingEvaluation", "")
+      );
+    }
+    if (filterStatus !== undefined) {
+      requestContext.setQueryParam(
+        "filter[status]",
+        ObjectSerializer.serialize(filterStatus, "FindingStatus", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1210,6 +1372,69 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getFinding
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getFinding(
+    response: ResponseContext
+  ): Promise<GetFindingResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: GetFindingResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetFindingResponse"
+      ) as GetFindingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetFindingResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetFindingResponse",
+        ""
+      ) as GetFindingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1374,6 +1599,69 @@ export class SecurityMonitoringApiResponseProcessor {
         "SecurityMonitoringSignal",
         ""
       ) as SecurityMonitoringSignal;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listFindings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFindings(
+    response: ResponseContext
+  ): Promise<ListFindingsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: ListFindingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListFindingsResponse"
+      ) as ListFindingsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListFindingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListFindingsResponse",
+        ""
+      ) as ListFindingsResponse;
       return body;
     }
 
@@ -1829,6 +2117,14 @@ export interface SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest {
   body: SecurityMonitoringSignalStateUpdateRequest;
 }
 
+export interface SecurityMonitoringApiGetFindingRequest {
+  /**
+   * The ID of the finding.
+   * @type string
+   */
+  findingId: string;
+}
+
 export interface SecurityMonitoringApiGetSecurityFilterRequest {
   /**
    * The ID of the security filter.
@@ -1851,6 +2147,69 @@ export interface SecurityMonitoringApiGetSecurityMonitoringSignalRequest {
    * @type string
    */
   signalId: string;
+}
+
+export interface SecurityMonitoringApiListFindingsRequest {
+  /**
+   * Limit the number of findings returned.
+   * @type number
+   */
+  limit?: number;
+  /**
+   * Return findings for a given snapshot of time (Unix ms).
+   * @type number
+   */
+  snapshotTimestamp?: number;
+  /**
+   * Return the next page of findings pointed to by the cursor.
+   * @type string
+   */
+  pageCursor?: string;
+  /**
+   * Return findings that have these associated tags (repeatable).
+   * @type string
+   */
+  filterTags?: string;
+  /**
+   * Return findings that have changed from pass to fail or vice versa on a specified date (Unix ms) or date range (using comparison operators).
+   * @type string
+   */
+  filterEvaluationChangedAt?: string;
+  /**
+   * Set to `true` to return findings that are muted. Set to `false` to return unmuted findings.
+   * @type boolean
+   */
+  filterMuted?: boolean;
+  /**
+   * Return findings for the specified rule ID.
+   * @type string
+   */
+  filterRuleId?: string;
+  /**
+   * Return findings for the specified rule.
+   * @type string
+   */
+  filterRuleName?: string;
+  /**
+   * Return only findings for the specified resource type.
+   * @type string
+   */
+  filterResourceType?: string;
+  /**
+   * Return findings that were found on a specified date (Unix ms) or date range (using comparison operators).
+   * @type string
+   */
+  filterDiscoveryTimestamp?: string;
+  /**
+   * Return only `pass` or `fail` findings.
+   * @type FindingEvaluation
+   */
+  filterEvaluation?: FindingEvaluation;
+  /**
+   * Return only findings with the specified status.
+   * @type FindingStatus
+   */
+  filterStatus?: FindingStatus;
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
@@ -2111,6 +2470,27 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Returns a single finding with message and resource configuration.
+   * @param param The request object
+   */
+  public getFinding(
+    param: SecurityMonitoringApiGetFindingRequest,
+    options?: Configuration
+  ): Promise<GetFindingResponse> {
+    const requestContextPromise = this.requestFactory.getFinding(
+      param.findingId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getFinding(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get the details of a specific security filter.
    *
    * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
@@ -2174,6 +2554,38 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.getSecurityMonitoringSignal(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get a list of CSPM findings.
+   * @param param The request object
+   */
+  public listFindings(
+    param: SecurityMonitoringApiListFindingsRequest = {},
+    options?: Configuration
+  ): Promise<ListFindingsResponse> {
+    const requestContextPromise = this.requestFactory.listFindings(
+      param.limit,
+      param.snapshotTimestamp,
+      param.pageCursor,
+      param.filterTags,
+      param.filterEvaluationChangedAt,
+      param.filterMuted,
+      param.filterRuleId,
+      param.filterRuleName,
+      param.filterResourceType,
+      param.filterDiscoveryTimestamp,
+      param.filterEvaluation,
+      param.filterStatus,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFindings(responseContext);
         });
     });
   }
