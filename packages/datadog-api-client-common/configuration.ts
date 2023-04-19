@@ -136,6 +136,8 @@ export function createConfiguration(
       "v2.updateIncidentTodo": false,
       "v2.queryScalarData": false,
       "v2.queryTimeseriesData": false,
+      "v2.getFinding": false,
+      "v2.listFindings": false,
       "v2.createIncidentService": false,
       "v2.deleteIncidentService": false,
       "v2.getIncidentService": false,
