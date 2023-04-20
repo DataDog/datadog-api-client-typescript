@@ -203,6 +203,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     filterProductFamilies: string,
     filterTimestampEnd?: Date,
     filterIncludeDescendants?: boolean,
+    filterIncludeBreakdown?: boolean,
     filterVersions?: string,
     pageLimit?: number,
     pageNextRecordId?: string,
@@ -257,6 +258,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[include_descendants]",
         ObjectSerializer.serialize(filterIncludeDescendants, "boolean", "")
+      );
+    }
+    if (filterIncludeBreakdown !== undefined) {
+      requestContext.setQueryParam(
+        "filter[include_breakdown]",
+        ObjectSerializer.serialize(filterIncludeBreakdown, "boolean", "")
       );
     }
     if (filterVersions !== undefined) {
@@ -972,6 +979,11 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
    */
   filterIncludeDescendants?: boolean;
   /**
+   * Include breakdown of usage by subcategories where applicable (for product family logs only). Defaults to false.
+   * @type boolean
+   */
+  filterIncludeBreakdown?: boolean;
+  /**
    * Comma separated list of product family versions to use in the format `product_family:version`. For example,
    * `infra_hosts:1.0.0`. If this parameter is not used, the API will use the latest version of each requested
    * product family. Currently all families have one version `1.0.0`.
@@ -1140,6 +1152,7 @@ export class UsageMeteringApi {
       param.filterProductFamilies,
       param.filterTimestampEnd,
       param.filterIncludeDescendants,
+      param.filterIncludeBreakdown,
       param.filterVersions,
       param.pageLimit,
       param.pageNextRecordId,

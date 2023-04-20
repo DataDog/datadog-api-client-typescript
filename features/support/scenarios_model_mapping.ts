@@ -4672,6 +4672,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "filterIncludeBreakdown": {
+            "type": "boolean",
+            "format": "",
+            },
         "filterVersions": {
             "type": "string",
             "format": "",
