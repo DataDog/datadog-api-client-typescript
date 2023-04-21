@@ -1074,6 +1074,7 @@ const enumsMap: { [key: string]: any[] } = {
     "none",
     "false_positive",
     "testing_or_maintenance",
+    "investigated_case_opened",
     "other",
   ],
   SecurityMonitoringSignalRuleType: ["signal_correlation"],
