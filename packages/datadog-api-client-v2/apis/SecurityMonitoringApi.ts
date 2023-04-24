@@ -18,6 +18,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { Finding } from "../models/Finding";
 import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
 import { GetFindingResponse } from "../models/GetFindingResponse";
@@ -526,7 +527,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listFindings(
-    limit?: number,
+    pageLimit?: number,
     snapshotTimestamp?: number,
     pageCursor?: string,
     filterTags?: string,
@@ -559,10 +560,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Query Params
-    if (limit !== undefined) {
+    if (pageLimit !== undefined) {
       requestContext.setQueryParam(
-        "limit",
-        ObjectSerializer.serialize(limit, "number", "int64")
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64")
       );
     }
     if (snapshotTimestamp !== undefined) {
@@ -2151,10 +2152,10 @@ export interface SecurityMonitoringApiGetSecurityMonitoringSignalRequest {
 
 export interface SecurityMonitoringApiListFindingsRequest {
   /**
-   * Limit the number of findings returned.
+   * Limit the number of findings returned. Must be <= 1000.
    * @type number
    */
-  limit?: number;
+  pageLimit?: number;
   /**
    * Return findings for a given snapshot of time (Unix ms).
    * @type number
@@ -2560,6 +2561,33 @@ export class SecurityMonitoringApi {
 
   /**
    * Get a list of CSPM findings.
+   *
+   * ### Filtering
+   *
+   * Filters can be applied by appending query parameters to the URL.
+   *
+   *   - Using a single filter: `?filter[attribute_key]=attribute_value`
+   *   - Chaining filters: `?filter[attribute_key]=attribute_value&filter[attribute_key]=attribute_value...`
+   *   - Filtering on tags: `?filter[tags]=tag_key:tag_value&filter[tags]=tag_key_2:tag_value_2`
+   *
+   * Here, `attribute_key` can be any of the filter keys described further below.
+   *
+   * Query parameters of type `integer` support comparison operators (`>`, `>=`, `<`, `<=`). This is particularly useful when filtering by `evaluation_changed_at` or `resource_discovery_timestamp`. For example: `?filter[evaluation_changed_at]=>20123123121`.
+   *
+   * You can also use the negation operator on strings. For example, use `filter[resource_type]=-aws*` to filter for any non-AWS resources.
+   *
+   * The operator must come after the equal sign. For example, to filter with the `>=` operator, add the operator after the equal sign: `filter[evaluation_changed_at]=>=1678809373257`.
+   *
+   * ### Response
+   *
+   * The response includes an array of finding objects, pagination metadata, and a count of items that match the query.
+   *
+   * Each finding object contains the following:
+   *
+   * - The finding ID that can be used in a `GetFinding` request to retrieve the full finding details.
+   * - Core attributes, including status, evaluation, high-level resource details, muted state, and rule details.
+   * - `evaluation_changed_at` and `resource_discovery_date` time stamps.
+   * - An array of associated tags.
    * @param param The request object
    */
   public listFindings(
@@ -2567,7 +2595,7 @@ export class SecurityMonitoringApi {
     options?: Configuration
   ): Promise<ListFindingsResponse> {
     const requestContextPromise = this.requestFactory.listFindings(
-      param.limit,
+      param.pageLimit,
       param.snapshotTimestamp,
       param.pageCursor,
       param.filterTags,
@@ -2588,6 +2616,69 @@ export class SecurityMonitoringApi {
           return this.responseProcessor.listFindings(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listFindings returning a generator with all the items.
+   */
+  public async *listFindingsWithPagination(
+    param: SecurityMonitoringApiListFindingsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<Finding> {
+    let pageSize = 100;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listFindings(
+        param.pageLimit,
+        param.snapshotTimestamp,
+        param.pageCursor,
+        param.filterTags,
+        param.filterEvaluationChangedAt,
+        param.filterMuted,
+        param.filterRuleId,
+        param.filterRuleName,
+        param.filterResourceType,
+        param.filterDiscoveryTimestamp,
+        param.filterEvaluation,
+        param.filterStatus,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listFindings(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageCursor = cursorMetaPage.cursor;
+      if (cursorMetaPageCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageCursor;
+    }
   }
 
   /**

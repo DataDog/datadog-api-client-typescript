@@ -3708,7 +3708,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "UsersResponse",
     },
     "v2.ListFindings": {
-        "limit": {
+        "pageLimit": {
             "type": "number",
             "format": "int64",
             },
