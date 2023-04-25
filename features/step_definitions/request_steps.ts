@@ -302,6 +302,13 @@ Then(
   }
 );
 
+Then(
+  "the response {string} contains value {string}",
+  function (this: World, responsePath: string, value: string) {
+    expect(pathLookup(this.response, responsePath)).to.contain(value);
+  }
+);
+
 AfterAll( function (this: World) {
   let dd_service = process.env.DD_SERVICE;
   let ci_pipeline_id = process.env.GITHUB_RUN_ID;
