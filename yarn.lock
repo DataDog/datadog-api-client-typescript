@@ -1658,6 +1658,11 @@ capital-case@^1.0.4:
     tslib "^2.0.3"
     upper-case-first "^2.0.2"
 
+chai-quantifiers@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.yarnpkg.com/chai-quantifiers/-/chai-quantifiers-1.0.17.tgz#7f9ecf6cc945c16d6bebec04390ab9c371c79b61"
+  integrity sha512-ee9xeWmfjQsDG/UH7QVq97+yStp+SN05dQ51kdric2zgHueWIjphMmG36kwLAhWm9KeZ1PK7Ms4UiPfz6JpASw==
+
 chai@^4.3.7:
   version "4.3.7"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.3.7.tgz#ec63f6df01829088e8bf55fca839bcd464a8ec51"
