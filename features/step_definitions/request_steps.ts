@@ -294,18 +294,18 @@ Then(
 );
 
 Then(
-  "the response {string} has item with field {string} with value {string}",
+  /the response "([^"]+)" has item with field "([^"]+)" with value (.*)/,
   function (this: World, responsePath: string, keyPath: string, value: string) {
     expect(pathLookup(this.response, responsePath)).to.containOne((item) => {
-      return pathLookup(item, keyPath) === value;
+      return pathLookup(item, keyPath) === JSON.parse(value.templated(this.fixtures));
     });
   }
 );
 
 Then(
-  "the response {string} contains value {string}",
+  /the response "([^"]+)" contains value (.*)/,
   function (this: World, responsePath: string, value: string) {
-    expect(pathLookup(this.response, responsePath)).to.contain(value);
+    expect(pathLookup(this.response, responsePath)).to.contain(JSON.parse(value.templated(this.fixtures)));
   }
 );
 
