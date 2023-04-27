@@ -16,8 +16,8 @@ const params: v2.MonitorsApiUpdateMonitorConfigPolicyRequest = {
     data: {
       attributes: {
         policy: {
-          tagKey: "datacenter",
-          tagKeyRequired: true,
+          tagKey: "examplemonitor",
+          tagKeyRequired: false,
           validTagValues: ["prod", "staging"],
         },
         policyType: "tag",
