@@ -1052,6 +1052,8 @@ const enumsMap: { [key: string]: any[] } = {
     "networkHop",
     "receivedMessage",
     "grpcHealthcheckStatus",
+    "grpcMetadata",
+    "grpcProto",
     "connection",
   ],
   SyntheticsAssertionXPathOperator: ["validatesXPath"],

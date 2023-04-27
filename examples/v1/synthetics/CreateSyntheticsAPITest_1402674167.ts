@@ -16,6 +16,17 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           target: 1,
           type: "grpcHealthcheckStatus",
         },
+        {
+          operator: "is",
+          target: "proto target",
+          type: "grpcProto",
+        },
+        {
+          operator: "is",
+          target: "123",
+          property: "property",
+          type: "grpcMetadata",
+        },
       ],
       request: {
         host: "localhost",
