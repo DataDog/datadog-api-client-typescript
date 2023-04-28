@@ -13,8 +13,8 @@ const params: v2.MonitorsApiCreateMonitorConfigPolicyRequest = {
       attributes: {
         policyType: "tag",
         policy: {
-          tagKey: "examplemonitor",
-          tagKeyRequired: false,
+          tagKey: "datacenter",
+          tagKeyRequired: true,
           validTagValues: ["prod", "staging"],
         },
       },
