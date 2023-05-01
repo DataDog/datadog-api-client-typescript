@@ -310,7 +310,7 @@ Then(
 );
 
 Then(
-  /the response "([^"]+)" contains value (.*)/,
+  /the response "([^"]+)" array contains value (.*)/,
   function (this: World, responsePath: string, value: string) {
     expect(pathLookup(this.response, responsePath)).to.contain(JSON.parse(value.templated(this.fixtures)));
   }
