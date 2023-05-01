@@ -297,7 +297,14 @@ Then(
   /the response "([^"]+)" has item with field "([^"]+)" with value (.*)/,
   function (this: World, responsePath: string, keyPath: string, value: string) {
     expect(pathLookup(this.response, responsePath)).to.containOne((item) => {
-      return pathLookup(item, keyPath) === JSON.parse(value.templated(this.fixtures));
+      try {
+        expect(pathLookup(item, keyPath)).to.deep.equal(
+          JSON.parse(value.templated(this.fixtures))
+        );
+        return true;
+      } catch (error) {
+        return false;
+      }
     });
   }
 );
