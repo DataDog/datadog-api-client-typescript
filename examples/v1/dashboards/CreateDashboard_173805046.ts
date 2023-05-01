@@ -32,6 +32,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           showErrorBudget: true,
           viewMode: "overall",
           globalTimeTarget: "0",
+          additionalQueryFilters: "!host:excluded_host",
         },
       },
     ],
