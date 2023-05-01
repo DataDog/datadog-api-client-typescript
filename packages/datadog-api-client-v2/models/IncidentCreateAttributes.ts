@@ -14,6 +14,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class IncidentCreateAttributes {
   /**
+   * Required if `customer_impacted:"true"`. A summary of the impact customers experienced during the incident.
+   */
+  "customerImpactScope"?: string;
+  /**
    * A flag indicating whether the incident caused customer impact.
    */
   "customerImpacted": boolean;
@@ -43,6 +47,10 @@ export class IncidentCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    customerImpactScope: {
+      baseName: "customer_impact_scope",
+      type: "string",
+    },
     customerImpacted: {
       baseName: "customer_impacted",
       type: "boolean",
