@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type IncidentPostmortemType = typeof INCIDENT_POSTMORTEMS;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Incident postmortem resource type.
+ */
+
+export type IncidentPostmortemType =
+  | typeof INCIDENT_POSTMORTEMS
+  | UnparsedObject;
 export const INCIDENT_POSTMORTEMS = "incident_postmortems";

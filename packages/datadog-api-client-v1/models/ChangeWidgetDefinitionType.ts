@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type ChangeWidgetDefinitionType = typeof CHANGE;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the change widget.
+ */
+
+export type ChangeWidgetDefinitionType = typeof CHANGE | UnparsedObject;
 export const CHANGE = "change";

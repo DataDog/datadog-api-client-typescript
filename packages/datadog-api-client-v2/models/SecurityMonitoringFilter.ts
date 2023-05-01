@@ -23,7 +23,7 @@ export class SecurityMonitoringFilter {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

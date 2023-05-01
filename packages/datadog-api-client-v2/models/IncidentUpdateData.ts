@@ -18,7 +18,7 @@ export class IncidentUpdateData {
    */
   "attributes"?: IncidentUpdateAttributes;
   /**
-   * The team's ID.
+   * The incident's ID.
    */
   "id": string;
   /**
@@ -33,7 +33,7 @@ export class IncidentUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

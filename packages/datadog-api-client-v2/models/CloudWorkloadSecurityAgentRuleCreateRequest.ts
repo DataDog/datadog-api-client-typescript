@@ -19,7 +19,7 @@ export class CloudWorkloadSecurityAgentRuleCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

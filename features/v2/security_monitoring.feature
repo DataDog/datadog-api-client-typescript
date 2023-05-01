@@ -56,6 +56,17 @@ Feature: Security Monitoring
     Then the response status is 200 OK
 
   @team:DataDog/k9-cloud-security-platform
+  Scenario: Create a cloud_configuration rule returns "OK" response
+    Given new "CreateSecurityMonitoringRule" request
+    And body with value {"type":"cloud_configuration","name":"{{ unique }}_cloud","isEnabled":false,"cases":[{"status":"info","notifications":["channel"]}],"options":{"complianceRuleOptions":{"resourceType":"gcp_compute_disk","complexRule": false,"regoRule":{"policy":"package datadog\n","resourceTypes":["gcp_compute_disk"]}}},"message":"ddd","tags":["my:tag"],"complianceSignalOptions":{"userActivationStatus":true,"userGroupByFields":["@account_id"]}}
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}_cloud"
+    And the response "type" is equal to "cloud_configuration"
+    And the response "message" is equal to "ddd"
+    And the response "options.complianceRuleOptions.resourceType" is equal to "gcp_compute_disk"
+
+  @team:DataDog/k9-cloud-security-platform
   Scenario: Create a detection rule returns "Bad Request" response
     Given new "CreateSecurityMonitoringRule" request
     And body with value {"name":"{{ unique }}", "queries":[{"query":""}],"cases":[{"status":"info"}],"options":{},"message":"Test rule","tags":[],"isEnabled":true}
@@ -68,6 +79,9 @@ Feature: Security Monitoring
     And body with value {"name":"{{ unique }}", "queries":[{"query":"@test:true","aggregation":"count","groupByFields":[],"distinctFields":[],"metric":""}],"filters":[],"cases":[{"name":"","status":"info","condition":"a > 0","notifications":[]}],"options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"message":"Test rule","tags":[],"isEnabled":true, "type":"log_detection"}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "log_detection"
+    And the response "message" is equal to "Test rule"
 
   @team:DataDog/k9-cloud-security-platform
   Scenario: Create a detection rule with type 'impossible_travel' returns "OK" response
@@ -75,6 +89,10 @@ Feature: Security Monitoring
     And body with value {"queries":[{"aggregation":"geo_data","groupByFields":["@usr.id"],"distinctFields":[],"metric":"@network.client.geoip","query":"*"}],"cases":[{"name":"","status":"info","notifications":[]}],"hasExtendedTitle":true,"message":"test","isEnabled":true,"options":{"maxSignalDuration":86400,"evaluationWindow":900,"keepAlive":3600,"detectionMethod":"impossible_travel","impossibleTravelOptions":{"baselineUserLocations":false}},"name":"{{ unique }}","type":"log_detection","tags":[],"filters":[]}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "log_detection"
+    And the response "message" is equal to "test"
+    And the response "options.detectionMethod" is equal to "impossible_travel"
 
   @team:DataDog/k9-cloud-security-platform
   Scenario: Create a detection rule with type 'signal_correlation' returns "OK" response
@@ -84,6 +102,10 @@ Feature: Security Monitoring
     And body with value {"name":"{{ unique }}_signal_rule", "queries":[{"ruleId":"{{ security_rule.id }}","aggregation":"event_count","correlatedByFields":["host"],"correlatedQueryIndex":1}, {"ruleId":"{{ security_rule_bis.id }}","aggregation":"event_count","correlatedByFields":["host"]}],"filters":[],"cases":[{"name":"","status":"info","condition":"a > 0 && b > 0","notifications":[]}],"options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"message":"Test signal correlation rule","tags":[],"isEnabled":true, "type": "signal_correlation"}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}_signal_rule"
+    And the response "type" is equal to "signal_correlation"
+    And the response "message" is equal to "Test signal correlation rule"
+    And the response "isEnabled" is equal to true
 
   @team:DataDog/k9-cloud-security-platform
   Scenario: Create a detection rule with type 'workload_security' returns "OK" response
@@ -91,6 +113,10 @@ Feature: Security Monitoring
     And body with value {"name":"{{ unique }}", "queries":[{"query":"@test:true","aggregation":"count","groupByFields":[],"distinctFields":[],"metric":""}],"filters":[],"cases":[{"name":"","status":"info","condition":"a > 0","notifications":[]}],"options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"message":"Test rule","tags":[],"isEnabled":true, "type": "workload_security"}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "workload_security"
+    And the response "message" is equal to "Test rule"
+    And the response "isEnabled" is equal to true
 
   @generated @skip @team:DataDog/k9-cloud-security-platform
   Scenario: Create a security filter returns "Bad Request" response
@@ -112,6 +138,11 @@ Feature: Security Monitoring
     And body with value {"data": {"attributes": {"exclusion_filters": [{"name": "Exclude staging", "query": "source:staging"}], "filtered_data_type": "logs", "is_enabled": true, "name": "{{ unique }}", "query": "service:{{ unique_alnum }}"}, "type": "security_filters"}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "data.type" is equal to "security_filters"
+    And the response "data.attributes.name" is equal to "{{ unique }}"
+    And the response "data.attributes.is_enabled" is equal to true
+    And the response "data.attributes.exclusion_filters[0].name" is equal to "Exclude staging"
+    And the response "data.attributes.exclusion_filters[0].query" is equal to "source:staging"
 
   @skip @team:DataDog/k9-cloud-security-platform
   Scenario: Delete a non existing rule returns "Not Found" response
@@ -157,6 +188,41 @@ Feature: Security Monitoring
     When the request is sent
     Then the response status is 204 OK
 
+  @team:DataDog/k9-cloud-security-platform
+  Scenario: Get a cloud configuration rule's details returns "OK" response
+    Given there is a valid "cloud_configuration_rule" in the system
+    And new "GetSecurityMonitoringRule" request
+    And request contains "rule_id" parameter from "cloud_configuration_rule.id"
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}_cloud"
+    And the response "id" has the same value as "cloud_configuration_rule.id"
+
+  @generated @skip @team:DataDog/cloud-security-posture-management
+  Scenario: Get a finding returns "Bad Request" response
+    Given operation "GetFinding" enabled
+    And new "GetFinding" request
+    And request contains "finding_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/cloud-security-posture-management
+  Scenario: Get a finding returns "Not Found" response
+    Given operation "GetFinding" enabled
+    And new "GetFinding" request
+    And request contains "finding_id" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @replay-only @team:DataDog/cloud-security-posture-management
+  Scenario: Get a finding returns "OK" response
+    Given operation "GetFinding" enabled
+    And new "GetFinding" request
+    And request contains "finding_id" parameter with value "AgAAAYd59gjghzF52gAAAAAAAAAYAAAAAEFZZDU5Z2pnQUFCRTRvV1lFeEo4SlFBQQAAACQAAAAAMDE4NzdhMDEtMDRiYS00NTZlLWFmMzMtNTIxNmNkNjVlNDMz"
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "data.attributes.evaluation" is equal to "pass"
+
   @generated @skip @team:DataDog/k9-cloud-security-platform
   Scenario: Get a list of security signals returns "Bad Request" response
     Given new "SearchSecurityMonitoringSignals" request
@@ -171,7 +237,7 @@ Feature: Security Monitoring
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @team:DataDog/k9-cloud-security-platform @with-pagination
+  @replay-only @skip-validation @team:DataDog/k9-cloud-security-platform @with-pagination
   Scenario: Get a list of security signals returns "OK" response with pagination
     Given new "SearchSecurityMonitoringSignals" request
     And body with value {"filter": {"from": "{{ timeISO("now-15m") }}", "query": "security:attack status:high", "to": "{{ timeISO("now") }}"}, "page": {"limit": 2}, "sort": "timestamp"}
@@ -191,7 +257,7 @@ Feature: Security Monitoring
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @team:DataDog/k9-cloud-security-platform @with-pagination
+  @replay-only @skip-validation @team:DataDog/k9-cloud-security-platform @with-pagination
   Scenario: Get a quick list of security signals returns "OK" response with pagination
     Given new "ListSecurityMonitoringSignals" request
     And request contains "page[limit]" parameter with value 2
@@ -230,6 +296,11 @@ Feature: Security Monitoring
     And request contains "security_filter_id" parameter from "security_filter.data.id"
     When the request is sent
     Then the response status is 200 OK
+    And the response "data.type" is equal to "security_filters"
+    And the response "data.attributes.name" is equal to "{{ unique }}"
+    And the response "data.attributes.is_enabled" is equal to true
+    And the response "data.attributes.exclusion_filters[0].name" is equal to "Exclude logs from staging"
+    And the response "data.attributes.exclusion_filters[0].query" is equal to "source:staging"
 
   @replay-only @team:DataDog/k9-cloud-security-platform
   Scenario: Get a signal's details returns "Not Found" response
@@ -251,6 +322,35 @@ Feature: Security Monitoring
     When the request is sent
     Then the response status is 200 OK
 
+  @generated @skip @team:DataDog/cloud-security-posture-management
+  Scenario: List findings returns "Bad Request" response
+    Given operation "ListFindings" enabled
+    And new "ListFindings" request
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/cloud-security-posture-management
+  Scenario: List findings returns "Not Found" response
+    Given operation "ListFindings" enabled
+    And new "ListFindings" request
+    When the request is sent
+    Then the response status is 404 Not Found
+
+  @replay-only @team:DataDog/cloud-security-posture-management
+  Scenario: List findings returns "OK" response
+    Given operation "ListFindings" enabled
+    And new "ListFindings" request
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "data[0].type" is equal to "finding"
+
+  @generated @skip @team:DataDog/cloud-security-posture-management @with-pagination
+  Scenario: List findings returns "OK" response with pagination
+    Given operation "ListFindings" enabled
+    And new "ListFindings" request
+    When the request with pagination is sent
+    Then the response status is 200 OK
+
   @generated @skip @team:DataDog/k9-cloud-security-platform
   Scenario: List rules returns "Bad Request" response
     Given new "ListSecurityMonitoringRules" request
@@ -267,7 +367,7 @@ Feature: Security Monitoring
   Scenario: Modify the triage assignee of a security signal returns "Bad Request" response
     Given new "EditSecurityMonitoringSignalAssignee" request
     And request contains "signal_id" parameter from "REPLACE.ME"
-    And body with value {"data": {"attributes": {"assignee": {"uuid": "773b045d-ccf8-4808-bd3b-955ef6a8c940"}}}}
+    And body with value {"data": {"attributes": {"assignee": {"name": null, "uuid": "773b045d-ccf8-4808-bd3b-955ef6a8c940"}}}}
     When the request is sent
     Then the response status is 400 Bad Request
 
@@ -275,7 +375,7 @@ Feature: Security Monitoring
   Scenario: Modify the triage assignee of a security signal returns "Not Found" response
     Given new "EditSecurityMonitoringSignalAssignee" request
     And request contains "signal_id" parameter from "REPLACE.ME"
-    And body with value {"data": {"attributes": {"assignee": {"uuid": "773b045d-ccf8-4808-bd3b-955ef6a8c940"}}}}
+    And body with value {"data": {"attributes": {"assignee": {"name": null, "uuid": "773b045d-ccf8-4808-bd3b-955ef6a8c940"}}}}
     When the request is sent
     Then the response status is 404 Not Found
 
@@ -286,6 +386,17 @@ Feature: Security Monitoring
     And body with value {"data": {"attributes": {"assignee": {"uuid": ""}}}}
     When the request is sent
     Then the response status is 200 OK
+
+  @team:DataDog/k9-cloud-security-platform
+  Scenario: Update a cloud configuration rule's details returns "OK" response
+    Given new "UpdateSecurityMonitoringRule" request
+    And there is a valid "cloud_configuration_rule" in the system
+    And request contains "rule_id" parameter from "cloud_configuration_rule.id"
+    And body with value {"name":"{{ unique }}_cloud_updated","isEnabled":false,"cases":[{"status":"info","notifications":[]}],"options":{"complianceRuleOptions":{"resourceType":"gcp_compute_disk", "regoRule":{"policy":"package datadog\n","resourceTypes":["gcp_compute_disk"]}}},"message":"ddd","tags":[],"complianceSignalOptions":{"userActivationStatus":false,"userGroupByFields":[]}}
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}_cloud_updated"
+    And the response "id" has the same value as "cloud_configuration_rule.id"
 
   @generated @skip @team:DataDog/k9-cloud-security-platform
   Scenario: Update a security filter returns "Bad Request" response
@@ -319,6 +430,9 @@ Feature: Security Monitoring
     And body with value {"data": {"attributes": {"exclusion_filters": [], "filtered_data_type": "logs", "is_enabled": true, "name": "{{ unique }}", "query": "service:{{ unique_alnum }}", "version": 1}, "type": "security_filters"}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "data.type" is equal to "security_filters"
+    And the response "data.attributes.filtered_data_type" is equal to "logs"
+    And the response "data.attributes.name" is equal to "{{ unique }}"
 
   @team:DataDog/k9-cloud-security-platform
   Scenario: Update an existing rule returns "Bad Request" response

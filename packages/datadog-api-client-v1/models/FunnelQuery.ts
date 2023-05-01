@@ -28,7 +28,7 @@ export class FunnelQuery {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

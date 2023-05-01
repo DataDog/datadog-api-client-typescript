@@ -73,7 +73,7 @@ export class MonitorSearchResult {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

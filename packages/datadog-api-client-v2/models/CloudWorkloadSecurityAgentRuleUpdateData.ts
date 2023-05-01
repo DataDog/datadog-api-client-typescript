@@ -24,7 +24,7 @@ export class CloudWorkloadSecurityAgentRuleUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

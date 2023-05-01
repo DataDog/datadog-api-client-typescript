@@ -26,7 +26,7 @@ export class IncidentResponseMetaPagination {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

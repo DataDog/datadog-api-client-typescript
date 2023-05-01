@@ -23,7 +23,7 @@ export class DashboardBulkActionData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -31,9 +31,7 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createPagerDutyIntegrationService."
-      );
+      throw new RequiredError("body", "createPagerDutyIntegrationService");
     }
 
     // Path Params
@@ -76,14 +74,15 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // verify required parameter 'serviceName' is not null or undefined
     if (serviceName === null || serviceName === undefined) {
       throw new RequiredError(
-        "Required parameter serviceName was null or undefined when calling deletePagerDutyIntegrationService."
+        "serviceName",
+        "deletePagerDutyIntegrationService"
       );
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
-        "{" + "service_name" + "}",
+        "{service_name}",
         encodeURIComponent(String(serviceName))
       );
 
@@ -112,15 +111,13 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 
     // verify required parameter 'serviceName' is not null or undefined
     if (serviceName === null || serviceName === undefined) {
-      throw new RequiredError(
-        "Required parameter serviceName was null or undefined when calling getPagerDutyIntegrationService."
-      );
+      throw new RequiredError("serviceName", "getPagerDutyIntegrationService");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
-        "{" + "service_name" + "}",
+        "{service_name}",
         encodeURIComponent(String(serviceName))
       );
 
@@ -151,21 +148,20 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     // verify required parameter 'serviceName' is not null or undefined
     if (serviceName === null || serviceName === undefined) {
       throw new RequiredError(
-        "Required parameter serviceName was null or undefined when calling updatePagerDutyIntegrationService."
+        "serviceName",
+        "updatePagerDutyIntegrationService"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updatePagerDutyIntegrationService."
-      );
+      throw new RequiredError("body", "updatePagerDutyIntegrationService");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/pagerduty/configuration/services/{service_name}".replace(
-        "{" + "service_name" + "}",
+        "{service_name}",
         encodeURIComponent(String(serviceName))
       );
 

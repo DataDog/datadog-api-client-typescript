@@ -31,7 +31,7 @@ export class ConfluentAccountCreateRequestAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

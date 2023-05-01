@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type LogsCategoryProcessorType = typeof CATEGORY_PROCESSOR;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of logs category processor.
+ */
+
+export type LogsCategoryProcessorType =
+  | typeof CATEGORY_PROCESSOR
+  | UnparsedObject;
 export const CATEGORY_PROCESSOR = "category-processor";

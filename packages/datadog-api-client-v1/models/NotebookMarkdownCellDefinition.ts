@@ -23,7 +23,7 @@ export class NotebookMarkdownCellDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

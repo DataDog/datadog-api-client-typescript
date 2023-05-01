@@ -24,7 +24,7 @@ export class SyntheticsPrivateLocationSecrets {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

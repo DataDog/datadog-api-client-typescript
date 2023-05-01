@@ -19,7 +19,7 @@ export class UsageApplicationSecurityMonitoringResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

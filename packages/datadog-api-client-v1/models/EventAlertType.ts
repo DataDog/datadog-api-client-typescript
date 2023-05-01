@@ -4,6 +4,14 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * If an alert event is enabled, set its type.
+ * For example, `error`, `warning`, `info`, `success`, `user_update`,
+ * `recommendation`, and `snapshot`.
+ */
+
 export type EventAlertType =
   | typeof ERROR
   | typeof WARNING
@@ -11,7 +19,8 @@ export type EventAlertType =
   | typeof SUCCESS
   | typeof USER_UPDATE
   | typeof RECOMMENDATION
-  | typeof SNAPSHOT;
+  | typeof SNAPSHOT
+  | UnparsedObject;
 export const ERROR = "error";
 export const WARNING = "warning";
 export const INFO = "info";

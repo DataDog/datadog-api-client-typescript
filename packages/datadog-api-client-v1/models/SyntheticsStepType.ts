@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Step type used in your Synthetic test.
+ */
+
 export type SyntheticsStepType =
   | typeof ASSERT_CURRENT_URL
   | typeof ASSERT_ELEMENT_ATTRIBUTE
@@ -29,7 +35,8 @@ export type SyntheticsStepType =
   | typeof SELECT_OPTION
   | typeof TYPE_TEXT
   | typeof UPLOAD_FILES
-  | typeof WAIT;
+  | typeof WAIT
+  | UnparsedObject;
 export const ASSERT_CURRENT_URL = "assertCurrentUrl";
 export const ASSERT_ELEMENT_ATTRIBUTE = "assertElementAttribute";
 export const ASSERT_ELEMENT_CONTENT = "assertElementContent";

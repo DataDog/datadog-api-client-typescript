@@ -4,6 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type UsageMetricCategory = typeof STANDARD | typeof CUSTOM;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Contains the metric category.
+ */
+
+export type UsageMetricCategory =
+  | typeof STANDARD
+  | typeof CUSTOM
+  | UnparsedObject;
 export const STANDARD = "standard";
 export const CUSTOM = "custom";

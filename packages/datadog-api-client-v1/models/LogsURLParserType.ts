@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type LogsURLParserType = typeof URL_PARSER;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of logs URL parser.
+ */
+
+export type LogsURLParserType = typeof URL_PARSER | UnparsedObject;
 export const URL_PARSER = "url-parser";

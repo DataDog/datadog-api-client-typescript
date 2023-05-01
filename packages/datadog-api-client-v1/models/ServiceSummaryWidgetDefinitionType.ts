@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type ServiceSummaryWidgetDefinitionType = typeof TRACE_SERVICE;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the service summary widget.
+ */
+
+export type ServiceSummaryWidgetDefinitionType =
+  | typeof TRACE_SERVICE
+  | UnparsedObject;
 export const TRACE_SERVICE = "trace_service";

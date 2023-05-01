@@ -28,7 +28,7 @@ export class MetricBulkTagConfigDelete {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

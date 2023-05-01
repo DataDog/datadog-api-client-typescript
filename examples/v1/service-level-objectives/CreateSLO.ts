@@ -13,7 +13,7 @@ const params: v1.ServiceLevelObjectivesApiCreateSLORequest = {
     description: "string",
     groups: ["env:test", "role:mysql"],
     monitorIds: [],
-    name: "Example-Create_an_SLO_object_returns_OK_response",
+    name: "Example-Service-Level-Objective",
     query: {
       denominator: "sum:httpservice.hits{!code:3xx}.as_count()",
       numerator: "sum:httpservice.hits{code:2xx}.as_count()",
@@ -21,13 +21,16 @@ const params: v1.ServiceLevelObjectivesApiCreateSLORequest = {
     tags: ["env:prod", "app:core"],
     thresholds: [
       {
-        target: 95.0,
-        targetDisplay: "95.0",
+        target: 97.0,
+        targetDisplay: "97.0",
         timeframe: "7d",
         warning: 98,
         warningDisplay: "98.0",
       },
     ],
+    timeframe: "7d",
+    targetThreshold: 97.0,
+    warningThreshold: 98,
   },
 };
 

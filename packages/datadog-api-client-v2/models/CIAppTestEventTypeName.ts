@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type CIAppTestEventTypeName = typeof citest;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the event.
+ */
+
+export type CIAppTestEventTypeName = typeof citest | UnparsedObject;
 export const citest = "citest";

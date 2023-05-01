@@ -12,7 +12,7 @@ const DASHBOARD_LIST_ID = parseInt(process.env.DASHBOARD_LIST_ID as string);
 
 const params: v1.DashboardListsApiUpdateDashboardListRequest = {
   body: {
-    name: "updated Example-Update_a_dashboard_list_returns_OK_response",
+    name: "updated Example-Dashboard-List",
   },
   listId: DASHBOARD_LIST_ID,
 };

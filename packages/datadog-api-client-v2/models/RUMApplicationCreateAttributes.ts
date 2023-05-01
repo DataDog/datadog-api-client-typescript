@@ -22,7 +22,7 @@ export class RUMApplicationCreateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

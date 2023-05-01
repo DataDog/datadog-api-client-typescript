@@ -22,7 +22,7 @@ export class IncidentNotificationHandle {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -33,9 +33,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createLogsIndex."
-      );
+      throw new RequiredError("body", "createLogsIndex");
     }
 
     // Path Params
@@ -77,14 +75,12 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'name' is not null or undefined
     if (name === null || name === undefined) {
-      throw new RequiredError(
-        "Required parameter name was null or undefined when calling getLogsIndex."
-      );
+      throw new RequiredError("name", "getLogsIndex");
     }
 
     // Path Params
     const localVarPath = "/api/v1/logs/config/indexes/{name}".replace(
-      "{" + "name" + "}",
+      "{name}",
       encodeURIComponent(String(name))
     );
 
@@ -166,21 +162,17 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'name' is not null or undefined
     if (name === null || name === undefined) {
-      throw new RequiredError(
-        "Required parameter name was null or undefined when calling updateLogsIndex."
-      );
+      throw new RequiredError("name", "updateLogsIndex");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateLogsIndex."
-      );
+      throw new RequiredError("body", "updateLogsIndex");
     }
 
     // Path Params
     const localVarPath = "/api/v1/logs/config/indexes/{name}".replace(
-      "{" + "name" + "}",
+      "{name}",
       encodeURIComponent(String(name))
     );
 
@@ -220,9 +212,7 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateLogsIndexOrder."
-      );
+      throw new RequiredError("body", "updateLogsIndexOrder");
     }
 
     // Path Params

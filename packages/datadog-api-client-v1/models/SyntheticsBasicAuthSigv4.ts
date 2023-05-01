@@ -39,7 +39,7 @@ export class SyntheticsBasicAuthSigv4 {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

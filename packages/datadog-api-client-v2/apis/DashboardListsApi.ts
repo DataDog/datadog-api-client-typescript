@@ -36,22 +36,18 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'dashboardListId' is not null or undefined
     if (dashboardListId === null || dashboardListId === undefined) {
-      throw new RequiredError(
-        "Required parameter dashboardListId was null or undefined when calling createDashboardListItems."
-      );
+      throw new RequiredError("dashboardListId", "createDashboardListItems");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createDashboardListItems."
-      );
+      throw new RequiredError("body", "createDashboardListItems");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-        "{" + "dashboard_list_id" + "}",
+        "{dashboard_list_id}",
         encodeURIComponent(String(dashboardListId))
       );
 
@@ -92,22 +88,18 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'dashboardListId' is not null or undefined
     if (dashboardListId === null || dashboardListId === undefined) {
-      throw new RequiredError(
-        "Required parameter dashboardListId was null or undefined when calling deleteDashboardListItems."
-      );
+      throw new RequiredError("dashboardListId", "deleteDashboardListItems");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling deleteDashboardListItems."
-      );
+      throw new RequiredError("body", "deleteDashboardListItems");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-        "{" + "dashboard_list_id" + "}",
+        "{dashboard_list_id}",
         encodeURIComponent(String(dashboardListId))
       );
 
@@ -147,15 +139,13 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'dashboardListId' is not null or undefined
     if (dashboardListId === null || dashboardListId === undefined) {
-      throw new RequiredError(
-        "Required parameter dashboardListId was null or undefined when calling getDashboardListItems."
-      );
+      throw new RequiredError("dashboardListId", "getDashboardListItems");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-        "{" + "dashboard_list_id" + "}",
+        "{dashboard_list_id}",
         encodeURIComponent(String(dashboardListId))
       );
 
@@ -186,22 +176,18 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'dashboardListId' is not null or undefined
     if (dashboardListId === null || dashboardListId === undefined) {
-      throw new RequiredError(
-        "Required parameter dashboardListId was null or undefined when calling updateDashboardListItems."
-      );
+      throw new RequiredError("dashboardListId", "updateDashboardListItems");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateDashboardListItems."
-      );
+      throw new RequiredError("body", "updateDashboardListItems");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/dashboard/lists/manual/{dashboard_list_id}/dashboards".replace(
-        "{" + "dashboard_list_id" + "}",
+        "{dashboard_list_id}",
         encodeURIComponent(String(dashboardListId))
       );
 

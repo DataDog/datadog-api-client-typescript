@@ -4,13 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the request body.
+ */
+
 export type SyntheticsTestRequestBodyType =
   | typeof TEXT_PLAIN
   | typeof APPLICATION_JSON
   | typeof TEXT_XML
   | typeof TEXT_HTML
   | typeof APPLICATION_X_WWW_FORM_URLENCODED
-  | typeof GRAPHQL;
+  | typeof GRAPHQL
+  | UnparsedObject;
 export const TEXT_PLAIN = "text/plain";
 export const APPLICATION_JSON = "application/json";
 export const TEXT_XML = "text/xml";

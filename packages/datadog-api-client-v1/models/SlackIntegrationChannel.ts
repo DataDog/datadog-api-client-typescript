@@ -23,7 +23,7 @@ export class SlackIntegrationChannel {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

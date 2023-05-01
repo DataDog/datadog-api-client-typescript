@@ -32,7 +32,7 @@ export class ApmStatsQueryColumnType {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

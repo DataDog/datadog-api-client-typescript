@@ -34,7 +34,7 @@ export class OrganizationCreateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

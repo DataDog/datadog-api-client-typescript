@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type UsageSortDirection = typeof DESC | typeof ASC;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The direction to sort by.
+ */
+
+export type UsageSortDirection = typeof DESC | typeof ASC | UnparsedObject;
 export const DESC = "desc";
 export const ASC = "asc";

@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type RUMComputeType = typeof TIMESERIES | typeof TOTAL;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The type of compute.
+ */
+
+export type RUMComputeType = typeof TIMESERIES | typeof TOTAL | UnparsedObject;
 export const TIMESERIES = "timeseries";
 export const TOTAL = "total";

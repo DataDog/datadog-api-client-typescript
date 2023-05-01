@@ -22,7 +22,7 @@ export class AuthNMappingUpdateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

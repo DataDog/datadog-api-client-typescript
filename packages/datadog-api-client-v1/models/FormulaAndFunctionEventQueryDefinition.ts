@@ -46,7 +46,7 @@ export class FormulaAndFunctionEventQueryDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

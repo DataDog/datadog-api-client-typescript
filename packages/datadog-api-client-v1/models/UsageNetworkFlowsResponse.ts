@@ -19,7 +19,7 @@ export class UsageNetworkFlowsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

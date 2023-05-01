@@ -19,7 +19,7 @@ export class MetricsPayload {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

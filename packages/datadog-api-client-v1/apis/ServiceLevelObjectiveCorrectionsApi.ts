@@ -32,9 +32,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSLOCorrection."
-      );
+      throw new RequiredError("body", "createSLOCorrection");
     }
 
     // Path Params
@@ -76,14 +74,12 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloCorrectionId was null or undefined when calling deleteSLOCorrection."
-      );
+      throw new RequiredError("sloCorrectionId", "deleteSLOCorrection");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/correction/{slo_correction_id}".replace(
-      "{" + "slo_correction_id" + "}",
+      "{slo_correction_id}",
       encodeURIComponent(String(sloCorrectionId))
     );
 
@@ -112,14 +108,12 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloCorrectionId was null or undefined when calling getSLOCorrection."
-      );
+      throw new RequiredError("sloCorrectionId", "getSLOCorrection");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/correction/{slo_correction_id}".replace(
-      "{" + "slo_correction_id" + "}",
+      "{slo_correction_id}",
       encodeURIComponent(String(sloCorrectionId))
     );
 
@@ -141,6 +135,8 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
   }
 
   public async listSLOCorrection(
+    offset?: number,
+    limit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -155,6 +151,20 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (offset !== undefined) {
+      requestContext.setQueryParam(
+        "offset",
+        ObjectSerializer.serialize(offset, "number", "int64")
+      );
+    }
+    if (limit !== undefined) {
+      requestContext.setQueryParam(
+        "limit",
+        ObjectSerializer.serialize(limit, "number", "int64")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -174,21 +184,17 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // verify required parameter 'sloCorrectionId' is not null or undefined
     if (sloCorrectionId === null || sloCorrectionId === undefined) {
-      throw new RequiredError(
-        "Required parameter sloCorrectionId was null or undefined when calling updateSLOCorrection."
-      );
+      throw new RequiredError("sloCorrectionId", "updateSLOCorrection");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateSLOCorrection."
-      );
+      throw new RequiredError("body", "updateSLOCorrection");
     }
 
     // Path Params
     const localVarPath = "/api/v1/slo/correction/{slo_correction_id}".replace(
-      "{" + "slo_correction_id" + "}",
+      "{slo_correction_id}",
       encodeURIComponent(String(sloCorrectionId))
     );
 
@@ -549,6 +555,19 @@ export interface ServiceLevelObjectiveCorrectionsApiGetSLOCorrectionRequest {
   sloCorrectionId: string;
 }
 
+export interface ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest {
+  /**
+   * The specific offset to use as the beginning of the returned response.
+   * @type number
+   */
+  offset?: number;
+  /**
+   * The number of SLO corrections to return in the response. Default is 25.
+   * @type number
+   */
+  limit?: number;
+}
+
 export interface ServiceLevelObjectiveCorrectionsApiUpdateSLOCorrectionRequest {
   /**
    * The ID of the SLO correction object.
@@ -649,10 +668,14 @@ export class ServiceLevelObjectiveCorrectionsApi {
    * @param param The request object
    */
   public listSLOCorrection(
+    param: ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest = {},
     options?: Configuration
   ): Promise<SLOCorrectionListResponse> {
-    const requestContextPromise =
-      this.requestFactory.listSLOCorrection(options);
+    const requestContextPromise = this.requestFactory.listSLOCorrection(
+      param.offset,
+      param.limit,
+      options
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

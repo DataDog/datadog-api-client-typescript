@@ -4,6 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type WidgetColorPreference = typeof BACKGROUND | typeof TEXT;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Which color to use on the widget.
+ */
+
+export type WidgetColorPreference =
+  | typeof BACKGROUND
+  | typeof TEXT
+  | UnparsedObject;
 export const BACKGROUND = "background";
 export const TEXT = "text";

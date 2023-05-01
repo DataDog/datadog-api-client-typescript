@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { WidgetFieldSort } from "./WidgetFieldSort";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -18,11 +19,15 @@ export class SLOListWidgetQuery {
    * Widget query.
    */
   "queryString": string;
+  /**
+   * Options for sorting results.
+   */
+  "sort"?: Array<WidgetFieldSort>;
 
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -37,6 +42,10 @@ export class SLOListWidgetQuery {
       baseName: "query_string",
       type: "string",
       required: true,
+    },
+    sort: {
+      baseName: "sort",
+      type: "Array<WidgetFieldSort>",
     },
   };
 

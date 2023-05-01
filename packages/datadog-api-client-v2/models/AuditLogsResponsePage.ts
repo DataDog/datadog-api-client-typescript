@@ -18,7 +18,7 @@ export class AuditLogsResponsePage {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

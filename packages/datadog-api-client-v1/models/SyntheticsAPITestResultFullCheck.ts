@@ -19,7 +19,7 @@ export class SyntheticsAPITestResultFullCheck {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

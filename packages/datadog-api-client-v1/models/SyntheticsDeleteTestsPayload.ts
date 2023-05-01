@@ -19,7 +19,7 @@ export class SyntheticsDeleteTestsPayload {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

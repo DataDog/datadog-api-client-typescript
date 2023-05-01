@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type CheckStatusWidgetDefinitionType = typeof CHECK_STATUS;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the check status widget.
+ */
+
+export type CheckStatusWidgetDefinitionType =
+  | typeof CHECK_STATUS
+  | UnparsedObject;
 export const CHECK_STATUS = "check_status";

@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type LogsGrokParserType = typeof GROK_PARSER;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of logs grok parser.
+ */
+
+export type LogsGrokParserType = typeof GROK_PARSER | UnparsedObject;
 export const GROK_PARSER = "grok-parser";

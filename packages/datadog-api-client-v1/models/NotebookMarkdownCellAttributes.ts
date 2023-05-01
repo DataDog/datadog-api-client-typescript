@@ -19,7 +19,7 @@ export class NotebookMarkdownCellAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

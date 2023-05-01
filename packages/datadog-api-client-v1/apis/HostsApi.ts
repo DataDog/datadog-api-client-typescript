@@ -152,21 +152,17 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
-      throw new RequiredError(
-        "Required parameter hostName was null or undefined when calling muteHost."
-      );
+      throw new RequiredError("hostName", "muteHost");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling muteHost."
-      );
+      throw new RequiredError("body", "muteHost");
     }
 
     // Path Params
     const localVarPath = "/api/v1/host/{host_name}/mute".replace(
-      "{" + "host_name" + "}",
+      "{host_name}",
       encodeURIComponent(String(hostName))
     );
 
@@ -206,14 +202,12 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'hostName' is not null or undefined
     if (hostName === null || hostName === undefined) {
-      throw new RequiredError(
-        "Required parameter hostName was null or undefined when calling unmuteHost."
-      );
+      throw new RequiredError("hostName", "unmuteHost");
     }
 
     // Path Params
     const localVarPath = "/api/v1/host/{host_name}/unmute".replace(
-      "{" + "host_name" + "}",
+      "{host_name}",
       encodeURIComponent(String(hostName))
     );
 

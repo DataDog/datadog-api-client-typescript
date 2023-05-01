@@ -40,7 +40,7 @@ export class SecurityFilterUpdateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

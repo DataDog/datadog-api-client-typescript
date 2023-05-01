@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type DistributionPointsContentEncoding = typeof DEFLATE;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * HTTP header used to compress the media-type.
+ */
+
+export type DistributionPointsContentEncoding = typeof DEFLATE | UnparsedObject;
 export const DEFLATE = "deflate";

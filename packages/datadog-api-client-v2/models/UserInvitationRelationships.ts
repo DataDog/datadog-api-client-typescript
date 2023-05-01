@@ -19,7 +19,7 @@ export class UserInvitationRelationships {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

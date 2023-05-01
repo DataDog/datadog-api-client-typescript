@@ -47,7 +47,7 @@ export class DowntimeRecurrence {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

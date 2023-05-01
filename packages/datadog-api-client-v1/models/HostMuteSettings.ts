@@ -26,7 +26,7 @@ export class HostMuteSettings {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

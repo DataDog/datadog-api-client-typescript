@@ -13,6 +13,7 @@ Feature: Logs
     And body with value {"compute": [{"aggregation": "count", "interval": "5m", "type": "timeseries"}], "filter": {"from": "now-15m", "indexes": ["main"], "query": "*", "to": "now"}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "meta.status" is equal to "done"
 
   @team:DataDog/logs-app
   Scenario: Aggregate compute events with group by returns "OK" response
@@ -21,6 +22,7 @@ Feature: Logs
     And body with value {"compute": [{"aggregation": "count", "interval": "5m", "type": "timeseries"}], "filter": {"from": "now-15m", "indexes": ["main"], "query": "*", "to": "now"}, "group_by": [{"facet": "host", "missing": "miss", "sort": {"type": "measure", "order": "asc", "aggregation": "pc90", "metric": "@duration"}, "total": "recall"}]}
     When the request is sent
     Then the response status is 200 OK
+    And the response "meta.status" is equal to "done"
 
   @generated @skip @team:DataDog/logs-app
   Scenario: Aggregate events returns "Bad Request" response
@@ -37,6 +39,7 @@ Feature: Logs
     And body with value {"filter": {"from": "now-15m", "indexes": ["main"], "query": "*", "to": "now"}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "meta.status" is equal to "done"
 
   @generated @skip @team:DataDog/logs-app
   Scenario: Get a list of logs returns "Bad Request" response
@@ -52,7 +55,7 @@ Feature: Logs
     When the request is sent
     Then the response status is 200 OK
 
-  @replay-only @team:DataDog/logs-app @with-pagination
+  @replay-only @skip-validation @team:DataDog/logs-app @with-pagination
   Scenario: Get a list of logs returns "OK" response with pagination
     Given a valid "appKeyAuth" key in the system
     And new "ListLogsGet" request
@@ -72,6 +75,7 @@ Feature: Logs
     And request contains "page[limit]" parameter with value 5
     When the request is sent
     Then the response status is 200 OK
+    And the response "data" has length 0
 
   @generated @skip @team:DataDog/logs-app
   Scenario: Search logs returns "Bad Request" response
@@ -88,8 +92,9 @@ Feature: Logs
     And body with value {"filter": {"query": "datadog-agent", "indexes": ["main"], "from": "2020-09-17T11:48:36+01:00", "to": "2020-09-17T12:48:36+01:00"}, "sort": "timestamp", "page": {"limit": 5}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "data" has length 0
 
-  @replay-only @team:DataDog/logs-app @with-pagination
+  @replay-only @skip-validation @team:DataDog/logs-app @with-pagination
   Scenario: Search logs returns "OK" response with pagination
     Given a valid "appKeyAuth" key in the system
     And new "ListLogs" request
@@ -135,9 +140,9 @@ Feature: Logs
     When the request is sent
     Then the response status is 408 Request Timeout
 
-  @skip-go @team:DataDog/event-platform-intake @team:DataDog/logs-backend
+  @team:DataDog/event-platform-intake @team:DataDog/logs-backend
   Scenario: Send logs returns "Request accepted for processing (always 202 empty JSON)." response
     Given new "SubmitLog" request
-    And body with value [{"ddsource": "nginx", "ddtags": "env:staging,version:5.1", "hostname": "i-012345678", "message": "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World", "service": "payment", "status": "error"}]
+    And body with value [{"ddsource": "nginx", "ddtags": "env:staging,version:5.1", "hostname": "i-012345678", "message": "2019-11-19T14:37:58,995 INFO [process.name][20081] Hello World", "service": "payment", "status": "info"}]
     When the request is sent
     Then the response status is 202 Request accepted for processing (always 202 empty JSON).

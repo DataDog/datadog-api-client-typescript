@@ -27,7 +27,7 @@ export class WebhooksIntegrationCustomVariable {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

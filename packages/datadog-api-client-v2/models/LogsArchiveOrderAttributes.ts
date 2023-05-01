@@ -19,7 +19,7 @@ export class LogsArchiveOrderAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

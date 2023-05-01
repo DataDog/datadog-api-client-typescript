@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type IncidentAttachmentLinkAttachmentType = typeof LINK;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The type of link attachment attributes.
+ */
+
+export type IncidentAttachmentLinkAttachmentType = typeof LINK | UnparsedObject;
 export const LINK = "link";

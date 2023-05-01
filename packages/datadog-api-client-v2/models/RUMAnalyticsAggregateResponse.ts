@@ -29,7 +29,7 @@ export class RUMAnalyticsAggregateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

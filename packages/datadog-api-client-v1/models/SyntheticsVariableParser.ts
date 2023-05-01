@@ -23,7 +23,7 @@ export class SyntheticsVariableParser {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

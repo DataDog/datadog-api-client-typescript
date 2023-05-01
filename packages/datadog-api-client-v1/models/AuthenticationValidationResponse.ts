@@ -18,7 +18,7 @@ export class AuthenticationValidationResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

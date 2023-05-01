@@ -46,7 +46,7 @@ export class SearchSLOResponseMetaPage {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

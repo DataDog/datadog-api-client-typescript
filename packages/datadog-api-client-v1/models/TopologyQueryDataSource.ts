@@ -4,6 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type TopologyQueryDataSource = typeof DATA_STREAMS | typeof SERVICE_MAP;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Name of the data source
+ */
+
+export type TopologyQueryDataSource =
+  | typeof DATA_STREAMS
+  | typeof SERVICE_MAP
+  | UnparsedObject;
 export const DATA_STREAMS = "data_streams";
 export const SERVICE_MAP = "service_map";

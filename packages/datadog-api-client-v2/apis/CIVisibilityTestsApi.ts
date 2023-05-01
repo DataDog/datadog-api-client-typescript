@@ -35,9 +35,7 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling aggregateCIAppTestEvents."
-      );
+      throw new RequiredError("body", "aggregateCIAppTestEvents");
     }
 
     // Path Params
@@ -64,7 +62,6 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -134,7 +131,6 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -172,7 +168,6 @@ export class CIVisibilityTestsApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);

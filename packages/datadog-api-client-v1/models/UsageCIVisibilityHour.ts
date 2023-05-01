@@ -38,7 +38,7 @@ export class UsageCIVisibilityHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

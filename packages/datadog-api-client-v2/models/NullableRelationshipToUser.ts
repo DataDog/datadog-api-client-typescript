@@ -19,7 +19,7 @@ export class NullableRelationshipToUser {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

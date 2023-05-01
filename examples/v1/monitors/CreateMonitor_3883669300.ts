@@ -9,14 +9,11 @@ const apiInstance = new v1.MonitorsApi(configuration);
 
 const params: v1.MonitorsApiCreateMonitorRequest = {
   body: {
-    name: "Example-Create_a_RUM_formula_and_functions_monitor_returns_OK_response",
+    name: "Example-Monitor",
     type: "rum alert",
     query: `formula("query2 / query1 * 100").last("15m") >= 0.8`,
     message: "some message Notify: @hipchat-channel",
-    tags: [
-      "test:examplecreatearumformulaandfunctionsmonitorreturnsokresponse",
-      "env:ci",
-    ],
+    tags: ["test:examplemonitor", "env:ci"],
     priority: 3,
     options: {
       thresholds: {

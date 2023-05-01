@@ -24,7 +24,7 @@ export class CloudWorkloadSecurityAgentRuleCreateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

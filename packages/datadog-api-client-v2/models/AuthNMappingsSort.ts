@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Sorting options for AuthN Mappings.
+ */
+
 export type AuthNMappingsSort =
   | typeof CREATED_AT_ASCENDING
   | typeof CREATED_AT_DESCENDING
@@ -16,7 +22,8 @@ export type AuthNMappingsSort =
   | typeof SAML_ASSERTION_ATTRIBUTE_KEY_ASCENDING
   | typeof SAML_ASSERTION_ATTRIBUTE_KEY_DESCENDING
   | typeof SAML_ASSERTION_ATTRIBUTE_VALUE_ASCENDING
-  | typeof SAML_ASSERTION_ATTRIBUTE_VALUE_DESCENDING;
+  | typeof SAML_ASSERTION_ATTRIBUTE_VALUE_DESCENDING
+  | UnparsedObject;
 export const CREATED_AT_ASCENDING = "created_at";
 export const CREATED_AT_DESCENDING = "-created_at";
 export const ROLE_ID_ASCENDING = "role_id";

@@ -26,7 +26,7 @@ export class SyntheticsAssertionJSONPathTargetTarget {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

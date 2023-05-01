@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type APIKeysType = typeof API_KEYS;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * API Keys resource type.
+ */
+
+export type APIKeysType = typeof API_KEYS | UnparsedObject;
 export const API_KEYS = "api_keys";

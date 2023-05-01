@@ -51,7 +51,7 @@ export class SyntheticsTiming {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

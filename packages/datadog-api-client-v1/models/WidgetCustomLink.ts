@@ -30,7 +30,7 @@ export class WidgetCustomLink {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -56,7 +56,7 @@ const params: v1.SyntheticsApiUpdateAPITestRequest = {
           },
         },
         headers: {
-          unique: "exampleeditanapitestreturnsokresponse",
+          unique: "examplesynthetic",
         },
         method: "GET",
         timeout: 10,
@@ -65,7 +65,7 @@ const params: v1.SyntheticsApiUpdateAPITestRequest = {
     },
     locations: ["aws:us-east-2"],
     message: "BDD test payload: synthetics_api_test_payload.json",
-    name: "Example-Edit_an_API_test_returns_OK_response-updated",
+    name: "Example-Synthetic-updated",
     options: {
       acceptSelfSigned: false,
       allowInsecure: true,

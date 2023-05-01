@@ -29,9 +29,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createAzureIntegration."
-      );
+      throw new RequiredError("body", "createAzureIntegration");
     }
 
     // Path Params
@@ -73,9 +71,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling deleteAzureIntegration."
-      );
+      throw new RequiredError("body", "deleteAzureIntegration");
     }
 
     // Path Params
@@ -142,9 +138,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateAzureHostFilters."
-      );
+      throw new RequiredError("body", "updateAzureHostFilters");
     }
 
     // Path Params
@@ -186,9 +180,7 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateAzureIntegration."
-      );
+      throw new RequiredError("body", "updateAzureIntegration");
     }
 
     // Path Params

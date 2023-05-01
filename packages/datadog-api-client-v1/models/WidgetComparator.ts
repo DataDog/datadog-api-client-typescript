@@ -4,11 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Comparator to apply.
+ */
+
 export type WidgetComparator =
   | typeof GREATER_THAN
   | typeof GREATER_THAN_OR_EQUAL_TO
   | typeof LESS_THAN
-  | typeof LESS_THAN_OR_EQUAL_TO;
+  | typeof LESS_THAN_OR_EQUAL_TO
+  | UnparsedObject;
 export const GREATER_THAN = ">";
 export const GREATER_THAN_OR_EQUAL_TO = ">=";
 export const LESS_THAN = "<";

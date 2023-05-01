@@ -26,7 +26,7 @@ export class ChargebackBreakdown {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

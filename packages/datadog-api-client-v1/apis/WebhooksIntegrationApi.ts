@@ -33,9 +33,7 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createWebhooksIntegration."
-      );
+      throw new RequiredError("body", "createWebhooksIntegration");
     }
 
     // Path Params
@@ -78,7 +76,8 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError(
-        "Required parameter body was null or undefined when calling createWebhooksIntegrationCustomVariable."
+        "body",
+        "createWebhooksIntegrationCustomVariable"
       );
     }
 
@@ -122,15 +121,13 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'webhookName' is not null or undefined
     if (webhookName === null || webhookName === undefined) {
-      throw new RequiredError(
-        "Required parameter webhookName was null or undefined when calling deleteWebhooksIntegration."
-      );
+      throw new RequiredError("webhookName", "deleteWebhooksIntegration");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
-        "{" + "webhook_name" + "}",
+        "{webhook_name}",
         encodeURIComponent(String(webhookName))
       );
 
@@ -160,14 +157,15 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // verify required parameter 'customVariableName' is not null or undefined
     if (customVariableName === null || customVariableName === undefined) {
       throw new RequiredError(
-        "Required parameter customVariableName was null or undefined when calling deleteWebhooksIntegrationCustomVariable."
+        "customVariableName",
+        "deleteWebhooksIntegrationCustomVariable"
       );
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
-        "{" + "custom_variable_name" + "}",
+        "{custom_variable_name}",
         encodeURIComponent(String(customVariableName))
       );
 
@@ -196,15 +194,13 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'webhookName' is not null or undefined
     if (webhookName === null || webhookName === undefined) {
-      throw new RequiredError(
-        "Required parameter webhookName was null or undefined when calling getWebhooksIntegration."
-      );
+      throw new RequiredError("webhookName", "getWebhooksIntegration");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
-        "{" + "webhook_name" + "}",
+        "{webhook_name}",
         encodeURIComponent(String(webhookName))
       );
 
@@ -234,14 +230,15 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // verify required parameter 'customVariableName' is not null or undefined
     if (customVariableName === null || customVariableName === undefined) {
       throw new RequiredError(
-        "Required parameter customVariableName was null or undefined when calling getWebhooksIntegrationCustomVariable."
+        "customVariableName",
+        "getWebhooksIntegrationCustomVariable"
       );
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
-        "{" + "custom_variable_name" + "}",
+        "{custom_variable_name}",
         encodeURIComponent(String(customVariableName))
       );
 
@@ -271,22 +268,18 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 
     // verify required parameter 'webhookName' is not null or undefined
     if (webhookName === null || webhookName === undefined) {
-      throw new RequiredError(
-        "Required parameter webhookName was null or undefined when calling updateWebhooksIntegration."
-      );
+      throw new RequiredError("webhookName", "updateWebhooksIntegration");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateWebhooksIntegration."
-      );
+      throw new RequiredError("body", "updateWebhooksIntegration");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/webhooks/configuration/webhooks/{webhook_name}".replace(
-        "{" + "webhook_name" + "}",
+        "{webhook_name}",
         encodeURIComponent(String(webhookName))
       );
 
@@ -328,21 +321,23 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     // verify required parameter 'customVariableName' is not null or undefined
     if (customVariableName === null || customVariableName === undefined) {
       throw new RequiredError(
-        "Required parameter customVariableName was null or undefined when calling updateWebhooksIntegrationCustomVariable."
+        "customVariableName",
+        "updateWebhooksIntegrationCustomVariable"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateWebhooksIntegrationCustomVariable."
+        "body",
+        "updateWebhooksIntegrationCustomVariable"
       );
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}".replace(
-        "{" + "custom_variable_name" + "}",
+        "{custom_variable_name}",
         encodeURIComponent(String(customVariableName))
       );
 

@@ -12,7 +12,7 @@ const SLO_DATA_0_ID = process.env.SLO_DATA_0_ID as string;
 
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title: "Example-Create_a_new_dashboard_with_slo_widget",
+    title: "Example-Dashboard",
     description: "",
     widgets: [
       {
@@ -32,6 +32,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           showErrorBudget: true,
           viewMode: "overall",
           globalTimeTarget: "0",
+          additionalQueryFilters: "!host:excluded_host",
         },
       },
     ],

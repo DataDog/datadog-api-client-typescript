@@ -19,7 +19,7 @@ export class NotebookRelativeTime {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

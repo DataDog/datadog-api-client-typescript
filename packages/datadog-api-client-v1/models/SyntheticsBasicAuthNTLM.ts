@@ -35,7 +35,7 @@ export class SyntheticsBasicAuthNTLM {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

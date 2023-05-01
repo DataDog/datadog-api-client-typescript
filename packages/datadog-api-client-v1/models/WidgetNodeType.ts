@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type WidgetNodeType = typeof HOST | typeof CONTAINER;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Which type of node to use in the map.
+ */
+
+export type WidgetNodeType = typeof HOST | typeof CONTAINER | UnparsedObject;
 export const HOST = "host";
 export const CONTAINER = "container";

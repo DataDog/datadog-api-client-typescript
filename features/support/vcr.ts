@@ -165,7 +165,7 @@ AfterAll(function () {
 
   const getAllDirs = function (dirPath: string): string[] {
     let files = fs.readdirSync(dirPath).map(file => path.join(dirPath, file));
-    let arrayOfFiles = [];
+    let arrayOfFiles: any = [];
 
     while (files.length > 0) {
       const fileName = (files.pop() as string);

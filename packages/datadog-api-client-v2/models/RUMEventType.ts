@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type RUMEventType = typeof RUM;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the event.
+ */
+
+export type RUMEventType = typeof RUM | UnparsedObject;
 export const RUM = "rum";

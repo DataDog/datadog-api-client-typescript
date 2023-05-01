@@ -15,6 +15,10 @@ export class RUMApplicationAttributes {
    */
   "applicationId": string;
   /**
+   * Client token of the RUM application.
+   */
+  "clientToken": string;
+  /**
    * Timestamp in ms of the creation date.
    */
   "createdAt": number;
@@ -23,9 +27,13 @@ export class RUMApplicationAttributes {
    */
   "createdByHandle": string;
   /**
-   * Client token of the RUM application.
+   * Hash of the RUM application. Optional.
    */
   "hash"?: string;
+  /**
+   * Indicates if the RUM application is active.
+   */
+  "isActive"?: boolean;
   /**
    * Name of the RUM application.
    */
@@ -50,7 +58,7 @@ export class RUMApplicationAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -58,6 +66,11 @@ export class RUMApplicationAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     applicationId: {
       baseName: "application_id",
+      type: "string",
+      required: true,
+    },
+    clientToken: {
+      baseName: "client_token",
       type: "string",
       required: true,
     },
@@ -75,6 +88,10 @@ export class RUMApplicationAttributes {
     hash: {
       baseName: "hash",
       type: "string",
+    },
+    isActive: {
+      baseName: "is_active",
+      type: "boolean",
     },
     name: {
       baseName: "name",

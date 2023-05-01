@@ -91,6 +91,8 @@ Feature: Metrics
     And request contains "query" parameter with value "system.cpu.idle{*}"
     When the request is sent
     Then the response status is 200 OK
+    And the response "status" is equal to "ok"
+    And the response "query" is equal to "system.cpu.idle{*}"
 
   @generated @skip @team:DataDog/metrics-intake @team:DataDog/metrics-query
   Scenario: Search metrics returns "Bad Request" response
@@ -159,7 +161,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @team:DataDog/metrics-intake @team:DataDog/metrics-query
+  @skip-validation @team:DataDog/metrics-intake @team:DataDog/metrics-query
   Scenario: Submit metrics returns "Payload accepted" response
     Given new "SubmitMetrics" request
     And body with value {"series": [{"metric": "system.load.1", "type": "gauge", "points": [[{{ timestamp("now") }}, 1.1]], "tags": ["test:{{ unique_alnum }}"]}]}

@@ -22,7 +22,7 @@ export class SyntheticsCIBatchMetadataGit {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

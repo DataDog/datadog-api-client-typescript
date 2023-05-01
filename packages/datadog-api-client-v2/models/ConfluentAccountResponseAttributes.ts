@@ -27,7 +27,7 @@ export class ConfluentAccountResponseAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

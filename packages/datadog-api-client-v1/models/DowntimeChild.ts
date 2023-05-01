@@ -73,7 +73,7 @@ export class DowntimeChild {
    */
   "recurrence"?: DowntimeRecurrence;
   /**
-   * The scope(s) to which the downtime applies. For example, `host:app2`.
+   * The scope(s) to which the downtime applies and must be in `key:value` format. For example, `host:app2`.
    * Provide multiple scopes as a comma-separated list like `env:dev,env:prod`.
    * The resulting downtime applies to sources that matches ALL provided scopes (`env:dev` **AND** `env:prod`).
    */
@@ -95,7 +95,7 @@ export class DowntimeChild {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

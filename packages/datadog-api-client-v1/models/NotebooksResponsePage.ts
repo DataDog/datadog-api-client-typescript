@@ -22,7 +22,7 @@ export class NotebooksResponsePage {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

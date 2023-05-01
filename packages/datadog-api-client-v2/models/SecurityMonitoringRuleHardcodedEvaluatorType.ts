@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SecurityMonitoringRuleHardcodedEvaluatorType = typeof LOG4SHELL;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Hardcoded evaluator type.
+ */
+
+export type SecurityMonitoringRuleHardcodedEvaluatorType =
+  | typeof LOG4SHELL
+  | UnparsedObject;
 export const LOG4SHELL = "log4shell";

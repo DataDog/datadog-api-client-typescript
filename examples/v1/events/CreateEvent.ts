@@ -9,9 +9,9 @@ const apiInstance = new v1.EventsApi(configuration);
 
 const params: v1.EventsApiCreateEventRequest = {
   body: {
-    title: "Example-Post_an_event_returns_OK_response",
+    title: "Example-Event",
     text: "A text message.",
-    tags: ["test:ExamplePostaneventreturnsOKresponse"],
+    tags: ["test:ExampleEvent"],
   },
 };
 

@@ -19,7 +19,7 @@ export class SecurityMonitoringSignalStateUpdateData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type IncidentServiceType = typeof SERVICES;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Incident service resource type.
+ */
+
+export type IncidentServiceType = typeof SERVICES | UnparsedObject;
 export const SERVICES = "services";

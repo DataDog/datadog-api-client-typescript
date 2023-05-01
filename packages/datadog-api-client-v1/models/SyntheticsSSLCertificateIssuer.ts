@@ -38,7 +38,7 @@ export class SyntheticsSSLCertificateIssuer {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

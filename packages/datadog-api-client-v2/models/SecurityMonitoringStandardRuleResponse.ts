@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurationRuleComplianceSignalOptions";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
@@ -20,6 +21,10 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "cases"?: Array<SecurityMonitoringRuleCase>;
   /**
+   * How to generate compliance signals. Useful for cloud_configuration rules only.
+   */
+  "complianceSignalOptions"?: CloudConfigurationRuleComplianceSignalOptions;
+  /**
    * When the rule was created, timestamp in milliseconds.
    */
   "createdAt"?: number;
@@ -27,6 +32,10 @@ export class SecurityMonitoringStandardRuleResponse {
    * User ID of the user who created the rule.
    */
   "creationAuthorId"?: number;
+  /**
+   * When the rule will be deprecated, timestamp in milliseconds.
+   */
+  "deprecationDate"?: number;
   /**
    * Additional queries to filter matched events before they are processed.
    */
@@ -87,7 +96,7 @@ export class SecurityMonitoringStandardRuleResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -97,6 +106,10 @@ export class SecurityMonitoringStandardRuleResponse {
       baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
     },
+    complianceSignalOptions: {
+      baseName: "complianceSignalOptions",
+      type: "CloudConfigurationRuleComplianceSignalOptions",
+    },
     createdAt: {
       baseName: "createdAt",
       type: "number",
@@ -104,6 +117,11 @@ export class SecurityMonitoringStandardRuleResponse {
     },
     creationAuthorId: {
       baseName: "creationAuthorId",
+      type: "number",
+      format: "int64",
+    },
+    deprecationDate: {
+      baseName: "deprecationDate",
       type: "number",
       format: "int64",
     },

@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Data source for event platform-based queries.
+ */
+
 export type FormulaAndFunctionEventsDataSource =
   | typeof LOGS
   | typeof SPANS
@@ -13,7 +19,9 @@ export type FormulaAndFunctionEventsDataSource =
   | typeof PROFILES
   | typeof AUDIT
   | typeof EVENTS
-  | typeof CI_TESTS;
+  | typeof CI_TESTS
+  | typeof CI_PIPELINES
+  | UnparsedObject;
 export const LOGS = "logs";
 export const SPANS = "spans";
 export const NETWORK = "network";
@@ -23,3 +31,4 @@ export const PROFILES = "profiles";
 export const AUDIT = "audit";
 export const EVENTS = "events";
 export const CI_TESTS = "ci_tests";
+export const CI_PIPELINES = "ci_pipelines";

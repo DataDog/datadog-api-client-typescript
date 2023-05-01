@@ -22,7 +22,7 @@ export class AWSLogsListServicesResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -26,7 +26,7 @@ export class AWSAccountDeleteRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

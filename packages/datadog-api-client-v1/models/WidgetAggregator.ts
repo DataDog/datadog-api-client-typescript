@@ -4,13 +4,20 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Aggregator used for the request.
+ */
+
 export type WidgetAggregator =
   | typeof AVERAGE
   | typeof LAST
   | typeof MAXIMUM
   | typeof MINIMUM
   | typeof SUM
-  | typeof PERCENTILE;
+  | typeof PERCENTILE
+  | UnparsedObject;
 export const AVERAGE = "avg";
 export const LAST = "last";
 export const MAXIMUM = "max";

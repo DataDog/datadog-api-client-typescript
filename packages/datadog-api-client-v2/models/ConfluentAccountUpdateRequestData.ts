@@ -24,7 +24,7 @@ export class ConfluentAccountUpdateRequestData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

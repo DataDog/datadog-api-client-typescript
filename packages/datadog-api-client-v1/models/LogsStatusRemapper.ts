@@ -48,7 +48,7 @@ export class LogsStatusRemapper {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

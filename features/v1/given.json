@@ -38,6 +38,34 @@
   {
     "parameters": [
       {
+        "name": "body",
+        "value": "{\n  \"dashboard_id\": \"{{ dashboard.id }}\",\n  \"dashboard_type\": \"custom_timeboard\",\n  \"share_type\": \"invite\",\n  \"share_list\": [\"{{unique_lower_alnum}}@datadoghq.com\"],\n  \"global_time\": {\n    \"live_span\": \"1h\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"shared_dashboard\" in the system",
+    "key": "shared_dashboard",
+    "tag": "Dashboards",
+    "operationId": "CreatePublicDashboard"
+  },
+  {
+    "parameters": [
+      {
+        "name": "token",
+        "value": "\"{{ shared_dashboard.token }}\""
+      },
+      {
+        "name": "body",
+        "value": "{\n  \"data\": {\n    \"attributes\": {\n      \"email\": \"{{unique_lower_alnum}}@datadoghq.com\"\n    },\n    \"type\": \"public_dashboard_invitation\"\n  }\n}"
+      }
+    ],
+    "step": "there is a valid \"public_dashboard_invitation\" in the system",
+    "key": "public_dashboard_invitation",
+    "tag": "Dashboards",
+    "operationId": "SendPublicDashboardInvitation"
+  },
+  {
+    "parameters": [
+      {
         "name": "dashboard_id",
         "source": "dashboard.id"
       }
@@ -87,7 +115,7 @@
     "parameters": [
       {
         "name": "body",
-        "value": "{\n  \"name\": \"{{ unique }}\",\n  \"type\": \"log alert\",\n  \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\n  \"message\": \"some message Notify: @hipchat-channel\",\n  \"tags\": [\"test:{{ unique_lower_alnum }}\", \"env:ci\"],\n  \"priority\": 3,\n  \"options\": {\n    \"enable_logs_sample\": true,\n    \"escalation_message\": \"the situation has escalated\",\n    \"evaluation_delay\": 700,\n    \"groupby_simple_monitor\": true,\n    \"include_tags\": true,\n    \"locked\": false,\n    \"new_host_delay\": 600,\n    \"no_data_timeframe\": null,\n    \"notify_audit\": false,\n    \"notify_no_data\": false,\n    \"on_missing_data\": \"show_and_notify_no_data\",\n    \"renotify_interval\": 60,\n    \"require_full_window\": true,\n    \"timeout_h\": 24,\n    \"thresholds\": { \"critical\": 2, \"warning\": 1 }\n  }\n}\n"
+        "value": "{\n  \"name\": \"{{ unique }}\",\n  \"type\": \"log alert\",\n  \"query\": \"logs(\\\"service:foo AND type:error\\\").index(\\\"main\\\").rollup(\\\"count\\\").by(\\\"source\\\").last(\\\"5m\\\") > 2\",\n  \"message\": \"some message Notify: @hipchat-channel\",\n  \"tags\": [\"test:{{ unique_lower_alnum }}\", \"env:ci\"],\n  \"priority\": 3,\n  \"options\": {\n    \"enable_logs_sample\": true,\n    \"escalation_message\": \"the situation has escalated\",\n    \"evaluation_delay\": 700,\n    \"groupby_simple_monitor\": true,\n    \"include_tags\": true,\n    \"locked\": false,\n    \"new_host_delay\": 600,\n    \"no_data_timeframe\": null,\n    \"notify_audit\": false,\n    \"notify_no_data\": false,\n    \"on_missing_data\": \"show_and_notify_no_data\",\n    \"notification_preset_name\": \"hide_handles\",\n    \"renotify_interval\": 60,\n    \"require_full_window\": true,\n    \"timeout_h\": 24,\n    \"thresholds\": { \"critical\": 2, \"warning\": 1 }\n  }\n}\n"
       }
     ],
     "step": "there is a valid \"monitor\" in the system",
@@ -147,7 +175,7 @@
     "parameters": [
       {
         "name": "body",
-        "value": "{\n  \"config\": {\n    \"assertions\": [\n      {\n        \"operator\": \"is\",\n        \"property\": \"{{ '{{ PROPERTY }}' }}\",\n        \"target\": \"text/html\",\n        \"type\": \"header\"\n      },\n      { \"operator\": \"lessThan\", \"target\": 2000, \"type\": \"responseTime\" },\n      {\n        \"operator\": \"validatesJSONPath\",\n        \"target\": {\n          \"jsonPath\": \"topKey\",\n          \"operator\": \"isNot\",\n          \"targetValue\": \"0\"\n        },\n        \"type\": \"body\"\n      },\n      {\n        \"operator\": \"validatesXPath\",\n        \"target\": {\n          \"xPath\": \"target-xpath\",\n          \"targetValue\": \"0\",\n          \"operator\": \"contains\"\n        },\n        \"type\": \"body\"\n      }\n    ],\n    \"configVariables\": [\n      {\n        \"example\": \"content-type\",\n        \"name\": \"PROPERTY\",\n        \"pattern\": \"content-type\",\n        \"type\": \"text\"\n      }\n    ],\n    \"request\": {\n      \"certificate\": {\n        \"cert\": {\n          \"content\": \"cert-content\",\n          \"filename\": \"cert-filename\",\n          \"updatedAt\": \"2020-10-16T09:23:24.857Z\"\n        },\n        \"key\": {\n          \"content\": \"key-content\",\n          \"filename\": \"key-filename\",\n          \"updatedAt\": \"2020-10-16T09:23:24.857Z\"\n        }\n      },\n      \"headers\": { \"unique\": \"{{ unique_lower_alnum }}\" },\n      \"method\": \"GET\",\n      \"timeout\": 10,\n      \"url\": \"https://datadoghq.com\",\n      \"proxy\": {\n        \"url\": \"https://datadoghq.com\",\n        \"headers\": {}\n      }\n    }\n  },\n  \"locations\": [\"aws:us-east-2\"],\n  \"message\": \"BDD test payload: synthetics_api_http_test_payload.json\",\n  \"name\": \"{{ unique }}\",\n  \"options\": {\n    \"accept_self_signed\": false,\n    \"allow_insecure\": true,\n    \"follow_redirects\": true,\n    \"min_failure_duration\": 10,\n    \"min_location_failed\": 1,\n    \"monitor_name\": \"{{ unique }}\",\n    \"monitor_priority\": 5,\n    \"retry\": { \"count\": 3, \"interval\": 10 },\n    \"tick_every\": 60\n  },\n  \"subtype\": \"http\",\n  \"tags\": [\"testing:api\"],\n  \"type\": \"api\"\n}\n"
+        "value": "{\n  \"config\": {\n    \"assertions\": [\n      {\n        \"operator\": \"is\",\n        \"property\": \"{{ '{{ PROPERTY }}' }}\",\n        \"target\": \"text/html\",\n        \"type\": \"header\"\n      },\n      { \"operator\": \"lessThan\", \"target\": 2000, \"type\": \"responseTime\" },\n      {\n        \"operator\": \"validatesJSONPath\",\n        \"target\": {\n          \"jsonPath\": \"topKey\",\n          \"operator\": \"isNot\",\n          \"targetValue\": \"0\"\n        },\n        \"type\": \"body\"\n      },\n      {\n        \"operator\": \"validatesXPath\",\n        \"target\": {\n          \"xPath\": \"target-xpath\",\n          \"targetValue\": \"0\",\n          \"operator\": \"contains\"\n        },\n        \"type\": \"body\"\n      }\n    ],\n    \"configVariables\": [\n      {\n        \"example\": \"content-type\",\n        \"name\": \"PROPERTY\",\n        \"pattern\": \"content-type\",\n        \"type\": \"text\"\n      }\n    ],\n    \"request\": {\n      \"certificate\": {\n        \"cert\": {\n          \"content\": \"cert-content\",\n          \"filename\": \"cert-filename\",\n          \"updatedAt\": \"2020-10-16T09:23:24.857Z\"\n        },\n        \"key\": {\n          \"content\": \"key-content\",\n          \"filename\": \"key-filename\",\n          \"updatedAt\": \"2020-10-16T09:23:24.857Z\"\n        }\n      },\n      \"headers\": { \"unique\": \"{{ unique_lower_alnum }}\" },\n      \"method\": \"GET\",\n      \"timeout\": 10,\n      \"url\": \"https://datadoghq.com\",\n      \"proxy\": {\n        \"url\": \"https://datadoghq.com\",\n        \"headers\": {}\n      },\n      \"basicAuth\": {\n        \"accessTokenUrl\": \"https://datadog-token.com\",\n        \"audience\": \"audience\",\n        \"clientId\": \"client-id\",\n        \"clientSecret\": \"client-secret\",\n        \"resource\": \"resource\",\n        \"scope\": \"yoyo\",\n        \"tokenApiAuthentication\": \"header\",\n        \"type\": \"oauth-client\"\n      }\n    }\n  },\n  \"locations\": [\"aws:us-east-2\"],\n  \"message\": \"BDD test payload: synthetics_api_http_test_payload.json\",\n  \"name\": \"{{ unique }}\",\n  \"options\": {\n    \"accept_self_signed\": false,\n    \"allow_insecure\": true,\n    \"follow_redirects\": true,\n    \"min_failure_duration\": 10,\n    \"min_location_failed\": 1,\n    \"monitor_name\": \"{{ unique }}\",\n    \"monitor_priority\": 5,\n    \"retry\": { \"count\": 3, \"interval\": 10 },\n    \"tick_every\": 60,\n    \"httpVersion\": \"http2\"\n  },\n  \"subtype\": \"http\",\n  \"tags\": [\"testing:api\"],\n  \"type\": \"api\"\n}\n"
       }
     ],
     "step": "there is a valid \"synthetics_api_test\" in the system",
@@ -195,7 +223,7 @@
     "parameters": [
       {
         "name": "body",
-        "value": "{\n  \"description\": \"\",\n  \"name\": \"GLOBAL_VARIABLE_PAYLOAD_{{ unique_upper_alnum }}\",\n  \"tags\": [],\n  \"value\": {\n    \"secure\": false,\n    \"value\": \"\"\n  },\n  \"parse_test_public_id\": \"{{ synthetics_api_test_multi_step.public_id }}\",\n  \"parse_test_options\": {\n    \"type\": \"local_variable\",\n    \"localVariableName\": \"EXTRACTED_VALUE\"\n  }\n}\n"
+        "value": "{\n  \"description\": \"\",\n  \"name\": \"GLOBAL_VARIABLE_PAYLOAD_{{ unique_upper_alnum }}\",\n  \"tags\": [],\n  \"value\": {\n    \"secure\": false,\n    \"value\": \"\",\n    \"options\": {\n      \"totp_parameters\": {\n        \"digits\": 6,\n        \"refresh_interval\": 30\n      }\n    }\n  },\n  \"parse_test_public_id\": \"{{ synthetics_api_test_multi_step.public_id }}\",\n  \"parse_test_options\": {\n    \"type\": \"local_variable\",\n    \"localVariableName\": \"EXTRACTED_VALUE\"\n  }\n}\n"
       }
     ],
     "step": "there is a valid \"synthetics_global_variable\" in the system",

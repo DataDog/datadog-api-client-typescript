@@ -30,7 +30,7 @@ export class UsageIngestedSpansHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -19,7 +19,7 @@ export class ApplicationKeyResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

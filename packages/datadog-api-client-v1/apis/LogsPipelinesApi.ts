@@ -31,9 +31,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createLogsPipeline."
-      );
+      throw new RequiredError("body", "createLogsPipeline");
     }
 
     // Path Params
@@ -75,14 +73,12 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'pipelineId' is not null or undefined
     if (pipelineId === null || pipelineId === undefined) {
-      throw new RequiredError(
-        "Required parameter pipelineId was null or undefined when calling deleteLogsPipeline."
-      );
+      throw new RequiredError("pipelineId", "deleteLogsPipeline");
     }
 
     // Path Params
     const localVarPath = "/api/v1/logs/config/pipelines/{pipeline_id}".replace(
-      "{" + "pipeline_id" + "}",
+      "{pipeline_id}",
       encodeURIComponent(String(pipelineId))
     );
 
@@ -111,14 +107,12 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'pipelineId' is not null or undefined
     if (pipelineId === null || pipelineId === undefined) {
-      throw new RequiredError(
-        "Required parameter pipelineId was null or undefined when calling getLogsPipeline."
-      );
+      throw new RequiredError("pipelineId", "getLogsPipeline");
     }
 
     // Path Params
     const localVarPath = "/api/v1/logs/config/pipelines/{pipeline_id}".replace(
-      "{" + "pipeline_id" + "}",
+      "{pipeline_id}",
       encodeURIComponent(String(pipelineId))
     );
 
@@ -201,21 +195,17 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'pipelineId' is not null or undefined
     if (pipelineId === null || pipelineId === undefined) {
-      throw new RequiredError(
-        "Required parameter pipelineId was null or undefined when calling updateLogsPipeline."
-      );
+      throw new RequiredError("pipelineId", "updateLogsPipeline");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateLogsPipeline."
-      );
+      throw new RequiredError("body", "updateLogsPipeline");
     }
 
     // Path Params
     const localVarPath = "/api/v1/logs/config/pipelines/{pipeline_id}".replace(
-      "{" + "pipeline_id" + "}",
+      "{pipeline_id}",
       encodeURIComponent(String(pipelineId))
     );
 
@@ -255,9 +245,7 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateLogsPipelineOrder."
-      );
+      throw new RequiredError("body", "updateLogsPipelineOrder");
     }
 
     // Path Params

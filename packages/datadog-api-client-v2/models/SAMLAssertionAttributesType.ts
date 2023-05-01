@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SAMLAssertionAttributesType = typeof SAML_ASSERTION_ATTRIBUTES;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * SAML assertion attributes resource type.
+ */
+
+export type SAMLAssertionAttributesType =
+  | typeof SAML_ASSERTION_ATTRIBUTES
+  | UnparsedObject;
 export const SAML_ASSERTION_ATTRIBUTES = "saml_assertion_attributes";

@@ -19,7 +19,7 @@ export class SecurityMonitoringSignalsListResponseMeta {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

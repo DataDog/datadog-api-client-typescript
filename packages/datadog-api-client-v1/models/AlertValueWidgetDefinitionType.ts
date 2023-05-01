@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type AlertValueWidgetDefinitionType = typeof ALERT_VALUE;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the alert value widget.
+ */
+
+export type AlertValueWidgetDefinitionType =
+  | typeof ALERT_VALUE
+  | UnparsedObject;
 export const ALERT_VALUE = "alert_value";

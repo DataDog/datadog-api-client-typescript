@@ -30,7 +30,7 @@ export class LogsRetentionSumUsage {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

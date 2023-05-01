@@ -45,6 +45,10 @@ export class GCPAccount {
    */
   "hostFilters"?: string;
   /**
+   * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+   */
+  "isCspmEnabled"?: boolean;
+  /**
    * Your private key name found in your JSON service account key.
    */
   "privateKey"?: string;
@@ -68,7 +72,7 @@ export class GCPAccount {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -105,6 +109,10 @@ export class GCPAccount {
     hostFilters: {
       baseName: "host_filters",
       type: "string",
+    },
+    isCspmEnabled: {
+      baseName: "is_cspm_enabled",
+      type: "boolean",
     },
     privateKey: {
       baseName: "private_key",

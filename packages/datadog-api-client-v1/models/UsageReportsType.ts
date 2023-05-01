@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type UsageReportsType = typeof REPORTS;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The type of reports.
+ */
+
+export type UsageReportsType = typeof REPORTS | UnparsedObject;
 export const REPORTS = "reports";

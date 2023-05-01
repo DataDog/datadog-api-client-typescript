@@ -32,7 +32,7 @@ export class LogsArchiveDestinationS3 {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

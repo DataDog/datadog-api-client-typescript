@@ -9,6 +9,7 @@ import { isBrowser } from "../util";
  */
 export interface AbortSignal {
   aborted: boolean;
+  reason: any;
 
   addEventListener: (
     type: "abort",
@@ -35,6 +36,8 @@ export interface AbortSignal {
   dispatchEvent: (event: any) => boolean;
 
   onabort: null | ((this: AbortSignal, event: any) => void);
+
+  throwIfAborted(): void;
 }
 
 /**

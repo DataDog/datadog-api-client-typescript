@@ -39,7 +39,7 @@ export class SecurityMonitoringSignalRuleQuery {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

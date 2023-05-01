@@ -11,14 +11,14 @@ const params: v2.MetricsApiCreateTagConfigurationRequest = {
   body: {
     data: {
       type: "manage_tags",
-      id: "ExampleCreateatagconfigurationreturnsCreatedresponse",
+      id: "ExampleMetric",
       attributes: {
         tags: ["app", "datacenter"],
         metricType: "gauge",
       },
     },
   },
-  metricName: "ExampleCreateatagconfigurationreturnsCreatedresponse",
+  metricName: "ExampleMetric",
 };
 
 apiInstance

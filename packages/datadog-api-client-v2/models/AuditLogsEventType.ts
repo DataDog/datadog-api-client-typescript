@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type AuditLogsEventType = typeof Audit;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the event.
+ */
+
+export type AuditLogsEventType = typeof Audit | UnparsedObject;
 export const Audit = "audit";

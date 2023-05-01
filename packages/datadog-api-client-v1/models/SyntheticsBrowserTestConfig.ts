@@ -38,7 +38,7 @@ export class SyntheticsBrowserTestConfig {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

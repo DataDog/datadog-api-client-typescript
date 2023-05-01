@@ -39,9 +39,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling aggregateLogs."
-      );
+      throw new RequiredError("body", "aggregateLogs");
     }
 
     // Path Params
@@ -205,9 +203,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling submitLog."
-      );
+      throw new RequiredError("body", "submitLog");
     }
 
     // Path Params
@@ -819,6 +815,7 @@ export class LogsApi {
    *
    * Datadog recommends sending your logs compressed.
    * Add the `Content-Encoding: gzip` header to the request when sending compressed logs.
+   * Log events can be submitted up to 18 hours in the past and 2 hours in the future.
    *
    * The status codes answered by the HTTP API are:
    * - 202: Accepted: the request has been accepted for processing

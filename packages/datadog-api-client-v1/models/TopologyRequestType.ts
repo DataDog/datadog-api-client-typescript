@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type TopologyRequestType = typeof TOPOLOGY;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Widget request type.
+ */
+
+export type TopologyRequestType = typeof TOPOLOGY | UnparsedObject;
 export const TOPOLOGY = "topology";

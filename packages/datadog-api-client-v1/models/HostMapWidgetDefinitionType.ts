@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type HostMapWidgetDefinitionType = typeof HOSTMAP;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the host map widget.
+ */
+
+export type HostMapWidgetDefinitionType = typeof HOSTMAP | UnparsedObject;
 export const HOSTMAP = "hostmap";

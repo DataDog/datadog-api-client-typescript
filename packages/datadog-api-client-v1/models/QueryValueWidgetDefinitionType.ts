@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type QueryValueWidgetDefinitionType = typeof QUERY_VALUE;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the query value widget.
+ */
+
+export type QueryValueWidgetDefinitionType =
+  | typeof QUERY_VALUE
+  | UnparsedObject;
 export const QUERY_VALUE = "query_value";

@@ -19,7 +19,7 @@ export class MetricBulkTagConfigCreateRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

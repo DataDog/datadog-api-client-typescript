@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type NoteWidgetDefinitionType = typeof NOTE;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the note widget.
+ */
+
+export type NoteWidgetDefinitionType = typeof NOTE | UnparsedObject;
 export const NOTE = "note";

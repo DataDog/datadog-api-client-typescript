@@ -22,7 +22,7 @@ export class IPPrefixesSyntheticsPrivateLocations {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

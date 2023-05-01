@@ -9,6 +9,7 @@ const apiInstance = new v2.ServiceDefinitionApi(configuration);
 
 const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
   body: {
+    application: "my-app",
     contacts: [
       {
         contact: "contact@datadoghq.com",
@@ -16,18 +17,10 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
         type: "email",
       },
     ],
-    ddService:
-      "service-Example-Create_or_update_service_definition_returns_CREATED_response",
-    ddTeam: "my-team",
-    docs: [
-      {
-        name: "Architecture",
-        provider: "google drive",
-        url: "https://gdrive/mydoc",
-      },
-    ],
+    ddService: "my-service",
+    description: "My service description",
     extensions: {
-      myorgextension: "extensionvalue",
+      "myorg/extension": "extensionValue",
     },
     integrations: {
       opsgenie: {
@@ -35,25 +28,23 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
         serviceUrl:
           "https://my-org.opsgenie.com/service/123e4567-e89b-12d3-a456-426614174000",
       },
-      pagerduty: "https://my-org.pagerduty.com/service-directory/PMyService",
+      pagerduty: {
+        serviceUrl: "https://my-org.pagerduty.com/service-directory/PMyService",
+      },
     },
+    lifecycle: "sandbox",
     links: [
       {
         name: "Runbook",
+        provider: "Github",
         type: "runbook",
         url: "https://my-runbook",
       },
     ],
-    repos: [
-      {
-        name: "Source Code",
-        provider: "GitHub",
-        url: "https://github.com/DataDog/schema",
-      },
-    ],
-    schemaVersion: "v2",
+    schemaVersion: "v2.1",
     tags: ["my:tag", "service:tag"],
     team: "my-team",
+    tier: "High",
   },
 };
 

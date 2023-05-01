@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
+import { SLOState } from "./SLOState";
 import { SLOTimeframe } from "./SLOTimeframe";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -17,6 +18,10 @@ export class SLOOverallStatuses {
    */
   "error"?: string;
   /**
+   * Remaining error budget of the SLO in percentage.
+   */
+  "errorBudgetRemaining"?: number;
+  /**
    * timestamp (UNIX time in seconds) of when the SLO status and error budget
    * were calculated.
    */
@@ -29,6 +34,10 @@ export class SLOOverallStatuses {
    * The amount of decimal places the SLI value is accurate to.
    */
   "spanPrecision"?: number;
+  /**
+   * State of the SLO.
+   */
+  "state"?: SLOState;
   /**
    * The status of the SLO.
    */
@@ -45,7 +54,7 @@ export class SLOOverallStatuses {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -54,6 +63,11 @@ export class SLOOverallStatuses {
     error: {
       baseName: "error",
       type: "string",
+    },
+    errorBudgetRemaining: {
+      baseName: "error_budget_remaining",
+      type: "number",
+      format: "double",
     },
     indexedAt: {
       baseName: "indexed_at",
@@ -68,6 +82,10 @@ export class SLOOverallStatuses {
       baseName: "span_precision",
       type: "number",
       format: "int64",
+    },
+    state: {
+      baseName: "state",
+      type: "SLOState",
     },
     status: {
       baseName: "status",

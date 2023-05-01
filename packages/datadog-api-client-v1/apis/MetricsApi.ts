@@ -37,14 +37,12 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling getMetricMetadata."
-      );
+      throw new RequiredError("metricName", "getMetricMetadata");
     }
 
     // Path Params
     const localVarPath = "/api/v1/metrics/{metric_name}".replace(
-      "{" + "metric_name" + "}",
+      "{metric_name}",
       encodeURIComponent(String(metricName))
     );
 
@@ -76,9 +74,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'from' is not null or undefined
     if (from === null || from === undefined) {
-      throw new RequiredError(
-        "Required parameter from was null or undefined when calling listActiveMetrics."
-      );
+      throw new RequiredError("from", "listActiveMetrics");
     }
 
     // Path Params
@@ -130,9 +126,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'q' is not null or undefined
     if (q === null || q === undefined) {
-      throw new RequiredError(
-        "Required parameter q was null or undefined when calling listMetrics."
-      );
+      throw new RequiredError("q", "listMetrics");
     }
 
     // Path Params
@@ -174,23 +168,17 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'from' is not null or undefined
     if (from === null || from === undefined) {
-      throw new RequiredError(
-        "Required parameter from was null or undefined when calling queryMetrics."
-      );
+      throw new RequiredError("from", "queryMetrics");
     }
 
     // verify required parameter 'to' is not null or undefined
     if (to === null || to === undefined) {
-      throw new RequiredError(
-        "Required parameter to was null or undefined when calling queryMetrics."
-      );
+      throw new RequiredError("to", "queryMetrics");
     }
 
     // verify required parameter 'query' is not null or undefined
     if (query === null || query === undefined) {
-      throw new RequiredError(
-        "Required parameter query was null or undefined when calling queryMetrics."
-      );
+      throw new RequiredError("query", "queryMetrics");
     }
 
     // Path Params
@@ -243,9 +231,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling submitDistributionPoints."
-      );
+      throw new RequiredError("body", "submitDistributionPoints");
     }
 
     // Path Params
@@ -295,9 +281,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling submitMetrics."
-      );
+      throw new RequiredError("body", "submitMetrics");
     }
 
     // Path Params
@@ -343,21 +327,17 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'metricName' is not null or undefined
     if (metricName === null || metricName === undefined) {
-      throw new RequiredError(
-        "Required parameter metricName was null or undefined when calling updateMetricMetadata."
-      );
+      throw new RequiredError("metricName", "updateMetricMetadata");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateMetricMetadata."
-      );
+      throw new RequiredError("body", "updateMetricMetadata");
     }
 
     // Path Params
     const localVarPath = "/api/v1/metrics/{metric_name}".replace(
-      "{" + "metric_name" + "}",
+      "{metric_name}",
       encodeURIComponent(String(metricName))
     );
 

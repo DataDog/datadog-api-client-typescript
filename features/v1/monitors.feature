@@ -31,6 +31,7 @@ Feature: Monitors
     And request contains "monitor_ids" parameter with value [{{monitor.id}}]
     When the request is sent
     Then the response status is 200 OK
+    And the response "data.ok[0]" has the same value as "monitor.id"
 
   @team:DataDog/monitor-app
   Scenario: Create a RUM formula and functions monitor returns "OK" response
@@ -38,6 +39,8 @@ Feature: Monitors
     And body with value {"name": "{{ unique }}","type": "rum alert","query": "formula(\"query2 / query1 * 100\").last(\"15m\") >= 0.8","message": "some message Notify: @hipchat-channel", "tags": ["test:{{ unique_lower_alnum }}", "env:ci"],"priority": 3,"options":{"thresholds":{"critical":0.8},"variables":[{"data_source": "rum","name": "query2","search": {"query": ""},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []}, {"data_source": "rum","name": "query1","search": {"query": "status:error"},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []}]}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "rum alert"
 
   @team:DataDog/monitor-app
   Scenario: Create a ci-pipelines formula and functions monitor returns "OK" response
@@ -45,6 +48,9 @@ Feature: Monitors
     And body with value {"name": "{{ unique }}","type": "ci-pipelines alert","query": "formula(\"query1 / query2 * 100\").last(\"15m\") >= 0.8","message": "some message Notify: @hipchat-channel","tags": ["test:{{ unique_lower_alnum }}", "env:ci"],"priority": 3,"options": {"thresholds": {"critical": 0.8},"variables": [{"data_source": "ci_pipelines","name": "query1","search": {"query": "@ci.status:error"},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []},{"data_source": "ci_pipelines","name": "query2","search": {"query": ""},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []}]}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "ci-pipelines alert"
+    And the response "query" is equal to "formula(\"query1 / query2 * 100\").last(\"15m\") >= 0.8"
 
   @team:DataDog/monitor-app
   Scenario: Create a ci-pipelines monitor returns "OK" response
@@ -52,6 +58,9 @@ Feature: Monitors
     And body with value {"name": "{{ unique }}","type": "ci-pipelines alert","query": "ci-pipelines(\"ci_level:pipeline @git.branch:staging* @ci.status:error\").rollup(\"count\").by(\"@git.branch,@ci.pipeline.name\").last(\"5m\") >= 1","message": "some message Notify: @hipchat-channel",	"tags": ["test:{{ unique_lower_alnum }}", "env:ci"],"priority": 3,"options":{"thresholds":{"critical":1}}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "ci-pipelines alert"
+    And the response "query" is equal to "ci-pipelines(\"ci_level:pipeline @git.branch:staging* @ci.status:error\").rollup(\"count\").by(\"@git.branch,@ci.pipeline.name\").last(\"5m\") >= 1"
 
   @team:DataDog/monitor-app
   Scenario: Create a ci-tests formula and functions monitor returns "OK" response
@@ -59,6 +68,9 @@ Feature: Monitors
     And body with value {"name": "{{ unique }}","type": "ci-tests alert","query": "formula(\"query1 / query2 * 100\").last(\"15m\") >= 0.8","message": "some message Notify: @hipchat-channel","tags": ["test:{{ unique_lower_alnum }}", "env:ci"],"priority": 3,"options": {"thresholds": {"critical": 0.8},"variables": [{"data_source": "ci_tests","name": "query1","search": {"query": "@test.status:fail"},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []},{"data_source": "ci_tests","name": "query2","search": {"query": ""},"indexes": ["*"],"compute": {"aggregation": "count"},"group_by": []}]}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "ci-tests alert"
+    And the response "query" is equal to "formula(\"query1 / query2 * 100\").last(\"15m\") >= 0.8"
 
   @team:DataDog/monitor-app
   Scenario: Create a ci-tests monitor returns "OK" response
@@ -66,13 +78,18 @@ Feature: Monitors
     And body with value {"name": "{{ unique }}","type": "ci-tests alert","query": "ci-tests(\"type:test @git.branch:staging* @test.status:fail\").rollup(\"count\").by(\"@test.name\").last(\"5m\") >= 1","message": "some message Notify: @hipchat-channel", "tags": ["test:{{ unique_lower_alnum }}", "env:ci"],"priority": 3,"options":{"thresholds":{"critical":1}}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "ci-tests alert"
+    And the response "query" is equal to "ci-tests(\"type:test @git.branch:staging* @test.status:fail\").rollup(\"count\").by(\"@test.name\").last(\"5m\") >= 1"
 
   @team:DataDog/monitor-app
   Scenario: Create a metric monitor returns "OK" response
     Given new "CreateMonitor" request
-    And body with value {"name": "{{ unique }}", "type": "metric alert", "query": "avg(current_1d):avg:system.load.5{*} > 0.5", "message": "some message Notify: @hipchat-channel", "options":{"thresholds":{"critical":0.5}, "scheduling_options":{"evaluation_window":{"day_starts":"04:00", "month_starts":1}}}}
+    And body with value {"name": "{{ unique }}", "type": "metric alert", "query": "avg(current_1mo):avg:system.load.5{*} > 0.5", "message": "some message Notify: @hipchat-channel", "options":{"thresholds":{"critical":0.5}, "scheduling_options":{"evaluation_window":{"day_starts":"04:00", "month_starts":1}}}}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "query" is equal to "avg(current_1mo):avg:system.load.5{*} > 0.5"
 
   @team:DataDog/monitor-app
   Scenario: Create a monitor returns "Bad Request" response
@@ -88,6 +105,9 @@ Feature: Monitors
     And body with value {"name": "{{ unique }}", "type": "log alert", "query": "logs(\"service:foo AND type:error\").index(\"main\").rollup(\"count\").by(\"source\").last(\"5m\") > 2", "message": "some message Notify: @hipchat-channel", "tags": ["test:{{ unique_lower_alnum }}", "env:ci"], "priority": 3, "restricted_roles": ["{{ role.data.id }}"]}
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "log alert"
+    And the response "query" is equal to "logs(\"service:foo AND type:error\").index(\"main\").rollup(\"count\").by(\"source\").last(\"5m\") > 2"
 
   @team:DataDog/monitor-app
   Scenario: Create an Error Tracking monitor returns "OK" response
@@ -95,6 +115,9 @@ Feature: Monitors
     And body from file "monitor_error_tracking_alert_payload.json"
     When the request is sent
     Then the response status is 200 OK
+    And the response "name" is equal to "{{ unique }}"
+    And the response "type" is equal to "error-tracking alert"
+    And the response "query" is equal to "error-tracking-rum(\"service:foo AND @error.source:source\").rollup(\"count\").by(\"@issue.id\").last(\"1h\") >= 1"
 
   @generated @skip @team:DataDog/monitor-app
   Scenario: Delete a monitor returns "Bad Request" response
@@ -117,12 +140,13 @@ Feature: Monitors
     And request contains "monitor_id" parameter from "monitor.id"
     When the request is sent
     Then the response status is 200 OK
+    And the response "deleted_monitor_id" has the same value as "monitor.id"
 
   @generated @skip @team:DataDog/monitor-app
   Scenario: Edit a monitor returns "Bad Request" response
     Given new "UpdateMonitor" request
     And request contains "monitor_id" parameter from "REPLACE.ME"
-    And body with value {"options": {"escalation_message": "none", "evaluation_delay": null, "include_tags": true, "min_failure_duration": 0, "min_location_failed": 1, "new_group_delay": null, "new_host_delay": 300, "no_data_timeframe": null, "notify_audit": false, "notify_by": [], "notify_no_data": false, "on_missing_data": "default", "renotify_interval": null, "renotify_occurrences": null, "renotify_statuses": ["alert"], "scheduling_options": {"evaluation_window": {"day_starts": "04:00", "hour_starts": 0, "month_starts": 1}}, "synthetics_check_id": null, "threshold_windows": {"recovery_window": null, "trigger_window": null}, "thresholds": {"critical_recovery": null, "ok": null, "unknown": null, "warning": null, "warning_recovery": null}, "timeout_h": null, "variables": [{"compute": {"aggregation": "avg", "interval": 60000, "metric": "@duration"}, "data_source": "rum", "group_by": [{"facet": "status", "limit": 10, "sort": {"aggregation": "avg", "order": "desc"}}], "indexes": ["days-3", "days-7"], "name": "query_errors", "search": {"query": "service:query"}}]}, "restricted_roles": [], "tags": [], "type": "query alert"}
+    And body with value {"options": {"escalation_message": "none", "evaluation_delay": null, "include_tags": true, "min_failure_duration": 0, "min_location_failed": 1, "new_group_delay": null, "new_host_delay": 300, "no_data_timeframe": null, "notification_preset_name": "show_all", "notify_audit": false, "notify_by": [], "notify_no_data": false, "on_missing_data": "default", "renotify_interval": null, "renotify_occurrences": null, "renotify_statuses": ["alert"], "scheduling_options": {"evaluation_window": {"day_starts": "04:00", "hour_starts": 0, "month_starts": 1}}, "synthetics_check_id": null, "threshold_windows": {"recovery_window": null, "trigger_window": null}, "thresholds": {"critical_recovery": null, "ok": null, "unknown": null, "warning": null, "warning_recovery": null}, "timeout_h": null, "variables": [{"compute": {"aggregation": "avg", "interval": 60000, "metric": "@duration"}, "data_source": "rum", "group_by": [{"facet": "status", "limit": 10, "sort": {"aggregation": "avg", "order": "desc"}}], "indexes": ["days-3", "days-7"], "name": "query_errors", "search": {"query": "service:query"}}]}, "restricted_roles": [], "tags": [], "type": "query alert"}
     When the request is sent
     Then the response status is 400 Bad Request
 
@@ -211,6 +235,7 @@ Feature: Monitors
     Given new "SearchMonitorGroups" request
     When the request is sent
     Then the response status is 200 OK
+    And the response "metadata.page" is equal to 0
 
   @team:DataDog/monitor-app
   Scenario: Monitors search returns "Bad Request" response
@@ -224,6 +249,7 @@ Feature: Monitors
     Given new "SearchMonitors" request
     When the request is sent
     Then the response status is 200 OK
+    And the response "metadata.page" is equal to 0
 
   @team:DataDog/monitor-app
   Scenario: Validate a monitor returns "Invalid JSON" response

@@ -26,7 +26,7 @@ export class MonitorOptionsSchedulingOptionsEvaluationWindow {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

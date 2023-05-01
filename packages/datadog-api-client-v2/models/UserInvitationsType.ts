@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type UserInvitationsType = typeof USER_INVITATIONS;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * User invitations type.
+ */
+
+export type UserInvitationsType = typeof USER_INVITATIONS | UnparsedObject;
 export const USER_INVITATIONS = "user_invitations";

@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type WidgetLayoutType = typeof ORDERED;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Layout type of the group.
+ */
+
+export type WidgetLayoutType = typeof ORDERED | UnparsedObject;
 export const ORDERED = "ordered";

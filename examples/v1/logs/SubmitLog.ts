@@ -10,10 +10,8 @@ const apiInstance = new v1.LogsApi(configuration);
 const params: v1.LogsApiSubmitLogRequest = {
   body: [
     {
-      message:
-        "Example-Send_logs_returns_Response_from_server_always_200_empty_JSON_response",
-      ddtags:
-        "host:ExampleSendlogsreturnsResponsefromserveralways200emptyJSONresponse",
+      message: "Example-Log",
+      ddtags: "host:ExampleLog",
     },
   ],
 };

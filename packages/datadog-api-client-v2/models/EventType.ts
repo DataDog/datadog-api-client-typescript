@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type EventType = typeof EVENT;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the event.
+ */
+
+export type EventType = typeof EVENT | UnparsedObject;
 export const EVENT = "event";

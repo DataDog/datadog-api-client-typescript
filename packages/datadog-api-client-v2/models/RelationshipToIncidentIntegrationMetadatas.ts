@@ -12,14 +12,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RelationshipToIncidentIntegrationMetadatas {
   /**
-   * The integration metadata relationship array
+   * Integration metadata relationship array
    */
   "data": Array<RelationshipToIncidentIntegrationMetadataData>;
 
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

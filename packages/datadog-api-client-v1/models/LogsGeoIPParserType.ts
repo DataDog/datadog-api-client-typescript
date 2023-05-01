@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type LogsGeoIPParserType = typeof GEO_IP_PARSER;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of GeoIP parser.
+ */
+
+export type LogsGeoIPParserType = typeof GEO_IP_PARSER | UnparsedObject;
 export const GEO_IP_PARSER = "geo-ip-parser";

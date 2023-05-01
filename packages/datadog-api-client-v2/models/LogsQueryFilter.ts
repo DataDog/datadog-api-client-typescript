@@ -35,7 +35,7 @@ export class LogsQueryFilter {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

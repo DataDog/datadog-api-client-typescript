@@ -30,7 +30,7 @@ export class SecurityMonitoringSignalsListResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -123,37 +123,45 @@ export class UsageAttributionValues {
    */
   "dbmQueriesUsage"?: number;
   /**
-   * The percentage of estimated live indexed logs usage by tag(s). Note this field is in private beta.
+   * The percentage of estimated live indexed logs usage by tag(s).
    */
   "estimatedIndexedLogsPercentage"?: number;
   /**
-   * The estimated live indexed logs usage by tag(s). Note this field is in private beta.
+   * The estimated live indexed logs usage by tag(s).
    */
   "estimatedIndexedLogsUsage"?: number;
   /**
-   * The percentage of estimated indexed spans usage by tag(s). Note this field is in private beta.
+   * The percentage of estimated indexed spans usage by tag(s).
    */
   "estimatedIndexedSpansPercentage"?: number;
   /**
-   * The estimated indexed spans usage by tag(s). Note this field is in private beta.
+   * The estimated indexed spans usage by tag(s).
    */
   "estimatedIndexedSpansUsage"?: number;
   /**
-   * The percentage of estimated live ingested logs usage by tag(s). Note this field is in private beta.
+   * The percentage of estimated live ingested logs usage by tag(s).
    */
   "estimatedIngestedLogsPercentage"?: number;
   /**
-   * The estimated live ingested logs usage by tag(s). Note this field is in private beta.
+   * The estimated live ingested logs usage by tag(s).
    */
   "estimatedIngestedLogsUsage"?: number;
   /**
-   * The percentage of estimated ingested spans usage by tag(s). Note this field is in private beta.
+   * The percentage of estimated ingested spans usage by tag(s).
    */
   "estimatedIngestedSpansPercentage"?: number;
   /**
-   * The estimated ingested spans usage by tag(s). Note this field is in private beta.
+   * The estimated ingested spans usage by tag(s).
    */
   "estimatedIngestedSpansUsage"?: number;
+  /**
+   * The percentage of estimated rum sessions usage by tag(s).
+   */
+  "estimatedRumSessionsPercentage"?: number;
+  /**
+   * The estimated rum sessions usage by tag(s).
+   */
+  "estimatedRumSessionsUsage"?: number;
   /**
    * The percentage of infrastructure host usage by tag(s).
    */
@@ -214,7 +222,7 @@ export class UsageAttributionValues {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -397,6 +405,16 @@ export class UsageAttributionValues {
     },
     estimatedIngestedSpansUsage: {
       baseName: "estimated_ingested_spans_usage",
+      type: "number",
+      format: "double",
+    },
+    estimatedRumSessionsPercentage: {
+      baseName: "estimated_rum_sessions_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedRumSessionsUsage: {
+      baseName: "estimated_rum_sessions_usage",
       type: "number",
       format: "double",
     },

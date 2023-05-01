@@ -18,7 +18,7 @@ export class HourlyUsagePagination {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

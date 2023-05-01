@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v1.MonitorsApi(configuration);
 
 const params: v1.MonitorsApiListMonitorsRequest = {
-  tags: "test:examplegetallmonitordetailswithtags",
+  tags: "test:examplemonitor",
   pageSize: 1,
 };
 

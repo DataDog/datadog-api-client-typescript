@@ -26,7 +26,7 @@ export class AuditLogsWarning {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -15,7 +15,7 @@ const params: v2.ServiceAccountsApiCreateServiceAccountApplicationKeyRequest = {
   body: {
     data: {
       attributes: {
-        name: "Example-Create_an_application_key_with_scopes_for_this_service_account_returns_Created_response",
+        name: "Example-Service-Account",
         scopes: [
           "dashboards_read",
           "dashboards_write",

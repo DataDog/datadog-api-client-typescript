@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type RUMApplicationUpdateType = typeof RUM_APPLICATION_UPDATE;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * RUM application update type.
+ */
+
+export type RUMApplicationUpdateType =
+  | typeof RUM_APPLICATION_UPDATE
+  | UnparsedObject;
 export const RUM_APPLICATION_UPDATE = "rum_application_update";

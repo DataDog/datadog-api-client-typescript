@@ -16,7 +16,6 @@ import {
   AuthMethods,
   AuthMethodsConfiguration,
 } from "./auth";
-import { isNode } from "./util";
 
 export interface Configuration {
   readonly baseServer?: BaseServerConfiguration;
@@ -84,7 +83,7 @@ export interface ConfigurationParameters {
 export function createConfiguration(
   conf: ConfigurationParameters = {}
 ): Configuration {
-  if (isNode && process.env.DD_SITE) {
+  if (typeof process !== "undefined" && process.env && process.env.DD_SITE) {
     const serverConf = server1.getConfiguration();
     server1.setVariables({ site: process.env.DD_SITE } as typeof serverConf);
     for (const op in operationServers) {
@@ -93,10 +92,20 @@ export function createConfiguration(
   }
 
   const authMethods = conf.authMethods || {};
-  if (!("apiKeyAuth" in authMethods) && isNode && process.env.DD_API_KEY) {
+  if (
+    !("apiKeyAuth" in authMethods) &&
+    typeof process !== "undefined" &&
+    process.env &&
+    process.env.DD_API_KEY
+  ) {
     authMethods["apiKeyAuth"] = process.env.DD_API_KEY;
   }
-  if (!("appKeyAuth" in authMethods) && isNode && process.env.DD_APP_KEY) {
+  if (
+    !("appKeyAuth" in authMethods) &&
+    typeof process !== "undefined" &&
+    process.env &&
+    process.env.DD_APP_KEY
+  ) {
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
   }
 
@@ -105,16 +114,30 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
-      "v1.searchSLO": false,
       "v2.listEvents": false,
       "v2.searchEvents": false,
       "v2.createIncident": false,
+      "v2.createIncidentIntegration": false,
+      "v2.createIncidentTodo": false,
       "v2.deleteIncident": false,
+      "v2.deleteIncidentIntegration": false,
+      "v2.deleteIncidentTodo": false,
       "v2.getIncident": false,
+      "v2.getIncidentIntegration": false,
+      "v2.getIncidentTodo": false,
       "v2.listIncidentAttachments": false,
+      "v2.listIncidentIntegrations": false,
       "v2.listIncidents": false,
+      "v2.listIncidentTodos": false,
+      "v2.searchIncidents": false,
       "v2.updateIncident": false,
       "v2.updateIncidentAttachments": false,
+      "v2.updateIncidentIntegration": false,
+      "v2.updateIncidentTodo": false,
+      "v2.queryScalarData": false,
+      "v2.queryTimeseriesData": false,
+      "v2.getFinding": false,
+      "v2.listFindings": false,
       "v2.createIncidentService": false,
       "v2.deleteIncidentService": false,
       "v2.getIncidentService": false,

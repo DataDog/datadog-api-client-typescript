@@ -22,7 +22,7 @@ export class MetricBulkTagConfigCreateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -19,7 +19,7 @@ export class HourlyUsageAttributionMetadata {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

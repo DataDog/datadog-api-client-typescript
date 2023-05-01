@@ -22,7 +22,7 @@ export class SyntheticsPrivateLocationCreationResponseResultEncryption {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -48,9 +48,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createGlobalVariable."
-      );
+      throw new RequiredError("body", "createGlobalVariable");
     }
 
     // Path Params
@@ -93,9 +91,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createPrivateLocation."
-      );
+      throw new RequiredError("body", "createPrivateLocation");
     }
 
     // Path Params
@@ -138,9 +134,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSyntheticsAPITest."
-      );
+      throw new RequiredError("body", "createSyntheticsAPITest");
     }
 
     // Path Params
@@ -183,9 +177,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSyntheticsBrowserTest."
-      );
+      throw new RequiredError("body", "createSyntheticsBrowserTest");
     }
 
     // Path Params
@@ -228,14 +220,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'variableId' is not null or undefined
     if (variableId === null || variableId === undefined) {
-      throw new RequiredError(
-        "Required parameter variableId was null or undefined when calling deleteGlobalVariable."
-      );
+      throw new RequiredError("variableId", "deleteGlobalVariable");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/variables/{variable_id}".replace(
-      "{" + "variable_id" + "}",
+      "{variable_id}",
       encodeURIComponent(String(variableId))
     );
 
@@ -265,15 +255,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'locationId' is not null or undefined
     if (locationId === null || locationId === undefined) {
-      throw new RequiredError(
-        "Required parameter locationId was null or undefined when calling deletePrivateLocation."
-      );
+      throw new RequiredError("locationId", "deletePrivateLocation");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/synthetics/private-locations/{location_id}".replace(
-        "{" + "location_id" + "}",
+        "{location_id}",
         encodeURIComponent(String(locationId))
       );
 
@@ -303,9 +291,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling deleteTests."
-      );
+      throw new RequiredError("body", "deleteTests");
     }
 
     // Path Params
@@ -349,21 +335,17 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'variableId' is not null or undefined
     if (variableId === null || variableId === undefined) {
-      throw new RequiredError(
-        "Required parameter variableId was null or undefined when calling editGlobalVariable."
-      );
+      throw new RequiredError("variableId", "editGlobalVariable");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling editGlobalVariable."
-      );
+      throw new RequiredError("body", "editGlobalVariable");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/variables/{variable_id}".replace(
-      "{" + "variable_id" + "}",
+      "{variable_id}",
       encodeURIComponent(String(variableId))
     );
 
@@ -404,14 +386,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling getAPITest."
-      );
+      throw new RequiredError("publicId", "getAPITest");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/tests/api/{public_id}".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -444,14 +424,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling getAPITestLatestResults."
-      );
+      throw new RequiredError("publicId", "getAPITestLatestResults");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/tests/{public_id}/results".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -502,23 +480,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling getAPITestResult."
-      );
+      throw new RequiredError("publicId", "getAPITestResult");
     }
 
     // verify required parameter 'resultId' is not null or undefined
     if (resultId === null || resultId === undefined) {
-      throw new RequiredError(
-        "Required parameter resultId was null or undefined when calling getAPITestResult."
-      );
+      throw new RequiredError("resultId", "getAPITestResult");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/synthetics/tests/{public_id}/results/{result_id}"
-        .replace("{" + "public_id" + "}", encodeURIComponent(String(publicId)))
-        .replace("{" + "result_id" + "}", encodeURIComponent(String(resultId)));
+        .replace("{public_id}", encodeURIComponent(String(publicId)))
+        .replace("{result_id}", encodeURIComponent(String(resultId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -546,14 +520,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling getBrowserTest."
-      );
+      throw new RequiredError("publicId", "getBrowserTest");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/tests/browser/{public_id}".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -586,15 +558,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling getBrowserTestLatestResults."
-      );
+      throw new RequiredError("publicId", "getBrowserTestLatestResults");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/synthetics/tests/browser/{public_id}/results".replace(
-        "{" + "public_id" + "}",
+        "{public_id}",
         encodeURIComponent(String(publicId))
       );
 
@@ -645,23 +615,19 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling getBrowserTestResult."
-      );
+      throw new RequiredError("publicId", "getBrowserTestResult");
     }
 
     // verify required parameter 'resultId' is not null or undefined
     if (resultId === null || resultId === undefined) {
-      throw new RequiredError(
-        "Required parameter resultId was null or undefined when calling getBrowserTestResult."
-      );
+      throw new RequiredError("resultId", "getBrowserTestResult");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/synthetics/tests/browser/{public_id}/results/{result_id}"
-        .replace("{" + "public_id" + "}", encodeURIComponent(String(publicId)))
-        .replace("{" + "result_id" + "}", encodeURIComponent(String(resultId)));
+        .replace("{public_id}", encodeURIComponent(String(publicId)))
+        .replace("{result_id}", encodeURIComponent(String(resultId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -689,14 +655,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'variableId' is not null or undefined
     if (variableId === null || variableId === undefined) {
-      throw new RequiredError(
-        "Required parameter variableId was null or undefined when calling getGlobalVariable."
-      );
+      throw new RequiredError("variableId", "getGlobalVariable");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/variables/{variable_id}".replace(
-      "{" + "variable_id" + "}",
+      "{variable_id}",
       encodeURIComponent(String(variableId))
     );
 
@@ -726,15 +690,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'locationId' is not null or undefined
     if (locationId === null || locationId === undefined) {
-      throw new RequiredError(
-        "Required parameter locationId was null or undefined when calling getPrivateLocation."
-      );
+      throw new RequiredError("locationId", "getPrivateLocation");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/synthetics/private-locations/{location_id}".replace(
-        "{" + "location_id" + "}",
+        "{location_id}",
         encodeURIComponent(String(locationId))
       );
 
@@ -764,14 +726,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'batchId' is not null or undefined
     if (batchId === null || batchId === undefined) {
-      throw new RequiredError(
-        "Required parameter batchId was null or undefined when calling getSyntheticsCIBatch."
-      );
+      throw new RequiredError("batchId", "getSyntheticsCIBatch");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/ci/batch/{batch_id}".replace(
-      "{" + "batch_id" + "}",
+      "{batch_id}",
       encodeURIComponent(String(batchId))
     );
 
@@ -801,14 +761,12 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling getTest."
-      );
+      throw new RequiredError("publicId", "getTest");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/tests/{public_id}".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -882,7 +840,11 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async listTests(_options?: Configuration): Promise<RequestContext> {
+  public async listTests(
+    pageSize?: string,
+    pageNumber?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // Path Params
@@ -895,6 +857,20 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageSize !== undefined) {
+      requestContext.setQueryParam(
+        "page_size",
+        ObjectSerializer.serialize(pageSize, "string", "")
+      );
+    }
+    if (pageNumber !== undefined) {
+      requestContext.setQueryParam(
+        "page_number",
+        ObjectSerializer.serialize(pageNumber, "string", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -914,9 +890,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling triggerCITests."
-      );
+      throw new RequiredError("body", "triggerCITests");
     }
 
     // Path Params
@@ -959,9 +933,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling triggerTests."
-      );
+      throw new RequiredError("body", "triggerTests");
     }
 
     // Path Params
@@ -1005,21 +977,17 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling updateAPITest."
-      );
+      throw new RequiredError("publicId", "updateAPITest");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateAPITest."
-      );
+      throw new RequiredError("body", "updateAPITest");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/tests/api/{public_id}".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -1061,21 +1029,17 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling updateBrowserTest."
-      );
+      throw new RequiredError("publicId", "updateBrowserTest");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateBrowserTest."
-      );
+      throw new RequiredError("body", "updateBrowserTest");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/tests/browser/{public_id}".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -1117,22 +1081,18 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'locationId' is not null or undefined
     if (locationId === null || locationId === undefined) {
-      throw new RequiredError(
-        "Required parameter locationId was null or undefined when calling updatePrivateLocation."
-      );
+      throw new RequiredError("locationId", "updatePrivateLocation");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updatePrivateLocation."
-      );
+      throw new RequiredError("body", "updatePrivateLocation");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/synthetics/private-locations/{location_id}".replace(
-        "{" + "location_id" + "}",
+        "{location_id}",
         encodeURIComponent(String(locationId))
       );
 
@@ -1174,21 +1134,17 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling updateTestPauseStatus."
-      );
+      throw new RequiredError("publicId", "updateTestPauseStatus");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateTestPauseStatus."
-      );
+      throw new RequiredError("body", "updateTestPauseStatus");
     }
 
     // Path Params
     const localVarPath = "/api/v1/synthetics/tests/{public_id}/status".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -3070,6 +3026,19 @@ export interface SyntheticsApiGetTestRequest {
   publicId: string;
 }
 
+export interface SyntheticsApiListTestsRequest {
+  /**
+   * Used for pagination. The number of tests returned in the page.
+   * @type string
+   */
+  pageSize?: string;
+  /**
+   * Used for pagination. Which page you want to retrieve. Starts at zero.
+   * @type string
+   */
+  pageNumber?: string;
+}
+
 export interface SyntheticsApiTriggerCITestsRequest {
   /**
    * Details of the test to trigger.
@@ -3349,7 +3318,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the last 50 test results summaries for a given Synthetics API test.
+   * Get the last 150 test results summaries for a given Synthetics API test.
    * @param param The request object
    */
   public getAPITestLatestResults(
@@ -3419,7 +3388,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the last 50 test results summaries for a given Synthetics Browser test.
+   * Get the last 150 test results summaries for a given Synthetics Browser test.
    * @param param The request object
    */
   public getBrowserTestLatestResults(
@@ -3590,9 +3559,14 @@ export class SyntheticsApi {
    * @param param The request object
    */
   public listTests(
+    param: SyntheticsApiListTestsRequest = {},
     options?: Configuration
   ): Promise<SyntheticsListTestsResponse> {
-    const requestContextPromise = this.requestFactory.listTests(options);
+    const requestContextPromise = this.requestFactory.listTests(
+      param.pageSize,
+      param.pageNumber,
+      options
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)

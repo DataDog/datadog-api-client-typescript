@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ServiceDefinitionV2 } from "./ServiceDefinitionV2";
+import { ServiceDefinitionV2Dot1 } from "./ServiceDefinitionV2Dot1";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -12,6 +13,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  */
 
 export type ServiceDefinitionsCreateRequest =
+  | ServiceDefinitionV2Dot1
   | ServiceDefinitionV2
   | string
   | UnparsedObject;

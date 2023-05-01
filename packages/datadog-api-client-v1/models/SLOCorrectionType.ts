@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SLOCorrectionType = typeof CORRECTION;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * SLO correction resource type.
+ */
+
+export type SLOCorrectionType = typeof CORRECTION | UnparsedObject;
 export const CORRECTION = "correction";

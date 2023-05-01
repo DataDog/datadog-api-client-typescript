@@ -59,6 +59,14 @@ export class MonthlyUsageAttributionValues {
    */
   "browserUsage"?: number;
   /**
+   * The percentage of container usage without the Datadog Agent by tag(s).
+   */
+  "containerExclAgentPercentage"?: number;
+  /**
+   * The container usage without the Datadog Agent by tag(s).
+   */
+  "containerExclAgentUsage"?: number;
+  /**
    * The percentage of container usage by tag(s).
    */
   "containerPercentage"?: number;
@@ -67,45 +75,109 @@ export class MonthlyUsageAttributionValues {
    */
   "containerUsage"?: number;
   /**
-   * The percentage of custom metrics usage by tag(s).
+   * The percentage of CSPM container usage by tag(s).
+   */
+  "cspmContainersPercentage"?: number;
+  /**
+   * The CSPM container usage by tag(s).
+   */
+  "cspmContainersUsage"?: number;
+  /**
+   * The percentage of CSPM host usage by by tag(s).
+   */
+  "cspmHostsPercentage"?: number;
+  /**
+   * The CSPM host usage by tag(s).
+   */
+  "cspmHostsUsage"?: number;
+  /**
+   * The percentage of ingested custom metrics usage by tag(s).
+   */
+  "customIngestedTimeseriesPercentage"?: number;
+  /**
+   * The ingested custom metrics usage by tag(s).
+   */
+  "customIngestedTimeseriesUsage"?: number;
+  /**
+   * The percentage of indexed custom metrics usage by tag(s).
    */
   "customTimeseriesPercentage"?: number;
   /**
-   * The custom metrics usage by tag(s).
+   * The indexed custom metrics usage by tag(s).
    */
   "customTimeseriesUsage"?: number;
   /**
-   * The percentage of estimated live indexed logs usage by tag(s). This field is in private beta.
+   * The percentage of Cloud Workload Security container usage by tag(s).
+   */
+  "cwsContainersPercentage"?: number;
+  /**
+   * The Cloud Workload Security container usage by tag(s).
+   */
+  "cwsContainersUsage"?: number;
+  /**
+   * The percentage of Cloud Workload Security host usage by tag(s).
+   */
+  "cwsHostsPercentage"?: number;
+  /**
+   * The Cloud Workload Security host usage by tag(s).
+   */
+  "cwsHostsUsage"?: number;
+  /**
+   * The percentage of Database Monitoring host usage by tag(s).
+   */
+  "dbmHostsPercentage"?: number;
+  /**
+   * The Database Monitoring host usage by tag(s).
+   */
+  "dbmHostsUsage"?: number;
+  /**
+   * The percentage of Database Monitoring queries usage by tag(s).
+   */
+  "dbmQueriesPercentage"?: number;
+  /**
+   * The Database Monitoring queries usage by tag(s).
+   */
+  "dbmQueriesUsage"?: number;
+  /**
+   * The percentage of estimated live indexed logs usage by tag(s).
    */
   "estimatedIndexedLogsPercentage"?: number;
   /**
-   * The estimated live indexed logs usage by tag(s). This field is in private beta.
+   * The estimated live indexed logs usage by tag(s).
    */
   "estimatedIndexedLogsUsage"?: number;
   /**
-   * The percentage of estimated indexed spans usage by tag(s). This field is in private beta.
+   * The percentage of estimated indexed spans usage by tag(s).
    */
   "estimatedIndexedSpansPercentage"?: number;
   /**
-   * The estimated indexed spans usage by tag(s). This field is in private beta.
+   * The estimated indexed spans usage by tag(s).
    */
   "estimatedIndexedSpansUsage"?: number;
   /**
-   * The percentage of estimated live ingested logs usage by tag(s). This field is in private beta.
+   * The percentage of estimated live ingested logs usage by tag(s).
    */
   "estimatedIngestedLogsPercentage"?: number;
   /**
-   * The estimated live ingested logs usage by tag(s). This field is in private beta.
+   * The estimated live ingested logs usage by tag(s).
    */
   "estimatedIngestedLogsUsage"?: number;
   /**
-   * The percentage of estimated ingested spans usage by tag(s). This field is in private beta.
+   * The percentage of estimated ingested spans usage by tag(s).
    */
   "estimatedIngestedSpansPercentage"?: number;
   /**
-   * The estimated ingested spans usage by tag(s). This field is in private beta.
+   * The estimated ingested spans usage by tag(s).
    */
   "estimatedIngestedSpansUsage"?: number;
+  /**
+   * The percentage of estimated rum sessions usage by tag(s).
+   */
+  "estimatedRumSessionsPercentage"?: number;
+  /**
+   * The estimated rum sessions usage by tag(s).
+   */
+  "estimatedRumSessionsUsage"?: number;
   /**
    * The percentage of Fargate usage by tags.
    */
@@ -122,14 +194,6 @@ export class MonthlyUsageAttributionValues {
    * The Lambda function usage by tag(s).
    */
   "functionsUsage"?: number;
-  /**
-   * The percentage of indexed logs usage by tags.
-   */
-  "indexedLogsPercentage"?: number;
-  /**
-   * The indexed logs usage by tags.
-   */
-  "indexedLogsUsage"?: number;
   /**
    * The percentage of infrastructure host usage by tag(s).
    */
@@ -163,6 +227,14 @@ export class MonthlyUsageAttributionValues {
    */
   "profiledContainerUsage"?: number;
   /**
+   * The percentage of profiled Fargate task usage by tag(s).
+   */
+  "profiledFargatePercentage"?: number;
+  /**
+   * The profiled Fargate task usage by tag(s).
+   */
+  "profiledFargateUsage"?: number;
+  /**
    * The percentage of profiled hosts usage by tag(s).
    */
   "profiledHostPercentage"?: number;
@@ -178,11 +250,19 @@ export class MonthlyUsageAttributionValues {
    * The network device usage by tag(s).
    */
   "snmpUsage"?: number;
+  /**
+   * The percentage of universal service monitoring usage by tag(s).
+   */
+  "universalServiceMonitoringPercentage"?: number;
+  /**
+   * The universal service monitoring usage by tag(s).
+   */
+  "universalServiceMonitoringUsage"?: number;
 
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -248,6 +328,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    containerExclAgentPercentage: {
+      baseName: "container_excl_agent_percentage",
+      type: "number",
+      format: "double",
+    },
+    containerExclAgentUsage: {
+      baseName: "container_excl_agent_usage",
+      type: "number",
+      format: "double",
+    },
     containerPercentage: {
       baseName: "container_percentage",
       type: "number",
@@ -258,6 +348,36 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    cspmContainersPercentage: {
+      baseName: "cspm_containers_percentage",
+      type: "number",
+      format: "double",
+    },
+    cspmContainersUsage: {
+      baseName: "cspm_containers_usage",
+      type: "number",
+      format: "double",
+    },
+    cspmHostsPercentage: {
+      baseName: "cspm_hosts_percentage",
+      type: "number",
+      format: "double",
+    },
+    cspmHostsUsage: {
+      baseName: "cspm_hosts_usage",
+      type: "number",
+      format: "double",
+    },
+    customIngestedTimeseriesPercentage: {
+      baseName: "custom_ingested_timeseries_percentage",
+      type: "number",
+      format: "double",
+    },
+    customIngestedTimeseriesUsage: {
+      baseName: "custom_ingested_timeseries_usage",
+      type: "number",
+      format: "double",
+    },
     customTimeseriesPercentage: {
       baseName: "custom_timeseries_percentage",
       type: "number",
@@ -265,6 +385,46 @@ export class MonthlyUsageAttributionValues {
     },
     customTimeseriesUsage: {
       baseName: "custom_timeseries_usage",
+      type: "number",
+      format: "double",
+    },
+    cwsContainersPercentage: {
+      baseName: "cws_containers_percentage",
+      type: "number",
+      format: "double",
+    },
+    cwsContainersUsage: {
+      baseName: "cws_containers_usage",
+      type: "number",
+      format: "double",
+    },
+    cwsHostsPercentage: {
+      baseName: "cws_hosts_percentage",
+      type: "number",
+      format: "double",
+    },
+    cwsHostsUsage: {
+      baseName: "cws_hosts_usage",
+      type: "number",
+      format: "double",
+    },
+    dbmHostsPercentage: {
+      baseName: "dbm_hosts_percentage",
+      type: "number",
+      format: "double",
+    },
+    dbmHostsUsage: {
+      baseName: "dbm_hosts_usage",
+      type: "number",
+      format: "double",
+    },
+    dbmQueriesPercentage: {
+      baseName: "dbm_queries_percentage",
+      type: "number",
+      format: "double",
+    },
+    dbmQueriesUsage: {
+      baseName: "dbm_queries_usage",
       type: "number",
       format: "double",
     },
@@ -308,6 +468,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    estimatedRumSessionsPercentage: {
+      baseName: "estimated_rum_sessions_percentage",
+      type: "number",
+      format: "double",
+    },
+    estimatedRumSessionsUsage: {
+      baseName: "estimated_rum_sessions_usage",
+      type: "number",
+      format: "double",
+    },
     fargatePercentage: {
       baseName: "fargate_percentage",
       type: "number",
@@ -325,16 +495,6 @@ export class MonthlyUsageAttributionValues {
     },
     functionsUsage: {
       baseName: "functions_usage",
-      type: "number",
-      format: "double",
-    },
-    indexedLogsPercentage: {
-      baseName: "indexed_logs_percentage",
-      type: "number",
-      format: "double",
-    },
-    indexedLogsUsage: {
-      baseName: "indexed_logs_usage",
       type: "number",
       format: "double",
     },
@@ -378,6 +538,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    profiledFargatePercentage: {
+      baseName: "profiled_fargate_percentage",
+      type: "number",
+      format: "double",
+    },
+    profiledFargateUsage: {
+      baseName: "profiled_fargate_usage",
+      type: "number",
+      format: "double",
+    },
     profiledHostPercentage: {
       baseName: "profiled_host_percentage",
       type: "number",
@@ -395,6 +565,16 @@ export class MonthlyUsageAttributionValues {
     },
     snmpUsage: {
       baseName: "snmp_usage",
+      type: "number",
+      format: "double",
+    },
+    universalServiceMonitoringPercentage: {
+      baseName: "universal_service_monitoring_percentage",
+      type: "number",
+      format: "double",
+    },
+    universalServiceMonitoringUsage: {
+      baseName: "universal_service_monitoring_usage",
       type: "number",
       format: "double",
     },

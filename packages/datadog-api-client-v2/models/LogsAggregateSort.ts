@@ -33,7 +33,7 @@ export class LogsAggregateSort {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

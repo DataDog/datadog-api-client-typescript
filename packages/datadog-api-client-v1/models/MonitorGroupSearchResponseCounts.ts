@@ -23,7 +23,7 @@ export class MonitorGroupSearchResponseCounts {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

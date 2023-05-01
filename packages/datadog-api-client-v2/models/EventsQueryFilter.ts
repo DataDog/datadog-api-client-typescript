@@ -26,7 +26,7 @@ export class EventsQueryFilter {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

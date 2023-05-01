@@ -12,7 +12,7 @@ const params: v2.RolesApiCreateRoleRequest = {
     data: {
       type: "roles",
       attributes: {
-        name: "Example-Create_role_returns_OK_response",
+        name: "Example-Role",
       },
     },
   },

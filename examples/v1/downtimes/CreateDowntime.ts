@@ -9,10 +9,10 @@ const apiInstance = new v1.DowntimesApi(configuration);
 
 const params: v1.DowntimesApiCreateDowntimeRequest = {
   body: {
-    message: "Example-Schedule_a_downtime_returns_OK_response",
+    message: "Example-Downtime",
     start: Math.round(new Date().getTime() / 1000),
     timezone: "Etc/UTC",
-    scope: ["test:examplescheduleadowntimereturnsokresponse"],
+    scope: ["test:exampledowntime"],
     recurrence: {
       type: "weeks",
       period: 1,

@@ -4,11 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the multiple value field definitions.
+ */
+
 export type IncidentFieldAttributesValueType =
   | typeof MULTISELECT
   | typeof TEXTARRAY
   | typeof METRICTAG
-  | typeof AUTOCOMPLETE;
+  | typeof AUTOCOMPLETE
+  | UnparsedObject;
 export const MULTISELECT = "multiselect";
 export const TEXTARRAY = "textarray";
 export const METRICTAG = "metrictag";

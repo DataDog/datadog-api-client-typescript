@@ -15,7 +15,7 @@ const SECURITY_RULE_BIS_ID = process.env.SECURITY_RULE_BIS_ID as string;
 
 const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
   body: {
-    name: "Example-Create_a_detection_rule_with_type_signal_correlation_returns_OK_response_signal_rule",
+    name: "Example-Security-Monitoring_signal_rule",
     queries: [
       {
         ruleId: SECURITY_RULE_ID,

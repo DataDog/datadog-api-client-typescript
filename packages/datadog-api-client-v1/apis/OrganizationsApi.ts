@@ -38,9 +38,7 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createChildOrg."
-      );
+      throw new RequiredError("body", "createChildOrg");
     }
 
     // Path Params
@@ -82,14 +80,12 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling downgradeOrg."
-      );
+      throw new RequiredError("publicId", "downgradeOrg");
     }
 
     // Path Params
     const localVarPath = "/api/v1/org/{public_id}/downgrade".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -118,14 +114,12 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling getOrg."
-      );
+      throw new RequiredError("publicId", "getOrg");
     }
 
     // Path Params
     const localVarPath = "/api/v1/org/{public_id}".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -178,21 +172,17 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling updateOrg."
-      );
+      throw new RequiredError("publicId", "updateOrg");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateOrg."
-      );
+      throw new RequiredError("body", "updateOrg");
     }
 
     // Path Params
     const localVarPath = "/api/v1/org/{public_id}".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 
@@ -233,21 +223,17 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'publicId' is not null or undefined
     if (publicId === null || publicId === undefined) {
-      throw new RequiredError(
-        "Required parameter publicId was null or undefined when calling uploadIdPForOrg."
-      );
+      throw new RequiredError("publicId", "uploadIdPForOrg");
     }
 
     // verify required parameter 'idpFile' is not null or undefined
     if (idpFile === null || idpFile === undefined) {
-      throw new RequiredError(
-        "Required parameter idpFile was null or undefined when calling uploadIdPForOrg."
-      );
+      throw new RequiredError("idpFile", "uploadIdPForOrg");
     }
 
     // Path Params
     const localVarPath = "/api/v1/org/{public_id}/idp_metadata".replace(
-      "{" + "public_id" + "}",
+      "{public_id}",
       encodeURIComponent(String(publicId))
     );
 

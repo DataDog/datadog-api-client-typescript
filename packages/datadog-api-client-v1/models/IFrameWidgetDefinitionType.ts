@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type IFrameWidgetDefinitionType = typeof IFRAME;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the iframe widget.
+ */
+
+export type IFrameWidgetDefinitionType = typeof IFRAME | UnparsedObject;
 export const IFRAME = "iframe";

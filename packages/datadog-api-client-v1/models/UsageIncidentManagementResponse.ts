@@ -19,7 +19,7 @@ export class UsageIncidentManagementResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

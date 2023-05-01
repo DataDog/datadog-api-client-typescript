@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Link type.
+ */
+
 export type ServiceDefinitionV1ResourceType =
   | typeof DOC
   | typeof WIKI
@@ -13,7 +19,8 @@ export type ServiceDefinitionV1ResourceType =
   | typeof DASHBOARD
   | typeof ONCALL
   | typeof CODE
-  | typeof LINK;
+  | typeof LINK
+  | UnparsedObject;
 export const DOC = "doc";
 export const WIKI = "wiki";
 export const RUNBOOK = "runbook";

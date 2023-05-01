@@ -36,6 +36,10 @@ export class UsageSummaryDate {
    */
   "auditLogsLinesIndexedSum"?: number;
   /**
+   * Shows the number of organizations that had Audit Trail enabled in the current date.
+   */
+  "auditTrailEnabledHwm"?: number;
+  /**
    * The average profiled task count for Fargate Profiling.
    */
   "avgProfiledFargateTasks"?: number;
@@ -88,9 +92,17 @@ export class UsageSummaryDate {
    */
   "ciVisibilityTestCommittersHwm"?: number;
   /**
+   * Host count average of Cloud Cost Management for the given date and given organization.
+   */
+  "cloudCostManagementHostCountAvg"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current date for all organizations.
    */
   "containerAvg"?: number;
+  /**
+   * Shows the average of containers without the Datadog Agent over all hours in the current date for all organizations.
+   */
+  "containerExclAgentAvg"?: number;
   /**
    * Shows the high-water mark of all distinct containers over all hours in the current date for all organizations.
    */
@@ -115,6 +127,10 @@ export class UsageSummaryDate {
    * Shows the high-water mark of Cloud Security Posture Management containers over all hours in the current date for all organizations.
    */
   "cspmContainerHwm"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in the current date for all organizations.
+   */
+  "cspmGcpHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current date for all organizations.
    */
@@ -151,6 +167,10 @@ export class UsageSummaryDate {
    * Shows the average of all Fargate tasks over all hours in the current date for all organizations.
    */
   "fargateTasksCountHwm"?: number;
+  /**
+   * Shows the sum of all log bytes forwarded over all hours in the current date for all organizations.
+   */
+  "forwardingEventsBytesSum"?: number;
   /**
    * Shows the 99th percentile of all GCP hosts over all hours in the current date for all organizations.
    */
@@ -192,6 +212,10 @@ export class UsageSummaryDate {
    */
   "mobileRumSessionCountAndroidSum"?: number;
   /**
+   * Shows the sum of all mobile RUM Sessions on Flutter over all hours in the current date for all organizations.
+   */
+  "mobileRumSessionCountFlutterSum"?: number;
+  /**
    * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for all organizations.
    */
   "mobileRumSessionCountIosSum"?: number;
@@ -223,6 +247,10 @@ export class UsageSummaryDate {
    * Sum of all online archived events over all hours in the current date for all organizations.
    */
   "onlineArchiveEventsCountSum"?: number;
+  /**
+   * Shows the 99th percentile of APM hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
+   */
+  "opentelemetryApmHostTop99p"?: number;
   /**
    * Shows the 99th percentile of all hosts reported by the Datadog exporter for the OpenTelemetry Collector over all hours in the current date for all organizations.
    */
@@ -280,6 +308,10 @@ export class UsageSummaryDate {
    */
   "syntheticsCheckCallsCountSum"?: number;
   /**
+   * Shows the high-water mark of used synthetics parallel testing slots over all hours in the current date for all organizations.
+   */
+  "syntheticsParallelTestingMaxSlotsHwm"?: number;
+  /**
    * Shows the sum of all Indexed Spans indexed over all hours in the current date for all organizations.
    */
   "traceSearchIndexedEventsCountSum"?: number;
@@ -288,6 +320,10 @@ export class UsageSummaryDate {
    */
   "twolIngestedEventsBytesSum"?: number;
   /**
+   * Shows the 99th percentile of all universal service management hosts over all hours in the current date for the given org.
+   */
+  "universalServiceMonitoringHostTop99p"?: number;
+  /**
    * Shows the 99th percentile of all vSphere hosts over all hours in the current date for all organizations.
    */
   "vsphereHostTop99p"?: number;
@@ -295,7 +331,7 @@ export class UsageSummaryDate {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -328,6 +364,11 @@ export class UsageSummaryDate {
     },
     auditLogsLinesIndexedSum: {
       baseName: "audit_logs_lines_indexed_sum",
+      type: "number",
+      format: "int64",
+    },
+    auditTrailEnabledHwm: {
+      baseName: "audit_trail_enabled_hwm",
       type: "number",
       format: "int64",
     },
@@ -396,8 +437,18 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    cloudCostManagementHostCountAvg: {
+      baseName: "cloud_cost_management_host_count_avg",
+      type: "number",
+      format: "int64",
+    },
     containerAvg: {
       baseName: "container_avg",
+      type: "number",
+      format: "int64",
+    },
+    containerExclAgentAvg: {
+      baseName: "container_excl_agent_avg",
       type: "number",
       format: "int64",
     },
@@ -428,6 +479,11 @@ export class UsageSummaryDate {
     },
     cspmContainerHwm: {
       baseName: "cspm_container_hwm",
+      type: "number",
+      format: "int64",
+    },
+    cspmGcpHostTop99p: {
+      baseName: "cspm_gcp_host_top99p",
       type: "number",
       format: "int64",
     },
@@ -473,6 +529,11 @@ export class UsageSummaryDate {
     },
     fargateTasksCountHwm: {
       baseName: "fargate_tasks_count_hwm",
+      type: "number",
+      format: "int64",
+    },
+    forwardingEventsBytesSum: {
+      baseName: "forwarding_events_bytes_sum",
       type: "number",
       format: "int64",
     },
@@ -526,6 +587,11 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    mobileRumSessionCountFlutterSum: {
+      baseName: "mobile_rum_session_count_flutter_sum",
+      type: "number",
+      format: "int64",
+    },
     mobileRumSessionCountIosSum: {
       baseName: "mobile_rum_session_count_ios_sum",
       type: "number",
@@ -563,6 +629,11 @@ export class UsageSummaryDate {
     },
     onlineArchiveEventsCountSum: {
       baseName: "online_archive_events_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    opentelemetryApmHostTop99p: {
+      baseName: "opentelemetry_apm_host_top99p",
       type: "number",
       format: "int64",
     },
@@ -635,6 +706,11 @@ export class UsageSummaryDate {
       type: "number",
       format: "int64",
     },
+    syntheticsParallelTestingMaxSlotsHwm: {
+      baseName: "synthetics_parallel_testing_max_slots_hwm",
+      type: "number",
+      format: "int64",
+    },
     traceSearchIndexedEventsCountSum: {
       baseName: "trace_search_indexed_events_count_sum",
       type: "number",
@@ -642,6 +718,11 @@ export class UsageSummaryDate {
     },
     twolIngestedEventsBytesSum: {
       baseName: "twol_ingested_events_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    universalServiceMonitoringHostTop99p: {
+      baseName: "universal_service_monitoring_host_top99p",
       type: "number",
       format: "int64",
     },

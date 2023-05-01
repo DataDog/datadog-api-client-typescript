@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SyntheticsAPIStepSubtype = typeof HTTP;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The subtype of the Synthetic multistep API test step, currently only supporting `http`.
+ */
+
+export type SyntheticsAPIStepSubtype = typeof HTTP | UnparsedObject;
 export const HTTP = "http";

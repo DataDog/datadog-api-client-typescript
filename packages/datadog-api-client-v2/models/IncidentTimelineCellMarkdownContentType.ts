@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type IncidentTimelineCellMarkdownContentType = typeof MARKDOWN;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the Markdown timeline cell.
+ */
+
+export type IncidentTimelineCellMarkdownContentType =
+  | typeof MARKDOWN
+  | UnparsedObject;
 export const MARKDOWN = "markdown";

@@ -18,6 +18,11 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { Finding } from "../models/Finding";
+import { FindingEvaluation } from "../models/FindingEvaluation";
+import { FindingStatus } from "../models/FindingStatus";
+import { GetFindingResponse } from "../models/GetFindingResponse";
+import { ListFindingsResponse } from "../models/ListFindingsResponse";
 import { SecurityFilterCreateRequest } from "../models/SecurityFilterCreateRequest";
 import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
 import { SecurityFiltersResponse } from "../models/SecurityFiltersResponse";
@@ -45,9 +50,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSecurityFilter."
-      );
+      throw new RequiredError("body", "createSecurityFilter");
     }
 
     // Path Params
@@ -91,9 +94,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createSecurityMonitoringRule."
-      );
+      throw new RequiredError("body", "createSecurityMonitoringRule");
     }
 
     // Path Params
@@ -140,15 +141,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'securityFilterId' is not null or undefined
     if (securityFilterId === null || securityFilterId === undefined) {
-      throw new RequiredError(
-        "Required parameter securityFilterId was null or undefined when calling deleteSecurityFilter."
-      );
+      throw new RequiredError("securityFilterId", "deleteSecurityFilter");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-        "{" + "security_filter_id" + "}",
+        "{security_filter_id}",
         encodeURIComponent(String(securityFilterId))
       );
 
@@ -178,14 +177,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError(
-        "Required parameter ruleId was null or undefined when calling deleteSecurityMonitoringRule."
-      );
+      throw new RequiredError("ruleId", "deleteSecurityMonitoringRule");
     }
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/rules/{rule_id}".replace(
-      "{" + "rule_id" + "}",
+      "{rule_id}",
       encodeURIComponent(String(ruleId))
     );
 
@@ -217,21 +214,20 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
       throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalAssignee."
+        "signalId",
+        "editSecurityMonitoringSignalAssignee"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalAssignee."
-      );
+      throw new RequiredError("body", "editSecurityMonitoringSignalAssignee");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/signals/{signal_id}/assignee".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -277,21 +273,20 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
       throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalIncidents."
+        "signalId",
+        "editSecurityMonitoringSignalIncidents"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalIncidents."
-      );
+      throw new RequiredError("body", "editSecurityMonitoringSignalIncidents");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/signals/{signal_id}/incidents".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -336,22 +331,18 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
-      throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalState."
-      );
+      throw new RequiredError("signalId", "editSecurityMonitoringSignalState");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalState."
-      );
+      throw new RequiredError("body", "editSecurityMonitoringSignalState");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/signals/{signal_id}/state".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -387,6 +378,47 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getFinding(
+    findingId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getFinding'");
+    if (!_config.unstableOperations["v2.getFinding"]) {
+      throw new Error("Unstable operation 'getFinding' is disabled");
+    }
+
+    // verify required parameter 'findingId' is not null or undefined
+    if (findingId === null || findingId === undefined) {
+      throw new RequiredError("findingId", "getFinding");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/posture_management/findings/{finding_id}".replace(
+        "{finding_id}",
+        encodeURIComponent(String(findingId))
+      );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.SecurityMonitoringApi.getFinding"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getSecurityFilter(
     securityFilterId: string,
     _options?: Configuration
@@ -395,15 +427,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'securityFilterId' is not null or undefined
     if (securityFilterId === null || securityFilterId === undefined) {
-      throw new RequiredError(
-        "Required parameter securityFilterId was null or undefined when calling getSecurityFilter."
-      );
+      throw new RequiredError("securityFilterId", "getSecurityFilter");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-        "{" + "security_filter_id" + "}",
+        "{security_filter_id}",
         encodeURIComponent(String(securityFilterId))
       );
 
@@ -433,14 +463,12 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError(
-        "Required parameter ruleId was null or undefined when calling getSecurityMonitoringRule."
-      );
+      throw new RequiredError("ruleId", "getSecurityMonitoringRule");
     }
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/rules/{rule_id}".replace(
-      "{" + "rule_id" + "}",
+      "{rule_id}",
       encodeURIComponent(String(ruleId))
     );
 
@@ -470,15 +498,13 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
-      throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling getSecurityMonitoringSignal."
-      );
+      throw new RequiredError("signalId", "getSecurityMonitoringSignal");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/signals/{signal_id}".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -489,6 +515,123 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listFindings(
+    pageLimit?: number,
+    snapshotTimestamp?: number,
+    pageCursor?: string,
+    filterTags?: string,
+    filterEvaluationChangedAt?: string,
+    filterMuted?: boolean,
+    filterRuleId?: string,
+    filterRuleName?: string,
+    filterResourceType?: string,
+    filterDiscoveryTimestamp?: string,
+    filterEvaluation?: FindingEvaluation,
+    filterStatus?: FindingStatus,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listFindings'");
+    if (!_config.unstableOperations["v2.listFindings"]) {
+      throw new Error("Unstable operation 'listFindings' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/posture_management/findings";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.SecurityMonitoringApi.listFindings"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64")
+      );
+    }
+    if (snapshotTimestamp !== undefined) {
+      requestContext.setQueryParam(
+        "snapshot_timestamp",
+        ObjectSerializer.serialize(snapshotTimestamp, "number", "int64")
+      );
+    }
+    if (pageCursor !== undefined) {
+      requestContext.setQueryParam(
+        "page[cursor]",
+        ObjectSerializer.serialize(pageCursor, "string", "")
+      );
+    }
+    if (filterTags !== undefined) {
+      requestContext.setQueryParam(
+        "filter[tags]",
+        ObjectSerializer.serialize(filterTags, "string", "")
+      );
+    }
+    if (filterEvaluationChangedAt !== undefined) {
+      requestContext.setQueryParam(
+        "filter[evaluation_changed_at]",
+        ObjectSerializer.serialize(filterEvaluationChangedAt, "string", "")
+      );
+    }
+    if (filterMuted !== undefined) {
+      requestContext.setQueryParam(
+        "filter[muted]",
+        ObjectSerializer.serialize(filterMuted, "boolean", "")
+      );
+    }
+    if (filterRuleId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule_id]",
+        ObjectSerializer.serialize(filterRuleId, "string", "")
+      );
+    }
+    if (filterRuleName !== undefined) {
+      requestContext.setQueryParam(
+        "filter[rule_name]",
+        ObjectSerializer.serialize(filterRuleName, "string", "")
+      );
+    }
+    if (filterResourceType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[resource_type]",
+        ObjectSerializer.serialize(filterResourceType, "string", "")
+      );
+    }
+    if (filterDiscoveryTimestamp !== undefined) {
+      requestContext.setQueryParam(
+        "filter[discovery_timestamp]",
+        ObjectSerializer.serialize(filterDiscoveryTimestamp, "string", "")
+      );
+    }
+    if (filterEvaluation !== undefined) {
+      requestContext.setQueryParam(
+        "filter[evaluation]",
+        ObjectSerializer.serialize(filterEvaluation, "FindingEvaluation", "")
+      );
+    }
+    if (filterStatus !== undefined) {
+      requestContext.setQueryParam(
+        "filter[status]",
+        ObjectSerializer.serialize(filterStatus, "FindingStatus", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -690,22 +833,18 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'securityFilterId' is not null or undefined
     if (securityFilterId === null || securityFilterId === undefined) {
-      throw new RequiredError(
-        "Required parameter securityFilterId was null or undefined when calling updateSecurityFilter."
-      );
+      throw new RequiredError("securityFilterId", "updateSecurityFilter");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateSecurityFilter."
-      );
+      throw new RequiredError("body", "updateSecurityFilter");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/configuration/security_filters/{security_filter_id}".replace(
-        "{" + "security_filter_id" + "}",
+        "{security_filter_id}",
         encodeURIComponent(String(securityFilterId))
       );
 
@@ -747,21 +886,17 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
-      throw new RequiredError(
-        "Required parameter ruleId was null or undefined when calling updateSecurityMonitoringRule."
-      );
+      throw new RequiredError("ruleId", "updateSecurityMonitoringRule");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateSecurityMonitoringRule."
-      );
+      throw new RequiredError("body", "updateSecurityMonitoringRule");
     }
 
     // Path Params
     const localVarPath = "/api/v2/security_monitoring/rules/{rule_id}".replace(
-      "{" + "rule_id" + "}",
+      "{rule_id}",
       encodeURIComponent(String(ruleId))
     );
 
@@ -1238,6 +1373,69 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getFinding
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getFinding(
+    response: ResponseContext
+  ): Promise<GetFindingResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: GetFindingResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetFindingResponse"
+      ) as GetFindingResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: GetFindingResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "GetFindingResponse",
+        ""
+      ) as GetFindingResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityFilter
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1402,6 +1600,69 @@ export class SecurityMonitoringApiResponseProcessor {
         "SecurityMonitoringSignal",
         ""
       ) as SecurityMonitoringSignal;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listFindings
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listFindings(
+    response: ResponseContext
+  ): Promise<ListFindingsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: ListFindingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListFindingsResponse"
+      ) as ListFindingsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListFindingsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListFindingsResponse",
+        ""
+      ) as ListFindingsResponse;
       return body;
     }
 
@@ -1857,6 +2118,14 @@ export interface SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest {
   body: SecurityMonitoringSignalStateUpdateRequest;
 }
 
+export interface SecurityMonitoringApiGetFindingRequest {
+  /**
+   * The ID of the finding.
+   * @type string
+   */
+  findingId: string;
+}
+
 export interface SecurityMonitoringApiGetSecurityFilterRequest {
   /**
    * The ID of the security filter.
@@ -1881,9 +2150,72 @@ export interface SecurityMonitoringApiGetSecurityMonitoringSignalRequest {
   signalId: string;
 }
 
+export interface SecurityMonitoringApiListFindingsRequest {
+  /**
+   * Limit the number of findings returned. Must be <= 1000.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Return findings for a given snapshot of time (Unix ms).
+   * @type number
+   */
+  snapshotTimestamp?: number;
+  /**
+   * Return the next page of findings pointed to by the cursor.
+   * @type string
+   */
+  pageCursor?: string;
+  /**
+   * Return findings that have these associated tags (repeatable).
+   * @type string
+   */
+  filterTags?: string;
+  /**
+   * Return findings that have changed from pass to fail or vice versa on a specified date (Unix ms) or date range (using comparison operators).
+   * @type string
+   */
+  filterEvaluationChangedAt?: string;
+  /**
+   * Set to `true` to return findings that are muted. Set to `false` to return unmuted findings.
+   * @type boolean
+   */
+  filterMuted?: boolean;
+  /**
+   * Return findings for the specified rule ID.
+   * @type string
+   */
+  filterRuleId?: string;
+  /**
+   * Return findings for the specified rule.
+   * @type string
+   */
+  filterRuleName?: string;
+  /**
+   * Return only findings for the specified resource type.
+   * @type string
+   */
+  filterResourceType?: string;
+  /**
+   * Return findings that were found on a specified date (Unix ms) or date range (using comparison operators).
+   * @type string
+   */
+  filterDiscoveryTimestamp?: string;
+  /**
+   * Return only `pass` or `fail` findings.
+   * @type FindingEvaluation
+   */
+  filterEvaluation?: FindingEvaluation;
+  /**
+   * Return only findings with the specified status.
+   * @type FindingStatus
+   */
+  filterStatus?: FindingStatus;
+}
+
 export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
   /**
-   * Size for a given page.
+   * Size for a given page. The maximum allowed value is 5000.
    * @type number
    */
   pageSize?: number;
@@ -2139,6 +2471,27 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Returns a single finding with message and resource configuration.
+   * @param param The request object
+   */
+  public getFinding(
+    param: SecurityMonitoringApiGetFindingRequest,
+    options?: Configuration
+  ): Promise<GetFindingResponse> {
+    const requestContextPromise = this.requestFactory.getFinding(
+      param.findingId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getFinding(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get the details of a specific security filter.
    *
    * See the [security filter guide](https://docs.datadoghq.com/security_platform/guide/how-to-setup-security-filters-using-security-monitoring-api/)
@@ -2204,6 +2557,128 @@ export class SecurityMonitoringApi {
           );
         });
     });
+  }
+
+  /**
+   * Get a list of CSPM findings.
+   *
+   * ### Filtering
+   *
+   * Filters can be applied by appending query parameters to the URL.
+   *
+   *   - Using a single filter: `?filter[attribute_key]=attribute_value`
+   *   - Chaining filters: `?filter[attribute_key]=attribute_value&filter[attribute_key]=attribute_value...`
+   *   - Filtering on tags: `?filter[tags]=tag_key:tag_value&filter[tags]=tag_key_2:tag_value_2`
+   *
+   * Here, `attribute_key` can be any of the filter keys described further below.
+   *
+   * Query parameters of type `integer` support comparison operators (`>`, `>=`, `<`, `<=`). This is particularly useful when filtering by `evaluation_changed_at` or `resource_discovery_timestamp`. For example: `?filter[evaluation_changed_at]=>20123123121`.
+   *
+   * You can also use the negation operator on strings. For example, use `filter[resource_type]=-aws*` to filter for any non-AWS resources.
+   *
+   * The operator must come after the equal sign. For example, to filter with the `>=` operator, add the operator after the equal sign: `filter[evaluation_changed_at]=>=1678809373257`.
+   *
+   * ### Response
+   *
+   * The response includes an array of finding objects, pagination metadata, and a count of items that match the query.
+   *
+   * Each finding object contains the following:
+   *
+   * - The finding ID that can be used in a `GetFinding` request to retrieve the full finding details.
+   * - Core attributes, including status, evaluation, high-level resource details, muted state, and rule details.
+   * - `evaluation_changed_at` and `resource_discovery_date` time stamps.
+   * - An array of associated tags.
+   * @param param The request object
+   */
+  public listFindings(
+    param: SecurityMonitoringApiListFindingsRequest = {},
+    options?: Configuration
+  ): Promise<ListFindingsResponse> {
+    const requestContextPromise = this.requestFactory.listFindings(
+      param.pageLimit,
+      param.snapshotTimestamp,
+      param.pageCursor,
+      param.filterTags,
+      param.filterEvaluationChangedAt,
+      param.filterMuted,
+      param.filterRuleId,
+      param.filterRuleName,
+      param.filterResourceType,
+      param.filterDiscoveryTimestamp,
+      param.filterEvaluation,
+      param.filterStatus,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listFindings(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Provide a paginated version of listFindings returning a generator with all the items.
+   */
+  public async *listFindingsWithPagination(
+    param: SecurityMonitoringApiListFindingsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<Finding> {
+    let pageSize = 100;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listFindings(
+        param.pageLimit,
+        param.snapshotTimestamp,
+        param.pageCursor,
+        param.filterTags,
+        param.filterEvaluationChangedAt,
+        param.filterMuted,
+        param.filterRuleId,
+        param.filterRuleName,
+        param.filterResourceType,
+        param.filterDiscoveryTimestamp,
+        param.filterEvaluation,
+        param.filterStatus,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listFindings(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      const cursorMeta = response.meta;
+      if (cursorMeta === undefined) {
+        break;
+      }
+      const cursorMetaPage = cursorMeta.page;
+      if (cursorMetaPage === undefined) {
+        break;
+      }
+      const cursorMetaPageCursor = cursorMetaPage.cursor;
+      if (cursorMetaPageCursor === undefined) {
+        break;
+      }
+
+      param.pageCursor = cursorMetaPageCursor;
+    }
   }
 
   /**

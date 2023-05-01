@@ -27,7 +27,7 @@ export class ServiceDefinitionV2Slack {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

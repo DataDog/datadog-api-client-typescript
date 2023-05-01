@@ -23,7 +23,7 @@ export class RelationshipToOrganizationData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

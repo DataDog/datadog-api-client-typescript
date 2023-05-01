@@ -36,7 +36,7 @@ export class SyntheticsBrowserTestRumSettings {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

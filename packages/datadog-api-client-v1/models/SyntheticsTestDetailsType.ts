@@ -4,6 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SyntheticsTestDetailsType = typeof API | typeof BROWSER;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the Synthetic test, either `api` or `browser`.
+ */
+
+export type SyntheticsTestDetailsType =
+  | typeof API
+  | typeof BROWSER
+  | UnparsedObject;
 export const API = "api";
 export const BROWSER = "browser";

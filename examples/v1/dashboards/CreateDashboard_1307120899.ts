@@ -9,8 +9,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
-    title:
-      "Example-Create_a_new_timeseries_widget_with_ci_tests_data_source with ci_tests datasource",
+    title: "Example-Dashboard with ci_tests datasource",
     widgets: [
       {
         definition: {

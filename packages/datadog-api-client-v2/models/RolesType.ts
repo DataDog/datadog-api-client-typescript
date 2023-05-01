@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type RolesType = typeof ROLES;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Roles type.
+ */
+
+export type RolesType = typeof ROLES | UnparsedObject;
 export const ROLES = "roles";

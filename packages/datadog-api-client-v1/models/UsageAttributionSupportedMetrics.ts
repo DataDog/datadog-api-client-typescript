@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Supported fields for usage attribution requests (valid requests contain one or more metrics, or `*` for all).
+ */
+
 export type UsageAttributionSupportedMetrics =
   | typeof CUSTOM_TIMESERIES_USAGE
   | typeof CONTAINER_USAGE
@@ -49,7 +55,10 @@ export type UsageAttributionSupportedMetrics =
   | typeof APM_FARGATE_PERCENTAGE
   | typeof APPSEC_FARGATE_USAGE
   | typeof APPSEC_FARGATE_PERCENTAGE
-  | typeof ALL;
+  | typeof ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE
+  | typeof ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE
+  | typeof ALL
+  | UnparsedObject;
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CONTAINER_USAGE = "container_usage";
 export const SNMP_PERCENTAGE = "snmp_percentage";
@@ -98,4 +107,8 @@ export const APM_FARGATE_USAGE = "apm_fargate_usage";
 export const APM_FARGATE_PERCENTAGE = "apm_fargate_percentage";
 export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
 export const APPSEC_FARGATE_PERCENTAGE = "appsec_fargate_percentage";
+export const ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE =
+  "estimated_rum_usage_attribution_usage";
+export const ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE =
+  "estimated_rum_usage_attribution_percentage";
 export const ALL = "*";

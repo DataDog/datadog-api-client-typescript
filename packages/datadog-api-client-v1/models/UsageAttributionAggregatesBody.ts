@@ -26,7 +26,7 @@ export class UsageAttributionAggregatesBody {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

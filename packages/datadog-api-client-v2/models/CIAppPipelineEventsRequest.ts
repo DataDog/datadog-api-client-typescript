@@ -35,7 +35,7 @@ export class CIAppPipelineEventsRequest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

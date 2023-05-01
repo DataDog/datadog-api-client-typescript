@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type ServiceDefinitionV2Version = typeof V2;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Schema version being used.
+ */
+
+export type ServiceDefinitionV2Version = typeof V2 | UnparsedObject;
 export const V2 = "v2";

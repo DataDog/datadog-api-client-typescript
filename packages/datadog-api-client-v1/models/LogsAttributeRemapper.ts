@@ -60,7 +60,7 @@ export class LogsAttributeRemapper {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

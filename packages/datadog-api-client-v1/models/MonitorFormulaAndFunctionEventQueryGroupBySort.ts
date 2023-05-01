@@ -28,7 +28,7 @@ export class MonitorFormulaAndFunctionEventQueryGroupBySort {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

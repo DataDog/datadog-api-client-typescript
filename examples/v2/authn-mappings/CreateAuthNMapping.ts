@@ -14,8 +14,8 @@ const params: v2.AuthNMappingsApiCreateAuthNMappingRequest = {
   body: {
     data: {
       attributes: {
-        attributeKey: "examplecreateanauthnmappingreturnsokresponse",
-        attributeValue: "Example-Create_an_AuthN_Mapping_returns_OK_response",
+        attributeKey: "exampleauthnmapping",
+        attributeValue: "Example-AuthN-Mapping",
       },
       relationships: {
         role: {

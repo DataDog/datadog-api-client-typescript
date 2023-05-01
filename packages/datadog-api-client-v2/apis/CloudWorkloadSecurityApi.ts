@@ -33,9 +33,7 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createCloudWorkloadSecurityAgentRule."
-      );
+      throw new RequiredError("body", "createCloudWorkloadSecurityAgentRule");
     }
 
     // Path Params
@@ -83,14 +81,15 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // verify required parameter 'agentRuleId' is not null or undefined
     if (agentRuleId === null || agentRuleId === undefined) {
       throw new RequiredError(
-        "Required parameter agentRuleId was null or undefined when calling deleteCloudWorkloadSecurityAgentRule."
+        "agentRuleId",
+        "deleteCloudWorkloadSecurityAgentRule"
       );
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id}".replace(
-        "{" + "agent_rule_id" + "}",
+        "{agent_rule_id}",
         encodeURIComponent(String(agentRuleId))
       );
 
@@ -148,14 +147,15 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // verify required parameter 'agentRuleId' is not null or undefined
     if (agentRuleId === null || agentRuleId === undefined) {
       throw new RequiredError(
-        "Required parameter agentRuleId was null or undefined when calling getCloudWorkloadSecurityAgentRule."
+        "agentRuleId",
+        "getCloudWorkloadSecurityAgentRule"
       );
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id}".replace(
-        "{" + "agent_rule_id" + "}",
+        "{agent_rule_id}",
         encodeURIComponent(String(agentRuleId))
       );
 
@@ -212,21 +212,20 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     // verify required parameter 'agentRuleId' is not null or undefined
     if (agentRuleId === null || agentRuleId === undefined) {
       throw new RequiredError(
-        "Required parameter agentRuleId was null or undefined when calling updateCloudWorkloadSecurityAgentRule."
+        "agentRuleId",
+        "updateCloudWorkloadSecurityAgentRule"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateCloudWorkloadSecurityAgentRule."
-      );
+      throw new RequiredError("body", "updateCloudWorkloadSecurityAgentRule");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/security_monitoring/cloud_workload_security/agent_rules/{agent_rule_id}".replace(
-        "{" + "agent_rule_id" + "}",
+        "{agent_rule_id}",
         encodeURIComponent(String(agentRuleId))
       );
 

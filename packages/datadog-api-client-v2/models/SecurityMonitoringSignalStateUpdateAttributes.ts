@@ -32,7 +32,7 @@ export class SecurityMonitoringSignalStateUpdateAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

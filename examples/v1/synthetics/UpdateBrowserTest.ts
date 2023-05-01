@@ -14,6 +14,7 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
       configVariables: [
         {
           name: "VARIABLE_NAME",
+          secure: false,
           type: "text",
         },
       ],
@@ -24,15 +25,16 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
           username: "my_username",
         },
         bodyType: "text/plain",
+        callType: "unary",
         certificate: {
           cert: {},
           key: {},
         },
         certificateDomains: [],
-        method: "GET",
         proxy: {
           url: "https://example.com",
         },
+        service: "Greeter",
         url: "https://example.com",
       },
       variables: [
@@ -50,6 +52,7 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         executionRule: "blocking",
       },
       deviceIds: ["laptop_large"],
+      httpVersion: "http1",
       monitorOptions: {},
       restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
       retry: {},
@@ -57,6 +60,21 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
         applicationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         clientTokenId: 12345,
         isEnabled: true,
+      },
+      scheduling: {
+        timeframes: [
+          {
+            day: 1,
+            from: "07:00",
+            to: "16:00",
+          },
+          {
+            day: 3,
+            from: "07:00",
+            to: "16:00",
+          },
+        ],
+        timezone: "America/New_York",
       },
     },
     status: "live",

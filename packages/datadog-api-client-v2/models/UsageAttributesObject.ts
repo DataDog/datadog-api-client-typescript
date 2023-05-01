@@ -36,7 +36,7 @@ export class UsageAttributesObject {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

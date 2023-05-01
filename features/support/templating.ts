@@ -1,3 +1,5 @@
+import { UnparsedObject } from "../../packages/datadog-api-client-common/util";
+
 declare global {
   interface String {
     templated(data: { [key: string]: any }): string;
@@ -14,70 +16,6 @@ const templateFunctions: { [key: string]: any } = {
   timeISO: relativeTime(true),
   timestamp: relativeTime(false),
 };
-
-const reservedKeywords: string[] = [
-  "abstract",
-  "await",
-  "boolean",
-  "break",
-  "byte",
-  "case",
-  "catch",
-  "char",
-  "class",
-  "const",
-  "continue",
-  "debugger",
-  "default",
-  "delete",
-  "do",
-  "double",
-  "else",
-  "enum",
-  "export",
-  "extends",
-  "false",
-  "final",
-  "finally",
-  "float",
-  "for",
-  "function",
-  "goto",
-  "if",
-  "implements",
-  "import",
-  "in",
-  "instanceof",
-  "int",
-  "interface",
-  "let",
-  "long",
-  "native",
-  "new",
-  "null",
-  "package",
-  "private",
-  "protected",
-  "public",
-  "return",
-  "short",
-  "static",
-  "super",
-  "switch",
-  "synchronized",
-  "this",
-  "throw",
-  "transient",
-  "true",
-  "try",
-  "typeof",
-  "var",
-  "void",
-  "volatile",
-  "while",
-  "with",
-  "yield",
-];
 
 function relativeTime(iso: boolean): any {
   const timeRE = /now( *([+-]) *(\d+)([smhdMy]))?/;
@@ -132,11 +70,8 @@ function pathLookup(data: any, dottedPath: string): any {
           result = value[part];
         } else if (part.toAttributeName() in value) {
           result = value[part.toAttributeName()];
-        } else if (
-          "unparsedObject" in value &&
-          part in value["unparsedObject"]
-        ) {
-          result = value["unparsedObject"][part];
+        } else if (value instanceof UnparsedObject && part in value["_data"]) {
+          result = value["_data"][part];
         } else {
           throw new Error(
             `${part} not found in ${JSON.stringify(
@@ -145,9 +80,28 @@ function pathLookup(data: any, dottedPath: string): any {
           );
         }
       }
+      if (result instanceof UnparsedObject) {
+        result = result["_data"]
+      }
     }
   }
+
   return result;
+}
+
+function getTypeForValue(pathResult: any): string {
+  let _type: string = "";
+
+  if (pathResult?.constructor?.name) {
+    if (pathResult.constructor?.name == "Array") {
+      if (pathResult[0]?.constructor?.name) {
+        _type = `Array<${pathResult[0].constructor.name}>`
+      }
+    } else {
+      _type = pathResult.constructor.name
+    }
+  }
+  return _type;
 }
 
 String.prototype.templated = function (data: { [key: string]: any }): string {
@@ -172,13 +126,11 @@ String.prototype.toOperationName = function (): string {
 };
 
 String.prototype.toAttributeName = function (): string {
-  const attrName: string = String(this)
+  return String(this)
     .replace(/[^A-Za-z0-9]+(.)/g, function (...matches) {
       return matches[1].toUpperCase();
     })
     .replace(/[^A-Za-z0-9]+/g, "");
-
-  return reservedKeywords.includes(attrName) ? `_${attrName}` : attrName;
 };
 
 function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
@@ -186,17 +138,4 @@ function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
   return obj[key];
 }
 
-function fixKeys(key: string, value: any): void {
-  if (typeof value === "object" && value != null) {
-    const keys = Object.keys(value);
-    keys.forEach((k) => {
-      if (k.toAttributeName() != k) {
-        value[k.toAttributeName()] = value[k];
-        delete value[k];
-      }
-    });
-  }
-  return value;
-}
-
-export { pathLookup, getProperty, fixKeys };
+export { pathLookup, getProperty, getTypeForValue };

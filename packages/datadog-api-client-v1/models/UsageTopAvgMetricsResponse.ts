@@ -24,7 +24,7 @@ export class UsageTopAvgMetricsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

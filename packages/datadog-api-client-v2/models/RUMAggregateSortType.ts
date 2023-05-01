@@ -4,6 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type RUMAggregateSortType = typeof ALPHABETICAL | typeof MEASURE;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The type of sorting algorithm.
+ */
+
+export type RUMAggregateSortType =
+  | typeof ALPHABETICAL
+  | typeof MEASURE
+  | UnparsedObject;
 export const ALPHABETICAL = "alphabetical";
 export const MEASURE = "measure";

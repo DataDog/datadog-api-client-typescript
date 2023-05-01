@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type IncidentTeamType = typeof TEAMS;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Incident Team resource type.
+ */
+
+export type IncidentTeamType = typeof TEAMS | UnparsedObject;
 export const TEAMS = "teams";

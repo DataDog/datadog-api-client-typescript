@@ -28,7 +28,7 @@ export class UsageSpecifiedCustomReportsData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

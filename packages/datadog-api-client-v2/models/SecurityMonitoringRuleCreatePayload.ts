@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCreatePayload";
 import { SecurityMonitoringSignalRuleCreatePayload } from "./SecurityMonitoringSignalRuleCreatePayload";
 import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitoringStandardRuleCreatePayload";
 
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type SecurityMonitoringRuleCreatePayload =
   | SecurityMonitoringStandardRuleCreatePayload
   | SecurityMonitoringSignalRuleCreatePayload
+  | CloudConfigurationRuleCreatePayload
   | UnparsedObject;

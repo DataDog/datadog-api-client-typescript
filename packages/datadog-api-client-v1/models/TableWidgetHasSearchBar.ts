@@ -4,10 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Controls the display of the search bar.
+ */
+
 export type TableWidgetHasSearchBar =
   | typeof ALWAYS
   | typeof NEVER
-  | typeof AUTO;
+  | typeof AUTO
+  | UnparsedObject;
 export const ALWAYS = "always";
 export const NEVER = "never";
 export const AUTO = "auto";

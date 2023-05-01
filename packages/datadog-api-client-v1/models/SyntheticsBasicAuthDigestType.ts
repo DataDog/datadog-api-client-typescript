@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SyntheticsBasicAuthDigestType = typeof DIGEST;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The type of basic authentication to use when performing the test.
+ */
+
+export type SyntheticsBasicAuthDigestType = typeof DIGEST | UnparsedObject;
 export const DIGEST = "digest";

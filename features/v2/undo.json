@@ -36,6 +36,43 @@
       "type": "idempotent"
     }
   },
+  "ListSpansMetrics": {
+    "tag": "Spans Metrics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateSpansMetric": {
+    "tag": "Spans Metrics",
+    "undo": {
+      "operationId": "DeleteSpansMetric",
+      "parameters": [
+        {
+          "name": "metric_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteSpansMetric": {
+    "tag": "Spans Metrics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetSpansMetric": {
+    "tag": "Spans Metrics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateSpansMetric": {
+    "tag": "Spans Metrics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListApplicationKeys": {
     "tag": "Key Management",
     "undo": {
@@ -237,6 +274,12 @@
       "type": "unsafe"
     }
   },
+  "SearchIncidents": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "DeleteIncident": {
     "tag": "Incidents",
     "undo": {
@@ -262,6 +305,88 @@
     }
   },
   "UpdateIncidentAttachments": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListIncidentIntegrations": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateIncidentIntegration": {
+    "tag": "Incidents",
+    "undo": {
+      "operationId": "DeleteIncidentIntegration",
+      "parameters": [
+        {
+          "name": "incident_id",
+          "source": "data.attributes.incident_id"
+        },
+        {
+          "name": "integration_metadata_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteIncidentIntegration": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetIncidentIntegration": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateIncidentIntegration": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListIncidentTodos": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateIncidentTodo": {
+    "tag": "Incidents",
+    "undo": {
+      "operationId": "DeleteIncidentTodo",
+      "parameters": [
+        {
+          "name": "incident_id",
+          "source": "data.attributes.incident_id"
+        },
+        {
+          "name": "todo_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteIncidentTodo": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetIncidentTodo": {
+    "tag": "Incidents",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateIncidentTodo": {
     "tag": "Incidents",
     "undo": {
       "type": "idempotent"
@@ -300,6 +425,43 @@
   },
   "UpdateOpsgenieService": {
     "tag": "Opsgenie Integration",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListCloudflareAccounts": {
+    "tag": "Cloudflare Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateCloudflareAccount": {
+    "tag": "Cloudflare Integration",
+    "undo": {
+      "operationId": "DeleteCloudflareAccount",
+      "parameters": [
+        {
+          "name": "account_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteCloudflareAccount": {
+    "tag": "Cloudflare Integration",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetCloudflareAccount": {
+    "tag": "Cloudflare Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateCloudflareAccount": {
+    "tag": "Cloudflare Integration",
     "undo": {
       "type": "idempotent"
     }
@@ -367,6 +529,92 @@
   },
   "UpdateConfluentResource": {
     "tag": "Confluent Cloud",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListFastlyAccounts": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateFastlyAccount": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "operationId": "DeleteFastlyAccount",
+      "parameters": [
+        {
+          "name": "account_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteFastlyAccount": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetFastlyAccount": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateFastlyAccount": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListFastlyServices": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateFastlyService": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "operationId": "DeleteFastlyService",
+      "parameters": [
+        {
+          "name": "account_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteFastlyService": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetFastlyService": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateFastlyService": {
+    "tag": "Fastly Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetIPAllowlist": {
+    "tag": "IP Allowlist",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateIPAllowlist": {
+    "tag": "IP Allowlist",
     "undo": {
       "type": "idempotent"
     }
@@ -579,8 +827,57 @@
       "type": "safe"
     }
   },
+  "ListMonitorConfigPolicies": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateMonitorConfigPolicy": {
+    "tag": "Monitors",
+    "undo": {
+      "operationId": "DeleteMonitorConfigPolicy",
+      "parameters": [
+        {
+          "name": "policy_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteMonitorConfigPolicy": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetMonitorConfigPolicy": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateMonitorConfigPolicy": {
+    "tag": "Monitors",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "ListPermissions": {
     "tag": "Roles",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListFindings": {
+    "tag": "Security Monitoring",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetFinding": {
+    "tag": "Security Monitoring",
     "undo": {
       "type": "safe"
     }
@@ -589,6 +886,36 @@
     "tag": "Processes",
     "undo": {
       "type": "safe"
+    }
+  },
+  "QueryScalarData": {
+    "tag": "Metrics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "QueryTimeseriesData": {
+    "tag": "Metrics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "DeleteRestrictionPolicy": {
+    "tag": "Restriction Policies",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetRestrictionPolicy": {
+    "tag": "Restriction Policies",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateRestrictionPolicy": {
+    "tag": "Restriction Policies",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "ListRoles": {
@@ -891,6 +1218,82 @@
       "type": "idempotent"
     }
   },
+  "ListScanningGroups": {
+    "tag": "Sensitive Data Scanner",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ReorderScanningGroups": {
+    "tag": "Sensitive Data Scanner",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "CreateScanningGroup": {
+    "tag": "Sensitive Data Scanner",
+    "undo": {
+      "operationId": "DeleteScanningGroup",
+      "parameters": [
+        {
+          "name": "group_id",
+          "source": "data.id"
+        },
+        {
+          "name": "body",
+          "template": "{\n  \"meta\": {}\n}"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteScanningGroup": {
+    "tag": "Sensitive Data Scanner",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "UpdateScanningGroup": {
+    "tag": "Sensitive Data Scanner",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "CreateScanningRule": {
+    "tag": "Sensitive Data Scanner",
+    "undo": {
+      "operationId": "DeleteScanningRule",
+      "parameters": [
+        {
+          "name": "rule_id",
+          "source": "data.id"
+        },
+        {
+          "name": "body",
+          "template": "{\n  \"meta\": {}\n}"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteScanningRule": {
+    "tag": "Sensitive Data Scanner",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "UpdateScanningRule": {
+    "tag": "Sensitive Data Scanner",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListStandardPatterns": {
+    "tag": "Sensitive Data Scanner",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "SubmitMetrics": {
     "tag": "Metrics",
     "undo": {
@@ -898,7 +1301,7 @@
     }
   },
   "CreateServiceAccount": {
-    "tag": "Users",
+    "tag": "Service Accounts",
     "undo": {
       "operationId": "DisableUser",
       "parameters": [
@@ -907,6 +1310,7 @@
           "source": "data.id"
         }
       ],
+      "tag": "Users",
       "type": "unsafe"
     }
   },
@@ -1015,6 +1419,143 @@
   },
   "UpdateIncidentService": {
     "tag": "Incident Services",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetOnDemandConcurrencyCap": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "SetOnDemandConcurrencyCap": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "ListTeams": {
+    "tag": "Teams",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateTeam": {
+    "tag": "Teams",
+    "undo": {
+      "operationId": "DeleteTeam",
+      "parameters": [
+        {
+          "name": "team_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteTeam": {
+    "tag": "Teams",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetTeam": {
+    "tag": "Teams",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateTeam": {
+    "tag": "Teams",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetTeamLinks": {
+    "tag": "Teams",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateTeamLink": {
+    "tag": "Teams",
+    "undo": {
+      "operationId": "DeleteTeamLink",
+      "parameters": [
+        {
+          "name": "team_id",
+          "source": "data.attributes.team_id"
+        },
+        {
+          "name": "link_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteTeamLink": {
+    "tag": "Teams",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetTeamLink": {
+    "tag": "Teams",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateTeamLink": {
+    "tag": "Teams",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetTeamMemberships": {
+    "tag": "Teams",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateTeamMembership": {
+    "tag": "Teams",
+    "undo": {
+      "operationId": "DeleteTeamMembership",
+      "parameters": [
+        {
+          "name": "team_id",
+          "template": "{{team.data.id}}"
+        },
+        {
+          "name": "user_id",
+          "source": "data.relationships.user.data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteTeamMembership": {
+    "tag": "Teams",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "UpdateTeamMembership": {
+    "tag": "Teams",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetTeamPermissionSettings": {
+    "tag": "Teams",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateTeamPermissionSetting": {
+    "tag": "Teams",
     "undo": {
       "type": "idempotent"
     }

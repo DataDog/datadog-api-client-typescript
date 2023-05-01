@@ -9,14 +9,11 @@ const apiInstance = new v1.MonitorsApi(configuration);
 
 const params: v1.MonitorsApiCreateMonitorRequest = {
   body: {
-    name: "Example-Create_a_ci_tests_formula_and_functions_monitor_returns_OK_response",
+    name: "Example-Monitor",
     type: "ci-tests alert",
     query: `formula("query1 / query2 * 100").last("15m") >= 0.8`,
     message: "some message Notify: @hipchat-channel",
-    tags: [
-      "test:examplecreateacitestsformulaandfunctionsmonitorreturnsokresponse",
-      "env:ci",
-    ],
+    tags: ["test:examplemonitor", "env:ci"],
     priority: 3,
     options: {
       thresholds: {

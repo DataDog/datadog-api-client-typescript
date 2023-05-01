@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type TreeMapWidgetDefinitionType = typeof TREEMAP;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the treemap widget.
+ */
+
+export type TreeMapWidgetDefinitionType = typeof TREEMAP | UnparsedObject;
 export const TREEMAP = "treemap";

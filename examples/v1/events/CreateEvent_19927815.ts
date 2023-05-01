@@ -10,9 +10,9 @@ const apiInstance = new v1.EventsApi(configuration);
 const params: v1.EventsApiCreateEventRequest = {
   body: {
     title:
-      "Example-Post_an_event_with_a_long_title_returns_OK_response very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong title with 100+ characters",
+      "Example-Event very very very looooooooong looooooooooooong loooooooooooooooooooooong looooooooooooooooooooooooooong title with 100+ characters",
     text: "A text message.",
-    tags: ["test:ExamplePostaneventwithalongtitlereturnsOKresponse"],
+    tags: ["test:ExampleEvent"],
   },
 };
 

@@ -32,9 +32,7 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createNotebook."
-      );
+      throw new RequiredError("body", "createNotebook");
     }
 
     // Path Params
@@ -76,14 +74,12 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'notebookId' is not null or undefined
     if (notebookId === null || notebookId === undefined) {
-      throw new RequiredError(
-        "Required parameter notebookId was null or undefined when calling deleteNotebook."
-      );
+      throw new RequiredError("notebookId", "deleteNotebook");
     }
 
     // Path Params
     const localVarPath = "/api/v1/notebooks/{notebook_id}".replace(
-      "{" + "notebook_id" + "}",
+      "{notebook_id}",
       encodeURIComponent(String(notebookId))
     );
 
@@ -112,14 +108,12 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'notebookId' is not null or undefined
     if (notebookId === null || notebookId === undefined) {
-      throw new RequiredError(
-        "Required parameter notebookId was null or undefined when calling getNotebook."
-      );
+      throw new RequiredError("notebookId", "getNotebook");
     }
 
     // Path Params
     const localVarPath = "/api/v1/notebooks/{notebook_id}".replace(
-      "{" + "notebook_id" + "}",
+      "{notebook_id}",
       encodeURIComponent(String(notebookId))
     );
 
@@ -246,21 +240,17 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'notebookId' is not null or undefined
     if (notebookId === null || notebookId === undefined) {
-      throw new RequiredError(
-        "Required parameter notebookId was null or undefined when calling updateNotebook."
-      );
+      throw new RequiredError("notebookId", "updateNotebook");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateNotebook."
-      );
+      throw new RequiredError("body", "updateNotebook");
     }
 
     // Path Params
     const localVarPath = "/api/v1/notebooks/{notebook_id}".replace(
-      "{" + "notebook_id" + "}",
+      "{notebook_id}",
       encodeURIComponent(String(notebookId))
     );
 

@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type UsersType = typeof USERS;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Users resource type.
+ */
+
+export type UsersType = typeof USERS | UnparsedObject;
 export const USERS = "users";

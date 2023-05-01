@@ -12,7 +12,7 @@ const SECURITY_RULE_ID = process.env.SECURITY_RULE_ID as string;
 
 const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
   body: {
-    name: "Example-Update_an_existing_rule_returns_OK_response-Updated",
+    name: "Example-Security-Monitoring-Updated",
     queries: [
       {
         query: "@test:true",

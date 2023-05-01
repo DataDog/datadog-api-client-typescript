@@ -19,7 +19,7 @@ export class SyntheticsListGlobalVariablesResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

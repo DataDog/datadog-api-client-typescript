@@ -4,12 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of browser test variable.
+ */
+
 export type SyntheticsBrowserVariableType =
   | typeof ELEMENT
   | typeof EMAIL
   | typeof GLOBAL
   | typeof JAVASCRIPT
-  | typeof TEXT;
+  | typeof TEXT
+  | UnparsedObject;
 export const ELEMENT = "element";
 export const EMAIL = "email";
 export const GLOBAL = "global";

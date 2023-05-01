@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type ToplistWidgetDefinitionType = typeof TOPLIST;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the top list widget.
+ */
+
+export type ToplistWidgetDefinitionType = typeof TOPLIST | UnparsedObject;
 export const TOPLIST = "toplist";

@@ -28,7 +28,7 @@ export class MetricsQueryMetadata {
    */
   "expression"?: string;
   /**
-   * Number of seconds between data samples.
+   * Number of milliseconds between data samples.
    */
   "interval"?: number;
   /**
@@ -40,7 +40,7 @@ export class MetricsQueryMetadata {
    */
   "metric"?: string;
   /**
-   * List of points of the time series.
+   * List of points of the time series in milliseconds.
    */
   "pointlist"?: Array<[number, number]>;
   /**
@@ -61,15 +61,16 @@ export class MetricsQueryMetadata {
   "tagSet"?: Array<string>;
   /**
    * Detailed information about the metric unit.
-   * First element describes the "primary unit" (for example, `bytes` in `bytes per second`),
-   * second describes the "per unit" (for example, `second` in `bytes per second`).
+   * The first element describes the "primary unit" (for example, `bytes` in `bytes per second`).
+   * The second element describes the "per unit" (for example, `second` in `bytes per second`).
+   * If the second element is not present, the API returns null.
    */
   "unit"?: [MetricsQueryUnit, MetricsQueryUnit];
 
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

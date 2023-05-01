@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type GroupWidgetDefinitionType = typeof GROUP;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the group widget.
+ */
+
+export type GroupWidgetDefinitionType = typeof GROUP | UnparsedObject;
 export const GROUP = "group";

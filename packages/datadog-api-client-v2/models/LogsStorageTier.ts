@@ -4,6 +4,15 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type LogsStorageTier = typeof INDEXES | typeof ONLINE_ARCHIVES;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Specifies storage type as indexes or online-archives
+ */
+
+export type LogsStorageTier =
+  | typeof INDEXES
+  | typeof ONLINE_ARCHIVES
+  | UnparsedObject;
 export const INDEXES = "indexes";
 export const ONLINE_ARCHIVES = "online-archives";

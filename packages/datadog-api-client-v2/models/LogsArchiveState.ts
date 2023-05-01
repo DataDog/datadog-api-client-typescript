@@ -4,11 +4,18 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The state of the archive.
+ */
+
 export type LogsArchiveState =
   | typeof UNKNOWN
   | typeof WORKING
   | typeof FAILING
-  | typeof WORKING_AUTH_LEGACY;
+  | typeof WORKING_AUTH_LEGACY
+  | UnparsedObject;
 export const UNKNOWN = "UNKNOWN";
 export const WORKING = "WORKING";
 export const FAILING = "FAILING";

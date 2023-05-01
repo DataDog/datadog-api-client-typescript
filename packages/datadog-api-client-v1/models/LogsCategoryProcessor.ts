@@ -49,7 +49,7 @@ export class LogsCategoryProcessor {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

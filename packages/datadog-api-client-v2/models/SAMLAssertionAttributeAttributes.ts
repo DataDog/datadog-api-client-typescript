@@ -22,7 +22,7 @@ export class SAMLAssertionAttributeAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

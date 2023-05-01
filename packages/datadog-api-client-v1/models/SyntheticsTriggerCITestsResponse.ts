@@ -32,7 +32,7 @@ export class SyntheticsTriggerCITestsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

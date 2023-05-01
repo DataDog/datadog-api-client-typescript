@@ -43,7 +43,7 @@ export class CIAppPipelinesGroupBy {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

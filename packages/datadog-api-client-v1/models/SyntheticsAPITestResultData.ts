@@ -55,7 +55,7 @@ export class SyntheticsAPITestResultData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

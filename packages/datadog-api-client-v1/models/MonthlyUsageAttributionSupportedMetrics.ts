@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Supported metrics for monthly usage attribution requests.
+ */
+
 export type MonthlyUsageAttributionSupportedMetrics =
   | typeof API_USAGE
   | typeof API_PERCENTAGE
@@ -17,6 +23,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof APPSEC_PERCENTAGE
   | typeof BROWSER_USAGE
   | typeof BROWSER_PERCENTAGE
+  | typeof CONTAINER_EXCL_AGENT_USAGE
+  | typeof CONTAINER_EXCL_AGENT_PERCENTAGE
   | typeof CONTAINER_USAGE
   | typeof CONTAINER_PERCENTAGE
   | typeof CSPM_CONTAINERS_PERCENTAGE
@@ -25,6 +33,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof CSPM_HOSTS_USAGE
   | typeof CUSTOM_TIMESERIES_USAGE
   | typeof CUSTOM_TIMESERIES_PERCENTAGE
+  | typeof CUSTOM_INGESTED_TIMESERIES_USAGE
+  | typeof CUSTOM_INGESTED_TIMESERIES_PERCENTAGE
   | typeof CWS_CONTAINERS_PERCENTAGE
   | typeof CWS_CONTAINERS_USAGE
   | typeof CWS_HOSTS_PERCENTAGE
@@ -45,8 +55,6 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof FARGATE_PERCENTAGE
   | typeof FUNCTIONS_USAGE
   | typeof FUNCTIONS_PERCENTAGE
-  | typeof INDEXED_LOGS_USAGE
-  | typeof INDEXED_LOGS_PERCENTAGE
   | typeof INFRA_HOST_USAGE
   | typeof INFRA_HOST_PERCENTAGE
   | typeof INVOCATIONS_USAGE
@@ -55,11 +63,18 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof NPM_HOST_PERCENTAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_CONTAINER_PERCENTAGE
+  | typeof PROFILED_FARGATE_USAGE
+  | typeof PROFILED_FARGATE_PERCENTAGE
   | typeof PROFILED_HOST_USAGE
   | typeof PROFILED_HOST_PERCENTAGE
   | typeof SNMP_USAGE
   | typeof SNMP_PERCENTAGE
-  | typeof ALL;
+  | typeof ESTIMATED_RUM_SESSIONS_USAGE
+  | typeof ESTIMATED_RUM_SESSIONS_PERCENTAGE
+  | typeof UNIVERSAL_SERVICE_MONITORING_USAGE
+  | typeof UNIVERSAL_SERVICE_MONITORING_PERCENTAGE
+  | typeof ALL
+  | UnparsedObject;
 export const API_USAGE = "api_usage";
 export const API_PERCENTAGE = "api_percentage";
 export const APM_FARGATE_USAGE = "apm_fargate_usage";
@@ -72,6 +87,9 @@ export const APPSEC_USAGE = "appsec_usage";
 export const APPSEC_PERCENTAGE = "appsec_percentage";
 export const BROWSER_USAGE = "browser_usage";
 export const BROWSER_PERCENTAGE = "browser_percentage";
+export const CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage";
+export const CONTAINER_EXCL_AGENT_PERCENTAGE =
+  "container_excl_agent_percentage";
 export const CONTAINER_USAGE = "container_usage";
 export const CONTAINER_PERCENTAGE = "container_percentage";
 export const CSPM_CONTAINERS_PERCENTAGE = "cspm_containers_percentage";
@@ -80,6 +98,10 @@ export const CSPM_HOSTS_PERCENTAGE = "cspm_hosts_percentage";
 export const CSPM_HOSTS_USAGE = "cspm_hosts_usage";
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
 export const CUSTOM_TIMESERIES_PERCENTAGE = "custom_timeseries_percentage";
+export const CUSTOM_INGESTED_TIMESERIES_USAGE =
+  "custom_ingested_timeseries_usage";
+export const CUSTOM_INGESTED_TIMESERIES_PERCENTAGE =
+  "custom_ingested_timeseries_percentage";
 export const CWS_CONTAINERS_PERCENTAGE = "cws_containers_percentage";
 export const CWS_CONTAINERS_USAGE = "cws_containers_usage";
 export const CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage";
@@ -104,8 +126,6 @@ export const FARGATE_USAGE = "fargate_usage";
 export const FARGATE_PERCENTAGE = "fargate_percentage";
 export const FUNCTIONS_USAGE = "functions_usage";
 export const FUNCTIONS_PERCENTAGE = "functions_percentage";
-export const INDEXED_LOGS_USAGE = "indexed_logs_usage";
-export const INDEXED_LOGS_PERCENTAGE = "indexed_logs_percentage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INFRA_HOST_PERCENTAGE = "infra_host_percentage";
 export const INVOCATIONS_USAGE = "invocations_usage";
@@ -114,8 +134,17 @@ export const NPM_HOST_USAGE = "npm_host_usage";
 export const NPM_HOST_PERCENTAGE = "npm_host_percentage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage";
+export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
+export const PROFILED_FARGATE_PERCENTAGE = "profiled_fargate_percentage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const PROFILED_HOST_PERCENTAGE = "profiled_host_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const SNMP_PERCENTAGE = "snmp_percentage";
+export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
+export const ESTIMATED_RUM_SESSIONS_PERCENTAGE =
+  "estimated_rum_sessions_percentage";
+export const UNIVERSAL_SERVICE_MONITORING_USAGE =
+  "universal_service_monitoring_usage";
+export const UNIVERSAL_SERVICE_MONITORING_PERCENTAGE =
+  "universal_service_monitoring_percentage";
 export const ALL = "*";

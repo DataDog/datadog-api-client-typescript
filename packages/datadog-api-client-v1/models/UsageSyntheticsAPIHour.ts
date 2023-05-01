@@ -30,7 +30,7 @@ export class UsageSyntheticsAPIHour {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The namespace associated with the tag filter entry.
+ */
+
 export type AWSNamespace =
   | typeof ELB
   | typeof APPLICATION_ELB
@@ -11,7 +17,8 @@ export type AWSNamespace =
   | typeof RDS
   | typeof CUSTOM
   | typeof NETWORK_ELB
-  | typeof LAMBDA;
+  | typeof LAMBDA
+  | UnparsedObject;
 export const ELB = "elb";
 export const APPLICATION_ELB = "application_elb";
 export const SQS = "sqs";

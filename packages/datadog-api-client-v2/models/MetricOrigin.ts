@@ -26,7 +26,7 @@ export class MetricOrigin {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

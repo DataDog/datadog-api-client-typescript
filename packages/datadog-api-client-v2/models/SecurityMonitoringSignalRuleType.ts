@@ -4,5 +4,13 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SecurityMonitoringSignalRuleType = typeof SIGNAL_CORRELATION;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The rule type.
+ */
+
+export type SecurityMonitoringSignalRuleType =
+  | typeof SIGNAL_CORRELATION
+  | UnparsedObject;
 export const SIGNAL_CORRELATION = "signal_correlation";

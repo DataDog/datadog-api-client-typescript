@@ -19,7 +19,7 @@ export class OrganizationSettingsSamlStrictMode {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

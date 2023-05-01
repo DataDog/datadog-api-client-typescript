@@ -28,7 +28,7 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
     },
     locations: ["aws:us-east-2"],
     message: "Test message",
-    name: "Example-Create_a_browser_test_returns_OK_Returns_saved_rumSettings_response",
+    name: "Example-Synthetic",
     options: {
       acceptSelfSigned: false,
       allowInsecure: true,

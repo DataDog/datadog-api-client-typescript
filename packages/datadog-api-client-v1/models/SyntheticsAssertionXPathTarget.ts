@@ -33,7 +33,7 @@ export class SyntheticsAssertionXPathTarget {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

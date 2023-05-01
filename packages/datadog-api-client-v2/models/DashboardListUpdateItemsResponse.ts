@@ -19,7 +19,7 @@ export class DashboardListUpdateItemsResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

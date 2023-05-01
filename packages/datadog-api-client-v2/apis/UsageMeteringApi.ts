@@ -34,9 +34,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError(
-        "Required parameter startMonth was null or undefined when calling getCostByOrg."
-      );
+      throw new RequiredError("startMonth", "getCostByOrg");
     }
 
     // Path Params
@@ -153,9 +151,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError(
-        "Required parameter startMonth was null or undefined when calling getHistoricalCostByOrg."
-      );
+      throw new RequiredError("startMonth", "getHistoricalCostByOrg");
     }
 
     // Path Params
@@ -207,6 +203,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     filterProductFamilies: string,
     filterTimestampEnd?: Date,
     filterIncludeDescendants?: boolean,
+    filterIncludeBreakdown?: boolean,
     filterVersions?: string,
     pageLimit?: number,
     pageNextRecordId?: string,
@@ -216,16 +213,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'filterTimestampStart' is not null or undefined
     if (filterTimestampStart === null || filterTimestampStart === undefined) {
-      throw new RequiredError(
-        "Required parameter filterTimestampStart was null or undefined when calling getHourlyUsage."
-      );
+      throw new RequiredError("filterTimestampStart", "getHourlyUsage");
     }
 
     // verify required parameter 'filterProductFamilies' is not null or undefined
     if (filterProductFamilies === null || filterProductFamilies === undefined) {
-      throw new RequiredError(
-        "Required parameter filterProductFamilies was null or undefined when calling getHourlyUsage."
-      );
+      throw new RequiredError("filterProductFamilies", "getHourlyUsage");
     }
 
     // Path Params
@@ -267,6 +260,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(filterIncludeDescendants, "boolean", "")
       );
     }
+    if (filterIncludeBreakdown !== undefined) {
+      requestContext.setQueryParam(
+        "filter[include_breakdown]",
+        ObjectSerializer.serialize(filterIncludeBreakdown, "boolean", "")
+      );
+    }
     if (filterVersions !== undefined) {
       requestContext.setQueryParam(
         "filter[versions]",
@@ -306,7 +305,8 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
       throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageApplicationSecurityMonitoring."
+        "startHr",
+        "getUsageApplicationSecurityMonitoring"
       );
     }
 
@@ -357,9 +357,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageLambdaTracedInvocations."
-      );
+      throw new RequiredError("startHr", "getUsageLambdaTracedInvocations");
     }
 
     // Path Params
@@ -409,9 +407,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'startHr' is not null or undefined
     if (startHr === null || startHr === undefined) {
-      throw new RequiredError(
-        "Required parameter startHr was null or undefined when calling getUsageObservabilityPipelines."
-      );
+      throw new RequiredError("startHr", "getUsageObservabilityPipelines");
     }
 
     // Path Params
@@ -962,11 +958,13 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
   filterTimestampStart: Date;
   /**
    * Comma separated list of product families to retrieve. Available families are `all`, `analyzed_logs`,
-   * `application_security`, `audit_logs`, `serverless`, `ci_app`, `cspm`, `custom_events`, `cws`, `dbm`, `fargate`,
+   * `application_security`, `audit_trail`, `serverless`, `ci_app`, `cloud_cost_management`,
+   * `cspm`, `custom_events`, `cws`, `dbm`, `fargate`,
    * `infra_hosts`, `incident_management`, `indexed_logs`, `indexed_spans`, `ingested_spans`, `iot`,
    * `lambda_traced_invocations`, `logs`, `network_flows`, `network_hosts`, `observability_pipelines`,
    * `online_archive`, `profiling`, `rum`, `rum_browser_sessions`, `rum_mobile_sessions`, `sds`, `snmp`,
-   * `synthetics_api`, `synthetics_browser`, and `timeseries`.
+   * `synthetics_api`, `synthetics_browser`, `synthetics_parallel_testing`, and `timeseries`.
+   * The following product family has been **deprecated**: `audit_logs`.
    * @type string
    */
   filterProductFamilies: string;
@@ -980,6 +978,11 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
    * @type boolean
    */
   filterIncludeDescendants?: boolean;
+  /**
+   * Include breakdown of usage by subcategories where applicable (for product family logs only). Defaults to false.
+   * @type boolean
+   */
+  filterIncludeBreakdown?: boolean;
   /**
    * Comma separated list of product family versions to use in the format `product_family:version`. For example,
    * `infra_hosts:1.0.0`. If this parameter is not used, the API will use the latest version of each requested
@@ -1149,6 +1152,7 @@ export class UsageMeteringApi {
       param.filterProductFamilies,
       param.filterTimestampEnd,
       param.filterIncludeDescendants,
+      param.filterIncludeBreakdown,
       param.filterVersions,
       param.pageLimit,
       param.pageNextRecordId,

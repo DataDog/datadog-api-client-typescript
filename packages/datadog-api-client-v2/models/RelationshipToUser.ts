@@ -19,7 +19,7 @@ export class RelationshipToUser {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -27,7 +27,7 @@ export class ServiceDefinitionV1Resource {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

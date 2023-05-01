@@ -36,7 +36,7 @@ export class NotebookDistributionCellAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

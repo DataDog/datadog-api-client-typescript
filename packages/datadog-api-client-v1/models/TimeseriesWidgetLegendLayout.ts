@@ -4,10 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Layout of the legend.
+ */
+
 export type TimeseriesWidgetLegendLayout =
   | typeof AUTO
   | typeof HORIZONTAL
-  | typeof VERTICAL;
+  | typeof VERTICAL
+  | UnparsedObject;
 export const AUTO = "auto";
 export const HORIZONTAL = "horizontal";
 export const VERTICAL = "vertical";

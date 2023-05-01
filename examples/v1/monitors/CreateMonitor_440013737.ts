@@ -9,14 +9,11 @@ const apiInstance = new v1.MonitorsApi(configuration);
 
 const params: v1.MonitorsApiCreateMonitorRequest = {
   body: {
-    name: "Example-Create_an_Error_Tracking_monitor_returns_OK_response",
+    name: "Example-Monitor",
     type: "error-tracking alert",
     query: `error-tracking-rum("service:foo AND @error.source:source").rollup("count").by("@issue.id").last("1h") >= 1`,
     message: "some message",
-    tags: [
-      "test:examplecreateanerrortrackingmonitorreturnsokresponse",
-      "env:ci",
-    ],
+    tags: ["test:examplemonitor", "env:ci"],
     priority: 3,
     options: {
       thresholds: {

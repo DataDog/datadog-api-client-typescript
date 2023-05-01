@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
 const params: v2.MetricsApiListTagConfigurationsRequest = {
-  filterTags: "ExampleGetalistofmetricswithatagfilterreturnsSuccessresponse",
+  filterTags: "ExampleMetric",
 };
 
 apiInstance

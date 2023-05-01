@@ -23,7 +23,7 @@ export class ProcessSummariesMetaPage {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

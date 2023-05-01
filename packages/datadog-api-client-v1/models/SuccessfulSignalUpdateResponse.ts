@@ -18,7 +18,7 @@ export class SuccessfulSignalUpdateResponse {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

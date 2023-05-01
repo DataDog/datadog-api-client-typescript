@@ -24,8 +24,52 @@ import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
 import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
 import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
+import { ServiceAccountCreateRequest } from "../models/ServiceAccountCreateRequest";
+import { UserResponse } from "../models/UserResponse";
 
 export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
+  public async createServiceAccount(
+    body: ServiceAccountCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "createServiceAccount");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/service_accounts";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.ServiceAccountsApi.createServiceAccount"
+    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "ServiceAccountCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createServiceAccountApplicationKey(
     serviceAccountId: string,
     body: ApplicationKeyCreateRequest,
@@ -36,21 +80,20 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling createServiceAccountApplicationKey."
+        "serviceAccountId",
+        "createServiceAccountApplicationKey"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createServiceAccountApplicationKey."
-      );
+      throw new RequiredError("body", "createServiceAccountApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
-        "{" + "service_account_id" + "}",
+        "{service_account_id}",
         encodeURIComponent(String(serviceAccountId))
       );
 
@@ -92,28 +135,24 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling deleteServiceAccountApplicationKey."
+        "serviceAccountId",
+        "deleteServiceAccountApplicationKey"
       );
     }
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling deleteServiceAccountApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "deleteServiceAccountApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
         .replace(
-          "{" + "service_account_id" + "}",
+          "{service_account_id}",
           encodeURIComponent(String(serviceAccountId))
         )
-        .replace(
-          "{" + "app_key_id" + "}",
-          encodeURIComponent(String(appKeyId))
-        );
+        .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -142,28 +181,24 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling getServiceAccountApplicationKey."
+        "serviceAccountId",
+        "getServiceAccountApplicationKey"
       );
     }
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling getServiceAccountApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "getServiceAccountApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
         .replace(
-          "{" + "service_account_id" + "}",
+          "{service_account_id}",
           encodeURIComponent(String(serviceAccountId))
         )
-        .replace(
-          "{" + "app_key_id" + "}",
-          encodeURIComponent(String(appKeyId))
-        );
+        .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -197,14 +232,15 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling listServiceAccountApplicationKeys."
+        "serviceAccountId",
+        "listServiceAccountApplicationKeys"
       );
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys".replace(
-        "{" + "service_account_id" + "}",
+        "{service_account_id}",
         encodeURIComponent(String(serviceAccountId))
       );
 
@@ -274,35 +310,29 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'serviceAccountId' is not null or undefined
     if (serviceAccountId === null || serviceAccountId === undefined) {
       throw new RequiredError(
-        "Required parameter serviceAccountId was null or undefined when calling updateServiceAccountApplicationKey."
+        "serviceAccountId",
+        "updateServiceAccountApplicationKey"
       );
     }
 
     // verify required parameter 'appKeyId' is not null or undefined
     if (appKeyId === null || appKeyId === undefined) {
-      throw new RequiredError(
-        "Required parameter appKeyId was null or undefined when calling updateServiceAccountApplicationKey."
-      );
+      throw new RequiredError("appKeyId", "updateServiceAccountApplicationKey");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateServiceAccountApplicationKey."
-      );
+      throw new RequiredError("body", "updateServiceAccountApplicationKey");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/service_accounts/{service_account_id}/application_keys/{app_key_id}"
         .replace(
-          "{" + "service_account_id" + "}",
+          "{service_account_id}",
           encodeURIComponent(String(serviceAccountId))
         )
-        .replace(
-          "{" + "app_key_id" + "}",
-          encodeURIComponent(String(appKeyId))
-        );
+        .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
     const requestContext = getServer(
@@ -334,6 +364,68 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class ServiceAccountsApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to createServiceAccount
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createServiceAccount(
+    response: ResponseContext
+  ): Promise<UserResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 201) {
+      const body: UserResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserResponse"
+      ) as UserResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UserResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserResponse",
+        ""
+      ) as UserResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -643,6 +735,13 @@ export class ServiceAccountsApiResponseProcessor {
   }
 }
 
+export interface ServiceAccountsApiCreateServiceAccountRequest {
+  /**
+   * @type ServiceAccountCreateRequest
+   */
+  body: ServiceAccountCreateRequest;
+}
+
 export interface ServiceAccountsApiCreateServiceAccountApplicationKeyRequest {
   /**
    * The ID of the service account.
@@ -688,7 +787,7 @@ export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
    */
   serviceAccountId: string;
   /**
-   * Size for a given page.
+   * Size for a given page. The maximum allowed value is 5000.
    * @type number
    */
   pageSize?: number;
@@ -753,6 +852,27 @@ export class ServiceAccountsApi {
       requestFactory || new ServiceAccountsApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new ServiceAccountsApiResponseProcessor();
+  }
+
+  /**
+   * Create a service account for your organization.
+   * @param param The request object
+   */
+  public createServiceAccount(
+    param: ServiceAccountsApiCreateServiceAccountRequest,
+    options?: Configuration
+  ): Promise<UserResponse> {
+    const requestContextPromise = this.requestFactory.createServiceAccount(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createServiceAccount(responseContext);
+        });
+    });
   }
 
   /**

@@ -34,7 +34,7 @@ export class SyntheticsAPITestConfig {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

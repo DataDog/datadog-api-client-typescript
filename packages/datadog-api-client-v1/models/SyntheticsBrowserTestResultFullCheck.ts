@@ -19,7 +19,7 @@ export class SyntheticsBrowserTestResultFullCheck {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

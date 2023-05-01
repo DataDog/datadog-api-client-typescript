@@ -34,21 +34,20 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
       throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling addSecurityMonitoringSignalToIncident."
+        "signalId",
+        "addSecurityMonitoringSignalToIncident"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling addSecurityMonitoringSignalToIncident."
-      );
+      throw new RequiredError("body", "addSecurityMonitoringSignalToIncident");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/security_analytics/signals/{signal_id}/add_to_incident".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -90,21 +89,20 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
       throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalAssignee."
+        "signalId",
+        "editSecurityMonitoringSignalAssignee"
       );
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalAssignee."
-      );
+      throw new RequiredError("body", "editSecurityMonitoringSignalAssignee");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/security_analytics/signals/{signal_id}/assignee".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 
@@ -145,22 +143,18 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'signalId' is not null or undefined
     if (signalId === null || signalId === undefined) {
-      throw new RequiredError(
-        "Required parameter signalId was null or undefined when calling editSecurityMonitoringSignalState."
-      );
+      throw new RequiredError("signalId", "editSecurityMonitoringSignalState");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling editSecurityMonitoringSignalState."
-      );
+      throw new RequiredError("body", "editSecurityMonitoringSignalState");
     }
 
     // Path Params
     const localVarPath =
       "/api/v1/security_analytics/signals/{signal_id}/state".replace(
-        "{" + "signal_id" + "}",
+        "{signal_id}",
         encodeURIComponent(String(signalId))
       );
 

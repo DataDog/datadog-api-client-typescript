@@ -23,7 +23,7 @@ export class ListStreamColumn {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

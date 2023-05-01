@@ -16,7 +16,7 @@ const params: v2.IncidentsApiCreateIncidentRequest = {
     data: {
       type: "incidents",
       attributes: {
-        title: "Example-Create_an_incident_returns_CREATED_response",
+        title: "Example-Incident",
         customerImpacted: false,
         fields: {
           state: {

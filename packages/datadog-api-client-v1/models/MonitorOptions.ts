@@ -6,6 +6,7 @@
 import { MonitorDeviceID } from "./MonitorDeviceID";
 import { MonitorFormulaAndFunctionQueryDefinition } from "./MonitorFormulaAndFunctionQueryDefinition";
 import { MonitorOptionsAggregation } from "./MonitorOptionsAggregation";
+import { MonitorOptionsNotificationPresets } from "./MonitorOptionsNotificationPresets";
 import { MonitorOptionsSchedulingOptions } from "./MonitorOptionsSchedulingOptions";
 import { MonitorRenotifyStatusType } from "./MonitorRenotifyStatusType";
 import { MonitorThresholds } from "./MonitorThresholds";
@@ -30,6 +31,10 @@ export class MonitorOptions {
    * Whether or not to send a log sample when the log monitor triggers.
    */
   "enableLogsSample"?: boolean;
+  /**
+   * Whether or not to send a list of samples when the monitor triggers. This is only used by CI Test and Pipeline monitors.
+   */
+  "enableSamples"?: boolean;
   /**
    * We recommend using the [is_renotify](https://docs.datadoghq.com/monitors/notify/?tab=is_alert#renotify),
    * block in the original message instead.
@@ -98,6 +103,10 @@ export class MonitorOptions {
    * If omitted, 2x the evaluation timeframe is used for query alerts, and 24 hours is used for service checks.
    */
   "noDataTimeframe"?: number;
+  /**
+   * Toggles the display of additional content sent in the monitor notification.
+   */
+  "notificationPresetName"?: MonitorOptionsNotificationPresets;
   /**
    * A Boolean indicating whether tagged users is notified on changes to this monitor.
    */
@@ -174,7 +183,7 @@ export class MonitorOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -190,6 +199,10 @@ export class MonitorOptions {
     },
     enableLogsSample: {
       baseName: "enable_logs_sample",
+      type: "boolean",
+    },
+    enableSamples: {
+      baseName: "enable_samples",
       type: "boolean",
     },
     escalationMessage: {
@@ -241,6 +254,10 @@ export class MonitorOptions {
       baseName: "no_data_timeframe",
       type: "number",
       format: "int64",
+    },
+    notificationPresetName: {
+      baseName: "notification_preset_name",
+      type: "MonitorOptionsNotificationPresets",
     },
     notifyAudit: {
       baseName: "notify_audit",

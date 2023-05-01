@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type OrganizationsType = typeof ORGS;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Organizations resource type.
+ */
+
+export type OrganizationsType = typeof ORGS | UnparsedObject;
 export const ORGS = "orgs";

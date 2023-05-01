@@ -34,7 +34,7 @@ export class LogsServiceRemapper {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

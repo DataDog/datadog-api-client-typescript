@@ -4,12 +4,19 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Severity of the Security Signal.
+ */
+
 export type SecurityMonitoringRuleSeverity =
   | typeof INFO
   | typeof LOW
   | typeof MEDIUM
   | typeof HIGH
-  | typeof CRITICAL;
+  | typeof CRITICAL
+  | UnparsedObject;
 export const INFO = "info";
 export const LOW = "low";
 export const MEDIUM = "medium";

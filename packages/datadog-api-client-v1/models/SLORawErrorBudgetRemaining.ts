@@ -22,7 +22,7 @@ export class SLORawErrorBudgetRemaining {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

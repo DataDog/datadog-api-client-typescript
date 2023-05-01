@@ -35,22 +35,18 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'archiveId' is not null or undefined
     if (archiveId === null || archiveId === undefined) {
-      throw new RequiredError(
-        "Required parameter archiveId was null or undefined when calling addReadRoleToArchive."
-      );
+      throw new RequiredError("archiveId", "addReadRoleToArchive");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling addReadRoleToArchive."
-      );
+      throw new RequiredError("body", "addReadRoleToArchive");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-        "{" + "archive_id" + "}",
+        "{archive_id}",
         encodeURIComponent(String(archiveId))
       );
 
@@ -90,9 +86,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createLogsArchive."
-      );
+      throw new RequiredError("body", "createLogsArchive");
     }
 
     // Path Params
@@ -134,14 +128,12 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'archiveId' is not null or undefined
     if (archiveId === null || archiveId === undefined) {
-      throw new RequiredError(
-        "Required parameter archiveId was null or undefined when calling deleteLogsArchive."
-      );
+      throw new RequiredError("archiveId", "deleteLogsArchive");
     }
 
     // Path Params
     const localVarPath = "/api/v2/logs/config/archives/{archive_id}".replace(
-      "{" + "archive_id" + "}",
+      "{archive_id}",
       encodeURIComponent(String(archiveId))
     );
 
@@ -170,14 +162,12 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'archiveId' is not null or undefined
     if (archiveId === null || archiveId === undefined) {
-      throw new RequiredError(
-        "Required parameter archiveId was null or undefined when calling getLogsArchive."
-      );
+      throw new RequiredError("archiveId", "getLogsArchive");
     }
 
     // Path Params
     const localVarPath = "/api/v2/logs/config/archives/{archive_id}".replace(
-      "{" + "archive_id" + "}",
+      "{archive_id}",
       encodeURIComponent(String(archiveId))
     );
 
@@ -233,15 +223,13 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'archiveId' is not null or undefined
     if (archiveId === null || archiveId === undefined) {
-      throw new RequiredError(
-        "Required parameter archiveId was null or undefined when calling listArchiveReadRoles."
-      );
+      throw new RequiredError("archiveId", "listArchiveReadRoles");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-        "{" + "archive_id" + "}",
+        "{archive_id}",
         encodeURIComponent(String(archiveId))
       );
 
@@ -298,22 +286,18 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'archiveId' is not null or undefined
     if (archiveId === null || archiveId === undefined) {
-      throw new RequiredError(
-        "Required parameter archiveId was null or undefined when calling removeRoleFromArchive."
-      );
+      throw new RequiredError("archiveId", "removeRoleFromArchive");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling removeRoleFromArchive."
-      );
+      throw new RequiredError("body", "removeRoleFromArchive");
     }
 
     // Path Params
     const localVarPath =
       "/api/v2/logs/config/archives/{archive_id}/readers".replace(
-        "{" + "archive_id" + "}",
+        "{archive_id}",
         encodeURIComponent(String(archiveId))
       );
 
@@ -354,21 +338,17 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'archiveId' is not null or undefined
     if (archiveId === null || archiveId === undefined) {
-      throw new RequiredError(
-        "Required parameter archiveId was null or undefined when calling updateLogsArchive."
-      );
+      throw new RequiredError("archiveId", "updateLogsArchive");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateLogsArchive."
-      );
+      throw new RequiredError("body", "updateLogsArchive");
     }
 
     // Path Params
     const localVarPath = "/api/v2/logs/config/archives/{archive_id}".replace(
-      "{" + "archive_id" + "}",
+      "{archive_id}",
       encodeURIComponent(String(archiveId))
     );
 
@@ -408,9 +388,7 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateLogsArchiveOrder."
-      );
+      throw new RequiredError("body", "updateLogsArchiveOrder");
     }
 
     // Path Params

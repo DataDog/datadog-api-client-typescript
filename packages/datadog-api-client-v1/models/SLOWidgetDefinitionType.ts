@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type SLOWidgetDefinitionType = typeof SLO;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the SLO widget.
+ */
+
+export type SLOWidgetDefinitionType = typeof SLO | UnparsedObject;
 export const SLO = "slo";

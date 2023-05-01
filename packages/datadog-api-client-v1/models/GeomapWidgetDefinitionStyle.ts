@@ -22,7 +22,7 @@ export class GeomapWidgetDefinitionStyle {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

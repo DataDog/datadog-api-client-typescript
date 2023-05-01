@@ -26,7 +26,7 @@ export class SyntheticsTestRequestCertificateItem {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

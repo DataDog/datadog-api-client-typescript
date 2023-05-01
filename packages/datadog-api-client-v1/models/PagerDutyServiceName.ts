@@ -18,7 +18,7 @@ export class PagerDutyServiceName {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

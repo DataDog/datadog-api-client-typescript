@@ -19,7 +19,7 @@ export class RelationshipToSAMLAssertionAttribute {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

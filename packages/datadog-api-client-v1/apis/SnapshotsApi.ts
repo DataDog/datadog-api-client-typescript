@@ -36,16 +36,12 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'start' is not null or undefined
     if (start === null || start === undefined) {
-      throw new RequiredError(
-        "Required parameter start was null or undefined when calling getGraphSnapshot."
-      );
+      throw new RequiredError("start", "getGraphSnapshot");
     }
 
     // verify required parameter 'end' is not null or undefined
     if (end === null || end === undefined) {
-      throw new RequiredError(
-        "Required parameter end was null or undefined when calling getGraphSnapshot."
-      );
+      throw new RequiredError("end", "getGraphSnapshot");
     }
 
     // Path Params
@@ -186,12 +182,12 @@ export class SnapshotsApiResponseProcessor {
 
 export interface SnapshotsApiGetGraphSnapshotRequest {
   /**
-   * The POSIX timestamp of the start of the query.
+   * The POSIX timestamp of the start of the query in seconds.
    * @type number
    */
   start: number;
   /**
-   * The POSIX timestamp of the end of the query.
+   * The POSIX timestamp of the end of the query in seconds.
    * @type number
    */
   end: number;

@@ -15,7 +15,7 @@ const params: v2.CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleReq
           description: "Test Agent rule",
           enabled: true,
           expression: `exec.file.name == "sh"`,
-          name: "examplecreateacloudworkloadsecurityagentrulereturnsokresponse",
+          name: "examplecloudworkloadsecurity",
         },
         type: "agent_rule",
       },

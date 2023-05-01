@@ -10,11 +10,13 @@ const apiInstance = new v2.LogsMetricsApi(configuration);
 const params: v2.LogsMetricsApiCreateLogsMetricRequest = {
   body: {
     data: {
-      id: "Example-Create_a_log_based_metric_returns_OK_response",
+      id: "ExampleLogsMetric",
       type: "logs_metrics",
       attributes: {
         compute: {
-          aggregationType: "count",
+          aggregationType: "distribution",
+          includePercentiles: true,
+          path: "@duration",
         },
       },
     },

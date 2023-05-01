@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type ImageWidgetDefinitionType = typeof IMAGE;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of the image widget.
+ */
+
+export type ImageWidgetDefinitionType = typeof IMAGE | UnparsedObject;
 export const IMAGE = "image";

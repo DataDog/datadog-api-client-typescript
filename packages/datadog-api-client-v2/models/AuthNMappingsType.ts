@@ -4,5 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type AuthNMappingsType = typeof AUTHN_MAPPINGS;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * AuthN Mappings resource type.
+ */
+
+export type AuthNMappingsType = typeof AUTHN_MAPPINGS | UnparsedObject;
 export const AUTHN_MAPPINGS = "authn_mappings";

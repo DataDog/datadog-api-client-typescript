@@ -1,13 +1,13 @@
 @endpoint(metrics) @endpoint(metrics-v2)
 Feature: Metrics
   The metrics endpoint allows you to:  - Post metrics data so it can be
-  graphed on Datadog’s dashboards - Query metrics from any time period -
-  Modify tag configurations for metrics - View tags and volumes for metrics
-  **Note**: A graph can only contain a set number of points and as the
-  timeframe over which a metric is viewed increases, aggregation between
-  points occurs to stay below that set number.  The Post, Patch, and Delete
-  `manage_tags` API methods can only be performed by a user who has the
-  `Manage Tags for Metrics` permission.
+  graphed on Datadog’s dashboards - Query metrics from any time period
+  (timeseries and scalar) - Modify tag configurations for metrics - View
+  tags and volumes for metrics  **Note**: A graph can only contain a set
+  number of points and as the timeframe over which a metric is viewed
+  increases, aggregation between points occurs to stay below that set
+  number.  The Post, Patch, and Delete `manage_tags` API methods can only be
+  performed by a user who has the `Manage Tags for Metrics` permission.
 
   Background:
     Given a valid "apiKeyAuth" key in the system
@@ -56,7 +56,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 409 Conflict
 
-  @replay-only @team:DataDog/points-aggregation
+  @replay-only @skip-validation @team:DataDog/points-aggregation
   Scenario: Create a tag configuration returns "Created" response
     Given a valid "appKeyAuth" key in the system
     And new "CreateTagConfiguration" request
@@ -66,7 +66,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 201 Created
 
-  @replay-only @team:DataDog/points-aggregation
+  @replay-only @skip-validation @team:DataDog/points-aggregation
   Scenario: Delete a tag configuration returns "No Content" response
     Given there is a valid "metric" in the system
     And there is a valid "metric_tag_configuration" in the system
@@ -106,6 +106,7 @@ Feature: Metrics
     And request contains "filter[tags]" parameter with value "{{ unique_alnum }}"
     When the request is sent
     Then the response status is 200 Success
+    And the response "data" has length 0
 
   @team:DataDog/points-aggregation
   Scenario: Get a list of metrics with configured filter returns "Success" response
@@ -114,6 +115,7 @@ Feature: Metrics
     And request contains "filter[configured]" parameter with value true
     When the request is sent
     Then the response status is 200 Success
+    And the response "data[0].type" is equal to "manage_tags"
 
   @generated @skip @team:DataDog/points-aggregation
   Scenario: List active tags and aggregations returns "Bad Request" response
@@ -131,7 +133,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/points-aggregation
+  @skip-validation @team:DataDog/points-aggregation
   Scenario: List active tags and aggregations returns "Success" response
     Given a valid "appKeyAuth" key in the system
     And there is a valid "metric" in the system
@@ -157,7 +159,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 404 Not Found
 
-  @team:DataDog/points-aggregation
+  @skip-validation @team:DataDog/points-aggregation
   Scenario: List distinct metric volumes by metric name returns "Success" response
     Given a valid "appKeyAuth" key in the system
     And there is a valid "metric" in the system
@@ -176,7 +178,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 404 Not Found
 
-  @replay-only @team:DataDog/points-aggregation
+  @replay-only @skip-validation @team:DataDog/points-aggregation
   Scenario: List tag configuration by name returns "Success" response
     Given a valid "appKeyAuth" key in the system
     And there is a valid "metric" in the system
@@ -203,7 +205,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 404 Not Found
 
-  @replay-only @team:DataDog/points-aggregation
+  @replay-only @skip-validation @team:DataDog/points-aggregation
   Scenario: List tags by metric name returns "Success" response
     Given a valid "appKeyAuth" key in the system
     And there is a valid "metric" in the system
@@ -213,6 +215,62 @@ Feature: Metrics
     When the request is sent
     Then the response status is 200 Success
     And the response "data.id" has the same value as "metric_tag_configuration.data.id"
+
+  @generated @skip @team:DataDog/metrics-query
+  Scenario: Query scalar data across multiple products returns "Bad Request" response
+    Given a valid "appKeyAuth" key in the system
+    And operation "QueryScalarData" enabled
+    And new "QueryScalarData" request
+    And body with value {"data": {"attributes": {"formulas": [{"formula": "a+b", "limit": {"count": 10, "order": "desc"}}], "from": 1568899800000, "queries": [{"aggregator": "avg", "data_source": "metrics", "query": "avg:system.cpu.user{*} by {env}"}], "to": 1568923200000}, "type": "scalar_request"}}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/metrics-query
+  Scenario: Query scalar data across multiple products returns "OK" response
+    Given a valid "appKeyAuth" key in the system
+    And operation "QueryScalarData" enabled
+    And new "QueryScalarData" request
+    And body with value {"data": {"attributes": {"formulas": [{"formula": "a+b", "limit": {"count": 10, "order": "desc"}}], "from": 1568899800000, "queries": [{"aggregator": "avg", "data_source": "metrics", "query": "avg:system.cpu.user{*} by {env}"}], "to": 1568923200000}, "type": "scalar_request"}}
+    When the request is sent
+    Then the response status is 200 OK
+
+  @generated @skip @team:DataDog/metrics-query
+  Scenario: Query timeseries data across multiple products returns "Bad Request" response
+    Given a valid "appKeyAuth" key in the system
+    And operation "QueryTimeseriesData" enabled
+    And new "QueryTimeseriesData" request
+    And body with value {"data": {"attributes": {"formulas": [{"formula": "a+b", "limit": {"count": 10, "order": "desc"}}], "from": 1568899800000, "interval": 5000, "queries": [{"data_source": "metrics", "query": "avg:system.cpu.user{*} by {env}"}], "to": 1568923200000}, "type": "timeseries_request"}}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @generated @skip @team:DataDog/metrics-query
+  Scenario: Query timeseries data across multiple products returns "OK" response
+    Given a valid "appKeyAuth" key in the system
+    And operation "QueryTimeseriesData" enabled
+    And new "QueryTimeseriesData" request
+    And body with value {"data": {"attributes": {"formulas": [{"formula": "a+b", "limit": {"count": 10, "order": "desc"}}], "from": 1568899800000, "interval": 5000, "queries": [{"data_source": "metrics", "query": "avg:system.cpu.user{*} by {env}"}], "to": 1568923200000}, "type": "timeseries_request"}}
+    When the request is sent
+    Then the response status is 200 OK
+
+  @team:DataDog/metrics-query
+  Scenario: Scalar cross product query returns "Bad Request" response
+    Given a valid "appKeyAuth" key in the system
+    And operation "QueryScalarData" enabled
+    And new "QueryScalarData" request
+    And body with value {"data": {"attributes": {"formulas": [{"formula": "a+b", "limit": {"count": 10, "order": "desc"}}], "from": 1568899800000, "queries": [{"aggregator": "avg", "data_source": "metrics", "query": "avg:system.cpu.user{*}", "name": "a"}], "to": 1568923200000}, "type": "scalar_request"}}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @team:DataDog/metrics-query
+  Scenario: Scalar cross product query returns "OK" response
+    Given a valid "appKeyAuth" key in the system
+    And operation "QueryScalarData" enabled
+    And new "QueryScalarData" request
+    And body with value {"data": {"attributes": {"formulas": [{"formula": "a", "limit": {"count": 10, "order": "desc"}}], "from": 1671612804000, "queries": [{"aggregator": "avg", "data_source": "metrics", "query": "avg:system.cpu.user{*}", "name": "a"}], "to": 1671620004000}, "type": "scalar_request"}}
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "data.type" is equal to "scalar_response"
+    And the response "data.attributes.columns[0].name" is equal to "a"
 
   @generated @skip @team:DataDog/metrics-intake @team:DataDog/metrics-query
   Scenario: Submit metrics returns "Bad Request" response
@@ -227,6 +285,7 @@ Feature: Metrics
     And body with value {"series": [{"metric": "system.load.1", "type": 0, "points": [{"timestamp": {{ timestamp('now') }}, "value": 0.7}], "resources": [{"name": "dummyhost", "type": "host"}]}]}
     When the request is sent
     Then the response status is 202 Payload accepted
+    And the response "errors" has length 0
 
   @generated @skip @team:DataDog/metrics-intake @team:DataDog/metrics-query
   Scenario: Submit metrics returns "Payload too large" response
@@ -267,6 +326,26 @@ Feature: Metrics
     When the request is sent
     Then the response status is 200 Success
 
+  @skip-validation @team:DataDog/metrics-query
+  Scenario: Timeseries cross product query returns "Bad Request" response
+    Given a valid "appKeyAuth" key in the system
+    And operation "QueryTimeseriesData" enabled
+    And new "QueryTimeseriesData" request
+    And body with value {"data": {"attributes": {"formulas": [{"formula": "a+b", "limit": {"count": 10, "order": "desc"}}], "from": {{ timestamp('now - 1h') }}, "interval": 5000, "queries": [{"data_source": "metrics", "query": "avg:system.cpu.user{*}"}], "to": {{ timestamp('now') }}}, "type": "timeseries_rquest"}}
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @team:DataDog/metrics-query
+  Scenario: Timeseries cross product query returns "OK" response
+    Given a valid "appKeyAuth" key in the system
+    And operation "QueryTimeseriesData" enabled
+    And new "QueryTimeseriesData" request
+    And body with value {"data": {"attributes": {"formulas": [{"formula": "a", "limit": {"count": 10, "order": "desc"}}], "from": 1671612804000, "interval": 5000, "queries": [{"data_source": "metrics", "query": "avg:system.cpu.user{*}", "name": "a"}], "to": 1671620004000}, "type": "timeseries_request"}}
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "data.type" is equal to "timeseries_response"
+    And the response "data.attributes.series[0].unit[0].name" is equal to "percent"
+
   @generated @skip @team:DataDog/points-aggregation
   Scenario: Update a tag configuration returns "Bad Request" response
     Given a valid "appKeyAuth" key in the system
@@ -276,7 +355,7 @@ Feature: Metrics
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @replay-only @team:DataDog/points-aggregation
+  @replay-only @skip-validation @team:DataDog/points-aggregation
   Scenario: Update a tag configuration returns "OK" response
     Given a valid "appKeyAuth" key in the system
     And there is a valid "metric" in the system

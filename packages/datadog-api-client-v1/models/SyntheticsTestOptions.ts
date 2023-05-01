@@ -6,8 +6,10 @@
 import { SyntheticsBrowserTestRumSettings } from "./SyntheticsBrowserTestRumSettings";
 import { SyntheticsDeviceID } from "./SyntheticsDeviceID";
 import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
+import { SyntheticsTestOptionsHTTPVersion } from "./SyntheticsTestOptionsHTTPVersion";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
+import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -48,6 +50,10 @@ export class SyntheticsTestOptions {
    * For API HTTP test, whether or not the test should follow redirects.
    */
   "followRedirects"?: boolean;
+  /**
+   * HTTP version to use for a Synthetic test.
+   */
+  "httpVersion"?: SyntheticsTestOptionsHTTPVersion;
   /**
    * Ignore server certificate error for browser tests.
    */
@@ -105,6 +111,10 @@ export class SyntheticsTestOptions {
    */
   "rumSettings"?: SyntheticsBrowserTestRumSettings;
   /**
+   * Object containing timeframes and timezone used for advanced scheduling.
+   */
+  "scheduling"?: SyntheticsTestOptionsScheduling;
+  /**
    * The frequency at which to run the Synthetic test (in seconds).
    */
   "tickEvery"?: number;
@@ -112,7 +122,7 @@ export class SyntheticsTestOptions {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
@@ -149,6 +159,10 @@ export class SyntheticsTestOptions {
     followRedirects: {
       baseName: "follow_redirects",
       type: "boolean",
+    },
+    httpVersion: {
+      baseName: "httpVersion",
+      type: "SyntheticsTestOptionsHTTPVersion",
     },
     ignoreServerCertificateError: {
       baseName: "ignoreServerCertificateError",
@@ -197,6 +211,10 @@ export class SyntheticsTestOptions {
     rumSettings: {
       baseName: "rumSettings",
       type: "SyntheticsBrowserTestRumSettings",
+    },
+    scheduling: {
+      baseName: "scheduling",
+      type: "SyntheticsTestOptionsScheduling",
     },
     tickEvery: {
       baseName: "tick_every",

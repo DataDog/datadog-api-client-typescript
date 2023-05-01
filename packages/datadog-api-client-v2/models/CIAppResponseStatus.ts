@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type CIAppResponseStatus = typeof DONE | typeof TIMEOUT;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * The status of the response.
+ */
+
+export type CIAppResponseStatus = typeof DONE | typeof TIMEOUT | UnparsedObject;
 export const DONE = "done";
 export const TIMEOUT = "timeout";

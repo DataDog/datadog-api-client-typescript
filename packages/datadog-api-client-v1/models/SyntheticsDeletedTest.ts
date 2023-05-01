@@ -23,7 +23,7 @@ export class SyntheticsDeletedTest {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

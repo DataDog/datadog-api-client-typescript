@@ -30,7 +30,7 @@ export class HostMapWidgetDefinitionStyle {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

@@ -34,7 +34,7 @@ export class WidgetAxis {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

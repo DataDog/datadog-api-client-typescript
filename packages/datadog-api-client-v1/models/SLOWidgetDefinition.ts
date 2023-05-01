@@ -15,6 +15,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SLOWidgetDefinition {
   /**
+   * Additional filters applied to the SLO query.
+   */
+  "additionalQueryFilters"?: string;
+  /**
    * Defined global time target.
    */
   "globalTimeTarget"?: string;
@@ -58,12 +62,16 @@ export class SLOWidgetDefinition {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    additionalQueryFilters: {
+      baseName: "additional_query_filters",
+      type: "string",
+    },
     globalTimeTarget: {
       baseName: "global_time_target",
       type: "string",

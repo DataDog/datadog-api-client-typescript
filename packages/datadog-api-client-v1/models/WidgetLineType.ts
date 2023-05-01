@@ -4,7 +4,17 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
-export type WidgetLineType = typeof DASHED | typeof DOTTED | typeof SOLID;
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * Type of lines displayed.
+ */
+
+export type WidgetLineType =
+  | typeof DASHED
+  | typeof DOTTED
+  | typeof SOLID
+  | UnparsedObject;
 export const DASHED = "dashed";
 export const DOTTED = "dotted";
 export const SOLID = "solid";

@@ -23,7 +23,7 @@ export class RelationshipToIncidentAttachmentData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

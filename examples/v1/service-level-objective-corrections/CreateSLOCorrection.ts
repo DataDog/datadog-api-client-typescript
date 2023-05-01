@@ -16,7 +16,7 @@ const params: v1.ServiceLevelObjectiveCorrectionsApiCreateSLOCorrectionRequest =
       data: {
         attributes: {
           category: "Scheduled Maintenance",
-          description: "Example-Create_an_SLO_correction_returns_OK_response",
+          description: "Example-Service-Level-Objective-Correction",
           end: Math.round(
             new Date(new Date().getTime() + 1 * 3600 * 1000).getTime() / 1000
           ),

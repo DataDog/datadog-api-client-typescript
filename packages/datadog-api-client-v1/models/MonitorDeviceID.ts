@@ -4,6 +4,12 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 
+import { UnparsedObject } from "../../datadog-api-client-common/util";
+
+/**
+ * ID of the device the Synthetics monitor is running on. Same as `SyntheticsDeviceID`.
+ */
+
 export type MonitorDeviceID =
   | typeof LAPTOP_LARGE
   | typeof TABLET
@@ -13,7 +19,8 @@ export type MonitorDeviceID =
   | typeof CHROME_MOBILE_SMALL
   | typeof FIREFOX_LAPTOP_LARGE
   | typeof FIREFOX_TABLET
-  | typeof FIREFOX_MOBILE_SMALL;
+  | typeof FIREFOX_MOBILE_SMALL
+  | UnparsedObject;
 export const LAPTOP_LARGE = "laptop_large";
 export const TABLET = "tablet";
 export const MOBILE_SMALL = "mobile_small";

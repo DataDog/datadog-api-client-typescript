@@ -33,7 +33,7 @@ export class FullAPIKey {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

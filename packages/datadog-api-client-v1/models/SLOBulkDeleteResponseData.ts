@@ -25,7 +25,7 @@ export class SLOBulkDeleteResponseData {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

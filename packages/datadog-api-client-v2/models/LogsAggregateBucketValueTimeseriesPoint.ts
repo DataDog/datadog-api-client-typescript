@@ -22,7 +22,7 @@ export class LogsAggregateBucketValueTimeseriesPoint {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

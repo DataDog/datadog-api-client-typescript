@@ -28,7 +28,7 @@ export class MetricSuggestedTagsAndAggregations {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

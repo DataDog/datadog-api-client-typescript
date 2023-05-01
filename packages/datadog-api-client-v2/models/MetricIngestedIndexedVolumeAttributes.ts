@@ -22,7 +22,7 @@ export class MetricIngestedIndexedVolumeAttributes {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

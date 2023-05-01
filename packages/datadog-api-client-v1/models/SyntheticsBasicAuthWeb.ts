@@ -27,7 +27,7 @@ export class SyntheticsBasicAuthWeb {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

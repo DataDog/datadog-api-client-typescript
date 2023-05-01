@@ -24,7 +24,7 @@ export class ServiceCheck {
    */
   "message"?: string;
   /**
-   * The status of a service check.
+   * The status of a service check. Set to `0` for OK, `1` for warning, `2` for critical, and `3` for unknown.
    */
   "status": ServiceCheckStatus;
   /**
@@ -39,7 +39,7 @@ export class ServiceCheck {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

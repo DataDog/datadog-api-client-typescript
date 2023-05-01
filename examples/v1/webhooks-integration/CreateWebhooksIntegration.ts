@@ -9,7 +9,7 @@ const apiInstance = new v1.WebhooksIntegrationApi(configuration);
 
 const params: v1.WebhooksIntegrationApiCreateWebhooksIntegrationRequest = {
   body: {
-    name: "Example-Create_a_webhooks_integration_returns_OK_response",
+    name: "Example-Webhooks-Integration",
     url: "https://example.com/webhook",
   },
 };

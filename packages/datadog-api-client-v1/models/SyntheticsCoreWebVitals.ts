@@ -26,7 +26,7 @@ export class SyntheticsCoreWebVitals {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

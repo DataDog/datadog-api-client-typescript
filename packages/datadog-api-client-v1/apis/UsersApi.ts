@@ -32,9 +32,7 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling createUser."
-      );
+      throw new RequiredError("body", "createUser");
     }
 
     // Path Params
@@ -77,14 +75,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'userHandle' is not null or undefined
     if (userHandle === null || userHandle === undefined) {
-      throw new RequiredError(
-        "Required parameter userHandle was null or undefined when calling disableUser."
-      );
+      throw new RequiredError("userHandle", "disableUser");
     }
 
     // Path Params
     const localVarPath = "/api/v1/user/{user_handle}".replace(
-      "{" + "user_handle" + "}",
+      "{user_handle}",
       encodeURIComponent(String(userHandle))
     );
 
@@ -113,14 +109,12 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'userHandle' is not null or undefined
     if (userHandle === null || userHandle === undefined) {
-      throw new RequiredError(
-        "Required parameter userHandle was null or undefined when calling getUser."
-      );
+      throw new RequiredError("userHandle", "getUser");
     }
 
     // Path Params
     const localVarPath = "/api/v1/user/{user_handle}".replace(
-      "{" + "user_handle" + "}",
+      "{user_handle}",
       encodeURIComponent(String(userHandle))
     );
 
@@ -174,21 +168,17 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 
     // verify required parameter 'userHandle' is not null or undefined
     if (userHandle === null || userHandle === undefined) {
-      throw new RequiredError(
-        "Required parameter userHandle was null or undefined when calling updateUser."
-      );
+      throw new RequiredError("userHandle", "updateUser");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError(
-        "Required parameter body was null or undefined when calling updateUser."
-      );
+      throw new RequiredError("body", "updateUser");
     }
 
     // Path Params
     const localVarPath = "/api/v1/user/{user_handle}".replace(
-      "{" + "user_handle" + "}",
+      "{user_handle}",
       encodeURIComponent(String(userHandle))
     );
 

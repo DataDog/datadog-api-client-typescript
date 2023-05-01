@@ -41,6 +41,7 @@ import { Dashboard } from "./Dashboard";
 import { DashboardBulkActionData } from "./DashboardBulkActionData";
 import { DashboardBulkDeleteRequest } from "./DashboardBulkDeleteRequest";
 import { DashboardDeleteResponse } from "./DashboardDeleteResponse";
+import { DashboardGlobalTime } from "./DashboardGlobalTime";
 import { DashboardList } from "./DashboardList";
 import { DashboardListDeleteResponse } from "./DashboardListDeleteResponse";
 import { DashboardListListResponse } from "./DashboardListListResponse";
@@ -50,6 +51,7 @@ import { DashboardSummaryDefinition } from "./DashboardSummaryDefinition";
 import { DashboardTemplateVariable } from "./DashboardTemplateVariable";
 import { DashboardTemplateVariablePreset } from "./DashboardTemplateVariablePreset";
 import { DashboardTemplateVariablePresetValue } from "./DashboardTemplateVariablePresetValue";
+import { DeleteSharedDashboardResponse } from "./DeleteSharedDashboardResponse";
 import { DeletedMonitor } from "./DeletedMonitor";
 import { DistributionPointsPayload } from "./DistributionPointsPayload";
 import { DistributionPointsSeries } from "./DistributionPointsSeries";
@@ -115,6 +117,7 @@ import { IPPrefixesAPI } from "./IPPrefixesAPI";
 import { IPPrefixesAPM } from "./IPPrefixesAPM";
 import { IPPrefixesAgents } from "./IPPrefixesAgents";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
+import { IPPrefixesOrchestrator } from "./IPPrefixesOrchestrator";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
@@ -125,6 +128,8 @@ import { IdpResponse } from "./IdpResponse";
 import { ImageWidgetDefinition } from "./ImageWidgetDefinition";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { ListStreamColumn } from "./ListStreamColumn";
+import { ListStreamComputeItems } from "./ListStreamComputeItems";
+import { ListStreamGroupByItems } from "./ListStreamGroupByItems";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { ListStreamWidgetDefinition } from "./ListStreamWidgetDefinition";
 import { ListStreamWidgetRequest } from "./ListStreamWidgetRequest";
@@ -261,7 +266,10 @@ import { Pagination } from "./Pagination";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
+import { ReferenceTableLogsLookupProcessor } from "./ReferenceTableLogsLookupProcessor";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
+import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
+import { RunWorkflowWidgetInput } from "./RunWorkflowWidgetInput";
 import { SLOBulkDeleteError } from "./SLOBulkDeleteError";
 import { SLOBulkDeleteResponse } from "./SLOBulkDeleteResponse";
 import { SLOBulkDeleteResponseData } from "./SLOBulkDeleteResponseData";
@@ -298,6 +306,7 @@ import { SLOOverallStatuses } from "./SLOOverallStatuses";
 import { SLORawErrorBudgetRemaining } from "./SLORawErrorBudgetRemaining";
 import { SLOResponse } from "./SLOResponse";
 import { SLOResponseData } from "./SLOResponseData";
+import { SLOStatus } from "./SLOStatus";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
@@ -319,6 +328,7 @@ import { SearchSLOThreshold } from "./SearchSLOThreshold";
 import { SearchServiceLevelObjective } from "./SearchServiceLevelObjective";
 import { SearchServiceLevelObjectiveAttributes } from "./SearchServiceLevelObjectiveAttributes";
 import { SearchServiceLevelObjectiveData } from "./SearchServiceLevelObjectiveData";
+import { SelectableTemplateVariableItems } from "./SelectableTemplateVariableItems";
 import { Series } from "./Series";
 import { ServiceCheck } from "./ServiceCheck";
 import { ServiceLevelObjective } from "./ServiceLevelObjective";
@@ -326,6 +336,15 @@ import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
 import { ServiceLevelObjectiveRequest } from "./ServiceLevelObjectiveRequest";
 import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
+import { SharedDashboard } from "./SharedDashboard";
+import { SharedDashboardAuthor } from "./SharedDashboardAuthor";
+import { SharedDashboardInvites } from "./SharedDashboardInvites";
+import { SharedDashboardInvitesDataObject } from "./SharedDashboardInvitesDataObject";
+import { SharedDashboardInvitesDataObjectAttributes } from "./SharedDashboardInvitesDataObjectAttributes";
+import { SharedDashboardInvitesMeta } from "./SharedDashboardInvitesMeta";
+import { SharedDashboardInvitesMetaPage } from "./SharedDashboardInvitesMetaPage";
+import { SharedDashboardUpdateRequest } from "./SharedDashboardUpdateRequest";
+import { SharedDashboardUpdateRequestGlobalTime } from "./SharedDashboardUpdateRequestGlobalTime";
 import { SignalAssigneeUpdateRequest } from "./SignalAssigneeUpdateRequest";
 import { SignalStateUpdateRequest } from "./SignalStateUpdateRequest";
 import { SlackIntegrationChannel } from "./SlackIntegrationChannel";
@@ -351,6 +370,8 @@ import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
 import { SyntheticsBasicAuthDigest } from "./SyntheticsBasicAuthDigest";
 import { SyntheticsBasicAuthNTLM } from "./SyntheticsBasicAuthNTLM";
+import { SyntheticsBasicAuthOauthClient } from "./SyntheticsBasicAuthOauthClient";
+import { SyntheticsBasicAuthOauthROP } from "./SyntheticsBasicAuthOauthROP";
 import { SyntheticsBasicAuthSigv4 } from "./SyntheticsBasicAuthSigv4";
 import { SyntheticsBasicAuthWeb } from "./SyntheticsBasicAuthWeb";
 import { SyntheticsBatchDetails } from "./SyntheticsBatchDetails";
@@ -384,7 +405,9 @@ import { SyntheticsGetAPITestLatestResultsResponse } from "./SyntheticsGetAPITes
 import { SyntheticsGetBrowserTestLatestResultsResponse } from "./SyntheticsGetBrowserTestLatestResultsResponse";
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
 import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
+import { SyntheticsGlobalVariableOptions } from "./SyntheticsGlobalVariableOptions";
 import { SyntheticsGlobalVariableParseTestOptions } from "./SyntheticsGlobalVariableParseTestOptions";
+import { SyntheticsGlobalVariableTOTPParameters } from "./SyntheticsGlobalVariableTOTPParameters";
 import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
 import { SyntheticsListGlobalVariablesResponse } from "./SyntheticsListGlobalVariablesResponse";
 import { SyntheticsListTestsResponse } from "./SyntheticsListTestsResponse";
@@ -410,6 +433,8 @@ import { SyntheticsTestDetails } from "./SyntheticsTestDetails";
 import { SyntheticsTestOptions } from "./SyntheticsTestOptions";
 import { SyntheticsTestOptionsMonitorOptions } from "./SyntheticsTestOptionsMonitorOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
+import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
+import { SyntheticsTestOptionsSchedulingTimeframe } from "./SyntheticsTestOptionsSchedulingTimeframe";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
@@ -536,12 +561,17 @@ import { WidgetEvent } from "./WidgetEvent";
 import { WidgetFieldSort } from "./WidgetFieldSort";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
+import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
 import { WidgetLayout } from "./WidgetLayout";
 import { WidgetMarker } from "./WidgetMarker";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetStyle } from "./WidgetStyle";
 import { WidgetTime } from "./WidgetTime";
-import { UnparsedObject } from "../../datadog-api-client-common/util";
+import {
+  dateFromRFC3339String,
+  dateToRFC3339String,
+  UnparsedObject,
+} from "../../datadog-api-client-common/util";
 import { logger } from "../../../logger";
 
 const primitives = [
@@ -581,9 +611,22 @@ const enumsMap: { [key: string]: any[] } = {
   ChangeWidgetDefinitionType: ["change"],
   CheckStatusWidgetDefinitionType: ["check_status"],
   ContentEncoding: ["gzip", "deflate"],
+  DashboardGlobalTimeLiveSpan: [
+    "15m",
+    "1h",
+    "4h",
+    "1d",
+    "2d",
+    "1w",
+    "1mo",
+    "3mo",
+  ],
+  DashboardInviteType: ["public_dashboard_invitation"],
   DashboardLayoutType: ["ordered", "free"],
   DashboardReflowType: ["auto", "fixed"],
   DashboardResourceType: ["dashboard"],
+  DashboardShareType: ["open", "invite"],
+  DashboardType: ["custom_timeboard", "custom_screenboard"],
   DistributionPointsContentEncoding: ["deflate"],
   DistributionPointsType: ["distribution"],
   DistributionWidgetDefinitionType: ["distribution"],
@@ -648,6 +691,7 @@ const enumsMap: { [key: string]: any[] } = {
     "audit",
     "events",
     "ci_tests",
+    "ci_pipelines",
   ],
   FormulaAndFunctionMetricAggregation: [
     "avg",
@@ -668,7 +712,6 @@ const enumsMap: { [key: string]: any[] } = {
   FunnelWidgetDefinitionType: ["funnel"],
   GeomapWidgetDefinitionType: ["geomap"],
   GroupWidgetDefinitionType: ["group"],
-  HTTPMethod: ["GET", "POST", "PATCH", "PUT", "DELETE", "HEAD", "OPTIONS"],
   HeatMapWidgetDefinitionType: ["heatmap"],
   HostMapWidgetDefinitionType: ["hostmap"],
   HourlyUsageAttributionUsageType: [
@@ -678,9 +721,11 @@ const enumsMap: { [key: string]: any[] } = {
     "appsec_fargate_usage",
     "appsec_usage",
     "browser_usage",
+    "container_excl_agent_usage",
     "container_usage",
     "cspm_containers_usage",
     "cspm_hosts_usage",
+    "custom_ingested_timeseries_usage",
     "custom_timeseries_usage",
     "cws_containers_usage",
     "cws_hosts_usage",
@@ -692,24 +737,48 @@ const enumsMap: { [key: string]: any[] } = {
     "estimated_ingested_spans_usage",
     "fargate_usage",
     "functions_usage",
-    "indexed_logs_usage",
     "infra_host_usage",
     "invocations_usage",
     "npm_host_usage",
     "profiled_container_usage",
+    "profiled_fargate_usage",
     "profiled_host_usage",
     "snmp_usage",
+    "estimated_rum_sessions_usage",
+    "universal_service_monitoring_usage",
   ],
   IFrameWidgetDefinitionType: ["iframe"],
   ImageWidgetDefinitionType: ["image"],
   ListStreamColumnWidth: ["auto", "compact", "full"],
+  ListStreamComputeAggregation: [
+    "count",
+    "cardinality",
+    "median",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+    "earliest",
+    "latest",
+    "most_frequent",
+  ],
   ListStreamResponseFormat: ["event_list"],
   ListStreamSource: [
     "logs_stream",
     "audit_stream",
+    "ci_pipeline_stream",
+    "ci_test_stream",
     "rum_issue_stream",
     "apm_issue_stream",
+    "logs_issue_stream",
     "logs_pattern_stream",
+    "logs_transaction_stream",
+    "event_stream",
   ],
   ListStreamWidgetDefinitionType: ["list_stream"],
   LogStreamWidgetDefinitionType: ["log_stream"],
@@ -764,6 +833,12 @@ const enumsMap: { [key: string]: any[] } = {
     "logs",
     "spans",
   ],
+  MonitorOptionsNotificationPresets: [
+    "show_all",
+    "hide_query",
+    "hide_handles",
+    "hide_all",
+  ],
   MonitorOverallStates: [
     "Alert",
     "Ignored",
@@ -806,6 +881,8 @@ const enumsMap: { [key: string]: any[] } = {
     "appsec_percentage",
     "browser_usage",
     "browser_percentage",
+    "container_excl_agent_usage",
+    "container_excl_agent_percentage",
     "container_usage",
     "container_percentage",
     "cspm_containers_percentage",
@@ -814,6 +891,8 @@ const enumsMap: { [key: string]: any[] } = {
     "cspm_hosts_usage",
     "custom_timeseries_usage",
     "custom_timeseries_percentage",
+    "custom_ingested_timeseries_usage",
+    "custom_ingested_timeseries_percentage",
     "cws_containers_percentage",
     "cws_containers_usage",
     "cws_hosts_percentage",
@@ -834,8 +913,6 @@ const enumsMap: { [key: string]: any[] } = {
     "fargate_percentage",
     "functions_usage",
     "functions_percentage",
-    "indexed_logs_usage",
-    "indexed_logs_percentage",
     "infra_host_usage",
     "infra_host_percentage",
     "invocations_usage",
@@ -844,10 +921,16 @@ const enumsMap: { [key: string]: any[] } = {
     "npm_host_percentage",
     "profiled_container_usage",
     "profiled_container_percentage",
+    "profiled_fargate_usage",
+    "profiled_fargate_percentage",
     "profiled_host_usage",
     "profiled_host_percentage",
     "snmp_usage",
     "snmp_percentage",
+    "estimated_rum_sessions_usage",
+    "estimated_rum_sessions_percentage",
+    "universal_service_monitoring_usage",
+    "universal_service_monitoring_percentage",
     "*",
   ],
   NoteWidgetDefinitionType: ["note"],
@@ -872,6 +955,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   QuerySortOrder: ["asc", "desc"],
   QueryValueWidgetDefinitionType: ["query_value"],
+  RunWorkflowWidgetDefinitionType: ["run_workflow"],
   SLOCorrectionCategory: [
     "Scheduled Maintenance",
     "Outside Business Hours",
@@ -882,6 +966,7 @@ const enumsMap: { [key: string]: any[] } = {
   SLOErrorTimeframe: ["7d", "30d", "90d", "all"],
   SLOListWidgetDefinitionType: ["slo_list"],
   SLOListWidgetRequestType: ["slo_list"],
+  SLOState: ["breached", "warning", "ok", "no_data"],
   SLOTimeframe: ["7d", "30d", "90d", "custom"],
   SLOType: ["metric", "monitor"],
   SLOTypeNumeric: [0, 1],
@@ -897,6 +982,7 @@ const enumsMap: { [key: string]: any[] } = {
     "none",
     "false_positive",
     "testing_or_maintenance",
+    "investigated_case_opened",
     "other",
   ],
   SignalTriageState: ["open", "archived", "under_review"],
@@ -967,11 +1053,16 @@ const enumsMap: { [key: string]: any[] } = {
     "networkHop",
     "receivedMessage",
     "grpcHealthcheckStatus",
+    "grpcMetadata",
+    "grpcProto",
     "connection",
   ],
   SyntheticsAssertionXPathOperator: ["validatesXPath"],
   SyntheticsBasicAuthDigestType: ["digest"],
   SyntheticsBasicAuthNTLMType: ["ntlm"],
+  SyntheticsBasicAuthOauthClientType: ["oauth-client"],
+  SyntheticsBasicAuthOauthROPType: ["oauth-rop"],
+  SyntheticsBasicAuthOauthTokenApiAuthentication: ["header", "body"],
   SyntheticsBasicAuthSigv4Type: ["sigv4"],
   SyntheticsBasicAuthWebType: ["web"],
   SyntheticsBrowserErrorType: ["network", "js"],
@@ -1084,6 +1175,7 @@ const enumsMap: { [key: string]: any[] } = {
     "uploadFiles",
     "wait",
   ],
+  SyntheticsTestCallType: ["healthcheck", "unary"],
   SyntheticsTestDetailsSubType: [
     "http",
     "ssl",
@@ -1098,6 +1190,7 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsTestDetailsType: ["api", "browser"],
   SyntheticsTestExecutionRule: ["blocking", "non_blocking", "skipped"],
   SyntheticsTestMonitorStatus: [0, 1, 2],
+  SyntheticsTestOptionsHTTPVersion: ["http1", "http2", "any"],
   SyntheticsTestPauseStatus: ["live", "paused"],
   SyntheticsTestProcessStatus: [
     "not_scheduled",
@@ -1165,6 +1258,8 @@ const enumsMap: { [key: string]: any[] } = {
     "apm_fargate_percentage",
     "appsec_fargate_usage",
     "appsec_fargate_percentage",
+    "estimated_rum_usage_attribution_usage",
+    "estimated_rum_usage_attribution_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1211,6 +1306,8 @@ const enumsMap: { [key: string]: any[] } = {
     "apm_fargate_percentage",
     "appsec_fargate_usage",
     "appsec_fargate_percentage",
+    "estimated_rum_usage_attribution_usage",
+    "estimated_rum_usage_attribution_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],
@@ -1371,6 +1468,7 @@ const typeMap: { [index: string]: any } = {
   DashboardBulkActionData: DashboardBulkActionData,
   DashboardBulkDeleteRequest: DashboardBulkDeleteRequest,
   DashboardDeleteResponse: DashboardDeleteResponse,
+  DashboardGlobalTime: DashboardGlobalTime,
   DashboardList: DashboardList,
   DashboardListDeleteResponse: DashboardListDeleteResponse,
   DashboardListListResponse: DashboardListListResponse,
@@ -1380,6 +1478,7 @@ const typeMap: { [index: string]: any } = {
   DashboardTemplateVariable: DashboardTemplateVariable,
   DashboardTemplateVariablePreset: DashboardTemplateVariablePreset,
   DashboardTemplateVariablePresetValue: DashboardTemplateVariablePresetValue,
+  DeleteSharedDashboardResponse: DeleteSharedDashboardResponse,
   DeletedMonitor: DeletedMonitor,
   DistributionPointsPayload: DistributionPointsPayload,
   DistributionPointsSeries: DistributionPointsSeries,
@@ -1453,6 +1552,7 @@ const typeMap: { [index: string]: any } = {
   IPPrefixesAPM: IPPrefixesAPM,
   IPPrefixesAgents: IPPrefixesAgents,
   IPPrefixesLogs: IPPrefixesLogs,
+  IPPrefixesOrchestrator: IPPrefixesOrchestrator,
   IPPrefixesProcess: IPPrefixesProcess,
   IPPrefixesSynthetics: IPPrefixesSynthetics,
   IPPrefixesSyntheticsPrivateLocations: IPPrefixesSyntheticsPrivateLocations,
@@ -1463,6 +1563,8 @@ const typeMap: { [index: string]: any } = {
   ImageWidgetDefinition: ImageWidgetDefinition,
   IntakePayloadAccepted: IntakePayloadAccepted,
   ListStreamColumn: ListStreamColumn,
+  ListStreamComputeItems: ListStreamComputeItems,
+  ListStreamGroupByItems: ListStreamGroupByItems,
   ListStreamQuery: ListStreamQuery,
   ListStreamWidgetDefinition: ListStreamWidgetDefinition,
   ListStreamWidgetRequest: ListStreamWidgetRequest,
@@ -1607,7 +1709,10 @@ const typeMap: { [index: string]: any } = {
   ProcessQueryDefinition: ProcessQueryDefinition,
   QueryValueWidgetDefinition: QueryValueWidgetDefinition,
   QueryValueWidgetRequest: QueryValueWidgetRequest,
+  ReferenceTableLogsLookupProcessor: ReferenceTableLogsLookupProcessor,
   ResponseMetaAttributes: ResponseMetaAttributes,
+  RunWorkflowWidgetDefinition: RunWorkflowWidgetDefinition,
+  RunWorkflowWidgetInput: RunWorkflowWidgetInput,
   SLOBulkDeleteError: SLOBulkDeleteError,
   SLOBulkDeleteResponse: SLOBulkDeleteResponse,
   SLOBulkDeleteResponseData: SLOBulkDeleteResponseData,
@@ -1645,6 +1750,7 @@ const typeMap: { [index: string]: any } = {
   SLORawErrorBudgetRemaining: SLORawErrorBudgetRemaining,
   SLOResponse: SLOResponse,
   SLOResponseData: SLOResponseData,
+  SLOStatus: SLOStatus,
   SLOThreshold: SLOThreshold,
   SLOWidgetDefinition: SLOWidgetDefinition,
   ScatterPlotRequest: ScatterPlotRequest,
@@ -1668,6 +1774,7 @@ const typeMap: { [index: string]: any } = {
   SearchServiceLevelObjective: SearchServiceLevelObjective,
   SearchServiceLevelObjectiveAttributes: SearchServiceLevelObjectiveAttributes,
   SearchServiceLevelObjectiveData: SearchServiceLevelObjectiveData,
+  SelectableTemplateVariableItems: SelectableTemplateVariableItems,
   Series: Series,
   ServiceCheck: ServiceCheck,
   ServiceLevelObjective: ServiceLevelObjective,
@@ -1675,6 +1782,17 @@ const typeMap: { [index: string]: any } = {
   ServiceLevelObjectiveRequest: ServiceLevelObjectiveRequest,
   ServiceMapWidgetDefinition: ServiceMapWidgetDefinition,
   ServiceSummaryWidgetDefinition: ServiceSummaryWidgetDefinition,
+  SharedDashboard: SharedDashboard,
+  SharedDashboardAuthor: SharedDashboardAuthor,
+  SharedDashboardInvites: SharedDashboardInvites,
+  SharedDashboardInvitesDataObject: SharedDashboardInvitesDataObject,
+  SharedDashboardInvitesDataObjectAttributes:
+    SharedDashboardInvitesDataObjectAttributes,
+  SharedDashboardInvitesMeta: SharedDashboardInvitesMeta,
+  SharedDashboardInvitesMetaPage: SharedDashboardInvitesMetaPage,
+  SharedDashboardUpdateRequest: SharedDashboardUpdateRequest,
+  SharedDashboardUpdateRequestGlobalTime:
+    SharedDashboardUpdateRequestGlobalTime,
   SignalAssigneeUpdateRequest: SignalAssigneeUpdateRequest,
   SignalStateUpdateRequest: SignalStateUpdateRequest,
   SlackIntegrationChannel: SlackIntegrationChannel,
@@ -1701,6 +1819,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
   SyntheticsBasicAuthDigest: SyntheticsBasicAuthDigest,
   SyntheticsBasicAuthNTLM: SyntheticsBasicAuthNTLM,
+  SyntheticsBasicAuthOauthClient: SyntheticsBasicAuthOauthClient,
+  SyntheticsBasicAuthOauthROP: SyntheticsBasicAuthOauthROP,
   SyntheticsBasicAuthSigv4: SyntheticsBasicAuthSigv4,
   SyntheticsBasicAuthWeb: SyntheticsBasicAuthWeb,
   SyntheticsBatchDetails: SyntheticsBatchDetails,
@@ -1737,8 +1857,11 @@ const typeMap: { [index: string]: any } = {
     SyntheticsGetBrowserTestLatestResultsResponse,
   SyntheticsGlobalVariable: SyntheticsGlobalVariable,
   SyntheticsGlobalVariableAttributes: SyntheticsGlobalVariableAttributes,
+  SyntheticsGlobalVariableOptions: SyntheticsGlobalVariableOptions,
   SyntheticsGlobalVariableParseTestOptions:
     SyntheticsGlobalVariableParseTestOptions,
+  SyntheticsGlobalVariableTOTPParameters:
+    SyntheticsGlobalVariableTOTPParameters,
   SyntheticsGlobalVariableValue: SyntheticsGlobalVariableValue,
   SyntheticsListGlobalVariablesResponse: SyntheticsListGlobalVariablesResponse,
   SyntheticsListTestsResponse: SyntheticsListTestsResponse,
@@ -1768,6 +1891,9 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestOptions: SyntheticsTestOptions,
   SyntheticsTestOptionsMonitorOptions: SyntheticsTestOptionsMonitorOptions,
   SyntheticsTestOptionsRetry: SyntheticsTestOptionsRetry,
+  SyntheticsTestOptionsScheduling: SyntheticsTestOptionsScheduling,
+  SyntheticsTestOptionsSchedulingTimeframe:
+    SyntheticsTestOptionsSchedulingTimeframe,
   SyntheticsTestRequest: SyntheticsTestRequest,
   SyntheticsTestRequestCertificate: SyntheticsTestRequestCertificate,
   SyntheticsTestRequestCertificateItem: SyntheticsTestRequestCertificateItem,
@@ -1899,6 +2025,7 @@ const typeMap: { [index: string]: any } = {
   WidgetFieldSort: WidgetFieldSort,
   WidgetFormula: WidgetFormula,
   WidgetFormulaLimit: WidgetFormulaLimit,
+  WidgetFormulaStyle: WidgetFormulaStyle,
   WidgetLayout: WidgetLayout,
   WidgetMarker: WidgetMarker,
   WidgetRequestStyle: WidgetRequestStyle,
@@ -1935,6 +2062,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogsPipelineProcessor",
     "LogsGeoIPParser",
     "LogsLookupProcessor",
+    "ReferenceTableLogsLookupProcessor",
     "LogsTraceRemapper",
   ],
   MonitorFormulaAndFunctionQueryDefinition: [
@@ -1970,6 +2098,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "NotebookCellCreateRequest",
     "NotebookCellUpdateRequest",
   ],
+  SharedDashboardInvitesData: [
+    "SharedDashboardInvitesDataObject",
+    "Array<SharedDashboardInvitesDataObject>",
+  ],
   SunburstWidgetLegend: [
     "SunburstWidgetLegendTable",
     "SunburstWidgetLegendInlineAutomatic",
@@ -1984,6 +2116,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthSigv4",
     "SyntheticsBasicAuthNTLM",
     "SyntheticsBasicAuthDigest",
+    "SyntheticsBasicAuthOauthClient",
+    "SyntheticsBasicAuthOauthROP",
   ],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
@@ -2004,6 +2138,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "MonitorSummaryWidgetDefinition",
     "NoteWidgetDefinition",
     "QueryValueWidgetDefinition",
+    "RunWorkflowWidgetDefinition",
     "ScatterPlotWidgetDefinition",
     "SLOWidgetDefinition",
     "SLOListWidgetDefinition",
@@ -2024,6 +2159,8 @@ export class ObjectSerializer {
   public static serialize(data: any, type: string, format: string): any {
     if (data == undefined || type == "any") {
       return data;
+    } else if (data instanceof UnparsedObject) {
+      return data._data;
     } else if (
       primitives.includes(type.toLowerCase()) &&
       typeof data == type.toLowerCase()
@@ -2076,12 +2213,8 @@ export class ObjectSerializer {
       if ("string" == typeof data) {
         return data;
       }
-      if (format == "date") {
-        let month = data.getMonth() + 1;
-        month = month < 10 ? "0" + month.toString() : month.toString();
-        let day = data.getDate();
-        day = day < 10 ? "0" + day.toString() : day.toString();
-        return data.getFullYear() + "-" + month + "-" + day;
+      if (format == "date" || format == "date-time") {
+        return dateToRFC3339String(data);
       } else {
         return data.toISOString();
       }
@@ -2123,23 +2256,6 @@ export class ObjectSerializer {
       const attributesMap = typeMap[type].getAttributeTypeMap();
       const instance: { [index: string]: any } = {};
 
-      const extraAttributes = Object.keys(data)
-        .filter(
-          (key) => !Object.prototype.hasOwnProperty.call(attributesMap, key)
-        )
-        .reduce((obj, key) => {
-          return Object.assign(obj, {
-            [key]: data[key],
-          });
-        }, {});
-
-      if (Object.keys(extraAttributes).length !== 0) {
-        if (!data.additionalProperties) {
-          data.additionalProperties = {};
-        }
-        Object.assign(data.additionalProperties, extraAttributes);
-      }
-
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
         if (attributeName == "additionalProperties") {
@@ -2168,14 +2284,8 @@ export class ObjectSerializer {
             `missing required property '${attributeObj.baseName}'`
           );
         }
-
-        if (
-          enumsMap[attributeObj.type] &&
-          !enumsMap[attributeObj.type].includes(instance[attributeObj.baseName])
-        ) {
-          instance.unparsedObject = instance[attributeObj.baseName];
-        }
       }
+
       return instance;
     }
   }
@@ -2233,18 +2343,24 @@ export class ObjectSerializer {
       }
       return transformedData;
     } else if (type === "Date") {
-      return new Date(data);
+      try {
+        return dateFromRFC3339String(data);
+      } catch {
+        return new Date(data);
+      }
     } else {
       if (enumsMap[type]) {
-        return data;
+        if (enumsMap[type].includes(data)) {
+          return data;
+        }
+        return new UnparsedObject(data);
       }
-
       if (oneOfMap[type]) {
         const oneOfs: any[] = [];
         for (const oneOf of oneOfMap[type]) {
           try {
             const d = ObjectSerializer.deserialize(data, oneOf, format);
-            if (d?.unparsedObject === undefined) {
+            if (!d?._unparsed) {
               oneOfs.push(d);
             }
           } catch (e) {
@@ -2264,25 +2380,63 @@ export class ObjectSerializer {
 
       const instance = new typeMap[type]();
       const attributesMap = typeMap[type].getAttributeTypeMap();
+      let extraAttributes: any = [];
+      if ("additionalProperties" in attributesMap) {
+        const attributesBaseNames = Object.keys(attributesMap).reduce(
+          (o, key) => Object.assign(o, { [attributesMap[key].baseName]: "" }),
+          {}
+        );
+        extraAttributes = Object.keys(data).filter(
+          (key) =>
+            !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
+        );
+      }
 
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
+        if (attributeName == "additionalProperties") {
+          if (extraAttributes.length > 0) {
+            if (!instance.additionalProperties) {
+              instance.additionalProperties = {};
+            }
+
+            for (const key in extraAttributes) {
+              instance.additionalProperties[extraAttributes[key]] =
+                ObjectSerializer.deserialize(
+                  data[extraAttributes[key]],
+                  attributeObj.type,
+                  attributeObj.format
+                );
+            }
+          }
+          continue;
+        }
+
         instance[attributeName] = ObjectSerializer.deserialize(
           data[attributeObj.baseName],
           attributeObj.type,
           attributeObj.format
         );
+
         // check for required properties
         if (attributeObj?.required && instance[attributeName] === undefined) {
           throw new Error(`missing required property '${attributeName}'`);
         }
 
-        // check for enum values
         if (
-          enumsMap[attributeObj.type] &&
-          !enumsMap[attributeObj.type].includes(instance[attributeName])
+          instance[attributeName] instanceof UnparsedObject ||
+          instance[attributeName]?._unparsed
         ) {
-          instance.unparsedObject = instance[attributeName];
+          instance._unparsed = true;
+        }
+
+        if (Array.isArray(instance[attributeName])) {
+          for (const d of instance[attributeName]) {
+            if (d instanceof UnparsedObject || d?._unparsed) {
+              instance._unparsed = true;
+              break;
+            }
+          }
         }
       }
 

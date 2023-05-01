@@ -26,7 +26,7 @@ export class HostMetaInstallMethod {
   /**
    * @ignore
    */
-  "unparsedObject"?: any;
+  "_unparsed"?: boolean;
 
   /**
    * @ignore

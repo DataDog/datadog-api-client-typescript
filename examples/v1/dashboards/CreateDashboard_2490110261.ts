@@ -10,8 +10,7 @@ const apiInstance = new v1.DashboardsApi(configuration);
 const params: v1.DashboardsApiCreateDashboardRequest = {
   body: {
     layoutType: "ordered",
-    title:
-      "Example-Create_a_new_dashboard_with_an_audit_logs_query with Audit Logs Query",
+    title: "Example-Dashboard with Audit Logs Query",
     widgets: [
       {
         definition: {
