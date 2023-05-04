@@ -5,6 +5,8 @@
  */
 import { DowntimeChild } from "./DowntimeChild";
 import { DowntimeRecurrence } from "./DowntimeRecurrence";
+import { NotifyEndState } from "./NotifyEndState";
+import { NotifyEndType } from "./NotifyEndType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -72,6 +74,17 @@ export class Downtime {
    * If the first recovery notification during a downtime should be muted.
    */
   "muteFirstRecoveryNotification"?: boolean;
+  /**
+   * States for which `notify_end_types` sends out notifications for.
+   */
+  "notifyEndStates"?: Array<NotifyEndState>;
+  /**
+   * If set, notifies if a monitor is in an alert-worthy state (`ALERT`, `WARNING`, or `NO DATA`)
+   * when this downtime expires or is canceled. Applied to monitors that change states during
+   * the downtime (such as from `OK` to `ALERT`, `WARNING`, or `NO DATA`), and to monitors that
+   * already have an alert-worthy state when downtime begins.
+   */
+  "notifyEndTypes"?: Array<NotifyEndType>;
   /**
    * ID of the parent Downtime.
    */
@@ -162,6 +175,14 @@ export class Downtime {
     muteFirstRecoveryNotification: {
       baseName: "mute_first_recovery_notification",
       type: "boolean",
+    },
+    notifyEndStates: {
+      baseName: "notify_end_states",
+      type: "Array<NotifyEndState>",
+    },
+    notifyEndTypes: {
+      baseName: "notify_end_types",
+      type: "Array<NotifyEndType>",
     },
     parentId: {
       baseName: "parent_id",
