@@ -946,6 +946,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   NotebookResourceType: ["notebooks"],
   NotebookStatus: ["published"],
+  NotifyEndState: ["alert", "no data", "warn"],
+  NotifyEndType: ["canceled", "expired"],
   OnMissingDataOption: [
     "default",
     "show_no_data",
