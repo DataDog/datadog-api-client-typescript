@@ -1,5 +1,7 @@
 import { Given, Then, When, AfterAll } from "@cucumber/cucumber";
-import { expect } from "chai";
+import { expect, use } from "chai";
+import chaiQuantifiers from "chai-quantifiers";
+use(chaiQuantifiers);
 import { World } from "../support/world";
 
 import { getProperty, pathLookup, getTypeForValue } from "../support/templating";
@@ -288,6 +290,29 @@ Then(
   "the response has {int} items",
   function (this: World, fixtureLength: number) {
     expect(this.response.length).to.equal(fixtureLength);
+  }
+);
+
+Then(
+  /the response "([^"]+)" has item with field "([^"]+)" with value (.*)/,
+  function (this: World, responsePath: string, keyPath: string, value: string) {
+    expect(pathLookup(this.response, responsePath)).to.containOne((item) => {
+      try {
+        expect(pathLookup(item, keyPath)).to.deep.equal(
+          JSON.parse(value.templated(this.fixtures))
+        );
+        return true;
+      } catch (error) {
+        return false;
+      }
+    });
+  }
+);
+
+Then(
+  /the response "([^"]+)" array contains value (.*)/,
+  function (this: World, responsePath: string, value: string) {
+    expect(pathLookup(this.response, responsePath)).to.contain(JSON.parse(value.templated(this.fixtures)));
   }
 );
 
