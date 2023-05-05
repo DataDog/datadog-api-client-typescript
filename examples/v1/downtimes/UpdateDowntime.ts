@@ -14,6 +14,8 @@ const params: v1.DowntimesApiUpdateDowntimeRequest = {
   body: {
     message: "Example-Downtime-updated",
     muteFirstRecoveryNotification: true,
+    notifyEndStates: ["alert", "no data", "warn"],
+    notifyEndTypes: ["canceled", "expired"],
   },
   downtimeId: DOWNTIME_ID,
 };
