@@ -21,8 +21,6 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
         new Date(new Date().getTime() + 21 * 86400 * 1000).getTime() / 1000
       ),
     },
-    notifyEndStates: ["alert", "no data", "warn"],
-    notifyEndTypes: ["canceled", "expired"],
   },
 };
 

@@ -203,7 +203,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     filterProductFamilies: string,
     filterTimestampEnd?: Date,
     filterIncludeDescendants?: boolean,
-    filterIncludeBreakdown?: boolean,
     filterVersions?: string,
     pageLimit?: number,
     pageNextRecordId?: string,
@@ -258,12 +257,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[include_descendants]",
         ObjectSerializer.serialize(filterIncludeDescendants, "boolean", "")
-      );
-    }
-    if (filterIncludeBreakdown !== undefined) {
-      requestContext.setQueryParam(
-        "filter[include_breakdown]",
-        ObjectSerializer.serialize(filterIncludeBreakdown, "boolean", "")
       );
     }
     if (filterVersions !== undefined) {
@@ -911,7 +904,7 @@ export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
    */
   view?: string;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past). Provide an `end_month` to view month-over-month cost.
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past)
    * @type Date
    */
   startMonth?: Date;
@@ -921,7 +914,7 @@ export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
    */
   endMonth?: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both. (start_date cannot go beyond two months in the past). Provide an `end_date` to view day-over-day cumulative cost.
+   * Datetime in ISO-8601 format, UTC, precise to day: `[YYYY-MM-DD]` for cost beginning this day. Either start_month or start_date should be specified, but not both. (start_date cannot go beyond two months in the past)
    * @type Date
    */
   startDate?: Date;
@@ -978,11 +971,6 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
    * @type boolean
    */
   filterIncludeDescendants?: boolean;
-  /**
-   * Include breakdown of usage by subcategories where applicable (for product family logs only). Defaults to false.
-   * @type boolean
-   */
-  filterIncludeBreakdown?: boolean;
   /**
    * Comma separated list of product family versions to use in the format `product_family:version`. For example,
    * `infra_hosts:1.0.0`. If this parameter is not used, the API will use the latest version of each requested
@@ -1152,7 +1140,6 @@ export class UsageMeteringApi {
       param.filterProductFamilies,
       param.filterTimestampEnd,
       param.filterIncludeDescendants,
-      param.filterIncludeBreakdown,
       param.filterVersions,
       param.pageLimit,
       param.pageNextRecordId,

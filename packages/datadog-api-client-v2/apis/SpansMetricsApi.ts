@@ -288,7 +288,7 @@ export class SpansMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode == 200) {
       return;
     }
     if (

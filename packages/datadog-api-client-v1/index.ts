@@ -667,8 +667,6 @@ export { NotebookUpdateDataAttributes } from "./models/NotebookUpdateDataAttribu
 export { NotebookUpdateRequest } from "./models/NotebookUpdateRequest";
 export { NoteWidgetDefinition } from "./models/NoteWidgetDefinition";
 export { NoteWidgetDefinitionType } from "./models/NoteWidgetDefinitionType";
-export { NotifyEndState } from "./models/NotifyEndState";
-export { NotifyEndType } from "./models/NotifyEndType";
 export { OnMissingDataOption } from "./models/OnMissingDataOption";
 export { Organization } from "./models/Organization";
 export { OrganizationBilling } from "./models/OrganizationBilling";

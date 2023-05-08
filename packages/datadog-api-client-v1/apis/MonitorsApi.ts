@@ -1420,7 +1420,7 @@ export class MonitorsApi {
    *
    * #### Query Types
    *
-   * ##### Metric Alert Query
+   * **Metric Alert Query**
    *
    * Example: `time_aggr(time_window):space_aggr:metric{tags} [by {key}] operator #`
    *
@@ -1443,7 +1443,7 @@ export class MonitorsApi {
    * Use this to create an outlier monitor using the following query:
    * `avg(last_30m):outliers(avg:system.cpu.user{role:es-events-data} by {host}, 'dbscan', 7) > 0`
    *
-   * ##### Service Check Query
+   * **Service Check Query**
    *
    * Example: `"check".over(tags).last(count).by(group).count_by_status()`
    *
@@ -1454,7 +1454,7 @@ export class MonitorsApi {
    * - `group` must be specified for check monitors. Per-check grouping is already explicitly known for some service checks.
    * For example, Postgres integration monitors are tagged by `db`, `host`, and `port`, and Network monitors by `host`, `instance`, and `url`. See [Service Checks](https://docs.datadoghq.com/api/latest/service-checks/) documentation for more information.
    *
-   * ##### Event Alert Query
+   * **Event Alert Query**
    *
    * Example: `events('sources:nagios status:error,warning priority:normal tags: "string query"').rollup("count").last("1h")"`
    *
@@ -1471,7 +1471,7 @@ export class MonitorsApi {
    *
    * **NOTE** The Event Alert Query is being deprecated and replaced by the Event V2 Alert Query. For more information, see the [Event Migration guide](https://docs.datadoghq.com/events/guides/migrating_to_new_events_features/).
    *
-   * ##### Event V2 Alert Query
+   * **Event V2 Alert Query**
    *
    * Example: `events(query).rollup(rollup_method[, measure]).last(time_window) operator #`
    *
@@ -1482,7 +1482,7 @@ export class MonitorsApi {
    * - `operator` `<`, `<=`, `>`, `>=`, `==`, or `!=`.
    * - `#` an integer or decimal number used to set the threshold.
    *
-   * ##### Process Alert Query
+   * **Process Alert Query**
    *
    * Example: `processes(search).over(tags).rollup('count').last(timeframe) operator #`
    *
@@ -1493,7 +1493,7 @@ export class MonitorsApi {
    * - `operator` <, <=, >, >=, ==, or !=
    * - `#` an integer or decimal number used to set the threshold
    *
-   * ##### Logs Alert Query
+   * **Logs Alert Query**
    *
    * Example: `logs(query).index(index_name).rollup(rollup_method[, measure]).last(time_window) operator #`
    *
@@ -1505,7 +1505,7 @@ export class MonitorsApi {
    * - `operator` `<`, `<=`, `>`, `>=`, `==`, or `!=`.
    * - `#` an integer or decimal number used to set the threshold.
    *
-   * ##### Composite Query
+   * **Composite Query**
    *
    * Example: `12345 && 67890`, where `12345` and `67890` are the IDs of non-composite monitors
    *
@@ -1516,7 +1516,7 @@ export class MonitorsApi {
    * When getting all monitor details via the API, use the `monitor_tags` argument to filter results by these tags.
    * It is only available via the API and isn't visible or editable in the Datadog UI.
    *
-   * ##### SLO Alert Query
+   * **SLO Alert Query**
    *
    * Example: `error_budget("slo_id").over("time_window") operator #`
    *
@@ -1524,7 +1524,7 @@ export class MonitorsApi {
    * - `time_window`: The time window of the SLO target you wish to alert on. Valid options: `7d`, `30d`, `90d`.
    * - `operator`: `>=` or `>`
    *
-   * ##### Audit Alert Query
+   * **Audit Alert Query**
    *
    * Example: `audits(query).rollup(rollup_method[, measure]).last(time_window) operator #`
    *
@@ -1537,7 +1537,7 @@ export class MonitorsApi {
    *
    * **NOTE** Only available on US1-FED and in closed beta on US1, EU, AP1, US3, and US5.
    *
-   * ##### CI Pipelines Alert Query
+   * **CI Pipelines Alert Query**
    *
    * Example: `ci-pipelines(query).rollup(rollup_method[, measure]).last(time_window) operator #`
    *
@@ -1550,7 +1550,7 @@ export class MonitorsApi {
    *
    * **NOTE** CI Pipeline monitors are in alpha on US1, EU, AP1, US3, and US5.
    *
-   * ##### CI Tests Alert Query
+   * **CI Tests Alert Query**
    *
    * Example: `ci-tests(query).rollup(rollup_method[, measure]).last(time_window) operator #`
    *
@@ -1563,7 +1563,7 @@ export class MonitorsApi {
    *
    * **NOTE** CI Test monitors are available only in closed beta on US1, EU, AP1, US3, and US5.
    *
-   * ##### Error Tracking Alert Query
+   * **Error Tracking Alert Query**
    *
    * Example(RUM): `error-tracking-rum(query).rollup(rollup_method[, measure]).last(time_window) operator #`
    * Example(APM Traces): `error-tracking-traces(query).rollup(rollup_method[, measure]).last(time_window) operator #`

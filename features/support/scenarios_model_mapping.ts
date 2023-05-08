@@ -3707,216 +3707,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsersResponse",
     },
-    "v2.ListFindings": {
-        "pageLimit": {
-            "type": "number",
-            "format": "int64",
-            },
-        "snapshotTimestamp": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageCursor": {
-            "type": "string",
-            "format": "",
-            },
-        "filterTags": {
-            "type": "string",
-            "format": "",
-            },
-        "filterEvaluationChangedAt": {
-            "type": "string",
-            "format": "",
-            },
-        "filterMuted": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "filterRuleName": {
-            "type": "string",
-            "format": "",
-            },
-        "filterResourceType": {
-            "type": "string",
-            "format": "",
-            },
-        "filterDiscoveryTimestamp": {
-            "type": "string",
-            "format": "",
-            },
-        "filterEvaluation": {
-            "type": "FindingEvaluation",
-            "format": "",
-            },
-        "filterStatus": {
-            "type": "FindingStatus",
-            "format": "",
-            },
-        "operationResponseType": "ListFindingsResponse",
-    },
-    "v2.GetFinding": {
-        "findingId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "GetFindingResponse",
-    },
-    "v2.ListSecurityFilters": {
-        "operationResponseType": "SecurityFiltersResponse",
-    },
-    "v2.CreateSecurityFilter": {
-        "body": {
-            "type": "SecurityFilterCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityFilterResponse",
-    },
-    "v2.DeleteSecurityFilter": {
-        "securityFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSecurityFilter": {
-        "securityFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SecurityFilterResponse",
-    },
-    "v2.UpdateSecurityFilter": {
-        "securityFilterId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityFilterUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityFilterResponse",
-    },
-    "v2.ListSecurityMonitoringRules": {
-        "pageSize": {
-            "type": "number",
-            "format": "int64",
-            },
-        "pageNumber": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "SecurityMonitoringListRulesResponse",
-    },
-    "v2.CreateSecurityMonitoringRule": {
-        "body": {
-            "type": "SecurityMonitoringRuleCreatePayload",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleResponse",
-    },
-    "v2.DeleteSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleResponse",
-    },
-    "v2.UpdateSecurityMonitoringRule": {
-        "ruleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringRuleUpdatePayload",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringRuleResponse",
-    },
-    "v2.ListSecurityMonitoringSignals": {
-        "filterQuery": {
-            "type": "string",
-            "format": "",
-            },
-        "filterFrom": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "filterTo": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "sort": {
-            "type": "SecurityMonitoringSignalsSort",
-            "format": "",
-            },
-        "pageCursor": {
-            "type": "string",
-            "format": "",
-            },
-        "pageLimit": {
-            "type": "number",
-            "format": "int32",
-            },
-        "operationResponseType": "SecurityMonitoringSignalsListResponse",
-    },
-    "v2.SearchSecurityMonitoringSignals": {
-        "body": {
-            "type": "SecurityMonitoringSignalListRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignalsListResponse",
-    },
-    "v2.GetSecurityMonitoringSignal": {
-        "signalId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignal",
-    },
-    "v2.EditSecurityMonitoringSignalAssignee": {
-        "signalId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringSignalAssigneeUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
-    },
-    "v2.EditSecurityMonitoringSignalIncidents": {
-        "signalId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringSignalIncidentsUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
-    },
-    "v2.EditSecurityMonitoringSignalState": {
-        "signalId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "SecurityMonitoringSignalStateUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
-    },
     "v2.ListProcesses": {
         "search": {
             "type": "string",
@@ -4089,6 +3879,158 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
+    "v2.ListSecurityFilters": {
+        "operationResponseType": "SecurityFiltersResponse",
+    },
+    "v2.CreateSecurityFilter": {
+        "body": {
+            "type": "SecurityFilterCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityFilterResponse",
+    },
+    "v2.DeleteSecurityFilter": {
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSecurityFilter": {
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityFilterResponse",
+    },
+    "v2.UpdateSecurityFilter": {
+        "securityFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityFilterUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityFilterResponse",
+    },
+    "v2.ListSecurityMonitoringRules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "SecurityMonitoringListRulesResponse",
+    },
+    "v2.CreateSecurityMonitoringRule": {
+        "body": {
+            "type": "SecurityMonitoringRuleCreatePayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.DeleteSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.UpdateSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringRuleUpdatePayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.ListSecurityMonitoringSignals": {
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTo": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "sort": {
+            "type": "SecurityMonitoringSignalsSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsListResponse",
+    },
+    "v2.SearchSecurityMonitoringSignals": {
+        "body": {
+            "type": "SecurityMonitoringSignalListRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalsListResponse",
+    },
+    "v2.GetSecurityMonitoringSignal": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignal",
+    },
+    "v2.EditSecurityMonitoringSignalAssignee": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalAssigneeUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
+    },
+    "v2.EditSecurityMonitoringSignalIncidents": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalIncidentsUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
+    },
+    "v2.EditSecurityMonitoringSignalState": {
+        "signalId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSignalStateUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
     "v2.ListScanningGroups": {
         "operationResponseType": "SensitiveDataScannerGetConfigResponse",
@@ -4669,10 +4611,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterIncludeDescendants": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterIncludeBreakdown": {
             "type": "boolean",
             "format": "",
             },

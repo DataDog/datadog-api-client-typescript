@@ -28,7 +28,7 @@ export class MetricsQueryMetadata {
    */
   "expression"?: string;
   /**
-   * Number of milliseconds between data samples.
+   * Number of seconds between data samples.
    */
   "interval"?: number;
   /**
@@ -40,7 +40,7 @@ export class MetricsQueryMetadata {
    */
   "metric"?: string;
   /**
-   * List of points of the time series in milliseconds.
+   * List of points of the time series.
    */
   "pointlist"?: Array<[number, number]>;
   /**

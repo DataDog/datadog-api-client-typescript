@@ -27,8 +27,6 @@ export type SyntheticsAssertionType =
   | typeof NETWORK_HOP
   | typeof RECEIVED_MESSAGE
   | typeof GRPC_HEALTHCHECK_STATUS
-  | typeof GRPC_METADATA
-  | typeof GRPC_PROTO
   | typeof CONNECTION
   | UnparsedObject;
 export const BODY = "body";
@@ -47,6 +45,4 @@ export const PACKETS_RECEIVED = "packetsReceived";
 export const NETWORK_HOP = "networkHop";
 export const RECEIVED_MESSAGE = "receivedMessage";
 export const GRPC_HEALTHCHECK_STATUS = "grpcHealthcheckStatus";
-export const GRPC_METADATA = "grpcMetadata";
-export const GRPC_PROTO = "grpcProto";
 export const CONNECTION = "connection";

@@ -26,8 +26,6 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
     timezone: "Etc/UTC",
     muteFirstRecoveryNotification: true,
     monitorTags: ["tag0"],
-    notifyEndStates: ["alert"],
-    notifyEndTypes: ["canceled"],
   },
 };
 
