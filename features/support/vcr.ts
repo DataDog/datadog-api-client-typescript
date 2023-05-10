@@ -103,9 +103,7 @@ Before(function (
   const prefix =
     this.polly?.mode == MODES.PASSTHROUGH ? "Test-Typescript" : "Test";
   const unique = `${prefix}-${name}-${Math.floor(now)}`;
-  const uniqueHash =
-    "test-" +
-    createHash("sha256").update(unique).digest("hex").substring(0, 16);
+  const uniqueHash = createHash("sha256").update(unique).digest("hex").substring(0, 16);
   this.fixtures["unique"] = unique;
   this.fixtures["unique_lower"] = unique.toLowerCase();
   this.fixtures["unique_upper"] = unique.toUpperCase();

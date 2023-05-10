@@ -212,7 +212,7 @@ def context(request, unique, freezed_time):
     imports = defaultdict(set)
     given = defaultdict(dict)
 
-    unique_hash = "test-" + hashlib.sha256(unique.encode("utf-8")).hexdigest()[:16]
+    unique_hash = hashlib.sha256(unique.encode("utf-8")).hexdigest()[:16]
     ctx = {
         "unique": unique,
         "unique_lower": unique.lower(),
