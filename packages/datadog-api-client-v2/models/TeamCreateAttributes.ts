@@ -19,10 +19,6 @@ export class TeamCreateAttributes {
    */
   "handle": string;
   /**
-   * The number of links belonging to the team
-   */
-  "linkCount"?: number;
-  /**
    * The name of the team
    */
   "name": string;
@@ -44,11 +40,6 @@ export class TeamCreateAttributes {
       baseName: "handle",
       type: "string",
       required: true,
-    },
-    linkCount: {
-      baseName: "link_count",
-      type: "number",
-      format: "int32",
     },
     name: {
       baseName: "name",
