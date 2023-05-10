@@ -11,8 +11,8 @@ const params: v2.TeamsApiCreateTeamRequest = {
   body: {
     data: {
       attributes: {
-        handle: "1636629071",
-        name: "1636629071",
+        handle: "handle-a0fc0297eb519635",
+        name: "name-a0fc0297eb519635",
       },
       relationships: {
         users: {
