@@ -380,6 +380,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getFinding(
     findingId: string,
+    snapshotTimestamp?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -408,6 +409,14 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     ).makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (snapshotTimestamp !== undefined) {
+      requestContext.setQueryParam(
+        "snapshot_timestamp",
+        ObjectSerializer.serialize(snapshotTimestamp, "number", "int64")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2124,6 +2133,11 @@ export interface SecurityMonitoringApiGetFindingRequest {
    * @type string
    */
   findingId: string;
+  /**
+   * Return the finding for a given snapshot of time (Unix ms).
+   * @type number
+   */
+  snapshotTimestamp?: number;
 }
 
 export interface SecurityMonitoringApiGetSecurityFilterRequest {
@@ -2480,6 +2494,7 @@ export class SecurityMonitoringApi {
   ): Promise<GetFindingResponse> {
     const requestContextPromise = this.requestFactory.getFinding(
       param.findingId,
+      param.snapshotTimestamp,
       options
     );
     return requestContextPromise.then((requestContext) => {

@@ -3763,6 +3763,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "snapshotTimestamp": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "GetFindingResponse",
     },
     "v2.ListSecurityFilters": {
