@@ -9,6 +9,7 @@ import { After, AfterAll, Before } from "@cucumber/cucumber";
 import { World } from "./world";
 import { ITestCaseHookParameter } from "@cucumber/cucumber/lib/support_code_library_builder/types";
 import { MODES } from "@pollyjs/utils";
+import { createHash } from "crypto";
 
 Polly.register(NodeHttpAdapter);
 Polly.register(FSPersister);
@@ -102,6 +103,7 @@ Before(function (
   const prefix =
     this.polly?.mode == MODES.PASSTHROUGH ? "Test-Typescript" : "Test";
   const unique = `${prefix}-${name}-${Math.floor(now)}`;
+  const uniqueHash = createHash("sha256").update(unique).digest("hex").substring(0, 16);
   this.fixtures["unique"] = unique;
   this.fixtures["unique_lower"] = unique.toLowerCase();
   this.fixtures["unique_upper"] = unique.toUpperCase();
@@ -112,6 +114,7 @@ Before(function (
   this.fixtures["unique_upper_alnum"] = this.fixtures[
     "unique_alnum"
   ].toUpperCase();
+  this.fixtures["unique_hash"] = uniqueHash;
   this.fixtures["now"] = date;
 
   // make sure that we are not recording APM traces
