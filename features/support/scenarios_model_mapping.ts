@@ -4315,6 +4315,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int64",
             },
+        "schemaVersion": {
+            "type": "ServiceDefinitionSchemaVersions",
+            "format": "",
+            },
         "operationResponseType": "ServiceDefinitionsListResponse",
     },
     "v2.CreateOrUpdateServiceDefinitions": {
@@ -4334,6 +4338,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetServiceDefinition": {
         "serviceName": {
             "type": "string",
+            "format": "",
+            },
+        "schemaVersion": {
+            "type": "ServiceDefinitionSchemaVersions",
             "format": "",
             },
         "operationResponseType": "ServiceDefinitionGetResponse",
