@@ -9,6 +9,7 @@ const apiInstance = new v2.ServiceDefinitionApi(configuration);
 
 const params: v2.ServiceDefinitionApiGetServiceDefinitionRequest = {
   serviceName: "service-definition-test",
+  schemaVersion: "v2.1",
 };
 
 apiInstance

@@ -21,6 +21,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ServiceDefinitionCreateResponse } from "../models/ServiceDefinitionCreateResponse";
 import { ServiceDefinitionData } from "../models/ServiceDefinitionData";
 import { ServiceDefinitionGetResponse } from "../models/ServiceDefinitionGetResponse";
+import { ServiceDefinitionSchemaVersions } from "../models/ServiceDefinitionSchemaVersions";
 import { ServiceDefinitionsCreateRequest } from "../models/ServiceDefinitionsCreateRequest";
 import { ServiceDefinitionsListResponse } from "../models/ServiceDefinitionsListResponse";
 
@@ -103,6 +104,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getServiceDefinition(
     serviceName: string,
+    schemaVersion?: ServiceDefinitionSchemaVersions,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -126,6 +128,18 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
+    // Query Params
+    if (schemaVersion !== undefined) {
+      requestContext.setQueryParam(
+        "schema_version",
+        ObjectSerializer.serialize(
+          schemaVersion,
+          "ServiceDefinitionSchemaVersions",
+          ""
+        )
+      );
+    }
+
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
       "apiKeyAuth",
@@ -138,6 +152,7 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
   public async listServiceDefinitions(
     pageSize?: number,
     pageNumber?: number,
+    schemaVersion?: ServiceDefinitionSchemaVersions,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -164,6 +179,16 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[number]",
         ObjectSerializer.serialize(pageNumber, "number", "int64")
+      );
+    }
+    if (schemaVersion !== undefined) {
+      requestContext.setQueryParam(
+        "schema_version",
+        ObjectSerializer.serialize(
+          schemaVersion,
+          "ServiceDefinitionSchemaVersions",
+          ""
+        )
       );
     }
 
@@ -447,6 +472,11 @@ export interface ServiceDefinitionApiGetServiceDefinitionRequest {
    * @type string
    */
   serviceName: string;
+  /**
+   * The schema version desired in the response.
+   * @type ServiceDefinitionSchemaVersions
+   */
+  schemaVersion?: ServiceDefinitionSchemaVersions;
 }
 
 export interface ServiceDefinitionApiListServiceDefinitionsRequest {
@@ -460,6 +490,11 @@ export interface ServiceDefinitionApiListServiceDefinitionsRequest {
    * @type number
    */
   pageNumber?: number;
+  /**
+   * The schema version desired in the response.
+   * @type ServiceDefinitionSchemaVersions
+   */
+  schemaVersion?: ServiceDefinitionSchemaVersions;
 }
 
 export class ServiceDefinitionApi {
@@ -533,6 +568,7 @@ export class ServiceDefinitionApi {
   ): Promise<ServiceDefinitionGetResponse> {
     const requestContextPromise = this.requestFactory.getServiceDefinition(
       param.serviceName,
+      param.schemaVersion,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -555,6 +591,7 @@ export class ServiceDefinitionApi {
     const requestContextPromise = this.requestFactory.listServiceDefinitions(
       param.pageSize,
       param.pageNumber,
+      param.schemaVersion,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -582,6 +619,7 @@ export class ServiceDefinitionApi {
       const requestContext = await this.requestFactory.listServiceDefinitions(
         param.pageSize,
         param.pageNumber,
+        param.schemaVersion,
         options
       );
       const responseContext = await this.configuration.httpApi.send(

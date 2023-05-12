@@ -1097,6 +1097,7 @@ const enumsMap: { [key: string]: any[] } = {
     "partial_replacement_from_beginning",
     "partial_replacement_from_end",
   ],
+  ServiceDefinitionSchemaVersions: ["v1", "v2", "v2.1"],
   ServiceDefinitionV1ResourceType: [
     "doc",
     "wiki",
