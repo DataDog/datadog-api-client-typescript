@@ -8,6 +8,7 @@ import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndF
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
+import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -21,4 +22,5 @@ export type FormulaAndFunctionQueryDefinition =
   | FormulaAndFunctionProcessQueryDefinition
   | FormulaAndFunctionApmDependencyStatsQueryDefinition
   | FormulaAndFunctionApmResourceStatsQueryDefinition
+  | FormulaAndFunctionSLOQueryDefinition
   | UnparsedObject;

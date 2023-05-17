@@ -79,6 +79,7 @@ import { FormulaAndFunctionEventQueryGroupBy } from "./FormulaAndFunctionEventQu
 import { FormulaAndFunctionEventQueryGroupBySort } from "./FormulaAndFunctionEventQueryGroupBySort";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
+import { FormulaAndFunctionSLOQueryDefinition } from "./FormulaAndFunctionSLOQueryDefinition";
 import { FreeTextWidgetDefinition } from "./FreeTextWidgetDefinition";
 import { FunnelQuery } from "./FunnelQuery";
 import { FunnelStep } from "./FunnelStep";
@@ -706,6 +707,17 @@ const enumsMap: { [key: string]: any[] } = {
   FormulaAndFunctionMetricDataSource: ["metrics"],
   FormulaAndFunctionProcessQueryDataSource: ["process", "container"],
   FormulaAndFunctionResponseFormat: ["timeseries", "scalar"],
+  FormulaAndFunctionSLODataSource: ["slo"],
+  FormulaAndFunctionSLOGroupMode: ["overall", "components"],
+  FormulaAndFunctionSLOMeasure: [
+    "good_events",
+    "bad_events",
+    "slo_status",
+    "error_budget_remaining",
+    "burn_rate",
+    "error_budget_burndown",
+  ],
+  FormulaAndFunctionSLOQueryType: ["metric"],
   FreeTextWidgetDefinitionType: ["free_text"],
   FunnelRequestType: ["funnel"],
   FunnelSource: ["rum"],
@@ -1518,6 +1530,7 @@ const typeMap: { [index: string]: any } = {
     FormulaAndFunctionMetricQueryDefinition,
   FormulaAndFunctionProcessQueryDefinition:
     FormulaAndFunctionProcessQueryDefinition,
+  FormulaAndFunctionSLOQueryDefinition: FormulaAndFunctionSLOQueryDefinition,
   FreeTextWidgetDefinition: FreeTextWidgetDefinition,
   FunnelQuery: FunnelQuery,
   FunnelStep: FunnelStep,
@@ -2050,6 +2063,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionProcessQueryDefinition",
     "FormulaAndFunctionApmDependencyStatsQueryDefinition",
     "FormulaAndFunctionApmResourceStatsQueryDefinition",
+    "FormulaAndFunctionSLOQueryDefinition",
   ],
   LogsProcessor: [
     "LogsGrokParser",

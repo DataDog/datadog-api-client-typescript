@@ -442,6 +442,11 @@ export { FormulaAndFunctionProcessQueryDataSource } from "./models/FormulaAndFun
 export { FormulaAndFunctionProcessQueryDefinition } from "./models/FormulaAndFunctionProcessQueryDefinition";
 export { FormulaAndFunctionQueryDefinition } from "./models/FormulaAndFunctionQueryDefinition";
 export { FormulaAndFunctionResponseFormat } from "./models/FormulaAndFunctionResponseFormat";
+export { FormulaAndFunctionSLODataSource } from "./models/FormulaAndFunctionSLODataSource";
+export { FormulaAndFunctionSLOGroupMode } from "./models/FormulaAndFunctionSLOGroupMode";
+export { FormulaAndFunctionSLOMeasure } from "./models/FormulaAndFunctionSLOMeasure";
+export { FormulaAndFunctionSLOQueryDefinition } from "./models/FormulaAndFunctionSLOQueryDefinition";
+export { FormulaAndFunctionSLOQueryType } from "./models/FormulaAndFunctionSLOQueryType";
 export { FreeTextWidgetDefinition } from "./models/FreeTextWidgetDefinition";
 export { FreeTextWidgetDefinitionType } from "./models/FreeTextWidgetDefinitionType";
 export { FunnelQuery } from "./models/FunnelQuery";
