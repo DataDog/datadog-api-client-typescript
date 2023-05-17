@@ -327,6 +327,10 @@ export class UsageSummaryDate {
    * Shows the 99th percentile of all vSphere hosts over all hours in the current date for all organizations.
    */
   "vsphereHostTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in the current date for the given org.
+   */
+  "vulnManagementHostCountTop99p"?: number;
 
   /**
    * @ignore
@@ -728,6 +732,11 @@ export class UsageSummaryDate {
     },
     vsphereHostTop99p: {
       baseName: "vsphere_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    vulnManagementHostCountTop99p: {
+      baseName: "vuln_management_host_count_top99p",
       type: "number",
       format: "int64",
     },

@@ -73,6 +73,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof ESTIMATED_RUM_SESSIONS_PERCENTAGE
   | typeof UNIVERSAL_SERVICE_MONITORING_USAGE
   | typeof UNIVERSAL_SERVICE_MONITORING_PERCENTAGE
+  | typeof VULN_MANAGEMENT_HOSTS_USAGE
+  | typeof VULN_MANAGEMENT_HOSTS_PERCENTAGE
   | typeof ALL
   | UnparsedObject;
 export const API_USAGE = "api_usage";
@@ -147,4 +149,7 @@ export const UNIVERSAL_SERVICE_MONITORING_USAGE =
   "universal_service_monitoring_usage";
 export const UNIVERSAL_SERVICE_MONITORING_PERCENTAGE =
   "universal_service_monitoring_percentage";
+export const VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage";
+export const VULN_MANAGEMENT_HOSTS_PERCENTAGE =
+  "vuln_management_hosts_percentage";
 export const ALL = "*";

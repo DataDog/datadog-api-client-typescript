@@ -258,6 +258,14 @@ export class MonthlyUsageAttributionValues {
    * The universal service monitoring usage by tag(s).
    */
   "universalServiceMonitoringUsage"?: number;
+  /**
+   * The percentage of Application Vulnerability Management usage by tag(s).
+   */
+  "vulnManagementHostsPercentage"?: number;
+  /**
+   * The Application Vulnerability Management usage by tag(s).
+   */
+  "vulnManagementHostsUsage"?: number;
 
   /**
    * @ignore
@@ -575,6 +583,16 @@ export class MonthlyUsageAttributionValues {
     },
     universalServiceMonitoringUsage: {
       baseName: "universal_service_monitoring_usage",
+      type: "number",
+      format: "double",
+    },
+    vulnManagementHostsPercentage: {
+      baseName: "vuln_management_hosts_percentage",
+      type: "number",
+      format: "double",
+    },
+    vulnManagementHostsUsage: {
+      baseName: "vuln_management_hosts_usage",
       type: "number",
       format: "double",
     },
