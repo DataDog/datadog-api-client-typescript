@@ -8,6 +8,9 @@ import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 import { APIKeyUpdateData } from "./APIKeyUpdateData";
 import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
+import { AccountAttributes } from "./AccountAttributes";
+import { AccountCreationResponse } from "./AccountCreationResponse";
+import { AccountPatchBody } from "./AccountPatchBody";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
@@ -16,6 +19,7 @@ import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
+import { AttributeMetadata } from "./AttributeMetadata";
 import { AuditLogsEvent } from "./AuditLogsEvent";
 import { AuditLogsEventAttributes } from "./AuditLogsEventAttributes";
 import { AuditLogsEventsResponse } from "./AuditLogsEventsResponse";
@@ -132,6 +136,9 @@ import { DashboardListItems } from "./DashboardListItems";
 import { DashboardListUpdateItemsRequest } from "./DashboardListUpdateItemsRequest";
 import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResponse";
 import { DataScalarColumn } from "./DataScalarColumn";
+import { DelegateAccountAttributes } from "./DelegateAccountAttributes";
+import { DelegateCreationResponse } from "./DelegateCreationResponse";
+import { DelegateInfo } from "./DelegateInfo";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
 import { Event } from "./Event";
@@ -178,6 +185,7 @@ import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
+import { GCPSTSAccounts } from "./GCPSTSAccounts";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPLogError } from "./HTTPLogError";
@@ -338,6 +346,7 @@ import { LogsQueryOptions } from "./LogsQueryOptions";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
 import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
+import { MetaInfo } from "./MetaInfo";
 import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
@@ -511,6 +520,7 @@ import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
+import { STSEnabledAccountData } from "./STSEnabledAccountData";
 import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "./ScalarFormulaQueryResponse";
 import { ScalarFormulaRequest } from "./ScalarFormulaRequest";
@@ -618,6 +628,10 @@ import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextR
 import { ServiceAccountCreateAttributes } from "./ServiceAccountCreateAttributes";
 import { ServiceAccountCreateData } from "./ServiceAccountCreateData";
 import { ServiceAccountCreateRequest } from "./ServiceAccountCreateRequest";
+import { ServiceAccountInfo } from "./ServiceAccountInfo";
+import { ServiceAccountInfoPatch } from "./ServiceAccountInfoPatch";
+import { ServiceAccountMetadata } from "./ServiceAccountMetadata";
+import { ServiceAccountToBeCreatedData } from "./ServiceAccountToBeCreatedData";
 import { ServiceDefinitionCreateResponse } from "./ServiceDefinitionCreateResponse";
 import { ServiceDefinitionData } from "./ServiceDefinitionData";
 import { ServiceDefinitionDataAttributes } from "./ServiceDefinitionDataAttributes";
@@ -1173,6 +1187,9 @@ const typeMap: { [index: string]: any } = {
   APIKeyUpdateData: APIKeyUpdateData,
   APIKeyUpdateRequest: APIKeyUpdateRequest,
   APIKeysResponse: APIKeysResponse,
+  AccountAttributes: AccountAttributes,
+  AccountCreationResponse: AccountCreationResponse,
+  AccountPatchBody: AccountPatchBody,
   ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
   ApplicationKeyCreateData: ApplicationKeyCreateData,
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
@@ -1181,6 +1198,7 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
+  AttributeMetadata: AttributeMetadata,
   AuditLogsEvent: AuditLogsEvent,
   AuditLogsEventAttributes: AuditLogsEventAttributes,
   AuditLogsEventsResponse: AuditLogsEventsResponse,
@@ -1317,6 +1335,9 @@ const typeMap: { [index: string]: any } = {
   DashboardListUpdateItemsRequest: DashboardListUpdateItemsRequest,
   DashboardListUpdateItemsResponse: DashboardListUpdateItemsResponse,
   DataScalarColumn: DataScalarColumn,
+  DelegateAccountAttributes: DelegateAccountAttributes,
+  DelegateCreationResponse: DelegateCreationResponse,
+  DelegateInfo: DelegateInfo,
   DetailedFinding: DetailedFinding,
   DetailedFindingAttributes: DetailedFindingAttributes,
   Event: Event,
@@ -1363,6 +1384,7 @@ const typeMap: { [index: string]: any } = {
   FullAPIKeyAttributes: FullAPIKeyAttributes,
   FullApplicationKey: FullApplicationKey,
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
+  GCPSTSAccounts: GCPSTSAccounts,
   GetFindingResponse: GetFindingResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPLogError: HTTPLogError,
@@ -1536,6 +1558,7 @@ const typeMap: { [index: string]: any } = {
   LogsResponseMetadata: LogsResponseMetadata,
   LogsResponseMetadataPage: LogsResponseMetadataPage,
   LogsWarning: LogsWarning,
+  MetaInfo: MetaInfo,
   Metric: Metric,
   MetricAllTags: MetricAllTags,
   MetricAllTagsAttributes: MetricAllTagsAttributes,
@@ -1720,6 +1743,7 @@ const typeMap: { [index: string]: any } = {
   RolesResponse: RolesResponse,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
+  STSEnabledAccountData: STSEnabledAccountData,
   ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
   ScalarFormulaQueryResponse: ScalarFormulaQueryResponse,
   ScalarFormulaRequest: ScalarFormulaRequest,
@@ -1866,6 +1890,10 @@ const typeMap: { [index: string]: any } = {
   ServiceAccountCreateAttributes: ServiceAccountCreateAttributes,
   ServiceAccountCreateData: ServiceAccountCreateData,
   ServiceAccountCreateRequest: ServiceAccountCreateRequest,
+  ServiceAccountInfo: ServiceAccountInfo,
+  ServiceAccountInfoPatch: ServiceAccountInfoPatch,
+  ServiceAccountMetadata: ServiceAccountMetadata,
+  ServiceAccountToBeCreatedData: ServiceAccountToBeCreatedData,
   ServiceDefinitionCreateResponse: ServiceDefinitionCreateResponse,
   ServiceDefinitionData: ServiceDefinitionData,
   ServiceDefinitionDataAttributes: ServiceDefinitionDataAttributes,

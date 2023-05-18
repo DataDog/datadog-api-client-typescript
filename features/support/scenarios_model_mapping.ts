@@ -2942,6 +2942,48 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTodoResponse",
     },
+    "v2.ListGCPSTSAccountsV2": {
+        "operationResponseType": "STSEnabledAccountData",
+    },
+    "v2.CreateGCPSTSAccountsV2": {
+        "body": {
+            "type": "ServiceAccountToBeCreatedData",
+            "format": "",
+            },
+        "operationResponseType": "AccountCreationResponse",
+    },
+    "v2.DeleteGCPSTSAccountsV2": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.UpdateGCPSTSAccountsV2": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AccountPatchBody",
+            "format": "",
+            },
+        "operationResponseType": "AccountPatchBody",
+    },
+    "v2.GetDelegateV2": {
+        "body": {
+            "type": "any",
+            "format": "",
+            },
+        "operationResponseType": "DelegateCreationResponse",
+    },
+    "v2.MakeDelegateV2": {
+        "body": {
+            "type": "any",
+            "format": "",
+            },
+        "operationResponseType": "DelegateCreationResponse",
+    },
     "v2.ListOpsgenieServices": {
         "operationResponseType": "OpsgenieServicesResponse",
     },

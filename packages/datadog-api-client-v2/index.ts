@@ -84,6 +84,15 @@ export {
 } from "./apis/FastlyIntegrationApi";
 
 export {
+  GCPIntegrationApiCreateGCPSTSAccountsV2Request,
+  GCPIntegrationApiDeleteGCPSTSAccountsV2Request,
+  GCPIntegrationApiGetDelegateV2Request,
+  GCPIntegrationApiMakeDelegateV2Request,
+  GCPIntegrationApiUpdateGCPSTSAccountsV2Request,
+  GCPIntegrationApi,
+} from "./apis/GCPIntegrationApi";
+
+export {
   IPAllowlistApiUpdateIPAllowlistRequest,
   IPAllowlistApi,
 } from "./apis/IPAllowlistApi";
@@ -359,6 +368,9 @@ export {
   UsersApi,
 } from "./apis/UsersApi";
 
+export { AccountAttributes } from "./models/AccountAttributes";
+export { AccountCreationResponse } from "./models/AccountCreationResponse";
+export { AccountPatchBody } from "./models/AccountPatchBody";
 export { APIErrorResponse } from "./models/APIErrorResponse";
 export { APIKeyCreateAttributes } from "./models/APIKeyCreateAttributes";
 export { APIKeyCreateData } from "./models/APIKeyCreateData";
@@ -383,6 +395,7 @@ export { ApplicationKeysType } from "./models/ApplicationKeysType";
 export { ApplicationKeyUpdateAttributes } from "./models/ApplicationKeyUpdateAttributes";
 export { ApplicationKeyUpdateData } from "./models/ApplicationKeyUpdateData";
 export { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
+export { AttributeMetadata } from "./models/AttributeMetadata";
 export { AuditLogsEvent } from "./models/AuditLogsEvent";
 export { AuditLogsEventAttributes } from "./models/AuditLogsEventAttributes";
 export { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
@@ -524,6 +537,9 @@ export { DashboardListUpdateItemsRequest } from "./models/DashboardListUpdateIte
 export { DashboardListUpdateItemsResponse } from "./models/DashboardListUpdateItemsResponse";
 export { DashboardType } from "./models/DashboardType";
 export { DataScalarColumn } from "./models/DataScalarColumn";
+export { DelegateAccountAttributes } from "./models/DelegateAccountAttributes";
+export { DelegateCreationResponse } from "./models/DelegateCreationResponse";
+export { DelegateInfo } from "./models/DelegateInfo";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
@@ -584,6 +600,7 @@ export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
+export { GCPSTSAccounts } from "./models/GCPSTSAccounts";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
@@ -801,6 +818,7 @@ export { LogsSortOrder } from "./models/LogsSortOrder";
 export { LogsStorageTier } from "./models/LogsStorageTier";
 export { LogsWarning } from "./models/LogsWarning";
 export { LogType } from "./models/LogType";
+export { MetaInfo } from "./models/MetaInfo";
 export { Metric } from "./models/Metric";
 export { MetricActiveConfigurationType } from "./models/MetricActiveConfigurationType";
 export { MetricAllTags } from "./models/MetricAllTags";
@@ -1161,6 +1179,10 @@ export { SensitiveDataScannerTextReplacementType } from "./models/SensitiveDataS
 export { ServiceAccountCreateAttributes } from "./models/ServiceAccountCreateAttributes";
 export { ServiceAccountCreateData } from "./models/ServiceAccountCreateData";
 export { ServiceAccountCreateRequest } from "./models/ServiceAccountCreateRequest";
+export { ServiceAccountInfo } from "./models/ServiceAccountInfo";
+export { ServiceAccountInfoPatch } from "./models/ServiceAccountInfoPatch";
+export { ServiceAccountMetadata } from "./models/ServiceAccountMetadata";
+export { ServiceAccountToBeCreatedData } from "./models/ServiceAccountToBeCreatedData";
 export { ServiceDefinitionCreateResponse } from "./models/ServiceDefinitionCreateResponse";
 export { ServiceDefinitionData } from "./models/ServiceDefinitionData";
 export { ServiceDefinitionDataAttributes } from "./models/ServiceDefinitionDataAttributes";
@@ -1230,6 +1252,7 @@ export { SpansMetricUpdateAttributes } from "./models/SpansMetricUpdateAttribute
 export { SpansMetricUpdateCompute } from "./models/SpansMetricUpdateCompute";
 export { SpansMetricUpdateData } from "./models/SpansMetricUpdateData";
 export { SpansMetricUpdateRequest } from "./models/SpansMetricUpdateRequest";
+export { STSEnabledAccountData } from "./models/STSEnabledAccountData";
 export { Team } from "./models/Team";
 export { TeamAttributes } from "./models/TeamAttributes";
 export { TeamCreate } from "./models/TeamCreate";
