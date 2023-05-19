@@ -27,6 +27,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           query: "example-query",
           tagsExecution: "and",
           eventSize: "s",
+          showYear: true,
         },
       },
     ],
