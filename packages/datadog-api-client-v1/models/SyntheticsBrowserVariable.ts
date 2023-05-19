@@ -9,7 +9,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object defining a variable that can be used in your browser test.
- * Learn more in the [Browser test Actions documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions#variable).
+ * See the [Recording Steps documentation](https://docs.datadoghq.com/synthetics/browser_tests/actions/?tab=testanelementontheactivepage#variables).
  */
 export class SyntheticsBrowserVariable {
   /**
@@ -28,6 +28,10 @@ export class SyntheticsBrowserVariable {
    * Pattern of the variable.
    */
   "pattern"?: string;
+  /**
+   * Determines whether or not the browser test variable is obfuscated. Can only be used with browser variables of type `text`.
+   */
+  "secure"?: boolean;
   /**
    * Type of browser test variable.
    */
@@ -58,6 +62,10 @@ export class SyntheticsBrowserVariable {
     pattern: {
       baseName: "pattern",
       type: "string",
+    },
+    secure: {
+      baseName: "secure",
+      type: "boolean",
     },
     type: {
       baseName: "type",

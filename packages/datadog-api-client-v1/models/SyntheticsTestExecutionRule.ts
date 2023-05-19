@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Execution rule for a Synthetics test.
+ * Execution rule for a Synthetic test.
  */
 
 export type SyntheticsTestExecutionRule =

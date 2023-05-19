@@ -3125,7 +3125,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Create a Synthetics global variable.
+   * Create a Synthetic global variable.
    * @param param The request object
    */
   public createGlobalVariable(
@@ -3146,7 +3146,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Create a new Synthetics private location.
+   * Create a new Synthetic private location.
    * @param param The request object
    */
   public createPrivateLocation(
@@ -3211,7 +3211,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Delete a Synthetics global variable.
+   * Delete a Synthetic global variable.
    * @param param The request object
    */
   public deleteGlobalVariable(
@@ -3232,7 +3232,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Delete a Synthetics private location.
+   * Delete a Synthetic private location.
    * @param param The request object
    */
   public deletePrivateLocation(
@@ -3274,7 +3274,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Edit a Synthetics global variable.
+   * Edit a Synthetic global variable.
    * @param param The request object
    */
   public editGlobalVariable(
@@ -3318,7 +3318,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the last 150 test results summaries for a given Synthetics API test.
+   * Get the last 150 test results summaries for a given Synthetic API test.
    * @param param The request object
    */
   public getAPITestLatestResults(
@@ -3344,7 +3344,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get a specific full result from a given (API) Synthetic test.
+   * Get a specific full result from a given Synthetic API test.
    * @param param The request object
    */
   public getAPITestResult(
@@ -3388,7 +3388,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the last 150 test results summaries for a given Synthetics Browser test.
+   * Get the last 150 test results summaries for a given Synthetic browser test.
    * @param param The request object
    */
   public getBrowserTestLatestResults(
@@ -3415,7 +3415,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get a specific full result from a given (browser) Synthetic test.
+   * Get a specific full result from a given Synthetic browser test.
    * @param param The request object
    */
   public getBrowserTestResult(
@@ -3458,7 +3458,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get a Synthetics private location.
+   * Get a Synthetic private location.
    * @param param The request object
    */
   public getPrivateLocation(
@@ -3500,7 +3500,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the detailed configuration associated with a Synthetics test.
+   * Get the detailed configuration associated with a Synthetic test.
    * @param param The request object
    */
   public getTest(
@@ -3521,7 +3521,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Get the list of all Synthetics global variables.
+   * Get the list of all Synthetic global variables.
    * @param param The request object
    */
   public listGlobalVariables(
@@ -3577,7 +3577,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Trigger a set of Synthetics tests for continuous integration.
+   * Trigger a set of Synthetic tests for continuous integration.
    * @param param The request object
    */
   public triggerCITests(
@@ -3598,7 +3598,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Trigger a set of Synthetics tests.
+   * Trigger a set of Synthetic tests.
    * @param param The request object
    */
   public triggerTests(
@@ -3663,7 +3663,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Edit a Synthetics private location.
+   * Edit a Synthetic private location.
    * @param param The request object
    */
   public updatePrivateLocation(
@@ -3685,7 +3685,7 @@ export class SyntheticsApi {
   }
 
   /**
-   * Pause or start a Synthetics test by changing the status.
+   * Pause or start a Synthetic test by changing the status.
    * @param param The request object
    */
   public updateTestPauseStatus(

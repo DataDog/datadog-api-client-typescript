@@ -11,7 +11,7 @@ import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Test configuration for Synthetics CI
+ * Configuration for Continuous Testing.
  */
 export class SyntheticsCITest {
   /**
@@ -27,7 +27,7 @@ export class SyntheticsCITest {
    */
   "body"?: string;
   /**
-   * Type of the data sent in a synthetics API test.
+   * Type of the data sent in a Synthetic API test.
    */
   "bodyType"?: string;
   /**
@@ -51,11 +51,11 @@ export class SyntheticsCITest {
    */
   "locations"?: Array<string>;
   /**
-   * Metadata for the Synthetics tests run.
+   * Metadata for the Synthetic tests run.
    */
   "metadata"?: SyntheticsCIBatchMetadata;
   /**
-   * The public ID of the Synthetics test to trigger.
+   * The public ID of the Synthetic test to trigger.
    */
   "publicId": string;
   /**

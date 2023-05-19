@@ -17,7 +17,7 @@ export class SyntheticsTriggerCITestsResponse {
    */
   "batchId"?: string;
   /**
-   * List of Synthetics locations.
+   * List of Synthetic locations.
    */
   "locations"?: Array<SyntheticsTriggerCITestLocation>;
   /**
@@ -25,7 +25,7 @@ export class SyntheticsTriggerCITestsResponse {
    */
   "results"?: Array<SyntheticsTriggerCITestRunResult>;
   /**
-   * The public IDs of the Synthetics test triggered.
+   * The public IDs of the Synthetic test triggered.
    */
   "triggeredCheckIds"?: Array<string>;
 

@@ -11,7 +11,7 @@ import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object with the results of a Synthetics batch.
+ * Object with the results of a Synthetic batch.
  */
 export class SyntheticsBatchResult {
   /**
@@ -23,7 +23,7 @@ export class SyntheticsBatchResult {
    */
   "duration"?: number;
   /**
-   * Execution rule for a Synthetics test.
+   * Execution rule for a Synthetic test.
    */
   "executionRule"?: SyntheticsTestExecutionRule;
   /**

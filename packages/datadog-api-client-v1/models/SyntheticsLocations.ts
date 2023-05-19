@@ -8,11 +8,11 @@ import { SyntheticsLocation } from "./SyntheticsLocation";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * List of Synthetics locations.
+ * List of Synthetic locations.
  */
 export class SyntheticsLocations {
   /**
-   * List of Synthetics locations.
+   * List of Synthetic locations.
    */
   "locations"?: Array<SyntheticsLocation>;
 

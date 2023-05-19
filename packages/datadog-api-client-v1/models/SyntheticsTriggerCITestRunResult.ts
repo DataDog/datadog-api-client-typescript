@@ -20,7 +20,7 @@ export class SyntheticsTriggerCITestRunResult {
    */
   "location"?: number;
   /**
-   * The public ID of the Synthetics test.
+   * The public ID of the Synthetic test.
    */
   "publicId"?: string;
   /**

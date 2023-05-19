@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsTestCiOptions {
   /**
-   * Execution rule for a Synthetics test.
+   * Execution rule for a Synthetic test.
    */
   "executionRule"?: SyntheticsTestExecutionRule;
 

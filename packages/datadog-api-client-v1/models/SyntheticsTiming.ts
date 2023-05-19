@@ -8,7 +8,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Object containing all metrics and their values collected for a Synthetic API test.
- * Learn more about those metrics in [Synthetics documentation](https://docs.datadoghq.com/synthetics/#metrics).
+ * See the [Synthetic Monitoring Metrics documentation](https://docs.datadoghq.com/synthetics/metrics/).
  */
 export class SyntheticsTiming {
   /**

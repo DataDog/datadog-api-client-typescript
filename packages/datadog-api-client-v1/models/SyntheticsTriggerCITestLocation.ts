@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Synthetics location.
+ * Synthetic location.
  */
 export class SyntheticsTriggerCITestLocation {
   /**

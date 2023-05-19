@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of parser for a Synthetics global variable from a synthetics test.
+ * Type of parser for a Synthetic global variable from a synthetics test.
  */
 
 export type SyntheticsGlobalVariableParserType =

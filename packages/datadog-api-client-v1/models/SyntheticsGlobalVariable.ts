@@ -10,7 +10,7 @@ import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Synthetics global variable.
+ * Synthetic global variable.
  */
 export class SyntheticsGlobalVariable {
   /**
@@ -26,11 +26,11 @@ export class SyntheticsGlobalVariable {
    */
   "id"?: string;
   /**
-   * Name of the global variable. Unique across Synthetics global variables.
+   * Name of the global variable. Unique across Synthetic global variables.
    */
   "name": string;
   /**
-   * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
+   * Parser options to use for retrieving a Synthetic global variable from a Synthetic test. Used in conjunction with `parse_test_public_id`.
    */
   "parseTestOptions"?: SyntheticsGlobalVariableParseTestOptions;
   /**
