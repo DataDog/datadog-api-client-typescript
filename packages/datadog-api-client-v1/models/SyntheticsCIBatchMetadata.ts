@@ -9,7 +9,7 @@ import { SyntheticsCIBatchMetadataGit } from "./SyntheticsCIBatchMetadataGit";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Metadata for the Synthetics tests run.
+ * Metadata for the Synthetic tests run.
  */
 export class SyntheticsCIBatchMetadata {
   /**

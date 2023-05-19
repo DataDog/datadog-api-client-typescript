@@ -11,6 +11,15 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
   body: {
     config: {
       assertions: [],
+      variables: [
+        {
+          type: "text",
+          name: "TEST_VARIABLE",
+          pattern: "secret",
+          secure: true,
+          example: "secret",
+        },
+      ],
       configVariables: [
         {
           example: "content-type",

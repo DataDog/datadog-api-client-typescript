@@ -1,5 +1,5 @@
 /**
- * Trigger Synthetics tests returns "OK" response
+ * Trigger Synthetic tests returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";

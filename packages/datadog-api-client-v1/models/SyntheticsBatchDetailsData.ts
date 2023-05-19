@@ -14,7 +14,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsBatchDetailsData {
   /**
-   * Metadata for the Synthetics tests run.
+   * Metadata for the Synthetic tests run.
    */
   "metadata"?: SyntheticsCIBatchMetadata;
   /**

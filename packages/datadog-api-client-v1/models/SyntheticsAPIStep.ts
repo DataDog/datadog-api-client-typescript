@@ -12,7 +12,7 @@ import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The steps used in a Synthetics multistep API test.
+ * The steps used in a Synthetic multistep API test.
  */
 export class SyntheticsAPIStep {
   /**

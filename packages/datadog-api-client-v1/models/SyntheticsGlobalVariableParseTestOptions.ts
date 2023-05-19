@@ -9,7 +9,7 @@ import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Parser options to use for retrieving a Synthetics global variable from a Synthetics Test. Used in conjunction with `parse_test_public_id`.
+ * Parser options to use for retrieving a Synthetic global variable from a Synthetic test. Used in conjunction with `parse_test_public_id`.
  */
 export class SyntheticsGlobalVariableParseTestOptions {
   /**
@@ -25,7 +25,7 @@ export class SyntheticsGlobalVariableParseTestOptions {
    */
   "parser"?: SyntheticsVariableParser;
   /**
-   * Property of the Synthetics Test Response to use for a Synthetics global variable.
+   * Property of the Synthetic Test Response to use for a Synthetic global variable.
    */
   "type": SyntheticsGlobalVariableParseTestOptionsType;
 

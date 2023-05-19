@@ -8,11 +8,11 @@ import { SyntheticsTriggerTest } from "./SyntheticsTriggerTest";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object describing the synthetics tests to trigger.
+ * Object describing the Synthetic tests to trigger.
  */
 export class SyntheticsTriggerBody {
   /**
-   * Individual synthetics test.
+   * Individual Synthetic test.
    */
   "tests": Array<SyntheticsTriggerTest>;
 

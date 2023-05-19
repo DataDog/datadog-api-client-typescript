@@ -12,11 +12,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsTriggerTest {
   /**
-   * Metadata for the Synthetics tests run.
+   * Metadata for the Synthetic tests run.
    */
   "metadata"?: SyntheticsCIBatchMetadata;
   /**
-   * The public ID of the Synthetics test to trigger.
+   * The public ID of the Synthetic test to trigger.
    */
   "publicId": string;
 
