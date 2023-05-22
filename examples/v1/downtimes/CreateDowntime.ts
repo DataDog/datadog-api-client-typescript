@@ -11,6 +11,9 @@ const params: v1.DowntimesApiCreateDowntimeRequest = {
   body: {
     message: "Example-Downtime",
     start: Math.round(new Date().getTime() / 1000),
+    end: Math.round(
+      new Date(new Date().getTime() + 1 * 3600 * 1000).getTime() / 1000
+    ),
     timezone: "Etc/UTC",
     scope: ["test:exampledowntime"],
     recurrence: {
