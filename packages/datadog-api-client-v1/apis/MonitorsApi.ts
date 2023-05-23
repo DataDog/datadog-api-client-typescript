@@ -156,6 +156,7 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
   public async getMonitor(
     monitorId: number,
     groupStates?: string,
+    withDowntimes?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -184,6 +185,12 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "group_states",
         ObjectSerializer.serialize(groupStates, "string", "")
+      );
+    }
+    if (withDowntimes !== undefined) {
+      requestContext.setQueryParam(
+        "with_downtimes",
+        ObjectSerializer.serialize(withDowntimes, "boolean", "")
       );
     }
 
@@ -1200,6 +1207,11 @@ export interface MonitorsApiGetMonitorRequest {
    * @type string
    */
   groupStates?: string;
+  /**
+   * If this argument is set to true, then the returned data includes all current active downtimes for the monitor.
+   * @type boolean
+   */
+  withDowntimes?: boolean;
 }
 
 export interface MonitorsApiListMonitorsRequest {
@@ -1626,6 +1638,7 @@ export class MonitorsApi {
     const requestContextPromise = this.requestFactory.getMonitor(
       param.monitorId,
       param.groupStates,
+      param.withDowntimes,
       options
     );
     return requestContextPromise.then((requestContext) => {

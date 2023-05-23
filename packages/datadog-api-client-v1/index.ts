@@ -580,6 +580,7 @@ export { LogsURLParser } from "./models/LogsURLParser";
 export { LogsURLParserType } from "./models/LogsURLParserType";
 export { LogsUserAgentParser } from "./models/LogsUserAgentParser";
 export { LogsUserAgentParserType } from "./models/LogsUserAgentParserType";
+export { MatchingDowntime } from "./models/MatchingDowntime";
 export { MetricContentEncoding } from "./models/MetricContentEncoding";
 export { MetricMetadata } from "./models/MetricMetadata";
 export { MetricSearchResponse } from "./models/MetricSearchResponse";
