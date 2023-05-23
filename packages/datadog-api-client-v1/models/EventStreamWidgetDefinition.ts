@@ -24,10 +24,6 @@ export class EventStreamWidgetDefinition {
    */
   "query": string;
   /**
-   * Option to display the year in the date column.
-   */
-  "showYear"?: boolean;
-  /**
    * The execution method for multi-value filters. Can be either and or or.
    */
   "tagsExecution"?: string;
@@ -69,10 +65,6 @@ export class EventStreamWidgetDefinition {
       baseName: "query",
       type: "string",
       required: true,
-    },
-    showYear: {
-      baseName: "show_year",
-      type: "boolean",
     },
     tagsExecution: {
       baseName: "tags_execution",
