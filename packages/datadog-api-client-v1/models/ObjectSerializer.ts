@@ -179,6 +179,7 @@ import { LogsStringBuilderProcessor } from "./LogsStringBuilderProcessor";
 import { LogsTraceRemapper } from "./LogsTraceRemapper";
 import { LogsURLParser } from "./LogsURLParser";
 import { LogsUserAgentParser } from "./LogsUserAgentParser";
+import { MatchingDowntime } from "./MatchingDowntime";
 import { MetricMetadata } from "./MetricMetadata";
 import { MetricSearchResponse } from "./MetricSearchResponse";
 import { MetricSearchResponseResults } from "./MetricSearchResponseResults";
@@ -1630,6 +1631,7 @@ const typeMap: { [index: string]: any } = {
   LogsTraceRemapper: LogsTraceRemapper,
   LogsURLParser: LogsURLParser,
   LogsUserAgentParser: LogsUserAgentParser,
+  MatchingDowntime: MatchingDowntime,
   MetricMetadata: MetricMetadata,
   MetricSearchResponse: MetricSearchResponse,
   MetricSearchResponseResults: MetricSearchResponseResults,

@@ -1573,6 +1573,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "withDowntimes": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "Monitor",
     },
     "v1.UpdateMonitor": {

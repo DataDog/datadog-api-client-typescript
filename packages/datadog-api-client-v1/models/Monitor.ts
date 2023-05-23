@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { Creator } from "./Creator";
+import { MatchingDowntime } from "./MatchingDowntime";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
@@ -31,6 +32,10 @@ export class Monitor {
    * ID of this monitor.
    */
   "id"?: number;
+  /**
+   * A list of active downtimes that match this monitor.
+   */
+  "matchingDowntimes"?: Array<MatchingDowntime>;
   /**
    * A message to include with notifications for this monitor.
    */
@@ -107,6 +112,10 @@ export class Monitor {
       baseName: "id",
       type: "number",
       format: "int64",
+    },
+    matchingDowntimes: {
+      baseName: "matching_downtimes",
+      type: "Array<MatchingDowntime>",
     },
     message: {
       baseName: "message",
