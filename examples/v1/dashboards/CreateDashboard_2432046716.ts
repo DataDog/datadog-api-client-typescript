@@ -27,6 +27,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                 dataSource: "event_stream",
                 queryString: "",
                 eventSize: "l",
+                showYear: true,
               },
               responseFormat: "event_list",
             },
