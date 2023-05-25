@@ -39,10 +39,6 @@ export class ListStreamQuery {
    */
   "queryString": string;
   /**
-   * Option to display the year in the date column. To be used with the `event_stream`.
-   */
-  "showYear"?: boolean;
-  /**
    * Option for storage location. Feature in Private Beta.
    */
   "storage"?: string;
@@ -81,10 +77,6 @@ export class ListStreamQuery {
       baseName: "query_string",
       type: "string",
       required: true,
-    },
-    showYear: {
-      baseName: "show_year",
-      type: "boolean",
     },
     storage: {
       baseName: "storage",
