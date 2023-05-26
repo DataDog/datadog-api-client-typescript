@@ -219,14 +219,6 @@ export class MonthlyUsageAttributionValues {
    */
   "npmHostUsage"?: number;
   /**
-   * The percentage of observability pipeline bytes usage by tag(s).
-   */
-  "obsPipelineBytesPercentage"?: number;
-  /**
-   * The observability pipeline bytes usage by tag(s).
-   */
-  "obsPipelineBytesUsage"?: number;
-  /**
    * The percentage of profiled container usage by tag(s).
    */
   "profiledContainerPercentage"?: number;
@@ -541,16 +533,6 @@ export class MonthlyUsageAttributionValues {
     },
     npmHostUsage: {
       baseName: "npm_host_usage",
-      type: "number",
-      format: "double",
-    },
-    obsPipelineBytesPercentage: {
-      baseName: "obs_pipeline_bytes_percentage",
-      type: "number",
-      format: "double",
-    },
-    obsPipelineBytesUsage: {
-      baseName: "obs_pipeline_bytes_usage",
       type: "number",
       format: "double",
     },

@@ -61,8 +61,6 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof INVOCATIONS_PERCENTAGE
   | typeof NPM_HOST_USAGE
   | typeof NPM_HOST_PERCENTAGE
-  | typeof OBS_PIPELINE_BYTES_USAGE
-  | typeof OBS_PIPELINE_BYTES_PERCENTAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_CONTAINER_PERCENTAGE
   | typeof PROFILED_FARGATE_USAGE
@@ -136,8 +134,6 @@ export const INVOCATIONS_USAGE = "invocations_usage";
 export const INVOCATIONS_PERCENTAGE = "invocations_percentage";
 export const NPM_HOST_USAGE = "npm_host_usage";
 export const NPM_HOST_PERCENTAGE = "npm_host_percentage";
-export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
-export const OBS_PIPELINE_BYTES_PERCENTAGE = "obs_pipeline_bytes_percentage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage";
 export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
