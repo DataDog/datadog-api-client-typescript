@@ -36,6 +36,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
                 type: "raw",
               },
               type: "http_header",
+              secure: true,
             },
           ],
           isCritical: true,
