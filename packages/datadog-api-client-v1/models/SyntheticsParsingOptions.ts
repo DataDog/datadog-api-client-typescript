@@ -25,6 +25,10 @@ export class SyntheticsParsingOptions {
    */
   "parser"?: SyntheticsVariableParser;
   /**
+   * Determines whether or not the extracted value will be obfuscated.
+   */
+  "secure"?: boolean;
+  /**
    * Property of the Synthetic Test Response to use for a Synthetic global variable.
    */
   "type"?: SyntheticsGlobalVariableParseTestOptionsType;
@@ -49,6 +53,10 @@ export class SyntheticsParsingOptions {
     parser: {
       baseName: "parser",
       type: "SyntheticsVariableParser",
+    },
+    secure: {
+      baseName: "secure",
+      type: "boolean",
     },
     type: {
       baseName: "type",
