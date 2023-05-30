@@ -1,5 +1,5 @@
 /**
- * Get a monitor configuration policy returns "Created" response
+ * Create a tag configuration returns "Created" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -10,16 +10,15 @@ const apiInstance = new v2.MetricsApi(configuration);
 const params: v2.MetricsApiCreateTagConfigurationRequest = {
   body: {
     data: {
-      attributes: {
-        includePercentiles: false,
-        metricType: "distribution",
-        tags: ["app", "datacenter"],
-      },
-      id: "http.endpoint.request",
       type: "manage_tags",
+      id: "ExampleMetric",
+      attributes: {
+        tags: ["app", "datacenter"],
+        metricType: "gauge",
+      },
     },
   },
-  metricName: "metric_name",
+  metricName: "ExampleMetric",
 };
 
 apiInstance
