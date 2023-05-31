@@ -7,6 +7,7 @@ import { ListStreamComputeItems } from "./ListStreamComputeItems";
 import { ListStreamGroupByItems } from "./ListStreamGroupByItems";
 import { ListStreamSource } from "./ListStreamSource";
 import { WidgetEventSize } from "./WidgetEventSize";
+import { WidgetFieldSort } from "./WidgetFieldSort";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -38,6 +39,10 @@ export class ListStreamQuery {
    * Widget query.
    */
   "queryString": string;
+  /**
+   * Which column and order to sort by
+   */
+  "sort"?: WidgetFieldSort;
   /**
    * Option for storage location. Feature in Private Beta.
    */
@@ -77,6 +82,10 @@ export class ListStreamQuery {
       baseName: "query_string",
       type: "string",
       required: true,
+    },
+    sort: {
+      baseName: "sort",
+      type: "WidgetFieldSort",
     },
     storage: {
       baseName: "storage",
