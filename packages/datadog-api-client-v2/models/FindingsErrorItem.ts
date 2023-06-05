@@ -3,27 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FindingAttributes } from "./FindingAttributes";
-import { FindingType } from "./FindingType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A single finding without the message and resource configuration.
+ * API error response body
  */
-export class Finding {
+export class FindingsErrorItem {
   /**
-   * The JSON:API attributes of the finding.
+   * A human-readable explanation specific to this occurrence of the error.
    */
-  "attributes"?: FindingAttributes;
+  "detail"?: string;
   /**
-   * The unique ID for this finding.
+   * Status code of the response.
    */
-  "id"?: string;
+  "status"?: string;
   /**
-   * The JSON:API type for findings.
+   * Short human-readable summary of the error.
    */
-  "type"?: FindingType;
+  "title"?: string;
 
   /**
    * @ignore
@@ -34,17 +32,17 @@ export class Finding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "FindingAttributes",
-    },
-    id: {
-      baseName: "id",
+    detail: {
+      baseName: "detail",
       type: "string",
     },
-    type: {
-      baseName: "type",
-      type: "FindingType",
+    status: {
+      baseName: "status",
+      type: "string",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
     },
   };
 
@@ -52,7 +50,7 @@ export class Finding {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Finding.attributeTypeMap;
+    return FindingsErrorItem.attributeTypeMap;
   }
 
   public constructor() {}

@@ -8,33 +8,26 @@ import { FindingMuteReason } from "./FindingMuteReason";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Information about the mute status of this finding.
+ * Object containing the new mute properties of the finding.
  */
-export class FindingMute {
+export class MuteFindingRequestProperties {
   /**
-   * Additional information about the reason why this finding is muted or unmuted.
+   * Additional information about the reason why this finding is muted or unmuted. This field has a maximum limit of 280 characters.
    */
   "description"?: string;
   /**
-   * The expiration date of the mute or unmute action (Unix ms).
+   * The expiration date of the mute or unmute action (Unix ms). It must be set to a value greater than the current timestamp.
+   * If this field is not provided, the finding will be muted or unmuted indefinitely, which is equivalent to setting the expiration date to 9999999999999.
    */
   "expirationDate"?: number;
   /**
    * Whether this finding is muted or unmuted.
    */
-  "muted"?: boolean;
+  "muted": boolean;
   /**
    * The reason why this finding is muted or unmuted.
    */
-  "reason"?: FindingMuteReason;
-  /**
-   * The start of the mute period.
-   */
-  "startDate"?: number;
-  /**
-   * The ID of the user who muted or unmuted this finding.
-   */
-  "uuid"?: string;
+  "reason": FindingMuteReason;
 
   /**
    * @ignore
@@ -57,19 +50,12 @@ export class FindingMute {
     muted: {
       baseName: "muted",
       type: "boolean",
+      required: true,
     },
     reason: {
       baseName: "reason",
       type: "FindingMuteReason",
-    },
-    startDate: {
-      baseName: "start_date",
-      type: "number",
-      format: "int64",
-    },
-    uuid: {
-      baseName: "uuid",
-      type: "string",
+      required: true,
     },
   };
 
@@ -77,7 +63,7 @@ export class FindingMute {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FindingMute.attributeTypeMap;
+    return MuteFindingRequestProperties.attributeTypeMap;
   }
 
   public constructor() {}
