@@ -10,13 +10,15 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Information about the mute status of this finding.
  */
-export class FindingMute {
+export class MuteFindingResponseProperties {
   /**
    * Additional information about the reason why this finding is muted or unmuted.
+   * This attribute will not be included in the response if the description is not provided in the request body.
    */
   "description"?: string;
   /**
-   * The expiration date of the mute or unmute action (Unix ms).
+   * The expiration date of the mute or unmute action.
+   * If the expiration date is not provided in the request body, this attribute will not be included in the response and the finding will be muted or unmuted indefinitely.
    */
   "expirationDate"?: number;
   /**
@@ -27,14 +29,6 @@ export class FindingMute {
    * The reason why this finding is muted or unmuted.
    */
   "reason"?: FindingMuteReason;
-  /**
-   * The start of the mute period.
-   */
-  "startDate"?: number;
-  /**
-   * The ID of the user who muted or unmuted this finding.
-   */
-  "uuid"?: string;
 
   /**
    * @ignore
@@ -62,22 +56,13 @@ export class FindingMute {
       baseName: "reason",
       type: "FindingMuteReason",
     },
-    startDate: {
-      baseName: "start_date",
-      type: "number",
-      format: "int64",
-    },
-    uuid: {
-      baseName: "uuid",
-      type: "string",
-    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FindingMute.attributeTypeMap;
+    return MuteFindingResponseProperties.attributeTypeMap;
   }
 
   public constructor() {}

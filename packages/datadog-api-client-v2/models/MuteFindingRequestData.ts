@@ -3,27 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FindingAttributes } from "./FindingAttributes";
 import { FindingType } from "./FindingType";
+import { MuteFindingRequestAttributes } from "./MuteFindingRequestAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A single finding without the message and resource configuration.
+ * Data object containing the new mute properties of the finding.
  */
-export class Finding {
+export class MuteFindingRequestData {
   /**
-   * The JSON:API attributes of the finding.
+   * The mute properties to be updated.
    */
-  "attributes"?: FindingAttributes;
+  "attributes": MuteFindingRequestAttributes;
   /**
    * The unique ID for this finding.
    */
-  "id"?: string;
+  "id": string;
   /**
    * The JSON:API type for findings.
    */
-  "type"?: FindingType;
+  "type": FindingType;
 
   /**
    * @ignore
@@ -36,15 +36,18 @@ export class Finding {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "FindingAttributes",
+      type: "MuteFindingRequestAttributes",
+      required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "FindingType",
+      required: true,
     },
   };
 
@@ -52,7 +55,7 @@ export class Finding {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Finding.attributeTypeMap;
+    return MuteFindingRequestData.attributeTypeMap;
   }
 
   public constructor() {}

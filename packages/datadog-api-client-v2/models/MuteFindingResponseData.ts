@@ -3,19 +3,19 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FindingAttributes } from "./FindingAttributes";
 import { FindingType } from "./FindingType";
+import { MuteFindingResponseAttributes } from "./MuteFindingResponseAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A single finding without the message and resource configuration.
+ * Data object containing the updated finding.
  */
-export class Finding {
+export class MuteFindingResponseData {
   /**
    * The JSON:API attributes of the finding.
    */
-  "attributes"?: FindingAttributes;
+  "attributes"?: MuteFindingResponseAttributes;
   /**
    * The unique ID for this finding.
    */
@@ -36,7 +36,7 @@ export class Finding {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "FindingAttributes",
+      type: "MuteFindingResponseAttributes",
     },
     id: {
       baseName: "id",
@@ -52,7 +52,7 @@ export class Finding {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return Finding.attributeTypeMap;
+    return MuteFindingResponseData.attributeTypeMap;
   }
 
   public constructor() {}
