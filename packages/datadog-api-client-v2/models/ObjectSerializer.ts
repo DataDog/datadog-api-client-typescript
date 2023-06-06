@@ -173,8 +173,6 @@ import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
-import { FindingsErrorItem } from "./FindingsErrorItem";
-import { FindingsErrorResponse } from "./FindingsErrorResponse";
 import { FormulaLimit } from "./FormulaLimit";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
@@ -408,14 +406,6 @@ import { MonitorConfigPolicyResponseData } from "./MonitorConfigPolicyResponseDa
 import { MonitorConfigPolicyTagPolicy } from "./MonitorConfigPolicyTagPolicy";
 import { MonitorConfigPolicyTagPolicyCreateRequest } from "./MonitorConfigPolicyTagPolicyCreateRequest";
 import { MonitorType } from "./MonitorType";
-import { MuteFindingRequest } from "./MuteFindingRequest";
-import { MuteFindingRequestAttributes } from "./MuteFindingRequestAttributes";
-import { MuteFindingRequestData } from "./MuteFindingRequestData";
-import { MuteFindingRequestProperties } from "./MuteFindingRequestProperties";
-import { MuteFindingResponse } from "./MuteFindingResponse";
-import { MuteFindingResponseAttributes } from "./MuteFindingResponseAttributes";
-import { MuteFindingResponseData } from "./MuteFindingResponseData";
-import { MuteFindingResponseProperties } from "./MuteFindingResponseProperties";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
@@ -897,12 +887,9 @@ const enumsMap: { [key: string]: any[] } = {
   FastlyServiceType: ["fastly-services"],
   FindingEvaluation: ["pass", "fail"],
   FindingMuteReason: [
+    "ACCEPTED_RISK",
     "PENDING_FIX",
     "FALSE_POSITIVE",
-    "ACCEPTED_RISK",
-    "NO_PENDING_FIX",
-    "HUMAN_ERROR",
-    "NO_LONGER_ACCEPTED_RISK",
     "OTHER",
   ],
   FindingStatus: ["critical", "high", "medium", "low", "info"],
@@ -1385,8 +1372,6 @@ const typeMap: { [index: string]: any } = {
   FindingAttributes: FindingAttributes,
   FindingMute: FindingMute,
   FindingRule: FindingRule,
-  FindingsErrorItem: FindingsErrorItem,
-  FindingsErrorResponse: FindingsErrorResponse,
   FormulaLimit: FormulaLimit,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
@@ -1640,14 +1625,6 @@ const typeMap: { [index: string]: any } = {
   MonitorConfigPolicyTagPolicyCreateRequest:
     MonitorConfigPolicyTagPolicyCreateRequest,
   MonitorType: MonitorType,
-  MuteFindingRequest: MuteFindingRequest,
-  MuteFindingRequestAttributes: MuteFindingRequestAttributes,
-  MuteFindingRequestData: MuteFindingRequestData,
-  MuteFindingRequestProperties: MuteFindingRequestProperties,
-  MuteFindingResponse: MuteFindingResponse,
-  MuteFindingResponseAttributes: MuteFindingResponseAttributes,
-  MuteFindingResponseData: MuteFindingResponseData,
-  MuteFindingResponseProperties: MuteFindingResponseProperties,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,

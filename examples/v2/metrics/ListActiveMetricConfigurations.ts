@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.MetricsApi(configuration);
 
 const params: v2.MetricsApiListActiveMetricConfigurationsRequest = {
-  metricName: "static_test_metric_donotdelete",
+  metricName: "ExampleMetric",
 };
 
 apiInstance

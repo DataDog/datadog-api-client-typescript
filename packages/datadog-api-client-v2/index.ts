@@ -276,7 +276,6 @@ export {
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
-  SecurityMonitoringApiUpdateFindingRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApi,
@@ -586,8 +585,6 @@ export { FindingEvaluation } from "./models/FindingEvaluation";
 export { FindingMute } from "./models/FindingMute";
 export { FindingMuteReason } from "./models/FindingMuteReason";
 export { FindingRule } from "./models/FindingRule";
-export { FindingsErrorItem } from "./models/FindingsErrorItem";
-export { FindingsErrorResponse } from "./models/FindingsErrorResponse";
 export { FindingStatus } from "./models/FindingStatus";
 export { FindingType } from "./models/FindingType";
 export { FormulaLimit } from "./models/FormulaLimit";
@@ -903,14 +900,6 @@ export { MonitorConfigPolicyTagPolicy } from "./models/MonitorConfigPolicyTagPol
 export { MonitorConfigPolicyTagPolicyCreateRequest } from "./models/MonitorConfigPolicyTagPolicyCreateRequest";
 export { MonitorConfigPolicyType } from "./models/MonitorConfigPolicyType";
 export { MonitorType } from "./models/MonitorType";
-export { MuteFindingRequest } from "./models/MuteFindingRequest";
-export { MuteFindingRequestAttributes } from "./models/MuteFindingRequestAttributes";
-export { MuteFindingRequestData } from "./models/MuteFindingRequestData";
-export { MuteFindingRequestProperties } from "./models/MuteFindingRequestProperties";
-export { MuteFindingResponse } from "./models/MuteFindingResponse";
-export { MuteFindingResponseAttributes } from "./models/MuteFindingResponseAttributes";
-export { MuteFindingResponseData } from "./models/MuteFindingResponseData";
-export { MuteFindingResponseProperties } from "./models/MuteFindingResponseProperties";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";

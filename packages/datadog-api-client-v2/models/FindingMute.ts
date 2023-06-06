@@ -12,19 +12,19 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FindingMute {
   /**
-   * Additional information about the reason why this finding is muted or unmuted.
+   * Additional information about the reason why this finding is muted.
    */
   "description"?: string;
   /**
-   * The expiration date of the mute or unmute action (Unix ms).
+   * The end of the mute period.
    */
   "expirationDate"?: number;
   /**
-   * Whether this finding is muted or unmuted.
+   * Whether this finding is muted.
    */
   "muted"?: boolean;
   /**
-   * The reason why this finding is muted or unmuted.
+   * The reason why this finding is muted.
    */
   "reason"?: FindingMuteReason;
   /**
@@ -32,7 +32,7 @@ export class FindingMute {
    */
   "startDate"?: number;
   /**
-   * The ID of the user who muted or unmuted this finding.
+   * The ID of the user who muted this finding.
    */
   "uuid"?: string;
 

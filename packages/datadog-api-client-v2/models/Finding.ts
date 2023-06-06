@@ -9,7 +9,7 @@ import { FindingType } from "./FindingType";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A single finding without the message and resource configuration.
+ * A single finding without message and resource configuration.
  */
 export class Finding {
   /**
