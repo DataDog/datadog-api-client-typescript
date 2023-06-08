@@ -882,6 +882,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ci-pipelines alert",
     "ci-tests alert",
     "error-tracking alert",
+    "database-monitoring alert",
   ],
   MonthlyUsageAttributionSupportedMetrics: [
     "api_usage",
