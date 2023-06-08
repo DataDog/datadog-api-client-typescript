@@ -8,7 +8,7 @@ import { OpsgenieServiceResponseData } from "./OpsgenieServiceResponseData";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response with a list of Opsgenie services.
+ * Response with a list of Opsgenie services. Test coverage.
  */
 export class OpsgenieServicesResponse {
   /**
