@@ -599,6 +599,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
       const bodyText = ObjectSerializer.parse(
@@ -663,6 +664,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
       const bodyText = ObjectSerializer.parse(
@@ -919,6 +921,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
       const bodyText = ObjectSerializer.parse(
@@ -983,6 +986,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
       const bodyText = ObjectSerializer.parse(
