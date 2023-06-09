@@ -1825,7 +1825,7 @@ export interface TeamsApiGetTeamMembershipsRequest {
    */
   teamId: string;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 5000.
    * @type number
    */
   pageSize?: number;
@@ -1861,7 +1861,7 @@ export interface TeamsApiListTeamsRequest {
    */
   pageNumber?: number;
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is 5000.
    * @type number
    */
   pageSize?: number;

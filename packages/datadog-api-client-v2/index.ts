@@ -65,6 +65,16 @@ export {
 } from "./apis/DashboardListsApi";
 
 export {
+  DowntimesApiCancelDowntimeRequest,
+  DowntimesApiCreateDowntimeRequest,
+  DowntimesApiGetDowntimeRequest,
+  DowntimesApiListDowntimesRequest,
+  DowntimesApiListMonitorDowntimesRequest,
+  DowntimesApiUpdateDowntimeRequest,
+  DowntimesApi,
+} from "./apis/DowntimesApi";
+
+export {
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
   EventsApi,
@@ -536,6 +546,46 @@ export { DataScalarColumn } from "./models/DataScalarColumn";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
+export { DowntimeAttributeCreateRequest } from "./models/DowntimeAttributeCreateRequest";
+export { DowntimeAttributeEditRequest } from "./models/DowntimeAttributeEditRequest";
+export { DowntimeAttributeMonitorIdentifier } from "./models/DowntimeAttributeMonitorIdentifier";
+export { DowntimeAttributeMonitorIdentifierId } from "./models/DowntimeAttributeMonitorIdentifierId";
+export { DowntimeAttributeMonitorIdentifierTags } from "./models/DowntimeAttributeMonitorIdentifierTags";
+export { DowntimeAttributeNotifyEndStateActions } from "./models/DowntimeAttributeNotifyEndStateActions";
+export { DowntimeAttributeNotifyEndStateTypes } from "./models/DowntimeAttributeNotifyEndStateTypes";
+export { DowntimeAttributeResponse } from "./models/DowntimeAttributeResponse";
+export { DowntimeAttributeScheduleCreateRequest } from "./models/DowntimeAttributeScheduleCreateRequest";
+export { DowntimeAttributeScheduleCurrentDowntimeResponse } from "./models/DowntimeAttributeScheduleCurrentDowntimeResponse";
+export { DowntimeAttributeScheduleEditRequest } from "./models/DowntimeAttributeScheduleEditRequest";
+export { DowntimeAttributeScheduleOneTimeCreateEditRequest } from "./models/DowntimeAttributeScheduleOneTimeCreateEditRequest";
+export { DowntimeAttributeScheduleOneTimeResponse } from "./models/DowntimeAttributeScheduleOneTimeResponse";
+export { DowntimeAttributeScheduleRecurrenceCreateEditRequest } from "./models/DowntimeAttributeScheduleRecurrenceCreateEditRequest";
+export { DowntimeAttributeScheduleRecurrenceResponse } from "./models/DowntimeAttributeScheduleRecurrenceResponse";
+export { DowntimeAttributeScheduleRecurrencesCreateRequest } from "./models/DowntimeAttributeScheduleRecurrencesCreateRequest";
+export { DowntimeAttributeScheduleRecurrencesEditRequest } from "./models/DowntimeAttributeScheduleRecurrencesEditRequest";
+export { DowntimeAttributeScheduleRecurrencesResponse } from "./models/DowntimeAttributeScheduleRecurrencesResponse";
+export { DowntimeAttributeScheduleResponse } from "./models/DowntimeAttributeScheduleResponse";
+export { DowntimeCreateData } from "./models/DowntimeCreateData";
+export { DowntimeCreateRequest } from "./models/DowntimeCreateRequest";
+export { DowntimeEditData } from "./models/DowntimeEditData";
+export { DowntimeEditRequest } from "./models/DowntimeEditRequest";
+export { DowntimeIncludedMonitorType } from "./models/DowntimeIncludedMonitorType";
+export { DowntimeListItemResponse } from "./models/DowntimeListItemResponse";
+export { DowntimeMeta } from "./models/DowntimeMeta";
+export { DowntimeMetaPage } from "./models/DowntimeMetaPage";
+export { DowntimeMonitorIncludedAttributes } from "./models/DowntimeMonitorIncludedAttributes";
+export { DowntimeMonitorIncludedItem } from "./models/DowntimeMonitorIncludedItem";
+export { DowntimeRelationships } from "./models/DowntimeRelationships";
+export { DowntimeRelationshipsCreatedBy } from "./models/DowntimeRelationshipsCreatedBy";
+export { DowntimeRelationshipsCreatedByData } from "./models/DowntimeRelationshipsCreatedByData";
+export { DowntimeRelationshipsMonitor } from "./models/DowntimeRelationshipsMonitor";
+export { DowntimeRelationshipsMonitorData } from "./models/DowntimeRelationshipsMonitorData";
+export { DowntimeResourceType } from "./models/DowntimeResourceType";
+export { DowntimeResponse } from "./models/DowntimeResponse";
+export { DowntimeResponseData } from "./models/DowntimeResponseData";
+export { DowntimeResponseIncludedItem } from "./models/DowntimeResponseIncludedItem";
+export { DowntimeStatusEnum } from "./models/DowntimeStatusEnum";
+export { DowntimeUserType } from "./models/DowntimeUserType";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventPriority } from "./models/EventPriority";
@@ -746,6 +796,7 @@ export { IPAllowlistUpdateRequest } from "./models/IPAllowlistUpdateRequest";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
+export { ListDowntimesResponse } from "./models/ListDowntimesResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
@@ -902,6 +953,11 @@ export { MonitorConfigPolicyResponseData } from "./models/MonitorConfigPolicyRes
 export { MonitorConfigPolicyTagPolicy } from "./models/MonitorConfigPolicyTagPolicy";
 export { MonitorConfigPolicyTagPolicyCreateRequest } from "./models/MonitorConfigPolicyTagPolicyCreateRequest";
 export { MonitorConfigPolicyType } from "./models/MonitorConfigPolicyType";
+export { MonitorDowntimeMatchAttributeResponse } from "./models/MonitorDowntimeMatchAttributeResponse";
+export { MonitorDowntimeMatchListItemResponse } from "./models/MonitorDowntimeMatchListItemResponse";
+export { MonitorDowntimeMatchResourceType } from "./models/MonitorDowntimeMatchResourceType";
+export { MonitorDowntimeMatchResponse } from "./models/MonitorDowntimeMatchResponse";
+export { MonitorDowntimeMatchResponseData } from "./models/MonitorDowntimeMatchResponseData";
 export { MonitorType } from "./models/MonitorType";
 export { MuteFindingRequest } from "./models/MuteFindingRequest";
 export { MuteFindingRequestAttributes } from "./models/MuteFindingRequestAttributes";

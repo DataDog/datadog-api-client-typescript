@@ -114,6 +114,11 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
+      "v2.cancelDowntime": false,
+      "v2.createDowntime": false,
+      "v2.getDowntime": false,
+      "v2.listDowntimes": false,
+      "v2.updateDowntime": false,
       "v2.listEvents": false,
       "v2.searchEvents": false,
       "v2.createIncident": false,
