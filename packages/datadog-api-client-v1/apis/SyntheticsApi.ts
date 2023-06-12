@@ -753,6 +753,32 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSyntheticsDefaultLocations(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v1/synthetics/settings/default_locations";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v1.SyntheticsApi.getSyntheticsDefaultLocations"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getTest(
     publicId: string,
     _options?: Configuration
@@ -2229,6 +2255,64 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSyntheticsDefaultLocations
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSyntheticsDefaultLocations(
+    response: ResponseContext
+  ): Promise<Array<string>> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: Array<string> = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Array<string>"
+      ) as Array<string>;
+      return body;
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Array<string> = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Array<string>",
+        ""
+      ) as Array<string>;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getTest
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3495,6 +3579,26 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSyntheticsCIBatch(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get the default locations settings.
+   * @param param The request object
+   */
+  public getSyntheticsDefaultLocations(
+    options?: Configuration
+  ): Promise<Array<string>> {
+    const requestContextPromise =
+      this.requestFactory.getSyntheticsDefaultLocations(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSyntheticsDefaultLocations(
+            responseContext
+          );
         });
     });
   }
