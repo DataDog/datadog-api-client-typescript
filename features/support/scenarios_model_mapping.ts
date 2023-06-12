@@ -1970,6 +1970,9 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsPrivateLocation",
     },
+    "v1.GetSyntheticsDefaultLocations": {
+        "operationResponseType": "Array<string>",
+    },
     "v1.ListTests": {
         "pageSize": {
             "type": "string",
