@@ -1,5 +1,5 @@
 /**
- * Get all downtimes for a monitor returns "OK" response
+ * Get active downtimes for a monitor returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
