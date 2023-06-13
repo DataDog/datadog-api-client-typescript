@@ -91,7 +91,15 @@ export class UsageSummaryDateOrg {
    */
   "ciVisibilityTestCommittersHwm"?: number;
   /**
-   * Host count average of Cloud Cost Management for the given date and given org.
+   * Host count average of Cloud Cost Management for AWS for the given date and given org.
+   */
+  "cloudCostManagementAwsHostCountAvg"?: number;
+  /**
+   * Host count average of Cloud Cost Management for Azure for the given date and given org.
+   */
+  "cloudCostManagementAzureHostCountAvg"?: number;
+  /**
+   * Host count average of Cloud Cost Management for all cloud providers for the given date and given org.
    */
   "cloudCostManagementHostCountAvg"?: number;
   /**
@@ -449,6 +457,16 @@ export class UsageSummaryDateOrg {
     },
     ciVisibilityTestCommittersHwm: {
       baseName: "ci_visibility_test_committers_hwm",
+      type: "number",
+      format: "int64",
+    },
+    cloudCostManagementAwsHostCountAvg: {
+      baseName: "cloud_cost_management_aws_host_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    cloudCostManagementAzureHostCountAvg: {
+      baseName: "cloud_cost_management_azure_host_count_avg",
       type: "number",
       format: "int64",
     },

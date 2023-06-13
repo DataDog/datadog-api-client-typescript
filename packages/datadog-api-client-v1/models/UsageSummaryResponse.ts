@@ -97,7 +97,15 @@ export class UsageSummaryResponse {
    */
   "ciVisibilityTestCommittersHwmSum"?: number;
   /**
-   * Sum of the host count average for Cloud Cost Management.
+   * Sum of the host count average for Cloud Cost Management for AWS.
+   */
+  "cloudCostManagementAwsHostCountAvgSum"?: number;
+  /**
+   * Sum of the host count average for Cloud Cost Management for Azure.
+   */
+  "cloudCostManagementAzureHostCountAvgSum"?: number;
+  /**
+   * Sum of the host count average for Cloud Cost Management for all cloud providers.
    */
   "cloudCostManagementHostCountAvgSum"?: number;
   /**
@@ -484,6 +492,16 @@ export class UsageSummaryResponse {
     },
     ciVisibilityTestCommittersHwmSum: {
       baseName: "ci_visibility_test_committers_hwm_sum",
+      type: "number",
+      format: "int64",
+    },
+    cloudCostManagementAwsHostCountAvgSum: {
+      baseName: "cloud_cost_management_aws_host_count_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    cloudCostManagementAzureHostCountAvgSum: {
+      baseName: "cloud_cost_management_azure_host_count_avg_sum",
       type: "number",
       format: "int64",
     },
