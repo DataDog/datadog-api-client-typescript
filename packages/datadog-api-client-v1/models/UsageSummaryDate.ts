@@ -224,6 +224,10 @@ export class UsageSummaryDate {
    */
   "mobileRumSessionCountReactnativeSum"?: number;
   /**
+   * Shows the sum of all mobile RUM Sessions on Roku over all hours in the current date for all organizations.
+   */
+  "mobileRumSessionCountRokuSum"?: number;
+  /**
    * Shows the sum of all mobile RUM Sessions over all hours in the current date for all organizations
    */
   "mobileRumSessionCountSum"?: number;
@@ -603,6 +607,11 @@ export class UsageSummaryDate {
     },
     mobileRumSessionCountReactnativeSum: {
       baseName: "mobile_rum_session_count_reactnative_sum",
+      type: "number",
+      format: "int64",
+    },
+    mobileRumSessionCountRokuSum: {
+      baseName: "mobile_rum_session_count_roku_sum",
       type: "number",
       format: "int64",
     },
