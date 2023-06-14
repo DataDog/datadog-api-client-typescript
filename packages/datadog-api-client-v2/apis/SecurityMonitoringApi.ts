@@ -20,9 +20,9 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { Finding } from "../models/Finding";
 import { FindingEvaluation } from "../models/FindingEvaluation";
-import { FindingsErrorResponse } from "../models/FindingsErrorResponse";
 import { FindingStatus } from "../models/FindingStatus";
 import { GetFindingResponse } from "../models/GetFindingResponse";
+import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListFindingsResponse } from "../models/ListFindingsResponse";
 import { MuteFindingRequest } from "../models/MuteFindingRequest";
 import { MuteFindingResponse } from "../models/MuteFindingResponse";
@@ -1469,20 +1469,23 @@ export class SecurityMonitoringApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: APIErrorResponse;
+      let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
+        throw new ApiException<JSONAPIErrorResponse>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1710,20 +1713,23 @@ export class SecurityMonitoringApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: APIErrorResponse;
+      let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
+        throw new ApiException<JSONAPIErrorResponse>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2011,6 +2017,7 @@ export class SecurityMonitoringApiResponseProcessor {
     }
     if (
       response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 409 ||
       response.httpStatusCode == 422 ||
@@ -2020,20 +2027,20 @@ export class SecurityMonitoringApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: FindingsErrorResponse;
+      let body: JSONAPIErrorResponse;
       try {
         body = ObjectSerializer.deserialize(
           bodyText,
-          "FindingsErrorResponse"
-        ) as FindingsErrorResponse;
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<FindingsErrorResponse>(
+        throw new ApiException<JSONAPIErrorResponse>(
           response.httpStatusCode,
           bodyText
         );
       }
-      throw new ApiException<FindingsErrorResponse>(
+      throw new ApiException<JSONAPIErrorResponse>(
         response.httpStatusCode,
         body
       );
@@ -2735,6 +2742,8 @@ export class SecurityMonitoringApi {
    * You can also use the negation operator on strings. For example, use `filter[resource_type]=-aws*` to filter for any non-AWS resources.
    *
    * The operator must come after the equal sign. For example, to filter with the `>=` operator, add the operator after the equal sign: `filter[evaluation_changed_at]=>=1678809373257`.
+   *
+   * Query parameters must be only among the documented ones and with values of correct types. Duplicated query parameters (e.g. `filter[status]=low&filter[status]=info`) are not allowed.
    *
    * ### Response
    *

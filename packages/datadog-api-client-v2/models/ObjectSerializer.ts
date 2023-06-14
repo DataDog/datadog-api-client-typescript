@@ -186,8 +186,6 @@ import { Finding } from "./Finding";
 import { FindingAttributes } from "./FindingAttributes";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
-import { FindingsErrorItem } from "./FindingsErrorItem";
-import { FindingsErrorResponse } from "./FindingsErrorResponse";
 import { FormulaLimit } from "./FormulaLimit";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
@@ -307,6 +305,8 @@ import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentsResponse } from "./IncidentsResponse";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
+import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
@@ -1430,8 +1430,6 @@ const typeMap: { [index: string]: any } = {
   FindingAttributes: FindingAttributes,
   FindingMute: FindingMute,
   FindingRule: FindingRule,
-  FindingsErrorItem: FindingsErrorItem,
-  FindingsErrorResponse: FindingsErrorResponse,
   FormulaLimit: FormulaLimit,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
@@ -1563,6 +1561,8 @@ const typeMap: { [index: string]: any } = {
   IncidentUpdateRequest: IncidentUpdateRequest,
   IncidentsResponse: IncidentsResponse,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  JSONAPIErrorItem: JSONAPIErrorItem,
+  JSONAPIErrorResponse: JSONAPIErrorResponse,
   JiraIntegrationMetadata: JiraIntegrationMetadata,
   JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
