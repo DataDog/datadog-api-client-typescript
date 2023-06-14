@@ -9,7 +9,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * API error response body
  */
-export class FindingsErrorItem {
+export class JSONAPIErrorItem {
   /**
    * A human-readable explanation specific to this occurrence of the error.
    */
@@ -50,7 +50,7 @@ export class FindingsErrorItem {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FindingsErrorItem.attributeTypeMap;
+    return JSONAPIErrorItem.attributeTypeMap;
   }
 
   public constructor() {}
