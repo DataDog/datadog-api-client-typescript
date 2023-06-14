@@ -3,18 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FindingsErrorItem } from "./FindingsErrorItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * API error response.
+ * API error response body
  */
-export class FindingsErrorResponse {
+export class JSONAPIErrorItem {
   /**
-   * A list of errors.
+   * A human-readable explanation specific to this occurrence of the error.
    */
-  "errors": Array<FindingsErrorItem>;
+  "detail"?: string;
+  /**
+   * Status code of the response.
+   */
+  "status"?: string;
+  /**
+   * Short human-readable summary of the error.
+   */
+  "title"?: string;
 
   /**
    * @ignore
@@ -25,10 +32,17 @@ export class FindingsErrorResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    errors: {
-      baseName: "errors",
-      type: "Array<FindingsErrorItem>",
-      required: true,
+    detail: {
+      baseName: "detail",
+      type: "string",
+    },
+    status: {
+      baseName: "status",
+      type: "string",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
     },
   };
 
@@ -36,7 +50,7 @@ export class FindingsErrorResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return FindingsErrorResponse.attributeTypeMap;
+    return JSONAPIErrorItem.attributeTypeMap;
   }
 
   public constructor() {}

@@ -11,23 +11,23 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class WidgetAxis {
   /**
-   * True includes zero.
+   * Set to `true` to include zero.
    */
   "includeZero"?: boolean;
   /**
-   * The label of the axis to display on the graph.
+   * The label of the axis to display on the graph. Only usable on Scatterplot Widgets.
    */
   "label"?: string;
   /**
-   * Specifies the maximum value to show on the y-axis. It takes a number, or auto for default behavior.
+   * Specifies maximum numeric value to show on the axis. Defaults to `auto`.
    */
   "max"?: string;
   /**
-   * Specifies minimum value to show on the y-axis. It takes a number, or auto for default behavior.
+   * Specifies minimum numeric value to show on the axis. Defaults to `auto`.
    */
   "min"?: string;
   /**
-   * Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, `pow##` (for example `pow2`, `pow0.5` etc.).
+   * Specifies the scale type. Possible values are `linear`, `log`, `sqrt`, and `pow##` (for example `pow2` or `pow0.5`).
    */
   "scale"?: string;
 

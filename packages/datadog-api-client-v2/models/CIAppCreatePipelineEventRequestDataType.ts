@@ -10,5 +10,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Type of the event.
  */
 
-export type CIAppTestEventTypeName = typeof CITEST | UnparsedObject;
-export const CITEST = "citest";
+export type CIAppCreatePipelineEventRequestDataType =
+  | typeof CIPIPELINE_RESOURCE_REQUEST
+  | UnparsedObject;
+export const CIPIPELINE_RESOURCE_REQUEST = "cipipeline_resource_request";

@@ -7,8 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the event.
+ * Error category used to differentiate between issues related to the developer or provider environments.
  */
 
-export type CIAppTestEventTypeName = typeof CITEST | UnparsedObject;
-export const CITEST = "citest";
+export type CIAppCIErrorDomain =
+  | typeof PROVIDER
+  | typeof USER
+  | typeof UNKNOWN
+  | UnparsedObject;
+export const PROVIDER = "provider";
+export const USER = "user";
+export const UNKNOWN = "unknown";

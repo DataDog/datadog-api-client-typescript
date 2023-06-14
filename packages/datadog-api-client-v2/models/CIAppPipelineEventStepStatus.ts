@@ -7,8 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the event.
+ * The final status of the step.
  */
 
-export type CIAppTestEventTypeName = typeof CITEST | UnparsedObject;
-export const CITEST = "citest";
+export type CIAppPipelineEventStepStatus =
+  | typeof SUCCESS
+  | typeof ERROR
+  | UnparsedObject;
+export const SUCCESS = "success";
+export const ERROR = "error";
