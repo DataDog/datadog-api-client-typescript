@@ -7,8 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the event.
+ * Used to distinguish between pipelines, stages, jobs and steps.
  */
 
-export type CIAppTestEventTypeName = typeof CITEST | UnparsedObject;
-export const CITEST = "citest";
+export type CIAppPipelineEventStepLevel = typeof STEP | UnparsedObject;
+export const STEP = "step";

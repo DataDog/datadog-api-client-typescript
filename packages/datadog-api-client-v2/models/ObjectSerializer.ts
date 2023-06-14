@@ -42,10 +42,22 @@ import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
 import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucketValueTimeseriesPoint";
 import { CIAppAggregateSort } from "./CIAppAggregateSort";
+import { CIAppCIError } from "./CIAppCIError";
 import { CIAppCompute } from "./CIAppCompute";
+import { CIAppCreatePipelineEventRequest } from "./CIAppCreatePipelineEventRequest";
+import { CIAppCreatePipelineEventRequestAttributes } from "./CIAppCreatePipelineEventRequestAttributes";
+import { CIAppCreatePipelineEventRequestData } from "./CIAppCreatePipelineEventRequestData";
 import { CIAppEventAttributes } from "./CIAppEventAttributes";
+import { CIAppGitInfo } from "./CIAppGitInfo";
 import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
+import { CIAppHostInfo } from "./CIAppHostInfo";
 import { CIAppPipelineEvent } from "./CIAppPipelineEvent";
+import { CIAppPipelineEventJob } from "./CIAppPipelineEventJob";
+import { CIAppPipelineEventParentPipeline } from "./CIAppPipelineEventParentPipeline";
+import { CIAppPipelineEventPipeline } from "./CIAppPipelineEventPipeline";
+import { CIAppPipelineEventPreviousPipeline } from "./CIAppPipelineEventPreviousPipeline";
+import { CIAppPipelineEventStage } from "./CIAppPipelineEventStage";
+import { CIAppPipelineEventStep } from "./CIAppPipelineEventStep";
 import { CIAppPipelineEventsRequest } from "./CIAppPipelineEventsRequest";
 import { CIAppPipelineEventsResponse } from "./CIAppPipelineEventsResponse";
 import { CIAppPipelinesAggregateRequest } from "./CIAppPipelinesAggregateRequest";
@@ -69,6 +81,7 @@ import { CIAppTestsAnalyticsAggregateResponse } from "./CIAppTestsAnalyticsAggre
 import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
+import { CIAppUserInfo } from "./CIAppUserInfo";
 import { CIAppWarning } from "./CIAppWarning";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
@@ -194,6 +207,8 @@ import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
+import { HTTPCIAppError } from "./HTTPCIAppError";
+import { HTTPCIAppErrors } from "./HTTPCIAppErrors";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogErrors } from "./HTTPLogErrors";
 import { HTTPLogItem } from "./HTTPLogItem";
@@ -844,7 +859,23 @@ const enumsMap: { [key: string]: any[] } = {
     "most_frequent",
     "delta",
   ],
+  CIAppCIErrorDomain: ["provider", "user", "unknown"],
   CIAppComputeType: ["timeseries", "total"],
+  CIAppCreatePipelineEventRequestDataType: ["cipipeline_resource_request"],
+  CIAppPipelineEventJobLevel: ["job"],
+  CIAppPipelineEventJobStatus: ["success", "error", "canceled", "skipped"],
+  CIAppPipelineEventPipelineLevel: ["pipeline"],
+  CIAppPipelineEventPipelineStatus: [
+    "success",
+    "error",
+    "canceled",
+    "skipped",
+    "blocked",
+  ],
+  CIAppPipelineEventStageLevel: ["stage"],
+  CIAppPipelineEventStageStatus: ["success", "error", "canceled", "skipped"],
+  CIAppPipelineEventStepLevel: ["step"],
+  CIAppPipelineEventStepStatus: ["success", "error"],
   CIAppPipelineEventTypeName: ["cipipeline"],
   CIAppResponseStatus: ["done", "timeout"],
   CIAppSort: ["timestamp", "-timestamp"],
@@ -1235,10 +1266,23 @@ const typeMap: { [index: string]: any } = {
   CIAppAggregateBucketValueTimeseriesPoint:
     CIAppAggregateBucketValueTimeseriesPoint,
   CIAppAggregateSort: CIAppAggregateSort,
+  CIAppCIError: CIAppCIError,
   CIAppCompute: CIAppCompute,
+  CIAppCreatePipelineEventRequest: CIAppCreatePipelineEventRequest,
+  CIAppCreatePipelineEventRequestAttributes:
+    CIAppCreatePipelineEventRequestAttributes,
+  CIAppCreatePipelineEventRequestData: CIAppCreatePipelineEventRequestData,
   CIAppEventAttributes: CIAppEventAttributes,
+  CIAppGitInfo: CIAppGitInfo,
   CIAppGroupByHistogram: CIAppGroupByHistogram,
+  CIAppHostInfo: CIAppHostInfo,
   CIAppPipelineEvent: CIAppPipelineEvent,
+  CIAppPipelineEventJob: CIAppPipelineEventJob,
+  CIAppPipelineEventParentPipeline: CIAppPipelineEventParentPipeline,
+  CIAppPipelineEventPipeline: CIAppPipelineEventPipeline,
+  CIAppPipelineEventPreviousPipeline: CIAppPipelineEventPreviousPipeline,
+  CIAppPipelineEventStage: CIAppPipelineEventStage,
+  CIAppPipelineEventStep: CIAppPipelineEventStep,
   CIAppPipelineEventsRequest: CIAppPipelineEventsRequest,
   CIAppPipelineEventsResponse: CIAppPipelineEventsResponse,
   CIAppPipelinesAggregateRequest: CIAppPipelinesAggregateRequest,
@@ -1264,6 +1308,7 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsBucketResponse: CIAppTestsBucketResponse,
   CIAppTestsGroupBy: CIAppTestsGroupBy,
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
+  CIAppUserInfo: CIAppUserInfo,
   CIAppWarning: CIAppWarning,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudConfigurationComplianceRuleOptions:
@@ -1406,6 +1451,8 @@ const typeMap: { [index: string]: any } = {
   GCPServiceAccountMeta: GCPServiceAccountMeta,
   GetFindingResponse: GetFindingResponse,
   GroupScalarColumn: GroupScalarColumn,
+  HTTPCIAppError: HTTPCIAppError,
+  HTTPCIAppErrors: HTTPCIAppErrors,
   HTTPLogError: HTTPLogError,
   HTTPLogErrors: HTTPLogErrors,
   HTTPLogItem: HTTPLogItem,
@@ -2045,6 +2092,12 @@ const oneOfMap: { [index: string]: string[] } = {
     "string",
     "number",
     "Array<CIAppAggregateBucketValueTimeseriesPoint>",
+  ],
+  CIAppCreatePipelineEventRequestAttributesResource: [
+    "CIAppPipelineEventPipeline",
+    "CIAppPipelineEventStage",
+    "CIAppPipelineEventJob",
+    "CIAppPipelineEventStep",
   ],
   CIAppGroupByMissing: ["string", "number"],
   CIAppGroupByTotal: ["boolean", "string", "number"],

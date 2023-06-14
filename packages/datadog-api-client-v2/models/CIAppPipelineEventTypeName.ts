@@ -10,5 +10,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Type of the event.
  */
 
-export type CIAppPipelineEventTypeName = typeof cipipeline | UnparsedObject;
-export const cipipeline = "cipipeline";
+export type CIAppPipelineEventTypeName = typeof CIPIPELINE | UnparsedObject;
+export const CIPIPELINE = "cipipeline";

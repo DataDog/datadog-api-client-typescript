@@ -2575,6 +2575,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AuthNMappingResponse",
     },
+    "v2.CreateCIAppPipelineEvent": {
+        "body": {
+            "type": "CIAppCreatePipelineEventRequest",
+            "format": "",
+            },
+        "operationResponseType": "any",
+    },
     "v2.AggregateCIAppPipelineEvents": {
         "body": {
             "type": "CIAppPipelinesAggregateRequest",
