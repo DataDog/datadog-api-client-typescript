@@ -15,6 +15,7 @@ export {
 
 export {
   CIVisibilityPipelinesApiAggregateCIAppPipelineEventsRequest,
+  CIVisibilityPipelinesApiCreateCIAppPipelineEventRequest,
   CIVisibilityPipelinesApiListCIAppPipelineEventsRequest,
   CIVisibilityPipelinesApiSearchCIAppPipelineEventsRequest,
   CIVisibilityPipelinesApi,
@@ -428,15 +429,38 @@ export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregat
 export { CIAppAggregateSort } from "./models/CIAppAggregateSort";
 export { CIAppAggregateSortType } from "./models/CIAppAggregateSortType";
 export { CIAppAggregationFunction } from "./models/CIAppAggregationFunction";
+export { CIAppCIError } from "./models/CIAppCIError";
+export { CIAppCIErrorDomain } from "./models/CIAppCIErrorDomain";
 export { CIAppCompute } from "./models/CIAppCompute";
 export { CIAppComputeType } from "./models/CIAppComputeType";
+export { CIAppCreatePipelineEventRequest } from "./models/CIAppCreatePipelineEventRequest";
+export { CIAppCreatePipelineEventRequestAttributes } from "./models/CIAppCreatePipelineEventRequestAttributes";
+export { CIAppCreatePipelineEventRequestAttributesResource } from "./models/CIAppCreatePipelineEventRequestAttributesResource";
+export { CIAppCreatePipelineEventRequestData } from "./models/CIAppCreatePipelineEventRequestData";
+export { CIAppCreatePipelineEventRequestDataType } from "./models/CIAppCreatePipelineEventRequestDataType";
 export { CIAppEventAttributes } from "./models/CIAppEventAttributes";
+export { CIAppGitInfo } from "./models/CIAppGitInfo";
 export { CIAppGroupByHistogram } from "./models/CIAppGroupByHistogram";
 export { CIAppGroupByMissing } from "./models/CIAppGroupByMissing";
 export { CIAppGroupByTotal } from "./models/CIAppGroupByTotal";
+export { CIAppHostInfo } from "./models/CIAppHostInfo";
 export { CIAppPipelineEvent } from "./models/CIAppPipelineEvent";
+export { CIAppPipelineEventJob } from "./models/CIAppPipelineEventJob";
+export { CIAppPipelineEventJobLevel } from "./models/CIAppPipelineEventJobLevel";
+export { CIAppPipelineEventJobStatus } from "./models/CIAppPipelineEventJobStatus";
+export { CIAppPipelineEventParentPipeline } from "./models/CIAppPipelineEventParentPipeline";
+export { CIAppPipelineEventPipeline } from "./models/CIAppPipelineEventPipeline";
+export { CIAppPipelineEventPipelineLevel } from "./models/CIAppPipelineEventPipelineLevel";
+export { CIAppPipelineEventPipelineStatus } from "./models/CIAppPipelineEventPipelineStatus";
+export { CIAppPipelineEventPreviousPipeline } from "./models/CIAppPipelineEventPreviousPipeline";
 export { CIAppPipelineEventsRequest } from "./models/CIAppPipelineEventsRequest";
 export { CIAppPipelineEventsResponse } from "./models/CIAppPipelineEventsResponse";
+export { CIAppPipelineEventStage } from "./models/CIAppPipelineEventStage";
+export { CIAppPipelineEventStageLevel } from "./models/CIAppPipelineEventStageLevel";
+export { CIAppPipelineEventStageStatus } from "./models/CIAppPipelineEventStageStatus";
+export { CIAppPipelineEventStep } from "./models/CIAppPipelineEventStep";
+export { CIAppPipelineEventStepLevel } from "./models/CIAppPipelineEventStepLevel";
+export { CIAppPipelineEventStepStatus } from "./models/CIAppPipelineEventStepStatus";
 export { CIAppPipelineEventTypeName } from "./models/CIAppPipelineEventTypeName";
 export { CIAppPipelinesAggregateRequest } from "./models/CIAppPipelinesAggregateRequest";
 export { CIAppPipelinesAggregationBucketsResponse } from "./models/CIAppPipelinesAggregationBucketsResponse";
@@ -463,6 +487,7 @@ export { CIAppTestsAnalyticsAggregateResponse } from "./models/CIAppTestsAnalyti
 export { CIAppTestsBucketResponse } from "./models/CIAppTestsBucketResponse";
 export { CIAppTestsGroupBy } from "./models/CIAppTestsGroupBy";
 export { CIAppTestsQueryFilter } from "./models/CIAppTestsQueryFilter";
+export { CIAppUserInfo } from "./models/CIAppUserInfo";
 export { CIAppWarning } from "./models/CIAppWarning";
 export { CloudConfigurationComplianceRuleOptions } from "./models/CloudConfigurationComplianceRuleOptions";
 export { CloudConfigurationRegoRule } from "./models/CloudConfigurationRegoRule";
@@ -619,6 +644,8 @@ export { HourlyUsageMetadata } from "./models/HourlyUsageMetadata";
 export { HourlyUsagePagination } from "./models/HourlyUsagePagination";
 export { HourlyUsageResponse } from "./models/HourlyUsageResponse";
 export { HourlyUsageType } from "./models/HourlyUsageType";
+export { HTTPCIAppError } from "./models/HTTPCIAppError";
+export { HTTPCIAppErrors } from "./models/HTTPCIAppErrors";
 export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogErrors } from "./models/HTTPLogErrors";
 export { HTTPLogItem } from "./models/HTTPLogItem";
