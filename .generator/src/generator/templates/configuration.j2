@@ -11,6 +11,7 @@ export interface Configuration {
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
   readonly debug: boolean | undefined;
+  readonly logUnstableOperations: boolean;
   unstableOperations: { [name: string]: boolean };
 }
 
@@ -51,6 +52,10 @@ export interface ConfigurationParameters {
    * Callback method to compress string body with zstd
    */
   zstdCompressorCallback?: ZstdCompressorCallback
+  /**
+   * Flag to enable logging of unstable operations
+   */
+  logUnstableOperations?: boolean
 }
 
 /**
@@ -103,7 +108,8 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
     httpApi: conf.httpApi || new DefaultHttpLibrary(),
     authMethods: configureAuthMethods(authMethods),
     httpConfig: conf.httpConfig || {},
-    debug: conf.debug
+    debug: conf.debug,
+    logUnstableOperations: conf.logUnstableOperations || false,
   };
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback
   configuration.httpApi.debug = configuration.debug;
