@@ -7,19 +7,21 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.GCPIntegrationApi(configuration);
 
+// there is a valid "gcp_sts_account" in the system
+const GCP_STS_ACCOUNT_DATA_ID = process.env.GCP_STS_ACCOUNT_DATA_ID as string;
+
 const params: v2.GCPIntegrationApiUpdateGCPSTSAccountRequest = {
   body: {
     data: {
       attributes: {
-        clientEmail:
-          "datadog-service-account@test-project.iam.gserviceaccount.com",
-        hostFilters: [],
+        clientEmail: "252bf553ef04b351@example.com",
+        hostFilters: ["foo:bar"],
       },
-      id: "d291291f-12c2-22g4-j290-123456678897",
+      id: GCP_STS_ACCOUNT_DATA_ID,
       type: "gcp_service_account",
     },
   },
-  accountId: "account_id",
+  accountId: GCP_STS_ACCOUNT_DATA_ID,
 };
 
 apiInstance
