@@ -1056,6 +1056,7 @@ const enumsMap: { [key: string]: any[] } = {
     "isInMoreThan",
     "isInLessThan",
     "doesNotExist",
+    "isUndefined",
   ],
   SyntheticsAssertionType: [
     "body",
