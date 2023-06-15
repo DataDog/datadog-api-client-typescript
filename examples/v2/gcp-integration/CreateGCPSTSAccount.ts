@@ -11,8 +11,7 @@ const params: v2.GCPIntegrationApiCreateGCPSTSAccountRequest = {
   body: {
     data: {
       attributes: {
-        clientEmail:
-          "datadog-service-account@test-project.iam.gserviceaccount.com",
+        clientEmail: "252bf553ef04b351@test-project.iam.gserviceaccount.com",
         hostFilters: [],
       },
       type: "gcp_service_account",
