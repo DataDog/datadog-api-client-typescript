@@ -572,6 +572,8 @@ export class CIVisibilityPipelinesApi {
 
   /**
    * Send your pipeline event to your Datadog platform over HTTP.
+   *
+   * This API endpoint is in private beta.
    * @param param The request object
    */
   public createCIAppPipelineEvent(
@@ -594,7 +596,7 @@ export class CIVisibilityPipelinesApi {
   }
 
   /**
-   * List endpoint returns CI Visibility pipeline events that match a log search query.
+   * List endpoint returns CI Visibility pipeline events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
    *
    * Use this endpoint to see your latest pipeline events.
@@ -682,7 +684,7 @@ export class CIVisibilityPipelinesApi {
   }
 
   /**
-   * List endpoint returns CI Visibility pipeline events that match a log search query.
+   * List endpoint returns CI Visibility pipeline events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
    *
    * Use this endpoint to build complex events filtering and search.
