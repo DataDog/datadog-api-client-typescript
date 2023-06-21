@@ -48,8 +48,8 @@ export function dateToRFC3339String(date: Date | DDate): string {
   const year = date.getFullYear() ;
   const month = date.getMonth();
   const day = date.getUTCDate();
-  const hour = date.getUTCHours() + +tzHour;
-  const minute = date.getUTCMinutes() + +tzMin;
+  const hour = date.getUTCHours() + tzHour;
+  const minute = date.getUTCMinutes() + tzMin;
   const second = date.getUTCSeconds();
 
   let msec = date.getUTCMilliseconds().toString();
@@ -81,13 +81,5 @@ function getRFC3339TimezoneOffset(date: Date | DDate): string {
   if (date instanceof DDate && date.rfc3339TzOffset) {
     return date.rfc3339TzOffset;
   }
-
-  let offset = date.getTimezoneOffset()
-  if (offset === 0) {
-      return "Z";
-  }
-
-  const offsetSign = (offset > 0) ? "+" : "-";
-  offset = Math.abs(offset);
-  return offsetSign + pad(Math.floor(offset / 60)) + ":" + pad(offset % 60);
+  return "Z";
 }
