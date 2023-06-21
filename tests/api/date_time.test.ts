@@ -1,5 +1,6 @@
 import { MonthlyUsageAttributionResponse } from '../../packages/datadog-api-client-v1/models/MonthlyUsageAttributionResponse';
 import { ObjectSerializer as ObjectSerializerV1 } from '../../packages/datadog-api-client-v1/models/ObjectSerializer';
+import { dateToRFC3339String } from "../../packages/datadog-api-client-common/util";
 
 test('TestDeserializationOfInvalidDates', () => {
   const data = `
@@ -42,4 +43,11 @@ test('TestDeserializationOfInvalidDates', () => {
     expect(result).toBeInstanceOf(MonthlyUsageAttributionResponse)
     expect(result.usage[0].updatedAt).toBeInstanceOf(Date);
   }
+);
+
+test(`Test3339Dates`, () => {
+  const date = new Date("2023-06-13T21:30:48-10:00");
+  const result = dateToRFC3339String(date);
+  expect(result).toBe("2023-06-14T07:30:48Z");
+}
 );
