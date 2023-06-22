@@ -20,6 +20,11 @@ const params: v2.CIVisibilityPipelinesApiCreateCIAppPipelineEventRequest = {
           status: "success",
           uniqueId: "3eacb6f3-ff04-4e10-8a9c-46e6d054024a",
           url: "https://my-ci-provider.example/pipelines/my-pipeline/run/1",
+          git: {
+            repositoryUrl: "https://github.com/DataDog/datadog-agent",
+            sha: "7f263865994b76066c4612fd1965215e7dcb4cd2",
+            authorEmail: "john.doe@email.com",
+          },
         },
       },
       type: "cipipeline_resource_request",

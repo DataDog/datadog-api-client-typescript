@@ -8,7 +8,6 @@ import { CIAppGitInfo } from "./CIAppGitInfo";
 import { CIAppHostInfo } from "./CIAppHostInfo";
 import { CIAppPipelineEventStageLevel } from "./CIAppPipelineEventStageLevel";
 import { CIAppPipelineEventStageStatus } from "./CIAppPipelineEventStageStatus";
-import { CIAppUserInfo } from "./CIAppUserInfo";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -32,7 +31,7 @@ export class CIAppPipelineEventStage {
    * If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
    * Note that either `tag` or `branch` has to be provided, but not both.
    */
-  "git"?: CIAppGitInfo;
+  "git": CIAppGitInfo | null;
   /**
    * UUID for the stage. It has to be unique at least in the pipeline scope.
    */
@@ -81,11 +80,6 @@ export class CIAppPipelineEventStage {
    * A list of user-defined tags. The tags must follow the `key:value` pattern.
    */
   "tags"?: Array<string>;
-  /**
-   * Used to specify user-related information when the payload does not have Git information.
-   * For example, if Git information is missing for manually triggered pipelines, this field can be used instead.
-   */
-  "user"?: CIAppUserInfo;
 
   /**
    * @ignore
@@ -113,6 +107,7 @@ export class CIAppPipelineEventStage {
     git: {
       baseName: "git",
       type: "CIAppGitInfo",
+      required: true,
     },
     id: {
       baseName: "id",
@@ -170,10 +165,6 @@ export class CIAppPipelineEventStage {
     tags: {
       baseName: "tags",
       type: "Array<string>",
-    },
-    user: {
-      baseName: "user",
-      type: "CIAppUserInfo",
     },
   };
 

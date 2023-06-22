@@ -21,6 +21,11 @@ const params: v2.CIVisibilityPipelinesApiCreateCIAppPipelineEventRequest = {
           pipelineUniqueId: "3eacb6f3-ff04-4e10-8a9c-46e6d054024a",
           pipelineName: "Deploy to AWS",
           url: "https://my-ci-provider.example/jobs/my-jobs/run/1",
+          git: {
+            repositoryUrl: "https://github.com/DataDog/datadog-agent",
+            sha: "7f263865994b76066c4612fd1965215e7dcb4cd2",
+            authorEmail: "john.doe@email.com",
+          },
         },
       },
       type: "cipipeline_resource_request",

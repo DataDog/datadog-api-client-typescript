@@ -487,7 +487,6 @@ export { CIAppTestsAnalyticsAggregateResponse } from "./models/CIAppTestsAnalyti
 export { CIAppTestsBucketResponse } from "./models/CIAppTestsBucketResponse";
 export { CIAppTestsGroupBy } from "./models/CIAppTestsGroupBy";
 export { CIAppTestsQueryFilter } from "./models/CIAppTestsQueryFilter";
-export { CIAppUserInfo } from "./models/CIAppUserInfo";
 export { CIAppWarning } from "./models/CIAppWarning";
 export { CloudConfigurationComplianceRuleOptions } from "./models/CloudConfigurationComplianceRuleOptions";
 export { CloudConfigurationRegoRule } from "./models/CloudConfigurationRegoRule";
