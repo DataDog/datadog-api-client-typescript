@@ -23,7 +23,7 @@ export const isNode: boolean =
   process.release.name === "node";
 
 export class DDate extends Date {
-  rfc3339TzOffset: string | undefined;
+  originalDate: string | undefined;
 }
 
 const RFC3339Re =
@@ -32,12 +32,7 @@ export function dateFromRFC3339String(date: string): DDate {
   const m = RFC3339Re.exec(date);
   if (m) {
     const _date = new DDate(date);
-    if (m[8] === undefined && m[9] === undefined) {
-      _date.rfc3339TzOffset = "Z";
-    } else {
-      _date.rfc3339TzOffset = `${m[8]}:${m[9]}`;
-    }
-
+    _date.originalDate = date;
     return _date;
   } else {
     throw new Error("unexpected date format: " + date);
@@ -45,35 +40,10 @@ export function dateFromRFC3339String(date: string): DDate {
 }
 
 export function dateToRFC3339String(date: Date | DDate): string {
-  const offSetArr = getRFC3339TimezoneOffset(date).split(":");
-  const tzHour = offSetArr.length == 1 ? 0 : +offSetArr[0];
-  const tzMin = offSetArr.length == 1 ? 0 : +offSetArr[1];
-
-  const year = date.getFullYear();
-  const month = date.getMonth();
-  const day = date.getUTCDate();
-  const hour = date.getUTCHours() + tzHour;
-  const minute = date.getUTCMinutes() + tzMin;
-  const second = date.getUTCSeconds();
-
-  let msec = date.getUTCMilliseconds().toString();
-  msec = +msec === 0 ? "" : `.${pad(+msec, 3)}`;
-
-  return (
-    year +
-    "-" +
-    pad(month + 1) +
-    "-" +
-    pad(day) +
-    "T" +
-    pad(hour) +
-    ":" +
-    pad(minute) +
-    ":" +
-    pad(second) +
-    msec +
-    offSetArr.join(":")
-  );
+   if (date instanceof DDate && date.originalDate) {
+     return date.originalDate;
+   }
+   return date.toISOString().split('.')[0] + "Z";
 }
 
 // Helpers
@@ -86,11 +56,4 @@ function pad(num: number, len = 2): string {
   }
 
   return paddedNum;
-}
-
-function getRFC3339TimezoneOffset(date: Date | DDate): string {
-  if (date instanceof DDate && date.rfc3339TzOffset) {
-    return date.rfc3339TzOffset;
-  }
-  return "Z";
 }
