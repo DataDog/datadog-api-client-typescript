@@ -1,6 +1,6 @@
 import { MonthlyUsageAttributionResponse } from '../../packages/datadog-api-client-v1/models/MonthlyUsageAttributionResponse';
 import { ObjectSerializer as ObjectSerializerV1 } from '../../packages/datadog-api-client-v1/models/ObjectSerializer';
-import { dateToRFC3339String } from "../../packages/datadog-api-client-common/util";
+import { dateFromRFC3339String, dateToRFC3339String } from "../../packages/datadog-api-client-common/util";
 
 test('TestDeserializationOfInvalidDates', () => {
   const data = `
@@ -49,5 +49,12 @@ test(`Test3339Dates`, () => {
   const date = new Date("2023-06-13T21:30:48-10:00");
   const result = dateToRFC3339String(date);
   expect(result).toBe("2023-06-14T07:30:48Z");
+}
+);
+
+test(`Test3339DatesWithTZ`, () => {
+  const date = dateFromRFC3339String("2023-06-13T21:30:48-10:00");
+  const result = dateToRFC3339String(date);
+  expect(result).toBe("2023-06-13T21:30:48-10:00");
 }
 );
