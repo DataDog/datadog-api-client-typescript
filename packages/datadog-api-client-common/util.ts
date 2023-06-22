@@ -45,15 +45,3 @@ export function dateToRFC3339String(date: Date | DDate): string {
   }
   return date.toISOString().split(".")[0] + "Z";
 }
-
-// Helpers
-function pad(num: number, len = 2): string {
-  let paddedNum = num.toString();
-  if (paddedNum.length < len) {
-    paddedNum = "0".repeat(len - paddedNum.length) + paddedNum;
-  } else if (paddedNum.length > len) {
-    paddedNum = paddedNum.slice(0, len);
-  }
-
-  return paddedNum;
-}
