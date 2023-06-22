@@ -8,7 +8,6 @@ import { CIAppGitInfo } from "./CIAppGitInfo";
 import { CIAppHostInfo } from "./CIAppHostInfo";
 import { CIAppPipelineEventJobLevel } from "./CIAppPipelineEventJobLevel";
 import { CIAppPipelineEventJobStatus } from "./CIAppPipelineEventJobStatus";
-import { CIAppUserInfo } from "./CIAppUserInfo";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -32,7 +31,7 @@ export class CIAppPipelineEventJob {
    * If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
    * Note that either `tag` or `branch` has to be provided, but not both.
    */
-  "git"?: CIAppGitInfo;
+  "git": CIAppGitInfo | null;
   /**
    * The UUID for the job. It has to be unique within each pipeline execution.
    */
@@ -93,11 +92,6 @@ export class CIAppPipelineEventJob {
    * The URL to look at the job in the CI provider UI.
    */
   "url": string;
-  /**
-   * Used to specify user-related information when the payload does not have Git information.
-   * For example, if Git information is missing for manually triggered pipelines, this field can be used instead.
-   */
-  "user"?: CIAppUserInfo;
 
   /**
    * @ignore
@@ -125,6 +119,7 @@ export class CIAppPipelineEventJob {
     git: {
       baseName: "git",
       type: "CIAppGitInfo",
+      required: true,
     },
     id: {
       baseName: "id",
@@ -195,10 +190,6 @@ export class CIAppPipelineEventJob {
       baseName: "url",
       type: "string",
       required: true,
-    },
-    user: {
-      baseName: "user",
-      type: "CIAppUserInfo",
     },
   };
 

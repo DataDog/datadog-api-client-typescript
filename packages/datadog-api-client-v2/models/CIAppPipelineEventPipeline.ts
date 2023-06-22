@@ -10,7 +10,6 @@ import { CIAppPipelineEventParentPipeline } from "./CIAppPipelineEventParentPipe
 import { CIAppPipelineEventPipelineLevel } from "./CIAppPipelineEventPipelineLevel";
 import { CIAppPipelineEventPipelineStatus } from "./CIAppPipelineEventPipelineStatus";
 import { CIAppPipelineEventPreviousPipeline } from "./CIAppPipelineEventPreviousPipeline";
-import { CIAppUserInfo } from "./CIAppUserInfo";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -30,7 +29,7 @@ export class CIAppPipelineEventPipeline {
    * If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
    * Note that either `tag` or `branch` has to be provided, but not both.
    */
-  "git"?: CIAppGitInfo;
+  "git": CIAppGitInfo | null;
   /**
    * Whether or not the pipeline was triggered manually by the user.
    */
@@ -102,11 +101,6 @@ export class CIAppPipelineEventPipeline {
    * The URL to look at the pipeline in the CI provider UI.
    */
   "url": string;
-  /**
-   * Used to specify user-related information when the payload does not have Git information.
-   * For example, if Git information is missing for manually triggered pipelines, this field can be used instead.
-   */
-  "user"?: CIAppUserInfo;
 
   /**
    * @ignore
@@ -130,6 +124,7 @@ export class CIAppPipelineEventPipeline {
     git: {
       baseName: "git",
       type: "CIAppGitInfo",
+      required: true,
     },
     isManual: {
       baseName: "is_manual",
@@ -207,10 +202,6 @@ export class CIAppPipelineEventPipeline {
       baseName: "url",
       type: "string",
       required: true,
-    },
-    user: {
-      baseName: "user",
-      type: "CIAppUserInfo",
     },
   };
 

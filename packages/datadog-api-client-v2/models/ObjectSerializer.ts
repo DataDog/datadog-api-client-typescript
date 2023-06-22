@@ -81,7 +81,6 @@ import { CIAppTestsAnalyticsAggregateResponse } from "./CIAppTestsAnalyticsAggre
 import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
-import { CIAppUserInfo } from "./CIAppUserInfo";
 import { CIAppWarning } from "./CIAppWarning";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
@@ -1308,7 +1307,6 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsBucketResponse: CIAppTestsBucketResponse,
   CIAppTestsGroupBy: CIAppTestsGroupBy,
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
-  CIAppUserInfo: CIAppUserInfo,
   CIAppWarning: CIAppWarning,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudConfigurationComplianceRuleOptions:
