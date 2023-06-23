@@ -18,7 +18,6 @@ function wrap(method: any) {
         // These headers are required to prevent the continuation of the trace from being dropped
         request.setHeaderParam("x-datadog-origin", "ciapp-test");
         request.setHeaderParam("x-datadog-sampling-priority", "1");
-        request.setHeaderParam("x-datadog-sampled", "1");
         const response = method.apply(instance, [request]);
 
         response.then((responseContext: any) => {
@@ -45,6 +44,6 @@ function wrap(method: any) {
   return send;
 }
 
-lib.prototype.send = wrap(libSend);
+//lib.prototype.send = wrap(libSend);
 
 export default tracer;
