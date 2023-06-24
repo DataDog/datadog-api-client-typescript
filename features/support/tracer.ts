@@ -1,4 +1,5 @@
 import { tracer } from "dd-trace";
+import { HTTP_HEADERS } from "dd-trace/ext/formats";
 
 const lib =
   require("../../packages/datadog-api-client-common/http/isomorphic-fetch").IsomorphicFetchHttpLibrary;
@@ -11,6 +12,13 @@ function wrap(method: any) {
       "fetch",
       { type: "http", resource: request.getUrl() },
       (span: any, callback?: (error?: Error) => string) => {
+        const carrier: { [name: string]: string }  = {};
+        tracer.inject(span, HTTP_HEADERS, carrier);
+        for (const name in carrier) {
+           request.setHeaderParam(name, carrier[name]);
+        }
+
+        /*
         const spanId = span.context().toSpanId();
         const traceId = span.context().toTraceId();
         request.setHeaderParam("x-datadog-parent-id", spanId);
@@ -18,6 +26,7 @@ function wrap(method: any) {
         // These headers are required to prevent the continuation of the trace from being dropped
         request.setHeaderParam("x-datadog-origin", "ciapp-test");
         request.setHeaderParam("x-datadog-sampling-priority", "1");
+        */
         const response = method.apply(instance, [request]);
 
         response.finally(() => {
@@ -33,6 +42,6 @@ function wrap(method: any) {
   return send;
 }
 
-//lib.prototype.send = wrap(libSend);
+lib.prototype.send = wrap(libSend);
 
 export default tracer;
