@@ -18,15 +18,6 @@ function wrap(method: any) {
            request.setHeaderParam(name, carrier[name]);
         }
 
-        /*
-        const spanId = span.context().toSpanId();
-        const traceId = span.context().toTraceId();
-        request.setHeaderParam("x-datadog-parent-id", spanId);
-        request.setHeaderParam("x-datadog-trace-id", traceId);
-        // These headers are required to prevent the continuation of the trace from being dropped
-        request.setHeaderParam("x-datadog-origin", "ciapp-test");
-        request.setHeaderParam("x-datadog-sampling-priority", "1");
-        */
         const response = method.apply(instance, [request]);
 
         response.finally(() => {
