@@ -26,7 +26,7 @@ fi
 
 
 # Run tests
-yarn run test features/v2/rum.feature:66
+yarn run cucumber-js features/v2/rum.feature:66
 TEST_RESULT=$?
 if [ "$RERECORD_FAILED_TESTS" == "true" -a "$TEST_RESULT" -ne "0" ]; then
     yarn run test:rerecord

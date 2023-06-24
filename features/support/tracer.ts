@@ -20,17 +20,6 @@ function wrap(method: any) {
         request.setHeaderParam("x-datadog-sampling-priority", "1");
         const response = method.apply(instance, [request]);
 
-        response.then((responseContext: any) => {
-          const violations = responseContext.headers["sl-violations"];
-          if (violations != undefined) {
-            span.addTags({
-              "error.type": "validation",
-              "error.msg": violations,
-            });
-          }
-          return responseContext;
-        });
-
         response.finally(() => {
           if (callback) {
             callback()
