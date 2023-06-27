@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## 1.14.0 / 2023-06-27
+
+### Fixed
+* Mark `restricted_roles` as nullable in monitor update request by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1175
+* Mark additional usage fields as `nullable` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1183
+* Updated findings api error responses by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1164
+* Mark usage metering field `lines_indexed` as `nullable` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1188
+* Update dashboard widget axis field descriptions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1174
+* Fix `CreateGCPSTSAccount` return code and update tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1194
+* Fix `CreateGCPSTSAccount` response status code by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1198
+* Add missing descriptions for authorization scopes in public docs  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1196
+* Fix dateToRFC3339String parsing by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/1201
+* Fix datetime handling more broadly by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/1203
+* Update CI Visibility pipelines write API endpoint fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1204
+### Added
+* Add support for mute findings endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1148
+* Expose `database-monitoring` monitor type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1040
+* Add endpoint to get Synthetics default locations by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1182
+* Add usage metering RUM Roku fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1189
+* Add usage metering fields for AWS and Azure cloud cost management by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1191
+* Add support for CI Visibility create pipeline events endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1190
+* Add isUndefined synthetics assertion operator by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1193
+* Add missing Synthetics and Metrics Scope descriptions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1197
+### Changed
+* Team name and handle length updates by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1171
+### Deprecated
+* mark v1 GCP APIs as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1185
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.13.0...v1.14.0
+
 ## 1.13.0 / 2023-05-31
 
 ### Fixed
