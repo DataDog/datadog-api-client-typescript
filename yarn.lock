@@ -521,7 +521,7 @@
   resolved "https://registry.npmjs.org/@cucumber/tag-expressions/-/tag-expressions-3.0.1.tgz"
   integrity sha512-OGCXaJ1BQXmQ5b9pw+JYsBGumK2/LPZiLmbj1o1JFVeSNs2PY8WPQFSyXrskhrHz5Nd/6lYg7lvGMtFHOncC4w==
 
-"@datadog/native-appsec@^3.1.0":
+"@datadog/native-appsec@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@datadog/native-appsec/-/native-appsec-3.2.0.tgz#ddeca06cbaba9c6905903d09d18013f81eedc8c3"
   integrity sha512-biAa7EFfuavjSWgSQaCit9CqGzr6Af5nhzfNNGJ38Y/Y387hDvLivAR374kK1z6XoxGZEOa+XPbVogmV/2Bcjw==
@@ -535,10 +535,10 @@
   dependencies:
     node-gyp-build "^4.5.0"
 
-"@datadog/native-iast-taint-tracking@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.4.1.tgz#e84198607230e0193d0d88f06c1f56d5938daf9e"
-  integrity sha512-wWJebnK5fADXGGwmoHi9ElMsvR/M4IZpRxBxzAfKU2WI1GRkCvSxQBhbIFUTQEuO7l6ZOpASWQ9yUXK3cx8n+w==
+"@datadog/native-iast-taint-tracking@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@datadog/native-iast-taint-tracking/-/native-iast-taint-tracking-1.5.0.tgz#1a55eca6692079ac6167696682acb972aa0b0181"
+  integrity sha512-SOWIk1M6PZH0osNB191Voz2rKBPoF5hISWVSK9GiJPrD40+xjib1Z/bFDV7EkDn3kjOyordSBdNPG5zOqZJdyg==
   dependencies:
     node-gyp-build "^3.9.0"
 
@@ -550,16 +550,16 @@
     node-addon-api "^6.1.0"
     node-gyp-build "^3.9.0"
 
-"@datadog/pprof@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@datadog/pprof/-/pprof-2.2.1.tgz#405e39f354beeb0f53ffa248e03ea64b2e8d5549"
-  integrity sha512-kPxN9ADjajUEU1zRtVqLT/q5AP8Ge7S1R1UkpUlKOzNgBznFXmNzhTtQqGhB8ew6LPssfIQTDVd/rBIcJvuMOw==
+"@datadog/pprof@2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@datadog/pprof/-/pprof-2.2.3.tgz#a22ca30e386f5aa8559f4b2e297b76c80551c26d"
+  integrity sha512-cZXvNBBzvTMUx2xOxp49cZJ7/HOF7geVxqeRbveeJUVKwi8ZxmU1rQGcWPFX4iEEtfQu1M3NqbhmNtYsMJdEsQ==
   dependencies:
     delay "^5.0.0"
     node-gyp-build "^3.9.0"
     p-limit "^3.1.0"
     pify "^5.0.0"
-    pprof-format "^2.0.6"
+    pprof-format "^2.0.7"
     source-map "^0.7.3"
     split "^1.0.1"
 
@@ -891,6 +891,23 @@
   dependencies:
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
+
+"@opentelemetry/api@^1.0.0":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/api/-/api-1.4.1.tgz#ff22eb2e5d476fbc2450a196e40dd243cc20c28f"
+  integrity sha512-O2yRJce1GOc6PAy3QxFM4NzFiWzvScDC1/5ihYBL6BUEVdq0XMWN01sppE+H6bBXbaFYipjwFLEWLg5PaSOThA==
+
+"@opentelemetry/core@^1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/core/-/core-1.14.0.tgz#64e876b29cb736c984d54164cd47433f513eafd3"
+  integrity sha512-MnMZ+sxsnlzloeuXL2nm5QcNczt/iO82UOeQQDHhV83F2fP3sgntW2evvtoxJki0MBLxEsh5ADD7PR/Hn5uzjw==
+  dependencies:
+    "@opentelemetry/semantic-conventions" "1.14.0"
+
+"@opentelemetry/semantic-conventions@1.14.0":
+  version "1.14.0"
+  resolved "https://registry.yarnpkg.com/@opentelemetry/semantic-conventions/-/semantic-conventions-1.14.0.tgz#6a729b7f372ce30f77a3f217c09bc216f863fccb"
+  integrity sha512-rJfCY8rCWz3cb4KI6pEofnytvMPuj3YLQwoscCCYZ5DkdiPjo15IQ0US7+mjcWy9H3fcZIzf2pbJZ7ck/h4tug==
 
 "@pollyjs/adapter-node-http@^6.0.5":
   version "6.0.5"
@@ -1879,17 +1896,19 @@ d@1, d@^1.0.1:
     es5-ext "^0.10.50"
     type "^1.0.1"
 
-dd-trace@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/dd-trace/-/dd-trace-4.0.0.tgz#c8093c4833f460c99e3995a15632de924eabd73a"
-  integrity sha512-yK980lcOEFsHEwpYGram5zXG0RENXj6Q4by/vwPXHrroyf464ycKb1K+GWZvbQGGKgNKgxaZ9emThf40X0tCGg==
+dd-trace@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/dd-trace/-/dd-trace-4.3.0.tgz#d245e8b030d999076d1e270ddbe4d669cefb2477"
+  integrity sha512-UTqgTPa64iMxfQBfq2kPu2Bd+KscfGpSPa3brR42LJIa/vKjTZixREZRcL6tFTA4BxHKSWyuKa1lB+AXz7uT7A==
   dependencies:
-    "@datadog/native-appsec" "^3.1.0"
+    "@datadog/native-appsec" "^3.2.0"
     "@datadog/native-iast-rewriter" "2.0.1"
-    "@datadog/native-iast-taint-tracking" "^1.4.1"
+    "@datadog/native-iast-taint-tracking" "^1.5.0"
     "@datadog/native-metrics" "^2.0.0"
-    "@datadog/pprof" "^2.2.1"
+    "@datadog/pprof" "2.2.3"
     "@datadog/sketches-js" "^2.1.0"
+    "@opentelemetry/api" "^1.0.0"
+    "@opentelemetry/core" "^1.14.0"
     crypto-randomuuid "^1.0.0"
     diagnostics_channel "^1.1.0"
     ignore "^5.2.0"
@@ -4165,7 +4184,7 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-pprof-format@^2.0.6:
+pprof-format@^2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/pprof-format/-/pprof-format-2.0.7.tgz#526e4361f8b37d16b2ec4bb0696b5292de5046a4"
   integrity sha512-1qWaGAzwMpaXJP9opRa23nPnt2Egi7RMNoNBptEE/XwHbcn4fC2b/4U4bKc5arkGkIh2ZabpF2bEb+c5GNHEKA==

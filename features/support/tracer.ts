@@ -1,4 +1,5 @@
 import { tracer } from "dd-trace";
+import { HTTP_HEADERS } from "dd-trace/ext/formats";
 
 const lib =
   require("../../packages/datadog-api-client-common/http/isomorphic-fetch").IsomorphicFetchHttpLibrary;
@@ -11,26 +12,13 @@ function wrap(method: any) {
       "fetch",
       { type: "http", resource: request.getUrl() },
       (span: any, callback?: (error?: Error) => string) => {
-        const spanId = span.context().toSpanId();
-        const traceId = span.context().toTraceId();
-        request.setHeaderParam("x-datadog-parent-id", spanId);
-        request.setHeaderParam("x-datadog-trace-id", traceId);
-        // These headers are required to prevent the continuation of the trace from being dropped
-        request.setHeaderParam("x-datadog-origin", "ciapp-test");
-        request.setHeaderParam("x-datadog-sampling-priority", "1");
-        request.setHeaderParam("x-datadog-sampled", "1");
-        const response = method.apply(instance, [request]);
+        const carrier: { [name: string]: string }  = {};
+        tracer.inject(span, HTTP_HEADERS, carrier);
+        for (const name in carrier) {
+           request.setHeaderParam(name, carrier[name]);
+        }
 
-        response.then((responseContext: any) => {
-          const violations = responseContext.headers["sl-violations"];
-          if (violations != undefined) {
-            span.addTags({
-              "error.type": "validation",
-              "error.msg": violations,
-            });
-          }
-          return responseContext;
-        });
+        const response = method.apply(instance, [request]);
 
         response.finally(() => {
           if (callback) {
