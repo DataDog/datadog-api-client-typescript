@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of aggregation that can be performed on metrics queries.
+ * The type of aggregation that can be performed on metrics-based queries.
  */
 
 export type MetricsAggregator =
