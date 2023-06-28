@@ -6,7 +6,6 @@ import {
 } from "./http";
 import { fetch as crossFetch } from "cross-fetch";
 import pako from "pako";
-import bufferFrom from "buffer-from";
 import { isBrowser, isNode } from "../util";
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
@@ -29,9 +28,9 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
 
     if (typeof body === "string") {
       if (headers["Content-Encoding"] == "gzip") {
-        body = bufferFrom(pako.gzip(body).buffer);
+        body = Buffer.from(pako.gzip(body).buffer);
       } else if (headers["Content-Encoding"] == "deflate") {
-        body = bufferFrom(pako.deflate(body).buffer);
+        body = Buffer.from(pako.deflate(body).buffer);
       } else if (headers["Content-Encoding"] == "zstd1") {
         if (this.zstdCompressorCallback) {
           body = this.zstdCompressorCallback(body);

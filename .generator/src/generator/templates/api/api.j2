@@ -7,8 +7,6 @@ import {
   HttpFile
   } from "../../datadog-api-client-common/http/http";
 
-import FormData from "form-data";
-
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
@@ -110,7 +108,7 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
        {%- if (parameter|parameter_schema).get("format", {}) != "binary" %}
        localVarFormParams.append('{{ name }}', {{ name|attribute_name }} as any);
        {%- else  %}
-       localVarFormParams.append('{{ name }}', {{ name|attribute_name }}.data, {{ name|attribute_name }}.name);
+       localVarFormParams.append('{{ name }}', new Blob([{{ name|attribute_name }}.data]), {{ name|attribute_name }}.name);
        {%- endif %}
     }
     {%- endif %}
