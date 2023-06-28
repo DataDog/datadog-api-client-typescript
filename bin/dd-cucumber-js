@@ -3,4 +3,4 @@
 if (process.env.DD_AGENT_HOST != undefined) {
     require('dd-trace/ci/init');
 }
-require('@cucumber/cucumber/lib/cli/run.js').default();
+require('@cucumber/cucumber/lib/cli/run').default();
