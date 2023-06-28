@@ -22,7 +22,7 @@
     "sourceMap": true,
     "outDir": "./dist",
     "noLib": false,
-    "lib": ["es6", "es7"]
+    "lib": ["es6", "es7", "dom"]
   },
   "exclude": ["dist", "examples", "features", "node_modules", "tests"],
   "filesGlob": ["./**/*.ts"]
