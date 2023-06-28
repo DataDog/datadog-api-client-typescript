@@ -707,7 +707,7 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   FormulaAndFunctionMetricDataSource: ["metrics"],
   FormulaAndFunctionProcessQueryDataSource: ["process", "container"],
-  FormulaAndFunctionResponseFormat: ["timeseries", "scalar"],
+  FormulaAndFunctionResponseFormat: ["timeseries", "scalar", "event_list"],
   FormulaAndFunctionSLODataSource: ["slo"],
   FormulaAndFunctionSLOGroupMode: ["overall", "components"],
   FormulaAndFunctionSLOMeasure: [
