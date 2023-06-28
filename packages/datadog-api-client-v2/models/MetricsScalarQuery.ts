@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricsScalarQuery {
   /**
-   * The type of aggregation that can be performed on metrics queries.
+   * The type of aggregation that can be performed on metrics-based queries.
    */
   "aggregator": MetricsAggregator;
   /**
