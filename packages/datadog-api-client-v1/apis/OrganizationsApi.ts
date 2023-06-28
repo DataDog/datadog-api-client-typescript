@@ -14,8 +14,6 @@ import {
   HttpFile,
 } from "../../datadog-api-client-common/http/http";
 
-import FormData from "form-data";
-
 import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
@@ -249,7 +247,11 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarFormParams = new FormData();
     if (idpFile !== undefined) {
       // TODO: replace .append with .set
-      localVarFormParams.append("idp_file", idpFile.data, idpFile.name);
+      localVarFormParams.append(
+        "idp_file",
+        new Blob([idpFile.data]),
+        idpFile.name
+      );
     }
     requestContext.setBody(localVarFormParams);
 

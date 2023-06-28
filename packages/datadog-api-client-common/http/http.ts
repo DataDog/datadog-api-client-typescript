@@ -1,7 +1,4 @@
 import { userAgent } from "../../../userAgent";
-// TODO: evaluate if we can easily get rid of this library
-import FormData from "form-data";
-import URLParse from "url-parse";
 import { isBrowser } from "../util";
 
 /**
@@ -88,7 +85,7 @@ export interface HttpConfiguration {
 export class RequestContext {
   private headers: { [key: string]: string } = {};
   private body: RequestBody = undefined;
-  private url: URLParse;
+  private url: URL;
   private httpConfig: HttpConfiguration = {};
 
   /**
@@ -98,7 +95,7 @@ export class RequestContext {
    * @param httpMethod http method
    */
   public constructor(url: string, private httpMethod: HttpMethod) {
-    this.url = new URLParse(url, true);
+    this.url = new URL(url);
     if (!isBrowser) {
       this.headers = { "user-agent": userAgent };
     }
@@ -117,7 +114,7 @@ export class RequestContext {
    *
    */
   public setUrl(url: string): void {
-    this.url = new URLParse(url, true);
+    this.url = new URL(url);
   }
 
   /**
@@ -146,9 +143,8 @@ export class RequestContext {
   }
 
   public setQueryParam(name: string, value: string): void {
-    const queryObj = this.url.query;
-    queryObj[name] = value;
-    this.url.set("query", queryObj);
+    const queryObj = this.url.searchParams;
+    queryObj.set(name, value);
   }
 
   /**

@@ -61,16 +61,11 @@
     "jest-coverage": "jest --no-cache --coverage"
   },
   "dependencies": {
-    "@types/buffer-from": "^1.1.0",
     "@types/node": "*",
     "@types/pako": "^1.0.3",
-    "buffer-from": "^1.1.2",
     "cross-fetch": "^3.1.5",
-    "es6-promise": "^4.2.8",
-    "form-data": "^4.0.0",
     "loglevel": "^1.8.1",
-    "pako": "^2.0.4",
-    "url-parse": "^1.4.3"
+    "pako": "^2.0.4"
   },
   "resolutions": {
     "@pollyjs/adapter-node-http/nock": "^13.1.3"
