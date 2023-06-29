@@ -85,7 +85,7 @@ export class TableWidgetRequest {
    */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   /**
-   * Timeseries or Scalar response.
+   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
    */
   "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**

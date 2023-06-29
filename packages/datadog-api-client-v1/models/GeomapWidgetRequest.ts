@@ -5,6 +5,8 @@
  */
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
+import { ListStreamColumn } from "./ListStreamColumn";
+import { ListStreamQuery } from "./ListStreamQuery";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
 
@@ -14,6 +16,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * An updated geomap widget.
  */
 export class GeomapWidgetRequest {
+  /**
+   * Widget columns.
+   */
+  "columns"?: Array<ListStreamColumn>;
   /**
    * List of formulas that operate on queries.
    */
@@ -31,7 +37,11 @@ export class GeomapWidgetRequest {
    */
   "queries"?: Array<FormulaAndFunctionQueryDefinition>;
   /**
-   * Timeseries or Scalar response.
+   * Updated list stream widget.
+   */
+  "query"?: ListStreamQuery;
+  /**
+   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
    */
   "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**
@@ -52,6 +62,10 @@ export class GeomapWidgetRequest {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    columns: {
+      baseName: "columns",
+      type: "Array<ListStreamColumn>",
+    },
     formulas: {
       baseName: "formulas",
       type: "Array<WidgetFormula>",
@@ -67,6 +81,10 @@ export class GeomapWidgetRequest {
     queries: {
       baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
+    },
+    query: {
+      baseName: "query",
+      type: "ListStreamQuery",
     },
     responseFormat: {
       baseName: "response_format",
