@@ -4409,6 +4409,47 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ServiceDefinitionGetResponse",
     },
+    "v2.AggregateSpans": {
+        "body": {
+            "type": "SpansAggregateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SpansAggregateResponse",
+    },
+    "v2.ListSpansGet": {
+        "filterQuery": {
+            "type": "string",
+            "format": "",
+            },
+        "filterFrom": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTo": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "SpansSort",
+            "format": "",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "operationResponseType": "SpansListResponse",
+    },
+    "v2.ListSpans": {
+        "body": {
+            "type": "SpansListRequest",
+            "format": "",
+            },
+        "operationResponseType": "SpansListResponse",
+    },
     "v2.GetOnDemandConcurrencyCap": {
         "operationResponseType": "OnDemandConcurrencyCapResponse",
     },

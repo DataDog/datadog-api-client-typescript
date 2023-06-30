@@ -685,6 +685,26 @@ import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
+import { Span } from "./Span";
+import { SpansAggregateBucket } from "./SpansAggregateBucket";
+import { SpansAggregateBucketValueTimeseriesPoint } from "./SpansAggregateBucketValueTimeseriesPoint";
+import { SpansAggregateData } from "./SpansAggregateData";
+import { SpansAggregateRequest } from "./SpansAggregateRequest";
+import { SpansAggregateRequestAttributes } from "./SpansAggregateRequestAttributes";
+import { SpansAggregateResponse } from "./SpansAggregateResponse";
+import { SpansAggregateResponseMetadata } from "./SpansAggregateResponseMetadata";
+import { SpansAggregateSort } from "./SpansAggregateSort";
+import { SpansAttributes } from "./SpansAttributes";
+import { SpansCompute } from "./SpansCompute";
+import { SpansGroupBy } from "./SpansGroupBy";
+import { SpansGroupByHistogram } from "./SpansGroupByHistogram";
+import { SpansListRequest } from "./SpansListRequest";
+import { SpansListRequestAttributes } from "./SpansListRequestAttributes";
+import { SpansListRequestData } from "./SpansListRequestData";
+import { SpansListRequestPage } from "./SpansListRequestPage";
+import { SpansListResponse } from "./SpansListResponse";
+import { SpansListResponseLinks } from "./SpansListResponseLinks";
+import { SpansListResponseMetadata } from "./SpansListResponseMetadata";
 import { SpansMetricCompute } from "./SpansMetricCompute";
 import { SpansMetricCreateAttributes } from "./SpansMetricCreateAttributes";
 import { SpansMetricCreateData } from "./SpansMetricCreateData";
@@ -702,6 +722,10 @@ import { SpansMetricUpdateCompute } from "./SpansMetricUpdateCompute";
 import { SpansMetricUpdateData } from "./SpansMetricUpdateData";
 import { SpansMetricUpdateRequest } from "./SpansMetricUpdateRequest";
 import { SpansMetricsResponse } from "./SpansMetricsResponse";
+import { SpansQueryFilter } from "./SpansQueryFilter";
+import { SpansQueryOptions } from "./SpansQueryOptions";
+import { SpansResponseMetadataPage } from "./SpansResponseMetadataPage";
+import { SpansWarning } from "./SpansWarning";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
 import { TeamCreate } from "./TeamCreate";
@@ -1195,8 +1219,30 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  SpansAggregateRequestType: ["aggregate_request"],
+  SpansAggregateResponseStatus: ["done", "timeout"],
+  SpansAggregateSortType: ["alphabetical", "measure"],
+  SpansAggregationFunction: [
+    "count",
+    "cardinality",
+    "pc75",
+    "pc90",
+    "pc95",
+    "pc98",
+    "pc99",
+    "sum",
+    "min",
+    "max",
+    "avg",
+    "median",
+  ],
+  SpansComputeType: ["timeseries", "total"],
+  SpansListRequestType: ["search_request"],
   SpansMetricComputeAggregationType: ["count", "distribution"],
   SpansMetricType: ["spans_metrics"],
+  SpansSort: ["timestamp", "-timestamp"],
+  SpansSortOrder: ["asc", "desc"],
+  SpansType: ["spans"],
   TeamLinkType: ["team_links"],
   TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
   TeamPermissionSettingType: ["team_permission_settings"],
@@ -1991,6 +2037,27 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
+  Span: Span,
+  SpansAggregateBucket: SpansAggregateBucket,
+  SpansAggregateBucketValueTimeseriesPoint:
+    SpansAggregateBucketValueTimeseriesPoint,
+  SpansAggregateData: SpansAggregateData,
+  SpansAggregateRequest: SpansAggregateRequest,
+  SpansAggregateRequestAttributes: SpansAggregateRequestAttributes,
+  SpansAggregateResponse: SpansAggregateResponse,
+  SpansAggregateResponseMetadata: SpansAggregateResponseMetadata,
+  SpansAggregateSort: SpansAggregateSort,
+  SpansAttributes: SpansAttributes,
+  SpansCompute: SpansCompute,
+  SpansGroupBy: SpansGroupBy,
+  SpansGroupByHistogram: SpansGroupByHistogram,
+  SpansListRequest: SpansListRequest,
+  SpansListRequestAttributes: SpansListRequestAttributes,
+  SpansListRequestData: SpansListRequestData,
+  SpansListRequestPage: SpansListRequestPage,
+  SpansListResponse: SpansListResponse,
+  SpansListResponseLinks: SpansListResponseLinks,
+  SpansListResponseMetadata: SpansListResponseMetadata,
   SpansMetricCompute: SpansMetricCompute,
   SpansMetricCreateAttributes: SpansMetricCreateAttributes,
   SpansMetricCreateData: SpansMetricCreateData,
@@ -2008,6 +2075,10 @@ const typeMap: { [index: string]: any } = {
   SpansMetricUpdateData: SpansMetricUpdateData,
   SpansMetricUpdateRequest: SpansMetricUpdateRequest,
   SpansMetricsResponse: SpansMetricsResponse,
+  SpansQueryFilter: SpansQueryFilter,
+  SpansQueryOptions: SpansQueryOptions,
+  SpansResponseMetadataPage: SpansResponseMetadataPage,
+  SpansWarning: SpansWarning,
   Team: Team,
   TeamAttributes: TeamAttributes,
   TeamCreate: TeamCreate,
@@ -2194,6 +2265,13 @@ const oneOfMap: { [index: string]: string[] } = {
     "ServiceDefinitionV2",
     "string",
   ],
+  SpansAggregateBucketValue: [
+    "string",
+    "number",
+    "Array<SpansAggregateBucketValueTimeseriesPoint>",
+  ],
+  SpansGroupByMissing: ["string", "number"],
+  SpansGroupByTotal: ["boolean", "string", "number"],
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
