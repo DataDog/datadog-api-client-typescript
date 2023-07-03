@@ -2704,6 +2704,60 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListUpdateItemsResponse",
     },
+    "v2.ListDowntimes": {
+        "currentOnly": {
+            "type": "boolean",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListDowntimesResponse",
+    },
+    "v2.CreateDowntime": {
+        "body": {
+            "type": "DowntimeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DowntimeResponse",
+    },
+    "v2.CancelDowntime": {
+        "downtimeId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetDowntime": {
+        "downtimeId": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "DowntimeResponse",
+    },
+    "v2.UpdateDowntime": {
+        "downtimeId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "DowntimeUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "DowntimeResponse",
+    },
+    "v2.ListMonitorDowntimes": {
+        "monitorId": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "MonitorDowntimeMatchResponse",
+    },
     "v2.ListEvents": {
         "filterQuery": {
             "type": "string",

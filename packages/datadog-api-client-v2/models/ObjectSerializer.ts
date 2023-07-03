@@ -146,6 +146,34 @@ import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResp
 import { DataScalarColumn } from "./DataScalarColumn";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
+import { DowntimeCreateRequest } from "./DowntimeCreateRequest";
+import { DowntimeCreateRequestAttributes } from "./DowntimeCreateRequestAttributes";
+import { DowntimeCreateRequestData } from "./DowntimeCreateRequestData";
+import { DowntimeMeta } from "./DowntimeMeta";
+import { DowntimeMetaPage } from "./DowntimeMetaPage";
+import { DowntimeMonitorIdentifierId } from "./DowntimeMonitorIdentifierId";
+import { DowntimeMonitorIdentifierTags } from "./DowntimeMonitorIdentifierTags";
+import { DowntimeMonitorIncludedAttributes } from "./DowntimeMonitorIncludedAttributes";
+import { DowntimeMonitorIncludedItem } from "./DowntimeMonitorIncludedItem";
+import { DowntimeRelationships } from "./DowntimeRelationships";
+import { DowntimeRelationshipsCreatedBy } from "./DowntimeRelationshipsCreatedBy";
+import { DowntimeRelationshipsCreatedByData } from "./DowntimeRelationshipsCreatedByData";
+import { DowntimeRelationshipsMonitor } from "./DowntimeRelationshipsMonitor";
+import { DowntimeRelationshipsMonitorData } from "./DowntimeRelationshipsMonitorData";
+import { DowntimeResponse } from "./DowntimeResponse";
+import { DowntimeResponseAttributes } from "./DowntimeResponseAttributes";
+import { DowntimeResponseData } from "./DowntimeResponseData";
+import { DowntimeScheduleCurrentDowntimeResponse } from "./DowntimeScheduleCurrentDowntimeResponse";
+import { DowntimeScheduleOneTimeCreateUpdateRequest } from "./DowntimeScheduleOneTimeCreateUpdateRequest";
+import { DowntimeScheduleOneTimeResponse } from "./DowntimeScheduleOneTimeResponse";
+import { DowntimeScheduleRecurrenceCreateUpdateRequest } from "./DowntimeScheduleRecurrenceCreateUpdateRequest";
+import { DowntimeScheduleRecurrenceResponse } from "./DowntimeScheduleRecurrenceResponse";
+import { DowntimeScheduleRecurrencesCreateRequest } from "./DowntimeScheduleRecurrencesCreateRequest";
+import { DowntimeScheduleRecurrencesResponse } from "./DowntimeScheduleRecurrencesResponse";
+import { DowntimeScheduleRecurrencesUpdateRequest } from "./DowntimeScheduleRecurrencesUpdateRequest";
+import { DowntimeUpdateRequest } from "./DowntimeUpdateRequest";
+import { DowntimeUpdateRequestAttributes } from "./DowntimeUpdateRequestAttributes";
+import { DowntimeUpdateRequestData } from "./DowntimeUpdateRequestData";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventResponse } from "./EventResponse";
@@ -309,6 +337,7 @@ import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
+import { ListDowntimesResponse } from "./ListDowntimesResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
@@ -421,6 +450,9 @@ import { MonitorConfigPolicyResponse } from "./MonitorConfigPolicyResponse";
 import { MonitorConfigPolicyResponseData } from "./MonitorConfigPolicyResponseData";
 import { MonitorConfigPolicyTagPolicy } from "./MonitorConfigPolicyTagPolicy";
 import { MonitorConfigPolicyTagPolicyCreateRequest } from "./MonitorConfigPolicyTagPolicyCreateRequest";
+import { MonitorDowntimeMatchResponse } from "./MonitorDowntimeMatchResponse";
+import { MonitorDowntimeMatchResponseAttributes } from "./MonitorDowntimeMatchResponseAttributes";
+import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
 import { MonitorType } from "./MonitorType";
 import { MuteFindingRequest } from "./MuteFindingRequest";
 import { MuteFindingRequestAttributes } from "./MuteFindingRequestAttributes";
@@ -919,6 +951,11 @@ const enumsMap: { [key: string]: any[] } = {
     "host_timeboard",
   ],
   DetailedFindingType: ["detailed_finding"],
+  DowntimeIncludedMonitorType: ["monitors"],
+  DowntimeNotifyEndStateActions: ["canceled", "expired"],
+  DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
+  DowntimeResourceType: ["downtime"],
+  DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
     "failure",
@@ -1061,6 +1098,7 @@ const enumsMap: { [key: string]: any[] } = {
   MetricsDataSource: ["metrics", "cloud_cost"],
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
+  MonitorDowntimeMatchResourceType: ["downtime_match"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
   OrganizationsType: ["orgs"],
@@ -1435,6 +1473,39 @@ const typeMap: { [index: string]: any } = {
   DataScalarColumn: DataScalarColumn,
   DetailedFinding: DetailedFinding,
   DetailedFindingAttributes: DetailedFindingAttributes,
+  DowntimeCreateRequest: DowntimeCreateRequest,
+  DowntimeCreateRequestAttributes: DowntimeCreateRequestAttributes,
+  DowntimeCreateRequestData: DowntimeCreateRequestData,
+  DowntimeMeta: DowntimeMeta,
+  DowntimeMetaPage: DowntimeMetaPage,
+  DowntimeMonitorIdentifierId: DowntimeMonitorIdentifierId,
+  DowntimeMonitorIdentifierTags: DowntimeMonitorIdentifierTags,
+  DowntimeMonitorIncludedAttributes: DowntimeMonitorIncludedAttributes,
+  DowntimeMonitorIncludedItem: DowntimeMonitorIncludedItem,
+  DowntimeRelationships: DowntimeRelationships,
+  DowntimeRelationshipsCreatedBy: DowntimeRelationshipsCreatedBy,
+  DowntimeRelationshipsCreatedByData: DowntimeRelationshipsCreatedByData,
+  DowntimeRelationshipsMonitor: DowntimeRelationshipsMonitor,
+  DowntimeRelationshipsMonitorData: DowntimeRelationshipsMonitorData,
+  DowntimeResponse: DowntimeResponse,
+  DowntimeResponseAttributes: DowntimeResponseAttributes,
+  DowntimeResponseData: DowntimeResponseData,
+  DowntimeScheduleCurrentDowntimeResponse:
+    DowntimeScheduleCurrentDowntimeResponse,
+  DowntimeScheduleOneTimeCreateUpdateRequest:
+    DowntimeScheduleOneTimeCreateUpdateRequest,
+  DowntimeScheduleOneTimeResponse: DowntimeScheduleOneTimeResponse,
+  DowntimeScheduleRecurrenceCreateUpdateRequest:
+    DowntimeScheduleRecurrenceCreateUpdateRequest,
+  DowntimeScheduleRecurrenceResponse: DowntimeScheduleRecurrenceResponse,
+  DowntimeScheduleRecurrencesCreateRequest:
+    DowntimeScheduleRecurrencesCreateRequest,
+  DowntimeScheduleRecurrencesResponse: DowntimeScheduleRecurrencesResponse,
+  DowntimeScheduleRecurrencesUpdateRequest:
+    DowntimeScheduleRecurrencesUpdateRequest,
+  DowntimeUpdateRequest: DowntimeUpdateRequest,
+  DowntimeUpdateRequestAttributes: DowntimeUpdateRequestAttributes,
+  DowntimeUpdateRequestData: DowntimeUpdateRequestData,
   Event: Event,
   EventAttributes: EventAttributes,
   EventResponse: EventResponse,
@@ -1610,6 +1681,7 @@ const typeMap: { [index: string]: any } = {
   JiraIntegrationMetadata: JiraIntegrationMetadata,
   JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
+  ListDowntimesResponse: ListDowntimesResponse,
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
@@ -1730,6 +1802,10 @@ const typeMap: { [index: string]: any } = {
   MonitorConfigPolicyTagPolicy: MonitorConfigPolicyTagPolicy,
   MonitorConfigPolicyTagPolicyCreateRequest:
     MonitorConfigPolicyTagPolicyCreateRequest,
+  MonitorDowntimeMatchResponse: MonitorDowntimeMatchResponse,
+  MonitorDowntimeMatchResponseAttributes:
+    MonitorDowntimeMatchResponseAttributes,
+  MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
   MonitorType: MonitorType,
   MuteFindingRequest: MuteFindingRequest,
   MuteFindingRequestAttributes: MuteFindingRequestAttributes,
@@ -2170,6 +2246,23 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   CIAppGroupByMissing: ["string", "number"],
   CIAppGroupByTotal: ["boolean", "string", "number"],
+  DowntimeMonitorIdentifier: [
+    "DowntimeMonitorIdentifierId",
+    "DowntimeMonitorIdentifierTags",
+  ],
+  DowntimeResponseIncludedItem: ["User", "DowntimeMonitorIncludedItem"],
+  DowntimeScheduleCreateRequest: [
+    "DowntimeScheduleRecurrencesCreateRequest",
+    "DowntimeScheduleOneTimeCreateUpdateRequest",
+  ],
+  DowntimeScheduleResponse: [
+    "DowntimeScheduleRecurrencesResponse",
+    "DowntimeScheduleOneTimeResponse",
+  ],
+  DowntimeScheduleUpdateRequest: [
+    "DowntimeScheduleRecurrencesUpdateRequest",
+    "DowntimeScheduleOneTimeCreateUpdateRequest",
+  ],
   IncidentAttachmentAttributes: [
     "IncidentAttachmentPostmortemAttributes",
     "IncidentAttachmentLinkAttributes",
