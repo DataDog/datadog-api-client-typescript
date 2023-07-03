@@ -446,6 +446,7 @@ export class SpansApi {
 
   /**
    * The API endpoint to aggregate spans into buckets and compute metrics and timeseries.
+   * This endpoint is rate limited to `300` requests per hour.
    * @param param The request object
    */
   public aggregateSpans(
@@ -470,6 +471,9 @@ export class SpansApi {
    * [Results are paginated][1].
    *
    * Use this endpoint to build complex spans filtering and search.
+   * This endpoint is rate limited to `300` requests per hour.
+   *
+   * [1]: /logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
   public listSpans(
@@ -554,6 +558,9 @@ export class SpansApi {
    * [Results are paginated][1].
    *
    * Use this endpoint to see your latest spans.
+   * This endpoint is rate limited to `300` requests per hour.
+   *
+   * [1]: /logs/guide/collect-multiple-logs-with-pagination
    * @param param The request object
    */
   public listSpansGet(
