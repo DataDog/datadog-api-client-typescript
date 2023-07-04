@@ -473,7 +473,7 @@ export class SpansApi {
    * Use this endpoint to build complex spans filtering and search.
    * This endpoint is rate limited to `300` requests per hour.
    *
-   * [1]: /logs/guide/collect-multiple-logs-with-pagination
+   * [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
    * @param param The request object
    */
   public listSpans(
@@ -560,7 +560,7 @@ export class SpansApi {
    * Use this endpoint to see your latest spans.
    * This endpoint is rate limited to `300` requests per hour.
    *
-   * [1]: /logs/guide/collect-multiple-logs-with-pagination
+   * [1]: /logs/guide/collect-multiple-logs-with-pagination?tab=v2api
    * @param param The request object
    */
   public listSpansGet(
