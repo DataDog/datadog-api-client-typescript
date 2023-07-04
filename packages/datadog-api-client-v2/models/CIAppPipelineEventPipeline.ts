@@ -18,7 +18,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CIAppPipelineEventPipeline {
   /**
-   * Time when the pipeline run finished. The time format must be RFC3339.
+   * Time when the pipeline run finished. It cannot be older than 18 hours in the past from the current time. The time format must be RFC3339.
    */
   "end": Date;
   /**
