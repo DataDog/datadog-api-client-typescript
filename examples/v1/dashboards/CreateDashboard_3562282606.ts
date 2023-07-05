@@ -39,6 +39,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                   measure: "slo_status",
                   groupMode: "overall",
                   sloQueryType: "metric",
+                  additionalQueryFilters: "*",
                 },
               ],
               responseFormat: "scalar",

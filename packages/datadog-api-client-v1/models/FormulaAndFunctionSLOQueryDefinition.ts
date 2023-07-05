@@ -15,6 +15,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FormulaAndFunctionSLOQueryDefinition {
   /**
+   * Additional filters applied to the SLO query.
+   */
+  "additionalQueryFilters"?: string;
+  /**
    * Data source for SLO measures queries.
    */
   "dataSource": FormulaAndFunctionSLODataSource;
@@ -48,6 +52,10 @@ export class FormulaAndFunctionSLOQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    additionalQueryFilters: {
+      baseName: "additional_query_filters",
+      type: "string",
+    },
     dataSource: {
       baseName: "data_source",
       type: "FormulaAndFunctionSLODataSource",
