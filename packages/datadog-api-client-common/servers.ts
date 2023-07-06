@@ -56,7 +56,7 @@ export class BaseServerConfiguration {
  *
  */
 export class ServerConfiguration<
-  T extends { [key: string]: string }
+  T extends { [key: string]: string },
 > extends BaseServerConfiguration {}
 export const server1 = new ServerConfiguration<{
   site:
