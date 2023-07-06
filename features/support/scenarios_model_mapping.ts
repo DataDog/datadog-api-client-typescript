@@ -3335,8 +3335,8 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "filterIndex": {
-            "type": "string",
+        "filterIndexes": {
+            "type": "Array<string>",
             "format": "",
             },
         "filterFrom": {
