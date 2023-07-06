@@ -9,7 +9,7 @@ const apiInstance = new v2.LogsApi(configuration);
 
 const params: v2.LogsApiListLogsGetRequest = {
   filterQuery: "datadog-agent",
-  filterIndex: "main",
+  filterIndexes: ["main"],
   filterFrom: new Date(2020, 9, 17, 11, 48, 36, 0),
   filterTo: new Date(2020, 9, 17, 12, 48, 36, 0),
   pageLimit: 5,
