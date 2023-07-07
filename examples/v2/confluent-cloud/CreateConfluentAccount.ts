@@ -15,6 +15,7 @@ const params: v2.ConfluentCloudApiCreateConfluentAccountRequest = {
         apiSecret: "test-api-secret-123",
         resources: [
           {
+            enableCustomMetrics: false,
             id: "resource-id-123",
             resourceType: "kafka",
             tags: ["myTag", "myTag2:myValue"],

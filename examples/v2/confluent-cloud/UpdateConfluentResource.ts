@@ -11,6 +11,7 @@ const params: v2.ConfluentCloudApiUpdateConfluentResourceRequest = {
   body: {
     data: {
       attributes: {
+        enableCustomMetrics: false,
         resourceType: "kafka",
         tags: ["myTag", "myTag2:myValue"],
       },
