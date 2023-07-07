@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ConfluentResourceRequestAttributes {
   /**
+   * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+   */
+  "enableCustomMetrics"?: boolean;
+  /**
    * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
    */
   "resourceType": string;
@@ -28,6 +32,10 @@ export class ConfluentResourceRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enableCustomMetrics: {
+      baseName: "enable_custom_metrics",
+      type: "boolean",
+    },
     resourceType: {
       baseName: "resource_type",
       type: "string",

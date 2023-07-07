@@ -17,6 +17,7 @@ const params: v2.ConfluentCloudApiCreateConfluentResourceRequest = {
       attributes: {
         resourceType: "kafka",
         tags: ["myTag", "myTag2:myValue"],
+        enableCustomMetrics: false,
       },
       id: "exampleconfluentcloud",
       type: "confluent-cloud-resources",

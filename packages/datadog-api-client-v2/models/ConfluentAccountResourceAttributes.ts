@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ConfluentAccountResourceAttributes {
   /**
+   * Enable the `custom.consumer_lag_offset` metric, which contains extra metric tags.
+   */
+  "enableCustomMetrics"?: boolean;
+  /**
    * The ID associated with a Confluent resource.
    */
   "id"?: string;
@@ -32,6 +36,10 @@ export class ConfluentAccountResourceAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    enableCustomMetrics: {
+      baseName: "enable_custom_metrics",
+      type: "boolean",
+    },
     id: {
       baseName: "id",
       type: "string",
