@@ -72,6 +72,7 @@ import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
 import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
 import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
 import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
+import { FormulaAndFunctionCloudCostQueryDefinition } from "./FormulaAndFunctionCloudCostQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
@@ -669,6 +670,7 @@ const enumsMap: { [key: string]: any[] } = {
     "latency_p99",
   ],
   FormulaAndFunctionApmResourceStatsDataSource: ["apm_resource_stats"],
+  FormulaAndFunctionCloudCostDataSource: ["cloud_cost"],
   FormulaAndFunctionEventAggregation: [
     "count",
     "cardinality",
@@ -1523,6 +1525,8 @@ const typeMap: { [index: string]: any } = {
     FormulaAndFunctionApmDependencyStatsQueryDefinition,
   FormulaAndFunctionApmResourceStatsQueryDefinition:
     FormulaAndFunctionApmResourceStatsQueryDefinition,
+  FormulaAndFunctionCloudCostQueryDefinition:
+    FormulaAndFunctionCloudCostQueryDefinition,
   FormulaAndFunctionEventQueryDefinition:
     FormulaAndFunctionEventQueryDefinition,
   FormulaAndFunctionEventQueryDefinitionCompute:
@@ -2071,6 +2075,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionApmDependencyStatsQueryDefinition",
     "FormulaAndFunctionApmResourceStatsQueryDefinition",
     "FormulaAndFunctionSLOQueryDefinition",
+    "FormulaAndFunctionCloudCostQueryDefinition",
   ],
   LogsProcessor: [
     "LogsGrokParser",

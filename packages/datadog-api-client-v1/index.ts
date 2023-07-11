@@ -428,6 +428,8 @@ export { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./models/Fo
 export { FormulaAndFunctionApmResourceStatName } from "./models/FormulaAndFunctionApmResourceStatName";
 export { FormulaAndFunctionApmResourceStatsDataSource } from "./models/FormulaAndFunctionApmResourceStatsDataSource";
 export { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./models/FormulaAndFunctionApmResourceStatsQueryDefinition";
+export { FormulaAndFunctionCloudCostDataSource } from "./models/FormulaAndFunctionCloudCostDataSource";
+export { FormulaAndFunctionCloudCostQueryDefinition } from "./models/FormulaAndFunctionCloudCostQueryDefinition";
 export { FormulaAndFunctionEventAggregation } from "./models/FormulaAndFunctionEventAggregation";
 export { FormulaAndFunctionEventQueryDefinition } from "./models/FormulaAndFunctionEventQueryDefinition";
 export { FormulaAndFunctionEventQueryDefinitionCompute } from "./models/FormulaAndFunctionEventQueryDefinitionCompute";
