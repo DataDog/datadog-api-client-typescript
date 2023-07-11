@@ -1,5 +1,5 @@
 /**
- * Create a user returns "User created" response
+ * Create a user returns null access role
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -9,7 +9,7 @@ const apiInstance = new v1.UsersApi(configuration);
 
 const params: v1.UsersApiCreateUserRequest = {
   body: {
-    accessRole: "ro",
+    accessRole: undefined,
     disabled: false,
     email: "test@datadoghq.com",
     handle: "test@datadoghq.com",
