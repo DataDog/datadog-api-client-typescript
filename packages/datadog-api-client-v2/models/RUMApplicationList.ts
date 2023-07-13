@@ -17,6 +17,10 @@ export class RUMApplicationList {
    */
   "attributes": RUMApplicationListAttributes;
   /**
+   * RUM application ID.
+   */
+  "id"?: string;
+  /**
    * RUM application list type.
    */
   "type": RUMApplicationListType;
@@ -34,6 +38,10 @@ export class RUMApplicationList {
       baseName: "attributes",
       type: "RUMApplicationListAttributes",
       required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
