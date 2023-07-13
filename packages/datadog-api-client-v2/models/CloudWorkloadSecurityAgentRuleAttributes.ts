@@ -13,9 +13,17 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CloudWorkloadSecurityAgentRuleAttributes {
   /**
+   * The version of the agent.
+   */
+  "agentConstraint"?: string;
+  /**
    * The category of the Agent rule.
    */
   "category"?: string;
+  /**
+   * The ID of the user who created the rule.
+   */
+  "creationAuthorUuId"?: string;
   /**
    * When the Agent rule was created, timestamp in milliseconds.
    */
@@ -45,6 +53,14 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    */
   "name"?: string;
   /**
+   * The ID of the user who updated the rule.
+   */
+  "updateAuthorUuId"?: string;
+  /**
+   * Timestamp in milliseconds when the Agent rule was last updated.
+   */
+  "updateDate"?: number;
+  /**
    * When the Agent rule was last updated, timestamp in milliseconds.
    */
   "updatedAt"?: number;
@@ -66,8 +82,16 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    agentConstraint: {
+      baseName: "agentConstraint",
+      type: "string",
+    },
     category: {
       baseName: "category",
+      type: "string",
+    },
+    creationAuthorUuId: {
+      baseName: "creationAuthorUuId",
       type: "string",
     },
     creationDate: {
@@ -98,6 +122,15 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    updateAuthorUuId: {
+      baseName: "updateAuthorUuId",
+      type: "string",
+    },
+    updateDate: {
+      baseName: "updateDate",
+      type: "number",
+      format: "int64",
     },
     updatedAt: {
       baseName: "updatedAt",
