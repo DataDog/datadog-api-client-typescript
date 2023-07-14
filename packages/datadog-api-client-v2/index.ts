@@ -1333,6 +1333,8 @@ export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { Span } from "./models/Span";
 export { SpansAggregateBucket } from "./models/SpansAggregateBucket";
+export { SpansAggregateBucketAttributes } from "./models/SpansAggregateBucketAttributes";
+export { SpansAggregateBucketType } from "./models/SpansAggregateBucketType";
 export { SpansAggregateBucketValue } from "./models/SpansAggregateBucketValue";
 export { SpansAggregateBucketValueTimeseriesPoint } from "./models/SpansAggregateBucketValueTimeseriesPoint";
 export { SpansAggregateData } from "./models/SpansAggregateData";
