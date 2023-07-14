@@ -720,6 +720,7 @@ import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { Span } from "./Span";
 import { SpansAggregateBucket } from "./SpansAggregateBucket";
+import { SpansAggregateBucketAttributes } from "./SpansAggregateBucketAttributes";
 import { SpansAggregateBucketValueTimeseriesPoint } from "./SpansAggregateBucketValueTimeseriesPoint";
 import { SpansAggregateData } from "./SpansAggregateData";
 import { SpansAggregateRequest } from "./SpansAggregateRequest";
@@ -1258,6 +1259,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
   SpansAggregateResponseStatus: ["done", "timeout"],
   SpansAggregateSortType: ["alphabetical", "measure"],
@@ -2117,6 +2119,7 @@ const typeMap: { [index: string]: any } = {
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   Span: Span,
   SpansAggregateBucket: SpansAggregateBucket,
+  SpansAggregateBucketAttributes: SpansAggregateBucketAttributes,
   SpansAggregateBucketValueTimeseriesPoint:
     SpansAggregateBucketValueTimeseriesPoint,
   SpansAggregateData: SpansAggregateData,
