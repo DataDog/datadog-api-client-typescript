@@ -691,6 +691,7 @@ import { ServiceDefinitionData } from "./ServiceDefinitionData";
 import { ServiceDefinitionDataAttributes } from "./ServiceDefinitionDataAttributes";
 import { ServiceDefinitionGetResponse } from "./ServiceDefinitionGetResponse";
 import { ServiceDefinitionMeta } from "./ServiceDefinitionMeta";
+import { ServiceDefinitionMetaWarnings } from "./ServiceDefinitionMetaWarnings";
 import { ServiceDefinitionV1 } from "./ServiceDefinitionV1";
 import { ServiceDefinitionV1Contact } from "./ServiceDefinitionV1Contact";
 import { ServiceDefinitionV1Info } from "./ServiceDefinitionV1Info";
@@ -2087,6 +2088,7 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionDataAttributes: ServiceDefinitionDataAttributes,
   ServiceDefinitionGetResponse: ServiceDefinitionGetResponse,
   ServiceDefinitionMeta: ServiceDefinitionMeta,
+  ServiceDefinitionMetaWarnings: ServiceDefinitionMetaWarnings,
   ServiceDefinitionV1: ServiceDefinitionV1,
   ServiceDefinitionV1Contact: ServiceDefinitionV1Contact,
   ServiceDefinitionV1Info: ServiceDefinitionV1Info,

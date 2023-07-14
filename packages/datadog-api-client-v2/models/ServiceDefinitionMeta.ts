@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ServiceDefinitionMetaWarnings } from "./ServiceDefinitionMetaWarnings";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -26,6 +27,18 @@ export class ServiceDefinitionMeta {
    * Last modified time of the service definition.
    */
   "lastModifiedTime"?: string;
+  /**
+   * User defined origin of the service definition.
+   */
+  "origin"?: string;
+  /**
+   * User defined origin's detail of the service definition.
+   */
+  "originDetail"?: string;
+  /**
+   * A list of schema validation warnings.
+   */
+  "warnings"?: Array<ServiceDefinitionMetaWarnings>;
 
   /**
    * @ignore
@@ -51,6 +64,18 @@ export class ServiceDefinitionMeta {
     lastModifiedTime: {
       baseName: "last-modified-time",
       type: "string",
+    },
+    origin: {
+      baseName: "origin",
+      type: "string",
+    },
+    originDetail: {
+      baseName: "origin-detail",
+      type: "string",
+    },
+    warnings: {
+      baseName: "warnings",
+      type: "Array<ServiceDefinitionMetaWarnings>",
     },
   };
 

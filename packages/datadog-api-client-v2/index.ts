@@ -1285,6 +1285,7 @@ export { ServiceDefinitionData } from "./models/ServiceDefinitionData";
 export { ServiceDefinitionDataAttributes } from "./models/ServiceDefinitionDataAttributes";
 export { ServiceDefinitionGetResponse } from "./models/ServiceDefinitionGetResponse";
 export { ServiceDefinitionMeta } from "./models/ServiceDefinitionMeta";
+export { ServiceDefinitionMetaWarnings } from "./models/ServiceDefinitionMetaWarnings";
 export { ServiceDefinitionSchema } from "./models/ServiceDefinitionSchema";
 export { ServiceDefinitionSchemaVersions } from "./models/ServiceDefinitionSchemaVersions";
 export { ServiceDefinitionsCreateRequest } from "./models/ServiceDefinitionsCreateRequest";

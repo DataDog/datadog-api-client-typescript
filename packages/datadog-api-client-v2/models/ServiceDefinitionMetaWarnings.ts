@@ -3,26 +3,25 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ServiceDefinitionDataAttributes } from "./ServiceDefinitionDataAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Service definition data.
+ * Schema validation warnings.
  */
-export class ServiceDefinitionData {
+export class ServiceDefinitionMetaWarnings {
   /**
-   * Service definition attributes.
+   * The warning instance location.
    */
-  "attributes"?: ServiceDefinitionDataAttributes;
+  "instanceLocation"?: string;
   /**
-   * Service definition id.
+   * The warning keyword location.
    */
-  "id"?: string;
+  "keywordLocation"?: string;
   /**
-   * Service definition type.
+   * The warning message.
    */
-  "type"?: string;
+  "message"?: string;
 
   /**
    * @ignore
@@ -33,16 +32,16 @@ export class ServiceDefinitionData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ServiceDefinitionDataAttributes",
-    },
-    id: {
-      baseName: "id",
+    instanceLocation: {
+      baseName: "instance-location",
       type: "string",
     },
-    type: {
-      baseName: "type",
+    keywordLocation: {
+      baseName: "keyword-location",
+      type: "string",
+    },
+    message: {
+      baseName: "message",
       type: "string",
     },
   };
@@ -51,7 +50,7 @@ export class ServiceDefinitionData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionData.attributeTypeMap;
+    return ServiceDefinitionMetaWarnings.attributeTypeMap;
   }
 
   public constructor() {}
