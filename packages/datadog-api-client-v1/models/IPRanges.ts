@@ -9,6 +9,7 @@ import { IPPrefixesAPM } from "./IPPrefixesAPM";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesOrchestrator } from "./IPPrefixesOrchestrator";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
+import { IPPrefixesRemoteConfiguration } from "./IPPrefixesRemoteConfiguration";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
@@ -47,6 +48,10 @@ export class IPRanges {
    * Available prefix information for the Process endpoints.
    */
   "process"?: IPPrefixesProcess;
+  /**
+   * Available prefix information for the Remote Configuration endpoints.
+   */
+  "remoteConfiguration"?: IPPrefixesRemoteConfiguration;
   /**
    * Available prefix information for the Synthetics endpoints.
    */
@@ -100,6 +105,10 @@ export class IPRanges {
     process: {
       baseName: "process",
       type: "IPPrefixesProcess",
+    },
+    remoteConfiguration: {
+      baseName: "remote-configuration",
+      type: "IPPrefixesRemoteConfiguration",
     },
     synthetics: {
       baseName: "synthetics",

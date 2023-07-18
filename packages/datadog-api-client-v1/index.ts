@@ -504,6 +504,7 @@ export { IPPrefixesAPM } from "./models/IPPrefixesAPM";
 export { IPPrefixesLogs } from "./models/IPPrefixesLogs";
 export { IPPrefixesOrchestrator } from "./models/IPPrefixesOrchestrator";
 export { IPPrefixesProcess } from "./models/IPPrefixesProcess";
+export { IPPrefixesRemoteConfiguration } from "./models/IPPrefixesRemoteConfiguration";
 export { IPPrefixesSynthetics } from "./models/IPPrefixesSynthetics";
 export { IPPrefixesSyntheticsPrivateLocations } from "./models/IPPrefixesSyntheticsPrivateLocations";
 export { IPPrefixesWebhooks } from "./models/IPPrefixesWebhooks";
