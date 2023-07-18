@@ -1344,7 +1344,7 @@ const enumsMap: { [key: string]: any[] } = {
   WidgetColorPreference: ["background", "text"],
   WidgetComparator: [">", ">=", "<", "<="],
   WidgetCompareTo: ["hour_before", "day_before", "week_before", "month_before"],
-  WidgetDisplayType: ["area", "bars", "line"],
+  WidgetDisplayType: ["area", "bars", "line", "overlay"],
   WidgetEventSize: ["s", "l"],
   WidgetGrouping: ["check", "cluster"],
   WidgetHorizontalAlign: ["center", "left", "right"],
