@@ -59,6 +59,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -168,6 +169,7 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
