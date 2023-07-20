@@ -35,6 +35,16 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
       userActivationStatus: true,
       userGroupByFields: ["@account_id"],
     },
+    filters: [
+      {
+        action: "require",
+        query: "resource_id:helo*",
+      },
+      {
+        action: "suppress",
+        query: "control:helo*",
+      },
+    ],
   },
 };
 
