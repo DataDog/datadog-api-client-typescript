@@ -3,17 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { FormulaLimit } from "./FormulaLimit";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * A formula for calculation based on one or more queries.
  */
-export class QueryFormula {
+export class QueryFormulaWithLimit {
   /**
    * Formula string, referencing one or more queries with their name property.
    */
   "formula": string;
+  /**
+   * Message for specifying limits to the number of values returned by a query.
+   */
+  "limit"?: FormulaLimit;
 
   /**
    * @ignore
@@ -29,13 +34,17 @@ export class QueryFormula {
       type: "string",
       required: true,
     },
+    limit: {
+      baseName: "limit",
+      type: "FormulaLimit",
+    },
   };
 
   /**
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return QueryFormula.attributeTypeMap;
+    return QueryFormulaWithLimit.attributeTypeMap;
   }
 
   public constructor() {}

@@ -1034,6 +1034,7 @@ export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
 export { QueryFormula } from "./models/QueryFormula";
+export { QueryFormulaWithLimit } from "./models/QueryFormulaWithLimit";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
 export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";

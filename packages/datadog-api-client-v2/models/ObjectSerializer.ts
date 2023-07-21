@@ -494,6 +494,7 @@ import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
 import { QueryFormula } from "./QueryFormula";
+import { QueryFormulaWithLimit } from "./QueryFormulaWithLimit";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
 import { RUMAggregateSort } from "./RUMAggregateSort";
@@ -1850,6 +1851,7 @@ const typeMap: { [index: string]: any } = {
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
   QueryFormula: QueryFormula,
+  QueryFormulaWithLimit: QueryFormulaWithLimit,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
   RUMAggregateRequest: RUMAggregateRequest,

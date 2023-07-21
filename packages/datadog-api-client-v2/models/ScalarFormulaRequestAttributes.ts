@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { QueryFormula } from "./QueryFormula";
+import { QueryFormulaWithLimit } from "./QueryFormulaWithLimit";
 import { ScalarQuery } from "./ScalarQuery";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,7 +15,7 @@ export class ScalarFormulaRequestAttributes {
   /**
    * List of formulas to be calculated and returned as responses.
    */
-  "formulas"?: Array<QueryFormula>;
+  "formulas"?: Array<QueryFormulaWithLimit>;
   /**
    * Start date (inclusive) of the query in milliseconds since the Unix epoch.
    */
@@ -40,7 +40,7 @@ export class ScalarFormulaRequestAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     formulas: {
       baseName: "formulas",
-      type: "Array<QueryFormula>",
+      type: "Array<QueryFormulaWithLimit>",
     },
     from: {
       baseName: "from",

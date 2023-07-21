@@ -15,10 +15,6 @@ const params: v2.MetricsApiQueryTimeseriesDataRequest = {
         formulas: [
           {
             formula: "a",
-            limit: {
-              count: 10,
-              order: "desc",
-            },
           },
         ],
         from: 1671612804000,
