@@ -23,7 +23,7 @@ export class PartialApplicationKeyAttributes {
    */
   "name"?: string;
   /**
-   * Array of scopes to grant the application key. This feature is in private beta, please contact Datadog support to enable scopes for your application keys.
+   * Array of scopes to grant the application key.
    */
   "scopes"?: Array<string>;
 
