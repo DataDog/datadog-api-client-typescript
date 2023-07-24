@@ -3,18 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { Team } from "./Team";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response with a team
+ * Links attributes.
  */
-export class TeamResponse {
+export class TeamRelationshipsLinks {
   /**
-   * A team
+   * Related link.
    */
-  "data"?: Team;
+  "related"?: string;
 
   /**
    * @ignore
@@ -25,9 +24,9 @@ export class TeamResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Team",
+    related: {
+      baseName: "related",
+      type: "string",
     },
   };
 
@@ -35,7 +34,7 @@ export class TeamResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamResponse.attributeTypeMap;
+    return TeamRelationshipsLinks.attributeTypeMap;
   }
 
   public constructor() {}

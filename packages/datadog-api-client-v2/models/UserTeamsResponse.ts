@@ -3,6 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { TeamsResponseLinks } from "./TeamsResponseLinks";
+import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { UserTeam } from "./UserTeam";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,6 +17,14 @@ export class UserTeamsResponse {
    * Team memberships response data
    */
   "data"?: Array<UserTeam>;
+  /**
+   * Teams response links.
+   */
+  "links"?: TeamsResponseLinks;
+  /**
+   * Teams response metadata.
+   */
+  "meta"?: TeamsResponseMeta;
 
   /**
    * @ignore
@@ -28,6 +38,14 @@ export class UserTeamsResponse {
     data: {
       baseName: "data",
       type: "Array<UserTeam>",
+    },
+    links: {
+      baseName: "links",
+      type: "TeamsResponseLinks",
+    },
+    meta: {
+      baseName: "meta",
+      type: "TeamsResponseMeta",
     },
   };
 
