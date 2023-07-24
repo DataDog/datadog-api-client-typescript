@@ -16,6 +16,10 @@ export class EventResponseAttributes {
    */
   "attributes"?: EventAttributes;
   /**
+   * The message of the event.
+   */
+  "message"?: string;
+  /**
    * An array of tags associated with the event.
    */
   "tags"?: Array<string>;
@@ -36,6 +40,10 @@ export class EventResponseAttributes {
     attributes: {
       baseName: "attributes",
       type: "EventAttributes",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
     },
     tags: {
       baseName: "tags",

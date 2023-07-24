@@ -5,6 +5,7 @@
  */
 import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
 import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
+import { FormulaAndFunctionCloudCostQueryDefinition } from "./FormulaAndFunctionCloudCostQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 import { FormulaAndFunctionProcessQueryDefinition } from "./FormulaAndFunctionProcessQueryDefinition";
@@ -23,4 +24,5 @@ export type FormulaAndFunctionQueryDefinition =
   | FormulaAndFunctionApmDependencyStatsQueryDefinition
   | FormulaAndFunctionApmResourceStatsQueryDefinition
   | FormulaAndFunctionSLOQueryDefinition
+  | FormulaAndFunctionCloudCostQueryDefinition
   | UnparsedObject;

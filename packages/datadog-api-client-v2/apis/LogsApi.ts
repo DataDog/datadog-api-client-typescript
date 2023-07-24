@@ -112,7 +112,7 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listLogsGet(
     filterQuery?: string,
-    filterIndex?: string,
+    filterIndexes?: Array<string>,
     filterFrom?: Date,
     filterTo?: Date,
     filterStorageTier?: LogsStorageTier,
@@ -141,10 +141,10 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(filterQuery, "string", "")
       );
     }
-    if (filterIndex !== undefined) {
+    if (filterIndexes !== undefined) {
       requestContext.setQueryParam(
-        "filter[index]",
-        ObjectSerializer.serialize(filterIndex, "string", "")
+        "filter[indexes]",
+        ObjectSerializer.serialize(filterIndexes, "Array<string>", "")
       );
     }
     if (filterFrom !== undefined) {
@@ -525,11 +525,11 @@ export interface LogsApiListLogsGetRequest {
    */
   filterQuery?: string;
   /**
-   * For customers with multiple indexes, the indexes to search
+   * For customers with multiple indexes, the indexes to search.
    * Defaults to '*' which means all indexes
-   * @type string
+   * @type Array<string>
    */
-  filterIndex?: string;
+  filterIndexes?: Array<string>;
   /**
    * Minimum timestamp for requested logs.
    * @type Date
@@ -725,7 +725,7 @@ export class LogsApi {
   ): Promise<LogsListResponse> {
     const requestContextPromise = this.requestFactory.listLogsGet(
       param.filterQuery,
-      param.filterIndex,
+      param.filterIndexes,
       param.filterFrom,
       param.filterTo,
       param.filterStorageTier,
@@ -758,7 +758,7 @@ export class LogsApi {
     while (true) {
       const requestContext = await this.requestFactory.listLogsGet(
         param.filterQuery,
-        param.filterIndex,
+        param.filterIndexes,
         param.filterFrom,
         param.filterTo,
         param.filterStorageTier,

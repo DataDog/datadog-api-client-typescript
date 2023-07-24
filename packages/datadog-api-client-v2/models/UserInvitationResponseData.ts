@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { UserInvitationDataAttributes } from "./UserInvitationDataAttributes";
+import { UserInvitationRelationships } from "./UserInvitationRelationships";
 import { UserInvitationsType } from "./UserInvitationsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,6 +21,10 @@ export class UserInvitationResponseData {
    * ID of the user invitation.
    */
   "id"?: string;
+  /**
+   * Relationships data for user invitation.
+   */
+  "relationships"?: UserInvitationRelationships;
   /**
    * User invitations type.
    */
@@ -41,6 +46,10 @@ export class UserInvitationResponseData {
     id: {
       baseName: "id",
       type: "string",
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "UserInvitationRelationships",
     },
     type: {
       baseName: "type",

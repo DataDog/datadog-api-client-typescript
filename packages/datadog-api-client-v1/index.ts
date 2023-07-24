@@ -428,6 +428,8 @@ export { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./models/Fo
 export { FormulaAndFunctionApmResourceStatName } from "./models/FormulaAndFunctionApmResourceStatName";
 export { FormulaAndFunctionApmResourceStatsDataSource } from "./models/FormulaAndFunctionApmResourceStatsDataSource";
 export { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./models/FormulaAndFunctionApmResourceStatsQueryDefinition";
+export { FormulaAndFunctionCloudCostDataSource } from "./models/FormulaAndFunctionCloudCostDataSource";
+export { FormulaAndFunctionCloudCostQueryDefinition } from "./models/FormulaAndFunctionCloudCostQueryDefinition";
 export { FormulaAndFunctionEventAggregation } from "./models/FormulaAndFunctionEventAggregation";
 export { FormulaAndFunctionEventQueryDefinition } from "./models/FormulaAndFunctionEventQueryDefinition";
 export { FormulaAndFunctionEventQueryDefinitionCompute } from "./models/FormulaAndFunctionEventQueryDefinitionCompute";
@@ -502,6 +504,7 @@ export { IPPrefixesAPM } from "./models/IPPrefixesAPM";
 export { IPPrefixesLogs } from "./models/IPPrefixesLogs";
 export { IPPrefixesOrchestrator } from "./models/IPPrefixesOrchestrator";
 export { IPPrefixesProcess } from "./models/IPPrefixesProcess";
+export { IPPrefixesRemoteConfiguration } from "./models/IPPrefixesRemoteConfiguration";
 export { IPPrefixesSynthetics } from "./models/IPPrefixesSynthetics";
 export { IPPrefixesSyntheticsPrivateLocations } from "./models/IPPrefixesSyntheticsPrivateLocations";
 export { IPPrefixesWebhooks } from "./models/IPPrefixesWebhooks";

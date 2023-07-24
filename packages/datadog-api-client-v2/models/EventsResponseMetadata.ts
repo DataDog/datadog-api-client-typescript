@@ -25,6 +25,10 @@ export class EventsResponseMetadata {
    */
   "requestId"?: string;
   /**
+   * The request status.
+   */
+  "status"?: string;
+  /**
    * A list of warnings (non-fatal errors) encountered. Partial results might be returned if
    * warnings are present in the response.
    */
@@ -50,6 +54,10 @@ export class EventsResponseMetadata {
     },
     requestId: {
       baseName: "request_id",
+      type: "string",
+    },
+    status: {
+      baseName: "status",
       type: "string",
     },
     warnings: {

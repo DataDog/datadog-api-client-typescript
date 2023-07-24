@@ -16,9 +16,13 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DowntimeResponseAttributes {
   /**
+   * Time that the downtime was canceled.
+   */
+  "canceled"?: Date;
+  /**
    * Creation time of the downtime.
    */
-  "createdAt"?: Date;
+  "created"?: Date;
   /**
    * The timezone in which to display the downtime's start and end times in Datadog applications. This is not used
    * as an offset for scheduling.
@@ -32,7 +36,7 @@ export class DowntimeResponseAttributes {
   /**
    * Time that the downtime was last modified.
    */
-  "modifiedAt"?: Date;
+  "modified"?: Date;
   /**
    * Monitor identifier for the downtime.
    */
@@ -73,8 +77,13 @@ export class DowntimeResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
+    canceled: {
+      baseName: "canceled",
+      type: "Date",
+      format: "date-time",
+    },
+    created: {
+      baseName: "created",
       type: "Date",
       format: "date-time",
     },
@@ -86,8 +95,8 @@ export class DowntimeResponseAttributes {
       baseName: "message",
       type: "string",
     },
-    modifiedAt: {
-      baseName: "modified_at",
+    modified: {
+      baseName: "modified",
       type: "Date",
       format: "date-time",
     },

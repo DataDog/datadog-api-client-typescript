@@ -691,6 +691,7 @@ import { ServiceDefinitionData } from "./ServiceDefinitionData";
 import { ServiceDefinitionDataAttributes } from "./ServiceDefinitionDataAttributes";
 import { ServiceDefinitionGetResponse } from "./ServiceDefinitionGetResponse";
 import { ServiceDefinitionMeta } from "./ServiceDefinitionMeta";
+import { ServiceDefinitionMetaWarnings } from "./ServiceDefinitionMetaWarnings";
 import { ServiceDefinitionV1 } from "./ServiceDefinitionV1";
 import { ServiceDefinitionV1Contact } from "./ServiceDefinitionV1Contact";
 import { ServiceDefinitionV1Info } from "./ServiceDefinitionV1Info";
@@ -719,6 +720,7 @@ import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { Span } from "./Span";
 import { SpansAggregateBucket } from "./SpansAggregateBucket";
+import { SpansAggregateBucketAttributes } from "./SpansAggregateBucketAttributes";
 import { SpansAggregateBucketValueTimeseriesPoint } from "./SpansAggregateBucketValueTimeseriesPoint";
 import { SpansAggregateData } from "./SpansAggregateData";
 import { SpansAggregateRequest } from "./SpansAggregateRequest";
@@ -1257,6 +1259,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
   SpansAggregateResponseStatus: ["done", "timeout"],
   SpansAggregateSortType: ["alphabetical", "measure"],
@@ -2087,6 +2090,7 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionDataAttributes: ServiceDefinitionDataAttributes,
   ServiceDefinitionGetResponse: ServiceDefinitionGetResponse,
   ServiceDefinitionMeta: ServiceDefinitionMeta,
+  ServiceDefinitionMetaWarnings: ServiceDefinitionMetaWarnings,
   ServiceDefinitionV1: ServiceDefinitionV1,
   ServiceDefinitionV1Contact: ServiceDefinitionV1Contact,
   ServiceDefinitionV1Info: ServiceDefinitionV1Info,
@@ -2115,6 +2119,7 @@ const typeMap: { [index: string]: any } = {
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   Span: Span,
   SpansAggregateBucket: SpansAggregateBucket,
+  SpansAggregateBucketAttributes: SpansAggregateBucketAttributes,
   SpansAggregateBucketValueTimeseriesPoint:
     SpansAggregateBucketValueTimeseriesPoint,
   SpansAggregateData: SpansAggregateData,

@@ -29,6 +29,10 @@ export class DashboardListItem {
    */
   "id": string;
   /**
+   * The short name of the integration.
+   */
+  "integrationId"?: string;
+  /**
    * Whether or not the dashboard is in the favorites.
    */
   "isFavorite"?: boolean;
@@ -87,6 +91,10 @@ export class DashboardListItem {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    integrationId: {
+      baseName: "integration_id",
+      type: "string",
     },
     isFavorite: {
       baseName: "is_favorite",

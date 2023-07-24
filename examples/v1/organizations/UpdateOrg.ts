@@ -20,7 +20,7 @@ const params: v1.OrganizationsApiUpdateOrgRequest = {
       saml: {
         enabled: false,
       },
-      samlAutocreateAccessRole: "st",
+      samlAutocreateAccessRole: "ro",
       samlAutocreateUsersDomains: {
         domains: ["example.com"],
         enabled: false,

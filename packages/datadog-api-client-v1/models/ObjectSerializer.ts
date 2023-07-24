@@ -72,6 +72,7 @@ import { EventStreamWidgetDefinition } from "./EventStreamWidgetDefinition";
 import { EventTimelineWidgetDefinition } from "./EventTimelineWidgetDefinition";
 import { FormulaAndFunctionApmDependencyStatsQueryDefinition } from "./FormulaAndFunctionApmDependencyStatsQueryDefinition";
 import { FormulaAndFunctionApmResourceStatsQueryDefinition } from "./FormulaAndFunctionApmResourceStatsQueryDefinition";
+import { FormulaAndFunctionCloudCostQueryDefinition } from "./FormulaAndFunctionCloudCostQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinition } from "./FormulaAndFunctionEventQueryDefinition";
 import { FormulaAndFunctionEventQueryDefinitionCompute } from "./FormulaAndFunctionEventQueryDefinitionCompute";
 import { FormulaAndFunctionEventQueryDefinitionSearch } from "./FormulaAndFunctionEventQueryDefinitionSearch";
@@ -120,6 +121,7 @@ import { IPPrefixesAgents } from "./IPPrefixesAgents";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesOrchestrator } from "./IPPrefixesOrchestrator";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
+import { IPPrefixesRemoteConfiguration } from "./IPPrefixesRemoteConfiguration";
 import { IPPrefixesSynthetics } from "./IPPrefixesSynthetics";
 import { IPPrefixesSyntheticsPrivateLocations } from "./IPPrefixesSyntheticsPrivateLocations";
 import { IPPrefixesWebhooks } from "./IPPrefixesWebhooks";
@@ -669,6 +671,7 @@ const enumsMap: { [key: string]: any[] } = {
     "latency_p99",
   ],
   FormulaAndFunctionApmResourceStatsDataSource: ["apm_resource_stats"],
+  FormulaAndFunctionCloudCostDataSource: ["cloud_cost"],
   FormulaAndFunctionEventAggregation: [
     "count",
     "cardinality",
@@ -1342,7 +1345,7 @@ const enumsMap: { [key: string]: any[] } = {
   WidgetColorPreference: ["background", "text"],
   WidgetComparator: [">", ">=", "<", "<="],
   WidgetCompareTo: ["hour_before", "day_before", "week_before", "month_before"],
-  WidgetDisplayType: ["area", "bars", "line"],
+  WidgetDisplayType: ["area", "bars", "line", "overlay"],
   WidgetEventSize: ["s", "l"],
   WidgetGrouping: ["check", "cluster"],
   WidgetHorizontalAlign: ["center", "left", "right"],
@@ -1523,6 +1526,8 @@ const typeMap: { [index: string]: any } = {
     FormulaAndFunctionApmDependencyStatsQueryDefinition,
   FormulaAndFunctionApmResourceStatsQueryDefinition:
     FormulaAndFunctionApmResourceStatsQueryDefinition,
+  FormulaAndFunctionCloudCostQueryDefinition:
+    FormulaAndFunctionCloudCostQueryDefinition,
   FormulaAndFunctionEventQueryDefinition:
     FormulaAndFunctionEventQueryDefinition,
   FormulaAndFunctionEventQueryDefinitionCompute:
@@ -1577,6 +1582,7 @@ const typeMap: { [index: string]: any } = {
   IPPrefixesLogs: IPPrefixesLogs,
   IPPrefixesOrchestrator: IPPrefixesOrchestrator,
   IPPrefixesProcess: IPPrefixesProcess,
+  IPPrefixesRemoteConfiguration: IPPrefixesRemoteConfiguration,
   IPPrefixesSynthetics: IPPrefixesSynthetics,
   IPPrefixesSyntheticsPrivateLocations: IPPrefixesSyntheticsPrivateLocations,
   IPPrefixesWebhooks: IPPrefixesWebhooks,
@@ -2071,6 +2077,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionApmDependencyStatsQueryDefinition",
     "FormulaAndFunctionApmResourceStatsQueryDefinition",
     "FormulaAndFunctionSLOQueryDefinition",
+    "FormulaAndFunctionCloudCostQueryDefinition",
   ],
   LogsProcessor: [
     "LogsGrokParser",

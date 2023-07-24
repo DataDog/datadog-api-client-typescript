@@ -9,7 +9,7 @@ const apiInstance = new v1.UsersApi(configuration);
 
 const params: v1.UsersApiCreateUserRequest = {
   body: {
-    accessRole: "st",
+    accessRole: "ro",
     disabled: false,
     email: "test@datadoghq.com",
     handle: "test@datadoghq.com",

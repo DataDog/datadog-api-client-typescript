@@ -7,6 +7,7 @@ import { CloudConfigurationRuleCaseCreate } from "./CloudConfigurationRuleCaseCr
 import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurationRuleComplianceSignalOptions";
 import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
 import { CloudConfigurationRuleType } from "./CloudConfigurationRuleType";
+import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -22,6 +23,10 @@ export class CloudConfigurationRuleCreatePayload {
    * How to generate compliance signals. Useful for cloud_configuration rules only.
    */
   "complianceSignalOptions": CloudConfigurationRuleComplianceSignalOptions;
+  /**
+   * Additional queries to filter matched events before they are processed.
+   */
+  "filters"?: Array<SecurityMonitoringFilter>;
   /**
    * Whether the rule is enabled.
    */
@@ -65,6 +70,10 @@ export class CloudConfigurationRuleCreatePayload {
       baseName: "complianceSignalOptions",
       type: "CloudConfigurationRuleComplianceSignalOptions",
       required: true,
+    },
+    filters: {
+      baseName: "filters",
+      type: "Array<SecurityMonitoringFilter>",
     },
     isEnabled: {
       baseName: "isEnabled",

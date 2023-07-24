@@ -16,6 +16,10 @@ export class ServiceDefinitionData {
    */
   "attributes"?: ServiceDefinitionDataAttributes;
   /**
+   * Service definition id.
+   */
+  "id"?: string;
+  /**
    * Service definition type.
    */
   "type"?: string;
@@ -32,6 +36,10 @@ export class ServiceDefinitionData {
     attributes: {
       baseName: "attributes",
       type: "ServiceDefinitionDataAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",

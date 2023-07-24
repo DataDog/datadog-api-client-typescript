@@ -3,22 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SpansAggregateBucketValue } from "./SpansAggregateBucketValue";
+import { SpansAggregateBucketAttributes } from "./SpansAggregateBucketAttributes";
+import { SpansAggregateBucketType } from "./SpansAggregateBucketType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A bucket values.
+ * Spans aggregate.
  */
 export class SpansAggregateBucket {
   /**
-   * The key, value pairs for each group by.
+   * A bucket values.
    */
-  "by"?: { [key: string]: any };
+  "attributes"?: SpansAggregateBucketAttributes;
   /**
-   * A map of the metric name -> value for regular compute or list of values for a timeseries.
+   * ID of the spans aggregate.
    */
-  "computes"?: { [key: string]: SpansAggregateBucketValue };
+  "id"?: string;
+  /**
+   * The spans aggregate bucket type.
+   */
+  "type"?: SpansAggregateBucketType;
 
   /**
    * @ignore
@@ -29,13 +34,17 @@ export class SpansAggregateBucket {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    by: {
-      baseName: "by",
-      type: "{ [key: string]: any; }",
+    attributes: {
+      baseName: "attributes",
+      type: "SpansAggregateBucketAttributes",
     },
-    computes: {
-      baseName: "computes",
-      type: "{ [key: string]: SpansAggregateBucketValue; }",
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "SpansAggregateBucketType",
     },
   };
 
