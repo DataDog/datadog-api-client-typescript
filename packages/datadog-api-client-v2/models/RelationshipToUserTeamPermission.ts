@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { RelationshipToUserTeamPermissionData } from "./RelationshipToUserTeamPermissionData";
+import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class RelationshipToUserTeamPermission {
    * Related user team permission data
    */
   "data"?: RelationshipToUserTeamPermissionData;
+  /**
+   * Links attributes.
+   */
+  "links"?: TeamRelationshipsLinks;
 
   /**
    * @ignore
@@ -28,6 +33,10 @@ export class RelationshipToUserTeamPermission {
     data: {
       baseName: "data",
       type: "RelationshipToUserTeamPermissionData",
+    },
+    links: {
+      baseName: "links",
+      type: "TeamRelationshipsLinks",
     },
   };
 
