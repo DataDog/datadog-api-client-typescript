@@ -17,7 +17,7 @@ export class DowntimeScheduleOneTimeResponse {
   /**
    * ISO-8601 Datetime to start the downtime.
    */
-  "start"?: Date;
+  "start": Date;
 
   /**
    * @ignore
@@ -36,6 +36,7 @@ export class DowntimeScheduleOneTimeResponse {
     start: {
       baseName: "start",
       type: "Date",
+      required: true,
       format: "date-time",
     },
   };
