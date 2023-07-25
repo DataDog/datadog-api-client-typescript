@@ -3,27 +3,33 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamAttributes } from "./TeamAttributes";
-import { TeamType } from "./TeamType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A team
+ * Teams response links.
  */
-export class TeamData {
+export class TeamsResponseLinks {
   /**
-   * Team attributes
+   * First link.
    */
-  "attributes": TeamAttributes;
+  "first"?: string;
   /**
-   * The team's identifier
+   * Last link.
    */
-  "id": string;
+  "last"?: string;
   /**
-   * Team type
+   * Next link.
    */
-  "type": TeamType;
+  "next"?: string;
+  /**
+   * Previous link.
+   */
+  "prev"?: string;
+  /**
+   * Current link.
+   */
+  "self"?: string;
 
   /**
    * @ignore
@@ -34,20 +40,25 @@ export class TeamData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "TeamAttributes",
-      required: true,
-    },
-    id: {
-      baseName: "id",
+    first: {
+      baseName: "first",
       type: "string",
-      required: true,
     },
-    type: {
-      baseName: "type",
-      type: "TeamType",
-      required: true,
+    last: {
+      baseName: "last",
+      type: "string",
+    },
+    next: {
+      baseName: "next",
+      type: "string",
+    },
+    prev: {
+      baseName: "prev",
+      type: "string",
+    },
+    self: {
+      baseName: "self",
+      type: "string",
     },
   };
 
@@ -55,7 +66,7 @@ export class TeamData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamData.attributeTypeMap;
+    return TeamsResponseLinks.attributeTypeMap;
   }
 
   public constructor() {}

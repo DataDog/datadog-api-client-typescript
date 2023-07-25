@@ -23,6 +23,10 @@ export class SensitiveDataScannerMeta {
    */
   "hasHighlightEnabled"?: boolean;
   /**
+   * Whether or not scanned events have multi-pass enabled.
+   */
+  "hasMultiPassEnabled"?: boolean;
+  /**
    * Whether or not the org is compliant to the payment card industry standard.
    */
   "isPciCompliant"?: boolean;
@@ -52,6 +56,10 @@ export class SensitiveDataScannerMeta {
     },
     hasHighlightEnabled: {
       baseName: "has_highlight_enabled",
+      type: "boolean",
+    },
+    hasMultiPassEnabled: {
+      baseName: "has_multi_pass_enabled",
       type: "boolean",
     },
     isPciCompliant: {

@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SensitiveDataScannerGetConfigResponseData {
   /**
+   * Attributes of the Sensitive Data configuration.
+   */
+  "attributes"?: { [key: string]: any };
+  /**
    * ID of the configuration.
    */
   "id"?: string;
@@ -34,6 +38,10 @@ export class SensitiveDataScannerGetConfigResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "{ [key: string]: any; }",
+    },
     id: {
       baseName: "id",
       type: "string",

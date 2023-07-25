@@ -766,7 +766,6 @@ import { TeamCreate } from "./TeamCreate";
 import { TeamCreateAttributes } from "./TeamCreateAttributes";
 import { TeamCreateRelationships } from "./TeamCreateRelationships";
 import { TeamCreateRequest } from "./TeamCreateRequest";
-import { TeamData } from "./TeamData";
 import { TeamLink } from "./TeamLink";
 import { TeamLinkAttributes } from "./TeamLinkAttributes";
 import { TeamLinkCreate } from "./TeamLinkCreate";
@@ -781,12 +780,16 @@ import { TeamPermissionSettingUpdateAttributes } from "./TeamPermissionSettingUp
 import { TeamPermissionSettingUpdateRequest } from "./TeamPermissionSettingUpdateRequest";
 import { TeamPermissionSettingsResponse } from "./TeamPermissionSettingsResponse";
 import { TeamRelationships } from "./TeamRelationships";
+import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TeamResponse } from "./TeamResponse";
 import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
 import { TeamUpdateRequest } from "./TeamUpdateRequest";
 import { TeamsResponse } from "./TeamsResponse";
+import { TeamsResponseLinks } from "./TeamsResponseLinks";
+import { TeamsResponseMeta } from "./TeamsResponseMeta";
+import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
@@ -2166,7 +2169,6 @@ const typeMap: { [index: string]: any } = {
   TeamCreateAttributes: TeamCreateAttributes,
   TeamCreateRelationships: TeamCreateRelationships,
   TeamCreateRequest: TeamCreateRequest,
-  TeamData: TeamData,
   TeamLink: TeamLink,
   TeamLinkAttributes: TeamLinkAttributes,
   TeamLinkCreate: TeamLinkCreate,
@@ -2181,12 +2183,16 @@ const typeMap: { [index: string]: any } = {
   TeamPermissionSettingUpdateRequest: TeamPermissionSettingUpdateRequest,
   TeamPermissionSettingsResponse: TeamPermissionSettingsResponse,
   TeamRelationships: TeamRelationships,
+  TeamRelationshipsLinks: TeamRelationshipsLinks,
   TeamResponse: TeamResponse,
   TeamUpdate: TeamUpdate,
   TeamUpdateAttributes: TeamUpdateAttributes,
   TeamUpdateRelationships: TeamUpdateRelationships,
   TeamUpdateRequest: TeamUpdateRequest,
   TeamsResponse: TeamsResponse,
+  TeamsResponseLinks: TeamsResponseLinks,
+  TeamsResponseMeta: TeamsResponseMeta,
+  TeamsResponseMetaPagination: TeamsResponseMetaPagination,
   TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
   TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
   TimeseriesFormulaRequest: TimeseriesFormulaRequest,

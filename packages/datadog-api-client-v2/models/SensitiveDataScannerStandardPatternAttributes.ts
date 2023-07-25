@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SensitiveDataScannerStandardPatternAttributes {
   /**
+   * Description of the standard pattern.
+   */
+  "description"?: string;
+  /**
    * Name of the standard pattern.
    */
   "name"?: string;
@@ -32,6 +36,10 @@ export class SensitiveDataScannerStandardPatternAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    description: {
+      baseName: "description",
+      type: "string",
+    },
     name: {
       baseName: "name",
       type: "string",

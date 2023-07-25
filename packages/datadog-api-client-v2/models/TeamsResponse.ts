@@ -5,6 +5,8 @@
  */
 import { Team } from "./Team";
 import { TeamIncluded } from "./TeamIncluded";
+import { TeamsResponseLinks } from "./TeamsResponseLinks";
+import { TeamsResponseMeta } from "./TeamsResponseMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -20,6 +22,14 @@ export class TeamsResponse {
    * Resources related to the team
    */
   "included"?: Array<TeamIncluded>;
+  /**
+   * Teams response links.
+   */
+  "links"?: TeamsResponseLinks;
+  /**
+   * Teams response metadata.
+   */
+  "meta"?: TeamsResponseMeta;
 
   /**
    * @ignore
@@ -37,6 +47,14 @@ export class TeamsResponse {
     included: {
       baseName: "included",
       type: "Array<TeamIncluded>",
+    },
+    links: {
+      baseName: "links",
+      type: "TeamsResponseLinks",
+    },
+    meta: {
+      baseName: "meta",
+      type: "TeamsResponseMeta",
     },
   };
 

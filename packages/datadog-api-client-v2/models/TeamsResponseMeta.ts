@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { Team } from "./Team";
+import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Response with a team
+ * Teams response metadata.
  */
-export class TeamResponse {
+export class TeamsResponseMeta {
   /**
-   * A team
+   * Teams response metadata.
    */
-  "data"?: Team;
+  "pagination"?: TeamsResponseMetaPagination;
 
   /**
    * @ignore
@@ -25,9 +25,9 @@ export class TeamResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "Team",
+    pagination: {
+      baseName: "pagination",
+      type: "TeamsResponseMetaPagination",
     },
   };
 
@@ -35,7 +35,7 @@ export class TeamResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamResponse.attributeTypeMap;
+    return TeamsResponseMeta.attributeTypeMap;
   }
 
   public constructor() {}
