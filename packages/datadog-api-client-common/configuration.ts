@@ -208,7 +208,7 @@ export function setServerVariables(
  * Apply given security authentication method if avaiable in configuration.
  */
 export function applySecurityAuthentication<
-  AuthMethodKey extends keyof AuthMethods
+  AuthMethodKey extends keyof AuthMethods,
 >(
   conf: Configuration,
   requestContext: RequestContext,

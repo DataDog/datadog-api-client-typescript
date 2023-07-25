@@ -97,7 +97,10 @@ export class RequestContext {
    * @param url url of the requested resource
    * @param httpMethod http method
    */
-  public constructor(url: string, private httpMethod: HttpMethod) {
+  public constructor(
+    url: string,
+    private httpMethod: HttpMethod
+  ) {
     this.url = new URLParse(url, true);
     if (!isBrowser) {
       this.headers = { "user-agent": userAgent };
