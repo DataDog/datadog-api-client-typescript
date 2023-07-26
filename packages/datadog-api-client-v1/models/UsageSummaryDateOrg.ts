@@ -350,6 +350,10 @@ export class UsageSummaryDateOrg {
    * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in the current date for the given org.
    */
   "vulnManagementHostCountTop99p"?: number;
+  /**
+   * Sum of all workflows executed over all hours in the current date for the given org.
+   */
+  "workflowExecutionsUsageSum"?: number;
 
   /**
    * @ignore
@@ -778,6 +782,11 @@ export class UsageSummaryDateOrg {
     },
     vulnManagementHostCountTop99p: {
       baseName: "vuln_management_host_count_top99p",
+      type: "number",
+      format: "int64",
+    },
+    workflowExecutionsUsageSum: {
+      baseName: "workflow_executions_usage_sum",
       type: "number",
       format: "int64",
     },
