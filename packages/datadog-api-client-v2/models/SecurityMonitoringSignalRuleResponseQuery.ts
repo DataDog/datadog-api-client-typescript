@@ -16,7 +16,7 @@ export class SecurityMonitoringSignalRuleResponseQuery {
    */
   "aggregation"?: SecurityMonitoringRuleQueryAggregation;
   /**
-   * Fields to group by.
+   * Fields to correlate by.
    */
   "correlatedByFields"?: Array<string>;
   /**
@@ -27,6 +27,14 @@ export class SecurityMonitoringSignalRuleResponseQuery {
    * Default Rule ID to match on signals.
    */
   "defaultRuleId"?: string;
+  /**
+   * Field for which the cardinality is measured. Sent as an array.
+   */
+  "distinctFields"?: Array<string>;
+  /**
+   * Fields to group by.
+   */
+  "groupByFields"?: Array<string>;
   /**
    * Group of target fields to aggregate over.
    */
@@ -65,6 +73,14 @@ export class SecurityMonitoringSignalRuleResponseQuery {
     defaultRuleId: {
       baseName: "defaultRuleId",
       type: "string",
+    },
+    distinctFields: {
+      baseName: "distinctFields",
+      type: "Array<string>",
+    },
+    groupByFields: {
+      baseName: "groupByFields",
+      type: "Array<string>",
     },
     metrics: {
       baseName: "metrics",

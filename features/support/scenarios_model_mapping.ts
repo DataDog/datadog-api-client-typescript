@@ -4003,7 +4003,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "SecurityMonitoringSignal",
+        "operationResponseType": "SecurityMonitoringSignalResponse",
     },
     "v2.EditSecurityMonitoringSignalAssignee": {
         "signalId": {

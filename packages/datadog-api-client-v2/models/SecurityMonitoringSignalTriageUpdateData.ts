@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SecurityMonitoringSignalMetadataType } from "./SecurityMonitoringSignalMetadataType";
 import { SecurityMonitoringSignalTriageAttributes } from "./SecurityMonitoringSignalTriageAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,6 +16,14 @@ export class SecurityMonitoringSignalTriageUpdateData {
    * Attributes describing a triage state update operation over a security signal.
    */
   "attributes"?: SecurityMonitoringSignalTriageAttributes;
+  /**
+   * The unique ID of the security signal.
+   */
+  "id"?: string;
+  /**
+   * The type of event.
+   */
+  "type"?: SecurityMonitoringSignalMetadataType;
 
   /**
    * @ignore
@@ -28,6 +37,14 @@ export class SecurityMonitoringSignalTriageUpdateData {
     attributes: {
       baseName: "attributes",
       type: "SecurityMonitoringSignalTriageAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "SecurityMonitoringSignalMetadataType",
     },
   };
 

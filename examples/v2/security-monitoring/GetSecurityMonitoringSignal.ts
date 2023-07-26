@@ -13,7 +13,7 @@ const params: v2.SecurityMonitoringApiGetSecurityMonitoringSignalRequest = {
 
 apiInstance
   .getSecurityMonitoringSignal(params)
-  .then((data: v2.SecurityMonitoringSignal) => {
+  .then((data: v2.SecurityMonitoringSignalResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

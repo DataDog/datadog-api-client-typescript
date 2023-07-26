@@ -15,6 +15,10 @@ export class SecurityMonitoringTriageUser {
    */
   "handle"?: string;
   /**
+   * Gravatar icon associated to the user.
+   */
+  "icon"?: string;
+  /**
    * Numerical ID assigned by Datadog to this user account.
    */
   "id"?: number;
@@ -38,6 +42,10 @@ export class SecurityMonitoringTriageUser {
   static readonly attributeTypeMap: AttributeTypeMap = {
     handle: {
       baseName: "handle",
+      type: "string",
+    },
+    icon: {
+      baseName: "icon",
       type: "string",
     },
     id: {
