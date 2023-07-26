@@ -1002,6 +1002,7 @@ export { NullableRelationshipToUserData } from "./models/NullableRelationshipToU
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
 export { OnDemandConcurrencyCapAttributes } from "./models/OnDemandConcurrencyCapAttributes";
 export { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapResponse";
+export { OnDemandConcurrencyCapType } from "./models/OnDemandConcurrencyCapType";
 export { OpsgenieServiceCreateAttributes } from "./models/OpsgenieServiceCreateAttributes";
 export { OpsgenieServiceCreateData } from "./models/OpsgenieServiceCreateData";
 export { OpsgenieServiceCreateRequest } from "./models/OpsgenieServiceCreateRequest";

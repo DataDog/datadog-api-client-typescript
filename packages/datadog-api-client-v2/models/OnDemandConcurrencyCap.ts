@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
+import { OnDemandConcurrencyCapType } from "./OnDemandConcurrencyCapType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class OnDemandConcurrencyCap {
    * On-demand concurrency cap attributes.
    */
   "attributes"?: OnDemandConcurrencyCapAttributes;
+  /**
+   * On-demand concurrency cap type.
+   */
+  "type"?: OnDemandConcurrencyCapType;
 
   /**
    * @ignore
@@ -28,6 +33,10 @@ export class OnDemandConcurrencyCap {
     attributes: {
       baseName: "attributes",
       type: "OnDemandConcurrencyCapAttributes",
+    },
+    type: {
+      baseName: "type",
+      type: "OnDemandConcurrencyCapType",
     },
   };
 
