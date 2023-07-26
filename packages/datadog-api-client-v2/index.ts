@@ -1202,6 +1202,8 @@ export { SecurityMonitoringSignalIncidentsUpdateRequest } from "./models/Securit
 export { SecurityMonitoringSignalListRequest } from "./models/SecurityMonitoringSignalListRequest";
 export { SecurityMonitoringSignalListRequestFilter } from "./models/SecurityMonitoringSignalListRequestFilter";
 export { SecurityMonitoringSignalListRequestPage } from "./models/SecurityMonitoringSignalListRequestPage";
+export { SecurityMonitoringSignalMetadataType } from "./models/SecurityMonitoringSignalMetadataType";
+export { SecurityMonitoringSignalResponse } from "./models/SecurityMonitoringSignalResponse";
 export { SecurityMonitoringSignalRuleCreatePayload } from "./models/SecurityMonitoringSignalRuleCreatePayload";
 export { SecurityMonitoringSignalRuleQuery } from "./models/SecurityMonitoringSignalRuleQuery";
 export { SecurityMonitoringSignalRuleResponse } from "./models/SecurityMonitoringSignalRuleResponse";

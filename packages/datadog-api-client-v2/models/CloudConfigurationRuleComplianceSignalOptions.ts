@@ -11,6 +11,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CloudConfigurationRuleComplianceSignalOptions {
   /**
+   * The default activation status.
+   */
+  "defaultActivationStatus"?: boolean;
+  /**
+   * The default group by fields.
+   */
+  "defaultGroupByFields"?: Array<string>;
+  /**
    * Whether signals will be sent.
    */
   "userActivationStatus"?: boolean;
@@ -28,6 +36,14 @@ export class CloudConfigurationRuleComplianceSignalOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    defaultActivationStatus: {
+      baseName: "defaultActivationStatus",
+      type: "boolean",
+    },
+    defaultGroupByFields: {
+      baseName: "defaultGroupByFields",
+      type: "Array<string>",
+    },
     userActivationStatus: {
       baseName: "userActivationStatus",
       type: "boolean",

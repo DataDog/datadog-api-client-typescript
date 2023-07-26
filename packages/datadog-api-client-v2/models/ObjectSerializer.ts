@@ -618,6 +618,7 @@ import { SecurityMonitoringSignalIncidentsUpdateRequest } from "./SecurityMonito
 import { SecurityMonitoringSignalListRequest } from "./SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringSignalListRequestFilter";
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
+import { SecurityMonitoringSignalResponse } from "./SecurityMonitoringSignalResponse";
 import { SecurityMonitoringSignalRuleCreatePayload } from "./SecurityMonitoringSignalRuleCreatePayload";
 import { SecurityMonitoringSignalRuleQuery } from "./SecurityMonitoringSignalRuleQuery";
 import { SecurityMonitoringSignalRuleResponse } from "./SecurityMonitoringSignalRuleResponse";
@@ -1202,6 +1203,7 @@ const enumsMap: { [key: string]: any[] } = {
     "investigated_case_opened",
     "other",
   ],
+  SecurityMonitoringSignalMetadataType: ["signal_metadata"],
   SecurityMonitoringSignalRuleType: ["signal_correlation"],
   SecurityMonitoringSignalState: ["open", "archived", "under_review"],
   SecurityMonitoringSignalType: ["signal"],
@@ -1991,6 +1993,7 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalListRequestFilter,
   SecurityMonitoringSignalListRequestPage:
     SecurityMonitoringSignalListRequestPage,
+  SecurityMonitoringSignalResponse: SecurityMonitoringSignalResponse,
   SecurityMonitoringSignalRuleCreatePayload:
     SecurityMonitoringSignalRuleCreatePayload,
   SecurityMonitoringSignalRuleQuery: SecurityMonitoringSignalRuleQuery,

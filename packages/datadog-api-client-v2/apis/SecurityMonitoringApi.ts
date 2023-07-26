@@ -39,6 +39,7 @@ import { SecurityMonitoringSignalAssigneeUpdateRequest } from "../models/Securit
 import { SecurityMonitoringSignalIncidentsUpdateRequest } from "../models/SecurityMonitoringSignalIncidentsUpdateRequest";
 import { SecurityMonitoringSignalListRequest } from "../models/SecurityMonitoringSignalListRequest";
 import { SecurityMonitoringSignalListRequestPage } from "../models/SecurityMonitoringSignalListRequestPage";
+import { SecurityMonitoringSignalResponse } from "../models/SecurityMonitoringSignalResponse";
 import { SecurityMonitoringSignalsListResponse } from "../models/SecurityMonitoringSignalsListResponse";
 import { SecurityMonitoringSignalsSort } from "../models/SecurityMonitoringSignalsSort";
 import { SecurityMonitoringSignalStateUpdateRequest } from "../models/SecurityMonitoringSignalStateUpdateRequest";
@@ -1634,15 +1635,16 @@ export class SecurityMonitoringApiResponseProcessor {
    */
   public async getSecurityMonitoringSignal(
     response: ResponseContext
-  ): Promise<SecurityMonitoringSignal> {
+  ): Promise<SecurityMonitoringSignalResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode == 200) {
-      const body: SecurityMonitoringSignal = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignal"
-      ) as SecurityMonitoringSignal;
+      const body: SecurityMonitoringSignalResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalResponse"
+        ) as SecurityMonitoringSignalResponse;
       return body;
     }
     if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
@@ -1668,11 +1670,12 @@ export class SecurityMonitoringApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignal = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringSignal",
-        ""
-      ) as SecurityMonitoringSignal;
+      const body: SecurityMonitoringSignalResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringSignalResponse",
+          ""
+        ) as SecurityMonitoringSignalResponse;
       return body;
     }
 
@@ -2710,7 +2713,7 @@ export class SecurityMonitoringApi {
   public getSecurityMonitoringSignal(
     param: SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
     options?: Configuration
-  ): Promise<SecurityMonitoringSignal> {
+  ): Promise<SecurityMonitoringSignalResponse> {
     const requestContextPromise =
       this.requestFactory.getSecurityMonitoringSignal(param.signalId, options);
     return requestContextPromise.then((requestContext) => {

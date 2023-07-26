@@ -39,7 +39,7 @@ export class SecurityMonitoringStandardRuleQuery {
   /**
    * Query to run on logs.
    */
-  "query": string;
+  "query"?: string;
 
   /**
    * @ignore
@@ -77,7 +77,6 @@ export class SecurityMonitoringStandardRuleQuery {
     query: {
       baseName: "query",
       type: "string",
-      required: true,
     },
   };
 

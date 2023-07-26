@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SecurityMonitoringSignalMetadataType } from "./SecurityMonitoringSignalMetadataType";
 import { SecurityMonitoringSignalStateUpdateAttributes } from "./SecurityMonitoringSignalStateUpdateAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,6 +16,14 @@ export class SecurityMonitoringSignalStateUpdateData {
    * Attributes describing the change of state of a security signal.
    */
   "attributes": SecurityMonitoringSignalStateUpdateAttributes;
+  /**
+   * The unique ID of the security signal.
+   */
+  "id"?: any;
+  /**
+   * The type of event.
+   */
+  "type"?: SecurityMonitoringSignalMetadataType;
 
   /**
    * @ignore
@@ -29,6 +38,14 @@ export class SecurityMonitoringSignalStateUpdateData {
       baseName: "attributes",
       type: "SecurityMonitoringSignalStateUpdateAttributes",
       required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "any",
+    },
+    type: {
+      baseName: "type",
+      type: "SecurityMonitoringSignalMetadataType",
     },
   };
 
