@@ -380,6 +380,10 @@ export class UsageSummaryResponse {
    * Shows the 99th percentile of all Application Vulnerability Management hosts over all hours in the current months for all organizations.
    */
   "vulnManagementHostCountTop99pSum"?: number;
+  /**
+   * Sum of all workflows executed over all hours in the current months for all organizations.
+   */
+  "workflowExecutionsUsageAggSum"?: number;
 
   /**
    * @ignore
@@ -845,6 +849,11 @@ export class UsageSummaryResponse {
     },
     vulnManagementHostCountTop99pSum: {
       baseName: "vuln_management_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    workflowExecutionsUsageAggSum: {
+      baseName: "workflow_executions_usage_agg_sum",
       type: "number",
       format: "int64",
     },
