@@ -2,7 +2,6 @@
 import pathlib
 import json
 import re
-import warnings
 from functools import singledispatch
 
 import dateutil.parser
@@ -183,6 +182,8 @@ def _format_oneof(data, schema, replace_values=None):
     matched = 0
     for sub_schema in schema["oneOf"]:
         try:
+            if "items" in sub_schema and not isinstance(data, list):
+                continue
             if sub_schema.get("nullable") and data is None:
                 # only one schema can be nullable
                 formatted = "nil"
@@ -201,13 +202,8 @@ def _format_oneof(data, schema, replace_values=None):
         except (KeyError, ValueError, TypeError):
             pass
 
-    if matched == 0:
-        import pytest
-
-        pytest.set_trace()
+    if matched != 1:
         raise ValueError(f"[{matched}] {data} is not valid for schema")
-    elif matched > 1:
-        warnings.warn(f"[{matched}] {data} is not valid for schema")
 
     return parameters
 
@@ -239,7 +235,6 @@ def format_data_with_schema(
 
     if replace_values and data in replace_values:
         # TODO convert replaced value if it is not string and it is used in given
-        warnings.warn(f"implement '{replace_values[data]}' with value {data}")
         parameters = replace_values[data]
     else:
         if nullable and data is None:
@@ -264,22 +259,30 @@ def format_data_with_schema(
             schema = schema.copy()
 
             def format_interface(x):
-                if isinstance(x, int):
-                    return str(x)
-                if isinstance(x, float):
+                if isinstance(x, (int, float)):
                     return str(x)
                 if isinstance(x, str):
                     return format_string(x)
                 raise TypeError(f"{x} is not supported type {schema}")
 
+            def format_number(x):
+                if isinstance(x, (bool, str)):
+                    raise TypeError(f"{x} is not supported type {schema}")
+                return str(x)
+
+            def format_boolean(x):
+                if not isinstance(x, bool):
+                    raise TypeError(f"{x} is not supported type {schema}")
+                return "true" if x else "false"
+
             formatter = {
-                "int32": str,
-                "int64": str,
-                "double": str,
+                "int32": format_number,
+                "int64": format_number,
+                "double": format_number,
                 "date-time": format_datetime,
-                "number": str,
-                "integer": str,
-                "boolean": lambda x: "true" if x else "false",
+                "number": format_number,
+                "integer": format_number,
+                "boolean": format_boolean,
                 "email": format_string,
                 "binary": lambda x: f'{{"data": Buffer.from(fs.readFileSync({format_string(x)}, "utf8")), "name": {format_string(x)}}}',
                 "string": format_string,
@@ -382,10 +385,12 @@ def format_data_with_schema_dict(
     if "oneOf" in schema:
         return _format_oneof(data, schema, replace_values=replace_values)
 
-    if parameters == "":
-        # TODO select oneOf based on data
-        warnings.warn(f"No schema matched for {data}")
-        parameters = ", ".join(f"\"{k}\": \"{v}\"" for k, v in data.items())
+    if schema.get("type") == "object" and "properties" not in schema and schema.get("additionalProperties") == {}:
+        for k, v in data.items():
+            parameters += f'"{k}": "{v}",\n'
+
+    if parameters == "" and data:
+        raise ValueError(f"No schema matched for {data}")
 
     return f"{{\n{parameters}}}"
 
