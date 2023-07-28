@@ -52,6 +52,7 @@ import { CIAppGitInfo } from "./CIAppGitInfo";
 import { CIAppGroupByHistogram } from "./CIAppGroupByHistogram";
 import { CIAppHostInfo } from "./CIAppHostInfo";
 import { CIAppPipelineEvent } from "./CIAppPipelineEvent";
+import { CIAppPipelineEventAttributes } from "./CIAppPipelineEventAttributes";
 import { CIAppPipelineEventJob } from "./CIAppPipelineEventJob";
 import { CIAppPipelineEventParentPipeline } from "./CIAppPipelineEventParentPipeline";
 import { CIAppPipelineEventPipeline } from "./CIAppPipelineEventPipeline";
@@ -938,10 +939,12 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppPipelineEventStepLevel: ["step"],
   CIAppPipelineEventStepStatus: ["success", "error"],
   CIAppPipelineEventTypeName: ["cipipeline"],
+  CIAppPipelineLevel: ["pipeline", "stage", "job", "step", "custom"],
   CIAppResponseStatus: ["done", "timeout"],
   CIAppSort: ["timestamp", "-timestamp"],
   CIAppSortOrder: ["asc", "desc"],
   CIAppTestEventTypeName: ["citest"],
+  CIAppTestLevel: ["session", "module", "suite", "test"],
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   CloudflareAccountType: ["cloudflare-accounts"],
@@ -1369,6 +1372,7 @@ const typeMap: { [index: string]: any } = {
   CIAppGroupByHistogram: CIAppGroupByHistogram,
   CIAppHostInfo: CIAppHostInfo,
   CIAppPipelineEvent: CIAppPipelineEvent,
+  CIAppPipelineEventAttributes: CIAppPipelineEventAttributes,
   CIAppPipelineEventJob: CIAppPipelineEventJob,
   CIAppPipelineEventParentPipeline: CIAppPipelineEventParentPipeline,
   CIAppPipelineEventPipeline: CIAppPipelineEventPipeline,

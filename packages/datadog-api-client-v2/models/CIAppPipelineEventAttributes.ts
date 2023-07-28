@@ -3,26 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CIAppTestLevel } from "./CIAppTestLevel";
+import { CIAppPipelineLevel } from "./CIAppPipelineLevel";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * JSON object containing all event attributes and their associated values.
  */
-export class CIAppEventAttributes {
+export class CIAppPipelineEventAttributes {
   /**
-   * JSON object of attributes from CI Visibility test events.
+   * JSON object of attributes from CI Visibility pipeline events.
    */
   "attributes"?: { [key: string]: any };
+  /**
+   * Pipeline execution level.
+   */
+  "ciLevel"?: CIAppPipelineLevel;
   /**
    * Array of tags associated with your event.
    */
   "tags"?: Array<string>;
-  /**
-   * Test run level.
-   */
-  "testLevel"?: CIAppTestLevel;
 
   /**
    * @ignore
@@ -37,13 +37,13 @@ export class CIAppEventAttributes {
       baseName: "attributes",
       type: "{ [key: string]: any; }",
     },
+    ciLevel: {
+      baseName: "ci_level",
+      type: "CIAppPipelineLevel",
+    },
     tags: {
       baseName: "tags",
       type: "Array<string>",
-    },
-    testLevel: {
-      baseName: "test_level",
-      type: "CIAppTestLevel",
     },
   };
 
@@ -51,7 +51,7 @@ export class CIAppEventAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppEventAttributes.attributeTypeMap;
+    return CIAppPipelineEventAttributes.attributeTypeMap;
   }
 
   public constructor() {}
