@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { CIAppEventAttributes } from "./CIAppEventAttributes";
+import { CIAppPipelineEventAttributes } from "./CIAppPipelineEventAttributes";
 import { CIAppPipelineEventTypeName } from "./CIAppPipelineEventTypeName";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,7 +15,7 @@ export class CIAppPipelineEvent {
   /**
    * JSON object containing all event attributes and their associated values.
    */
-  "attributes"?: CIAppEventAttributes;
+  "attributes"?: CIAppPipelineEventAttributes;
   /**
    * Unique ID of the event.
    */
@@ -36,7 +36,7 @@ export class CIAppPipelineEvent {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "CIAppEventAttributes",
+      type: "CIAppPipelineEventAttributes",
     },
     id: {
       baseName: "id",
