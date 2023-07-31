@@ -83,6 +83,10 @@ export class UsageSummaryDateOrg {
    */
   "ciTestIndexedSpansSum"?: number;
   /**
+   * Shows the high-water mark of all CI visibility intelligent test runner committers over all hours in the current date for the given org.
+   */
+  "ciVisibilityItrCommittersHwm"?: number;
+  /**
    * Shows the high-water mark of all CI visibility pipeline committers over all hours in the current date for the given org.
    */
   "ciVisibilityPipelineCommittersHwm"?: number;
@@ -451,6 +455,11 @@ export class UsageSummaryDateOrg {
     },
     ciTestIndexedSpansSum: {
       baseName: "ci_test_indexed_spans_sum",
+      type: "number",
+      format: "int64",
+    },
+    ciVisibilityItrCommittersHwm: {
+      baseName: "ci_visibility_itr_committers_hwm",
       type: "number",
       format: "int64",
     },

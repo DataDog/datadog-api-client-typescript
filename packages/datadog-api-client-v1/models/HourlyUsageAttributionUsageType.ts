@@ -18,6 +18,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof APPSEC_USAGE
   | typeof BROWSER_USAGE
   | typeof CONTAINER_EXCL_AGENT_USAGE
+  | typeof CI_VISIBILITY_ITR_USAGE
   | typeof CONTAINER_USAGE
   | typeof CSPM_CONTAINERS_USAGE
   | typeof CSPM_HOSTS_USAGE
@@ -52,6 +53,7 @@ export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
 export const APPSEC_USAGE = "appsec_usage";
 export const BROWSER_USAGE = "browser_usage";
 export const CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage";
+export const CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
 export const CONTAINER_USAGE = "container_usage";
 export const CSPM_CONTAINERS_USAGE = "cspm_containers_usage";
 export const CSPM_HOSTS_USAGE = "cspm_hosts_usage";

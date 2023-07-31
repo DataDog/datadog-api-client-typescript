@@ -23,6 +23,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof APPSEC_PERCENTAGE
   | typeof BROWSER_USAGE
   | typeof BROWSER_PERCENTAGE
+  | typeof CI_VISIBILITY_ITR_USAGE
+  | typeof CI_VISIBILITY_ITR_PERCENTAGE
   | typeof CONTAINER_EXCL_AGENT_USAGE
   | typeof CONTAINER_EXCL_AGENT_PERCENTAGE
   | typeof CONTAINER_USAGE
@@ -91,6 +93,8 @@ export const APPSEC_USAGE = "appsec_usage";
 export const APPSEC_PERCENTAGE = "appsec_percentage";
 export const BROWSER_USAGE = "browser_usage";
 export const BROWSER_PERCENTAGE = "browser_percentage";
+export const CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
+export const CI_VISIBILITY_ITR_PERCENTAGE = "ci_visibility_itr_percentage";
 export const CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage";
 export const CONTAINER_EXCL_AGENT_PERCENTAGE =
   "container_excl_agent_percentage";
