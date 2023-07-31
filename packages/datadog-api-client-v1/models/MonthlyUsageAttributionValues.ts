@@ -59,6 +59,14 @@ export class MonthlyUsageAttributionValues {
    */
   "browserUsage"?: number;
   /**
+   * The percentage of Git committers for Intelligent Test Runner usage by tag(s).
+   */
+  "ciVisibilityItrPercentage"?: number;
+  /**
+   * The Git committers for Intelligent Test Runner usage by tag(s).
+   */
+  "ciVisibilityItrUsage"?: number;
+  /**
    * The percentage of container usage without the Datadog Agent by tag(s).
    */
   "containerExclAgentPercentage"?: number;
@@ -341,6 +349,16 @@ export class MonthlyUsageAttributionValues {
     },
     browserUsage: {
       baseName: "browser_usage",
+      type: "number",
+      format: "double",
+    },
+    ciVisibilityItrPercentage: {
+      baseName: "ci_visibility_itr_percentage",
+      type: "number",
+      format: "double",
+    },
+    ciVisibilityItrUsage: {
+      baseName: "ci_visibility_itr_usage",
       type: "number",
       format: "double",
     },

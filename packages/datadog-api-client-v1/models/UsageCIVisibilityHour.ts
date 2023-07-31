@@ -19,6 +19,10 @@ export class UsageCIVisibilityHour {
    */
   "ciTestIndexedSpans"?: number;
   /**
+   * Shows the total count of all active Git committers for Intelligent Test Runner in the current month. A committer is active if they commit at least 3 times in a given month.
+   */
+  "ciVisibilityItrCommitters"?: number;
+  /**
    * Shows the total count of all active Git committers for Pipelines in the current month. A committer is active if they commit at least 3 times in a given month.
    */
   "ciVisibilityPipelineCommitters"?: number;
@@ -51,6 +55,11 @@ export class UsageCIVisibilityHour {
     },
     ciTestIndexedSpans: {
       baseName: "ci_test_indexed_spans",
+      type: "number",
+      format: "int64",
+    },
+    ciVisibilityItrCommitters: {
+      baseName: "ci_visibility_itr_committers",
       type: "number",
       format: "int64",
     },
