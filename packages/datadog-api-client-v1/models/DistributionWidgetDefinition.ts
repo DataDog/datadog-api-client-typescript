@@ -7,6 +7,7 @@ import { DistributionWidgetDefinitionType } from "./DistributionWidgetDefinition
 import { DistributionWidgetRequest } from "./DistributionWidgetRequest";
 import { DistributionWidgetXAxis } from "./DistributionWidgetXAxis";
 import { DistributionWidgetYAxis } from "./DistributionWidgetYAxis";
+import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetMarker } from "./WidgetMarker";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
@@ -19,6 +20,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Unlike the heat map, a distribution graph’s x-axis is quantity rather than time.
  */
 export class DistributionWidgetDefinition {
+  /**
+   * A list of custom links.
+   */
+  "customLinks"?: Array<WidgetCustomLink>;
   /**
    * (Deprecated) The widget legend was replaced by a tooltip and sidebar.
    */
@@ -76,6 +81,10 @@ export class DistributionWidgetDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    customLinks: {
+      baseName: "custom_links",
+      type: "Array<WidgetCustomLink>",
+    },
     legendSize: {
       baseName: "legend_size",
       type: "string",

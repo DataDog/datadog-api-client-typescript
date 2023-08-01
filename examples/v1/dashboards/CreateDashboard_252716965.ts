@@ -18,6 +18,12 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           titleAlign: "left",
           showLegend: false,
           type: "distribution",
+          customLinks: [
+            {
+              label: "Example",
+              link: "https://example.org/",
+            },
+          ],
           xaxis: {
             max: "auto",
             includeZero: true,
