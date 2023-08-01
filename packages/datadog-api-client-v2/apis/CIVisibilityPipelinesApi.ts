@@ -77,6 +77,13 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'createCIAppPipelineEvent'");
+    if (!_config.unstableOperations["v2.createCIAppPipelineEvent"]) {
+      throw new Error(
+        "Unstable operation 'createCIAppPipelineEvent' is disabled"
+      );
+    }
+
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createCIAppPipelineEvent");
@@ -550,7 +557,7 @@ export class CIVisibilityPipelinesApi {
   }
 
   /**
-   * The API endpoint to aggregate CI Visibility pipeline events into buckets of computed metrics and timeseries.
+   * Use this API endpoint to aggregate CI Visibility pipeline events into buckets of computed metrics and timeseries.
    * @param param The request object
    */
   public aggregateCIAppPipelineEvents(
@@ -571,11 +578,9 @@ export class CIVisibilityPipelinesApi {
   }
 
   /**
-   * Send your pipeline event to your Datadog platform over HTTP. For details about how pipeline executions are modeled and what execution types we support, see the [guide](https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/).
+   * Send your pipeline event to your Datadog platform over HTTP. For details about how pipeline executions are modeled and what execution types we support, see [Pipeline Data Model And Execution Types](https://docs.datadoghq.com/continuous_integration/guides/pipeline_data_model/).
    *
    * Pipeline events can be submitted with a timestamp that is up to 18 hours in the past.
-   *
-   * This API endpoint is in private beta.
    * @param param The request object
    */
   public createCIAppPipelineEvent(
@@ -598,7 +603,7 @@ export class CIVisibilityPipelinesApi {
   }
 
   /**
-   * List endpoint returns CI Visibility pipeline events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
+   * List endpoint returns CI Visibility pipeline events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
    *
    * Use this endpoint to see your latest pipeline events.
@@ -686,7 +691,7 @@ export class CIVisibilityPipelinesApi {
   }
 
   /**
-   * List endpoint returns CI Visibility pipeline events that match a [log search query](https://docs.datadoghq.com/logs/explorer/search_syntax/).
+   * List endpoint returns CI Visibility pipeline events that match a [search query](https://docs.datadoghq.com/continuous_integration/explorer/search_syntax/).
    * [Results are paginated similarly to logs](https://docs.datadoghq.com/logs/guide/collect-multiple-logs-with-pagination).
    *
    * Use this endpoint to build complex events filtering and search.

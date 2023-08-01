@@ -15,7 +15,7 @@ export class CIAppTestsQueryFilter {
    */
   "from"?: string;
   /**
-   * The search query following the Log search syntax.
+   * The search query following the CI Visibility Explorer search syntax.
    */
   "query"?: string;
   /**
