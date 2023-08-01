@@ -114,6 +114,7 @@ export function createConfiguration(
     serverIndex: conf.serverIndex || 0,
     operationServerIndices: conf.operationServerIndices || {},
     unstableOperations: {
+      "v2.createCIAppPipelineEvent": false,
       "v2.cancelDowntime": false,
       "v2.createDowntime": false,
       "v2.getDowntime": false,
