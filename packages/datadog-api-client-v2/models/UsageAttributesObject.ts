@@ -25,6 +25,10 @@ export class UsageAttributesObject {
    */
   "publicId"?: string;
   /**
+   * The region of the Datadog instance that the organization belongs to.
+   */
+  "region"?: string;
+  /**
    * List of usage data reported for each requested hour.
    */
   "timeseries"?: Array<UsageTimeSeriesObject>;
@@ -52,6 +56,10 @@ export class UsageAttributesObject {
     },
     publicId: {
       baseName: "public_id",
+      type: "string",
+    },
+    region: {
+      baseName: "region",
       type: "string",
     },
     timeseries: {
