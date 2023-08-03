@@ -15,6 +15,10 @@ export class AuditLogsEventAttributes {
    */
   "attributes"?: { [key: string]: any };
   /**
+   * Message of the event.
+   */
+  "message"?: string;
+  /**
    * Name of the application or service generating Audit Logs events.
    * This name is used to correlate Audit Logs to APM, so make sure you specify the same
    * value when you use both products.
@@ -41,6 +45,10 @@ export class AuditLogsEventAttributes {
     attributes: {
       baseName: "attributes",
       type: "{ [key: string]: any; }",
+    },
+    message: {
+      baseName: "message",
+      type: "string",
     },
     service: {
       baseName: "service",
