@@ -53,6 +53,10 @@ export class DashboardListItem {
    */
   "popularity"?: number;
   /**
+   * List of team names representing ownership of a dashboard.
+   */
+  "tags"?: Array<string>;
+  /**
    * Title of the dashboard.
    */
   "title"?: string;
@@ -117,6 +121,10 @@ export class DashboardListItem {
       baseName: "popularity",
       type: "number",
       format: "int32",
+    },
+    tags: {
+      baseName: "tags",
+      type: "Array<string>",
     },
     title: {
       baseName: "title",
