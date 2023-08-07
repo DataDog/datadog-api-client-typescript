@@ -259,6 +259,38 @@ export class MonthlyUsageAttributionValues {
    */
   "profiledHostUsage"?: number;
   /**
+   * The percentage of Sensitive Data Scanner events usage by tag(s).
+   */
+  "sdsEvtEventsPercentage"?: number;
+  /**
+   * The Sensitive Data Scanner events usage by tag(s).
+   */
+  "sdsEvtEventsUsage"?: number;
+  /**
+   * The percentage of Sensitive Data Scanner logs usage by tag(s).
+   */
+  "sdsLogEventsPercentage"?: number;
+  /**
+   * The Sensitive Data Scanner logs usage by tag(s).
+   */
+  "sdsLogEventsUsage"?: number;
+  /**
+   * The percentage of Sensitive Data Scanner RUM usage by tag(s).
+   */
+  "sdsRumEventsPercentage"?: number;
+  /**
+   * The Sensitive Data Scanner RUM usage by tag(s).
+   */
+  "sdsRumEventsUsage"?: number;
+  /**
+   * The percentage of Sensitive Data Scanner spans usage by tag(s).
+   */
+  "sdsSpansEventsPercentage"?: number;
+  /**
+   * The Sensitive Data Scanner spans usage by tag(s).
+   */
+  "sdsSpansEventsUsage"?: number;
+  /**
    * The percentage of network device usage by tag(s).
    */
   "snmpPercentage"?: number;
@@ -599,6 +631,46 @@ export class MonthlyUsageAttributionValues {
     },
     profiledHostUsage: {
       baseName: "profiled_host_usage",
+      type: "number",
+      format: "double",
+    },
+    sdsEvtEventsPercentage: {
+      baseName: "sds_evt_events_percentage",
+      type: "number",
+      format: "double",
+    },
+    sdsEvtEventsUsage: {
+      baseName: "sds_evt_events_usage",
+      type: "number",
+      format: "double",
+    },
+    sdsLogEventsPercentage: {
+      baseName: "sds_log_events_percentage",
+      type: "number",
+      format: "double",
+    },
+    sdsLogEventsUsage: {
+      baseName: "sds_log_events_usage",
+      type: "number",
+      format: "double",
+    },
+    sdsRumEventsPercentage: {
+      baseName: "sds_rum_events_percentage",
+      type: "number",
+      format: "double",
+    },
+    sdsRumEventsUsage: {
+      baseName: "sds_rum_events_usage",
+      type: "number",
+      format: "double",
+    },
+    sdsSpansEventsPercentage: {
+      baseName: "sds_spans_events_percentage",
+      type: "number",
+      format: "double",
+    },
+    sdsSpansEventsUsage: {
+      baseName: "sds_spans_events_usage",
       type: "number",
       format: "double",
     },
