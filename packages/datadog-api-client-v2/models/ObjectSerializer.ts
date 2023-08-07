@@ -802,6 +802,9 @@ import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 import { Unit } from "./Unit";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
+import { UsageCICommittersDetailedAttributes } from "./UsageCICommittersDetailedAttributes";
+import { UsageCICommittersDetailedHour } from "./UsageCICommittersDetailedHour";
+import { UsageCICommittersDetailedResponse } from "./UsageCICommittersDetailedResponse";
 import { UsageDataObject } from "./UsageDataObject";
 import { UsageLambdaTracedInvocationsResponse } from "./UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "./UsageObservabilityPipelinesResponse";
@@ -1306,6 +1309,7 @@ const enumsMap: { [key: string]: any[] } = {
   TeamType: ["team"],
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
+  UsageDataPointType: ["usage_data_point"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
   UserTeamPermissionType: ["user_team_permissions"],
@@ -2212,6 +2216,9 @@ const typeMap: { [index: string]: any } = {
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
+  UsageCICommittersDetailedAttributes: UsageCICommittersDetailedAttributes,
+  UsageCICommittersDetailedHour: UsageCICommittersDetailedHour,
+  UsageCICommittersDetailedResponse: UsageCICommittersDetailedResponse,
   UsageDataObject: UsageDataObject,
   UsageLambdaTracedInvocationsResponse: UsageLambdaTracedInvocationsResponse,
   UsageObservabilityPipelinesResponse: UsageObservabilityPipelinesResponse,
