@@ -21,6 +21,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CostByOrgResponse } from "../models/CostByOrgResponse";
 import { HourlyUsageResponse } from "../models/HourlyUsageResponse";
 import { UsageApplicationSecurityMonitoringResponse } from "../models/UsageApplicationSecurityMonitoringResponse";
+import { UsageCICommittersDetailedResponse } from "../models/UsageCICommittersDetailedResponse";
 import { UsageLambdaTracedInvocationsResponse } from "../models/UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "../models/UsageObservabilityPipelinesResponse";
 
@@ -335,6 +336,102 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "end_hr",
         ObjectSerializer.serialize(endHr, "Date", "date-time")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getUsageCICommittersDetailed(
+    filterTimestampStart: Date,
+    filterUsageType: string,
+    usageType?: string,
+    filterTimestampEnd?: Date,
+    filterIncludeDescendants?: boolean,
+    pageLimit?: number,
+    pageNextRecordId?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'filterTimestampStart' is not null or undefined
+    if (filterTimestampStart === null || filterTimestampStart === undefined) {
+      throw new RequiredError(
+        "filterTimestampStart",
+        "getUsageCICommittersDetailed"
+      );
+    }
+
+    // verify required parameter 'filterUsageType' is not null or undefined
+    if (filterUsageType === null || filterUsageType === undefined) {
+      throw new RequiredError(
+        "filterUsageType",
+        "getUsageCICommittersDetailed"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/ci_committers_detailed";
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.UsageMeteringApi.getUsageCICommittersDetailed"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (usageType !== undefined) {
+      requestContext.setQueryParam(
+        "usage_type",
+        ObjectSerializer.serialize(usageType, "string", "")
+      );
+    }
+    if (filterTimestampStart !== undefined) {
+      requestContext.setQueryParam(
+        "filter[timestamp][start]",
+        ObjectSerializer.serialize(filterTimestampStart, "Date", "date-time")
+      );
+    }
+    if (filterTimestampEnd !== undefined) {
+      requestContext.setQueryParam(
+        "filter[timestamp][end]",
+        ObjectSerializer.serialize(filterTimestampEnd, "Date", "date-time")
+      );
+    }
+    if (filterUsageType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[usage_type]",
+        ObjectSerializer.serialize(filterUsageType, "string", "")
+      );
+    }
+    if (filterIncludeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "filter[include_descendants]",
+        ObjectSerializer.serialize(filterIncludeDescendants, "boolean", "")
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int32")
+      );
+    }
+    if (pageNextRecordId !== undefined) {
+      requestContext.setQueryParam(
+        "page[next_record_id]",
+        ObjectSerializer.serialize(pageNextRecordId, "string", "")
       );
     }
 
@@ -766,6 +863,70 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getUsageCICommittersDetailed
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUsageCICommittersDetailed(
+    response: ResponseContext
+  ): Promise<UsageCICommittersDetailedResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: UsageCICommittersDetailedResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageCICommittersDetailedResponse"
+        ) as UsageCICommittersDetailedResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UsageCICommittersDetailedResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "UsageCICommittersDetailedResponse",
+          ""
+        ) as UsageCICommittersDetailedResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getUsageLambdaTracedInvocations
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1016,6 +1177,44 @@ export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
   endHr?: Date;
 }
 
+export interface UsageMeteringApiGetUsageCICommittersDetailedRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage beginning at this hour.
+   * @type Date
+   */
+  filterTimestampStart: Date;
+  /**
+   * usage type: `[pipeline, test]`
+   * @type string
+   */
+  filterUsageType: string;
+  /**
+   * usage type: `[pipeline, test]`. Defaults to `pipeline`.
+   * @type string
+   */
+  usageType?: string;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to hour: [YYYY-MM-DDThh] for usage ending **before** this hour.
+   * @type Date
+   */
+  filterTimestampEnd?: Date;
+  /**
+   * Include child org usage in the response. Defaults to false.
+   * @type boolean
+   */
+  filterIncludeDescendants?: boolean;
+  /**
+   * Maximum number of results to return (between 1 and 500) - defaults to 500 if limit not specified.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * List following results with a next_record_id provided in the previous query.
+   * @type string
+   */
+  pageNextRecordId?: string;
+}
+
 export interface UsageMeteringApiGetUsageLambdaTracedInvocationsRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
@@ -1187,6 +1386,36 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUsageApplicationSecurityMonitoring(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Get hourly CI Committers Detailed.
+   * @param param The request object
+   */
+  public getUsageCICommittersDetailed(
+    param: UsageMeteringApiGetUsageCICommittersDetailedRequest,
+    options?: Configuration
+  ): Promise<UsageCICommittersDetailedResponse> {
+    const requestContextPromise =
+      this.requestFactory.getUsageCICommittersDetailed(
+        param.filterTimestampStart,
+        param.filterUsageType,
+        param.usageType,
+        param.filterTimestampEnd,
+        param.filterIncludeDescendants,
+        param.pageLimit,
+        param.pageNextRecordId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUsageCICommittersDetailed(
             responseContext
           );
         });

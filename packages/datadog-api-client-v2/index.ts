@@ -368,6 +368,7 @@ export {
   UsageMeteringApiGetHistoricalCostByOrgRequest,
   UsageMeteringApiGetHourlyUsageRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
+  UsageMeteringApiGetUsageCICommittersDetailedRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
   UsageMeteringApi,
@@ -1443,7 +1444,11 @@ export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
 export { Unit } from "./models/Unit";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
+export { UsageCICommittersDetailedAttributes } from "./models/UsageCICommittersDetailedAttributes";
+export { UsageCICommittersDetailedHour } from "./models/UsageCICommittersDetailedHour";
+export { UsageCICommittersDetailedResponse } from "./models/UsageCICommittersDetailedResponse";
 export { UsageDataObject } from "./models/UsageDataObject";
+export { UsageDataPointType } from "./models/UsageDataPointType";
 export { UsageLambdaTracedInvocationsResponse } from "./models/UsageLambdaTracedInvocationsResponse";
 export { UsageObservabilityPipelinesResponse } from "./models/UsageObservabilityPipelinesResponse";
 export { UsageTimeSeriesObject } from "./models/UsageTimeSeriesObject";

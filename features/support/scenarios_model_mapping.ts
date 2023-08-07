@@ -4776,6 +4776,37 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsageApplicationSecurityMonitoringResponse",
     },
+    "v2.GetUsageCICommittersDetailed": {
+        "usageType": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTimestampStart": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTimestampEnd": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterUsageType": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIncludeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageNextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UsageCICommittersDetailedResponse",
+    },
     "v2.GetCostByOrg": {
         "startMonth": {
             "type": "Date",
