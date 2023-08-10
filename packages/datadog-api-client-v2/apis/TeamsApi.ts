@@ -509,6 +509,41 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getUserMemberships(
+    userUuid: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'userUuid' is not null or undefined
+    if (userUuid === null || userUuid === undefined) {
+      throw new RequiredError("userUuid", "getUserMemberships");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/users/{user_uuid}/memberships".replace(
+      "{user_uuid}",
+      encodeURIComponent(String(userUuid))
+    );
+
+    // Make Request Context
+    const requestContext = getServer(
+      _config,
+      "v2.TeamsApi.getUserMemberships"
+    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async listTeams(
     pageNumber?: number,
     pageSize?: number,
@@ -1436,6 +1471,64 @@ export class TeamsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getUserMemberships
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getUserMemberships(
+    response: ResponseContext
+  ): Promise<UserTeamsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: UserTeamsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserTeamsResponse"
+      ) as UserTeamsResponse;
+      return body;
+    }
+    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: UserTeamsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "UserTeamsResponse",
+        ""
+      ) as UserTeamsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTeams
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1854,6 +1947,14 @@ export interface TeamsApiGetTeamPermissionSettingsRequest {
   teamId: string;
 }
 
+export interface TeamsApiGetUserMembershipsRequest {
+  /**
+   * None
+   * @type string
+   */
+  userUuid: string;
+}
+
 export interface TeamsApiListTeamsRequest {
   /**
    * Specific page number to return.
@@ -2206,6 +2307,27 @@ export class TeamsApi {
           return this.responseProcessor.getTeamPermissionSettings(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Get a list of memberships for a user
+   * @param param The request object
+   */
+  public getUserMemberships(
+    param: TeamsApiGetUserMembershipsRequest,
+    options?: Configuration
+  ): Promise<UserTeamsResponse> {
+    const requestContextPromise = this.requestFactory.getUserMemberships(
+      param.userUuid,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getUserMemberships(responseContext);
         });
     });
   }

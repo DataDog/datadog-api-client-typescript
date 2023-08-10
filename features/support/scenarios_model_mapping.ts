@@ -4710,6 +4710,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "TeamPermissionSettingResponse",
     },
+    "v2.GetUserMemberships": {
+        "userUuid": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "UserTeamsResponse",
+    },
     "v2.ListIncidentTeams": {
         "include": {
             "type": "IncidentRelatedObject",
