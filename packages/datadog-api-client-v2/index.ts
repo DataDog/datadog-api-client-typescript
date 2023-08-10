@@ -354,6 +354,7 @@ export {
   TeamsApiGetTeamLinksRequest,
   TeamsApiGetTeamMembershipsRequest,
   TeamsApiGetTeamPermissionSettingsRequest,
+  TeamsApiGetUserMembershipsRequest,
   TeamsApiListTeamsRequest,
   TeamsApiUpdateTeamRequest,
   TeamsApiUpdateTeamLinkRequest,
