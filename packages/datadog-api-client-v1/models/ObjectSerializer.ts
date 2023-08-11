@@ -1346,7 +1346,7 @@ const enumsMap: { [key: string]: any[] } = {
   WidgetAggregator: ["avg", "last", "max", "min", "sum", "percentile"],
   WidgetChangeType: ["absolute", "relative"],
   WidgetColorPreference: ["background", "text"],
-  WidgetComparator: [">", ">=", "<", "<="],
+  WidgetComparator: ["=", ">", ">=", "<", "<="],
   WidgetCompareTo: ["hour_before", "day_before", "week_before", "month_before"],
   WidgetDisplayType: ["area", "bars", "line", "overlay"],
   WidgetEventSize: ["s", "l"],
