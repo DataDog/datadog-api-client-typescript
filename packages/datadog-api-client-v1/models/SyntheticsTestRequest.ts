@@ -88,6 +88,10 @@ export class SyntheticsTestRequest {
    */
   "numberOfPackets"?: number;
   /**
+   * Persist cookies across redirects.
+   */
+  "persistCookies"?: boolean;
+  /**
    * Port to use when performing the test.
    */
   "port"?: number;
@@ -204,6 +208,10 @@ export class SyntheticsTestRequest {
       baseName: "numberOfPackets",
       type: "number",
       format: "int32",
+    },
+    persistCookies: {
+      baseName: "persistCookies",
+      type: "boolean",
     },
     port: {
       baseName: "port",
