@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -45,10 +44,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/teams";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentTeamsApi.createIncidentTeam"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.IncidentTeamsApi.createIncidentTeam")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -96,10 +94,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentTeamsApi.deleteIncidentTeam"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.IncidentTeamsApi.deleteIncidentTeam")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -137,10 +134,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentTeamsApi.getIncidentTeam"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentTeamsApi.getIncidentTeam")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -180,10 +176,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/teams";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentTeamsApi.listIncidentTeams"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentTeamsApi.listIncidentTeams")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -252,10 +247,9 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentTeamsApi.updateIncidentTeam"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.IncidentTeamsApi.updateIncidentTeam")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

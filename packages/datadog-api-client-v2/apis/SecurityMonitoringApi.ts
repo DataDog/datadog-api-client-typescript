@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -62,10 +61,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/security_monitoring/configuration/security_filters";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.createSecurityFilter"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createSecurityFilter")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -105,10 +103,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/rules";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.createSecurityMonitoringRule"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.createSecurityMonitoringRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -156,10 +153,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.deleteSecurityFilter"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deleteSecurityFilter")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -191,10 +187,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.deleteSecurityMonitoringRule"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.deleteSecurityMonitoringRule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -236,10 +231,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.editSecurityMonitoringSignalAssignee"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -295,10 +291,11 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.editSecurityMonitoringSignalIncidents"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.editSecurityMonitoringSignalIncidents"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -351,10 +348,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.editSecurityMonitoringSignalState"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.editSecurityMonitoringSignalState")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -407,10 +403,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.getFinding"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getFinding")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -451,10 +446,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.getSecurityFilter"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSecurityFilter")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -486,10 +480,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.getSecurityMonitoringRule"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSecurityMonitoringRule")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -522,10 +515,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.getSecurityMonitoringSignal"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.getSecurityMonitoringSignal")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -565,10 +557,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/posture_management/findings";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.listFindings"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listFindings")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -666,10 +657,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/security_monitoring/configuration/security_filters";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.listSecurityFilters"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listSecurityFilters")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -694,10 +684,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/rules";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.listSecurityMonitoringRules"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listSecurityMonitoringRules")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -740,10 +729,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/signals";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.listSecurityMonitoringSignals"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.listSecurityMonitoringSignals")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -805,10 +793,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/security_monitoring/signals/search";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.searchSecurityMonitoringSignals"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.searchSecurityMonitoringSignals")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -867,10 +854,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.updateFinding"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.updateFinding")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -920,10 +906,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.updateSecurityFilter"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.updateSecurityFilter")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -972,10 +957,9 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SecurityMonitoringApi.updateSecurityMonitoringRule"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v2.SecurityMonitoringApi.updateSecurityMonitoringRule")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

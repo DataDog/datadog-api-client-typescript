@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -46,10 +45,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo/can_delete";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.checkCanDeleteSLO"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.checkCanDeleteSLO")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -86,10 +84,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.createSLO"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.createSLO")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -133,10 +130,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.deleteSLO"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.deleteSLO")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -173,10 +169,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo/bulk_delete";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.deleteSLOTimeframeInBulk")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -224,10 +219,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.getSLO"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.getSLO")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -267,10 +261,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.getSLOCorrections"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.getSLOCorrections")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -316,10 +309,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.getSLOHistory"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.getSLOHistory")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -374,10 +366,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.listSLOs"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.listSLOs")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -442,10 +433,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     const localVarPath = "/api/v1/slo/search";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.searchSLO"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.searchSLO")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -509,10 +499,9 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceLevelObjectivesApi.updateSLO"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v1.ServiceLevelObjectivesApi.updateSLO")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -44,10 +43,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/users";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.UsersApi.createUser"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.UsersApi.createUser")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -90,10 +88,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.UsersApi.disableUser"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.UsersApi.disableUser")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -126,10 +123,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.UsersApi.getInvitation"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.UsersApi.getInvitation")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -161,10 +157,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.UsersApi.getUser"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.UsersApi.getUser")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -196,10 +191,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.UsersApi.listUserOrganizations"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.UsersApi.listUserOrganizations")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -231,10 +225,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.UsersApi.listUserPermissions"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.UsersApi.listUserPermissions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -263,10 +256,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/users";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.UsersApi.listUsers"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.UsersApi.listUsers")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -333,10 +325,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/user_invitations";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.UsersApi.sendInvitations"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.UsersApi.sendInvitations")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -385,10 +376,9 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.UsersApi.updateUser"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.UsersApi.updateUser")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

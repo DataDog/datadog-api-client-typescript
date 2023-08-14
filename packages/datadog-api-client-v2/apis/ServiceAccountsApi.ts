@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -43,10 +42,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/service_accounts";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.ServiceAccountsApi.createServiceAccount"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.ServiceAccountsApi.createServiceAccount")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -98,10 +96,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.ServiceAccountsApi.createServiceAccountApplicationKey"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.ServiceAccountsApi.createServiceAccountApplicationKey")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -155,10 +152,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.ServiceAccountsApi.deleteServiceAccountApplicationKey"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.ServiceAccountsApi.deleteServiceAccountApplicationKey")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -201,10 +197,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.ServiceAccountsApi.getServiceAccountApplicationKey"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.ServiceAccountsApi.getServiceAccountApplicationKey")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -245,10 +240,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.ServiceAccountsApi.listServiceAccountApplicationKeys"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.ServiceAccountsApi.listServiceAccountApplicationKeys")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -335,10 +329,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{app_key_id}", encodeURIComponent(String(appKeyId)));
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.ServiceAccountsApi.updateServiceAccountApplicationKey"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.ServiceAccountsApi.updateServiceAccountApplicationKey")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

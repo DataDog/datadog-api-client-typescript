@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -52,10 +51,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.DashboardListsApi.createDashboardListItems"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.DashboardListsApi.createDashboardListItems")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -104,10 +102,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.DashboardListsApi.deleteDashboardListItems"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.DashboardListsApi.deleteDashboardListItems")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -150,10 +147,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.DashboardListsApi.getDashboardListItems"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.DashboardListsApi.getDashboardListItems")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -192,10 +188,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.DashboardListsApi.updateDashboardListItems"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v2.DashboardListsApi.updateDashboardListItems")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -41,10 +40,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/logs-queries/list";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.LogsApi.listLogs"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.LogsApi.listLogs")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -85,10 +83,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/v1/input";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.LogsApi.submitLog"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.LogsApi.submitLog")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

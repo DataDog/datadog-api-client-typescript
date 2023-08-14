@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -44,10 +43,9 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/ci/pipelines/analytics/aggregate";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CIVisibilityPipelinesApi.aggregateCIAppPipelineEvents"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.CIVisibilityPipelinesApi.aggregateCIAppPipelineEvents")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -93,10 +91,9 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/ci/pipeline";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CIVisibilityPipelinesApi.createCIAppPipelineEvent"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.CIVisibilityPipelinesApi.createCIAppPipelineEvent")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -135,10 +132,9 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/ci/pipelines/events";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CIVisibilityPipelinesApi.listCIAppPipelineEvents"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.CIVisibilityPipelinesApi.listCIAppPipelineEvents")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -199,10 +195,9 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/ci/pipelines/events/search";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CIVisibilityPipelinesApi.searchCIAppPipelineEvents"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.CIVisibilityPipelinesApi.searchCIAppPipelineEvents")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

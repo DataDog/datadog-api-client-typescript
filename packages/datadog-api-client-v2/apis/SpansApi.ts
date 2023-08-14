@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -45,10 +44,9 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/spans/analytics/aggregate";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SpansApi.aggregateSpans"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.SpansApi.aggregateSpans")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -87,10 +85,9 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/spans/events/search";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SpansApi.listSpans"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.SpansApi.listSpans")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -129,10 +126,9 @@ export class SpansApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/spans/events";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SpansApi.listSpansGet"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SpansApi.listSpansGet")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

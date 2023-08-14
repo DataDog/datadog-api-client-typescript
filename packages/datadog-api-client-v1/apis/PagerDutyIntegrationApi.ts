@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -38,10 +37,9 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v1/integration/pagerduty/configuration/services";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.PagerDutyIntegrationApi.createPagerDutyIntegrationService"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.PagerDutyIntegrationApi.createPagerDutyIntegrationService")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -87,10 +85,9 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.PagerDutyIntegrationApi.deletePagerDutyIntegrationService"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v1.PagerDutyIntegrationApi.deletePagerDutyIntegrationService")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -122,10 +119,9 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.PagerDutyIntegrationApi.getPagerDutyIntegrationService"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.PagerDutyIntegrationApi.getPagerDutyIntegrationService")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -166,10 +162,9 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.PagerDutyIntegrationApi.updatePagerDutyIntegrationService"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v1.PagerDutyIntegrationApi.updatePagerDutyIntegrationService")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 

@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -47,10 +46,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.MetricsApi.getMetricMetadata"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.MetricsApi.getMetricMetadata")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -81,10 +79,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/metrics";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.MetricsApi.listActiveMetrics"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.MetricsApi.listActiveMetrics")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -133,10 +130,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/search";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.MetricsApi.listMetrics"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.MetricsApi.listMetrics")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -185,10 +181,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/query";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.MetricsApi.queryMetrics"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.MetricsApi.queryMetrics")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -238,10 +233,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/distribution_points";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.MetricsApi.submitDistributionPoints"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.MetricsApi.submitDistributionPoints")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -288,10 +282,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/series";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.MetricsApi.submitMetrics"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.MetricsApi.submitMetrics")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -342,10 +335,9 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.MetricsApi.updateMetricMetadata"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v1.MetricsApi.updateMetricMetadata")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

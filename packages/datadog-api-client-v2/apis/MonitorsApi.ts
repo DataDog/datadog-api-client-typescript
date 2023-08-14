@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -39,10 +38,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/monitor/policy";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.MonitorsApi.createMonitorConfigPolicy"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.createMonitorConfigPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -84,10 +82,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.MonitorsApi.deleteMonitorConfigPolicy"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.deleteMonitorConfigPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -118,10 +115,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.MonitorsApi.getMonitorConfigPolicy"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.getMonitorConfigPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -144,10 +140,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/monitor/policy";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.MonitorsApi.listMonitorConfigPolicies"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.listMonitorConfigPolicies")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -185,10 +180,9 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.MonitorsApi.updateMonitorConfigPolicy"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.MonitorsApi.updateMonitorConfigPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

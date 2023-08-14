@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -46,10 +45,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/analytics/aggregate";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RUMApi.aggregateRUMEvents"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.RUMApi.aggregateRUMEvents")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -89,10 +87,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/applications";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RUMApi.createRUMApplication"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.RUMApi.createRUMApplication")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -134,10 +131,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RUMApi.deleteRUMApplication"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.RUMApi.deleteRUMApplication")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -168,10 +164,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RUMApi.getRUMApplication"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.RUMApi.getRUMApplication")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -193,10 +188,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/applications";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RUMApi.getRUMApplications"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.RUMApi.getRUMApplications")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -224,10 +218,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/events";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RUMApi.listRUMEvents"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.RUMApi.listRUMEvents")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -294,10 +287,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/rum/events/search";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RUMApi.searchRUMEvents"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.RUMApi.searchRUMEvents")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -346,10 +338,9 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RUMApi.updateRUMApplication"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.RUMApi.updateRUMApplication")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -42,10 +41,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.AWSIntegrationApi.createAWSAccount"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.AWSIntegrationApi.createAWSAccount")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -84,10 +82,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/filtering";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.AWSIntegrationApi.createAWSTagFilter"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.AWSIntegrationApi.createAWSTagFilter")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -126,10 +123,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/generate_new_external_id";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.AWSIntegrationApi.createNewAWSExternalID"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v1.AWSIntegrationApi.createNewAWSExternalID")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -168,10 +164,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.AWSIntegrationApi.deleteAWSAccount"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v1.AWSIntegrationApi.deleteAWSAccount")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -210,10 +205,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/filtering";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.AWSIntegrationApi.deleteAWSTagFilter"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v1.AWSIntegrationApi.deleteAWSTagFilter")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -246,10 +240,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/available_namespace_rules";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.AWSIntegrationApi.listAvailableAWSNamespaces"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.AWSIntegrationApi.listAvailableAWSNamespaces")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -274,10 +267,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.AWSIntegrationApi.listAWSAccounts"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.AWSIntegrationApi.listAWSAccounts")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -325,10 +317,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws/filtering";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.AWSIntegrationApi.listAWSTagFilters"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.AWSIntegrationApi.listAWSTagFilters")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -367,10 +358,9 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/aws";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.AWSIntegrationApi.updateAWSAccount"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v1.AWSIntegrationApi.updateAWSAccount")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

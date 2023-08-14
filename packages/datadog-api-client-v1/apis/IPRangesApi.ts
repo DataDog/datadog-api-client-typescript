@@ -1,8 +1,5 @@
 import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
-import {
-  Configuration,
-  getServer,
-} from "../../datadog-api-client-common/configuration";
+import { Configuration } from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
@@ -24,10 +21,9 @@ export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.IPRangesApi.getIPRanges"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.IPRangesApi.getIPRanges")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -48,10 +47,9 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/graph/snapshot";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.SnapshotsApi.getGraphSnapshot"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.SnapshotsApi.getGraphSnapshot")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

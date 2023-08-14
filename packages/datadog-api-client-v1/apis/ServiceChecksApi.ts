@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -37,10 +36,9 @@ export class ServiceChecksApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/check_run";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.ServiceChecksApi.submitServiceCheck"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.ServiceChecksApi.submitServiceCheck")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "text/json, application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

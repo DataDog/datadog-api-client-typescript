@@ -24,6 +24,12 @@ export class BaseServerConfiguration {
     return this.variableConfiguration;
   }
 
+  public clone(): BaseServerConfiguration {
+    return new BaseServerConfiguration(this.url, {
+      ...this.variableConfiguration,
+    });
+  }
+
   private getUrl() {
     let replacedUrl = this.url;
     for (const key in this.variableConfiguration) {

@@ -16,8 +16,9 @@ import {
   AuthMethods,
   AuthMethodsConfiguration,
 } from "./auth";
+import { logger } from "../../logger";
 
-export interface Configuration {
+export class Configuration {
   readonly baseServer?: BaseServerConfiguration;
   readonly serverIndex: number;
   readonly operationServerIndices: { [name: string]: number };
@@ -26,6 +27,66 @@ export interface Configuration {
   readonly httpConfig: HttpConfiguration;
   readonly debug: boolean | undefined;
   unstableOperations: { [name: string]: boolean };
+  servers: BaseServerConfiguration[];
+  operationServers: { [endpoint: string]: BaseServerConfiguration[] };
+
+  public constructor(
+    baseServer: BaseServerConfiguration | undefined,
+    serverIndex: number,
+    operationServerIndices: { [name: string]: number },
+    httpApi: HttpLibrary,
+    authMethods: AuthMethods,
+    httpConfig: HttpConfiguration,
+    debug: boolean | undefined,
+    unstableOperations: { [name: string]: boolean }
+  ) {
+    this.baseServer = baseServer;
+    this.serverIndex = serverIndex;
+    this.operationServerIndices = operationServerIndices;
+    this.httpApi = httpApi;
+    this.authMethods = authMethods;
+    this.httpConfig = httpConfig;
+    this.debug = debug;
+    this.unstableOperations = unstableOperations;
+    this.servers = [];
+    for (const server of servers) {
+      this.servers.push(server.clone());
+    }
+    this.operationServers = {};
+    for (const endpoint in operationServers) {
+      this.operationServers[endpoint] = [];
+      for (const server of operationServers[endpoint]) {
+        this.operationServers[endpoint].push(server.clone());
+      }
+    }
+  }
+
+  setServerVariables(serverVariables: { [key: string]: string }): void {
+    if (this.baseServer !== undefined) {
+      this.baseServer.setVariables(serverVariables);
+      return;
+    }
+
+    const index = this.serverIndex;
+    this.servers[index].setVariables(serverVariables);
+
+    for (const op in this.operationServers) {
+      this.operationServers[op][0].setVariables(serverVariables);
+    }
+  }
+
+  getServer(endpoint: string): BaseServerConfiguration {
+    if (this.baseServer !== undefined) {
+      return this.baseServer;
+    }
+    const index =
+      endpoint in this.operationServerIndices
+        ? this.operationServerIndices[endpoint]
+        : this.serverIndex;
+    return endpoint in operationServers
+      ? this.operationServers[endpoint][index]
+      : this.servers[index];
+  }
 }
 
 /**
@@ -109,11 +170,15 @@ export function createConfiguration(
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
   }
 
-  const configuration: Configuration = {
-    baseServer: conf.baseServer,
-    serverIndex: conf.serverIndex || 0,
-    operationServerIndices: conf.operationServerIndices || {},
-    unstableOperations: {
+  const configuration = new Configuration(
+    conf.baseServer,
+    conf.serverIndex || 0,
+    conf.operationServerIndices || {},
+    conf.httpApi || new DefaultHttpLibrary(),
+    configureAuthMethods(authMethods),
+    conf.httpConfig || {},
+    conf.debug,
+    {
       "v2.createCIAppPipelineEvent": false,
       "v2.cancelDowntime": false,
       "v2.createDowntime": false,
@@ -156,12 +221,8 @@ export function createConfiguration(
       "v2.getIncidentTeam": false,
       "v2.listIncidentTeams": false,
       "v2.updateIncidentTeam": false,
-    },
-    httpApi: conf.httpApi || new DefaultHttpLibrary(),
-    authMethods: configureAuthMethods(authMethods),
-    httpConfig: conf.httpConfig || {},
-    debug: conf.debug,
-  };
+    }
+  );
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
   configuration.httpApi.debug = configuration.debug;
   return configuration;
@@ -171,16 +232,10 @@ export function getServer(
   conf: Configuration,
   endpoint: string
 ): BaseServerConfiguration {
-  if (conf.baseServer !== undefined) {
-    return conf.baseServer;
-  }
-  const index =
-    endpoint in conf.operationServerIndices
-      ? conf.operationServerIndices[endpoint]
-      : conf.serverIndex;
-  return endpoint in operationServers
-    ? operationServers[endpoint][index]
-    : servers[index];
+  logger.warn(
+    "getServer is deprecated, please use Configuration.getServer instead."
+  );
+  return conf.getServer(endpoint);
 }
 
 /**
@@ -192,17 +247,10 @@ export function setServerVariables(
   conf: Configuration,
   serverVariables: { [key: string]: string }
 ): void {
-  if (conf.baseServer !== undefined) {
-    conf.baseServer.setVariables(serverVariables);
-    return;
-  }
-
-  const index = conf.serverIndex;
-  servers[index].setVariables(serverVariables);
-
-  for (const op in operationServers) {
-    operationServers[op][0].setVariables(serverVariables);
-  }
+  logger.warn(
+    "setServerVariables is deprecated, please use Configuration.setServerVariables instead."
+  );
+  return conf.setServerVariables(serverVariables);
 }
 
 /**

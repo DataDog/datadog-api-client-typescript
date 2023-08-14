@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -46,10 +45,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/analytics/aggregate";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsApi.aggregateLogs"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.LogsApi.aggregateLogs")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -83,10 +81,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/events/search";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsApi.listLogs"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.LogsApi.listLogs")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -127,10 +124,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/events";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsApi.listLogsGet"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.LogsApi.listLogsGet")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -210,10 +206,9 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsApi.submitLog"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.LogsApi.submitLog")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

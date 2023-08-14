@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -41,10 +40,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DowntimesApi.cancelDowntime"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v1.DowntimesApi.cancelDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -73,10 +71,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/downtime/cancel/by_scope";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DowntimesApi.cancelDowntimesByScope"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.DowntimesApi.cancelDowntimesByScope")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -116,10 +113,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/downtime";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DowntimesApi.createDowntime"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.DowntimesApi.createDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -162,10 +158,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DowntimesApi.getDowntime"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.DowntimesApi.getDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -190,10 +185,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/downtime";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DowntimesApi.listDowntimes"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.DowntimesApi.listDowntimes")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -239,10 +233,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DowntimesApi.listMonitorDowntimes"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.DowntimesApi.listMonitorDowntimes")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -280,10 +273,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DowntimesApi.updateDowntime"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v1.DowntimesApi.updateDowntime")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -32,10 +31,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SyntheticsApi.getOnDemandConcurrencyCap"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.getOnDemandConcurrencyCap")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -64,10 +62,9 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
       "/api/v2/synthetics/settings/on_demand_concurrency_cap";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SyntheticsApi.setOnDemandConcurrencyCap"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.SyntheticsApi.setOnDemandConcurrencyCap")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
