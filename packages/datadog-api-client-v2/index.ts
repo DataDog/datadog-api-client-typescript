@@ -287,7 +287,6 @@ export {
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
-  SecurityMonitoringApiUpdateFindingRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApi,
@@ -993,14 +992,6 @@ export { MonitorDowntimeMatchResponse } from "./models/MonitorDowntimeMatchRespo
 export { MonitorDowntimeMatchResponseAttributes } from "./models/MonitorDowntimeMatchResponseAttributes";
 export { MonitorDowntimeMatchResponseData } from "./models/MonitorDowntimeMatchResponseData";
 export { MonitorType } from "./models/MonitorType";
-export { MuteFindingRequest } from "./models/MuteFindingRequest";
-export { MuteFindingRequestAttributes } from "./models/MuteFindingRequestAttributes";
-export { MuteFindingRequestData } from "./models/MuteFindingRequestData";
-export { MuteFindingRequestProperties } from "./models/MuteFindingRequestProperties";
-export { MuteFindingResponse } from "./models/MuteFindingResponse";
-export { MuteFindingResponseAttributes } from "./models/MuteFindingResponseAttributes";
-export { MuteFindingResponseData } from "./models/MuteFindingResponseData";
-export { MuteFindingResponseProperties } from "./models/MuteFindingResponseProperties";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
