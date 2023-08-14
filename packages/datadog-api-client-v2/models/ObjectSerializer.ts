@@ -455,14 +455,6 @@ import { MonitorDowntimeMatchResponse } from "./MonitorDowntimeMatchResponse";
 import { MonitorDowntimeMatchResponseAttributes } from "./MonitorDowntimeMatchResponseAttributes";
 import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
 import { MonitorType } from "./MonitorType";
-import { MuteFindingRequest } from "./MuteFindingRequest";
-import { MuteFindingRequestAttributes } from "./MuteFindingRequestAttributes";
-import { MuteFindingRequestData } from "./MuteFindingRequestData";
-import { MuteFindingRequestProperties } from "./MuteFindingRequestProperties";
-import { MuteFindingResponse } from "./MuteFindingResponse";
-import { MuteFindingResponseAttributes } from "./MuteFindingResponseAttributes";
-import { MuteFindingResponseData } from "./MuteFindingResponseData";
-import { MuteFindingResponseProperties } from "./MuteFindingResponseProperties";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
@@ -1820,14 +1812,6 @@ const typeMap: { [index: string]: any } = {
     MonitorDowntimeMatchResponseAttributes,
   MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
   MonitorType: MonitorType,
-  MuteFindingRequest: MuteFindingRequest,
-  MuteFindingRequestAttributes: MuteFindingRequestAttributes,
-  MuteFindingRequestData: MuteFindingRequestData,
-  MuteFindingRequestProperties: MuteFindingRequestProperties,
-  MuteFindingResponse: MuteFindingResponse,
-  MuteFindingResponseAttributes: MuteFindingResponseAttributes,
-  MuteFindingResponseData: MuteFindingResponseData,
-  MuteFindingResponseProperties: MuteFindingResponseProperties,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,

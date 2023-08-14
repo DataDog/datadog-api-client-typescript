@@ -3875,17 +3875,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetFindingResponse",
     },
-    "v2.UpdateFinding": {
-        "findingId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "MuteFindingRequest",
-            "format": "",
-            },
-        "operationResponseType": "MuteFindingResponse",
-    },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",
     },
