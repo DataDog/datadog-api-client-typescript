@@ -259,6 +259,14 @@ export class MonthlyUsageAttributionValues {
    */
   "profiledHostUsage"?: number;
   /**
+   * The percentage of Sensitive Data Scanner usage by tag(s).
+   */
+  "sdsScannedBytesPercentage"?: number;
+  /**
+   * The total Sensitive Data Scanner usage by tag(s).
+   */
+  "sdsScannedBytesUsage"?: number;
+  /**
    * The percentage of network device usage by tag(s).
    */
   "snmpPercentage"?: number;
@@ -599,6 +607,16 @@ export class MonthlyUsageAttributionValues {
     },
     profiledHostUsage: {
       baseName: "profiled_host_usage",
+      type: "number",
+      format: "double",
+    },
+    sdsScannedBytesPercentage: {
+      baseName: "sds_scanned_bytes_percentage",
+      type: "number",
+      format: "double",
+    },
+    sdsScannedBytesUsage: {
+      baseName: "sds_scanned_bytes_usage",
       type: "number",
       format: "double",
     },

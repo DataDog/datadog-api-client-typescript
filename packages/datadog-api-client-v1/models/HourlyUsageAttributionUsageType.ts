@@ -45,6 +45,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof ESTIMATED_RUM_SESSIONS_USAGE
   | typeof UNIVERSAL_SERVICE_MONITORING_USAGE
   | typeof VULN_MANAGEMENT_HOSTS_USAGE
+  | typeof SDS_SCANNED_BYTES_USAGE
   | UnparsedObject;
 export const API_USAGE = "api_usage";
 export const APM_FARGATE_USAGE = "apm_fargate_usage";
@@ -82,3 +83,4 @@ export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
 export const UNIVERSAL_SERVICE_MONITORING_USAGE =
   "universal_service_monitoring_usage";
 export const VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage";
+export const SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage";
