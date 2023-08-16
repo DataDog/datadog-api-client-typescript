@@ -82,6 +82,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           tokenApiAuthentication: "header",
           type: "oauth-client",
         },
+        persistCookies: true,
       },
     },
     locations: ["aws:us-east-2"],

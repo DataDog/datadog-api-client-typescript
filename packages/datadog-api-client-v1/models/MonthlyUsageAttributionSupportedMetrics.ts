@@ -79,6 +79,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof UNIVERSAL_SERVICE_MONITORING_PERCENTAGE
   | typeof VULN_MANAGEMENT_HOSTS_USAGE
   | typeof VULN_MANAGEMENT_HOSTS_PERCENTAGE
+  | typeof SDS_SCANNED_BYTES_USAGE
+  | typeof SDS_SCANNED_BYTES_PERCENTAGE
   | typeof ALL
   | UnparsedObject;
 export const API_USAGE = "api_usage";
@@ -160,4 +162,6 @@ export const UNIVERSAL_SERVICE_MONITORING_PERCENTAGE =
 export const VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage";
 export const VULN_MANAGEMENT_HOSTS_PERCENTAGE =
   "vuln_management_hosts_percentage";
+export const SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage";
+export const SDS_SCANNED_BYTES_PERCENTAGE = "sds_scanned_bytes_percentage";
 export const ALL = "*";

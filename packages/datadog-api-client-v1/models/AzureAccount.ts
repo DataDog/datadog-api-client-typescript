@@ -11,6 +11,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class AzureAccount {
   /**
+   * Limit the Azure app service plans that are pulled into Datadog using tags.
+   * Only app service plans that match one of the defined tags are imported into Datadog.
+   */
+  "appServicePlanFilters"?: string;
+  /**
    * Silence monitors for expected Azure VM shutdowns.
    */
   "automute"?: boolean;
@@ -22,6 +27,14 @@ export class AzureAccount {
    * Your Azure web application secret key.
    */
   "clientSecret"?: string;
+  /**
+   * Enable Cloud Security Management Misconfigurations for your organization.
+   */
+  "cspmEnabled"?: boolean;
+  /**
+   * Enable custom metrics for your organization.
+   */
+  "customMetricsEnabled"?: boolean;
   /**
    * Errors in your configuration.
    */
@@ -53,6 +66,10 @@ export class AzureAccount {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    appServicePlanFilters: {
+      baseName: "app_service_plan_filters",
+      type: "string",
+    },
     automute: {
       baseName: "automute",
       type: "boolean",
@@ -64,6 +81,14 @@ export class AzureAccount {
     clientSecret: {
       baseName: "client_secret",
       type: "string",
+    },
+    cspmEnabled: {
+      baseName: "cspm_enabled",
+      type: "boolean",
+    },
+    customMetricsEnabled: {
+      baseName: "custom_metrics_enabled",
+      type: "boolean",
     },
     errors: {
       baseName: "errors",
