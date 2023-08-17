@@ -20,11 +20,12 @@ export class LogsGroupBy {
   "facet": string;
   /**
    * Used to perform a histogram computation (only for measure facets).
-   * Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
+   * Note: at most 100 buckets are allowed, the number of buckets is (max - min)/interval.
    */
   "histogram"?: LogsGroupByHistogram;
   /**
-   * The maximum buckets to return for this group by
+   * The maximum buckets to return for this group by. Note: at most 10000 buckets are allowed.
+   * If grouping by multiple facets, the product of limits must not exceed 10000.
    */
   "limit"?: number;
   /**
