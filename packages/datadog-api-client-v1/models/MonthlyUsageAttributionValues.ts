@@ -35,6 +35,14 @@ export class MonthlyUsageAttributionValues {
    */
   "apmHostUsage"?: number;
   /**
+   * The percentage of APM and Universal Service Monitoring host usage by tag(s).
+   */
+  "apmUsmPercentage"?: number;
+  /**
+   * The APM and Universal Service Monitoring host usage by tag(s).
+   */
+  "apmUsmUsage"?: number;
+  /**
    * The percentage of Application Security Monitoring ECS Fargate task usage by tag(s).
    */
   "appsecFargatePercentage"?: number;
@@ -327,6 +335,16 @@ export class MonthlyUsageAttributionValues {
     },
     apmHostUsage: {
       baseName: "apm_host_usage",
+      type: "number",
+      format: "double",
+    },
+    apmUsmPercentage: {
+      baseName: "apm_usm_percentage",
+      type: "number",
+      format: "double",
+    },
+    apmUsmUsage: {
+      baseName: "apm_usm_usage",
       type: "number",
       format: "double",
     },
