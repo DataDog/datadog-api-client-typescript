@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -40,10 +39,9 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/authn_mappings";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.AuthNMappingsApi.createAuthNMapping"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.AuthNMappingsApi.createAuthNMapping")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -86,10 +84,9 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.AuthNMappingsApi.deleteAuthNMapping"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.AuthNMappingsApi.deleteAuthNMapping")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -121,10 +118,9 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.AuthNMappingsApi.getAuthNMapping"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.AuthNMappingsApi.getAuthNMapping")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -151,10 +147,9 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/authn_mappings";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.AuthNMappingsApi.listAuthNMappings"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.AuthNMappingsApi.listAuthNMappings")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -218,10 +213,9 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.AuthNMappingsApi.updateAuthNMapping"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.AuthNMappingsApi.updateAuthNMapping")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

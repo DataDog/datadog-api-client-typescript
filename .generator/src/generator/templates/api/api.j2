@@ -1,5 +1,5 @@
 import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
-import { Configuration, getServer, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
+import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
   HttpMethod,
@@ -57,7 +57,7 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
       {%- endfor %};
 
     // Make Request Context
-    const requestContext = getServer(_config, '{{ version }}.{{ className }}.{{ operationId }}').makeRequestContext(localVarPath, HttpMethod.{{ method.upper() }});
+    const requestContext = _config.getServer('{{ version }}.{{ className }}.{{ operationId }}').makeRequestContext(localVarPath, HttpMethod.{{ method.upper() }});
     {%- if operation|accept_headers|length == 0 %}
     requestContext.setHeaderParam("Accept", "application/json");
     {%- else %}

@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -51,10 +50,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v2/sensitive-data-scanner/config/groups";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SensitiveDataScannerApi.createScanningGroup"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.SensitiveDataScannerApi.createScanningGroup")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -97,10 +95,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v2/sensitive-data-scanner/config/rules";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SensitiveDataScannerApi.createScanningRule"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.SensitiveDataScannerApi.createScanningRule")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -153,10 +150,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SensitiveDataScannerApi.deleteScanningGroup"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.SensitiveDataScannerApi.deleteScanningGroup")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -209,10 +205,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SensitiveDataScannerApi.deleteScanningRule"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.SensitiveDataScannerApi.deleteScanningRule")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -249,10 +244,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v2/sensitive-data-scanner/config";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SensitiveDataScannerApi.listScanningGroups"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SensitiveDataScannerApi.listScanningGroups")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -275,10 +269,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
       "/api/v2/sensitive-data-scanner/config/standard-patterns";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SensitiveDataScannerApi.listStandardPatterns"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.SensitiveDataScannerApi.listStandardPatterns")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -306,10 +299,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
     const localVarPath = "/api/v2/sensitive-data-scanner/config";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SensitiveDataScannerApi.reorderScanningGroups"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.SensitiveDataScannerApi.reorderScanningGroups")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -358,10 +350,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SensitiveDataScannerApi.updateScanningGroup"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.SensitiveDataScannerApi.updateScanningGroup")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -414,10 +405,9 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.SensitiveDataScannerApi.updateScanningRule"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.SensitiveDataScannerApi.updateScanningRule")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

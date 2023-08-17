@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -46,10 +45,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.SlackIntegrationApi.createSlackIntegrationChannel"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.SlackIntegrationApi.createSlackIntegrationChannel")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -97,10 +95,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.SlackIntegrationApi.getSlackIntegrationChannel"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.SlackIntegrationApi.getSlackIntegrationChannel")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -132,10 +129,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.SlackIntegrationApi.getSlackIntegrationChannels"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.SlackIntegrationApi.getSlackIntegrationChannels")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -172,10 +168,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.SlackIntegrationApi.removeSlackIntegrationChannel"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v1.SlackIntegrationApi.removeSlackIntegrationChannel")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -218,10 +213,9 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{channel_name}", encodeURIComponent(String(channelName)));
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.SlackIntegrationApi.updateSlackIntegrationChannel"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v1.SlackIntegrationApi.updateSlackIntegrationChannel")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

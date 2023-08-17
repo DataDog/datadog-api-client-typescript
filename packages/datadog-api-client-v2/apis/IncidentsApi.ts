@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -62,10 +61,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.createIncident"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncident")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -122,10 +120,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.createIncidentIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncidentIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -184,10 +181,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.createIncidentTodo"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.createIncidentTodo")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -235,10 +231,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.deleteIncident"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncident")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -289,10 +284,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.deleteIncidentIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncidentIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -335,10 +329,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{todo_id}", encodeURIComponent(String(todoId)));
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.deleteIncidentTodo"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.deleteIncidentTodo")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -376,10 +369,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.getIncident"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.getIncident")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -438,10 +430,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.getIncidentIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.getIncidentIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -484,10 +475,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{todo_id}", encodeURIComponent(String(todoId)));
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.getIncidentTodo"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.getIncidentTodo")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -528,10 +518,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.listIncidentAttachments"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listIncidentAttachments")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -593,10 +582,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.listIncidentIntegrations"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listIncidentIntegrations")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -627,10 +615,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.listIncidents"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listIncidents")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -688,10 +675,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.listIncidentTodos"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.listIncidentTodos")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -729,10 +715,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/incidents/search";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.searchIncidents"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.searchIncidents")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -808,10 +793,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.updateIncident"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateIncident")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -876,10 +860,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.updateIncidentAttachments"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateIncidentAttachments")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -958,10 +941,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.updateIncidentIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateIncidentIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -1025,10 +1007,9 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
         .replace("{todo_id}", encodeURIComponent(String(todoId)));
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.IncidentsApi.updateIncidentTodo"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer("v2.IncidentsApi.updateIncidentTodo")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

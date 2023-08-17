@@ -74,7 +74,7 @@ import { client } from '@datadog/datadog-api-client';
 
 const configuration = client.createConfiguration();
 
-client.setServerVariables(configuration, {
+configuration.setServerVariables({
   site: "datadoghq.eu"
 });
 ```

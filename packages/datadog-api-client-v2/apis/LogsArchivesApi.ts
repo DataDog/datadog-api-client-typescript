@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -51,10 +50,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.addReadRoleToArchive"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.addReadRoleToArchive")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -93,10 +91,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archives";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.createLogsArchive"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.createLogsArchive")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -138,10 +135,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.deleteLogsArchive"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.deleteLogsArchive")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -172,10 +168,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.getLogsArchive"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.getLogsArchive")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -198,10 +193,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archive-order";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.getLogsArchiveOrder"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.getLogsArchiveOrder")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -234,10 +228,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.listArchiveReadRoles"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.listArchiveReadRoles")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -260,10 +253,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archives";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.listLogsArchives"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.listLogsArchives")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -302,10 +294,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.removeRoleFromArchive"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.removeRoleFromArchive")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -353,10 +344,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.updateLogsArchive"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.updateLogsArchive")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -395,10 +385,9 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/logs/config/archive-order";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.LogsArchivesApi.updateLogsArchiveOrder"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v2.LogsArchivesApi.updateLogsArchiveOrder")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

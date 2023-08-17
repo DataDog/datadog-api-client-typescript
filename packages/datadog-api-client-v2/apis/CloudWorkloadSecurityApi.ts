@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -41,10 +40,11 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
       "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer(
+        "v2.CloudWorkloadSecurityApi.createCloudWorkloadSecurityAgentRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -94,10 +94,11 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer(
+        "v2.CloudWorkloadSecurityApi.deleteCloudWorkloadSecurityAgentRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -119,10 +120,9 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     const localVarPath = "/api/v2/security/cloud_workload/policy/download";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.CloudWorkloadSecurityApi.downloadCloudWorkloadPolicyFile")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam(
       "Accept",
       "application/yaml, application/json"
@@ -160,10 +160,11 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer(
+        "v2.CloudWorkloadSecurityApi.getCloudWorkloadSecurityAgentRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -186,10 +187,11 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
       "/api/v2/security_monitoring/cloud_workload_security/agent_rules";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer(
+        "v2.CloudWorkloadSecurityApi.listCloudWorkloadSecurityAgentRules"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -230,10 +232,11 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule"
-    ).makeRequestContext(localVarPath, HttpMethod.PATCH);
+    const requestContext = _config
+      .getServer(
+        "v2.CloudWorkloadSecurityApi.updateCloudWorkloadSecurityAgentRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

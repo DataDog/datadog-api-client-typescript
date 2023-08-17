@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -40,10 +39,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
     const localVarPath = "/api/v1/integration/webhooks/configuration/webhooks";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.WebhooksIntegrationApi.createWebhooksIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.WebhooksIntegrationApi.createWebhooksIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -86,10 +84,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       "/api/v1/integration/webhooks/configuration/custom-variables";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.WebhooksIntegrationApi.createWebhooksIntegrationCustomVariable"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer(
+        "v1.WebhooksIntegrationApi.createWebhooksIntegrationCustomVariable"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -132,10 +131,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.WebhooksIntegrationApi.deleteWebhooksIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v1.WebhooksIntegrationApi.deleteWebhooksIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -170,10 +168,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer(
+        "v1.WebhooksIntegrationApi.deleteWebhooksIntegrationCustomVariable"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -205,10 +204,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.WebhooksIntegrationApi.getWebhooksIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.WebhooksIntegrationApi.getWebhooksIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -243,10 +241,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.WebhooksIntegrationApi.getWebhooksIntegrationCustomVariable"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer(
+        "v1.WebhooksIntegrationApi.getWebhooksIntegrationCustomVariable"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -284,10 +283,9 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.WebhooksIntegrationApi.updateWebhooksIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v1.WebhooksIntegrationApi.updateWebhooksIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -342,10 +340,11 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
       );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer(
+        "v1.WebhooksIntegrationApi.updateWebhooksIntegrationCustomVariable"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

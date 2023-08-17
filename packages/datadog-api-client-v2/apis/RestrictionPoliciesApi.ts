@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -40,10 +39,9 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RestrictionPoliciesApi.deleteRestrictionPolicy"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v2.RestrictionPoliciesApi.deleteRestrictionPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -74,10 +72,9 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RestrictionPoliciesApi.getRestrictionPolicy"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v2.RestrictionPoliciesApi.getRestrictionPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -114,10 +111,9 @@ export class RestrictionPoliciesApiRequestFactory extends BaseAPIRequestFactory 
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.RestrictionPoliciesApi.updateRestrictionPolicy"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.RestrictionPoliciesApi.updateRestrictionPolicy")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

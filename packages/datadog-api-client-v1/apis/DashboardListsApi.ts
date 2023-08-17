@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -38,10 +37,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/dashboard/lists/manual";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DashboardListsApi.createDashboardList"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.DashboardListsApi.createDashboardList")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -84,10 +82,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DashboardListsApi.deleteDashboardList"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v1.DashboardListsApi.deleteDashboardList")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -119,10 +116,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DashboardListsApi.getDashboardList"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.DashboardListsApi.getDashboardList")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -145,10 +141,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/dashboard/lists/manual";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DashboardListsApi.listDashboardLists"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.DashboardListsApi.listDashboardLists")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -186,10 +181,9 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
     );
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.DashboardListsApi.updateDashboardList"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v1.DashboardListsApi.updateDashboardList")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 

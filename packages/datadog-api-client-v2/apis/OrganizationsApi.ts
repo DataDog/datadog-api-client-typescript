@@ -1,7 +1,6 @@
 import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -30,10 +29,9 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v2/saml_configurations/idp_metadata";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v2.OrganizationsApi.uploadIdPMetadata"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v2.OrganizationsApi.uploadIdPMetadata")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
 

@@ -4,7 +4,6 @@ import {
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
-  getServer,
   applySecurityAuthentication,
 } from "../../datadog-api-client-common/configuration";
 import {
@@ -36,10 +35,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.GCPIntegrationApi.createGCPIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.POST);
+    const requestContext = _config
+      .getServer("v1.GCPIntegrationApi.createGCPIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -78,10 +76,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.GCPIntegrationApi.deleteGCPIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.DELETE);
+    const requestContext = _config
+      .getServer("v1.GCPIntegrationApi.deleteGCPIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -114,10 +111,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.GCPIntegrationApi.listGCPIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.GET);
+    const requestContext = _config
+      .getServer("v1.GCPIntegrationApi.listGCPIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
@@ -145,10 +141,9 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
     const localVarPath = "/api/v1/integration/gcp";
 
     // Make Request Context
-    const requestContext = getServer(
-      _config,
-      "v1.GCPIntegrationApi.updateGCPIntegration"
-    ).makeRequestContext(localVarPath, HttpMethod.PUT);
+    const requestContext = _config
+      .getServer("v1.GCPIntegrationApi.updateGCPIntegration")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
