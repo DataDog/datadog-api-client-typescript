@@ -8,7 +8,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * Used to perform a histogram computation (only for measure facets).
- * Note: At most 100 buckets are allowed, the number of buckets is (max - min)/interval.
+ * Note: at most 100 buckets are allowed, the number of buckets is (max - min)/interval.
  */
 export class LogsGroupByHistogram {
   /**

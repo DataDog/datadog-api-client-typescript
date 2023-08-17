@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class LogsAggregateRequestPage {
   /**
-   * The returned paging point to use to get the next results
+   * The returned paging point to use to get the next results. Note: at most 1000 results can be paged.
    */
   "cursor"?: string;
 
