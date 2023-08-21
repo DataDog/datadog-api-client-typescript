@@ -1,5 +1,5 @@
 /**
- * Update a team returns "OK" response
+ * Create a team with V2 fields returns "CREATED" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -7,30 +7,24 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.TeamsApi(configuration);
 
-// there is a valid "dd_team" in the system
-const DD_TEAM_DATA_ATTRIBUTES_HANDLE = process.env
-  .DD_TEAM_DATA_ATTRIBUTES_HANDLE as string;
-const DD_TEAM_DATA_ID = process.env.DD_TEAM_DATA_ID as string;
-
-const params: v2.TeamsApiUpdateTeamRequest = {
+const params: v2.TeamsApiCreateTeamRequest = {
   body: {
     data: {
       attributes: {
-        handle: DD_TEAM_DATA_ATTRIBUTES_HANDLE,
-        name: "Example Team updated",
+        handle: "handle-a0fc0297eb519635",
+        name: "name-a0fc0297eb519635",
         avatar: "🥑",
         banner: 7,
-        hiddenModules: ["m3"],
         visibleModules: ["m1", "m2"],
+        hiddenModules: ["m3"],
       },
       type: "team",
     },
   },
-  teamId: DD_TEAM_DATA_ID,
 };
 
 apiInstance
-  .updateTeam(params)
+  .createTeam(params)
   .then((data: v2.TeamResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
