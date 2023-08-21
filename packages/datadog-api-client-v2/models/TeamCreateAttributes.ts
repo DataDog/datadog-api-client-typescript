@@ -11,6 +11,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class TeamCreateAttributes {
   /**
+   * Unicode representation of the avatar for the team, limited to a single grapheme
+   */
+  "avatar"?: string;
+  /**
+   * Banner selection for the team
+   */
+  "banner"?: number;
+  /**
    * Free-form markdown description/content for the team's homepage
    */
   "description"?: string;
@@ -19,9 +27,17 @@ export class TeamCreateAttributes {
    */
   "handle": string;
   /**
+   * Collection of hidden modules for the team
+   */
+  "hiddenModules"?: Array<string>;
+  /**
    * The name of the team
    */
   "name": string;
+  /**
+   * Collection of visible modules for the team
+   */
+  "visibleModules"?: Array<string>;
 
   /**
    * @ignore
@@ -32,6 +48,15 @@ export class TeamCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    avatar: {
+      baseName: "avatar",
+      type: "string",
+    },
+    banner: {
+      baseName: "banner",
+      type: "number",
+      format: "int64",
+    },
     description: {
       baseName: "description",
       type: "string",
@@ -41,10 +66,18 @@ export class TeamCreateAttributes {
       type: "string",
       required: true,
     },
+    hiddenModules: {
+      baseName: "hidden_modules",
+      type: "Array<string>",
+    },
     name: {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    visibleModules: {
+      baseName: "visible_modules",
+      type: "Array<string>",
     },
   };
 
