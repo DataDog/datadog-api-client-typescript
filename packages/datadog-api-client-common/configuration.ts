@@ -26,6 +26,10 @@ export class Configuration {
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
   readonly debug: boolean | undefined;
+  readonly enableRetry: boolean;
+  readonly maxRetries: number;
+  readonly backoffBase: number;
+  readonly backoffMultiplier: number;
   unstableOperations: { [name: string]: boolean };
   servers: BaseServerConfiguration[];
   operationServers: { [endpoint: string]: BaseServerConfiguration[] };
@@ -38,6 +42,10 @@ export class Configuration {
     authMethods: AuthMethods,
     httpConfig: HttpConfiguration,
     debug: boolean | undefined,
+    enableRetry: boolean,
+    maxRetries: number,
+    backoffBase: number,
+    backoffMultiplier: number,
     unstableOperations: { [name: string]: boolean }
   ) {
     this.baseServer = baseServer;
@@ -47,6 +55,10 @@ export class Configuration {
     this.authMethods = authMethods;
     this.httpConfig = httpConfig;
     this.debug = debug;
+    this.enableRetry= enableRetry;
+    this.maxRetries = maxRetries; 
+    this.backoffBase = backoffBase;
+    this.backoffMultiplier = backoffMultiplier;
     this.unstableOperations = unstableOperations;
     this.servers = [];
     for (const server of servers) {
@@ -125,6 +137,10 @@ export interface ConfigurationParameters {
    * Callback method to compress string body with zstd
    */
   zstdCompressorCallback?: ZstdCompressorCallback;
+  maxRetries?: number;
+  backoffBase?: number;
+  backoffMultiplier?: number;
+  enableRetry?: boolean;
 }
 
 /**
@@ -178,6 +194,10 @@ export function createConfiguration(
     configureAuthMethods(authMethods),
     conf.httpConfig || {},
     conf.debug,
+    conf.enableRetry || false,
+    conf.maxRetries || 3,
+    conf.backoffBase || 2, 
+    conf.backoffMultiplier || 2,
     {
       "v2.createCIAppPipelineEvent": false,
       "v2.cancelDowntime": false,
