@@ -219,17 +219,6 @@ export class CIVisibilityTestsApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppTestsAnalyticsAggregateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CIAppTestsAnalyticsAggregateResponse",
-          ""
-        ) as CIAppTestsAnalyticsAggregateResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -282,16 +271,6 @@ export class CIVisibilityTestsApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppTestEventsResponse",
-        ""
-      ) as CIAppTestEventsResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -342,16 +321,6 @@ export class CIVisibilityTestsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppTestEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppTestEventsResponse",
-        ""
-      ) as CIAppTestEventsResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

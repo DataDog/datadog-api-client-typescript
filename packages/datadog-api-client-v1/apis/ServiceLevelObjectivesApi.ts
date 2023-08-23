@@ -573,16 +573,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CheckCanDeleteSLOResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CheckCanDeleteSLOResponse",
-        ""
-      ) as CheckCanDeleteSLOResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -631,16 +621,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLOListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOListResponse",
-        ""
-      ) as SLOListResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -695,16 +675,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLODeleteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLODeleteResponse",
-        ""
-      ) as SLODeleteResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -757,16 +727,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLOBulkDeleteResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOBulkDeleteResponse",
-        ""
-      ) as SLOBulkDeleteResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -815,16 +775,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLOResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOResponse",
-        ""
-      ) as SLOResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -880,16 +830,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLOCorrectionListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOCorrectionListResponse",
-        ""
-      ) as SLOCorrectionListResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -943,16 +883,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLOHistoryResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOHistoryResponse",
-        ""
-      ) as SLOHistoryResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1002,16 +932,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLOListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOListResponse",
-        ""
-      ) as SLOListResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1066,16 +986,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SearchSLOResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SearchSLOResponse",
-        ""
-      ) as SearchSLOResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1125,16 +1035,6 @@ export class ServiceLevelObjectivesApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SLOListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SLOListResponse",
-        ""
-      ) as SLOListResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

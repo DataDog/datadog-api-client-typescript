@@ -302,16 +302,6 @@ export class OrganizationsApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OrganizationCreateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrganizationCreateResponse",
-        ""
-      ) as OrganizationCreateResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -362,16 +352,6 @@ export class OrganizationsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OrgDowngradedResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrgDowngradedResponse",
-        ""
-      ) as OrgDowngradedResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -426,16 +406,6 @@ export class OrganizationsApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OrganizationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrganizationResponse",
-        ""
-      ) as OrganizationResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -482,16 +452,6 @@ export class OrganizationsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OrganizationListResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrganizationListResponse",
-        ""
-      ) as OrganizationListResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -546,16 +506,6 @@ export class OrganizationsApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: OrganizationResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "OrganizationResponse",
-        ""
-      ) as OrganizationResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -607,16 +557,6 @@ export class OrganizationsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IdpResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IdpResponse",
-        ""
-      ) as IdpResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

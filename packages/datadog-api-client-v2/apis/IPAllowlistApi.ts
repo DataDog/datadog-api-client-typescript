@@ -133,16 +133,6 @@ export class IPAllowlistApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IPAllowlistResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IPAllowlistResponse",
-        ""
-      ) as IPAllowlistResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -194,16 +184,6 @@ export class IPAllowlistApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: IPAllowlistResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "IPAllowlistResponse",
-        ""
-      ) as IPAllowlistResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

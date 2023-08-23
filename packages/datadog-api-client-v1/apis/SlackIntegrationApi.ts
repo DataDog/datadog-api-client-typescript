@@ -287,16 +287,6 @@ export class SlackIntegrationApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SlackIntegrationChannel",
-        ""
-      ) as SlackIntegrationChannel;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -348,16 +338,6 @@ export class SlackIntegrationApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SlackIntegrationChannel",
-        ""
-      ) as SlackIntegrationChannel;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -413,16 +393,6 @@ export class SlackIntegrationApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: Array<SlackIntegrationChannel> = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "Array<SlackIntegrationChannel>",
-        ""
-      ) as Array<SlackIntegrationChannel>;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -470,16 +440,6 @@ export class SlackIntegrationApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -533,16 +493,6 @@ export class SlackIntegrationApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SlackIntegrationChannel",
-        ""
-      ) as SlackIntegrationChannel;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

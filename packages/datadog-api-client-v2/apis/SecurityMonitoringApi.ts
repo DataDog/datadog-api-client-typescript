@@ -1035,16 +1035,6 @@ export class SecurityMonitoringApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityFilterResponse",
-        ""
-      ) as SecurityFilterResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1097,16 +1087,6 @@ export class SecurityMonitoringApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleResponse",
-        ""
-      ) as SecurityMonitoringRuleResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1151,16 +1131,6 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1209,16 +1179,6 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1275,17 +1235,6 @@ export class SecurityMonitoringApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          ""
-        ) as SecurityMonitoringSignalTriageUpdateResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1340,17 +1289,6 @@ export class SecurityMonitoringApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          ""
-        ) as SecurityMonitoringSignalTriageUpdateResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1403,17 +1341,6 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalTriageUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalTriageUpdateResponse",
-          ""
-        ) as SecurityMonitoringSignalTriageUpdateResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1472,16 +1399,6 @@ export class SecurityMonitoringApiResponseProcessor {
       );
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetFindingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetFindingResponse",
-        ""
-      ) as GetFindingResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1534,16 +1451,6 @@ export class SecurityMonitoringApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityFilterResponse",
-        ""
-      ) as SecurityFilterResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1590,16 +1497,6 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleResponse",
-        ""
-      ) as SecurityMonitoringRuleResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1649,17 +1546,6 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalResponse",
-          ""
-        ) as SecurityMonitoringSignalResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1718,16 +1604,6 @@ export class SecurityMonitoringApiResponseProcessor {
       );
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ListFindingsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "ListFindingsResponse",
-        ""
-      ) as ListFindingsResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1774,16 +1650,6 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityFiltersResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityFiltersResponse",
-        ""
-      ) as SecurityFiltersResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1833,17 +1699,6 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringListRulesResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringListRulesResponse",
-          ""
-        ) as SecurityMonitoringListRulesResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -1899,17 +1754,6 @@ export class SecurityMonitoringApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalsListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalsListResponse",
-          ""
-        ) as SecurityMonitoringSignalsListResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -1961,17 +1805,6 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringSignalsListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SecurityMonitoringSignalsListResponse",
-          ""
-        ) as SecurityMonitoringSignalsListResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -2032,16 +1865,6 @@ export class SecurityMonitoringApiResponseProcessor {
       );
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MuteFindingResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "MuteFindingResponse",
-        ""
-      ) as MuteFindingResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -2096,16 +1919,6 @@ export class SecurityMonitoringApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityFilterResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityFilterResponse",
-        ""
-      ) as SecurityFilterResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -2158,16 +1971,6 @@ export class SecurityMonitoringApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SecurityMonitoringRuleResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SecurityMonitoringRuleResponse",
-        ""
-      ) as SecurityMonitoringRuleResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

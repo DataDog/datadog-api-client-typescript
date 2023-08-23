@@ -204,23 +204,6 @@ export class {{ className }}ResponseProcessor {
     }
     {%- endfor %}
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      {%- if returnType %}
-      {%- if responseSchema.get("format") == "binary" %}
-      const body: {{ returnType }} = await response.getBodyAsFile() as any as {{ returnType }};
-      {%- else %}
-      const body: {{ returnType }} = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "{{ returnType }}", "{{ responseSchema.get("format", "") }}"
-      ) as {{ returnType }};
-      {%- endif %}
-      return body;
-      {%- else %}
-      return;
-      {%- endif %}
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
   }

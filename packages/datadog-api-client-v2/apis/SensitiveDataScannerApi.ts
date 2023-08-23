@@ -483,17 +483,6 @@ export class SensitiveDataScannerApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerCreateGroupResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateGroupResponse",
-          ""
-        ) as SensitiveDataScannerCreateGroupResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -545,17 +534,6 @@ export class SensitiveDataScannerApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerCreateRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerCreateRuleResponse",
-          ""
-        ) as SensitiveDataScannerCreateRuleResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -612,17 +590,6 @@ export class SensitiveDataScannerApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerGroupDeleteResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupDeleteResponse",
-          ""
-        ) as SensitiveDataScannerGroupDeleteResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -675,17 +642,6 @@ export class SensitiveDataScannerApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerRuleDeleteResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleDeleteResponse",
-          ""
-        ) as SensitiveDataScannerRuleDeleteResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -741,17 +697,6 @@ export class SensitiveDataScannerApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerGetConfigResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGetConfigResponse",
-          ""
-        ) as SensitiveDataScannerGetConfigResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -805,17 +750,6 @@ export class SensitiveDataScannerApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerStandardPatternsResponseData =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerStandardPatternsResponseData",
-          ""
-        ) as SensitiveDataScannerStandardPatternsResponseData;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -867,17 +801,6 @@ export class SensitiveDataScannerApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerReorderGroupsResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerReorderGroupsResponse",
-          ""
-        ) as SensitiveDataScannerReorderGroupsResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -934,17 +857,6 @@ export class SensitiveDataScannerApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerGroupUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerGroupUpdateResponse",
-          ""
-        ) as SensitiveDataScannerGroupUpdateResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -997,17 +909,6 @@ export class SensitiveDataScannerApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SensitiveDataScannerRuleUpdateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "SensitiveDataScannerRuleUpdateResponse",
-          ""
-        ) as SensitiveDataScannerRuleUpdateResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

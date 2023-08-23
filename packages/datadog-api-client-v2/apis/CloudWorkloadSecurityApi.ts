@@ -313,17 +313,6 @@ export class CloudWorkloadSecurityApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          ""
-        ) as CloudWorkloadSecurityAgentRuleResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -372,16 +361,6 @@ export class CloudWorkloadSecurityApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: void = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "void",
-        ""
-      ) as void;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -425,13 +404,6 @@ export class CloudWorkloadSecurityApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: HttpFile =
-        (await response.getBodyAsFile()) as any as HttpFile;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -487,17 +459,6 @@ export class CloudWorkloadSecurityApiResponseProcessor {
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          ""
-        ) as CloudWorkloadSecurityAgentRuleResponse;
-      return body;
-    }
-
     const body = (await response.body.text()) || "";
     throw new ApiException<string>(
       response.httpStatusCode,
@@ -545,17 +506,6 @@ export class CloudWorkloadSecurityApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRulesListResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRulesListResponse",
-          ""
-        ) as CloudWorkloadSecurityAgentRulesListResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -611,17 +561,6 @@ export class CloudWorkloadSecurityApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CloudWorkloadSecurityAgentRuleResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CloudWorkloadSecurityAgentRuleResponse",
-          ""
-        ) as CloudWorkloadSecurityAgentRuleResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
