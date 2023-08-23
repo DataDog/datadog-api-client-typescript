@@ -29,13 +29,4 @@ export class SuccessfulSignalUpdateResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SuccessfulSignalUpdateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

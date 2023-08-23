@@ -31,13 +31,4 @@ export class RelationshipToUserTeamUser {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToUserTeamUser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

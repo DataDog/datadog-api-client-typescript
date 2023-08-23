@@ -30,13 +30,4 @@ export class TeamPermissionSettingsResponse {
       type: "Array<TeamPermissionSetting>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamPermissionSettingsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

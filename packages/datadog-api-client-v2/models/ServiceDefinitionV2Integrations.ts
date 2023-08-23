@@ -38,13 +38,4 @@ export class ServiceDefinitionV2Integrations {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Integrations.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

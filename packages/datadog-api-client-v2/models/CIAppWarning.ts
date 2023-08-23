@@ -45,13 +45,4 @@ export class CIAppWarning {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppWarning.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

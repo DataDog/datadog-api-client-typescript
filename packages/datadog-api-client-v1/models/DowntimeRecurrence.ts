@@ -81,13 +81,4 @@ export class DowntimeRecurrence {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeRecurrence.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

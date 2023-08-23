@@ -30,13 +30,4 @@ export class WidgetTime {
       type: "WidgetLiveSpan",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetTime.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

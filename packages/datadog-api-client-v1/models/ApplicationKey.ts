@@ -45,13 +45,4 @@ export class ApplicationKey {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -54,13 +54,4 @@ export class RUMGroupByHistogram {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMGroupByHistogram.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

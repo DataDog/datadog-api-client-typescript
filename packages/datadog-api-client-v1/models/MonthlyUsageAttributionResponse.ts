@@ -39,13 +39,4 @@ export class MonthlyUsageAttributionResponse {
       type: "Array<MonthlyUsageAttributionBody>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonthlyUsageAttributionResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

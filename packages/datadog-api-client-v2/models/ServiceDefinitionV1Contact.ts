@@ -38,13 +38,4 @@ export class ServiceDefinitionV1Contact {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV1Contact.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

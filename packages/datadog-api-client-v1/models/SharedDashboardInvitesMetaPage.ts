@@ -30,13 +30,4 @@ export class SharedDashboardInvitesMetaPage {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SharedDashboardInvitesMetaPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

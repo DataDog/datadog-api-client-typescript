@@ -39,13 +39,4 @@ export class FunnelStep {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelStep.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

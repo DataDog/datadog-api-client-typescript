@@ -212,13 +212,4 @@ export class Downtime {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Downtime.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

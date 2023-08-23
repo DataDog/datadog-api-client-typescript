@@ -89,13 +89,4 @@ export class MetricTagConfigurationAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

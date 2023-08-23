@@ -54,13 +54,4 @@ export class SpansGroupByHistogram {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansGroupByHistogram.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

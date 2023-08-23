@@ -29,13 +29,4 @@ export class SecurityFilterMeta {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

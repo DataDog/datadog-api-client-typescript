@@ -93,13 +93,4 @@ export class NotebooksResponseDataAttributes {
       type: "NotebookGlobalTime",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebooksResponseDataAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

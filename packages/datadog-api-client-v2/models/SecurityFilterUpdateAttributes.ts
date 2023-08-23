@@ -72,13 +72,4 @@ export class SecurityFilterUpdateAttributes {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class SpansMetricResponseAttributes {
       type: "Array<SpansMetricResponseGroupBy>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

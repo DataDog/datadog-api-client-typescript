@@ -48,13 +48,4 @@ export class LogQueryDefinitionGroupBySort {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogQueryDefinitionGroupBySort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

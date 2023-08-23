@@ -29,13 +29,4 @@ export class SyntheticsPrivateLocationMetadata {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocationMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

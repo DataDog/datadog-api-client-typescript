@@ -130,13 +130,4 @@ export class SunburstWidgetRequest {
       type: "LogQueryDefinition",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SunburstWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

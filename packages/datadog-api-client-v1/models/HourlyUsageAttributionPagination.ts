@@ -29,13 +29,4 @@ export class HourlyUsageAttributionPagination {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageAttributionPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

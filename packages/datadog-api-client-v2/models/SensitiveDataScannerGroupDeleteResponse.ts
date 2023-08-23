@@ -30,13 +30,4 @@ export class SensitiveDataScannerGroupDeleteResponse {
       type: "SensitiveDataScannerMetaVersionOnly",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerGroupDeleteResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

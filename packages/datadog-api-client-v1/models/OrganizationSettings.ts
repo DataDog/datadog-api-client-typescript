@@ -107,13 +107,4 @@ export class OrganizationSettings {
       type: "OrganizationSettingsSamlStrictMode",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettings.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

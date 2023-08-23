@@ -37,13 +37,4 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSamlAutocreateUsersDomains.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

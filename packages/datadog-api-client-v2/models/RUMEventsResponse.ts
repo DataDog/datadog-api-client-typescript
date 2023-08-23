@@ -48,13 +48,4 @@ export class RUMEventsResponse {
       type: "RUMResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMEventsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

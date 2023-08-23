@@ -30,13 +30,4 @@ export class IPAllowlistResponse {
       type: "IPAllowlistData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPAllowlistResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

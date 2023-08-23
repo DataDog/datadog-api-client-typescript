@@ -30,13 +30,4 @@ export class LogsArchiveCreateRequest {
       type: "LogsArchiveCreateRequestDefinition",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

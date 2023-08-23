@@ -47,13 +47,4 @@ export class ScatterPlotWidgetDefinitionRequests {
       type: "ScatterPlotRequest",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

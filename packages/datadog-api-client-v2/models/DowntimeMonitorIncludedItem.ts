@@ -48,13 +48,4 @@ export class DowntimeMonitorIncludedItem {
       type: "DowntimeIncludedMonitorType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeMonitorIncludedItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

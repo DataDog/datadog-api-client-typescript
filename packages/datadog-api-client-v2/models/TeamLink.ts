@@ -50,13 +50,4 @@ export class TeamLink {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamLink.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

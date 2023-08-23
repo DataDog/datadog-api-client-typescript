@@ -47,13 +47,4 @@ export class LogsExclusion {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsExclusion.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

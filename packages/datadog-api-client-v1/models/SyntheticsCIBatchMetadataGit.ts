@@ -37,13 +37,4 @@ export class SyntheticsCIBatchMetadataGit {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadataGit.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

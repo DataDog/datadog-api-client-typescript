@@ -58,13 +58,4 @@ export class RUMSearchEventsRequest {
       type: "RUMSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMSearchEventsRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

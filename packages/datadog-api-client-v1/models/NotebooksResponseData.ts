@@ -51,13 +51,4 @@ export class NotebooksResponseData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebooksResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

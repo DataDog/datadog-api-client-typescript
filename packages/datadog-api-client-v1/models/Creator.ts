@@ -45,13 +45,4 @@ export class Creator {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Creator.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

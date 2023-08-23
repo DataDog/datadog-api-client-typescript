@@ -47,13 +47,4 @@ export class SunburstWidgetLegendInlineAutomatic {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SunburstWidgetLegendInlineAutomatic.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

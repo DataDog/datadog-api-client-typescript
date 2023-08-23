@@ -47,13 +47,4 @@ export class MuteFindingResponseData {
       type: "FindingType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

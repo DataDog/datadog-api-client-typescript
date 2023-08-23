@@ -39,13 +39,4 @@ export class SyntheticsTriggerTest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerTest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

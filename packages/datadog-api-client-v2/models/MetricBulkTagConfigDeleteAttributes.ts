@@ -30,13 +30,4 @@ export class MetricBulkTagConfigDeleteAttributes {
       format: "email",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigDeleteAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

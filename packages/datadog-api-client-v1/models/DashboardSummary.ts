@@ -30,13 +30,4 @@ export class DashboardSummary {
       type: "Array<DashboardSummaryDefinition>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardSummary.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

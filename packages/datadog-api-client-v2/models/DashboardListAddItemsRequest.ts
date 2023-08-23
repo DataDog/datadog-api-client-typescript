@@ -30,13 +30,4 @@ export class DashboardListAddItemsRequest {
       type: "Array<DashboardListItemRequest>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListAddItemsRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

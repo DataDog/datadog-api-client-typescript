@@ -30,13 +30,4 @@ export class LogsArchiveOrder {
       type: "LogsArchiveOrderDefinition",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveOrder.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

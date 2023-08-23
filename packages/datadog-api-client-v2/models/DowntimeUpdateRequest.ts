@@ -31,13 +31,4 @@ export class DowntimeUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

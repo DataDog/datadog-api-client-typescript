@@ -38,13 +38,4 @@ export class AWSTagFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSTagFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

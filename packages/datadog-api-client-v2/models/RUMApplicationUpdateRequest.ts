@@ -31,13 +31,4 @@ export class RUMApplicationUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMApplicationUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

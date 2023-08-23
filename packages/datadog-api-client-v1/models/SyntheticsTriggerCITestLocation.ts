@@ -38,13 +38,4 @@ export class SyntheticsTriggerCITestLocation {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerCITestLocation.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

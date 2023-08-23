@@ -48,13 +48,4 @@ export class CIAppPipelinesAnalyticsAggregateResponse {
       type: "CIAppResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelinesAnalyticsAggregateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

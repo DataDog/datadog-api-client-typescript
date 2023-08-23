@@ -53,13 +53,4 @@ export class HostMapWidgetDefinitionStyle {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetDefinitionStyle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

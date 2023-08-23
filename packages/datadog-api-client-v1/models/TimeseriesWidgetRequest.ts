@@ -165,13 +165,4 @@ export class TimeseriesWidgetRequest {
       type: "WidgetRequestStyle",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

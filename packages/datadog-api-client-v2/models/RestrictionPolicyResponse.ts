@@ -31,13 +31,4 @@ export class RestrictionPolicyResponse {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RestrictionPolicyResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

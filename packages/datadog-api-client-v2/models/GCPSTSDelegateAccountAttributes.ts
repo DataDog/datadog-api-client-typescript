@@ -29,13 +29,4 @@ export class GCPSTSDelegateAccountAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSDelegateAccountAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

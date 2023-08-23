@@ -39,13 +39,4 @@ export class HourlyUsageAttributionResponse {
       type: "Array<HourlyUsageAttributionBody>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageAttributionResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

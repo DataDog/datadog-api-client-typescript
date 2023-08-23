@@ -56,13 +56,4 @@ export class RUMAggregateSort {
       type: "RUMAggregateSortType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMAggregateSort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

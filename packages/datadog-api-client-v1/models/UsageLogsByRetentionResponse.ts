@@ -30,13 +30,4 @@ export class UsageLogsByRetentionResponse {
       type: "Array<UsageLogsByRetentionHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLogsByRetentionResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

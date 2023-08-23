@@ -54,13 +54,4 @@ export class CIAppGroupByHistogram {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppGroupByHistogram.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

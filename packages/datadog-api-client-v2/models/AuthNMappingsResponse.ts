@@ -48,13 +48,4 @@ export class AuthNMappingsResponse {
       type: "ResponseMetaAttributes",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class MetricsAndMetricTagConfigurationsResponse {
       type: "Array<MetricsAndMetricTagConfigurations>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsAndMetricTagConfigurationsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

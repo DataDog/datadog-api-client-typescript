@@ -140,13 +140,4 @@ export class DashboardListItem {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

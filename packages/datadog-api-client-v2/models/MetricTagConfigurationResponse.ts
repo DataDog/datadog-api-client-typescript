@@ -30,13 +30,4 @@ export class MetricTagConfigurationResponse {
       type: "MetricTagConfiguration",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

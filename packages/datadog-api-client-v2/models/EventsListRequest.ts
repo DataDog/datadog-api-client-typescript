@@ -58,13 +58,4 @@ export class EventsListRequest {
       type: "EventsSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsListRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

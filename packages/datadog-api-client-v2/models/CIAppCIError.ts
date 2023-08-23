@@ -54,13 +54,4 @@ export class CIAppCIError {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppCIError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class IncidentIntegrationMetadataPatchRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentIntegrationMetadataPatchRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

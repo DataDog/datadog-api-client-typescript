@@ -47,13 +47,4 @@ export class CIAppPipelineEvent {
       type: "CIAppPipelineEventTypeName",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelineEvent.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class CIAppTestEventsResponse {
       type: "CIAppResponseMetadataWithPagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppTestEventsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

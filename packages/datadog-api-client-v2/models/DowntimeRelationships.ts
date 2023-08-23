@@ -39,13 +39,4 @@ export class DowntimeRelationships {
       type: "DowntimeRelationshipsMonitor",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

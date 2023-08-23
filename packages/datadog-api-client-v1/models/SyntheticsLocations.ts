@@ -30,13 +30,4 @@ export class SyntheticsLocations {
       type: "Array<SyntheticsLocation>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsLocations.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

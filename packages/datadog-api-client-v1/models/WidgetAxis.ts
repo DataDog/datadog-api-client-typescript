@@ -61,13 +61,4 @@ export class WidgetAxis {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetAxis.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -110,13 +110,4 @@ export class LogsAttributeRemapper {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAttributeRemapper.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

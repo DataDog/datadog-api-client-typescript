@@ -92,13 +92,4 @@ export class ListStreamWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -62,13 +62,4 @@ export class UsageCustomReportsAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

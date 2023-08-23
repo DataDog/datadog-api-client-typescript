@@ -200,13 +200,4 @@ export class DowntimeChild {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeChild.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

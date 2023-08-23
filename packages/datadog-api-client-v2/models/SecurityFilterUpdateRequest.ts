@@ -31,13 +31,4 @@ export class SecurityFilterUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -72,13 +72,4 @@ export class SensitiveDataScannerMeta {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

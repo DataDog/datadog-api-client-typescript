@@ -39,13 +39,4 @@ export class SpansQueryOptions {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

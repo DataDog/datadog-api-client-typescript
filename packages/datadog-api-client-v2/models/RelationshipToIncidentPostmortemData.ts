@@ -40,13 +40,4 @@ export class RelationshipToIncidentPostmortemData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentPostmortemData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

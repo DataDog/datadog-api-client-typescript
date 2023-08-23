@@ -69,13 +69,4 @@ export class LogsPipelineProcessor {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsPipelineProcessor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

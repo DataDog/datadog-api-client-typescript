@@ -80,13 +80,4 @@ export class TeamCreateAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class DashboardRestoreRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardRestoreRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

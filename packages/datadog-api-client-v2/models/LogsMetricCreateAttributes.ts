@@ -49,13 +49,4 @@ export class LogsMetricCreateAttributes {
       type: "Array<LogsMetricGroupBy>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

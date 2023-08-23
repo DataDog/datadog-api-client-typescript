@@ -57,13 +57,4 @@ export class MuteFindingResponseProperties {
       type: "FindingMuteReason",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingResponseProperties.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

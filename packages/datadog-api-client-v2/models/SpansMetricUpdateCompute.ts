@@ -30,13 +30,4 @@ export class SpansMetricUpdateCompute {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricUpdateCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

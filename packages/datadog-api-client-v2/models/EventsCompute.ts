@@ -48,13 +48,4 @@ export class EventsCompute {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

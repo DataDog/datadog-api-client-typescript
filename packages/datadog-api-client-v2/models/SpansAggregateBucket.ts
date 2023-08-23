@@ -47,13 +47,4 @@ export class SpansAggregateBucket {
       type: "SpansAggregateBucketType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateBucket.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

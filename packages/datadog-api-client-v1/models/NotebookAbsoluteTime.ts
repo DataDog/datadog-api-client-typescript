@@ -49,13 +49,4 @@ export class NotebookAbsoluteTime {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookAbsoluteTime.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class Organization {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Organization.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

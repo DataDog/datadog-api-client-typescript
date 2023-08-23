@@ -47,13 +47,4 @@ export class MetricEstimate {
       type: "MetricEstimateResourceType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricEstimate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

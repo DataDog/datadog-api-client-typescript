@@ -81,13 +81,4 @@ export class MonitorGroupSearchResult {
       type: "MonitorOverallStates",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorGroupSearchResult.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

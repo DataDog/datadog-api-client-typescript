@@ -39,13 +39,4 @@ export class AuthNMappingResponse {
       type: "Array<AuthNMappingIncluded>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

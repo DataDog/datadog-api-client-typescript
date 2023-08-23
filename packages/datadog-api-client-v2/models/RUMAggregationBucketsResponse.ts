@@ -30,13 +30,4 @@ export class RUMAggregationBucketsResponse {
       type: "Array<RUMBucketResponse>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMAggregationBucketsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

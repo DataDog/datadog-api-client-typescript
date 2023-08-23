@@ -40,13 +40,4 @@ export class QueryFormula {
       type: "FormulaLimit",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return QueryFormula.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

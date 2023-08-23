@@ -48,13 +48,4 @@ export class AuditLogsEventsResponse {
       type: "AuditLogsResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsEventsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

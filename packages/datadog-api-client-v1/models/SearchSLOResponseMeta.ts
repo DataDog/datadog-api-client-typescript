@@ -30,13 +30,4 @@ export class SearchSLOResponseMeta {
       type: "SearchSLOResponseMetaPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

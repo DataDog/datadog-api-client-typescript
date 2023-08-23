@@ -30,13 +30,4 @@ export class LogsIndexListResponse {
       type: "Array<LogsIndex>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsIndexListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

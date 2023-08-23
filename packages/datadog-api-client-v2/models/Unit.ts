@@ -62,13 +62,4 @@ export class Unit {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Unit.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

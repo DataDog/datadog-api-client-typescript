@@ -73,13 +73,4 @@ export class MetricTagConfigurationCreateAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

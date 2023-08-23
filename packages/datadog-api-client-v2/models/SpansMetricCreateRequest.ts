@@ -31,13 +31,4 @@ export class SpansMetricCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

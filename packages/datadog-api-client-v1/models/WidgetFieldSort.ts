@@ -40,13 +40,4 @@ export class WidgetFieldSort {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFieldSort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

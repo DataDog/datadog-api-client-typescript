@@ -53,13 +53,4 @@ export class DistributionWidgetXAxis {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionWidgetXAxis.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

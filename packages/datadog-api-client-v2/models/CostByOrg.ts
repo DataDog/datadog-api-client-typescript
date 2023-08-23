@@ -47,13 +47,4 @@ export class CostByOrg {
       type: "CostByOrgType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CostByOrg.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

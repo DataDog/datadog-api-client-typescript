@@ -61,13 +61,4 @@ export class TeamsResponseLinks {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamsResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

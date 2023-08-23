@@ -37,13 +37,4 @@ export class HostTags {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostTags.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

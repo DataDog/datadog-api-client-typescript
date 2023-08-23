@@ -83,13 +83,4 @@ export class UsageAttributionBody {
       type: "UsageAttributionValues",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

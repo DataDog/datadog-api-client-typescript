@@ -41,13 +41,4 @@ export class WidgetEvent {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetEvent.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

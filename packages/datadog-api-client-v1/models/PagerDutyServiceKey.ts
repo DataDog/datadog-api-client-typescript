@@ -30,13 +30,4 @@ export class PagerDutyServiceKey {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PagerDutyServiceKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

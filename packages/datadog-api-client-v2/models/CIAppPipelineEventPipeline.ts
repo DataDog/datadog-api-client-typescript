@@ -204,13 +204,4 @@ export class CIAppPipelineEventPipeline {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelineEventPipeline.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

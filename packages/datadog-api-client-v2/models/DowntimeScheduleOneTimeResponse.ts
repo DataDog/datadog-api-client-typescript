@@ -40,13 +40,4 @@ export class DowntimeScheduleOneTimeResponse {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeScheduleOneTimeResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -29,13 +29,4 @@ export class ServiceDefinitionV2Dot1Pagerduty {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Dot1Pagerduty.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

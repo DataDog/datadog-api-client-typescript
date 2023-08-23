@@ -40,13 +40,4 @@ export class RelationshipToTeamLinkData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToTeamLinkData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

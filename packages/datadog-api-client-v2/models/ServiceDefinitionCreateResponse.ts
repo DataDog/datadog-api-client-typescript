@@ -30,13 +30,4 @@ export class ServiceDefinitionCreateResponse {
       type: "Array<ServiceDefinitionData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionCreateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

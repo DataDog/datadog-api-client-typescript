@@ -31,13 +31,4 @@ export class MetricBulkTagConfigResponse {
       type: "MetricBulkTagConfigStatus",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

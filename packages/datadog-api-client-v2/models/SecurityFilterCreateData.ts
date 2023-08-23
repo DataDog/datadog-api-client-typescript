@@ -41,13 +41,4 @@ export class SecurityFilterCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

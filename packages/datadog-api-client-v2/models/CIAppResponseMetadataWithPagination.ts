@@ -66,13 +66,4 @@ export class CIAppResponseMetadataWithPagination {
       type: "Array<CIAppWarning>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppResponseMetadataWithPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

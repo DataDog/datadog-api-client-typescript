@@ -104,13 +104,4 @@ export class CloudConfigurationRuleCreatePayload {
       type: "CloudConfigurationRuleType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudConfigurationRuleCreatePayload.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

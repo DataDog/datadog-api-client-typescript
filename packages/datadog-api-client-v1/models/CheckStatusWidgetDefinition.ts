@@ -108,13 +108,4 @@ export class CheckStatusWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckStatusWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

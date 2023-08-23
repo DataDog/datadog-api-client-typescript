@@ -30,13 +30,4 @@ export class MetricVolumesResponse {
       type: "MetricVolumes",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricVolumesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

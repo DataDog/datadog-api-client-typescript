@@ -31,13 +31,4 @@ export class TeamPermissionSettingUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamPermissionSettingUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

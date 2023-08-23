@@ -57,13 +57,4 @@ export class WidgetMarker {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetMarker.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

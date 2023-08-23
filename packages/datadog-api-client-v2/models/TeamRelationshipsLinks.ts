@@ -29,13 +29,4 @@ export class TeamRelationshipsLinks {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamRelationshipsLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

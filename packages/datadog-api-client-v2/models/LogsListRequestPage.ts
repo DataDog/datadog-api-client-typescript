@@ -38,13 +38,4 @@ export class LogsListRequestPage {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListRequestPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

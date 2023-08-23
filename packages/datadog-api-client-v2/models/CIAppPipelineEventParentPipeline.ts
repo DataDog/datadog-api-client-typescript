@@ -38,13 +38,4 @@ export class CIAppPipelineEventParentPipeline {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelineEventParentPipeline.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

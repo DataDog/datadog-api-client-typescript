@@ -79,13 +79,4 @@ export class SecurityMonitoringStandardRuleQuery {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringStandardRuleQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

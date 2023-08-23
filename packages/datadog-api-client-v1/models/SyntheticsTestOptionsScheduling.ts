@@ -38,13 +38,4 @@ export class SyntheticsTestOptionsScheduling {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestOptionsScheduling.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

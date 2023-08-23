@@ -31,13 +31,4 @@ export class IPAllowlistEntry {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPAllowlistEntry.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

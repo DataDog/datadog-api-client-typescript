@@ -57,13 +57,4 @@ export class Role {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Role.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

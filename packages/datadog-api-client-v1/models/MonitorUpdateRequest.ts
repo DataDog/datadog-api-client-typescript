@@ -159,13 +159,4 @@ export class MonitorUpdateRequest {
       type: "MonitorType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

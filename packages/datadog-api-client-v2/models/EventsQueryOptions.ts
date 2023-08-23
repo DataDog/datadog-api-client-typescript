@@ -39,13 +39,4 @@ export class EventsQueryOptions {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

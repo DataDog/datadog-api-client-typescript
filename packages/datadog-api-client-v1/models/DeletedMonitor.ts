@@ -30,13 +30,4 @@ export class DeletedMonitor {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DeletedMonitor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

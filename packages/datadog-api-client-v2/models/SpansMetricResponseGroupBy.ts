@@ -37,13 +37,4 @@ export class SpansMetricResponseGroupBy {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricResponseGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

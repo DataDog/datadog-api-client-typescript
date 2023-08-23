@@ -30,13 +30,4 @@ export class UsageCIVisibilityResponse {
       type: "Array<UsageCIVisibilityHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCIVisibilityResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class UsageApplicationSecurityMonitoringResponse {
       type: "Array<UsageDataObject>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageApplicationSecurityMonitoringResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

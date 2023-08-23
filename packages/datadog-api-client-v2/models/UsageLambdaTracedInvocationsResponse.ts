@@ -30,13 +30,4 @@ export class UsageLambdaTracedInvocationsResponse {
       type: "Array<UsageDataObject>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLambdaTracedInvocationsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -41,13 +41,4 @@ export class ListFindingsResponse {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListFindingsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

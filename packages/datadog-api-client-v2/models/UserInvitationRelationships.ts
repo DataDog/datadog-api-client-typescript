@@ -31,13 +31,4 @@ export class UserInvitationRelationships {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

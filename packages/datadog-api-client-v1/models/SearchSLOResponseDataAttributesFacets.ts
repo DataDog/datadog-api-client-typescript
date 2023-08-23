@@ -87,13 +87,4 @@ export class SearchSLOResponseDataAttributesFacets {
       type: "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseDataAttributesFacets.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

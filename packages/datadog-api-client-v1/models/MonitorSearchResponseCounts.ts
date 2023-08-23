@@ -54,13 +54,4 @@ export class MonitorSearchResponseCounts {
       type: "Array<MonitorSearchCountItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResponseCounts.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

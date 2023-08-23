@@ -47,13 +47,4 @@ export class UsageCustomReportsData {
       type: "UsageReportsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

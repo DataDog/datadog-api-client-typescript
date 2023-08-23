@@ -57,13 +57,4 @@ export class TeamsResponse {
       type: "TeamsResponseMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

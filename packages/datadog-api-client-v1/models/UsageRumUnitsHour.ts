@@ -64,13 +64,4 @@ export class UsageRumUnitsHour {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageRumUnitsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

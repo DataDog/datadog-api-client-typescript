@@ -30,13 +30,4 @@ export class UserInvitationsResponse {
       type: "Array<UserInvitationResponseData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

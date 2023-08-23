@@ -31,13 +31,4 @@ export class IncidentSearchResponseIncidentsData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseIncidentsData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -39,13 +39,4 @@ export class IncidentSearchResponseNumericFacetDataAggregates {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseNumericFacetDataAggregates.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

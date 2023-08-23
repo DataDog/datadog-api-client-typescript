@@ -40,13 +40,4 @@ export class NotebookMarkdownCellDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookMarkdownCellDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

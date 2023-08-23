@@ -41,13 +41,4 @@ export class MetricCustomAggregation {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricCustomAggregation.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

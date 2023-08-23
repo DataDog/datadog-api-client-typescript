@@ -41,13 +41,4 @@ export class NotebookCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

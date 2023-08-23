@@ -45,13 +45,4 @@ export class HostMetaInstallMethod {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMetaInstallMethod.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -57,13 +57,4 @@ export class RUMCompute {
       type: "RUMComputeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

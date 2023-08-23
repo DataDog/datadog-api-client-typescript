@@ -45,13 +45,4 @@ export class HTTPCIAppError {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPCIAppError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

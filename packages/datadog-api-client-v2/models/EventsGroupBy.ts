@@ -48,13 +48,4 @@ export class EventsGroupBy {
       type: "EventsGroupBySort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

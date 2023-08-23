@@ -100,13 +100,4 @@ export class SLOHistoryMetrics {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistoryMetrics.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

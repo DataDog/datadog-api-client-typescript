@@ -30,13 +30,4 @@ export class TeamsResponseMeta {
       type: "TeamsResponseMetaPagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamsResponseMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

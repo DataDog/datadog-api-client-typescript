@@ -75,13 +75,4 @@ export class SearchSLOThreshold {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOThreshold.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -323,13 +323,4 @@ export class MonitorOptions {
       type: "Array<MonitorFormulaAndFunctionQueryDefinition>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

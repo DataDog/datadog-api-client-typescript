@@ -30,13 +30,4 @@ export class UsageIndexedSpansResponse {
       type: "Array<UsageIndexedSpansHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIndexedSpansResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

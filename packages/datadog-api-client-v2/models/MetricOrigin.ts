@@ -48,13 +48,4 @@ export class MetricOrigin {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricOrigin.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

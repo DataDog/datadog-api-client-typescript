@@ -148,13 +148,4 @@ export class QueryValueWidgetRequest {
       type: "LogQueryDefinition",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return QueryValueWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

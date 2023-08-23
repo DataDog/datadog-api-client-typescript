@@ -53,13 +53,4 @@ export class IPPrefixesSynthetics {
       type: "{ [key: string]: Array<string>; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPPrefixesSynthetics.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

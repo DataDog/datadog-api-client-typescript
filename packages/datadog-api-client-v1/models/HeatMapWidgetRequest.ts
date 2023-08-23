@@ -105,13 +105,4 @@ export class HeatMapWidgetRequest {
       type: "WidgetStyle",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HeatMapWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

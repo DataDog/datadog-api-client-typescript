@@ -57,13 +57,4 @@ export class ServiceDefinitionV2Dot1Link {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Dot1Link.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

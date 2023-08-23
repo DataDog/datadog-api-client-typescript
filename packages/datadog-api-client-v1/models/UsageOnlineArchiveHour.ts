@@ -55,13 +55,4 @@ export class UsageOnlineArchiveHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageOnlineArchiveHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

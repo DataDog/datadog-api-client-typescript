@@ -31,13 +31,4 @@ export class SensitiveDataScannerRuleDeleteRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerRuleDeleteRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

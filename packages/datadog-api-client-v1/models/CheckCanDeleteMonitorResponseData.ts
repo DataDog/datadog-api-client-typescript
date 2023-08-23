@@ -30,13 +30,4 @@ export class CheckCanDeleteMonitorResponseData {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteMonitorResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

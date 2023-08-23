@@ -188,13 +188,4 @@ export class EventAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

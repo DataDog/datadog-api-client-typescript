@@ -39,13 +39,4 @@ export class CloudConfigurationRegoRule {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudConfigurationRegoRule.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

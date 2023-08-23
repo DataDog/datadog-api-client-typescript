@@ -78,13 +78,4 @@ export class MetricMetadata {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

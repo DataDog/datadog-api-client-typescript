@@ -135,13 +135,4 @@ export class MetricsQueryMetadata {
       type: "[MetricsQueryUnit, MetricsQueryUnit]",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsQueryMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

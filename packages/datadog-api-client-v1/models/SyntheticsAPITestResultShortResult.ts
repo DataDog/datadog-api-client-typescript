@@ -39,13 +39,4 @@ export class SyntheticsAPITestResultShortResult {
       type: "SyntheticsTiming",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITestResultShortResult.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -41,13 +41,4 @@ export class TeamLinkCreate {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamLinkCreate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

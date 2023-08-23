@@ -58,13 +58,4 @@ export class NotebookTimeseriesCellAttributes {
       type: "NotebookCellTime",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookTimeseriesCellAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

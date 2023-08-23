@@ -45,13 +45,4 @@ export class RUMQueryFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMQueryFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

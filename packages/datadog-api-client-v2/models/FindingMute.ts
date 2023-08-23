@@ -72,13 +72,4 @@ export class FindingMute {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FindingMute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

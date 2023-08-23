@@ -172,13 +172,4 @@ export class SearchServiceLevelObjectiveAttributes {
       type: "Array<SearchSLOThreshold>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchServiceLevelObjectiveAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

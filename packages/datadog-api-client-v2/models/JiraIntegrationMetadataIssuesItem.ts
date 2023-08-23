@@ -63,13 +63,4 @@ export class JiraIntegrationMetadataIssuesItem {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIntegrationMetadataIssuesItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

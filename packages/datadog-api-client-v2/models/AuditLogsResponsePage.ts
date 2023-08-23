@@ -29,13 +29,4 @@ export class AuditLogsResponsePage {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsResponsePage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -62,13 +62,4 @@ export class DashboardTemplateVariable {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardTemplateVariable.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

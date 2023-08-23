@@ -46,13 +46,4 @@ export class ServiceDefinitionData {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

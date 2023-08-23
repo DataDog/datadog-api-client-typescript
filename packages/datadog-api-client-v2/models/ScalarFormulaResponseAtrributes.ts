@@ -30,13 +30,4 @@ export class ScalarFormulaResponseAtrributes {
       type: "Array<ScalarColumn>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarFormulaResponseAtrributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

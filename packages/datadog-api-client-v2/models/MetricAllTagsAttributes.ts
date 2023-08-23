@@ -29,13 +29,4 @@ export class MetricAllTagsAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricAllTagsAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

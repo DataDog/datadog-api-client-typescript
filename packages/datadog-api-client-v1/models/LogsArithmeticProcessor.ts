@@ -94,13 +94,4 @@ export class LogsArithmeticProcessor {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArithmeticProcessor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

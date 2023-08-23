@@ -74,13 +74,4 @@ export class WidgetFormula {
       type: "WidgetFormulaStyle",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFormula.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

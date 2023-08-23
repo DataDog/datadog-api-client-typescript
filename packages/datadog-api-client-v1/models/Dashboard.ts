@@ -170,13 +170,4 @@ export class Dashboard {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Dashboard.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

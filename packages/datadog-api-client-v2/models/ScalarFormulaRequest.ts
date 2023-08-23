@@ -41,13 +41,4 @@ export class ScalarFormulaRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarFormulaRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

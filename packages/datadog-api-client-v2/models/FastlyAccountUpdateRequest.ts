@@ -31,13 +31,4 @@ export class FastlyAccountUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyAccountUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

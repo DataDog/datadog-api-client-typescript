@@ -122,13 +122,4 @@ export class SyntheticsBrowserTest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

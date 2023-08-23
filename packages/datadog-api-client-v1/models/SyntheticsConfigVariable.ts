@@ -72,13 +72,4 @@ export class SyntheticsConfigVariable {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsConfigVariable.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

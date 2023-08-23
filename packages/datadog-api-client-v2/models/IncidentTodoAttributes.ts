@@ -64,13 +64,4 @@ export class IncidentTodoAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTodoAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

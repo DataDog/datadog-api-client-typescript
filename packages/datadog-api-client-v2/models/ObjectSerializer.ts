@@ -2487,7 +2487,7 @@ export class ObjectSerializer {
       }
 
       // get the map for the correct type.
-      const attributesMap = typeMap[type].getAttributeTypeMap();
+      const attributesMap = typeMap[type].attributeTypeMap;
       const instance: { [index: string]: any } = {};
 
       for (const attributeName in attributesMap) {
@@ -2613,7 +2613,7 @@ export class ObjectSerializer {
       }
 
       const instance = new typeMap[type]();
-      const attributesMap = typeMap[type].getAttributeTypeMap();
+      const attributesMap = typeMap[type].attributeTypeMap;
       let extraAttributes: any = [];
       if ("additionalProperties" in attributesMap) {
         const attributesBaseNames = Object.keys(attributesMap).reduce(

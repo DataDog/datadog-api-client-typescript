@@ -39,13 +39,4 @@ export class EventQueryDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

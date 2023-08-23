@@ -30,13 +30,4 @@ export class SLOCorrectionUpdateRequest {
       type: "SLOCorrectionUpdateData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class MetricsTimeseriesQuery {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsTimeseriesQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

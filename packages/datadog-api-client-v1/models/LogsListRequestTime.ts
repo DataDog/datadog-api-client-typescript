@@ -50,13 +50,4 @@ export class LogsListRequestTime {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListRequestTime.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

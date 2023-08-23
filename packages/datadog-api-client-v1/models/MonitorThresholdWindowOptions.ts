@@ -37,13 +37,4 @@ export class MonitorThresholdWindowOptions {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorThresholdWindowOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

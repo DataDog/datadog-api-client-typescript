@@ -115,13 +115,4 @@ export class DetailedFindingAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DetailedFindingAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

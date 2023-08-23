@@ -30,13 +30,4 @@ export class SyntheticsTestCiOptions {
       type: "SyntheticsTestExecutionRule",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestCiOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

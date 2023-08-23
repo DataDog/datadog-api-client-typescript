@@ -62,13 +62,4 @@ export class MetricTagConfigurationUpdateAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -49,13 +49,4 @@ export class NotebookLogStreamCellAttributes {
       type: "NotebookCellTime",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookLogStreamCellAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

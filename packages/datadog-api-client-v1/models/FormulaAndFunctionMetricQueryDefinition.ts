@@ -58,13 +58,4 @@ export class FormulaAndFunctionMetricQueryDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionMetricQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

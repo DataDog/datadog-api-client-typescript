@@ -47,13 +47,4 @@ export class GCPSTSDelegateAccount {
       type: "GCPSTSDelegateAccountType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSDelegateAccount.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

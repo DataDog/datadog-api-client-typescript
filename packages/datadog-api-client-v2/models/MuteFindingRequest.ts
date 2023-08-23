@@ -31,13 +31,4 @@ export class MuteFindingRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

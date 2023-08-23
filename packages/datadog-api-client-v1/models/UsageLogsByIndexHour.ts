@@ -80,13 +80,4 @@ export class UsageLogsByIndexHour {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLogsByIndexHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

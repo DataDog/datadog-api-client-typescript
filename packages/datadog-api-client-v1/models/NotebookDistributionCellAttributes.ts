@@ -60,13 +60,4 @@ export class NotebookDistributionCellAttributes {
       type: "NotebookCellTime",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookDistributionCellAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -39,13 +39,4 @@ export class GeomapWidgetDefinitionStyle {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetDefinitionStyle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -121,13 +121,4 @@ export class SLOHistoryResponseData {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistoryResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

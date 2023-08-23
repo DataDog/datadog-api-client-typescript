@@ -30,13 +30,4 @@ export class FormulaAndFunctionEventQueryDefinitionSearch {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

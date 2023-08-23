@@ -47,13 +47,4 @@ export class SecurityFilter {
       type: "SecurityFilterType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

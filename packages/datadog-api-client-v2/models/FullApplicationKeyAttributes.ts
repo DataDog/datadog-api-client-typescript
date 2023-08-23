@@ -61,13 +61,4 @@ export class FullApplicationKeyAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FullApplicationKeyAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

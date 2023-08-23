@@ -41,13 +41,4 @@ export class MonitorConfigPolicyAttributeCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorConfigPolicyAttributeCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

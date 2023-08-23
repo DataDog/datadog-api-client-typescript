@@ -72,13 +72,4 @@ export class CostByOrgAttributes {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CostByOrgAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

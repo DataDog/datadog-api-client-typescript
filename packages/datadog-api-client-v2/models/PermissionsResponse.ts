@@ -30,13 +30,4 @@ export class PermissionsResponse {
       type: "Array<Permission>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PermissionsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

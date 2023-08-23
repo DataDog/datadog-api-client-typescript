@@ -67,13 +67,4 @@ export class RUMAggregateRequest {
       type: "RUMQueryPageOptions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMAggregateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

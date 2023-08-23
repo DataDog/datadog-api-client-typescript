@@ -37,13 +37,4 @@ export class AWSLogsListServicesResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsListServicesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -100,13 +100,4 @@ export class FormulaAndFunctionProcessQueryDefinition {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionProcessQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -102,13 +102,4 @@ export class SLOOverallStatuses {
       type: "SLOTimeframe",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOOverallStatuses.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

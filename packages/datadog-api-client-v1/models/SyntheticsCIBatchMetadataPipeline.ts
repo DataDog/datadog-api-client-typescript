@@ -29,13 +29,4 @@ export class SyntheticsCIBatchMetadataPipeline {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadataPipeline.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

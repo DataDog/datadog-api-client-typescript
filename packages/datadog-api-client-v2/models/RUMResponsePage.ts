@@ -29,13 +29,4 @@ export class RUMResponsePage {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMResponsePage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

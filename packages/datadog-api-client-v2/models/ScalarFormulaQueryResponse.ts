@@ -38,13 +38,4 @@ export class ScalarFormulaQueryResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarFormulaQueryResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class GCPSTSServiceAccountResponse {
       type: "GCPSTSServiceAccount",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSServiceAccountResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

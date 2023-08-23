@@ -50,13 +50,4 @@ export class TimeseriesResponseSeries {
       type: "Array<Unit>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesResponseSeries.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class CanceledDowntimesIds {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CanceledDowntimesIds.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

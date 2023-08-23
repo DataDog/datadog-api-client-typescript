@@ -42,13 +42,4 @@ export class DowntimeResponse {
       type: "Array<DowntimeResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

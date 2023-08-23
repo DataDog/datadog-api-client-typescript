@@ -90,13 +90,4 @@ export class AlertValueWidgetDefinition {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AlertValueWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

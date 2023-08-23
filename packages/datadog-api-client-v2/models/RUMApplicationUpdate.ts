@@ -49,13 +49,4 @@ export class RUMApplicationUpdate {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMApplicationUpdate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

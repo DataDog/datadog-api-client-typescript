@@ -107,13 +107,4 @@ export class GeomapWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

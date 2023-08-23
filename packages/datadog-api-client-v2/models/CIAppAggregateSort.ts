@@ -56,13 +56,4 @@ export class CIAppAggregateSort {
       type: "CIAppAggregateSortType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppAggregateSort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -133,13 +133,4 @@ export class HostMapWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

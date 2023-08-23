@@ -158,13 +158,4 @@ export class ServiceSummaryWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceSummaryWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

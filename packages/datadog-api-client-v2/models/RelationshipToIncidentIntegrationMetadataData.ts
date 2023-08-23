@@ -40,13 +40,4 @@ export class RelationshipToIncidentIntegrationMetadataData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentIntegrationMetadataData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

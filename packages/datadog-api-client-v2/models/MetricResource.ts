@@ -37,13 +37,4 @@ export class MetricResource {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricResource.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

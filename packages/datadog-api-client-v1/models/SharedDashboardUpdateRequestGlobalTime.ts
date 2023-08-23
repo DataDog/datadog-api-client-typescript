@@ -30,13 +30,4 @@ export class SharedDashboardUpdateRequestGlobalTime {
       type: "DashboardGlobalTimeLiveSpan",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SharedDashboardUpdateRequestGlobalTime.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

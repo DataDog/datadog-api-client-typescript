@@ -129,13 +129,4 @@ export class DowntimeResponseAttributes {
       type: "DowntimeStatus",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

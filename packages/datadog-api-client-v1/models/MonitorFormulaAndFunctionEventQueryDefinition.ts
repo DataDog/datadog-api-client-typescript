@@ -76,13 +76,4 @@ export class MonitorFormulaAndFunctionEventQueryDefinition {
       type: "MonitorFormulaAndFunctionEventQueryDefinitionSearch",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionEventQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

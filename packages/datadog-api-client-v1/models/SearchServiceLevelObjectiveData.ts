@@ -49,13 +49,4 @@ export class SearchServiceLevelObjectiveData {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchServiceLevelObjectiveData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class RelationshipToRole {
       type: "RelationshipToRoleData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToRole.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

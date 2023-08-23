@@ -30,13 +30,4 @@ export class NotebookResponse {
       type: "NotebookResponseData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

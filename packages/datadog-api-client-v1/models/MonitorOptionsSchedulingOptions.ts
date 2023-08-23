@@ -30,13 +30,4 @@ export class MonitorOptionsSchedulingOptions {
       type: "MonitorOptionsSchedulingOptionsEvaluationWindow",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorOptionsSchedulingOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

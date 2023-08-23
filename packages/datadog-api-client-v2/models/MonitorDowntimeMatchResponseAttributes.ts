@@ -55,13 +55,4 @@ export class MonitorDowntimeMatchResponseAttributes {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorDowntimeMatchResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

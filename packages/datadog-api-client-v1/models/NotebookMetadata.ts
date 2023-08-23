@@ -46,13 +46,4 @@ export class NotebookMetadata {
       type: "NotebookMetadataType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

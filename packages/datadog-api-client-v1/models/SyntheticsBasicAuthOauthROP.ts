@@ -107,13 +107,4 @@ export class SyntheticsBasicAuthOauthROP {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuthOauthROP.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

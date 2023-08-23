@@ -56,13 +56,4 @@ export class SensitiveDataScannerGroupUpdate {
       type: "SensitiveDataScannerGroupType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerGroupUpdate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

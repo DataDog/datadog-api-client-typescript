@@ -45,13 +45,4 @@ export class LogsWarning {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsWarning.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class LogsAPIErrorResponse {
       type: "LogsAPIError",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAPIErrorResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

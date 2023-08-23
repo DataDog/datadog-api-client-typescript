@@ -38,13 +38,4 @@ export class HostMapWidgetDefinitionRequests {
       type: "HostMapRequest",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetDefinitionRequests.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

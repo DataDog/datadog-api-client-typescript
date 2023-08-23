@@ -74,13 +74,4 @@ export class LogContent {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogContent.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

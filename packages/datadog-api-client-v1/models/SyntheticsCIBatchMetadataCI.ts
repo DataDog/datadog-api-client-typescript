@@ -39,13 +39,4 @@ export class SyntheticsCIBatchMetadataCI {
       type: "SyntheticsCIBatchMetadataProvider",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadataCI.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

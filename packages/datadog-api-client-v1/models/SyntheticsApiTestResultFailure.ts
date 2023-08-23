@@ -38,13 +38,4 @@ export class SyntheticsApiTestResultFailure {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsApiTestResultFailure.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

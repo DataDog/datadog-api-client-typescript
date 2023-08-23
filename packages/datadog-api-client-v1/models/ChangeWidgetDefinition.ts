@@ -87,13 +87,4 @@ export class ChangeWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ChangeWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

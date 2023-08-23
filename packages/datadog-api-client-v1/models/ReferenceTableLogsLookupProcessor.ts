@@ -80,13 +80,4 @@ export class ReferenceTableLogsLookupProcessor {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ReferenceTableLogsLookupProcessor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

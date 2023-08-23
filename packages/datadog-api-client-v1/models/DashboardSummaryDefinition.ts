@@ -96,13 +96,4 @@ export class DashboardSummaryDefinition {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardSummaryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

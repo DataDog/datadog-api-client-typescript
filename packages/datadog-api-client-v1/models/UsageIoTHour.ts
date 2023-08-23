@@ -55,13 +55,4 @@ export class UsageIoTHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIoTHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

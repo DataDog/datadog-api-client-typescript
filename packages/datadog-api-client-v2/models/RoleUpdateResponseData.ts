@@ -57,13 +57,4 @@ export class RoleUpdateResponseData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleUpdateResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

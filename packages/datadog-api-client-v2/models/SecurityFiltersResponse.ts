@@ -39,13 +39,4 @@ export class SecurityFiltersResponse {
       type: "SecurityFilterMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFiltersResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class CostByOrgResponse {
       type: "Array<CostByOrg>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CostByOrgResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

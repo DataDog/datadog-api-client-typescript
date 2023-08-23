@@ -39,13 +39,4 @@ export class ServiceDefinitionV2Opsgenie {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Opsgenie.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

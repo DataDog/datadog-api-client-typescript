@@ -29,13 +29,4 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocationSecretsConfigDecryption.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

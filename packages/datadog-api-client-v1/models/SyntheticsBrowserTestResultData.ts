@@ -124,13 +124,4 @@ export class SyntheticsBrowserTestResultData {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestResultData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

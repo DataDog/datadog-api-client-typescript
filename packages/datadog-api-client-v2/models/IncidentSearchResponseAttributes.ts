@@ -51,13 +51,4 @@ export class IncidentSearchResponseAttributes {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

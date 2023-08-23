@@ -65,13 +65,4 @@ export class UsageLambdaHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLambdaHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

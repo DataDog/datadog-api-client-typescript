@@ -100,13 +100,4 @@ export class HourlyUsageAttributionBody {
       type: "HourlyUsageAttributionUsageType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageAttributionBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

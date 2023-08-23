@@ -48,13 +48,4 @@ export class ListDowntimesResponse {
       type: "DowntimeMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListDowntimesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

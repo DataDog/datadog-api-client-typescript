@@ -78,13 +78,4 @@ export class PermissionAttributes {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PermissionAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

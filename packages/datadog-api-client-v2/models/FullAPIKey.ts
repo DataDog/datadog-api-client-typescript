@@ -56,13 +56,4 @@ export class FullAPIKey {
       type: "APIKeysType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FullAPIKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

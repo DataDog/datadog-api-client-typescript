@@ -122,13 +122,4 @@ export class SyntheticsSSLCertificate {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsSSLCertificate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

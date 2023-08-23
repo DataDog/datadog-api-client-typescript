@@ -31,13 +31,4 @@ export class OpsgenieServiceResponse {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OpsgenieServiceResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

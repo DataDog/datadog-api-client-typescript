@@ -57,13 +57,4 @@ export class LogsCompute {
       type: "LogsComputeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

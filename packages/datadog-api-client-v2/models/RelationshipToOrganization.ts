@@ -31,13 +31,4 @@ export class RelationshipToOrganization {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToOrganization.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

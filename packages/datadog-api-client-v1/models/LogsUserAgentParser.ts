@@ -74,13 +74,4 @@ export class LogsUserAgentParser {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsUserAgentParser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

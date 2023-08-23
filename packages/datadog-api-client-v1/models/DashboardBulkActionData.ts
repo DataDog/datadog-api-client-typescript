@@ -40,13 +40,4 @@ export class DashboardBulkActionData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardBulkActionData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

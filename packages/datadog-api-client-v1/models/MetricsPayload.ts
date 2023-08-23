@@ -31,13 +31,4 @@ export class MetricsPayload {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsPayload.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

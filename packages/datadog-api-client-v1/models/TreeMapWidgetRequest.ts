@@ -56,13 +56,4 @@ export class TreeMapWidgetRequest {
       type: "FormulaAndFunctionResponseFormat",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TreeMapWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class TimeseriesFormulaQueryRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesFormulaQueryRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

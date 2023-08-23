@@ -39,13 +39,4 @@ export class LogsAggregateResponse {
       type: "LogsResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

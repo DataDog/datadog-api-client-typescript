@@ -30,13 +30,4 @@ export class UsageLogsResponse {
       type: "Array<UsageLogsHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLogsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class RUMAnalyticsAggregateResponse {
       type: "RUMResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMAnalyticsAggregateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

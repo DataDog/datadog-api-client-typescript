@@ -111,13 +111,4 @@ export class UserAttributes {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

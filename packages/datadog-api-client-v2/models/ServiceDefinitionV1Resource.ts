@@ -49,13 +49,4 @@ export class ServiceDefinitionV1Resource {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV1Resource.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -46,13 +46,4 @@ export class SyntheticsTestOptionsSchedulingTimeframe {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestOptionsSchedulingTimeframe.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

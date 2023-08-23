@@ -113,13 +113,4 @@ export class IncidentSearchResponseFacetsData {
       type: "Array<IncidentSearchResponseNumericFacetData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseFacetsData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

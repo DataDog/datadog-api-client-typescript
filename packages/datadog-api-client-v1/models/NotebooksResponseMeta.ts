@@ -30,13 +30,4 @@ export class NotebooksResponseMeta {
       type: "NotebooksResponsePage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebooksResponseMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

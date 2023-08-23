@@ -49,13 +49,4 @@ export class UserTeamCreate {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserTeamCreate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

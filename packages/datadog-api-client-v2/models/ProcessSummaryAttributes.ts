@@ -87,13 +87,4 @@ export class ProcessSummaryAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummaryAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

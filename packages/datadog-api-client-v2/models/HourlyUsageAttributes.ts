@@ -71,13 +71,4 @@ export class HourlyUsageAttributes {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

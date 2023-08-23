@@ -39,13 +39,4 @@ export class SLOCorrectionListResponse {
       type: "ResponseMetaAttributes",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

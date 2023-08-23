@@ -58,13 +58,4 @@ export class AuthNMappingUpdateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

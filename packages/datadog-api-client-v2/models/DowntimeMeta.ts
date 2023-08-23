@@ -30,13 +30,4 @@ export class DowntimeMeta {
       type: "DowntimeMetaPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

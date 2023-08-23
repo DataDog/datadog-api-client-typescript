@@ -56,13 +56,4 @@ export class LogsAggregateSort {
       type: "LogsAggregateSortType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateSort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

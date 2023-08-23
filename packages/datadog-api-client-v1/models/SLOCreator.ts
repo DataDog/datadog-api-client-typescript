@@ -46,13 +46,4 @@ export class SLOCreator {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCreator.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

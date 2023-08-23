@@ -48,13 +48,4 @@ export class WebhooksIntegrationCustomVariableResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WebhooksIntegrationCustomVariableResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

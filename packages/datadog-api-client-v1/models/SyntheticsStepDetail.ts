@@ -168,13 +168,4 @@ export class SyntheticsStepDetail {
       type: "Array<SyntheticsStepDetailWarning>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsStepDetail.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

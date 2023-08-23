@@ -60,13 +60,4 @@ export class LogsTraceRemapper {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsTraceRemapper.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

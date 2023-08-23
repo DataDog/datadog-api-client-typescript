@@ -70,13 +70,4 @@ export class WidgetLayout {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetLayout.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

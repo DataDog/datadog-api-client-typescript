@@ -30,13 +30,4 @@ export class IdpResponse {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IdpResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

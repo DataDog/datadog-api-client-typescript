@@ -41,13 +41,4 @@ export class APIKeyCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -29,13 +29,4 @@ export class UserTeamPermissionAttributes {
       type: "any",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserTeamPermissionAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

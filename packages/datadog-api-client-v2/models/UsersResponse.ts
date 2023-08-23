@@ -48,13 +48,4 @@ export class UsersResponse {
       type: "ResponseMetaAttributes",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsersResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

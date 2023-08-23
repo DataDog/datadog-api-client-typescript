@@ -50,13 +50,4 @@ export class UserCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

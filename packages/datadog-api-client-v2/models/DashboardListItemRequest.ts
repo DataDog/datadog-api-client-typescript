@@ -40,13 +40,4 @@ export class DashboardListItemRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListItemRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

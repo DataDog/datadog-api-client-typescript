@@ -103,13 +103,4 @@ export class SyntheticsTiming {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTiming.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

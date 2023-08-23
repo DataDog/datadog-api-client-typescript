@@ -56,13 +56,4 @@ export class SpansAggregateSort {
       type: "SpansAggregateSortType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateSort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

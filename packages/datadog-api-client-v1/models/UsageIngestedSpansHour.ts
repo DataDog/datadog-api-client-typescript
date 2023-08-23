@@ -55,13 +55,4 @@ export class UsageIngestedSpansHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIngestedSpansHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

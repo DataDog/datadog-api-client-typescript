@@ -74,13 +74,4 @@ export class SyntheticsPrivateLocation {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocation.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

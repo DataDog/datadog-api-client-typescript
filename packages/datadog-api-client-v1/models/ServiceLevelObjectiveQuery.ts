@@ -41,13 +41,4 @@ export class ServiceLevelObjectiveQuery {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceLevelObjectiveQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

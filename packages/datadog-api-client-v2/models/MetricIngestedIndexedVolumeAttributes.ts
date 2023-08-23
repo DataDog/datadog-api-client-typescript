@@ -39,13 +39,4 @@ export class MetricIngestedIndexedVolumeAttributes {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricIngestedIndexedVolumeAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

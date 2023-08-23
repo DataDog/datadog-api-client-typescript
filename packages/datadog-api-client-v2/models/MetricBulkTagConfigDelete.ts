@@ -49,13 +49,4 @@ export class MetricBulkTagConfigDelete {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigDelete.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

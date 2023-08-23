@@ -51,13 +51,4 @@ export class ListStreamWidgetRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

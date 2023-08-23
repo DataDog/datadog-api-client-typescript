@@ -41,13 +41,4 @@ export class ApplicationKeyCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

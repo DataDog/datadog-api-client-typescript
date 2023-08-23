@@ -40,13 +40,4 @@ export class IFrameWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IFrameWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

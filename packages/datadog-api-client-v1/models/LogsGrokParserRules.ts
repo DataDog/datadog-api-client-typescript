@@ -38,13 +38,4 @@ export class LogsGrokParserRules {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsGrokParserRules.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

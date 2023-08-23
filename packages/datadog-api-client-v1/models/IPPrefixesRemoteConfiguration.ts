@@ -37,13 +37,4 @@ export class IPPrefixesRemoteConfiguration {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPPrefixesRemoteConfiguration.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

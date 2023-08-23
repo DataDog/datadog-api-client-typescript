@@ -39,13 +39,4 @@ export class APIKeysResponse {
       type: "Array<APIKeyResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeysResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

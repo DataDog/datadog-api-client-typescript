@@ -39,13 +39,4 @@ export class CloudflareAccountUpdateRequestData {
       type: "CloudflareAccountType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudflareAccountUpdateRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

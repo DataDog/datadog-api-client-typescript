@@ -39,13 +39,4 @@ export class ProcessSummariesMetaPage {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummariesMetaPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

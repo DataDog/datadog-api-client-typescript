@@ -39,13 +39,4 @@ export class UsageTimeSeriesObject {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTimeSeriesObject.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class MetricSearchResponse {
       type: "MetricSearchResponseResults",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricSearchResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

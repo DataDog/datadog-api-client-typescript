@@ -30,13 +30,4 @@ export class UsageCustomReportsPage {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

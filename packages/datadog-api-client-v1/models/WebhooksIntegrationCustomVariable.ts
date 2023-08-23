@@ -49,13 +49,4 @@ export class WebhooksIntegrationCustomVariable {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WebhooksIntegrationCustomVariable.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

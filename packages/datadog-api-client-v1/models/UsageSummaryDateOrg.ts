@@ -800,13 +800,4 @@ export class UsageSummaryDateOrg {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSummaryDateOrg.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -110,13 +110,4 @@ export class SecurityMonitoringRuleOptions {
       type: "SecurityMonitoringRuleNewValueOptions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

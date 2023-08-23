@@ -37,13 +37,4 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocationSecretsAuthentication.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

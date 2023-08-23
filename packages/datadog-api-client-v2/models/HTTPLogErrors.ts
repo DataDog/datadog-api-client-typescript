@@ -30,13 +30,4 @@ export class HTTPLogErrors {
       type: "Array<HTTPLogError>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPLogErrors.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

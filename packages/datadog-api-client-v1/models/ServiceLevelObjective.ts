@@ -191,13 +191,4 @@ export class ServiceLevelObjective {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceLevelObjective.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

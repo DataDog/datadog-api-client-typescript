@@ -50,13 +50,4 @@ export class ConfluentResourceRequestData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentResourceRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

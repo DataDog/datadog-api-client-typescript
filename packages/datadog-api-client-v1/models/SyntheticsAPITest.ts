@@ -123,13 +123,4 @@ export class SyntheticsAPITest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

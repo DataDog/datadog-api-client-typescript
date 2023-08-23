@@ -65,13 +65,4 @@ export class FreeTextWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FreeTextWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

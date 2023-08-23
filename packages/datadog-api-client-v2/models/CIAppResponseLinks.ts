@@ -30,13 +30,4 @@ export class CIAppResponseLinks {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

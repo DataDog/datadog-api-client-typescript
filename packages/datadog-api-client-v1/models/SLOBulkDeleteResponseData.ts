@@ -40,13 +40,4 @@ export class SLOBulkDeleteResponseData {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOBulkDeleteResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

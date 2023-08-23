@@ -41,13 +41,4 @@ export class TimeseriesFormulaRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesFormulaRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

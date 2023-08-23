@@ -184,13 +184,4 @@ export class TableWidgetRequest {
       type: "LogQueryDefinition",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TableWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

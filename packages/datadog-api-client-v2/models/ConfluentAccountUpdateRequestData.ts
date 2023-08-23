@@ -41,13 +41,4 @@ export class ConfluentAccountUpdateRequestData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentAccountUpdateRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

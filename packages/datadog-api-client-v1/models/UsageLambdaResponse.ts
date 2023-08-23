@@ -31,13 +31,4 @@ export class UsageLambdaResponse {
       type: "Array<UsageLambdaHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLambdaResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -39,13 +39,4 @@ export class SyntheticsCIBatchMetadata {
       type: "SyntheticsCIBatchMetadataGit",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

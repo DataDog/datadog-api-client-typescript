@@ -41,13 +41,4 @@ export class SLOListWidgetRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOListWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

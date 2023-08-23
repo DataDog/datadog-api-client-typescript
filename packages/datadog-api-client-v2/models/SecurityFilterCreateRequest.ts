@@ -31,13 +31,4 @@ export class SecurityFilterCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

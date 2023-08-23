@@ -63,13 +63,4 @@ export class TeamPermissionSettingAttributes {
       type: "TeamPermissionSettingValue",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamPermissionSettingAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

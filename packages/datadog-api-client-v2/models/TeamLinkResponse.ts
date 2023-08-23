@@ -30,13 +30,4 @@ export class TeamLinkResponse {
       type: "TeamLink",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamLinkResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

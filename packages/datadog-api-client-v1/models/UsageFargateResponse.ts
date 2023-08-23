@@ -30,13 +30,4 @@ export class UsageFargateResponse {
       type: "Array<UsageFargateHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageFargateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

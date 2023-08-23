@@ -64,13 +64,4 @@ export class UsageCWSHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCWSHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

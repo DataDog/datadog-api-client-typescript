@@ -29,13 +29,4 @@ export class DowntimeMonitorIncludedAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeMonitorIncludedAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

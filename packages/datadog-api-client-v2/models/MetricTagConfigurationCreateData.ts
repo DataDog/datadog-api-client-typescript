@@ -49,13 +49,4 @@ export class MetricTagConfigurationCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

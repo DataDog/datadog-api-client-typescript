@@ -50,13 +50,4 @@ export class UserUpdateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

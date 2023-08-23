@@ -92,13 +92,4 @@ export class EventStreamWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventStreamWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

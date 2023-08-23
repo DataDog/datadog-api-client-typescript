@@ -39,13 +39,4 @@ export class SyntheticsVariableParser {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsVariableParser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class ResponseMetaAttributes {
       type: "Pagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ResponseMetaAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

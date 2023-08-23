@@ -38,13 +38,4 @@ export class CheckCanDeleteSLOResponse {
       type: "{ [key: string]: string; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteSLOResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

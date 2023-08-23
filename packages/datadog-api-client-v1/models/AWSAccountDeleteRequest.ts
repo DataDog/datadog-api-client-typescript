@@ -45,13 +45,4 @@ export class AWSAccountDeleteRequest {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountDeleteRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

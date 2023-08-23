@@ -65,13 +65,4 @@ export class IncidentResponseRelationships {
       type: "RelationshipToUser",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentResponseRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

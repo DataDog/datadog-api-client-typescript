@@ -30,13 +30,4 @@ export class UsageCustomReportsMeta {
       type: "UsageCustomReportsPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

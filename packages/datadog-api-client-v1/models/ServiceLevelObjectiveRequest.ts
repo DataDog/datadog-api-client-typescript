@@ -137,13 +137,4 @@ export class ServiceLevelObjectiveRequest {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceLevelObjectiveRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

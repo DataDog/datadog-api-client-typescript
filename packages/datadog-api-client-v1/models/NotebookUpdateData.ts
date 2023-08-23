@@ -41,13 +41,4 @@ export class NotebookUpdateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

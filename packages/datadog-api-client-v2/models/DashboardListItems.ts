@@ -40,13 +40,4 @@ export class DashboardListItems {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListItems.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

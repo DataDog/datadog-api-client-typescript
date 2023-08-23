@@ -47,13 +47,4 @@ export class SyntheticsPrivateLocationCreationResponse {
       type: "SyntheticsPrivateLocationCreationResponseResultEncryption",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocationCreationResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

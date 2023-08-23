@@ -53,13 +53,4 @@ export class PartialApplicationKeyAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PartialApplicationKeyAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

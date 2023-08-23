@@ -74,13 +74,4 @@ export class IncidentCreateAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

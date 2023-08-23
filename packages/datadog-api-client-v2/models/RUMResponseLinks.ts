@@ -30,13 +30,4 @@ export class RUMResponseLinks {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -76,13 +76,4 @@ export class SpansGroupBy {
       type: "SpansGroupByTotal",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

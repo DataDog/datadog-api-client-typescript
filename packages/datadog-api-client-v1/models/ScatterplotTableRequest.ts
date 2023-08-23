@@ -48,13 +48,4 @@ export class ScatterplotTableRequest {
       type: "FormulaAndFunctionResponseFormat",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterplotTableRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

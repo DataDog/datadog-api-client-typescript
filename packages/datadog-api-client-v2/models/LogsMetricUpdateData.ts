@@ -41,13 +41,4 @@ export class LogsMetricUpdateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class IncidentTodoCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTodoCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

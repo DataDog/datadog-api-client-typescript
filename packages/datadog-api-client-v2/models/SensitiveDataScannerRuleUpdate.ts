@@ -56,13 +56,4 @@ export class SensitiveDataScannerRuleUpdate {
       type: "SensitiveDataScannerRuleType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerRuleUpdate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

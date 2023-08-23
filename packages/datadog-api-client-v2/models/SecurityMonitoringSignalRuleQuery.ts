@@ -72,13 +72,4 @@ export class SecurityMonitoringSignalRuleQuery {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalRuleQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

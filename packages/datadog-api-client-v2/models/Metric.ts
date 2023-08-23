@@ -38,13 +38,4 @@ export class Metric {
       type: "MetricType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Metric.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

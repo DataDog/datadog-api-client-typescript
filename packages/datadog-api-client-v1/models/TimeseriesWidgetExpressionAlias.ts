@@ -38,13 +38,4 @@ export class TimeseriesWidgetExpressionAlias {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesWidgetExpressionAlias.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

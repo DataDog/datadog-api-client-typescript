@@ -84,13 +84,4 @@ export class LogsPipeline {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsPipeline.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

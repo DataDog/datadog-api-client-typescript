@@ -41,13 +41,4 @@ export class DowntimeCreateRequestData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeCreateRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

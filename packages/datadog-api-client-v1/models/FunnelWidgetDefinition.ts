@@ -75,13 +75,4 @@ export class FunnelWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

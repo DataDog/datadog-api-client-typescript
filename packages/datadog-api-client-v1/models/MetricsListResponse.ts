@@ -37,13 +37,4 @@ export class MetricsListResponse {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

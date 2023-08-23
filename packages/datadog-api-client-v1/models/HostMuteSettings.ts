@@ -46,13 +46,4 @@ export class HostMuteSettings {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMuteSettings.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class AWSLogsAsyncResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsAsyncResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

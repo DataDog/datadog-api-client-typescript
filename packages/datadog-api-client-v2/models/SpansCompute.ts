@@ -57,13 +57,4 @@ export class SpansCompute {
       type: "SpansComputeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

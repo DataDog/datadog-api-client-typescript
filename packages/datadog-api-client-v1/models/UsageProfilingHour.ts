@@ -64,13 +64,4 @@ export class UsageProfilingHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageProfilingHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

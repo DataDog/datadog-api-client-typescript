@@ -29,13 +29,4 @@ export class OrganizationBilling {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationBilling.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

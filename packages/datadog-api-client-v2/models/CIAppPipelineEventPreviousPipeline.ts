@@ -38,13 +38,4 @@ export class CIAppPipelineEventPreviousPipeline {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelineEventPreviousPipeline.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

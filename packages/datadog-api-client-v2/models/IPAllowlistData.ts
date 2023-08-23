@@ -48,13 +48,4 @@ export class IPAllowlistData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPAllowlistData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

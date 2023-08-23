@@ -66,13 +66,4 @@ export class SharedDashboardUpdateRequest {
       type: "DashboardShareType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SharedDashboardUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

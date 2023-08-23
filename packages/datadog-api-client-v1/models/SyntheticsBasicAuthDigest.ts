@@ -48,13 +48,4 @@ export class SyntheticsBasicAuthDigest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuthDigest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

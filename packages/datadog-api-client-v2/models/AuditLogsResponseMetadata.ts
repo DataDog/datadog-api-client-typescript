@@ -66,13 +66,4 @@ export class AuditLogsResponseMetadata {
       type: "Array<AuditLogsWarning>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

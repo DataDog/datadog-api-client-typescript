@@ -48,13 +48,4 @@ export class SLOListWidgetQuery {
       type: "Array<WidgetFieldSort>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOListWidgetQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

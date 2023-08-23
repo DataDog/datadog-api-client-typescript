@@ -74,13 +74,4 @@ export class MonitorStateGroup {
       type: "MonitorOverallStates",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorStateGroup.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

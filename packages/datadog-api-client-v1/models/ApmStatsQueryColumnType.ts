@@ -56,13 +56,4 @@ export class ApmStatsQueryColumnType {
       type: "WidgetSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApmStatsQueryColumnType.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

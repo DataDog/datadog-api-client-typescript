@@ -48,13 +48,4 @@ export class IncidentResponseMetaPagination {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentResponseMetaPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

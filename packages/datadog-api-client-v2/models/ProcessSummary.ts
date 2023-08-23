@@ -47,13 +47,4 @@ export class ProcessSummary {
       type: "ProcessSummaryType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummary.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

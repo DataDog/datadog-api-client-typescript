@@ -51,13 +51,4 @@ export class DowntimeScheduleRecurrencesResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeScheduleRecurrencesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

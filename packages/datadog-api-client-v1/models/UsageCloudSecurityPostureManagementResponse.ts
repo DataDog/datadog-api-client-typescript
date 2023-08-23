@@ -30,13 +30,4 @@ export class UsageCloudSecurityPostureManagementResponse {
       type: "Array<UsageCloudSecurityPostureManagementHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCloudSecurityPostureManagementResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

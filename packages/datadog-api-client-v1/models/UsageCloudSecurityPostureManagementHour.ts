@@ -109,13 +109,4 @@ export class UsageCloudSecurityPostureManagementHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCloudSecurityPostureManagementHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -57,13 +57,4 @@ export class MonitorSearchResponseMetadata {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -75,13 +75,4 @@ export class EventsTimeseriesQuery {
       type: "EventsSearch",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsTimeseriesQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

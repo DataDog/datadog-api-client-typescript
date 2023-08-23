@@ -30,13 +30,4 @@ export class SensitiveDataScannerStandardPatternsResponseData {
       type: "Array<SensitiveDataScannerStandardPatternsResponseItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerStandardPatternsResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

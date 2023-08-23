@@ -37,13 +37,4 @@ export class FindingRule {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FindingRule.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

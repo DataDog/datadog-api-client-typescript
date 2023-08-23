@@ -59,13 +59,4 @@ export class MatchingDowntime {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MatchingDowntime.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

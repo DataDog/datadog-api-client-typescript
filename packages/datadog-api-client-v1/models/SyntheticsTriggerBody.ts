@@ -31,13 +31,4 @@ export class SyntheticsTriggerBody {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

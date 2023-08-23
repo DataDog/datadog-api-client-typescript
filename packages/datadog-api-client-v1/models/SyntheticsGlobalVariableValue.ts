@@ -47,13 +47,4 @@ export class SyntheticsGlobalVariableValue {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariableValue.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

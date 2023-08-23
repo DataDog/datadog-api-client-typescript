@@ -37,13 +37,4 @@ export class IncidentNotificationHandle {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentNotificationHandle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

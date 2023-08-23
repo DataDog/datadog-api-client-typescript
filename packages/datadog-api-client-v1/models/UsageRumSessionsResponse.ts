@@ -30,13 +30,4 @@ export class UsageRumSessionsResponse {
       type: "Array<UsageRumSessionsHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageRumSessionsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

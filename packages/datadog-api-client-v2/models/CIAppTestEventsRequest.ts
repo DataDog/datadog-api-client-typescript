@@ -58,13 +58,4 @@ export class CIAppTestEventsRequest {
       type: "CIAppSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppTestEventsRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -45,13 +45,4 @@ export class SLOCorrectionResponseAttributesModifier {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionResponseAttributesModifier.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

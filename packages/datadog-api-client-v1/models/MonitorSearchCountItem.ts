@@ -38,13 +38,4 @@ export class MonitorSearchCountItem {
       type: "any",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchCountItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

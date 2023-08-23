@@ -30,13 +30,4 @@ export class RUMApplicationResponse {
       type: "RUMApplication",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMApplicationResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

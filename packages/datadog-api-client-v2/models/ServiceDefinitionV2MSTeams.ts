@@ -48,13 +48,4 @@ export class ServiceDefinitionV2MSTeams {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2MSTeams.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

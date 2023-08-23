@@ -47,13 +47,4 @@ export class SLOCorrection {
       type: "SLOCorrectionType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrection.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

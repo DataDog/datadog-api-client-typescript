@@ -61,13 +61,4 @@ export class IncidentIntegrationMetadataAttributes {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentIntegrationMetadataAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

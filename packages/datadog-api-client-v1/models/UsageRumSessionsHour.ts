@@ -100,13 +100,4 @@ export class UsageRumSessionsHour {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageRumSessionsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class EventListResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

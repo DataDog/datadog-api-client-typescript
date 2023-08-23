@@ -71,13 +71,4 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistoryMetricsSeriesMetadataUnit.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

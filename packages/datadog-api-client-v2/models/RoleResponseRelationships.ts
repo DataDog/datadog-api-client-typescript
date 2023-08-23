@@ -30,13 +30,4 @@ export class RoleResponseRelationships {
       type: "RelationshipToPermissions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleResponseRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

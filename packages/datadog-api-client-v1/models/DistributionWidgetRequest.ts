@@ -131,13 +131,4 @@ export class DistributionWidgetRequest {
       type: "WidgetStyle",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -66,13 +66,4 @@ export class RUMResponseMetadata {
       type: "Array<RUMWarning>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

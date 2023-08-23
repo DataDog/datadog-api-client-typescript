@@ -30,13 +30,4 @@ export class IncidentResponseMeta {
       type: "IncidentResponseMetaPagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentResponseMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

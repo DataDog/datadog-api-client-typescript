@@ -867,13 +867,4 @@ export class UsageSummaryResponse {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSummaryResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

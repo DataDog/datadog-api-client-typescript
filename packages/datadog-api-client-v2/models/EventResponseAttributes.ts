@@ -55,13 +55,4 @@ export class EventResponseAttributes {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class ListStreamGroupByItems {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamGroupByItems.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class SecurityMonitoringSignalListRequestPage {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalListRequestPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

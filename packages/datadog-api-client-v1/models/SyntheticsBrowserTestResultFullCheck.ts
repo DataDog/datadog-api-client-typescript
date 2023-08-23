@@ -31,13 +31,4 @@ export class SyntheticsBrowserTestResultFullCheck {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestResultFullCheck.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

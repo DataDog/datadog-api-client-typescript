@@ -38,13 +38,4 @@ export class SyntheticsLocation {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsLocation.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

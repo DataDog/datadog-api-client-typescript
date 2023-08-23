@@ -40,13 +40,4 @@ export class SyntheticsStepDetailWarning {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsStepDetailWarning.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -56,13 +56,4 @@ export class GCPSTSServiceAccount {
       type: "GCPServiceAccountType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSServiceAccount.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

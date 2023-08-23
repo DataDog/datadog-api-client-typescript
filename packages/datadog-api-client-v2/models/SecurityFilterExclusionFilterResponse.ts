@@ -37,13 +37,4 @@ export class SecurityFilterExclusionFilterResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterExclusionFilterResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

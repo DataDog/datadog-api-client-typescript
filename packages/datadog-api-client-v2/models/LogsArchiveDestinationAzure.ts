@@ -75,13 +75,4 @@ export class LogsArchiveDestinationAzure {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveDestinationAzure.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

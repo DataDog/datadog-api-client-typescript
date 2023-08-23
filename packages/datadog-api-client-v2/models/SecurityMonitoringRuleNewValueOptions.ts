@@ -61,13 +61,4 @@ export class SecurityMonitoringRuleNewValueOptions {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleNewValueOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

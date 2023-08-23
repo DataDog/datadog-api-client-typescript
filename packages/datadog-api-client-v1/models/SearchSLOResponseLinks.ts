@@ -61,13 +61,4 @@ export class SearchSLOResponseLinks {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

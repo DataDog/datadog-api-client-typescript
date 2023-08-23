@@ -41,13 +41,4 @@ export class LogsArchiveOrderDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveOrderDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

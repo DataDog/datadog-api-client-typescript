@@ -50,13 +50,4 @@ export class LogsMetricCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

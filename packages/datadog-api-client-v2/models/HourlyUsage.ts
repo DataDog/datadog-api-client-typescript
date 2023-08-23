@@ -47,13 +47,4 @@ export class HourlyUsage {
       type: "UsageTimeSeriesType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

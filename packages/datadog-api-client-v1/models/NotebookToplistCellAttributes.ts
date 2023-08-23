@@ -58,13 +58,4 @@ export class NotebookToplistCellAttributes {
       type: "NotebookCellTime",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookToplistCellAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

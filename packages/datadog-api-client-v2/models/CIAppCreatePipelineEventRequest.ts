@@ -30,13 +30,4 @@ export class CIAppCreatePipelineEventRequest {
       type: "CIAppCreatePipelineEventRequestData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppCreatePipelineEventRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class MonitorGroupSearchResponseCounts {
       type: "Array<MonitorSearchCountItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorGroupSearchResponseCounts.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

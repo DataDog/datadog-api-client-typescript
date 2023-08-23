@@ -39,13 +39,4 @@ export class UsageCustomReportsResponse {
       type: "UsageCustomReportsMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

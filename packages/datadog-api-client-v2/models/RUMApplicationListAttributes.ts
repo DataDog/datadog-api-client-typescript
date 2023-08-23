@@ -112,13 +112,4 @@ export class RUMApplicationListAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMApplicationListAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

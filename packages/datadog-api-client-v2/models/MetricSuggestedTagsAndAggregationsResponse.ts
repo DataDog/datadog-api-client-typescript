@@ -30,13 +30,4 @@ export class MetricSuggestedTagsAndAggregationsResponse {
       type: "MetricSuggestedTagsAndAggregations",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricSuggestedTagsAndAggregationsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

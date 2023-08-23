@@ -83,13 +83,4 @@ export class ServiceMapWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceMapWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

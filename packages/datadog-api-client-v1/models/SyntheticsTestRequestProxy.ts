@@ -38,13 +38,4 @@ export class SyntheticsTestRequestProxy {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestRequestProxy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

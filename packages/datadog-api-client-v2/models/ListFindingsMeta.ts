@@ -39,13 +39,4 @@ export class ListFindingsMeta {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListFindingsMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

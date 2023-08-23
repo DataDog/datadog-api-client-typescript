@@ -55,13 +55,4 @@ export class UsageSyntheticsHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSyntheticsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

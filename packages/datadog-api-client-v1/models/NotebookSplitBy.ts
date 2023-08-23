@@ -39,13 +39,4 @@ export class NotebookSplitBy {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookSplitBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class SecurityMonitoringSignalIncidentsUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalIncidentsUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

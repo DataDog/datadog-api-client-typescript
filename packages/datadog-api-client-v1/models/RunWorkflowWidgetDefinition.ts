@@ -92,13 +92,4 @@ export class RunWorkflowWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RunWorkflowWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

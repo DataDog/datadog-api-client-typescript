@@ -86,13 +86,4 @@ export class LogsStringBuilderProcessor {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsStringBuilderProcessor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

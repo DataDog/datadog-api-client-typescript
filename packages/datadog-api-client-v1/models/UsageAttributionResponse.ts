@@ -39,13 +39,4 @@ export class UsageAttributionResponse {
       type: "Array<UsageAttributionBody>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

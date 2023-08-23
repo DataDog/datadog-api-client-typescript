@@ -50,13 +50,4 @@ export class TeamCreate {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamCreate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

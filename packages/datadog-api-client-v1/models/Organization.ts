@@ -88,13 +88,4 @@ export class Organization {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Organization.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

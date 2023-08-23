@@ -68,13 +68,4 @@ export class SecurityFilterCreateAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

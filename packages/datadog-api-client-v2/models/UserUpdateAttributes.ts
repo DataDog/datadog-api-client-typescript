@@ -45,13 +45,4 @@ export class UserUpdateAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

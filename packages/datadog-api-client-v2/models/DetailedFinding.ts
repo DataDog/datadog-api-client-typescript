@@ -47,13 +47,4 @@ export class DetailedFinding {
       type: "DetailedFindingType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DetailedFinding.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

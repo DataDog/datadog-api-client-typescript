@@ -48,13 +48,4 @@ export class SpansListResponse {
       type: "SpansListResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -57,13 +57,4 @@ export class IncidentServiceUpdateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServiceUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

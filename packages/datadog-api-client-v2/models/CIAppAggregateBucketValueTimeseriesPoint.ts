@@ -39,13 +39,4 @@ export class CIAppAggregateBucketValueTimeseriesPoint {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppAggregateBucketValueTimeseriesPoint.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

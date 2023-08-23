@@ -67,13 +67,4 @@ export class LogsAggregateRequest {
       type: "LogsAggregateRequestPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

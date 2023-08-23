@@ -48,13 +48,4 @@ export class UsageTopAvgMetricsMetadata {
       type: "UsageTopAvgMetricsPagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTopAvgMetricsMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

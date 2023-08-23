@@ -38,13 +38,4 @@ export class DashboardTemplateVariablePreset {
       type: "Array<DashboardTemplateVariablePresetValue>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardTemplateVariablePreset.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

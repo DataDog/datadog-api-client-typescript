@@ -38,13 +38,4 @@ export class SLORawErrorBudgetRemaining {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLORawErrorBudgetRemaining.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

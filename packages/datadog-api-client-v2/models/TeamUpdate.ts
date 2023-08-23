@@ -50,13 +50,4 @@ export class TeamUpdate {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamUpdate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class SpansAggregateBucketValueTimeseriesPoint {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateBucketValueTimeseriesPoint.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

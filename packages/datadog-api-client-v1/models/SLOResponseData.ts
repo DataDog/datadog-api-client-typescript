@@ -197,13 +197,4 @@ export class SLOResponseData {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

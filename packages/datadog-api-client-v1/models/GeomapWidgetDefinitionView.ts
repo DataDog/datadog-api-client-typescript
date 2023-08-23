@@ -30,13 +30,4 @@ export class GeomapWidgetDefinitionView {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetDefinitionView.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

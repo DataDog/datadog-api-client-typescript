@@ -48,13 +48,4 @@ export class LogsByRetention {
       type: "LogsByRetentionMonthlyUsage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsByRetention.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

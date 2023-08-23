@@ -40,13 +40,4 @@ export class ListStreamColumn {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamColumn.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

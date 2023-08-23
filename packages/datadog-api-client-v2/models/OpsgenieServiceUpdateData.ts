@@ -50,13 +50,4 @@ export class OpsgenieServiceUpdateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OpsgenieServiceUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

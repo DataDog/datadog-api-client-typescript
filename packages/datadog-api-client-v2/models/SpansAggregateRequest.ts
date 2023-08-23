@@ -30,13 +30,4 @@ export class SpansAggregateRequest {
       type: "SpansAggregateData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

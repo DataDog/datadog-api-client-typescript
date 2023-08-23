@@ -30,13 +30,4 @@ export class ProcessSummariesMeta {
       type: "ProcessSummariesMetaPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummariesMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

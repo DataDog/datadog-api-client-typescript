@@ -39,13 +39,4 @@ export class ProcessSummariesResponse {
       type: "ProcessSummariesMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummariesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

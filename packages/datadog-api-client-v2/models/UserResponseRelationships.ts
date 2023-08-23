@@ -57,13 +57,4 @@ export class UserResponseRelationships {
       type: "RelationshipToRoles",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserResponseRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

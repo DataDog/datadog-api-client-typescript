@@ -161,13 +161,4 @@ export class SpansAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -50,13 +50,4 @@ export class FastlyAccountResponseData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyAccountResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

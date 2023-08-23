@@ -30,13 +30,4 @@ export class AWSAccountListResponse {
       type: "Array<AWSAccount>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

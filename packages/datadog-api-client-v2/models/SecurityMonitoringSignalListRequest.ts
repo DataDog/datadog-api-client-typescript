@@ -48,13 +48,4 @@ export class SecurityMonitoringSignalListRequest {
       type: "SecurityMonitoringSignalsSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalListRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

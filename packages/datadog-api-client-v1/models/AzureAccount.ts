@@ -111,13 +111,4 @@ export class AzureAccount {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AzureAccount.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

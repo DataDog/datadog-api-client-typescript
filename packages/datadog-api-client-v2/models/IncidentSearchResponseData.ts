@@ -39,13 +39,4 @@ export class IncidentSearchResponseData {
       type: "IncidentSearchResultsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

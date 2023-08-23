@@ -30,13 +30,4 @@ export class UsageOnlineArchiveResponse {
       type: "Array<UsageOnlineArchiveHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageOnlineArchiveResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

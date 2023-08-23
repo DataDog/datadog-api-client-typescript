@@ -66,13 +66,4 @@ export class LogsGeoIPParser {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsGeoIPParser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -94,13 +94,4 @@ export class NotebookAuthor {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookAuthor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

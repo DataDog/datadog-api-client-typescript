@@ -30,13 +30,4 @@ export class SLOListResponseMetadata {
       type: "SLOListResponseMetadataPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOListResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

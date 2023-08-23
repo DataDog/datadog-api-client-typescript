@@ -108,13 +108,4 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionApmResourceStatsQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

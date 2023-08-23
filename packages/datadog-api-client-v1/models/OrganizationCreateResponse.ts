@@ -57,13 +57,4 @@ export class OrganizationCreateResponse {
       type: "User",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationCreateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

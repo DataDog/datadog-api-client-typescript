@@ -47,13 +47,4 @@ export class MonitorConfigPolicyResponseData {
       type: "MonitorConfigPolicyResourceType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorConfigPolicyResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

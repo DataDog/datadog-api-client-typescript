@@ -58,13 +58,4 @@ export class IncidentTodoAnonymousAssignee {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTodoAnonymousAssignee.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

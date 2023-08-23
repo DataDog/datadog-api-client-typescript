@@ -73,13 +73,4 @@ export class UsageTimeseriesHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTimeseriesHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

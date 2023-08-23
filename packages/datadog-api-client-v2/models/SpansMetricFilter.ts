@@ -29,13 +29,4 @@ export class SpansMetricFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

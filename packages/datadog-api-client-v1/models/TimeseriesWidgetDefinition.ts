@@ -153,13 +153,4 @@ export class TimeseriesWidgetDefinition {
       type: "WidgetAxis",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

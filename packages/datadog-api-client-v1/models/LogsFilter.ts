@@ -29,13 +29,4 @@ export class LogsFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

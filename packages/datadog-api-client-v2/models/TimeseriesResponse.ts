@@ -39,13 +39,4 @@ export class TimeseriesResponse {
       type: "TimeseriesFormulaResponseType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

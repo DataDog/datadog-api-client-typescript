@@ -30,13 +30,4 @@ export class LogsAggregateResponseData {
       type: "Array<LogsAggregateBucket>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

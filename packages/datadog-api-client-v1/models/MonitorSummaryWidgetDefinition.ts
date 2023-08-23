@@ -143,13 +143,4 @@ export class MonitorSummaryWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSummaryWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

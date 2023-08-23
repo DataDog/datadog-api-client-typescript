@@ -53,13 +53,4 @@ export class CloudConfigurationRuleComplianceSignalOptions {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudConfigurationRuleComplianceSignalOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

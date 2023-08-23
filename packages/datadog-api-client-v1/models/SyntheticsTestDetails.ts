@@ -135,13 +135,4 @@ export class SyntheticsTestDetails {
       type: "SyntheticsTestDetailsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestDetails.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

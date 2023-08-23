@@ -95,13 +95,4 @@ export class NotebookResponseDataAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookResponseDataAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class SyntheticsTestRequestCertificate {
       type: "SyntheticsTestRequestCertificateItem",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestRequestCertificate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

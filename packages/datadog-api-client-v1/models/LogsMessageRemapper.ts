@@ -61,13 +61,4 @@ export class LogsMessageRemapper {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMessageRemapper.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

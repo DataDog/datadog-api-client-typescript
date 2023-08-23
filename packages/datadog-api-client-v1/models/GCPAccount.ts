@@ -135,13 +135,4 @@ export class GCPAccount {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPAccount.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

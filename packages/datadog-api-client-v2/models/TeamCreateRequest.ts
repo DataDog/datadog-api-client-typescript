@@ -31,13 +31,4 @@ export class TeamCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

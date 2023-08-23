@@ -30,13 +30,4 @@ export class AuthNMappingCreateRelationships {
       type: "RelationshipToRole",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingCreateRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

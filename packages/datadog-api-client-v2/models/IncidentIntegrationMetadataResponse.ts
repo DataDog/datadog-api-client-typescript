@@ -40,13 +40,4 @@ export class IncidentIntegrationMetadataResponse {
       type: "Array<IncidentIntegrationMetadataResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentIntegrationMetadataResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

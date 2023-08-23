@@ -30,13 +30,4 @@ export class UsageDBMResponse {
       type: "Array<UsageDBMHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageDBMResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

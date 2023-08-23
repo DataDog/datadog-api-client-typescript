@@ -41,13 +41,4 @@ export class IncidentTodoPatchData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTodoPatchData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

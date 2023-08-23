@@ -30,13 +30,4 @@ export class SensitiveDataScannerConfigurationRelationships {
       type: "SensitiveDataScannerGroupList",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerConfigurationRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

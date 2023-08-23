@@ -48,13 +48,4 @@ export class SecurityMonitoringSignalStateUpdateData {
       type: "SecurityMonitoringSignalMetadataType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalStateUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

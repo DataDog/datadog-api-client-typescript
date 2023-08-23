@@ -48,13 +48,4 @@ export class HostListResponse {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

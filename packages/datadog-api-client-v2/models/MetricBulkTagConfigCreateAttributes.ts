@@ -38,13 +38,4 @@ export class MetricBulkTagConfigCreateAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

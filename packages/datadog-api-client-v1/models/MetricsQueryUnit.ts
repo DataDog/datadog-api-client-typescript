@@ -62,13 +62,4 @@ export class MetricsQueryUnit {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsQueryUnit.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class FastlyAccountCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyAccountCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

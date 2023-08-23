@@ -44,13 +44,4 @@ export class SLOBulkDeleteResponse {
       type: "Array<SLOBulkDeleteError>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOBulkDeleteResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

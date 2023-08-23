@@ -84,13 +84,4 @@ export class SLOStatus {
       type: "SLOState",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOStatus.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

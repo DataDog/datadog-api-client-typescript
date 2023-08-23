@@ -40,13 +40,4 @@ export class MetricPoint {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricPoint.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

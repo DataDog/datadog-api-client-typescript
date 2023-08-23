@@ -30,13 +30,4 @@ export class SyntheticsListTestsResponse {
       type: "Array<SyntheticsTestDetails>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsListTestsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

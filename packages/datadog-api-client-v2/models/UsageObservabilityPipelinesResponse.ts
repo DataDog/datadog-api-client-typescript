@@ -30,13 +30,4 @@ export class UsageObservabilityPipelinesResponse {
       type: "Array<UsageDataObject>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageObservabilityPipelinesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

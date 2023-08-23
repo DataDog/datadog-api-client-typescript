@@ -29,13 +29,4 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTimelineCellMarkdownCreateAttributesContent.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

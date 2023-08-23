@@ -128,13 +128,4 @@ export class IPRanges {
       type: "IPPrefixesWebhooks",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPRanges.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

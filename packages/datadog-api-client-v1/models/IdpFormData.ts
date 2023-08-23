@@ -33,13 +33,4 @@ export class IdpFormData {
       format: "binary",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IdpFormData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class SensitiveDataScannerStandardPattern {
       type: "SensitiveDataScannerStandardPatternType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerStandardPattern.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

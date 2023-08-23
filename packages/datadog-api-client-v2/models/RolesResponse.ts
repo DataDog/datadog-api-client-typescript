@@ -39,13 +39,4 @@ export class RolesResponse {
       type: "ResponseMetaAttributes",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RolesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

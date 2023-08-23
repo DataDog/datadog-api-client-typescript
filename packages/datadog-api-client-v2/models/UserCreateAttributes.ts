@@ -46,13 +46,4 @@ export class UserCreateAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

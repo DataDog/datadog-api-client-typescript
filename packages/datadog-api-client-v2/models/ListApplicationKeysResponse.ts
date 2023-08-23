@@ -39,13 +39,4 @@ export class ListApplicationKeysResponse {
       type: "Array<ApplicationKeyResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListApplicationKeysResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class LogQueryDefinitionSearch {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogQueryDefinitionSearch.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class MetricEstimateResponse {
       type: "MetricEstimate",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricEstimateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

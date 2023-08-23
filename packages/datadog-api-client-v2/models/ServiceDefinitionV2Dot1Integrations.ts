@@ -39,13 +39,4 @@ export class ServiceDefinitionV2Dot1Integrations {
       type: "ServiceDefinitionV2Dot1Pagerduty",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Dot1Integrations.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

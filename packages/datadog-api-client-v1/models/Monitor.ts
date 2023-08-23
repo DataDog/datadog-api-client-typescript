@@ -170,13 +170,4 @@ export class Monitor {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Monitor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

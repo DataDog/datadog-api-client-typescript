@@ -30,13 +30,4 @@ export class UsageProfilingResponse {
       type: "Array<UsageProfilingHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageProfilingResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -126,13 +126,4 @@ export class QueryValueWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return QueryValueWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

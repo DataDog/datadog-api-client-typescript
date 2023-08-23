@@ -31,13 +31,4 @@ export class SensitiveDataScannerGroupDeleteRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerGroupDeleteRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

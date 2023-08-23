@@ -30,13 +30,4 @@ export class CIAppTestsAggregationBucketsResponse {
       type: "Array<CIAppTestsBucketResponse>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppTestsAggregationBucketsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class HourlyUsageMetadata {
       type: "HourlyUsagePagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

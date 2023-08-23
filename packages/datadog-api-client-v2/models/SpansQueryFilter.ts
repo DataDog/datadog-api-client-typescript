@@ -45,13 +45,4 @@ export class SpansQueryFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansQueryFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

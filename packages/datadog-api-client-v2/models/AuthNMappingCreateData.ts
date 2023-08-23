@@ -49,13 +49,4 @@ export class AuthNMappingCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class LogsResponseMetadataPage {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsResponseMetadataPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

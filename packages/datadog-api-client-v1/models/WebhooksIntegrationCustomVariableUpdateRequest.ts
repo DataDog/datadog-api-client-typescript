@@ -48,13 +48,4 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WebhooksIntegrationCustomVariableUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

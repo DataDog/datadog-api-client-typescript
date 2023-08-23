@@ -47,13 +47,4 @@ export class MonitorDowntimeMatchResponseData {
       type: "MonitorDowntimeMatchResourceType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorDowntimeMatchResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

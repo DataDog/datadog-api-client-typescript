@@ -95,13 +95,4 @@ export class HostMapRequest {
       type: "LogQueryDefinition",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

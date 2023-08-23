@@ -115,13 +115,4 @@ export class SecurityMonitoringRuleUpdatePayload {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleUpdatePayload.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

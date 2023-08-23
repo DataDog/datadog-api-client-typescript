@@ -63,13 +63,4 @@ export class SyntheticsParsingOptions {
       type: "SyntheticsGlobalVariableParseTestOptionsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsParsingOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

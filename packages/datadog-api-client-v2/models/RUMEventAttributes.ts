@@ -56,13 +56,4 @@ export class RUMEventAttributes {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMEventAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

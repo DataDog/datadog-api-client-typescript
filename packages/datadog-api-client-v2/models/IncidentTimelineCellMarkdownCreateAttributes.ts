@@ -49,13 +49,4 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTimelineCellMarkdownCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

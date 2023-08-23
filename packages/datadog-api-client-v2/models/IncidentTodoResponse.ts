@@ -40,13 +40,4 @@ export class IncidentTodoResponse {
       type: "Array<IncidentTodoResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTodoResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

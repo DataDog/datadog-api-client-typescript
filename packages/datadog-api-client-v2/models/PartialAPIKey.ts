@@ -56,13 +56,4 @@ export class PartialAPIKey {
       type: "APIKeysType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PartialAPIKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

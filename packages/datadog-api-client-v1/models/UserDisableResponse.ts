@@ -29,13 +29,4 @@ export class UserDisableResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserDisableResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

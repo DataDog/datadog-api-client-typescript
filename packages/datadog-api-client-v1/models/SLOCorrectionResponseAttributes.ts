@@ -126,13 +126,4 @@ export class SLOCorrectionResponseAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

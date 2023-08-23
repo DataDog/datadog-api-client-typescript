@@ -92,13 +92,4 @@ export class ListStreamQuery {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -95,13 +95,4 @@ export class SecurityMonitoringSignalRuleResponseQuery {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalRuleResponseQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

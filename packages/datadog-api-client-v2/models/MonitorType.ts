@@ -113,13 +113,4 @@ export class MonitorType {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorType.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

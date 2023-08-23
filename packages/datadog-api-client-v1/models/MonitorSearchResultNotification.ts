@@ -37,13 +37,4 @@ export class MonitorSearchResultNotification {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResultNotification.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

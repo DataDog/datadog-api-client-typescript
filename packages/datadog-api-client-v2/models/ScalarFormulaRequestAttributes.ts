@@ -60,13 +60,4 @@ export class ScalarFormulaRequestAttributes {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarFormulaRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

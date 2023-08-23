@@ -30,13 +30,4 @@ export class OrganizationSettingsSaml {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSaml.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class AWSTagFilterListResponse {
       type: "Array<AWSTagFilter>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSTagFilterListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

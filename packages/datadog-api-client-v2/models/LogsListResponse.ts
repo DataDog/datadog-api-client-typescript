@@ -48,13 +48,4 @@ export class LogsListResponse {
       type: "LogsResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

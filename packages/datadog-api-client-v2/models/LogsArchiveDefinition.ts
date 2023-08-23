@@ -47,13 +47,4 @@ export class LogsArchiveDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

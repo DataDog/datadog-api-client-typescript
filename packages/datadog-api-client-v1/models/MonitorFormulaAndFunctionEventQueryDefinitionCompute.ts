@@ -48,13 +48,4 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

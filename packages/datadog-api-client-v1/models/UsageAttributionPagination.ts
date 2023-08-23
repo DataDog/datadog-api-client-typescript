@@ -64,13 +64,4 @@ export class UsageAttributionPagination {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

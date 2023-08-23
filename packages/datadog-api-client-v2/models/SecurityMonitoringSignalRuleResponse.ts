@@ -175,13 +175,4 @@ export class SecurityMonitoringSignalRuleResponse {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalRuleResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

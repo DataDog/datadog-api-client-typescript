@@ -82,13 +82,4 @@ export class LogAttributes {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

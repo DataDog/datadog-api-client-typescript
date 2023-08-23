@@ -65,13 +65,4 @@ export class DistributionPointsSeries {
       type: "DistributionPointsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionPointsSeries.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

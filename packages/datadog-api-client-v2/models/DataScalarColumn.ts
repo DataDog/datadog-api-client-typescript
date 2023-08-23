@@ -55,13 +55,4 @@ export class DataScalarColumn {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DataScalarColumn.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class SpansListResponseLinks {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansListResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -39,13 +39,4 @@ export class CheckCanDeleteMonitorResponse {
       type: "{ [key: string]: Array<string>; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteMonitorResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

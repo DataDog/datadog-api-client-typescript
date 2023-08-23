@@ -57,13 +57,4 @@ export class CIAppResponseMetadata {
       type: "Array<CIAppWarning>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

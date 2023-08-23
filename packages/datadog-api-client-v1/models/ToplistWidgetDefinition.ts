@@ -84,13 +84,4 @@ export class ToplistWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

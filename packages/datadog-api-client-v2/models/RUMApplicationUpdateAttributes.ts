@@ -37,13 +37,4 @@ export class RUMApplicationUpdateAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMApplicationUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

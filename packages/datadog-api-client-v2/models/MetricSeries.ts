@@ -102,13 +102,4 @@ export class MetricSeries {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricSeries.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

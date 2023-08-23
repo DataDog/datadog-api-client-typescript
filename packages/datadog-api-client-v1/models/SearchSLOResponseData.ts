@@ -38,13 +38,4 @@ export class SearchSLOResponseData {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

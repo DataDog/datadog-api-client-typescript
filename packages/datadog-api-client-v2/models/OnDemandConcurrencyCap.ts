@@ -39,13 +39,4 @@ export class OnDemandConcurrencyCap {
       type: "OnDemandConcurrencyCapType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OnDemandConcurrencyCap.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

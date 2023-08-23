@@ -32,13 +32,4 @@ export class CancelDowntimesByScopeRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CancelDowntimesByScopeRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

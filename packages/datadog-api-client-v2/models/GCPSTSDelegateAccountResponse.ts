@@ -30,13 +30,4 @@ export class GCPSTSDelegateAccountResponse {
       type: "GCPSTSDelegateAccount",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSDelegateAccountResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

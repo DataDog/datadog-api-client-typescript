@@ -41,13 +41,4 @@ export class CloudflareAccountCreateRequestData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudflareAccountCreateRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

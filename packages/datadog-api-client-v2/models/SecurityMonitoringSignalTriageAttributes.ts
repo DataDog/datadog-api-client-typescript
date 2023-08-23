@@ -102,13 +102,4 @@ export class SecurityMonitoringSignalTriageAttributes {
       type: "SecurityMonitoringTriageUser",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalTriageAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

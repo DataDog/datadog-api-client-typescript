@@ -57,13 +57,4 @@ export class CIAppCompute {
       type: "CIAppComputeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

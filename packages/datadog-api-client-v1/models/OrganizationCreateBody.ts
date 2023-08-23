@@ -48,13 +48,4 @@ export class OrganizationCreateBody {
       type: "OrganizationSubscription",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationCreateBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

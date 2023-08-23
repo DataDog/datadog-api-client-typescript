@@ -69,13 +69,4 @@ export class SyntheticsSSLCertificateIssuer {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsSSLCertificateIssuer.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

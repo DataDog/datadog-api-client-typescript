@@ -30,13 +30,4 @@ export class DashboardListDeleteItemsRequest {
       type: "Array<DashboardListItemRequest>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListDeleteItemsRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

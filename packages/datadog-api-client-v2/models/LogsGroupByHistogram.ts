@@ -54,13 +54,4 @@ export class LogsGroupByHistogram {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsGroupByHistogram.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

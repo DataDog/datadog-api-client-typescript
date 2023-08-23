@@ -98,13 +98,4 @@ export class UsageBillableSummaryHour {
       type: "UsageBillableSummaryKeys",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageBillableSummaryHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

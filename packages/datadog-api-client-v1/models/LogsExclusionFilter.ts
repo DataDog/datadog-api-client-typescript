@@ -41,13 +41,4 @@ export class LogsExclusionFilter {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsExclusionFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

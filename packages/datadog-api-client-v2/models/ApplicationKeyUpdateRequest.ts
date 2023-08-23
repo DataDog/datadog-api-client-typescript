@@ -31,13 +31,4 @@ export class ApplicationKeyUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

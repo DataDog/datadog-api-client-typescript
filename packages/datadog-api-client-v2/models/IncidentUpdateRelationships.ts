@@ -48,13 +48,4 @@ export class IncidentUpdateRelationships {
       type: "RelationshipToIncidentPostmortem",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentUpdateRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

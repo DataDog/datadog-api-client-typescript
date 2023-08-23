@@ -91,13 +91,4 @@ export class DashboardList {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardList.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

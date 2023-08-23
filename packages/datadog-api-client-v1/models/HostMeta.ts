@@ -143,13 +143,4 @@ export class HostMeta {
       type: "Array<any>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

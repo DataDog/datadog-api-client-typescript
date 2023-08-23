@@ -65,13 +65,4 @@ export class EventsResponseMetadata {
       type: "Array<EventsWarning>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

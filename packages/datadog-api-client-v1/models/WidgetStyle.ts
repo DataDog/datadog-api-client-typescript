@@ -29,13 +29,4 @@ export class WidgetStyle {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetStyle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -54,13 +54,4 @@ export class Widget {
       type: "WidgetLayout",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Widget.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

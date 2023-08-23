@@ -30,13 +30,4 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleImpossibleTravelOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

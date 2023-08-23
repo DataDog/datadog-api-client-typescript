@@ -49,13 +49,4 @@ export class SAMLAssertionAttribute {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SAMLAssertionAttribute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -138,13 +138,4 @@ export class Host {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Host.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

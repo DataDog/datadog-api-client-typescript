@@ -47,13 +47,4 @@ export class SyntheticsCoreWebVitals {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCoreWebVitals.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

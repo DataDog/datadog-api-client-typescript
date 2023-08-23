@@ -30,13 +30,4 @@ export class SpansResponseMetadataPage {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansResponseMetadataPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

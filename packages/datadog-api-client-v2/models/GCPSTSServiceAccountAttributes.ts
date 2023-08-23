@@ -53,13 +53,4 @@ export class GCPSTSServiceAccountAttributes {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSServiceAccountAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

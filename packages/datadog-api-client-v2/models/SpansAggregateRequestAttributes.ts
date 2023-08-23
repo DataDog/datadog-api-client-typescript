@@ -58,13 +58,4 @@ export class SpansAggregateRequestAttributes {
       type: "SpansQueryOptions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

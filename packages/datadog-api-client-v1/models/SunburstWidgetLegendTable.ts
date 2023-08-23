@@ -31,13 +31,4 @@ export class SunburstWidgetLegendTable {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SunburstWidgetLegendTable.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

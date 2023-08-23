@@ -38,13 +38,4 @@ export class RUMQueryPageOptions {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMQueryPageOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -50,13 +50,4 @@ export class MuteFindingRequestData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

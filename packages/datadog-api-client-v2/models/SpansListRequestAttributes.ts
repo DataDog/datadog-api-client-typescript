@@ -58,13 +58,4 @@ export class SpansListRequestAttributes {
       type: "SpansSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansListRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

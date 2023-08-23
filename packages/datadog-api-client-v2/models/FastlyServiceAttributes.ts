@@ -29,13 +29,4 @@ export class FastlyServiceAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyServiceAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

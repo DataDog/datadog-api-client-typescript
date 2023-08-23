@@ -53,13 +53,4 @@ export class WidgetCustomLink {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetCustomLink.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

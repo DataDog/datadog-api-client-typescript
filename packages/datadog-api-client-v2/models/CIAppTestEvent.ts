@@ -47,13 +47,4 @@ export class CIAppTestEvent {
       type: "CIAppTestEventTypeName",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppTestEvent.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

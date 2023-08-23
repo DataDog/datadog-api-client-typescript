@@ -148,13 +148,4 @@ export class ToplistWidgetRequest {
       type: "WidgetRequestStyle",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class ServiceAccountCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceAccountCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -118,13 +118,4 @@ export class HeatMapWidgetDefinition {
       type: "WidgetAxis",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HeatMapWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

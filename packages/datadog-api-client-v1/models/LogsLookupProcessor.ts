@@ -89,13 +89,4 @@ export class LogsLookupProcessor {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsLookupProcessor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

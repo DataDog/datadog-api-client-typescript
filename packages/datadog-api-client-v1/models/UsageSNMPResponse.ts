@@ -30,13 +30,4 @@ export class UsageSNMPResponse {
       type: "Array<UsageSNMPHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSNMPResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

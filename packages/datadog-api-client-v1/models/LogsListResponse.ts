@@ -47,13 +47,4 @@ export class LogsListResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

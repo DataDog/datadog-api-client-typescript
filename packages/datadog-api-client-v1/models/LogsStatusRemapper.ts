@@ -73,13 +73,4 @@ export class LogsStatusRemapper {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsStatusRemapper.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

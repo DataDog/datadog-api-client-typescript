@@ -30,13 +30,4 @@ export class SecurityMonitoringSignalsListResponseLinks {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalsListResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

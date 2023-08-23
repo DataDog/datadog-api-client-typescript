@@ -87,13 +87,4 @@ export class SensitiveDataScannerRuleAttributes {
       type: "SensitiveDataScannerTextReplacement",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerRuleAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

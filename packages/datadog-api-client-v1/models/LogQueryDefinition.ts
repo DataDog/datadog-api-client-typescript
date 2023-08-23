@@ -64,13 +64,4 @@ export class LogQueryDefinition {
       type: "LogQueryDefinitionSearch",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

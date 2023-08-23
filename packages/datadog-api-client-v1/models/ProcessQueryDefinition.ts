@@ -55,13 +55,4 @@ export class ProcessQueryDefinition {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

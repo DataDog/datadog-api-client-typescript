@@ -49,13 +49,4 @@ export class IncidentSearchResponsePropertyFieldFacetData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponsePropertyFieldFacetData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

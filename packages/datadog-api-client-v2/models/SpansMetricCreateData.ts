@@ -50,13 +50,4 @@ export class SpansMetricCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

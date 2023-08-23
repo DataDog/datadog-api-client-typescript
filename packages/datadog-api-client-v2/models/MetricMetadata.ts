@@ -30,13 +30,4 @@ export class MetricMetadata {
       type: "MetricOrigin",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -40,13 +40,4 @@ export class NullableRelationshipToUserData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NullableRelationshipToUserData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

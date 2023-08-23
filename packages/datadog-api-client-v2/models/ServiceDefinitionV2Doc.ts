@@ -47,13 +47,4 @@ export class ServiceDefinitionV2Doc {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Doc.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -68,13 +68,4 @@ export class SyntheticsDevice {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsDevice.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -94,13 +94,4 @@ export class TreeMapWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TreeMapWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

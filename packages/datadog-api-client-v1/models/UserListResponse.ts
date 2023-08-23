@@ -30,13 +30,4 @@ export class UserListResponse {
       type: "Array<User>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class EventsResponseMetadataPage {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsResponseMetadataPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

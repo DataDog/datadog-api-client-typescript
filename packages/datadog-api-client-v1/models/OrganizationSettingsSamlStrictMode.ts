@@ -30,13 +30,4 @@ export class OrganizationSettingsSamlStrictMode {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSamlStrictMode.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

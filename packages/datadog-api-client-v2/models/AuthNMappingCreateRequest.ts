@@ -31,13 +31,4 @@ export class AuthNMappingCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

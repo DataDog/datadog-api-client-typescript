@@ -31,13 +31,4 @@ export class RoleCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

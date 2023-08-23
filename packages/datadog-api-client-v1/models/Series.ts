@@ -74,13 +74,4 @@ export class Series {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Series.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -76,13 +76,4 @@ export class CIAppTestsGroupBy {
       type: "CIAppGroupByTotal",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppTestsGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

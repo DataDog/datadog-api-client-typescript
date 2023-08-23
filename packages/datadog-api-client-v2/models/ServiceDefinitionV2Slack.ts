@@ -48,13 +48,4 @@ export class ServiceDefinitionV2Slack {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Slack.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

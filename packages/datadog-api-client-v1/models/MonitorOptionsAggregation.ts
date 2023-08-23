@@ -45,13 +45,4 @@ export class MonitorOptionsAggregation {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorOptionsAggregation.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -45,13 +45,4 @@ export class SyntheticsTestRequestCertificateItem {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestRequestCertificateItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -39,13 +39,4 @@ export class UsageAttributionMetadata {
       type: "UsageAttributionPagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

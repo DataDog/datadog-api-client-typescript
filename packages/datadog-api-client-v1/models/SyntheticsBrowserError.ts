@@ -58,13 +58,4 @@ export class SyntheticsBrowserError {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

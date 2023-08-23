@@ -39,13 +39,4 @@ export class SearchSLOResponseDataAttributesFacetsObjectInt {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseDataAttributesFacetsObjectInt.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

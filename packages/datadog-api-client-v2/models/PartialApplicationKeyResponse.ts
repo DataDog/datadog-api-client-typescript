@@ -39,13 +39,4 @@ export class PartialApplicationKeyResponse {
       type: "Array<ApplicationKeyResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PartialApplicationKeyResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

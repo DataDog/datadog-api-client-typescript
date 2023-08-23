@@ -38,13 +38,4 @@ export class IncidentSearchResponseFieldFacetData {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseFieldFacetData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

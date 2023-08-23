@@ -49,13 +49,4 @@ export class TeamPermissionSetting {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamPermissionSetting.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

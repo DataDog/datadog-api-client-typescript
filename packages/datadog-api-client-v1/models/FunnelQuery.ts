@@ -50,13 +50,4 @@ export class FunnelQuery {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

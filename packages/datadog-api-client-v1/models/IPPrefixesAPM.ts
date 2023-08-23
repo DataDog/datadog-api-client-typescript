@@ -37,13 +37,4 @@ export class IPPrefixesAPM {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPPrefixesAPM.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

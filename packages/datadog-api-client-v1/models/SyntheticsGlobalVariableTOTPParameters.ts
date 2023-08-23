@@ -39,13 +39,4 @@ export class SyntheticsGlobalVariableTOTPParameters {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariableTOTPParameters.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class HostMetrics {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMetrics.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

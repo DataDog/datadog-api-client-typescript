@@ -41,13 +41,4 @@ export class DowntimeScheduleCurrentDowntimeResponse {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeScheduleCurrentDowntimeResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -57,13 +57,4 @@ export class SpansAggregateResponseMetadata {
       type: "Array<SpansWarning>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

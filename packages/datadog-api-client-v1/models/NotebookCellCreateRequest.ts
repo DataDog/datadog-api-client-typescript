@@ -42,13 +42,4 @@ export class NotebookCellCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCellCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

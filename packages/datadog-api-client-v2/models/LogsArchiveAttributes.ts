@@ -84,13 +84,4 @@ export class LogsArchiveAttributes {
       type: "LogsArchiveState",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

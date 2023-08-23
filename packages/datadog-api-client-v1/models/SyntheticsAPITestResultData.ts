@@ -100,13 +100,4 @@ export class SyntheticsAPITestResultData {
       type: "SyntheticsTiming",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITestResultData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class Permission {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Permission.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

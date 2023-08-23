@@ -135,13 +135,4 @@ export class MonitorSearchResult {
       type: "MonitorType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResult.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

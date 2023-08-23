@@ -73,13 +73,4 @@ export class SyntheticsBasicAuthSigv4 {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuthSigv4.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

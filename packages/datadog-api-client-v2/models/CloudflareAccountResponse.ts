@@ -30,13 +30,4 @@ export class CloudflareAccountResponse {
       type: "CloudflareAccountResponseData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudflareAccountResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

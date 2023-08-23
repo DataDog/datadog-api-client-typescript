@@ -39,13 +39,4 @@ export class AWSAccountAndLambdaRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountAndLambdaRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

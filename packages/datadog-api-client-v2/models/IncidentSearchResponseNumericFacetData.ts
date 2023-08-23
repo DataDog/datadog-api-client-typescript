@@ -40,13 +40,4 @@ export class IncidentSearchResponseNumericFacetData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseNumericFacetData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

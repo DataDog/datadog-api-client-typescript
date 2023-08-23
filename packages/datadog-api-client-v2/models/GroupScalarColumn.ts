@@ -45,13 +45,4 @@ export class GroupScalarColumn {
       type: "Array<Array<string>>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GroupScalarColumn.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

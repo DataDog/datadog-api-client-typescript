@@ -147,13 +147,4 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentRuleAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

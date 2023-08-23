@@ -55,13 +55,4 @@ export class UsageAuditLogsHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAuditLogsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

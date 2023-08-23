@@ -45,13 +45,4 @@ export class CIAppPipelinesQueryFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelinesQueryFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

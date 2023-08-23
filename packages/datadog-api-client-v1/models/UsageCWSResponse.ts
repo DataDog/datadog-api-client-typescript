@@ -30,13 +30,4 @@ export class UsageCWSResponse {
       type: "Array<UsageCWSHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCWSResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

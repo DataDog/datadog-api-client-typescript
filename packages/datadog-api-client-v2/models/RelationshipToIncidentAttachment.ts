@@ -31,13 +31,4 @@ export class RelationshipToIncidentAttachment {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentAttachment.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

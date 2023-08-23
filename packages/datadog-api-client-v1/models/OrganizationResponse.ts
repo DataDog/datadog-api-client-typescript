@@ -30,13 +30,4 @@ export class OrganizationResponse {
       type: "Organization",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

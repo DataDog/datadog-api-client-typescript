@@ -38,13 +38,4 @@ export class EventsRequestPage {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsRequestPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

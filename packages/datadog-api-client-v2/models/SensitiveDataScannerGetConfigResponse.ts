@@ -48,13 +48,4 @@ export class SensitiveDataScannerGetConfigResponse {
       type: "SensitiveDataScannerMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerGetConfigResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class MonitorConfigPolicyListResponse {
       type: "Array<MonitorConfigPolicyResponseData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorConfigPolicyListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

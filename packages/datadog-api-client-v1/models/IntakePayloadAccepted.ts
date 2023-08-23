@@ -29,13 +29,4 @@ export class IntakePayloadAccepted {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IntakePayloadAccepted.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class UsageSyntheticsResponse {
       type: "Array<UsageSyntheticsHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSyntheticsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

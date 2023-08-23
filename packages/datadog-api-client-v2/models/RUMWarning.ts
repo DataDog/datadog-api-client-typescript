@@ -45,13 +45,4 @@ export class RUMWarning {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMWarning.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

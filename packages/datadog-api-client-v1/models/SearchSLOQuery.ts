@@ -48,13 +48,4 @@ export class SearchSLOQuery {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

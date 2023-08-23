@@ -38,13 +38,4 @@ export class LogsAggregateBucket {
       type: "{ [key: string]: LogsAggregateBucketValue; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateBucket.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

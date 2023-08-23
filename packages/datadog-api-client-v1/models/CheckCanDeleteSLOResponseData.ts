@@ -29,13 +29,4 @@ export class CheckCanDeleteSLOResponseData {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteSLOResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -39,13 +39,4 @@ export class SearchSLOResponseDataAttributes {
       type: "Array<SearchServiceLevelObjective>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseDataAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

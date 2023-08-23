@@ -47,13 +47,4 @@ export class MetricDistinctVolume {
       type: "MetricDistinctVolumeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricDistinctVolume.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

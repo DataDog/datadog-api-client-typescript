@@ -47,13 +47,4 @@ export class EventResponse {
       type: "EventType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

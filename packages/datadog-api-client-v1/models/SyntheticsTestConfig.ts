@@ -57,13 +57,4 @@ export class SyntheticsTestConfig {
       type: "Array<SyntheticsBrowserVariable>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestConfig.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

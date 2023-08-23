@@ -58,13 +58,4 @@ export class LogsArchiveDestinationGCS {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveDestinationGCS.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

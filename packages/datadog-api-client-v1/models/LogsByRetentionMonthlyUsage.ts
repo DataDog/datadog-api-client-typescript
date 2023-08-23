@@ -39,13 +39,4 @@ export class LogsByRetentionMonthlyUsage {
       type: "Array<LogsRetentionSumUsage>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsByRetentionMonthlyUsage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

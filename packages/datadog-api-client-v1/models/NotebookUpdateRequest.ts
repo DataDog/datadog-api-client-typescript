@@ -31,13 +31,4 @@ export class NotebookUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

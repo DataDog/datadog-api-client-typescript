@@ -31,13 +31,4 @@ export class IncidentTeamCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTeamCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -131,13 +131,4 @@ export class LogStreamWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogStreamWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

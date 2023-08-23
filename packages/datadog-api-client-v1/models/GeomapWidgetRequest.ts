@@ -99,13 +99,4 @@ export class GeomapWidgetRequest {
       type: "LogQueryDefinition",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

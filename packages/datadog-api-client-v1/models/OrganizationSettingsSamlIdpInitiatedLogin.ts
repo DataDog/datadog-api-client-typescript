@@ -30,13 +30,4 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSamlIdpInitiatedLogin.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -79,13 +79,4 @@ export class SyntheticsStep {
       type: "SyntheticsStepType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsStep.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -42,13 +42,4 @@ export class RestrictionPolicyBinding {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RestrictionPolicyBinding.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -79,13 +79,4 @@ export class LogsCategoryProcessor {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsCategoryProcessor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

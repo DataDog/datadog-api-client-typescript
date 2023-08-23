@@ -30,13 +30,4 @@ export class LogsMetricsResponse {
       type: "Array<LogsMetricResponseData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

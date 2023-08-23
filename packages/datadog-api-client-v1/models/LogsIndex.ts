@@ -79,13 +79,4 @@ export class LogsIndex {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsIndex.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

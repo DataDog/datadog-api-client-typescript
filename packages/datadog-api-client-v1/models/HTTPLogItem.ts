@@ -79,13 +79,4 @@ export class HTTPLogItem {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPLogItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

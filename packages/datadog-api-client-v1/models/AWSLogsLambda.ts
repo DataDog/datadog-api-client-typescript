@@ -29,13 +29,4 @@ export class AWSLogsLambda {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsLambda.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

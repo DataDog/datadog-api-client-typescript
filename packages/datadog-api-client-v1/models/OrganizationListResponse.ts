@@ -30,13 +30,4 @@ export class OrganizationListResponse {
       type: "Array<Organization>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -112,13 +112,4 @@ export class SecurityMonitoringStandardRuleCreatePayload {
       type: "SecurityMonitoringRuleTypeCreate",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringStandardRuleCreatePayload.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

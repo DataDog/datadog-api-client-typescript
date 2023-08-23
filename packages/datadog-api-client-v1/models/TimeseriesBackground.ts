@@ -40,13 +40,4 @@ export class TimeseriesBackground {
       type: "WidgetAxis",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesBackground.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class HTTPCIAppErrors {
       type: "Array<HTTPCIAppError>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPCIAppErrors.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

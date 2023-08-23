@@ -30,13 +30,4 @@ export class SyntheticsDeleteTestsPayload {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsDeleteTestsPayload.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

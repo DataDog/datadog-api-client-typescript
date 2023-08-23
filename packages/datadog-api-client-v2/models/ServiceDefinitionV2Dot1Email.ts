@@ -49,13 +49,4 @@ export class ServiceDefinitionV2Dot1Email {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Dot1Email.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

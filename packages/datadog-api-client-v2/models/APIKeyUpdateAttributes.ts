@@ -30,13 +30,4 @@ export class APIKeyUpdateAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

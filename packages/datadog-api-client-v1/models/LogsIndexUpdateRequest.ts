@@ -74,13 +74,4 @@ export class LogsIndexUpdateRequest {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsIndexUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class UserUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

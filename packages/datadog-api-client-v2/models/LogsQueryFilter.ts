@@ -62,13 +62,4 @@ export class LogsQueryFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsQueryFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

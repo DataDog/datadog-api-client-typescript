@@ -38,13 +38,4 @@ export class CIAppQueryPageOptions {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppQueryPageOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

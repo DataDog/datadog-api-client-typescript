@@ -58,13 +58,4 @@ export class CIAppTestsAggregateRequest {
       type: "CIAppQueryOptions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppTestsAggregateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

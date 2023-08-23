@@ -78,13 +78,4 @@ export class ServiceDefinitionMeta {
       type: "Array<ServiceDefinitionMetaWarnings>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

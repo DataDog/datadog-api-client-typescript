@@ -39,13 +39,4 @@ export class CIAppQueryOptions {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

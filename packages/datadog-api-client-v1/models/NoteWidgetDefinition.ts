@@ -107,13 +107,4 @@ export class NoteWidgetDefinition {
       type: "WidgetVerticalAlign",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NoteWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

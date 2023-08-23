@@ -48,13 +48,4 @@ export class TimeseriesResponseAttributes {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

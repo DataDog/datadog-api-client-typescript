@@ -47,13 +47,4 @@ export class UsageTopAvgMetricsPagination {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTopAvgMetricsPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

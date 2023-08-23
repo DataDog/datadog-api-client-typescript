@@ -38,13 +38,4 @@ export class Log {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Log.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

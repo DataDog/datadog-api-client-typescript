@@ -39,13 +39,4 @@ export class IncidentAttachmentsPostmortemAttributesAttachmentObject {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentsPostmortemAttributesAttachmentObject.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

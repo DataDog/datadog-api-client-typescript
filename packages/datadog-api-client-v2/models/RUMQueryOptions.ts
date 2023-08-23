@@ -39,13 +39,4 @@ export class RUMQueryOptions {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

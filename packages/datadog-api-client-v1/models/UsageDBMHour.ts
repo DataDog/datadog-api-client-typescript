@@ -64,13 +64,4 @@ export class UsageDBMHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageDBMHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

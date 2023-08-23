@@ -48,13 +48,4 @@ export class SecurityMonitoringSignal {
       type: "SecurityMonitoringSignalType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignal.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -55,13 +55,4 @@ export class SecurityMonitoringSignalAttributes {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

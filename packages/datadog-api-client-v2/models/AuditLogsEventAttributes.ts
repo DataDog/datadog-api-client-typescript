@@ -64,13 +64,4 @@ export class AuditLogsEventAttributes {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsEventAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

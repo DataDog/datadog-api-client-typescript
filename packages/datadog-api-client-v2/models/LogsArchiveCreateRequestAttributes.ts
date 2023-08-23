@@ -75,13 +75,4 @@ export class LogsArchiveCreateRequestAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveCreateRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

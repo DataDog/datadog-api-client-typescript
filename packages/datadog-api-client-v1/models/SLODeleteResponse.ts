@@ -37,13 +37,4 @@ export class SLODeleteResponse {
       type: "{ [key: string]: string; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLODeleteResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

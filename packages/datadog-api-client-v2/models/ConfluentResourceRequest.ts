@@ -31,13 +31,4 @@ export class ConfluentResourceRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentResourceRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

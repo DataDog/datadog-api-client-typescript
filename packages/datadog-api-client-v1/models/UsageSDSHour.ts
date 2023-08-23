@@ -91,13 +91,4 @@ export class UsageSDSHour {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSDSHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

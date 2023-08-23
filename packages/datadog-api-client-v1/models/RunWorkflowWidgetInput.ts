@@ -39,13 +39,4 @@ export class RunWorkflowWidgetInput {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RunWorkflowWidgetInput.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

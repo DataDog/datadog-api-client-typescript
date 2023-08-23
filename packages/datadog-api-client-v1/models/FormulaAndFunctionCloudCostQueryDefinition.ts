@@ -58,13 +58,4 @@ export class FormulaAndFunctionCloudCostQueryDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionCloudCostQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

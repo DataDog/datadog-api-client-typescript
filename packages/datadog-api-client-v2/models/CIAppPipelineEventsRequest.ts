@@ -58,13 +58,4 @@ export class CIAppPipelineEventsRequest {
       type: "CIAppSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelineEventsRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

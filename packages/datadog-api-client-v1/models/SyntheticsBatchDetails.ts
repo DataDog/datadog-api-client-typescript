@@ -30,13 +30,4 @@ export class SyntheticsBatchDetails {
       type: "SyntheticsBatchDetailsData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBatchDetails.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

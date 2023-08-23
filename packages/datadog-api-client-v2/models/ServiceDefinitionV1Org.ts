@@ -37,13 +37,4 @@ export class ServiceDefinitionV1Org {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV1Org.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

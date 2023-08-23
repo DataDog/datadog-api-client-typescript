@@ -31,13 +31,4 @@ export class JiraIntegrationMetadata {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIntegrationMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

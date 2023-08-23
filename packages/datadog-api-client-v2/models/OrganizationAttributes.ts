@@ -87,13 +87,4 @@ export class OrganizationAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

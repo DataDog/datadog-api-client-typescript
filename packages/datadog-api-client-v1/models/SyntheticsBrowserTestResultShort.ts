@@ -68,13 +68,4 @@ export class SyntheticsBrowserTestResultShort {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestResultShort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -56,13 +56,4 @@ export class FullApplicationKey {
       type: "ApplicationKeysType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FullApplicationKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

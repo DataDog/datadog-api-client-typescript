@@ -40,13 +40,4 @@ export class UserTeamUpdate {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserTeamUpdate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

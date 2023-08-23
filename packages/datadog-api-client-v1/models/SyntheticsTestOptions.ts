@@ -222,13 +222,4 @@ export class SyntheticsTestOptions {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

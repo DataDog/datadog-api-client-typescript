@@ -31,13 +31,4 @@ export class RelationshipToSAMLAssertionAttribute {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToSAMLAssertionAttribute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

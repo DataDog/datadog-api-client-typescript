@@ -29,13 +29,4 @@ export class SyntheticsGlobalVariableAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariableAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

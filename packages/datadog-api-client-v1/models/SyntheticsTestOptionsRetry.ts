@@ -41,13 +41,4 @@ export class SyntheticsTestOptionsRetry {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestOptionsRetry.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

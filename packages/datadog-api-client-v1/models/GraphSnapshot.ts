@@ -47,13 +47,4 @@ export class GraphSnapshot {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GraphSnapshot.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

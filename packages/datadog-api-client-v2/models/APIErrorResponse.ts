@@ -30,13 +30,4 @@ export class APIErrorResponse {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIErrorResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

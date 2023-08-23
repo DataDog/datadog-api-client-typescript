@@ -46,13 +46,4 @@ export class UsageAttributionAggregatesBody {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionAggregatesBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

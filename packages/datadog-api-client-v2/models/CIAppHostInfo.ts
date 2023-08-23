@@ -53,13 +53,4 @@ export class CIAppHostInfo {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppHostInfo.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

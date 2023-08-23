@@ -101,13 +101,4 @@ export class SunburstWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SunburstWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

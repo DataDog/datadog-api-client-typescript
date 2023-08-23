@@ -38,13 +38,4 @@ export class IncidentFieldAttributesSingleValue {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentFieldAttributesSingleValue.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

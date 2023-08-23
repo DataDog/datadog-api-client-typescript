@@ -29,13 +29,4 @@ export class OrgDowngradedResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrgDowngradedResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

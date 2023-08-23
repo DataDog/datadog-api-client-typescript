@@ -75,13 +75,4 @@ export class EventsScalarQuery {
       type: "EventsSearch",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsScalarQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

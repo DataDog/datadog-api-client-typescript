@@ -75,13 +75,4 @@ export class TopologyMapWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TopologyMapWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

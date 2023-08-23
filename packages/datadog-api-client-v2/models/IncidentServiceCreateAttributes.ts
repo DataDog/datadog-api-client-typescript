@@ -30,13 +30,4 @@ export class IncidentServiceCreateAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServiceCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

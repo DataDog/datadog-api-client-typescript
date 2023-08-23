@@ -47,13 +47,4 @@ export class AuditLogsEvent {
       type: "AuditLogsEventType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsEvent.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

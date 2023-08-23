@@ -56,13 +56,4 @@ export class PartialApplicationKey {
       type: "ApplicationKeysType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PartialApplicationKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

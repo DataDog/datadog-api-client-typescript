@@ -39,13 +39,4 @@ export class AuthNMappingRelationships {
       type: "RelationshipToSAMLAssertionAttribute",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

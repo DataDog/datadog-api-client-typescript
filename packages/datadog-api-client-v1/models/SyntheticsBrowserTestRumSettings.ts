@@ -57,13 +57,4 @@ export class SyntheticsBrowserTestRumSettings {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestRumSettings.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

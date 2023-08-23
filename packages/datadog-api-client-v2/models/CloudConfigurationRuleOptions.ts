@@ -32,13 +32,4 @@ export class CloudConfigurationRuleOptions {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudConfigurationRuleOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

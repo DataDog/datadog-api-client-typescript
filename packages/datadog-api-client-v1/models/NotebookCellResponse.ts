@@ -51,13 +51,4 @@ export class NotebookCellResponse {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCellResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

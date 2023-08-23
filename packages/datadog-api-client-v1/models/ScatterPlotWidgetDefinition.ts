@@ -109,13 +109,4 @@ export class ScatterPlotWidgetDefinition {
       type: "WidgetAxis",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterPlotWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

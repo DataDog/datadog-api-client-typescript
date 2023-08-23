@@ -61,13 +61,4 @@ export class DistributionWidgetYAxis {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionWidgetYAxis.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -55,13 +55,4 @@ export class ServiceAccountCreateAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceAccountCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

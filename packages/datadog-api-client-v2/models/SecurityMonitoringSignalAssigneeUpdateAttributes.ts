@@ -40,13 +40,4 @@ export class SecurityMonitoringSignalAssigneeUpdateAttributes {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalAssigneeUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

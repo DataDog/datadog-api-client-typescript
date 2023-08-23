@@ -95,13 +95,4 @@ export class SyntheticsAPIStep {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPIStep.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

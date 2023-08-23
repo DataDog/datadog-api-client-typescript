@@ -39,13 +39,4 @@ export class TopologyRequest {
       type: "TopologyRequestType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TopologyRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

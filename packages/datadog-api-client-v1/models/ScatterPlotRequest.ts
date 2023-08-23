@@ -104,13 +104,4 @@ export class ScatterPlotRequest {
       type: "LogQueryDefinition",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterPlotRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

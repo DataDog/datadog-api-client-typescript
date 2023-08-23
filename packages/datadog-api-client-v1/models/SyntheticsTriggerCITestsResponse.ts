@@ -55,13 +55,4 @@ export class SyntheticsTriggerCITestsResponse {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerCITestsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

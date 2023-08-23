@@ -31,13 +31,4 @@ export class LogsMetricCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

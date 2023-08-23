@@ -30,13 +30,4 @@ export class DashboardGlobalTime {
       type: "DashboardGlobalTimeLiveSpan",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardGlobalTime.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

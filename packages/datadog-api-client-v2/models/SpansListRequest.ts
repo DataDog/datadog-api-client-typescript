@@ -30,13 +30,4 @@ export class SpansListRequest {
       type: "SpansListRequestData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansListRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

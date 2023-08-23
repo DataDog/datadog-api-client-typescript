@@ -125,13 +125,4 @@ export class SLOHistorySLIData {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistorySLIData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

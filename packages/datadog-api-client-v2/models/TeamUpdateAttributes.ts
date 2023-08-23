@@ -89,13 +89,4 @@ export class TeamUpdateAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

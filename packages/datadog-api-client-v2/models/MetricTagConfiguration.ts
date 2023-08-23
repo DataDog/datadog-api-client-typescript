@@ -47,13 +47,4 @@ export class MetricTagConfiguration {
       type: "MetricTagConfigurationType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfiguration.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

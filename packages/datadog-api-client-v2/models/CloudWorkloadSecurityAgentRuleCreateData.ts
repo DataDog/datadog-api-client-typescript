@@ -41,13 +41,4 @@ export class CloudWorkloadSecurityAgentRuleCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentRuleCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

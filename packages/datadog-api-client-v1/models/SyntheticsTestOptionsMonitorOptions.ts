@@ -32,13 +32,4 @@ export class SyntheticsTestOptionsMonitorOptions {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestOptionsMonitorOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class AWSTagFilterDeleteRequest {
       type: "AWSNamespace",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSTagFilterDeleteRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

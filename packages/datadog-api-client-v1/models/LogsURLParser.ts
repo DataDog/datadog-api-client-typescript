@@ -73,13 +73,4 @@ export class LogsURLParser {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsURLParser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

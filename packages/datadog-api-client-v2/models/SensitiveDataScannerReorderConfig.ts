@@ -47,13 +47,4 @@ export class SensitiveDataScannerReorderConfig {
       type: "SensitiveDataScannerConfigurationType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerReorderConfig.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

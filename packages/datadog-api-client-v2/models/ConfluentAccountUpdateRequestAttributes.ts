@@ -47,13 +47,4 @@ export class ConfluentAccountUpdateRequestAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentAccountUpdateRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class MonitorSearchResponse {
       type: "Array<MonitorSearchResult>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -51,13 +51,4 @@ export class SLOBulkDeleteError {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOBulkDeleteError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

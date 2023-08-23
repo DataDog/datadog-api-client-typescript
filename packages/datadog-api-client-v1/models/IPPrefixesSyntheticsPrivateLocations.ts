@@ -37,13 +37,4 @@ export class IPPrefixesSyntheticsPrivateLocations {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPPrefixesSyntheticsPrivateLocations.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

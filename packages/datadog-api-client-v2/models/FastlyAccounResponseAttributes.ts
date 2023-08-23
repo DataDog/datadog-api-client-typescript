@@ -39,13 +39,4 @@ export class FastlyAccounResponseAttributes {
       type: "Array<FastlyService>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyAccounResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

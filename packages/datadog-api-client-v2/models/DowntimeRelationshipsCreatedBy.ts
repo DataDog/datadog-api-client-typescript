@@ -30,13 +30,4 @@ export class DowntimeRelationshipsCreatedBy {
       type: "DowntimeRelationshipsCreatedByData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeRelationshipsCreatedBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

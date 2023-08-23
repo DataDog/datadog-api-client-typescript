@@ -39,13 +39,4 @@ export class MonitorDowntimeMatchResponse {
       type: "DowntimeMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorDowntimeMatchResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

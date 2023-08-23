@@ -39,13 +39,4 @@ export class SecurityFilterExclusionFilter {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterExclusionFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

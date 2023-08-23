@@ -72,13 +72,4 @@ export class TimeseriesFormulaRequestAttributes {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesFormulaRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

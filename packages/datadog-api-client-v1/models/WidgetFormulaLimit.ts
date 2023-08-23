@@ -39,13 +39,4 @@ export class WidgetFormulaLimit {
       type: "QuerySortOrder",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFormulaLimit.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class MonitorFormulaAndFunctionEventQueryGroupBy {
       type: "MonitorFormulaAndFunctionEventQueryGroupBySort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionEventQueryGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

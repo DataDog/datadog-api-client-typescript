@@ -58,13 +58,4 @@ export class MetricsScalarQuery {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsScalarQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

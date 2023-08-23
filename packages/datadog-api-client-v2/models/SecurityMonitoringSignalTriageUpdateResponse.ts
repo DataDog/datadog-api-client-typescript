@@ -31,13 +31,4 @@ export class SecurityMonitoringSignalTriageUpdateResponse {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalTriageUpdateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

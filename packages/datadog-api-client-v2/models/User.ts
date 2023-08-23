@@ -56,13 +56,4 @@ export class User {
       type: "UsersType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return User.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

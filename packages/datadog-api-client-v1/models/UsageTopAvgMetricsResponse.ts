@@ -39,13 +39,4 @@ export class UsageTopAvgMetricsResponse {
       type: "Array<UsageTopAvgMetricsHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTopAvgMetricsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -56,13 +56,4 @@ export class TeamLinkAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamLinkAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

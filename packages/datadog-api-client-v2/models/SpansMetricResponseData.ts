@@ -47,13 +47,4 @@ export class SpansMetricResponseData {
       type: "SpansMetricType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

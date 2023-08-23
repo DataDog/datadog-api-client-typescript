@@ -96,13 +96,4 @@ export class MetricsQueryResponse {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsQueryResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

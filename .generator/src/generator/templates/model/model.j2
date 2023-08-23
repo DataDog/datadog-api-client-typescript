@@ -78,46 +78,9 @@ export class {{ name }} {
     }
     {%- endif %}
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-{#      {{#parent}}#}
-{#      return super.getAttributeTypeMap().concat({{classname}}.attributeTypeMap);#}
-{#      {{/parent}}#}
-{#      {{^parent}}#}
-    return {{ name }}.attributeTypeMap;
-{#      {{/parent}}#}
-  }
   {%- endif %}
-
-  public constructor() {
-{#      {{#parent}}#}
-{#      super();#}
-{#      {{/parent}}#}
-{#      {{#allVars}}#}
-{#      {{#discriminatorValue}}#}
-{#      this.{{name}} = "{{discriminatorValue}}";#}
-{#      {{/discriminatorValue}}#}
-{#      {{/allVars}}#}
-{#      {{#discriminatorName}}#}
-{#      this.{{discriminatorName}} = "{{classname}}";#}
-{#      {{/discriminatorName}}#}
-  }
 }
-
-{#{{#hasEnums}}#}
-{##}
-{#{{#vars}}#}
-{#{{#isEnum}}#}
-{#export type {{classname}}{{enumName}} ={{#allowableValues}}{{#values}} "{{.}}" {{^-last}}|{{/-last}}{{/values}}{{/allowableValues}};#}
-{#{{/isEnum}}#}
-{#{{/vars}}#}
-{##}
-{#{{/hasEnums}}#}
 {%- endif %}
-
 
 {%- if "enum" in model %}
 export type {{ name }} = {% for index, value in enumerate(model.enum) %}typeof {{ model["x-enum-varnames"][index] or value.upper() }} {%- if not loop.last %}| {% endif %}{%- if loop.last %} | UnparsedObject{%- endif %}{%- endfor %};

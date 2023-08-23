@@ -46,13 +46,4 @@ export class AWSTagFilterCreateRequest {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSTagFilterCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

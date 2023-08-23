@@ -58,13 +58,4 @@ export class SyntheticsAssertionJSONPathTarget {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAssertionJSONPathTarget.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

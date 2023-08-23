@@ -41,13 +41,4 @@ export class SensitiveDataScannerRuleCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerRuleCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -57,13 +57,4 @@ export class SyntheticsAPITestConfig {
       type: "Array<SyntheticsAPIStep>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITestConfig.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

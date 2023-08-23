@@ -92,13 +92,4 @@ export class GroupWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GroupWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

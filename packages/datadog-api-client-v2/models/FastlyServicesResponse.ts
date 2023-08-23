@@ -30,13 +30,4 @@ export class FastlyServicesResponse {
       type: "Array<FastlyServiceResponse>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyServicesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

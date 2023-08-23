@@ -63,13 +63,4 @@ export class SyntheticsBasicAuthNTLM {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuthNTLM.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

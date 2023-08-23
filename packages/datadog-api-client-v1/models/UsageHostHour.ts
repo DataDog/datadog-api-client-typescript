@@ -181,13 +181,4 @@ export class UsageHostHour {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageHostHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

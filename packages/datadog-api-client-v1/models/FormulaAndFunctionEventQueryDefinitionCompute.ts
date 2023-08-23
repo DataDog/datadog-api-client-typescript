@@ -48,13 +48,4 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

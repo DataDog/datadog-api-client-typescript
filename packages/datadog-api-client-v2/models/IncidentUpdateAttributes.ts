@@ -90,13 +90,4 @@ export class IncidentUpdateAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

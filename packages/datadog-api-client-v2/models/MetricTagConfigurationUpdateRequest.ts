@@ -31,13 +31,4 @@ export class MetricTagConfigurationUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

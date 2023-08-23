@@ -40,13 +40,4 @@ export class SLOResponse {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

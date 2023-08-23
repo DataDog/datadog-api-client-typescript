@@ -38,13 +38,4 @@ export class TimeseriesFormulaQueryResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesFormulaQueryResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

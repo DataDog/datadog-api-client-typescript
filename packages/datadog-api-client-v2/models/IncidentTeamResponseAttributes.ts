@@ -47,13 +47,4 @@ export class IncidentTeamResponseAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTeamResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

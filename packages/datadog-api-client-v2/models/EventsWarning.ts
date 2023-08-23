@@ -45,13 +45,4 @@ export class EventsWarning {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsWarning.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class SyntheticsCITestBody {
       type: "Array<SyntheticsCITest>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCITestBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class SyntheticsListGlobalVariablesResponse {
       type: "Array<SyntheticsGlobalVariable>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsListGlobalVariablesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

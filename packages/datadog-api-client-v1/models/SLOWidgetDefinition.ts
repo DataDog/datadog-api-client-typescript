@@ -115,13 +115,4 @@ export class SLOWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

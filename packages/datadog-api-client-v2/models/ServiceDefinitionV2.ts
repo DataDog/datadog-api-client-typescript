@@ -117,13 +117,4 @@ export class ServiceDefinitionV2 {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

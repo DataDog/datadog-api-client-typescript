@@ -192,13 +192,4 @@ export class CIAppPipelineEventJob {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelineEventJob.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

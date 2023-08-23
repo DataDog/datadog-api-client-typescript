@@ -57,13 +57,4 @@ export class SecurityMonitoringSignalStateUpdateAttributes {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalStateUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

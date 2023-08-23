@@ -31,13 +31,4 @@ export class GetFindingResponse {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GetFindingResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

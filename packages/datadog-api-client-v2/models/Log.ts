@@ -47,13 +47,4 @@ export class Log {
       type: "LogType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Log.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

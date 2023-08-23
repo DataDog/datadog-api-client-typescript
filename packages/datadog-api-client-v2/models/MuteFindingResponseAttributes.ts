@@ -99,13 +99,4 @@ export class MuteFindingResponseAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

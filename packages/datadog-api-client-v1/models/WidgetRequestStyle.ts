@@ -47,13 +47,4 @@ export class WidgetRequestStyle {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetRequestStyle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

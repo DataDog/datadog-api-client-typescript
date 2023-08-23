@@ -75,13 +75,4 @@ export class MonitorThresholds {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorThresholds.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

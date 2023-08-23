@@ -39,13 +39,4 @@ export class SensitiveDataScannerGroupRelationships {
       type: "SensitiveDataScannerRuleData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerGroupRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

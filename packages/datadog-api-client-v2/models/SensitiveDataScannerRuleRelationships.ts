@@ -39,13 +39,4 @@ export class SensitiveDataScannerRuleRelationships {
       type: "SensitiveDataScannerStandardPatternData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerRuleRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

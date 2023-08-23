@@ -70,13 +70,4 @@ export class WebhooksIntegrationUpdateRequest {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WebhooksIntegrationUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -58,13 +58,4 @@ export class CIAppPipelinesAggregateRequest {
       type: "CIAppQueryOptions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelinesAggregateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

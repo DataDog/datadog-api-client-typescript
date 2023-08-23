@@ -49,13 +49,4 @@ export class IncidentsResponse {
       type: "IncidentResponseMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

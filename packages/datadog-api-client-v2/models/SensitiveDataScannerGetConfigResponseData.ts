@@ -55,13 +55,4 @@ export class SensitiveDataScannerGetConfigResponseData {
       type: "SensitiveDataScannerConfigurationType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerGetConfigResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

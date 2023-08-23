@@ -91,13 +91,4 @@ export class SyntheticsBasicAuthOauthClient {
       type: "SyntheticsBasicAuthOauthClientType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuthOauthClient.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

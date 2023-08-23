@@ -174,13 +174,4 @@ export class IncidentResponseAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

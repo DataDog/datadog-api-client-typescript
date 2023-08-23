@@ -39,13 +39,4 @@ export class ScalarResponse {
       type: "ScalarFormulaResponseType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -174,13 +174,4 @@ export class ChangeWidgetRequest {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ChangeWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class LogsByRetentionOrgUsage {
       type: "Array<LogsRetentionSumUsage>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsByRetentionOrgUsage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

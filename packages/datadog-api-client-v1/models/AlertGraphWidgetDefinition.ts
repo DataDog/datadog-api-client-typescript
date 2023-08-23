@@ -84,13 +84,4 @@ export class AlertGraphWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AlertGraphWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class RoleUpdateResponse {
       type: "RoleUpdateResponseData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleUpdateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

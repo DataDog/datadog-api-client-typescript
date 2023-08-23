@@ -39,13 +39,4 @@ export class LogsArchiveIntegrationGCS {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveIntegrationGCS.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

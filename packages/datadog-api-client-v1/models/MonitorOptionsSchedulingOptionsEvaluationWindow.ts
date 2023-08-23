@@ -47,13 +47,4 @@ export class MonitorOptionsSchedulingOptionsEvaluationWindow {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorOptionsSchedulingOptionsEvaluationWindow.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

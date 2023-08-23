@@ -76,13 +76,4 @@ export class RUMGroupBy {
       type: "RUMGroupByTotal",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

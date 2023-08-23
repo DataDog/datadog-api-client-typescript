@@ -48,13 +48,4 @@ export class LogsMetricResponseAttributes {
       type: "Array<LogsMetricResponseGroupBy>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

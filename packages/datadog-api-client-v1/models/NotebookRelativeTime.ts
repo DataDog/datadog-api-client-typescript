@@ -31,13 +31,4 @@ export class NotebookRelativeTime {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookRelativeTime.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

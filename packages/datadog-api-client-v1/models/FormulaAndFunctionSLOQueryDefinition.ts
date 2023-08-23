@@ -84,13 +84,4 @@ export class FormulaAndFunctionSLOQueryDefinition {
       type: "FormulaAndFunctionSLOQueryType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionSLOQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

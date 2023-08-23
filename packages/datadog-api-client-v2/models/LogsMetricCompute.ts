@@ -48,13 +48,4 @@ export class LogsMetricCompute {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

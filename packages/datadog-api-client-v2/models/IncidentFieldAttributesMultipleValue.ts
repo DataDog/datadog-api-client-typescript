@@ -38,13 +38,4 @@ export class IncidentFieldAttributesMultipleValue {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentFieldAttributesMultipleValue.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

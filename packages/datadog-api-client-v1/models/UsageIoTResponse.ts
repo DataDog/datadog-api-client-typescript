@@ -30,13 +30,4 @@ export class UsageIoTResponse {
       type: "Array<UsageIoTHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIoTResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

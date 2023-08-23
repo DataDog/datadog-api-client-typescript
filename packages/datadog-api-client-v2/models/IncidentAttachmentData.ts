@@ -60,13 +60,4 @@ export class IncidentAttachmentData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

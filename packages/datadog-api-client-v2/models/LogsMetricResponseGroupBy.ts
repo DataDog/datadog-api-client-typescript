@@ -37,13 +37,4 @@ export class LogsMetricResponseGroupBy {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricResponseGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -132,13 +132,4 @@ export class DistributionWidgetDefinition {
       type: "DistributionWidgetYAxis",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -123,13 +123,4 @@ export class EventCreateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

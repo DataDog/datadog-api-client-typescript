@@ -107,13 +107,4 @@ export class SyntheticsBatchResult {
       type: "SyntheticsTestDetailsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBatchResult.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -47,13 +47,4 @@ export class UsageDataObject {
       type: "UsageTimeSeriesType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageDataObject.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

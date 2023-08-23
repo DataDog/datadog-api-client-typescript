@@ -45,13 +45,4 @@ export class EventsQueryFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsQueryFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

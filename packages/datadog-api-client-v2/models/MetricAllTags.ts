@@ -47,13 +47,4 @@ export class MetricAllTags {
       type: "MetricType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricAllTags.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

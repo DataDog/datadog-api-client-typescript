@@ -50,13 +50,4 @@ export class ApplicationKeyUpdateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

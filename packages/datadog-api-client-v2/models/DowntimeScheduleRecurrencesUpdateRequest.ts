@@ -38,13 +38,4 @@ export class DowntimeScheduleRecurrencesUpdateRequest {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeScheduleRecurrencesUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

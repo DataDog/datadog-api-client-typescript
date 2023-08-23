@@ -73,13 +73,4 @@ export class SyntheticsBrowserVariable {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserVariable.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

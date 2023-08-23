@@ -47,13 +47,4 @@ export class LogsQueryCompute {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsQueryCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

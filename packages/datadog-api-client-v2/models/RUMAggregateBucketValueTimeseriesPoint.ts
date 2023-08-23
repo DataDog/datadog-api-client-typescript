@@ -39,13 +39,4 @@ export class RUMAggregateBucketValueTimeseriesPoint {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMAggregateBucketValueTimeseriesPoint.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

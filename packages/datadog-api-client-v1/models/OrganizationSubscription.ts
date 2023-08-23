@@ -29,13 +29,4 @@ export class OrganizationSubscription {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSubscription.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

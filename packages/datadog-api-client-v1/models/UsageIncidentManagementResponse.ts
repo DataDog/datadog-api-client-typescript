@@ -30,13 +30,4 @@ export class UsageIncidentManagementResponse {
       type: "Array<UsageIncidentManagementHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIncidentManagementResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

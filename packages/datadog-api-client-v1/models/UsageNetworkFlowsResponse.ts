@@ -30,13 +30,4 @@ export class UsageNetworkFlowsResponse {
       type: "Array<UsageNetworkFlowsHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageNetworkFlowsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

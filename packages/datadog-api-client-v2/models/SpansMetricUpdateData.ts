@@ -41,13 +41,4 @@ export class SpansMetricUpdateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

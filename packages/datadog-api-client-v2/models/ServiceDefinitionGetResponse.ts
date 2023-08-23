@@ -30,13 +30,4 @@ export class ServiceDefinitionGetResponse {
       type: "ServiceDefinitionData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionGetResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

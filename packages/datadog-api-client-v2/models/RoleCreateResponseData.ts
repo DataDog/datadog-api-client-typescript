@@ -57,13 +57,4 @@ export class RoleCreateResponseData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCreateResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

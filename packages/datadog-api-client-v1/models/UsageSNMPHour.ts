@@ -55,13 +55,4 @@ export class UsageSNMPHour {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSNMPHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

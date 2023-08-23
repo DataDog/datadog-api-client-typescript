@@ -47,13 +47,4 @@ export class MetricSuggestedTagsAndAggregations {
       type: "MetricActiveConfigurationType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricSuggestedTagsAndAggregations.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

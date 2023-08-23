@@ -58,13 +58,4 @@ export class NotebookHeatMapCellAttributes {
       type: "NotebookCellTime",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookHeatMapCellAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

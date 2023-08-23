@@ -71,13 +71,4 @@ export class UsageAttributesObject {
       type: "HourlyUsageType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributesObject.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

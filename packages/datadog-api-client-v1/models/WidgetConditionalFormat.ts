@@ -99,13 +99,4 @@ export class WidgetConditionalFormat {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetConditionalFormat.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

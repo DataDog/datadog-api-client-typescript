@@ -47,13 +47,4 @@ export class ServiceDefinitionV2Repo {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Repo.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

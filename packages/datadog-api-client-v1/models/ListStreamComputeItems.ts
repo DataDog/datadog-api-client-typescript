@@ -39,13 +39,4 @@ export class ListStreamComputeItems {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamComputeItems.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

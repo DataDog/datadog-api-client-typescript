@@ -47,13 +47,4 @@ export class RoleUpdateAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

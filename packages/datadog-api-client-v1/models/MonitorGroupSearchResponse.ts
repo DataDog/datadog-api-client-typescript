@@ -48,13 +48,4 @@ export class MonitorGroupSearchResponse {
       type: "MonitorSearchResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorGroupSearchResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

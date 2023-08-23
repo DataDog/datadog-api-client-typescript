@@ -30,13 +30,4 @@ export class SensitiveDataScannerReorderGroupsResponse {
       type: "SensitiveDataScannerMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerReorderGroupsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class SpansMetricGroupBy {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

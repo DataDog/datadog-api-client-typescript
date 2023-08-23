@@ -55,13 +55,4 @@ export class IPAllowlistEntryAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPAllowlistEntryAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

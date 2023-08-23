@@ -248,13 +248,4 @@ export class SyntheticsTestRequest {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

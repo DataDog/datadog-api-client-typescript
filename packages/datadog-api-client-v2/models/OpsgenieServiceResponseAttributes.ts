@@ -46,13 +46,4 @@ export class OpsgenieServiceResponseAttributes {
       type: "OpsgenieServiceRegionType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OpsgenieServiceResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

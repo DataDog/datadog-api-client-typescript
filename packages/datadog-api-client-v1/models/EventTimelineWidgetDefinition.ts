@@ -82,13 +82,4 @@ export class EventTimelineWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventTimelineWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

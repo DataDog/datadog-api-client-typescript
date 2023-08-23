@@ -37,13 +37,4 @@ export class SharedDashboardAuthor {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SharedDashboardAuthor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class MonitorState {
       type: "{ [key: string]: MonitorStateGroup; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorState.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

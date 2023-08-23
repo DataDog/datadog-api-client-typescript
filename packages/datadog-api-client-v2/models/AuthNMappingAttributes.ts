@@ -63,13 +63,4 @@ export class AuthNMappingAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

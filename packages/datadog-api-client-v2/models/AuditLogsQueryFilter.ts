@@ -45,13 +45,4 @@ export class AuditLogsQueryFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsQueryFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

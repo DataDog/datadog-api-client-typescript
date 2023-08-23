@@ -31,13 +31,4 @@ export class JSONAPIErrorResponse {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return JSONAPIErrorResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

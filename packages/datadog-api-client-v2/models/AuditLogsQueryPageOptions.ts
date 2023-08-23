@@ -38,13 +38,4 @@ export class AuditLogsQueryPageOptions {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsQueryPageOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

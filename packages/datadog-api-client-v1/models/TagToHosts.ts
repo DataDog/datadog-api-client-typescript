@@ -29,13 +29,4 @@ export class TagToHosts {
       type: "{ [key: string]: Array<string>; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TagToHosts.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

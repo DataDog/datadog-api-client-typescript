@@ -84,13 +84,4 @@ export class ApmStatsQueryDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApmStatsQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

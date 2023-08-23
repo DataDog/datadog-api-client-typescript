@@ -41,13 +41,4 @@ export class SharedDashboardInvitesDataObject {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SharedDashboardInvitesDataObject.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -49,13 +49,4 @@ export class SecurityMonitoringSignalsListResponse {
       type: "SecurityMonitoringSignalsListResponseMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalsListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

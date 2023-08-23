@@ -48,13 +48,4 @@ export class ScatterplotWidgetFormula {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterplotWidgetFormula.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

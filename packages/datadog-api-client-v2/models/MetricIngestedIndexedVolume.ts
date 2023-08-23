@@ -47,13 +47,4 @@ export class MetricIngestedIndexedVolume {
       type: "MetricIngestedIndexedVolumeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricIngestedIndexedVolume.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

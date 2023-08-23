@@ -39,13 +39,4 @@ export class AWSLogsServicesRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsServicesRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

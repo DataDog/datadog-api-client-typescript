@@ -102,13 +102,4 @@ export class ImageWidgetDefinition {
       type: "WidgetVerticalAlign",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ImageWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

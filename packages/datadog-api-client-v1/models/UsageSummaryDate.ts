@@ -786,13 +786,4 @@ export class UsageSummaryDate {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSummaryDate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -47,13 +47,4 @@ export class SecurityMonitoringSignalListRequestFilter {
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalListRequestFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

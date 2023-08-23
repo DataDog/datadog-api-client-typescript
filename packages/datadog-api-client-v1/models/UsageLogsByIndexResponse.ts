@@ -30,13 +30,4 @@ export class UsageLogsByIndexResponse {
       type: "Array<UsageLogsByIndexHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLogsByIndexResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

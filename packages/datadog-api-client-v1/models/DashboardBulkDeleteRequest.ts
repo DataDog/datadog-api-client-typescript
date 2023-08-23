@@ -31,13 +31,4 @@ export class DashboardBulkDeleteRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardBulkDeleteRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

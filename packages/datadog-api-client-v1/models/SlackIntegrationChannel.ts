@@ -38,13 +38,4 @@ export class SlackIntegrationChannel {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackIntegrationChannel.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -55,13 +55,4 @@ export class UsageIncidentManagementHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIncidentManagementHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

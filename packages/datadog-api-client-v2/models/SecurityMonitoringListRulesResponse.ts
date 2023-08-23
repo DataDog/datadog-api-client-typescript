@@ -39,13 +39,4 @@ export class SecurityMonitoringListRulesResponse {
       type: "ResponseMetaAttributes",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringListRulesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

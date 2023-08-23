@@ -38,13 +38,4 @@ export class ListFindingsPage {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListFindingsPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

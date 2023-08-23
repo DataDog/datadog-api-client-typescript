@@ -55,13 +55,4 @@ export class SecurityMonitoringRuleCase {
       type: "SecurityMonitoringRuleSeverity",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleCase.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

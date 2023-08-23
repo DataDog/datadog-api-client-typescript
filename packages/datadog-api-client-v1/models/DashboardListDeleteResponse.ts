@@ -30,13 +30,4 @@ export class DashboardListDeleteResponse {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListDeleteResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

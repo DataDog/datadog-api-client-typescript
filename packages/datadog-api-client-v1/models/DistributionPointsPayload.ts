@@ -31,13 +31,4 @@ export class DistributionPointsPayload {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionPointsPayload.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

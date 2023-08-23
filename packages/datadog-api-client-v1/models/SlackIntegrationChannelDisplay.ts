@@ -53,13 +53,4 @@ export class SlackIntegrationChannelDisplay {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackIntegrationChannelDisplay.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

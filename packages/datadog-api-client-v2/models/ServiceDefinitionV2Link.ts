@@ -49,13 +49,4 @@ export class ServiceDefinitionV2Link {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Link.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

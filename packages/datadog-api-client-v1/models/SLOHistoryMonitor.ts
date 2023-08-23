@@ -126,13 +126,4 @@ export class SLOHistoryMonitor {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistoryMonitor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

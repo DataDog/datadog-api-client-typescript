@@ -45,13 +45,4 @@ export class JSONAPIErrorItem {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return JSONAPIErrorItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

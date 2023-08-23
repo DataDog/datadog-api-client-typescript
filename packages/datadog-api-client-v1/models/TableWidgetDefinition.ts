@@ -93,13 +93,4 @@ export class TableWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TableWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

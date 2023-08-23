@@ -38,13 +38,4 @@ export class RUMBucketResponse {
       type: "{ [key: string]: RUMAggregateBucketValue; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMBucketResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

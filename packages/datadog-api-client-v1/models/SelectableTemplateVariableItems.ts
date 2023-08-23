@@ -53,13 +53,4 @@ export class SelectableTemplateVariableItems {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SelectableTemplateVariableItems.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

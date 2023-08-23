@@ -33,13 +33,4 @@ export class ScalarMeta {
       type: "Array<Unit>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

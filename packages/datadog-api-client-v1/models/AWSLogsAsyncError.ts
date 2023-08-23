@@ -37,13 +37,4 @@ export class AWSLogsAsyncError {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsAsyncError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

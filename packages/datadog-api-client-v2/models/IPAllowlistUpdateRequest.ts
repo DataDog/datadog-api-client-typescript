@@ -31,13 +31,4 @@ export class IPAllowlistUpdateRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPAllowlistUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

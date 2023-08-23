@@ -30,13 +30,4 @@ export class SearchServiceLevelObjective {
       type: "SearchServiceLevelObjectiveData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchServiceLevelObjective.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

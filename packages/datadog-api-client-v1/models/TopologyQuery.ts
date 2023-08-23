@@ -46,13 +46,4 @@ export class TopologyQuery {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TopologyQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

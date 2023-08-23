@@ -31,13 +31,4 @@ export class SlackIntegrationMetadata {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackIntegrationMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -39,13 +39,4 @@ export class CloudConfigurationRuleCaseCreate {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudConfigurationRuleCaseCreate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

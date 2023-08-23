@@ -29,13 +29,4 @@ export class CIAppResponsePage {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppResponsePage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

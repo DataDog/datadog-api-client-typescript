@@ -39,13 +39,4 @@ export class NotebooksResponsePage {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebooksResponsePage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

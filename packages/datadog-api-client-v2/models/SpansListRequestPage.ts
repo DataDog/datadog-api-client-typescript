@@ -38,13 +38,4 @@ export class SpansListRequestPage {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansListRequestPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

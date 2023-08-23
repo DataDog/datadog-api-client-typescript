@@ -80,13 +80,4 @@ export class User {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return User.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

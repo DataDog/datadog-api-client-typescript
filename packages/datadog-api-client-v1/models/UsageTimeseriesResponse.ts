@@ -30,13 +30,4 @@ export class UsageTimeseriesResponse {
       type: "Array<UsageTimeseriesHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTimeseriesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

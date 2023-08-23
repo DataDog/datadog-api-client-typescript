@@ -30,13 +30,4 @@ export class RelationshipToPermission {
       type: "RelationshipToPermissionData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToPermission.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

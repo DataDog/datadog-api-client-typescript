@@ -39,13 +39,4 @@ export class LogsQueryOptions {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

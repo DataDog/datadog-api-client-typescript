@@ -38,13 +38,4 @@ export class ApplicationKeyCreateAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class LogsAggregateBucketValueTimeseriesPoint {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateBucketValueTimeseriesPoint.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

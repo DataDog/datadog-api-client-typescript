@@ -83,13 +83,4 @@ export class UsageBillableSummaryBody {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageBillableSummaryBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -48,13 +48,4 @@ export class AddSignalToIncidentRequest {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AddSignalToIncidentRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

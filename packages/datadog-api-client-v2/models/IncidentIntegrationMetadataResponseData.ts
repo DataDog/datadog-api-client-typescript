@@ -49,13 +49,4 @@ export class IncidentIntegrationMetadataResponseData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentIntegrationMetadataResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

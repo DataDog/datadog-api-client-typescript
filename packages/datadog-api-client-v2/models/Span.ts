@@ -47,13 +47,4 @@ export class Span {
       type: "SpansType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Span.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

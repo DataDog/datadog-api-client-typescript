@@ -48,13 +48,4 @@ export class FormulaAndFunctionEventQueryGroupBySort {
       type: "QuerySortOrder",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

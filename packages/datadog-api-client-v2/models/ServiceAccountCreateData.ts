@@ -50,13 +50,4 @@ export class ServiceAccountCreateData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceAccountCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

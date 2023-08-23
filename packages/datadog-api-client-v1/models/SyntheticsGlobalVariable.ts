@@ -92,13 +92,4 @@ export class SyntheticsGlobalVariable {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariable.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

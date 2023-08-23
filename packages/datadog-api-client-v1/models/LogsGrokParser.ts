@@ -75,13 +75,4 @@ export class LogsGrokParser {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsGrokParser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

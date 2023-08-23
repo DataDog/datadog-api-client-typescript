@@ -76,13 +76,4 @@ export class ServiceCheck {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceCheck.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

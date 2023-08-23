@@ -78,13 +78,4 @@ export class LogsListRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

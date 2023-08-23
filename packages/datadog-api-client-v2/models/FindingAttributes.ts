@@ -99,13 +99,4 @@ export class FindingAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FindingAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -167,13 +167,4 @@ export class CIAppPipelineEventStage {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelineEventStage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

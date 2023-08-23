@@ -50,13 +50,4 @@ export class DowntimeUpdateRequestData {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeUpdateRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

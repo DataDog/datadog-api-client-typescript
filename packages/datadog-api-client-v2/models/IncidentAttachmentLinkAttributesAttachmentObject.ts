@@ -39,13 +39,4 @@ export class IncidentAttachmentLinkAttributesAttachmentObject {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentLinkAttributesAttachmentObject.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

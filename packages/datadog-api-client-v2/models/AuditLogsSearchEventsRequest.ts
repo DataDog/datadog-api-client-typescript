@@ -58,13 +58,4 @@ export class AuditLogsSearchEventsRequest {
       type: "AuditLogsSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsSearchEventsRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

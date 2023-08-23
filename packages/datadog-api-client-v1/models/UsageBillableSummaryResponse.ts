@@ -30,13 +30,4 @@ export class UsageBillableSummaryResponse {
       type: "Array<UsageBillableSummaryHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageBillableSummaryResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -59,13 +59,4 @@ export class Team {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Team.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

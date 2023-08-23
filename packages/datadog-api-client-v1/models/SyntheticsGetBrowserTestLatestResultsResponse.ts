@@ -39,13 +39,4 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
       type: "Array<SyntheticsBrowserTestResultShort>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGetBrowserTestLatestResultsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

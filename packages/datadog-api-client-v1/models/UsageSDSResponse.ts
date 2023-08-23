@@ -30,13 +30,4 @@ export class UsageSDSResponse {
       type: "Array<UsageSDSHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSDSResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

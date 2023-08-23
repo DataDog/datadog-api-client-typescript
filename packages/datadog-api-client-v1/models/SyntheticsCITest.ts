@@ -138,13 +138,4 @@ export class SyntheticsCITest {
       type: "{ [key: string]: string; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCITest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

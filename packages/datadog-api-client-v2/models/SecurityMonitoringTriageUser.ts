@@ -63,13 +63,4 @@ export class SecurityMonitoringTriageUser {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringTriageUser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

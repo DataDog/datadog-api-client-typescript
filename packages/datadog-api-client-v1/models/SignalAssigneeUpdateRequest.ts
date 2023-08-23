@@ -39,13 +39,4 @@ export class SignalAssigneeUpdateRequest {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SignalAssigneeUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -82,13 +82,4 @@ export class SLOCorrectionUpdateRequestAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionUpdateRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

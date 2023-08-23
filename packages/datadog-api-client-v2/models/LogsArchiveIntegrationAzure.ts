@@ -39,13 +39,4 @@ export class LogsArchiveIntegrationAzure {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveIntegrationAzure.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

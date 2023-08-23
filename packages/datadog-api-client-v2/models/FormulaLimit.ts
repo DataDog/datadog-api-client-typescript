@@ -40,13 +40,4 @@ export class FormulaLimit {
       type: "QuerySortOrder",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaLimit.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

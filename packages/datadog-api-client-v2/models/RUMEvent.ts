@@ -47,13 +47,4 @@ export class RUMEvent {
       type: "RUMEventType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMEvent.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,13 +30,4 @@ export class ConfluentAccountsResponse {
       type: "Array<ConfluentAccountResponseData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentAccountsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

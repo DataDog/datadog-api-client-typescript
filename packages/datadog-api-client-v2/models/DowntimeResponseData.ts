@@ -56,13 +56,4 @@ export class DowntimeResponseData {
       type: "DowntimeResourceType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

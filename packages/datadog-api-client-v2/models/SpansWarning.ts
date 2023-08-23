@@ -45,13 +45,4 @@ export class SpansWarning {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansWarning.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

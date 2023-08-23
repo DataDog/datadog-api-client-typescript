@@ -39,13 +39,4 @@ export class MonitorConfigPolicyAttributeResponse {
       type: "MonitorConfigPolicyType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorConfigPolicyAttributeResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

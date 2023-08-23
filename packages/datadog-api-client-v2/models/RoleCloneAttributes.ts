@@ -30,13 +30,4 @@ export class RoleCloneAttributes {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCloneAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

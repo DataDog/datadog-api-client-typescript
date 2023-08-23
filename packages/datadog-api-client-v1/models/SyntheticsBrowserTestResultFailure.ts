@@ -38,13 +38,4 @@ export class SyntheticsBrowserTestResultFailure {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestResultFailure.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -70,13 +70,4 @@ export class UsageSpecifiedCustomReportsAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSpecifiedCustomReportsAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

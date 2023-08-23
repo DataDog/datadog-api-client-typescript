@@ -30,13 +30,4 @@ export class UserResponse {
       type: "User",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

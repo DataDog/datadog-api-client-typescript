@@ -46,13 +46,4 @@ export class ChargebackBreakdown {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ChargebackBreakdown.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

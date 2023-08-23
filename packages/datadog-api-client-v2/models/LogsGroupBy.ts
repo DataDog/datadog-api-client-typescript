@@ -77,13 +77,4 @@ export class LogsGroupBy {
       type: "LogsGroupByTotal",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

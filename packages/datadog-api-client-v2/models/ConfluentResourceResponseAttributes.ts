@@ -54,13 +54,4 @@ export class ConfluentResourceResponseAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentResourceResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -39,13 +39,4 @@ export class SensitiveDataScannerCreateRuleResponse {
       type: "SensitiveDataScannerMetaVersionOnly",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerCreateRuleResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

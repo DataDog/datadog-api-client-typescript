@@ -29,13 +29,4 @@ export class EventsSearch {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsSearch.attributeTypeMap;
-  }
-
-  public constructor() {}
 }
