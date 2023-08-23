@@ -45,7 +45,7 @@ export async function deserializeError<T>(
   serializer: any,
   typeText: string,
   response: ResponseContext,
-  contentType: string
+  contentType: string | undefined
 ): Promise<void> {
   const bodyText = serializer.parse(await response.body.text(), contentType);
   let body: T;

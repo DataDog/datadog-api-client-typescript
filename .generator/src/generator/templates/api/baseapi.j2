@@ -36,7 +36,7 @@ export class RequiredError extends Error {
   }
 }
 
-export async function deserializeError<T>(serializer: any, typeText: string, response: ResponseContext, contentType: string): Promise<void> {
+export async function deserializeError<T>(serializer: any, typeText: string, response: ResponseContext, contentType: string | undefined): Promise<void> {
   const bodyText = serializer.parse(await response.body.text(), contentType);
   let body: T;
   try {
