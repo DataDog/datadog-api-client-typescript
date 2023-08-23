@@ -1,4 +1,4 @@
-import { BaseAPIRequestFactory, RequiredError } from "../../datadog-api-client-common/baseapi";
+import { BaseAPIRequestFactory, RequiredError, deserializeError } from "../../datadog-api-client-common/baseapi";
 import { Configuration, applySecurityAuthentication} from "../../datadog-api-client-common/configuration";
 import {
   RequestContext,
@@ -185,18 +185,7 @@ export class {{ className }}ResponseProcessor {
       {%- endif %}
       return body;
       {%- else %}
-      const bodyText = ObjectSerializer.parse(await response.body.text(), contentType);
-      let body: {{ responseType }};
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "{{ responseType }}"
-        ) as {{ responseType }};
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<{{ responseType }}>(response.httpStatusCode, bodyText);
-      } 
-      throw new ApiException<{{ responseType }}>(response.httpStatusCode, body);
+      await deserializeError(ObjectSerializer, "{{ responseType }}", response, contentType);
       {%- endif %}
       {%- else %}
       {%- if responseCodes[0].startswith("2") %}

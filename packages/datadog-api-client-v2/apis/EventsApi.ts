@@ -1,4 +1,7 @@
-import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
+import {
+  BaseAPIRequestFactory,
+  deserializeError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   applySecurityAuthentication,
@@ -13,7 +16,6 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
-import { APIErrorResponse } from "../models/APIErrorResponse";
 import { EventResponse } from "../models/EventResponse";
 import { EventsListRequest } from "../models/EventsListRequest";
 import { EventsListResponse } from "../models/EventsListResponse";
@@ -162,24 +164,12 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -214,24 +204,12 @@ export class EventsApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";

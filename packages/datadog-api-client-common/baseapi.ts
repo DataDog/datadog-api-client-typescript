@@ -1,4 +1,7 @@
 import { Configuration } from "./configuration";
+import { ApiException } from "./exception";
+import { logger } from "../../logger";
+import { ResponseContext } from "./http/http";
 
 /**
  *
@@ -36,4 +39,21 @@ export class RequiredError extends Error {
     );
     this.name = "RequiredError";
   }
+}
+
+export async function deserializeError<T>(
+  serializer: any,
+  typeText: string,
+  response: ResponseContext,
+  contentType: string
+): Promise<void> {
+  const bodyText = serializer.parse(await response.body.text(), contentType);
+  let body: T;
+  try {
+    body = serializer.deserialize(bodyText, typeText) as T;
+  } catch (error) {
+    logger.info(`Got error deserializing error: ${error}`);
+    throw new ApiException<T>(response.httpStatusCode, bodyText);
+  }
+  throw new ApiException<T>(response.httpStatusCode, body);
 }

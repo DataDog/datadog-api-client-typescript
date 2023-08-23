@@ -1,6 +1,7 @@
 import {
   BaseAPIRequestFactory,
   RequiredError,
+  deserializeError,
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
@@ -16,12 +17,10 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
-import { APIErrorResponse } from "../models/APIErrorResponse";
 import { Finding } from "../models/Finding";
 import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
 import { GetFindingResponse } from "../models/GetFindingResponse";
-import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListFindingsResponse } from "../models/ListFindingsResponse";
 import { MuteFindingRequest } from "../models/MuteFindingRequest";
 import { MuteFindingResponse } from "../models/MuteFindingResponse";
@@ -997,24 +996,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 409 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1049,24 +1036,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1095,24 +1070,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1143,24 +1106,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1197,24 +1148,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1251,24 +1190,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1305,24 +1232,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1358,26 +1273,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "JSONAPIErrorResponse",
+        response,
         contentType
-      );
-      let body: JSONAPIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
       );
     }
 
@@ -1413,24 +1313,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1461,24 +1349,12 @@ export class SecurityMonitoringApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1510,24 +1386,12 @@ export class SecurityMonitoringApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1563,26 +1427,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "JSONAPIErrorResponse",
+        response,
         contentType
-      );
-      let body: JSONAPIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
       );
     }
 
@@ -1614,24 +1463,12 @@ export class SecurityMonitoringApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1663,24 +1500,12 @@ export class SecurityMonitoringApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode == 400 || response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1716,24 +1541,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1769,24 +1582,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1824,26 +1625,11 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 422 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "JSONAPIErrorResponse",
+        response,
         contentType
-      );
-      let body: JSONAPIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "JSONAPIErrorResponse"
-        ) as JSONAPIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<JSONAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<JSONAPIErrorResponse>(
-        response.httpStatusCode,
-        body
       );
     }
 
@@ -1881,24 +1667,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 409 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -1935,24 +1709,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";

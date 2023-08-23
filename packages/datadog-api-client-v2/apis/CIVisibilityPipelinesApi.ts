@@ -1,6 +1,7 @@
 import {
   BaseAPIRequestFactory,
   RequiredError,
+  deserializeError,
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
@@ -16,7 +17,6 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
-import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CIAppCreatePipelineEventRequest } from "../models/CIAppCreatePipelineEventRequest";
 import { CIAppPipelineEvent } from "../models/CIAppPipelineEvent";
 import { CIAppPipelineEventsRequest } from "../models/CIAppPipelineEventsRequest";
@@ -25,7 +25,6 @@ import { CIAppPipelinesAggregateRequest } from "../models/CIAppPipelinesAggregat
 import { CIAppPipelinesAnalyticsAggregateResponse } from "../models/CIAppPipelinesAnalyticsAggregateResponse";
 import { CIAppQueryPageOptions } from "../models/CIAppQueryPageOptions";
 import { CIAppSort } from "../models/CIAppSort";
-import { HTTPCIAppErrors } from "../models/HTTPCIAppErrors";
 
 export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactory {
   public async aggregateCIAppPipelineEvents(
@@ -243,24 +242,12 @@ export class CIVisibilityPipelinesApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -300,24 +287,12 @@ export class CIVisibilityPipelinesApiResponseProcessor {
       response.httpStatusCode == 500 ||
       response.httpStatusCode == 503
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "HTTPCIAppErrors",
+        response,
         contentType
       );
-      let body: HTTPCIAppErrors;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "HTTPCIAppErrors"
-        ) as HTTPCIAppErrors;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -352,24 +327,12 @@ export class CIVisibilityPipelinesApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -404,24 +367,12 @@ export class CIVisibilityPipelinesApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";

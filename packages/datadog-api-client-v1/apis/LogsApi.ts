@@ -1,6 +1,7 @@
 import {
   BaseAPIRequestFactory,
   RequiredError,
+  deserializeError,
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
@@ -12,15 +13,11 @@ import {
   ResponseContext,
 } from "../../datadog-api-client-common/http/http";
 
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
-import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ContentEncoding } from "../models/ContentEncoding";
-import { HTTPLogError } from "../models/HTTPLogError";
 import { HTTPLogItem } from "../models/HTTPLogItem";
-import { LogsAPIErrorResponse } from "../models/LogsAPIErrorResponse";
 import { LogsListRequest } from "../models/LogsListRequest";
 import { LogsListResponse } from "../models/LogsListResponse";
 
@@ -144,47 +141,20 @@ export class LogsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode == 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "LogsAPIErrorResponse",
+        response,
         contentType
-      );
-      let body: LogsAPIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "LogsAPIErrorResponse"
-        ) as LogsAPIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<LogsAPIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<LogsAPIErrorResponse>(
-        response.httpStatusCode,
-        body
       );
     }
     if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
@@ -213,41 +183,20 @@ export class LogsApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode == 400) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "HTTPLogError",
+        response,
         contentType
       );
-      let body: HTTPLogError;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "HTTPLogError"
-        ) as HTTPLogError;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPLogError>(response.httpStatusCode, bodyText);
-      }
-      throw new ApiException<HTTPLogError>(response.httpStatusCode, body);
     }
     if (response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
     }
 
     const body = (await response.body.text()) || "";
