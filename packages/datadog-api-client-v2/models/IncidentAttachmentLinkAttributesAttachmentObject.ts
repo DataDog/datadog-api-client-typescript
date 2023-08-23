@@ -29,23 +29,12 @@ export class IncidentAttachmentLinkAttributesAttachmentObject {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     documentUrl: {
-      baseName: "documentUrl",
       type: "string",
       required: true,
     },
     title: {
-      baseName: "title",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentLinkAttributesAttachmentObject.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

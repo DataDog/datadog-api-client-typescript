@@ -110,11 +110,9 @@ export class Dashboard {
       format: "date-time",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     isReadOnly: {
@@ -144,7 +142,6 @@ export class Dashboard {
       type: "Array<string>",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     templateVariablePresets: {
@@ -156,27 +153,15 @@ export class Dashboard {
       type: "Array<DashboardTemplateVariable>",
     },
     title: {
-      baseName: "title",
       type: "string",
       required: true,
     },
     url: {
-      baseName: "url",
       type: "string",
     },
     widgets: {
-      baseName: "widgets",
       type: "Array<Widget>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Dashboard.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class CIAppResponseLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     next: {
-      baseName: "next",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

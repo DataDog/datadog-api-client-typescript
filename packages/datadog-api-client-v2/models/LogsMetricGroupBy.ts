@@ -29,7 +29,6 @@ export class LogsMetricGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     path: {
-      baseName: "path",
       type: "string",
       required: true,
     },
@@ -38,13 +37,4 @@ export class LogsMetricGroupBy {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

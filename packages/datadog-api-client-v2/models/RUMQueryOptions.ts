@@ -35,17 +35,7 @@ export class RUMQueryOptions {
       format: "int64",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

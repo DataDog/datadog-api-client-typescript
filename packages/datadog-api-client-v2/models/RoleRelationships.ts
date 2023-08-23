@@ -31,21 +31,10 @@ export class RoleRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     permissions: {
-      baseName: "permissions",
       type: "RelationshipToPermissions",
     },
     users: {
-      baseName: "users",
       type: "RelationshipToUsers",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

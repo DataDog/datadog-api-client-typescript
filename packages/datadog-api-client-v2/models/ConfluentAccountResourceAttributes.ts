@@ -41,7 +41,6 @@ export class ConfluentAccountResourceAttributes {
       type: "boolean",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     resourceType: {
@@ -50,17 +49,7 @@ export class ConfluentAccountResourceAttributes {
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentAccountResourceAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

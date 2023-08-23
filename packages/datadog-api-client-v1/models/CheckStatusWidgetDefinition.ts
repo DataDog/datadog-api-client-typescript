@@ -65,12 +65,10 @@ export class CheckStatusWidgetDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     check: {
-      baseName: "check",
       type: "string",
       required: true,
     },
     group: {
-      baseName: "group",
       type: "string",
     },
     groupBy: {
@@ -78,20 +76,16 @@ export class CheckStatusWidgetDefinition {
       type: "Array<string>",
     },
     grouping: {
-      baseName: "grouping",
       type: "WidgetGrouping",
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -103,18 +97,8 @@ export class CheckStatusWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "CheckStatusWidgetDefinitionType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckStatusWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

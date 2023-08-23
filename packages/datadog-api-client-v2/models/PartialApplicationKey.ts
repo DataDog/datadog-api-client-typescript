@@ -40,29 +40,16 @@ export class PartialApplicationKey {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "PartialApplicationKeyAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "ApplicationKeyRelationships",
     },
     type: {
-      baseName: "type",
       type: "ApplicationKeysType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PartialApplicationKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

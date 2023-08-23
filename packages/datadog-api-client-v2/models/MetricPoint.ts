@@ -30,23 +30,12 @@ export class MetricPoint {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     timestamp: {
-      baseName: "timestamp",
       type: "number",
       format: "int64",
     },
     value: {
-      baseName: "value",
       type: "number",
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricPoint.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

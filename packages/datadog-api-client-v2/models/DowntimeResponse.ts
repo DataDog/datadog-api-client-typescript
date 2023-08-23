@@ -34,21 +34,10 @@ export class DowntimeResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "DowntimeResponseData",
     },
     included: {
-      baseName: "included",
       type: "Array<DowntimeResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

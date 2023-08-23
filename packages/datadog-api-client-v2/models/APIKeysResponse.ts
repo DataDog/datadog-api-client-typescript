@@ -31,21 +31,10 @@ export class APIKeysResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<PartialAPIKey>",
     },
     included: {
-      baseName: "included",
       type: "Array<APIKeyResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeysResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

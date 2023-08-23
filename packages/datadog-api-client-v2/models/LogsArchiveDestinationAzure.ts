@@ -47,21 +47,17 @@ export class LogsArchiveDestinationAzure {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     container: {
-      baseName: "container",
       type: "string",
       required: true,
     },
     integration: {
-      baseName: "integration",
       type: "LogsArchiveIntegrationAzure",
       required: true,
     },
     path: {
-      baseName: "path",
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     storageAccount: {
@@ -70,18 +66,8 @@ export class LogsArchiveDestinationAzure {
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsArchiveDestinationAzureType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveDestinationAzure.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

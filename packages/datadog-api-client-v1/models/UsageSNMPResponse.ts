@@ -26,17 +26,7 @@ export class UsageSNMPResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageSNMPHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSNMPResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

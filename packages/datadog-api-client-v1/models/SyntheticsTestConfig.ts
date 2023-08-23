@@ -41,29 +41,16 @@ export class SyntheticsTestConfig {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     assertions: {
-      baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
     },
     configVariables: {
-      baseName: "configVariables",
       type: "Array<SyntheticsConfigVariable>",
     },
     request: {
-      baseName: "request",
       type: "SyntheticsTestRequest",
     },
     variables: {
-      baseName: "variables",
       type: "Array<SyntheticsBrowserVariable>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestConfig.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

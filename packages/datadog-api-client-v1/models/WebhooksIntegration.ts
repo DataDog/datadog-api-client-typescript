@@ -56,27 +56,15 @@ export class WebhooksIntegration {
       type: "WebhooksIntegrationEncoding",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     payload: {
-      baseName: "payload",
       type: "string",
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WebhooksIntegration.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

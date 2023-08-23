@@ -69,7 +69,6 @@ export class NoteWidgetDefinition {
       type: "string",
     },
     content: {
-      baseName: "content",
       type: "string",
       required: true,
     },
@@ -98,7 +97,6 @@ export class NoteWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "NoteWidgetDefinitionType",
       required: true,
     },
@@ -107,13 +105,4 @@ export class NoteWidgetDefinition {
       type: "WidgetVerticalAlign",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NoteWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -33,25 +33,13 @@ export class LogsWarning {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
-      baseName: "code",
       type: "string",
     },
     detail: {
-      baseName: "detail",
       type: "string",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsWarning.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -41,29 +41,16 @@ export class TeamsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<Team>",
     },
     included: {
-      baseName: "included",
       type: "Array<TeamIncluded>",
     },
     links: {
-      baseName: "links",
       type: "TeamsResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "TeamsResponseMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

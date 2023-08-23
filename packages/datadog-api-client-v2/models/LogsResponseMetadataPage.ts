@@ -26,17 +26,7 @@ export class LogsResponseMetadataPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
-      baseName: "after",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsResponseMetadataPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

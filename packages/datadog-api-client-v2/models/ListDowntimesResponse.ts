@@ -36,25 +36,13 @@ export class ListDowntimesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<DowntimeResponseData>",
     },
     included: {
-      baseName: "included",
       type: "Array<DowntimeResponseIncludedItem>",
     },
     meta: {
-      baseName: "meta",
       type: "DowntimeMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListDowntimesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class LogsMetricsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<LogsMetricResponseData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

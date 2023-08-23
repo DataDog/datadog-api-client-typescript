@@ -40,21 +40,10 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WebhooksIntegrationCustomVariableUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

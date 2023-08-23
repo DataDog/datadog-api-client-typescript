@@ -36,28 +36,16 @@ export class SLOBulkDeleteError {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     message: {
-      baseName: "message",
       type: "string",
       required: true,
     },
     timeframe: {
-      baseName: "timeframe",
       type: "SLOErrorTimeframe",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOBulkDeleteError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

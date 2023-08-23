@@ -47,7 +47,6 @@ export class UsageLambdaHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -65,13 +64,4 @@ export class UsageLambdaHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLambdaHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

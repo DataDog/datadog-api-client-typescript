@@ -25,17 +25,7 @@ export class CIAppResponsePage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
-      baseName: "after",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppResponsePage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

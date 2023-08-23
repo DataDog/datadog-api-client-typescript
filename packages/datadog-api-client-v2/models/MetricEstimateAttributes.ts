@@ -48,13 +48,4 @@ export class MetricEstimateAttributes {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricEstimateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

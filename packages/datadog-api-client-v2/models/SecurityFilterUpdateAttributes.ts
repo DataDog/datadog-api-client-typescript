@@ -59,26 +59,14 @@ export class SecurityFilterUpdateAttributes {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

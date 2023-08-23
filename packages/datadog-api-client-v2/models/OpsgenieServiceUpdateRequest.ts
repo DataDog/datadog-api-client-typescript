@@ -26,18 +26,8 @@ export class OpsgenieServiceUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "OpsgenieServiceUpdateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OpsgenieServiceUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

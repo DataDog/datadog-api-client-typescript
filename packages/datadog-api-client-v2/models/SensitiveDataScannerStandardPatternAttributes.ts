@@ -37,29 +37,16 @@ export class SensitiveDataScannerStandardPatternAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
-      baseName: "description",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     pattern: {
-      baseName: "pattern",
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerStandardPatternAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

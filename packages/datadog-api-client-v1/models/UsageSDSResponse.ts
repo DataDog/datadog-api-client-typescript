@@ -26,17 +26,7 @@ export class UsageSDSResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageSDSHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSDSResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

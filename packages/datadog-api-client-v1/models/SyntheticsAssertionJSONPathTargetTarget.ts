@@ -33,25 +33,13 @@ export class SyntheticsAssertionJSONPathTargetTarget {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     jsonPath: {
-      baseName: "jsonPath",
       type: "string",
     },
     operator: {
-      baseName: "operator",
       type: "string",
     },
     targetValue: {
-      baseName: "targetValue",
       type: "any",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAssertionJSONPathTargetTarget.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

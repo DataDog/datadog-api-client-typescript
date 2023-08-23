@@ -30,21 +30,10 @@ export class LogsCategoryProcessorCategory {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "LogsFilter",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsCategoryProcessorCategory.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

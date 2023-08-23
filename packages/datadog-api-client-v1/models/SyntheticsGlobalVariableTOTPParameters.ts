@@ -29,7 +29,6 @@ export class SyntheticsGlobalVariableTOTPParameters {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     digits: {
-      baseName: "digits",
       type: "number",
       format: "int32",
     },
@@ -39,13 +38,4 @@ export class SyntheticsGlobalVariableTOTPParameters {
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariableTOTPParameters.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

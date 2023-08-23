@@ -37,29 +37,16 @@ export class CloudConfigurationRuleComplianceSignalOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     defaultActivationStatus: {
-      baseName: "defaultActivationStatus",
       type: "boolean",
     },
     defaultGroupByFields: {
-      baseName: "defaultGroupByFields",
       type: "Array<string>",
     },
     userActivationStatus: {
-      baseName: "userActivationStatus",
       type: "boolean",
     },
     userGroupByFields: {
-      baseName: "userGroupByFields",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudConfigurationRuleComplianceSignalOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

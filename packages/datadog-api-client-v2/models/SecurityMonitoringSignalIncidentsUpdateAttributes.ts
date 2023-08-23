@@ -35,18 +35,8 @@ export class SecurityMonitoringSignalIncidentsUpdateAttributes {
       format: "int64",
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalIncidentsUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

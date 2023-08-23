@@ -117,13 +117,4 @@ export class AWSAccount {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccount.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

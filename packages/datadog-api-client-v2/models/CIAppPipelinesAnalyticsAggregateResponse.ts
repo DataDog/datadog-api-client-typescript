@@ -36,25 +36,13 @@ export class CIAppPipelinesAnalyticsAggregateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "CIAppPipelinesAggregationBucketsResponse",
     },
     links: {
-      baseName: "links",
       type: "CIAppResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "CIAppResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelinesAnalyticsAggregateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -41,11 +41,9 @@ export class WidgetCustomLink {
       type: "boolean",
     },
     label: {
-      baseName: "label",
       type: "string",
     },
     link: {
-      baseName: "link",
       type: "string",
     },
     overrideLabel: {
@@ -53,13 +51,4 @@ export class WidgetCustomLink {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetCustomLink.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

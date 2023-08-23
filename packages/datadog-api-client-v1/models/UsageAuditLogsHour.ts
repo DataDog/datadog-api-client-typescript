@@ -37,7 +37,6 @@ export class UsageAuditLogsHour {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -55,13 +54,4 @@ export class UsageAuditLogsHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAuditLogsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

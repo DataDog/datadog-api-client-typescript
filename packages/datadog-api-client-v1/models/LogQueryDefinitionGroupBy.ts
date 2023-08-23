@@ -34,27 +34,15 @@ export class LogQueryDefinitionGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
-      baseName: "facet",
       type: "string",
       required: true,
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
     sort: {
-      baseName: "sort",
       type: "LogQueryDefinitionGroupBySort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogQueryDefinitionGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

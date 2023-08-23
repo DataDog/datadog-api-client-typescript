@@ -87,7 +87,6 @@ export class MonitorSummaryWidgetDefinition {
       type: "WidgetColorPreference",
     },
     count: {
-      baseName: "count",
       type: "number",
       format: "int64",
     },
@@ -100,7 +99,6 @@ export class MonitorSummaryWidgetDefinition {
       type: "boolean",
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
@@ -113,11 +111,9 @@ export class MonitorSummaryWidgetDefinition {
       type: "boolean",
     },
     sort: {
-      baseName: "sort",
       type: "WidgetMonitorSummarySort",
     },
     start: {
-      baseName: "start",
       type: "number",
       format: "int64",
     },
@@ -126,7 +122,6 @@ export class MonitorSummaryWidgetDefinition {
       type: "WidgetSummaryType",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -138,18 +133,8 @@ export class MonitorSummaryWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "MonitorSummaryWidgetDefinitionType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSummaryWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

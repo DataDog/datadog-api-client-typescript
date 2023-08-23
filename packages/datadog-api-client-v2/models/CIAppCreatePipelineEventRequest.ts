@@ -26,17 +26,7 @@ export class CIAppCreatePipelineEventRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "CIAppCreatePipelineEventRequestData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppCreatePipelineEventRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

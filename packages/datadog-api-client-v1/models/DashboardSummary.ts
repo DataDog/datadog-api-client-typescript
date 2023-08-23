@@ -26,17 +26,7 @@ export class DashboardSummary {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dashboards: {
-      baseName: "dashboards",
       type: "Array<DashboardSummaryDefinition>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardSummary.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,18 +26,8 @@ export class LogsMetricUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "LogsMetricUpdateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

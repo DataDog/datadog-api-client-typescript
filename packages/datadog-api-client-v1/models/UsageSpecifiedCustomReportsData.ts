@@ -35,25 +35,13 @@ export class UsageSpecifiedCustomReportsData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "UsageSpecifiedCustomReportsAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "UsageReportsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSpecifiedCustomReportsData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

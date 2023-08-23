@@ -25,17 +25,7 @@ export class LogsFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

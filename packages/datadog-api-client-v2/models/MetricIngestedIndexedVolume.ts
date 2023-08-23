@@ -35,25 +35,13 @@ export class MetricIngestedIndexedVolume {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MetricIngestedIndexedVolumeAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "MetricIngestedIndexedVolumeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricIngestedIndexedVolume.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

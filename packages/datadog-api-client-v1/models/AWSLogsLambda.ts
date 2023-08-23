@@ -25,17 +25,7 @@ export class AWSLogsLambda {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     arn: {
-      baseName: "arn",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsLambda.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

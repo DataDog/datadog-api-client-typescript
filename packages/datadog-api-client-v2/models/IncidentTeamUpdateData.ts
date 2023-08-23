@@ -40,30 +40,17 @@ export class IncidentTeamUpdateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "IncidentTeamUpdateAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "IncidentTeamRelationships",
     },
     type: {
-      baseName: "type",
       type: "IncidentTeamType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTeamUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

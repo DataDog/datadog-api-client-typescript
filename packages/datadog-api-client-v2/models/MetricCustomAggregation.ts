@@ -31,23 +31,12 @@ export class MetricCustomAggregation {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     space: {
-      baseName: "space",
       type: "MetricCustomSpaceAggregation",
       required: true,
     },
     time: {
-      baseName: "time",
       type: "MetricCustomTimeAggregation",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricCustomAggregation.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

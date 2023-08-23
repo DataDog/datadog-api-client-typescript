@@ -29,7 +29,6 @@ export class GeomapWidgetDefinitionStyle {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     palette: {
-      baseName: "palette",
       type: "string",
       required: true,
     },
@@ -39,13 +38,4 @@ export class GeomapWidgetDefinitionStyle {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetDefinitionStyle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

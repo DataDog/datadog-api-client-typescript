@@ -26,18 +26,8 @@ export class TeamLinkCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "TeamLinkCreate",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamLinkCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

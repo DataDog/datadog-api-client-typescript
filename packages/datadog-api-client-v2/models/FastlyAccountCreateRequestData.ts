@@ -31,23 +31,12 @@ export class FastlyAccountCreateRequestData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "FastlyAccountCreateRequestAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "FastlyAccountType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyAccountCreateRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -36,25 +36,13 @@ export class AuthNMappingsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<AuthNMapping>",
     },
     included: {
-      baseName: "included",
       type: "Array<AuthNMappingIncluded>",
     },
     meta: {
-      baseName: "meta",
       type: "ResponseMetaAttributes",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -34,27 +34,15 @@ export class UsageTopAvgMetricsMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     day: {
-      baseName: "day",
       type: "Date",
       format: "date-time",
     },
     month: {
-      baseName: "month",
       type: "Date",
       format: "date-time",
     },
     pagination: {
-      baseName: "pagination",
       type: "UsageTopAvgMetricsPagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTopAvgMetricsMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -36,28 +36,16 @@ export class NotebookCellUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "NotebookCellUpdateRequestAttributes",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "NotebookCellResourceType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCellUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

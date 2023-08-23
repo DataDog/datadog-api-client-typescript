@@ -25,17 +25,7 @@ export class SyntheticsCIBatchMetadataPipeline {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     url: {
-      baseName: "url",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadataPipeline.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

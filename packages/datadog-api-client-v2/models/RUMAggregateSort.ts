@@ -40,29 +40,16 @@ export class RUMAggregateSort {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "RUMAggregationFunction",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     order: {
-      baseName: "order",
       type: "RUMSortOrder",
     },
     type: {
-      baseName: "type",
       type: "RUMAggregateSortType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMAggregateSort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

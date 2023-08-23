@@ -26,18 +26,8 @@ export class ServiceAccountCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ServiceAccountCreateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceAccountCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

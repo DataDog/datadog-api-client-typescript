@@ -56,19 +56,15 @@ export class Organization {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     billing: {
-      baseName: "billing",
       type: "OrganizationBilling",
     },
     created: {
-      baseName: "created",
       type: "string",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     publicId: {
@@ -76,25 +72,13 @@ export class Organization {
       type: "string",
     },
     settings: {
-      baseName: "settings",
       type: "OrganizationSettings",
     },
     subscription: {
-      baseName: "subscription",
       type: "OrganizationSubscription",
     },
     trial: {
-      baseName: "trial",
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Organization.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

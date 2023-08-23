@@ -26,17 +26,7 @@ export class UsageCIVisibilityResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageCIVisibilityHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCIVisibilityResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

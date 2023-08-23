@@ -45,7 +45,6 @@ export class UsageTimeseriesHour {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -73,13 +72,4 @@ export class UsageTimeseriesHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageTimeseriesHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

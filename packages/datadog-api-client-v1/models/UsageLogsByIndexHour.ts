@@ -54,7 +54,6 @@ export class UsageLogsByIndexHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -75,18 +74,8 @@ export class UsageLogsByIndexHour {
       type: "string",
     },
     retention: {
-      baseName: "retention",
       type: "number",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLogsByIndexHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

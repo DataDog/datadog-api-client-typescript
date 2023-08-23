@@ -26,17 +26,7 @@ export class UserTeamAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     role: {
-      baseName: "role",
       type: "UserTeamRole",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserTeamAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

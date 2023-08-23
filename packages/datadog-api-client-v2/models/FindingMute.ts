@@ -46,7 +46,6 @@ export class FindingMute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
-      baseName: "description",
       type: "string",
     },
     expirationDate: {
@@ -55,11 +54,9 @@ export class FindingMute {
       format: "int64",
     },
     muted: {
-      baseName: "muted",
       type: "boolean",
     },
     reason: {
-      baseName: "reason",
       type: "FindingMuteReason",
     },
     startDate: {
@@ -68,17 +65,7 @@ export class FindingMute {
       format: "int64",
     },
     uuid: {
-      baseName: "uuid",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FindingMute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -71,7 +71,6 @@ export class OrganizationSettings {
       type: "boolean",
     },
     saml: {
-      baseName: "saml",
       type: "OrganizationSettingsSaml",
     },
     samlAutocreateAccessRole: {
@@ -107,13 +106,4 @@ export class OrganizationSettings {
       type: "OrganizationSettingsSamlStrictMode",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettings.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -29,21 +29,10 @@ export class FindingRule {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FindingRule.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -1,6 +1,7 @@
 import {
   BaseAPIRequestFactory,
   RequiredError,
+  deserializeError,
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
@@ -12,12 +13,10 @@ import {
   ResponseContext,
 } from "../../datadog-api-client-common/http/http";
 
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { AddSignalToIncidentRequest } from "../models/AddSignalToIncidentRequest";
-import { APIErrorResponse } from "../models/APIErrorResponse";
 import { SignalAssigneeUpdateRequest } from "../models/SignalAssigneeUpdateRequest";
 import { SignalStateUpdateRequest } from "../models/SignalStateUpdateRequest";
 import { SuccessfulSignalUpdateResponse } from "../models/SuccessfulSignalUpdateResponse";
@@ -60,9 +59,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AddSignalToIncidentRequest", ""),
@@ -116,9 +113,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SignalAssigneeUpdateRequest", ""),
@@ -167,9 +162,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SignalStateUpdateRequest", ""),
@@ -190,10 +183,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 export class SecurityMonitoringApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to addSecurityMonitoringSignalToIncident
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to addSecurityMonitoringSignalToIncident.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async addSecurityMonitoringSignalToIncident(
     response: ResponseContext
@@ -201,7 +194,7 @@ export class SecurityMonitoringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SuccessfulSignalUpdateResponse"
@@ -214,34 +207,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SuccessfulSignalUpdateResponse",
-        ""
-      ) as SuccessfulSignalUpdateResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -253,10 +224,10 @@ export class SecurityMonitoringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to editSecurityMonitoringSignalAssignee
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to editSecurityMonitoringSignalAssignee.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async editSecurityMonitoringSignalAssignee(
     response: ResponseContext
@@ -264,7 +235,7 @@ export class SecurityMonitoringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SuccessfulSignalUpdateResponse"
@@ -277,34 +248,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SuccessfulSignalUpdateResponse",
-        ""
-      ) as SuccessfulSignalUpdateResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -316,10 +265,10 @@ export class SecurityMonitoringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to editSecurityMonitoringSignalState
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to editSecurityMonitoringSignalState.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async editSecurityMonitoringSignalState(
     response: ResponseContext
@@ -327,7 +276,7 @@ export class SecurityMonitoringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SuccessfulSignalUpdateResponse"
@@ -340,34 +289,12 @@ export class SecurityMonitoringApiResponseProcessor {
       response.httpStatusCode == 404 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "SuccessfulSignalUpdateResponse",
-        ""
-      ) as SuccessfulSignalUpdateResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

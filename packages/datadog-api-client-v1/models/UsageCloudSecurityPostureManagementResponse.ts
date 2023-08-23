@@ -26,17 +26,7 @@ export class UsageCloudSecurityPostureManagementResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageCloudSecurityPostureManagementHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCloudSecurityPostureManagementResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

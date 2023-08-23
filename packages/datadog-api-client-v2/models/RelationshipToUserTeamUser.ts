@@ -26,18 +26,8 @@ export class RelationshipToUserTeamUser {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RelationshipToUserTeamUserData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToUserTeamUser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

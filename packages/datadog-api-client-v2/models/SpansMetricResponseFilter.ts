@@ -25,17 +25,7 @@ export class SpansMetricResponseFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricResponseFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

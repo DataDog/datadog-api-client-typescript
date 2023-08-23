@@ -26,17 +26,7 @@ export class OrganizationSettingsSamlIdpInitiatedLogin {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     enabled: {
-      baseName: "enabled",
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSamlIdpInitiatedLogin.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -61,7 +61,6 @@ export class MuteFindingResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     evaluation: {
-      baseName: "evaluation",
       type: "FindingEvaluation",
     },
     evaluationChangedAt: {
@@ -70,11 +69,9 @@ export class MuteFindingResponseAttributes {
       format: "int64",
     },
     mute: {
-      baseName: "mute",
       type: "MuteFindingResponseProperties",
     },
     resource: {
-      baseName: "resource",
       type: "string",
     },
     resourceDiscoveryDate: {
@@ -87,25 +84,13 @@ export class MuteFindingResponseAttributes {
       type: "string",
     },
     rule: {
-      baseName: "rule",
       type: "FindingRule",
     },
     status: {
-      baseName: "status",
       type: "FindingStatus",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

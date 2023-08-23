@@ -40,21 +40,10 @@ export class IncidentUpdateRelationships {
       type: "NullableRelationshipToUser",
     },
     integrations: {
-      baseName: "integrations",
       type: "RelationshipToIncidentIntegrationMetadatas",
     },
     postmortem: {
-      baseName: "postmortem",
       type: "RelationshipToIncidentPostmortem",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentUpdateRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

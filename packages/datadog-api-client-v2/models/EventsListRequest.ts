@@ -42,29 +42,16 @@ export class EventsListRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "EventsQueryFilter",
     },
     options: {
-      baseName: "options",
       type: "EventsQueryOptions",
     },
     page: {
-      baseName: "page",
       type: "EventsRequestPage",
     },
     sort: {
-      baseName: "sort",
       type: "EventsSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsListRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

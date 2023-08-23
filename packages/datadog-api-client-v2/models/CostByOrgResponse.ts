@@ -26,17 +26,7 @@ export class CostByOrgResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<CostByOrg>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CostByOrgResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

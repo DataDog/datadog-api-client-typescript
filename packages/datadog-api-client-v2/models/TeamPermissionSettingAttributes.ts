@@ -43,33 +43,19 @@ export class TeamPermissionSettingAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     action: {
-      baseName: "action",
       type: "TeamPermissionSettingSerializerAction",
     },
     editable: {
-      baseName: "editable",
       type: "boolean",
     },
     options: {
-      baseName: "options",
       type: "Array<TeamPermissionSettingValue>",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "TeamPermissionSettingValue",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamPermissionSettingAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

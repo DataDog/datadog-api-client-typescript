@@ -32,13 +32,4 @@ export class LogsIndexesOrder {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsIndexesOrder.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class ProcessSummariesMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "ProcessSummariesMetaPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummariesMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

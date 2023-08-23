@@ -37,13 +37,4 @@ export class SAMLAssertionAttributeAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SAMLAssertionAttributeAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

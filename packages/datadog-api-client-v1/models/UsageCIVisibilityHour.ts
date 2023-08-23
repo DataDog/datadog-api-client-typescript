@@ -82,13 +82,4 @@ export class UsageCIVisibilityHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCIVisibilityHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

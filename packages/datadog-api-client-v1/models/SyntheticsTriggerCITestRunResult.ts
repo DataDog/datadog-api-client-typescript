@@ -38,11 +38,9 @@ export class SyntheticsTriggerCITestRunResult {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
-      baseName: "device",
       type: "SyntheticsDeviceID",
     },
     location: {
-      baseName: "location",
       type: "number",
       format: "int64",
     },
@@ -55,13 +53,4 @@ export class SyntheticsTriggerCITestRunResult {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerCITestRunResult.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

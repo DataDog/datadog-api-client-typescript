@@ -36,11 +36,9 @@ export class LogsMetricResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "LogsMetricResponseCompute",
     },
     filter: {
-      baseName: "filter",
       type: "LogsMetricResponseFilter",
     },
     groupBy: {
@@ -48,13 +46,4 @@ export class LogsMetricResponseAttributes {
       type: "Array<LogsMetricResponseGroupBy>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

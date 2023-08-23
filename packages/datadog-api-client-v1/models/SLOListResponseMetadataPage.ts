@@ -39,13 +39,4 @@ export class SLOListResponseMetadataPage {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOListResponseMetadataPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

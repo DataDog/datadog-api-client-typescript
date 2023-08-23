@@ -41,12 +41,10 @@ export class UsageAttributionPagination {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
     offset: {
-      baseName: "offset",
       type: "number",
       format: "int64",
     },
@@ -64,13 +62,4 @@ export class UsageAttributionPagination {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

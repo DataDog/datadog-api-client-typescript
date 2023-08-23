@@ -30,23 +30,12 @@ export class NotebookMarkdownCellDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     text: {
-      baseName: "text",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "NotebookMarkdownCellDefinitionType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookMarkdownCellDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

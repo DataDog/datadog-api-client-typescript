@@ -26,18 +26,8 @@ export class SensitiveDataScannerRuleDeleteRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMetaVersionOnly",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerRuleDeleteRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

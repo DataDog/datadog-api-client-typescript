@@ -25,17 +25,7 @@ export class LogsAggregateRequestPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
-      baseName: "cursor",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateRequestPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

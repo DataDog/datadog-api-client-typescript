@@ -39,13 +39,4 @@ export class SyntheticsDeletedTest {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsDeletedTest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

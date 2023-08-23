@@ -26,17 +26,7 @@ export class LogsByRetentionOrgs {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<LogsByRetentionOrgUsage>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsByRetentionOrgs.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

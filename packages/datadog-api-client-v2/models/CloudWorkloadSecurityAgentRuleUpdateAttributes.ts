@@ -33,25 +33,13 @@ export class CloudWorkloadSecurityAgentRuleUpdateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
-      baseName: "description",
       type: "string",
     },
     enabled: {
-      baseName: "enabled",
       type: "boolean",
     },
     expression: {
-      baseName: "expression",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentRuleUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

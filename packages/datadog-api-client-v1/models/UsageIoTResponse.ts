@@ -26,17 +26,7 @@ export class UsageIoTResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageIoTHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIoTResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

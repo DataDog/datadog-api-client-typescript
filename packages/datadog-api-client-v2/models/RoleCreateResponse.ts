@@ -26,17 +26,7 @@ export class RoleCreateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RoleCreateResponseData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCreateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

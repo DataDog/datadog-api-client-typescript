@@ -39,13 +39,4 @@ export class LogsArchiveIntegrationS3 {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveIntegrationS3.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,18 +26,8 @@ export class DowntimeCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "DowntimeCreateRequestData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

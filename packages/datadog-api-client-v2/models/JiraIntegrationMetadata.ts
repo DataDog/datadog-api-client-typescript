@@ -26,18 +26,8 @@ export class JiraIntegrationMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     issues: {
-      baseName: "issues",
       type: "Array<JiraIntegrationMetadataIssuesItem>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return JiraIntegrationMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

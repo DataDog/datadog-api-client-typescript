@@ -49,7 +49,6 @@ export class WidgetFormula {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alias: {
-      baseName: "alias",
       type: "string",
     },
     cellDisplayMode: {
@@ -61,26 +60,14 @@ export class WidgetFormula {
       type: "Array<WidgetConditionalFormat>",
     },
     formula: {
-      baseName: "formula",
       type: "string",
       required: true,
     },
     limit: {
-      baseName: "limit",
       type: "WidgetFormulaLimit",
     },
     style: {
-      baseName: "style",
       type: "WidgetFormulaStyle",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFormula.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

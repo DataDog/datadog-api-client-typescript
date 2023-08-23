@@ -26,17 +26,7 @@ export class UsageApplicationSecurityMonitoringResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<UsageDataObject>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageApplicationSecurityMonitoringResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -32,7 +32,6 @@ export class WidgetEvent {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     q: {
-      baseName: "q",
       type: "string",
       required: true,
     },
@@ -41,13 +40,4 @@ export class WidgetEvent {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetEvent.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

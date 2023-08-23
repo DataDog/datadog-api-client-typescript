@@ -26,17 +26,7 @@ export class SensitiveDataScannerRuleUpdateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMetaVersionOnly",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerRuleUpdateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

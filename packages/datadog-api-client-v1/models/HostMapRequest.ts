@@ -83,7 +83,6 @@ export class HostMapRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     rumQuery: {
@@ -95,13 +94,4 @@ export class HostMapRequest {
       type: "LogQueryDefinition",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

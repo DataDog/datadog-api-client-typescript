@@ -30,13 +30,4 @@ export class ApplicationKeyListResponse {
       type: "Array<ApplicationKey>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

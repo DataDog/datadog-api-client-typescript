@@ -29,21 +29,10 @@ export class AWSLogsListServicesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     label: {
-      baseName: "label",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsListServicesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

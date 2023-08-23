@@ -30,21 +30,10 @@ export class MonitorGroupSearchResponseCounts {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     status: {
-      baseName: "status",
       type: "Array<MonitorSearchCountItem>",
     },
     type: {
-      baseName: "type",
       type: "Array<MonitorSearchCountItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorGroupSearchResponseCounts.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

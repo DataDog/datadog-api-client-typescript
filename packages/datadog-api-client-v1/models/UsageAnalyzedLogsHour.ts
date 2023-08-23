@@ -42,7 +42,6 @@ export class UsageAnalyzedLogsHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -55,13 +54,4 @@ export class UsageAnalyzedLogsHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAnalyzedLogsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

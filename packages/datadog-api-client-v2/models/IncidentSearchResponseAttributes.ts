@@ -35,29 +35,17 @@ export class IncidentSearchResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facets: {
-      baseName: "facets",
       type: "IncidentSearchResponseFacetsData",
       required: true,
     },
     incidents: {
-      baseName: "incidents",
       type: "Array<IncidentSearchResponseIncidentsData>",
       required: true,
     },
     total: {
-      baseName: "total",
       type: "number",
       required: true,
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

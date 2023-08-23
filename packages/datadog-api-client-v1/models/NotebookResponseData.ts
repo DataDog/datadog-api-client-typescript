@@ -35,29 +35,17 @@ export class NotebookResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "NotebookResponseDataAttributes",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "number",
       required: true,
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "NotebookResourceType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

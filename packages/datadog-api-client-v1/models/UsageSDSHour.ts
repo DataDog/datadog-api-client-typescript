@@ -63,7 +63,6 @@ export class UsageSDSHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -91,13 +90,4 @@ export class UsageSDSHour {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSDSHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

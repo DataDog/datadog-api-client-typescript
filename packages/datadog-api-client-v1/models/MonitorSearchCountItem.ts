@@ -29,22 +29,11 @@ export class MonitorSearchCountItem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
-      baseName: "count",
       type: "number",
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "any",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorSearchCountItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

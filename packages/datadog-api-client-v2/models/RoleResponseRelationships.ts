@@ -26,17 +26,7 @@ export class RoleResponseRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     permissions: {
-      baseName: "permissions",
       type: "RelationshipToPermissions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleResponseRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

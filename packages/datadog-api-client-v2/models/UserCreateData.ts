@@ -36,27 +36,15 @@ export class UserCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "UserCreateAttributes",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "UserRelationships",
     },
     type: {
-      baseName: "type",
       type: "UsersType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

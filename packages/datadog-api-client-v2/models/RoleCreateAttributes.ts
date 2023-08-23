@@ -43,18 +43,8 @@ export class RoleCreateAttributes {
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

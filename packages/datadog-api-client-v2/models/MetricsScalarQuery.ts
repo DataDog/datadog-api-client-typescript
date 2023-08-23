@@ -39,7 +39,6 @@ export class MetricsScalarQuery {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
-      baseName: "aggregator",
       type: "MetricsAggregator",
       required: true,
     },
@@ -49,22 +48,11 @@ export class MetricsScalarQuery {
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsScalarQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

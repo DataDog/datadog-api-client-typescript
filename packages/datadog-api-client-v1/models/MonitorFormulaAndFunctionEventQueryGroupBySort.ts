@@ -35,26 +35,14 @@ export class MonitorFormulaAndFunctionEventQueryGroupBySort {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "MonitorFormulaAndFunctionEventAggregation",
       required: true,
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     order: {
-      baseName: "order",
       type: "QuerySortOrder",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionEventQueryGroupBySort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

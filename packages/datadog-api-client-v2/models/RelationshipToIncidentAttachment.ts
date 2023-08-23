@@ -26,18 +26,8 @@ export class RelationshipToIncidentAttachment {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<RelationshipToIncidentAttachmentData>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentAttachment.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

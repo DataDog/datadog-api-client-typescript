@@ -42,7 +42,6 @@ export class UsageSyntheticsBrowserHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -55,13 +54,4 @@ export class UsageSyntheticsBrowserHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSyntheticsBrowserHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

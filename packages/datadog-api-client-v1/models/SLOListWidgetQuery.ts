@@ -34,7 +34,6 @@ export class SLOListWidgetQuery {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
@@ -44,17 +43,7 @@ export class SLOListWidgetQuery {
       required: true,
     },
     sort: {
-      baseName: "sort",
       type: "Array<WidgetFieldSort>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOListWidgetQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

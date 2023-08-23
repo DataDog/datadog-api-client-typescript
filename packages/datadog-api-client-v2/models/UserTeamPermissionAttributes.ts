@@ -25,17 +25,7 @@ export class UserTeamPermissionAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     permissions: {
-      baseName: "permissions",
       type: "any",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserTeamPermissionAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -25,17 +25,7 @@ export class UserDisableResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
-      baseName: "message",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserDisableResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

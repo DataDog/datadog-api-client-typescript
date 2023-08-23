@@ -30,21 +30,10 @@ export class SearchSLOResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SearchSLOResponseDataAttributes",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

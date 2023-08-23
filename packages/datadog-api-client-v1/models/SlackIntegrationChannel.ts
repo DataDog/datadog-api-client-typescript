@@ -30,21 +30,10 @@ export class SlackIntegrationChannel {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     display: {
-      baseName: "display",
       type: "SlackIntegrationChannelDisplay",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackIntegrationChannel.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

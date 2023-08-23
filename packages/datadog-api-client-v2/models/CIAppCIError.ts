@@ -38,29 +38,16 @@ export class CIAppCIError {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     domain: {
-      baseName: "domain",
       type: "CIAppCIErrorDomain",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     stack: {
-      baseName: "stack",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppCIError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

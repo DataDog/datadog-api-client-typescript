@@ -34,18 +34,8 @@ export class AWSLogsServicesRequest {
       required: true,
     },
     services: {
-      baseName: "services",
       type: "Array<string>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSLogsServicesRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

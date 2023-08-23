@@ -31,21 +31,10 @@ export class MonthlyUsageAttributionResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
-      baseName: "metadata",
       type: "MonthlyUsageAttributionMetadata",
     },
     usage: {
-      baseName: "usage",
       type: "Array<MonthlyUsageAttributionBody>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonthlyUsageAttributionResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

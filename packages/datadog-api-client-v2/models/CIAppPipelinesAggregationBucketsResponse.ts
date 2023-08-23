@@ -26,17 +26,7 @@ export class CIAppPipelinesAggregationBucketsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     buckets: {
-      baseName: "buckets",
       type: "Array<CIAppPipelinesBucketResponse>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelinesAggregationBucketsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -52,7 +52,6 @@ export class LogsArchiveAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     destination: {
-      baseName: "destination",
       type: "LogsArchiveDestination",
       required: true,
     },
@@ -61,12 +60,10 @@ export class LogsArchiveAttributes {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
@@ -80,17 +77,7 @@ export class LogsArchiveAttributes {
       type: "Array<string>",
     },
     state: {
-      baseName: "state",
       type: "LogsArchiveState",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

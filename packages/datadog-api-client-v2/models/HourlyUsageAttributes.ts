@@ -46,7 +46,6 @@ export class HourlyUsageAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     measurements: {
-      baseName: "measurements",
       type: "Array<HourlyUsageMeasurement>",
     },
     orgName: {
@@ -62,22 +61,11 @@ export class HourlyUsageAttributes {
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     timestamp: {
-      baseName: "timestamp",
       type: "Date",
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

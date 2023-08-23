@@ -26,17 +26,7 @@ export class TeamsResponseMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     pagination: {
-      baseName: "pagination",
       type: "TeamsResponseMetaPagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamsResponseMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,13 +31,4 @@ export class SyntheticsUpdateTestPauseStatusPayload {
       type: "SyntheticsTestPauseStatus",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsUpdateTestPauseStatusPayload.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

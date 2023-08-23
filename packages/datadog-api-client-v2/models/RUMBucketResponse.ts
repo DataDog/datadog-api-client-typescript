@@ -30,21 +30,10 @@ export class RUMBucketResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     by: {
-      baseName: "by",
       type: "{ [key: string]: string; }",
     },
     computes: {
-      baseName: "computes",
       type: "{ [key: string]: RUMAggregateBucketValue; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMBucketResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

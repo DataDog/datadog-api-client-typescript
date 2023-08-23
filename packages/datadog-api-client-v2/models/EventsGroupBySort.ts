@@ -40,30 +40,17 @@ export class EventsGroupBySort {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "EventsAggregation",
       required: true,
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     order: {
-      baseName: "order",
       type: "QuerySortOrder",
     },
     type: {
-      baseName: "type",
       type: "EventsSortType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsGroupBySort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

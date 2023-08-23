@@ -26,18 +26,8 @@ export class NotebookMarkdownCellAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
-      baseName: "definition",
       type: "NotebookMarkdownCellDefinition",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookMarkdownCellAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -669,13 +669,4 @@ export class MonthlyUsageAttributionValues {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonthlyUsageAttributionValues.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

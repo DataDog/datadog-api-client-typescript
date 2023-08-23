@@ -56,13 +56,4 @@ export class SlackIntegrationMetadataChannelItem {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackIntegrationMetadataChannelItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

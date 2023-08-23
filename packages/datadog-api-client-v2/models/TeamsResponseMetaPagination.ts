@@ -63,7 +63,6 @@ export class TeamsResponseMetaPagination {
       format: "int64",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
@@ -73,7 +72,6 @@ export class TeamsResponseMetaPagination {
       format: "int64",
     },
     offset: {
-      baseName: "offset",
       type: "number",
       format: "int64",
     },
@@ -83,22 +81,11 @@ export class TeamsResponseMetaPagination {
       format: "int64",
     },
     total: {
-      baseName: "total",
       type: "number",
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamsResponseMetaPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,18 +26,8 @@ export class RoleCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RoleCreateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

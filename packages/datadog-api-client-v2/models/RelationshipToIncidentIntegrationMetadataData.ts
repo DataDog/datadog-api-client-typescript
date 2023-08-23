@@ -30,23 +30,12 @@ export class RelationshipToIncidentIntegrationMetadataData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "IncidentIntegrationMetadataType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentIntegrationMetadataData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

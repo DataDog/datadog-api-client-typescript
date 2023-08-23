@@ -26,17 +26,7 @@ export class UsageLambdaTracedInvocationsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<UsageDataObject>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLambdaTracedInvocationsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

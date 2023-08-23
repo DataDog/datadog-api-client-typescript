@@ -36,21 +36,10 @@ export class SLOBulkDeleteResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SLOBulkDeleteResponseData",
     },
     errors: {
-      baseName: "errors",
       type: "Array<SLOBulkDeleteError>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOBulkDeleteResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

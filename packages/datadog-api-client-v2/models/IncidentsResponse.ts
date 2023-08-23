@@ -36,26 +36,14 @@ export class IncidentsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<IncidentResponseData>",
       required: true,
     },
     included: {
-      baseName: "included",
       type: "Array<IncidentResponseIncludedItem>",
     },
     meta: {
-      baseName: "meta",
       type: "IncidentResponseMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

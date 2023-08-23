@@ -44,26 +44,14 @@ export class WidgetMarker {
       type: "string",
     },
     label: {
-      baseName: "label",
       type: "string",
     },
     time: {
-      baseName: "time",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetMarker.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,18 +26,8 @@ export class OpsgenieServiceResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "OpsgenieServiceResponseData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OpsgenieServiceResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

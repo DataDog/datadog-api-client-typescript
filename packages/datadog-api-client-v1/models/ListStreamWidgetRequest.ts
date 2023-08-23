@@ -36,12 +36,10 @@ export class ListStreamWidgetRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
-      baseName: "columns",
       type: "Array<ListStreamColumn>",
       required: true,
     },
     query: {
-      baseName: "query",
       type: "ListStreamQuery",
       required: true,
     },
@@ -51,13 +49,4 @@ export class ListStreamWidgetRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamWidgetRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -33,27 +33,15 @@ export class IncidentServiceResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
-      baseName: "created",
       type: "Date",
       format: "date-time",
     },
     modified: {
-      baseName: "modified",
       type: "Date",
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentServiceResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

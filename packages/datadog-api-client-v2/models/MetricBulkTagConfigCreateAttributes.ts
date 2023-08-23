@@ -29,22 +29,11 @@ export class MetricBulkTagConfigCreateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     emails: {
-      baseName: "emails",
       type: "Array<string>",
       format: "email",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

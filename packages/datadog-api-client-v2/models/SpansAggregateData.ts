@@ -31,21 +31,10 @@ export class SpansAggregateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SpansAggregateRequestAttributes",
     },
     type: {
-      baseName: "type",
       type: "SpansAggregateRequestType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class SpansListRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SpansListRequestData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansListRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

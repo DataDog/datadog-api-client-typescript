@@ -33,13 +33,4 @@ export class DowntimeMonitorIdentifierTags {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeMonitorIdentifierTags.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

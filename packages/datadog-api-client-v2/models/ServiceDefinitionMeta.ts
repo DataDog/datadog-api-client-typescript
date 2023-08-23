@@ -66,7 +66,6 @@ export class ServiceDefinitionMeta {
       type: "string",
     },
     origin: {
-      baseName: "origin",
       type: "string",
     },
     originDetail: {
@@ -74,17 +73,7 @@ export class ServiceDefinitionMeta {
       type: "string",
     },
     warnings: {
-      baseName: "warnings",
       type: "Array<ServiceDefinitionMetaWarnings>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,21 +31,10 @@ export class UserResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "User",
     },
     included: {
-      baseName: "included",
       type: "Array<UserResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

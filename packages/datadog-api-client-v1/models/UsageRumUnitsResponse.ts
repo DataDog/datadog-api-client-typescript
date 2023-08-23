@@ -26,17 +26,7 @@ export class UsageRumUnitsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageRumUnitsHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageRumUnitsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,18 +26,8 @@ export class RoleCloneRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RoleClone",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleCloneRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

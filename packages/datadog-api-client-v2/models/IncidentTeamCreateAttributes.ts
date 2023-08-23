@@ -25,18 +25,8 @@ export class IncidentTeamCreateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTeamCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

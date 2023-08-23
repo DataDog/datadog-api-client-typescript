@@ -63,7 +63,6 @@ export class MetricTagConfigurationAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregations: {
-      baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
     },
     createdAt: {
@@ -85,17 +84,7 @@ export class MetricTagConfigurationAttributes {
       format: "date-time",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -36,25 +36,13 @@ export class RUMEventsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<RUMEvent>",
     },
     links: {
-      baseName: "links",
       type: "RUMResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "RUMResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMEventsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

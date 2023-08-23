@@ -34,27 +34,15 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionCompute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "MonitorFormulaAndFunctionEventAggregation",
       required: true,
     },
     interval: {
-      baseName: "interval",
       type: "number",
       format: "int64",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionEventQueryDefinitionCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

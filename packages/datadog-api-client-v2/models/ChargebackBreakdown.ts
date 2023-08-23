@@ -37,7 +37,6 @@ export class ChargebackBreakdown {
       type: "string",
     },
     cost: {
-      baseName: "cost",
       type: "number",
       format: "double",
     },
@@ -46,13 +45,4 @@ export class ChargebackBreakdown {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ChargebackBreakdown.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

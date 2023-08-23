@@ -33,26 +33,14 @@ export class UserCreateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
-      baseName: "email",
       type: "string",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

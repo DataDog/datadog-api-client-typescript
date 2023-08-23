@@ -30,7 +30,6 @@ export class AWSTagFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     namespace: {
-      baseName: "namespace",
       type: "AWSNamespace",
     },
     tagFilterStr: {
@@ -38,13 +37,4 @@ export class AWSTagFilter {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSTagFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

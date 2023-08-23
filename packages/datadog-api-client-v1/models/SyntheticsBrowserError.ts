@@ -38,33 +38,20 @@ export class SyntheticsBrowserError {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
-      baseName: "description",
       type: "string",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     status: {
-      baseName: "status",
       type: "number",
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsBrowserErrorType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

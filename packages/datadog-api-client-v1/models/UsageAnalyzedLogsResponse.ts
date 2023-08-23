@@ -26,17 +26,7 @@ export class UsageAnalyzedLogsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageAnalyzedLogsHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAnalyzedLogsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

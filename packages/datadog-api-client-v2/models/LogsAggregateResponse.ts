@@ -31,21 +31,10 @@ export class LogsAggregateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "LogsAggregateResponseData",
     },
     meta: {
-      baseName: "meta",
       type: "LogsResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

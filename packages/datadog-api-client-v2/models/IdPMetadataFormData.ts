@@ -32,13 +32,4 @@ export class IdPMetadataFormData {
       format: "binary",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IdPMetadataFormData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

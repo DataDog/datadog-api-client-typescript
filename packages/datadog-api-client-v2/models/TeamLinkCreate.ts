@@ -31,23 +31,12 @@ export class TeamLinkCreate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "TeamLinkAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "TeamLinkType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamLinkCreate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

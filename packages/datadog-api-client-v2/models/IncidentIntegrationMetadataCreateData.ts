@@ -31,23 +31,12 @@ export class IncidentIntegrationMetadataCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "IncidentIntegrationMetadataAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "IncidentIntegrationMetadataType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentIntegrationMetadataCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

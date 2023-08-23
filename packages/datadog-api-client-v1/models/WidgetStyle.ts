@@ -25,17 +25,7 @@ export class WidgetStyle {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     palette: {
-      baseName: "palette",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetStyle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

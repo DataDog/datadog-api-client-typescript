@@ -60,27 +60,15 @@ export class LogsDateRemapper {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     sources: {
-      baseName: "sources",
       type: "Array<string>",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsDateRemapperType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsDateRemapper.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

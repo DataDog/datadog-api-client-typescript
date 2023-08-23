@@ -45,7 +45,6 @@ export class HostMapWidgetDefinitionStyle {
       type: "string",
     },
     palette: {
-      baseName: "palette",
       type: "string",
     },
     paletteFlip: {
@@ -53,13 +52,4 @@ export class HostMapWidgetDefinitionStyle {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMapWidgetDefinitionStyle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

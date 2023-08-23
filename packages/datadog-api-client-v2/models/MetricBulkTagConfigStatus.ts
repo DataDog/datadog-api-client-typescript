@@ -36,27 +36,15 @@ export class MetricBulkTagConfigStatus {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MetricBulkTagConfigStatusAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "MetricBulkConfigureTagsType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigStatus.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

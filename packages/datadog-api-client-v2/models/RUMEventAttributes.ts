@@ -39,30 +39,17 @@ export class RUMEventAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "{ [key: string]: any; }",
     },
     service: {
-      baseName: "service",
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     timestamp: {
-      baseName: "timestamp",
       type: "Date",
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMEventAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

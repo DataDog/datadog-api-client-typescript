@@ -31,23 +31,12 @@ export class NotebookCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "NotebookCreateDataAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "NotebookResourceType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

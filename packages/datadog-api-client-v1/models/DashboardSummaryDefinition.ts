@@ -67,11 +67,9 @@ export class DashboardSummaryDefinition {
       format: "date-time",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     isReadOnly: {
@@ -88,21 +86,10 @@ export class DashboardSummaryDefinition {
       format: "date-time",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     url: {
-      baseName: "url",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardSummaryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

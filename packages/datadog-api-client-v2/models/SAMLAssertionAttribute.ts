@@ -35,27 +35,15 @@ export class SAMLAssertionAttribute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SAMLAssertionAttributeAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "SAMLAssertionAttributesType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SAMLAssertionAttribute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

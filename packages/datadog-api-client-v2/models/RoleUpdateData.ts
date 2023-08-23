@@ -40,32 +40,19 @@ export class RoleUpdateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "RoleUpdateAttributes",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "RoleRelationships",
     },
     type: {
-      baseName: "type",
       type: "RolesType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

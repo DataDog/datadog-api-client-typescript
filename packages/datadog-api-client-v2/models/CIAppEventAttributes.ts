@@ -34,11 +34,9 @@ export class CIAppEventAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "{ [key: string]: any; }",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     testLevel: {
@@ -46,13 +44,4 @@ export class CIAppEventAttributes {
       type: "CIAppTestLevel",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppEventAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

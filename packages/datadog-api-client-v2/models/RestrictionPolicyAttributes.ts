@@ -26,18 +26,8 @@ export class RestrictionPolicyAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     bindings: {
-      baseName: "bindings",
       type: "Array<RestrictionPolicyBinding>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RestrictionPolicyAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

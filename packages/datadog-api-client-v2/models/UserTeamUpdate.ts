@@ -31,22 +31,11 @@ export class UserTeamUpdate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "UserTeamAttributes",
     },
     type: {
-      baseName: "type",
       type: "UserTeamType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserTeamUpdate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

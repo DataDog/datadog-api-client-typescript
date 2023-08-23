@@ -40,31 +40,18 @@ export class SyntheticsAssertionJSONPathTarget {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     operator: {
-      baseName: "operator",
       type: "SyntheticsAssertionJSONPathOperator",
       required: true,
     },
     property: {
-      baseName: "property",
       type: "string",
     },
     target: {
-      baseName: "target",
       type: "SyntheticsAssertionJSONPathTargetTarget",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsAssertionType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAssertionJSONPathTarget.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

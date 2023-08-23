@@ -26,17 +26,7 @@ export class UsageHostsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageHostHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageHostsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

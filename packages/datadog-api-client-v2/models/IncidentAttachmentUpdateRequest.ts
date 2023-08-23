@@ -29,18 +29,8 @@ export class IncidentAttachmentUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<IncidentAttachmentUpdateData>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentAttachmentUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

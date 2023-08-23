@@ -26,18 +26,8 @@ export class RestrictionPolicyUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RestrictionPolicy",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RestrictionPolicyUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

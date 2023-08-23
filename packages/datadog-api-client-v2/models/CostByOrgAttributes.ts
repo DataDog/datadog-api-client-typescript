@@ -46,11 +46,9 @@ export class CostByOrgAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     charges: {
-      baseName: "charges",
       type: "Array<ChargebackBreakdown>",
     },
     date: {
-      baseName: "date",
       type: "Date",
       format: "date-time",
     },
@@ -63,7 +61,6 @@ export class CostByOrgAttributes {
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     totalCost: {
@@ -72,13 +69,4 @@ export class CostByOrgAttributes {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CostByOrgAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

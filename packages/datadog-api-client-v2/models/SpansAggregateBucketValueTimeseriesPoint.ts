@@ -29,22 +29,11 @@ export class SpansAggregateBucketValueTimeseriesPoint {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     time: {
-      baseName: "time",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "number",
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateBucketValueTimeseriesPoint.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -29,21 +29,10 @@ export class SyntheticsPrivateLocationSecretsAuthentication {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     key: {
-      baseName: "key",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocationSecretsAuthentication.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

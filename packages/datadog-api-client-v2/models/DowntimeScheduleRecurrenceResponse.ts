@@ -39,25 +39,13 @@ export class DowntimeScheduleRecurrenceResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     duration: {
-      baseName: "duration",
       type: "string",
     },
     rrule: {
-      baseName: "rrule",
       type: "string",
     },
     start: {
-      baseName: "start",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeScheduleRecurrenceResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

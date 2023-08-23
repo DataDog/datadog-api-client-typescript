@@ -49,7 +49,6 @@ export class UsageCustomReportsAttributes {
       type: "string",
     },
     size: {
-      baseName: "size",
       type: "number",
       format: "int64",
     },
@@ -58,17 +57,7 @@ export class UsageCustomReportsAttributes {
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCustomReportsAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

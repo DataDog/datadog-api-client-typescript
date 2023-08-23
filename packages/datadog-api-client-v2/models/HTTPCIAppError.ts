@@ -33,25 +33,13 @@ export class HTTPCIAppError {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     detail: {
-      baseName: "detail",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPCIAppError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

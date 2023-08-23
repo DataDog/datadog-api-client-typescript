@@ -30,22 +30,11 @@ export class DowntimeScheduleRecurrencesCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     recurrences: {
-      baseName: "recurrences",
       type: "Array<DowntimeScheduleRecurrenceCreateUpdateRequest>",
       required: true,
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeScheduleRecurrencesCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

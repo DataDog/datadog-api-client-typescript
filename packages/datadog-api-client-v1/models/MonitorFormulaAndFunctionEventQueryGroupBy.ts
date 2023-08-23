@@ -34,27 +34,15 @@ export class MonitorFormulaAndFunctionEventQueryGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
-      baseName: "facet",
       type: "string",
       required: true,
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
     sort: {
-      baseName: "sort",
       type: "MonitorFormulaAndFunctionEventQueryGroupBySort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionEventQueryGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

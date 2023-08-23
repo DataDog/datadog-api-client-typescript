@@ -51,41 +51,25 @@ export class SecurityMonitoringStandardRuleQuery {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
     },
     distinctFields: {
-      baseName: "distinctFields",
       type: "Array<string>",
     },
     groupByFields: {
-      baseName: "groupByFields",
       type: "Array<string>",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     metrics: {
-      baseName: "metrics",
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringStandardRuleQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

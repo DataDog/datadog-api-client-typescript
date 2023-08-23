@@ -34,25 +34,13 @@ export class SpansAggregateBucketAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     by: {
-      baseName: "by",
       type: "{ [key: string]: any; }",
     },
     compute: {
-      baseName: "compute",
       type: "any",
     },
     computes: {
-      baseName: "computes",
       type: "{ [key: string]: SpansAggregateBucketValue; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateBucketAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

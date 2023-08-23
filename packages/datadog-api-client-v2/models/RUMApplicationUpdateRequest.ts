@@ -26,18 +26,8 @@ export class RUMApplicationUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RUMApplicationUpdate",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMApplicationUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

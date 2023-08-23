@@ -34,7 +34,6 @@ export class LogsExclusion {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "LogsExclusionFilter",
     },
     isEnabled: {
@@ -42,18 +41,8 @@ export class LogsExclusion {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsExclusion.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

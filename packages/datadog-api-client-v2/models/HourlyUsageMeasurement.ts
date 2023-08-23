@@ -33,18 +33,8 @@ export class HourlyUsageMeasurement {
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "number",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageMeasurement.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

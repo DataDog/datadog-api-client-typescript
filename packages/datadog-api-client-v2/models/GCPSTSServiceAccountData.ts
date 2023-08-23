@@ -31,21 +31,10 @@ export class GCPSTSServiceAccountData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "GCPSTSServiceAccountAttributes",
     },
     type: {
-      baseName: "type",
       type: "GCPServiceAccountType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSServiceAccountData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

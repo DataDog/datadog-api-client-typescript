@@ -26,17 +26,7 @@ export class MetricTagConfigurationResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MetricTagConfiguration",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

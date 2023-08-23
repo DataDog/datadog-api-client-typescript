@@ -25,17 +25,7 @@ export class OrganizationSubscription {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
-      baseName: "type",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSubscription.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

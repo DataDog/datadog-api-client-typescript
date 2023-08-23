@@ -35,17 +35,7 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
       format: "int64",
     },
     results: {
-      baseName: "results",
       type: "Array<SyntheticsBrowserTestResultShort>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGetBrowserTestLatestResultsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

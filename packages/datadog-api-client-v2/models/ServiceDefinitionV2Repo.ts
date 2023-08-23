@@ -33,27 +33,15 @@ export class ServiceDefinitionV2Repo {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     provider: {
-      baseName: "provider",
       type: "string",
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Repo.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

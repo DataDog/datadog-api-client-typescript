@@ -92,11 +92,9 @@ export class EventCreateRequest {
       type: "string",
     },
     host: {
-      baseName: "host",
       type: "string",
     },
     priority: {
-      baseName: "priority",
       type: "EventPriority",
     },
     relatedEventId: {
@@ -109,27 +107,15 @@ export class EventCreateRequest {
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     text: {
-      baseName: "text",
       type: "string",
       required: true,
     },
     title: {
-      baseName: "title",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

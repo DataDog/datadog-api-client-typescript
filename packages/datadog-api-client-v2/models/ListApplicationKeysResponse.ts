@@ -31,21 +31,10 @@ export class ListApplicationKeysResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<PartialApplicationKey>",
     },
     included: {
-      baseName: "included",
       type: "Array<ApplicationKeyResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListApplicationKeysResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class SyntheticsListTestsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
-      baseName: "tests",
       type: "Array<SyntheticsTestDetails>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsListTestsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

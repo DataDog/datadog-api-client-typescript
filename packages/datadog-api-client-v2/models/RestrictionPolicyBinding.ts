@@ -32,23 +32,12 @@ export class RestrictionPolicyBinding {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     principals: {
-      baseName: "principals",
       type: "Array<string>",
       required: true,
     },
     relation: {
-      baseName: "relation",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RestrictionPolicyBinding.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

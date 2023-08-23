@@ -29,22 +29,11 @@ export class CIAppPipelineEventParentPipeline {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     url: {
-      baseName: "url",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppPipelineEventParentPipeline.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

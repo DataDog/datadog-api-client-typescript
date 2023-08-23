@@ -26,18 +26,8 @@ export class TeamUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "TeamUpdate",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

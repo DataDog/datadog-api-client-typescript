@@ -31,21 +31,10 @@ export class TimeseriesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "TimeseriesResponseAttributes",
     },
     type: {
-      baseName: "type",
       type: "TimeseriesFormulaResponseType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

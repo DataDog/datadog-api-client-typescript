@@ -38,21 +38,10 @@ export class TopologyQuery {
       type: "TopologyQueryDataSource",
     },
     filters: {
-      baseName: "filters",
       type: "Array<string>",
     },
     service: {
-      baseName: "service",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TopologyQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

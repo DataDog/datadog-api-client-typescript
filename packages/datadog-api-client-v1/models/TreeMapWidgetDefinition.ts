@@ -72,7 +72,6 @@ export class TreeMapWidgetDefinition {
       type: "TreeMapGroupBy",
     },
     requests: {
-      baseName: "requests",
       type: "[TreeMapWidgetRequest]",
       required: true,
     },
@@ -81,26 +80,14 @@ export class TreeMapWidgetDefinition {
       type: "TreeMapSizeBy",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "TreeMapWidgetDefinitionType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TreeMapWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

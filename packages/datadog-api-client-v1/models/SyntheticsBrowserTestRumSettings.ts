@@ -43,27 +43,15 @@ export class SyntheticsBrowserTestRumSettings {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     applicationId: {
-      baseName: "applicationId",
       type: "string",
     },
     clientTokenId: {
-      baseName: "clientTokenId",
       type: "number",
       format: "int64",
     },
     isEnabled: {
-      baseName: "isEnabled",
       type: "boolean",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestRumSettings.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

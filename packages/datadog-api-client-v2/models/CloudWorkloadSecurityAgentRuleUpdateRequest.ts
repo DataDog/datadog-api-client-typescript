@@ -26,18 +26,8 @@ export class CloudWorkloadSecurityAgentRuleUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "CloudWorkloadSecurityAgentRuleUpdateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudWorkloadSecurityAgentRuleUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -40,27 +40,15 @@ export class Widget {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
-      baseName: "definition",
       type: "WidgetDefinition",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     layout: {
-      baseName: "layout",
       type: "WidgetLayout",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Widget.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

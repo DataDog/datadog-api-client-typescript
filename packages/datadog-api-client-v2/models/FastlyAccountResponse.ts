@@ -26,17 +26,7 @@ export class FastlyAccountResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "FastlyAccountResponseData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyAccountResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

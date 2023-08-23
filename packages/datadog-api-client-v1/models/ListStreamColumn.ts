@@ -30,23 +30,12 @@ export class ListStreamColumn {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     field: {
-      baseName: "field",
       type: "string",
       required: true,
     },
     width: {
-      baseName: "width",
       type: "ListStreamColumnWidth",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamColumn.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

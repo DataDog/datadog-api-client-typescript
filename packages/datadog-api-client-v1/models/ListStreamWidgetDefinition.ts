@@ -62,7 +62,6 @@ export class ListStreamWidgetDefinition {
       type: "string",
     },
     requests: {
-      baseName: "requests",
       type: "[ListStreamWidgetRequest]",
       required: true,
     },
@@ -71,11 +70,9 @@ export class ListStreamWidgetDefinition {
       type: "boolean",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -87,18 +84,8 @@ export class ListStreamWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ListStreamWidgetDefinitionType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListStreamWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

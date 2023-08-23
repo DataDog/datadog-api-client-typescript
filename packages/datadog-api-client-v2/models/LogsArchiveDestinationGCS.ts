@@ -39,32 +39,19 @@ export class LogsArchiveDestinationGCS {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     bucket: {
-      baseName: "bucket",
       type: "string",
       required: true,
     },
     integration: {
-      baseName: "integration",
       type: "LogsArchiveIntegrationGCS",
       required: true,
     },
     path: {
-      baseName: "path",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "LogsArchiveDestinationGCSType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveDestinationGCS.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

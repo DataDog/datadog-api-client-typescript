@@ -38,22 +38,11 @@ export class CloudflareAccountCreateRequestAttributes {
       required: true,
     },
     email: {
-      baseName: "email",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudflareAccountCreateRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -41,7 +41,6 @@ export class UserResponseRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     org: {
-      baseName: "org",
       type: "RelationshipToOrganization",
     },
     otherOrgs: {
@@ -53,17 +52,7 @@ export class UserResponseRelationships {
       type: "RelationshipToUsers",
     },
     roles: {
-      baseName: "roles",
       type: "RelationshipToRoles",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserResponseRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

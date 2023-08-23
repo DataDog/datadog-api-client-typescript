@@ -25,18 +25,8 @@ export class MetricBulkTagConfigDeleteAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     emails: {
-      baseName: "emails",
       type: "Array<string>",
       format: "email",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigDeleteAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

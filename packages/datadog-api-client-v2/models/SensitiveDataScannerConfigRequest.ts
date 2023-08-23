@@ -31,23 +31,12 @@ export class SensitiveDataScannerConfigRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SensitiveDataScannerReorderConfig",
       required: true,
     },
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMetaVersionOnly",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerConfigRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class ScalarFormulaResponseAtrributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
-      baseName: "columns",
       type: "Array<ScalarColumn>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarFormulaResponseAtrributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -41,11 +41,9 @@ export class SelectableTemplateVariableItems {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     prefix: {
-      baseName: "prefix",
       type: "string",
     },
     visibleTags: {
@@ -53,13 +51,4 @@ export class SelectableTemplateVariableItems {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SelectableTemplateVariableItems.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

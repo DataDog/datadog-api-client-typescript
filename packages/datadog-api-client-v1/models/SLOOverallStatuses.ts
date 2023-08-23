@@ -61,7 +61,6 @@ export class SLOOverallStatuses {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
-      baseName: "error",
       type: "string",
     },
     errorBudgetRemaining: {
@@ -84,31 +83,18 @@ export class SLOOverallStatuses {
       format: "int64",
     },
     state: {
-      baseName: "state",
       type: "SLOState",
     },
     status: {
-      baseName: "status",
       type: "number",
       format: "double",
     },
     target: {
-      baseName: "target",
       type: "number",
       format: "double",
     },
     timeframe: {
-      baseName: "timeframe",
       type: "SLOTimeframe",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOOverallStatuses.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

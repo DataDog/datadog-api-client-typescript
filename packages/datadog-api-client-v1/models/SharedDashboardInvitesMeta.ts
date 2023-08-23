@@ -26,17 +26,7 @@ export class SharedDashboardInvitesMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "SharedDashboardInvitesMetaPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SharedDashboardInvitesMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

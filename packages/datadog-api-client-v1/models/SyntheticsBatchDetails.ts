@@ -26,17 +26,7 @@ export class SyntheticsBatchDetails {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SyntheticsBatchDetailsData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBatchDetails.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

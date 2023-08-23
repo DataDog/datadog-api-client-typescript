@@ -40,29 +40,16 @@ export class SensitiveDataScannerRuleIncludedItem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SensitiveDataScannerRuleAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "SensitiveDataScannerRuleRelationships",
     },
     type: {
-      baseName: "type",
       type: "SensitiveDataScannerRuleType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerRuleIncludedItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,21 +31,10 @@ export class ProcessSummariesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<ProcessSummary>",
     },
     meta: {
-      baseName: "meta",
       type: "ProcessSummariesMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ProcessSummariesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

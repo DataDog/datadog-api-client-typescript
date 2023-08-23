@@ -29,13 +29,4 @@ export class GCPServiceAccountMeta {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPServiceAccountMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

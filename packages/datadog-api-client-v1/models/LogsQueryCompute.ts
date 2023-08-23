@@ -33,27 +33,15 @@ export class LogsQueryCompute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "string",
       required: true,
     },
     facet: {
-      baseName: "facet",
       type: "string",
     },
     interval: {
-      baseName: "interval",
       type: "number",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsQueryCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

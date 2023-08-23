@@ -30,23 +30,12 @@ export class WidgetFieldSort {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     column: {
-      baseName: "column",
       type: "string",
       required: true,
     },
     order: {
-      baseName: "order",
       type: "WidgetSort",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFieldSort.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

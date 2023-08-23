@@ -26,17 +26,7 @@ export class SyntheticsTestCiOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     executionRule: {
-      baseName: "executionRule",
       type: "SyntheticsTestExecutionRule",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestCiOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

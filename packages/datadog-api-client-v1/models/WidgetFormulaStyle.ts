@@ -29,7 +29,6 @@ export class WidgetFormulaStyle {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     palette: {
-      baseName: "palette",
       type: "string",
     },
     paletteIndex: {
@@ -38,13 +37,4 @@ export class WidgetFormulaStyle {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFormulaStyle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

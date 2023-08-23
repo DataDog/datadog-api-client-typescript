@@ -38,13 +38,4 @@ export class MetricSuggestedTagsAttributes {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricSuggestedTagsAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

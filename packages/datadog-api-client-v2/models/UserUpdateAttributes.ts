@@ -33,25 +33,13 @@ export class UserUpdateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     disabled: {
-      baseName: "disabled",
       type: "boolean",
     },
     email: {
-      baseName: "email",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

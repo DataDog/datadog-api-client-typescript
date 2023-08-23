@@ -37,12 +37,10 @@ export class TeamLinkAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     label: {
-      baseName: "label",
       type: "string",
       required: true,
     },
     position: {
-      baseName: "position",
       type: "number",
       format: "int32",
     },
@@ -51,18 +49,8 @@ export class TeamLinkAttributes {
       type: "string",
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamLinkAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -44,17 +44,7 @@ export class SpansMetricCompute {
       type: "boolean",
     },
     path: {
-      baseName: "path",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

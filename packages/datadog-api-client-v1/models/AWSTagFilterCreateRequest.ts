@@ -38,7 +38,6 @@ export class AWSTagFilterCreateRequest {
       type: "string",
     },
     namespace: {
-      baseName: "namespace",
       type: "AWSNamespace",
     },
     tagFilterStr: {
@@ -46,13 +45,4 @@ export class AWSTagFilterCreateRequest {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSTagFilterCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

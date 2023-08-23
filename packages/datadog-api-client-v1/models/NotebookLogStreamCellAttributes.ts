@@ -36,7 +36,6 @@ export class NotebookLogStreamCellAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
-      baseName: "definition",
       type: "LogStreamWidgetDefinition",
       required: true,
     },
@@ -45,17 +44,7 @@ export class NotebookLogStreamCellAttributes {
       type: "NotebookGraphSize",
     },
     time: {
-      baseName: "time",
       type: "NotebookCellTime",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookLogStreamCellAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -41,35 +41,21 @@ export class SecurityMonitoringTriageUser {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     handle: {
-      baseName: "handle",
       type: "string",
     },
     icon: {
-      baseName: "icon",
       type: "string",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     uuid: {
-      baseName: "uuid",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringTriageUser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

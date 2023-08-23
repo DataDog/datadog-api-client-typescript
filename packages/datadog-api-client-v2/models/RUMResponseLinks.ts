@@ -26,17 +26,7 @@ export class RUMResponseLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     next: {
-      baseName: "next",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

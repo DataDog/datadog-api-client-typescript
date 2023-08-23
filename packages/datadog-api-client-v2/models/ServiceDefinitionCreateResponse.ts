@@ -26,17 +26,7 @@ export class ServiceDefinitionCreateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<ServiceDefinitionData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionCreateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

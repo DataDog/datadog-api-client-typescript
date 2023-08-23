@@ -26,17 +26,7 @@ export class SpansMetricsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<SpansMetricResponseData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

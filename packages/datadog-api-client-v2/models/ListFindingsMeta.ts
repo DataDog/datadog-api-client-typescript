@@ -30,7 +30,6 @@ export class ListFindingsMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "ListFindingsPage",
     },
     snapshotTimestamp: {
@@ -39,13 +38,4 @@ export class ListFindingsMeta {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListFindingsMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

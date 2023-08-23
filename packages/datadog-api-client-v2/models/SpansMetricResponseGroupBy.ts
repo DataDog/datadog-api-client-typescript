@@ -29,7 +29,6 @@ export class SpansMetricResponseGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     path: {
-      baseName: "path",
       type: "string",
     },
     tagName: {
@@ -37,13 +36,4 @@ export class SpansMetricResponseGroupBy {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricResponseGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,23 +31,12 @@ export class ConfluentAccountCreateRequestData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "ConfluentAccountCreateRequestAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "ConfluentAccountType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentAccountCreateRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

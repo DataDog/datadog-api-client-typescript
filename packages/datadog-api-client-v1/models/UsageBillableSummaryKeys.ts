@@ -726,13 +726,4 @@ export class UsageBillableSummaryKeys {
       type: "UsageBillableSummaryBody",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageBillableSummaryKeys.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

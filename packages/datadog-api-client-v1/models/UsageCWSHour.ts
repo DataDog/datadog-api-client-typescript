@@ -51,7 +51,6 @@ export class UsageCWSHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -64,13 +63,4 @@ export class UsageCWSHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCWSHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

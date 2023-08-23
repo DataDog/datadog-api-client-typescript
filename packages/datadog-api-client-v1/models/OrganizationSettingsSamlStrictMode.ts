@@ -26,17 +26,7 @@ export class OrganizationSettingsSamlStrictMode {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     enabled: {
-      baseName: "enabled",
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSamlStrictMode.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

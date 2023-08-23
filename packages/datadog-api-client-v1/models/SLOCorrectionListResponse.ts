@@ -31,21 +31,10 @@ export class SLOCorrectionListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<SLOCorrection>",
     },
     meta: {
-      baseName: "meta",
       type: "ResponseMetaAttributes",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

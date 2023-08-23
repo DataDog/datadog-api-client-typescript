@@ -33,27 +33,15 @@ export class SyntheticsCoreWebVitals {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cls: {
-      baseName: "cls",
       type: "number",
       format: "double",
     },
     lcp: {
-      baseName: "lcp",
       type: "number",
       format: "double",
     },
     url: {
-      baseName: "url",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCoreWebVitals.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

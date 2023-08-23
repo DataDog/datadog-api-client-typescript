@@ -25,18 +25,8 @@ export class APIErrorResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
-      baseName: "errors",
       type: "Array<string>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIErrorResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

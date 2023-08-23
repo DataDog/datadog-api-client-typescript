@@ -26,18 +26,8 @@ export class MetricPayload {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     series: {
-      baseName: "series",
       type: "Array<MetricSeries>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricPayload.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

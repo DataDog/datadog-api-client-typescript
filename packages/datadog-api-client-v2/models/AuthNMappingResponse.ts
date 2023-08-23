@@ -31,21 +31,10 @@ export class AuthNMappingResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "AuthNMapping",
     },
     included: {
-      baseName: "included",
       type: "Array<AuthNMappingIncluded>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

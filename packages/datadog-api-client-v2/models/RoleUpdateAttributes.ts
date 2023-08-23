@@ -43,17 +43,7 @@ export class RoleUpdateAttributes {
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

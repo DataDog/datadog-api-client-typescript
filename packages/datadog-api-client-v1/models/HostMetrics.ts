@@ -33,28 +33,16 @@ export class HostMetrics {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cpu: {
-      baseName: "cpu",
       type: "number",
       format: "double",
     },
     iowait: {
-      baseName: "iowait",
       type: "number",
       format: "double",
     },
     load: {
-      baseName: "load",
       type: "number",
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMetrics.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

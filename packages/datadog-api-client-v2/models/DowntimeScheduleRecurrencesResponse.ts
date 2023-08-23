@@ -42,22 +42,11 @@ export class DowntimeScheduleRecurrencesResponse {
       type: "DowntimeScheduleCurrentDowntimeResponse",
     },
     recurrences: {
-      baseName: "recurrences",
       type: "Array<DowntimeScheduleRecurrenceResponse>",
       required: true,
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeScheduleRecurrencesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

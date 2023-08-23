@@ -26,17 +26,7 @@ export class SecurityMonitoringSignalsListResponseLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     next: {
-      baseName: "next",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalsListResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

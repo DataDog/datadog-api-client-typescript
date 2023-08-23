@@ -25,17 +25,7 @@ export class IntakePayloadAccepted {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
-      baseName: "errors",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IntakePayloadAccepted.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

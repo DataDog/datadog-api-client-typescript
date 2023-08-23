@@ -76,15 +76,12 @@ export class SLOHistorySLIData {
       type: "{ [key: string]: number; }",
     },
     errors: {
-      baseName: "errors",
       type: "Array<SLOHistoryResponseErrorWithType>",
     },
     group: {
-      baseName: "group",
       type: "string",
     },
     history: {
-      baseName: "history",
       type: "Array<[number, number]>",
       format: "double",
     },
@@ -98,15 +95,12 @@ export class SLOHistorySLIData {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     precision: {
-      baseName: "precision",
       type: "{ [key: string]: number; }",
     },
     preview: {
-      baseName: "preview",
       type: "boolean",
     },
     sliValue: {
@@ -120,18 +114,8 @@ export class SLOHistorySLIData {
       format: "double",
     },
     uptime: {
-      baseName: "uptime",
       type: "number",
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistorySLIData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

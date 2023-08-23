@@ -31,13 +31,4 @@ export class SyntheticsDeleteTestsResponse {
       type: "Array<SyntheticsDeletedTest>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsDeleteTestsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

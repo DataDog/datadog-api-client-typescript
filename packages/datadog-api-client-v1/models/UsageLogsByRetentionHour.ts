@@ -68,17 +68,7 @@ export class UsageLogsByRetentionHour {
       format: "int64",
     },
     retention: {
-      baseName: "retention",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLogsByRetentionHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

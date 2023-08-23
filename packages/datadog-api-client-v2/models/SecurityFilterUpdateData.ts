@@ -31,23 +31,12 @@ export class SecurityFilterUpdateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SecurityFilterUpdateAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "SecurityFilterType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

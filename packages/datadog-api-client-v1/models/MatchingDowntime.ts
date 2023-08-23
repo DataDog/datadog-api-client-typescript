@@ -39,33 +39,20 @@ export class MatchingDowntime {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
-      baseName: "end",
       type: "number",
       format: "int64",
     },
     id: {
-      baseName: "id",
       type: "number",
       required: true,
       format: "int64",
     },
     scope: {
-      baseName: "scope",
       type: "Array<string>",
     },
     start: {
-      baseName: "start",
       type: "number",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MatchingDowntime.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

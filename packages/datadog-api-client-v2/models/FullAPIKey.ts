@@ -40,29 +40,16 @@ export class FullAPIKey {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "FullAPIKeyAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "APIKeyRelationships",
     },
     type: {
-      baseName: "type",
       type: "APIKeysType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FullAPIKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

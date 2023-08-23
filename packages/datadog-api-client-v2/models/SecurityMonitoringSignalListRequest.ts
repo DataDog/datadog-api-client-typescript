@@ -36,25 +36,13 @@ export class SecurityMonitoringSignalListRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "SecurityMonitoringSignalListRequestFilter",
     },
     page: {
-      baseName: "page",
       type: "SecurityMonitoringSignalListRequestPage",
     },
     sort: {
-      baseName: "sort",
       type: "SecurityMonitoringSignalsSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalListRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

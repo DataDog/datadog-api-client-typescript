@@ -63,7 +63,6 @@ export class DowntimeUpdateRequestAttributes {
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     monitorIdentifier: {
@@ -83,21 +82,10 @@ export class DowntimeUpdateRequestAttributes {
       type: "Array<DowntimeNotifyEndStateActions>",
     },
     schedule: {
-      baseName: "schedule",
       type: "DowntimeScheduleUpdateRequest",
     },
     scope: {
-      baseName: "scope",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeUpdateRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

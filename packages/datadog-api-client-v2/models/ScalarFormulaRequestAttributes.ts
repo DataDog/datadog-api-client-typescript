@@ -39,34 +39,21 @@ export class ScalarFormulaRequestAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     formulas: {
-      baseName: "formulas",
       type: "Array<QueryFormula>",
     },
     from: {
-      baseName: "from",
       type: "number",
       required: true,
       format: "int64",
     },
     queries: {
-      baseName: "queries",
       type: "Array<ScalarQuery>",
       required: true,
     },
     to: {
-      baseName: "to",
       type: "number",
       required: true,
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarFormulaRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

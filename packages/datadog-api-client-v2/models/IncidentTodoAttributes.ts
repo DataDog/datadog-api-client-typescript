@@ -42,16 +42,13 @@ export class IncidentTodoAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     assignees: {
-      baseName: "assignees",
       type: "Array<IncidentTodoAssignee>",
       required: true,
     },
     completed: {
-      baseName: "completed",
       type: "string",
     },
     content: {
-      baseName: "content",
       type: "string",
       required: true,
     },
@@ -64,13 +61,4 @@ export class IncidentTodoAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTodoAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

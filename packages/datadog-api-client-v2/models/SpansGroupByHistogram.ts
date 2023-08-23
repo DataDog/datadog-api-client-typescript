@@ -36,31 +36,19 @@ export class SpansGroupByHistogram {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     interval: {
-      baseName: "interval",
       type: "number",
       required: true,
       format: "double",
     },
     max: {
-      baseName: "max",
       type: "number",
       required: true,
       format: "double",
     },
     min: {
-      baseName: "min",
       type: "number",
       required: true,
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansGroupByHistogram.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

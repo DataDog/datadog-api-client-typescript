@@ -26,18 +26,8 @@ export class MetricTagConfigurationCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MetricTagConfigurationCreateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricTagConfigurationCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

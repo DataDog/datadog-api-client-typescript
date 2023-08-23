@@ -37,7 +37,6 @@ export class GCPSTSServiceAccountAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     automute: {
-      baseName: "automute",
       type: "boolean",
     },
     clientEmail: {
@@ -53,13 +52,4 @@ export class GCPSTSServiceAccountAttributes {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSServiceAccountAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

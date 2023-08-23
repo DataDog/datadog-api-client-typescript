@@ -30,13 +30,4 @@ export class SyntheticsGlobalVariableOptions {
       type: "SyntheticsGlobalVariableTOTPParameters",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariableOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

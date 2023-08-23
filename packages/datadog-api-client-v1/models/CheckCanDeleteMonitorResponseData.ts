@@ -25,18 +25,8 @@ export class CheckCanDeleteMonitorResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     ok: {
-      baseName: "ok",
       type: "Array<number>",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteMonitorResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

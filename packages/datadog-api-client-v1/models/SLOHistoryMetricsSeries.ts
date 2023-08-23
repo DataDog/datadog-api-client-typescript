@@ -39,35 +39,22 @@ export class SLOHistoryMetricsSeries {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
-      baseName: "count",
       type: "number",
       required: true,
       format: "int64",
     },
     metadata: {
-      baseName: "metadata",
       type: "SLOHistoryMetricsSeriesMetadata",
     },
     sum: {
-      baseName: "sum",
       type: "number",
       required: true,
       format: "double",
     },
     values: {
-      baseName: "values",
       type: "Array<number>",
       required: true,
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistoryMetricsSeries.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

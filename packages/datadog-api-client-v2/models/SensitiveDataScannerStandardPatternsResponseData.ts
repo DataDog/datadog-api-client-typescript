@@ -26,17 +26,7 @@ export class SensitiveDataScannerStandardPatternsResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<SensitiveDataScannerStandardPatternsResponseItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerStandardPatternsResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

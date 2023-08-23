@@ -25,18 +25,8 @@ export class FormulaAndFunctionEventQueryDefinitionSearch {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

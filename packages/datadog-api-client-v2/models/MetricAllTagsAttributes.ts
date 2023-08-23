@@ -25,17 +25,7 @@ export class MetricAllTagsAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricAllTagsAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

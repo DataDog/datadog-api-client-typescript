@@ -30,21 +30,10 @@ export class EventResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     event: {
-      baseName: "event",
       type: "Event",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

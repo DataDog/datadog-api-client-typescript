@@ -190,7 +190,6 @@ export class MonitorOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "MonitorOptionsAggregation",
     },
     deviceIds: {
@@ -227,7 +226,6 @@ export class MonitorOptions {
       type: "boolean",
     },
     locked: {
-      baseName: "locked",
       type: "boolean",
     },
     minFailureDuration: {
@@ -298,7 +296,6 @@ export class MonitorOptions {
       type: "MonitorOptionsSchedulingOptions",
     },
     silenced: {
-      baseName: "silenced",
       type: "{ [key: string]: number; }",
     },
     syntheticsCheckId: {
@@ -310,7 +307,6 @@ export class MonitorOptions {
       type: "MonitorThresholdWindowOptions",
     },
     thresholds: {
-      baseName: "thresholds",
       type: "MonitorThresholds",
     },
     timeoutH: {
@@ -319,17 +315,7 @@ export class MonitorOptions {
       format: "int64",
     },
     variables: {
-      baseName: "variables",
       type: "Array<MonitorFormulaAndFunctionQueryDefinition>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

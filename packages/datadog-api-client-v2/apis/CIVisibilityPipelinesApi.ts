@@ -1,6 +1,7 @@
 import {
   BaseAPIRequestFactory,
   RequiredError,
+  deserializeError,
 } from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
@@ -16,7 +17,6 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
-import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CIAppCreatePipelineEventRequest } from "../models/CIAppCreatePipelineEventRequest";
 import { CIAppPipelineEvent } from "../models/CIAppPipelineEvent";
 import { CIAppPipelineEventsRequest } from "../models/CIAppPipelineEventsRequest";
@@ -25,7 +25,6 @@ import { CIAppPipelinesAggregateRequest } from "../models/CIAppPipelinesAggregat
 import { CIAppPipelinesAnalyticsAggregateResponse } from "../models/CIAppPipelinesAnalyticsAggregateResponse";
 import { CIAppQueryPageOptions } from "../models/CIAppQueryPageOptions";
 import { CIAppSort } from "../models/CIAppSort";
-import { HTTPCIAppErrors } from "../models/HTTPCIAppErrors";
 
 export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactory {
   public async aggregateCIAppPipelineEvents(
@@ -50,9 +49,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppPipelinesAggregateRequest", ""),
@@ -98,9 +95,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppCreatePipelineEventRequest", ""),
@@ -202,9 +197,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppPipelineEventsRequest", ""),
@@ -225,10 +218,10 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 export class CIVisibilityPipelinesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to aggregateCIAppPipelineEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to aggregateCIAppPipelineEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async aggregateCIAppPipelineEvents(
     response: ResponseContext
@@ -236,7 +229,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppPipelinesAnalyticsAggregateResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -249,35 +242,12 @@ export class CIVisibilityPipelinesApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppPipelinesAnalyticsAggregateResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "CIAppPipelinesAnalyticsAggregateResponse",
-          ""
-        ) as CIAppPipelinesAnalyticsAggregateResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -289,10 +259,10 @@ export class CIVisibilityPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createCIAppPipelineEvent
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createCIAppPipelineEvent.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createCIAppPipelineEvent(
     response: ResponseContext
@@ -300,7 +270,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -317,34 +287,12 @@ export class CIVisibilityPipelinesApiResponseProcessor {
       response.httpStatusCode == 500 ||
       response.httpStatusCode == 503
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "HTTPCIAppErrors",
+        response,
         contentType
       );
-      let body: HTTPCIAppErrors;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "HTTPCIAppErrors"
-        ) as HTTPCIAppErrors;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<HTTPCIAppErrors>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<HTTPCIAppErrors>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: any = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "any",
-        ""
-      ) as any;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -356,10 +304,10 @@ export class CIVisibilityPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listCIAppPipelineEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listCIAppPipelineEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listCIAppPipelineEvents(
     response: ResponseContext
@@ -367,7 +315,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CIAppPipelineEventsResponse"
@@ -379,34 +327,12 @@ export class CIVisibilityPipelinesApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppPipelineEventsResponse",
-        ""
-      ) as CIAppPipelineEventsResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";
@@ -418,10 +344,10 @@ export class CIVisibilityPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to searchCIAppPipelineEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to searchCIAppPipelineEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async searchCIAppPipelineEvents(
     response: ResponseContext
@@ -429,7 +355,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CIAppPipelineEventsResponse"
@@ -441,34 +367,12 @@ export class CIVisibilityPipelinesApiResponseProcessor {
       response.httpStatusCode == 403 ||
       response.httpStatusCode == 429
     ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "CIAppPipelineEventsResponse",
-        ""
-      ) as CIAppPipelineEventsResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

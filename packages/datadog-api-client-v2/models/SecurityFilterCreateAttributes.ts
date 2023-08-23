@@ -58,23 +58,12 @@ export class SecurityFilterCreateAttributes {
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -29,13 +29,4 @@ export class MonthlyUsageAttributionPagination {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonthlyUsageAttributionPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

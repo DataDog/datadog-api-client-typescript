@@ -30,21 +30,10 @@ export class DowntimeRelationshipsCreatedByData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "UsersType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeRelationshipsCreatedByData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

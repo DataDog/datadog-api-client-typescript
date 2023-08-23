@@ -31,7 +31,6 @@ export class MonitorConfigPolicyAttributeEditRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     policy: {
-      baseName: "policy",
       type: "MonitorConfigPolicyPolicy",
       required: true,
     },
@@ -41,13 +40,4 @@ export class MonitorConfigPolicyAttributeEditRequest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorConfigPolicyAttributeEditRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,18 +26,8 @@ export class NotebookUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "NotebookUpdateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

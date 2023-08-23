@@ -39,13 +39,4 @@ export class SLOHistoryResponseErrorWithType {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistoryResponseErrorWithType.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

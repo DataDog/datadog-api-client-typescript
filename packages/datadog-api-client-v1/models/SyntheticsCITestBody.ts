@@ -26,17 +26,7 @@ export class SyntheticsCITestBody {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
-      baseName: "tests",
       type: "Array<SyntheticsCITest>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCITestBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

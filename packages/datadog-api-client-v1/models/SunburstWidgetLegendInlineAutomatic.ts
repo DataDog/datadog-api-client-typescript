@@ -42,18 +42,8 @@ export class SunburstWidgetLegendInlineAutomatic {
       type: "boolean",
     },
     type: {
-      baseName: "type",
       type: "SunburstWidgetLegendInlineAutomaticType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SunburstWidgetLegendInlineAutomatic.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

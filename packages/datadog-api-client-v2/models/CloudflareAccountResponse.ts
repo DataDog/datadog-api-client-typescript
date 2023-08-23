@@ -26,17 +26,7 @@ export class CloudflareAccountResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "CloudflareAccountResponseData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CloudflareAccountResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

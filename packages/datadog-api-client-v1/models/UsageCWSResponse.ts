@@ -26,17 +26,7 @@ export class UsageCWSResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageCWSHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCWSResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

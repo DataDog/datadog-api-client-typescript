@@ -77,7 +77,6 @@ export class SecurityMonitoringSignalTriageAttributes {
       type: "SecurityMonitoringSignalArchiveReason",
     },
     assignee: {
-      baseName: "assignee",
       type: "SecurityMonitoringTriageUser",
       required: true,
     },
@@ -88,7 +87,6 @@ export class SecurityMonitoringSignalTriageAttributes {
       format: "int64",
     },
     state: {
-      baseName: "state",
       type: "SecurityMonitoringSignalState",
       required: true,
     },
@@ -102,13 +100,4 @@ export class SecurityMonitoringSignalTriageAttributes {
       type: "SecurityMonitoringTriageUser",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalTriageAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

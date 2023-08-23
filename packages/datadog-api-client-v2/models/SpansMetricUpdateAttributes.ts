@@ -36,11 +36,9 @@ export class SpansMetricUpdateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "SpansMetricUpdateCompute",
     },
     filter: {
-      baseName: "filter",
       type: "SpansMetricFilter",
     },
     groupBy: {
@@ -48,13 +46,4 @@ export class SpansMetricUpdateAttributes {
       type: "Array<SpansMetricGroupBy>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

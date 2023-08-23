@@ -31,7 +31,6 @@ export class LogsExclusionFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "string",
     },
     sampleRate: {
@@ -41,13 +40,4 @@ export class LogsExclusionFilter {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsExclusionFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

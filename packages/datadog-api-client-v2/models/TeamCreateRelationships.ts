@@ -26,17 +26,7 @@ export class TeamCreateRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     users: {
-      baseName: "users",
       type: "RelationshipToUsers",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamCreateRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

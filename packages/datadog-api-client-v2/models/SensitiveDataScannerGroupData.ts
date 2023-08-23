@@ -26,17 +26,7 @@ export class SensitiveDataScannerGroupData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SensitiveDataScannerGroup",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerGroupData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

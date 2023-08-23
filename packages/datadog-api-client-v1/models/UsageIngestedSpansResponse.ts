@@ -26,17 +26,7 @@ export class UsageIngestedSpansResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageIngestedSpansHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageIngestedSpansResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -33,25 +33,13 @@ export class GroupScalarColumn {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
     values: {
-      baseName: "values",
       type: "Array<Array<string>>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GroupScalarColumn.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

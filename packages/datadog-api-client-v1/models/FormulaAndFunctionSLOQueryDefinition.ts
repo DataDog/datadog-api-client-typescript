@@ -66,12 +66,10 @@ export class FormulaAndFunctionSLOQueryDefinition {
       type: "FormulaAndFunctionSLOGroupMode",
     },
     measure: {
-      baseName: "measure",
       type: "FormulaAndFunctionSLOMeasure",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     sloId: {
@@ -84,13 +82,4 @@ export class FormulaAndFunctionSLOQueryDefinition {
       type: "FormulaAndFunctionSLOQueryType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionSLOQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

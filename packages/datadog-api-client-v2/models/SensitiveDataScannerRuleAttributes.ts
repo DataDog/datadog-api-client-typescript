@@ -55,7 +55,6 @@ export class SensitiveDataScannerRuleAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
-      baseName: "description",
       type: "string",
     },
     excludedNamespaces: {
@@ -67,19 +66,15 @@ export class SensitiveDataScannerRuleAttributes {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     namespaces: {
-      baseName: "namespaces",
       type: "Array<string>",
     },
     pattern: {
-      baseName: "pattern",
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     textReplacement: {
@@ -87,13 +82,4 @@ export class SensitiveDataScannerRuleAttributes {
       type: "SensitiveDataScannerTextReplacement",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerRuleAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

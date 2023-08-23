@@ -489,13 +489,4 @@ export class UsageAttributionValues {
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionValues.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

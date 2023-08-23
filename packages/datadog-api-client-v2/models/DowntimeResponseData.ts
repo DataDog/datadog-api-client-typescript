@@ -40,29 +40,16 @@ export class DowntimeResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "DowntimeResponseAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "DowntimeRelationships",
     },
     type: {
-      baseName: "type",
       type: "DowntimeResourceType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,18 +26,8 @@ export class IncidentTodoCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentTodoCreateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTodoCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

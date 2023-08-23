@@ -26,18 +26,8 @@ export class SlackIntegrationMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     channels: {
-      baseName: "channels",
       type: "Array<SlackIntegrationMetadataChannelItem>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackIntegrationMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

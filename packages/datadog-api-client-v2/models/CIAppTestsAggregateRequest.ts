@@ -42,11 +42,9 @@ export class CIAppTestsAggregateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "Array<CIAppCompute>",
     },
     filter: {
-      baseName: "filter",
       type: "CIAppTestsQueryFilter",
     },
     groupBy: {
@@ -54,17 +52,7 @@ export class CIAppTestsAggregateRequest {
       type: "Array<CIAppTestsGroupBy>",
     },
     options: {
-      baseName: "options",
       type: "CIAppQueryOptions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppTestsAggregateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

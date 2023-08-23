@@ -31,13 +31,4 @@ export class DowntimeMonitorIdentifierId {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeMonitorIdentifierId.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

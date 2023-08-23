@@ -57,7 +57,6 @@ export class UsageRumSessionsHour {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -100,13 +99,4 @@ export class UsageRumSessionsHour {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageRumSessionsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

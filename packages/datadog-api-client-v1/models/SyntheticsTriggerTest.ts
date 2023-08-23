@@ -30,7 +30,6 @@ export class SyntheticsTriggerTest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
-      baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
     },
     publicId: {
@@ -39,13 +38,4 @@ export class SyntheticsTriggerTest {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerTest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

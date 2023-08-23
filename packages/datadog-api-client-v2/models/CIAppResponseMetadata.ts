@@ -40,7 +40,6 @@ export class CIAppResponseMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     elapsed: {
-      baseName: "elapsed",
       type: "number",
       format: "int64",
     },
@@ -49,21 +48,10 @@ export class CIAppResponseMetadata {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "CIAppResponseStatus",
     },
     warnings: {
-      baseName: "warnings",
       type: "Array<CIAppWarning>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

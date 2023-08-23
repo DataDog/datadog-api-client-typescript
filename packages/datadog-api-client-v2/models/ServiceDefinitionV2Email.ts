@@ -34,28 +34,16 @@ export class ServiceDefinitionV2Email {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     contact: {
-      baseName: "contact",
       type: "string",
       required: true,
       format: "email",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ServiceDefinitionV2EmailType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Email.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

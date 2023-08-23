@@ -68,7 +68,6 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
       required: true,
     },
     env: {
-      baseName: "env",
       type: "string",
       required: true,
     },
@@ -77,7 +76,6 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
@@ -100,23 +98,12 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
       required: true,
     },
     service: {
-      baseName: "service",
       type: "string",
       required: true,
     },
     stat: {
-      baseName: "stat",
       type: "FormulaAndFunctionApmDependencyStatName",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionApmDependencyStatsQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

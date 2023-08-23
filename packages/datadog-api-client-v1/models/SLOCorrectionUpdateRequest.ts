@@ -26,17 +26,7 @@ export class SLOCorrectionUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SLOCorrectionUpdateData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

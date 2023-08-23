@@ -25,17 +25,7 @@ export class CheckCanDeleteSLOResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     ok: {
-      baseName: "ok",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteSLOResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

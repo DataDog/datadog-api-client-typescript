@@ -26,17 +26,7 @@ export class RelationshipToPermission {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RelationshipToPermissionData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToPermission.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

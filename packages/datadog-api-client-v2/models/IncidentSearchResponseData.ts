@@ -31,21 +31,10 @@ export class IncidentSearchResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "IncidentSearchResponseAttributes",
     },
     type: {
-      baseName: "type",
       type: "IncidentSearchResultsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

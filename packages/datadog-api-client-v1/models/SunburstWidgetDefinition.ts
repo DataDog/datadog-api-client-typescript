@@ -71,20 +71,16 @@ export class SunburstWidgetDefinition {
       type: "boolean",
     },
     legend: {
-      baseName: "legend",
       type: "SunburstWidgetLegend",
     },
     requests: {
-      baseName: "requests",
       type: "Array<SunburstWidgetRequest>",
       required: true,
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -96,18 +92,8 @@ export class SunburstWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SunburstWidgetDefinitionType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SunburstWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

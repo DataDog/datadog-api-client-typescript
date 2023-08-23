@@ -26,17 +26,7 @@ export class SearchServiceLevelObjective {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SearchServiceLevelObjectiveData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchServiceLevelObjective.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

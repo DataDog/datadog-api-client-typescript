@@ -51,16 +51,13 @@ export class ApmStatsQueryDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
-      baseName: "columns",
       type: "Array<ApmStatsQueryColumnType>",
     },
     env: {
-      baseName: "env",
       type: "string",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
@@ -70,7 +67,6 @@ export class ApmStatsQueryDefinition {
       required: true,
     },
     resource: {
-      baseName: "resource",
       type: "string",
     },
     rowType: {
@@ -79,18 +75,8 @@ export class ApmStatsQueryDefinition {
       required: true,
     },
     service: {
-      baseName: "service",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApmStatsQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

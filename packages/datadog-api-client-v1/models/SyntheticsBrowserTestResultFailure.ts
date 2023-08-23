@@ -30,21 +30,10 @@ export class SyntheticsBrowserTestResultFailure {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
-      baseName: "code",
       type: "SyntheticsBrowserTestFailureCode",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestResultFailure.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -42,11 +42,9 @@ export class SpansAggregateRequestAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "Array<SpansCompute>",
     },
     filter: {
-      baseName: "filter",
       type: "SpansQueryFilter",
     },
     groupBy: {
@@ -54,17 +52,7 @@ export class SpansAggregateRequestAttributes {
       type: "Array<SpansGroupBy>",
     },
     options: {
-      baseName: "options",
       type: "SpansQueryOptions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

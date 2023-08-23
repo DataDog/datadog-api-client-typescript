@@ -29,22 +29,11 @@ export class SyntheticsTestRequestProxy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     headers: {
-      baseName: "headers",
       type: "{ [key: string]: string; }",
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestRequestProxy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

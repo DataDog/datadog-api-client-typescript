@@ -35,27 +35,15 @@ export class MetricBulkTagConfigDelete {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MetricBulkTagConfigDeleteAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "MetricBulkConfigureTagsType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigDelete.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

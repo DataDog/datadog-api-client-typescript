@@ -29,22 +29,11 @@ export class SyntheticsTriggerCITestLocation {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTriggerCITestLocation.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,13 +38,4 @@ export class APIKeyRelationships {
       type: "RelationshipToUser",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

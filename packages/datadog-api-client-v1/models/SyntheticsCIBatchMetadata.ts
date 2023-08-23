@@ -31,21 +31,10 @@ export class SyntheticsCIBatchMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     ci: {
-      baseName: "ci",
       type: "SyntheticsCIBatchMetadataCI",
     },
     git: {
-      baseName: "git",
       type: "SyntheticsCIBatchMetadataGit",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

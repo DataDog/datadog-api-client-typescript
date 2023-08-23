@@ -25,17 +25,7 @@ export class SensitiveDataScannerFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class NotebookResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "NotebookResponseData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

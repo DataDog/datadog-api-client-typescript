@@ -42,7 +42,6 @@ export class ServiceDefinitionV1Info {
       required: true,
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     displayName: {
@@ -54,13 +53,4 @@ export class ServiceDefinitionV1Info {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV1Info.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

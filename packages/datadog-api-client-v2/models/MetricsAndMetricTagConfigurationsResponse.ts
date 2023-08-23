@@ -26,17 +26,7 @@ export class MetricsAndMetricTagConfigurationsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<MetricsAndMetricTagConfigurations>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsAndMetricTagConfigurationsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

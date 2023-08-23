@@ -31,21 +31,10 @@ export class CIAppCreatePipelineEventRequestData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "CIAppCreatePipelineEventRequestAttributes",
     },
     type: {
-      baseName: "type",
       type: "CIAppCreatePipelineEventRequestDataType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppCreatePipelineEventRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

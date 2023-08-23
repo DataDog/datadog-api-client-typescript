@@ -30,23 +30,12 @@ export class DashboardListItems {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dashboards: {
-      baseName: "dashboards",
       type: "Array<DashboardListItem>",
       required: true,
     },
     total: {
-      baseName: "total",
       type: "number",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListItems.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

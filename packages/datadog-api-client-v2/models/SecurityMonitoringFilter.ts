@@ -30,21 +30,10 @@ export class SecurityMonitoringFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     action: {
-      baseName: "action",
       type: "SecurityMonitoringFilterAction",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringFilter.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

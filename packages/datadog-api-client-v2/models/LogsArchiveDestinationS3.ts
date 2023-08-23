@@ -39,32 +39,19 @@ export class LogsArchiveDestinationS3 {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     bucket: {
-      baseName: "bucket",
       type: "string",
       required: true,
     },
     integration: {
-      baseName: "integration",
       type: "LogsArchiveIntegrationS3",
       required: true,
     },
     path: {
-      baseName: "path",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "LogsArchiveDestinationS3Type",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchiveDestinationS3.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

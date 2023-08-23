@@ -589,7 +589,6 @@ export class UsageSummaryDateOrg {
       format: "int64",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     incidentManagementMonthlyActiveUsersHwm: {
@@ -663,7 +662,6 @@ export class UsageSummaryDateOrg {
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     netflowIndexedEventsCountSum: {
@@ -706,7 +704,6 @@ export class UsageSummaryDateOrg {
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     rumBrowserAndMobileSessionCount: {
@@ -800,13 +797,4 @@ export class UsageSummaryDateOrg {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSummaryDateOrg.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

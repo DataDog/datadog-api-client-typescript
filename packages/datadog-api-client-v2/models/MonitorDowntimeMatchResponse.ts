@@ -31,21 +31,10 @@ export class MonitorDowntimeMatchResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<MonitorDowntimeMatchResponseData>",
     },
     meta: {
-      baseName: "meta",
       type: "DowntimeMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorDowntimeMatchResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class UsageSpecifiedCustomReportsMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "UsageSpecifiedCustomReportsPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSpecifiedCustomReportsMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

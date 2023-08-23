@@ -35,26 +35,14 @@ export class OrganizationCreateBody {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     billing: {
-      baseName: "billing",
       type: "OrganizationBilling",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     subscription: {
-      baseName: "subscription",
       type: "OrganizationSubscription",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationCreateBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

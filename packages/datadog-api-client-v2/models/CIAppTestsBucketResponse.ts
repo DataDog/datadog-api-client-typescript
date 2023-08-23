@@ -30,21 +30,10 @@ export class CIAppTestsBucketResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     by: {
-      baseName: "by",
       type: "{ [key: string]: any; }",
     },
     computes: {
-      baseName: "computes",
       type: "{ [key: string]: CIAppAggregateBucketValue; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppTestsBucketResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

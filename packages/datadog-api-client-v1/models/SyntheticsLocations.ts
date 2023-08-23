@@ -26,17 +26,7 @@ export class SyntheticsLocations {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     locations: {
-      baseName: "locations",
       type: "Array<SyntheticsLocation>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsLocations.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

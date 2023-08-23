@@ -29,21 +29,10 @@ export class SyntheticsCIBatchMetadataGit {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     branch: {
-      baseName: "branch",
       type: "string",
     },
     commitSha: {
-      baseName: "commitSha",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadataGit.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

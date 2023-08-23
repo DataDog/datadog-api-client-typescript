@@ -31,7 +31,6 @@ export class SyntheticsPrivateLocationSecrets {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     authentication: {
-      baseName: "authentication",
       type: "SyntheticsPrivateLocationSecretsAuthentication",
     },
     configDecryption: {
@@ -39,13 +38,4 @@ export class SyntheticsPrivateLocationSecrets {
       type: "SyntheticsPrivateLocationSecretsConfigDecryption",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsPrivateLocationSecrets.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

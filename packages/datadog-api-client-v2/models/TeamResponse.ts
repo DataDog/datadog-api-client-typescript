@@ -26,17 +26,7 @@ export class TeamResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Team",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

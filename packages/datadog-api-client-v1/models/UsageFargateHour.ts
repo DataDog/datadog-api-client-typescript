@@ -64,7 +64,6 @@ export class UsageFargateHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -82,13 +81,4 @@ export class UsageFargateHour {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageFargateHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

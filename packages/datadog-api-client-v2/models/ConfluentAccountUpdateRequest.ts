@@ -26,18 +26,8 @@ export class ConfluentAccountUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ConfluentAccountUpdateRequestData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentAccountUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

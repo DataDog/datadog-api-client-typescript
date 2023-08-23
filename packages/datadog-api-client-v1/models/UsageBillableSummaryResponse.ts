@@ -26,17 +26,7 @@ export class UsageBillableSummaryResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageBillableSummaryHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageBillableSummaryResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

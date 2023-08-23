@@ -30,22 +30,11 @@ export class EventsQueryOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     timeOffset: {
-      baseName: "timeOffset",
       type: "number",
       format: "int64",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

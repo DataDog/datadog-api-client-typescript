@@ -26,17 +26,7 @@ export class SLOListResponseMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "SLOListResponseMetadataPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOListResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

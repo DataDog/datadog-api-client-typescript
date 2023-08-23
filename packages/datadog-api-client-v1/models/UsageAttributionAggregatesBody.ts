@@ -37,22 +37,11 @@ export class UsageAttributionAggregatesBody {
       type: "string",
     },
     field: {
-      baseName: "field",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "number",
       format: "double",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributionAggregatesBody.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

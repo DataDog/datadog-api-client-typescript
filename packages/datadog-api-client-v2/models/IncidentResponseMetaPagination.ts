@@ -38,23 +38,12 @@ export class IncidentResponseMetaPagination {
       format: "int64",
     },
     offset: {
-      baseName: "offset",
       type: "number",
       format: "int64",
     },
     size: {
-      baseName: "size",
       type: "number",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentResponseMetaPagination.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

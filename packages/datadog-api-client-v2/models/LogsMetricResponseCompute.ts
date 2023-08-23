@@ -43,17 +43,7 @@ export class LogsMetricResponseCompute {
       type: "boolean",
     },
     path: {
-      baseName: "path",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricResponseCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

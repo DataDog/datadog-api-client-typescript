@@ -37,29 +37,16 @@ export class SlackIntegrationChannelDisplay {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
-      baseName: "message",
       type: "boolean",
     },
     notified: {
-      baseName: "notified",
       type: "boolean",
     },
     snapshot: {
-      baseName: "snapshot",
       type: "boolean",
     },
     tags: {
-      baseName: "tags",
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SlackIntegrationChannelDisplay.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

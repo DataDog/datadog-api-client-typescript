@@ -26,17 +26,7 @@ export class DashboardListDeleteItemsRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dashboards: {
-      baseName: "dashboards",
       type: "Array<DashboardListItemRequest>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListDeleteItemsRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

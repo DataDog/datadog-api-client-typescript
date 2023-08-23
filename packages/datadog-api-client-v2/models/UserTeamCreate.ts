@@ -36,26 +36,14 @@ export class UserTeamCreate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "UserTeamAttributes",
     },
     relationships: {
-      baseName: "relationships",
       type: "UserTeamRelationships",
     },
     type: {
-      baseName: "type",
       type: "UserTeamType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserTeamCreate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

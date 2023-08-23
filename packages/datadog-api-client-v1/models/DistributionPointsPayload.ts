@@ -26,18 +26,8 @@ export class DistributionPointsPayload {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     series: {
-      baseName: "series",
       type: "Array<DistributionPointsSeries>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionPointsPayload.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

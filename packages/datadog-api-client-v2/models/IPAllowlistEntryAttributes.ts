@@ -51,17 +51,7 @@ export class IPAllowlistEntryAttributes {
       format: "date-time",
     },
     note: {
-      baseName: "note",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPAllowlistEntryAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -35,25 +35,13 @@ export class GCPSTSServiceAccountUpdateRequestData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "GCPSTSServiceAccountAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "GCPServiceAccountType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSServiceAccountUpdateRequestData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

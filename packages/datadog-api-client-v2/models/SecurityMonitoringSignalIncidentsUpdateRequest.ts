@@ -26,18 +26,8 @@ export class SecurityMonitoringSignalIncidentsUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SecurityMonitoringSignalIncidentsUpdateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalIncidentsUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

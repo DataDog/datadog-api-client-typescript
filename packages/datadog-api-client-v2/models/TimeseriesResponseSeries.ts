@@ -46,17 +46,7 @@ export class TimeseriesResponseSeries {
       format: "int32",
     },
     unit: {
-      baseName: "unit",
       type: "Array<Unit>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesResponseSeries.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

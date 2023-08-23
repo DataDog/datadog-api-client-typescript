@@ -50,7 +50,6 @@ export class SharedDashboardInvitesDataObjectAttributes {
       format: "date-time",
     },
     email: {
-      baseName: "email",
       type: "string",
     },
     hasSession: {
@@ -72,13 +71,4 @@ export class SharedDashboardInvitesDataObjectAttributes {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SharedDashboardInvitesDataObjectAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

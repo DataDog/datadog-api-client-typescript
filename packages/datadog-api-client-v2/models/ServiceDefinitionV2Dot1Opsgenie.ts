@@ -30,7 +30,6 @@ export class ServiceDefinitionV2Dot1Opsgenie {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     region: {
-      baseName: "region",
       type: "ServiceDefinitionV2Dot1OpsgenieRegion",
     },
     serviceUrl: {
@@ -39,13 +38,4 @@ export class ServiceDefinitionV2Dot1Opsgenie {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Dot1Opsgenie.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

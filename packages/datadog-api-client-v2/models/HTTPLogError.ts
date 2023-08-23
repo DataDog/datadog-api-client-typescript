@@ -33,25 +33,13 @@ export class HTTPLogError {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     detail: {
-      baseName: "detail",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HTTPLogError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

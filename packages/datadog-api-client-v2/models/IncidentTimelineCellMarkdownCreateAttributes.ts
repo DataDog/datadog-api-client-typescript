@@ -40,22 +40,11 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
       required: true,
     },
     content: {
-      baseName: "content",
       type: "IncidentTimelineCellMarkdownCreateAttributesContent",
       required: true,
     },
     important: {
-      baseName: "important",
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentTimelineCellMarkdownCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

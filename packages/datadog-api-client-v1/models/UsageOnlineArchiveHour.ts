@@ -37,7 +37,6 @@ export class UsageOnlineArchiveHour {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -55,13 +54,4 @@ export class UsageOnlineArchiveHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageOnlineArchiveHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

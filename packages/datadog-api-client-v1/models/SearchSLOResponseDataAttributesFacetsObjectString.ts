@@ -29,22 +29,11 @@ export class SearchSLOResponseDataAttributesFacetsObjectString {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
-      baseName: "count",
       type: "number",
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseDataAttributesFacetsObjectString.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

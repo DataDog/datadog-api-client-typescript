@@ -34,27 +34,15 @@ export class ServiceDefinitionV2MSTeams {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     contact: {
-      baseName: "contact",
       type: "string",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ServiceDefinitionV2MSTeamsType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2MSTeams.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

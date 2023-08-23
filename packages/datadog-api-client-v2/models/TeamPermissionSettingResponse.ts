@@ -26,17 +26,7 @@ export class TeamPermissionSettingResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "TeamPermissionSetting",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamPermissionSettingResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

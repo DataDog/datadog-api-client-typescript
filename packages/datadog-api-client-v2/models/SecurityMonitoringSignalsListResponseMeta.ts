@@ -26,17 +26,7 @@ export class SecurityMonitoringSignalsListResponseMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "SecurityMonitoringSignalsListResponseMetaPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalsListResponseMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

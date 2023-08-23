@@ -36,27 +36,15 @@ export class SensitiveDataScannerGroupCreate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SensitiveDataScannerGroupAttributes",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "SensitiveDataScannerGroupRelationships",
     },
     type: {
-      baseName: "type",
       type: "SensitiveDataScannerGroupType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerGroupCreate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

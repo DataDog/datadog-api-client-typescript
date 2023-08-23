@@ -45,13 +45,4 @@ export class MonitorConfigPolicyTagPolicy {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorConfigPolicyTagPolicy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

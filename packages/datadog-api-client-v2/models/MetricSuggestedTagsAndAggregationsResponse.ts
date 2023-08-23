@@ -26,17 +26,7 @@ export class MetricSuggestedTagsAndAggregationsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MetricSuggestedTagsAndAggregations",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricSuggestedTagsAndAggregationsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

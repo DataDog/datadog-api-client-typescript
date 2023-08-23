@@ -25,17 +25,7 @@ export class ServiceDefinitionV1Integrations {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     pagerduty: {
-      baseName: "pagerduty",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV1Integrations.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

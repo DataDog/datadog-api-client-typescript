@@ -25,18 +25,8 @@ export class GeomapWidgetDefinitionView {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     focus: {
-      baseName: "focus",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GeomapWidgetDefinitionView.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

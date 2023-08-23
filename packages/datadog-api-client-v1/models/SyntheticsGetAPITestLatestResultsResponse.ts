@@ -35,17 +35,7 @@ export class SyntheticsGetAPITestLatestResultsResponse {
       format: "int64",
     },
     results: {
-      baseName: "results",
       type: "Array<SyntheticsAPITestResultShort>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGetAPITestLatestResultsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

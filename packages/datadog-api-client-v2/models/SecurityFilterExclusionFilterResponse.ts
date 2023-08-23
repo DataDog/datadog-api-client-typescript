@@ -29,21 +29,10 @@ export class SecurityFilterExclusionFilterResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterExclusionFilterResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class LogsArchives {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<LogsArchiveDefinition>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsArchives.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

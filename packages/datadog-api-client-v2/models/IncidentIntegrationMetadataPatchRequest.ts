@@ -26,18 +26,8 @@ export class IncidentIntegrationMetadataPatchRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentIntegrationMetadataPatchData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentIntegrationMetadataPatchRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

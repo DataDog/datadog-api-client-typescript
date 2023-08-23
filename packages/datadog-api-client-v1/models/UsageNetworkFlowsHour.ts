@@ -37,7 +37,6 @@ export class UsageNetworkFlowsHour {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -55,13 +54,4 @@ export class UsageNetworkFlowsHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageNetworkFlowsHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

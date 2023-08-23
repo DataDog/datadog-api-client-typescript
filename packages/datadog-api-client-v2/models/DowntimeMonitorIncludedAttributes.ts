@@ -25,17 +25,7 @@ export class DowntimeMonitorIncludedAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DowntimeMonitorIncludedAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

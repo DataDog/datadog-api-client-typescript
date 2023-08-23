@@ -38,21 +38,10 @@ export class OpsgenieServiceResponseAttributes {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "OpsgenieServiceRegionType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OpsgenieServiceResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

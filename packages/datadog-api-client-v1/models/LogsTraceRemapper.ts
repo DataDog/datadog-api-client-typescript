@@ -47,26 +47,14 @@ export class LogsTraceRemapper {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     sources: {
-      baseName: "sources",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "LogsTraceRemapperType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsTraceRemapper.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

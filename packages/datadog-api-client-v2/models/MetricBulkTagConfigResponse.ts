@@ -27,17 +27,7 @@ export class MetricBulkTagConfigResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MetricBulkTagConfigStatus",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -38,30 +38,17 @@ export class EventResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "EventAttributes",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     timestamp: {
-      baseName: "timestamp",
       type: "Date",
       format: "date-time",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

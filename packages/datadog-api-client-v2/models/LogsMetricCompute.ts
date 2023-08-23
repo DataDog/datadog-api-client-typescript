@@ -44,17 +44,7 @@ export class LogsMetricCompute {
       type: "boolean",
     },
     path: {
-      baseName: "path",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

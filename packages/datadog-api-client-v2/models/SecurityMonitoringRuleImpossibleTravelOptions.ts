@@ -26,17 +26,7 @@ export class SecurityMonitoringRuleImpossibleTravelOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     baselineUserLocations: {
-      baseName: "baselineUserLocations",
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringRuleImpossibleTravelOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

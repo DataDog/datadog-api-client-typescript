@@ -33,25 +33,13 @@ export class DashboardTemplateVariablePresetValue {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "string",
     },
     values: {
-      baseName: "values",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardTemplateVariablePresetValue.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

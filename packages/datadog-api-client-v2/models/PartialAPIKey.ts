@@ -40,29 +40,16 @@ export class PartialAPIKey {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "PartialAPIKeyAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "APIKeyRelationships",
     },
     type: {
-      baseName: "type",
       type: "APIKeysType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PartialAPIKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

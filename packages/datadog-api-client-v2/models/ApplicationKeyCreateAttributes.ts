@@ -29,22 +29,11 @@ export class ApplicationKeyCreateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     scopes: {
-      baseName: "scopes",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

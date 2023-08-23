@@ -42,29 +42,16 @@ export class AuditLogsSearchEventsRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "AuditLogsQueryFilter",
     },
     options: {
-      baseName: "options",
       type: "AuditLogsQueryOptions",
     },
     page: {
-      baseName: "page",
       type: "AuditLogsQueryPageOptions",
     },
     sort: {
-      baseName: "sort",
       type: "AuditLogsSort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsSearchEventsRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

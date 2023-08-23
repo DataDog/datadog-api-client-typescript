@@ -26,17 +26,7 @@ export class HourlyUsageAttributionMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     pagination: {
-      baseName: "pagination",
       type: "HourlyUsageAttributionPagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsageAttributionMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

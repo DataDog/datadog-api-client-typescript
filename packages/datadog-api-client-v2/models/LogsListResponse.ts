@@ -36,25 +36,13 @@ export class LogsListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<Log>",
     },
     links: {
-      baseName: "links",
       type: "LogsListResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "LogsResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

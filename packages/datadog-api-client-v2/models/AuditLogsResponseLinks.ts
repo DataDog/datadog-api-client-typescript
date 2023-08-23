@@ -26,17 +26,7 @@ export class AuditLogsResponseLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     next: {
-      baseName: "next",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsResponseLinks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

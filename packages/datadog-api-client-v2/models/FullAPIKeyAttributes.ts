@@ -45,11 +45,9 @@ export class FullAPIKeyAttributes {
       type: "string",
     },
     key: {
-      baseName: "key",
       type: "string",
     },
     last4: {
-      baseName: "last4",
       type: "string",
     },
     modifiedAt: {
@@ -57,17 +55,7 @@ export class FullAPIKeyAttributes {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FullAPIKeyAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

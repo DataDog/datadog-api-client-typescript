@@ -51,7 +51,6 @@ export class UsageProfilingHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -64,13 +63,4 @@ export class UsageProfilingHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageProfilingHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

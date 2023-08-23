@@ -31,21 +31,10 @@ export class OnDemandConcurrencyCap {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "OnDemandConcurrencyCapAttributes",
     },
     type: {
-      baseName: "type",
       type: "OnDemandConcurrencyCapType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OnDemandConcurrencyCap.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

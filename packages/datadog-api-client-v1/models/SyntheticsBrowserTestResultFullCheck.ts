@@ -26,18 +26,8 @@ export class SyntheticsBrowserTestResultFullCheck {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
-      baseName: "config",
       type: "SyntheticsTestConfig",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestResultFullCheck.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

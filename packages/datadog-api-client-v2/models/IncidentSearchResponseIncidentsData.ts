@@ -26,18 +26,8 @@ export class IncidentSearchResponseIncidentsData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentResponseData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentSearchResponseIncidentsData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

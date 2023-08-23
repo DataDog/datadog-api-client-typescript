@@ -37,13 +37,4 @@ export class IPPrefixesWebhooks {
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPPrefixesWebhooks.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class DashboardListUpdateItemsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dashboards: {
-      baseName: "dashboards",
       type: "Array<DashboardListItemResponse>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardListUpdateItemsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

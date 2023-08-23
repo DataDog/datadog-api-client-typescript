@@ -26,17 +26,7 @@ export class SearchSLOResponseMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     pagination: {
-      baseName: "pagination",
       type: "SearchSLOResponseMetaPage",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

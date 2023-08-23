@@ -31,23 +31,12 @@ export class UserInvitationData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     relationships: {
-      baseName: "relationships",
       type: "UserInvitationRelationships",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "UserInvitationsType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

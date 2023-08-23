@@ -33,25 +33,13 @@ export class LogsAPIError {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
-      baseName: "code",
       type: "string",
     },
     details: {
-      baseName: "details",
       type: "Array<LogsAPIError>",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAPIError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

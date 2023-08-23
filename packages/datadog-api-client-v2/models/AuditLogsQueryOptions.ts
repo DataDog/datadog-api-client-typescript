@@ -35,17 +35,7 @@ export class AuditLogsQueryOptions {
       format: "int64",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

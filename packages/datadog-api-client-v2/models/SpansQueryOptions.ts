@@ -30,22 +30,11 @@ export class SpansQueryOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     timeOffset: {
-      baseName: "timeOffset",
       type: "number",
       format: "int64",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

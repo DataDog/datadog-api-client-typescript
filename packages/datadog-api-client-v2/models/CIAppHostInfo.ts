@@ -37,29 +37,16 @@ export class CIAppHostInfo {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hostname: {
-      baseName: "hostname",
       type: "string",
     },
     labels: {
-      baseName: "labels",
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     workspace: {
-      baseName: "workspace",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppHostInfo.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

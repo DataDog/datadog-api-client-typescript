@@ -45,35 +45,21 @@ export class SyntheticsBrowserTestConfig {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     assertions: {
-      baseName: "assertions",
       type: "Array<SyntheticsAssertion>",
       required: true,
     },
     configVariables: {
-      baseName: "configVariables",
       type: "Array<SyntheticsConfigVariable>",
     },
     request: {
-      baseName: "request",
       type: "SyntheticsTestRequest",
       required: true,
     },
     setCookie: {
-      baseName: "setCookie",
       type: "string",
     },
     variables: {
-      baseName: "variables",
       type: "Array<SyntheticsBrowserVariable>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBrowserTestConfig.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

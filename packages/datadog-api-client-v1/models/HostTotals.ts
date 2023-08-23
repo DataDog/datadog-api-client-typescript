@@ -39,13 +39,4 @@ export class HostTotals {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostTotals.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

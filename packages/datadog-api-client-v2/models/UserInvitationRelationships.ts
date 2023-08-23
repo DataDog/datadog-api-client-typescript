@@ -26,18 +26,8 @@ export class UserInvitationRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     user: {
-      baseName: "user",
       type: "RelationshipToUser",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

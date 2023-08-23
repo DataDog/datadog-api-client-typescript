@@ -29,13 +29,4 @@ export class DashboardDeleteResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardDeleteResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

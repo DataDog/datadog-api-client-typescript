@@ -41,25 +41,13 @@ export class DistributionWidgetXAxis {
       type: "boolean",
     },
     max: {
-      baseName: "max",
       type: "string",
     },
     min: {
-      baseName: "min",
       type: "string",
     },
     scale: {
-      baseName: "scale",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionWidgetXAxis.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

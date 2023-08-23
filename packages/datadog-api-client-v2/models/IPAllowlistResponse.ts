@@ -26,17 +26,7 @@ export class IPAllowlistResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IPAllowlistData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPAllowlistResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -1,4 +1,7 @@
-import { BaseAPIRequestFactory } from "../../datadog-api-client-common/baseapi";
+import {
+  BaseAPIRequestFactory,
+  deserializeError,
+} from "../../datadog-api-client-common/baseapi";
 import {
   Configuration,
   applySecurityAuthentication,
@@ -9,11 +12,9 @@ import {
   ResponseContext,
 } from "../../datadog-api-client-common/http/http";
 
-import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
-import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AuthenticationValidationResponse } from "../models/AuthenticationValidationResponse";
 
 export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
@@ -43,10 +44,10 @@ export class AuthenticationApiRequestFactory extends BaseAPIRequestFactory {
 export class AuthenticationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to validate
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to validate.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async validate(
     response: ResponseContext
@@ -54,7 +55,7 @@ export class AuthenticationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AuthenticationValidationResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -63,35 +64,12 @@ export class AuthenticationApiResponseProcessor {
       return body;
     }
     if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
+      await deserializeError(
+        ObjectSerializer,
+        "APIErrorResponse",
+        response,
         contentType
       );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: AuthenticationValidationResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "AuthenticationValidationResponse",
-          ""
-        ) as AuthenticationValidationResponse;
-      return body;
     }
 
     const body = (await response.body.text()) || "";

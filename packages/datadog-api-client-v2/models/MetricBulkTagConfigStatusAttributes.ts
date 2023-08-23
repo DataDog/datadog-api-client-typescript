@@ -33,26 +33,14 @@ export class MetricBulkTagConfigStatusAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     emails: {
-      baseName: "emails",
       type: "Array<string>",
       format: "email",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricBulkTagConfigStatusAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

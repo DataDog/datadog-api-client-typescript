@@ -30,13 +30,4 @@ export class ApplicationKeyRelationships {
       type: "RelationshipToUser",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKeyRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

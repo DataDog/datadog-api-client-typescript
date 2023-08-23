@@ -42,39 +42,25 @@ export class SyntheticsDevice {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     height: {
-      baseName: "height",
       type: "number",
       required: true,
       format: "int64",
     },
     id: {
-      baseName: "id",
       type: "SyntheticsDeviceID",
       required: true,
     },
     isMobile: {
-      baseName: "isMobile",
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     width: {
-      baseName: "width",
       type: "number",
       required: true,
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsDevice.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

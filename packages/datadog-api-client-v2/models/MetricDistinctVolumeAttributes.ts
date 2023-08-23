@@ -30,13 +30,4 @@ export class MetricDistinctVolumeAttributes {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricDistinctVolumeAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

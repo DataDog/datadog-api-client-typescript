@@ -36,27 +36,15 @@ export class TeamUpdate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "TeamUpdateAttributes",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "TeamUpdateRelationships",
     },
     type: {
-      baseName: "type",
       type: "TeamType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamUpdate.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

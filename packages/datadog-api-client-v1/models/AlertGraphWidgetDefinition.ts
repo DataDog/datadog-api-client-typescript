@@ -58,11 +58,9 @@ export class AlertGraphWidgetDefinition {
       required: true,
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -74,7 +72,6 @@ export class AlertGraphWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "AlertGraphWidgetDefinitionType",
       required: true,
     },
@@ -84,13 +81,4 @@ export class AlertGraphWidgetDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AlertGraphWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

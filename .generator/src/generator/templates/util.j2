@@ -7,7 +7,7 @@ export class UnparsedObject {
 
 export type AttributeTypeMap = {
   [key: string]: {
-    baseName: string;
+    baseName?: string;
     type: string;
     required?: boolean;
     format?: string;

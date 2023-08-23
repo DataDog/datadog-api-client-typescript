@@ -43,11 +43,9 @@ export class SensitiveDataScannerGroupAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
-      baseName: "description",
       type: "string",
     },
     filter: {
-      baseName: "filter",
       type: "SensitiveDataScannerFilter",
     },
     isEnabled: {
@@ -55,7 +53,6 @@ export class SensitiveDataScannerGroupAttributes {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     productList: {
@@ -63,13 +60,4 @@ export class SensitiveDataScannerGroupAttributes {
       type: "Array<SensitiveDataScannerProduct>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerGroupAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

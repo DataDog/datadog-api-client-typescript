@@ -45,12 +45,10 @@ export class LogsResponseMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     elapsed: {
-      baseName: "elapsed",
       type: "number",
       format: "int64",
     },
     page: {
-      baseName: "page",
       type: "LogsResponseMetadataPage",
     },
     requestId: {
@@ -58,21 +56,10 @@ export class LogsResponseMetadata {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "LogsAggregateResponseStatus",
     },
     warnings: {
-      baseName: "warnings",
       type: "Array<LogsWarning>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsResponseMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -25,18 +25,8 @@ export class MonitorFormulaAndFunctionEventQueryDefinitionSearch {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionEventQueryDefinitionSearch.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

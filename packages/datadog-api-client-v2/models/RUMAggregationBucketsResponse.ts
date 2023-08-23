@@ -26,17 +26,7 @@ export class RUMAggregationBucketsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     buckets: {
-      baseName: "buckets",
       type: "Array<RUMBucketResponse>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMAggregationBucketsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

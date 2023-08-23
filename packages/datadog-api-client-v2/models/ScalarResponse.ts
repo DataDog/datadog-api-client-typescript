@@ -31,21 +31,10 @@ export class ScalarResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "ScalarFormulaResponseAtrributes",
     },
     type: {
-      baseName: "type",
       type: "ScalarFormulaResponseType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

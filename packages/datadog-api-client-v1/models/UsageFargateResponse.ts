@@ -26,17 +26,7 @@ export class UsageFargateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageFargateHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageFargateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -68,7 +68,6 @@ export class SearchSLOResponseMetaPage {
       format: "int64",
     },
     number: {
-      baseName: "number",
       type: "number",
       format: "int64",
     },
@@ -78,27 +77,15 @@ export class SearchSLOResponseMetaPage {
       format: "int64",
     },
     size: {
-      baseName: "size",
       type: "number",
       format: "int64",
     },
     total: {
-      baseName: "total",
       type: "number",
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseMetaPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

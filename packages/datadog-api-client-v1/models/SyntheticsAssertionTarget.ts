@@ -39,32 +39,19 @@ export class SyntheticsAssertionTarget {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     operator: {
-      baseName: "operator",
       type: "SyntheticsAssertionOperator",
       required: true,
     },
     property: {
-      baseName: "property",
       type: "string",
     },
     target: {
-      baseName: "target",
       type: "any",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "SyntheticsAssertionType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAssertionTarget.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

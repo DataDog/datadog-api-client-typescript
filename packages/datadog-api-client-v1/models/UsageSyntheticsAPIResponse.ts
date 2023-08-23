@@ -26,17 +26,7 @@ export class UsageSyntheticsAPIResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageSyntheticsAPIHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSyntheticsAPIResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

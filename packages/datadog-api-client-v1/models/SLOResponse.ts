@@ -32,21 +32,10 @@ export class SLOResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SLOResponseData",
     },
     errors: {
-      baseName: "errors",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

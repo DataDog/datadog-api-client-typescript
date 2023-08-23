@@ -35,25 +35,13 @@ export class AuditLogsEvent {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "AuditLogsEventAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "AuditLogsEventType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuditLogsEvent.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

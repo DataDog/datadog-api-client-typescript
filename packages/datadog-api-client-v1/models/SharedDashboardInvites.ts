@@ -31,22 +31,11 @@ export class SharedDashboardInvites {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SharedDashboardInvitesData",
       required: true,
     },
     meta: {
-      baseName: "meta",
       type: "SharedDashboardInvitesMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SharedDashboardInvites.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

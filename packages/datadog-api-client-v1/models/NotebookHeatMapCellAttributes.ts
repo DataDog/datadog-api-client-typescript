@@ -41,7 +41,6 @@ export class NotebookHeatMapCellAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
-      baseName: "definition",
       type: "HeatMapWidgetDefinition",
       required: true,
     },
@@ -54,17 +53,7 @@ export class NotebookHeatMapCellAttributes {
       type: "NotebookSplitBy",
     },
     time: {
-      baseName: "time",
       type: "NotebookCellTime",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NotebookHeatMapCellAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

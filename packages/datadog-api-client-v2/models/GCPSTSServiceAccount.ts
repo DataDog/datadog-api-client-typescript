@@ -40,29 +40,16 @@ export class GCPSTSServiceAccount {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "GCPSTSServiceAccountAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     meta: {
-      baseName: "meta",
       type: "GCPServiceAccountMeta",
     },
     type: {
-      baseName: "type",
       type: "GCPServiceAccountType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSServiceAccount.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,18 +26,8 @@ export class SunburstWidgetLegendTable {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
-      baseName: "type",
       type: "SunburstWidgetLegendTableType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SunburstWidgetLegendTable.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

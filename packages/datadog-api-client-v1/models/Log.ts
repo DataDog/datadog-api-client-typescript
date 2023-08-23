@@ -30,21 +30,10 @@ export class Log {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     content: {
-      baseName: "content",
       type: "LogContent",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return Log.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

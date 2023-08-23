@@ -43,17 +43,7 @@ export class ConfluentAccountUpdateRequestAttributes {
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentAccountUpdateRequestAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

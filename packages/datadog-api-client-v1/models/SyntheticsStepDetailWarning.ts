@@ -30,23 +30,12 @@ export class SyntheticsStepDetailWarning {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
-      baseName: "message",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "SyntheticsWarningType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsStepDetailWarning.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

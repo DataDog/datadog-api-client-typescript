@@ -40,30 +40,17 @@ export class RUMCompute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "RUMAggregationFunction",
       required: true,
     },
     interval: {
-      baseName: "interval",
       type: "string",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "RUMComputeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

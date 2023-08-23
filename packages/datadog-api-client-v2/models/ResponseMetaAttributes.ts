@@ -26,17 +26,7 @@ export class ResponseMetaAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "Pagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ResponseMetaAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

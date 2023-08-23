@@ -25,17 +25,7 @@ export class SyntheticsCIBatchMetadataProvider {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsCIBatchMetadataProvider.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,23 +31,12 @@ export class RoleClone {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "RoleCloneAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "RolesType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleClone.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

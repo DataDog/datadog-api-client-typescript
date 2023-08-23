@@ -29,13 +29,4 @@ export class AWSAccountCreateResponse {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AWSAccountCreateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

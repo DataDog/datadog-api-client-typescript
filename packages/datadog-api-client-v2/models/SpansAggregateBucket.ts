@@ -35,25 +35,13 @@ export class SpansAggregateBucket {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SpansAggregateBucketAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SpansAggregateBucketType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansAggregateBucket.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

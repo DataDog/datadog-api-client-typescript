@@ -46,40 +46,25 @@ export class SyntheticsBasicAuthSigv4 {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accessKey: {
-      baseName: "accessKey",
       type: "string",
       required: true,
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     secretKey: {
-      baseName: "secretKey",
       type: "string",
       required: true,
     },
     serviceName: {
-      baseName: "serviceName",
       type: "string",
     },
     sessionToken: {
-      baseName: "sessionToken",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsBasicAuthSigv4Type",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuthSigv4.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

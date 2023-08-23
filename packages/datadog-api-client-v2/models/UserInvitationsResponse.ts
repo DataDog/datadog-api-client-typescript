@@ -26,17 +26,7 @@ export class UserInvitationsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<UserInvitationResponseData>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

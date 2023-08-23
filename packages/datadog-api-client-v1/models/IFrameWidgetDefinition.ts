@@ -30,23 +30,12 @@ export class IFrameWidgetDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
-      baseName: "type",
       type: "IFrameWidgetDefinitionType",
       required: true,
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IFrameWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

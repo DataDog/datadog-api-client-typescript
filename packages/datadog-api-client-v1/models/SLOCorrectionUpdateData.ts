@@ -31,21 +31,10 @@ export class SLOCorrectionUpdateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SLOCorrectionUpdateRequestAttributes",
     },
     type: {
-      baseName: "type",
       type: "SLOCorrectionType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOCorrectionUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

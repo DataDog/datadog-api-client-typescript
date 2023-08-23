@@ -39,13 +39,4 @@ export class TeamRelationships {
       type: "RelationshipToUserTeamPermission",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

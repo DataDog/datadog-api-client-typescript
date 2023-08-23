@@ -43,33 +43,19 @@ export class SyntheticsParsingOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     field: {
-      baseName: "field",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     parser: {
-      baseName: "parser",
       type: "SyntheticsVariableParser",
     },
     secure: {
-      baseName: "secure",
       type: "boolean",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsGlobalVariableParseTestOptionsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsParsingOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

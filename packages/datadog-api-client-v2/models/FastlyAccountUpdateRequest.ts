@@ -26,18 +26,8 @@ export class FastlyAccountUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "FastlyAccountUpdateRequestData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyAccountUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

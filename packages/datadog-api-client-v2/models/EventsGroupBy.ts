@@ -34,27 +34,15 @@ export class EventsGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
-      baseName: "facet",
       type: "string",
       required: true,
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int32",
     },
     sort: {
-      baseName: "sort",
       type: "EventsGroupBySort",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventsGroupBy.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

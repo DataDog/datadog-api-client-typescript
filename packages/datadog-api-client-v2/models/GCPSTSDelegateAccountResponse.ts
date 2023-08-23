@@ -26,17 +26,7 @@ export class GCPSTSDelegateAccountResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "GCPSTSDelegateAccount",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSDelegateAccountResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

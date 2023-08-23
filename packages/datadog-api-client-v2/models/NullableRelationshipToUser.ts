@@ -26,18 +26,8 @@ export class NullableRelationshipToUser {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "NullableRelationshipToUserData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return NullableRelationshipToUser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

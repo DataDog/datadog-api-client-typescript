@@ -26,18 +26,8 @@ export class RUMApplicationCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RUMApplicationCreate",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMApplicationCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

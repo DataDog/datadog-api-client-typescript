@@ -33,25 +33,13 @@ export class ApplicationKey {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hash: {
-      baseName: "hash",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     owner: {
-      baseName: "owner",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApplicationKey.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

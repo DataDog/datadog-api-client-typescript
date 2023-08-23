@@ -51,17 +51,7 @@ export class UserInvitationDataAttributes {
       type: "string",
     },
     uuid: {
-      baseName: "uuid",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationDataAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

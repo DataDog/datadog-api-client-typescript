@@ -25,18 +25,8 @@ export class SensitiveDataScannerMetaVersionOnly {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerMetaVersionOnly.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

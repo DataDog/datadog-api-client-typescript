@@ -30,21 +30,10 @@ export class SensitiveDataScannerConfiguration {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SensitiveDataScannerConfigurationType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerConfiguration.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

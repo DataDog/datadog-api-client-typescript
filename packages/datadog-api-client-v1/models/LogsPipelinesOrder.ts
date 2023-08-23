@@ -31,13 +31,4 @@ export class LogsPipelinesOrder {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsPipelinesOrder.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,21 +31,10 @@ export class MonthlyUsageAttributionMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregates: {
-      baseName: "aggregates",
       type: "Array<UsageAttributionAggregatesBody>",
     },
     pagination: {
-      baseName: "pagination",
       type: "MonthlyUsageAttributionPagination",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonthlyUsageAttributionMetadata.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

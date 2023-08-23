@@ -26,17 +26,7 @@ export class GCPSTSServiceAccountsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<GCPSTSServiceAccount>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GCPSTSServiceAccountsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -59,11 +59,9 @@ export class UsageAttributesObject {
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     timeseries: {
-      baseName: "timeseries",
       type: "Array<UsageTimeSeriesObject>",
     },
     usageType: {
@@ -71,13 +69,4 @@ export class UsageAttributesObject {
       type: "HourlyUsageType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageAttributesObject.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

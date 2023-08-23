@@ -26,17 +26,7 @@ export class OrganizationListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     orgs: {
-      baseName: "orgs",
       type: "Array<Organization>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationListResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

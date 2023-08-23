@@ -26,17 +26,7 @@ export class AuthNMappingUpdateRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     role: {
-      baseName: "role",
       type: "RelationshipToRole",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingUpdateRelationships.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

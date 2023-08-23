@@ -66,21 +66,10 @@ export class MonitorStateGroup {
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "MonitorOverallStates",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorStateGroup.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

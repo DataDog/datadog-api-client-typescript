@@ -25,17 +25,7 @@ export class SecurityFilterMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     warning: {
-      baseName: "warning",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityFilterMeta.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,23 +31,12 @@ export class TimeseriesFormulaRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "TimeseriesFormulaRequestAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "TimeseriesFormulaRequestType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesFormulaRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

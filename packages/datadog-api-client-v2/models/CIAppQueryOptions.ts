@@ -35,17 +35,7 @@ export class CIAppQueryOptions {
       format: "int64",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppQueryOptions.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -55,49 +55,32 @@ export class SyntheticsBasicAuthOauthClient {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accessTokenUrl: {
-      baseName: "accessTokenUrl",
       type: "string",
       required: true,
     },
     audience: {
-      baseName: "audience",
       type: "string",
     },
     clientId: {
-      baseName: "clientId",
       type: "string",
       required: true,
     },
     clientSecret: {
-      baseName: "clientSecret",
       type: "string",
       required: true,
     },
     resource: {
-      baseName: "resource",
       type: "string",
     },
     scope: {
-      baseName: "scope",
       type: "string",
     },
     tokenApiAuthentication: {
-      baseName: "tokenApiAuthentication",
       type: "SyntheticsBasicAuthOauthTokenApiAuthentication",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "SyntheticsBasicAuthOauthClientType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsBasicAuthOauthClient.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

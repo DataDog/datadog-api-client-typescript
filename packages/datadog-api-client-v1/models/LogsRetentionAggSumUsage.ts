@@ -52,17 +52,7 @@ export class LogsRetentionAggSumUsage {
       format: "int64",
     },
     retention: {
-      baseName: "retention",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsRetentionAggSumUsage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

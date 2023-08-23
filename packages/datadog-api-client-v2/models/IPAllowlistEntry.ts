@@ -26,18 +26,8 @@ export class IPAllowlistEntry {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IPAllowlistEntryData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPAllowlistEntry.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

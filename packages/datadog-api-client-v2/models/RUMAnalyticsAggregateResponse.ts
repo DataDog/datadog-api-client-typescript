@@ -36,25 +36,13 @@ export class RUMAnalyticsAggregateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RUMAggregationBucketsResponse",
     },
     links: {
-      baseName: "links",
       type: "RUMResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "RUMResponseMetadata",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMAnalyticsAggregateResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

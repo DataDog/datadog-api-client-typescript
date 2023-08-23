@@ -26,18 +26,8 @@ export class SpansMetricCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SpansMetricCreateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,17 +26,7 @@ export class UsageDBMResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageDBMHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageDBMResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

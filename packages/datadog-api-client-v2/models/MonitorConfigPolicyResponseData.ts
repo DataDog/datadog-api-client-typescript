@@ -35,25 +35,13 @@ export class MonitorConfigPolicyResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MonitorConfigPolicyAttributeResponse",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "MonitorConfigPolicyResourceType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorConfigPolicyResponseData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -39,13 +39,4 @@ export class PagerDutyService {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return PagerDutyService.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

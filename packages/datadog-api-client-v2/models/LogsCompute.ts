@@ -40,30 +40,17 @@ export class LogsCompute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "LogsAggregationFunction",
       required: true,
     },
     interval: {
-      baseName: "interval",
       type: "string",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "LogsComputeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -31,22 +31,11 @@ export class IncidentResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentResponseData",
       required: true,
     },
     included: {
-      baseName: "included",
       type: "Array<IncidentResponseIncludedItem>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

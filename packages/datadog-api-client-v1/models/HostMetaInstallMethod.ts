@@ -37,7 +37,6 @@ export class HostMetaInstallMethod {
       type: "string",
     },
     tool: {
-      baseName: "tool",
       type: "string",
     },
     toolVersion: {
@@ -45,13 +44,4 @@ export class HostMetaInstallMethod {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMetaInstallMethod.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

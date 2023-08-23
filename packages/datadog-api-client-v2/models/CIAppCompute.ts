@@ -40,30 +40,17 @@ export class CIAppCompute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "CIAppAggregationFunction",
       required: true,
     },
     interval: {
-      baseName: "interval",
       type: "string",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "CIAppComputeType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CIAppCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -29,21 +29,10 @@ export class SharedDashboardAuthor {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     handle: {
-      baseName: "handle",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SharedDashboardAuthor.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

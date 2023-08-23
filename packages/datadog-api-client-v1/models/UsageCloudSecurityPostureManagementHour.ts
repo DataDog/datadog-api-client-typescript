@@ -96,7 +96,6 @@ export class UsageCloudSecurityPostureManagementHour {
       format: "double",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -109,13 +108,4 @@ export class UsageCloudSecurityPostureManagementHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageCloudSecurityPostureManagementHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

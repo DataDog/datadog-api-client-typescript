@@ -35,25 +35,13 @@ export class ScatterPlotWidgetDefinitionRequests {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     table: {
-      baseName: "table",
       type: "ScatterplotTableRequest",
     },
     x: {
-      baseName: "x",
       type: "ScatterPlotRequest",
     },
     y: {
-      baseName: "y",
       type: "ScatterPlotRequest",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ScatterPlotWidgetDefinitionRequests.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

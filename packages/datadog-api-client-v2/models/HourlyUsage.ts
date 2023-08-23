@@ -35,25 +35,13 @@ export class HourlyUsage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "HourlyUsageAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "UsageTimeSeriesType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HourlyUsage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

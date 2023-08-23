@@ -848,7 +848,6 @@ export class UsageSummaryResponse {
       format: "int64",
     },
     usage: {
-      baseName: "usage",
       type: "Array<UsageSummaryDate>",
     },
     vsphereHostTop99pSum: {
@@ -867,13 +866,4 @@ export class UsageSummaryResponse {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageSummaryResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -30,22 +30,11 @@ export class WidgetFormulaLimit {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
-      baseName: "count",
       type: "number",
       format: "int64",
     },
     order: {
-      baseName: "order",
       type: "QuerySortOrder",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetFormulaLimit.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

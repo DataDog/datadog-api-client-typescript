@@ -30,13 +30,4 @@ export class ApiKeyResponse {
       type: "ApiKey",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ApiKeyResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

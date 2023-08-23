@@ -26,17 +26,7 @@ export class UsageLogsByIndexResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageLogsByIndexHour>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageLogsByIndexResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

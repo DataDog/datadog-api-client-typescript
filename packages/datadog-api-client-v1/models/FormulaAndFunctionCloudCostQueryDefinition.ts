@@ -39,7 +39,6 @@ export class FormulaAndFunctionCloudCostQueryDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
-      baseName: "aggregator",
       type: "WidgetAggregator",
     },
     dataSource: {
@@ -48,23 +47,12 @@ export class FormulaAndFunctionCloudCostQueryDefinition {
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FormulaAndFunctionCloudCostQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

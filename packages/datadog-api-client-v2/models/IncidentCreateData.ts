@@ -36,27 +36,15 @@ export class IncidentCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "IncidentCreateAttributes",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "IncidentCreateRelationships",
     },
     type: {
-      baseName: "type",
       type: "IncidentType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

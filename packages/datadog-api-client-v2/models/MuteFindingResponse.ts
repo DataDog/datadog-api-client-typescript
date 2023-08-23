@@ -26,18 +26,8 @@ export class MuteFindingResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MuteFindingResponseData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

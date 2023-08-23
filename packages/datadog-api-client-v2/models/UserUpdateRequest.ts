@@ -26,18 +26,8 @@ export class UserUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "UserUpdateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UserUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

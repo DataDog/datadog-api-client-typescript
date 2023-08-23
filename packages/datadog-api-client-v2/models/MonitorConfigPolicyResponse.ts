@@ -26,17 +26,7 @@ export class MonitorConfigPolicyResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MonitorConfigPolicyResponseData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorConfigPolicyResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

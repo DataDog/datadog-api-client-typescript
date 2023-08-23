@@ -30,21 +30,10 @@ export class IncidentFieldAttributesMultipleValue {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
-      baseName: "type",
       type: "IncidentFieldAttributesValueType",
     },
     value: {
-      baseName: "value",
       type: "Array<string>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentFieldAttributesMultipleValue.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

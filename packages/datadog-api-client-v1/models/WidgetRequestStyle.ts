@@ -43,17 +43,7 @@ export class WidgetRequestStyle {
       type: "WidgetLineWidth",
     },
     palette: {
-      baseName: "palette",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetRequestStyle.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

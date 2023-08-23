@@ -26,18 +26,8 @@ export class APIKeyCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "APIKeyCreateData",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyCreateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

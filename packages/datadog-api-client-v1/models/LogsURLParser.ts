@@ -50,7 +50,6 @@ export class LogsURLParser {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     normalizeEndingSlashes: {
@@ -58,28 +57,16 @@ export class LogsURLParser {
       type: "boolean",
     },
     sources: {
-      baseName: "sources",
       type: "Array<string>",
       required: true,
     },
     target: {
-      baseName: "target",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsURLParserType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsURLParser.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

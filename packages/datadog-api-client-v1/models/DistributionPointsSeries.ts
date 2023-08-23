@@ -43,35 +43,21 @@ export class DistributionPointsSeries {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     host: {
-      baseName: "host",
       type: "string",
     },
     metric: {
-      baseName: "metric",
       type: "string",
       required: true,
     },
     points: {
-      baseName: "points",
       type: "Array<[DistributionPointItem, DistributionPointItem]>",
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "DistributionPointsType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DistributionPointsSeries.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

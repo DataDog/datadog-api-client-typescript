@@ -26,18 +26,8 @@ export class GetFindingResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "DetailedFinding",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return GetFindingResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

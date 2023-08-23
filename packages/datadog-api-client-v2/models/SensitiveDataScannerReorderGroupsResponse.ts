@@ -26,17 +26,7 @@ export class SensitiveDataScannerReorderGroupsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMeta",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerReorderGroupsResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

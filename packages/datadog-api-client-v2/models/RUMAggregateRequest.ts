@@ -47,11 +47,9 @@ export class RUMAggregateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "Array<RUMCompute>",
     },
     filter: {
-      baseName: "filter",
       type: "RUMQueryFilter",
     },
     groupBy: {
@@ -59,21 +57,10 @@ export class RUMAggregateRequest {
       type: "Array<RUMGroupBy>",
     },
     options: {
-      baseName: "options",
       type: "RUMQueryOptions",
     },
     page: {
-      baseName: "page",
       type: "RUMQueryPageOptions",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RUMAggregateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

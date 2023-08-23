@@ -47,7 +47,6 @@ export class RoleAttributes {
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     userCount: {
@@ -56,13 +55,4 @@ export class RoleAttributes {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RoleAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

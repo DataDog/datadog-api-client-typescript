@@ -31,21 +31,10 @@ export class SyntheticsAPITestResultShortResult {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     passed: {
-      baseName: "passed",
       type: "boolean",
     },
     timings: {
-      baseName: "timings",
       type: "SyntheticsTiming",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsAPITestResultShortResult.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

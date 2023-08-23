@@ -31,23 +31,12 @@ export class SpansMetricUpdateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SpansMetricUpdateAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "SpansMetricType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansMetricUpdateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

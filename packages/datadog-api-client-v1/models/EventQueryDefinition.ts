@@ -29,7 +29,6 @@ export class EventQueryDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     search: {
-      baseName: "search",
       type: "string",
       required: true,
     },
@@ -39,13 +38,4 @@ export class EventQueryDefinition {
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return EventQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

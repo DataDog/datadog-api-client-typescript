@@ -60,7 +60,6 @@ export class LogsIndex {
       type: "Array<LogsExclusion>",
     },
     filter: {
-      baseName: "filter",
       type: "LogsFilter",
       required: true,
     },
@@ -69,7 +68,6 @@ export class LogsIndex {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
@@ -79,13 +77,4 @@ export class LogsIndex {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsIndex.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

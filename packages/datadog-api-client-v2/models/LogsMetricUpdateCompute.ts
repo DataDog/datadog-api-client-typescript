@@ -30,13 +30,4 @@ export class LogsMetricUpdateCompute {
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsMetricUpdateCompute.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

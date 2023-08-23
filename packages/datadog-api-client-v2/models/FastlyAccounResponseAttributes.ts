@@ -30,22 +30,11 @@ export class FastlyAccounResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     services: {
-      baseName: "services",
       type: "Array<FastlyService>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FastlyAccounResponseAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

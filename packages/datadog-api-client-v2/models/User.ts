@@ -40,29 +40,16 @@ export class User {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "UserAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "UserResponseRelationships",
     },
     type: {
-      baseName: "type",
       type: "UsersType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return User.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

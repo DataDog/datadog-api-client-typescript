@@ -35,25 +35,13 @@ export class MetricSuggestedTagsAndAggregations {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MetricSuggestedTagsAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "MetricActiveConfigurationType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricSuggestedTagsAndAggregations.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

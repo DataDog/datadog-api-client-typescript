@@ -49,17 +49,7 @@ export class SensitiveDataScannerTextReplacement {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SensitiveDataScannerTextReplacementType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SensitiveDataScannerTextReplacement.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

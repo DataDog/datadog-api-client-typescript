@@ -29,21 +29,10 @@ export class ServiceDefinitionV1Org {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     application: {
-      baseName: "application",
       type: "string",
     },
     team: {
-      baseName: "team",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV1Org.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

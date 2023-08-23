@@ -35,26 +35,14 @@ export class IPAllowlistEntryData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "IPAllowlistEntryAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "IPAllowlistEntryType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IPAllowlistEntryData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

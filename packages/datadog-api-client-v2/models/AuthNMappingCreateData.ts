@@ -36,26 +36,14 @@ export class AuthNMappingCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "AuthNMappingCreateAttributes",
     },
     relationships: {
-      baseName: "relationships",
       type: "AuthNMappingCreateRelationships",
     },
     type: {
-      baseName: "type",
       type: "AuthNMappingsType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingCreateData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

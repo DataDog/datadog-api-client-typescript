@@ -31,21 +31,10 @@ export class RelationshipToUserTeamPermission {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RelationshipToUserTeamPermissionData",
     },
     links: {
-      baseName: "links",
       type: "TeamRelationshipsLinks",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToUserTeamPermission.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

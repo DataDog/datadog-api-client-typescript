@@ -39,23 +39,12 @@ export class WebhooksIntegrationCustomVariable {
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     value: {
-      baseName: "value",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WebhooksIntegrationCustomVariable.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -26,18 +26,8 @@ export class TimeseriesFormulaQueryRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "TimeseriesFormulaRequest",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TimeseriesFormulaQueryRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

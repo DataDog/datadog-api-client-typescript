@@ -29,21 +29,10 @@ export class OrganizationSettingsSamlAutocreateUsersDomains {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     domains: {
-      baseName: "domains",
       type: "Array<string>",
     },
     enabled: {
-      baseName: "enabled",
       type: "boolean",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return OrganizationSettingsSamlAutocreateUsersDomains.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

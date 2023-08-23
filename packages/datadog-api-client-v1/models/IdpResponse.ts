@@ -25,18 +25,8 @@ export class IdpResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
-      baseName: "message",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return IdpResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

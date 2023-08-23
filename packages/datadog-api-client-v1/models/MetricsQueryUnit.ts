@@ -41,15 +41,12 @@ export class MetricsQueryUnit {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     family: {
-      baseName: "family",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     plural: {
-      baseName: "plural",
       type: "string",
     },
     scaleFactor: {
@@ -62,13 +59,4 @@ export class MetricsQueryUnit {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricsQueryUnit.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

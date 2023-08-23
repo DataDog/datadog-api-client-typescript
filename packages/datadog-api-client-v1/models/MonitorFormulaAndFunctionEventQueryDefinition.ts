@@ -49,7 +49,6 @@ export class MonitorFormulaAndFunctionEventQueryDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "MonitorFormulaAndFunctionEventQueryDefinitionCompute",
       required: true,
     },
@@ -63,26 +62,14 @@ export class MonitorFormulaAndFunctionEventQueryDefinition {
       type: "Array<MonitorFormulaAndFunctionEventQueryGroupBy>",
     },
     indexes: {
-      baseName: "indexes",
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     search: {
-      baseName: "search",
       type: "MonitorFormulaAndFunctionEventQueryDefinitionSearch",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MonitorFormulaAndFunctionEventQueryDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

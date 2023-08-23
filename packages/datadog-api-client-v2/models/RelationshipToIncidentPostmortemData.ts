@@ -30,23 +30,12 @@ export class RelationshipToIncidentPostmortemData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "IncidentPostmortemType",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToIncidentPostmortemData.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

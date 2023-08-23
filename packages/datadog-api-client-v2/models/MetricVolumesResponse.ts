@@ -26,17 +26,7 @@ export class MetricVolumesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MetricVolumes",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return MetricVolumesResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

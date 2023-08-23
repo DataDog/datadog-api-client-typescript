@@ -47,23 +47,12 @@ export class SecurityMonitoringSignalStateUpdateAttributes {
       type: "SecurityMonitoringSignalArchiveReason",
     },
     state: {
-      baseName: "state",
       type: "SecurityMonitoringSignalState",
       required: true,
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringSignalStateUpdateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

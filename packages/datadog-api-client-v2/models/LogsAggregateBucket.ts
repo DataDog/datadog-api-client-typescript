@@ -30,21 +30,10 @@ export class LogsAggregateBucket {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     by: {
-      baseName: "by",
       type: "{ [key: string]: any; }",
     },
     computes: {
-      baseName: "computes",
       type: "{ [key: string]: LogsAggregateBucketValue; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsAggregateBucket.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

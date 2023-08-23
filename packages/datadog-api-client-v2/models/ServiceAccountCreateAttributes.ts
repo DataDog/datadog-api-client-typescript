@@ -37,12 +37,10 @@ export class ServiceAccountCreateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
-      baseName: "email",
       type: "string",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     serviceAccount: {
@@ -51,17 +49,7 @@ export class ServiceAccountCreateAttributes {
       required: true,
     },
     title: {
-      baseName: "title",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceAccountCreateAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

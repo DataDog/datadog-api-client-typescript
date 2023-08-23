@@ -64,7 +64,6 @@ export class LogsIndexUpdateRequest {
       type: "Array<LogsExclusion>",
     },
     filter: {
-      baseName: "filter",
       type: "LogsFilter",
       required: true,
     },
@@ -74,13 +73,4 @@ export class LogsIndexUpdateRequest {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return LogsIndexUpdateRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

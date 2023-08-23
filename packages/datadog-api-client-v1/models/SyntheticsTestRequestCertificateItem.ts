@@ -33,25 +33,13 @@ export class SyntheticsTestRequestCertificateItem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     content: {
-      baseName: "content",
       type: "string",
     },
     filename: {
-      baseName: "filename",
       type: "string",
     },
     updatedAt: {
-      baseName: "updatedAt",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsTestRequestCertificateItem.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

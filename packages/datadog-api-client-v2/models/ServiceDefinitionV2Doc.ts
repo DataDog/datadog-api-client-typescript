@@ -33,27 +33,15 @@ export class ServiceDefinitionV2Doc {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     provider: {
-      baseName: "provider",
       type: "string",
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionV2Doc.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

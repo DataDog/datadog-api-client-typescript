@@ -41,17 +41,7 @@ export class ServiceDefinitionMetaWarnings {
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ServiceDefinitionMetaWarnings.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

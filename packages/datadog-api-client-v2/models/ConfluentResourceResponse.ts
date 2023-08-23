@@ -26,17 +26,7 @@ export class ConfluentResourceResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ConfluentResourceResponseData",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ConfluentResourceResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -29,22 +29,11 @@ export class SpansListRequestPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
-      baseName: "cursor",
       type: "string",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int32",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SpansListRequestPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

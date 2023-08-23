@@ -25,17 +25,7 @@ export class SLOHistoryResponseError {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
-      baseName: "error",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SLOHistoryResponseError.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

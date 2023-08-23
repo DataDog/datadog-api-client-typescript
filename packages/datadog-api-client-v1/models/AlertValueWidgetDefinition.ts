@@ -60,7 +60,6 @@ export class AlertValueWidgetDefinition {
       required: true,
     },
     precision: {
-      baseName: "precision",
       type: "number",
       format: "int64",
     },
@@ -69,7 +68,6 @@ export class AlertValueWidgetDefinition {
       type: "WidgetTextAlign",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -81,22 +79,11 @@ export class AlertValueWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "AlertValueWidgetDefinitionType",
       required: true,
     },
     unit: {
-      baseName: "unit",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return AlertValueWidgetDefinition.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

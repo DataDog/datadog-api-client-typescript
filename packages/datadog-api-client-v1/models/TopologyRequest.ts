@@ -31,7 +31,6 @@ export class TopologyRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "TopologyQuery",
     },
     requestType: {
@@ -39,13 +38,4 @@ export class TopologyRequest {
       type: "TopologyRequestType",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return TopologyRequest.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -54,11 +54,9 @@ export class DashboardList {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     author: {
-      baseName: "author",
       type: "Creator",
     },
     created: {
-      baseName: "created",
       type: "Date",
       format: "date-time",
     },
@@ -68,7 +66,6 @@ export class DashboardList {
       format: "int64",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
@@ -77,27 +74,15 @@ export class DashboardList {
       type: "boolean",
     },
     modified: {
-      baseName: "modified",
       type: "Date",
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return DashboardList.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

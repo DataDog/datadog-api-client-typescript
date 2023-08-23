@@ -31,21 +31,10 @@ export class SearchSLOResponseDataAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facets: {
-      baseName: "facets",
       type: "SearchSLOResponseDataAttributesFacets",
     },
     slos: {
-      baseName: "slos",
       type: "Array<SearchServiceLevelObjective>",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return SearchSLOResponseDataAttributes.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -51,7 +51,6 @@ export class UsageDBMHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -64,13 +63,4 @@ export class UsageDBMHour {
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return UsageDBMHour.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

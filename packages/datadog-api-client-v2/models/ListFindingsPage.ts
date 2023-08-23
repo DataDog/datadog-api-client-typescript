@@ -29,7 +29,6 @@ export class ListFindingsPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
-      baseName: "cursor",
       type: "string",
     },
     totalFilteredCount: {
@@ -38,13 +37,4 @@ export class ListFindingsPage {
       format: "int64",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return ListFindingsPage.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

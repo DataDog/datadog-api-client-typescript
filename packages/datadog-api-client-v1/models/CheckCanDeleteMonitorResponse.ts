@@ -30,22 +30,11 @@ export class CheckCanDeleteMonitorResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "CheckCanDeleteMonitorResponseData",
       required: true,
     },
     errors: {
-      baseName: "errors",
       type: "{ [key: string]: Array<string>; }",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return CheckCanDeleteMonitorResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

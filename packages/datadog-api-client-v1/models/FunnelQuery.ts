@@ -45,18 +45,8 @@ export class FunnelQuery {
       required: true,
     },
     steps: {
-      baseName: "steps",
       type: "Array<FunnelStep>",
       required: true,
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return FunnelQuery.attributeTypeMap;
-  }
-
-  public constructor() {}
 }

@@ -37,30 +37,17 @@ export class HostMuteResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     action: {
-      baseName: "action",
       type: "string",
     },
     end: {
-      baseName: "end",
       type: "number",
       format: "int64",
     },
     hostname: {
-      baseName: "hostname",
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
   };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return HostMuteResponse.attributeTypeMap;
-  }
-
-  public constructor() {}
 }
