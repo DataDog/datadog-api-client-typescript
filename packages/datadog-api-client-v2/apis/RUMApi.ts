@@ -52,9 +52,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RUMAggregateRequest", ""),
@@ -94,9 +92,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RUMApplicationCreateRequest", ""),
@@ -294,9 +290,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RUMSearchEventsRequest", ""),
@@ -345,9 +339,7 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "RUMApplicationUpdateRequest", ""),

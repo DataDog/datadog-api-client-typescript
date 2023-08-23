@@ -58,9 +58,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamCreateRequest", ""),
@@ -109,9 +107,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamLinkCreateRequest", ""),
@@ -160,9 +156,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UserTeamRequest", ""),
@@ -631,9 +625,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamUpdateRequest", ""),
@@ -687,9 +679,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "TeamLinkCreateRequest", ""),
@@ -743,9 +733,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "UserTeamUpdateRequest", ""),
@@ -799,9 +787,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(

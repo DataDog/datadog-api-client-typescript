@@ -123,10 +123,14 @@ export class {{ className }}RequestFactory extends BaseAPIRequestFactory {
     {%- if operation.requestBody and not "multipart/form-data" in operation.requestBody.content %}
 
     // Body Params
+    {%- if operation.requestBody.content|length == 1 %}
+    const contentType = {% for mediaType in operation.requestBody.content.keys() %}"{{ mediaType }}"{%- endfor %};
+    {%- else %}
     const contentType = ObjectSerializer.getPreferredMediaType([
       {%- for mediaType in operation.requestBody.content.keys() %}
       "{{ mediaType }}"{%- if loop.nextitem %},{%- endif %}
       {%- endfor %}]);
+    {%- endif %}
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize({{ bodyParamName }}, "{{ get_type_for_parameter(operation.requestBody) }}", "{{ operation.requestBody.format }}"),

@@ -50,9 +50,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppPipelinesAggregateRequest", ""),
@@ -98,9 +96,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppCreatePipelineEventRequest", ""),
@@ -202,9 +198,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Body Params
-    const contentType = ObjectSerializer.getPreferredMediaType([
-      "application/json",
-    ]);
+    const contentType = "application/json";
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "CIAppPipelineEventsRequest", ""),
