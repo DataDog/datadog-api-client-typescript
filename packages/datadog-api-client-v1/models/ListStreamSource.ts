@@ -17,6 +17,7 @@ export type ListStreamSource =
   | typeof CI_TEST_STREAM
   | typeof RUM_ISSUE_STREAM
   | typeof APM_ISSUE_STREAM
+  | typeof TRACE_STREAM
   | typeof LOGS_ISSUE_STREAM
   | typeof LOGS_PATTERN_STREAM
   | typeof LOGS_TRANSACTION_STREAM
@@ -28,6 +29,7 @@ export const CI_PIPELINE_STREAM = "ci_pipeline_stream";
 export const CI_TEST_STREAM = "ci_test_stream";
 export const RUM_ISSUE_STREAM = "rum_issue_stream";
 export const APM_ISSUE_STREAM = "apm_issue_stream";
+export const TRACE_STREAM = "trace_stream";
 export const LOGS_ISSUE_STREAM = "logs_issue_stream";
 export const LOGS_PATTERN_STREAM = "logs_pattern_stream";
 export const LOGS_TRANSACTION_STREAM = "logs_transaction_stream";
