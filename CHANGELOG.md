@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 1.16.0 / 2023-08-23
+
+### Fixed
+* Update team schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1249
+* Mark downtime v2 start response as required by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1260
+* Document new properties and fix security monitoring schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1248
+* Add missing CI App fields `page` and `test_level` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1225
+### Added
+* Update stated limit for api/v2/metrics from 14 days to 30 days by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1255
+* Add missing sensitive data scanner fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1246
+* Add Workflow Executions to usage metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1257
+* Add missing `type` field for OnDemandConcurrencyCap response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1247
+* Add CI Visibility Intelligent Test Runner to usage metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1256
+* Add custom_links to distribution widget schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1263
+* Add usage field `region` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1264
+* Add `message` field to audit logs response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1266
+* Add `tags` field to dashboard list response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1265
+* API specs for user team memberships by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1277
+* Document `EQUAL` comparator by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1280
+* Add persistCookies option synthetics test request by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1279
+* Expose sds_scanned_bytes_usage in usage attribution API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1285
+* Add support in azure integration endpoint for app service plan filters/cspm/custom metrics by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1278
+* Add APM and USM usage attribution type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1273
+* Document new attributes for team models by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1270
+### Changed
+* Use configuration method for server variables by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/1284
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.15.0...v1.16.0
+
 ## 1.15.0 / 2023-07-20
 
 ### Fixed
