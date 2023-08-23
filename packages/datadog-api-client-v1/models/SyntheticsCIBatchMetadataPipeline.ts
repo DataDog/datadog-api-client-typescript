@@ -25,7 +25,6 @@ export class SyntheticsCIBatchMetadataPipeline {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     url: {
-      baseName: "url",
       type: "string",
     },
   };

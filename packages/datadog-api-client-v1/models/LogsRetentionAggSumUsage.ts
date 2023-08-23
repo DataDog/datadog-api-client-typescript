@@ -52,7 +52,6 @@ export class LogsRetentionAggSumUsage {
       format: "int64",
     },
     retention: {
-      baseName: "retention",
       type: "string",
     },
   };

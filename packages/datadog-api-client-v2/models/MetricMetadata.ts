@@ -26,7 +26,6 @@ export class MetricMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     origin: {
-      baseName: "origin",
       type: "MetricOrigin",
     },
   };

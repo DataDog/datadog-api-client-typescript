@@ -26,7 +26,6 @@ export class OpsgenieServiceResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "OpsgenieServiceResponseData",
       required: true,
     },

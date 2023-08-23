@@ -29,11 +29,9 @@ export class MonitorSearchResultNotification {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     handle: {
-      baseName: "handle",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };

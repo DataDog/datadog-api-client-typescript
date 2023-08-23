@@ -39,17 +39,14 @@ export class DowntimeScheduleRecurrenceCreateUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     duration: {
-      baseName: "duration",
       type: "string",
       required: true,
     },
     rrule: {
-      baseName: "rrule",
       type: "string",
       required: true,
     },
     start: {
-      baseName: "start",
       type: "string",
     },
   };

@@ -50,29 +50,23 @@ export class RUMGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
-      baseName: "facet",
       type: "string",
       required: true,
     },
     histogram: {
-      baseName: "histogram",
       type: "RUMGroupByHistogram",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
     missing: {
-      baseName: "missing",
       type: "RUMGroupByMissing",
     },
     sort: {
-      baseName: "sort",
       type: "RUMAggregateSort",
     },
     total: {
-      baseName: "total",
       type: "RUMGroupByTotal",
     },
   };

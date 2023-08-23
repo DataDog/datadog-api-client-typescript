@@ -45,7 +45,6 @@ export class HostMapWidgetDefinitionStyle {
       type: "string",
     },
     palette: {
-      baseName: "palette",
       type: "string",
     },
     paletteFlip: {

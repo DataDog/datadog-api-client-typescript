@@ -26,7 +26,6 @@ export class IncidentSearchResponseMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     pagination: {
-      baseName: "pagination",
       type: "IncidentResponseMetaPagination",
     },
   };

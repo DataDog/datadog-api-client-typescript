@@ -40,19 +40,15 @@ export class CIAppAggregateSort {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "CIAppAggregationFunction",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     order: {
-      baseName: "order",
       type: "CIAppSortOrder",
     },
     type: {
-      baseName: "type",
       type: "CIAppAggregateSortType",
     },
   };

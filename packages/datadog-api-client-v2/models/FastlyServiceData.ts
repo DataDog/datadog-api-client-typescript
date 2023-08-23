@@ -35,16 +35,13 @@ export class FastlyServiceData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "FastlyServiceAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "FastlyServiceType",
       required: true,
     },

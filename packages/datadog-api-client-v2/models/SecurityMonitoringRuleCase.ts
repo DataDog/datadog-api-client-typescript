@@ -39,19 +39,15 @@ export class SecurityMonitoringRuleCase {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     condition: {
-      baseName: "condition",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     notifications: {
-      baseName: "notifications",
       type: "Array<string>",
     },
     status: {
-      baseName: "status",
       type: "SecurityMonitoringRuleSeverity",
     },
   };

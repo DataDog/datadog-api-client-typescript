@@ -26,7 +26,6 @@ export class OrganizationSettingsSamlStrictMode {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     enabled: {
-      baseName: "enabled",
       type: "boolean",
     },
   };

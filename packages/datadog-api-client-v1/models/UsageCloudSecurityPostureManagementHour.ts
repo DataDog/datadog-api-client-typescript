@@ -96,7 +96,6 @@ export class UsageCloudSecurityPostureManagementHour {
       format: "double",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },

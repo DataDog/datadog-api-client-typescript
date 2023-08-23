@@ -29,11 +29,9 @@ export class SyntheticsPrivateLocationCreationResponseResultEncryption {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     key: {
-      baseName: "key",
       type: "string",
     },
   };

@@ -34,16 +34,13 @@ export class ScatterplotWidgetFormula {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alias: {
-      baseName: "alias",
       type: "string",
     },
     dimension: {
-      baseName: "dimension",
       type: "ScatterplotDimension",
       required: true,
     },
     formula: {
-      baseName: "formula",
       type: "string",
       required: true,
     },

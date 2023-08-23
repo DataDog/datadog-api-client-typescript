@@ -41,7 +41,6 @@ export class ConfluentAccountResourceAttributes {
       type: "boolean",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     resourceType: {
@@ -50,7 +49,6 @@ export class ConfluentAccountResourceAttributes {
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };

@@ -26,7 +26,6 @@ export class RelationshipToIncidentIntegrationMetadatas {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<RelationshipToIncidentIntegrationMetadataData>",
       required: true,
     },

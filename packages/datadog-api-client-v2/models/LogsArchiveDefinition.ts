@@ -34,15 +34,12 @@ export class LogsArchiveDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "LogsArchiveAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
       required: true,
     },

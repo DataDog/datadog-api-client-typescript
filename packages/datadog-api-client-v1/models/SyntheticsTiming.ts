@@ -58,47 +58,38 @@ export class SyntheticsTiming {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     dns: {
-      baseName: "dns",
       type: "number",
       format: "double",
     },
     download: {
-      baseName: "download",
       type: "number",
       format: "double",
     },
     firstByte: {
-      baseName: "firstByte",
       type: "number",
       format: "double",
     },
     handshake: {
-      baseName: "handshake",
       type: "number",
       format: "double",
     },
     redirect: {
-      baseName: "redirect",
       type: "number",
       format: "double",
     },
     ssl: {
-      baseName: "ssl",
       type: "number",
       format: "double",
     },
     tcp: {
-      baseName: "tcp",
       type: "number",
       format: "double",
     },
     total: {
-      baseName: "total",
       type: "number",
       format: "double",
     },
     wait: {
-      baseName: "wait",
       type: "number",
       format: "double",
     },

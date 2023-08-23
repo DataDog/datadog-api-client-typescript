@@ -38,19 +38,15 @@ export class MonitorSearchResponseCounts {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     muted: {
-      baseName: "muted",
       type: "Array<MonitorSearchCountItem>",
     },
     status: {
-      baseName: "status",
       type: "Array<MonitorSearchCountItem>",
     },
     tag: {
-      baseName: "tag",
       type: "Array<MonitorSearchCountItem>",
     },
     type: {
-      baseName: "type",
       type: "Array<MonitorSearchCountItem>",
     },
   };

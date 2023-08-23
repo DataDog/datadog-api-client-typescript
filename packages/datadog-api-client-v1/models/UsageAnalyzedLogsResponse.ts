@@ -26,7 +26,6 @@ export class UsageAnalyzedLogsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageAnalyzedLogsHour>",
     },
   };

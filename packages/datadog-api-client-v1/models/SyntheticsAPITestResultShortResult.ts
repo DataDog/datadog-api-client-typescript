@@ -31,11 +31,9 @@ export class SyntheticsAPITestResultShortResult {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     passed: {
-      baseName: "passed",
       type: "boolean",
     },
     timings: {
-      baseName: "timings",
       type: "SyntheticsTiming",
     },
   };

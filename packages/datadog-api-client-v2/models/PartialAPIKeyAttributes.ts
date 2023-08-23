@@ -41,7 +41,6 @@ export class PartialAPIKeyAttributes {
       type: "string",
     },
     last4: {
-      baseName: "last4",
       type: "string",
     },
     modifiedAt: {
@@ -49,7 +48,6 @@ export class PartialAPIKeyAttributes {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };

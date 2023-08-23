@@ -26,7 +26,6 @@ export class SecurityFilterCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SecurityFilterCreateData",
       required: true,
     },

@@ -36,15 +36,12 @@ export class SensitiveDataScannerGetConfigResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SensitiveDataScannerGetConfigResponseData",
     },
     included: {
-      baseName: "included",
       type: "Array<SensitiveDataScannerGetConfigIncludedItem>",
     },
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMeta",
     },
   };

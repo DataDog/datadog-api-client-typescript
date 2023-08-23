@@ -39,11 +39,9 @@ export class MetricsTimeseriesQuery {
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },

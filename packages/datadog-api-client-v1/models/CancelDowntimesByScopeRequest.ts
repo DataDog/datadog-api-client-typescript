@@ -27,7 +27,6 @@ export class CancelDowntimesByScopeRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     scope: {
-      baseName: "scope",
       type: "string",
       required: true,
     },

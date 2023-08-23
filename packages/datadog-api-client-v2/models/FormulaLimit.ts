@@ -31,12 +31,10 @@ export class FormulaLimit {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
-      baseName: "count",
       type: "number",
       format: "int32",
     },
     order: {
-      baseName: "order",
       type: "QuerySortOrder",
     },
   };

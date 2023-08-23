@@ -43,7 +43,6 @@ export class LogsMetricResponseCompute {
       type: "boolean",
     },
     path: {
-      baseName: "path",
       type: "string",
     },
   };

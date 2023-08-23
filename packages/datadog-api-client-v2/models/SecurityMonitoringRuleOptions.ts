@@ -71,42 +71,33 @@ export class SecurityMonitoringRuleOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     complianceRuleOptions: {
-      baseName: "complianceRuleOptions",
       type: "CloudConfigurationComplianceRuleOptions",
     },
     decreaseCriticalityBasedOnEnv: {
-      baseName: "decreaseCriticalityBasedOnEnv",
       type: "boolean",
     },
     detectionMethod: {
-      baseName: "detectionMethod",
       type: "SecurityMonitoringRuleDetectionMethod",
     },
     evaluationWindow: {
-      baseName: "evaluationWindow",
       type: "SecurityMonitoringRuleEvaluationWindow",
       format: "int32",
     },
     hardcodedEvaluatorType: {
-      baseName: "hardcodedEvaluatorType",
       type: "SecurityMonitoringRuleHardcodedEvaluatorType",
     },
     impossibleTravelOptions: {
-      baseName: "impossibleTravelOptions",
       type: "SecurityMonitoringRuleImpossibleTravelOptions",
     },
     keepAlive: {
-      baseName: "keepAlive",
       type: "SecurityMonitoringRuleKeepAlive",
       format: "int32",
     },
     maxSignalDuration: {
-      baseName: "maxSignalDuration",
       type: "SecurityMonitoringRuleMaxSignalDuration",
       format: "int32",
     },
     newValueOptions: {
-      baseName: "newValueOptions",
       type: "SecurityMonitoringRuleNewValueOptions",
     },
   };

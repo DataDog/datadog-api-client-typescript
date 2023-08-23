@@ -35,15 +35,12 @@ export class SpansMetricResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SpansMetricResponseAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SpansMetricType",
     },
   };

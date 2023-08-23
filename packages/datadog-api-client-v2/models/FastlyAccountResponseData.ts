@@ -35,17 +35,14 @@ export class FastlyAccountResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "FastlyAccounResponseAttributes",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "FastlyAccountType",
       required: true,
     },

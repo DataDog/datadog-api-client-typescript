@@ -36,16 +36,13 @@ export class ServiceAccountCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "ServiceAccountCreateAttributes",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "UserRelationships",
     },
     type: {
-      baseName: "type",
       type: "UsersType",
       required: true,
     },

@@ -26,7 +26,6 @@ export class ConfluentAccountResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ConfluentAccountResponseData",
     },
   };

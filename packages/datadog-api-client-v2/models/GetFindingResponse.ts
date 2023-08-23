@@ -26,7 +26,6 @@ export class GetFindingResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "DetailedFinding",
       required: true,
     },

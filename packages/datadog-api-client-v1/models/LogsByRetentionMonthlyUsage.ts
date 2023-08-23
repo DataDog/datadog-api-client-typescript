@@ -30,12 +30,10 @@ export class LogsByRetentionMonthlyUsage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     date: {
-      baseName: "date",
       type: "Date",
       format: "date-time",
     },
     usage: {
-      baseName: "usage",
       type: "Array<LogsRetentionSumUsage>",
     },
   };

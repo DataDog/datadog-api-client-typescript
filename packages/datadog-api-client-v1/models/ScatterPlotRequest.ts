@@ -64,7 +64,6 @@ export class ScatterPlotRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
-      baseName: "aggregator",
       type: "ScatterplotWidgetAggregator",
     },
     apmQuery: {
@@ -92,7 +91,6 @@ export class ScatterPlotRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     rumQuery: {

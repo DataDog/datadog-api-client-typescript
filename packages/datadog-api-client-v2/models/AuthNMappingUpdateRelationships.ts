@@ -26,7 +26,6 @@ export class AuthNMappingUpdateRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     role: {
-      baseName: "role",
       type: "RelationshipToRole",
     },
   };

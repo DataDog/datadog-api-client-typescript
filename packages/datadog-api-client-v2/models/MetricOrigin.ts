@@ -38,12 +38,10 @@ export class MetricOrigin {
       format: "int32",
     },
     product: {
-      baseName: "product",
       type: "number",
       format: "int32",
     },
     service: {
-      baseName: "service",
       type: "number",
       format: "int32",
     },

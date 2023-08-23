@@ -30,12 +30,10 @@ export class IncidentSearchResponseNumericFacetData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregates: {
-      baseName: "aggregates",
       type: "IncidentSearchResponseNumericFacetDataAggregates",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },

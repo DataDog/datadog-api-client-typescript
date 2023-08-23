@@ -26,7 +26,6 @@ export class CostByOrgResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<CostByOrg>",
     },
   };

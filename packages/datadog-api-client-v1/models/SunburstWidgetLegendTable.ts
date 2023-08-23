@@ -26,7 +26,6 @@ export class SunburstWidgetLegendTable {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
-      baseName: "type",
       type: "SunburstWidgetLegendTableType",
       required: true,
     },

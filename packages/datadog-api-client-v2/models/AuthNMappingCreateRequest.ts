@@ -26,7 +26,6 @@ export class AuthNMappingCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "AuthNMappingCreateData",
       required: true,
     },

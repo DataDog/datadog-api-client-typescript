@@ -26,7 +26,6 @@ export class MonitorConfigPolicyEditRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MonitorConfigPolicyEditData",
       required: true,
     },

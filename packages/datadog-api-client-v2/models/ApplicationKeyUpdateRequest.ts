@@ -26,7 +26,6 @@ export class ApplicationKeyUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ApplicationKeyUpdateData",
       required: true,
     },

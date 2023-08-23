@@ -31,12 +31,10 @@ export class ServiceLevelObjectiveQuery {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     denominator: {
-      baseName: "denominator",
       type: "string",
       required: true,
     },
     numerator: {
-      baseName: "numerator",
       type: "string",
       required: true,
     },

@@ -75,7 +75,6 @@ export class QueryValueWidgetDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     autoscale: {
-      baseName: "autoscale",
       type: "boolean",
     },
     customLinks: {
@@ -87,12 +86,10 @@ export class QueryValueWidgetDefinition {
       type: "string",
     },
     precision: {
-      baseName: "precision",
       type: "number",
       format: "int64",
     },
     requests: {
-      baseName: "requests",
       type: "[QueryValueWidgetRequest]",
       required: true,
     },
@@ -101,7 +98,6 @@ export class QueryValueWidgetDefinition {
       type: "WidgetTextAlign",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     timeseriesBackground: {
@@ -109,7 +105,6 @@ export class QueryValueWidgetDefinition {
       type: "TimeseriesBackground",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -121,7 +116,6 @@ export class QueryValueWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "QueryValueWidgetDefinitionType",
       required: true,
     },

@@ -547,7 +547,6 @@ export class UsageSummaryDate {
       format: "int64",
     },
     date: {
-      baseName: "date",
       type: "Date",
       format: "date-time",
     },
@@ -687,7 +686,6 @@ export class UsageSummaryDate {
       format: "int64",
     },
     orgs: {
-      baseName: "orgs",
       type: "Array<UsageSummaryDateOrg>",
     },
     profilingHostTop99p: {

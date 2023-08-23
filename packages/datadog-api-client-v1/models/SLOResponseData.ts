@@ -133,19 +133,15 @@ export class SLOResponseData {
       format: "int64",
     },
     creator: {
-      baseName: "creator",
       type: "Creator",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     groups: {
-      baseName: "groups",
       type: "Array<string>",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     modifiedAt: {
@@ -163,15 +159,12 @@ export class SLOResponseData {
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "ServiceLevelObjectiveQuery",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     targetThreshold: {
@@ -180,15 +173,12 @@ export class SLOResponseData {
       format: "double",
     },
     thresholds: {
-      baseName: "thresholds",
       type: "Array<SLOThreshold>",
     },
     timeframe: {
-      baseName: "timeframe",
       type: "SLOTimeframe",
     },
     type: {
-      baseName: "type",
       type: "SLOType",
     },
     warningThreshold: {

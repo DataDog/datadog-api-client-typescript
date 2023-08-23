@@ -31,12 +31,10 @@ export class SyntheticsTestOptionsRetry {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
-      baseName: "count",
       type: "number",
       format: "int64",
     },
     interval: {
-      baseName: "interval",
       type: "number",
       format: "double",
     },

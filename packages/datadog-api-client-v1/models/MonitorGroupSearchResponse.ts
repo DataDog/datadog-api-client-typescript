@@ -36,15 +36,12 @@ export class MonitorGroupSearchResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     counts: {
-      baseName: "counts",
       type: "MonitorGroupSearchResponseCounts",
     },
     groups: {
-      baseName: "groups",
       type: "Array<MonitorGroupSearchResult>",
     },
     metadata: {
-      baseName: "metadata",
       type: "MonitorSearchResponseMetadata",
     },
   };

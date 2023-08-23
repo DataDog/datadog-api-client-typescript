@@ -49,31 +49,24 @@ export class SyntheticsSSLCertificateSubject {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     C: {
-      baseName: "C",
       type: "string",
     },
     CN: {
-      baseName: "CN",
       type: "string",
     },
     L: {
-      baseName: "L",
       type: "string",
     },
     O: {
-      baseName: "O",
       type: "string",
     },
     OU: {
-      baseName: "OU",
       type: "string",
     },
     ST: {
-      baseName: "ST",
       type: "string",
     },
     altName: {
-      baseName: "altName",
       type: "string",
     },
   };

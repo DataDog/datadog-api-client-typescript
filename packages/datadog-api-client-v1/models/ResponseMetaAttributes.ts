@@ -26,7 +26,6 @@ export class ResponseMetaAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "Pagination",
     },
   };

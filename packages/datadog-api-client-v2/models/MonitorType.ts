@@ -75,33 +75,26 @@ export class MonitorType {
       format: "int32",
     },
     groups: {
-      baseName: "groups",
       type: "Array<string>",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     modified: {
-      baseName: "modified",
       type: "number",
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     templatedName: {
@@ -109,7 +102,6 @@ export class MonitorType {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };

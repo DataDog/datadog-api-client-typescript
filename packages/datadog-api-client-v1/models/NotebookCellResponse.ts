@@ -36,17 +36,14 @@ export class NotebookCellResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "NotebookCellResponseAttributes",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "NotebookCellResourceType",
       required: true,
     },

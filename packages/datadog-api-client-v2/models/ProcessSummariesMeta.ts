@@ -26,7 +26,6 @@ export class ProcessSummariesMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "ProcessSummariesMetaPage",
     },
   };

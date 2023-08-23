@@ -27,7 +27,6 @@ export class UsageLambdaResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageLambdaHour>",
     },
   };

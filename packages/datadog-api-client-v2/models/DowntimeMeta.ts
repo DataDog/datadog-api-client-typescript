@@ -26,7 +26,6 @@ export class DowntimeMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "DowntimeMetaPage",
     },
   };

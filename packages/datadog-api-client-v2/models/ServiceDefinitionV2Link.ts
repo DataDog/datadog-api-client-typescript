@@ -34,17 +34,14 @@ export class ServiceDefinitionV2Link {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "ServiceDefinitionV2LinkType",
       required: true,
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },

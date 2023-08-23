@@ -40,12 +40,10 @@ export class IncidentTimelineCellMarkdownCreateAttributes {
       required: true,
     },
     content: {
-      baseName: "content",
       type: "IncidentTimelineCellMarkdownCreateAttributesContent",
       required: true,
     },
     important: {
-      baseName: "important",
       type: "boolean",
     },
   };

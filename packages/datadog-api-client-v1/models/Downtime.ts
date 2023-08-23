@@ -123,7 +123,6 @@ export class Downtime {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     active: {
-      baseName: "active",
       type: "boolean",
     },
     activeChild: {
@@ -131,7 +130,6 @@ export class Downtime {
       type: "DowntimeChild",
     },
     canceled: {
-      baseName: "canceled",
       type: "number",
       format: "int64",
     },
@@ -141,7 +139,6 @@ export class Downtime {
       format: "int32",
     },
     disabled: {
-      baseName: "disabled",
       type: "boolean",
     },
     downtimeType: {
@@ -150,17 +147,14 @@ export class Downtime {
       format: "int32",
     },
     end: {
-      baseName: "end",
       type: "number",
       format: "int64",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     monitorId: {
@@ -190,20 +184,16 @@ export class Downtime {
       format: "int64",
     },
     recurrence: {
-      baseName: "recurrence",
       type: "DowntimeRecurrence",
     },
     scope: {
-      baseName: "scope",
       type: "Array<string>",
     },
     start: {
-      baseName: "start",
       type: "number",
       format: "int64",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
     updaterId: {

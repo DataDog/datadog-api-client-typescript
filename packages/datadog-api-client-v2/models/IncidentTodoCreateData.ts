@@ -31,12 +31,10 @@ export class IncidentTodoCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "IncidentTodoAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "IncidentTodoType",
       required: true,
     },

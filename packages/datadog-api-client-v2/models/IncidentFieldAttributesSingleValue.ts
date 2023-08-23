@@ -30,11 +30,9 @@ export class IncidentFieldAttributesSingleValue {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
-      baseName: "type",
       type: "IncidentFieldAttributesSingleValueType",
     },
     value: {
-      baseName: "value",
       type: "string",
     },
   };

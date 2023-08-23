@@ -26,7 +26,6 @@ export class ApplicationKeyCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ApplicationKeyCreateData",
       required: true,
     },

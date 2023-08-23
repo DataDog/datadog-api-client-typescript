@@ -26,7 +26,6 @@ export class LogsMetricCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "LogsMetricCreateData",
       required: true,
     },

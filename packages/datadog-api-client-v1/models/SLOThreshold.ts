@@ -51,7 +51,6 @@ export class SLOThreshold {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     target: {
-      baseName: "target",
       type: "number",
       required: true,
       format: "double",
@@ -61,12 +60,10 @@ export class SLOThreshold {
       type: "string",
     },
     timeframe: {
-      baseName: "timeframe",
       type: "SLOTimeframe",
       required: true,
     },
     warning: {
-      baseName: "warning",
       type: "number",
       format: "double",
     },

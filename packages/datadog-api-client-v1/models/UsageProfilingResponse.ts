@@ -26,7 +26,6 @@ export class UsageProfilingResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageProfilingHour>",
     },
   };

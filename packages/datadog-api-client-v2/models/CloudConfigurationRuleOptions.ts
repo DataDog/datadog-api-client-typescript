@@ -27,7 +27,6 @@ export class CloudConfigurationRuleOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     complianceRuleOptions: {
-      baseName: "complianceRuleOptions",
       type: "CloudConfigurationComplianceRuleOptions",
       required: true,
     },

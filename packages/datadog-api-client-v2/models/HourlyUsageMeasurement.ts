@@ -33,7 +33,6 @@ export class HourlyUsageMeasurement {
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "number",
       format: "int64",
     },

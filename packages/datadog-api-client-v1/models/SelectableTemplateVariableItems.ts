@@ -41,11 +41,9 @@ export class SelectableTemplateVariableItems {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     prefix: {
-      baseName: "prefix",
       type: "string",
     },
     visibleTags: {

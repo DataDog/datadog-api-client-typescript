@@ -61,21 +61,17 @@ export class ReferenceTableLogsLookupProcessor {
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     source: {
-      baseName: "source",
       type: "string",
       required: true,
     },
     target: {
-      baseName: "target",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsLookupProcessorType",
       required: true,
     },

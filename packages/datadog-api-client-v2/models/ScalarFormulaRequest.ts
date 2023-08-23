@@ -31,12 +31,10 @@ export class ScalarFormulaRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "ScalarFormulaRequestAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "ScalarFormulaRequestType",
       required: true,
     },

@@ -26,7 +26,6 @@ export class SensitiveDataScannerGroupDeleteResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMetaVersionOnly",
     },
   };

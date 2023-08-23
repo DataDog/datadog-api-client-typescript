@@ -63,7 +63,6 @@ export class DowntimeCreateRequestAttributes {
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     monitorIdentifier: {
@@ -84,11 +83,9 @@ export class DowntimeCreateRequestAttributes {
       type: "Array<DowntimeNotifyEndStateActions>",
     },
     schedule: {
-      baseName: "schedule",
       type: "DowntimeScheduleCreateRequest",
     },
     scope: {
-      baseName: "scope",
       type: "string",
       required: true,
     },

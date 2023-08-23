@@ -33,7 +33,6 @@ export class UsageTopAvgMetricsPagination {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },

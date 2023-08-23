@@ -73,7 +73,6 @@ export class SLOCorrectionResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     category: {
-      baseName: "category",
       type: "SLOCorrectionCategory",
     },
     createdAt: {
@@ -82,20 +81,16 @@ export class SLOCorrectionResponseAttributes {
       format: "int64",
     },
     creator: {
-      baseName: "creator",
       type: "Creator",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     duration: {
-      baseName: "duration",
       type: "number",
       format: "int64",
     },
     end: {
-      baseName: "end",
       type: "number",
       format: "int64",
     },
@@ -105,11 +100,9 @@ export class SLOCorrectionResponseAttributes {
       format: "int64",
     },
     modifier: {
-      baseName: "modifier",
       type: "SLOCorrectionResponseAttributesModifier",
     },
     rrule: {
-      baseName: "rrule",
       type: "string",
     },
     sloId: {
@@ -117,12 +110,10 @@ export class SLOCorrectionResponseAttributes {
       type: "string",
     },
     start: {
-      baseName: "start",
       type: "number",
       format: "int64",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };

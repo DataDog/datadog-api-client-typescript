@@ -67,15 +67,12 @@ export class SecurityFilterAttributes {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int32",
     },

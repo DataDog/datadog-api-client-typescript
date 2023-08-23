@@ -25,7 +25,6 @@ export class TeamRelationshipsLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     related: {
-      baseName: "related",
       type: "string",
     },
   };

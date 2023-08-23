@@ -30,12 +30,10 @@ export class SecurityMonitoringSignalAssigneeUpdateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     assignee: {
-      baseName: "assignee",
       type: "SecurityMonitoringTriageUser",
       required: true,
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },

@@ -31,11 +31,9 @@ export class SensitiveDataScannerGroupRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     configuration: {
-      baseName: "configuration",
       type: "SensitiveDataScannerConfigurationData",
     },
     rules: {
-      baseName: "rules",
       type: "SensitiveDataScannerRuleData",
     },
   };

@@ -49,27 +49,21 @@ export class LogContent {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "{ [key: string]: any; }",
     },
     host: {
-      baseName: "host",
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     service: {
-      baseName: "service",
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     timestamp: {
-      baseName: "timestamp",
       type: "Date",
       format: "date-time",
     },

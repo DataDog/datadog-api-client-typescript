@@ -31,11 +31,9 @@ export class UsageTopAvgMetricsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
-      baseName: "metadata",
       type: "UsageTopAvgMetricsMetadata",
     },
     usage: {
-      baseName: "usage",
       type: "Array<UsageTopAvgMetricsHour>",
     },
   };

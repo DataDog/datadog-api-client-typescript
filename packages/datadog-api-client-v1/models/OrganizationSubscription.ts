@@ -25,7 +25,6 @@ export class OrganizationSubscription {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
-      baseName: "type",
       type: "string",
     },
   };

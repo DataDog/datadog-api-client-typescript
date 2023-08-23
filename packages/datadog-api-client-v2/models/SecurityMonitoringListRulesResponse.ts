@@ -31,11 +31,9 @@ export class SecurityMonitoringListRulesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<SecurityMonitoringRuleResponse>",
     },
     meta: {
-      baseName: "meta",
       type: "ResponseMetaAttributes",
     },
   };

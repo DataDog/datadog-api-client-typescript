@@ -26,7 +26,6 @@ export class MetricTagConfigurationUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MetricTagConfigurationUpdateData",
       required: true,
     },

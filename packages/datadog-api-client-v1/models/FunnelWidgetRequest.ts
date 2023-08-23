@@ -31,7 +31,6 @@ export class FunnelWidgetRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "FunnelQuery",
       required: true,
     },

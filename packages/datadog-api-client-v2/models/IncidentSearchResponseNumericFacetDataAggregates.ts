@@ -29,12 +29,10 @@ export class IncidentSearchResponseNumericFacetDataAggregates {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     max: {
-      baseName: "max",
       type: "number",
       format: "double",
     },
     min: {
-      baseName: "min",
       type: "number",
       format: "double",
     },

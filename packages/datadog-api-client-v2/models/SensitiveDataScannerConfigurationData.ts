@@ -26,7 +26,6 @@ export class SensitiveDataScannerConfigurationData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SensitiveDataScannerConfiguration",
     },
   };

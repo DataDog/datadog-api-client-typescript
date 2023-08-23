@@ -40,19 +40,15 @@ export class RoleCreateResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "RoleCreateAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "RoleResponseRelationships",
     },
     type: {
-      baseName: "type",
       type: "RolesType",
       required: true,
     },

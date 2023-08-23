@@ -36,15 +36,12 @@ export class EventsListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<EventResponse>",
     },
     links: {
-      baseName: "links",
       type: "EventsListResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "EventsResponseMetadata",
     },
   };

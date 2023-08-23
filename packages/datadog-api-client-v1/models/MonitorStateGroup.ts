@@ -66,11 +66,9 @@ export class MonitorStateGroup {
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "MonitorOverallStates",
     },
   };

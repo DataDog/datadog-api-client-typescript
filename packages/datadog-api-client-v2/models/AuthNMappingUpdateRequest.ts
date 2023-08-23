@@ -26,7 +26,6 @@ export class AuthNMappingUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "AuthNMappingUpdateData",
       required: true,
     },

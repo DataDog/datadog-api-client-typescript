@@ -54,24 +54,19 @@ export class HTTPLogItem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     ddsource: {
-      baseName: "ddsource",
       type: "string",
     },
     ddtags: {
-      baseName: "ddtags",
       type: "string",
     },
     hostname: {
-      baseName: "hostname",
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
       required: true,
     },
     service: {
-      baseName: "service",
       type: "string",
     },
     additionalProperties: {

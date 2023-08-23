@@ -25,7 +25,6 @@ export class AuditLogsResponsePage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
-      baseName: "after",
       type: "string",
     },
   };

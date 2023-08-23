@@ -45,12 +45,10 @@ export class AuditLogsResponseMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     elapsed: {
-      baseName: "elapsed",
       type: "number",
       format: "int64",
     },
     page: {
-      baseName: "page",
       type: "AuditLogsResponsePage",
     },
     requestId: {
@@ -58,11 +56,9 @@ export class AuditLogsResponseMetadata {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "AuditLogsResponseStatus",
     },
     warnings: {
-      baseName: "warnings",
       type: "Array<AuditLogsWarning>",
     },
   };

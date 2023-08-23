@@ -36,15 +36,12 @@ export class SearchSLOQuery {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     denominator: {
-      baseName: "denominator",
       type: "string",
     },
     metrics: {
-      baseName: "metrics",
       type: "Array<string>",
     },
     numerator: {
-      baseName: "numerator",
       type: "string",
     },
   };

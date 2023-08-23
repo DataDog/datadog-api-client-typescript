@@ -26,7 +26,6 @@ export class AWSAccountListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accounts: {
-      baseName: "accounts",
       type: "Array<AWSAccount>",
     },
   };

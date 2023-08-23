@@ -31,11 +31,9 @@ export class SecurityFiltersResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<SecurityFilter>",
     },
     meta: {
-      baseName: "meta",
       type: "SecurityFilterMeta",
     },
   };

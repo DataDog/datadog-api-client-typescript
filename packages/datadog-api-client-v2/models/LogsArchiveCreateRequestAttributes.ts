@@ -47,7 +47,6 @@ export class LogsArchiveCreateRequestAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     destination: {
-      baseName: "destination",
       type: "LogsArchiveCreateRequestDestination",
       required: true,
     },
@@ -56,12 +55,10 @@ export class LogsArchiveCreateRequestAttributes {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },

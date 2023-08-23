@@ -30,11 +30,9 @@ export class IPAllowlistAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     enabled: {
-      baseName: "enabled",
       type: "boolean",
     },
     entries: {
-      baseName: "entries",
       type: "Array<IPAllowlistEntry>",
     },
   };

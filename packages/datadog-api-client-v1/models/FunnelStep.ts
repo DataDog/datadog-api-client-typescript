@@ -29,12 +29,10 @@ export class FunnelStep {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
-      baseName: "facet",
       type: "string",
       required: true,
     },
     value: {
-      baseName: "value",
       type: "string",
       required: true,
     },

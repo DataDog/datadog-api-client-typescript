@@ -42,7 +42,6 @@ export class ConfluentResourceRequestAttributes {
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };

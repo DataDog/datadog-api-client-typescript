@@ -26,7 +26,6 @@ export class LogsAggregateResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     buckets: {
-      baseName: "buckets",
       type: "Array<LogsAggregateBucket>",
     },
   };

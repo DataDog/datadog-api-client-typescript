@@ -31,11 +31,9 @@ export class SensitiveDataScannerCreateGroupResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SensitiveDataScannerGroupResponse",
     },
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMetaVersionOnly",
     },
   };

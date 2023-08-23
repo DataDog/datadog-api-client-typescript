@@ -30,7 +30,6 @@ export class SyntheticsTriggerTest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
-      baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
     },
     publicId: {

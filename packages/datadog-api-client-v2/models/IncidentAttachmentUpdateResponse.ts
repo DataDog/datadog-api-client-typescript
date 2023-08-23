@@ -32,12 +32,10 @@ export class IncidentAttachmentUpdateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<IncidentAttachmentData>",
       required: true,
     },
     included: {
-      baseName: "included",
       type: "Array<IncidentAttachmentsResponseIncludedItem>",
     },
   };

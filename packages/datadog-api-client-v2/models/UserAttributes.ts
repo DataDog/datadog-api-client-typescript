@@ -70,19 +70,15 @@ export class UserAttributes {
       format: "date-time",
     },
     disabled: {
-      baseName: "disabled",
       type: "boolean",
     },
     email: {
-      baseName: "email",
       type: "string",
     },
     handle: {
-      baseName: "handle",
       type: "string",
     },
     icon: {
-      baseName: "icon",
       type: "string",
     },
     modifiedAt: {
@@ -91,7 +87,6 @@ export class UserAttributes {
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     serviceAccount: {
@@ -99,15 +94,12 @@ export class UserAttributes {
       type: "boolean",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     verified: {
-      baseName: "verified",
       type: "boolean",
     },
   };

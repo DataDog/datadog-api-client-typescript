@@ -90,11 +90,9 @@ export class DistributionWidgetDefinition {
       type: "string",
     },
     markers: {
-      baseName: "markers",
       type: "Array<WidgetMarker>",
     },
     requests: {
-      baseName: "requests",
       type: "[DistributionWidgetRequest]",
       required: true,
     },
@@ -103,11 +101,9 @@ export class DistributionWidgetDefinition {
       type: "boolean",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -119,16 +115,13 @@ export class DistributionWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "DistributionWidgetDefinitionType",
       required: true,
     },
     xaxis: {
-      baseName: "xaxis",
       type: "DistributionWidgetXAxis",
     },
     yaxis: {
-      baseName: "yaxis",
       type: "DistributionWidgetYAxis",
     },
   };

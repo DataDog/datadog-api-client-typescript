@@ -26,7 +26,6 @@ export class EventsResponseMetadataPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
-      baseName: "after",
       type: "string",
     },
   };

@@ -31,12 +31,10 @@ export class RoleClone {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "RoleCloneAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "RolesType",
       required: true,
     },

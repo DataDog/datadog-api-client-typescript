@@ -30,11 +30,9 @@ export class LogsArchiveCreateRequestDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "LogsArchiveCreateRequestAttributes",
     },
     type: {
-      baseName: "type",
       type: "string",
       required: true,
     },

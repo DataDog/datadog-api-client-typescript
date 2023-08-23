@@ -31,12 +31,10 @@ export class SharedDashboardInvitesDataObject {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SharedDashboardInvitesDataObjectAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "DashboardInviteType",
       required: true,
     },

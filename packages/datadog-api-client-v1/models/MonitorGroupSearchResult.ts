@@ -50,7 +50,6 @@ export class MonitorGroupSearchResult {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     group: {
-      baseName: "group",
       type: "string",
     },
     groupTags: {
@@ -77,7 +76,6 @@ export class MonitorGroupSearchResult {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "MonitorOverallStates",
     },
   };

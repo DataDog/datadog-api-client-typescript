@@ -91,11 +91,9 @@ export class SpansAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "{ [key: string]: any; }",
     },
     custom: {
-      baseName: "custom",
       type: "{ [key: string]: any; }",
     },
     endTimestamp: {
@@ -104,11 +102,9 @@ export class SpansAttributes {
       format: "date-time",
     },
     env: {
-      baseName: "env",
       type: "string",
     },
     host: {
-      baseName: "host",
       type: "string",
     },
     ingestionReason: {
@@ -132,7 +128,6 @@ export class SpansAttributes {
       type: "string",
     },
     service: {
-      baseName: "service",
       type: "string",
     },
     singleSpan: {
@@ -149,7 +144,6 @@ export class SpansAttributes {
       format: "date-time",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     traceId: {
@@ -157,7 +151,6 @@ export class SpansAttributes {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };

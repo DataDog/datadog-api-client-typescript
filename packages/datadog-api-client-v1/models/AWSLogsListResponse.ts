@@ -38,11 +38,9 @@ export class AWSLogsListResponse {
       type: "string",
     },
     lambdas: {
-      baseName: "lambdas",
       type: "Array<AWSLogsLambda>",
     },
     services: {
-      baseName: "services",
       type: "Array<string>",
     },
   };

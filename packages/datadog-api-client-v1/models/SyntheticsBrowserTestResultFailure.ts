@@ -30,11 +30,9 @@ export class SyntheticsBrowserTestResultFailure {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
-      baseName: "code",
       type: "SyntheticsBrowserTestFailureCode",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
   };

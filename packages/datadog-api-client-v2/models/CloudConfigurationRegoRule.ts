@@ -29,12 +29,10 @@ export class CloudConfigurationRegoRule {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     policy: {
-      baseName: "policy",
       type: "string",
       required: true,
     },
     resourceTypes: {
-      baseName: "resourceTypes",
       type: "Array<string>",
       required: true,
     },

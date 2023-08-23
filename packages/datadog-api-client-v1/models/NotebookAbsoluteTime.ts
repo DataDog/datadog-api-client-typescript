@@ -33,17 +33,14 @@ export class NotebookAbsoluteTime {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
-      baseName: "end",
       type: "Date",
       required: true,
       format: "date-time",
     },
     live: {
-      baseName: "live",
       type: "boolean",
     },
     start: {
-      baseName: "start",
       type: "Date",
       required: true,
       format: "date-time",

@@ -74,7 +74,6 @@ export class GroupWidgetDefinition {
       type: "boolean",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -82,12 +81,10 @@ export class GroupWidgetDefinition {
       type: "WidgetTextAlign",
     },
     type: {
-      baseName: "type",
       type: "GroupWidgetDefinitionType",
       required: true,
     },
     widgets: {
-      baseName: "widgets",
       type: "Array<Widget>",
       required: true,
     },

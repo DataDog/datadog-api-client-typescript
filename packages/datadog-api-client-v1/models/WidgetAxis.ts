@@ -45,19 +45,15 @@ export class WidgetAxis {
       type: "boolean",
     },
     label: {
-      baseName: "label",
       type: "string",
     },
     max: {
-      baseName: "max",
       type: "string",
     },
     min: {
-      baseName: "min",
       type: "string",
     },
     scale: {
-      baseName: "scale",
       type: "string",
     },
   };

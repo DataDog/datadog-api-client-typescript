@@ -29,7 +29,6 @@ export class WidgetFormulaStyle {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     palette: {
-      baseName: "palette",
       type: "string",
     },
     paletteIndex: {

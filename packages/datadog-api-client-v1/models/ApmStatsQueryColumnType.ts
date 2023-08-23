@@ -39,7 +39,6 @@ export class ApmStatsQueryColumnType {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     alias: {
-      baseName: "alias",
       type: "string",
     },
     cellDisplayMode: {
@@ -47,12 +46,10 @@ export class ApmStatsQueryColumnType {
       type: "TableWidgetCellDisplayMode",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     order: {
-      baseName: "order",
       type: "WidgetSort",
     },
   };

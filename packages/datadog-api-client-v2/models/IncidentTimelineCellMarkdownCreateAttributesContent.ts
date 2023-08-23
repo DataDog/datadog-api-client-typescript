@@ -25,7 +25,6 @@ export class IncidentTimelineCellMarkdownCreateAttributesContent {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     content: {
-      baseName: "content",
       type: "string",
     },
   };

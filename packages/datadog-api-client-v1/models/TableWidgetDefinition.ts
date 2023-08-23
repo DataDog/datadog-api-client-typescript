@@ -67,16 +67,13 @@ export class TableWidgetDefinition {
       type: "TableWidgetHasSearchBar",
     },
     requests: {
-      baseName: "requests",
       type: "Array<TableWidgetRequest>",
       required: true,
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -88,7 +85,6 @@ export class TableWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "TableWidgetDefinitionType",
       required: true,
     },

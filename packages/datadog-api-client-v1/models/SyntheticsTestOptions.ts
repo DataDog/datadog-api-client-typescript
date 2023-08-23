@@ -137,11 +137,9 @@ export class SyntheticsTestOptions {
       type: "boolean",
     },
     checkCertificateRevocation: {
-      baseName: "checkCertificateRevocation",
       type: "boolean",
     },
     ci: {
-      baseName: "ci",
       type: "SyntheticsTestCiOptions",
     },
     deviceIds: {
@@ -149,11 +147,9 @@ export class SyntheticsTestOptions {
       type: "Array<SyntheticsDeviceID>",
     },
     disableCors: {
-      baseName: "disableCors",
       type: "boolean",
     },
     disableCsp: {
-      baseName: "disableCsp",
       type: "boolean",
     },
     followRedirects: {
@@ -161,15 +157,12 @@ export class SyntheticsTestOptions {
       type: "boolean",
     },
     httpVersion: {
-      baseName: "httpVersion",
       type: "SyntheticsTestOptionsHTTPVersion",
     },
     ignoreServerCertificateError: {
-      baseName: "ignoreServerCertificateError",
       type: "boolean",
     },
     initialNavigationTimeout: {
-      baseName: "initialNavigationTimeout",
       type: "number",
       format: "int64",
     },
@@ -197,7 +190,6 @@ export class SyntheticsTestOptions {
       format: "int32",
     },
     noScreenshot: {
-      baseName: "noScreenshot",
       type: "boolean",
     },
     restrictedRoles: {
@@ -205,15 +197,12 @@ export class SyntheticsTestOptions {
       type: "Array<string>",
     },
     retry: {
-      baseName: "retry",
       type: "SyntheticsTestOptionsRetry",
     },
     rumSettings: {
-      baseName: "rumSettings",
       type: "SyntheticsBrowserTestRumSettings",
     },
     scheduling: {
-      baseName: "scheduling",
       type: "SyntheticsTestOptionsScheduling",
     },
     tickEvery: {

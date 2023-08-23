@@ -33,16 +33,13 @@ export class SLOCreator {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
-      baseName: "email",
       type: "string",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };

@@ -54,16 +54,13 @@ export class DowntimeRecurrence {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     period: {
-      baseName: "period",
       type: "number",
       format: "int32",
     },
     rrule: {
-      baseName: "rrule",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
     untilDate: {

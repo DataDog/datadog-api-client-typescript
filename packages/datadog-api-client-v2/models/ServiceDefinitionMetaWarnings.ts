@@ -41,7 +41,6 @@ export class ServiceDefinitionMetaWarnings {
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
   };

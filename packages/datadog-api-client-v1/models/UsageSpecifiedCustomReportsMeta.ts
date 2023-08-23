@@ -26,7 +26,6 @@ export class UsageSpecifiedCustomReportsMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "UsageSpecifiedCustomReportsPage",
     },
   };

@@ -26,7 +26,6 @@ export class SecurityMonitoringSignalAssigneeUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SecurityMonitoringSignalAssigneeUpdateData",
       required: true,
     },

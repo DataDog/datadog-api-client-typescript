@@ -26,7 +26,6 @@ export class SpansMetricUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SpansMetricUpdateData",
       required: true,
     },

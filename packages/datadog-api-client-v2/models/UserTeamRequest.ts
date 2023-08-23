@@ -26,7 +26,6 @@ export class UserTeamRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "UserTeamCreate",
       required: true,
     },

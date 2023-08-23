@@ -31,12 +31,10 @@ export class OpsgenieServiceCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "OpsgenieServiceCreateAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "OpsgenieServiceType",
       required: true,
     },

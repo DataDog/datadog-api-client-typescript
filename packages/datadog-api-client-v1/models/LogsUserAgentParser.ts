@@ -55,21 +55,17 @@ export class LogsUserAgentParser {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     sources: {
-      baseName: "sources",
       type: "Array<string>",
       required: true,
     },
     target: {
-      baseName: "target",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsUserAgentParserType",
       required: true,
     },

@@ -46,7 +46,6 @@ export class ServiceCheck {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     check: {
-      baseName: "check",
       type: "string",
       required: true,
     },
@@ -56,22 +55,18 @@ export class ServiceCheck {
       required: true,
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "ServiceCheckStatus",
       required: true,
       format: "int32",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
       required: true,
     },
     timestamp: {
-      baseName: "timestamp",
       type: "number",
       format: "int64",
     },

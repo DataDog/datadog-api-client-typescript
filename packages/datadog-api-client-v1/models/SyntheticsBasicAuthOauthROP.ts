@@ -63,46 +63,36 @@ export class SyntheticsBasicAuthOauthROP {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     accessTokenUrl: {
-      baseName: "accessTokenUrl",
       type: "string",
       required: true,
     },
     audience: {
-      baseName: "audience",
       type: "string",
     },
     clientId: {
-      baseName: "clientId",
       type: "string",
     },
     clientSecret: {
-      baseName: "clientSecret",
       type: "string",
     },
     password: {
-      baseName: "password",
       type: "string",
       required: true,
     },
     resource: {
-      baseName: "resource",
       type: "string",
     },
     scope: {
-      baseName: "scope",
       type: "string",
     },
     tokenApiAuthentication: {
-      baseName: "tokenApiAuthentication",
       type: "SyntheticsBasicAuthOauthTokenApiAuthentication",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "SyntheticsBasicAuthOauthROPType",
     },
     username: {
-      baseName: "username",
       type: "string",
       required: true,
     },

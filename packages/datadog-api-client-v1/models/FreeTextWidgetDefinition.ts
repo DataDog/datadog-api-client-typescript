@@ -43,7 +43,6 @@ export class FreeTextWidgetDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     color: {
-      baseName: "color",
       type: "string",
     },
     fontSize: {
@@ -51,7 +50,6 @@ export class FreeTextWidgetDefinition {
       type: "string",
     },
     text: {
-      baseName: "text",
       type: "string",
       required: true,
     },
@@ -60,7 +58,6 @@ export class FreeTextWidgetDefinition {
       type: "WidgetTextAlign",
     },
     type: {
-      baseName: "type",
       type: "FreeTextWidgetDefinitionType",
       required: true,
     },

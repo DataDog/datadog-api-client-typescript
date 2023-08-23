@@ -48,7 +48,6 @@ export class LogsGrokParser {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     grok: {
-      baseName: "grok",
       type: "LogsGrokParserRules",
       required: true,
     },
@@ -57,20 +56,16 @@ export class LogsGrokParser {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     samples: {
-      baseName: "samples",
       type: "Array<string>",
     },
     source: {
-      baseName: "source",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsGrokParserType",
       required: true,
     },

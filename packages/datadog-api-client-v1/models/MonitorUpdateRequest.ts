@@ -90,43 +90,34 @@ export class MonitorUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
-      baseName: "created",
       type: "Date",
       format: "date-time",
     },
     creator: {
-      baseName: "creator",
       type: "Creator",
     },
     deleted: {
-      baseName: "deleted",
       type: "Date",
       format: "date-time",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     modified: {
-      baseName: "modified",
       type: "Date",
       format: "date-time",
     },
     multi: {
-      baseName: "multi",
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     options: {
-      baseName: "options",
       type: "MonitorOptions",
     },
     overallState: {
@@ -134,12 +125,10 @@ export class MonitorUpdateRequest {
       type: "MonitorOverallStates",
     },
     priority: {
-      baseName: "priority",
       type: "number",
       format: "int64",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     restrictedRoles: {
@@ -147,15 +136,12 @@ export class MonitorUpdateRequest {
       type: "Array<string>",
     },
     state: {
-      baseName: "state",
       type: "MonitorState",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "MonitorType",
     },
   };

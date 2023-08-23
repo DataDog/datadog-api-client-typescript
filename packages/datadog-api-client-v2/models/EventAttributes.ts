@@ -120,7 +120,6 @@ export class EventAttributes {
       type: "string",
     },
     duration: {
-      baseName: "duration",
       type: "number",
       format: "int64",
     },
@@ -129,15 +128,12 @@ export class EventAttributes {
       type: "string",
     },
     evt: {
-      baseName: "evt",
       type: "Event",
     },
     hostname: {
-      baseName: "hostname",
       type: "string",
     },
     monitor: {
-      baseName: "monitor",
       type: "MonitorType",
     },
     monitorGroups: {
@@ -150,7 +146,6 @@ export class EventAttributes {
       format: "int64",
     },
     priority: {
-      baseName: "priority",
       type: "EventPriority",
     },
     relatedEventId: {
@@ -159,7 +154,6 @@ export class EventAttributes {
       format: "int64",
     },
     service: {
-      baseName: "service",
       type: "string",
     },
     sourceTypeName: {
@@ -167,24 +161,19 @@ export class EventAttributes {
       type: "string",
     },
     sourcecategory: {
-      baseName: "sourcecategory",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "EventStatusType",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     timestamp: {
-      baseName: "timestamp",
       type: "number",
       format: "int64",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
   };

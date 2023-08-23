@@ -29,12 +29,10 @@ export class RUMAggregateBucketValueTimeseriesPoint {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     time: {
-      baseName: "time",
       type: "Date",
       format: "date-time",
     },
     value: {
-      baseName: "value",
       type: "number",
       format: "double",
     },

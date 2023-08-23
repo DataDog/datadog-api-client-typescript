@@ -31,11 +31,9 @@ export class UsageAttributionResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
-      baseName: "metadata",
       type: "UsageAttributionMetadata",
     },
     usage: {
-      baseName: "usage",
       type: "Array<UsageAttributionBody>",
     },
   };

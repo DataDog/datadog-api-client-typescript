@@ -49,7 +49,6 @@ export class SensitiveDataScannerTextReplacement {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SensitiveDataScannerTextReplacementType",
     },
   };

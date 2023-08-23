@@ -69,11 +69,9 @@ export class TeamAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     avatar: {
-      baseName: "avatar",
       type: "string",
     },
     banner: {
-      baseName: "banner",
       type: "number",
       format: "int64",
     },
@@ -83,11 +81,9 @@ export class TeamAttributes {
       format: "date-time",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     handle: {
-      baseName: "handle",
       type: "string",
       required: true,
     },
@@ -106,12 +102,10 @@ export class TeamAttributes {
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     summary: {
-      baseName: "summary",
       type: "string",
     },
     userCount: {

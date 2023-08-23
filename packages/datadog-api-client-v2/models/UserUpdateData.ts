@@ -35,17 +35,14 @@ export class UserUpdateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "UserUpdateAttributes",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "UsersType",
       required: true,
     },

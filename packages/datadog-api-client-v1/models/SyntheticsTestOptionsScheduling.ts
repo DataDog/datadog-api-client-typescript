@@ -30,11 +30,9 @@ export class SyntheticsTestOptionsScheduling {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     timeframes: {
-      baseName: "timeframes",
       type: "Array<SyntheticsTestOptionsSchedulingTimeframe>",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };

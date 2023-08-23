@@ -29,12 +29,10 @@ export class RunWorkflowWidgetInput {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     value: {
-      baseName: "value",
       type: "string",
       required: true,
     },

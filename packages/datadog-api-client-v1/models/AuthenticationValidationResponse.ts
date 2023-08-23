@@ -25,7 +25,6 @@ export class AuthenticationValidationResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     valid: {
-      baseName: "valid",
       type: "boolean",
     },
   };

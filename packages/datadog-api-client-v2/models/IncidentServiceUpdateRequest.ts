@@ -26,7 +26,6 @@ export class IncidentServiceUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentServiceUpdateData",
       required: true,
     },

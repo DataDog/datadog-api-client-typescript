@@ -26,7 +26,6 @@ export class IncidentIntegrationMetadataCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentIntegrationMetadataCreateData",
       required: true,
     },

@@ -31,12 +31,10 @@ export class CloudflareAccountCreateRequestData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "CloudflareAccountCreateRequestAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "CloudflareAccountType",
       required: true,
     },

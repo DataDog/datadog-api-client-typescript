@@ -69,7 +69,6 @@ export class IncidentSearchResponseFacetsData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     commander: {
-      baseName: "commander",
       type: "Array<IncidentSearchResponseUserFacetData>",
     },
     createdBy: {
@@ -77,11 +76,9 @@ export class IncidentSearchResponseFacetsData {
       type: "Array<IncidentSearchResponseUserFacetData>",
     },
     fields: {
-      baseName: "fields",
       type: "Array<IncidentSearchResponsePropertyFieldFacetData>",
     },
     impact: {
-      baseName: "impact",
       type: "Array<IncidentSearchResponseFieldFacetData>",
     },
     lastModifiedBy: {
@@ -89,19 +86,15 @@ export class IncidentSearchResponseFacetsData {
       type: "Array<IncidentSearchResponseUserFacetData>",
     },
     postmortem: {
-      baseName: "postmortem",
       type: "Array<IncidentSearchResponseFieldFacetData>",
     },
     responder: {
-      baseName: "responder",
       type: "Array<IncidentSearchResponseUserFacetData>",
     },
     severity: {
-      baseName: "severity",
       type: "Array<IncidentSearchResponseFieldFacetData>",
     },
     state: {
-      baseName: "state",
       type: "Array<IncidentSearchResponseFieldFacetData>",
     },
     timeToRepair: {

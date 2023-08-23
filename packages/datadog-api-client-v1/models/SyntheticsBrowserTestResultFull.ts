@@ -55,7 +55,6 @@ export class SyntheticsBrowserTestResultFull {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     check: {
-      baseName: "check",
       type: "SyntheticsBrowserTestResultFullCheck",
     },
     checkTime: {
@@ -73,7 +72,6 @@ export class SyntheticsBrowserTestResultFull {
       type: "string",
     },
     result: {
-      baseName: "result",
       type: "SyntheticsBrowserTestResultData",
     },
     resultId: {
@@ -81,7 +79,6 @@ export class SyntheticsBrowserTestResultFull {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "SyntheticsTestMonitorStatus",
       format: "int64",
     },

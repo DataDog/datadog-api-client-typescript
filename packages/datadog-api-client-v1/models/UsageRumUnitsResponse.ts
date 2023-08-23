@@ -26,7 +26,6 @@ export class UsageRumUnitsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageRumUnitsHour>",
     },
   };

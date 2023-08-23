@@ -35,7 +35,6 @@ export class SyntheticsGetAPITestLatestResultsResponse {
       format: "int64",
     },
     results: {
-      baseName: "results",
       type: "Array<SyntheticsAPITestResultShort>",
     },
   };

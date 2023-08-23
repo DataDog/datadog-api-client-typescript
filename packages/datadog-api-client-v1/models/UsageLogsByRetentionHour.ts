@@ -68,7 +68,6 @@ export class UsageLogsByRetentionHour {
       format: "int64",
     },
     retention: {
-      baseName: "retention",
       type: "string",
     },
   };

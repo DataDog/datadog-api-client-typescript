@@ -35,16 +35,13 @@ export class FormulaAndFunctionEventQueryGroupBySort {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "FormulaAndFunctionEventAggregation",
       required: true,
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     order: {
-      baseName: "order",
       type: "QuerySortOrder",
     },
   };

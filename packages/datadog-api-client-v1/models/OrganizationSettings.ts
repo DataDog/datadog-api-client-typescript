@@ -71,7 +71,6 @@ export class OrganizationSettings {
       type: "boolean",
     },
     saml: {
-      baseName: "saml",
       type: "OrganizationSettingsSaml",
     },
     samlAutocreateAccessRole: {

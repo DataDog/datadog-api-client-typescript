@@ -26,7 +26,6 @@ export class UsageOnlineArchiveResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageOnlineArchiveHour>",
     },
   };

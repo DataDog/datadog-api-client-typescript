@@ -80,15 +80,12 @@ export class MonitorSearchResult {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     classification: {
-      baseName: "classification",
       type: "string",
     },
     creator: {
-      baseName: "creator",
       type: "Creator",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
@@ -98,15 +95,12 @@ export class MonitorSearchResult {
       format: "int64",
     },
     metrics: {
-      baseName: "metrics",
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     notifications: {
-      baseName: "notifications",
       type: "Array<MonitorSearchResultNotification>",
     },
     orgId: {
@@ -115,23 +109,18 @@ export class MonitorSearchResult {
       format: "int64",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     scopes: {
-      baseName: "scopes",
       type: "Array<string>",
     },
     status: {
-      baseName: "status",
       type: "MonitorOverallStates",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "MonitorType",
     },
   };

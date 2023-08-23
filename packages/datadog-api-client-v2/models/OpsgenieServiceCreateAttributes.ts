@@ -42,7 +42,6 @@ export class OpsgenieServiceCreateAttributes {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
@@ -52,7 +51,6 @@ export class OpsgenieServiceCreateAttributes {
       required: true,
     },
     region: {
-      baseName: "region",
       type: "OpsgenieServiceRegionType",
       required: true,
     },

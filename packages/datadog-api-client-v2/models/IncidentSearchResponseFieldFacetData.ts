@@ -29,12 +29,10 @@ export class IncidentSearchResponseFieldFacetData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
-      baseName: "count",
       type: "number",
       format: "int32",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };

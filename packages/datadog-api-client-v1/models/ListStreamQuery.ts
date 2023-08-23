@@ -58,7 +58,6 @@ export class ListStreamQuery {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "Array<ListStreamComputeItems>",
     },
     dataSource: {
@@ -75,7 +74,6 @@ export class ListStreamQuery {
       type: "Array<ListStreamGroupByItems>",
     },
     indexes: {
-      baseName: "indexes",
       type: "Array<string>",
     },
     queryString: {
@@ -84,11 +82,9 @@ export class ListStreamQuery {
       required: true,
     },
     sort: {
-      baseName: "sort",
       type: "WidgetFieldSort",
     },
     storage: {
-      baseName: "storage",
       type: "string",
     },
   };

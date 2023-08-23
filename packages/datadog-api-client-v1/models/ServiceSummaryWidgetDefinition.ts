@@ -94,12 +94,10 @@ export class ServiceSummaryWidgetDefinition {
       type: "WidgetServiceSummaryDisplayFormat",
     },
     env: {
-      baseName: "env",
       type: "string",
       required: true,
     },
     service: {
-      baseName: "service",
       type: "string",
       required: true,
     },
@@ -137,11 +135,9 @@ export class ServiceSummaryWidgetDefinition {
       required: true,
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -153,7 +149,6 @@ export class ServiceSummaryWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ServiceSummaryWidgetDefinitionType",
       required: true,
     },

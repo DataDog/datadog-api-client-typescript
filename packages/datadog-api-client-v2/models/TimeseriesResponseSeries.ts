@@ -46,7 +46,6 @@ export class TimeseriesResponseSeries {
       format: "int32",
     },
     unit: {
-      baseName: "unit",
       type: "Array<Unit>",
     },
   };

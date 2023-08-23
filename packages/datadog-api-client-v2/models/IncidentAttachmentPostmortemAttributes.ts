@@ -31,7 +31,6 @@ export class IncidentAttachmentPostmortemAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attachment: {
-      baseName: "attachment",
       type: "IncidentAttachmentsPostmortemAttributesAttachmentObject",
       required: true,
     },

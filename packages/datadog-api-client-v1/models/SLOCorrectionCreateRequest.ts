@@ -26,7 +26,6 @@ export class SLOCorrectionCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SLOCorrectionCreateData",
     },
   };

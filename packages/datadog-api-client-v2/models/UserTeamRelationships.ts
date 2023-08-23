@@ -26,7 +26,6 @@ export class UserTeamRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     user: {
-      baseName: "user",
       type: "RelationshipToUserTeamUser",
     },
   };

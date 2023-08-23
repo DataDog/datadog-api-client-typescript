@@ -31,12 +31,10 @@ export class DowntimeScheduleCurrentDowntimeResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
-      baseName: "end",
       type: "Date",
       format: "date-time",
     },
     start: {
-      baseName: "start",
       type: "Date",
       format: "date-time",
     },

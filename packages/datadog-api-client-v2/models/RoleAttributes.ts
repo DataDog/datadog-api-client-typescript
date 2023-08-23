@@ -47,7 +47,6 @@ export class RoleAttributes {
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     userCount: {

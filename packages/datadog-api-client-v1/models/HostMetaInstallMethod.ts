@@ -37,7 +37,6 @@ export class HostMetaInstallMethod {
       type: "string",
     },
     tool: {
-      baseName: "tool",
       type: "string",
     },
     toolVersion: {

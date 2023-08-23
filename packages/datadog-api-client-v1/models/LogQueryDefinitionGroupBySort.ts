@@ -34,16 +34,13 @@ export class LogQueryDefinitionGroupBySort {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "string",
       required: true,
     },
     facet: {
-      baseName: "facet",
       type: "string",
     },
     order: {
-      baseName: "order",
       type: "WidgetSort",
       required: true,
     },

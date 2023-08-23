@@ -26,7 +26,6 @@ export class RoleUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RoleUpdateData",
       required: true,
     },

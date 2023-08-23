@@ -90,16 +90,13 @@ export class HostMeta {
       type: "string",
     },
     cpuCores: {
-      baseName: "cpuCores",
       type: "number",
       format: "int64",
     },
     fbsdV: {
-      baseName: "fbsdV",
       type: "Array<any>",
     },
     gohai: {
-      baseName: "gohai",
       type: "string",
     },
     installMethod: {
@@ -107,27 +104,21 @@ export class HostMeta {
       type: "HostMetaInstallMethod",
     },
     macV: {
-      baseName: "macV",
       type: "Array<any>",
     },
     machine: {
-      baseName: "machine",
       type: "string",
     },
     nixV: {
-      baseName: "nixV",
       type: "Array<any>",
     },
     platform: {
-      baseName: "platform",
       type: "string",
     },
     processor: {
-      baseName: "processor",
       type: "string",
     },
     pythonV: {
-      baseName: "pythonV",
       type: "string",
     },
     socketFqdn: {
@@ -139,7 +130,6 @@ export class HostMeta {
       type: "string",
     },
     winV: {
-      baseName: "winV",
       type: "Array<any>",
     },
   };

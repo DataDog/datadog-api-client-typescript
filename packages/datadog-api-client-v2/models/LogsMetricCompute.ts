@@ -44,7 +44,6 @@ export class LogsMetricCompute {
       type: "boolean",
     },
     path: {
-      baseName: "path",
       type: "string",
     },
   };

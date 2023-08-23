@@ -63,11 +63,9 @@ export class GeomapWidgetRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
-      baseName: "columns",
       type: "Array<ListStreamColumn>",
     },
     formulas: {
-      baseName: "formulas",
       type: "Array<WidgetFormula>",
     },
     logQuery: {
@@ -75,15 +73,12 @@ export class GeomapWidgetRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     queries: {
-      baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
     },
     query: {
-      baseName: "query",
       type: "ListStreamQuery",
     },
     responseFormat: {

@@ -41,15 +41,12 @@ export class PartialApplicationKeyAttributes {
       type: "string",
     },
     last4: {
-      baseName: "last4",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     scopes: {
-      baseName: "scopes",
       type: "Array<string>",
     },
   };

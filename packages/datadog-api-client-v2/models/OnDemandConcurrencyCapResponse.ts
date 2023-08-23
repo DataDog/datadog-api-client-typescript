@@ -26,7 +26,6 @@ export class OnDemandConcurrencyCapResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "OnDemandConcurrencyCap",
     },
   };

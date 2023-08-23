@@ -33,16 +33,13 @@ export class HostMuteSettings {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
-      baseName: "end",
       type: "number",
       format: "int64",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     override: {
-      baseName: "override",
       type: "boolean",
     },
   };

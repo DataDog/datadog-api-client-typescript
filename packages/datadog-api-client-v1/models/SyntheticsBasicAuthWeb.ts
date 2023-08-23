@@ -34,16 +34,13 @@ export class SyntheticsBasicAuthWeb {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     password: {
-      baseName: "password",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "SyntheticsBasicAuthWebType",
     },
     username: {
-      baseName: "username",
       type: "string",
       required: true,
     },

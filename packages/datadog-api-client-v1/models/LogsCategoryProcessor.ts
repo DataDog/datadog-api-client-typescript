@@ -56,7 +56,6 @@ export class LogsCategoryProcessor {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     categories: {
-      baseName: "categories",
       type: "Array<LogsCategoryProcessorCategory>",
       required: true,
     },
@@ -65,16 +64,13 @@ export class LogsCategoryProcessor {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     target: {
-      baseName: "target",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsCategoryProcessorType",
       required: true,
     },

@@ -56,17 +56,14 @@ export class ServiceMapWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     filters: {
-      baseName: "filters",
       type: "Array<string>",
       required: true,
     },
     service: {
-      baseName: "service",
       type: "string",
       required: true,
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -78,7 +75,6 @@ export class ServiceMapWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ServiceMapWidgetDefinitionType",
       required: true,
     },

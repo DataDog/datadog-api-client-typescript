@@ -34,17 +34,14 @@ export class LogsListRequestTime {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
-      baseName: "from",
       type: "Date",
       required: true,
       format: "date-time",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
     to: {
-      baseName: "to",
       type: "Date",
       required: true,
       format: "date-time",

@@ -37,7 +37,6 @@ export class ApiKey {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
-      baseName: "created",
       type: "string",
     },
     createdBy: {
@@ -45,11 +44,9 @@ export class ApiKey {
       type: "string",
     },
     key: {
-      baseName: "key",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };

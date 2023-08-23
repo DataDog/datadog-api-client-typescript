@@ -26,7 +26,6 @@ export class UsageBillableSummaryResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageBillableSummaryHour>",
     },
   };

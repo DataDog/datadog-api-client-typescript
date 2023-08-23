@@ -31,11 +31,9 @@ export class PartialApplicationKeyResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "PartialApplicationKey",
     },
     included: {
-      baseName: "included",
       type: "Array<ApplicationKeyResponseIncludedItem>",
     },
   };

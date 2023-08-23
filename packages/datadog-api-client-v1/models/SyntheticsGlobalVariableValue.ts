@@ -35,15 +35,12 @@ export class SyntheticsGlobalVariableValue {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     options: {
-      baseName: "options",
       type: "SyntheticsGlobalVariableOptions",
     },
     secure: {
-      baseName: "secure",
       type: "boolean",
     },
     value: {
-      baseName: "value",
       type: "string",
     },
   };

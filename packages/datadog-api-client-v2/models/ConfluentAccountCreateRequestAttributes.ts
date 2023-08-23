@@ -48,11 +48,9 @@ export class ConfluentAccountCreateRequestAttributes {
       required: true,
     },
     resources: {
-      baseName: "resources",
       type: "Array<ConfluentAccountResourceAttributes>",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };

@@ -31,12 +31,10 @@ export class RUMApplicationCreate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "RUMApplicationCreateAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "RUMApplicationCreateType",
       required: true,
     },

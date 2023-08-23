@@ -36,12 +36,10 @@ export class SpansMetricCreateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "SpansMetricCompute",
       required: true,
     },
     filter: {
-      baseName: "filter",
       type: "SpansMetricFilter",
     },
     groupBy: {

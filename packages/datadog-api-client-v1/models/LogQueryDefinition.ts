@@ -44,7 +44,6 @@ export class LogQueryDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "LogsQueryCompute",
     },
     groupBy: {
@@ -52,7 +51,6 @@ export class LogQueryDefinition {
       type: "Array<LogQueryDefinitionGroupBy>",
     },
     index: {
-      baseName: "index",
       type: "string",
     },
     multiCompute: {
@@ -60,7 +58,6 @@ export class LogQueryDefinition {
       type: "Array<LogsQueryCompute>",
     },
     search: {
-      baseName: "search",
       type: "LogQueryDefinitionSearch",
     },
   };

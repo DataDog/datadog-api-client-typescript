@@ -37,15 +37,12 @@ export class SearchServiceLevelObjectiveData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SearchServiceLevelObjectiveAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };

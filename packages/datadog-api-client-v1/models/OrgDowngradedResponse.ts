@@ -25,7 +25,6 @@ export class OrgDowngradedResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     message: {
-      baseName: "message",
       type: "string",
     },
   };

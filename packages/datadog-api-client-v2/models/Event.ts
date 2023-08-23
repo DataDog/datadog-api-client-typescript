@@ -37,11 +37,9 @@ export class Event {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     sourceId: {
@@ -50,7 +48,6 @@ export class Event {
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };

@@ -34,16 +34,13 @@ export class TimeseriesResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     series: {
-      baseName: "series",
       type: "Array<TimeseriesResponseSeries>",
     },
     times: {
-      baseName: "times",
       type: "Array<number>",
       format: "int64",
     },
     values: {
-      baseName: "values",
       type: "Array<Array<number>>",
       format: "double",
     },

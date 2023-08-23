@@ -42,19 +42,15 @@ export class LogsListRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "LogsQueryFilter",
     },
     options: {
-      baseName: "options",
       type: "LogsQueryOptions",
     },
     page: {
-      baseName: "page",
       type: "LogsListRequestPage",
     },
     sort: {
-      baseName: "sort",
       type: "LogsSort",
     },
   };

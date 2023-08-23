@@ -31,11 +31,9 @@ export class GCPSTSServiceAccountData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "GCPSTSServiceAccountAttributes",
     },
     type: {
-      baseName: "type",
       type: "GCPServiceAccountType",
     },
   };

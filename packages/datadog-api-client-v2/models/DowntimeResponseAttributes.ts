@@ -78,12 +78,10 @@ export class DowntimeResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     canceled: {
-      baseName: "canceled",
       type: "Date",
       format: "date-time",
     },
     created: {
-      baseName: "created",
       type: "Date",
       format: "date-time",
     },
@@ -92,11 +90,9 @@ export class DowntimeResponseAttributes {
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     modified: {
-      baseName: "modified",
       type: "Date",
       format: "date-time",
     },
@@ -117,15 +113,12 @@ export class DowntimeResponseAttributes {
       type: "Array<DowntimeNotifyEndStateActions>",
     },
     schedule: {
-      baseName: "schedule",
       type: "DowntimeScheduleResponse",
     },
     scope: {
-      baseName: "scope",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "DowntimeStatus",
     },
   };

@@ -26,7 +26,6 @@ export class MetricBulkTagConfigDeleteRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MetricBulkTagConfigDelete",
       required: true,
     },

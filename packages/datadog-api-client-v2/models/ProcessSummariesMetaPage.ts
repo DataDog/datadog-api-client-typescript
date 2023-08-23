@@ -30,11 +30,9 @@ export class ProcessSummariesMetaPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
-      baseName: "after",
       type: "string",
     },
     size: {
-      baseName: "size",
       type: "number",
       format: "int32",
     },

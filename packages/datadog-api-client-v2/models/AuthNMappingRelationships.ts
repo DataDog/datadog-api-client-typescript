@@ -31,7 +31,6 @@ export class AuthNMappingRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     role: {
-      baseName: "role",
       type: "RelationshipToRole",
     },
     samlAssertionAttribute: {

@@ -41,23 +41,18 @@ export class SearchSLOResponseLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     first: {
-      baseName: "first",
       type: "string",
     },
     last: {
-      baseName: "last",
       type: "string",
     },
     next: {
-      baseName: "next",
       type: "string",
     },
     prev: {
-      baseName: "prev",
       type: "string",
     },
     self: {
-      baseName: "self",
       type: "string",
     },
   };

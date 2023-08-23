@@ -46,28 +46,22 @@ export class SecurityMonitoringSignalRuleQuery {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "SecurityMonitoringRuleQueryAggregation",
     },
     correlatedByFields: {
-      baseName: "correlatedByFields",
       type: "Array<string>",
     },
     correlatedQueryIndex: {
-      baseName: "correlatedQueryIndex",
       type: "number",
       format: "int32",
     },
     metrics: {
-      baseName: "metrics",
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     ruleId: {
-      baseName: "ruleId",
       type: "string",
       required: true,
     },

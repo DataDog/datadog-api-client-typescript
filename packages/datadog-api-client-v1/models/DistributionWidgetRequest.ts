@@ -107,11 +107,9 @@ export class DistributionWidgetRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "DistributionWidgetHistogramRequestQuery",
     },
     requestType: {
@@ -127,7 +125,6 @@ export class DistributionWidgetRequest {
       type: "LogQueryDefinition",
     },
     style: {
-      baseName: "style",
       type: "WidgetStyle",
     },
   };

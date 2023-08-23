@@ -26,7 +26,6 @@ export class UsageApplicationSecurityMonitoringResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<UsageDataObject>",
     },
   };

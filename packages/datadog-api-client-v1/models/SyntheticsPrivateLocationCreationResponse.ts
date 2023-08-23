@@ -35,7 +35,6 @@ export class SyntheticsPrivateLocationCreationResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
-      baseName: "config",
       type: "any",
     },
     privateLocation: {

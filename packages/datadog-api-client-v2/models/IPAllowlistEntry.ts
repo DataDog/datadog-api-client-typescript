@@ -26,7 +26,6 @@ export class IPAllowlistEntry {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IPAllowlistEntryData",
       required: true,
     },

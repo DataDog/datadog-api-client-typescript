@@ -26,7 +26,6 @@ export class GCPSTSDelegateAccountResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "GCPSTSDelegateAccount",
     },
   };

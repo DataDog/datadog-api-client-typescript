@@ -26,7 +26,6 @@ export class NotebookCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "NotebookCreateData",
       required: true,
     },

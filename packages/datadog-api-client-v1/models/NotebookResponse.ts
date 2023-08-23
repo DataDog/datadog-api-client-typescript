@@ -26,7 +26,6 @@ export class NotebookResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "NotebookResponseData",
     },
   };

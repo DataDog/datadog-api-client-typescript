@@ -34,16 +34,13 @@ export class CIAppCreatePipelineEventRequestAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     env: {
-      baseName: "env",
       type: "string",
     },
     resource: {
-      baseName: "resource",
       type: "CIAppCreatePipelineEventRequestAttributesResource",
       required: true,
     },
     service: {
-      baseName: "service",
       type: "string",
     },
   };

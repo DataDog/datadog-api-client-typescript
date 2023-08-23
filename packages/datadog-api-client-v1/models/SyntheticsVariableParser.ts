@@ -30,12 +30,10 @@ export class SyntheticsVariableParser {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
-      baseName: "type",
       type: "SyntheticsGlobalVariableParserType",
       required: true,
     },
     value: {
-      baseName: "value",
       type: "string",
     },
   };

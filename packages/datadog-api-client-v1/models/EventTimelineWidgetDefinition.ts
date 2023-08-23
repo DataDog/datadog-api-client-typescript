@@ -52,7 +52,6 @@ export class EventTimelineWidgetDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
@@ -61,11 +60,9 @@ export class EventTimelineWidgetDefinition {
       type: "string",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -77,7 +74,6 @@ export class EventTimelineWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "EventTimelineWidgetDefinitionType",
       required: true,
     },

@@ -83,7 +83,6 @@ export class HostMapWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     group: {
-      baseName: "group",
       type: "Array<string>",
     },
     noGroupHosts: {
@@ -99,24 +98,19 @@ export class HostMapWidgetDefinition {
       type: "WidgetNodeType",
     },
     notes: {
-      baseName: "notes",
       type: "string",
     },
     requests: {
-      baseName: "requests",
       type: "HostMapWidgetDefinitionRequests",
       required: true,
     },
     scope: {
-      baseName: "scope",
       type: "Array<string>",
     },
     style: {
-      baseName: "style",
       type: "HostMapWidgetDefinitionStyle",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -128,7 +122,6 @@ export class HostMapWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "HostMapWidgetDefinitionType",
       required: true,
     },

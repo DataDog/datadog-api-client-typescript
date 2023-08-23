@@ -30,11 +30,9 @@ export class HostMapWidgetDefinitionRequests {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     fill: {
-      baseName: "fill",
       type: "HostMapRequest",
     },
     size: {
-      baseName: "size",
       type: "HostMapRequest",
     },
   };

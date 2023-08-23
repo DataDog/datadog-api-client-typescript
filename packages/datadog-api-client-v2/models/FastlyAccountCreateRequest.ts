@@ -26,7 +26,6 @@ export class FastlyAccountCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "FastlyAccountCreateRequestData",
       required: true,
     },

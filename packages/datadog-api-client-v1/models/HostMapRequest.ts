@@ -83,7 +83,6 @@ export class HostMapRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     rumQuery: {

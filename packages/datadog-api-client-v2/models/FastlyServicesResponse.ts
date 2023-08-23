@@ -26,7 +26,6 @@ export class FastlyServicesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<FastlyServiceResponse>",
     },
   };

@@ -26,7 +26,6 @@ export class APIKeyUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "APIKeyUpdateData",
       required: true,
     },

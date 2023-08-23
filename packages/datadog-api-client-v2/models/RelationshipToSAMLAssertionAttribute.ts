@@ -26,7 +26,6 @@ export class RelationshipToSAMLAssertionAttribute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RelationshipToSAMLAssertionAttributeData",
       required: true,
     },

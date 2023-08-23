@@ -107,11 +107,9 @@ export class TableWidgetRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
-      baseName: "aggregator",
       type: "WidgetAggregator",
     },
     alias: {
-      baseName: "alias",
       type: "string",
     },
     apmQuery: {
@@ -135,11 +133,9 @@ export class TableWidgetRequest {
       type: "LogQueryDefinition",
     },
     formulas: {
-      baseName: "formulas",
       type: "Array<WidgetFormula>",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
@@ -152,7 +148,6 @@ export class TableWidgetRequest {
       type: "LogQueryDefinition",
     },
     order: {
-      baseName: "order",
       type: "WidgetSort",
     },
     processQuery: {
@@ -164,11 +159,9 @@ export class TableWidgetRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     queries: {
-      baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
     },
     responseFormat: {

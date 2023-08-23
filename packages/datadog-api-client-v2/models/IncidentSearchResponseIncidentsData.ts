@@ -26,7 +26,6 @@ export class IncidentSearchResponseIncidentsData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentResponseData",
       required: true,
     },

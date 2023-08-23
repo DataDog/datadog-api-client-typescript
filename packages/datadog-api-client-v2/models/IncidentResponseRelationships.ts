@@ -45,7 +45,6 @@ export class IncidentResponseRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attachments: {
-      baseName: "attachments",
       type: "RelationshipToIncidentAttachment",
     },
     commanderUser: {
@@ -57,7 +56,6 @@ export class IncidentResponseRelationships {
       type: "RelationshipToUser",
     },
     integrations: {
-      baseName: "integrations",
       type: "RelationshipToIncidentIntegrationMetadatas",
     },
     lastModifiedByUser: {

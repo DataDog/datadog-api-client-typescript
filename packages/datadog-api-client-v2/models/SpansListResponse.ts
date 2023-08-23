@@ -36,15 +36,12 @@ export class SpansListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<Span>",
     },
     links: {
-      baseName: "links",
       type: "SpansListResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "SpansListResponseMetadata",
     },
   };

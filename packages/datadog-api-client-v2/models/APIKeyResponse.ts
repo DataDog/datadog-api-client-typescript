@@ -31,11 +31,9 @@ export class APIKeyResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "FullAPIKey",
     },
     included: {
-      baseName: "included",
       type: "Array<APIKeyResponseIncludedItem>",
     },
   };

@@ -33,15 +33,12 @@ export class CIAppTestsQueryFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
-      baseName: "from",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     to: {
-      baseName: "to",
       type: "string",
     },
   };

@@ -26,7 +26,6 @@ export class CloudflareAccountUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "CloudflareAccountUpdateRequestData",
       required: true,
     },

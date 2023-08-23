@@ -29,7 +29,6 @@ export class ScalarMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     unit: {
-      baseName: "unit",
       type: "Array<Unit>",
     },
   };

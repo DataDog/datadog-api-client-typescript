@@ -41,24 +41,19 @@ export class IncidentSearchResponseUserFacetData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     count: {
-      baseName: "count",
       type: "number",
       format: "int32",
     },
     email: {
-      baseName: "email",
       type: "string",
     },
     handle: {
-      baseName: "handle",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     uuid: {
-      baseName: "uuid",
       type: "string",
     },
   };

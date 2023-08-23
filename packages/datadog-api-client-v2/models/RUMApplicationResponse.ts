@@ -26,7 +26,6 @@ export class RUMApplicationResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RUMApplication",
     },
   };

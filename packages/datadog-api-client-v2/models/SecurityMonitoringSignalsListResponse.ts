@@ -37,15 +37,12 @@ export class SecurityMonitoringSignalsListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<SecurityMonitoringSignal>",
     },
     links: {
-      baseName: "links",
       type: "SecurityMonitoringSignalsListResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "SecurityMonitoringSignalsListResponseMeta",
     },
   };

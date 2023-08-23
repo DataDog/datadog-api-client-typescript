@@ -43,11 +43,9 @@ export class SyntheticsTriggerCITestsResponse {
       type: "string",
     },
     locations: {
-      baseName: "locations",
       type: "Array<SyntheticsTriggerCITestLocation>",
     },
     results: {
-      baseName: "results",
       type: "Array<SyntheticsTriggerCITestRunResult>",
     },
     triggeredCheckIds: {

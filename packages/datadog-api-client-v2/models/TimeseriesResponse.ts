@@ -31,11 +31,9 @@ export class TimeseriesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "TimeseriesResponseAttributes",
     },
     type: {
-      baseName: "type",
       type: "TimeseriesFormulaResponseType",
     },
   };

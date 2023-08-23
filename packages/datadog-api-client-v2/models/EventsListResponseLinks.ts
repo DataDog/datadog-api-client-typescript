@@ -26,7 +26,6 @@ export class EventsListResponseLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     next: {
-      baseName: "next",
       type: "string",
     },
   };

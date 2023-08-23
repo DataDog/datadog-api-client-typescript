@@ -70,7 +70,6 @@ export class SLOStatus {
       type: "SLORawErrorBudgetRemaining",
     },
     sli: {
-      baseName: "sli",
       type: "number",
       format: "double",
     },
@@ -80,7 +79,6 @@ export class SLOStatus {
       format: "int64",
     },
     state: {
-      baseName: "state",
       type: "SLOState",
     },
   };

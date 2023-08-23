@@ -26,7 +26,6 @@ export class ConfluentAccountCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ConfluentAccountCreateRequestData",
       required: true,
     },

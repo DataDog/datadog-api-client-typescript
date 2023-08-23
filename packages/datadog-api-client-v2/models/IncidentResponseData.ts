@@ -40,20 +40,16 @@ export class IncidentResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "IncidentResponseAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "IncidentResponseRelationships",
     },
     type: {
-      baseName: "type",
       type: "IncidentType",
       required: true,
     },

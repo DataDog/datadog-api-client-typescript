@@ -41,15 +41,12 @@ export class Unit {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     family: {
-      baseName: "family",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     plural: {
-      baseName: "plural",
       type: "string",
     },
     scaleFactor: {

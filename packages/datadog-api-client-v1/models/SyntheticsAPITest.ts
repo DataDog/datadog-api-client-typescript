@@ -72,17 +72,14 @@ export class SyntheticsAPITest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
-      baseName: "config",
       type: "SyntheticsAPITestConfig",
       required: true,
     },
     locations: {
-      baseName: "locations",
       type: "Array<string>",
       required: true,
     },
     message: {
-      baseName: "message",
       type: "string",
       required: true,
     },
@@ -92,12 +89,10 @@ export class SyntheticsAPITest {
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     options: {
-      baseName: "options",
       type: "SyntheticsTestOptions",
       required: true,
     },
@@ -106,19 +101,15 @@ export class SyntheticsAPITest {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "SyntheticsTestPauseStatus",
     },
     subtype: {
-      baseName: "subtype",
       type: "SyntheticsTestDetailsSubType",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsAPITestType",
       required: true,
     },

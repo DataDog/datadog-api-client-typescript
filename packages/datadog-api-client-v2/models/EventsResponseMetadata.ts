@@ -44,12 +44,10 @@ export class EventsResponseMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     elapsed: {
-      baseName: "elapsed",
       type: "number",
       format: "int64",
     },
     page: {
-      baseName: "page",
       type: "EventsResponseMetadataPage",
     },
     requestId: {
@@ -57,11 +55,9 @@ export class EventsResponseMetadata {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
     warnings: {
-      baseName: "warnings",
       type: "Array<EventsWarning>",
     },
   };

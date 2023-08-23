@@ -71,7 +71,6 @@ export class LogsAttributeRemapper {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     overrideOnConflict: {
@@ -87,12 +86,10 @@ export class LogsAttributeRemapper {
       type: "string",
     },
     sources: {
-      baseName: "sources",
       type: "Array<string>",
       required: true,
     },
     target: {
-      baseName: "target",
       type: "string",
       required: true,
     },
@@ -105,7 +102,6 @@ export class LogsAttributeRemapper {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "LogsAttributeRemapperType",
       required: true,
     },

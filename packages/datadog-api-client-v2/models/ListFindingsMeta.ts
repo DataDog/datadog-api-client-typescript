@@ -30,7 +30,6 @@ export class ListFindingsMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "ListFindingsPage",
     },
     snapshotTimestamp: {

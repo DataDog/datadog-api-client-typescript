@@ -35,15 +35,12 @@ export class MetricTagConfiguration {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MetricTagConfigurationAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "MetricTagConfigurationType",
     },
   };

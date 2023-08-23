@@ -45,7 +45,6 @@ export class MonitorThresholds {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     critical: {
-      baseName: "critical",
       type: "number",
       format: "double",
     },
@@ -55,17 +54,14 @@ export class MonitorThresholds {
       format: "double",
     },
     ok: {
-      baseName: "ok",
       type: "number",
       format: "double",
     },
     unknown: {
-      baseName: "unknown",
       type: "number",
       format: "double",
     },
     warning: {
-      baseName: "warning",
       type: "number",
       format: "double",
     },

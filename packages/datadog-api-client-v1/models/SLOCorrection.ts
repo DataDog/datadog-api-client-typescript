@@ -35,15 +35,12 @@ export class SLOCorrection {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SLOCorrectionResponseAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SLOCorrectionType",
     },
   };

@@ -84,7 +84,6 @@ export class CIAppGitInfo {
       type: "string",
     },
     branch: {
-      baseName: "branch",
       type: "string",
     },
     commitTime: {
@@ -105,7 +104,6 @@ export class CIAppGitInfo {
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     repositoryUrl: {
@@ -114,12 +112,10 @@ export class CIAppGitInfo {
       required: true,
     },
     sha: {
-      baseName: "sha",
       type: "string",
       required: true,
     },
     tag: {
-      baseName: "tag",
       type: "string",
     },
   };

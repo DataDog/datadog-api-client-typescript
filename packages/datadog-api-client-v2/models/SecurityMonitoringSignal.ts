@@ -36,15 +36,12 @@ export class SecurityMonitoringSignal {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SecurityMonitoringSignalAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SecurityMonitoringSignalType",
     },
   };

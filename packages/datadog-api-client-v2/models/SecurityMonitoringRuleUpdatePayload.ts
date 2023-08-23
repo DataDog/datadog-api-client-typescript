@@ -70,47 +70,36 @@ export class SecurityMonitoringRuleUpdatePayload {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cases: {
-      baseName: "cases",
       type: "Array<SecurityMonitoringRuleCase>",
     },
     complianceSignalOptions: {
-      baseName: "complianceSignalOptions",
       type: "CloudConfigurationRuleComplianceSignalOptions",
     },
     filters: {
-      baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
     },
     hasExtendedTitle: {
-      baseName: "hasExtendedTitle",
       type: "boolean",
     },
     isEnabled: {
-      baseName: "isEnabled",
       type: "boolean",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     options: {
-      baseName: "options",
       type: "SecurityMonitoringRuleOptions",
     },
     queries: {
-      baseName: "queries",
       type: "Array<SecurityMonitoringRuleQuery>",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int32",
     },

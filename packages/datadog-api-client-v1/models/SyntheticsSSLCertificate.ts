@@ -71,53 +71,41 @@ export class SyntheticsSSLCertificate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cipher: {
-      baseName: "cipher",
       type: "string",
     },
     exponent: {
-      baseName: "exponent",
       type: "number",
       format: "double",
     },
     extKeyUsage: {
-      baseName: "extKeyUsage",
       type: "Array<string>",
     },
     fingerprint: {
-      baseName: "fingerprint",
       type: "string",
     },
     fingerprint256: {
-      baseName: "fingerprint256",
       type: "string",
     },
     issuer: {
-      baseName: "issuer",
       type: "SyntheticsSSLCertificateIssuer",
     },
     modulus: {
-      baseName: "modulus",
       type: "string",
     },
     protocol: {
-      baseName: "protocol",
       type: "string",
     },
     serialNumber: {
-      baseName: "serialNumber",
       type: "string",
     },
     subject: {
-      baseName: "subject",
       type: "SyntheticsSSLCertificateSubject",
     },
     validFrom: {
-      baseName: "validFrom",
       type: "Date",
       format: "date-time",
     },
     validTo: {
-      baseName: "validTo",
       type: "Date",
       format: "date-time",
     },

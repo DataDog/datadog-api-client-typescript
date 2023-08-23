@@ -45,19 +45,15 @@ export class FullApplicationKeyAttributes {
       type: "string",
     },
     key: {
-      baseName: "key",
       type: "string",
     },
     last4: {
-      baseName: "last4",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     scopes: {
-      baseName: "scopes",
       type: "Array<string>",
     },
   };

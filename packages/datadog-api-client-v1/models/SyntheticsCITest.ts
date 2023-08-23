@@ -81,43 +81,33 @@ export class SyntheticsCITest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     allowInsecureCertificates: {
-      baseName: "allowInsecureCertificates",
       type: "boolean",
     },
     basicAuth: {
-      baseName: "basicAuth",
       type: "SyntheticsBasicAuth",
     },
     body: {
-      baseName: "body",
       type: "string",
     },
     bodyType: {
-      baseName: "bodyType",
       type: "string",
     },
     cookies: {
-      baseName: "cookies",
       type: "string",
     },
     deviceIds: {
-      baseName: "deviceIds",
       type: "Array<SyntheticsDeviceID>",
     },
     followRedirects: {
-      baseName: "followRedirects",
       type: "boolean",
     },
     headers: {
-      baseName: "headers",
       type: "{ [key: string]: string; }",
     },
     locations: {
-      baseName: "locations",
       type: "Array<string>",
     },
     metadata: {
-      baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
     },
     publicId: {
@@ -126,15 +116,12 @@ export class SyntheticsCITest {
       required: true,
     },
     retry: {
-      baseName: "retry",
       type: "SyntheticsTestOptionsRetry",
     },
     startUrl: {
-      baseName: "startUrl",
       type: "string",
     },
     variables: {
-      baseName: "variables",
       type: "{ [key: string]: string; }",
     },
   };

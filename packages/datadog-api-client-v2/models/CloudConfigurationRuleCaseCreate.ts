@@ -30,11 +30,9 @@ export class CloudConfigurationRuleCaseCreate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     notifications: {
-      baseName: "notifications",
       type: "Array<string>",
     },
     status: {
-      baseName: "status",
       type: "SecurityMonitoringRuleSeverity",
       required: true,
     },

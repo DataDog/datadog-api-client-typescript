@@ -30,7 +30,6 @@ export class AWSTagFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     namespace: {
-      baseName: "namespace",
       type: "AWSNamespace",
     },
     tagFilterStr: {

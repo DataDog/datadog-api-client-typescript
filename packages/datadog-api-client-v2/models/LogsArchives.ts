@@ -26,7 +26,6 @@ export class LogsArchives {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<LogsArchiveDefinition>",
     },
   };

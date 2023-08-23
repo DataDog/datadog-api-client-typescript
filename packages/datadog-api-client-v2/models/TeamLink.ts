@@ -35,17 +35,14 @@ export class TeamLink {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "TeamLinkAttributes",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "TeamLinkType",
       required: true,
     },

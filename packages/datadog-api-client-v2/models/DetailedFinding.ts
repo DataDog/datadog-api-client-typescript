@@ -35,15 +35,12 @@ export class DetailedFinding {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "DetailedFindingAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "DetailedFindingType",
     },
   };

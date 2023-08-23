@@ -43,7 +43,6 @@ export class RoleCreateAttributes {
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },

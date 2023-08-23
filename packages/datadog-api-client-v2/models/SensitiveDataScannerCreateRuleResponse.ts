@@ -31,11 +31,9 @@ export class SensitiveDataScannerCreateRuleResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SensitiveDataScannerRuleResponse",
     },
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMetaVersionOnly",
     },
   };

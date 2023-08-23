@@ -36,15 +36,12 @@ export class CloudConfigurationComplianceRuleOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     complexRule: {
-      baseName: "complexRule",
       type: "boolean",
     },
     regoRule: {
-      baseName: "regoRule",
       type: "CloudConfigurationRegoRule",
     },
     resourceType: {
-      baseName: "resourceType",
       type: "string",
     },
   };

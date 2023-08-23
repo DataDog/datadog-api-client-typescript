@@ -26,7 +26,6 @@ export class RoleResponseRelationships {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     permissions: {
-      baseName: "permissions",
       type: "RelationshipToPermissions",
     },
   };

@@ -26,7 +26,6 @@ export class ServiceDefinitionCreateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<ServiceDefinitionData>",
     },
   };

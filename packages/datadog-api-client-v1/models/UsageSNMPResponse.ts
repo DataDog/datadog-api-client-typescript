@@ -26,7 +26,6 @@ export class UsageSNMPResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageSNMPHour>",
     },
   };

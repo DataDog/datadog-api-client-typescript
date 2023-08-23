@@ -29,7 +29,6 @@ export class IncidentAttachmentUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<IncidentAttachmentUpdateData>",
       required: true,
     },

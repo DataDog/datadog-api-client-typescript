@@ -53,7 +53,6 @@ export class FormulaAndFunctionEventQueryDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "FormulaAndFunctionEventQueryDefinitionCompute",
       required: true,
     },
@@ -67,20 +66,16 @@ export class FormulaAndFunctionEventQueryDefinition {
       type: "Array<FormulaAndFunctionEventQueryGroupBy>",
     },
     indexes: {
-      baseName: "indexes",
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     search: {
-      baseName: "search",
       type: "FormulaAndFunctionEventQueryDefinitionSearch",
     },
     storage: {
-      baseName: "storage",
       type: "string",
     },
   };

@@ -35,15 +35,12 @@ export class SensitiveDataScannerReorderConfig {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "SensitiveDataScannerConfigurationRelationships",
     },
     type: {
-      baseName: "type",
       type: "SensitiveDataScannerConfigurationType",
     },
   };

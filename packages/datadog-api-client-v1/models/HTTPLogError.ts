@@ -29,13 +29,11 @@ export class HTTPLogError {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
-      baseName: "code",
       type: "number",
       required: true,
       format: "int32",
     },
     message: {
-      baseName: "message",
       type: "string",
       required: true,
     },

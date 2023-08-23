@@ -41,12 +41,10 @@ export class ProcessQueryDefinition {
       type: "Array<string>",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
     metric: {
-      baseName: "metric",
       type: "string",
       required: true,
     },

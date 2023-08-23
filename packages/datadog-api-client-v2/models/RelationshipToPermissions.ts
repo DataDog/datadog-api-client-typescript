@@ -26,7 +26,6 @@ export class RelationshipToPermissions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<RelationshipToPermissionData>",
     },
   };

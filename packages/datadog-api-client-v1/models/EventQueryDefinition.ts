@@ -29,7 +29,6 @@ export class EventQueryDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     search: {
-      baseName: "search",
       type: "string",
       required: true,
     },

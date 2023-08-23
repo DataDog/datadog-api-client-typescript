@@ -87,23 +87,18 @@ export class SLOHistoryResponseData {
       type: "Array<string>",
     },
     groups: {
-      baseName: "groups",
       type: "Array<SLOHistoryMonitor>",
     },
     monitors: {
-      baseName: "monitors",
       type: "Array<SLOHistoryMonitor>",
     },
     overall: {
-      baseName: "overall",
       type: "SLOHistorySLIData",
     },
     series: {
-      baseName: "series",
       type: "SLOHistoryMetrics",
     },
     thresholds: {
-      baseName: "thresholds",
       type: "{ [key: string]: SLOThreshold; }",
     },
     toTs: {
@@ -112,7 +107,6 @@ export class SLOHistoryResponseData {
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "SLOType",
     },
     typeId: {

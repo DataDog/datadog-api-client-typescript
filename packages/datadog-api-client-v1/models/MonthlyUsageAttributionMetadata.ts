@@ -31,11 +31,9 @@ export class MonthlyUsageAttributionMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregates: {
-      baseName: "aggregates",
       type: "Array<UsageAttributionAggregatesBody>",
     },
     pagination: {
-      baseName: "pagination",
       type: "MonthlyUsageAttributionPagination",
     },
   };

@@ -87,7 +87,6 @@ export class GCPAccount {
       type: "string",
     },
     automute: {
-      baseName: "automute",
       type: "boolean",
     },
     clientEmail: {
@@ -103,7 +102,6 @@ export class GCPAccount {
       type: "string",
     },
     errors: {
-      baseName: "errors",
       type: "Array<string>",
     },
     hostFilters: {
@@ -131,7 +129,6 @@ export class GCPAccount {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };

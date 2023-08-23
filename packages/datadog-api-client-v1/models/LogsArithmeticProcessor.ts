@@ -67,7 +67,6 @@ export class LogsArithmeticProcessor {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     expression: {
-      baseName: "expression",
       type: "string",
       required: true,
     },
@@ -80,16 +79,13 @@ export class LogsArithmeticProcessor {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     target: {
-      baseName: "target",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsArithmeticProcessorType",
       required: true,
     },

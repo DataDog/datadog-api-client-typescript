@@ -75,16 +75,13 @@ export class ScatterPlotWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     requests: {
-      baseName: "requests",
       type: "ScatterPlotWidgetDefinitionRequests",
       required: true,
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -96,16 +93,13 @@ export class ScatterPlotWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ScatterPlotWidgetDefinitionType",
       required: true,
     },
     xaxis: {
-      baseName: "xaxis",
       type: "WidgetAxis",
     },
     yaxis: {
-      baseName: "yaxis",
       type: "WidgetAxis",
     },
   };

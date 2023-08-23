@@ -32,11 +32,9 @@ export class SLOBulkDeleteResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     deleted: {
-      baseName: "deleted",
       type: "Array<string>",
     },
     updated: {
-      baseName: "updated",
       type: "Array<string>",
     },
   };

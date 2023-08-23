@@ -40,19 +40,15 @@ export class FullApplicationKey {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "FullApplicationKeyAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "ApplicationKeyRelationships",
     },
     type: {
-      baseName: "type",
       type: "ApplicationKeysType",
     },
   };

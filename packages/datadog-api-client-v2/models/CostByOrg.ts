@@ -35,15 +35,12 @@ export class CostByOrg {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "CostByOrgAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "CostByOrgType",
     },
   };

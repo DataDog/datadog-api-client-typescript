@@ -31,12 +31,10 @@ export class APIKeyCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "APIKeyCreateAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "APIKeysType",
       required: true,
     },

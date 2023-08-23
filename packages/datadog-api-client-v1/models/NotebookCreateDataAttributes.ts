@@ -45,25 +45,20 @@ export class NotebookCreateDataAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cells: {
-      baseName: "cells",
       type: "Array<NotebookCellCreateRequest>",
       required: true,
     },
     metadata: {
-      baseName: "metadata",
       type: "NotebookMetadata",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     status: {
-      baseName: "status",
       type: "NotebookStatus",
     },
     time: {
-      baseName: "time",
       type: "NotebookGlobalTime",
       required: true,
     },

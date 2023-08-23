@@ -35,16 +35,13 @@ export class RUMApplicationUpdate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "RUMApplicationUpdateAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "RUMApplicationUpdateType",
       required: true,
     },

@@ -49,11 +49,9 @@ export class OrganizationCreateResponse {
       type: "ApplicationKey",
     },
     org: {
-      baseName: "org",
       type: "Organization",
     },
     user: {
-      baseName: "user",
       type: "User",
     },
   };

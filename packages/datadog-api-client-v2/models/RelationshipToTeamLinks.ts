@@ -31,11 +31,9 @@ export class RelationshipToTeamLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<RelationshipToTeamLinkData>",
     },
     links: {
-      baseName: "links",
       type: "TeamRelationshipsLinks",
     },
   };

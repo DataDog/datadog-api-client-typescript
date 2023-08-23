@@ -55,7 +55,6 @@ export class SyntheticsAPITestResultShort {
       type: "string",
     },
     result: {
-      baseName: "result",
       type: "SyntheticsAPITestResultShortResult",
     },
     resultId: {
@@ -63,7 +62,6 @@ export class SyntheticsAPITestResultShort {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "SyntheticsTestMonitorStatus",
       format: "int64",
     },

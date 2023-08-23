@@ -118,7 +118,6 @@ export class ChangeWidgetRequest {
       type: "LogQueryDefinition",
     },
     formulas: {
-      baseName: "formulas",
       type: "Array<WidgetFormula>",
     },
     increaseGood: {
@@ -150,11 +149,9 @@ export class ChangeWidgetRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     queries: {
-      baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
     },
     responseFormat: {

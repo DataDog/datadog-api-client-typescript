@@ -26,7 +26,6 @@ export class OpsgenieServiceCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "OpsgenieServiceCreateData",
       required: true,
     },

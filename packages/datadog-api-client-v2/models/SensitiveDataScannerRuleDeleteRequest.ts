@@ -26,7 +26,6 @@ export class SensitiveDataScannerRuleDeleteRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMetaVersionOnly",
       required: true,
     },

@@ -30,12 +30,10 @@ export class DashboardListItemRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "DashboardType",
       required: true,
     },

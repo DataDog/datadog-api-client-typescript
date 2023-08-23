@@ -39,20 +39,16 @@ export class SignalStateUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     archiveComment: {
-      baseName: "archiveComment",
       type: "string",
     },
     archiveReason: {
-      baseName: "archiveReason",
       type: "SignalArchiveReason",
     },
     state: {
-      baseName: "state",
       type: "SignalTriageState",
       required: true,
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },

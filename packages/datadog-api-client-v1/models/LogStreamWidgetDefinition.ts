@@ -78,15 +78,12 @@ export class LogStreamWidgetDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
-      baseName: "columns",
       type: "Array<string>",
     },
     indexes: {
-      baseName: "indexes",
       type: "Array<string>",
     },
     logset: {
-      baseName: "logset",
       type: "string",
     },
     messageDisplay: {
@@ -94,7 +91,6 @@ export class LogStreamWidgetDefinition {
       type: "WidgetMessageDisplay",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     showDateColumn: {
@@ -106,15 +102,12 @@ export class LogStreamWidgetDefinition {
       type: "boolean",
     },
     sort: {
-      baseName: "sort",
       type: "WidgetFieldSort",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -126,7 +119,6 @@ export class LogStreamWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "LogStreamWidgetDefinitionType",
       required: true,
     },

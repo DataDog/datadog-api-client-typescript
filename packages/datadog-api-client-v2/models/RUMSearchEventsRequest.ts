@@ -42,19 +42,15 @@ export class RUMSearchEventsRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "RUMQueryFilter",
     },
     options: {
-      baseName: "options",
       type: "RUMQueryOptions",
     },
     page: {
-      baseName: "page",
       type: "RUMQueryPageOptions",
     },
     sort: {
-      baseName: "sort",
       type: "RUMSort",
     },
   };

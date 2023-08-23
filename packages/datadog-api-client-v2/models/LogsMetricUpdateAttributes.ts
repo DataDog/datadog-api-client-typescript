@@ -36,11 +36,9 @@ export class LogsMetricUpdateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "LogsMetricUpdateCompute",
     },
     filter: {
-      baseName: "filter",
       type: "LogsMetricFilter",
     },
     groupBy: {

@@ -71,17 +71,14 @@ export class SyntheticsBrowserTest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
-      baseName: "config",
       type: "SyntheticsBrowserTestConfig",
       required: true,
     },
     locations: {
-      baseName: "locations",
       type: "Array<string>",
       required: true,
     },
     message: {
-      baseName: "message",
       type: "string",
       required: true,
     },
@@ -91,12 +88,10 @@ export class SyntheticsBrowserTest {
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     options: {
-      baseName: "options",
       type: "SyntheticsTestOptions",
       required: true,
     },
@@ -105,19 +100,15 @@ export class SyntheticsBrowserTest {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "SyntheticsTestPauseStatus",
     },
     steps: {
-      baseName: "steps",
       type: "Array<SyntheticsStep>",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsBrowserTestType",
       required: true,
     },

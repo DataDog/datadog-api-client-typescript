@@ -25,7 +25,6 @@ export class LogsMetricResponseFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "string",
     },
   };

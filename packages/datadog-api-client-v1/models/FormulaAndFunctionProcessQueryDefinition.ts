@@ -60,7 +60,6 @@ export class FormulaAndFunctionProcessQueryDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
-      baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
     },
     dataSource: {
@@ -73,22 +72,18 @@ export class FormulaAndFunctionProcessQueryDefinition {
       type: "boolean",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
     metric: {
-      baseName: "metric",
       type: "string",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     sort: {
-      baseName: "sort",
       type: "QuerySortOrder",
     },
     tagFilters: {

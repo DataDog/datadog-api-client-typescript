@@ -35,16 +35,13 @@ export class UserTeamPermission {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "UserTeamPermissionAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "UserTeamPermissionType",
       required: true,
     },

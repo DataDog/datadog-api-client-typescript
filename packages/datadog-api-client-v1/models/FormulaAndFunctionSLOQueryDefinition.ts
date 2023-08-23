@@ -66,12 +66,10 @@ export class FormulaAndFunctionSLOQueryDefinition {
       type: "FormulaAndFunctionSLOGroupMode",
     },
     measure: {
-      baseName: "measure",
       type: "FormulaAndFunctionSLOMeasure",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     sloId: {

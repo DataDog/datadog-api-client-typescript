@@ -30,11 +30,9 @@ export class SyntheticsLocation {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };

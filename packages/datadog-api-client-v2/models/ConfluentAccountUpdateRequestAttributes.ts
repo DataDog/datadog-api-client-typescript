@@ -43,7 +43,6 @@ export class ConfluentAccountUpdateRequestAttributes {
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };

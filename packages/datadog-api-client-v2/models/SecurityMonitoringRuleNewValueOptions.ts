@@ -42,21 +42,17 @@ export class SecurityMonitoringRuleNewValueOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     forgetAfter: {
-      baseName: "forgetAfter",
       type: "SecurityMonitoringRuleNewValueOptionsForgetAfter",
       format: "int32",
     },
     learningDuration: {
-      baseName: "learningDuration",
       type: "SecurityMonitoringRuleNewValueOptionsLearningDuration",
       format: "int32",
     },
     learningMethod: {
-      baseName: "learningMethod",
       type: "SecurityMonitoringRuleNewValueOptionsLearningMethod",
     },
     learningThreshold: {
-      baseName: "learningThreshold",
       type: "SecurityMonitoringRuleNewValueOptionsLearningThreshold",
       format: "int32",
     },

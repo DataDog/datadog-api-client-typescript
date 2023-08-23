@@ -39,19 +39,15 @@ export class SensitiveDataScannerGetConfigResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "{ [key: string]: any; }",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "SensitiveDataScannerConfigurationRelationships",
     },
     type: {
-      baseName: "type",
       type: "SensitiveDataScannerConfigurationType",
     },
   };

@@ -61,7 +61,6 @@ export class FindingAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     evaluation: {
-      baseName: "evaluation",
       type: "FindingEvaluation",
     },
     evaluationChangedAt: {
@@ -70,11 +69,9 @@ export class FindingAttributes {
       format: "int64",
     },
     mute: {
-      baseName: "mute",
       type: "FindingMute",
     },
     resource: {
-      baseName: "resource",
       type: "string",
     },
     resourceDiscoveryDate: {
@@ -87,15 +84,12 @@ export class FindingAttributes {
       type: "string",
     },
     rule: {
-      baseName: "rule",
       type: "FindingRule",
     },
     status: {
-      baseName: "status",
       type: "FindingStatus",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };

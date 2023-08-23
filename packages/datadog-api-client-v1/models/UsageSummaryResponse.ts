@@ -848,7 +848,6 @@ export class UsageSummaryResponse {
       format: "int64",
     },
     usage: {
-      baseName: "usage",
       type: "Array<UsageSummaryDate>",
     },
     vsphereHostTop99pSum: {

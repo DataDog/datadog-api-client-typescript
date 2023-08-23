@@ -26,7 +26,6 @@ export class HTTPCIAppErrors {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
-      baseName: "errors",
       type: "Array<HTTPCIAppError>",
     },
   };

@@ -31,12 +31,10 @@ export class ConfluentAccountUpdateRequestData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "ConfluentAccountUpdateRequestAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "ConfluentAccountType",
       required: true,
     },

@@ -26,7 +26,6 @@ export class SensitiveDataScannerReorderGroupsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMeta",
     },
   };

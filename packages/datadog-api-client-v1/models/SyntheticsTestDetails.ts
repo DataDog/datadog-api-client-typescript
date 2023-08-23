@@ -82,19 +82,15 @@ export class SyntheticsTestDetails {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
-      baseName: "config",
       type: "SyntheticsTestConfig",
     },
     creator: {
-      baseName: "creator",
       type: "Creator",
     },
     locations: {
-      baseName: "locations",
       type: "Array<string>",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     monitorId: {
@@ -103,11 +99,9 @@ export class SyntheticsTestDetails {
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     options: {
-      baseName: "options",
       type: "SyntheticsTestOptions",
     },
     publicId: {
@@ -115,23 +109,18 @@ export class SyntheticsTestDetails {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "SyntheticsTestPauseStatus",
     },
     steps: {
-      baseName: "steps",
       type: "Array<SyntheticsStep>",
     },
     subtype: {
-      baseName: "subtype",
       type: "SyntheticsTestDetailsSubType",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsTestDetailsType",
     },
   };

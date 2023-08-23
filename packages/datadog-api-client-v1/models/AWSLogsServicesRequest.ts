@@ -34,7 +34,6 @@ export class AWSLogsServicesRequest {
       required: true,
     },
     services: {
-      baseName: "services",
       type: "Array<string>",
       required: true,
     },

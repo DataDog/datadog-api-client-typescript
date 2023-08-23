@@ -36,15 +36,12 @@ export class SyntheticsBatchDetailsData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
-      baseName: "metadata",
       type: "SyntheticsCIBatchMetadata",
     },
     results: {
-      baseName: "results",
       type: "Array<SyntheticsBatchResult>",
     },
     status: {
-      baseName: "status",
       type: "SyntheticsStatus",
     },
   };

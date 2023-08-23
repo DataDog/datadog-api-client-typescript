@@ -36,16 +36,13 @@ export class IncidentTodoListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<IncidentTodoResponseData>",
       required: true,
     },
     included: {
-      baseName: "included",
       type: "Array<IncidentTodoResponseIncludedItem>",
     },
     meta: {
-      baseName: "meta",
       type: "IncidentResponseMeta",
     },
   };

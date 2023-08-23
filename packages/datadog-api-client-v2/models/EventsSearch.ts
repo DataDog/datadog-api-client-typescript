@@ -25,7 +25,6 @@ export class EventsSearch {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "string",
     },
   };

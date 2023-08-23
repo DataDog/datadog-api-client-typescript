@@ -49,7 +49,6 @@ export class EventsScalarQuery {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "EventsCompute",
       required: true,
     },
@@ -63,15 +62,12 @@ export class EventsScalarQuery {
       type: "Array<EventsGroupBy>",
     },
     indexes: {
-      baseName: "indexes",
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     search: {
-      baseName: "search",
       type: "EventsSearch",
     },
   };

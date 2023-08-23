@@ -27,7 +27,6 @@ export class MonitorState {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     groups: {
-      baseName: "groups",
       type: "{ [key: string]: MonitorStateGroup; }",
     },
   };

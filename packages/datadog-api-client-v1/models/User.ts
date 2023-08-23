@@ -54,29 +54,23 @@ export class User {
       type: "AccessRole",
     },
     disabled: {
-      baseName: "disabled",
       type: "boolean",
     },
     email: {
-      baseName: "email",
       type: "string",
       format: "email",
     },
     handle: {
-      baseName: "handle",
       type: "string",
       format: "email",
     },
     icon: {
-      baseName: "icon",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     verified: {
-      baseName: "verified",
       type: "boolean",
     },
   };

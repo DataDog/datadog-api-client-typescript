@@ -31,7 +31,6 @@ export class IncidentAttachmentLinkAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attachment: {
-      baseName: "attachment",
       type: "IncidentAttachmentLinkAttributesAttachmentObject",
       required: true,
     },

@@ -35,15 +35,12 @@ export class MetricDistinctVolume {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MetricDistinctVolumeAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "MetricDistinctVolumeType",
     },
   };

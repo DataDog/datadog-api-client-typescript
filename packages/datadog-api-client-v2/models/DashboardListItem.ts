@@ -79,20 +79,16 @@ export class DashboardListItem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     author: {
-      baseName: "author",
       type: "Creator",
     },
     created: {
-      baseName: "created",
       type: "Date",
       format: "date-time",
     },
     icon: {
-      baseName: "icon",
       type: "string",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
@@ -113,30 +109,24 @@ export class DashboardListItem {
       type: "boolean",
     },
     modified: {
-      baseName: "modified",
       type: "Date",
       format: "date-time",
     },
     popularity: {
-      baseName: "popularity",
       type: "number",
       format: "int32",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "DashboardType",
       required: true,
     },
     url: {
-      baseName: "url",
       type: "string",
     },
   };

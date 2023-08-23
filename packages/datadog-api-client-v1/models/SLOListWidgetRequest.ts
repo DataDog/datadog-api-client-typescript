@@ -31,7 +31,6 @@ export class SLOListWidgetRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     query: {
-      baseName: "query",
       type: "SLOListWidgetQuery",
       required: true,
     },

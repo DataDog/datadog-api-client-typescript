@@ -48,15 +48,12 @@ export class SLOHistoryMetricsSeriesMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggr: {
-      baseName: "aggr",
       type: "string",
     },
     expression: {
-      baseName: "expression",
       type: "string",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     queryIndex: {
@@ -65,11 +62,9 @@ export class SLOHistoryMetricsSeriesMetadata {
       format: "int64",
     },
     scope: {
-      baseName: "scope",
       type: "string",
     },
     unit: {
-      baseName: "unit",
       type: "Array<SLOHistoryMetricsSeriesMetadataUnit>",
     },
   };

@@ -58,27 +58,22 @@ export class SLOHistoryMetrics {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     denominator: {
-      baseName: "denominator",
       type: "SLOHistoryMetricsSeries",
       required: true,
     },
     interval: {
-      baseName: "interval",
       type: "number",
       required: true,
       format: "int64",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     numerator: {
-      baseName: "numerator",
       type: "SLOHistoryMetricsSeries",
       required: true,
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
@@ -94,7 +89,6 @@ export class SLOHistoryMetrics {
       format: "int64",
     },
     times: {
-      baseName: "times",
       type: "Array<number>",
       required: true,
       format: "double",

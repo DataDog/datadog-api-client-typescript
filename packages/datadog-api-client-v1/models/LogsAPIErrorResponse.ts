@@ -26,7 +26,6 @@ export class LogsAPIErrorResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
-      baseName: "error",
       type: "LogsAPIError",
     },
   };

@@ -86,7 +86,6 @@ export class RUMApplicationAttributes {
       required: true,
     },
     hash: {
-      baseName: "hash",
       type: "string",
     },
     isActive: {
@@ -94,7 +93,6 @@ export class RUMApplicationAttributes {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
@@ -105,7 +103,6 @@ export class RUMApplicationAttributes {
       format: "int32",
     },
     type: {
-      baseName: "type",
       type: "string",
       required: true,
     },

@@ -31,11 +31,9 @@ export class UsageCustomReportsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<UsageCustomReportsData>",
     },
     meta: {
-      baseName: "meta",
       type: "UsageCustomReportsMeta",
     },
   };

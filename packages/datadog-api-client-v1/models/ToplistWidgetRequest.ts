@@ -104,7 +104,6 @@ export class ToplistWidgetRequest {
       type: "LogQueryDefinition",
     },
     formulas: {
-      baseName: "formulas",
       type: "Array<WidgetFormula>",
     },
     logQuery: {
@@ -124,11 +123,9 @@ export class ToplistWidgetRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     queries: {
-      baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
     },
     responseFormat: {
@@ -144,7 +141,6 @@ export class ToplistWidgetRequest {
       type: "LogQueryDefinition",
     },
     style: {
-      baseName: "style",
       type: "WidgetRequestStyle",
     },
   };

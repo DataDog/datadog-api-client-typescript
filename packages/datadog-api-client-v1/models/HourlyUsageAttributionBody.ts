@@ -62,7 +62,6 @@ export class HourlyUsageAttributionBody {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },
@@ -75,7 +74,6 @@ export class HourlyUsageAttributionBody {
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     tagConfigSource: {
@@ -83,7 +81,6 @@ export class HourlyUsageAttributionBody {
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "{ [key: string]: Array<string>; }",
     },
     totalUsageSum: {

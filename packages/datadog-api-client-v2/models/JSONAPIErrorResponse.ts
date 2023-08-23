@@ -26,7 +26,6 @@ export class JSONAPIErrorResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
-      baseName: "errors",
       type: "Array<JSONAPIErrorItem>",
       required: true,
     },

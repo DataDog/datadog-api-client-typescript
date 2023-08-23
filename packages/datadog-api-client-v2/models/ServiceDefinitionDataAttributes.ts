@@ -31,11 +31,9 @@ export class ServiceDefinitionDataAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     meta: {
-      baseName: "meta",
       type: "ServiceDefinitionMeta",
     },
     schema: {
-      baseName: "schema",
       type: "ServiceDefinitionSchema",
     },
   };

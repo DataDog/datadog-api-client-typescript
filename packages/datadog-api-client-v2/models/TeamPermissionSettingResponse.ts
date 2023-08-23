@@ -26,7 +26,6 @@ export class TeamPermissionSettingResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "TeamPermissionSetting",
     },
   };

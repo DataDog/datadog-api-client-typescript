@@ -26,7 +26,6 @@ export class ConfluentResourceRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ConfluentResourceRequestData",
       required: true,
     },

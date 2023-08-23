@@ -26,7 +26,6 @@ export class SyntheticsListGlobalVariablesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     variables: {
-      baseName: "variables",
       type: "Array<SyntheticsGlobalVariable>",
     },
   };

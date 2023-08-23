@@ -40,19 +40,15 @@ export class UserInvitationResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "UserInvitationDataAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     relationships: {
-      baseName: "relationships",
       type: "UserInvitationRelationships",
     },
     type: {
-      baseName: "type",
       type: "UserInvitationsType",
     },
   };

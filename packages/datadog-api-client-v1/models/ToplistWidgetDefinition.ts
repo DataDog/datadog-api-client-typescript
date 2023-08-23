@@ -58,16 +58,13 @@ export class ToplistWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     requests: {
-      baseName: "requests",
       type: "Array<ToplistWidgetRequest>",
       required: true,
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -79,7 +76,6 @@ export class ToplistWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ToplistWidgetDefinitionType",
       required: true,
     },

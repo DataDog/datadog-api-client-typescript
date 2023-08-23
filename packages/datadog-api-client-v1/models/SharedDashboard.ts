@@ -70,7 +70,6 @@ export class SharedDashboard {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     author: {
-      baseName: "author",
       type: "SharedDashboardAuthor",
     },
     createdAt: {
@@ -114,7 +113,6 @@ export class SharedDashboard {
       type: "DashboardShareType",
     },
     token: {
-      baseName: "token",
       type: "string",
     },
   };

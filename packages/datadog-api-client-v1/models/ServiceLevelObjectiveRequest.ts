@@ -87,11 +87,9 @@ export class ServiceLevelObjectiveRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
-      baseName: "description",
       type: "string",
     },
     groups: {
-      baseName: "groups",
       type: "Array<string>",
     },
     monitorIds: {
@@ -100,16 +98,13 @@ export class ServiceLevelObjectiveRequest {
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      baseName: "query",
       type: "ServiceLevelObjectiveQuery",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     targetThreshold: {
@@ -118,16 +113,13 @@ export class ServiceLevelObjectiveRequest {
       format: "double",
     },
     thresholds: {
-      baseName: "thresholds",
       type: "Array<SLOThreshold>",
       required: true,
     },
     timeframe: {
-      baseName: "timeframe",
       type: "SLOTimeframe",
     },
     type: {
-      baseName: "type",
       type: "SLOType",
       required: true,
     },

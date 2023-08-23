@@ -29,11 +29,9 @@ export class SecurityMonitoringSignalListRequestPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
-      baseName: "cursor",
       type: "string",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int32",
     },

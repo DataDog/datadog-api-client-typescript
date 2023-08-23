@@ -26,7 +26,6 @@ export class MetricSearchResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     results: {
-      baseName: "results",
       type: "MetricSearchResponseResults",
     },
   };

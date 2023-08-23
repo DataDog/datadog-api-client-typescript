@@ -61,16 +61,13 @@ export class ChangeWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     requests: {
-      baseName: "requests",
       type: "[ChangeWidgetRequest]",
       required: true,
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -82,7 +79,6 @@ export class ChangeWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ChangeWidgetDefinitionType",
       required: true,
     },

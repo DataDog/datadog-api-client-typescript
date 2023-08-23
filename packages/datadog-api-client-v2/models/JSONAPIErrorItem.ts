@@ -33,15 +33,12 @@ export class JSONAPIErrorItem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     detail: {
-      baseName: "detail",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
   };

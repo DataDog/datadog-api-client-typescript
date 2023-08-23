@@ -26,7 +26,6 @@ export class SpansAggregateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SpansAggregateData",
     },
   };

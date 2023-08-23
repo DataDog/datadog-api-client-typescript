@@ -89,7 +89,6 @@ export class HeatMapWidgetRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     rumQuery: {
@@ -101,7 +100,6 @@ export class HeatMapWidgetRequest {
       type: "LogQueryDefinition",
     },
     style: {
-      baseName: "style",
       type: "WidgetStyle",
     },
   };

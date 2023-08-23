@@ -38,11 +38,9 @@ export class SyntheticsTriggerCITestRunResult {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
-      baseName: "device",
       type: "SyntheticsDeviceID",
     },
     location: {
-      baseName: "location",
       type: "number",
       format: "int64",
     },

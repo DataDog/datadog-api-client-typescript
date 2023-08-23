@@ -46,31 +46,25 @@ export class Series {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     host: {
-      baseName: "host",
       type: "string",
     },
     interval: {
-      baseName: "interval",
       type: "number",
       format: "int64",
     },
     metric: {
-      baseName: "metric",
       type: "string",
       required: true,
     },
     points: {
-      baseName: "points",
       type: "Array<[number, number]>",
       required: true,
       format: "double",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };

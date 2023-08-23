@@ -26,7 +26,6 @@ export class LogsIndexListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     indexes: {
-      baseName: "indexes",
       type: "Array<LogsIndex>",
     },
   };

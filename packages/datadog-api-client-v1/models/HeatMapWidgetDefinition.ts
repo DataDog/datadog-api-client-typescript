@@ -76,7 +76,6 @@ export class HeatMapWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     events: {
-      baseName: "events",
       type: "Array<WidgetEvent>",
     },
     legendSize: {
@@ -84,7 +83,6 @@ export class HeatMapWidgetDefinition {
       type: "string",
     },
     requests: {
-      baseName: "requests",
       type: "[HeatMapWidgetRequest]",
       required: true,
     },
@@ -93,11 +91,9 @@ export class HeatMapWidgetDefinition {
       type: "boolean",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -109,12 +105,10 @@ export class HeatMapWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "HeatMapWidgetDefinitionType",
       required: true,
     },
     yaxis: {
-      baseName: "yaxis",
       type: "WidgetAxis",
     },
   };

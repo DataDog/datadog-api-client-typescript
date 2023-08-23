@@ -26,7 +26,6 @@ export class ServiceAccountCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ServiceAccountCreateData",
       required: true,
     },

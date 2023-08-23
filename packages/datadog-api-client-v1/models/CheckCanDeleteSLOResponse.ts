@@ -30,11 +30,9 @@ export class CheckCanDeleteSLOResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "CheckCanDeleteSLOResponseData",
     },
     errors: {
-      baseName: "errors",
       type: "{ [key: string]: string; }",
     },
   };

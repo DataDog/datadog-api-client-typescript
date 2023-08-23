@@ -96,11 +96,9 @@ export class Event {
       type: "string",
     },
     host: {
-      baseName: "host",
       type: "string",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
@@ -109,11 +107,9 @@ export class Event {
       type: "string",
     },
     payload: {
-      baseName: "payload",
       type: "string",
     },
     priority: {
-      baseName: "priority",
       type: "EventPriority",
     },
     sourceTypeName: {
@@ -121,19 +117,15 @@ export class Event {
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     text: {
-      baseName: "text",
       type: "string",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     url: {
-      baseName: "url",
       type: "string",
     },
   };

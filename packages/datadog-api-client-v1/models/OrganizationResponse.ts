@@ -26,7 +26,6 @@ export class OrganizationResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     org: {
-      baseName: "org",
       type: "Organization",
     },
   };

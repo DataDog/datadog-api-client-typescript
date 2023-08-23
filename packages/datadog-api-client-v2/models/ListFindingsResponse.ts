@@ -31,12 +31,10 @@ export class ListFindingsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<Finding>",
       required: true,
     },
     meta: {
-      baseName: "meta",
       type: "ListFindingsMeta",
       required: true,
     },

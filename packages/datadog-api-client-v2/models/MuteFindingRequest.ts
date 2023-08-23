@@ -26,7 +26,6 @@ export class MuteFindingRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MuteFindingRequestData",
       required: true,
     },

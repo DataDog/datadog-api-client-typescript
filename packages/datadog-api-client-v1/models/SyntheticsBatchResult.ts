@@ -65,11 +65,9 @@ export class SyntheticsBatchResult {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
-      baseName: "device",
       type: "SyntheticsDeviceID",
     },
     duration: {
-      baseName: "duration",
       type: "number",
       format: "double",
     },
@@ -78,7 +76,6 @@ export class SyntheticsBatchResult {
       type: "SyntheticsTestExecutionRule",
     },
     location: {
-      baseName: "location",
       type: "string",
     },
     resultId: {
@@ -86,12 +83,10 @@ export class SyntheticsBatchResult {
       type: "string",
     },
     retries: {
-      baseName: "retries",
       type: "number",
       format: "double",
     },
     status: {
-      baseName: "status",
       type: "SyntheticsStatus",
     },
     testName: {

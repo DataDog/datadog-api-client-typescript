@@ -33,7 +33,6 @@ export class TimeseriesWidgetExpressionAlias {
       type: "string",
     },
     expression: {
-      baseName: "expression",
       type: "string",
       required: true,
     },

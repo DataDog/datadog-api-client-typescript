@@ -31,12 +31,10 @@ export class IncidentTeamResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentTeamResponseData",
       required: true,
     },
     included: {
-      baseName: "included",
       type: "Array<IncidentTeamIncludedItems>",
     },
   };

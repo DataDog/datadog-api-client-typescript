@@ -67,21 +67,17 @@ export class LogsStringBuilderProcessor {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     target: {
-      baseName: "target",
       type: "string",
       required: true,
     },
     template: {
-      baseName: "template",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsStringBuilderProcessorType",
       required: true,
     },

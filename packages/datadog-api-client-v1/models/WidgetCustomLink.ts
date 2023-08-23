@@ -41,11 +41,9 @@ export class WidgetCustomLink {
       type: "boolean",
     },
     label: {
-      baseName: "label",
       type: "string",
     },
     link: {
-      baseName: "link",
       type: "string",
     },
     overrideLabel: {

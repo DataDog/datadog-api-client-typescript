@@ -29,12 +29,10 @@ export class NotebookSplitBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     keys: {
-      baseName: "keys",
       type: "Array<string>",
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
       required: true,
     },

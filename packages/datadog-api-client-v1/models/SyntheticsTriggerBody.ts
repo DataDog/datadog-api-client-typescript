@@ -26,7 +26,6 @@ export class SyntheticsTriggerBody {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
-      baseName: "tests",
       type: "Array<SyntheticsTriggerTest>",
       required: true,
     },

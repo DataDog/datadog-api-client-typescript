@@ -89,7 +89,6 @@ export class SLOWidgetDefinition {
       type: "Array<WidgetTimeWindows>",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -101,7 +100,6 @@ export class SLOWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SLOWidgetDefinitionType",
       required: true,
     },

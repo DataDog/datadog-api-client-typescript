@@ -40,21 +40,17 @@ export class Team {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "TeamAttributes",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "TeamRelationships",
     },
     type: {
-      baseName: "type",
       type: "TeamType",
       required: true,
     },

@@ -29,11 +29,9 @@ export class MetricsListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
-      baseName: "from",
       type: "string",
     },
     metrics: {
-      baseName: "metrics",
       type: "Array<string>",
     },
   };

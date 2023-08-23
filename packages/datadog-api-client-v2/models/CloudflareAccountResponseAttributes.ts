@@ -29,11 +29,9 @@ export class CloudflareAccountResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
-      baseName: "email",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },

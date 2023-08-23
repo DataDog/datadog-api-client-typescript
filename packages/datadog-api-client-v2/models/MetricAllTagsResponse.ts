@@ -26,7 +26,6 @@ export class MetricAllTagsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MetricAllTags",
     },
   };

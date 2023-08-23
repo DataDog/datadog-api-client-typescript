@@ -34,7 +34,6 @@ export class CloudflareAccountUpdateRequestAttributes {
       required: true,
     },
     email: {
-      baseName: "email",
       type: "string",
     },
   };

@@ -34,7 +34,6 @@ export class AWSTagFilterDeleteRequest {
       type: "string",
     },
     namespace: {
-      baseName: "namespace",
       type: "AWSNamespace",
     },
   };

@@ -26,7 +26,6 @@ export class RoleUpdateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RoleUpdateResponseData",
     },
   };

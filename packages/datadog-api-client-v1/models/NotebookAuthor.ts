@@ -62,35 +62,27 @@ export class NotebookAuthor {
       format: "date-time",
     },
     disabled: {
-      baseName: "disabled",
       type: "boolean",
     },
     email: {
-      baseName: "email",
       type: "string",
     },
     handle: {
-      baseName: "handle",
       type: "string",
     },
     icon: {
-      baseName: "icon",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     verified: {
-      baseName: "verified",
       type: "boolean",
     },
   };

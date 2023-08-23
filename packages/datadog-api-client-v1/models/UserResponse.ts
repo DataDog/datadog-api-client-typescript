@@ -26,7 +26,6 @@ export class UserResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     user: {
-      baseName: "user",
       type: "User",
     },
   };

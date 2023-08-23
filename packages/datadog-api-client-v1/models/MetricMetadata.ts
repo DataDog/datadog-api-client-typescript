@@ -49,11 +49,9 @@ export class MetricMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
-      baseName: "description",
       type: "string",
     },
     integration: {
-      baseName: "integration",
       type: "string",
     },
     perUnit: {
@@ -70,11 +68,9 @@ export class MetricMetadata {
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
     unit: {
-      baseName: "unit",
       type: "string",
     },
   };

@@ -26,7 +26,6 @@ export class IPAllowlistUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IPAllowlistData",
       required: true,
     },

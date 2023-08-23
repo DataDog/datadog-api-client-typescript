@@ -25,7 +25,6 @@ export class SuccessfulSignalUpdateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     status: {
-      baseName: "status",
       type: "string",
     },
   };

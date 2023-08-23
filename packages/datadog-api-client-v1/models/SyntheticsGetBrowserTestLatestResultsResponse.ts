@@ -35,7 +35,6 @@ export class SyntheticsGetBrowserTestLatestResultsResponse {
       format: "int64",
     },
     results: {
-      baseName: "results",
       type: "Array<SyntheticsBrowserTestResultShort>",
     },
   };

@@ -62,26 +62,21 @@ export class MetricSeries {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     interval: {
-      baseName: "interval",
       type: "number",
       format: "int64",
     },
     metadata: {
-      baseName: "metadata",
       type: "MetricMetadata",
     },
     metric: {
-      baseName: "metric",
       type: "string",
       required: true,
     },
     points: {
-      baseName: "points",
       type: "Array<MetricPoint>",
       required: true,
     },
     resources: {
-      baseName: "resources",
       type: "Array<MetricResource>",
     },
     sourceTypeName: {
@@ -89,16 +84,13 @@ export class MetricSeries {
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "MetricIntakeType",
       format: "int32",
     },
     unit: {
-      baseName: "unit",
       type: "string",
     },
   };

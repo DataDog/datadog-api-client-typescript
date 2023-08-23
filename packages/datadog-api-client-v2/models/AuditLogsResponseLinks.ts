@@ -26,7 +26,6 @@ export class AuditLogsResponseLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     next: {
-      baseName: "next",
       type: "string",
     },
   };

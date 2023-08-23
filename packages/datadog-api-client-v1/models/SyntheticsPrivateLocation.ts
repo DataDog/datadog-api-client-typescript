@@ -47,29 +47,23 @@ export class SyntheticsPrivateLocation {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     description: {
-      baseName: "description",
       type: "string",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     metadata: {
-      baseName: "metadata",
       type: "SyntheticsPrivateLocationMetadata",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     secrets: {
-      baseName: "secrets",
       type: "SyntheticsPrivateLocationSecrets",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
       required: true,
     },

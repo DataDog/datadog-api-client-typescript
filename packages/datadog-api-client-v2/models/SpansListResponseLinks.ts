@@ -26,7 +26,6 @@ export class SpansListResponseLinks {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     next: {
-      baseName: "next",
       type: "string",
     },
   };

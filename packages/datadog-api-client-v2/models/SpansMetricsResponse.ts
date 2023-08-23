@@ -26,7 +26,6 @@ export class SpansMetricsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<SpansMetricResponseData>",
     },
   };

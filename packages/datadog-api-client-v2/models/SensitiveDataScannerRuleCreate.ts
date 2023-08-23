@@ -36,17 +36,14 @@ export class SensitiveDataScannerRuleCreate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SensitiveDataScannerRuleAttributes",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "SensitiveDataScannerRuleRelationships",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "SensitiveDataScannerRuleType",
       required: true,
     },

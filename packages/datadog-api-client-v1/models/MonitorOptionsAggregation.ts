@@ -37,11 +37,9 @@ export class MonitorOptionsAggregation {
       type: "string",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };

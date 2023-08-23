@@ -95,7 +95,6 @@ export class TimeseriesWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     events: {
-      baseName: "events",
       type: "Array<WidgetEvent>",
     },
     legendColumns: {
@@ -111,11 +110,9 @@ export class TimeseriesWidgetDefinition {
       type: "string",
     },
     markers: {
-      baseName: "markers",
       type: "Array<WidgetMarker>",
     },
     requests: {
-      baseName: "requests",
       type: "Array<TimeseriesWidgetRequest>",
       required: true,
     },
@@ -128,11 +125,9 @@ export class TimeseriesWidgetDefinition {
       type: "boolean",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -144,12 +139,10 @@ export class TimeseriesWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "TimeseriesWidgetDefinitionType",
       required: true,
     },
     yaxis: {
-      baseName: "yaxis",
       type: "WidgetAxis",
     },
   };

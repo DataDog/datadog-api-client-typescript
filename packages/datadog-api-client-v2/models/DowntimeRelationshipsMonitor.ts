@@ -26,7 +26,6 @@ export class DowntimeRelationshipsMonitor {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "DowntimeRelationshipsMonitorData",
     },
   };

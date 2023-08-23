@@ -31,12 +31,10 @@ export class SensitiveDataScannerRuleUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SensitiveDataScannerRuleUpdate",
       required: true,
     },
     meta: {
-      baseName: "meta",
       type: "SensitiveDataScannerMetaVersionOnly",
       required: true,
     },

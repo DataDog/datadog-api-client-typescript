@@ -35,15 +35,12 @@ export class LogsListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     logs: {
-      baseName: "logs",
       type: "Array<Log>",
     },
     nextLogId: {
-      baseName: "nextLogId",
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
   };

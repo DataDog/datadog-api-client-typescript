@@ -26,7 +26,6 @@ export class RelationshipToIncidentAttachment {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<RelationshipToIncidentAttachmentData>",
       required: true,
     },

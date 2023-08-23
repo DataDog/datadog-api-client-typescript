@@ -62,7 +62,6 @@ export class EventStreamWidgetDefinition {
       type: "WidgetEventSize",
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },
@@ -71,11 +70,9 @@ export class EventStreamWidgetDefinition {
       type: "string",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -87,7 +84,6 @@ export class EventStreamWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "EventStreamWidgetDefinitionType",
       required: true,
     },

@@ -38,11 +38,9 @@ export class CloudflareAccountCreateRequestAttributes {
       required: true,
     },
     email: {
-      baseName: "email",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },

@@ -47,28 +47,22 @@ export class SyntheticsBrowserVariable {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     example: {
-      baseName: "example",
       type: "string",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     pattern: {
-      baseName: "pattern",
       type: "string",
     },
     secure: {
-      baseName: "secure",
       type: "boolean",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsBrowserVariableType",
       required: true,
     },

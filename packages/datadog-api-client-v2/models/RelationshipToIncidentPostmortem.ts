@@ -26,7 +26,6 @@ export class RelationshipToIncidentPostmortem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RelationshipToIncidentPostmortemData",
       required: true,
     },

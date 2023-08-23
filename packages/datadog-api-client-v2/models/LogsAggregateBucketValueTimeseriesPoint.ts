@@ -29,11 +29,9 @@ export class LogsAggregateBucketValueTimeseriesPoint {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     time: {
-      baseName: "time",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "number",
       format: "double",
     },

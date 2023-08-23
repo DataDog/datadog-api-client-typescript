@@ -29,12 +29,10 @@ export class ServiceDefinitionV1Contact {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
-      baseName: "email",
       type: "string",
       format: "email",
     },
     slack: {
-      baseName: "slack",
       type: "string",
     },
   };

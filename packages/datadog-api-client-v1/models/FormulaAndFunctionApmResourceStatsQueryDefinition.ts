@@ -68,7 +68,6 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
       required: true,
     },
     env: {
-      baseName: "env",
       type: "string",
       required: true,
     },
@@ -77,7 +76,6 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
@@ -98,12 +96,10 @@ export class FormulaAndFunctionApmResourceStatsQueryDefinition {
       type: "string",
     },
     service: {
-      baseName: "service",
       type: "string",
       required: true,
     },
     stat: {
-      baseName: "stat",
       type: "FormulaAndFunctionApmResourceStatName",
       required: true,
     },

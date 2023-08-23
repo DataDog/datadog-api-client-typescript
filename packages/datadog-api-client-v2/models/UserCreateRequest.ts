@@ -26,7 +26,6 @@ export class UserCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "UserCreateData",
       required: true,
     },

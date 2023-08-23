@@ -29,7 +29,6 @@ export class ListFindingsPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
-      baseName: "cursor",
       type: "string",
     },
     totalFilteredCount: {

@@ -35,16 +35,13 @@ export class DowntimeMonitorIncludedItem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "DowntimeMonitorIncludedAttributes",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "DowntimeIncludedMonitorType",
     },
   };

@@ -26,7 +26,6 @@ export class NotebooksResponseMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "NotebooksResponsePage",
     },
   };

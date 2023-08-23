@@ -35,16 +35,13 @@ export class MetricBulkTagConfigCreate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MetricBulkTagConfigCreateAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "MetricBulkConfigureTagsType",
       required: true,
     },

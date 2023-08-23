@@ -43,7 +43,6 @@ export class WidgetRequestStyle {
       type: "WidgetLineWidth",
     },
     palette: {
-      baseName: "palette",
       type: "string",
     },
   };

@@ -90,7 +90,6 @@ export class SunburstWidgetRequest {
       type: "LogQueryDefinition",
     },
     formulas: {
-      baseName: "formulas",
       type: "Array<WidgetFormula>",
     },
     logQuery: {
@@ -110,11 +109,9 @@ export class SunburstWidgetRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     queries: {
-      baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
     },
     responseFormat: {

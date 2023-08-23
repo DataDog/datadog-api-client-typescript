@@ -33,16 +33,13 @@ export class SyntheticsTestOptionsSchedulingTimeframe {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     day: {
-      baseName: "day",
       type: "number",
       format: "int32",
     },
     from: {
-      baseName: "from",
       type: "string",
     },
     to: {
-      baseName: "to",
       type: "string",
     },
   };

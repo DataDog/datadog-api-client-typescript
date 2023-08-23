@@ -140,39 +140,30 @@ export class SyntheticsTestRequest {
       type: "boolean",
     },
     basicAuth: {
-      baseName: "basicAuth",
       type: "SyntheticsBasicAuth",
     },
     body: {
-      baseName: "body",
       type: "string",
     },
     bodyType: {
-      baseName: "bodyType",
       type: "SyntheticsTestRequestBodyType",
     },
     callType: {
-      baseName: "callType",
       type: "SyntheticsTestCallType",
     },
     certificate: {
-      baseName: "certificate",
       type: "SyntheticsTestRequestCertificate",
     },
     certificateDomains: {
-      baseName: "certificateDomains",
       type: "Array<string>",
     },
     compressedJsonDescriptor: {
-      baseName: "compressedJsonDescriptor",
       type: "string",
     },
     dnsServer: {
-      baseName: "dnsServer",
       type: "string",
     },
     dnsServerPort: {
-      baseName: "dnsServerPort",
       type: "number",
       format: "int32",
     },
@@ -181,70 +172,54 @@ export class SyntheticsTestRequest {
       type: "boolean",
     },
     headers: {
-      baseName: "headers",
       type: "{ [key: string]: string; }",
     },
     host: {
-      baseName: "host",
       type: "string",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     metadata: {
-      baseName: "metadata",
       type: "{ [key: string]: string; }",
     },
     method: {
-      baseName: "method",
       type: "string",
     },
     noSavingResponseBody: {
-      baseName: "noSavingResponseBody",
       type: "boolean",
     },
     numberOfPackets: {
-      baseName: "numberOfPackets",
       type: "number",
       format: "int32",
     },
     persistCookies: {
-      baseName: "persistCookies",
       type: "boolean",
     },
     port: {
-      baseName: "port",
       type: "number",
       format: "int64",
     },
     proxy: {
-      baseName: "proxy",
       type: "SyntheticsTestRequestProxy",
     },
     query: {
-      baseName: "query",
       type: "any",
     },
     servername: {
-      baseName: "servername",
       type: "string",
     },
     service: {
-      baseName: "service",
       type: "string",
     },
     shouldTrackHops: {
-      baseName: "shouldTrackHops",
       type: "boolean",
     },
     timeout: {
-      baseName: "timeout",
       type: "number",
       format: "double",
     },
     url: {
-      baseName: "url",
       type: "string",
     },
   };

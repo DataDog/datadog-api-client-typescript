@@ -30,12 +30,10 @@ export class ListStreamComputeItems {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "ListStreamComputeAggregation",
       required: true,
     },
     facet: {
-      baseName: "facet",
       type: "string",
     },
   };

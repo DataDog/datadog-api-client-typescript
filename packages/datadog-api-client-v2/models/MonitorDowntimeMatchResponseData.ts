@@ -35,15 +35,12 @@ export class MonitorDowntimeMatchResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MonitorDowntimeMatchResponseAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "MonitorDowntimeMatchResourceType",
     },
   };

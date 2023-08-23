@@ -71,21 +71,17 @@ export class GeomapWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     requests: {
-      baseName: "requests",
       type: "[GeomapWidgetRequest]",
       required: true,
     },
     style: {
-      baseName: "style",
       type: "GeomapWidgetDefinitionStyle",
       required: true,
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -97,12 +93,10 @@ export class GeomapWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "GeomapWidgetDefinitionType",
       required: true,
     },
     view: {
-      baseName: "view",
       type: "GeomapWidgetDefinitionView",
       required: true,
     },

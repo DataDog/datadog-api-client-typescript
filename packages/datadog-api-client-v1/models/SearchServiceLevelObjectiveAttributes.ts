@@ -114,11 +114,9 @@ export class SearchServiceLevelObjectiveAttributes {
       format: "int64",
     },
     creator: {
-      baseName: "creator",
       type: "SLOCreator",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     envTags: {
@@ -126,7 +124,6 @@ export class SearchServiceLevelObjectiveAttributes {
       type: "Array<string>",
     },
     groups: {
-      baseName: "groups",
       type: "Array<string>",
     },
     modifiedAt: {
@@ -140,7 +137,6 @@ export class SearchServiceLevelObjectiveAttributes {
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     overallStatus: {
@@ -148,7 +144,6 @@ export class SearchServiceLevelObjectiveAttributes {
       type: "Array<SLOOverallStatuses>",
     },
     query: {
-      baseName: "query",
       type: "SearchSLOQuery",
     },
     serviceTags: {
@@ -160,7 +155,6 @@ export class SearchServiceLevelObjectiveAttributes {
       type: "SLOType",
     },
     status: {
-      baseName: "status",
       type: "SLOStatus",
     },
     teamTags: {
@@ -168,7 +162,6 @@ export class SearchServiceLevelObjectiveAttributes {
       type: "Array<string>",
     },
     thresholds: {
-      baseName: "thresholds",
       type: "Array<SearchSLOThreshold>",
     },
   };

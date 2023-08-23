@@ -42,7 +42,6 @@ export class NotebookMetadata {
       type: "boolean",
     },
     type: {
-      baseName: "type",
       type: "NotebookMetadataType",
     },
   };

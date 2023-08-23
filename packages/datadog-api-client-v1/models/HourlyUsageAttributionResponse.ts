@@ -31,11 +31,9 @@ export class HourlyUsageAttributionResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     metadata: {
-      baseName: "metadata",
       type: "HourlyUsageAttributionMetadata",
     },
     usage: {
-      baseName: "usage",
       type: "Array<HourlyUsageAttributionBody>",
     },
   };

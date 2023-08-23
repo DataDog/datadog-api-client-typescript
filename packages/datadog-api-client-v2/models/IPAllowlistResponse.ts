@@ -26,7 +26,6 @@ export class IPAllowlistResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IPAllowlistData",
     },
   };

@@ -26,7 +26,6 @@ export class PermissionsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<Permission>",
     },
   };

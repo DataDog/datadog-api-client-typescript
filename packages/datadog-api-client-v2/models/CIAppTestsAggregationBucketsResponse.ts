@@ -26,7 +26,6 @@ export class CIAppTestsAggregationBucketsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     buckets: {
-      baseName: "buckets",
       type: "Array<CIAppTestsBucketResponse>",
     },
   };

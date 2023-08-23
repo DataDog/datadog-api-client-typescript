@@ -26,7 +26,6 @@ export class SecurityMonitoringSignalResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SecurityMonitoringSignal",
     },
   };

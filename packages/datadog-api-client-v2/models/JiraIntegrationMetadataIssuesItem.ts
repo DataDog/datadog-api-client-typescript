@@ -41,7 +41,6 @@ export class JiraIntegrationMetadataIssuesItem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     account: {
-      baseName: "account",
       type: "string",
       required: true,
     },

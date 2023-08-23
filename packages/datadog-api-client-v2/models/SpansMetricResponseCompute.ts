@@ -43,7 +43,6 @@ export class SpansMetricResponseCompute {
       type: "boolean",
     },
     path: {
-      baseName: "path",
       type: "string",
     },
   };

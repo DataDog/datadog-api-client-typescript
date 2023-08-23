@@ -52,28 +52,22 @@ export class LogsListRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     index: {
-      baseName: "index",
       type: "string",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int32",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     sort: {
-      baseName: "sort",
       type: "LogsSort",
     },
     startAt: {
-      baseName: "startAt",
       type: "string",
     },
     time: {
-      baseName: "time",
       type: "LogsListRequestTime",
       required: true,
     },

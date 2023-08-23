@@ -25,7 +25,6 @@ export class TagToHosts {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tags: {
-      baseName: "tags",
       type: "{ [key: string]: Array<string>; }",
     },
   };

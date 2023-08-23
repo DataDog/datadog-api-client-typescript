@@ -29,11 +29,9 @@ export class ApplicationKeyUpdateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
     },
     scopes: {
-      baseName: "scopes",
       type: "Array<string>",
     },
   };

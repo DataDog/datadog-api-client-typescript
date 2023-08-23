@@ -76,20 +76,16 @@ export class ImageWidgetDefinition {
       type: "WidgetHorizontalAlign",
     },
     margin: {
-      baseName: "margin",
       type: "WidgetMargin",
     },
     sizing: {
-      baseName: "sizing",
       type: "WidgetImageSizing",
     },
     type: {
-      baseName: "type",
       type: "ImageWidgetDefinitionType",
       required: true,
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },

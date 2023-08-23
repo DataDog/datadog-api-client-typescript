@@ -25,7 +25,6 @@ export class SyntheticsPrivateLocationSecretsConfigDecryption {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     key: {
-      baseName: "key",
       type: "string",
     },
   };

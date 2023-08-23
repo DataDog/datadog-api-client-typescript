@@ -50,29 +50,23 @@ export class CIAppPipelinesGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
-      baseName: "facet",
       type: "string",
       required: true,
     },
     histogram: {
-      baseName: "histogram",
       type: "CIAppGroupByHistogram",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
     missing: {
-      baseName: "missing",
       type: "CIAppGroupByMissing",
     },
     sort: {
-      baseName: "sort",
       type: "CIAppAggregateSort",
     },
     total: {
-      baseName: "total",
       type: "CIAppGroupByTotal",
     },
   };

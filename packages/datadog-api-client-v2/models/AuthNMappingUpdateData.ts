@@ -40,20 +40,16 @@ export class AuthNMappingUpdateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "AuthNMappingUpdateAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "AuthNMappingUpdateRelationships",
     },
     type: {
-      baseName: "type",
       type: "AuthNMappingsType",
       required: true,
     },

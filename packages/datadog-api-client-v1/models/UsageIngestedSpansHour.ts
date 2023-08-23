@@ -37,7 +37,6 @@ export class UsageIngestedSpansHour {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },

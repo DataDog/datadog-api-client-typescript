@@ -36,19 +36,16 @@ export class LogsGroupByHistogram {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     interval: {
-      baseName: "interval",
       type: "number",
       required: true,
       format: "double",
     },
     max: {
-      baseName: "max",
       type: "number",
       required: true,
       format: "double",
     },
     min: {
-      baseName: "min",
       type: "number",
       required: true,
       format: "double",

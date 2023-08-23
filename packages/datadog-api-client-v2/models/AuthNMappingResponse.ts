@@ -31,11 +31,9 @@ export class AuthNMappingResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "AuthNMapping",
     },
     included: {
-      baseName: "included",
       type: "Array<AuthNMappingIncluded>",
     },
   };

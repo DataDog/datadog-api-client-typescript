@@ -79,31 +79,24 @@ export class IPRanges {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agents: {
-      baseName: "agents",
       type: "IPPrefixesAgents",
     },
     api: {
-      baseName: "api",
       type: "IPPrefixesAPI",
     },
     apm: {
-      baseName: "apm",
       type: "IPPrefixesAPM",
     },
     logs: {
-      baseName: "logs",
       type: "IPPrefixesLogs",
     },
     modified: {
-      baseName: "modified",
       type: "string",
     },
     orchestrator: {
-      baseName: "orchestrator",
       type: "IPPrefixesOrchestrator",
     },
     process: {
-      baseName: "process",
       type: "IPPrefixesProcess",
     },
     remoteConfiguration: {
@@ -111,7 +104,6 @@ export class IPRanges {
       type: "IPPrefixesRemoteConfiguration",
     },
     synthetics: {
-      baseName: "synthetics",
       type: "IPPrefixesSynthetics",
     },
     syntheticsPrivateLocations: {
@@ -119,12 +111,10 @@ export class IPRanges {
       type: "IPPrefixesSyntheticsPrivateLocations",
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },
     webhooks: {
-      baseName: "webhooks",
       type: "IPPrefixesWebhooks",
     },
   };

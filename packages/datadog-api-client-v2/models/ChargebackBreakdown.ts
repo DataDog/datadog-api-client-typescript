@@ -37,7 +37,6 @@ export class ChargebackBreakdown {
       type: "string",
     },
     cost: {
-      baseName: "cost",
       type: "number",
       format: "double",
     },

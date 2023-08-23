@@ -34,7 +34,6 @@ export class CIAppPipelineEventAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "{ [key: string]: any; }",
     },
     ciLevel: {
@@ -42,7 +41,6 @@ export class CIAppPipelineEventAttributes {
       type: "CIAppPipelineLevel",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };

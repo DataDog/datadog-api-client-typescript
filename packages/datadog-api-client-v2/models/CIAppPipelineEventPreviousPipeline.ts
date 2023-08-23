@@ -29,12 +29,10 @@ export class CIAppPipelineEventPreviousPipeline {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     url: {
-      baseName: "url",
       type: "string",
     },
   };

@@ -26,7 +26,6 @@ export class HTTPLogErrors {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
-      baseName: "errors",
       type: "Array<HTTPLogError>",
     },
   };

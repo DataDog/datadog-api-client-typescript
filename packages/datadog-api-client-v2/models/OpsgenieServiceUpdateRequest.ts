@@ -26,7 +26,6 @@ export class OpsgenieServiceUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "OpsgenieServiceUpdateData",
       required: true,
     },

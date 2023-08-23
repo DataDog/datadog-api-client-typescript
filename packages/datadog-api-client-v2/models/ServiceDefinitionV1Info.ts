@@ -42,7 +42,6 @@ export class ServiceDefinitionV1Info {
       required: true,
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     displayName: {

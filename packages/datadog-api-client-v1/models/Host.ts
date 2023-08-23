@@ -79,11 +79,9 @@ export class Host {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aliases: {
-      baseName: "aliases",
       type: "Array<string>",
     },
     apps: {
-      baseName: "apps",
       type: "Array<string>",
     },
     awsName: {
@@ -95,7 +93,6 @@ export class Host {
       type: "string",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
@@ -109,11 +106,9 @@ export class Host {
       format: "int64",
     },
     meta: {
-      baseName: "meta",
       type: "HostMeta",
     },
     metrics: {
-      baseName: "metrics",
       type: "HostMetrics",
     },
     muteTimeout: {
@@ -122,11 +117,9 @@ export class Host {
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     sources: {
-      baseName: "sources",
       type: "Array<string>",
     },
     tagsBySource: {
@@ -134,7 +127,6 @@ export class Host {
       type: "{ [key: string]: Array<string>; }",
     },
     up: {
-      baseName: "up",
       type: "boolean",
     },
   };

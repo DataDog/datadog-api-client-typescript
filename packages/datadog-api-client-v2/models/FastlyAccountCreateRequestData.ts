@@ -31,12 +31,10 @@ export class FastlyAccountCreateRequestData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "FastlyAccountCreateRequestAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "FastlyAccountType",
       required: true,
     },

@@ -26,7 +26,6 @@ export class MetricBulkTagConfigCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "MetricBulkTagConfigCreate",
       required: true,
     },

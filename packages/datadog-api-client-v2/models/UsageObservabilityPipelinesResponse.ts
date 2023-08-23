@@ -26,7 +26,6 @@ export class UsageObservabilityPipelinesResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<UsageDataObject>",
     },
   };

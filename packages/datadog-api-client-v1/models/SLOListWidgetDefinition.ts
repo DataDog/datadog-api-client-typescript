@@ -44,12 +44,10 @@ export class SLOListWidgetDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     requests: {
-      baseName: "requests",
       type: "[SLOListWidgetRequest]",
       required: true,
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -61,7 +59,6 @@ export class SLOListWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SLOListWidgetDefinitionType",
       required: true,
     },

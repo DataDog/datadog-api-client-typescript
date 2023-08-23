@@ -35,18 +35,15 @@ export class NotebooksResponseData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "NotebooksResponseDataAttributes",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "number",
       required: true,
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "NotebookResourceType",
       required: true,
     },

@@ -39,12 +39,10 @@ export class FastlyAccountCreateRequestAttributes {
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     services: {
-      baseName: "services",
       type: "Array<FastlyService>",
     },
   };

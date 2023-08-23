@@ -45,12 +45,10 @@ export class CIAppResponseMetadataWithPagination {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     elapsed: {
-      baseName: "elapsed",
       type: "number",
       format: "int64",
     },
     page: {
-      baseName: "page",
       type: "CIAppResponsePage",
     },
     requestId: {
@@ -58,11 +56,9 @@ export class CIAppResponseMetadataWithPagination {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "CIAppResponseStatus",
     },
     warnings: {
-      baseName: "warnings",
       type: "Array<CIAppWarning>",
     },
   };

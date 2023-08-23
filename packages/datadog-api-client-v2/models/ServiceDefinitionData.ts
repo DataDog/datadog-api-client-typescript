@@ -34,15 +34,12 @@ export class ServiceDefinitionData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "ServiceDefinitionDataAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };

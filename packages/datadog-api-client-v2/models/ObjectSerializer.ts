@@ -2492,6 +2492,7 @@ export class ObjectSerializer {
 
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
+        const baseName = attributeObj?.baseName ?? attributeName;
         if (attributeName == "additionalProperties") {
           if (data.additionalProperties) {
             for (const key in data.additionalProperties) {
@@ -2504,19 +2505,14 @@ export class ObjectSerializer {
           }
           continue;
         }
-        instance[attributeObj.baseName] = ObjectSerializer.serialize(
+        instance[baseName] = ObjectSerializer.serialize(
           data[attributeName],
           attributeObj.type,
           attributeObj.format
         );
         // check for required properties
-        if (
-          attributeObj?.required &&
-          instance[attributeObj.baseName] === undefined
-        ) {
-          throw new Error(
-            `missing required property '${attributeObj.baseName}'`
-          );
+        if (attributeObj?.required && instance[baseName] === undefined) {
+          throw new Error(`missing required property '${baseName}'`);
         }
       }
 
@@ -2617,7 +2613,8 @@ export class ObjectSerializer {
       let extraAttributes: any = [];
       if ("additionalProperties" in attributesMap) {
         const attributesBaseNames = Object.keys(attributesMap).reduce(
-          (o, key) => Object.assign(o, { [attributesMap[key].baseName]: "" }),
+          (o, key) =>
+            Object.assign(o, { [attributesMap[key]?.baseName ?? key]: "" }),
           {}
         );
         extraAttributes = Object.keys(data).filter(
@@ -2628,6 +2625,7 @@ export class ObjectSerializer {
 
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
+        const baseName = attributeObj?.baseName ?? attributeName;
         if (attributeName == "additionalProperties") {
           if (extraAttributes.length > 0) {
             if (!instance.additionalProperties) {
@@ -2647,7 +2645,7 @@ export class ObjectSerializer {
         }
 
         instance[attributeName] = ObjectSerializer.deserialize(
-          data[attributeObj.baseName],
+          data[baseName],
           attributeObj.type,
           attributeObj.format
         );

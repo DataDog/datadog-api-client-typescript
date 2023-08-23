@@ -42,19 +42,15 @@ export class CIAppPipelineEventsRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "CIAppPipelinesQueryFilter",
     },
     options: {
-      baseName: "options",
       type: "CIAppQueryOptions",
     },
     page: {
-      baseName: "page",
       type: "CIAppQueryPageOptions",
     },
     sort: {
-      baseName: "sort",
       type: "CIAppSort",
     },
   };

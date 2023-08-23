@@ -26,7 +26,6 @@ export class JiraIntegrationMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     issues: {
-      baseName: "issues",
       type: "Array<JiraIntegrationMetadataIssuesItem>",
       required: true,
     },

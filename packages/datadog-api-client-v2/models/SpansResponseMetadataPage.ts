@@ -26,7 +26,6 @@ export class SpansResponseMetadataPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
-      baseName: "after",
       type: "string",
     },
   };

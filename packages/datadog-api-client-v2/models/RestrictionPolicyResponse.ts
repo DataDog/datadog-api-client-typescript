@@ -26,7 +26,6 @@ export class RestrictionPolicyResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "RestrictionPolicy",
       required: true,
     },

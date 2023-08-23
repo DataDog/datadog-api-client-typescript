@@ -31,12 +31,10 @@ export class IncidentIntegrationMetadataResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentIntegrationMetadataResponseData",
       required: true,
     },
     included: {
-      baseName: "included",
       type: "Array<IncidentIntegrationMetadataResponseIncludedItem>",
     },
   };

@@ -58,11 +58,9 @@ export class OrganizationAttributes {
       format: "date-time",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     disabled: {
-      baseName: "disabled",
       type: "boolean",
     },
     modifiedAt: {
@@ -71,7 +69,6 @@ export class OrganizationAttributes {
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     publicId: {
@@ -79,11 +76,9 @@ export class OrganizationAttributes {
       type: "string",
     },
     sharing: {
-      baseName: "sharing",
       type: "string",
     },
     url: {
-      baseName: "url",
       type: "string",
     },
   };

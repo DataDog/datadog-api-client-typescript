@@ -93,7 +93,6 @@ export class IncidentResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
-      baseName: "created",
       type: "Date",
       format: "date-time",
     },
@@ -121,16 +120,13 @@ export class IncidentResponseAttributes {
       type: "boolean",
     },
     detected: {
-      baseName: "detected",
       type: "Date",
       format: "date-time",
     },
     fields: {
-      baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
     },
     modified: {
-      baseName: "modified",
       type: "Date",
       format: "date-time",
     },
@@ -144,7 +140,6 @@ export class IncidentResponseAttributes {
       format: "int64",
     },
     resolved: {
-      baseName: "resolved",
       type: "Date",
       format: "date-time",
     },
@@ -169,7 +164,6 @@ export class IncidentResponseAttributes {
       format: "int64",
     },
     title: {
-      baseName: "title",
       type: "string",
       required: true,
     },

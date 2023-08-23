@@ -25,7 +25,6 @@ export class ListStreamGroupByItems {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
-      baseName: "facet",
       type: "string",
       required: true,
     },

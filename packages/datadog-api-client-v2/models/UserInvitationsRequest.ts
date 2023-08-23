@@ -26,7 +26,6 @@ export class UserInvitationsRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<UserInvitationData>",
       required: true,
     },

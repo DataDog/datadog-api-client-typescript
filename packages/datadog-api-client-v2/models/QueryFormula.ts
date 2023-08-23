@@ -31,12 +31,10 @@ export class QueryFormula {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     formula: {
-      baseName: "formula",
       type: "string",
       required: true,
     },
     limit: {
-      baseName: "limit",
       type: "FormulaLimit",
     },
   };

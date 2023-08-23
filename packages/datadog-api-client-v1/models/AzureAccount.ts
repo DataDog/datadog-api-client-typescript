@@ -71,7 +71,6 @@ export class AzureAccount {
       type: "string",
     },
     automute: {
-      baseName: "automute",
       type: "boolean",
     },
     clientId: {
@@ -91,7 +90,6 @@ export class AzureAccount {
       type: "boolean",
     },
     errors: {
-      baseName: "errors",
       type: "Array<string>",
     },
     hostFilters: {

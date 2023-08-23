@@ -73,53 +73,41 @@ export class SyntheticsBrowserTestResultData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     browserType: {
-      baseName: "browserType",
       type: "string",
     },
     browserVersion: {
-      baseName: "browserVersion",
       type: "string",
     },
     device: {
-      baseName: "device",
       type: "SyntheticsDevice",
     },
     duration: {
-      baseName: "duration",
       type: "number",
       format: "double",
     },
     error: {
-      baseName: "error",
       type: "string",
     },
     failure: {
-      baseName: "failure",
       type: "SyntheticsBrowserTestResultFailure",
     },
     passed: {
-      baseName: "passed",
       type: "boolean",
     },
     receivedEmailCount: {
-      baseName: "receivedEmailCount",
       type: "number",
       format: "int64",
     },
     startUrl: {
-      baseName: "startUrl",
       type: "string",
     },
     stepDetails: {
-      baseName: "stepDetails",
       type: "Array<SyntheticsStepDetail>",
     },
     thumbnailsBucketKey: {
-      baseName: "thumbnailsBucketKey",
       type: "boolean",
     },
     timeToInteractive: {
-      baseName: "timeToInteractive",
       type: "number",
       format: "double",
     },

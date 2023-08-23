@@ -40,11 +40,9 @@ export class IncidentUpdateRelationships {
       type: "NullableRelationshipToUser",
     },
     integrations: {
-      baseName: "integrations",
       type: "RelationshipToIncidentIntegrationMetadatas",
     },
     postmortem: {
-      baseName: "postmortem",
       type: "RelationshipToIncidentPostmortem",
     },
   };

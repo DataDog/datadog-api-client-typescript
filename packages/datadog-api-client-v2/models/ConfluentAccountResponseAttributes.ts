@@ -39,11 +39,9 @@ export class ConfluentAccountResponseAttributes {
       required: true,
     },
     resources: {
-      baseName: "resources",
       type: "Array<ConfluentResourceResponseAttributes>",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };

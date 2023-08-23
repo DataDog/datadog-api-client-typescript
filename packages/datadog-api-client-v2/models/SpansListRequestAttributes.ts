@@ -42,19 +42,15 @@ export class SpansListRequestAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "SpansQueryFilter",
     },
     options: {
-      baseName: "options",
       type: "SpansQueryOptions",
     },
     page: {
-      baseName: "page",
       type: "SpansListRequestPage",
     },
     sort: {
-      baseName: "sort",
       type: "SpansSort",
     },
   };

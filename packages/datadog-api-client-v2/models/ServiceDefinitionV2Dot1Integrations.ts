@@ -31,11 +31,9 @@ export class ServiceDefinitionV2Dot1Integrations {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     opsgenie: {
-      baseName: "opsgenie",
       type: "ServiceDefinitionV2Dot1Opsgenie",
     },
     pagerduty: {
-      baseName: "pagerduty",
       type: "ServiceDefinitionV2Dot1Pagerduty",
     },
   };

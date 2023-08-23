@@ -26,7 +26,6 @@ export class TeamPermissionSettingUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "TeamPermissionSettingUpdate",
       required: true,
     },

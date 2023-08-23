@@ -45,20 +45,16 @@ export class SLOHistoryMetricsSeriesMetadataUnit {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     family: {
-      baseName: "family",
       type: "string",
     },
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     plural: {
-      baseName: "plural",
       type: "string",
     },
     scaleFactor: {

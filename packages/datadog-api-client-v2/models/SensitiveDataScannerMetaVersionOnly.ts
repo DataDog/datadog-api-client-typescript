@@ -25,7 +25,6 @@ export class SensitiveDataScannerMetaVersionOnly {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },

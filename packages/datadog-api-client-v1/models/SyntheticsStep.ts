@@ -50,32 +50,25 @@ export class SyntheticsStep {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     allowFailure: {
-      baseName: "allowFailure",
       type: "boolean",
     },
     isCritical: {
-      baseName: "isCritical",
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     noScreenshot: {
-      baseName: "noScreenshot",
       type: "boolean",
     },
     params: {
-      baseName: "params",
       type: "any",
     },
     timeout: {
-      baseName: "timeout",
       type: "number",
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsStepType",
     },
   };

@@ -47,7 +47,6 @@ export class UsageLambdaHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },

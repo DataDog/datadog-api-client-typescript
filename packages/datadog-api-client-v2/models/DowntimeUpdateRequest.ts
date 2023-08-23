@@ -26,7 +26,6 @@ export class DowntimeUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "DowntimeUpdateRequestData",
       required: true,
     },

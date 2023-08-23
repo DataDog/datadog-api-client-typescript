@@ -58,15 +58,12 @@ export class WebhooksIntegrationUpdateRequest {
       type: "WebhooksIntegrationEncoding",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     payload: {
-      baseName: "payload",
       type: "string",
     },
     url: {
-      baseName: "url",
       type: "string",
     },
   };

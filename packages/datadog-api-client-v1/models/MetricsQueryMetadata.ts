@@ -77,7 +77,6 @@ export class MetricsQueryMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggr: {
-      baseName: "aggr",
       type: "string",
     },
     displayName: {
@@ -85,30 +84,24 @@ export class MetricsQueryMetadata {
       type: "string",
     },
     end: {
-      baseName: "end",
       type: "number",
       format: "int64",
     },
     expression: {
-      baseName: "expression",
       type: "string",
     },
     interval: {
-      baseName: "interval",
       type: "number",
       format: "int64",
     },
     length: {
-      baseName: "length",
       type: "number",
       format: "int64",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     pointlist: {
-      baseName: "pointlist",
       type: "Array<[number, number]>",
       format: "double",
     },
@@ -118,11 +111,9 @@ export class MetricsQueryMetadata {
       format: "int64",
     },
     scope: {
-      baseName: "scope",
       type: "string",
     },
     start: {
-      baseName: "start",
       type: "number",
       format: "int64",
     },
@@ -131,7 +122,6 @@ export class MetricsQueryMetadata {
       type: "Array<string>",
     },
     unit: {
-      baseName: "unit",
       type: "[MetricsQueryUnit, MetricsQueryUnit]",
     },
   };

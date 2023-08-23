@@ -50,7 +50,6 @@ export class SharedDashboardInvitesDataObjectAttributes {
       format: "date-time",
     },
     email: {
-      baseName: "email",
       type: "string",
     },
     hasSession: {

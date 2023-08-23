@@ -29,12 +29,10 @@ export class FastlyService {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
   };

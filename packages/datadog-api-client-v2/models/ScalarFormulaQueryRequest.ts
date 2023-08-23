@@ -26,7 +26,6 @@ export class ScalarFormulaQueryRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "ScalarFormulaRequest",
       required: true,
     },

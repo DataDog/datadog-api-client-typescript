@@ -75,7 +75,6 @@ export class SearchSLOResponseDataAttributesFacets {
       type: "Array<SearchSLOResponseDataAttributesFacetsObjectInt>",
     },
     target: {
-      baseName: "target",
       type: "Array<SearchSLOResponseDataAttributesFacetsObjectInt>",
     },
     teamTags: {
@@ -83,7 +82,6 @@ export class SearchSLOResponseDataAttributesFacets {
       type: "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
     },
     timeframe: {
-      baseName: "timeframe",
       type: "Array<SearchSLOResponseDataAttributesFacetsObjectString>",
     },
   };

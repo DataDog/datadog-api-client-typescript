@@ -26,7 +26,6 @@ export class UsageSyntheticsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageSyntheticsHour>",
     },
   };

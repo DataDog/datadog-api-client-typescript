@@ -57,7 +57,7 @@ export class {{ name }} {
     {%- set isRequired = attr in model.get("required", []) %}
     {%- set format = get_format_for_schema(schema) %}
     "{{ attr|attribute_name }}": {
-      "baseName": "{{ attr }}",
+      {% if attr != attr|attribute_name %}"baseName": "{{ attr }}",{% endif %}
       "type": "{{ type_to_typescript(schema) }}",
       {%- if isRequired %}
       "required": true,

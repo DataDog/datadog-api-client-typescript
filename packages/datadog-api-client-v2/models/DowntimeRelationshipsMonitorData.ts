@@ -30,12 +30,10 @@ export class DowntimeRelationshipsMonitorData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "number",
       format: "int64",
     },
     type: {
-      baseName: "type",
       type: "DowntimeIncludedMonitorType",
     },
   };

@@ -26,7 +26,6 @@ export class NotebookMarkdownCellAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
-      baseName: "definition",
       type: "NotebookMarkdownCellDefinition",
       required: true,
     },

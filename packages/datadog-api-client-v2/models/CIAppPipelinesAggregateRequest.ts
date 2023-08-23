@@ -42,11 +42,9 @@ export class CIAppPipelinesAggregateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "Array<CIAppCompute>",
     },
     filter: {
-      baseName: "filter",
       type: "CIAppPipelinesQueryFilter",
     },
     groupBy: {
@@ -54,7 +52,6 @@ export class CIAppPipelinesAggregateRequest {
       type: "Array<CIAppPipelinesGroupBy>",
     },
     options: {
-      baseName: "options",
       type: "CIAppQueryOptions",
     },
   };

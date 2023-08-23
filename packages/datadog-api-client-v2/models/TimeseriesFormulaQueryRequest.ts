@@ -26,7 +26,6 @@ export class TimeseriesFormulaQueryRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "TimeseriesFormulaRequest",
       required: true,
     },

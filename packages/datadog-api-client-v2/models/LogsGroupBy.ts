@@ -51,29 +51,23 @@ export class LogsGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
-      baseName: "facet",
       type: "string",
       required: true,
     },
     histogram: {
-      baseName: "histogram",
       type: "LogsGroupByHistogram",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
     missing: {
-      baseName: "missing",
       type: "LogsGroupByMissing",
     },
     sort: {
-      baseName: "sort",
       type: "LogsAggregateSort",
     },
     total: {
-      baseName: "total",
       type: "LogsGroupByTotal",
     },
   };

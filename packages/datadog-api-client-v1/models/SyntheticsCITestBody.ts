@@ -26,7 +26,6 @@ export class SyntheticsCITestBody {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     tests: {
-      baseName: "tests",
       type: "Array<SyntheticsCITest>",
     },
   };

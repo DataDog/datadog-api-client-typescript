@@ -36,12 +36,10 @@ export class ListStreamWidgetRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     columns: {
-      baseName: "columns",
       type: "Array<ListStreamColumn>",
       required: true,
     },
     query: {
-      baseName: "query",
       type: "ListStreamQuery",
       required: true,
     },

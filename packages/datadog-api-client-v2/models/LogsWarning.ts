@@ -33,15 +33,12 @@ export class LogsWarning {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
-      baseName: "code",
       type: "string",
     },
     detail: {
-      baseName: "detail",
       type: "string",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
   };

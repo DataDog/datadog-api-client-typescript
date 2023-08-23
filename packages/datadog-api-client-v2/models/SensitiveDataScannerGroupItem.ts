@@ -30,11 +30,9 @@ export class SensitiveDataScannerGroupItem {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SensitiveDataScannerGroupType",
     },
   };

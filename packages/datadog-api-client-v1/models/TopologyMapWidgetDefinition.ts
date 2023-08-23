@@ -53,12 +53,10 @@ export class TopologyMapWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     requests: {
-      baseName: "requests",
       type: "Array<TopologyRequest>",
       required: true,
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -70,7 +68,6 @@ export class TopologyMapWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "TopologyMapWidgetDefinitionType",
       required: true,
     },

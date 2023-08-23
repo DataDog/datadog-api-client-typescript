@@ -42,7 +42,6 @@ export class WidgetLayout {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     height: {
-      baseName: "height",
       type: "number",
       required: true,
       format: "int64",
@@ -52,19 +51,16 @@ export class WidgetLayout {
       type: "boolean",
     },
     width: {
-      baseName: "width",
       type: "number",
       required: true,
       format: "int64",
     },
     x: {
-      baseName: "x",
       type: "number",
       required: true,
       format: "int64",
     },
     y: {
-      baseName: "y",
       type: "number",
       required: true,
       format: "int64",

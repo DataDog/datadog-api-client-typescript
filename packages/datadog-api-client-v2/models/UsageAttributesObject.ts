@@ -59,11 +59,9 @@ export class UsageAttributesObject {
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     timeseries: {
-      baseName: "timeseries",
       type: "Array<UsageTimeSeriesObject>",
     },
     usageType: {

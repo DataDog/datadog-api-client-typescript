@@ -29,11 +29,9 @@ export class SLODeleteResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<string>",
     },
     errors: {
-      baseName: "errors",
       type: "{ [key: string]: string; }",
     },
   };

@@ -26,7 +26,6 @@ export class IncidentTeamCreateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "IncidentTeamCreateData",
       required: true,
     },

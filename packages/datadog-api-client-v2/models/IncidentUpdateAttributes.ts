@@ -73,12 +73,10 @@ export class IncidentUpdateAttributes {
       type: "boolean",
     },
     detected: {
-      baseName: "detected",
       type: "Date",
       format: "date-time",
     },
     fields: {
-      baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
     },
     notificationHandles: {
@@ -86,7 +84,6 @@ export class IncidentUpdateAttributes {
       type: "Array<IncidentNotificationHandle>",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
   };

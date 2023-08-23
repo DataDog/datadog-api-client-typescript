@@ -57,7 +57,6 @@ export class IncidentCreateAttributes {
       required: true,
     },
     fields: {
-      baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
     },
     initialCells: {
@@ -69,7 +68,6 @@ export class IncidentCreateAttributes {
       type: "Array<IncidentNotificationHandle>",
     },
     title: {
-      baseName: "title",
       type: "string",
       required: true,
     },

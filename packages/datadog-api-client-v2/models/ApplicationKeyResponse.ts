@@ -31,11 +31,9 @@ export class ApplicationKeyResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "FullApplicationKey",
     },
     included: {
-      baseName: "included",
       type: "Array<ApplicationKeyResponseIncludedItem>",
     },
   };

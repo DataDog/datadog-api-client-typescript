@@ -64,7 +64,6 @@ export class LogsIndexUpdateRequest {
       type: "Array<LogsExclusion>",
     },
     filter: {
-      baseName: "filter",
       type: "LogsFilter",
       required: true,
     },

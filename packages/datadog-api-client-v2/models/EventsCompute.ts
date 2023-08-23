@@ -34,17 +34,14 @@ export class EventsCompute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "EventsAggregation",
       required: true,
     },
     interval: {
-      baseName: "interval",
       type: "number",
       format: "int64",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
   };

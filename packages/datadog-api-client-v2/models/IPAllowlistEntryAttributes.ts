@@ -51,7 +51,6 @@ export class IPAllowlistEntryAttributes {
       format: "date-time",
     },
     note: {
-      baseName: "note",
       type: "string",
     },
   };

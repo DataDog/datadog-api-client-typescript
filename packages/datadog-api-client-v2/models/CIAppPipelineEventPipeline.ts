@@ -112,17 +112,14 @@ export class CIAppPipelineEventPipeline {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
-      baseName: "end",
       type: "Date",
       required: true,
       format: "date-time",
     },
     error: {
-      baseName: "error",
       type: "CIAppCIError",
     },
     git: {
-      baseName: "git",
       type: "CIAppGitInfo",
       required: true,
     },
@@ -135,25 +132,20 @@ export class CIAppPipelineEventPipeline {
       type: "boolean",
     },
     level: {
-      baseName: "level",
       type: "CIAppPipelineEventPipelineLevel",
       required: true,
     },
     metrics: {
-      baseName: "metrics",
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     node: {
-      baseName: "node",
       type: "CIAppHostInfo",
     },
     parameters: {
-      baseName: "parameters",
       type: "{ [key: string]: string; }",
     },
     parentPipeline: {
@@ -179,18 +171,15 @@ export class CIAppPipelineEventPipeline {
       format: "int64",
     },
     start: {
-      baseName: "start",
       type: "Date",
       required: true,
       format: "date-time",
     },
     status: {
-      baseName: "status",
       type: "CIAppPipelineEventPipelineStatus",
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     uniqueId: {
@@ -199,7 +188,6 @@ export class CIAppPipelineEventPipeline {
       required: true,
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },

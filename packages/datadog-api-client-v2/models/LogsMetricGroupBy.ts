@@ -29,7 +29,6 @@ export class LogsMetricGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     path: {
-      baseName: "path",
       type: "string",
       required: true,
     },

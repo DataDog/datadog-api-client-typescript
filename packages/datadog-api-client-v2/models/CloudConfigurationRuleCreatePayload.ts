@@ -62,45 +62,36 @@ export class CloudConfigurationRuleCreatePayload {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cases: {
-      baseName: "cases",
       type: "Array<CloudConfigurationRuleCaseCreate>",
       required: true,
     },
     complianceSignalOptions: {
-      baseName: "complianceSignalOptions",
       type: "CloudConfigurationRuleComplianceSignalOptions",
       required: true,
     },
     filters: {
-      baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
     },
     isEnabled: {
-      baseName: "isEnabled",
       type: "boolean",
       required: true,
     },
     message: {
-      baseName: "message",
       type: "string",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     options: {
-      baseName: "options",
       type: "CloudConfigurationRuleOptions",
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "CloudConfigurationRuleType",
     },
   };

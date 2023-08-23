@@ -42,15 +42,12 @@ export class LogsQueryFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
-      baseName: "from",
       type: "string",
     },
     indexes: {
-      baseName: "indexes",
       type: "Array<string>",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     storageTier: {
@@ -58,7 +55,6 @@ export class LogsQueryFilter {
       type: "LogsStorageTier",
     },
     to: {
-      baseName: "to",
       type: "string",
     },
   };

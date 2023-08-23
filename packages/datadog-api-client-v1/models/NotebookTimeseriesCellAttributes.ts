@@ -41,7 +41,6 @@ export class NotebookTimeseriesCellAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
-      baseName: "definition",
       type: "TimeseriesWidgetDefinition",
       required: true,
     },
@@ -54,7 +53,6 @@ export class NotebookTimeseriesCellAttributes {
       type: "NotebookSplitBy",
     },
     time: {
-      baseName: "time",
       type: "NotebookCellTime",
     },
   };

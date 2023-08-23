@@ -42,26 +42,21 @@ export class SyntheticsBrowserTestResultShortResult {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     device: {
-      baseName: "device",
       type: "SyntheticsDevice",
     },
     duration: {
-      baseName: "duration",
       type: "number",
       format: "double",
     },
     errorCount: {
-      baseName: "errorCount",
       type: "number",
       format: "int64",
     },
     stepCountCompleted: {
-      baseName: "stepCountCompleted",
       type: "number",
       format: "int64",
     },
     stepCountTotal: {
-      baseName: "stepCountTotal",
       type: "number",
       format: "int64",
     },

@@ -66,49 +66,39 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cases: {
-      baseName: "cases",
       type: "Array<SecurityMonitoringRuleCaseCreate>",
       required: true,
     },
     filters: {
-      baseName: "filters",
       type: "Array<SecurityMonitoringFilter>",
     },
     hasExtendedTitle: {
-      baseName: "hasExtendedTitle",
       type: "boolean",
     },
     isEnabled: {
-      baseName: "isEnabled",
       type: "boolean",
       required: true,
     },
     message: {
-      baseName: "message",
       type: "string",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     options: {
-      baseName: "options",
       type: "SecurityMonitoringRuleOptions",
       required: true,
     },
     queries: {
-      baseName: "queries",
       type: "Array<SecurityMonitoringStandardRuleQuery>",
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     type: {
-      baseName: "type",
       type: "SecurityMonitoringRuleTypeCreate",
     },
   };

@@ -47,11 +47,9 @@ export class LogsAggregateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "Array<LogsCompute>",
     },
     filter: {
-      baseName: "filter",
       type: "LogsQueryFilter",
     },
     groupBy: {
@@ -59,11 +57,9 @@ export class LogsAggregateRequest {
       type: "Array<LogsGroupBy>",
     },
     options: {
-      baseName: "options",
       type: "LogsQueryOptions",
     },
     page: {
-      baseName: "page",
       type: "LogsAggregateRequestPage",
     },
   };

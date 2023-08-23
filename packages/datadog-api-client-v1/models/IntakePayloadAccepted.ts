@@ -25,7 +25,6 @@ export class IntakePayloadAccepted {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     status: {
-      baseName: "status",
       type: "string",
     },
   };

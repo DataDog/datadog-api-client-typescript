@@ -29,12 +29,10 @@ export class SignalAssigneeUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     assignee: {
-      baseName: "assignee",
       type: "string",
       required: true,
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },

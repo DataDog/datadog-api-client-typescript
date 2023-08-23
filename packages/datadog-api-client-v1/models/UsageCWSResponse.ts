@@ -26,7 +26,6 @@ export class UsageCWSResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     usage: {
-      baseName: "usage",
       type: "Array<UsageCWSHour>",
     },
   };

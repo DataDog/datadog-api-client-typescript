@@ -31,12 +31,10 @@ export class TimeseriesBackground {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     type: {
-      baseName: "type",
       type: "TimeseriesBackgroundType",
       required: true,
     },
     yaxis: {
-      baseName: "yaxis",
       type: "WidgetAxis",
     },
   };

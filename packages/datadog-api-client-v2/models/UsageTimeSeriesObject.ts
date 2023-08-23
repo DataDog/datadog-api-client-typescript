@@ -29,12 +29,10 @@ export class UsageTimeSeriesObject {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     timestamp: {
-      baseName: "timestamp",
       type: "Date",
       format: "date-time",
     },
     value: {
-      baseName: "value",
       type: "number",
       format: "int64",
     },

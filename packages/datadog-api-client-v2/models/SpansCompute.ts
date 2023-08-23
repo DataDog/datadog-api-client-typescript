@@ -40,20 +40,16 @@ export class SpansCompute {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "SpansAggregationFunction",
       required: true,
     },
     interval: {
-      baseName: "interval",
       type: "string",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SpansComputeType",
     },
   };

@@ -42,24 +42,19 @@ export class SyntheticsBasicAuthNTLM {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     domain: {
-      baseName: "domain",
       type: "string",
     },
     password: {
-      baseName: "password",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsBasicAuthNTLMType",
       required: true,
     },
     username: {
-      baseName: "username",
       type: "string",
     },
     workstation: {
-      baseName: "workstation",
       type: "string",
     },
   };

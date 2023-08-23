@@ -30,11 +30,9 @@ export class SyntheticsApiTestResultFailure {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     code: {
-      baseName: "code",
       type: "SyntheticsApiTestFailureCode",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
   };

@@ -31,7 +31,6 @@ export class SyntheticsPrivateLocationSecrets {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     authentication: {
-      baseName: "authentication",
       type: "SyntheticsPrivateLocationSecretsAuthentication",
     },
     configDecryption: {

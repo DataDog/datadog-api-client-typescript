@@ -35,15 +35,12 @@ export class ProcessSummary {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "ProcessSummaryAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ProcessSummaryType",
     },
   };

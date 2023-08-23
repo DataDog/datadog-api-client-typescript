@@ -49,16 +49,13 @@ export class FunnelWidgetDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     requests: {
-      baseName: "requests",
       type: "[FunnelWidgetRequest]",
       required: true,
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -70,7 +67,6 @@ export class FunnelWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "FunnelWidgetDefinitionType",
       required: true,
     },

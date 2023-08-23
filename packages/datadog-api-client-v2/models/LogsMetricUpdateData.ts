@@ -31,12 +31,10 @@ export class LogsMetricUpdateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "LogsMetricUpdateAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsMetricType",
       required: true,
     },

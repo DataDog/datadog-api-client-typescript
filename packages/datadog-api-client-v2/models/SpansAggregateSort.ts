@@ -40,19 +40,15 @@ export class SpansAggregateSort {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "SpansAggregationFunction",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     order: {
-      baseName: "order",
       type: "SpansSortOrder",
     },
     type: {
-      baseName: "type",
       type: "SpansAggregateSortType",
     },
   };

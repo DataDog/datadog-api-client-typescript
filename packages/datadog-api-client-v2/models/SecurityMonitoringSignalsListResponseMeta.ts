@@ -26,7 +26,6 @@ export class SecurityMonitoringSignalsListResponseMeta {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "SecurityMonitoringSignalsListResponseMetaPage",
     },
   };

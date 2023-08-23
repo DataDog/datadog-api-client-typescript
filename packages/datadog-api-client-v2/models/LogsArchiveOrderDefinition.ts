@@ -31,12 +31,10 @@ export class LogsArchiveOrderDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "LogsArchiveOrderAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "LogsArchiveOrderDefinitionType",
       required: true,
     },

@@ -51,12 +51,10 @@ export class IncidentIntegrationMetadataAttributes {
       format: "int32",
     },
     metadata: {
-      baseName: "metadata",
       type: "IncidentIntegrationMetadataMetadata",
       required: true,
     },
     status: {
-      baseName: "status",
       type: "number",
       format: "int32",
     },

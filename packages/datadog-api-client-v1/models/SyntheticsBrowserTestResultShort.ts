@@ -55,7 +55,6 @@ export class SyntheticsBrowserTestResultShort {
       type: "string",
     },
     result: {
-      baseName: "result",
       type: "SyntheticsBrowserTestResultShortResult",
     },
     resultId: {
@@ -63,7 +62,6 @@ export class SyntheticsBrowserTestResultShort {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "SyntheticsTestMonitorStatus",
       format: "int64",
     },

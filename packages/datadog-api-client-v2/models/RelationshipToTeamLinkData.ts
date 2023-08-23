@@ -30,12 +30,10 @@ export class RelationshipToTeamLinkData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
-      baseName: "id",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "TeamLinkType",
       required: true,
     },

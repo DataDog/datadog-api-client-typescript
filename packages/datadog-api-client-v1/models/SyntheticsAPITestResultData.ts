@@ -62,41 +62,32 @@ export class SyntheticsAPITestResultData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cert: {
-      baseName: "cert",
       type: "SyntheticsSSLCertificate",
     },
     eventType: {
-      baseName: "eventType",
       type: "SyntheticsTestProcessStatus",
     },
     failure: {
-      baseName: "failure",
       type: "SyntheticsApiTestResultFailure",
     },
     httpStatusCode: {
-      baseName: "httpStatusCode",
       type: "number",
       format: "int64",
     },
     requestHeaders: {
-      baseName: "requestHeaders",
       type: "{ [key: string]: any; }",
     },
     responseBody: {
-      baseName: "responseBody",
       type: "string",
     },
     responseHeaders: {
-      baseName: "responseHeaders",
       type: "{ [key: string]: any; }",
     },
     responseSize: {
-      baseName: "responseSize",
       type: "number",
       format: "int64",
     },
     timings: {
-      baseName: "timings",
       type: "SyntheticsTiming",
     },
   };

@@ -33,16 +33,13 @@ export class SecurityMonitoringSignalListRequestFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     from: {
-      baseName: "from",
       type: "Date",
       format: "date-time",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     to: {
-      baseName: "to",
       type: "Date",
       format: "date-time",
     },

@@ -35,16 +35,13 @@ export class IncidentSearchResponsePropertyFieldFacetData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregates: {
-      baseName: "aggregates",
       type: "IncidentSearchResponseNumericFacetDataAggregates",
     },
     facets: {
-      baseName: "facets",
       type: "Array<IncidentSearchResponseFieldFacetData>",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },

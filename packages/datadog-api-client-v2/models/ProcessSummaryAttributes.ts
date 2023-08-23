@@ -53,37 +53,29 @@ export class ProcessSummaryAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cmdline: {
-      baseName: "cmdline",
       type: "string",
     },
     host: {
-      baseName: "host",
       type: "string",
     },
     pid: {
-      baseName: "pid",
       type: "number",
       format: "int64",
     },
     ppid: {
-      baseName: "ppid",
       type: "number",
       format: "int64",
     },
     start: {
-      baseName: "start",
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     timestamp: {
-      baseName: "timestamp",
       type: "string",
     },
     user: {
-      baseName: "user",
       type: "string",
     },
   };

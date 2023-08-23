@@ -35,15 +35,12 @@ export class UsageDataObject {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "UsageAttributesObject",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "UsageTimeSeriesType",
     },
   };

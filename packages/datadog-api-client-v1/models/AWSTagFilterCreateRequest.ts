@@ -38,7 +38,6 @@ export class AWSTagFilterCreateRequest {
       type: "string",
     },
     namespace: {
-      baseName: "namespace",
       type: "AWSNamespace",
     },
     tagFilterStr: {

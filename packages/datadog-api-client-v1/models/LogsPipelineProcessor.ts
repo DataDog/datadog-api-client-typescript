@@ -48,7 +48,6 @@ export class LogsPipelineProcessor {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     filter: {
-      baseName: "filter",
       type: "LogsFilter",
     },
     isEnabled: {
@@ -56,15 +55,12 @@ export class LogsPipelineProcessor {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     processors: {
-      baseName: "processors",
       type: "Array<LogsProcessor>",
     },
     type: {
-      baseName: "type",
       type: "LogsPipelineProcessorType",
       required: true,
     },

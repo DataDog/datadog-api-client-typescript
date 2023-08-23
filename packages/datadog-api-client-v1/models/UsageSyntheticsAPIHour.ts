@@ -42,7 +42,6 @@ export class UsageSyntheticsAPIHour {
       format: "int64",
     },
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },

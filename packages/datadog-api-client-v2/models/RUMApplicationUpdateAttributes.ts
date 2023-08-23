@@ -29,11 +29,9 @@ export class RUMApplicationUpdateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
   };

@@ -26,7 +26,6 @@ export class NotebookUpdateRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "NotebookUpdateData",
       required: true,
     },

@@ -31,11 +31,9 @@ export class SLOHistoryResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "SLOHistoryResponseData",
     },
     errors: {
-      baseName: "errors",
       type: "Array<SLOHistoryResponseError>",
     },
   };

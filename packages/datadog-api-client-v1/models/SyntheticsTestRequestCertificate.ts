@@ -30,11 +30,9 @@ export class SyntheticsTestRequestCertificate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cert: {
-      baseName: "cert",
       type: "SyntheticsTestRequestCertificateItem",
     },
     key: {
-      baseName: "key",
       type: "SyntheticsTestRequestCertificateItem",
     },
   };

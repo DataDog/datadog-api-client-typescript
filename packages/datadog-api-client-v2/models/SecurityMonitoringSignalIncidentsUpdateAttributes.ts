@@ -35,7 +35,6 @@ export class SecurityMonitoringSignalIncidentsUpdateAttributes {
       format: "int64",
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },

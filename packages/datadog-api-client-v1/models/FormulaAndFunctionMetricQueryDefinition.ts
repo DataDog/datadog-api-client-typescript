@@ -39,7 +39,6 @@ export class FormulaAndFunctionMetricQueryDefinition {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
-      baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
     },
     dataSource: {
@@ -48,12 +47,10 @@ export class FormulaAndFunctionMetricQueryDefinition {
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     query: {
-      baseName: "query",
       type: "string",
       required: true,
     },

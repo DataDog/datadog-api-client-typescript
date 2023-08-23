@@ -53,25 +53,20 @@ export class TeamUpdateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     avatar: {
-      baseName: "avatar",
       type: "string",
     },
     banner: {
-      baseName: "banner",
       type: "number",
       format: "int64",
     },
     color: {
-      baseName: "color",
       type: "number",
       format: "int32",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     handle: {
-      baseName: "handle",
       type: "string",
       required: true,
     },
@@ -80,7 +75,6 @@ export class TeamUpdateAttributes {
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },

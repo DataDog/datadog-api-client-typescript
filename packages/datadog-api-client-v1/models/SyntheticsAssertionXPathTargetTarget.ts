@@ -33,15 +33,12 @@ export class SyntheticsAssertionXPathTargetTarget {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     operator: {
-      baseName: "operator",
       type: "string",
     },
     targetValue: {
-      baseName: "targetValue",
       type: "any",
     },
     xPath: {
-      baseName: "xPath",
       type: "string",
     },
   };

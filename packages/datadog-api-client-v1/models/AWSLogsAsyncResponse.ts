@@ -30,11 +30,9 @@ export class AWSLogsAsyncResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     errors: {
-      baseName: "errors",
       type: "Array<AWSLogsAsyncError>",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
   };

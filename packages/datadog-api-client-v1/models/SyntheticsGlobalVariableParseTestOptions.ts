@@ -39,19 +39,15 @@ export class SyntheticsGlobalVariableParseTestOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     field: {
-      baseName: "field",
       type: "string",
     },
     localVariableName: {
-      baseName: "localVariableName",
       type: "string",
     },
     parser: {
-      baseName: "parser",
       type: "SyntheticsVariableParser",
     },
     type: {
-      baseName: "type",
       type: "SyntheticsGlobalVariableParseTestOptionsType",
       required: true,
     },

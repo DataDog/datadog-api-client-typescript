@@ -40,15 +40,12 @@ export class TreeMapWidgetRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     formulas: {
-      baseName: "formulas",
       type: "Array<WidgetFormula>",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     queries: {
-      baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
     },
     responseFormat: {

@@ -29,11 +29,9 @@ export class AuditLogsQueryPageOptions {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     cursor: {
-      baseName: "cursor",
       type: "string",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int32",
     },

@@ -50,29 +50,23 @@ export class SpansGroupBy {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     facet: {
-      baseName: "facet",
       type: "string",
       required: true,
     },
     histogram: {
-      baseName: "histogram",
       type: "SpansGroupByHistogram",
     },
     limit: {
-      baseName: "limit",
       type: "number",
       format: "int64",
     },
     missing: {
-      baseName: "missing",
       type: "SpansGroupByMissing",
     },
     sort: {
-      baseName: "sort",
       type: "SpansAggregateSort",
     },
     total: {
-      baseName: "total",
       type: "SpansGroupByTotal",
     },
   };

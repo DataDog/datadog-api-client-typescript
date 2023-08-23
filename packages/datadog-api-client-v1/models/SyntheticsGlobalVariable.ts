@@ -56,20 +56,16 @@ export class SyntheticsGlobalVariable {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SyntheticsGlobalVariableAttributes",
     },
     description: {
-      baseName: "description",
       type: "string",
       required: true,
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
@@ -82,12 +78,10 @@ export class SyntheticsGlobalVariable {
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
       required: true,
     },
     value: {
-      baseName: "value",
       type: "SyntheticsGlobalVariableValue",
       required: true,
     },

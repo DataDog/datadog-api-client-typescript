@@ -43,7 +43,6 @@ export class NotebookDistributionCellAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
-      baseName: "definition",
       type: "DistributionWidgetDefinition",
       required: true,
     },
@@ -56,7 +55,6 @@ export class NotebookDistributionCellAttributes {
       type: "NotebookSplitBy",
     },
     time: {
-      baseName: "time",
       type: "NotebookCellTime",
     },
   };

@@ -29,11 +29,9 @@ export class SLORawErrorBudgetRemaining {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     unit: {
-      baseName: "unit",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "number",
       format: "double",
     },

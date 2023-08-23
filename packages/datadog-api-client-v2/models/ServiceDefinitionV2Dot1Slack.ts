@@ -34,16 +34,13 @@ export class ServiceDefinitionV2Dot1Slack {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     contact: {
-      baseName: "contact",
       type: "string",
       required: true,
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "ServiceDefinitionV2Dot1SlackType",
       required: true,
     },

@@ -42,7 +42,6 @@ export class SunburstWidgetLegendInlineAutomatic {
       type: "boolean",
     },
     type: {
-      baseName: "type",
       type: "SunburstWidgetLegendInlineAutomaticType",
       required: true,
     },

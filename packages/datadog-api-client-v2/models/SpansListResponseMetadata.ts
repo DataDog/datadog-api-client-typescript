@@ -45,12 +45,10 @@ export class SpansListResponseMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     elapsed: {
-      baseName: "elapsed",
       type: "number",
       format: "int64",
     },
     page: {
-      baseName: "page",
       type: "SpansResponseMetadataPage",
     },
     requestId: {
@@ -58,11 +56,9 @@ export class SpansListResponseMetadata {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "SpansAggregateResponseStatus",
     },
     warnings: {
-      baseName: "warnings",
       type: "Array<SpansWarning>",
     },
   };

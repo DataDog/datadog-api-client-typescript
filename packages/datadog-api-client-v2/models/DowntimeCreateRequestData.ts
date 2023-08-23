@@ -31,12 +31,10 @@ export class DowntimeCreateRequestData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "DowntimeCreateRequestAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "DowntimeResourceType",
       required: true,
     },

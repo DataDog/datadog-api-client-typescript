@@ -26,7 +26,6 @@ export class TeamPermissionSettingUpdateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     value: {
-      baseName: "value",
       type: "TeamPermissionSettingValue",
     },
   };

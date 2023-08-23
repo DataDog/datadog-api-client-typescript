@@ -35,15 +35,12 @@ export class CIAppPipelineEvent {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "CIAppPipelineEventAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "CIAppPipelineEventTypeName",
     },
   };

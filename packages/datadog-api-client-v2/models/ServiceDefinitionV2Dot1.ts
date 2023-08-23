@@ -73,11 +73,9 @@ export class ServiceDefinitionV2Dot1 {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     application: {
-      baseName: "application",
       type: "string",
     },
     contacts: {
-      baseName: "contacts",
       type: "Array<ServiceDefinitionV2Dot1Contact>",
     },
     ddService: {
@@ -86,23 +84,18 @@ export class ServiceDefinitionV2Dot1 {
       required: true,
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     extensions: {
-      baseName: "extensions",
       type: "{ [key: string]: any; }",
     },
     integrations: {
-      baseName: "integrations",
       type: "ServiceDefinitionV2Dot1Integrations",
     },
     lifecycle: {
-      baseName: "lifecycle",
       type: "string",
     },
     links: {
-      baseName: "links",
       type: "Array<ServiceDefinitionV2Dot1Link>",
     },
     schemaVersion: {
@@ -111,15 +104,12 @@ export class ServiceDefinitionV2Dot1 {
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     team: {
-      baseName: "team",
       type: "string",
     },
     tier: {
-      baseName: "tier",
       type: "string",
     },
   };

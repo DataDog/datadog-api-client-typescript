@@ -49,16 +49,13 @@ export class DashboardTemplateVariable {
       type: "string",
     },
     defaults: {
-      baseName: "defaults",
       type: "Array<string>",
     },
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     prefix: {
-      baseName: "prefix",
       type: "string",
     },
   };

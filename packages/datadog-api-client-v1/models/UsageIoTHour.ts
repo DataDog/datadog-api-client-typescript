@@ -37,7 +37,6 @@ export class UsageIoTHour {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     hour: {
-      baseName: "hour",
       type: "Date",
       format: "date-time",
     },

@@ -35,15 +35,12 @@ export class GCPSTSDelegateAccount {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "GCPSTSDelegateAccountAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "GCPSTSDelegateAccountType",
     },
   };

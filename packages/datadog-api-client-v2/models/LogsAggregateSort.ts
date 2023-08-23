@@ -40,19 +40,15 @@ export class LogsAggregateSort {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregation: {
-      baseName: "aggregation",
       type: "LogsAggregationFunction",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     order: {
-      baseName: "order",
       type: "LogsSortOrder",
     },
     type: {
-      baseName: "type",
       type: "LogsAggregateSortType",
     },
   };

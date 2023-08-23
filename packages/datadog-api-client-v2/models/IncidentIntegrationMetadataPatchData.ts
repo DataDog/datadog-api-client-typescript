@@ -31,12 +31,10 @@ export class IncidentIntegrationMetadataPatchData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "IncidentIntegrationMetadataAttributes",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "IncidentIntegrationMetadataType",
       required: true,
     },

@@ -36,16 +36,13 @@ export class TeamCreate {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "TeamCreateAttributes",
       required: true,
     },
     relationships: {
-      baseName: "relationships",
       type: "TeamCreateRelationships",
     },
     type: {
-      baseName: "type",
       type: "TeamType",
       required: true,
     },

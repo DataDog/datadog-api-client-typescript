@@ -34,17 +34,14 @@ export class ServiceDefinitionV1Resource {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     name: {
-      baseName: "name",
       type: "string",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "ServiceDefinitionV1ResourceType",
       required: true,
     },
     url: {
-      baseName: "url",
       type: "string",
       required: true,
     },

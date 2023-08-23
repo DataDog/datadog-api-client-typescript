@@ -37,7 +37,6 @@ export class MonitorSearchResponseMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     page: {
-      baseName: "page",
       type: "number",
       format: "int64",
     },

@@ -62,15 +62,12 @@ export class RunWorkflowWidgetDefinition {
       type: "Array<WidgetCustomLink>",
     },
     inputs: {
-      baseName: "inputs",
       type: "Array<RunWorkflowWidgetInput>",
     },
     time: {
-      baseName: "time",
       type: "WidgetTime",
     },
     title: {
-      baseName: "title",
       type: "string",
     },
     titleAlign: {
@@ -82,7 +79,6 @@ export class RunWorkflowWidgetDefinition {
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "RunWorkflowWidgetDefinitionType",
       required: true,
     },

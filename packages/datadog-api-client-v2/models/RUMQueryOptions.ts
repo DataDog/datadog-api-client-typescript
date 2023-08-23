@@ -35,7 +35,6 @@ export class RUMQueryOptions {
       format: "int64",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };

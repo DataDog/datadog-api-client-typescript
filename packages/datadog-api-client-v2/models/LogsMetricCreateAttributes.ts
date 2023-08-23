@@ -36,12 +36,10 @@ export class LogsMetricCreateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     compute: {
-      baseName: "compute",
       type: "LogsMetricCompute",
       required: true,
     },
     filter: {
-      baseName: "filter",
       type: "LogsMetricFilter",
     },
     groupBy: {

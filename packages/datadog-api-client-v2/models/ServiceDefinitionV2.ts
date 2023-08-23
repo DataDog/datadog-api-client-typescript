@@ -71,7 +71,6 @@ export class ServiceDefinitionV2 {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     contacts: {
-      baseName: "contacts",
       type: "Array<ServiceDefinitionV2Contact>",
     },
     ddService: {
@@ -84,23 +83,18 @@ export class ServiceDefinitionV2 {
       type: "string",
     },
     docs: {
-      baseName: "docs",
       type: "Array<ServiceDefinitionV2Doc>",
     },
     extensions: {
-      baseName: "extensions",
       type: "{ [key: string]: any; }",
     },
     integrations: {
-      baseName: "integrations",
       type: "ServiceDefinitionV2Integrations",
     },
     links: {
-      baseName: "links",
       type: "Array<ServiceDefinitionV2Link>",
     },
     repos: {
-      baseName: "repos",
       type: "Array<ServiceDefinitionV2Repo>",
     },
     schemaVersion: {
@@ -109,11 +103,9 @@ export class ServiceDefinitionV2 {
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
     },
     team: {
-      baseName: "team",
       type: "string",
     },
   };

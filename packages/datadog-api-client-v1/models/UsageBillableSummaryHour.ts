@@ -85,7 +85,6 @@ export class UsageBillableSummaryHour {
       format: "double",
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     startDate: {
@@ -94,7 +93,6 @@ export class UsageBillableSummaryHour {
       format: "date-time",
     },
     usage: {
-      baseName: "usage",
       type: "UsageBillableSummaryKeys",
     },
   };

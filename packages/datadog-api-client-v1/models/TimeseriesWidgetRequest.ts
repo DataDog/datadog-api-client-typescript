@@ -113,7 +113,6 @@ export class TimeseriesWidgetRequest {
       type: "LogQueryDefinition",
     },
     formulas: {
-      baseName: "formulas",
       type: "Array<WidgetFormula>",
     },
     logQuery: {
@@ -121,7 +120,6 @@ export class TimeseriesWidgetRequest {
       type: "LogQueryDefinition",
     },
     metadata: {
-      baseName: "metadata",
       type: "Array<TimeseriesWidgetExpressionAlias>",
     },
     networkQuery: {
@@ -141,11 +139,9 @@ export class TimeseriesWidgetRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     queries: {
-      baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
     },
     responseFormat: {
@@ -161,7 +157,6 @@ export class TimeseriesWidgetRequest {
       type: "LogQueryDefinition",
     },
     style: {
-      baseName: "style",
       type: "WidgetRequestStyle",
     },
   };

@@ -83,66 +83,51 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     agentConstraint: {
-      baseName: "agentConstraint",
       type: "string",
     },
     category: {
-      baseName: "category",
       type: "string",
     },
     creationAuthorUuId: {
-      baseName: "creationAuthorUuId",
       type: "string",
     },
     creationDate: {
-      baseName: "creationDate",
       type: "number",
       format: "int64",
     },
     creator: {
-      baseName: "creator",
       type: "CloudWorkloadSecurityAgentRuleCreatorAttributes",
     },
     defaultRule: {
-      baseName: "defaultRule",
       type: "boolean",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     enabled: {
-      baseName: "enabled",
       type: "boolean",
     },
     expression: {
-      baseName: "expression",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     updateAuthorUuId: {
-      baseName: "updateAuthorUuId",
       type: "string",
     },
     updateDate: {
-      baseName: "updateDate",
       type: "number",
       format: "int64",
     },
     updatedAt: {
-      baseName: "updatedAt",
       type: "number",
       format: "int64",
     },
     updater: {
-      baseName: "updater",
       type: "CloudWorkloadSecurityAgentRuleUpdaterAttributes",
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },

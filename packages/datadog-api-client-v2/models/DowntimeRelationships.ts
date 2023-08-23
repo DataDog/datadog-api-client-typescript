@@ -35,7 +35,6 @@ export class DowntimeRelationships {
       type: "DowntimeRelationshipsCreatedBy",
     },
     monitor: {
-      baseName: "monitor",
       type: "DowntimeRelationshipsMonitor",
     },
   };

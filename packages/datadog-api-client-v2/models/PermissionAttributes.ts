@@ -49,12 +49,10 @@ export class PermissionAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     created: {
-      baseName: "created",
       type: "Date",
       format: "date-time",
     },
     description: {
-      baseName: "description",
       type: "string",
     },
     displayName: {
@@ -70,11 +68,9 @@ export class PermissionAttributes {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     restricted: {
-      baseName: "restricted",
       type: "boolean",
     },
   };

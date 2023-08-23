@@ -31,12 +31,10 @@ export class MonitorConfigPolicyCreateData {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "MonitorConfigPolicyAttributeCreateRequest",
       required: true,
     },
     type: {
-      baseName: "type",
       type: "MonitorConfigPolicyResourceType",
       required: true,
     },

@@ -36,11 +36,9 @@ export class ScatterplotTableRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     formulas: {
-      baseName: "formulas",
       type: "Array<ScatterplotWidgetFormula>",
     },
     queries: {
-      baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
     },
     responseFormat: {

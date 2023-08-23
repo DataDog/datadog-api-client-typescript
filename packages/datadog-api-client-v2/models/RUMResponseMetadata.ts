@@ -45,12 +45,10 @@ export class RUMResponseMetadata {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     elapsed: {
-      baseName: "elapsed",
       type: "number",
       format: "int64",
     },
     page: {
-      baseName: "page",
       type: "RUMResponsePage",
     },
     requestId: {
@@ -58,11 +56,9 @@ export class RUMResponseMetadata {
       type: "string",
     },
     status: {
-      baseName: "status",
       type: "RUMResponseStatus",
     },
     warnings: {
-      baseName: "warnings",
       type: "Array<RUMWarning>",
     },
   };

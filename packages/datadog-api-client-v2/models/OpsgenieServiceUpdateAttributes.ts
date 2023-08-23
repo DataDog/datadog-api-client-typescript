@@ -42,7 +42,6 @@ export class OpsgenieServiceUpdateAttributes {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     opsgenieApiKey: {
@@ -50,7 +49,6 @@ export class OpsgenieServiceUpdateAttributes {
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "OpsgenieServiceRegionType",
     },
   };

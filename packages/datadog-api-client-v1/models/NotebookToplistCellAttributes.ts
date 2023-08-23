@@ -41,7 +41,6 @@ export class NotebookToplistCellAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     definition: {
-      baseName: "definition",
       type: "ToplistWidgetDefinition",
       required: true,
     },
@@ -54,7 +53,6 @@ export class NotebookToplistCellAttributes {
       type: "NotebookSplitBy",
     },
     time: {
-      baseName: "time",
       type: "NotebookCellTime",
     },
   };

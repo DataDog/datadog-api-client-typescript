@@ -26,7 +26,6 @@ export class LogsResponseMetadataPage {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     after: {
-      baseName: "after",
       type: "string",
     },
   };

@@ -88,7 +88,6 @@ export class QueryValueWidgetRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregator: {
-      baseName: "aggregator",
       type: "WidgetAggregator",
     },
     apmQuery: {
@@ -108,7 +107,6 @@ export class QueryValueWidgetRequest {
       type: "LogQueryDefinition",
     },
     formulas: {
-      baseName: "formulas",
       type: "Array<WidgetFormula>",
     },
     logQuery: {
@@ -128,11 +126,9 @@ export class QueryValueWidgetRequest {
       type: "LogQueryDefinition",
     },
     q: {
-      baseName: "q",
       type: "string",
     },
     queries: {
-      baseName: "queries",
       type: "Array<FormulaAndFunctionQueryDefinition>",
     },
     responseFormat: {

@@ -43,7 +43,6 @@ export class RoleUpdateAttributes {
       format: "date-time",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };

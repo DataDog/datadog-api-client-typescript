@@ -26,7 +26,6 @@ export class SyntheticsAPITestResultFullCheck {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     config: {
-      baseName: "config",
       type: "SyntheticsTestConfig",
       required: true,
     },

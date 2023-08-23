@@ -67,7 +67,6 @@ export class SensitiveDataScannerMeta {
       type: "boolean",
     },
     version: {
-      baseName: "version",
       type: "number",
       format: "int64",
     },

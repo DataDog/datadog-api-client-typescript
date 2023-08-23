@@ -58,7 +58,6 @@ export class MonthlyUsageAttributionBody {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     month: {
-      baseName: "month",
       type: "Date",
       format: "date-time",
     },
@@ -71,7 +70,6 @@ export class MonthlyUsageAttributionBody {
       type: "string",
     },
     region: {
-      baseName: "region",
       type: "string",
     },
     tagConfigSource: {
@@ -79,7 +77,6 @@ export class MonthlyUsageAttributionBody {
       type: "string",
     },
     tags: {
-      baseName: "tags",
       type: "{ [key: string]: Array<string>; }",
     },
     updatedAt: {
@@ -88,7 +85,6 @@ export class MonthlyUsageAttributionBody {
       format: "date-time",
     },
     values: {
-      baseName: "values",
       type: "MonthlyUsageAttributionValues",
     },
   };

@@ -58,7 +58,6 @@ export class MetricsQueryResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     error: {
-      baseName: "error",
       type: "string",
     },
     fromDate: {
@@ -71,11 +70,9 @@ export class MetricsQueryResponse {
       type: "Array<string>",
     },
     message: {
-      baseName: "message",
       type: "string",
     },
     query: {
-      baseName: "query",
       type: "string",
     },
     resType: {
@@ -83,11 +80,9 @@ export class MetricsQueryResponse {
       type: "string",
     },
     series: {
-      baseName: "series",
       type: "Array<MetricsQueryMetadata>",
     },
     status: {
-      baseName: "status",
       type: "string",
     },
     toDate: {

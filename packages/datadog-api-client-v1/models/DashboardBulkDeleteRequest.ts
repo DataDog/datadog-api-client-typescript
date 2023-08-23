@@ -26,7 +26,6 @@ export class DashboardBulkDeleteRequest {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<DashboardBulkActionData>",
       required: true,
     },

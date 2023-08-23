@@ -26,7 +26,6 @@ export class RelationshipToOrganizations {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<RelationshipToOrganizationData>",
       required: true,
     },

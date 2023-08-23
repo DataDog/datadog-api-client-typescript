@@ -40,11 +40,9 @@ export class WebhooksIntegrationCustomVariableUpdateRequest {
       type: "boolean",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "string",
     },
   };

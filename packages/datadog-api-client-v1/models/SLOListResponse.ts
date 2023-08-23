@@ -36,15 +36,12 @@ export class SLOListResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<ServiceLevelObjective>",
     },
     errors: {
-      baseName: "errors",
       type: "Array<string>",
     },
     metadata: {
-      baseName: "metadata",
       type: "SLOListResponseMetadata",
     },
   };

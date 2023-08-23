@@ -36,15 +36,12 @@ export class CIAppPipelineEventsResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "Array<CIAppPipelineEvent>",
     },
     links: {
-      baseName: "links",
       type: "CIAppResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "CIAppResponseMetadataWithPagination",
     },
   };

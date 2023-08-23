@@ -76,15 +76,12 @@ export class SLOHistoryMonitor {
       type: "{ [key: string]: number; }",
     },
     errors: {
-      baseName: "errors",
       type: "Array<SLOHistoryResponseErrorWithType>",
     },
     group: {
-      baseName: "group",
       type: "string",
     },
     history: {
-      baseName: "history",
       type: "Array<[number, number]>",
       format: "double",
     },
@@ -98,16 +95,13 @@ export class SLOHistoryMonitor {
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     precision: {
-      baseName: "precision",
       type: "number",
       format: "double",
     },
     preview: {
-      baseName: "preview",
       type: "boolean",
     },
     sliValue: {
@@ -121,7 +115,6 @@ export class SLOHistoryMonitor {
       format: "double",
     },
     uptime: {
-      baseName: "uptime",
       type: "number",
       format: "double",
     },

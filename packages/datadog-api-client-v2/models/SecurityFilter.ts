@@ -35,15 +35,12 @@ export class SecurityFilter {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
-      baseName: "attributes",
       type: "SecurityFilterAttributes",
     },
     id: {
-      baseName: "id",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "SecurityFilterType",
     },
   };

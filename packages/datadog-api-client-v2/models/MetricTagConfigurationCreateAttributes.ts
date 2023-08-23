@@ -55,7 +55,6 @@ export class MetricTagConfigurationCreateAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     aggregations: {
-      baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
     },
     includePercentiles: {
@@ -68,7 +67,6 @@ export class MetricTagConfigurationCreateAttributes {
       required: true,
     },
     tags: {
-      baseName: "tags",
       type: "Array<string>",
       required: true,
     },

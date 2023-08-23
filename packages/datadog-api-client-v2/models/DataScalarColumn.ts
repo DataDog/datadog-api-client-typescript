@@ -38,19 +38,15 @@ export class DataScalarColumn {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     meta: {
-      baseName: "meta",
       type: "ScalarMeta",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
     type: {
-      baseName: "type",
       type: "string",
     },
     values: {
-      baseName: "values",
       type: "Array<number>",
       format: "double",
     },

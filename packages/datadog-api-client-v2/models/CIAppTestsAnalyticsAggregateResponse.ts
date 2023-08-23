@@ -36,15 +36,12 @@ export class CIAppTestsAnalyticsAggregateResponse {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
-      baseName: "data",
       type: "CIAppTestsAggregationBucketsResponse",
     },
     links: {
-      baseName: "links",
       type: "CIAppResponseLinks",
     },
     meta: {
-      baseName: "meta",
       type: "CIAppResponseMetadataWithPagination",
     },
   };

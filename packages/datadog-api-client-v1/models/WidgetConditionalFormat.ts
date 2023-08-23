@@ -59,7 +59,6 @@ export class WidgetConditionalFormat {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     comparator: {
-      baseName: "comparator",
       type: "WidgetComparator",
       required: true,
     },
@@ -80,20 +79,16 @@ export class WidgetConditionalFormat {
       type: "string",
     },
     metric: {
-      baseName: "metric",
       type: "string",
     },
     palette: {
-      baseName: "palette",
       type: "WidgetPalette",
       required: true,
     },
     timeframe: {
-      baseName: "timeframe",
       type: "string",
     },
     value: {
-      baseName: "value",
       type: "number",
       required: true,
       format: "double",

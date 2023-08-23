@@ -35,7 +35,6 @@ export class AuditLogsQueryOptions {
       format: "int64",
     },
     timezone: {
-      baseName: "timezone",
       type: "string",
     },
   };

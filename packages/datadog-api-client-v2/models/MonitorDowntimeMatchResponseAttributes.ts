@@ -37,20 +37,16 @@ export class MonitorDowntimeMatchResponseAttributes {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     end: {
-      baseName: "end",
       type: "Date",
       format: "date-time",
     },
     groups: {
-      baseName: "groups",
       type: "Array<string>",
     },
     scope: {
-      baseName: "scope",
       type: "string",
     },
     start: {
-      baseName: "start",
       type: "Date",
       format: "date-time",
     },

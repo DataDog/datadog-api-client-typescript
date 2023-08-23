@@ -33,15 +33,12 @@ export class Creator {
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
     email: {
-      baseName: "email",
       type: "string",
     },
     handle: {
-      baseName: "handle",
       type: "string",
     },
     name: {
-      baseName: "name",
       type: "string",
     },
   };
