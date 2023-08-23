@@ -26,7 +26,7 @@ export class Configuration {
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
   readonly debug: boolean | undefined;
-  readonly enableRetry: boolean;
+  readonly enableRetry: boolean | undefined;
   readonly maxRetries: number;
   readonly backoffBase: number;
   readonly backoffMultiplier: number;
@@ -42,7 +42,7 @@ export class Configuration {
     authMethods: AuthMethods,
     httpConfig: HttpConfiguration,
     debug: boolean | undefined,
-    enableRetry: boolean,
+    enableRetry: boolean | false,
     maxRetries: number,
     backoffBase: number,
     backoffMultiplier: number,
@@ -137,9 +137,25 @@ export interface ConfigurationParameters {
    * Callback method to compress string body with zstd
    */
   zstdCompressorCallback?: ZstdCompressorCallback;
+
+  /**
+   * Maximum of retry attempts allowed 
+   */
   maxRetries?: number;
+
+  /**
+   * Backoff base, the retry backoff time is (backoffmultiplier ** number of attempts) * backoffBase
+   */
   backoffBase?: number;
+  
+  /**
+   * Backoff multiplier, the retry backoff time is (backoffmultiplier ** number of attempts) * backoffBase
+   */
   backoffMultiplier?: number;
+
+  /**
+   * Enable retry on status code 429 or 500 and above
+   */
   enableRetry?: boolean;
 }
 
@@ -194,10 +210,10 @@ export function createConfiguration(
     configureAuthMethods(authMethods),
     conf.httpConfig || {},
     conf.debug,
-    conf.enableRetry || false,
-    conf.maxRetries || 3,
-    conf.backoffBase || 2, 
-    conf.backoffMultiplier || 2,
+    conf.enableRetry = false,
+    conf.maxRetries = 3,
+    conf.backoffBase = 2, 
+    conf.backoffMultiplier = 2,
     {
       "v2.createCIAppPipelineEvent": false,
       "v2.cancelDowntime": false,
@@ -245,6 +261,10 @@ export function createConfiguration(
   );
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
   configuration.httpApi.debug = configuration.debug;
+  configuration.httpApi.enableRetry = configuration.enableRetry;
+  configuration.httpApi.maxRetries = configuration.maxRetries; 
+  configuration.httpApi.backoffBase =  configuration.backoffBase; 
+  configuration.httpApi.backoffMultiplier = configuration.backoffMultiplier;
   return configuration;
 }
 
