@@ -11,8 +11,8 @@ const params: v2.TeamsApiCreateTeamRequest = {
   body: {
     data: {
       attributes: {
-        handle: "handle-a0fc0297eb519635",
-        name: "name-a0fc0297eb519635",
+        handle: "test-handle-a0fc0297eb519635",
+        name: "test-name-a0fc0297eb519635",
         avatar: "🥑",
         banner: 7,
         visibleModules: ["m1", "m2"],
