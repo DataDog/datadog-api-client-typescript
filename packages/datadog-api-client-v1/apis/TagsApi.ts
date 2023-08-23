@@ -256,16 +256,16 @@ export class TagsApiRequestFactory extends BaseAPIRequestFactory {
 export class TagsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createHostTags
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createHostTags.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createHostTags(response: ResponseContext): Promise<HostTags> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostTags = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "HostTags"
@@ -294,16 +294,16 @@ export class TagsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteHostTags
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteHostTags.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteHostTags(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -328,16 +328,16 @@ export class TagsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getHostTags
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getHostTags.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getHostTags(response: ResponseContext): Promise<HostTags> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostTags = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "HostTags"
@@ -366,16 +366,16 @@ export class TagsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listHostTags
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listHostTags.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listHostTags(response: ResponseContext): Promise<TagToHosts> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TagToHosts = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TagToHosts"
@@ -404,16 +404,16 @@ export class TagsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateHostTags
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateHostTags.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateHostTags(response: ResponseContext): Promise<HostTags> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostTags = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "HostTags"

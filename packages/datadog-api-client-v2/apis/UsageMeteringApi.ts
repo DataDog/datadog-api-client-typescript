@@ -443,10 +443,10 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 export class UsageMeteringApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getCostByOrg
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getCostByOrg.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getCostByOrg(
     response: ResponseContext
@@ -454,7 +454,7 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostByOrgResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CostByOrgResponse"
@@ -483,10 +483,10 @@ export class UsageMeteringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getEstimatedCostByOrg
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getEstimatedCostByOrg.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getEstimatedCostByOrg(
     response: ResponseContext
@@ -494,7 +494,7 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostByOrgResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CostByOrgResponse"
@@ -523,10 +523,10 @@ export class UsageMeteringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getHistoricalCostByOrg
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getHistoricalCostByOrg.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getHistoricalCostByOrg(
     response: ResponseContext
@@ -534,7 +534,7 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CostByOrgResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CostByOrgResponse"
@@ -563,10 +563,10 @@ export class UsageMeteringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getHourlyUsage
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getHourlyUsage.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getHourlyUsage(
     response: ResponseContext
@@ -574,7 +574,7 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HourlyUsageResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "HourlyUsageResponse"
@@ -603,10 +603,10 @@ export class UsageMeteringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getUsageApplicationSecurityMonitoring
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getUsageApplicationSecurityMonitoring.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getUsageApplicationSecurityMonitoring(
     response: ResponseContext
@@ -614,7 +614,7 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageApplicationSecurityMonitoringResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -644,10 +644,10 @@ export class UsageMeteringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getUsageLambdaTracedInvocations
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getUsageLambdaTracedInvocations.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getUsageLambdaTracedInvocations(
     response: ResponseContext
@@ -655,7 +655,7 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageLambdaTracedInvocationsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -685,10 +685,10 @@ export class UsageMeteringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getUsageObservabilityPipelines
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getUsageObservabilityPipelines.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getUsageObservabilityPipelines(
     response: ResponseContext
@@ -696,7 +696,7 @@ export class UsageMeteringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsageObservabilityPipelinesResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),

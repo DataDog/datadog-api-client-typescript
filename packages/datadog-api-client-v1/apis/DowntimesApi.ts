@@ -297,16 +297,16 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 export class DowntimesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to cancelDowntime
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to cancelDowntime.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async cancelDowntime(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -331,10 +331,10 @@ export class DowntimesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to cancelDowntimesByScope
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to cancelDowntimesByScope.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async cancelDowntimesByScope(
     response: ResponseContext
@@ -342,7 +342,7 @@ export class DowntimesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CanceledDowntimesIds = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CanceledDowntimesIds"
@@ -372,16 +372,16 @@ export class DowntimesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createDowntime
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createDowntime.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createDowntime(response: ResponseContext): Promise<Downtime> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Downtime = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Downtime"
@@ -410,16 +410,16 @@ export class DowntimesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getDowntime
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getDowntime.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getDowntime(response: ResponseContext): Promise<Downtime> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Downtime = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Downtime"
@@ -448,10 +448,10 @@ export class DowntimesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listDowntimes
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listDowntimes.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listDowntimes(
     response: ResponseContext
@@ -459,7 +459,7 @@ export class DowntimesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<Downtime> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<Downtime>"
@@ -484,10 +484,10 @@ export class DowntimesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listMonitorDowntimes
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listMonitorDowntimes.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listMonitorDowntimes(
     response: ResponseContext
@@ -495,7 +495,7 @@ export class DowntimesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<Downtime> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<Downtime>"
@@ -524,16 +524,16 @@ export class DowntimesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateDowntime
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateDowntime.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateDowntime(response: ResponseContext): Promise<Downtime> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Downtime = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Downtime"

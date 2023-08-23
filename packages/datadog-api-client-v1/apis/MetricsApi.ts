@@ -362,10 +362,10 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 export class MetricsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getMetricMetadata
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getMetricMetadata.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getMetricMetadata(
     response: ResponseContext
@@ -373,7 +373,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricMetadata = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricMetadata"
@@ -402,10 +402,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listActiveMetrics
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listActiveMetrics.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listActiveMetrics(
     response: ResponseContext
@@ -413,7 +413,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricsListResponse"
@@ -442,10 +442,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listMetrics
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listMetrics.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listMetrics(
     response: ResponseContext
@@ -453,7 +453,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricSearchResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricSearchResponse"
@@ -482,10 +482,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to queryMetrics
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to queryMetrics.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async queryMetrics(
     response: ResponseContext
@@ -493,7 +493,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricsQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricsQueryResponse"
@@ -522,10 +522,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to submitDistributionPoints
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to submitDistributionPoints.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async submitDistributionPoints(
     response: ResponseContext
@@ -533,7 +533,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IntakePayloadAccepted"
@@ -564,10 +564,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to submitMetrics
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to submitMetrics.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async submitMetrics(
     response: ResponseContext
@@ -575,7 +575,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IntakePayloadAccepted"
@@ -606,10 +606,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateMetricMetadata
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateMetricMetadata.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateMetricMetadata(
     response: ResponseContext
@@ -617,7 +617,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricMetadata = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricMetadata"

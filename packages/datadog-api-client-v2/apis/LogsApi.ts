@@ -245,10 +245,10 @@ export class LogsApiRequestFactory extends BaseAPIRequestFactory {
 export class LogsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to aggregateLogs
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to aggregateLogs.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async aggregateLogs(
     response: ResponseContext
@@ -256,7 +256,7 @@ export class LogsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsAggregateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsAggregateResponse"
@@ -285,16 +285,16 @@ export class LogsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listLogs
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listLogs.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listLogs(response: ResponseContext): Promise<LogsListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsListResponse"
@@ -323,10 +323,10 @@ export class LogsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listLogsGet
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listLogsGet.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listLogsGet(
     response: ResponseContext
@@ -334,7 +334,7 @@ export class LogsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsListResponse"
@@ -363,16 +363,16 @@ export class LogsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to submitLog
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to submitLog.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async submitLog(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"

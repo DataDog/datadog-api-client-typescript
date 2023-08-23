@@ -614,10 +614,10 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
 export class RolesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to addPermissionToRole
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to addPermissionToRole.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async addPermissionToRole(
     response: ResponseContext
@@ -625,7 +625,7 @@ export class RolesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PermissionsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "PermissionsResponse"
@@ -655,10 +655,10 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to addUserToRole
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to addUserToRole.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async addUserToRole(
     response: ResponseContext
@@ -666,7 +666,7 @@ export class RolesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsersResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UsersResponse"
@@ -696,16 +696,16 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to cloneRole
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to cloneRole.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async cloneRole(response: ResponseContext): Promise<RoleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RoleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RoleResponse"
@@ -736,10 +736,10 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createRole
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createRole.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createRole(
     response: ResponseContext
@@ -747,7 +747,7 @@ export class RolesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RoleCreateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RoleCreateResponse"
@@ -776,16 +776,16 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteRole
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteRole.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteRole(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -810,16 +810,16 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getRole
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getRole.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getRole(response: ResponseContext): Promise<RoleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RoleResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RoleResponse"
@@ -848,10 +848,10 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listPermissions
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listPermissions.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listPermissions(
     response: ResponseContext
@@ -859,7 +859,7 @@ export class RolesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PermissionsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "PermissionsResponse"
@@ -888,10 +888,10 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listRolePermissions
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listRolePermissions.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listRolePermissions(
     response: ResponseContext
@@ -899,7 +899,7 @@ export class RolesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PermissionsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "PermissionsResponse"
@@ -928,16 +928,16 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listRoles
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listRoles.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listRoles(response: ResponseContext): Promise<RolesResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RolesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RolesResponse"
@@ -962,10 +962,10 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listRoleUsers
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listRoleUsers.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listRoleUsers(
     response: ResponseContext
@@ -973,7 +973,7 @@ export class RolesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsersResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UsersResponse"
@@ -1002,10 +1002,10 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to removePermissionFromRole
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to removePermissionFromRole.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async removePermissionFromRole(
     response: ResponseContext
@@ -1013,7 +1013,7 @@ export class RolesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PermissionsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "PermissionsResponse"
@@ -1043,10 +1043,10 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to removeUserFromRole
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to removeUserFromRole.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async removeUserFromRole(
     response: ResponseContext
@@ -1054,7 +1054,7 @@ export class RolesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsersResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UsersResponse"
@@ -1084,10 +1084,10 @@ export class RolesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateRole
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateRole.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateRole(
     response: ResponseContext
@@ -1095,7 +1095,7 @@ export class RolesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RoleUpdateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RoleUpdateResponse"

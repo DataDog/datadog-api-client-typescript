@@ -235,16 +235,16 @@ export class LogsIndexesApiRequestFactory extends BaseAPIRequestFactory {
 export class LogsIndexesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createLogsIndex
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createLogsIndex.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createLogsIndex(response: ResponseContext): Promise<LogsIndex> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndex = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsIndex"
@@ -277,16 +277,16 @@ export class LogsIndexesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getLogsIndex
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getLogsIndex.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getLogsIndex(response: ResponseContext): Promise<LogsIndex> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndex = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsIndex"
@@ -319,10 +319,10 @@ export class LogsIndexesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getLogsIndexOrder
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getLogsIndexOrder.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getLogsIndexOrder(
     response: ResponseContext
@@ -330,7 +330,7 @@ export class LogsIndexesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndexesOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsIndexesOrder"
@@ -355,10 +355,10 @@ export class LogsIndexesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listLogIndexes
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listLogIndexes.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listLogIndexes(
     response: ResponseContext
@@ -366,7 +366,7 @@ export class LogsIndexesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndexListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsIndexListResponse"
@@ -391,16 +391,16 @@ export class LogsIndexesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateLogsIndex
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateLogsIndex.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateLogsIndex(response: ResponseContext): Promise<LogsIndex> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndex = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsIndex"
@@ -433,10 +433,10 @@ export class LogsIndexesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateLogsIndexOrder
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateLogsIndexOrder.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateLogsIndexOrder(
     response: ResponseContext
@@ -444,7 +444,7 @@ export class LogsIndexesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsIndexesOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsIndexesOrder"

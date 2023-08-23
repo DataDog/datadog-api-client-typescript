@@ -87,10 +87,10 @@ export class IPAllowlistApiRequestFactory extends BaseAPIRequestFactory {
 export class IPAllowlistApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getIPAllowlist
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getIPAllowlist.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getIPAllowlist(
     response: ResponseContext
@@ -98,7 +98,7 @@ export class IPAllowlistApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IPAllowlistResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IPAllowlistResponse"
@@ -127,10 +127,10 @@ export class IPAllowlistApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateIPAllowlist
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateIPAllowlist.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateIPAllowlist(
     response: ResponseContext
@@ -138,7 +138,7 @@ export class IPAllowlistApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IPAllowlistResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IPAllowlistResponse"

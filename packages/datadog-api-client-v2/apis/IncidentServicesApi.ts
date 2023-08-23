@@ -274,10 +274,10 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
 export class IncidentServicesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createIncidentService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createIncidentService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createIncidentService(
     response: ResponseContext
@@ -285,7 +285,7 @@ export class IncidentServicesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentServiceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IncidentServiceResponse"
@@ -316,16 +316,16 @@ export class IncidentServicesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteIncidentService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteIncidentService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteIncidentService(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -352,10 +352,10 @@ export class IncidentServicesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getIncidentService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getIncidentService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getIncidentService(
     response: ResponseContext
@@ -363,7 +363,7 @@ export class IncidentServicesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentServiceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IncidentServiceResponse"
@@ -394,10 +394,10 @@ export class IncidentServicesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listIncidentServices
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listIncidentServices.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listIncidentServices(
     response: ResponseContext
@@ -405,7 +405,7 @@ export class IncidentServicesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentServicesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IncidentServicesResponse"
@@ -436,10 +436,10 @@ export class IncidentServicesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateIncidentService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateIncidentService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateIncidentService(
     response: ResponseContext
@@ -447,7 +447,7 @@ export class IncidentServicesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentServiceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IncidentServiceResponse"

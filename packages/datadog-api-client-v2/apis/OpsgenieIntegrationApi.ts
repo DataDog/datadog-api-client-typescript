@@ -206,10 +206,10 @@ export class OpsgenieIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 export class OpsgenieIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createOpsgenieService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createOpsgenieService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createOpsgenieService(
     response: ResponseContext
@@ -217,7 +217,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieServiceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OpsgenieServiceResponse"
@@ -247,16 +247,16 @@ export class OpsgenieIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteOpsgenieService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteOpsgenieService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteOpsgenieService(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -282,10 +282,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getOpsgenieService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getOpsgenieService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getOpsgenieService(
     response: ResponseContext
@@ -293,7 +293,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieServiceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OpsgenieServiceResponse"
@@ -324,10 +324,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listOpsgenieServices
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listOpsgenieServices.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listOpsgenieServices(
     response: ResponseContext
@@ -335,7 +335,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieServicesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OpsgenieServicesResponse"
@@ -360,10 +360,10 @@ export class OpsgenieIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateOpsgenieService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateOpsgenieService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateOpsgenieService(
     response: ResponseContext
@@ -371,7 +371,7 @@ export class OpsgenieIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OpsgenieServiceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OpsgenieServiceResponse"

@@ -424,10 +424,10 @@ export class SensitiveDataScannerApiRequestFactory extends BaseAPIRequestFactory
 export class SensitiveDataScannerApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createScanningGroup
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createScanningGroup.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createScanningGroup(
     response: ResponseContext
@@ -435,7 +435,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerCreateGroupResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -465,10 +465,10 @@ export class SensitiveDataScannerApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createScanningRule
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createScanningRule.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createScanningRule(
     response: ResponseContext
@@ -476,7 +476,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerCreateRuleResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -506,10 +506,10 @@ export class SensitiveDataScannerApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteScanningGroup
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteScanningGroup.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteScanningGroup(
     response: ResponseContext
@@ -517,7 +517,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerGroupDeleteResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -548,10 +548,10 @@ export class SensitiveDataScannerApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteScanningRule
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteScanningRule.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteScanningRule(
     response: ResponseContext
@@ -559,7 +559,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerRuleDeleteResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -590,10 +590,10 @@ export class SensitiveDataScannerApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listScanningGroups
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listScanningGroups.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listScanningGroups(
     response: ResponseContext
@@ -601,7 +601,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerGetConfigResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -631,10 +631,10 @@ export class SensitiveDataScannerApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listStandardPatterns
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listStandardPatterns.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listStandardPatterns(
     response: ResponseContext
@@ -642,7 +642,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerStandardPatternsResponseData =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -672,10 +672,10 @@ export class SensitiveDataScannerApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to reorderScanningGroups
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to reorderScanningGroups.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async reorderScanningGroups(
     response: ResponseContext
@@ -683,7 +683,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerReorderGroupsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -713,10 +713,10 @@ export class SensitiveDataScannerApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateScanningGroup
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateScanningGroup.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateScanningGroup(
     response: ResponseContext
@@ -724,7 +724,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerGroupUpdateResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -755,10 +755,10 @@ export class SensitiveDataScannerApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateScanningRule
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateScanningRule.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateScanningRule(
     response: ResponseContext
@@ -766,7 +766,7 @@ export class SensitiveDataScannerApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SensitiveDataScannerRuleUpdateResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),

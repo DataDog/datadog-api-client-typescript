@@ -1157,10 +1157,10 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 export class SyntheticsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createGlobalVariable
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createGlobalVariable.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createGlobalVariable(
     response: ResponseContext
@@ -1168,7 +1168,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGlobalVariable = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsGlobalVariable"
@@ -1197,10 +1197,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createPrivateLocation
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createPrivateLocation.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createPrivateLocation(
     response: ResponseContext
@@ -1208,7 +1208,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsPrivateLocationCreationResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1238,10 +1238,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createSyntheticsAPITest
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createSyntheticsAPITest.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createSyntheticsAPITest(
     response: ResponseContext
@@ -1249,7 +1249,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsAPITest = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsAPITest"
@@ -1279,10 +1279,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createSyntheticsBrowserTest
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createSyntheticsBrowserTest.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createSyntheticsBrowserTest(
     response: ResponseContext
@@ -1290,7 +1290,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsBrowserTest"
@@ -1320,16 +1320,16 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteGlobalVariable
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteGlobalVariable.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteGlobalVariable(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -1355,16 +1355,16 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deletePrivateLocation
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deletePrivateLocation.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deletePrivateLocation(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
@@ -1385,10 +1385,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteTests
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteTests.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteTests(
     response: ResponseContext
@@ -1396,7 +1396,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsDeleteTestsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsDeleteTestsResponse"
@@ -1426,10 +1426,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to editGlobalVariable
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to editGlobalVariable.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async editGlobalVariable(
     response: ResponseContext
@@ -1437,7 +1437,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGlobalVariable = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsGlobalVariable"
@@ -1466,10 +1466,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getAPITest
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getAPITest.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getAPITest(
     response: ResponseContext
@@ -1477,7 +1477,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsAPITest = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsAPITest"
@@ -1506,10 +1506,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getAPITestLatestResults
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getAPITestLatestResults.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getAPITestLatestResults(
     response: ResponseContext
@@ -1517,7 +1517,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGetAPITestLatestResultsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1547,10 +1547,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getAPITestResult
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getAPITestResult.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getAPITestResult(
     response: ResponseContext
@@ -1558,7 +1558,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsAPITestResultFull = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsAPITestResultFull"
@@ -1587,10 +1587,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getBrowserTest
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getBrowserTest.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getBrowserTest(
     response: ResponseContext
@@ -1598,7 +1598,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsBrowserTest"
@@ -1627,10 +1627,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getBrowserTestLatestResults
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getBrowserTestLatestResults.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getBrowserTestLatestResults(
     response: ResponseContext
@@ -1638,7 +1638,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGetBrowserTestLatestResultsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1668,10 +1668,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getBrowserTestResult
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getBrowserTestResult.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getBrowserTestResult(
     response: ResponseContext
@@ -1679,7 +1679,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBrowserTestResultFull =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1709,10 +1709,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getGlobalVariable
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getGlobalVariable.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getGlobalVariable(
     response: ResponseContext
@@ -1720,7 +1720,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsGlobalVariable = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsGlobalVariable"
@@ -1749,10 +1749,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getPrivateLocation
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getPrivateLocation.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getPrivateLocation(
     response: ResponseContext
@@ -1760,7 +1760,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsPrivateLocation = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsPrivateLocation"
@@ -1785,10 +1785,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getSyntheticsCIBatch
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getSyntheticsCIBatch.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getSyntheticsCIBatch(
     response: ResponseContext
@@ -1796,7 +1796,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBatchDetails = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsBatchDetails"
@@ -1821,10 +1821,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getSyntheticsDefaultLocations
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getSyntheticsDefaultLocations.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getSyntheticsDefaultLocations(
     response: ResponseContext
@@ -1832,7 +1832,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<string> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<string>"
@@ -1857,10 +1857,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getTest
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getTest.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getTest(
     response: ResponseContext
@@ -1868,7 +1868,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsTestDetails = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsTestDetails"
@@ -1897,10 +1897,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listGlobalVariables
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listGlobalVariables.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listGlobalVariables(
     response: ResponseContext
@@ -1908,7 +1908,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsListGlobalVariablesResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1934,10 +1934,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listLocations
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listLocations.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listLocations(
     response: ResponseContext
@@ -1945,7 +1945,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsLocations = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsLocations"
@@ -1970,10 +1970,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listTests
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listTests.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listTests(
     response: ResponseContext
@@ -1981,7 +1981,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsListTestsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsListTestsResponse"
@@ -2010,10 +2010,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to triggerCITests
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to triggerCITests.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async triggerCITests(
     response: ResponseContext
@@ -2021,7 +2021,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsTriggerCITestsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2047,10 +2047,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to triggerTests
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to triggerTests.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async triggerTests(
     response: ResponseContext
@@ -2058,7 +2058,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsTriggerCITestsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -2084,10 +2084,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateAPITest
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateAPITest.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateAPITest(
     response: ResponseContext
@@ -2095,7 +2095,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsAPITest = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsAPITest"
@@ -2125,10 +2125,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateBrowserTest
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateBrowserTest.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateBrowserTest(
     response: ResponseContext
@@ -2136,7 +2136,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsBrowserTest = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsBrowserTest"
@@ -2166,10 +2166,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updatePrivateLocation
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updatePrivateLocation.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updatePrivateLocation(
     response: ResponseContext
@@ -2177,7 +2177,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SyntheticsPrivateLocation = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SyntheticsPrivateLocation"
@@ -2202,10 +2202,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateTestPauseStatus
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateTestPauseStatus.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateTestPauseStatus(
     response: ResponseContext
@@ -2213,7 +2213,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: boolean = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "boolean"

@@ -400,16 +400,16 @@ export class UsersApiRequestFactory extends BaseAPIRequestFactory {
 export class UsersApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createUser
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createUser.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createUser(response: ResponseContext): Promise<UserResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserResponse"
@@ -438,16 +438,16 @@ export class UsersApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to disableUser
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to disableUser.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async disableUser(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -472,10 +472,10 @@ export class UsersApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getInvitation
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getInvitation.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getInvitation(
     response: ResponseContext
@@ -483,7 +483,7 @@ export class UsersApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserInvitationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserInvitationResponse"
@@ -512,16 +512,16 @@ export class UsersApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getUser
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getUser.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getUser(response: ResponseContext): Promise<UserResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserResponse"
@@ -550,10 +550,10 @@ export class UsersApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listUserOrganizations
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listUserOrganizations.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listUserOrganizations(
     response: ResponseContext
@@ -561,7 +561,7 @@ export class UsersApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserResponse"
@@ -590,10 +590,10 @@ export class UsersApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listUserPermissions
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listUserPermissions.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listUserPermissions(
     response: ResponseContext
@@ -601,7 +601,7 @@ export class UsersApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PermissionsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "PermissionsResponse"
@@ -630,16 +630,16 @@ export class UsersApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listUsers
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listUsers.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listUsers(response: ResponseContext): Promise<UsersResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UsersResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UsersResponse"
@@ -668,10 +668,10 @@ export class UsersApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to sendInvitations
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to sendInvitations.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async sendInvitations(
     response: ResponseContext
@@ -679,7 +679,7 @@ export class UsersApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserInvitationsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserInvitationsResponse"
@@ -708,16 +708,16 @@ export class UsersApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateUser
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateUser.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateUser(response: ResponseContext): Promise<UserResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserResponse"

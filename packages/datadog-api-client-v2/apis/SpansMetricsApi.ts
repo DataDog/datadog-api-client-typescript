@@ -203,10 +203,10 @@ export class SpansMetricsApiRequestFactory extends BaseAPIRequestFactory {
 export class SpansMetricsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createSpansMetric
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createSpansMetric.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createSpansMetric(
     response: ResponseContext
@@ -214,7 +214,7 @@ export class SpansMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SpansMetricResponse"
@@ -244,16 +244,16 @@ export class SpansMetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteSpansMetric
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteSpansMetric.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteSpansMetric(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -278,10 +278,10 @@ export class SpansMetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getSpansMetric
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getSpansMetric.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getSpansMetric(
     response: ResponseContext
@@ -289,7 +289,7 @@ export class SpansMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SpansMetricResponse"
@@ -318,10 +318,10 @@ export class SpansMetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listSpansMetrics
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listSpansMetrics.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listSpansMetrics(
     response: ResponseContext
@@ -329,7 +329,7 @@ export class SpansMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansMetricsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SpansMetricsResponse"
@@ -354,10 +354,10 @@ export class SpansMetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateSpansMetric
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateSpansMetric.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateSpansMetric(
     response: ResponseContext
@@ -365,7 +365,7 @@ export class SpansMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SpansMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SpansMetricResponse"

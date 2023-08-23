@@ -205,10 +205,10 @@ export class LogsMetricsApiRequestFactory extends BaseAPIRequestFactory {
 export class LogsMetricsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createLogsMetric
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createLogsMetric.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createLogsMetric(
     response: ResponseContext
@@ -216,7 +216,7 @@ export class LogsMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsMetricResponse"
@@ -246,16 +246,16 @@ export class LogsMetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteLogsMetric
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteLogsMetric.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteLogsMetric(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -280,10 +280,10 @@ export class LogsMetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getLogsMetric
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getLogsMetric.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getLogsMetric(
     response: ResponseContext
@@ -291,7 +291,7 @@ export class LogsMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsMetricResponse"
@@ -320,10 +320,10 @@ export class LogsMetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listLogsMetrics
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listLogsMetrics.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listLogsMetrics(
     response: ResponseContext
@@ -331,7 +331,7 @@ export class LogsMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsMetricsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsMetricsResponse"
@@ -356,10 +356,10 @@ export class LogsMetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateLogsMetric
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateLogsMetric.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateLogsMetric(
     response: ResponseContext
@@ -367,7 +367,7 @@ export class LogsMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsMetricResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsMetricResponse"

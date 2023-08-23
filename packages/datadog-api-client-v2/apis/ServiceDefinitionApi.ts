@@ -201,10 +201,10 @@ export class ServiceDefinitionApiRequestFactory extends BaseAPIRequestFactory {
 export class ServiceDefinitionApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createOrUpdateServiceDefinitions
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createOrUpdateServiceDefinitions.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createOrUpdateServiceDefinitions(
     response: ResponseContext
@@ -212,7 +212,7 @@ export class ServiceDefinitionApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ServiceDefinitionCreateResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -243,10 +243,10 @@ export class ServiceDefinitionApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteServiceDefinition
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteServiceDefinition.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteServiceDefinition(
     response: ResponseContext
@@ -254,7 +254,7 @@ export class ServiceDefinitionApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -280,10 +280,10 @@ export class ServiceDefinitionApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getServiceDefinition
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getServiceDefinition.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getServiceDefinition(
     response: ResponseContext
@@ -291,7 +291,7 @@ export class ServiceDefinitionApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ServiceDefinitionGetResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ServiceDefinitionGetResponse"
@@ -322,10 +322,10 @@ export class ServiceDefinitionApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listServiceDefinitions
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listServiceDefinitions.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listServiceDefinitions(
     response: ResponseContext
@@ -333,7 +333,7 @@ export class ServiceDefinitionApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ServiceDefinitionsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ServiceDefinitionsListResponse"

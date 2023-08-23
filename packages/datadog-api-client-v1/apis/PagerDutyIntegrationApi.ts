@@ -187,10 +187,10 @@ export class PagerDutyIntegrationApiRequestFactory extends BaseAPIRequestFactory
 export class PagerDutyIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createPagerDutyIntegrationService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createPagerDutyIntegrationService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createPagerDutyIntegrationService(
     response: ResponseContext
@@ -198,7 +198,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PagerDutyServiceName = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "PagerDutyServiceName"
@@ -227,10 +227,10 @@ export class PagerDutyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deletePagerDutyIntegrationService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deletePagerDutyIntegrationService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deletePagerDutyIntegrationService(
     response: ResponseContext
@@ -238,7 +238,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -263,10 +263,10 @@ export class PagerDutyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getPagerDutyIntegrationService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getPagerDutyIntegrationService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getPagerDutyIntegrationService(
     response: ResponseContext
@@ -274,7 +274,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PagerDutyServiceName = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "PagerDutyServiceName"
@@ -303,10 +303,10 @@ export class PagerDutyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updatePagerDutyIntegrationService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updatePagerDutyIntegrationService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updatePagerDutyIntegrationService(
     response: ResponseContext
@@ -314,7 +314,7 @@ export class PagerDutyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (

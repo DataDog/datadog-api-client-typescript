@@ -698,10 +698,10 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
 export class KeyManagementApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createAPIKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createAPIKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createAPIKey(
     response: ResponseContext
@@ -709,7 +709,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: APIKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIKeyResponse"
@@ -738,10 +738,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createCurrentUserApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createCurrentUserApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createCurrentUserApplicationKey(
     response: ResponseContext
@@ -749,7 +749,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ApplicationKeyResponse"
@@ -778,16 +778,16 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteAPIKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteAPIKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteAPIKey(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -812,16 +812,16 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteApplicationKey(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -846,10 +846,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteCurrentUserApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteCurrentUserApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteCurrentUserApplicationKey(
     response: ResponseContext
@@ -857,7 +857,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -882,16 +882,16 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getAPIKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getAPIKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getAPIKey(response: ResponseContext): Promise<APIKeyResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: APIKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIKeyResponse"
@@ -920,10 +920,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getApplicationKey(
     response: ResponseContext
@@ -931,7 +931,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ApplicationKeyResponse"
@@ -961,10 +961,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getCurrentUserApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getCurrentUserApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getCurrentUserApplicationKey(
     response: ResponseContext
@@ -972,7 +972,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ApplicationKeyResponse"
@@ -1001,10 +1001,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listAPIKeys
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listAPIKeys.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listAPIKeys(
     response: ResponseContext
@@ -1012,7 +1012,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: APIKeysResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIKeysResponse"
@@ -1041,10 +1041,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listApplicationKeys
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listApplicationKeys.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listApplicationKeys(
     response: ResponseContext
@@ -1052,7 +1052,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListApplicationKeysResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ListApplicationKeysResponse"
@@ -1082,10 +1082,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listCurrentUserApplicationKeys
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listCurrentUserApplicationKeys.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listCurrentUserApplicationKeys(
     response: ResponseContext
@@ -1093,7 +1093,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListApplicationKeysResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ListApplicationKeysResponse"
@@ -1123,10 +1123,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateAPIKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateAPIKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateAPIKey(
     response: ResponseContext
@@ -1134,7 +1134,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: APIKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "APIKeyResponse"
@@ -1164,10 +1164,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateApplicationKey(
     response: ResponseContext
@@ -1175,7 +1175,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ApplicationKeyResponse"
@@ -1205,10 +1205,10 @@ export class KeyManagementApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateCurrentUserApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateCurrentUserApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateCurrentUserApplicationKey(
     response: ResponseContext
@@ -1216,7 +1216,7 @@ export class KeyManagementApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ApplicationKeyResponse"

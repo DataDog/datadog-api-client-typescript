@@ -203,16 +203,16 @@ export class AzureIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 export class AzureIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createAzureIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createAzureIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createAzureIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -241,16 +241,16 @@ export class AzureIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteAzureIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteAzureIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteAzureIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -279,10 +279,10 @@ export class AzureIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listAzureIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listAzureIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listAzureIntegration(
     response: ResponseContext
@@ -290,7 +290,7 @@ export class AzureIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<AzureAccount> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<AzureAccount>"
@@ -319,16 +319,16 @@ export class AzureIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateAzureHostFilters
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateAzureHostFilters.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateAzureHostFilters(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -357,16 +357,16 @@ export class AzureIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateAzureIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateAzureIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateAzureIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"

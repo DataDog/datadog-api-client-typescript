@@ -359,10 +359,10 @@ export class RUMApiRequestFactory extends BaseAPIRequestFactory {
 export class RUMApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to aggregateRUMEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to aggregateRUMEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async aggregateRUMEvents(
     response: ResponseContext
@@ -370,7 +370,7 @@ export class RUMApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMAnalyticsAggregateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RUMAnalyticsAggregateResponse"
@@ -399,10 +399,10 @@ export class RUMApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createRUMApplication
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createRUMApplication.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createRUMApplication(
     response: ResponseContext
@@ -410,7 +410,7 @@ export class RUMApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMApplicationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RUMApplicationResponse"
@@ -435,16 +435,16 @@ export class RUMApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteRUMApplication
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteRUMApplication.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteRUMApplication(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
@@ -465,10 +465,10 @@ export class RUMApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getRUMApplication
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getRUMApplication.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getRUMApplication(
     response: ResponseContext
@@ -476,7 +476,7 @@ export class RUMApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMApplicationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RUMApplicationResponse"
@@ -501,10 +501,10 @@ export class RUMApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getRUMApplications
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getRUMApplications.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getRUMApplications(
     response: ResponseContext
@@ -512,7 +512,7 @@ export class RUMApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMApplicationsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RUMApplicationsResponse"
@@ -537,10 +537,10 @@ export class RUMApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listRUMEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listRUMEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listRUMEvents(
     response: ResponseContext
@@ -548,7 +548,7 @@ export class RUMApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMEventsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RUMEventsResponse"
@@ -577,10 +577,10 @@ export class RUMApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to searchRUMEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to searchRUMEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async searchRUMEvents(
     response: ResponseContext
@@ -588,7 +588,7 @@ export class RUMApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMEventsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RUMEventsResponse"
@@ -617,10 +617,10 @@ export class RUMApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateRUMApplication
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateRUMApplication.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateRUMApplication(
     response: ResponseContext
@@ -628,7 +628,7 @@ export class RUMApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RUMApplicationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RUMApplicationResponse"

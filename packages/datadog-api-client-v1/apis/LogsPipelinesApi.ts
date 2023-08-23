@@ -267,10 +267,10 @@ export class LogsPipelinesApiRequestFactory extends BaseAPIRequestFactory {
 export class LogsPipelinesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createLogsPipeline
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createLogsPipeline.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createLogsPipeline(
     response: ResponseContext
@@ -278,7 +278,7 @@ export class LogsPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipeline = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsPipeline"
@@ -311,16 +311,16 @@ export class LogsPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteLogsPipeline
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteLogsPipeline.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteLogsPipeline(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (response.httpStatusCode == 400) {
@@ -349,10 +349,10 @@ export class LogsPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getLogsPipeline
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getLogsPipeline.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getLogsPipeline(
     response: ResponseContext
@@ -360,7 +360,7 @@ export class LogsPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipeline = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsPipeline"
@@ -393,10 +393,10 @@ export class LogsPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getLogsPipelineOrder
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getLogsPipelineOrder.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getLogsPipelineOrder(
     response: ResponseContext
@@ -404,7 +404,7 @@ export class LogsPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipelinesOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsPipelinesOrder"
@@ -429,10 +429,10 @@ export class LogsPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listLogsPipelines
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listLogsPipelines.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listLogsPipelines(
     response: ResponseContext
@@ -440,7 +440,7 @@ export class LogsPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<LogsPipeline> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<LogsPipeline>"
@@ -465,10 +465,10 @@ export class LogsPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateLogsPipeline
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateLogsPipeline.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateLogsPipeline(
     response: ResponseContext
@@ -476,7 +476,7 @@ export class LogsPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipeline = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsPipeline"
@@ -509,10 +509,10 @@ export class LogsPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateLogsPipelineOrder
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateLogsPipelineOrder.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateLogsPipelineOrder(
     response: ResponseContext
@@ -520,7 +520,7 @@ export class LogsPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsPipelinesOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsPipelinesOrder"

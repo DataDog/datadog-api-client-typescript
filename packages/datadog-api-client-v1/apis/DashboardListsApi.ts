@@ -207,10 +207,10 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 export class DashboardListsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createDashboardList
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createDashboardList.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createDashboardList(
     response: ResponseContext
@@ -218,7 +218,7 @@ export class DashboardListsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardList = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardList"
@@ -247,10 +247,10 @@ export class DashboardListsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteDashboardList
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteDashboardList.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteDashboardList(
     response: ResponseContext
@@ -258,7 +258,7 @@ export class DashboardListsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardListDeleteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardListDeleteResponse"
@@ -287,10 +287,10 @@ export class DashboardListsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getDashboardList
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getDashboardList.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getDashboardList(
     response: ResponseContext
@@ -298,7 +298,7 @@ export class DashboardListsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardList = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardList"
@@ -327,10 +327,10 @@ export class DashboardListsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listDashboardLists
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listDashboardLists.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listDashboardLists(
     response: ResponseContext
@@ -338,7 +338,7 @@ export class DashboardListsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardListListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardListListResponse"
@@ -363,10 +363,10 @@ export class DashboardListsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateDashboardList
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateDashboardList.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateDashboardList(
     response: ResponseContext
@@ -374,7 +374,7 @@ export class DashboardListsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DashboardList = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DashboardList"

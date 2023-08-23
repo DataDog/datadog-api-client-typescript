@@ -190,10 +190,10 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 export class EventsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createEvent
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createEvent.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createEvent(
     response: ResponseContext
@@ -201,7 +201,7 @@ export class EventsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EventCreateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "EventCreateResponse"
@@ -226,16 +226,16 @@ export class EventsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getEvent
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getEvent.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getEvent(response: ResponseContext): Promise<EventResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EventResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "EventResponse"
@@ -264,10 +264,10 @@ export class EventsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listEvents(
     response: ResponseContext
@@ -275,7 +275,7 @@ export class EventsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: EventListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "EventListResponse"

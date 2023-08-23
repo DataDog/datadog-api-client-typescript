@@ -206,10 +206,10 @@ export class CloudflareIntegrationApiRequestFactory extends BaseAPIRequestFactor
 export class CloudflareIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createCloudflareAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createCloudflareAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createCloudflareAccount(
     response: ResponseContext
@@ -217,7 +217,7 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CloudflareAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CloudflareAccountResponse"
@@ -247,10 +247,10 @@ export class CloudflareIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteCloudflareAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteCloudflareAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteCloudflareAccount(
     response: ResponseContext
@@ -258,7 +258,7 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -284,10 +284,10 @@ export class CloudflareIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getCloudflareAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getCloudflareAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getCloudflareAccount(
     response: ResponseContext
@@ -295,7 +295,7 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CloudflareAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CloudflareAccountResponse"
@@ -325,10 +325,10 @@ export class CloudflareIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listCloudflareAccounts
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listCloudflareAccounts.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listCloudflareAccounts(
     response: ResponseContext
@@ -336,7 +336,7 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CloudflareAccountsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CloudflareAccountsResponse"
@@ -366,10 +366,10 @@ export class CloudflareIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateCloudflareAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateCloudflareAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateCloudflareAccount(
     response: ResponseContext
@@ -377,7 +377,7 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CloudflareAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CloudflareAccountResponse"

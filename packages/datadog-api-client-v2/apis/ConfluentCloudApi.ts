@@ -424,10 +424,10 @@ export class ConfluentCloudApiRequestFactory extends BaseAPIRequestFactory {
 export class ConfluentCloudApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createConfluentAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createConfluentAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createConfluentAccount(
     response: ResponseContext
@@ -435,7 +435,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ConfluentAccountResponse"
@@ -465,10 +465,10 @@ export class ConfluentCloudApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createConfluentResource
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createConfluentResource.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createConfluentResource(
     response: ResponseContext
@@ -476,7 +476,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentResourceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ConfluentResourceResponse"
@@ -506,10 +506,10 @@ export class ConfluentCloudApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteConfluentAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteConfluentAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteConfluentAccount(
     response: ResponseContext
@@ -517,7 +517,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -543,10 +543,10 @@ export class ConfluentCloudApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteConfluentResource
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteConfluentResource.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteConfluentResource(
     response: ResponseContext
@@ -554,7 +554,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -580,10 +580,10 @@ export class ConfluentCloudApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getConfluentAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getConfluentAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getConfluentAccount(
     response: ResponseContext
@@ -591,7 +591,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ConfluentAccountResponse"
@@ -621,10 +621,10 @@ export class ConfluentCloudApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getConfluentResource
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getConfluentResource.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getConfluentResource(
     response: ResponseContext
@@ -632,7 +632,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentResourceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ConfluentResourceResponse"
@@ -662,10 +662,10 @@ export class ConfluentCloudApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listConfluentAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listConfluentAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listConfluentAccount(
     response: ResponseContext
@@ -673,7 +673,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentAccountsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ConfluentAccountsResponse"
@@ -703,10 +703,10 @@ export class ConfluentCloudApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listConfluentResource
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listConfluentResource.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listConfluentResource(
     response: ResponseContext
@@ -714,7 +714,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentResourcesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ConfluentResourcesResponse"
@@ -744,10 +744,10 @@ export class ConfluentCloudApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateConfluentAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateConfluentAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateConfluentAccount(
     response: ResponseContext
@@ -755,7 +755,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ConfluentAccountResponse"
@@ -785,10 +785,10 @@ export class ConfluentCloudApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateConfluentResource
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateConfluentResource.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateConfluentResource(
     response: ResponseContext
@@ -796,7 +796,7 @@ export class ConfluentCloudApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ConfluentResourceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ConfluentResourceResponse"

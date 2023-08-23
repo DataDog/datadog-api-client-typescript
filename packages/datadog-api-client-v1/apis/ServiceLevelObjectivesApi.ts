@@ -523,10 +523,10 @@ export class ServiceLevelObjectivesApiRequestFactory extends BaseAPIRequestFacto
 export class ServiceLevelObjectivesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to checkCanDeleteSLO
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to checkCanDeleteSLO.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async checkCanDeleteSLO(
     response: ResponseContext
@@ -534,7 +534,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200 || response.httpStatusCode == 409) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CheckCanDeleteSLOResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CheckCanDeleteSLOResponse"
@@ -563,16 +563,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createSLO
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createSLO.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createSLO(response: ResponseContext): Promise<SLOListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOListResponse"
@@ -601,10 +601,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteSLO
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteSLO.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteSLO(
     response: ResponseContext
@@ -612,7 +612,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200 || response.httpStatusCode == 409) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLODeleteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLODeleteResponse"
@@ -641,10 +641,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteSLOTimeframeInBulk
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteSLOTimeframeInBulk.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteSLOTimeframeInBulk(
     response: ResponseContext
@@ -652,7 +652,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOBulkDeleteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOBulkDeleteResponse"
@@ -681,16 +681,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getSLO
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getSLO.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getSLO(response: ResponseContext): Promise<SLOResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOResponse"
@@ -719,10 +719,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getSLOCorrections
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getSLOCorrections.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getSLOCorrections(
     response: ResponseContext
@@ -730,7 +730,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOCorrectionListResponse"
@@ -760,10 +760,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getSLOHistory
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getSLOHistory.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getSLOHistory(
     response: ResponseContext
@@ -771,7 +771,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOHistoryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOHistoryResponse"
@@ -801,16 +801,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listSLOs
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listSLOs.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listSLOs(response: ResponseContext): Promise<SLOListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOListResponse"
@@ -840,10 +840,10 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to searchSLO
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to searchSLO.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async searchSLO(
     response: ResponseContext
@@ -851,7 +851,7 @@ export class ServiceLevelObjectivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SearchSLOResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SearchSLOResponse"
@@ -880,16 +880,16 @@ export class ServiceLevelObjectivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateSLO
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateSLO.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateSLO(response: ResponseContext): Promise<SLOListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOListResponse"

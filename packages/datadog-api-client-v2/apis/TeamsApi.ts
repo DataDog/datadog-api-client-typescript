@@ -812,16 +812,16 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
 export class TeamsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createTeam
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createTeam.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createTeam(response: ResponseContext): Promise<TeamResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamResponse"
@@ -846,10 +846,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createTeamLink
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createTeamLink.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createTeamLink(
     response: ResponseContext
@@ -857,7 +857,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamLinkResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamLinkResponse"
@@ -886,10 +886,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createTeamMembership
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createTeamMembership.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createTeamMembership(
     response: ResponseContext
@@ -897,7 +897,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserTeamResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserTeamResponse"
@@ -926,16 +926,16 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteTeam
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteTeam.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteTeam(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
@@ -956,16 +956,16 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteTeamLink
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteTeamLink.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteTeamLink(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
@@ -986,16 +986,16 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteTeamMembership
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteTeamMembership.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteTeamMembership(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
@@ -1016,16 +1016,16 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getTeam
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getTeam.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getTeam(response: ResponseContext): Promise<TeamResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamResponse"
@@ -1050,10 +1050,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getTeamLink
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getTeamLink.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getTeamLink(
     response: ResponseContext
@@ -1061,7 +1061,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamLinkResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamLinkResponse"
@@ -1086,10 +1086,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getTeamLinks
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getTeamLinks.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getTeamLinks(
     response: ResponseContext
@@ -1097,7 +1097,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamLinksResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamLinksResponse"
@@ -1122,10 +1122,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getTeamMemberships
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getTeamMemberships.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getTeamMemberships(
     response: ResponseContext
@@ -1133,7 +1133,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserTeamsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserTeamsResponse"
@@ -1158,10 +1158,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getTeamPermissionSettings
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getTeamPermissionSettings.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getTeamPermissionSettings(
     response: ResponseContext
@@ -1169,7 +1169,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamPermissionSettingsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamPermissionSettingsResponse"
@@ -1194,10 +1194,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getUserMemberships
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getUserMemberships.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getUserMemberships(
     response: ResponseContext
@@ -1205,7 +1205,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserTeamsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserTeamsResponse"
@@ -1230,16 +1230,16 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listTeams
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listTeams.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listTeams(response: ResponseContext): Promise<TeamsResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamsResponse"
@@ -1264,16 +1264,16 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateTeam
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateTeam.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateTeam(response: ResponseContext): Promise<TeamResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamResponse"
@@ -1303,10 +1303,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateTeamLink
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateTeamLink.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateTeamLink(
     response: ResponseContext
@@ -1314,7 +1314,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamLinkResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamLinkResponse"
@@ -1339,10 +1339,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateTeamMembership
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateTeamMembership.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateTeamMembership(
     response: ResponseContext
@@ -1350,7 +1350,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserTeamResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserTeamResponse"
@@ -1375,10 +1375,10 @@ export class TeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateTeamPermissionSetting
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateTeamPermissionSetting.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateTeamPermissionSetting(
     response: ResponseContext
@@ -1386,7 +1386,7 @@ export class TeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TeamPermissionSettingResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TeamPermissionSettingResponse"

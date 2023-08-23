@@ -367,10 +367,10 @@ export class WebhooksIntegrationApiRequestFactory extends BaseAPIRequestFactory 
 export class WebhooksIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createWebhooksIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createWebhooksIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createWebhooksIntegration(
     response: ResponseContext
@@ -378,7 +378,7 @@ export class WebhooksIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "WebhooksIntegration"
@@ -407,10 +407,10 @@ export class WebhooksIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createWebhooksIntegrationCustomVariable
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createWebhooksIntegrationCustomVariable.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createWebhooksIntegrationCustomVariable(
     response: ResponseContext
@@ -418,7 +418,7 @@ export class WebhooksIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegrationCustomVariableResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -448,10 +448,10 @@ export class WebhooksIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteWebhooksIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteWebhooksIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteWebhooksIntegration(
     response: ResponseContext
@@ -459,7 +459,7 @@ export class WebhooksIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -484,10 +484,10 @@ export class WebhooksIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteWebhooksIntegrationCustomVariable
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteWebhooksIntegrationCustomVariable.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteWebhooksIntegrationCustomVariable(
     response: ResponseContext
@@ -495,7 +495,7 @@ export class WebhooksIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -520,10 +520,10 @@ export class WebhooksIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getWebhooksIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getWebhooksIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getWebhooksIntegration(
     response: ResponseContext
@@ -531,7 +531,7 @@ export class WebhooksIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "WebhooksIntegration"
@@ -561,10 +561,10 @@ export class WebhooksIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getWebhooksIntegrationCustomVariable
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getWebhooksIntegrationCustomVariable.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getWebhooksIntegrationCustomVariable(
     response: ResponseContext
@@ -572,7 +572,7 @@ export class WebhooksIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegrationCustomVariableResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -603,10 +603,10 @@ export class WebhooksIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateWebhooksIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateWebhooksIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateWebhooksIntegration(
     response: ResponseContext
@@ -614,7 +614,7 @@ export class WebhooksIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegration = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "WebhooksIntegration"
@@ -644,10 +644,10 @@ export class WebhooksIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateWebhooksIntegrationCustomVariable
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateWebhooksIntegrationCustomVariable.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateWebhooksIntegrationCustomVariable(
     response: ResponseContext
@@ -655,7 +655,7 @@ export class WebhooksIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: WebhooksIntegrationCustomVariableResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),

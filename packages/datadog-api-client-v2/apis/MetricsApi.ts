@@ -689,10 +689,10 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
 export class MetricsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createBulkTagsMetricsConfiguration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createBulkTagsMetricsConfiguration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createBulkTagsMetricsConfiguration(
     response: ResponseContext
@@ -700,7 +700,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricBulkTagConfigResponse"
@@ -730,10 +730,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createTagConfiguration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createTagConfiguration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createTagConfiguration(
     response: ResponseContext
@@ -741,7 +741,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricTagConfigurationResponse"
@@ -771,10 +771,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteBulkTagsMetricsConfiguration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteBulkTagsMetricsConfiguration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteBulkTagsMetricsConfiguration(
     response: ResponseContext
@@ -782,7 +782,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricBulkTagConfigResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricBulkTagConfigResponse"
@@ -812,10 +812,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteTagConfiguration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteTagConfiguration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteTagConfiguration(
     response: ResponseContext
@@ -823,7 +823,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -848,10 +848,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to estimateMetricsOutputSeries
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to estimateMetricsOutputSeries.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async estimateMetricsOutputSeries(
     response: ResponseContext
@@ -859,7 +859,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricEstimateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricEstimateResponse"
@@ -889,10 +889,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listActiveMetricConfigurations
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listActiveMetricConfigurations.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listActiveMetricConfigurations(
     response: ResponseContext
@@ -900,7 +900,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricSuggestedTagsAndAggregationsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -931,10 +931,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listTagConfigurationByName
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listTagConfigurationByName.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listTagConfigurationByName(
     response: ResponseContext
@@ -942,7 +942,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricTagConfigurationResponse"
@@ -971,10 +971,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listTagConfigurations
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listTagConfigurations.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listTagConfigurations(
     response: ResponseContext
@@ -982,7 +982,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricsAndMetricTagConfigurationsResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1012,10 +1012,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listTagsByMetricName
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listTagsByMetricName.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listTagsByMetricName(
     response: ResponseContext
@@ -1023,7 +1023,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricAllTagsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricAllTagsResponse"
@@ -1053,10 +1053,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listVolumesByMetricName
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listVolumesByMetricName.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listVolumesByMetricName(
     response: ResponseContext
@@ -1064,7 +1064,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricVolumesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricVolumesResponse"
@@ -1094,10 +1094,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to queryScalarData
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to queryScalarData.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async queryScalarData(
     response: ResponseContext
@@ -1105,7 +1105,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ScalarFormulaQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ScalarFormulaQueryResponse"
@@ -1135,10 +1135,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to queryTimeseriesData
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to queryTimeseriesData.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async queryTimeseriesData(
     response: ResponseContext
@@ -1146,7 +1146,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: TimeseriesFormulaQueryResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "TimeseriesFormulaQueryResponse"
@@ -1176,10 +1176,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to submitMetrics
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to submitMetrics.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async submitMetrics(
     response: ResponseContext
@@ -1187,7 +1187,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IntakePayloadAccepted = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IntakePayloadAccepted"
@@ -1218,10 +1218,10 @@ export class MetricsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateTagConfiguration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateTagConfiguration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateTagConfiguration(
     response: ResponseContext
@@ -1229,7 +1229,7 @@ export class MetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MetricTagConfigurationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MetricTagConfigurationResponse"

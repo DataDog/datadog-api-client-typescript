@@ -128,10 +128,10 @@ export class AuditApiRequestFactory extends BaseAPIRequestFactory {
 export class AuditApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listAuditLogs
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listAuditLogs.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listAuditLogs(
     response: ResponseContext
@@ -139,7 +139,7 @@ export class AuditApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AuditLogsEventsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AuditLogsEventsResponse"
@@ -168,10 +168,10 @@ export class AuditApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to searchAuditLogs
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to searchAuditLogs.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async searchAuditLogs(
     response: ResponseContext
@@ -179,7 +179,7 @@ export class AuditApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AuditLogsEventsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AuditLogsEventsResponse"

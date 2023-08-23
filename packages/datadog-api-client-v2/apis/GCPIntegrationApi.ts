@@ -231,10 +231,10 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 export class GCPIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createGCPSTSAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createGCPSTSAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createGCPSTSAccount(
     response: ResponseContext
@@ -242,7 +242,7 @@ export class GCPIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "GCPSTSServiceAccountResponse"
@@ -273,16 +273,16 @@ export class GCPIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteGCPSTSAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteGCPSTSAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteGCPSTSAccount(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -307,10 +307,10 @@ export class GCPIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getGCPSTSDelegate
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getGCPSTSDelegate.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getGCPSTSDelegate(
     response: ResponseContext
@@ -318,7 +318,7 @@ export class GCPIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "GCPSTSDelegateAccountResponse"
@@ -343,10 +343,10 @@ export class GCPIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listGCPSTSAccounts
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listGCPSTSAccounts.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listGCPSTSAccounts(
     response: ResponseContext
@@ -354,7 +354,7 @@ export class GCPIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSServiceAccountsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "GCPSTSServiceAccountsResponse"
@@ -383,10 +383,10 @@ export class GCPIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to makeGCPSTSDelegate
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to makeGCPSTSDelegate.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async makeGCPSTSDelegate(
     response: ResponseContext
@@ -394,7 +394,7 @@ export class GCPIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSDelegateAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "GCPSTSDelegateAccountResponse"
@@ -423,10 +423,10 @@ export class GCPIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateGCPSTSAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateGCPSTSAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateGCPSTSAccount(
     response: ResponseContext
@@ -434,7 +434,7 @@ export class GCPIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: GCPSTSServiceAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "GCPSTSServiceAccountResponse"

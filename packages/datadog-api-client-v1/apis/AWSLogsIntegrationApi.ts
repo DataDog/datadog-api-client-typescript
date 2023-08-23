@@ -271,10 +271,10 @@ export class AWSLogsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 export class AWSLogsIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to checkAWSLogsLambdaAsync
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to checkAWSLogsLambdaAsync.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async checkAWSLogsLambdaAsync(
     response: ResponseContext
@@ -282,7 +282,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSLogsAsyncResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AWSLogsAsyncResponse"
@@ -311,10 +311,10 @@ export class AWSLogsIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to checkAWSLogsServicesAsync
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to checkAWSLogsServicesAsync.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async checkAWSLogsServicesAsync(
     response: ResponseContext
@@ -322,7 +322,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSLogsAsyncResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AWSLogsAsyncResponse"
@@ -351,16 +351,16 @@ export class AWSLogsIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createAWSLambdaARN
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createAWSLambdaARN.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createAWSLambdaARN(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -389,16 +389,16 @@ export class AWSLogsIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteAWSLambdaARN
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteAWSLambdaARN.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteAWSLambdaARN(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -427,16 +427,16 @@ export class AWSLogsIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to enableAWSLogServices
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to enableAWSLogServices.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async enableAWSLogServices(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -465,10 +465,10 @@ export class AWSLogsIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listAWSLogsIntegrations
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listAWSLogsIntegrations.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listAWSLogsIntegrations(
     response: ResponseContext
@@ -476,7 +476,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<AWSLogsListResponse> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<AWSLogsListResponse>"
@@ -505,10 +505,10 @@ export class AWSLogsIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listAWSLogsServices
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listAWSLogsServices.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listAWSLogsServices(
     response: ResponseContext
@@ -516,7 +516,7 @@ export class AWSLogsIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<AWSLogsListServicesResponse> =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),

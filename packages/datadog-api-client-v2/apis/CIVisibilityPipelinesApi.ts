@@ -218,10 +218,10 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 export class CIVisibilityPipelinesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to aggregateCIAppPipelineEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to aggregateCIAppPipelineEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async aggregateCIAppPipelineEvents(
     response: ResponseContext
@@ -229,7 +229,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppPipelinesAnalyticsAggregateResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -259,10 +259,10 @@ export class CIVisibilityPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createCIAppPipelineEvent
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createCIAppPipelineEvent.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createCIAppPipelineEvent(
     response: ResponseContext
@@ -270,7 +270,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -304,10 +304,10 @@ export class CIVisibilityPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listCIAppPipelineEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listCIAppPipelineEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listCIAppPipelineEvents(
     response: ResponseContext
@@ -315,7 +315,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CIAppPipelineEventsResponse"
@@ -344,10 +344,10 @@ export class CIVisibilityPipelinesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to searchCIAppPipelineEvents
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to searchCIAppPipelineEvents.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async searchCIAppPipelineEvents(
     response: ResponseContext
@@ -355,7 +355,7 @@ export class CIVisibilityPipelinesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CIAppPipelineEventsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CIAppPipelineEventsResponse"

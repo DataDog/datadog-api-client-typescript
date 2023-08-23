@@ -221,10 +221,10 @@ export class ServiceLevelObjectiveCorrectionsApiRequestFactory extends BaseAPIRe
 export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createSLOCorrection
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createSLOCorrection.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createSLOCorrection(
     response: ResponseContext
@@ -232,7 +232,7 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOCorrectionResponse"
@@ -262,16 +262,16 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteSLOCorrection
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteSLOCorrection.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteSLOCorrection(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -296,10 +296,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getSLOCorrection
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getSLOCorrection.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getSLOCorrection(
     response: ResponseContext
@@ -307,7 +307,7 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOCorrectionResponse"
@@ -336,10 +336,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listSLOCorrection
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listSLOCorrection.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listSLOCorrection(
     response: ResponseContext
@@ -347,7 +347,7 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOCorrectionListResponse"
@@ -372,10 +372,10 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateSLOCorrection
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateSLOCorrection.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateSLOCorrection(
     response: ResponseContext
@@ -383,7 +383,7 @@ export class ServiceLevelObjectiveCorrectionsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SLOCorrectionResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SLOCorrectionResponse"

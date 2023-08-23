@@ -352,10 +352,10 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
 export class ServiceAccountsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createServiceAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createServiceAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createServiceAccount(
     response: ResponseContext
@@ -363,7 +363,7 @@ export class ServiceAccountsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: UserResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "UserResponse"
@@ -392,10 +392,10 @@ export class ServiceAccountsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createServiceAccountApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createServiceAccountApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createServiceAccountApplicationKey(
     response: ResponseContext
@@ -403,7 +403,7 @@ export class ServiceAccountsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ApplicationKeyResponse"
@@ -432,10 +432,10 @@ export class ServiceAccountsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteServiceAccountApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteServiceAccountApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteServiceAccountApplicationKey(
     response: ResponseContext
@@ -443,7 +443,7 @@ export class ServiceAccountsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -468,10 +468,10 @@ export class ServiceAccountsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getServiceAccountApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getServiceAccountApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getServiceAccountApplicationKey(
     response: ResponseContext
@@ -479,7 +479,7 @@ export class ServiceAccountsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PartialApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "PartialApplicationKeyResponse"
@@ -508,10 +508,10 @@ export class ServiceAccountsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listServiceAccountApplicationKeys
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listServiceAccountApplicationKeys.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listServiceAccountApplicationKeys(
     response: ResponseContext
@@ -519,7 +519,7 @@ export class ServiceAccountsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: ListApplicationKeysResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ListApplicationKeysResponse"
@@ -549,10 +549,10 @@ export class ServiceAccountsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateServiceAccountApplicationKey
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateServiceAccountApplicationKey.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateServiceAccountApplicationKey(
     response: ResponseContext
@@ -560,7 +560,7 @@ export class ServiceAccountsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: PartialApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "PartialApplicationKeyResponse"

@@ -254,10 +254,10 @@ export class OrganizationsApiRequestFactory extends BaseAPIRequestFactory {
 export class OrganizationsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createChildOrg
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createChildOrg.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createChildOrg(
     response: ResponseContext
@@ -265,7 +265,7 @@ export class OrganizationsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrganizationCreateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OrganizationCreateResponse"
@@ -294,10 +294,10 @@ export class OrganizationsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to downgradeOrg
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to downgradeOrg.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async downgradeOrg(
     response: ResponseContext
@@ -305,7 +305,7 @@ export class OrganizationsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrgDowngradedResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OrgDowngradedResponse"
@@ -334,10 +334,10 @@ export class OrganizationsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getOrg
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getOrg.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getOrg(
     response: ResponseContext
@@ -345,7 +345,7 @@ export class OrganizationsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrganizationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OrganizationResponse"
@@ -374,10 +374,10 @@ export class OrganizationsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listOrgs
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listOrgs.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listOrgs(
     response: ResponseContext
@@ -385,7 +385,7 @@ export class OrganizationsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrganizationListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OrganizationListResponse"
@@ -410,10 +410,10 @@ export class OrganizationsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateOrg
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateOrg.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateOrg(
     response: ResponseContext
@@ -421,7 +421,7 @@ export class OrganizationsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OrganizationResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OrganizationResponse"
@@ -450,10 +450,10 @@ export class OrganizationsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to uploadIdPForOrg
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to uploadIdPForOrg.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async uploadIdPForOrg(
     response: ResponseContext
@@ -461,7 +461,7 @@ export class OrganizationsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IdpResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IdpResponse"

@@ -274,10 +274,10 @@ export class IncidentTeamsApiRequestFactory extends BaseAPIRequestFactory {
 export class IncidentTeamsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createIncidentTeam
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createIncidentTeam.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createIncidentTeam(
     response: ResponseContext
@@ -285,7 +285,7 @@ export class IncidentTeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTeamResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IncidentTeamResponse"
@@ -316,16 +316,16 @@ export class IncidentTeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteIncidentTeam
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteIncidentTeam.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteIncidentTeam(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -352,10 +352,10 @@ export class IncidentTeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getIncidentTeam
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getIncidentTeam.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getIncidentTeam(
     response: ResponseContext
@@ -363,7 +363,7 @@ export class IncidentTeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTeamResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IncidentTeamResponse"
@@ -394,10 +394,10 @@ export class IncidentTeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listIncidentTeams
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listIncidentTeams.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listIncidentTeams(
     response: ResponseContext
@@ -405,7 +405,7 @@ export class IncidentTeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTeamsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IncidentTeamsResponse"
@@ -436,10 +436,10 @@ export class IncidentTeamsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateIncidentTeam
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateIncidentTeam.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateIncidentTeam(
     response: ResponseContext
@@ -447,7 +447,7 @@ export class IncidentTeamsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: IncidentTeamResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IncidentTeamResponse"

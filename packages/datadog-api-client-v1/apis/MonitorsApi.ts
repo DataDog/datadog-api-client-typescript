@@ -531,10 +531,10 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 export class MonitorsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to checkCanDeleteMonitor
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to checkCanDeleteMonitor.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async checkCanDeleteMonitor(
     response: ResponseContext
@@ -542,7 +542,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200 || response.httpStatusCode == 409) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: CheckCanDeleteMonitorResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CheckCanDeleteMonitorResponse"
@@ -571,16 +571,16 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createMonitor
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createMonitor.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createMonitor(response: ResponseContext): Promise<Monitor> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Monitor = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Monitor"
@@ -609,10 +609,10 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteMonitor
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteMonitor.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteMonitor(
     response: ResponseContext
@@ -620,7 +620,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: DeletedMonitor = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DeletedMonitor"
@@ -651,16 +651,16 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getMonitor
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getMonitor.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getMonitor(response: ResponseContext): Promise<Monitor> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Monitor = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Monitor"
@@ -690,10 +690,10 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listMonitors
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listMonitors.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listMonitors(
     response: ResponseContext
@@ -701,7 +701,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<Monitor> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<Monitor>"
@@ -730,10 +730,10 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to searchMonitorGroups
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to searchMonitorGroups.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async searchMonitorGroups(
     response: ResponseContext
@@ -741,7 +741,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MonitorGroupSearchResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MonitorGroupSearchResponse"
@@ -770,10 +770,10 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to searchMonitors
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to searchMonitors.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async searchMonitors(
     response: ResponseContext
@@ -781,7 +781,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MonitorSearchResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MonitorSearchResponse"
@@ -810,16 +810,16 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateMonitor
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateMonitor.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateMonitor(response: ResponseContext): Promise<Monitor> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Monitor = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Monitor"
@@ -850,10 +850,10 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to validateExistingMonitor
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to validateExistingMonitor.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async validateExistingMonitor(
     response: ResponseContext
@@ -861,7 +861,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -890,16 +890,16 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to validateMonitor
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to validateMonitor.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async validateMonitor(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"

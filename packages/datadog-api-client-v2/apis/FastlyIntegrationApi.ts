@@ -424,10 +424,10 @@ export class FastlyIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 export class FastlyIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createFastlyAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createFastlyAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createFastlyAccount(
     response: ResponseContext
@@ -435,7 +435,7 @@ export class FastlyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "FastlyAccountResponse"
@@ -465,10 +465,10 @@ export class FastlyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createFastlyService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createFastlyService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createFastlyService(
     response: ResponseContext
@@ -476,7 +476,7 @@ export class FastlyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyServiceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "FastlyServiceResponse"
@@ -506,16 +506,16 @@ export class FastlyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteFastlyAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteFastlyAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteFastlyAccount(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -541,16 +541,16 @@ export class FastlyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteFastlyService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteFastlyService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteFastlyService(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -576,10 +576,10 @@ export class FastlyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getFastlyAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getFastlyAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getFastlyAccount(
     response: ResponseContext
@@ -587,7 +587,7 @@ export class FastlyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "FastlyAccountResponse"
@@ -617,10 +617,10 @@ export class FastlyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getFastlyService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getFastlyService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getFastlyService(
     response: ResponseContext
@@ -628,7 +628,7 @@ export class FastlyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyServiceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "FastlyServiceResponse"
@@ -658,10 +658,10 @@ export class FastlyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listFastlyAccounts
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listFastlyAccounts.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listFastlyAccounts(
     response: ResponseContext
@@ -669,7 +669,7 @@ export class FastlyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyAccountsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "FastlyAccountsResponse"
@@ -699,10 +699,10 @@ export class FastlyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listFastlyServices
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listFastlyServices.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listFastlyServices(
     response: ResponseContext
@@ -710,7 +710,7 @@ export class FastlyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyServicesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "FastlyServicesResponse"
@@ -740,10 +740,10 @@ export class FastlyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateFastlyAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateFastlyAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateFastlyAccount(
     response: ResponseContext
@@ -751,7 +751,7 @@ export class FastlyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "FastlyAccountResponse"
@@ -781,10 +781,10 @@ export class FastlyIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateFastlyService
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateFastlyService.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateFastlyService(
     response: ResponseContext
@@ -792,7 +792,7 @@ export class FastlyIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: FastlyServiceResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "FastlyServiceResponse"

@@ -238,10 +238,10 @@ export class SlackIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 export class SlackIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createSlackIntegrationChannel
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createSlackIntegrationChannel.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createSlackIntegrationChannel(
     response: ResponseContext
@@ -249,7 +249,7 @@ export class SlackIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SlackIntegrationChannel"
@@ -279,10 +279,10 @@ export class SlackIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getSlackIntegrationChannel
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getSlackIntegrationChannel.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getSlackIntegrationChannel(
     response: ResponseContext
@@ -290,7 +290,7 @@ export class SlackIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SlackIntegrationChannel"
@@ -320,10 +320,10 @@ export class SlackIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getSlackIntegrationChannels
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getSlackIntegrationChannels.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getSlackIntegrationChannels(
     response: ResponseContext
@@ -331,7 +331,7 @@ export class SlackIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<SlackIntegrationChannel> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<SlackIntegrationChannel>"
@@ -361,10 +361,10 @@ export class SlackIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to removeSlackIntegrationChannel
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to removeSlackIntegrationChannel.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async removeSlackIntegrationChannel(
     response: ResponseContext
@@ -372,7 +372,7 @@ export class SlackIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -398,10 +398,10 @@ export class SlackIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateSlackIntegrationChannel
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateSlackIntegrationChannel.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateSlackIntegrationChannel(
     response: ResponseContext
@@ -409,7 +409,7 @@ export class SlackIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SlackIntegrationChannel = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SlackIntegrationChannel"

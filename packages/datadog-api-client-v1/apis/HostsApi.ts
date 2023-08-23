@@ -224,16 +224,16 @@ export class HostsApiRequestFactory extends BaseAPIRequestFactory {
 export class HostsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getHostTotals
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getHostTotals.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getHostTotals(response: ResponseContext): Promise<HostTotals> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostTotals = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "HostTotals"
@@ -262,16 +262,16 @@ export class HostsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listHosts
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listHosts.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listHosts(response: ResponseContext): Promise<HostListResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "HostListResponse"
@@ -300,16 +300,16 @@ export class HostsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to muteHost
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to muteHost.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async muteHost(response: ResponseContext): Promise<HostMuteResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "HostMuteResponse"
@@ -338,10 +338,10 @@ export class HostsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to unmuteHost
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to unmuteHost.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async unmuteHost(
     response: ResponseContext
@@ -349,7 +349,7 @@ export class HostsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: HostMuteResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "HostMuteResponse"

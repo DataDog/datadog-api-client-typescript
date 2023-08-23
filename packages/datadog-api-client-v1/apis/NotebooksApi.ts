@@ -275,10 +275,10 @@ export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
 export class NotebooksApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createNotebook
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createNotebook.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createNotebook(
     response: ResponseContext
@@ -286,7 +286,7 @@ export class NotebooksApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotebookResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "NotebookResponse"
@@ -315,16 +315,16 @@ export class NotebooksApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteNotebook
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteNotebook.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteNotebook(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -350,10 +350,10 @@ export class NotebooksApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getNotebook
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getNotebook.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getNotebook(
     response: ResponseContext
@@ -361,7 +361,7 @@ export class NotebooksApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotebookResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "NotebookResponse"
@@ -391,10 +391,10 @@ export class NotebooksApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listNotebooks
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listNotebooks.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listNotebooks(
     response: ResponseContext
@@ -402,7 +402,7 @@ export class NotebooksApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotebooksResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "NotebooksResponse"
@@ -431,10 +431,10 @@ export class NotebooksApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateNotebook
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateNotebook.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateNotebook(
     response: ResponseContext
@@ -442,7 +442,7 @@ export class NotebooksApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: NotebookResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "NotebookResponse"

@@ -239,10 +239,10 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
 export class AuthNMappingsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createAuthNMapping
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createAuthNMapping.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createAuthNMapping(
     response: ResponseContext
@@ -250,7 +250,7 @@ export class AuthNMappingsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AuthNMappingResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AuthNMappingResponse"
@@ -280,16 +280,16 @@ export class AuthNMappingsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteAuthNMapping
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteAuthNMapping.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteAuthNMapping(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -314,10 +314,10 @@ export class AuthNMappingsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getAuthNMapping
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getAuthNMapping.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getAuthNMapping(
     response: ResponseContext
@@ -325,7 +325,7 @@ export class AuthNMappingsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AuthNMappingResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AuthNMappingResponse"
@@ -354,10 +354,10 @@ export class AuthNMappingsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listAuthNMappings
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listAuthNMappings.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listAuthNMappings(
     response: ResponseContext
@@ -365,7 +365,7 @@ export class AuthNMappingsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AuthNMappingsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AuthNMappingsResponse"
@@ -390,10 +390,10 @@ export class AuthNMappingsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateAuthNMapping
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateAuthNMapping.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateAuthNMapping(
     response: ResponseContext
@@ -401,7 +401,7 @@ export class AuthNMappingsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AuthNMappingResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AuthNMappingResponse"

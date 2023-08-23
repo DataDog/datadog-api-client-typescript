@@ -404,16 +404,16 @@ export class LogsArchivesApiRequestFactory extends BaseAPIRequestFactory {
 export class LogsArchivesApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to addReadRoleToArchive
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to addReadRoleToArchive.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async addReadRoleToArchive(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -439,10 +439,10 @@ export class LogsArchivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createLogsArchive
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createLogsArchive.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createLogsArchive(
     response: ResponseContext
@@ -450,7 +450,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsArchive = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchive"
@@ -479,16 +479,16 @@ export class LogsArchivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteLogsArchive
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteLogsArchive.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteLogsArchive(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -514,16 +514,16 @@ export class LogsArchivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getLogsArchive
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getLogsArchive.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getLogsArchive(response: ResponseContext): Promise<LogsArchive> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsArchive = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchive"
@@ -553,10 +553,10 @@ export class LogsArchivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getLogsArchiveOrder
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getLogsArchiveOrder.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getLogsArchiveOrder(
     response: ResponseContext
@@ -564,7 +564,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsArchiveOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchiveOrder"
@@ -589,10 +589,10 @@ export class LogsArchivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listArchiveReadRoles
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listArchiveReadRoles.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listArchiveReadRoles(
     response: ResponseContext
@@ -600,7 +600,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: RolesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RolesResponse"
@@ -630,10 +630,10 @@ export class LogsArchivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listLogsArchives
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listLogsArchives.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listLogsArchives(
     response: ResponseContext
@@ -641,7 +641,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsArchives = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchives"
@@ -666,16 +666,16 @@ export class LogsArchivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to removeRoleFromArchive
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to removeRoleFromArchive.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async removeRoleFromArchive(response: ResponseContext): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -701,10 +701,10 @@ export class LogsArchivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateLogsArchive
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateLogsArchive.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateLogsArchive(
     response: ResponseContext
@@ -712,7 +712,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsArchive = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchive"
@@ -742,10 +742,10 @@ export class LogsArchivesApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateLogsArchiveOrder
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateLogsArchiveOrder.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateLogsArchiveOrder(
     response: ResponseContext
@@ -753,7 +753,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: LogsArchiveOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchiveOrder"

@@ -89,10 +89,10 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 export class SyntheticsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getOnDemandConcurrencyCap
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getOnDemandConcurrencyCap.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getOnDemandConcurrencyCap(
     response: ResponseContext
@@ -100,7 +100,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnDemandConcurrencyCapResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OnDemandConcurrencyCapResponse"
@@ -125,10 +125,10 @@ export class SyntheticsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to setOnDemandConcurrencyCap
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to setOnDemandConcurrencyCap.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async setOnDemandConcurrencyCap(
     response: ResponseContext
@@ -136,7 +136,7 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: OnDemandConcurrencyCapResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OnDemandConcurrencyCapResponse"

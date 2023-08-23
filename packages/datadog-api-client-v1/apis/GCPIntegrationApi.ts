@@ -164,16 +164,16 @@ export class GCPIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 export class GCPIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createGCPIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createGCPIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createGCPIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -202,16 +202,16 @@ export class GCPIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteGCPIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteGCPIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteGCPIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -240,10 +240,10 @@ export class GCPIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listGCPIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listGCPIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listGCPIntegration(
     response: ResponseContext
@@ -251,7 +251,7 @@ export class GCPIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<GCPAccount> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<GCPAccount>"
@@ -280,16 +280,16 @@ export class GCPIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateGCPIntegration
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateGCPIntegration.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateGCPIntegration(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"

@@ -205,10 +205,10 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
 export class MonitorsApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createMonitorConfigPolicy
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createMonitorConfigPolicy.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createMonitorConfigPolicy(
     response: ResponseContext
@@ -216,7 +216,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MonitorConfigPolicyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MonitorConfigPolicyResponse"
@@ -245,10 +245,10 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteMonitorConfigPolicy
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteMonitorConfigPolicy.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteMonitorConfigPolicy(
     response: ResponseContext
@@ -256,7 +256,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       return;
     }
     if (
@@ -282,10 +282,10 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to getMonitorConfigPolicy
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to getMonitorConfigPolicy.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async getMonitorConfigPolicy(
     response: ResponseContext
@@ -293,7 +293,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MonitorConfigPolicyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MonitorConfigPolicyResponse"
@@ -322,10 +322,10 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listMonitorConfigPolicies
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listMonitorConfigPolicies.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listMonitorConfigPolicies(
     response: ResponseContext
@@ -333,7 +333,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MonitorConfigPolicyListResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -359,10 +359,10 @@ export class MonitorsApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateMonitorConfigPolicy
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateMonitorConfigPolicy.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateMonitorConfigPolicy(
     response: ResponseContext
@@ -370,7 +370,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: MonitorConfigPolicyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MonitorConfigPolicyResponse"

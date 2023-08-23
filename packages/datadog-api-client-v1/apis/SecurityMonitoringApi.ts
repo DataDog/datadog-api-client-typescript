@@ -183,10 +183,10 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 export class SecurityMonitoringApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to addSecurityMonitoringSignalToIncident
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to addSecurityMonitoringSignalToIncident.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async addSecurityMonitoringSignalToIncident(
     response: ResponseContext
@@ -194,7 +194,7 @@ export class SecurityMonitoringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SuccessfulSignalUpdateResponse"
@@ -224,10 +224,10 @@ export class SecurityMonitoringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to editSecurityMonitoringSignalAssignee
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to editSecurityMonitoringSignalAssignee.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async editSecurityMonitoringSignalAssignee(
     response: ResponseContext
@@ -235,7 +235,7 @@ export class SecurityMonitoringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SuccessfulSignalUpdateResponse"
@@ -265,10 +265,10 @@ export class SecurityMonitoringApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to editSecurityMonitoringSignalState
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to editSecurityMonitoringSignalState.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async editSecurityMonitoringSignalState(
     response: ResponseContext
@@ -276,7 +276,7 @@ export class SecurityMonitoringApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: SuccessfulSignalUpdateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "SuccessfulSignalUpdateResponse"

@@ -395,10 +395,10 @@ export class AWSIntegrationApiRequestFactory extends BaseAPIRequestFactory {
 export class AWSIntegrationApiResponseProcessor {
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createAWSAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createAWSAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createAWSAccount(
     response: ResponseContext
@@ -406,7 +406,7 @@ export class AWSIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSAccountCreateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AWSAccountCreateResponse"
@@ -436,16 +436,16 @@ export class AWSIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createAWSTagFilter
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createAWSTagFilter.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createAWSTagFilter(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -474,10 +474,10 @@ export class AWSIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to createNewAWSExternalID
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to createNewAWSExternalID.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async createNewAWSExternalID(
     response: ResponseContext
@@ -485,7 +485,7 @@ export class AWSIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSAccountCreateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AWSAccountCreateResponse"
@@ -514,16 +514,16 @@ export class AWSIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteAWSAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteAWSAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteAWSAccount(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -553,16 +553,16 @@ export class AWSIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to deleteAWSTagFilter
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to deleteAWSTagFilter.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async deleteAWSTagFilter(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -591,10 +591,10 @@ export class AWSIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listAvailableAWSNamespaces
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listAvailableAWSNamespaces.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listAvailableAWSNamespaces(
     response: ResponseContext
@@ -602,7 +602,7 @@ export class AWSIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: Array<string> = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "Array<string>"
@@ -627,10 +627,10 @@ export class AWSIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listAWSAccounts
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listAWSAccounts.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listAWSAccounts(
     response: ResponseContext
@@ -638,7 +638,7 @@ export class AWSIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSAccountListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AWSAccountListResponse"
@@ -667,10 +667,10 @@ export class AWSIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to listAWSTagFilters
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to listAWSTagFilters.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async listAWSTagFilters(
     response: ResponseContext
@@ -678,7 +678,7 @@ export class AWSIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: AWSTagFilterListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "AWSTagFilterListResponse"
@@ -707,16 +707,16 @@ export class AWSIntegrationApiResponseProcessor {
 
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
+   * to the expected objects.
    *
-   * @params response Response returned by the server for a request to updateAWSAccount
-   * @throws ApiException if the response code was not in [200, 299]
+   * @params response Response returned by the server for a request to updateAWSAccount.
+   * @throws ApiException if the response code is not a successful one.
    */
   public async updateAWSAccount(response: ResponseContext): Promise<any> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
