@@ -137,22 +137,18 @@ export interface ConfigurationParameters {
    * Callback method to compress string body with zstd
    */
   zstdCompressorCallback?: ZstdCompressorCallback;
-
   /**
    * Maximum of retry attempts allowed 
    */
   maxRetries?: number;
-
   /**
    * Backoff base, the retry backoff time is (backoffmultiplier ** number of attempts) * backoffBase
    */
   backoffBase?: number;
-  
   /**
    * Backoff multiplier, the retry backoff time is (backoffmultiplier ** number of attempts) * backoffBase
    */
   backoffMultiplier?: number;
-
   /**
    * Enable retry on status code 429 or 500 and above
    */

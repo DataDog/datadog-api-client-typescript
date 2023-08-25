@@ -47,58 +47,46 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       }
     }
 
-    let resultPromise: Promise<ResponseContext>;
-
+    let currentAttempt = 0;
     // On non-node environments, use native fetch if available.
-    // `cross-fetch` incorrectly assumes all browsers have XHR available. 
+    // `cross-fetch` incorrectly assumes all browsers have XHR available.
     // See https://github.com/lquixada/cross-fetch/issues/78
     // TODO: Remove once once above issue is resolved.
-    if (!isNode && typeof fetch === "function") {
-      resultPromise = fetch(request.getUrl(), {
+    const fetchFunction = (!isNode && typeof fetch === "function") ? fetch : crossFetch;
+
+    const executeRequest = (): Promise<ResponseContext> => {
+      return fetchFunction(request.getUrl(), {
         method: method,
         body: body as any,
         headers: headers,
         signal: request.getHttpConfig().signal,
       }).then((resp: any) => {
-        const headers: { [name: string]: string } = {};
+        const responseHeaders: { [name: string]: string } = {};
         resp.headers.forEach((value: string, name: string) => {
-          headers[name] = value;
+          responseHeaders[name] = value;
         });
-
-        const body = {
+    
+        const responseBody = {
           text: () => resp.text(),
           binary: () => resp.buffer(),
         };
-        const response = new ResponseContext(resp.status, headers, body);
+    
+        const response = new ResponseContext(resp.status, responseHeaders, responseBody);
+    
         if (this.debug) {
           this.logResponse(response);
         }
-        return response;
-      });
-    } else {
-      resultPromise = crossFetch(request.getUrl(), {
-        method: method,
-        body: body as any,
-        headers: headers,
-        signal: request.getHttpConfig().signal,
-      }).then((resp: any) => {
-        const headers: { [name: string]: string } = {};
-        resp.headers.forEach((value: string, name: string) => {
-          headers[name] = value;
-        });
-
-        const body = {
-          text: () => resp.text(),
-          binary: () => resp.buffer(),
-        };
-        const response = new ResponseContext(resp.status, headers, body);
-        if (this.debug) {
-          this.logResponse(response);
+    
+        if (this.shouldRetry(this.enableRetry,currentAttempt,this.maxRetries,response.httpStatusCode)) {
+          const delay = this.calculateRetryInterval(currentAttempt,this.backoffBase,this.backoffMultiplier,responseHeaders);
+          currentAttempt++;
+          return this.sleep(delay * 1000).then(() => executeRequest());
         }
         return response;
       });
-    }
-
+    };
+    
+    const resultPromise: Promise<ResponseContext> = executeRequest();
     return resultPromise;
   }
 
