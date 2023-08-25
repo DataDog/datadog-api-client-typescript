@@ -87,7 +87,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         }
     
         if (this.shouldRetry(this.enableRetry,currentAttempt,this.maxRetries,response.httpStatusCode)) {
-          const delay = this.calculateRetryInterval(currentAttempt,this.backoffBase,this.backoffMultiplier,headers);
+          const delay = this.calculateRetryInterval(currentAttempt,this.backoffBase,this.backoffMultiplier,responseHeaders);
           currentAttempt++;
           return this.sleep(delay * 1000).then(() => executeRequest());
         }

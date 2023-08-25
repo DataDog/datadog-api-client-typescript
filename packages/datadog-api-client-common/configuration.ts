@@ -202,6 +202,10 @@ export function createConfiguration(
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
   }
 
+  if (conf.backoffBase && conf.backoffBase < 2) {
+    throw new Error("Backoff base must be at least 2");
+  }
+
   const configuration = new Configuration(
     conf.baseServer,
     conf.serverIndex || 0,
@@ -210,10 +214,10 @@ export function createConfiguration(
     configureAuthMethods(authMethods),
     conf.httpConfig || {},
     conf.debug,
-    conf.enableRetry = false,
-    conf.maxRetries = 3,
-    conf.backoffBase = 2, 
-    conf.backoffMultiplier = 2,
+    conf.enableRetry || false,
+    conf.maxRetries || 3,
+    conf.backoffBase || 2, 
+    conf.backoffMultiplier || 2,
     {
       "v2.createCIAppPipelineEvent": false,
       "v2.cancelDowntime": false,
