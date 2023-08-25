@@ -248,6 +248,10 @@ export type ZstdCompressorCallback = (body: string) => Buffer;
 
 export interface HttpLibrary {
   debug?: boolean;
+  enableRetry?: boolean | undefined;
+  maxRetries?: number;
+  backoffBase?: number;
+  backoffMultiplier?: number;
   zstdCompressorCallback?: ZstdCompressorCallback;
   send(request: RequestContext): Promise<ResponseContext>;
 }
