@@ -13,8 +13,8 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
   public zstdCompressorCallback: ZstdCompressorCallback | undefined;
   public enableRetry!: boolean;
-  public maxRetries!: number ;
-  public backoffBase!: number ;
+  public maxRetries!: number;
+  public backoffBase!: number;
   public backoffMultiplier!: number;
 
   public send(request: RequestContext): Promise<ResponseContext> {
@@ -122,17 +122,31 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     });
   }
 
-  private shouldRetry(enableRetry:boolean, currentAttempt:number, maxRetries:number, responseCode:number):boolean{
-    return (responseCode == 429 || responseCode >=500 ) && maxRetries>currentAttempt && enableRetry
+  private shouldRetry(
+    enableRetry: boolean,
+    currentAttempt: number,
+    maxRetries: number,
+    responseCode: number
+  ): boolean {
+    return (
+      (responseCode == 429 || responseCode >= 500) &&
+      maxRetries > currentAttempt &&
+      enableRetry
+    );
   }
 
-  private calculateRetryInterval(currentAttempt:number, backoffBase:number, backoffMultiplier:number, headers: {[name: string]: string}) : number{
+  private calculateRetryInterval(
+    currentAttempt: number,
+    backoffBase: number,
+    backoffMultiplier: number,
+    headers: { [name: string]: string }
+  ): number {
     if ("x-ratelimit-reset" in headers) {
-      const rateLimitHeaderString = headers["x-ratelimit-reset"]
-      const retryIntervalFromHeader = parseInt(rateLimitHeaderString,10);
-      return retryIntervalFromHeader
+      const rateLimitHeaderString = headers["x-ratelimit-reset"];
+      const retryIntervalFromHeader = parseInt(rateLimitHeaderString, 10);
+      return retryIntervalFromHeader;
     } else {
-      return (backoffMultiplier ** currentAttempt) * backoffBase
+      return backoffMultiplier ** currentAttempt * backoffBase;
     }
   }
 
