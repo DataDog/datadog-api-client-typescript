@@ -247,11 +247,11 @@ export class ResponseContext {
 export type ZstdCompressorCallback = (body: string) => Buffer;
 
 export interface HttpLibrary {
-  debug?: boolean;
   enableRetry?: boolean | undefined;
   maxRetries?: number;
   backoffBase?: number;
   backoffMultiplier?: number;
+  debug?: boolean;
   zstdCompressorCallback?: ZstdCompressorCallback;
   send(request: RequestContext): Promise<ResponseContext>;
 }
