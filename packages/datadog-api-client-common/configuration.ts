@@ -42,6 +42,10 @@ export class Configuration {
     authMethods: AuthMethods,
     httpConfig: HttpConfiguration,
     debug: boolean | undefined,
+    enableRetry: boolean | false,
+    maxRetries: number,
+    backoffBase: number,
+    backoffMultiplier: number,
     unstableOperations: { [name: string]: boolean }
   ) {
     this.baseServer = baseServer;
