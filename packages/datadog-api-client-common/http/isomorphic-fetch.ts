@@ -12,6 +12,10 @@ import { isBrowser, isNode } from "../util";
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
   public zstdCompressorCallback: ZstdCompressorCallback | undefined;
+  public enableRetry!: boolean;
+  public maxRetries!: number ;
+  public backoffBase!: number ;
+  public backoffMultiplier!: number;
 
   public send(request: RequestContext): Promise<ResponseContext> {
     if (this.debug) {
@@ -52,59 +56,67 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       }
     }
 
-    let resultPromise: Promise<ResponseContext>;
-
+    let currentAttempt = 0;
     // On non-node environments, use native fetch if available.
     // `cross-fetch` incorrectly assumes all browsers have XHR available.
     // See https://github.com/lquixada/cross-fetch/issues/78
     // TODO: Remove once once above issue is resolved.
-    if (!isNode && typeof fetch === "function") {
-      resultPromise = fetch(request.getUrl(), {
+    const fetchFunction = (!isNode && typeof fetch === "function") ? fetch : crossFetch;
+
+    const executeRequest = (): Promise<ResponseContext> => {
+      return fetchFunction(request.getUrl(), {
         method: method,
         body: body as any,
         headers: headers,
         signal: request.getHttpConfig().signal,
       }).then((resp: any) => {
-        const headers: { [name: string]: string } = {};
+        const responseHeaders: { [name: string]: string } = {};
         resp.headers.forEach((value: string, name: string) => {
-          headers[name] = value;
+          responseHeaders[name] = value;
         });
-
-        const body = {
+    
+        const responseBody = {
           text: () => resp.text(),
           binary: () => resp.buffer(),
         };
-        const response = new ResponseContext(resp.status, headers, body);
+    
+        const response = new ResponseContext(resp.status, responseHeaders, responseBody);
+    
         if (this.debug) {
           this.logResponse(response);
         }
-        return response;
-      });
-    } else {
-      resultPromise = crossFetch(request.getUrl(), {
-        method: method,
-        body: body as any,
-        headers: headers,
-        signal: request.getHttpConfig().signal,
-      }).then((resp: any) => {
-        const headers: { [name: string]: string } = {};
-        resp.headers.forEach((value: string, name: string) => {
-          headers[name] = value;
-        });
-
-        const body = {
-          text: () => resp.text(),
-          binary: () => resp.buffer(),
-        };
-        const response = new ResponseContext(resp.status, headers, body);
-        if (this.debug) {
-          this.logResponse(response);
+    
+        if (this.shouldRetry(this.enableRetry,currentAttempt,this.maxRetries,response.httpStatusCode)) {
+          const delay = this.calculateRetryInterval(currentAttempt,this.backoffBase,this.backoffMultiplier,headers);
+          currentAttempt++;
+          return this.sleep(delay * 1000).then(() => executeRequest());
         }
         return response;
       });
-    }
-
+    };
+    
+    const resultPromise: Promise<ResponseContext> = executeRequest();
     return resultPromise;
+  }
+
+  private sleep(milliseconds: number): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(resolve, milliseconds);
+    });
+  }
+
+  private shouldRetry(enableRetry:boolean, currentAttempt:number, maxRetries:number, responseCode:number):boolean{
+    return (responseCode == 429 || responseCode >=500 ) && maxRetries>currentAttempt && enableRetry
+  }
+
+  private calculateRetryInterval(currentAttempt:number, backoffBase:number, backoffMultiplier:number, headers: {[name: string]: string}) : number{
+    if ("x-ratelimit-reset" in headers) {
+      const rateLimitHeaderString = headers["x-ratelimit-reset"]
+      const retryIntervalFromHeader = parseInt(rateLimitHeaderString,10);
+      return retryIntervalFromHeader
+    } else {
+      return (backoffMultiplier ** currentAttempt) * backoffBase
+    }
   }
 
   private logRequest(request: RequestContext): void {
