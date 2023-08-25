@@ -3888,6 +3888,16 @@ nock@^13.1.3, nock@^13.2.1:
     lodash.set "^4.3.2"
     propagate "^2.0.0"
 
+nock@^13.3.3:
+  version "13.3.3"
+  resolved "https://registry.yarnpkg.com/nock/-/nock-13.3.3.tgz#179759c07d3f88ad3e794ace885629c1adfd3fe7"
+  integrity sha512-z+KUlILy9SK/RjpeXDiDUEAq4T94ADPHE3qaRkf66mpEhzc/ytOMm3Bwdrbq6k1tMWkbdujiKim3G2tfQARuJw==
+  dependencies:
+    debug "^4.1.0"
+    json-stringify-safe "^5.0.1"
+    lodash "^4.17.21"
+    propagate "^2.0.0"
+
 node-abort-controller@^3.0.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/node-abort-controller/-/node-abort-controller-3.1.1.tgz#a94377e964a9a37ac3976d848cb5c765833b8548"
