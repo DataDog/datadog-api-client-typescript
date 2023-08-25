@@ -42,10 +42,6 @@ export class Configuration {
     authMethods: AuthMethods,
     httpConfig: HttpConfiguration,
     debug: boolean | undefined,
-    enableRetry: boolean | false,
-    maxRetries: number,
-    backoffBase: number,
-    backoffMultiplier: number,
     unstableOperations: { [name: string]: boolean }
   ) {
     this.baseServer = baseServer;
@@ -55,8 +51,8 @@ export class Configuration {
     this.authMethods = authMethods;
     this.httpConfig = httpConfig;
     this.debug = debug;
-    this.enableRetry= enableRetry;
-    this.maxRetries = maxRetries; 
+    this.enableRetry = enableRetry;
+    this.maxRetries = maxRetries;
     this.backoffBase = backoffBase;
     this.backoffMultiplier = backoffMultiplier;
     this.unstableOperations = unstableOperations;
@@ -138,7 +134,7 @@ export interface ConfigurationParameters {
    */
   zstdCompressorCallback?: ZstdCompressorCallback;
   /**
-   * Maximum of retry attempts allowed 
+   * Maximum of retry attempts allowed
    */
   maxRetries?: number;
   /**
@@ -198,10 +194,6 @@ export function createConfiguration(
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
   }
 
-  if (conf.backoffBase && conf.backoffBase < 2) {
-    throw new Error("Backoff base must be at least 2");
-  }
-
   const configuration = new Configuration(
     conf.baseServer,
     conf.serverIndex || 0,
@@ -212,7 +204,7 @@ export function createConfiguration(
     conf.debug,
     conf.enableRetry || false,
     conf.maxRetries || 3,
-    conf.backoffBase || 2, 
+    conf.backoffBase || 2,
     conf.backoffMultiplier || 2,
     {
       "v2.createCIAppPipelineEvent": false,
@@ -262,8 +254,8 @@ export function createConfiguration(
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
   configuration.httpApi.debug = configuration.debug;
   configuration.httpApi.enableRetry = configuration.enableRetry;
-  configuration.httpApi.maxRetries = configuration.maxRetries; 
-  configuration.httpApi.backoffBase =  configuration.backoffBase; 
+  configuration.httpApi.maxRetries = configuration.maxRetries;
+  configuration.httpApi.backoffBase = configuration.backoffBase;
   configuration.httpApi.backoffMultiplier = configuration.backoffMultiplier;
   return configuration;
 }
