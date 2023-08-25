@@ -198,6 +198,10 @@ export function createConfiguration(
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
   }
 
+  if (conf.backoffBase && conf.backoffBase < 2) {
+    throw new Error("Backoff base must be at least 2");
+  }
+
   const configuration = new Configuration(
     conf.baseServer,
     conf.serverIndex || 0,
