@@ -17,6 +17,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
+import { SLOCorrection } from "../models/SLOCorrection";
 import { SLOCorrectionCreateRequest } from "../models/SLOCorrectionCreateRequest";
 import { SLOCorrectionListResponse } from "../models/SLOCorrectionListResponse";
 import { SLOCorrectionResponse } from "../models/SLOCorrectionResponse";
@@ -679,6 +680,50 @@ export class ServiceLevelObjectiveCorrectionsApi {
           return this.responseProcessor.listSLOCorrection(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listSLOCorrection returning a generator with all the items.
+   */
+  public async *listSLOCorrectionWithPagination(
+    param: ServiceLevelObjectiveCorrectionsApiListSLOCorrectionRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<SLOCorrection> {
+    let pageSize = 25;
+    if (param.limit !== undefined) {
+      pageSize = param.limit;
+    }
+    param.limit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listSLOCorrection(
+        param.offset,
+        param.limit,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listSLOCorrection(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.offset === undefined) {
+        param.offset = pageSize;
+      } else {
+        param.offset = param.offset + pageSize;
+      }
+    }
   }
 
   /**
