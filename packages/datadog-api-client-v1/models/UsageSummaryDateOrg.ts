@@ -275,6 +275,10 @@ export class UsageSummaryDateOrg {
    */
   "opentelemetryHostTop99p"?: number;
   /**
+   * Shows the 99th percentile of all profiled Azure app services over all hours in the current date for all organizations.
+   */
+  "profilingAasCountTop99p"?: number;
+  /**
    * Shows the 99th percentile of all profiled hosts over all hours in the current date for the given org.
    */
   "profilingHostTop99p"?: number;
@@ -693,6 +697,11 @@ export class UsageSummaryDateOrg {
     },
     opentelemetryHostTop99p: {
       baseName: "opentelemetry_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    profilingAasCountTop99p: {
+      baseName: "profiling_aas_count_top99p",
       type: "number",
       format: "int64",
     },

@@ -276,6 +276,10 @@ export class UsageSummaryDate {
    */
   "orgs"?: Array<UsageSummaryDateOrg>;
   /**
+   * Shows the 99th percentile of all profiled Azure app services over all hours in the current date for all organizations.
+   */
+  "profilingAasCountTop99p"?: number;
+  /**
    * Shows the 99th percentile of all profiled hosts over all hours in the current date for all organizations.
    */
   "profilingHostTop99p"?: number;
@@ -689,6 +693,11 @@ export class UsageSummaryDate {
     orgs: {
       baseName: "orgs",
       type: "Array<UsageSummaryDateOrg>",
+    },
+    profilingAasCountTop99p: {
+      baseName: "profiling_aas_count_top99p",
+      type: "number",
+      format: "int64",
     },
     profilingHostTop99p: {
       baseName: "profiling_host_top99p",
