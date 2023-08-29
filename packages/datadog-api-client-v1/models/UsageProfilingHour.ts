@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class UsageProfilingHour {
   /**
+   * Contains the total number of profiled Azure app services reporting during a given hour.
+   */
+  "aasCount"?: number;
+  /**
    * Get average number of container agents for that hour.
    */
   "avgContainerAgentCount"?: number;
@@ -40,6 +44,11 @@ export class UsageProfilingHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    aasCount: {
+      baseName: "aas_count",
+      type: "number",
+      format: "int64",
+    },
     avgContainerAgentCount: {
       baseName: "avg_container_agent_count",
       type: "number",

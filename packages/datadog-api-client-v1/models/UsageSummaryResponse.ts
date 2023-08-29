@@ -293,6 +293,10 @@ export class UsageSummaryResponse {
    */
   "opentelemetryHostTop99pSum"?: number;
   /**
+   * Shows the 99th percentile of all profiled Azure app services over all hours in the current months for all organizations.
+   */
+  "profilingAasCountTop99pSum"?: number;
+  /**
    * Shows the average number of profiled containers over all hours in the current months for all organizations.
    */
   "profilingContainerAgentCountAvg"?: number;
@@ -744,6 +748,11 @@ export class UsageSummaryResponse {
     },
     opentelemetryHostTop99pSum: {
       baseName: "opentelemetry_host_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    profilingAasCountTop99pSum: {
+      baseName: "profiling_aas_count_top99p_sum",
       type: "number",
       format: "int64",
     },
