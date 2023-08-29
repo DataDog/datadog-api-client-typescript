@@ -27,9 +27,9 @@ export class Configuration {
   readonly httpConfig: HttpConfiguration;
   readonly debug: boolean | undefined;
   readonly enableRetry: boolean | undefined;
-  readonly maxRetries: number;
-  readonly backoffBase: number;
-  readonly backoffMultiplier: number;
+  readonly maxRetries: number | undefined;
+  readonly backoffBase: number | undefined;
+  readonly backoffMultiplier: number | undefined;
   unstableOperations: { [name: string]: boolean };
   servers: BaseServerConfiguration[];
   operationServers: { [endpoint: string]: BaseServerConfiguration[] };
@@ -42,10 +42,10 @@ export class Configuration {
     authMethods: AuthMethods,
     httpConfig: HttpConfiguration,
     debug: boolean | undefined,
-    enableRetry: boolean | false,
-    maxRetries: number,
-    backoffBase: number,
-    backoffMultiplier: number,
+    enableRetry: boolean | undefined,
+    maxRetries: number | undefined,
+    backoffBase: number | undefined,
+    backoffMultiplier: number | undefined,
     unstableOperations: { [name: string]: boolean }
   ) {
     this.baseServer = baseServer;
@@ -70,6 +70,9 @@ export class Configuration {
       for (const server of operationServers[endpoint]) {
         this.operationServers[endpoint].push(server.clone());
       }
+    }
+    if (backoffBase && backoffBase < 2) {
+      throw new Error("Backoff base must be at least 2");
     }
   }
 
@@ -142,15 +145,15 @@ export interface ConfigurationParameters {
    */
   maxRetries?: number;
   /**
-   * Backoff base, the retry backoff time is (backoffmultiplier ** number of attempts) * backoffBase
+   * Backoff base
    */
   backoffBase?: number;
   /**
-   * Backoff multiplier, the retry backoff time is (backoffmultiplier ** number of attempts) * backoffBase
+   * Backoff multiplier
    */
   backoffMultiplier?: number;
   /**
-   * Enable retry on status code 429 or 500 and above
+   * Enable retry on status code 429 or 5xx
    */
   enableRetry?: boolean;
 }
@@ -196,10 +199,6 @@ export function createConfiguration(
     process.env.DD_APP_KEY
   ) {
     authMethods["appKeyAuth"] = process.env.DD_APP_KEY;
-  }
-
-  if (conf.backoffBase && conf.backoffBase < 2) {
-    throw new Error("Backoff base must be at least 2");
   }
 
   const configuration = new Configuration(
