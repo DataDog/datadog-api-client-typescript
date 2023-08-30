@@ -162,7 +162,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       const retryIntervalFromHeader = parseInt(rateLimitHeaderString, 10);
       return retryIntervalFromHeader;
     } else {
-      return backoffMultiplier ** currentAttempt * backoffBase;
+      return (backoffMultiplier ** currentAttempt) * backoffBase;
     }
   }
 
