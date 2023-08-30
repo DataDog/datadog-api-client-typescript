@@ -5,6 +5,7 @@
  */
 import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
 import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
+import { GeomapWidgetStyle } from "./GeomapWidgetStyle";
 import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { LogQueryDefinition } from "./LogQueryDefinition";
@@ -52,6 +53,10 @@ export class GeomapWidgetRequest {
    * The log query.
    */
   "securityQuery"?: LogQueryDefinition;
+  /**
+   * The style for the points coming from this request.
+   */
+  "style"?: GeomapWidgetStyle;
 
   /**
    * @ignore
@@ -97,6 +102,10 @@ export class GeomapWidgetRequest {
     securityQuery: {
       baseName: "security_query",
       type: "LogQueryDefinition",
+    },
+    style: {
+      baseName: "style",
+      type: "GeomapWidgetStyle",
     },
   };
 
