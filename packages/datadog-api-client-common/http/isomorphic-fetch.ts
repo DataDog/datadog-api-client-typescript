@@ -57,63 +57,74 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     }
 
     let currentAttempt = 0;
+    const resultPromise: Promise<ResponseContext> = this.executeRequest(request,currentAttempt,headers);
+    return resultPromise;
+  }
+
+  private async executeRequest(
+    request: RequestContext,
+    currentAttempt: number,
+    headers: {[key: string]: string}
+  ): Promise<ResponseContext> {
     // On non-node environments, use native fetch if available.
     // `cross-fetch` incorrectly assumes all browsers have XHR available.
     // See https://github.com/lquixada/cross-fetch/issues/78
     // TODO: Remove once once above issue is resolved.
-    const fetchFunction =
-      !isNode && typeof fetch === "function" ? fetch : crossFetch;
-
-    const executeRequest = (): Promise<ResponseContext> => {
-      return fetchFunction(request.getUrl(), {
-        method: method,
-        body: body as any,
-        headers: headers,
-        signal: request.getHttpConfig().signal,
-      }).then((resp: any) => {
-        const responseHeaders: { [name: string]: string } = {};
+    const fetchFunction =!isNode && typeof fetch === "function" ? fetch : crossFetch;
+    const fetchOptions = {
+      method: request.getHttpMethod().toString(),
+      body: request.getBody() as any,
+      headers: headers,
+      signal: request.getHttpConfig().signal,
+    }
+    try {
+      const resp  = await fetchFunction(request.getUrl(),fetchOptions);
+      const responseHeaders: { [name: string]: string } = {};
         resp.headers.forEach((value: string, name: string) => {
           responseHeaders[name] = value;
         });
 
-        const responseBody = {
-          text: () => resp.text(),
-          binary: () => resp.buffer(),
-        };
+      const responseBody = {
+        text: () => resp.text(),
+        binary: async () => {
+          const arrayBuffer = await resp.arrayBuffer();
+          return Buffer.from(arrayBuffer);
+        },
+      };
 
-        const response = new ResponseContext(
-          resp.status,
-          responseHeaders,
-          responseBody
-        );
+      const response = new ResponseContext(
+        resp.status,
+        responseHeaders,
+        responseBody
+      );
 
-        if (this.debug) {
-          this.logResponse(response);
-        }
+      if (this.debug) {
+        this.logResponse(response);
+      }
 
-        if (
-          this.shouldRetry(
-            this.enableRetry,
-            currentAttempt,
-            this.maxRetries,
-            response.httpStatusCode
-          )
-        ) {
-          const delay = this.calculateRetryInterval(
-            currentAttempt,
-            this.backoffBase,
-            this.backoffMultiplier,
-            responseHeaders
-          );
-          currentAttempt++;
-          return this.sleep(delay * 1000).then(() => executeRequest());
-        }
-        return response;
-      });
-    };
-
-    const resultPromise: Promise<ResponseContext> = executeRequest();
-    return resultPromise;
+      if (
+        this.shouldRetry(
+          this.enableRetry,
+          currentAttempt,
+          this.maxRetries,
+          response.httpStatusCode
+      )
+     ) {
+        const delay = this.calculateRetryInterval(
+          currentAttempt,
+          this.backoffBase,
+          this.backoffMultiplier,
+          responseHeaders
+      );
+      currentAttempt++;
+      await this.sleep(delay * 1000);
+      return this.executeRequest(request, currentAttempt, headers);
+    }
+    return response;
+    } catch (error) {
+      console.error("An error occurred during the HTTP request:", error);
+      throw error;
+    }
   }
 
   private sleep(milliseconds: number): Promise<void> {
