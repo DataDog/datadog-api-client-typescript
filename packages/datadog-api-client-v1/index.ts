@@ -464,6 +464,7 @@ export { GeomapWidgetDefinitionStyle } from "./models/GeomapWidgetDefinitionStyl
 export { GeomapWidgetDefinitionType } from "./models/GeomapWidgetDefinitionType";
 export { GeomapWidgetDefinitionView } from "./models/GeomapWidgetDefinitionView";
 export { GeomapWidgetRequest } from "./models/GeomapWidgetRequest";
+export { GeomapWidgetStyle } from "./models/GeomapWidgetStyle";
 export { GraphSnapshot } from "./models/GraphSnapshot";
 export { GroupWidgetDefinition } from "./models/GroupWidgetDefinition";
 export { GroupWidgetDefinitionType } from "./models/GroupWidgetDefinitionType";
