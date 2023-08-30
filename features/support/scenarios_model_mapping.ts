@@ -1975,12 +1975,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v1.ListTests": {
         "pageSize": {
-            "type": "string",
-            "format": "",
+            "type": "number",
+            "format": "int64",
             },
         "pageNumber": {
-            "type": "string",
-            "format": "",
+            "type": "number",
+            "format": "int64",
             },
         "operationResponseType": "SyntheticsListTestsResponse",
     },
