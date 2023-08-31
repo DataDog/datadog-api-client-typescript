@@ -328,12 +328,16 @@ export class {{ className }} {
       pageSize = {{ get_container(operation, pagination.limitParam) }};
     }
     {%- endfor %}
+    {%- if pagination.pageParam %}
+    {{ get_container(operation, pagination.pageParam) }} = 0;
+    {%- endif %}
     while (true) {
       const requestContext = await this.requestFactory.{{ operationId }}({%- for name, parameter in requiredParams %}param.{{ name|attribute_name }}, {%- endfor %}{%- for name, parameter in optionalParams %}param.{{ name|attribute_name }}, {%- endfor %}options);
       const responseContext = await this.configuration.httpApi.send(requestContext);
 
       const response = await this.responseProcessor.{{ operationId }}(responseContext);
       {%- set previous = {"part": ""} %}
+      {%- if pagination.resultsPath %}
       {%- for part in pagination.resultsPath.split(".") %}
       const response{{ previous["part"] + (part|camel_case) }} = response{{ previous["part"] }}.{{ part|attribute_name }};
       if (response{{ previous["part"] + (part|camel_case) }} === undefined) {
@@ -344,6 +348,9 @@ export class {{ className }} {
       const results = response{{ previous["part"] }};
       {%- endif %}
       {%- endfor %}
+      {%- else %}
+      const results = response;
+      {%- endif %}
       for (const item of results) {
         yield item;
       }
@@ -376,6 +383,10 @@ export class {{ className }} {
       {%- endif %}
       {%- set _ = previous.update({"cursor": previous["cursor"] + (part|camel_case)}) %}
       {%- endfor %}
+
+      {%- endif %}
+      {%- if pagination.pageParam %}
+      {{ get_container(operation, pagination.pageParam) }} = {{ get_container(operation, pagination.pageParam) }} + 1;
 
       {%- endif %}
     }

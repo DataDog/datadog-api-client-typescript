@@ -492,7 +492,7 @@ def get_api_models(operations):
                             seen.add(name)
                             yield name
         if "x-pagination" in operation:
-            name = get_type_at_path(operation, operation["x-pagination"]["resultsPath"])
+            name = get_type_at_path(operation, operation["x-pagination"].get("resultsPath"))
             if name and name not in seen:
                 seen.add(name)
                 yield name
@@ -562,6 +562,8 @@ def get_type_at_path(operation, attribute_path):
     if content is None:
         raise RuntimeError("Default response not found")
     content = content["schema"]
+    if not attribute_path:
+        return get_name(content.get("items"))
     for attr in attribute_path.split("."):
         content = content["properties"][attr]
     return get_name(content.get("items"))

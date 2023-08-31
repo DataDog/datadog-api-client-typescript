@@ -1518,6 +1518,52 @@ export class ServiceLevelObjectivesApi {
   }
 
   /**
+   * Provide a paginated version of listSLOs returning a generator with all the items.
+   */
+  public async *listSLOsWithPagination(
+    param: ServiceLevelObjectivesApiListSLOsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<ServiceLevelObjective> {
+    let pageSize = 1000;
+    if (param.limit !== undefined) {
+      pageSize = param.limit;
+    }
+    param.limit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listSLOs(
+        param.ids,
+        param.query,
+        param.tagsQuery,
+        param.metricsQuery,
+        param.limit,
+        param.offset,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listSLOs(responseContext);
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.offset === undefined) {
+        param.offset = pageSize;
+      } else {
+        param.offset = param.offset + pageSize;
+      }
+    }
+  }
+
+  /**
    * Get a list of service level objective objects for your organization.
    * @param param The request object
    */

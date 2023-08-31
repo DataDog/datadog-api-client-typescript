@@ -1682,6 +1682,49 @@ export class MonitorsApi {
   }
 
   /**
+   * Provide a paginated version of listMonitors returning a generator with all the items.
+   */
+  public async *listMonitorsWithPagination(
+    param: MonitorsApiListMonitorsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<Monitor> {
+    let pageSize = 100;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.page = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listMonitors(
+        param.groupStates,
+        param.name,
+        param.tags,
+        param.monitorTags,
+        param.withDowntimes,
+        param.idOffset,
+        param.page,
+        param.pageSize,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listMonitors(
+        responseContext
+      );
+      const results = response;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.page = param.page + 1;
+    }
+  }
+
+  /**
    * Search and filter your monitor groups details.
    * @param param The request object
    */
