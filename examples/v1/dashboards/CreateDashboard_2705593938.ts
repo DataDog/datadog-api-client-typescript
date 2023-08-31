@@ -33,6 +33,9 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                   aggregator: "sum",
                 },
               ],
+              style: {
+                palette: "dog_classic",
+              },
             },
           ],
         },
