@@ -844,8 +844,8 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listTests(
-    pageSize?: string,
-    pageNumber?: string,
+    pageSize?: number,
+    pageNumber?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -864,13 +864,13 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageSize !== undefined) {
       requestContext.setQueryParam(
         "page_size",
-        ObjectSerializer.serialize(pageSize, "string", "")
+        ObjectSerializer.serialize(pageSize, "number", "int64")
       );
     }
     if (pageNumber !== undefined) {
       requestContext.setQueryParam(
         "page_number",
-        ObjectSerializer.serialize(pageNumber, "string", "")
+        ObjectSerializer.serialize(pageNumber, "number", "int64")
       );
     }
 
@@ -3083,14 +3083,14 @@ export interface SyntheticsApiGetTestRequest {
 export interface SyntheticsApiListTestsRequest {
   /**
    * Used for pagination. The number of tests returned in the page.
-   * @type string
+   * @type number
    */
-  pageSize?: string;
+  pageSize?: number;
   /**
    * Used for pagination. Which page you want to retrieve. Starts at zero.
-   * @type string
+   * @type number
    */
-  pageNumber?: string;
+  pageNumber?: number;
 }
 
 export interface SyntheticsApiTriggerCITestsRequest {
@@ -3648,6 +3648,45 @@ export class SyntheticsApi {
           return this.responseProcessor.listTests(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listTests returning a generator with all the items.
+   */
+  public async *listTestsWithPagination(
+    param: SyntheticsApiListTestsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<SyntheticsTestDetails> {
+    let pageSize = 100;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listTests(
+        param.pageSize,
+        param.pageNumber,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listTests(responseContext);
+      const responseTests = response.tests;
+      if (responseTests === undefined) {
+        break;
+      }
+      const results = responseTests;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
   }
 
   /**
