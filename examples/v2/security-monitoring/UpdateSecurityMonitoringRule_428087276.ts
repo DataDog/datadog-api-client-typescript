@@ -26,6 +26,26 @@ const params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
         resourceType: "gcp_compute_disk",
         regoRule: {
           policy: `package datadog
+
+import data.datadog.output as dd_output
+
+import future.keywords.contains
+import future.keywords.if
+import future.keywords.in
+
+milliseconds_in_a_day := ((1000 * 60) * 60) * 24
+
+eval(iam_service_account_key) = "skip" if {
+	iam_service_account_key.disabled
+} else = "pass" if {
+	(iam_service_account_key.resource_seen_at / milliseconds_in_a_day) - (iam_service_account_key.valid_after_time / milliseconds_in_a_day) <= 90
+} else = "fail"
+
+# This part remains unchanged for all rules
+results contains result if {
+	some resource in input.resources[input.main_resource_type]
+	result := dd_output.format(resource, eval(resource))
+}
 `,
           resourceTypes: ["gcp_compute_disk"],
         },
