@@ -20,6 +20,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { NotebookCreateRequest } from "../models/NotebookCreateRequest";
 import { NotebookResponse } from "../models/NotebookResponse";
 import { NotebooksResponse } from "../models/NotebooksResponse";
+import { NotebooksResponseData } from "../models/NotebooksResponseData";
 import { NotebookUpdateRequest } from "../models/NotebookUpdateRequest";
 
 export class NotebooksApiRequestFactory extends BaseAPIRequestFactory {
@@ -786,6 +787,58 @@ export class NotebooksApi {
           return this.responseProcessor.listNotebooks(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listNotebooks returning a generator with all the items.
+   */
+  public async *listNotebooksWithPagination(
+    param: NotebooksApiListNotebooksRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<NotebooksResponseData> {
+    let pageSize = 100;
+    if (param.count !== undefined) {
+      pageSize = param.count;
+    }
+    param.count = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listNotebooks(
+        param.authorHandle,
+        param.excludeAuthorHandle,
+        param.start,
+        param.count,
+        param.sortField,
+        param.sortDir,
+        param.query,
+        param.includeCells,
+        param.isTemplate,
+        param.type,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listNotebooks(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.start === undefined) {
+        param.start = pageSize;
+      } else {
+        param.start = param.start + pageSize;
+      }
+    }
   }
 
   /**
