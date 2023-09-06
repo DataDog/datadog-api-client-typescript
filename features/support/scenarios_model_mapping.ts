@@ -2721,6 +2721,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "ListDowntimesResponse",
     },
     "v2.CreateDowntime": {
