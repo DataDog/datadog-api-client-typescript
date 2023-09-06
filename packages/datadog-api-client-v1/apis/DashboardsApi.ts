@@ -22,6 +22,7 @@ import { DashboardBulkDeleteRequest } from "../models/DashboardBulkDeleteRequest
 import { DashboardDeleteResponse } from "../models/DashboardDeleteResponse";
 import { DashboardRestoreRequest } from "../models/DashboardRestoreRequest";
 import { DashboardSummary } from "../models/DashboardSummary";
+import { DashboardSummaryDefinition } from "../models/DashboardSummaryDefinition";
 import { DeleteSharedDashboardResponse } from "../models/DeleteSharedDashboardResponse";
 import { SharedDashboard } from "../models/SharedDashboard";
 import { SharedDashboardInvites } from "../models/SharedDashboardInvites";
@@ -394,6 +395,8 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
   public async listDashboards(
     filterShared?: boolean,
     filterDeleted?: boolean,
+    count?: number,
+    start?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -419,6 +422,18 @@ export class DashboardsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[deleted]",
         ObjectSerializer.serialize(filterDeleted, "boolean", "")
+      );
+    }
+    if (count !== undefined) {
+      requestContext.setQueryParam(
+        "count",
+        ObjectSerializer.serialize(count, "number", "int64")
+      );
+    }
+    if (start !== undefined) {
+      requestContext.setQueryParam(
+        "start",
+        ObjectSerializer.serialize(start, "number", "int64")
       );
     }
 
@@ -1578,6 +1593,16 @@ export interface DashboardsApiListDashboardsRequest {
    * @type boolean
    */
   filterDeleted?: boolean;
+  /**
+   * The maximum number of dashboards returned in the list.
+   * @type number
+   */
+  count?: number;
+  /**
+   * The specific offset to use as the beginning of the returned response.
+   * @type number
+   */
+  start?: number;
 }
 
 export interface DashboardsApiRestoreDashboardsRequest {
@@ -1857,6 +1882,8 @@ export class DashboardsApi {
     const requestContextPromise = this.requestFactory.listDashboards(
       param.filterShared,
       param.filterDeleted,
+      param.count,
+      param.start,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -1866,6 +1893,52 @@ export class DashboardsApi {
           return this.responseProcessor.listDashboards(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listDashboards returning a generator with all the items.
+   */
+  public async *listDashboardsWithPagination(
+    param: DashboardsApiListDashboardsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<DashboardSummaryDefinition> {
+    let pageSize = 100;
+    if (param.count !== undefined) {
+      pageSize = param.count;
+    }
+    param.count = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listDashboards(
+        param.filterShared,
+        param.filterDeleted,
+        param.count,
+        param.start,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listDashboards(
+        responseContext
+      );
+      const responseDashboards = response.dashboards;
+      if (responseDashboards === undefined) {
+        break;
+      }
+      const results = responseDashboards;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.start === undefined) {
+        param.start = pageSize;
+      } else {
+        param.start = param.start + pageSize;
+      }
+    }
   }
 
   /**
