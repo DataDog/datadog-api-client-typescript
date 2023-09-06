@@ -605,6 +605,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "count": {
+            "type": "number",
+            "format": "int64",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "DashboardSummary",
     },
     "v1.RestoreDashboards": {
