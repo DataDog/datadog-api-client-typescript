@@ -20,6 +20,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { GetTeamMembershipsSort } from "../models/GetTeamMembershipsSort";
 import { ListTeamsInclude } from "../models/ListTeamsInclude";
 import { ListTeamsSort } from "../models/ListTeamsSort";
+import { Team } from "../models/Team";
 import { TeamCreateRequest } from "../models/TeamCreateRequest";
 import { TeamLinkCreateRequest } from "../models/TeamLinkCreateRequest";
 import { TeamLinkResponse } from "../models/TeamLinkResponse";
@@ -2339,6 +2340,49 @@ export class TeamsApi {
           return this.responseProcessor.listTeams(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listTeams returning a generator with all the items.
+   */
+  public async *listTeamsWithPagination(
+    param: TeamsApiListTeamsRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<Team> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listTeams(
+        param.pageNumber,
+        param.pageSize,
+        param.sort,
+        param.include,
+        param.filterKeyword,
+        param.filterMe,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listTeams(responseContext);
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
   }
 
   /**
