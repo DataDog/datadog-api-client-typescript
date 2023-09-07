@@ -605,6 +605,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "count": {
+            "type": "number",
+            "format": "int64",
+            },
+        "start": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "DashboardSummary",
     },
     "v1.RestoreDashboards": {
@@ -2712,6 +2720,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "include": {
             "type": "string",
             "format": "",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
             },
         "operationResponseType": "ListDowntimesResponse",
     },

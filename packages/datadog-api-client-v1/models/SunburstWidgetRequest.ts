@@ -8,6 +8,7 @@ import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFo
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
+import { WidgetStyle } from "./WidgetStyle";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -67,6 +68,10 @@ export class SunburstWidgetRequest {
    * The log query.
    */
   "securityQuery"?: LogQueryDefinition;
+  /**
+   * Widget style definition.
+   */
+  "style"?: WidgetStyle;
 
   /**
    * @ignore
@@ -128,6 +133,10 @@ export class SunburstWidgetRequest {
     securityQuery: {
       baseName: "security_query",
       type: "LogQueryDefinition",
+    },
+    style: {
+      baseName: "style",
+      type: "WidgetStyle",
     },
   };
 

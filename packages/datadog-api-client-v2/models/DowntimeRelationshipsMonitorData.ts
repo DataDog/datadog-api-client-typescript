@@ -14,7 +14,7 @@ export class DowntimeRelationshipsMonitorData {
   /**
    * Monitor ID of the downtime.
    */
-  "id"?: number;
+  "id"?: string;
   /**
    * Monitor resource type.
    */
@@ -31,8 +31,7 @@ export class DowntimeRelationshipsMonitorData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     id: {
       baseName: "id",
-      type: "number",
-      format: "int64",
+      type: "string",
     },
     type: {
       baseName: "type",

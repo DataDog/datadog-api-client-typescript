@@ -19,6 +19,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { PermissionsResponse } from "../models/PermissionsResponse";
 import { QuerySortOrder } from "../models/QuerySortOrder";
+import { User } from "../models/User";
 import { UserCreateRequest } from "../models/UserCreateRequest";
 import { UserInvitationResponse } from "../models/UserInvitationResponse";
 import { UserInvitationsRequest } from "../models/UserInvitationsRequest";
@@ -1227,6 +1228,49 @@ export class UsersApi {
           return this.responseProcessor.listUsers(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listUsers returning a generator with all the items.
+   */
+  public async *listUsersWithPagination(
+    param: UsersApiListUsersRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<User> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.listUsers(
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.sortDir,
+        param.filter,
+        param.filterStatus,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listUsers(responseContext);
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
   }
 
   /**

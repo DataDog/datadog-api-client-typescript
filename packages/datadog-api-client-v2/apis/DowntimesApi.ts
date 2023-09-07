@@ -19,6 +19,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { DowntimeCreateRequest } from "../models/DowntimeCreateRequest";
 import { DowntimeResponse } from "../models/DowntimeResponse";
+import { DowntimeResponseData } from "../models/DowntimeResponseData";
 import { DowntimeUpdateRequest } from "../models/DowntimeUpdateRequest";
 import { ListDowntimesResponse } from "../models/ListDowntimesResponse";
 import { MonitorDowntimeMatchResponse } from "../models/MonitorDowntimeMatchResponse";
@@ -161,6 +162,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   public async listDowntimes(
     currentOnly?: boolean,
     include?: string,
+    pageOffset?: number,
+    pageLimit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -191,6 +194,18 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         ObjectSerializer.serialize(include, "string", "")
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64")
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64")
       );
     }
 
@@ -705,6 +720,16 @@ export interface DowntimesApiListDowntimesRequest {
    * @type string
    */
   include?: string;
+  /**
+   * Specific offset to use as the beginning of the returned page.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * Maximum number of downtimes in the response.
+   * @type number
+   */
+  pageLimit?: number;
 }
 
 export interface DowntimesApiListMonitorDowntimesRequest {
@@ -820,6 +845,8 @@ export class DowntimesApi {
     const requestContextPromise = this.requestFactory.listDowntimes(
       param.currentOnly,
       param.include,
+      param.pageOffset,
+      param.pageLimit,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -829,6 +856,52 @@ export class DowntimesApi {
           return this.responseProcessor.listDowntimes(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listDowntimes returning a generator with all the items.
+   */
+  public async *listDowntimesWithPagination(
+    param: DowntimesApiListDowntimesRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<DowntimeResponseData> {
+    let pageSize = 30;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listDowntimes(
+        param.currentOnly,
+        param.include,
+        param.pageOffset,
+        param.pageLimit,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listDowntimes(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = param.pageOffset + pageSize;
+      }
+    }
   }
 
   /**
