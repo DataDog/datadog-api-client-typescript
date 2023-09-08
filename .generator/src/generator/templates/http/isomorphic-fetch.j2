@@ -7,6 +7,10 @@ import { isBrowser, isNode } from "../util";
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
   public zstdCompressorCallback: ZstdCompressorCallback | undefined;
+  public enableRetry!: boolean;
+  public maxRetries!: number ;
+  public backoffBase!: number ;
+  public backoffMultiplier!: number;
 
   public send(request: RequestContext): Promise<ResponseContext> {
     if (this.debug) {
@@ -46,60 +50,94 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         }
       }
     }
+    
+    return this.executeRequest(request,0,headers);
+  }
 
-    let resultPromise: Promise<ResponseContext>;
-
+  private async executeRequest(
+    request: RequestContext,
+    currentAttempt: number,
+    headers: {[key: string]: string}
+  ): Promise<ResponseContext> {
     // On non-node environments, use native fetch if available.
-    // `cross-fetch` incorrectly assumes all browsers have XHR available. 
+    // `cross-fetch` incorrectly assumes all browsers have XHR available.
     // See https://github.com/lquixada/cross-fetch/issues/78
     // TODO: Remove once once above issue is resolved.
-    if (!isNode && typeof fetch === "function") {
-      resultPromise = fetch(request.getUrl(), {
-        method: method,
-        body: body as any,
-        headers: headers,
-        signal: request.getHttpConfig().signal,
-      }).then((resp: any) => {
-        const headers: { [name: string]: string } = {};
-        resp.headers.forEach((value: string, name: string) => {
-          headers[name] = value;
-        });
-
-        const body = {
-          text: () => resp.text(),
-          binary: () => resp.buffer(),
-        };
-        const response = new ResponseContext(resp.status, headers, body);
-        if (this.debug) {
-          this.logResponse(response);
-        }
-        return response;
-      });
-    } else {
-      resultPromise = crossFetch(request.getUrl(), {
-        method: method,
-        body: body as any,
-        headers: headers,
-        signal: request.getHttpConfig().signal,
-      }).then((resp: any) => {
-        const headers: { [name: string]: string } = {};
-        resp.headers.forEach((value: string, name: string) => {
-          headers[name] = value;
-        });
-
-        const body = {
-          text: () => resp.text(),
-          binary: () => resp.buffer(),
-        };
-        const response = new ResponseContext(resp.status, headers, body);
-        if (this.debug) {
-          this.logResponse(response);
-        }
-        return response;
-      });
+    const fetchFunction =!isNode && typeof fetch === "function" ? fetch : crossFetch;
+    const fetchOptions = {
+      method: request.getHttpMethod().toString(),
+      body: request.getBody() as any,
+      headers: headers,
+      signal: request.getHttpConfig().signal,
     }
+    try {
+      const resp  = await fetchFunction(request.getUrl(),fetchOptions);
+      const responseHeaders: { [name: string]: string } = {};
+        resp.headers.forEach((value: string, name: string) => {
+          responseHeaders[name] = value;
+        });
 
-    return resultPromise;
+      const responseBody = {
+        text: () => resp.text(),
+        binary: async () => {
+          const arrayBuffer = await resp.arrayBuffer();
+          return Buffer.from(arrayBuffer);
+        },
+      };
+
+      const response = new ResponseContext(
+        resp.status,
+        responseHeaders,
+        responseBody
+      );
+
+      if (this.debug) {
+        this.logResponse(response);
+      }
+
+      if (
+        this.shouldRetry(
+          this.enableRetry,
+          currentAttempt,
+          this.maxRetries,
+          response.httpStatusCode
+      )
+     ) {
+        const delay = this.calculateRetryInterval(
+          currentAttempt,
+          this.backoffBase,
+          this.backoffMultiplier,
+          responseHeaders
+      );
+      currentAttempt++;
+      await this.sleep(delay * 1000);
+      return this.executeRequest(request, currentAttempt, headers);
+    }
+    return response;
+    } catch (error) {
+      console.error("An error occurred during the HTTP request:", error);
+      throw error;
+    }
+  }
+
+  private sleep(milliseconds: number): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(resolve, milliseconds);
+    });
+  }
+
+  private shouldRetry(enableRetry:boolean, currentAttempt:number, maxRetries:number, responseCode:number):boolean{
+    return (responseCode == 429 || responseCode >=500 ) && maxRetries>currentAttempt && enableRetry
+  }
+
+  private calculateRetryInterval(currentAttempt:number, backoffBase:number, backoffMultiplier:number, headers: {[name: string]: string}) : number{
+    if ("x-ratelimit-reset" in headers) {
+      const rateLimitHeaderString = headers["x-ratelimit-reset"]
+      const retryIntervalFromHeader = parseInt(rateLimitHeaderString,10);
+      return retryIntervalFromHeader
+    } else {
+      return (backoffMultiplier ** currentAttempt) * backoffBase
+    }
   }
 
   private logRequest(request: RequestContext): void {

@@ -26,6 +26,10 @@ export class Configuration {
   readonly authMethods: AuthMethods;
   readonly httpConfig: HttpConfiguration;
   readonly debug: boolean | undefined;
+  readonly enableRetry: boolean | undefined;
+  readonly maxRetries: number | undefined;
+  readonly backoffBase: number | undefined;
+  readonly backoffMultiplier: number | undefined;
   unstableOperations: { [name: string]: boolean };
   servers: BaseServerConfiguration[];
   operationServers: { [endpoint: string]: BaseServerConfiguration[] };
@@ -38,6 +42,10 @@ export class Configuration {
     authMethods: AuthMethods,
     httpConfig: HttpConfiguration,
     debug: boolean | undefined,
+    enableRetry: boolean | undefined,
+    maxRetries: number | undefined,
+    backoffBase: number | undefined,
+    backoffMultiplier: number | undefined,
     unstableOperations: { [name: string]: boolean }
   ) {
     this.baseServer = baseServer;
@@ -47,6 +55,10 @@ export class Configuration {
     this.authMethods = authMethods;
     this.httpConfig = httpConfig;
     this.debug = debug;
+    this.enableRetry = enableRetry;
+    this.maxRetries = maxRetries;
+    this.backoffBase = backoffBase;
+    this.backoffMultiplier = backoffMultiplier;
     this.unstableOperations = unstableOperations;
     this.servers = [];
     for (const server of servers) {
@@ -58,6 +70,9 @@ export class Configuration {
       for (const server of operationServers[endpoint]) {
         this.operationServers[endpoint].push(server.clone());
       }
+    }
+    if (backoffBase && backoffBase < 2) {
+      throw new Error("Backoff base must be at least 2");
     }
   }
 
@@ -125,6 +140,22 @@ export interface ConfigurationParameters {
    * Callback method to compress string body with zstd
    */
   zstdCompressorCallback?: ZstdCompressorCallback;
+  /**
+   * Maximum of retry attempts allowed
+   */
+  maxRetries?: number;
+  /**
+   * Backoff base
+   */
+  backoffBase?: number;
+  /**
+   * Backoff multiplier
+   */
+  backoffMultiplier?: number;
+  /**
+   * Enable retry on status code 429 or 5xx
+   */
+  enableRetry?: boolean;
 }
 
 /**
@@ -178,6 +209,10 @@ export function createConfiguration(
     configureAuthMethods(authMethods),
     conf.httpConfig || {},
     conf.debug,
+    conf.enableRetry || false,
+    conf.maxRetries || 3,
+    conf.backoffBase || 2,
+    conf.backoffMultiplier || 2,
     {
       "v2.createCIAppPipelineEvent": false,
       "v2.cancelDowntime": false,
@@ -225,6 +260,10 @@ export function createConfiguration(
   );
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback;
   configuration.httpApi.debug = configuration.debug;
+  configuration.httpApi.enableRetry = configuration.enableRetry;
+  configuration.httpApi.maxRetries = configuration.maxRetries;
+  configuration.httpApi.backoffBase = configuration.backoffBase;
+  configuration.httpApi.backoffMultiplier = configuration.backoffMultiplier;
   return configuration;
 }
 
