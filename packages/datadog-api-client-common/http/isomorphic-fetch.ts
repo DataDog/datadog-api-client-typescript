@@ -56,13 +56,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       }
     }
 
-    const currentAttempt = 0;
-    const resultPromise: Promise<ResponseContext> = this.executeRequest(
-      request,
-      currentAttempt,
-      headers
-    );
-    return resultPromise;
+    return this.executeRequest(request,0,headers);
   }
 
   private async executeRequest(
