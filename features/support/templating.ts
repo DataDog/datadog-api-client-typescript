@@ -95,7 +95,7 @@ function getTypeForValue(pathResult: any): string {
   if (pathResult?.constructor?.name) {
     if (pathResult.constructor?.name == "Array") {
       if (pathResult[0]?.constructor?.name) {
-        _type = `Array<${pathResult[0].constructor.name}>`
+        _type = `Array<${getTypeForValue(pathResult[0])}>`
       }
     } else {
       _type = pathResult.constructor.name
