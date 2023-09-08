@@ -56,7 +56,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       }
     }
 
-    return this.executeRequest(request,0,headers);
+    return this.executeRequest(request, 0, headers);
   }
 
   private async executeRequest(
