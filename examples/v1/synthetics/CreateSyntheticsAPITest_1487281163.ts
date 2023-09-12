@@ -21,6 +21,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           operator: "lessThan",
           target: 2000,
           type: "responseTime",
+          timingsScope: "withoutDNS",
         },
         {
           operator: "validatesJSONPath",

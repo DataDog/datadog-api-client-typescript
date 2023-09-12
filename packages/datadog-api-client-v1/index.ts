@@ -832,6 +832,7 @@ export { SyntheticsAssertionJSONPathTarget } from "./models/SyntheticsAssertionJ
 export { SyntheticsAssertionJSONPathTargetTarget } from "./models/SyntheticsAssertionJSONPathTargetTarget";
 export { SyntheticsAssertionOperator } from "./models/SyntheticsAssertionOperator";
 export { SyntheticsAssertionTarget } from "./models/SyntheticsAssertionTarget";
+export { SyntheticsAssertionTimingsScope } from "./models/SyntheticsAssertionTimingsScope";
 export { SyntheticsAssertionType } from "./models/SyntheticsAssertionType";
 export { SyntheticsAssertionXPathOperator } from "./models/SyntheticsAssertionXPathOperator";
 export { SyntheticsAssertionXPathTarget } from "./models/SyntheticsAssertionXPathTarget";
