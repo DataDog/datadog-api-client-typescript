@@ -41,16 +41,8 @@ test('TestGetServerAPIUse', async () => {
     const config = createConfiguration();
     config.setServerVariables({site: "datadoghq.eu"});
     const requestFactory = new DashboardsApiRequestFactory(config);
-    
+
     const newRequest = await requestFactory.deleteDashboard("id");
     expect(newRequest.getUrl()).toBe("https://api.datadoghq.eu/api/v1/dashboard/id");
-  }
-);
-
-test ('TestBackoffBaseNoLessThanTwo',() => {
-    const configOpts = {
-      backoffBase : 1,
-    }; 
-   expect(()=> createConfiguration(configOpts)).toThrow();
   }
 );

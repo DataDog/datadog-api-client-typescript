@@ -26,7 +26,6 @@ eslint-plugin-unused-imports,MIT,Copyright (c) 2021 Mikkel Holmer
 eslint,MIT,Copyright JS Foundation and other contributors, https://js.foundation
 form-data,MIT,Copyright (c) 2012 Felix Geisendörfer (felix@debuggable.com) and contributors
 pako,MIT,Copyright (C) 2014-2017 Vitaly Puzrin and Andrei Tuputcyn
-nock,MIT,Copyright (c) 2011-2019 Pedro Teixeira and other contributors
 prettier,MIT,Copyright © James Long and contributors
 ts-node,MIT,Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
 typedoc,Apache-2.0,Copyright (c) 2015 Sebastian Lenz Copyright (c) 2016-2021 TypeDoc Contributors.

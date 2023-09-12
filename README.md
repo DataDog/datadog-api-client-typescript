@@ -108,29 +108,6 @@ const configurationOpts = {
 const configuration = client.createConfiguration(configurationOpts);
 ```
 
-### Enable retry 
-
-To enable the client to retry when rate limited (status 429) or status 500 and above:
-
-```typescript
-import { client } from '@datadog/datadog-api-client';
-const configurationOpts = {
-  enableRetry: true
-};
-
-const configuration = client.createConfiguration(configurationOpts);
-```
-The interval between 2 retry attempts will be the value of the x-ratelimit-reset response header when available. If not, it will be :
-
-```typescript
-(backoffMultiplier ** current_retry_count) * backoffBase
-```
-The maximum number of retry attempts is 3 by default and can be modified with
-
-```typescript
-maxRetries
-```
-
 ### Adding timeout to requests
 
 To add timeout or other mechanism to cancel requests, you need an abort
