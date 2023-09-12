@@ -33,7 +33,7 @@ export class Monitor {
    */
   "id"?: number;
   /**
-   * A list of active downtimes that match this monitor.
+   * A list of active v1 downtimes that match this monitor.
    */
   "matchingDowntimes"?: Array<MatchingDowntime>;
   /**
