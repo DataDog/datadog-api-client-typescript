@@ -186,6 +186,14 @@ export {
 } from "./apis/LogsArchivesApi";
 
 export {
+  LogsCustomDestinationsApiCreateLogsCustomDestinationRequest,
+  LogsCustomDestinationsApiDeleteLogsCustomDestinationRequest,
+  LogsCustomDestinationsApiGetLogsCustomDestinationRequest,
+  LogsCustomDestinationsApiUpdateLogsCustomDestinationRequest,
+  LogsCustomDestinationsApi,
+} from "./apis/LogsCustomDestinationsApi";
+
+export {
   LogsMetricsApiCreateLogsMetricRequest,
   LogsMetricsApiDeleteLogsMetricRequest,
   LogsMetricsApiGetLogsMetricRequest,
@@ -441,6 +449,9 @@ export { AuthNMappingUpdateAttributes } from "./models/AuthNMappingUpdateAttribu
 export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
+export { AzureFallbackDestination } from "./models/AzureFallbackDestination";
+export { AzureFallbackDestinationIntegration } from "./models/AzureFallbackDestinationIntegration";
+export { AzureFallbackDestinationType } from "./models/AzureFallbackDestinationType";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
@@ -566,6 +577,18 @@ export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
 export { Creator } from "./models/Creator";
+export { CustomDestinationAttributes } from "./models/CustomDestinationAttributes";
+export { CustomDestinationCompressionType } from "./models/CustomDestinationCompressionType";
+export { CustomDestinationCreatePayload } from "./models/CustomDestinationCreatePayload";
+export { CustomDestinationDeleteResponse } from "./models/CustomDestinationDeleteResponse";
+export { CustomDestinationFallbackDestination } from "./models/CustomDestinationFallbackDestination";
+export { CustomDestinationForwarderDestination } from "./models/CustomDestinationForwarderDestination";
+export { CustomDestinationListResponse } from "./models/CustomDestinationListResponse";
+export { CustomDestinationMetadata } from "./models/CustomDestinationMetadata";
+export { CustomDestinationResponse } from "./models/CustomDestinationResponse";
+export { CustomDestinationUpdatePayload } from "./models/CustomDestinationUpdatePayload";
+export { CustomDestinationWithId } from "./models/CustomDestinationWithId";
+export { CustomDestinationWithoutId } from "./models/CustomDestinationWithoutId";
 export { DashboardListAddItemsRequest } from "./models/DashboardListAddItemsRequest";
 export { DashboardListAddItemsResponse } from "./models/DashboardListAddItemsResponse";
 export { DashboardListDeleteItemsRequest } from "./models/DashboardListDeleteItemsRequest";
@@ -619,6 +642,8 @@ export { DowntimeStatus } from "./models/DowntimeStatus";
 export { DowntimeUpdateRequest } from "./models/DowntimeUpdateRequest";
 export { DowntimeUpdateRequestAttributes } from "./models/DowntimeUpdateRequestAttributes";
 export { DowntimeUpdateRequestData } from "./models/DowntimeUpdateRequestData";
+export { ElasticsearchDestination } from "./models/ElasticsearchDestination";
+export { ElasticsearchDestinationType } from "./models/ElasticsearchDestinationType";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventPriority } from "./models/EventPriority";
@@ -690,6 +715,9 @@ export { GCPSTSServiceAccountResponse } from "./models/GCPSTSServiceAccountRespo
 export { GCPSTSServiceAccountsResponse } from "./models/GCPSTSServiceAccountsResponse";
 export { GCPSTSServiceAccountUpdateRequest } from "./models/GCPSTSServiceAccountUpdateRequest";
 export { GCPSTSServiceAccountUpdateRequestData } from "./models/GCPSTSServiceAccountUpdateRequestData";
+export { GCSFallbackDestination } from "./models/GCSFallbackDestination";
+export { GCSFallbackDestinationIntegration } from "./models/GCSFallbackDestinationIntegration";
+export { GCSFallbackDestinationType } from "./models/GCSFallbackDestinationType";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
@@ -702,6 +730,13 @@ export { HourlyUsageResponse } from "./models/HourlyUsageResponse";
 export { HourlyUsageType } from "./models/HourlyUsageType";
 export { HTTPCIAppError } from "./models/HTTPCIAppError";
 export { HTTPCIAppErrors } from "./models/HTTPCIAppErrors";
+export { HttpDestination } from "./models/HttpDestination";
+export { HttpDestinationAuth } from "./models/HttpDestinationAuth";
+export { HttpDestinationBasicAuth } from "./models/HttpDestinationBasicAuth";
+export { HttpDestinationBasicAuthType } from "./models/HttpDestinationBasicAuthType";
+export { HttpDestinationCustomHeaderAuth } from "./models/HttpDestinationCustomHeaderAuth";
+export { HttpDestinationCustomHeaderAuthType } from "./models/HttpDestinationCustomHeaderAuthType";
+export { HttpDestinationType } from "./models/HttpDestinationType";
 export { HTTPLogError } from "./models/HTTPLogError";
 export { HTTPLogErrors } from "./models/HTTPLogErrors";
 export { HTTPLogItem } from "./models/HTTPLogItem";
@@ -1140,6 +1175,9 @@ export { RUMSearchEventsRequest } from "./models/RUMSearchEventsRequest";
 export { RUMSort } from "./models/RUMSort";
 export { RUMSortOrder } from "./models/RUMSortOrder";
 export { RUMWarning } from "./models/RUMWarning";
+export { S3FallbackDestination } from "./models/S3FallbackDestination";
+export { S3FallbackDestinationIntegration } from "./models/S3FallbackDestinationIntegration";
+export { S3FallbackDestinationType } from "./models/S3FallbackDestinationType";
 export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
 export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
 export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
@@ -1395,6 +1433,8 @@ export { SpansSort } from "./models/SpansSort";
 export { SpansSortOrder } from "./models/SpansSortOrder";
 export { SpansType } from "./models/SpansType";
 export { SpansWarning } from "./models/SpansWarning";
+export { SplunkHecDestination } from "./models/SplunkHecDestination";
+export { SplunkHecDestinationType } from "./models/SplunkHecDestinationType";
 export { Team } from "./models/Team";
 export { TeamAttributes } from "./models/TeamAttributes";
 export { TeamCreate } from "./models/TeamCreate";

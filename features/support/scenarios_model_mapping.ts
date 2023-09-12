@@ -3462,6 +3462,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
+    "v2.ListLogsCustomDestinations": {
+        "operationResponseType": "CustomDestinationListResponse",
+    },
+    "v2.CreateLogsCustomDestination": {
+        "body": {
+            "type": "CustomDestinationCreatePayload",
+            "format": "",
+            },
+        "operationResponseType": "CustomDestinationResponse",
+    },
+    "v2.DeleteLogsCustomDestination": {
+        "customDestinationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CustomDestinationDeleteResponse",
+    },
+    "v2.GetLogsCustomDestination": {
+        "customDestinationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CustomDestinationResponse",
+    },
+    "v2.UpdateLogsCustomDestination": {
+        "customDestinationId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CustomDestinationUpdatePayload",
+            "format": "",
+            },
+        "operationResponseType": "CustomDestinationResponse",
+    },
     "v2.ListLogsMetrics": {
         "operationResponseType": "LogsMetricsResponse",
     },
