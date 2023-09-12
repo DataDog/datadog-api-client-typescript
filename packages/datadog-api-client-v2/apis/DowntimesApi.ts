@@ -31,11 +31,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'cancelDowntime'");
-    if (!_config.unstableOperations["v2.cancelDowntime"]) {
-      throw new Error("Unstable operation 'cancelDowntime' is disabled");
-    }
-
     // verify required parameter 'downtimeId' is not null or undefined
     if (downtimeId === null || downtimeId === undefined) {
       throw new RequiredError("downtimeId", "cancelDowntime");
@@ -69,11 +64,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'createDowntime'");
-    if (!_config.unstableOperations["v2.createDowntime"]) {
-      throw new Error("Unstable operation 'createDowntime' is disabled");
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
@@ -117,11 +107,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'getDowntime'");
-    if (!_config.unstableOperations["v2.getDowntime"]) {
-      throw new Error("Unstable operation 'getDowntime' is disabled");
-    }
 
     // verify required parameter 'downtimeId' is not null or undefined
     if (downtimeId === null || downtimeId === undefined) {
@@ -167,11 +152,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'listDowntimes'");
-    if (!_config.unstableOperations["v2.listDowntimes"]) {
-      throw new Error("Unstable operation 'listDowntimes' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/downtime";
@@ -225,11 +205,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listMonitorDowntimes'");
-    if (!_config.unstableOperations["v2.listMonitorDowntimes"]) {
-      throw new Error("Unstable operation 'listMonitorDowntimes' is disabled");
-    }
-
     // verify required parameter 'monitorId' is not null or undefined
     if (monitorId === null || monitorId === undefined) {
       throw new RequiredError("monitorId", "listMonitorDowntimes");
@@ -265,11 +240,6 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'updateDowntime'");
-    if (!_config.unstableOperations["v2.updateDowntime"]) {
-      throw new Error("Unstable operation 'updateDowntime' is disabled");
-    }
 
     // verify required parameter 'downtimeId' is not null or undefined
     if (downtimeId === null || downtimeId === undefined) {
