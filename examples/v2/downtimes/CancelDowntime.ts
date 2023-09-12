@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.cancelDowntime"] = true;
 const apiInstance = new v2.DowntimesApi(configuration);
 
 // there is a valid "downtime_v2" in the system

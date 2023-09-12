@@ -215,12 +215,6 @@ export function createConfiguration(
     conf.backoffMultiplier || 2,
     {
       "v2.createCIAppPipelineEvent": false,
-      "v2.cancelDowntime": false,
-      "v2.createDowntime": false,
-      "v2.getDowntime": false,
-      "v2.listDowntimes": false,
-      "v2.listMonitorDowntimes": false,
-      "v2.updateDowntime": false,
       "v2.listEvents": false,
       "v2.searchEvents": false,
       "v2.createIncident": false,
