@@ -40,6 +40,8 @@ import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { AzureFallbackDestination } from "./AzureFallbackDestination";
+import { AzureFallbackDestinationIntegration } from "./AzureFallbackDestinationIntegration";
 import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucketValueTimeseriesPoint";
 import { CIAppAggregateSort } from "./CIAppAggregateSort";
 import { CIAppCIError } from "./CIAppCIError";
@@ -134,6 +136,15 @@ import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
 import { Creator } from "./Creator";
+import { CustomDestination } from "./CustomDestination";
+import { CustomDestinationAttributes } from "./CustomDestinationAttributes";
+import { CustomDestinationCreateData } from "./CustomDestinationCreateData";
+import { CustomDestinationCreateRequest } from "./CustomDestinationCreateRequest";
+import { CustomDestinationDeleteResponse } from "./CustomDestinationDeleteResponse";
+import { CustomDestinationListResponse } from "./CustomDestinationListResponse";
+import { CustomDestinationMetadata } from "./CustomDestinationMetadata";
+import { CustomDestinationResponse } from "./CustomDestinationResponse";
+import { CustomDestinationUpdateRequest } from "./CustomDestinationUpdateRequest";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
 import { DashboardListDeleteItemsRequest } from "./DashboardListDeleteItemsRequest";
@@ -175,6 +186,7 @@ import { DowntimeScheduleRecurrencesUpdateRequest } from "./DowntimeScheduleRecu
 import { DowntimeUpdateRequest } from "./DowntimeUpdateRequest";
 import { DowntimeUpdateRequestAttributes } from "./DowntimeUpdateRequestAttributes";
 import { DowntimeUpdateRequestData } from "./DowntimeUpdateRequestData";
+import { ElasticsearchDestination } from "./ElasticsearchDestination";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventResponse } from "./EventResponse";
@@ -231,6 +243,8 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GCSFallbackDestination } from "./GCSFallbackDestination";
+import { GCSFallbackDestinationIntegration } from "./GCSFallbackDestinationIntegration";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPCIAppError } from "./HTTPCIAppError";
@@ -244,6 +258,9 @@ import { HourlyUsageMeasurement } from "./HourlyUsageMeasurement";
 import { HourlyUsageMetadata } from "./HourlyUsageMetadata";
 import { HourlyUsagePagination } from "./HourlyUsagePagination";
 import { HourlyUsageResponse } from "./HourlyUsageResponse";
+import { HttpDestination } from "./HttpDestination";
+import { HttpDestinationBasicAuth } from "./HttpDestinationBasicAuth";
+import { HttpDestinationCustomHeaderAuth } from "./HttpDestinationCustomHeaderAuth";
 import { IPAllowlistAttributes } from "./IPAllowlistAttributes";
 import { IPAllowlistData } from "./IPAllowlistData";
 import { IPAllowlistEntry } from "./IPAllowlistEntry";
@@ -578,6 +595,8 @@ import { RoleUpdateRequest } from "./RoleUpdateRequest";
 import { RoleUpdateResponse } from "./RoleUpdateResponse";
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
+import { S3FallbackDestination } from "./S3FallbackDestination";
+import { S3FallbackDestinationIntegration } from "./S3FallbackDestinationIntegration";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
@@ -762,6 +781,7 @@ import { SpansQueryFilter } from "./SpansQueryFilter";
 import { SpansQueryOptions } from "./SpansQueryOptions";
 import { SpansResponseMetadataPage } from "./SpansResponseMetadataPage";
 import { SpansWarning } from "./SpansWarning";
+import { SplunkHecDestination } from "./SplunkHecDestination";
 import { Team } from "./Team";
 import { TeamAttributes } from "./TeamAttributes";
 import { TeamCreate } from "./TeamCreate";
@@ -902,6 +922,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-saml_assertion_attribute.attribute_value",
   ],
   AuthNMappingsType: ["authn_mappings"],
+  AzureFallbackDestinationType: ["azure"],
   CIAppAggregateSortType: ["alphabetical", "measure"],
   CIAppAggregationFunction: [
     "count",
@@ -952,6 +973,8 @@ const enumsMap: { [key: string]: any[] } = {
   ConfluentResourceType: ["confluent-cloud-resources"],
   ContentEncoding: ["identity", "gzip", "deflate"],
   CostByOrgType: ["cost_by_org"],
+  CustomDestinationCompressionType: ["GZIP", "NONE"],
+  CustomDestinationType: ["custom_destination"],
   DashboardType: [
     "custom_timeboard",
     "custom_screenboard",
@@ -965,6 +988,7 @@ const enumsMap: { [key: string]: any[] } = {
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
   DowntimeResourceType: ["downtime"],
   DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
+  ElasticsearchDestinationType: ["elasticsearch"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
     "failure",
@@ -1009,6 +1033,7 @@ const enumsMap: { [key: string]: any[] } = {
   FindingType: ["finding"],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
   GCPServiceAccountType: ["gcp_service_account"],
+  GCSFallbackDestinationType: ["gcs"],
   GetTeamMembershipsSort: [
     "manager_name",
     "-manager_name",
@@ -1024,6 +1049,9 @@ const enumsMap: { [key: string]: any[] } = {
     "observability_pipelines_bytes_processed",
     "lambda_traced_invocations_count",
   ],
+  HttpDestinationBasicAuthType: ["basic"],
+  HttpDestinationCustomHeaderAuthType: ["custom_header"],
+  HttpDestinationType: ["http"],
   IPAllowlistEntryType: ["ip_allowlist_entry"],
   IPAllowlistType: ["ip_allowlist"],
   IncidentAttachmentAttachmentType: ["link", "postmortem"],
@@ -1149,6 +1177,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-user_count",
   ],
   RolesType: ["roles"],
+  S3FallbackDestinationType: ["s3"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
@@ -1293,6 +1322,7 @@ const enumsMap: { [key: string]: any[] } = {
   SpansSort: ["timestamp", "-timestamp"],
   SpansSortOrder: ["asc", "desc"],
   SpansType: ["spans"],
+  SplunkHecDestinationType: ["splunk_hec"],
   TeamLinkType: ["team_links"],
   TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
   TeamPermissionSettingType: ["team_permission_settings"],
@@ -1358,6 +1388,8 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  AzureFallbackDestination: AzureFallbackDestination,
+  AzureFallbackDestinationIntegration: AzureFallbackDestinationIntegration,
   CIAppAggregateBucketValueTimeseriesPoint:
     CIAppAggregateBucketValueTimeseriesPoint,
   CIAppAggregateSort: CIAppAggregateSort,
@@ -1473,6 +1505,15 @@ const typeMap: { [index: string]: any } = {
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
   Creator: Creator,
+  CustomDestination: CustomDestination,
+  CustomDestinationAttributes: CustomDestinationAttributes,
+  CustomDestinationCreateData: CustomDestinationCreateData,
+  CustomDestinationCreateRequest: CustomDestinationCreateRequest,
+  CustomDestinationDeleteResponse: CustomDestinationDeleteResponse,
+  CustomDestinationListResponse: CustomDestinationListResponse,
+  CustomDestinationMetadata: CustomDestinationMetadata,
+  CustomDestinationResponse: CustomDestinationResponse,
+  CustomDestinationUpdateRequest: CustomDestinationUpdateRequest,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
   DashboardListDeleteItemsRequest: DashboardListDeleteItemsRequest,
@@ -1519,6 +1560,7 @@ const typeMap: { [index: string]: any } = {
   DowntimeUpdateRequest: DowntimeUpdateRequest,
   DowntimeUpdateRequestAttributes: DowntimeUpdateRequestAttributes,
   DowntimeUpdateRequestData: DowntimeUpdateRequestData,
+  ElasticsearchDestination: ElasticsearchDestination,
   Event: Event,
   EventAttributes: EventAttributes,
   EventResponse: EventResponse,
@@ -1575,6 +1617,8 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GCSFallbackDestination: GCSFallbackDestination,
+  GCSFallbackDestinationIntegration: GCSFallbackDestinationIntegration,
   GetFindingResponse: GetFindingResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPCIAppError: HTTPCIAppError,
@@ -1588,6 +1632,9 @@ const typeMap: { [index: string]: any } = {
   HourlyUsageMetadata: HourlyUsageMetadata,
   HourlyUsagePagination: HourlyUsagePagination,
   HourlyUsageResponse: HourlyUsageResponse,
+  HttpDestination: HttpDestination,
+  HttpDestinationBasicAuth: HttpDestinationBasicAuth,
+  HttpDestinationCustomHeaderAuth: HttpDestinationCustomHeaderAuth,
   IPAllowlistAttributes: IPAllowlistAttributes,
   IPAllowlistData: IPAllowlistData,
   IPAllowlistEntry: IPAllowlistEntry,
@@ -1947,6 +1994,8 @@ const typeMap: { [index: string]: any } = {
   RoleUpdateResponse: RoleUpdateResponse,
   RoleUpdateResponseData: RoleUpdateResponseData,
   RolesResponse: RolesResponse,
+  S3FallbackDestination: S3FallbackDestination,
+  S3FallbackDestinationIntegration: S3FallbackDestinationIntegration,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
   ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
@@ -2171,6 +2220,7 @@ const typeMap: { [index: string]: any } = {
   SpansQueryOptions: SpansQueryOptions,
   SpansResponseMetadataPage: SpansResponseMetadataPage,
   SpansWarning: SpansWarning,
+  SplunkHecDestination: SplunkHecDestination,
   Team: Team,
   TeamAttributes: TeamAttributes,
   TeamCreate: TeamCreate,
@@ -2265,6 +2315,16 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   CIAppGroupByMissing: ["string", "number"],
   CIAppGroupByTotal: ["boolean", "string", "number"],
+  CustomDestinationFallbackDestination: [
+    "AzureFallbackDestination",
+    "GCSFallbackDestination",
+    "S3FallbackDestination",
+  ],
+  CustomDestinationForwarderDestination: [
+    "HttpDestination",
+    "ElasticsearchDestination",
+    "SplunkHecDestination",
+  ],
   DowntimeMonitorIdentifier: [
     "DowntimeMonitorIdentifierId",
     "DowntimeMonitorIdentifierTags",
@@ -2281,6 +2341,10 @@ const oneOfMap: { [index: string]: string[] } = {
   DowntimeScheduleUpdateRequest: [
     "DowntimeScheduleRecurrencesUpdateRequest",
     "DowntimeScheduleOneTimeCreateUpdateRequest",
+  ],
+  HttpDestinationAuth: [
+    "HttpDestinationBasicAuth",
+    "HttpDestinationCustomHeaderAuth",
   ],
   IncidentAttachmentAttributes: [
     "IncidentAttachmentPostmortemAttributes",
