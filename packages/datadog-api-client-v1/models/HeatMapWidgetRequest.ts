@@ -4,8 +4,11 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { EventQueryDefinition } from "./EventQueryDefinition";
+import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
+import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
+import { WidgetFormula } from "./WidgetFormula";
 import { WidgetStyle } from "./WidgetStyle";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -22,6 +25,10 @@ export class HeatMapWidgetRequest {
    * The event query.
    */
   "eventQuery"?: EventQueryDefinition;
+  /**
+   * List of formulas that operate on queries.
+   */
+  "formulas"?: Array<WidgetFormula>;
   /**
    * The log query.
    */
@@ -42,6 +49,14 @@ export class HeatMapWidgetRequest {
    * Widget query.
    */
   "q"?: string;
+  /**
+   * List of queries that can be returned directly or used in formulas.
+   */
+  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
+  /**
+   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
+   */
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**
    * The log query.
    */
@@ -72,6 +87,10 @@ export class HeatMapWidgetRequest {
       baseName: "event_query",
       type: "EventQueryDefinition",
     },
+    formulas: {
+      baseName: "formulas",
+      type: "Array<WidgetFormula>",
+    },
     logQuery: {
       baseName: "log_query",
       type: "LogQueryDefinition",
@@ -91,6 +110,14 @@ export class HeatMapWidgetRequest {
     q: {
       baseName: "q",
       type: "string",
+    },
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
+    },
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
     },
     rumQuery: {
       baseName: "rum_query",
