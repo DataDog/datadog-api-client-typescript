@@ -56,11 +56,12 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       }
     }
 
-    return this.executeRequest(request, 0, headers);
+    return this.executeRequest(request, body, 0, headers);
   }
 
   private async executeRequest(
     request: RequestContext,
+    body: any,
     currentAttempt: number,
     headers: { [key: string]: string }
   ): Promise<ResponseContext> {
@@ -72,7 +73,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       !isNode && typeof fetch === "function" ? fetch : crossFetch;
     const fetchOptions = {
       method: request.getHttpMethod().toString(),
-      body: request.getBody() as any,
+      body: body,
       headers: headers,
       signal: request.getHttpConfig().signal,
     };
@@ -117,7 +118,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
         );
         currentAttempt++;
         await this.sleep(delay * 1000);
-        return this.executeRequest(request, currentAttempt, headers);
+        return this.executeRequest(request, body, currentAttempt, headers);
       }
       return response;
     } catch (error) {
