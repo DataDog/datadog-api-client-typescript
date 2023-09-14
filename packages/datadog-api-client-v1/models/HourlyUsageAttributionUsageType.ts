@@ -37,6 +37,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof FUNCTIONS_USAGE
   | typeof INFRA_HOST_USAGE
   | typeof INVOCATIONS_USAGE
+  | typeof MOBILE_APP_TESTING_USAGE
   | typeof NPM_HOST_USAGE
   | typeof OBS_PIPELINE_BYTES_USAGE
   | typeof PROFILED_CONTAINER_USAGE
@@ -75,6 +76,7 @@ export const FARGATE_USAGE = "fargate_usage";
 export const FUNCTIONS_USAGE = "functions_usage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INVOCATIONS_USAGE = "invocations_usage";
+export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage";
 export const NPM_HOST_USAGE = "npm_host_usage";
 export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";

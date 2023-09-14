@@ -227,6 +227,14 @@ export class MonthlyUsageAttributionValues {
    */
   "invocationsUsage"?: number;
   /**
+   * The percentage of Synthetic mobile application test usage by tag(s).
+   */
+  "mobileAppTestingPercentage"?: number;
+  /**
+   * The Synthetic mobile application test usage by tag(s).
+   */
+  "mobileAppTestingUsage"?: number;
+  /**
    * The percentage of network host usage by tag(s).
    */
   "npmHostPercentage"?: number;
@@ -575,6 +583,16 @@ export class MonthlyUsageAttributionValues {
     },
     invocationsUsage: {
       baseName: "invocations_usage",
+      type: "number",
+      format: "double",
+    },
+    mobileAppTestingPercentage: {
+      baseName: "mobile_app_testing_percentage",
+      type: "number",
+      format: "double",
+    },
+    mobileAppTestingUsage: {
+      baseName: "mobile_app_testing_usage",
       type: "number",
       format: "double",
     },
