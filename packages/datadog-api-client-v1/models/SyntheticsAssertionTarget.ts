@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsAssertionOperator } from "./SyntheticsAssertionOperator";
+import { SyntheticsAssertionTimingsScope } from "./SyntheticsAssertionTimingsScope";
 import { SyntheticsAssertionType } from "./SyntheticsAssertionType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -24,6 +25,10 @@ export class SyntheticsAssertionTarget {
    * Value used by the operator.
    */
   "target": any;
+  /**
+   * Timings scope for response time assertions.
+   */
+  "timingsScope"?: SyntheticsAssertionTimingsScope;
   /**
    * Type of the assertion.
    */
@@ -51,6 +56,10 @@ export class SyntheticsAssertionTarget {
       baseName: "target",
       type: "any",
       required: true,
+    },
+    timingsScope: {
+      baseName: "timingsScope",
+      type: "SyntheticsAssertionTimingsScope",
     },
     type: {
       baseName: "type",

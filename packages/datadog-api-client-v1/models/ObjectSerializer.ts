@@ -1071,6 +1071,7 @@ const enumsMap: { [key: string]: any[] } = {
     "doesNotExist",
     "isUndefined",
   ],
+  SyntheticsAssertionTimingsScope: ["all", "withoutDNS"],
   SyntheticsAssertionType: [
     "body",
     "header",
