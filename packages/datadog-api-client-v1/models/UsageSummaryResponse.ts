@@ -361,6 +361,10 @@ export class UsageSummaryResponse {
    */
   "syntheticsCheckCallsCountAggSum"?: number;
   /**
+   * Shows the sum of Synthetic mobile application tests over all hours in the current months for all organizations.
+   */
+  "syntheticsMobileTestRunsAggSum"?: number;
+  /**
    * Shows the sum of the high-water marks of used synthetics parallel testing slots over all hours in the current month for all organizations.
    */
   "syntheticsParallelTestingMaxSlotsHwmSum"?: number;
@@ -833,6 +837,11 @@ export class UsageSummaryResponse {
     },
     syntheticsCheckCallsCountAggSum: {
       baseName: "synthetics_check_calls_count_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    syntheticsMobileTestRunsAggSum: {
+      baseName: "synthetics_mobile_test_runs_agg_sum",
       type: "number",
       format: "int64",
     },
