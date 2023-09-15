@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 1.17.0 / 2023-09-14
+
+### Fixed
+* Fix downtimes monitor relationship id schema type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1309
+* Fix passing body in retry logic by @therve in https://github.com/DataDog/datadog-api-client-typescript/pull/1321
+### Added
+* Add trace_stream to dashboard ListStreamSource by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1282
+* Add pagination extension to SLO corrections by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1294
+* Adding aas count to the documentation for summary and hourly usage endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1297
+* Add pagination extension to SLOs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1295
+* Add pagination extension to monitors by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1296
+* Add pagination extension to synthetics tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1301
+* Add 'style' to sunburst requests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1300
+* Add pagination extension to notebook by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1302
+* Add support for dashboard listing pagination parameters by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1306
+* Add pagination parameters to downtimes listing by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1308
+* Add pagination extension to user list by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1307
+* Add pagination extension to team listing by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1310
+* Add retry support by @HantingZhang2 in https://github.com/DataDog/datadog-api-client-typescript/pull/1293
+* Remove private beta for Downtimes v2 by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1305
+* Update v1 monitor api docs to exclude downtimes v2 by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1318
+* Add timing scope for response time assertions by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1311
+* Add Formula and Function query support to heatmap widgets by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1319
+* Add synthetics mobile application testing to usage metering API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1315
+
+## New Contributors
+* @HantingZhang2 made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/1293
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.16.0...v1.17.0
+
 ## 1.16.0 / 2023-08-23
 
 ### Fixed
