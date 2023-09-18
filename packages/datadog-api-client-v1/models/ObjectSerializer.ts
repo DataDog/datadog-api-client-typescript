@@ -353,6 +353,12 @@ import { SignalAssigneeUpdateRequest } from "./SignalAssigneeUpdateRequest";
 import { SignalStateUpdateRequest } from "./SignalStateUpdateRequest";
 import { SlackIntegrationChannel } from "./SlackIntegrationChannel";
 import { SlackIntegrationChannelDisplay } from "./SlackIntegrationChannelDisplay";
+import { SplitConfig } from "./SplitConfig";
+import { SplitConfigSortCompute } from "./SplitConfigSortCompute";
+import { SplitDimension } from "./SplitDimension";
+import { SplitGraphWidgetDefinition } from "./SplitGraphWidgetDefinition";
+import { SplitSort } from "./SplitSort";
+import { SplitVectorEntryItem } from "./SplitVectorEntryItem";
 import { SuccessfulSignalUpdateResponse } from "./SuccessfulSignalUpdateResponse";
 import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
 import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
@@ -1023,6 +1029,8 @@ const enumsMap: { [key: string]: any[] } = {
     "other",
   ],
   SignalTriageState: ["open", "archived", "under_review"],
+  SplitGraphVizSize: ["xs", "sm", "md", "lg"],
+  SplitGraphWidgetDefinitionType: ["split_group"],
   SunburstWidgetDefinitionType: ["sunburst"],
   SunburstWidgetLegendInlineAutomaticType: ["inline", "automatic"],
   SunburstWidgetLegendTableType: ["table", "none"],
@@ -1841,6 +1849,12 @@ const typeMap: { [index: string]: any } = {
   SignalStateUpdateRequest: SignalStateUpdateRequest,
   SlackIntegrationChannel: SlackIntegrationChannel,
   SlackIntegrationChannelDisplay: SlackIntegrationChannelDisplay,
+  SplitConfig: SplitConfig,
+  SplitConfigSortCompute: SplitConfigSortCompute,
+  SplitDimension: SplitDimension,
+  SplitGraphWidgetDefinition: SplitGraphWidgetDefinition,
+  SplitSort: SplitSort,
+  SplitVectorEntryItem: SplitVectorEntryItem,
   SuccessfulSignalUpdateResponse: SuccessfulSignalUpdateResponse,
   SunburstWidgetDefinition: SunburstWidgetDefinition,
   SunburstWidgetLegendInlineAutomatic: SunburstWidgetLegendInlineAutomatic,
@@ -2148,6 +2162,17 @@ const oneOfMap: { [index: string]: string[] } = {
     "SharedDashboardInvitesDataObject",
     "Array<SharedDashboardInvitesDataObject>",
   ],
+  SplitGraphSourceWidgetDefinition: [
+    "ChangeWidgetDefinition",
+    "GeomapWidgetDefinition",
+    "QueryValueWidgetDefinition",
+    "ScatterPlotWidgetDefinition",
+    "SunburstWidgetDefinition",
+    "TableWidgetDefinition",
+    "TimeseriesWidgetDefinition",
+    "ToplistWidgetDefinition",
+    "TreeMapWidgetDefinition",
+  ],
   SunburstWidgetLegend: [
     "SunburstWidgetLegendTable",
     "SunburstWidgetLegendInlineAutomatic",
@@ -2174,30 +2199,31 @@ const oneOfMap: { [index: string]: string[] } = {
     "EventStreamWidgetDefinition",
     "EventTimelineWidgetDefinition",
     "FreeTextWidgetDefinition",
+    "FunnelWidgetDefinition",
     "GeomapWidgetDefinition",
     "GroupWidgetDefinition",
     "HeatMapWidgetDefinition",
     "HostMapWidgetDefinition",
     "IFrameWidgetDefinition",
     "ImageWidgetDefinition",
+    "ListStreamWidgetDefinition",
     "LogStreamWidgetDefinition",
     "MonitorSummaryWidgetDefinition",
     "NoteWidgetDefinition",
     "QueryValueWidgetDefinition",
     "RunWorkflowWidgetDefinition",
-    "ScatterPlotWidgetDefinition",
-    "SLOWidgetDefinition",
     "SLOListWidgetDefinition",
+    "SLOWidgetDefinition",
+    "ScatterPlotWidgetDefinition",
     "ServiceMapWidgetDefinition",
     "ServiceSummaryWidgetDefinition",
+    "SplitGraphWidgetDefinition",
     "SunburstWidgetDefinition",
     "TableWidgetDefinition",
     "TimeseriesWidgetDefinition",
     "ToplistWidgetDefinition",
-    "TreeMapWidgetDefinition",
-    "ListStreamWidgetDefinition",
-    "FunnelWidgetDefinition",
     "TopologyMapWidgetDefinition",
+    "TreeMapWidgetDefinition",
   ],
 };
 

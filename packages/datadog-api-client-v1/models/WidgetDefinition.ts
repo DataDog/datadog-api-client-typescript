@@ -29,6 +29,7 @@ import { ServiceMapWidgetDefinition } from "./ServiceMapWidgetDefinition";
 import { ServiceSummaryWidgetDefinition } from "./ServiceSummaryWidgetDefinition";
 import { SLOListWidgetDefinition } from "./SLOListWidgetDefinition";
 import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
+import { SplitGraphWidgetDefinition } from "./SplitGraphWidgetDefinition";
 import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
@@ -51,28 +52,29 @@ export type WidgetDefinition =
   | EventStreamWidgetDefinition
   | EventTimelineWidgetDefinition
   | FreeTextWidgetDefinition
+  | FunnelWidgetDefinition
   | GeomapWidgetDefinition
   | GroupWidgetDefinition
   | HeatMapWidgetDefinition
   | HostMapWidgetDefinition
   | IFrameWidgetDefinition
   | ImageWidgetDefinition
+  | ListStreamWidgetDefinition
   | LogStreamWidgetDefinition
   | MonitorSummaryWidgetDefinition
   | NoteWidgetDefinition
   | QueryValueWidgetDefinition
   | RunWorkflowWidgetDefinition
-  | ScatterPlotWidgetDefinition
-  | SLOWidgetDefinition
   | SLOListWidgetDefinition
+  | SLOWidgetDefinition
+  | ScatterPlotWidgetDefinition
   | ServiceMapWidgetDefinition
   | ServiceSummaryWidgetDefinition
+  | SplitGraphWidgetDefinition
   | SunburstWidgetDefinition
   | TableWidgetDefinition
   | TimeseriesWidgetDefinition
   | ToplistWidgetDefinition
-  | TreeMapWidgetDefinition
-  | ListStreamWidgetDefinition
-  | FunnelWidgetDefinition
   | TopologyMapWidgetDefinition
+  | TreeMapWidgetDefinition
   | UnparsedObject;
