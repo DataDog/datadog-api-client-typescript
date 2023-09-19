@@ -58,6 +58,7 @@ function buildUndoFor(
         appKeyAuth: process.env.DD_TEST_CLIENT_APP_KEY,
       },
       httpConfig: { compress: false },
+      enableRetry: true,
     };
     if (process.env.DD_TEST_SITE) {
       const server = datadogApiClient.client.servers[2];

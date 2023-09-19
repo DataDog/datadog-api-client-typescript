@@ -46,6 +46,7 @@ for (const apiVersion of Versions) {
         },
         httpConfig: { compress: false },
         zstdCompressorCallback: (body: string) => compressSync({input: Buffer.from(body, "utf8")}),
+        enableRetry: true,
       };
 
       if (process.env.DD_TEST_SITE) {
