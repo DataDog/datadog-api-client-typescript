@@ -11,11 +11,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SplitConfigSortCompute {
   /**
-   * The metric to use for sorting graphs.
+   * How to aggregate the sort metric for the purposes of ordering.
    */
   "aggregation": string;
   /**
-   * How to aggregate the sort metric for the purposes of ordering.
+   * The metric to use for sorting graphs.
    */
   "metric": string;
 
