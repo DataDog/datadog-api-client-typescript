@@ -53,7 +53,7 @@ def form_parameter(operation):
         }
 
 
-def type_to_typescript(schema, alternative_name=None):
+def type_to_typescript(schema, alternative_name=None, check_nullable=True):
     """Return Typescript type name for the type."""
     name = get_name(schema)
     if name and "items" not in schema and not is_primitive(schema):
@@ -88,12 +88,15 @@ def type_to_typescript(schema, alternative_name=None):
         min_items = schema.get("minItems")
         max_items = schema.get("maxItems")
         if min_items is not None and min_items == max_items:
-            sub_type = type_to_typescript(schema["items"], name + "Item" if name else None)
+            sub_type = type_to_typescript(schema["items"], name + "Item" if name else None, check_nullable=check_nullable)
             return "[{}]".format(", ".join([sub_type] * min_items))
-        return "Array<{}>".format(type_to_typescript(schema["items"], name + "Item" if name else None))
+        sub_type = type_to_typescript(schema["items"], name + "Item" if name else None, check_nullable=check_nullable)
+        if check_nullable and schema["items"].get("nullable"):
+            sub_type = f"{sub_type} | null"
+        return "Array<{}>".format(sub_type)
     elif type_ == "object":
         if "additionalProperties" in schema and not schema.get("properties"):
-            return "{{ [key: string]: {}; }}".format(type_to_typescript(schema["additionalProperties"]))
+            return "{{ [key: string]: {}; }}".format(type_to_typescript(schema["additionalProperties"], check_nullable=check_nullable))
         return (
             alternative_name
             if alternative_name
