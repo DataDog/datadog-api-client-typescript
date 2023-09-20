@@ -28,8 +28,8 @@ fi
 # Run tests
 yarn run test
 TEST_RESULT=$?
-if [ "$RERECORD_FAILED_TESTS" == "true" -a "$TEST_RESULT" -ne "0" ]; then
-    yarn run test:rerecord
+if [ "$RECORD" == "none" ]; then
+    yarn run test:retry
     TEST_RESULT=$?
 fi
 

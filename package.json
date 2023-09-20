@@ -59,7 +59,7 @@
     "lint:fix-examples": "yarn install --ignore-scripts; eslint examples --ext .ts --fix; prettier --write --ignore-unknown examples",
     "prepare": "yarn run build",
     "test": "node bin/dd-cucumber-js features/*/*.feature",
-    "test:rerecord": "RECORD=true node bin/dd-cucumber-js @rerun.txt",
+    "test:retry": "node bin/dd-cucumber-js @rerun.txt",
     "jest-test": "jest --no-cache",
     "jest-coverage": "jest --no-cache --coverage"
   },
