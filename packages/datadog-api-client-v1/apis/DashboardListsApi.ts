@@ -100,6 +100,7 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getDashboardList(
     listId: number,
+    testQuery?: Array<string>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -121,6 +122,14 @@ export class DashboardListsApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (testQuery !== undefined) {
+      requestContext.setQueryParam(
+        "test_query",
+        ObjectSerializer.serialize(testQuery, "Array<string>", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -540,6 +549,11 @@ export interface DashboardListsApiGetDashboardListRequest {
    * @type number
    */
   listId: number;
+  /**
+   * Test query.
+   * @type Array<string>
+   */
+  testQuery?: Array<string>;
 }
 
 export interface DashboardListsApiUpdateDashboardListRequest {
@@ -624,6 +638,7 @@ export class DashboardListsApi {
   ): Promise<DashboardList> {
     const requestContextPromise = this.requestFactory.getDashboardList(
       param.listId,
+      param.testQuery,
       options
     );
     return requestContextPromise.then((requestContext) => {

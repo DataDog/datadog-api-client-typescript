@@ -745,6 +745,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int64",
             },
+        "testQuery": {
+            "type": "Array<string>",
+            "format": "",
+            },
         "operationResponseType": "DashboardList",
     },
     "v1.UpdateDashboardList": {
