@@ -62,6 +62,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -178,6 +179,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -214,6 +216,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
