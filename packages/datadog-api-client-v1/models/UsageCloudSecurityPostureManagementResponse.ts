@@ -8,11 +8,11 @@ import { UsageCloudSecurityPostureManagementHour } from "./UsageCloudSecurityPos
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The response containing the Cloud Security Posture Management usage for each hour for a given organization.
+ * The response containing the Cloud Security Management Pro usage for each hour for a given organization.
  */
 export class UsageCloudSecurityPostureManagementResponse {
   /**
-   * Get hourly usage for Cloud Security Posture Management.
+   * Get hourly usage for Cloud Security Management Pro.
    */
   "usage"?: Array<UsageCloudSecurityPostureManagementHour>;
 

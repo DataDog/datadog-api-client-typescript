@@ -1,5 +1,5 @@
 /**
- * Get hourly usage for CSPM returns "OK" response
+ * Get hourly usage for CSM Pro returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
