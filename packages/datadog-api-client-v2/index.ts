@@ -1144,6 +1144,8 @@ export { SAMLAssertionAttribute } from "./models/SAMLAssertionAttribute";
 export { SAMLAssertionAttributeAttributes } from "./models/SAMLAssertionAttributeAttributes";
 export { SAMLAssertionAttributesType } from "./models/SAMLAssertionAttributesType";
 export { ScalarColumn } from "./models/ScalarColumn";
+export { ScalarColumnTypeGroup } from "./models/ScalarColumnTypeGroup";
+export { ScalarColumnTypeNumber } from "./models/ScalarColumnTypeNumber";
 export { ScalarFormulaQueryRequest } from "./models/ScalarFormulaQueryRequest";
 export { ScalarFormulaQueryResponse } from "./models/ScalarFormulaQueryResponse";
 export { ScalarFormulaRequest } from "./models/ScalarFormulaRequest";

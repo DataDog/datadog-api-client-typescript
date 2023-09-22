@@ -1150,6 +1150,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RolesType: ["roles"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
+  ScalarColumnTypeGroup: ["group"],
+  ScalarColumnTypeNumber: ["number"],
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
   SecurityFilterFilteredDataType: ["logs"],

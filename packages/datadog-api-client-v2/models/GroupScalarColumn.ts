@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ScalarColumnTypeGroup } from "./ScalarColumnTypeGroup";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,9 +16,9 @@ export class GroupScalarColumn {
    */
   "name"?: string;
   /**
-   * The type of column present.
+   * The type of column present for groups.
    */
-  "type"?: string;
+  "type"?: ScalarColumnTypeGroup;
   /**
    * The array of tag values for each group found for the results of the formulas or queries.
    */
@@ -38,7 +39,7 @@ export class GroupScalarColumn {
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "ScalarColumnTypeGroup",
     },
     values: {
       baseName: "values",

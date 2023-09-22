@@ -58,7 +58,7 @@ export class {{ name }} {
     {%- set format = get_format_for_schema(schema) %}
     "{{ attr|attribute_name }}": {
       "baseName": "{{ attr }}",
-      "type": "{{ type_to_typescript(schema) }}",
+      "type": "{{ type_to_typescript(schema, check_nullable=False) }}",
       {%- if isRequired %}
       "required": true,
       {%- endif %}
@@ -71,7 +71,7 @@ export class {{ name }} {
     {%- set format = get_format_for_schema(model["additionalProperties"]) %}
     "additionalProperties": {
       "baseName": "additionalProperties",
-      "type": "{{ type_to_typescript(model["additionalProperties"]) }}",
+      "type": "{{ type_to_typescript(model["additionalProperties"], check_nullable=False) }}",
       {%- if format %}
       "format": "{{ format }}",
       {%- endif %}
