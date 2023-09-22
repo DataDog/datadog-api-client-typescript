@@ -91,19 +91,19 @@ export class MonthlyUsageAttributionValues {
    */
   "containerUsage"?: number;
   /**
-   * The percentage of CSPM container usage by tag(s).
+   * The percentage of Cloud Security Management Pro container usage by tag(s).
    */
   "cspmContainersPercentage"?: number;
   /**
-   * The CSPM container usage by tag(s).
+   * The Cloud Security Management Pro container usage by tag(s).
    */
   "cspmContainersUsage"?: number;
   /**
-   * The percentage of CSPM host usage by by tag(s).
+   * The percentage of Cloud Security Management Pro host usage by tag(s).
    */
   "cspmHostsPercentage"?: number;
   /**
-   * The CSPM host usage by tag(s).
+   * The Cloud Security Management Pro host usage by tag(s).
    */
   "cspmHostsUsage"?: number;
   /**

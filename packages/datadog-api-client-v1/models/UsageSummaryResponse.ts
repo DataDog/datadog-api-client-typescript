@@ -125,31 +125,71 @@ export class UsageSummaryResponse {
    */
   "containerHwmSum"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current months for all organizations.
+   * Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current months for all organizations.
+   */
+  "csmContainerEnterpriseComplianceCountAggSum"?: number;
+  /**
+   * Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current months for all organizations.
+   */
+  "csmContainerEnterpriseCwsCountAggSum"?: number;
+  /**
+   * Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current months for all organizations.
+   */
+  "csmContainerEnterpriseTotalCountAggSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current months for all organizations.
+   */
+  "csmHostEnterpriseAasHostCountTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours in the current months for all organizations.
+   */
+  "csmHostEnterpriseAwsHostCountTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours in the current months for all organizations.
+   */
+  "csmHostEnterpriseAzureHostCountTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours in the current months for all organizations.
+   */
+  "csmHostEnterpriseComplianceHostCountTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours in the current months for all organizations.
+   */
+  "csmHostEnterpriseCwsHostCountTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current months for all organizations.
+   */
+  "csmHostEnterpriseGcpHostCountTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current months for all organizations.
+   */
+  "csmHostEnterpriseTotalHostCountTop99pSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over all hours in the current months for all organizations.
    */
   "cspmAasHostTop99pSum"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in the current months for all organizations.
+   * Shows the 99th percentile of all Cloud Security Management Pro AWS hosts over all hours in the current months for all organizations.
    */
   "cspmAwsHostTop99pSum"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current months for all organizations.
+   * Shows the 99th percentile of all Cloud Security Management Pro Azure hosts over all hours in the current months for all organizations.
    */
   "cspmAzureHostTop99pSum"?: number;
   /**
-   * Shows the average number of Cloud Security Posture Management containers over all hours in the current months for all organizations.
+   * Shows the average number of Cloud Security Management Pro containers over all hours in the current months for all organizations.
    */
   "cspmContainerAvgSum"?: number;
   /**
-   * Shows the sum of the the high-water marks of Cloud Security Posture Management containers over all hours in the current months for all organizations.
+   * Shows the sum of the the high-water marks of Cloud Security Management Pro containers over all hours in the current months for all organizations.
    */
   "cspmContainerHwmSum"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in the current months for all organizations.
+   * Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the current months for all organizations.
    */
   "cspmGcpHostTop99pSum"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current months for all organizations.
+   * Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the current months for all organizations.
    */
   "cspmHostTop99pSum"?: number;
   /**
@@ -543,6 +583,56 @@ export class UsageSummaryResponse {
     },
     containerHwmSum: {
       baseName: "container_hwm_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmContainerEnterpriseComplianceCountAggSum: {
+      baseName: "csm_container_enterprise_compliance_count_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmContainerEnterpriseCwsCountAggSum: {
+      baseName: "csm_container_enterprise_cws_count_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmContainerEnterpriseTotalCountAggSum: {
+      baseName: "csm_container_enterprise_total_count_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseAasHostCountTop99pSum: {
+      baseName: "csm_host_enterprise_aas_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseAwsHostCountTop99pSum: {
+      baseName: "csm_host_enterprise_aws_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseAzureHostCountTop99pSum: {
+      baseName: "csm_host_enterprise_azure_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseComplianceHostCountTop99pSum: {
+      baseName: "csm_host_enterprise_compliance_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseCwsHostCountTop99pSum: {
+      baseName: "csm_host_enterprise_cws_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseGcpHostCountTop99pSum: {
+      baseName: "csm_host_enterprise_gcp_host_count_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseTotalHostCountTop99pSum: {
+      baseName: "csm_host_enterprise_total_host_count_top99p_sum",
       type: "number",
       format: "int64",
     },
