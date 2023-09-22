@@ -24,8 +24,6 @@ This project contains both Integration and Unit tests.
 __Never__ run the test suite against an organization with production data.
 The testing framework in this repository is `@cucumber/cucumber`, and can be executed via `yarn run test`.
 
-*Previously* failed tests can be rerecorded by running `yarn run test:rerecord`.
-
 By default integration tests use recorded API responses stored in cassettes. To record new API responses run the tests with `RECORD=true`. To run integration tests against API without recording cassettes, run the tests with `RECORD=none`.
 
 **IMPORTANT**: 
