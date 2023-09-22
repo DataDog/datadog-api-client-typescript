@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { ScalarColumnTypeNumber } from "./ScalarColumnTypeNumber";
 import { ScalarMeta } from "./ScalarMeta";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,13 +21,13 @@ export class DataScalarColumn {
    */
   "name"?: string;
   /**
-   * The type of column present.
+   * The type of column present for numbers.
    */
-  "type"?: string;
+  "type"?: ScalarColumnTypeNumber;
   /**
    * The array of numerical values for one formula or query.
    */
-  "values"?: Array<number>;
+  "values"?: Array<number | null>;
 
   /**
    * @ignore
@@ -47,7 +48,7 @@ export class DataScalarColumn {
     },
     type: {
       baseName: "type",
-      type: "string",
+      type: "ScalarColumnTypeNumber",
     },
     values: {
       baseName: "values",
