@@ -161,7 +161,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
   public async listIncidentServices(
     include?: IncidentRelatedObject,
     pageSize?: number,
-    pageOffset?: number,
+    pageOffset?: string,
     filter?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -198,7 +198,7 @@ export class IncidentServicesApiRequestFactory extends BaseAPIRequestFactory {
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "string", "")
       );
     }
     if (filter !== undefined) {
@@ -633,9 +633,9 @@ export interface IncidentServicesApiListIncidentServicesRequest {
   pageSize?: number;
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type number
+   * @type string
    */
-  pageOffset?: number;
+  pageOffset?: string;
   /**
    * A search query that filters services by name.
    * @type string

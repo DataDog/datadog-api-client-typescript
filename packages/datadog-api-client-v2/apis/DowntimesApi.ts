@@ -147,7 +147,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   public async listDowntimes(
     currentOnly?: boolean,
     include?: string,
-    pageOffset?: number,
+    pageOffset?: string,
     pageLimit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -179,7 +179,7 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "string", "")
       );
     }
     if (pageLimit !== undefined) {
@@ -692,9 +692,9 @@ export interface DowntimesApiListDowntimesRequest {
   include?: string;
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type number
+   * @type string
    */
-  pageOffset?: number;
+  pageOffset?: string;
   /**
    * Maximum number of downtimes in the response.
    * @type number

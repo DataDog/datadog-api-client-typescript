@@ -2722,8 +2722,8 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "pageOffset": {
-            "type": "number",
-            "format": "int64",
+            "type": "string",
+            "format": "",
             },
         "pageLimit": {
             "type": "number",
@@ -2818,8 +2818,8 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "pageOffset": {
-            "type": "number",
-            "format": "int64",
+            "type": "string",
+            "format": "",
             },
         "operationResponseType": "IncidentsResponse",
     },
@@ -2848,8 +2848,8 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "pageOffset": {
-            "type": "number",
-            "format": "int64",
+            "type": "string",
+            "format": "",
             },
         "operationResponseType": "IncidentSearchResponse",
     },
@@ -4394,8 +4394,8 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "pageOffset": {
-            "type": "number",
-            "format": "int64",
+            "type": "string",
+            "format": "",
             },
         "filter": {
             "type": "string",
@@ -4743,8 +4743,8 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "pageOffset": {
-            "type": "number",
-            "format": "int64",
+            "type": "string",
+            "format": "",
             },
         "filter": {
             "type": "string",

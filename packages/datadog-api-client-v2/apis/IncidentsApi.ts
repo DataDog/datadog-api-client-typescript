@@ -601,7 +601,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
   public async listIncidents(
     include?: Array<IncidentRelatedObject>,
     pageSize?: number,
-    pageOffset?: number,
+    pageOffset?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -637,7 +637,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "string", "")
       );
     }
 
@@ -696,7 +696,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     include?: IncidentRelatedObject,
     sort?: IncidentSearchSortOrder,
     pageSize?: number,
-    pageOffset?: number,
+    pageOffset?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -749,7 +749,7 @@ export class IncidentsApiRequestFactory extends BaseAPIRequestFactory {
     if (pageOffset !== undefined) {
       requestContext.setQueryParam(
         "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        ObjectSerializer.serialize(pageOffset, "string", "")
       );
     }
 
@@ -2329,9 +2329,9 @@ export interface IncidentsApiListIncidentsRequest {
   pageSize?: number;
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type number
+   * @type string
    */
-  pageOffset?: number;
+  pageOffset?: string;
 }
 
 export interface IncidentsApiListIncidentTodosRequest {
@@ -2371,9 +2371,9 @@ export interface IncidentsApiSearchIncidentsRequest {
   pageSize?: number;
   /**
    * Specific offset to use as the beginning of the returned page.
-   * @type number
+   * @type string
    */
-  pageOffset?: number;
+  pageOffset?: string;
 }
 
 export interface IncidentsApiUpdateIncidentRequest {
