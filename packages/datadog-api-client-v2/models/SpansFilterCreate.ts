@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SpansFilterCreate {
   /**
-   * The search query - following the span search syntax.
+   * The search query - following the [span search syntax](https://docs.datadoghq.com/tracing/trace_explorer/query_syntax/).
    */
   "query": string;
 
