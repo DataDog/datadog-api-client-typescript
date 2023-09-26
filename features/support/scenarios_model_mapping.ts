@@ -2498,6 +2498,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SpansMetricResponse",
     },
+    "v2.ListApmRetentionFilters": {
+        "operationResponseType": "RetentionFiltersResponse",
+    },
+    "v2.CreateApmRetentionFilter": {
+        "body": {
+            "type": "RetentionFilterCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RetentionFilterResponse",
+    },
+    "v2.ReorderApmRetentionFilters": {
+        "body": {
+            "type": "ReorderRetentionFiltersRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.DeleteApmRetentionFilter": {
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.UpdateApmRetentionFilter": {
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RetentionFilterUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RetentionFilterResponse",
+    },
     "v2.ListAuditLogs": {
         "filterQuery": {
             "type": "string",

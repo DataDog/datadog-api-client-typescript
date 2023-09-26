@@ -1,4 +1,12 @@
 export {
+  APMRetentionFiltersApiCreateApmRetentionFilterRequest,
+  APMRetentionFiltersApiDeleteApmRetentionFilterRequest,
+  APMRetentionFiltersApiReorderApmRetentionFiltersRequest,
+  APMRetentionFiltersApiUpdateApmRetentionFilterRequest,
+  APMRetentionFiltersApi,
+} from "./apis/APMRetentionFiltersApi";
+
+export {
   AuditApiListAuditLogsRequest,
   AuditApiSearchAuditLogsRequest,
   AuditApi,
@@ -400,6 +408,7 @@ export { APIKeysType } from "./models/APIKeysType";
 export { APIKeyUpdateAttributes } from "./models/APIKeyUpdateAttributes";
 export { APIKeyUpdateData } from "./models/APIKeyUpdateData";
 export { APIKeyUpdateRequest } from "./models/APIKeyUpdateRequest";
+export { ApmRetentionFilterType } from "./models/ApmRetentionFilterType";
 export { ApplicationKeyCreateAttributes } from "./models/ApplicationKeyCreateAttributes";
 export { ApplicationKeyCreateData } from "./models/ApplicationKeyCreateData";
 export { ApplicationKeyCreateRequest } from "./models/ApplicationKeyCreateRequest";
@@ -1066,6 +1075,7 @@ export { RelationshipToUserTeamPermission } from "./models/RelationshipToUserTea
 export { RelationshipToUserTeamPermissionData } from "./models/RelationshipToUserTeamPermissionData";
 export { RelationshipToUserTeamUser } from "./models/RelationshipToUserTeamUser";
 export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamUserData";
+export { ReorderRetentionFiltersRequest } from "./models/ReorderRetentionFiltersRequest";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RestrictionPolicy } from "./models/RestrictionPolicy";
 export { RestrictionPolicyAttributes } from "./models/RestrictionPolicyAttributes";
@@ -1073,6 +1083,20 @@ export { RestrictionPolicyBinding } from "./models/RestrictionPolicyBinding";
 export { RestrictionPolicyResponse } from "./models/RestrictionPolicyResponse";
 export { RestrictionPolicyType } from "./models/RestrictionPolicyType";
 export { RestrictionPolicyUpdateRequest } from "./models/RestrictionPolicyUpdateRequest";
+export { RetentionFilter } from "./models/RetentionFilter";
+export { RetentionFilterAll } from "./models/RetentionFilterAll";
+export { RetentionFilterAllAttributes } from "./models/RetentionFilterAllAttributes";
+export { RetentionFilterAllType } from "./models/RetentionFilterAllType";
+export { RetentionFilterAttributes } from "./models/RetentionFilterAttributes";
+export { RetentionFilterCreateAttributes } from "./models/RetentionFilterCreateAttributes";
+export { RetentionFilterCreateData } from "./models/RetentionFilterCreateData";
+export { RetentionFilterCreateRequest } from "./models/RetentionFilterCreateRequest";
+export { RetentionFilterResponse } from "./models/RetentionFilterResponse";
+export { RetentionFiltersResponse } from "./models/RetentionFiltersResponse";
+export { RetentionFilterType } from "./models/RetentionFilterType";
+export { RetentionFilterUpdateData } from "./models/RetentionFilterUpdateData";
+export { RetentionFilterUpdateRequest } from "./models/RetentionFilterUpdateRequest";
+export { RetentionFilterWithoutAttributes } from "./models/RetentionFilterWithoutAttributes";
 export { Role } from "./models/Role";
 export { RoleAttributes } from "./models/RoleAttributes";
 export { RoleClone } from "./models/RoleClone";
@@ -1359,6 +1383,8 @@ export { SpansAggregationFunction } from "./models/SpansAggregationFunction";
 export { SpansAttributes } from "./models/SpansAttributes";
 export { SpansCompute } from "./models/SpansCompute";
 export { SpansComputeType } from "./models/SpansComputeType";
+export { SpansFilter } from "./models/SpansFilter";
+export { SpansFilterCreate } from "./models/SpansFilterCreate";
 export { SpansGroupBy } from "./models/SpansGroupBy";
 export { SpansGroupByHistogram } from "./models/SpansGroupByHistogram";
 export { SpansGroupByMissing } from "./models/SpansGroupByMissing";

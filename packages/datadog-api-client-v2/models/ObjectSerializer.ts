@@ -553,12 +553,25 @@ import { RelationshipToUserTeamPermissionData } from "./RelationshipToUserTeamPe
 import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
 import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
+import { ReorderRetentionFiltersRequest } from "./ReorderRetentionFiltersRequest";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
 import { RestrictionPolicyAttributes } from "./RestrictionPolicyAttributes";
 import { RestrictionPolicyBinding } from "./RestrictionPolicyBinding";
 import { RestrictionPolicyResponse } from "./RestrictionPolicyResponse";
 import { RestrictionPolicyUpdateRequest } from "./RestrictionPolicyUpdateRequest";
+import { RetentionFilter } from "./RetentionFilter";
+import { RetentionFilterAll } from "./RetentionFilterAll";
+import { RetentionFilterAllAttributes } from "./RetentionFilterAllAttributes";
+import { RetentionFilterAttributes } from "./RetentionFilterAttributes";
+import { RetentionFilterCreateAttributes } from "./RetentionFilterCreateAttributes";
+import { RetentionFilterCreateData } from "./RetentionFilterCreateData";
+import { RetentionFilterCreateRequest } from "./RetentionFilterCreateRequest";
+import { RetentionFilterResponse } from "./RetentionFilterResponse";
+import { RetentionFilterUpdateData } from "./RetentionFilterUpdateData";
+import { RetentionFilterUpdateRequest } from "./RetentionFilterUpdateRequest";
+import { RetentionFilterWithoutAttributes } from "./RetentionFilterWithoutAttributes";
+import { RetentionFiltersResponse } from "./RetentionFiltersResponse";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleClone } from "./RoleClone";
@@ -732,6 +745,8 @@ import { SpansAggregateResponseMetadata } from "./SpansAggregateResponseMetadata
 import { SpansAggregateSort } from "./SpansAggregateSort";
 import { SpansAttributes } from "./SpansAttributes";
 import { SpansCompute } from "./SpansCompute";
+import { SpansFilter } from "./SpansFilter";
+import { SpansFilterCreate } from "./SpansFilterCreate";
 import { SpansGroupBy } from "./SpansGroupBy";
 import { SpansGroupByHistogram } from "./SpansGroupByHistogram";
 import { SpansListRequest } from "./SpansListRequest";
@@ -875,6 +890,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
     "created_at",
     "-created_at",
@@ -1140,6 +1156,12 @@ const enumsMap: { [key: string]: any[] } = {
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
   RestrictionPolicyType: ["restriction_policy"],
+  RetentionFilterAllType: [
+    "spans-sampling-processor",
+    "spans-errors-sampling-processor",
+    "spans-appsec-sampling-processor",
+  ],
+  RetentionFilterType: ["spans-sampling-processor"],
   RolesSort: [
     "name",
     "-name",
@@ -1924,12 +1946,25 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserTeamUser: RelationshipToUserTeamUser,
   RelationshipToUserTeamUserData: RelationshipToUserTeamUserData,
   RelationshipToUsers: RelationshipToUsers,
+  ReorderRetentionFiltersRequest: ReorderRetentionFiltersRequest,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
   RestrictionPolicyAttributes: RestrictionPolicyAttributes,
   RestrictionPolicyBinding: RestrictionPolicyBinding,
   RestrictionPolicyResponse: RestrictionPolicyResponse,
   RestrictionPolicyUpdateRequest: RestrictionPolicyUpdateRequest,
+  RetentionFilter: RetentionFilter,
+  RetentionFilterAll: RetentionFilterAll,
+  RetentionFilterAllAttributes: RetentionFilterAllAttributes,
+  RetentionFilterAttributes: RetentionFilterAttributes,
+  RetentionFilterCreateAttributes: RetentionFilterCreateAttributes,
+  RetentionFilterCreateData: RetentionFilterCreateData,
+  RetentionFilterCreateRequest: RetentionFilterCreateRequest,
+  RetentionFilterResponse: RetentionFilterResponse,
+  RetentionFilterUpdateData: RetentionFilterUpdateData,
+  RetentionFilterUpdateRequest: RetentionFilterUpdateRequest,
+  RetentionFilterWithoutAttributes: RetentionFilterWithoutAttributes,
+  RetentionFiltersResponse: RetentionFiltersResponse,
   Role: Role,
   RoleAttributes: RoleAttributes,
   RoleClone: RoleClone,
@@ -2143,6 +2178,8 @@ const typeMap: { [index: string]: any } = {
   SpansAggregateSort: SpansAggregateSort,
   SpansAttributes: SpansAttributes,
   SpansCompute: SpansCompute,
+  SpansFilter: SpansFilter,
+  SpansFilterCreate: SpansFilterCreate,
   SpansGroupBy: SpansGroupBy,
   SpansGroupByHistogram: SpansGroupByHistogram,
   SpansListRequest: SpansListRequest,
