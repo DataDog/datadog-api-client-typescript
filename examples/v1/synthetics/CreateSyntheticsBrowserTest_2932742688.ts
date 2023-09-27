@@ -39,7 +39,7 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
       minLocationFailed: 1,
       noScreenshot: true,
       retry: {
-        count: 3,
+        count: 2,
         interval: 10,
       },
       rumSettings: {
