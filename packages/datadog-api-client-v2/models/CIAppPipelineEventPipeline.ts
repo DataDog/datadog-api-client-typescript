@@ -29,7 +29,7 @@ export class CIAppPipelineEventPipeline {
    * If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
    * Note that either `tag` or `branch` has to be provided, but not both.
    */
-  "git": CIAppGitInfo | null;
+  "git"?: CIAppGitInfo;
   /**
    * Whether or not the pipeline was triggered manually by the user.
    */
@@ -124,7 +124,6 @@ export class CIAppPipelineEventPipeline {
     git: {
       baseName: "git",
       type: "CIAppGitInfo",
-      required: true,
     },
     isManual: {
       baseName: "is_manual",

@@ -27,7 +27,7 @@ export class CIAppPipelineEventStep {
    * If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
    * Note that either `tag` or `branch` has to be provided, but not both.
    */
-  "git": CIAppGitInfo | null;
+  "git"?: CIAppGitInfo;
   /**
    * UUID for the step. It has to be unique within each pipeline execution.
    */
@@ -115,7 +115,6 @@ export class CIAppPipelineEventStep {
     git: {
       baseName: "git",
       type: "CIAppGitInfo",
-      required: true,
     },
     id: {
       baseName: "id",
