@@ -389,6 +389,18 @@ export class UsageSummaryResponse {
    */
   "sdsTotalScannedBytesSum"?: number;
   /**
+   * Sum of the average number of Serverless Apps for Azure in the current months for all organizations.
+   */
+  "serverlessAppsAzureCountAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Google Cloud in the current months for all organizations.
+   */
+  "serverlessAppsGoogleCountAvgSum"?: number;
+  /**
+   * Sum of the average number of Serverless Apps for Azure and Google Cloud in the current months for all organizations.
+   */
+  "serverlessAppsTotalCountAvgSum"?: number;
+  /**
    * Shows the first date of usage in the current months for all organizations.
    */
   "startDate"?: Date;
@@ -912,6 +924,21 @@ export class UsageSummaryResponse {
     },
     sdsTotalScannedBytesSum: {
       baseName: "sds_total_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsAzureCountAvgSum: {
+      baseName: "serverless_apps_azure_count_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsGoogleCountAvgSum: {
+      baseName: "serverless_apps_google_count_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsTotalCountAvgSum: {
+      baseName: "serverless_apps_total_count_avg_sum",
       type: "number",
       format: "int64",
     },
