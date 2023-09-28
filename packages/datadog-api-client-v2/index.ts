@@ -1,6 +1,7 @@
 export {
   APMRetentionFiltersApiCreateApmRetentionFilterRequest,
   APMRetentionFiltersApiDeleteApmRetentionFilterRequest,
+  APMRetentionFiltersApiGetApmRetentionFilterRequest,
   APMRetentionFiltersApiReorderApmRetentionFiltersRequest,
   APMRetentionFiltersApiUpdateApmRetentionFilterRequest,
   APMRetentionFiltersApi,

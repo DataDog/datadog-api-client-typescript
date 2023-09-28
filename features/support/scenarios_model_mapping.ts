@@ -2522,6 +2522,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
+    "v2.GetApmRetentionFilter": {
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RetentionFilterResponse",
+    },
     "v2.UpdateApmRetentionFilter": {
         "filterId": {
             "type": "string",
