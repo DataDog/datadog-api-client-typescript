@@ -367,6 +367,18 @@ export class UsageSummaryDateOrg {
    */
   "sdsTotalScannedBytesSum"?: number;
   /**
+   * Shows the average of the number of Serverless Apps for Azure for the given date and given org.
+   */
+  "serverlessAppsAzureCountAvg"?: number;
+  /**
+   * Shows the average of the number of Serverless Apps for Google Cloud for the given date and given org.
+   */
+  "serverlessAppsGoogleCountAvg"?: number;
+  /**
+   * Shows the average of the number of Serverless Apps for Azure and Google Cloud for the given date and given org.
+   */
+  "serverlessAppsTotalCountAvg"?: number;
+  /**
    * Shows the sum of all Synthetic browser tests over all hours in the current date for the given org.
    */
   "syntheticsBrowserCheckCallsCountSum"?: number;
@@ -854,6 +866,21 @@ export class UsageSummaryDateOrg {
     },
     sdsTotalScannedBytesSum: {
       baseName: "sds_total_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsAzureCountAvg: {
+      baseName: "serverless_apps_azure_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsGoogleCountAvg: {
+      baseName: "serverless_apps_google_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsTotalCountAvg: {
+      baseName: "serverless_apps_total_count_avg",
       type: "number",
       format: "int64",
     },

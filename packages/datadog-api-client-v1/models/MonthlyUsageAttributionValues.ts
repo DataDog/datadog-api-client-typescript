@@ -283,6 +283,14 @@ export class MonthlyUsageAttributionValues {
    */
   "sdsScannedBytesUsage"?: number;
   /**
+   * The percentage of Serverless Apps usage by tag(s).
+   */
+  "serverlessAppsPercentage"?: number;
+  /**
+   * The total Serverless Apps usage by tag(s).
+   */
+  "serverlessAppsUsage"?: number;
+  /**
    * The percentage of network device usage by tag(s).
    */
   "snmpPercentage"?: number;
@@ -653,6 +661,16 @@ export class MonthlyUsageAttributionValues {
     },
     sdsScannedBytesUsage: {
       baseName: "sds_scanned_bytes_usage",
+      type: "number",
+      format: "double",
+    },
+    serverlessAppsPercentage: {
+      baseName: "serverless_apps_percentage",
+      type: "number",
+      format: "double",
+    },
+    serverlessAppsUsage: {
+      baseName: "serverless_apps_usage",
       type: "number",
       format: "double",
     },

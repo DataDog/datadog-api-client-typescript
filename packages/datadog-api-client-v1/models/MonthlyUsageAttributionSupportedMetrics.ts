@@ -75,6 +75,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof PROFILED_FARGATE_PERCENTAGE
   | typeof PROFILED_HOST_USAGE
   | typeof PROFILED_HOST_PERCENTAGE
+  | typeof SERVERLESS_APPS_USAGE
+  | typeof SERVERLESS_APPS_PERCENTAGE
   | typeof SNMP_USAGE
   | typeof SNMP_PERCENTAGE
   | typeof ESTIMATED_RUM_SESSIONS_USAGE
@@ -158,6 +160,8 @@ export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
 export const PROFILED_FARGATE_PERCENTAGE = "profiled_fargate_percentage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const PROFILED_HOST_PERCENTAGE = "profiled_host_percentage";
+export const SERVERLESS_APPS_USAGE = "serverless_apps_usage";
+export const SERVERLESS_APPS_PERCENTAGE = "serverless_apps_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const SNMP_PERCENTAGE = "snmp_percentage";
 export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
