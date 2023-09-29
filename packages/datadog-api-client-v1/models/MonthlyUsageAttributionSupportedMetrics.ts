@@ -65,6 +65,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof INVOCATIONS_PERCENTAGE
   | typeof MOBILE_APP_TESTING_USAGE
   | typeof MOBILE_APP_TESTING_PERCENTAGE
+  | typeof NDM_NETFLOW_USAGE
+  | typeof NDM_NETFLOW_PERCENTAGE
   | typeof NPM_HOST_USAGE
   | typeof NPM_HOST_PERCENTAGE
   | typeof OBS_PIPELINE_BYTES_USAGE
@@ -150,6 +152,8 @@ export const INVOCATIONS_USAGE = "invocations_usage";
 export const INVOCATIONS_PERCENTAGE = "invocations_percentage";
 export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage";
 export const MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage";
+export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";
+export const NDM_NETFLOW_PERCENTAGE = "ndm_netflow_percentage";
 export const NPM_HOST_USAGE = "npm_host_usage";
 export const NPM_HOST_PERCENTAGE = "npm_host_percentage";
 export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
