@@ -309,6 +309,10 @@ export class UsageSummaryResponse {
    */
   "mobileRumUnitsAggSum"?: number;
   /**
+   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current months for all organizations.
+   */
+  "ndmNetflowEventsAggSum"?: number;
+  /**
    * Shows the sum of all Network flows indexed over all hours in the current months for all organizations.
    */
   "netflowIndexedEventsCountAggSum"?: number;
@@ -824,6 +828,11 @@ export class UsageSummaryResponse {
     },
     mobileRumUnitsAggSum: {
       baseName: "mobile_rum_units_agg_sum",
+      type: "number",
+      format: "int64",
+    },
+    ndmNetflowEventsAggSum: {
+      baseName: "ndm_netflow_events_agg_sum",
       type: "number",
       format: "int64",
     },

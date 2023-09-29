@@ -288,6 +288,10 @@ export class UsageSummaryDate {
    */
   "mobileRumUnitsSum"?: number;
   /**
+   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for the given org.
+   */
+  "ndmNetflowEventsSum"?: number;
+  /**
    * Shows the sum of all Network flows indexed over all hours in the current date for all organizations.
    */
   "netflowIndexedEventsCountSum"?: number;
@@ -763,6 +767,11 @@ export class UsageSummaryDate {
     },
     mobileRumUnitsSum: {
       baseName: "mobile_rum_units_sum",
+      type: "number",
+      format: "int64",
+    },
+    ndmNetflowEventsSum: {
+      baseName: "ndm_netflow_events_sum",
       type: "number",
       format: "int64",
     },

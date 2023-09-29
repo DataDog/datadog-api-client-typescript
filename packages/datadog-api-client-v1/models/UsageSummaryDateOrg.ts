@@ -291,6 +291,10 @@ export class UsageSummaryDateOrg {
    */
   "name"?: string;
   /**
+   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for the given org.
+   */
+  "ndmNetflowEventsSum"?: number;
+  /**
    * Shows the sum of all Network flows indexed over all hours in the current date for the given org.
    */
   "netflowIndexedEventsCountSum"?: number;
@@ -775,6 +779,11 @@ export class UsageSummaryDateOrg {
     name: {
       baseName: "name",
       type: "string",
+    },
+    ndmNetflowEventsSum: {
+      baseName: "ndm_netflow_events_sum",
+      type: "number",
+      format: "int64",
     },
     netflowIndexedEventsCountSum: {
       baseName: "netflow_indexed_events_count_sum",

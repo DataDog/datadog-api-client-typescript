@@ -235,6 +235,14 @@ export class MonthlyUsageAttributionValues {
    */
   "mobileAppTestingUsage"?: number;
   /**
+   * The percentage of Network Device Monitoring NetFlow usage by tag(s).
+   */
+  "ndmNetflowPercentage"?: number;
+  /**
+   * The Network Device Monitoring NetFlow usage by tag(s).
+   */
+  "ndmNetflowUsage"?: number;
+  /**
    * The percentage of network host usage by tag(s).
    */
   "npmHostPercentage"?: number;
@@ -601,6 +609,16 @@ export class MonthlyUsageAttributionValues {
     },
     mobileAppTestingUsage: {
       baseName: "mobile_app_testing_usage",
+      type: "number",
+      format: "double",
+    },
+    ndmNetflowPercentage: {
+      baseName: "ndm_netflow_percentage",
+      type: "number",
+      format: "double",
+    },
+    ndmNetflowUsage: {
+      baseName: "ndm_netflow_usage",
       type: "number",
       format: "double",
     },
