@@ -4096,6 +4096,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
+    "v2.GetAllPowerpacks": {
+        "operationResponseType": "GetAllPowerpacksResponse",
+    },
+    "v2.CreatePowerpack": {
+        "body": {
+            "type": "Powerpack",
+            "format": "",
+            },
+        "operationResponseType": "PowerpackResponse",
+    },
+    "v2.DeletePowerpack": {
+        "powerpackId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetPowerpack": {
+        "powerpackId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PowerpackResponse",
+    },
+    "v2.UpdatePowerpack": {
+        "powerpackId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "Powerpack",
+            "format": "",
+            },
+        "operationResponseType": "PowerpackResponse",
+    },
     "v2.ListProcesses": {
         "search": {
             "type": "string",
