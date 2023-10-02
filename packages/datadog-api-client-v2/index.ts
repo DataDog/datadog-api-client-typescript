@@ -242,6 +242,14 @@ export {
 } from "./apis/OrganizationsApi";
 
 export {
+  PowerpackApiCreatePowerpackRequest,
+  PowerpackApiDeletePowerpackRequest,
+  PowerpackApiGetPowerpackRequest,
+  PowerpackApiUpdatePowerpackRequest,
+  PowerpackApi,
+} from "./apis/PowerpackApi";
+
+export {
   ProcessesApiListProcessesRequest,
   ProcessesApi,
 } from "./apis/ProcessesApi";
@@ -700,6 +708,7 @@ export { GCPSTSServiceAccountResponse } from "./models/GCPSTSServiceAccountRespo
 export { GCPSTSServiceAccountsResponse } from "./models/GCPSTSServiceAccountsResponse";
 export { GCPSTSServiceAccountUpdateRequest } from "./models/GCPSTSServiceAccountUpdateRequest";
 export { GCPSTSServiceAccountUpdateRequestData } from "./models/GCPSTSServiceAccountUpdateRequestData";
+export { GetAllPowerpacksResponse } from "./models/GetAllPowerpacksResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
@@ -1042,6 +1051,15 @@ export { Permission } from "./models/Permission";
 export { PermissionAttributes } from "./models/PermissionAttributes";
 export { PermissionsResponse } from "./models/PermissionsResponse";
 export { PermissionsType } from "./models/PermissionsType";
+export { Powerpack } from "./models/Powerpack";
+export { PowerpackAttributes } from "./models/PowerpackAttributes";
+export { PowerpackData } from "./models/PowerpackData";
+export { PowerpackRelationships } from "./models/PowerpackRelationships";
+export { PowerpackResponse } from "./models/PowerpackResponse";
+export { PowerpackResponseLinks } from "./models/PowerpackResponseLinks";
+export { PowerpacksResponseMeta } from "./models/PowerpacksResponseMeta";
+export { PowerpacksResponseMetaPagination } from "./models/PowerpacksResponseMetaPagination";
+export { PowerpackTemplateVariable } from "./models/PowerpackTemplateVariable";
 export { ProcessSummariesMeta } from "./models/ProcessSummariesMeta";
 export { ProcessSummariesMetaPage } from "./models/ProcessSummariesMetaPage";
 export { ProcessSummariesResponse } from "./models/ProcessSummariesResponse";

@@ -231,6 +231,7 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GetAllPowerpacksResponse } from "./GetAllPowerpacksResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPCIAppError } from "./HTTPCIAppError";
@@ -489,6 +490,15 @@ import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { Powerpack } from "./Powerpack";
+import { PowerpackAttributes } from "./PowerpackAttributes";
+import { PowerpackData } from "./PowerpackData";
+import { PowerpackRelationships } from "./PowerpackRelationships";
+import { PowerpackResponse } from "./PowerpackResponse";
+import { PowerpackResponseLinks } from "./PowerpackResponseLinks";
+import { PowerpackTemplateVariable } from "./PowerpackTemplateVariable";
+import { PowerpacksResponseMeta } from "./PowerpacksResponseMeta";
+import { PowerpacksResponseMetaPagination } from "./PowerpacksResponseMetaPagination";
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
@@ -1599,6 +1609,7 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GetAllPowerpacksResponse: GetAllPowerpacksResponse,
   GetFindingResponse: GetFindingResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPCIAppError: HTTPCIAppError,
@@ -1878,6 +1889,15 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  Powerpack: Powerpack,
+  PowerpackAttributes: PowerpackAttributes,
+  PowerpackData: PowerpackData,
+  PowerpackRelationships: PowerpackRelationships,
+  PowerpackResponse: PowerpackResponse,
+  PowerpackResponseLinks: PowerpackResponseLinks,
+  PowerpackTemplateVariable: PowerpackTemplateVariable,
+  PowerpacksResponseMeta: PowerpacksResponseMeta,
+  PowerpacksResponseMetaPagination: PowerpacksResponseMetaPagination,
   ProcessSummariesMeta: ProcessSummariesMeta,
   ProcessSummariesMetaPage: ProcessSummariesMetaPage,
   ProcessSummariesResponse: ProcessSummariesResponse,
