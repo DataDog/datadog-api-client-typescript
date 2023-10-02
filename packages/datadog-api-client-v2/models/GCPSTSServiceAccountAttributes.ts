@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class GCPSTSServiceAccountAttributes {
   /**
+   * Tags to be associated with GCP metrics and service checks from your account.
+   */
+  "accountTags"?: Array<string>;
+  /**
    * Silence monitors for expected GCE instance shutdowns.
    */
   "automute"?: boolean;
@@ -36,6 +40,10 @@ export class GCPSTSServiceAccountAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountTags: {
+      baseName: "account_tags",
+      type: "Array<string>",
+    },
     automute: {
       baseName: "automute",
       type: "boolean",
