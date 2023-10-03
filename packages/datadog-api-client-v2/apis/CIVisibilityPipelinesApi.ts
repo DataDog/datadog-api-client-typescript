@@ -62,6 +62,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -109,10 +110,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
     requestContext.setBody(serializedBody);
 
     // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
+    applySecurityAuthentication(_config, requestContext, ["apiKeyAuth"]);
 
     return requestContext;
   }
@@ -178,6 +176,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -214,6 +213,7 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);

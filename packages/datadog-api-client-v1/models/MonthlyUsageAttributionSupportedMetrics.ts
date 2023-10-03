@@ -65,6 +65,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof INVOCATIONS_PERCENTAGE
   | typeof MOBILE_APP_TESTING_USAGE
   | typeof MOBILE_APP_TESTING_PERCENTAGE
+  | typeof NDM_NETFLOW_USAGE
+  | typeof NDM_NETFLOW_PERCENTAGE
   | typeof NPM_HOST_USAGE
   | typeof NPM_HOST_PERCENTAGE
   | typeof OBS_PIPELINE_BYTES_USAGE
@@ -75,6 +77,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof PROFILED_FARGATE_PERCENTAGE
   | typeof PROFILED_HOST_USAGE
   | typeof PROFILED_HOST_PERCENTAGE
+  | typeof SERVERLESS_APPS_USAGE
+  | typeof SERVERLESS_APPS_PERCENTAGE
   | typeof SNMP_USAGE
   | typeof SNMP_PERCENTAGE
   | typeof ESTIMATED_RUM_SESSIONS_USAGE
@@ -148,6 +152,8 @@ export const INVOCATIONS_USAGE = "invocations_usage";
 export const INVOCATIONS_PERCENTAGE = "invocations_percentage";
 export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage";
 export const MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage";
+export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";
+export const NDM_NETFLOW_PERCENTAGE = "ndm_netflow_percentage";
 export const NPM_HOST_USAGE = "npm_host_usage";
 export const NPM_HOST_PERCENTAGE = "npm_host_percentage";
 export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
@@ -158,6 +164,8 @@ export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
 export const PROFILED_FARGATE_PERCENTAGE = "profiled_fargate_percentage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
 export const PROFILED_HOST_PERCENTAGE = "profiled_host_percentage";
+export const SERVERLESS_APPS_USAGE = "serverless_apps_usage";
+export const SERVERLESS_APPS_PERCENTAGE = "serverless_apps_percentage";
 export const SNMP_USAGE = "snmp_usage";
 export const SNMP_PERCENTAGE = "snmp_percentage";
 export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";

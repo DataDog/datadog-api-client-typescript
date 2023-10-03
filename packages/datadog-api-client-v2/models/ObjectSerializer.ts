@@ -231,6 +231,7 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GetAllPowerpacksResponse } from "./GetAllPowerpacksResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPCIAppError } from "./HTTPCIAppError";
@@ -489,6 +490,15 @@ import { PartialApplicationKeyResponse } from "./PartialApplicationKeyResponse";
 import { Permission } from "./Permission";
 import { PermissionAttributes } from "./PermissionAttributes";
 import { PermissionsResponse } from "./PermissionsResponse";
+import { Powerpack } from "./Powerpack";
+import { PowerpackAttributes } from "./PowerpackAttributes";
+import { PowerpackData } from "./PowerpackData";
+import { PowerpackRelationships } from "./PowerpackRelationships";
+import { PowerpackResponse } from "./PowerpackResponse";
+import { PowerpackResponseLinks } from "./PowerpackResponseLinks";
+import { PowerpackTemplateVariable } from "./PowerpackTemplateVariable";
+import { PowerpacksResponseMeta } from "./PowerpacksResponseMeta";
+import { PowerpacksResponseMetaPagination } from "./PowerpacksResponseMetaPagination";
 import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
@@ -553,12 +563,25 @@ import { RelationshipToUserTeamPermissionData } from "./RelationshipToUserTeamPe
 import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
 import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
+import { ReorderRetentionFiltersRequest } from "./ReorderRetentionFiltersRequest";
 import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 import { RestrictionPolicy } from "./RestrictionPolicy";
 import { RestrictionPolicyAttributes } from "./RestrictionPolicyAttributes";
 import { RestrictionPolicyBinding } from "./RestrictionPolicyBinding";
 import { RestrictionPolicyResponse } from "./RestrictionPolicyResponse";
 import { RestrictionPolicyUpdateRequest } from "./RestrictionPolicyUpdateRequest";
+import { RetentionFilter } from "./RetentionFilter";
+import { RetentionFilterAll } from "./RetentionFilterAll";
+import { RetentionFilterAllAttributes } from "./RetentionFilterAllAttributes";
+import { RetentionFilterAttributes } from "./RetentionFilterAttributes";
+import { RetentionFilterCreateAttributes } from "./RetentionFilterCreateAttributes";
+import { RetentionFilterCreateData } from "./RetentionFilterCreateData";
+import { RetentionFilterCreateRequest } from "./RetentionFilterCreateRequest";
+import { RetentionFilterResponse } from "./RetentionFilterResponse";
+import { RetentionFilterUpdateData } from "./RetentionFilterUpdateData";
+import { RetentionFilterUpdateRequest } from "./RetentionFilterUpdateRequest";
+import { RetentionFilterWithoutAttributes } from "./RetentionFilterWithoutAttributes";
+import { RetentionFiltersResponse } from "./RetentionFiltersResponse";
 import { Role } from "./Role";
 import { RoleAttributes } from "./RoleAttributes";
 import { RoleClone } from "./RoleClone";
@@ -732,6 +755,8 @@ import { SpansAggregateResponseMetadata } from "./SpansAggregateResponseMetadata
 import { SpansAggregateSort } from "./SpansAggregateSort";
 import { SpansAttributes } from "./SpansAttributes";
 import { SpansCompute } from "./SpansCompute";
+import { SpansFilter } from "./SpansFilter";
+import { SpansFilterCreate } from "./SpansFilterCreate";
 import { SpansGroupBy } from "./SpansGroupBy";
 import { SpansGroupByHistogram } from "./SpansGroupByHistogram";
 import { SpansListRequest } from "./SpansListRequest";
@@ -875,6 +900,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
     "created_at",
     "-created_at",
@@ -1140,6 +1166,12 @@ const enumsMap: { [key: string]: any[] } = {
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
   RestrictionPolicyType: ["restriction_policy"],
+  RetentionFilterAllType: [
+    "spans-sampling-processor",
+    "spans-errors-sampling-processor",
+    "spans-appsec-sampling-processor",
+  ],
+  RetentionFilterType: ["spans-sampling-processor"],
   RolesSort: [
     "name",
     "-name",
@@ -1150,6 +1182,8 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   RolesType: ["roles"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
+  ScalarColumnTypeGroup: ["group"],
+  ScalarColumnTypeNumber: ["number"],
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
   SecurityFilterFilteredDataType: ["logs"],
@@ -1575,6 +1609,7 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GetAllPowerpacksResponse: GetAllPowerpacksResponse,
   GetFindingResponse: GetFindingResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPCIAppError: HTTPCIAppError,
@@ -1854,6 +1889,15 @@ const typeMap: { [index: string]: any } = {
   Permission: Permission,
   PermissionAttributes: PermissionAttributes,
   PermissionsResponse: PermissionsResponse,
+  Powerpack: Powerpack,
+  PowerpackAttributes: PowerpackAttributes,
+  PowerpackData: PowerpackData,
+  PowerpackRelationships: PowerpackRelationships,
+  PowerpackResponse: PowerpackResponse,
+  PowerpackResponseLinks: PowerpackResponseLinks,
+  PowerpackTemplateVariable: PowerpackTemplateVariable,
+  PowerpacksResponseMeta: PowerpacksResponseMeta,
+  PowerpacksResponseMetaPagination: PowerpacksResponseMetaPagination,
   ProcessSummariesMeta: ProcessSummariesMeta,
   ProcessSummariesMetaPage: ProcessSummariesMetaPage,
   ProcessSummariesResponse: ProcessSummariesResponse,
@@ -1922,12 +1966,25 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserTeamUser: RelationshipToUserTeamUser,
   RelationshipToUserTeamUserData: RelationshipToUserTeamUserData,
   RelationshipToUsers: RelationshipToUsers,
+  ReorderRetentionFiltersRequest: ReorderRetentionFiltersRequest,
   ResponseMetaAttributes: ResponseMetaAttributes,
   RestrictionPolicy: RestrictionPolicy,
   RestrictionPolicyAttributes: RestrictionPolicyAttributes,
   RestrictionPolicyBinding: RestrictionPolicyBinding,
   RestrictionPolicyResponse: RestrictionPolicyResponse,
   RestrictionPolicyUpdateRequest: RestrictionPolicyUpdateRequest,
+  RetentionFilter: RetentionFilter,
+  RetentionFilterAll: RetentionFilterAll,
+  RetentionFilterAllAttributes: RetentionFilterAllAttributes,
+  RetentionFilterAttributes: RetentionFilterAttributes,
+  RetentionFilterCreateAttributes: RetentionFilterCreateAttributes,
+  RetentionFilterCreateData: RetentionFilterCreateData,
+  RetentionFilterCreateRequest: RetentionFilterCreateRequest,
+  RetentionFilterResponse: RetentionFilterResponse,
+  RetentionFilterUpdateData: RetentionFilterUpdateData,
+  RetentionFilterUpdateRequest: RetentionFilterUpdateRequest,
+  RetentionFilterWithoutAttributes: RetentionFilterWithoutAttributes,
+  RetentionFiltersResponse: RetentionFiltersResponse,
   Role: Role,
   RoleAttributes: RoleAttributes,
   RoleClone: RoleClone,
@@ -2141,6 +2198,8 @@ const typeMap: { [index: string]: any } = {
   SpansAggregateSort: SpansAggregateSort,
   SpansAttributes: SpansAttributes,
   SpansCompute: SpansCompute,
+  SpansFilter: SpansFilter,
+  SpansFilterCreate: SpansFilterCreate,
   SpansGroupBy: SpansGroupBy,
   SpansGroupByHistogram: SpansGroupByHistogram,
   SpansListRequest: SpansListRequest,

@@ -91,19 +91,19 @@ export class MonthlyUsageAttributionValues {
    */
   "containerUsage"?: number;
   /**
-   * The percentage of CSPM container usage by tag(s).
+   * The percentage of Cloud Security Management Pro container usage by tag(s).
    */
   "cspmContainersPercentage"?: number;
   /**
-   * The CSPM container usage by tag(s).
+   * The Cloud Security Management Pro container usage by tag(s).
    */
   "cspmContainersUsage"?: number;
   /**
-   * The percentage of CSPM host usage by by tag(s).
+   * The percentage of Cloud Security Management Pro host usage by tag(s).
    */
   "cspmHostsPercentage"?: number;
   /**
-   * The CSPM host usage by tag(s).
+   * The Cloud Security Management Pro host usage by tag(s).
    */
   "cspmHostsUsage"?: number;
   /**
@@ -235,6 +235,14 @@ export class MonthlyUsageAttributionValues {
    */
   "mobileAppTestingUsage"?: number;
   /**
+   * The percentage of Network Device Monitoring NetFlow usage by tag(s).
+   */
+  "ndmNetflowPercentage"?: number;
+  /**
+   * The Network Device Monitoring NetFlow usage by tag(s).
+   */
+  "ndmNetflowUsage"?: number;
+  /**
    * The percentage of network host usage by tag(s).
    */
   "npmHostPercentage"?: number;
@@ -282,6 +290,14 @@ export class MonthlyUsageAttributionValues {
    * The total Sensitive Data Scanner usage by tag(s).
    */
   "sdsScannedBytesUsage"?: number;
+  /**
+   * The percentage of Serverless Apps usage by tag(s).
+   */
+  "serverlessAppsPercentage"?: number;
+  /**
+   * The total Serverless Apps usage by tag(s).
+   */
+  "serverlessAppsUsage"?: number;
   /**
    * The percentage of network device usage by tag(s).
    */
@@ -596,6 +612,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    ndmNetflowPercentage: {
+      baseName: "ndm_netflow_percentage",
+      type: "number",
+      format: "double",
+    },
+    ndmNetflowUsage: {
+      baseName: "ndm_netflow_usage",
+      type: "number",
+      format: "double",
+    },
     npmHostPercentage: {
       baseName: "npm_host_percentage",
       type: "number",
@@ -653,6 +679,16 @@ export class MonthlyUsageAttributionValues {
     },
     sdsScannedBytesUsage: {
       baseName: "sds_scanned_bytes_usage",
+      type: "number",
+      format: "double",
+    },
+    serverlessAppsPercentage: {
+      baseName: "serverless_apps_percentage",
+      type: "number",
+      format: "double",
+    },
+    serverlessAppsUsage: {
+      baseName: "serverless_apps_usage",
       type: "number",
       format: "double",
     },

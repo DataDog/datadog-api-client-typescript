@@ -31,7 +31,7 @@ export class CIAppPipelineEventStage {
    * If pipelines are triggered due to actions to a Git repository, then all payloads must contain this.
    * Note that either `tag` or `branch` has to be provided, but not both.
    */
-  "git": CIAppGitInfo | null;
+  "git"?: CIAppGitInfo;
   /**
    * UUID for the stage. It has to be unique at least in the pipeline scope.
    */
@@ -107,7 +107,6 @@ export class CIAppPipelineEventStage {
     git: {
       baseName: "git",
       type: "CIAppGitInfo",
-      required: true,
     },
     id: {
       baseName: "id",

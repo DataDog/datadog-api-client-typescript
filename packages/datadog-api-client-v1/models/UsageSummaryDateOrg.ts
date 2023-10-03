@@ -119,31 +119,71 @@ export class UsageSummaryDateOrg {
    */
   "containerHwm"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management Azure app services hosts over all hours in the current date for the given org.
+   * Shows the sum of all Cloud Security Management Enterprise compliance containers over all hours in the current date for the given org.
+   */
+  "csmContainerEnterpriseComplianceCountSum"?: number;
+  /**
+   * Shows the sum of all Cloud Security Management Enterprise Cloud Workload Security containers over all hours in the current date for the given org.
+   */
+  "csmContainerEnterpriseCwsCountSum"?: number;
+  /**
+   * Shows the sum of all Cloud Security Management Enterprise containers over all hours in the current date for the given org.
+   */
+  "csmContainerEnterpriseTotalCountSum"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure app services hosts over all hours in the current date for the given org.
+   */
+  "csmHostEnterpriseAasHostCountTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise AWS hosts over all hours in the current date for the given org.
+   */
+  "csmHostEnterpriseAwsHostCountTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Azure hosts over all hours in the current date for the given org.
+   */
+  "csmHostEnterpriseAzureHostCountTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise compliance hosts over all hours in the current date for the given org.
+   */
+  "csmHostEnterpriseComplianceHostCountTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise Cloud Workload Security hosts over all hours in the current date for the given org.
+   */
+  "csmHostEnterpriseCwsHostCountTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise GCP hosts over all hours in the current date for the given org.
+   */
+  "csmHostEnterpriseGcpHostCountTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Enterprise hosts over all hours in the current date for the given org.
+   */
+  "csmHostEnterpriseTotalHostCountTop99p"?: number;
+  /**
+   * Shows the 99th percentile of all Cloud Security Management Pro Azure app services hosts over all hours in the current date for the given org.
    */
   "cspmAasHostTop99p"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management AWS hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Pro AWS hosts over all hours in the current date for the given org.
    */
   "cspmAwsHostTop99p"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management Azure hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Pro Azure hosts over all hours in the current date for the given org.
    */
   "cspmAzureHostTop99p"?: number;
   /**
-   * Shows the average number of Cloud Security Posture Management containers over all hours in the current date for the given org.
+   * Shows the average number of Cloud Security Management Pro containers over all hours in the current date for the given org.
    */
   "cspmContainerAvg"?: number;
   /**
-   * Shows the high-water mark of Cloud Security Posture Management containers over all hours in the current date for the given org.
+   * Shows the high-water mark of Cloud Security Management Pro containers over all hours in the current date for the given org.
    */
   "cspmContainerHwm"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management GCP hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Pro GCP hosts over all hours in the current date for the given org.
    */
   "cspmGcpHostTop99p"?: number;
   /**
-   * Shows the 99th percentile of all Cloud Security Posture Management hosts over all hours in the current date for the given org.
+   * Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the current date for the given org.
    */
   "cspmHostTop99p"?: number;
   /**
@@ -251,6 +291,10 @@ export class UsageSummaryDateOrg {
    */
   "name"?: string;
   /**
+   * Shows the sum of all Network Device Monitoring NetFlow events over all hours in the current date for the given org.
+   */
+  "ndmNetflowEventsSum"?: number;
+  /**
    * Shows the sum of all Network flows indexed over all hours in the current date for the given org.
    */
   "netflowIndexedEventsCountSum"?: number;
@@ -326,6 +370,18 @@ export class UsageSummaryDateOrg {
    * Shows the sum of all bytes scanned across all usage types by the Sensitive Data Scanner over all hours in the current month for the given org.
    */
   "sdsTotalScannedBytesSum"?: number;
+  /**
+   * Shows the average of the number of Serverless Apps for Azure for the given date and given org.
+   */
+  "serverlessAppsAzureCountAvg"?: number;
+  /**
+   * Shows the average of the number of Serverless Apps for Google Cloud for the given date and given org.
+   */
+  "serverlessAppsGoogleCountAvg"?: number;
+  /**
+   * Shows the average of the number of Serverless Apps for Azure and Google Cloud for the given date and given org.
+   */
+  "serverlessAppsTotalCountAvg"?: number;
   /**
    * Shows the sum of all Synthetic browser tests over all hours in the current date for the given org.
    */
@@ -511,6 +567,56 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    csmContainerEnterpriseComplianceCountSum: {
+      baseName: "csm_container_enterprise_compliance_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmContainerEnterpriseCwsCountSum: {
+      baseName: "csm_container_enterprise_cws_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmContainerEnterpriseTotalCountSum: {
+      baseName: "csm_container_enterprise_total_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseAasHostCountTop99p: {
+      baseName: "csm_host_enterprise_aas_host_count_top99p",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseAwsHostCountTop99p: {
+      baseName: "csm_host_enterprise_aws_host_count_top99p",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseAzureHostCountTop99p: {
+      baseName: "csm_host_enterprise_azure_host_count_top99p",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseComplianceHostCountTop99p: {
+      baseName: "csm_host_enterprise_compliance_host_count_top99p",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseCwsHostCountTop99p: {
+      baseName: "csm_host_enterprise_cws_host_count_top99p",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseGcpHostCountTop99p: {
+      baseName: "csm_host_enterprise_gcp_host_count_top99p",
+      type: "number",
+      format: "int64",
+    },
+    csmHostEnterpriseTotalHostCountTop99p: {
+      baseName: "csm_host_enterprise_total_host_count_top99p",
+      type: "number",
+      format: "int64",
+    },
     cspmAasHostTop99p: {
       baseName: "cspm_aas_host_top99p",
       type: "number",
@@ -674,6 +780,11 @@ export class UsageSummaryDateOrg {
       baseName: "name",
       type: "string",
     },
+    ndmNetflowEventsSum: {
+      baseName: "ndm_netflow_events_sum",
+      type: "number",
+      format: "int64",
+    },
     netflowIndexedEventsCountSum: {
       baseName: "netflow_indexed_events_count_sum",
       type: "number",
@@ -764,6 +875,21 @@ export class UsageSummaryDateOrg {
     },
     sdsTotalScannedBytesSum: {
       baseName: "sds_total_scanned_bytes_sum",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsAzureCountAvg: {
+      baseName: "serverless_apps_azure_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsGoogleCountAvg: {
+      baseName: "serverless_apps_google_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    serverlessAppsTotalCountAvg: {
+      baseName: "serverless_apps_total_count_avg",
       type: "number",
       format: "int64",
     },

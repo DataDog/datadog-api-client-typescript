@@ -67,19 +67,19 @@ export class UsageAttributionValues {
    */
   "containerUsage"?: number;
   /**
-   * The percentage of Cloud Security Posture Management container usage by tag(s)
+   * The percentage of Cloud Security Management Pro container usage by tag(s)
    */
   "cspmContainerPercentage"?: number;
   /**
-   * The Cloud Security Posture Management container usage by tag(s)
+   * The Cloud Security Management Pro container usage by tag(s)
    */
   "cspmContainerUsage"?: number;
   /**
-   * The percentage of Cloud Security Posture Management host usage by tag(s)
+   * The percentage of Cloud Security Management Pro host usage by tag(s)
    */
   "cspmHostPercentage"?: number;
   /**
-   * The Cloud Security Posture Management host usage by tag(s)
+   * The Cloud Security Management Pro host usage by tag(s)
    */
   "cspmHostUsage"?: number;
   /**

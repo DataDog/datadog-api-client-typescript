@@ -7,35 +7,35 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Cloud Security Posture Management usage for a given organization for a given hour.
+ * Cloud Security Management Pro usage for a given organization for a given hour.
  */
 export class UsageCloudSecurityPostureManagementHour {
   /**
-   * The number of Cloud Security Posture Management Azure app services hosts during a given hour.
+   * The number of Cloud Security Management Pro Azure app services hosts during a given hour.
    */
   "aasHostCount"?: number;
   /**
-   * The number of Cloud Security Posture Management AWS hosts during a given hour.
+   * The number of Cloud Security Management Pro AWS hosts during a given hour.
    */
   "awsHostCount"?: number;
   /**
-   * The number of Cloud Security Posture Management Azure hosts during a given hour.
+   * The number of Cloud Security Management Pro Azure hosts during a given hour.
    */
   "azureHostCount"?: number;
   /**
-   * The number of Cloud Security Posture Management hosts during a given hour.
+   * The number of Cloud Security Management Pro hosts during a given hour.
    */
   "complianceHostCount"?: number;
   /**
-   * The total number of Cloud Security Posture Management containers during a given hour.
+   * The total number of Cloud Security Management Pro containers during a given hour.
    */
   "containerCount"?: number;
   /**
-   * The number of Cloud Security Posture Management GCP hosts during a given hour.
+   * The number of Cloud Security Management Pro GCP hosts during a given hour.
    */
   "gcpHostCount"?: number;
   /**
-   * The total number of Cloud Security Posture Management hosts during a given hour.
+   * The total number of Cloud Security Management Pro hosts during a given hour.
    */
   "hostCount"?: number;
   /**

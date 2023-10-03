@@ -2498,6 +2498,48 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SpansMetricResponse",
     },
+    "v2.ListApmRetentionFilters": {
+        "operationResponseType": "RetentionFiltersResponse",
+    },
+    "v2.CreateApmRetentionFilter": {
+        "body": {
+            "type": "RetentionFilterCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RetentionFilterResponse",
+    },
+    "v2.ReorderApmRetentionFilters": {
+        "body": {
+            "type": "ReorderRetentionFiltersRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.DeleteApmRetentionFilter": {
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetApmRetentionFilter": {
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "RetentionFilterResponse",
+    },
+    "v2.UpdateApmRetentionFilter": {
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "RetentionFilterUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "RetentionFilterResponse",
+    },
     "v2.ListAuditLogs": {
         "filterQuery": {
             "type": "string",
@@ -4053,6 +4095,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
+    },
+    "v2.GetAllPowerpacks": {
+        "operationResponseType": "GetAllPowerpacksResponse",
+    },
+    "v2.CreatePowerpack": {
+        "body": {
+            "type": "Powerpack",
+            "format": "",
+            },
+        "operationResponseType": "PowerpackResponse",
+    },
+    "v2.DeletePowerpack": {
+        "powerpackId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetPowerpack": {
+        "powerpackId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "PowerpackResponse",
+    },
+    "v2.UpdatePowerpack": {
+        "powerpackId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "Powerpack",
+            "format": "",
+            },
+        "operationResponseType": "PowerpackResponse",
     },
     "v2.ListProcesses": {
         "search": {

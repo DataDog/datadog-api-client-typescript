@@ -22,7 +22,7 @@ export class TimeseriesResponseAttributes {
   /**
    * Array of value-arrays. The index here corresponds to the index in the `formulas` or `queries` array from the request.
    */
-  "values"?: Array<Array<number>>;
+  "values"?: Array<Array<number | null>>;
 
   /**
    * @ignore

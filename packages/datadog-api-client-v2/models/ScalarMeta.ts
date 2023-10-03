@@ -17,7 +17,7 @@ export class ScalarMeta {
    * The second element describes the "per unit" (for example, `second` in `bytes per second`).
    * If the second element is not present, the API returns null.
    */
-  "unit"?: Array<Unit>;
+  "unit"?: Array<Unit | null>;
 
   /**
    * @ignore
