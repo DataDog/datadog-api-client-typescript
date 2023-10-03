@@ -78,6 +78,7 @@ When("the request is sent", async function (this: World) {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
     zstdCompressorCallback: (body: string) => compressSync({input: Buffer.from(body, "utf8")}),
+    enableRetry: true,
   };
   if (process.env.DD_TEST_SITE) {
     const serverConf = datadogApiClient.client.servers[2].getConfiguration();
@@ -168,6 +169,7 @@ When("the request with pagination is sent", async function (this: World) {
   const configurationOpts = {
     authMethods: this.authMethods,
     httpConfig: { compress: false },
+    enableRetry: true,
   };
   if (process.env.DD_TEST_SITE) {
     const serverConf = datadogApiClient.client.servers[2].getConfiguration();
