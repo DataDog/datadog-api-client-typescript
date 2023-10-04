@@ -22,6 +22,7 @@ import { ListStreamWidgetDefinition } from "./ListStreamWidgetDefinition";
 import { LogStreamWidgetDefinition } from "./LogStreamWidgetDefinition";
 import { MonitorSummaryWidgetDefinition } from "./MonitorSummaryWidgetDefinition";
 import { NoteWidgetDefinition } from "./NoteWidgetDefinition";
+import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { RunWorkflowWidgetDefinition } from "./RunWorkflowWidgetDefinition";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
@@ -63,6 +64,7 @@ export type WidgetDefinition =
   | LogStreamWidgetDefinition
   | MonitorSummaryWidgetDefinition
   | NoteWidgetDefinition
+  | PowerpackWidgetDefinition
   | QueryValueWidgetDefinition
   | RunWorkflowWidgetDefinition
   | SLOListWidgetDefinition
