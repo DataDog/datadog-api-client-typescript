@@ -267,6 +267,9 @@ import { PagerDutyService } from "./PagerDutyService";
 import { PagerDutyServiceKey } from "./PagerDutyServiceKey";
 import { PagerDutyServiceName } from "./PagerDutyServiceName";
 import { Pagination } from "./Pagination";
+import { PowerpackTemplateVariableContents } from "./PowerpackTemplateVariableContents";
+import { PowerpackTemplateVariables } from "./PowerpackTemplateVariables";
+import { PowerpackWidgetDefinition } from "./PowerpackWidgetDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { QueryValueWidgetRequest } from "./QueryValueWidgetRequest";
@@ -1002,6 +1005,7 @@ const enumsMap: { [key: string]: any[] } = {
     "show_and_notify_no_data",
     "resolve",
   ],
+  PowerpackWidgetDefinitionType: ["powerpack"],
   QuerySortOrder: ["asc", "desc"],
   QueryValueWidgetDefinitionType: ["query_value"],
   RunWorkflowWidgetDefinitionType: ["run_workflow"],
@@ -1764,6 +1768,9 @@ const typeMap: { [index: string]: any } = {
   PagerDutyServiceKey: PagerDutyServiceKey,
   PagerDutyServiceName: PagerDutyServiceName,
   Pagination: Pagination,
+  PowerpackTemplateVariableContents: PowerpackTemplateVariableContents,
+  PowerpackTemplateVariables: PowerpackTemplateVariables,
+  PowerpackWidgetDefinition: PowerpackWidgetDefinition,
   ProcessQueryDefinition: ProcessQueryDefinition,
   QueryValueWidgetDefinition: QueryValueWidgetDefinition,
   QueryValueWidgetRequest: QueryValueWidgetRequest,
@@ -2216,6 +2223,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "LogStreamWidgetDefinition",
     "MonitorSummaryWidgetDefinition",
     "NoteWidgetDefinition",
+    "PowerpackWidgetDefinition",
     "QueryValueWidgetDefinition",
     "RunWorkflowWidgetDefinition",
     "SLOListWidgetDefinition",
