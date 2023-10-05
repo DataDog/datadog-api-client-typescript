@@ -17,7 +17,7 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
-import { GetAllPowerpacksResponse } from "../models/GetAllPowerpacksResponse";
+import { ListPowerpacksResponse } from "../models/ListPowerpacksResponse";
 import { Powerpack } from "../models/Powerpack";
 import { PowerpackResponse } from "../models/PowerpackResponse";
 
@@ -98,31 +98,6 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
-  public async getAllPowerpacks(
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // Path Params
-    const localVarPath = "/api/v2/powerpacks";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.PowerpackApi.getAllPowerpacks")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
   public async getPowerpack(
     powerpackId: string,
     _options?: Configuration
@@ -143,6 +118,31 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.PowerpackApi.getPowerpack")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listPowerpacks(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/powerpacks";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.PowerpackApi.listPowerpacks")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -324,64 +324,6 @@ export class PowerpackApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getAllPowerpacks
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getAllPowerpacks(
-    response: ResponseContext
-  ): Promise<GetAllPowerpacksResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode == 200) {
-      const body: GetAllPowerpacksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetAllPowerpacksResponse"
-      ) as GetAllPowerpacksResponse;
-      return body;
-    }
-    if (response.httpStatusCode == 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: GetAllPowerpacksResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "GetAllPowerpacksResponse",
-        ""
-      ) as GetAllPowerpacksResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to getPowerpack
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -426,6 +368,64 @@ export class PowerpackApiResponseProcessor {
         "PowerpackResponse",
         ""
       ) as PowerpackResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listPowerpacks
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listPowerpacks(
+    response: ResponseContext
+  ): Promise<ListPowerpacksResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: ListPowerpacksResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListPowerpacksResponse"
+      ) as ListPowerpacksResponse;
+      return body;
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListPowerpacksResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListPowerpacksResponse",
+        ""
+      ) as ListPowerpacksResponse;
       return body;
     }
 
@@ -596,23 +596,6 @@ export class PowerpackApi {
   }
 
   /**
-   * Get a list of all powerpacks.
-   * @param param The request object
-   */
-  public getAllPowerpacks(
-    options?: Configuration
-  ): Promise<GetAllPowerpacksResponse> {
-    const requestContextPromise = this.requestFactory.getAllPowerpacks(options);
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getAllPowerpacks(responseContext);
-        });
-    });
-  }
-
-  /**
    * Get a powerpack.
    * @param param The request object
    */
@@ -629,6 +612,23 @@ export class PowerpackApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getPowerpack(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get a list of all powerpacks.
+   * @param param The request object
+   */
+  public listPowerpacks(
+    options?: Configuration
+  ): Promise<ListPowerpacksResponse> {
+    const requestContextPromise = this.requestFactory.listPowerpacks(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listPowerpacks(responseContext);
         });
     });
   }

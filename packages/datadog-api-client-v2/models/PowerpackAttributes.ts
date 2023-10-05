@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { PowerpackGroupWidget } from "./PowerpackGroupWidget";
 import { PowerpackTemplateVariable } from "./PowerpackTemplateVariable";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,9 +17,9 @@ export class PowerpackAttributes {
    */
   "description"?: string;
   /**
-   * Templated group of dashboard widgets for the powerpack.
+   * Powerpack group widget definition object.
    */
-  "groupWidget": { [key: string]: any };
+  "groupWidget": PowerpackGroupWidget;
   /**
    * Name of the powerpack.
    */
@@ -47,7 +48,7 @@ export class PowerpackAttributes {
     },
     groupWidget: {
       baseName: "group_widget",
-      type: "{ [key: string]: any; }",
+      type: "PowerpackGroupWidget",
       required: true,
     },
     name: {

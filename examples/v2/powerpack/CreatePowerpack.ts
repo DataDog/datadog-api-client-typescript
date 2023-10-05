@@ -13,9 +13,26 @@ const params: v2.PowerpackApiCreatePowerpackRequest = {
       attributes: {
         description: "Sample powerpack",
         groupWidget: {
-          definition:
-            "{'layout_type': 'ordered', 'show_title': True, 'title': 'Sample Powerpack', 'type': 'group', 'widgets': [{'definition': {'content': 'test', 'type': 'note'}}]}",
-          layout: "{'height': 3, 'width': 12, 'x': 0, 'y': 0}",
+          definition: {
+            layoutType: "ordered",
+            showTitle: true,
+            title: "Sample Powerpack",
+            type: "group",
+            widgets: [
+              {
+                definition: {
+                  content: "test",
+                  type: "note",
+                },
+              },
+            ],
+          },
+          layout: {
+            height: 3,
+            width: 12,
+            x: 0,
+            y: 0,
+          },
         },
         name: "Sample Powerpack",
         tags: ["tag:sample"],

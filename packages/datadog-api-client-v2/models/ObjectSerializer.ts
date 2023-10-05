@@ -231,7 +231,6 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
-import { GetAllPowerpacksResponse } from "./GetAllPowerpacksResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPCIAppError } from "./HTTPCIAppError";
@@ -343,6 +342,7 @@ import { ListDowntimesResponse } from "./ListDowntimesResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
+import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
@@ -493,6 +493,11 @@ import { PermissionsResponse } from "./PermissionsResponse";
 import { Powerpack } from "./Powerpack";
 import { PowerpackAttributes } from "./PowerpackAttributes";
 import { PowerpackData } from "./PowerpackData";
+import { PowerpackGroupWidget } from "./PowerpackGroupWidget";
+import { PowerpackGroupWidgetDefinition } from "./PowerpackGroupWidgetDefinition";
+import { PowerpackGroupWidgetLayout } from "./PowerpackGroupWidgetLayout";
+import { PowerpackInnerWidgetLayout } from "./PowerpackInnerWidgetLayout";
+import { PowerpackInnerWidgets } from "./PowerpackInnerWidgets";
 import { PowerpackRelationships } from "./PowerpackRelationships";
 import { PowerpackResponse } from "./PowerpackResponse";
 import { PowerpackResponseLinks } from "./PowerpackResponseLinks";
@@ -1609,7 +1614,6 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
-  GetAllPowerpacksResponse: GetAllPowerpacksResponse,
   GetFindingResponse: GetFindingResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPCIAppError: HTTPCIAppError,
@@ -1733,6 +1737,7 @@ const typeMap: { [index: string]: any } = {
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
+  ListPowerpacksResponse: ListPowerpacksResponse,
   Log: Log,
   LogAttributes: LogAttributes,
   LogsAggregateBucket: LogsAggregateBucket,
@@ -1892,6 +1897,11 @@ const typeMap: { [index: string]: any } = {
   Powerpack: Powerpack,
   PowerpackAttributes: PowerpackAttributes,
   PowerpackData: PowerpackData,
+  PowerpackGroupWidget: PowerpackGroupWidget,
+  PowerpackGroupWidgetDefinition: PowerpackGroupWidgetDefinition,
+  PowerpackGroupWidgetLayout: PowerpackGroupWidgetLayout,
+  PowerpackInnerWidgetLayout: PowerpackInnerWidgetLayout,
+  PowerpackInnerWidgets: PowerpackInnerWidgets,
   PowerpackRelationships: PowerpackRelationships,
   PowerpackResponse: PowerpackResponse,
   PowerpackResponseLinks: PowerpackResponseLinks,
