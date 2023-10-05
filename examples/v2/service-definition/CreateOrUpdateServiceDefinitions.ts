@@ -10,6 +10,7 @@ const apiInstance = new v2.ServiceDefinitionApi(configuration);
 const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
   body: {
     application: "my-app",
+    ciPipelineFingerprints: ["j88xdEy0J5lc", "eZ7LMljCk8vo"],
     contacts: [
       {
         contact: "contact@datadoghq.com",
