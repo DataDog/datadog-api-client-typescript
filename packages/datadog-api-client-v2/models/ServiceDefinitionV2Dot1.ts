@@ -19,6 +19,10 @@ export class ServiceDefinitionV2Dot1 {
    */
   "application"?: string;
   /**
+   * A set of CI pipeline fingerprints related to the service.
+   */
+  "ciPipelineFingerprints"?: Array<string>;
+  /**
    * A list of contacts related to the services.
    */
   "contacts"?: Array<ServiceDefinitionV2Dot1Contact>;
@@ -75,6 +79,10 @@ export class ServiceDefinitionV2Dot1 {
     application: {
       baseName: "application",
       type: "string",
+    },
+    ciPipelineFingerprints: {
+      baseName: "ci-pipeline-fingerprints",
+      type: "Array<string>",
     },
     contacts: {
       baseName: "contacts",
