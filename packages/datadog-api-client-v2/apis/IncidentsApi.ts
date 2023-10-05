@@ -2344,13 +2344,9 @@ export interface IncidentsApiListIncidentTodosRequest {
 
 export interface IncidentsApiSearchIncidentsRequest {
   /**
-   * Specifies which incidents should be returned. After entering a search query in your [Incidents page][1],
-   * use the query parameter value in the URL of the page as the value for this parameter.
-   *
-   * The query can contain any number of incident facets joined by `ANDs`, along with multiple values for each of
-   * those facets joined by `OR`s, for instance: `query="state:active AND severity:(SEV-2 OR SEV-1)"`.
-   *
-   * [1]: https://app.datadoghq.com/incidents
+   * Specifies which incidents should be returned. The query can contain any number of incident facets
+   * joined by `ANDs`, along with multiple values for each of those facets joined by `OR`s. For
+   * example: `state:active AND severity:(SEV-2 OR SEV-1)`.
    * @type string
    */
   query: string;
