@@ -8,8 +8,8 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.PowerpackApi(configuration);
 
 apiInstance
-  .getAllPowerpacks()
-  .then((data: v2.GetAllPowerpacksResponse) => {
+  .listPowerpacks()
+  .then((data: v2.ListPowerpacksResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );

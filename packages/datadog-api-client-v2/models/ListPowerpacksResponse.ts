@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * Response object which includes all powerpack configurations.
  */
-export class GetAllPowerpacksResponse {
+export class ListPowerpacksResponse {
   /**
    * List of powerpack definitions.
    */
@@ -62,7 +62,7 @@ export class GetAllPowerpacksResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return GetAllPowerpacksResponse.attributeTypeMap;
+    return ListPowerpacksResponse.attributeTypeMap;
   }
 
   public constructor() {}

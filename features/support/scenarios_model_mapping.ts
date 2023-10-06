@@ -4096,8 +4096,8 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
-    "v2.GetAllPowerpacks": {
-        "operationResponseType": "GetAllPowerpacksResponse",
+    "v2.ListPowerpacks": {
+        "operationResponseType": "ListPowerpacksResponse",
     },
     "v2.CreatePowerpack": {
         "body": {
