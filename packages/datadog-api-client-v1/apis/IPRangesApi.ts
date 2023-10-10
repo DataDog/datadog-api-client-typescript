@@ -10,7 +10,6 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
-import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IPRanges } from "../models/IPRanges";
 
 export class IPRangesApiRequestFactory extends BaseAPIRequestFactory {
@@ -55,20 +54,14 @@ export class IPRangesApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: APIErrorResponse;
+      let body: any;
       try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
