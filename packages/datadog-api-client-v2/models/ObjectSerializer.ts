@@ -738,6 +738,12 @@ import { ServiceDefinitionV2Dot1MSTeams } from "./ServiceDefinitionV2Dot1MSTeams
 import { ServiceDefinitionV2Dot1Opsgenie } from "./ServiceDefinitionV2Dot1Opsgenie";
 import { ServiceDefinitionV2Dot1Pagerduty } from "./ServiceDefinitionV2Dot1Pagerduty";
 import { ServiceDefinitionV2Dot1Slack } from "./ServiceDefinitionV2Dot1Slack";
+import { ServiceDefinitionV2Dot2 } from "./ServiceDefinitionV2Dot2";
+import { ServiceDefinitionV2Dot2Contact } from "./ServiceDefinitionV2Dot2Contact";
+import { ServiceDefinitionV2Dot2Integrations } from "./ServiceDefinitionV2Dot2Integrations";
+import { ServiceDefinitionV2Dot2Link } from "./ServiceDefinitionV2Dot2Link";
+import { ServiceDefinitionV2Dot2Opsgenie } from "./ServiceDefinitionV2Dot2Opsgenie";
+import { ServiceDefinitionV2Dot2Pagerduty } from "./ServiceDefinitionV2Dot2Pagerduty";
 import { ServiceDefinitionV2Email } from "./ServiceDefinitionV2Email";
 import { ServiceDefinitionV2Integrations } from "./ServiceDefinitionV2Integrations";
 import { ServiceDefinitionV2Link } from "./ServiceDefinitionV2Link";
@@ -1266,7 +1272,7 @@ const enumsMap: { [key: string]: any[] } = {
     "partial_replacement_from_beginning",
     "partial_replacement_from_end",
   ],
-  ServiceDefinitionSchemaVersions: ["v1", "v2", "v2.1"],
+  ServiceDefinitionSchemaVersions: ["v1", "v2", "v2.1", "v2.2"],
   ServiceDefinitionV1ResourceType: [
     "doc",
     "wiki",
@@ -1291,6 +1297,8 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2Dot1OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2Dot1SlackType: ["slack"],
   ServiceDefinitionV2Dot1Version: ["v2.1"],
+  ServiceDefinitionV2Dot2OpsgenieRegion: ["US", "EU"],
+  ServiceDefinitionV2Dot2Version: ["v2.2"],
   ServiceDefinitionV2EmailType: ["email"],
   ServiceDefinitionV2LinkType: [
     "doc",
@@ -2185,6 +2193,12 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionV2Dot1Opsgenie: ServiceDefinitionV2Dot1Opsgenie,
   ServiceDefinitionV2Dot1Pagerduty: ServiceDefinitionV2Dot1Pagerduty,
   ServiceDefinitionV2Dot1Slack: ServiceDefinitionV2Dot1Slack,
+  ServiceDefinitionV2Dot2: ServiceDefinitionV2Dot2,
+  ServiceDefinitionV2Dot2Contact: ServiceDefinitionV2Dot2Contact,
+  ServiceDefinitionV2Dot2Integrations: ServiceDefinitionV2Dot2Integrations,
+  ServiceDefinitionV2Dot2Link: ServiceDefinitionV2Dot2Link,
+  ServiceDefinitionV2Dot2Opsgenie: ServiceDefinitionV2Dot2Opsgenie,
+  ServiceDefinitionV2Dot2Pagerduty: ServiceDefinitionV2Dot2Pagerduty,
   ServiceDefinitionV2Email: ServiceDefinitionV2Email,
   ServiceDefinitionV2Integrations: ServiceDefinitionV2Integrations,
   ServiceDefinitionV2Link: ServiceDefinitionV2Link,
@@ -2430,6 +2444,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ServiceDefinitionV1",
     "ServiceDefinitionV2",
     "ServiceDefinitionV2Dot1",
+    "ServiceDefinitionV2Dot2",
   ],
   ServiceDefinitionV2Contact: [
     "ServiceDefinitionV2Email",
@@ -2442,6 +2457,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "ServiceDefinitionV2Dot1MSTeams",
   ],
   ServiceDefinitionsCreateRequest: [
+    "ServiceDefinitionV2Dot2",
     "ServiceDefinitionV2Dot1",
     "ServiceDefinitionV2",
     "string",

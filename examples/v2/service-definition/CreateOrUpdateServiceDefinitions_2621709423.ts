@@ -1,5 +1,5 @@
 /**
- * Create or update service definition returns "CREATED" response
+ * Create or update service definition using schema v2-2 returns "CREATED" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -9,18 +9,16 @@ const apiInstance = new v2.ServiceDefinitionApi(configuration);
 
 const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
   body: {
-    application: "my-app",
     contacts: [
       {
-        contact: "https://teams.microsoft.com/myteam",
-        name: "My team channel",
-        type: "slack",
+        contact: "contact@datadoghq.com",
+        name: "Team Email",
+        type: "email",
       },
     ],
-    ddService: "my-service",
-    description: "My service description",
+    ddService: "service-exampleservicedefinition",
     extensions: {
-      "myorg/extension": "extensionValue",
+      myorgextension: "extensionvalue",
     },
     integrations: {
       opsgenie: {
@@ -32,21 +30,28 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
         serviceUrl: "https://my-org.pagerduty.com/service-directory/PMyService",
       },
     },
-    langauges: ["dotnet", "go", "java", "js", "php", "python", "ruby", "c++"],
-    lifecycle: "sandbox",
     links: [
       {
         name: "Runbook",
-        provider: "Github",
         type: "runbook",
+        url: "https://my-runbook",
+      },
+      {
+        name: "Source Code",
+        type: "repo",
+        provider: "GitHub",
+        url: "https://github.com/DataDog/schema",
+      },
+      {
+        name: "Architecture",
+        type: "doc",
+        provider: "Gigoogle drivetHub",
         url: "https://my-runbook",
       },
     ],
     schemaVersion: "v2.2",
-    serviceType: "web",
     tags: ["my:tag", "service:tag"],
     team: "my-team",
-    tier: "High",
   },
 };
 

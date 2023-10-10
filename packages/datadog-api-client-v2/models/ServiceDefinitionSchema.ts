@@ -6,6 +6,7 @@
 import { ServiceDefinitionV1 } from "./ServiceDefinitionV1";
 import { ServiceDefinitionV2 } from "./ServiceDefinitionV2";
 import { ServiceDefinitionV2Dot1 } from "./ServiceDefinitionV2Dot1";
+import { ServiceDefinitionV2Dot2 } from "./ServiceDefinitionV2Dot2";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -17,4 +18,5 @@ export type ServiceDefinitionSchema =
   | ServiceDefinitionV1
   | ServiceDefinitionV2
   | ServiceDefinitionV2Dot1
+  | ServiceDefinitionV2Dot2
   | UnparsedObject;
