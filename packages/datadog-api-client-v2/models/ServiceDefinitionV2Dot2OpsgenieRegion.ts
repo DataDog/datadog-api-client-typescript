@@ -7,16 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Schema versions
+ * Opsgenie instance region.
  */
 
-export type ServiceDefinitionSchemaVersions =
-  | typeof V1
-  | typeof V2
-  | typeof V2_1
-  | typeof V2_2
+export type ServiceDefinitionV2Dot2OpsgenieRegion =
+  | typeof US
+  | typeof EU
   | UnparsedObject;
-export const V1 = "v1";
-export const V2 = "v2";
-export const V2_1 = "v2.1";
-export const V2_2 = "v2.2";
+export const US = "US";
+export const EU = "EU";

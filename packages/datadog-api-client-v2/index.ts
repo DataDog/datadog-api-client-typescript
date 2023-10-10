@@ -1373,6 +1373,14 @@ export { ServiceDefinitionV2Dot1Pagerduty } from "./models/ServiceDefinitionV2Do
 export { ServiceDefinitionV2Dot1Slack } from "./models/ServiceDefinitionV2Dot1Slack";
 export { ServiceDefinitionV2Dot1SlackType } from "./models/ServiceDefinitionV2Dot1SlackType";
 export { ServiceDefinitionV2Dot1Version } from "./models/ServiceDefinitionV2Dot1Version";
+export { ServiceDefinitionV2Dot2 } from "./models/ServiceDefinitionV2Dot2";
+export { ServiceDefinitionV2Dot2Contact } from "./models/ServiceDefinitionV2Dot2Contact";
+export { ServiceDefinitionV2Dot2Integrations } from "./models/ServiceDefinitionV2Dot2Integrations";
+export { ServiceDefinitionV2Dot2Link } from "./models/ServiceDefinitionV2Dot2Link";
+export { ServiceDefinitionV2Dot2Opsgenie } from "./models/ServiceDefinitionV2Dot2Opsgenie";
+export { ServiceDefinitionV2Dot2OpsgenieRegion } from "./models/ServiceDefinitionV2Dot2OpsgenieRegion";
+export { ServiceDefinitionV2Dot2Pagerduty } from "./models/ServiceDefinitionV2Dot2Pagerduty";
+export { ServiceDefinitionV2Dot2Version } from "./models/ServiceDefinitionV2Dot2Version";
 export { ServiceDefinitionV2Email } from "./models/ServiceDefinitionV2Email";
 export { ServiceDefinitionV2EmailType } from "./models/ServiceDefinitionV2EmailType";
 export { ServiceDefinitionV2Integrations } from "./models/ServiceDefinitionV2Integrations";
