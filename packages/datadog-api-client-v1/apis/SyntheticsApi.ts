@@ -1199,11 +1199,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsGlobalVariable;
       return body;
     }
-    if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 400 || response.httpStatusCode == 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1222,6 +1218,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1262,11 +1272,7 @@ export class SyntheticsApiResponseProcessor {
         ) as SyntheticsPrivateLocationCreationResponse;
       return body;
     }
-    if (
-      response.httpStatusCode == 402 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 402 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1285,6 +1291,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1328,8 +1348,7 @@ export class SyntheticsApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 402 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode == 403
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -1349,6 +1368,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1391,8 +1424,7 @@ export class SyntheticsApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 402 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode == 403
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -1412,6 +1444,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1448,8 +1494,7 @@ export class SyntheticsApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode == 404
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -1469,6 +1514,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1502,7 +1561,7 @@ export class SyntheticsApiResponseProcessor {
     if (response.httpStatusCode == 204) {
       return;
     }
-    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1521,6 +1580,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1563,8 +1636,7 @@ export class SyntheticsApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode == 404
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -1584,6 +1656,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1623,11 +1709,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsGlobalVariable;
       return body;
     }
-    if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 400 || response.httpStatusCode == 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1646,6 +1728,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1685,11 +1781,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsAPITest;
       return body;
     }
-    if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 403 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1708,6 +1800,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1748,11 +1854,7 @@ export class SyntheticsApiResponseProcessor {
         ) as SyntheticsGetAPITestLatestResultsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 403 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1771,6 +1873,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1811,11 +1927,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsAPITestResultFull;
       return body;
     }
-    if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 403 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1834,6 +1946,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1873,11 +1999,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsBrowserTest;
       return body;
     }
-    if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 403 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1896,6 +2018,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1936,11 +2072,7 @@ export class SyntheticsApiResponseProcessor {
         ) as SyntheticsGetBrowserTestLatestResultsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 403 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -1959,6 +2091,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2000,11 +2146,7 @@ export class SyntheticsApiResponseProcessor {
         ) as SyntheticsBrowserTestResultFull;
       return body;
     }
-    if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 403 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2023,6 +2165,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2063,11 +2219,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsGlobalVariable;
       return body;
     }
-    if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 403 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2086,6 +2238,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2125,7 +2291,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsPrivateLocation;
       return body;
     }
-    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2144,6 +2310,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2183,7 +2363,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsBatchDetails;
       return body;
     }
-    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2202,6 +2382,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2246,20 +2440,14 @@ export class SyntheticsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: APIErrorResponse;
+      let body: any;
       try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2299,11 +2487,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsTestDetails;
       return body;
     }
-    if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 403 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2322,6 +2506,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2362,7 +2560,7 @@ export class SyntheticsApiResponseProcessor {
         ) as SyntheticsListGlobalVariablesResponse;
       return body;
     }
-    if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode == 403) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2381,6 +2579,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2426,20 +2638,14 @@ export class SyntheticsApiResponseProcessor {
         await response.body.text(),
         contentType
       );
-      let body: APIErrorResponse;
+      let body: any;
       try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
       } catch (error) {
         logger.info(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
       }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2479,11 +2685,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsListTestsResponse;
       return body;
     }
-    if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
-    ) {
+    if (response.httpStatusCode == 403 || response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2502,6 +2704,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2542,7 +2758,7 @@ export class SyntheticsApiResponseProcessor {
         ) as SyntheticsTriggerCITestsResponse;
       return body;
     }
-    if (response.httpStatusCode == 400 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode == 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2561,6 +2777,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2602,7 +2832,7 @@ export class SyntheticsApiResponseProcessor {
         ) as SyntheticsTriggerCITestsResponse;
       return body;
     }
-    if (response.httpStatusCode == 400 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode == 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2621,6 +2851,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2664,8 +2908,7 @@ export class SyntheticsApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode == 404
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -2685,6 +2928,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2727,8 +2984,7 @@ export class SyntheticsApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode == 404
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -2748,6 +3004,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2787,7 +3057,7 @@ export class SyntheticsApiResponseProcessor {
       ) as SyntheticsPrivateLocation;
       return body;
     }
-    if (response.httpStatusCode == 404 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode == 404) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -2806,6 +3076,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -2848,8 +3132,7 @@ export class SyntheticsApiResponseProcessor {
     if (
       response.httpStatusCode == 400 ||
       response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode == 404
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -2869,6 +3152,20 @@ export class SyntheticsApiResponseProcessor {
         );
       }
       throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+    if (response.httpStatusCode == 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: any;
+      try {
+        body = ObjectSerializer.deserialize(bodyText, "any") as any;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<any>(response.httpStatusCode, bodyText);
+      }
+      throw new ApiException<any>(response.httpStatusCode, body);
     }
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
