@@ -1314,6 +1314,15 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2Dot1SlackType: ["slack"],
   ServiceDefinitionV2Dot1Version: ["v2.1"],
   ServiceDefinitionV2Dot2OpsgenieRegion: ["US", "EU"],
+  ServiceDefinitionV2Dot2Type: [
+    "web",
+    "db",
+    "cache",
+    "function",
+    "browser",
+    "mobile",
+    "custom",
+  ],
   ServiceDefinitionV2Dot2Version: ["v2.2"],
   ServiceDefinitionV2EmailType: ["email"],
   ServiceDefinitionV2LinkType: [
