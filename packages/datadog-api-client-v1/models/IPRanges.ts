@@ -6,6 +6,7 @@
 import { IPPrefixesAgents } from "./IPPrefixesAgents";
 import { IPPrefixesAPI } from "./IPPrefixesAPI";
 import { IPPrefixesAPM } from "./IPPrefixesAPM";
+import { IPPrefixesGlobal } from "./IPPrefixesGlobal";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesOrchestrator } from "./IPPrefixesOrchestrator";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
@@ -32,6 +33,10 @@ export class IPRanges {
    * Available prefix information for the APM endpoints.
    */
   "apm"?: IPPrefixesAPM;
+  /**
+   * Available prefix information for all Datadog endpoints.
+   */
+  "global"?: IPPrefixesGlobal;
   /**
    * Available prefix information for the Logs endpoints.
    */
@@ -89,6 +94,10 @@ export class IPRanges {
     apm: {
       baseName: "apm",
       type: "IPPrefixesAPM",
+    },
+    global: {
+      baseName: "global",
+      type: "IPPrefixesGlobal",
     },
     logs: {
       baseName: "logs",
