@@ -6,6 +6,7 @@
 import { ServiceDefinitionV2Dot2Contact } from "./ServiceDefinitionV2Dot2Contact";
 import { ServiceDefinitionV2Dot2Integrations } from "./ServiceDefinitionV2Dot2Integrations";
 import { ServiceDefinitionV2Dot2Link } from "./ServiceDefinitionV2Dot2Link";
+import { ServiceDefinitionV2Dot2Type } from "./ServiceDefinitionV2Dot2Type";
 import { ServiceDefinitionV2Dot2Version } from "./ServiceDefinitionV2Dot2Version";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -55,10 +56,6 @@ export class ServiceDefinitionV2Dot2 {
    */
   "schemaVersion": ServiceDefinitionV2Dot2Version;
   /**
-   * The type of service. Datadog recognizes the following service types: `database`, `cache`, `function`, `web`, `browser`, and `mobile`.
-   */
-  "serviceType"?: string;
-  /**
    * A set of custom tags.
    */
   "tags"?: Array<string>;
@@ -70,6 +67,10 @@ export class ServiceDefinitionV2Dot2 {
    * Importance of the service.
    */
   "tier"?: string;
+  /**
+   * The type of service.
+   */
+  "type"?: ServiceDefinitionV2Dot2Type;
 
   /**
    * @ignore
@@ -122,10 +123,6 @@ export class ServiceDefinitionV2Dot2 {
       type: "ServiceDefinitionV2Dot2Version",
       required: true,
     },
-    serviceType: {
-      baseName: "service-type",
-      type: "string",
-    },
     tags: {
       baseName: "tags",
       type: "Array<string>",
@@ -137,6 +134,10 @@ export class ServiceDefinitionV2Dot2 {
     tier: {
       baseName: "tier",
       type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "ServiceDefinitionV2Dot2Type",
     },
   };
 

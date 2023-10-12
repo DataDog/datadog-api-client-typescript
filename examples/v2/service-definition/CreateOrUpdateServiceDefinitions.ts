@@ -43,10 +43,10 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
       },
     ],
     schemaVersion: "v2.2",
-    serviceType: "web",
     tags: ["my:tag", "service:tag"],
     team: "my-team",
     tier: "High",
+    type: "web",
   },
 };
 
