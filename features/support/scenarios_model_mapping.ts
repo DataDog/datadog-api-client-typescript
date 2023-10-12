@@ -4097,6 +4097,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "SecurityMonitoringSignalTriageUpdateResponse",
     },
     "v2.ListPowerpacks": {
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "ListPowerpacksResponse",
     },
     "v2.CreatePowerpack": {

@@ -245,6 +245,7 @@ export {
   PowerpackApiCreatePowerpackRequest,
   PowerpackApiDeletePowerpackRequest,
   PowerpackApiGetPowerpackRequest,
+  PowerpackApiListPowerpacksRequest,
   PowerpackApiUpdatePowerpackRequest,
   PowerpackApi,
 } from "./apis/PowerpackApi";

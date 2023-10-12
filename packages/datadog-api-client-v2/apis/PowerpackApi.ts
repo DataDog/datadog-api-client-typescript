@@ -19,6 +19,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ListPowerpacksResponse } from "../models/ListPowerpacksResponse";
 import { Powerpack } from "../models/Powerpack";
+import { PowerpackData } from "../models/PowerpackData";
 import { PowerpackResponse } from "../models/PowerpackResponse";
 
 export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
@@ -133,6 +134,8 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async listPowerpacks(
+    pageLimit?: number,
+    pageOffset?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -146,6 +149,20 @@ export class PowerpackApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64")
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -523,6 +540,19 @@ export interface PowerpackApiGetPowerpackRequest {
   powerpackId: string;
 }
 
+export interface PowerpackApiListPowerpacksRequest {
+  /**
+   * Maximum number of powerpacks in the response.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Specific offset to use as the beginning of the returned page.
+   * @type number
+   */
+  pageOffset?: number;
+}
+
 export interface PowerpackApiUpdatePowerpackRequest {
   /**
    * ID of the powerpack.
@@ -621,9 +651,14 @@ export class PowerpackApi {
    * @param param The request object
    */
   public listPowerpacks(
+    param: PowerpackApiListPowerpacksRequest = {},
     options?: Configuration
   ): Promise<ListPowerpacksResponse> {
-    const requestContextPromise = this.requestFactory.listPowerpacks(options);
+    const requestContextPromise = this.requestFactory.listPowerpacks(
+      param.pageLimit,
+      param.pageOffset,
+      options
+    );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
@@ -631,6 +666,50 @@ export class PowerpackApi {
           return this.responseProcessor.listPowerpacks(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listPowerpacks returning a generator with all the items.
+   */
+  public async *listPowerpacksWithPagination(
+    param: PowerpackApiListPowerpacksRequest = {},
+    options?: Configuration
+  ): AsyncGenerator<PowerpackData> {
+    let pageSize = 25;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listPowerpacks(
+        param.pageLimit,
+        param.pageOffset,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listPowerpacks(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = param.pageOffset + pageSize;
+      }
+    }
   }
 
   /**

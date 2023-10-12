@@ -37,7 +37,7 @@ const params: v2.PowerpackApiUpdatePowerpackRequest = {
             y: 0,
           },
         },
-        name: "Sample Powerpack",
+        name: "Example-Powerpack",
         tags: ["tag:sample"],
         templateVariables: [
           {
