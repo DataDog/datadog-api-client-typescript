@@ -118,6 +118,7 @@ import { IFrameWidgetDefinition } from "./IFrameWidgetDefinition";
 import { IPPrefixesAPI } from "./IPPrefixesAPI";
 import { IPPrefixesAPM } from "./IPPrefixesAPM";
 import { IPPrefixesAgents } from "./IPPrefixesAgents";
+import { IPPrefixesGlobal } from "./IPPrefixesGlobal";
 import { IPPrefixesLogs } from "./IPPrefixesLogs";
 import { IPPrefixesOrchestrator } from "./IPPrefixesOrchestrator";
 import { IPPrefixesProcess } from "./IPPrefixesProcess";
@@ -1613,6 +1614,7 @@ const typeMap: { [index: string]: any } = {
   IPPrefixesAPI: IPPrefixesAPI,
   IPPrefixesAPM: IPPrefixesAPM,
   IPPrefixesAgents: IPPrefixesAgents,
+  IPPrefixesGlobal: IPPrefixesGlobal,
   IPPrefixesLogs: IPPrefixesLogs,
   IPPrefixesOrchestrator: IPPrefixesOrchestrator,
   IPPrefixesProcess: IPPrefixesProcess,
