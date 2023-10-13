@@ -76,13 +76,6 @@ export class CIVisibilityPipelinesApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'createCIAppPipelineEvent'");
-    if (!_config.unstableOperations["v2.createCIAppPipelineEvent"]) {
-      throw new Error(
-        "Unstable operation 'createCIAppPipelineEvent' is disabled"
-      );
-    }
-
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createCIAppPipelineEvent");
