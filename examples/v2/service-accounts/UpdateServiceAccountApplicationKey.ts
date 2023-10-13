@@ -7,23 +7,26 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.ServiceAccountsApi(configuration);
 
+// there is a valid "service_account_user" in the system
+const SERVICE_ACCOUNT_USER_DATA_ID = process.env
+  .SERVICE_ACCOUNT_USER_DATA_ID as string;
+
+// there is a valid "service_account_application_key" for "service_account_user"
+const SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID = process.env
+  .SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID as string;
+
 const params: v2.ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest = {
   body: {
     data: {
-      attributes: {
-        name: "Application Key for managing dashboards",
-        scopes: [
-          "dashboards_read",
-          "dashboards_write",
-          "dashboards_public_share",
-        ],
-      },
-      id: "00112233-4455-6677-8899-aabbccddeeff",
+      id: SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID,
       type: "application_keys",
+      attributes: {
+        name: "Application Key for managing dashboards-updated",
+      },
     },
   },
-  serviceAccountId: "00000000-0000-1234-0000-000000000000",
-  appKeyId: "app_key_id",
+  serviceAccountId: SERVICE_ACCOUNT_USER_DATA_ID,
+  appKeyId: SERVICE_ACCOUNT_APPLICATION_KEY_DATA_ID,
 };
 
 apiInstance
