@@ -75,6 +75,14 @@ export class MonthlyUsageAttributionValues {
    */
   "ciVisibilityItrUsage"?: number;
   /**
+   * The percentage of Cloud Security Information and Event Management usage by tag(s).
+   */
+  "cloudSiemPercentage"?: number;
+  /**
+   * The Cloud Security Information and Event Management usage by tag(s).
+   */
+  "cloudSiemUsage"?: number;
+  /**
    * The percentage of container usage without the Datadog Agent by tag(s).
    */
   "containerExclAgentPercentage"?: number;
@@ -409,6 +417,16 @@ export class MonthlyUsageAttributionValues {
     },
     ciVisibilityItrUsage: {
       baseName: "ci_visibility_itr_usage",
+      type: "number",
+      format: "double",
+    },
+    cloudSiemPercentage: {
+      baseName: "cloud_siem_percentage",
+      type: "number",
+      format: "double",
+    },
+    cloudSiemUsage: {
+      baseName: "cloud_siem_usage",
       type: "number",
       format: "double",
     },

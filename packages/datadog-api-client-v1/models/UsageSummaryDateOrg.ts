@@ -107,6 +107,10 @@ export class UsageSummaryDateOrg {
    */
   "cloudCostManagementHostCountAvg"?: number;
   /**
+   * Shows the sum of all Cloud Security Information and Event Management events over all hours in the current date for the given org.
+   */
+  "cloudSiemEventsSum"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current date for the given org.
    */
   "containerAvg"?: number;
@@ -549,6 +553,11 @@ export class UsageSummaryDateOrg {
     },
     cloudCostManagementHostCountAvg: {
       baseName: "cloud_cost_management_host_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    cloudSiemEventsSum: {
+      baseName: "cloud_siem_events_sum",
       type: "number",
       format: "int64",
     },

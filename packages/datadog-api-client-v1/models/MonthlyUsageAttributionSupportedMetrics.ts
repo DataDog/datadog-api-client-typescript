@@ -27,6 +27,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof BROWSER_PERCENTAGE
   | typeof CI_VISIBILITY_ITR_USAGE
   | typeof CI_VISIBILITY_ITR_PERCENTAGE
+  | typeof CLOUD_SIEM_USAGE
+  | typeof CLOUD_SIEM_PERCENTAGE
   | typeof CONTAINER_EXCL_AGENT_USAGE
   | typeof CONTAINER_EXCL_AGENT_PERCENTAGE
   | typeof CONTAINER_USAGE
@@ -107,6 +109,8 @@ export const BROWSER_USAGE = "browser_usage";
 export const BROWSER_PERCENTAGE = "browser_percentage";
 export const CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
 export const CI_VISIBILITY_ITR_PERCENTAGE = "ci_visibility_itr_percentage";
+export const CLOUD_SIEM_USAGE = "cloud_siem_usage";
+export const CLOUD_SIEM_PERCENTAGE = "cloud_siem_percentage";
 export const CONTAINER_EXCL_AGENT_USAGE = "container_excl_agent_usage";
 export const CONTAINER_EXCL_AGENT_PERCENTAGE =
   "container_excl_agent_percentage";
