@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { GroupWidgetDefinitionType } from "./GroupWidgetDefinitionType";
-import { Widget } from "./Widget";
+import { GroupWidgetItem } from "./GroupWidgetItem";
 import { WidgetLayoutType } from "./WidgetLayoutType";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 
@@ -45,7 +45,7 @@ export class GroupWidgetDefinition {
   /**
    * List of widget groups.
    */
-  "widgets": Array<Widget>;
+  "widgets": Array<GroupWidgetItem>;
 
   /**
    * @ignore
@@ -88,7 +88,7 @@ export class GroupWidgetDefinition {
     },
     widgets: {
       baseName: "widgets",
-      type: "Array<Widget>",
+      type: "Array<GroupWidgetItem>",
       required: true,
     },
   };
