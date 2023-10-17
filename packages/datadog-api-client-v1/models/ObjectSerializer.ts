@@ -93,6 +93,7 @@ import { GeomapWidgetDefinitionView } from "./GeomapWidgetDefinitionView";
 import { GeomapWidgetRequest } from "./GeomapWidgetRequest";
 import { GraphSnapshot } from "./GraphSnapshot";
 import { GroupWidgetDefinition } from "./GroupWidgetDefinition";
+import { GroupWidgetItem } from "./GroupWidgetItem";
 import { HTTPLogError } from "./HTTPLogError";
 import { HTTPLogItem } from "./HTTPLogItem";
 import { HeatMapWidgetDefinition } from "./HeatMapWidgetDefinition";
@@ -1592,6 +1593,7 @@ const typeMap: { [index: string]: any } = {
   GeomapWidgetRequest: GeomapWidgetRequest,
   GraphSnapshot: GraphSnapshot,
   GroupWidgetDefinition: GroupWidgetDefinition,
+  GroupWidgetItem: GroupWidgetItem,
   HTTPLogError: HTTPLogError,
   HTTPLogItem: HTTPLogItem,
   HeatMapWidgetDefinition: HeatMapWidgetDefinition,
@@ -2129,6 +2131,39 @@ const oneOfMap: { [index: string]: string[] } = {
     "FormulaAndFunctionApmResourceStatsQueryDefinition",
     "FormulaAndFunctionSLOQueryDefinition",
     "FormulaAndFunctionCloudCostQueryDefinition",
+  ],
+  GroupWidgetItemDefinition: [
+    "AlertGraphWidgetDefinition",
+    "AlertValueWidgetDefinition",
+    "ChangeWidgetDefinition",
+    "CheckStatusWidgetDefinition",
+    "DistributionWidgetDefinition",
+    "EventStreamWidgetDefinition",
+    "EventTimelineWidgetDefinition",
+    "FreeTextWidgetDefinition",
+    "FunnelWidgetDefinition",
+    "GeomapWidgetDefinition",
+    "HeatMapWidgetDefinition",
+    "HostMapWidgetDefinition",
+    "IFrameWidgetDefinition",
+    "ImageWidgetDefinition",
+    "ListStreamWidgetDefinition",
+    "LogStreamWidgetDefinition",
+    "MonitorSummaryWidgetDefinition",
+    "NoteWidgetDefinition",
+    "QueryValueWidgetDefinition",
+    "RunWorkflowWidgetDefinition",
+    "SLOListWidgetDefinition",
+    "SLOWidgetDefinition",
+    "ScatterPlotWidgetDefinition",
+    "ServiceMapWidgetDefinition",
+    "ServiceSummaryWidgetDefinition",
+    "SunburstWidgetDefinition",
+    "TableWidgetDefinition",
+    "TimeseriesWidgetDefinition",
+    "ToplistWidgetDefinition",
+    "TopologyMapWidgetDefinition",
+    "TreeMapWidgetDefinition",
   ],
   LogsProcessor: [
     "LogsGrokParser",

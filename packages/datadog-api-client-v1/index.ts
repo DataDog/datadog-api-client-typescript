@@ -467,6 +467,8 @@ export { GeomapWidgetRequest } from "./models/GeomapWidgetRequest";
 export { GraphSnapshot } from "./models/GraphSnapshot";
 export { GroupWidgetDefinition } from "./models/GroupWidgetDefinition";
 export { GroupWidgetDefinitionType } from "./models/GroupWidgetDefinitionType";
+export { GroupWidgetItem } from "./models/GroupWidgetItem";
+export { GroupWidgetItemDefinition } from "./models/GroupWidgetItemDefinition";
 export { HeatMapWidgetDefinition } from "./models/HeatMapWidgetDefinition";
 export { HeatMapWidgetDefinitionType } from "./models/HeatMapWidgetDefinitionType";
 export { HeatMapWidgetRequest } from "./models/HeatMapWidgetRequest";
