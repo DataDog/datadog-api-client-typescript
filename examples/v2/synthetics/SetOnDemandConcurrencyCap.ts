@@ -8,7 +8,9 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.SyntheticsApi(configuration);
 
 const params: v2.SyntheticsApiSetOnDemandConcurrencyCapRequest = {
-  body: {},
+  body: {
+    onDemandConcurrencyCap: 20,
+  },
 };
 
 apiInstance
