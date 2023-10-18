@@ -2737,6 +2737,29 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ContainerImagesResponse",
     },
+    "v2.ListContainers": {
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "groupBy": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ContainersResponse",
+    },
     "v2.DeleteDashboardListItems": {
         "dashboardListId": {
             "type": "number",

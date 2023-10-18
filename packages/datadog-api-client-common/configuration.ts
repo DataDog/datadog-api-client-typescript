@@ -215,6 +215,7 @@ export function createConfiguration(
     conf.backoffMultiplier || 2,
     {
       "v2.listContainerImages": false,
+      "v2.listContainers": false,
       "v2.listEvents": false,
       "v2.searchEvents": false,
       "v2.createIncident": false,
