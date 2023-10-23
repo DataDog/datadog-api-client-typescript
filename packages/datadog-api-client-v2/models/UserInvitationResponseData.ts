@@ -46,6 +46,7 @@ export class UserInvitationResponseData {
     id: {
       baseName: "id",
       type: "string",
+      format: "uuid",
     },
     relationships: {
       baseName: "relationships",
