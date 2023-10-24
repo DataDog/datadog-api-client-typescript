@@ -274,7 +274,7 @@ def format_data_with_schema(
                 if not isinstance(x, bool):
                     raise TypeError(f"{x} is not supported type {schema}")
                 return "true" if x else "false"
-            
+
             formatter = {
                 "int32": format_number,
                 "int64": format_number,
