@@ -65,6 +65,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof INFRA_HOST_PERCENTAGE
   | typeof INVOCATIONS_USAGE
   | typeof INVOCATIONS_PERCENTAGE
+  | typeof LAMBDA_TRACED_INVOCATIONS_USAGE
+  | typeof LAMBDA_TRACED_INVOCATIONS_PERCENTAGE
   | typeof MOBILE_APP_TESTING_USAGE
   | typeof MOBILE_APP_TESTING_PERCENTAGE
   | typeof NDM_NETFLOW_USAGE
@@ -154,6 +156,10 @@ export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INFRA_HOST_PERCENTAGE = "infra_host_percentage";
 export const INVOCATIONS_USAGE = "invocations_usage";
 export const INVOCATIONS_PERCENTAGE = "invocations_percentage";
+export const LAMBDA_TRACED_INVOCATIONS_USAGE =
+  "lambda_traced_invocations_usage";
+export const LAMBDA_TRACED_INVOCATIONS_PERCENTAGE =
+  "lambda_traced_invocations_percentage";
 export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_percentage";
 export const MOBILE_APP_TESTING_PERCENTAGE = "mobile_app_testing_usage";
 export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";
