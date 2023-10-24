@@ -358,6 +358,7 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     pageNumber?: number,
     sort?: RolesSort,
     filter?: string,
+    filterId?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -395,6 +396,12 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter",
         ObjectSerializer.serialize(filter, "string", "")
+      );
+    }
+    if (filterId !== undefined) {
+      requestContext.setQueryParam(
+        "filter[id]",
+        ObjectSerializer.serialize(filterId, "string", "")
       );
     }
 
@@ -1516,6 +1523,11 @@ export interface RolesApiListRolesRequest {
    * @type string
    */
   filter?: string;
+  /**
+   * Filter all roles by the given list of role IDs.
+   * @type string
+   */
+  filterId?: string;
 }
 
 export interface RolesApiListRoleUsersRequest {
@@ -1781,6 +1793,7 @@ export class RolesApi {
       param.pageNumber,
       param.sort,
       param.filter,
+      param.filterId,
       options
     );
     return requestContextPromise.then((requestContext) => {

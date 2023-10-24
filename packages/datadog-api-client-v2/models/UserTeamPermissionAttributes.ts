@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class UserTeamPermissionAttributes {
   /**
-   * Object of team permission actions and boolean values indicating of the currently logged in user can perform them on this team
+   * Object of team permission actions and boolean values that a logged in user can perform on this team.
    */
   "permissions"?: any;
 
