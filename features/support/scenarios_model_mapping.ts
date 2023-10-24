@@ -5046,7 +5046,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetInvitation": {
         "userInvitationUuid": {
             "type": "string",
-            "format": "",
+            "format": "uuid",
             },
         "operationResponseType": "UserInvitationResponse",
     },

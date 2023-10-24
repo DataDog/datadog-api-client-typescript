@@ -53,6 +53,7 @@ export class UserInvitationDataAttributes {
     uuid: {
       baseName: "uuid",
       type: "string",
+      format: "uuid",
     },
   };
 
