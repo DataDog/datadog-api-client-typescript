@@ -29,6 +29,7 @@ import { TeamPermissionSettingResponse } from "../models/TeamPermissionSettingRe
 import { TeamPermissionSettingsResponse } from "../models/TeamPermissionSettingsResponse";
 import { TeamPermissionSettingUpdateRequest } from "../models/TeamPermissionSettingUpdateRequest";
 import { TeamResponse } from "../models/TeamResponse";
+import { TeamsField } from "../models/TeamsField";
 import { TeamsResponse } from "../models/TeamsResponse";
 import { TeamUpdateRequest } from "../models/TeamUpdateRequest";
 import { UserTeamRequest } from "../models/UserTeamRequest";
@@ -539,6 +540,7 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
     include?: Array<ListTeamsInclude>,
     filterKeyword?: string,
     filterMe?: boolean,
+    fieldsTeam?: Array<TeamsField>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -588,6 +590,12 @@ export class TeamsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[me]",
         ObjectSerializer.serialize(filterMe, "boolean", "")
+      );
+    }
+    if (fieldsTeam !== undefined) {
+      requestContext.setQueryParam(
+        "fields[team]",
+        ObjectSerializer.serialize(fieldsTeam, "Array<TeamsField>", "")
       );
     }
 
@@ -2020,6 +2028,11 @@ export interface TeamsApiListTeamsRequest {
    * @type boolean
    */
   filterMe?: boolean;
+  /**
+   * List of fields that need to be fetched.
+   * @type Array<TeamsField>
+   */
+  fieldsTeam?: Array<TeamsField>;
 }
 
 export interface TeamsApiUpdateTeamRequest {
@@ -2382,6 +2395,7 @@ export class TeamsApi {
       param.include,
       param.filterKeyword,
       param.filterMe,
+      param.fieldsTeam,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -2414,6 +2428,7 @@ export class TeamsApi {
         param.include,
         param.filterKeyword,
         param.filterMe,
+        param.fieldsTeam,
         options
       );
       const responseContext = await this.configuration.httpApi.send(

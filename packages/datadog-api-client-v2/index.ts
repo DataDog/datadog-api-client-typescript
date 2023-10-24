@@ -1526,6 +1526,7 @@ export { TeamPermissionSettingValue } from "./models/TeamPermissionSettingValue"
 export { TeamRelationships } from "./models/TeamRelationships";
 export { TeamRelationshipsLinks } from "./models/TeamRelationshipsLinks";
 export { TeamResponse } from "./models/TeamResponse";
+export { TeamsField } from "./models/TeamsField";
 export { TeamsResponse } from "./models/TeamsResponse";
 export { TeamsResponseLinks } from "./models/TeamsResponseLinks";
 export { TeamsResponseMeta } from "./models/TeamsResponseMeta";
