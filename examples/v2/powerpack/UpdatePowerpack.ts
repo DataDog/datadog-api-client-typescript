@@ -36,6 +36,7 @@ const params: v2.PowerpackApiUpdatePowerpackRequest = {
             x: 0,
             y: 0,
           },
+          liveSpan: "1h",
         },
         name: "Example-Powerpack",
         tags: ["tag:sample"],
