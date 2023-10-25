@@ -2310,6 +2310,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterRemoteConfigReadEnabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterCategory": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "APIKeysResponse",
     },
     "v2.CreateAPIKey": {
@@ -2373,6 +2381,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "ListApplicationKeysResponse",
     },
     "v2.DeleteApplicationKey": {
@@ -2426,6 +2438,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterCreatedAtEnd": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
             "type": "string",
             "format": "",
             },
@@ -3798,6 +3814,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "RolesResponse",
     },
     "v2.CreateRole": {
@@ -4684,6 +4704,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "filterMe": {
             "type": "boolean",
+            "format": "",
+            },
+        "fieldsTeam": {
+            "type": "Array<TeamsField>",
             "format": "",
             },
         "operationResponseType": "TeamsResponse",
