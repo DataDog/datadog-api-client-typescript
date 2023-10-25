@@ -1087,6 +1087,23 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListAvailableAWSNamespaces": {
         "operationResponseType": "Array<string>",
     },
+    "v1.DeleteAWSEventBridgeSource": {
+        "body": {
+            "type": "AWSEventBridgeDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSEventBridgeDeleteResponse",
+    },
+    "v1.ListAWSEventBridgeSources": {
+        "operationResponseType": "AWSEventBridgeListResponse",
+    },
+    "v1.CreateAWSEventBridgeSource": {
+        "body": {
+            "type": "AWSEventBridgeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSEventBridgeCreateResponse",
+    },
     "v1.DeleteAWSTagFilter": {
         "body": {
             "type": "AWSTagFilterDeleteRequest",

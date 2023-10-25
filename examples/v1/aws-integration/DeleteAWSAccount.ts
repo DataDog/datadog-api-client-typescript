@@ -9,7 +9,7 @@ const apiInstance = new v1.AWSIntegrationApi(configuration);
 
 const params: v1.AWSIntegrationApiDeleteAWSAccountRequest = {
   body: {
-    accountId: "1234567",
+    accountId: "123456789012",
     roleName: "DatadogAWSIntegrationRole",
   },
 };
