@@ -121,7 +121,7 @@ export class MonitorOptions {
    */
   "notifyBy"?: Array<string>;
   /**
-   * A Boolean indicating whether this monitor notifies when data stops reporting.
+   * A Boolean indicating whether this monitor notifies when data stops reporting. Defaults to `false`.
    */
   "notifyNoData"?: boolean;
   /**
