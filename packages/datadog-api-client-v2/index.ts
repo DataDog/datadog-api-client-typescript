@@ -1591,5 +1591,6 @@ export { UserTeamUserType } from "./models/UserTeamUserType";
 export { UserUpdateAttributes } from "./models/UserUpdateAttributes";
 export { UserUpdateData } from "./models/UserUpdateData";
 export { UserUpdateRequest } from "./models/UserUpdateRequest";
+export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
 
 export { ObjectSerializer } from "./models/ObjectSerializer";

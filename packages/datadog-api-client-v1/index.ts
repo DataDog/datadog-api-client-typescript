@@ -1,8 +1,10 @@
 export {
   AWSIntegrationApiCreateAWSAccountRequest,
+  AWSIntegrationApiCreateAWSEventBridgeSourceRequest,
   AWSIntegrationApiCreateAWSTagFilterRequest,
   AWSIntegrationApiCreateNewAWSExternalIDRequest,
   AWSIntegrationApiDeleteAWSAccountRequest,
+  AWSIntegrationApiDeleteAWSEventBridgeSourceRequest,
   AWSIntegrationApiDeleteAWSTagFilterRequest,
   AWSIntegrationApiListAWSAccountsRequest,
   AWSIntegrationApiListAWSTagFiltersRequest,
@@ -347,6 +349,15 @@ export { AWSAccountAndLambdaRequest } from "./models/AWSAccountAndLambdaRequest"
 export { AWSAccountCreateResponse } from "./models/AWSAccountCreateResponse";
 export { AWSAccountDeleteRequest } from "./models/AWSAccountDeleteRequest";
 export { AWSAccountListResponse } from "./models/AWSAccountListResponse";
+export { AWSEventBridgeAccountConfiguration } from "./models/AWSEventBridgeAccountConfiguration";
+export { AWSEventBridgeCreateRequest } from "./models/AWSEventBridgeCreateRequest";
+export { AWSEventBridgeCreateResponse } from "./models/AWSEventBridgeCreateResponse";
+export { AWSEventBridgeCreateStatus } from "./models/AWSEventBridgeCreateStatus";
+export { AWSEventBridgeDeleteRequest } from "./models/AWSEventBridgeDeleteRequest";
+export { AWSEventBridgeDeleteResponse } from "./models/AWSEventBridgeDeleteResponse";
+export { AWSEventBridgeDeleteStatus } from "./models/AWSEventBridgeDeleteStatus";
+export { AWSEventBridgeListResponse } from "./models/AWSEventBridgeListResponse";
+export { AWSEventBridgeSource } from "./models/AWSEventBridgeSource";
 export { AWSLogsAsyncError } from "./models/AWSLogsAsyncError";
 export { AWSLogsAsyncResponse } from "./models/AWSLogsAsyncResponse";
 export { AWSLogsLambda } from "./models/AWSLogsLambda";

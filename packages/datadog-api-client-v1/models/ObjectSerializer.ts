@@ -4,6 +4,13 @@ import { AWSAccountAndLambdaRequest } from "./AWSAccountAndLambdaRequest";
 import { AWSAccountCreateResponse } from "./AWSAccountCreateResponse";
 import { AWSAccountDeleteRequest } from "./AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "./AWSAccountListResponse";
+import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
+import { AWSEventBridgeCreateRequest } from "./AWSEventBridgeCreateRequest";
+import { AWSEventBridgeCreateResponse } from "./AWSEventBridgeCreateResponse";
+import { AWSEventBridgeDeleteRequest } from "./AWSEventBridgeDeleteRequest";
+import { AWSEventBridgeDeleteResponse } from "./AWSEventBridgeDeleteResponse";
+import { AWSEventBridgeListResponse } from "./AWSEventBridgeListResponse";
+import { AWSEventBridgeSource } from "./AWSEventBridgeSource";
 import { AWSLogsAsyncError } from "./AWSLogsAsyncError";
 import { AWSLogsAsyncResponse } from "./AWSLogsAsyncResponse";
 import { AWSLogsLambda } from "./AWSLogsLambda";
@@ -611,6 +618,8 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
+  AWSEventBridgeCreateStatus: ["created"],
+  AWSEventBridgeDeleteStatus: ["empty"],
   AWSNamespace: [
     "elb",
     "application_elb",
@@ -1497,6 +1506,13 @@ const typeMap: { [index: string]: any } = {
   AWSAccountCreateResponse: AWSAccountCreateResponse,
   AWSAccountDeleteRequest: AWSAccountDeleteRequest,
   AWSAccountListResponse: AWSAccountListResponse,
+  AWSEventBridgeAccountConfiguration: AWSEventBridgeAccountConfiguration,
+  AWSEventBridgeCreateRequest: AWSEventBridgeCreateRequest,
+  AWSEventBridgeCreateResponse: AWSEventBridgeCreateResponse,
+  AWSEventBridgeDeleteRequest: AWSEventBridgeDeleteRequest,
+  AWSEventBridgeDeleteResponse: AWSEventBridgeDeleteResponse,
+  AWSEventBridgeListResponse: AWSEventBridgeListResponse,
+  AWSEventBridgeSource: AWSEventBridgeSource,
   AWSLogsAsyncError: AWSLogsAsyncError,
   AWSLogsAsyncResponse: AWSLogsAsyncResponse,
   AWSLogsLambda: AWSLogsLambda,
