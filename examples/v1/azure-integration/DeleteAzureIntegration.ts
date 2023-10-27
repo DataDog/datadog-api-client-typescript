@@ -13,6 +13,7 @@ const params: v1.AzureIntegrationApiDeleteAzureIntegrationRequest = {
     automute: true,
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
+    containerAppFilters: "key:value,filter:example",
     cspmEnabled: true,
     customMetricsEnabled: true,
     errors: ["*"],

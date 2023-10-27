@@ -28,6 +28,11 @@ export class AzureAccount {
    */
   "clientSecret"?: string;
   /**
+   * Limit the Azure container apps that are pulled into Datadog using tags.
+   * Only container apps that match one of the defined tags are imported into Datadog.
+   */
+  "containerAppFilters"?: string;
+  /**
    * Enable Cloud Security Management Misconfigurations for your organization.
    */
   "cspmEnabled"?: boolean;
@@ -80,6 +85,10 @@ export class AzureAccount {
     },
     clientSecret: {
       baseName: "client_secret",
+      type: "string",
+    },
+    containerAppFilters: {
+      baseName: "container_app_filters",
       type: "string",
     },
     cspmEnabled: {

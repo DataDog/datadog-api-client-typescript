@@ -214,6 +214,7 @@ export function createConfiguration(
     conf.backoffBase || 2,
     conf.backoffMultiplier || 2,
     {
+      "v2.createCIAppPipelineEvent": false,
       "v2.listContainerImages": false,
       "v2.listContainers": false,
       "v2.listEvents": false,
