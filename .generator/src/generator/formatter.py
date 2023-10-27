@@ -286,6 +286,7 @@ def format_data_with_schema(
                 "email": format_string,
                 "binary": lambda x: f'{{"data": Buffer.from(fs.readFileSync({format_string(x)}, "utf8")), "name": {format_string(x)}}}',
                 "string": format_string,
+                "uuid": format_string,
                 None: format_interface,
             }[schema.get("format", schema.get("type"))]
 
