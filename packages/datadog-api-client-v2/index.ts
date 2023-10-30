@@ -314,8 +314,8 @@ export {
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
+  SecurityMonitoringApiMuteFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
-  SecurityMonitoringApiUpdateFindingRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApi,
@@ -470,6 +470,14 @@ export { AuthNMappingUpdateAttributes } from "./models/AuthNMappingUpdateAttribu
 export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
+export { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
+export { BulkMuteFindingsRequestAttributes } from "./models/BulkMuteFindingsRequestAttributes";
+export { BulkMuteFindingsRequestData } from "./models/BulkMuteFindingsRequestData";
+export { BulkMuteFindingsRequestMeta } from "./models/BulkMuteFindingsRequestMeta";
+export { BulkMuteFindingsRequestMetaFindings } from "./models/BulkMuteFindingsRequestMetaFindings";
+export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequestProperties";
+export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
+export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
@@ -1055,14 +1063,6 @@ export { MonitorDowntimeMatchResponse } from "./models/MonitorDowntimeMatchRespo
 export { MonitorDowntimeMatchResponseAttributes } from "./models/MonitorDowntimeMatchResponseAttributes";
 export { MonitorDowntimeMatchResponseData } from "./models/MonitorDowntimeMatchResponseData";
 export { MonitorType } from "./models/MonitorType";
-export { MuteFindingRequest } from "./models/MuteFindingRequest";
-export { MuteFindingRequestAttributes } from "./models/MuteFindingRequestAttributes";
-export { MuteFindingRequestData } from "./models/MuteFindingRequestData";
-export { MuteFindingRequestProperties } from "./models/MuteFindingRequestProperties";
-export { MuteFindingResponse } from "./models/MuteFindingResponse";
-export { MuteFindingResponseAttributes } from "./models/MuteFindingResponseAttributes";
-export { MuteFindingResponseData } from "./models/MuteFindingResponseData";
-export { MuteFindingResponseProperties } from "./models/MuteFindingResponseProperties";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";

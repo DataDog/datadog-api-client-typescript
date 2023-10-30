@@ -4005,6 +4005,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListFindingsResponse",
     },
+    "v2.MuteFindings": {
+        "body": {
+            "type": "BulkMuteFindingsRequest",
+            "format": "",
+            },
+        "operationResponseType": "BulkMuteFindingsResponse",
+    },
     "v2.GetFinding": {
         "findingId": {
             "type": "string",
@@ -4015,17 +4022,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "operationResponseType": "GetFindingResponse",
-    },
-    "v2.UpdateFinding": {
-        "findingId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "MuteFindingRequest",
-            "format": "",
-            },
-        "operationResponseType": "MuteFindingResponse",
     },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",

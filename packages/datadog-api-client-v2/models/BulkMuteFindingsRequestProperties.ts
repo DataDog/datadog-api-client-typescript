@@ -8,11 +8,11 @@ import { FindingMuteReason } from "./FindingMuteReason";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Object containing the new mute properties of the finding.
+ * Object containing the new mute properties of the findings.
  */
-export class MuteFindingRequestProperties {
+export class BulkMuteFindingsRequestProperties {
   /**
-   * Additional information about the reason why this finding is muted or unmuted. This field has a maximum limit of 280 characters.
+   * Additional information about the reason why those findings are muted or unmuted. This field has a maximum limit of 280 characters.
    */
   "description"?: string;
   /**
@@ -21,7 +21,7 @@ export class MuteFindingRequestProperties {
    */
   "expirationDate"?: number;
   /**
-   * Whether this finding is muted or unmuted.
+   * Whether those findings should be muted or unmuted.
    */
   "muted": boolean;
   /**
@@ -63,7 +63,7 @@ export class MuteFindingRequestProperties {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingRequestProperties.attributeTypeMap;
+    return BulkMuteFindingsRequestProperties.attributeTypeMap;
   }
 
   public constructor() {}

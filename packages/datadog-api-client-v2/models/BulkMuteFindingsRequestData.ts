@@ -3,23 +3,28 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
+import { BulkMuteFindingsRequestMeta } from "./BulkMuteFindingsRequestMeta";
 import { FindingType } from "./FindingType";
-import { MuteFindingRequestAttributes } from "./MuteFindingRequestAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data object containing the new mute properties of the finding.
+ * Data object containing the new bulk mute properties of the finding.
  */
-export class MuteFindingRequestData {
+export class BulkMuteFindingsRequestData {
   /**
    * The mute properties to be updated.
    */
-  "attributes": MuteFindingRequestAttributes;
+  "attributes": BulkMuteFindingsRequestAttributes;
   /**
-   * The unique ID for this finding.
+   * UUID to identify the request
    */
   "id": string;
+  /**
+   * Meta object containing the findings to be updated.
+   */
+  "meta": BulkMuteFindingsRequestMeta;
   /**
    * The JSON:API type for findings.
    */
@@ -36,12 +41,17 @@ export class MuteFindingRequestData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "MuteFindingRequestAttributes",
+      type: "BulkMuteFindingsRequestAttributes",
       required: true,
     },
     id: {
       baseName: "id",
       type: "string",
+      required: true,
+    },
+    meta: {
+      baseName: "meta",
+      type: "BulkMuteFindingsRequestMeta",
       required: true,
     },
     type: {
@@ -55,7 +65,7 @@ export class MuteFindingRequestData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingRequestData.attributeTypeMap;
+    return BulkMuteFindingsRequestData.attributeTypeMap;
   }
 
   public constructor() {}
