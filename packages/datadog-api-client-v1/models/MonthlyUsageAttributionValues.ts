@@ -67,6 +67,22 @@ export class MonthlyUsageAttributionValues {
    */
   "browserUsage"?: number;
   /**
+   * The percentage of CI Pipeline Indexed Spans usage by tag(s).
+   */
+  "ciPipelineIndexedSpansPercentage"?: number;
+  /**
+   * The total CI Pipeline Indexed Spans usage by tag(s).
+   */
+  "ciPipelineIndexedSpansUsage"?: number;
+  /**
+   * The percentage of CI Test Indexed Spans usage by tag(s).
+   */
+  "ciTestIndexedSpansPercentage"?: number;
+  /**
+   * The total CI Test Indexed Spans usage by tag(s).
+   */
+  "ciTestIndexedSpansUsage"?: number;
+  /**
    * The percentage of Git committers for Intelligent Test Runner usage by tag(s).
    */
   "ciVisibilityItrPercentage"?: number;
@@ -114,6 +130,14 @@ export class MonthlyUsageAttributionValues {
    * The Cloud Security Management Pro host usage by tag(s).
    */
   "cspmHostsUsage"?: number;
+  /**
+   * The percentage of Custom Events usage by tag(s).
+   */
+  "customEventPercentage"?: number;
+  /**
+   * The total Custom Events usage by tag(s).
+   */
+  "customEventUsage"?: number;
   /**
    * The percentage of ingested custom metrics usage by tag(s).
    */
@@ -219,6 +243,14 @@ export class MonthlyUsageAttributionValues {
    */
   "functionsUsage"?: number;
   /**
+   * The percentage of APM Indexed Spans usage by tag(s).
+   */
+  "indexedSpansPercentage"?: number;
+  /**
+   * The total APM Indexed Spans usage by tag(s).
+   */
+  "indexedSpansUsage"?: number;
+  /**
    * The percentage of infrastructure host usage by tag(s).
    */
   "infraHostPercentage"?: number;
@@ -226,6 +258,22 @@ export class MonthlyUsageAttributionValues {
    * The infrastructure host usage by tag(s).
    */
   "infraHostUsage"?: number;
+  /**
+   * The percentage of Ingested Logs usage by tag(s).
+   */
+  "ingestedLogsBytesPercentage"?: number;
+  /**
+   * The total Ingested Logs usage by tag(s).
+   */
+  "ingestedLogsBytesUsage"?: number;
+  /**
+   * The percentage of APM Ingested Spans usage by tag(s).
+   */
+  "ingestedSpansBytesPercentage"?: number;
+  /**
+   * The total APM Ingested Spans usage by tag(s).
+   */
+  "ingestedSpansBytesUsage"?: number;
   /**
    * The percentage of Lambda invocation usage by tag(s).
    */
@@ -242,6 +290,86 @@ export class MonthlyUsageAttributionValues {
    * The Serverless APM usage by tag(s).
    */
   "lambdaTracedInvocationsUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (15-day Retention) usage by tag(s).
+   */
+  "logsIndexed15dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (15-day Retention) usage by tag(s).
+   */
+  "logsIndexed15dayUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (180-day Retention) usage by tag(s).
+   */
+  "logsIndexed180dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (180-day Retention) usage by tag(s).
+   */
+  "logsIndexed180dayUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (30-day Retention) usage by tag(s).
+   */
+  "logsIndexed30dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (30-day Retention) usage by tag(s).
+   */
+  "logsIndexed30dayUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (360-day Retention) usage by tag(s).
+   */
+  "logsIndexed360dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (360-day Retention) usage by tag(s).
+   */
+  "logsIndexed360dayUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (3-day Retention) usage by tag(s).
+   */
+  "logsIndexed3dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (3-day Retention) usage by tag(s).
+   */
+  "logsIndexed3dayUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (45-day Retention) usage by tag(s).
+   */
+  "logsIndexed45dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (45-day Retention) usage by tag(s).
+   */
+  "logsIndexed45dayUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (60-day Retention) usage by tag(s).
+   */
+  "logsIndexed60dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (60-day Retention) usage by tag(s).
+   */
+  "logsIndexed60dayUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (7-day Retention) usage by tag(s).
+   */
+  "logsIndexed7dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (7-day Retention) usage by tag(s).
+   */
+  "logsIndexed7dayUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (90-day Retention) usage by tag(s).
+   */
+  "logsIndexed90dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (90-day Retention) usage by tag(s).
+   */
+  "logsIndexed90dayUsage"?: number;
+  /**
+   * The percentage of Indexed Logs (Custom Retention) usage by tag(s).
+   */
+  "logsIndexedCustomRetentionPercentage"?: number;
+  /**
+   * The total Indexed Logs (Custom Retention) usage by tag(s).
+   */
+  "logsIndexedCustomRetentionUsage"?: number;
   /**
    * The percentage of Synthetic mobile application test usage by tag(s).
    */
@@ -299,6 +427,22 @@ export class MonthlyUsageAttributionValues {
    */
   "profiledHostUsage"?: number;
   /**
+   * The percentage of RUM Browser and Mobile usage by tag(s).
+   */
+  "rumBrowserMobileSessionsPercentage"?: number;
+  /**
+   * The total RUM Browser and Mobile usage by tag(s).
+   */
+  "rumBrowserMobileSessionsUsage"?: number;
+  /**
+   * The percentage of RUM Replay Sessions usage by tag(s).
+   */
+  "rumReplaySessionsPercentage"?: number;
+  /**
+   * The total RUM Replay Sessions usage by tag(s).
+   */
+  "rumReplaySessionsUsage"?: number;
+  /**
    * The percentage of Sensitive Data Scanner usage by tag(s).
    */
   "sdsScannedBytesPercentage"?: number;
@@ -314,6 +458,14 @@ export class MonthlyUsageAttributionValues {
    * The total Serverless Apps usage by tag(s).
    */
   "serverlessAppsUsage"?: number;
+  /**
+   * The percentage of SIEM usage by tag(s).
+   */
+  "siemIngestedBytesPercentage"?: number;
+  /**
+   * The total SIEM usage by tag(s).
+   */
+  "siemIngestedBytesUsage"?: number;
   /**
    * The percentage of network device usage by tag(s).
    */
@@ -418,6 +570,26 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    ciPipelineIndexedSpansPercentage: {
+      baseName: "ci_pipeline_indexed_spans_percentage",
+      type: "number",
+      format: "double",
+    },
+    ciPipelineIndexedSpansUsage: {
+      baseName: "ci_pipeline_indexed_spans_usage",
+      type: "number",
+      format: "double",
+    },
+    ciTestIndexedSpansPercentage: {
+      baseName: "ci_test_indexed_spans_percentage",
+      type: "number",
+      format: "double",
+    },
+    ciTestIndexedSpansUsage: {
+      baseName: "ci_test_indexed_spans_usage",
+      type: "number",
+      format: "double",
+    },
     ciVisibilityItrPercentage: {
       baseName: "ci_visibility_itr_percentage",
       type: "number",
@@ -475,6 +647,16 @@ export class MonthlyUsageAttributionValues {
     },
     cspmHostsUsage: {
       baseName: "cspm_hosts_usage",
+      type: "number",
+      format: "double",
+    },
+    customEventPercentage: {
+      baseName: "custom_event_percentage",
+      type: "number",
+      format: "double",
+    },
+    customEventUsage: {
+      baseName: "custom_event_usage",
       type: "number",
       format: "double",
     },
@@ -608,6 +790,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    indexedSpansPercentage: {
+      baseName: "indexed_spans_percentage",
+      type: "number",
+      format: "double",
+    },
+    indexedSpansUsage: {
+      baseName: "indexed_spans_usage",
+      type: "number",
+      format: "double",
+    },
     infraHostPercentage: {
       baseName: "infra_host_percentage",
       type: "number",
@@ -615,6 +807,26 @@ export class MonthlyUsageAttributionValues {
     },
     infraHostUsage: {
       baseName: "infra_host_usage",
+      type: "number",
+      format: "double",
+    },
+    ingestedLogsBytesPercentage: {
+      baseName: "ingested_logs_bytes_percentage",
+      type: "number",
+      format: "double",
+    },
+    ingestedLogsBytesUsage: {
+      baseName: "ingested_logs_bytes_usage",
+      type: "number",
+      format: "double",
+    },
+    ingestedSpansBytesPercentage: {
+      baseName: "ingested_spans_bytes_percentage",
+      type: "number",
+      format: "double",
+    },
+    ingestedSpansBytesUsage: {
+      baseName: "ingested_spans_bytes_usage",
       type: "number",
       format: "double",
     },
@@ -635,6 +847,106 @@ export class MonthlyUsageAttributionValues {
     },
     lambdaTracedInvocationsUsage: {
       baseName: "lambda_traced_invocations_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed15dayPercentage: {
+      baseName: "logs_indexed_15day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed15dayUsage: {
+      baseName: "logs_indexed_15day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed180dayPercentage: {
+      baseName: "logs_indexed_180day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed180dayUsage: {
+      baseName: "logs_indexed_180day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed30dayPercentage: {
+      baseName: "logs_indexed_30day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed30dayUsage: {
+      baseName: "logs_indexed_30day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed360dayPercentage: {
+      baseName: "logs_indexed_360day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed360dayUsage: {
+      baseName: "logs_indexed_360day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed3dayPercentage: {
+      baseName: "logs_indexed_3day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed3dayUsage: {
+      baseName: "logs_indexed_3day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed45dayPercentage: {
+      baseName: "logs_indexed_45day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed45dayUsage: {
+      baseName: "logs_indexed_45day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed60dayPercentage: {
+      baseName: "logs_indexed_60day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed60dayUsage: {
+      baseName: "logs_indexed_60day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed7dayPercentage: {
+      baseName: "logs_indexed_7day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed7dayUsage: {
+      baseName: "logs_indexed_7day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed90dayPercentage: {
+      baseName: "logs_indexed_90day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed90dayUsage: {
+      baseName: "logs_indexed_90day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexedCustomRetentionPercentage: {
+      baseName: "logs_indexed_custom_retention_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexedCustomRetentionUsage: {
+      baseName: "logs_indexed_custom_retention_usage",
       type: "number",
       format: "double",
     },
@@ -708,6 +1020,26 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    rumBrowserMobileSessionsPercentage: {
+      baseName: "rum_browser_mobile_sessions_percentage",
+      type: "number",
+      format: "double",
+    },
+    rumBrowserMobileSessionsUsage: {
+      baseName: "rum_browser_mobile_sessions_usage",
+      type: "number",
+      format: "double",
+    },
+    rumReplaySessionsPercentage: {
+      baseName: "rum_replay_sessions_percentage",
+      type: "number",
+      format: "double",
+    },
+    rumReplaySessionsUsage: {
+      baseName: "rum_replay_sessions_usage",
+      type: "number",
+      format: "double",
+    },
     sdsScannedBytesPercentage: {
       baseName: "sds_scanned_bytes_percentage",
       type: "number",
@@ -725,6 +1057,16 @@ export class MonthlyUsageAttributionValues {
     },
     serverlessAppsUsage: {
       baseName: "serverless_apps_usage",
+      type: "number",
+      format: "double",
+    },
+    siemIngestedBytesPercentage: {
+      baseName: "siem_ingested_bytes_percentage",
+      type: "number",
+      format: "double",
+    },
+    siemIngestedBytesUsage: {
+      baseName: "siem_ingested_bytes_usage",
       type: "number",
       format: "double",
     },
