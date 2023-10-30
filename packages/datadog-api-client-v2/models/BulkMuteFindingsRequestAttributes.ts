@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { MuteFindingResponseData } from "./MuteFindingResponseData";
+import { BulkMuteFindingsRequestProperties } from "./BulkMuteFindingsRequestProperties";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The expected response schema.
+ * The mute properties to be updated.
  */
-export class MuteFindingResponse {
+export class BulkMuteFindingsRequestAttributes {
   /**
-   * Data object containing the updated finding.
+   * Object containing the new mute properties of the findings.
    */
-  "data": MuteFindingResponseData;
+  "mute": BulkMuteFindingsRequestProperties;
 
   /**
    * @ignore
@@ -25,9 +25,9 @@ export class MuteFindingResponse {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "MuteFindingResponseData",
+    mute: {
+      baseName: "mute",
+      type: "BulkMuteFindingsRequestProperties",
       required: true,
     },
   };
@@ -36,7 +36,7 @@ export class MuteFindingResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return MuteFindingResponse.attributeTypeMap;
+    return BulkMuteFindingsRequestAttributes.attributeTypeMap;
   }
 
   public constructor() {}
