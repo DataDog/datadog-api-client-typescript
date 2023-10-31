@@ -12,7 +12,6 @@ const params: v1.AWSIntegrationApiCreateAWSAccountRequest = {
     accountId: "123456789012",
     accountSpecificNamespaceRules: {
       auto_scaling: false,
-      opswork: false,
     },
     cspmResourceCollectionEnabled: true,
     excludedRegions: ["us-east-1", "us-west-2"],
