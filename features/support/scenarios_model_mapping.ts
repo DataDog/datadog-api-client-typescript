@@ -4353,6 +4353,113 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
+    "v2.ListScorecardOutcomes": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "fieldsOutcome": {
+            "type": "string",
+            "format": "",
+            },
+        "fieldsRule": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOutcomeServiceName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOutcomeState": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleEnabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OutcomesResponse",
+    },
+    "v2.CreateScorecardOutcomesBatch": {
+        "body": {
+            "type": "OutcomesBatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "OutcomesBatchResponse",
+    },
+    "v2.ListScorecardRules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleEnabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRuleCustom": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRuleName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleDescription": {
+            "type": "string",
+            "format": "",
+            },
+        "fieldsRule": {
+            "type": "string",
+            "format": "",
+            },
+        "fieldsScorecard": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListRulesResponse",
+    },
+    "v2.CreateScorecardRule": {
+        "body": {
+            "type": "CreateRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateRuleResponse",
+    },
+    "v2.DeleteScorecardRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.DownloadCloudWorkloadPolicyFile": {
         "operationResponseType": "HttpFile",
     },

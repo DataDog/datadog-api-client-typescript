@@ -165,6 +165,10 @@ import { ContainersResponseLinks } from "./ContainersResponseLinks";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CreateRuleRequest } from "./CreateRuleRequest";
+import { CreateRuleRequestData } from "./CreateRuleRequestData";
+import { CreateRuleResponse } from "./CreateRuleResponse";
+import { CreateRuleResponseData } from "./CreateRuleResponseData";
 import { Creator } from "./Creator";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
@@ -375,6 +379,9 @@ import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
+import { ListRulesResponse } from "./ListRulesResponse";
+import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
+import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
@@ -505,6 +512,18 @@ import { OpsgenieServiceUpdateRequest } from "./OpsgenieServiceUpdateRequest";
 import { OpsgenieServicesResponse } from "./OpsgenieServicesResponse";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
+import { OutcomesBatchAttributes } from "./OutcomesBatchAttributes";
+import { OutcomesBatchRequest } from "./OutcomesBatchRequest";
+import { OutcomesBatchRequestData } from "./OutcomesBatchRequestData";
+import { OutcomesBatchRequestItem } from "./OutcomesBatchRequestItem";
+import { OutcomesBatchResponse } from "./OutcomesBatchResponse";
+import { OutcomesBatchResponseAttributes } from "./OutcomesBatchResponseAttributes";
+import { OutcomesBatchResponseMeta } from "./OutcomesBatchResponseMeta";
+import { OutcomesResponse } from "./OutcomesResponse";
+import { OutcomesResponseDataItem } from "./OutcomesResponseDataItem";
+import { OutcomesResponseIncludedItem } from "./OutcomesResponseIncludedItem";
+import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseIncludedRuleAttributes";
+import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { Pagination } from "./Pagination";
 import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
@@ -575,12 +594,17 @@ import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPo
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
+import { RelationshipToOutcome } from "./RelationshipToOutcome";
+import { RelationshipToOutcomeData } from "./RelationshipToOutcomeData";
 import { RelationshipToPermission } from "./RelationshipToPermission";
 import { RelationshipToPermissionData } from "./RelationshipToPermissionData";
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
 import { RelationshipToRole } from "./RelationshipToRole";
 import { RelationshipToRoleData } from "./RelationshipToRoleData";
 import { RelationshipToRoles } from "./RelationshipToRoles";
+import { RelationshipToRule } from "./RelationshipToRule";
+import { RelationshipToRuleData } from "./RelationshipToRuleData";
+import { RelationshipToRuleDataObject } from "./RelationshipToRuleDataObject";
 import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
 import { RelationshipToSAMLAssertionAttributeData } from "./RelationshipToSAMLAssertionAttributeData";
 import { RelationshipToTeamLinkData } from "./RelationshipToTeamLinkData";
@@ -630,6 +654,8 @@ import { RoleUpdateRequest } from "./RoleUpdateRequest";
 import { RoleUpdateResponse } from "./RoleUpdateResponse";
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
+import { RuleAttributes } from "./RuleAttributes";
+import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
@@ -1179,6 +1205,8 @@ const enumsMap: { [key: string]: any[] } = {
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
   OrganizationsType: ["orgs"],
+  OutcomeType: ["outcome"],
+  OutcomesBatchType: ["batched-outcome"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
   QuerySortOrder: ["asc", "desc"],
@@ -1222,11 +1250,13 @@ const enumsMap: { [key: string]: any[] } = {
     "-user_count",
   ],
   RolesType: ["roles"],
+  RuleType: ["rule"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   ScalarColumnTypeGroup: ["group"],
   ScalarColumnTypeNumber: ["number"],
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
+  ScorecardType: ["scorecard"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
@@ -1379,6 +1409,7 @@ const enumsMap: { [key: string]: any[] } = {
   SpansSort: ["timestamp", "-timestamp"],
   SpansSortOrder: ["asc", "desc"],
   SpansType: ["spans"],
+  State: ["pass", "fail", "skip"],
   TeamLinkType: ["team_links"],
   TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
   TeamPermissionSettingType: ["team_permission_settings"],
@@ -1625,6 +1656,10 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CreateRuleRequest: CreateRuleRequest,
+  CreateRuleRequestData: CreateRuleRequestData,
+  CreateRuleResponse: CreateRuleResponse,
+  CreateRuleResponseData: CreateRuleResponseData,
   Creator: Creator,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
@@ -1852,6 +1887,9 @@ const typeMap: { [index: string]: any } = {
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
   ListPowerpacksResponse: ListPowerpacksResponse,
+  ListRulesResponse: ListRulesResponse,
+  ListRulesResponseDataItem: ListRulesResponseDataItem,
+  ListRulesResponseLinks: ListRulesResponseLinks,
   Log: Log,
   LogAttributes: LogAttributes,
   LogsAggregateBucket: LogsAggregateBucket,
@@ -1991,6 +2029,19 @@ const typeMap: { [index: string]: any } = {
   OpsgenieServicesResponse: OpsgenieServicesResponse,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
+  OutcomesBatchAttributes: OutcomesBatchAttributes,
+  OutcomesBatchRequest: OutcomesBatchRequest,
+  OutcomesBatchRequestData: OutcomesBatchRequestData,
+  OutcomesBatchRequestItem: OutcomesBatchRequestItem,
+  OutcomesBatchResponse: OutcomesBatchResponse,
+  OutcomesBatchResponseAttributes: OutcomesBatchResponseAttributes,
+  OutcomesBatchResponseMeta: OutcomesBatchResponseMeta,
+  OutcomesResponse: OutcomesResponse,
+  OutcomesResponseDataItem: OutcomesResponseDataItem,
+  OutcomesResponseIncludedItem: OutcomesResponseIncludedItem,
+  OutcomesResponseIncludedRuleAttributes:
+    OutcomesResponseIncludedRuleAttributes,
+  OutcomesResponseLinks: OutcomesResponseLinks,
   Pagination: Pagination,
   PartialAPIKey: PartialAPIKey,
   PartialAPIKeyAttributes: PartialAPIKeyAttributes,
@@ -2064,12 +2115,17 @@ const typeMap: { [index: string]: any } = {
   RelationshipToOrganization: RelationshipToOrganization,
   RelationshipToOrganizationData: RelationshipToOrganizationData,
   RelationshipToOrganizations: RelationshipToOrganizations,
+  RelationshipToOutcome: RelationshipToOutcome,
+  RelationshipToOutcomeData: RelationshipToOutcomeData,
   RelationshipToPermission: RelationshipToPermission,
   RelationshipToPermissionData: RelationshipToPermissionData,
   RelationshipToPermissions: RelationshipToPermissions,
   RelationshipToRole: RelationshipToRole,
   RelationshipToRoleData: RelationshipToRoleData,
   RelationshipToRoles: RelationshipToRoles,
+  RelationshipToRule: RelationshipToRule,
+  RelationshipToRuleData: RelationshipToRuleData,
+  RelationshipToRuleDataObject: RelationshipToRuleDataObject,
   RelationshipToSAMLAssertionAttribute: RelationshipToSAMLAssertionAttribute,
   RelationshipToSAMLAssertionAttributeData:
     RelationshipToSAMLAssertionAttributeData,
@@ -2120,6 +2176,8 @@ const typeMap: { [index: string]: any } = {
   RoleUpdateResponse: RoleUpdateResponse,
   RoleUpdateResponseData: RoleUpdateResponseData,
   RolesResponse: RolesResponse,
+  RuleAttributes: RuleAttributes,
+  RuleOutcomeRelationships: RuleOutcomeRelationships,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
   ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
