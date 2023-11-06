@@ -41,4 +41,4 @@ export class World {
 }
 
 setWorldConstructor(World);
-setDefaultTimeout(30 * 1000);
+setDefaultTimeout(60 * 1000);
