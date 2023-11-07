@@ -5,6 +5,7 @@
  */
 import { ToplistWidgetDefinitionType } from "./ToplistWidgetDefinitionType";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
+import { ToplistWidgetStyle } from "./ToplistWidgetStyle";
 import { WidgetCustomLink } from "./WidgetCustomLink";
 import { WidgetTextAlign } from "./WidgetTextAlign";
 import { WidgetTime } from "./WidgetTime";
@@ -23,6 +24,10 @@ export class ToplistWidgetDefinition {
    * List of top list widget requests.
    */
   "requests": Array<ToplistWidgetRequest>;
+  /**
+   * Style customization for a top list widget.
+   */
+  "style"?: ToplistWidgetStyle;
   /**
    * Time setting for the widget.
    */
@@ -61,6 +66,10 @@ export class ToplistWidgetDefinition {
       baseName: "requests",
       type: "Array<ToplistWidgetRequest>",
       required: true,
+    },
+    style: {
+      baseName: "style",
+      type: "ToplistWidgetStyle",
     },
     time: {
       baseName: "time",

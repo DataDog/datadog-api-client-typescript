@@ -4,6 +4,13 @@ import { AWSAccountAndLambdaRequest } from "./AWSAccountAndLambdaRequest";
 import { AWSAccountCreateResponse } from "./AWSAccountCreateResponse";
 import { AWSAccountDeleteRequest } from "./AWSAccountDeleteRequest";
 import { AWSAccountListResponse } from "./AWSAccountListResponse";
+import { AWSEventBridgeAccountConfiguration } from "./AWSEventBridgeAccountConfiguration";
+import { AWSEventBridgeCreateRequest } from "./AWSEventBridgeCreateRequest";
+import { AWSEventBridgeCreateResponse } from "./AWSEventBridgeCreateResponse";
+import { AWSEventBridgeDeleteRequest } from "./AWSEventBridgeDeleteRequest";
+import { AWSEventBridgeDeleteResponse } from "./AWSEventBridgeDeleteResponse";
+import { AWSEventBridgeListResponse } from "./AWSEventBridgeListResponse";
+import { AWSEventBridgeSource } from "./AWSEventBridgeSource";
 import { AWSLogsAsyncError } from "./AWSLogsAsyncError";
 import { AWSLogsAsyncResponse } from "./AWSLogsAsyncResponse";
 import { AWSLogsLambda } from "./AWSLogsLambda";
@@ -471,7 +478,10 @@ import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
+import { ToplistWidgetFlat } from "./ToplistWidgetFlat";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
+import { ToplistWidgetStacked } from "./ToplistWidgetStacked";
+import { ToplistWidgetStyle } from "./ToplistWidgetStyle";
 import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
 import { TopologyQuery } from "./TopologyQuery";
 import { TopologyRequest } from "./TopologyRequest";
@@ -611,6 +621,8 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
 };
 
 const enumsMap: { [key: string]: any[] } = {
+  AWSEventBridgeCreateStatus: ["created"],
+  AWSEventBridgeDeleteStatus: ["empty"],
   AWSNamespace: [
     "elb",
     "application_elb",
@@ -750,12 +762,15 @@ const enumsMap: { [key: string]: any[] } = {
     "appsec_fargate_usage",
     "appsec_usage",
     "browser_usage",
+    "ci_pipeline_indexed_spans_usage",
+    "ci_test_indexed_spans_usage",
     "ci_visibility_itr_usage",
     "cloud_siem_usage",
     "container_excl_agent_usage",
     "container_usage",
     "cspm_containers_usage",
     "cspm_hosts_usage",
+    "custom_event_usage",
     "custom_ingested_timeseries_usage",
     "custom_timeseries_usage",
     "cws_containers_usage",
@@ -769,9 +784,22 @@ const enumsMap: { [key: string]: any[] } = {
     "estimated_rum_sessions_usage",
     "fargate_usage",
     "functions_usage",
+    "indexed_spans_usage",
     "infra_host_usage",
+    "ingested_logs_bytes_usage",
+    "ingested_spans_bytes_usage",
     "invocations_usage",
     "lambda_traced_invocations_usage",
+    "logs_indexed_15day_usage",
+    "logs_indexed_180day_usage",
+    "logs_indexed_30day_usage",
+    "logs_indexed_360day_usage",
+    "logs_indexed_3day_usage",
+    "logs_indexed_45day_usage",
+    "logs_indexed_60day_usage",
+    "logs_indexed_7day_usage",
+    "logs_indexed_90day_usage",
+    "logs_indexed_custom_retention_usage",
     "mobile_app_testing_usage",
     "ndm_netflow_usage",
     "npm_host_usage",
@@ -779,8 +807,11 @@ const enumsMap: { [key: string]: any[] } = {
     "profiled_container_usage",
     "profiled_fargate_usage",
     "profiled_host_usage",
+    "rum_browser_mobile_sessions_usage",
+    "rum_replay_sessions_usage",
     "sds_scanned_bytes_usage",
     "serverless_apps_usage",
+    "siem_ingested_bytes_usage",
     "snmp_usage",
     "universal_service_monitoring_usage",
     "vuln_management_hosts_usage",
@@ -991,6 +1022,44 @@ const enumsMap: { [key: string]: any[] } = {
     "vuln_management_hosts_percentage",
     "sds_scanned_bytes_usage",
     "sds_scanned_bytes_percentage",
+    "ci_test_indexed_spans_usage",
+    "ci_test_indexed_spans_percentage",
+    "ingested_logs_bytes_usage",
+    "ingested_logs_bytes_percentage",
+    "ci_pipeline_indexed_spans_usage",
+    "ci_pipeline_indexed_spans_percentage",
+    "indexed_spans_usage",
+    "indexed_spans_percentage",
+    "custom_event_usage",
+    "custom_event_percentage",
+    "logs_indexed_custom_retention_usage",
+    "logs_indexed_custom_retention_percentage",
+    "logs_indexed_360day_usage",
+    "logs_indexed_360day_percentage",
+    "logs_indexed_180day_usage",
+    "logs_indexed_180day_percentage",
+    "logs_indexed_90day_usage",
+    "logs_indexed_90day_percentage",
+    "logs_indexed_60day_usage",
+    "logs_indexed_60day_percentage",
+    "logs_indexed_45day_usage",
+    "logs_indexed_45day_percentage",
+    "logs_indexed_30day_usage",
+    "logs_indexed_30day_percentage",
+    "logs_indexed_15day_usage",
+    "logs_indexed_15day_percentage",
+    "logs_indexed_7day_usage",
+    "logs_indexed_7day_percentage",
+    "logs_indexed_3day_usage",
+    "logs_indexed_3day_percentage",
+    "rum_replay_sessions_usage",
+    "rum_replay_sessions_percentage",
+    "rum_browser_mobile_sessions_usage",
+    "rum_browser_mobile_sessions_percentage",
+    "ingested_spans_bytes_usage",
+    "ingested_spans_bytes_percentage",
+    "siem_ingested_bytes_usage",
+    "siem_ingested_bytes_percentage",
     "*",
   ],
   NoteWidgetDefinitionType: ["note"],
@@ -1282,6 +1351,10 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
   TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
   ToplistWidgetDefinitionType: ["toplist"],
+  ToplistWidgetFlatType: ["flat"],
+  ToplistWidgetLegend: ["automatic", "inline", "none"],
+  ToplistWidgetScaling: ["absolute", "relative"],
+  ToplistWidgetStackedType: ["stacked"],
   TopologyMapWidgetDefinitionType: ["topology_map"],
   TopologyQueryDataSource: ["data_streams", "service_map"],
   TopologyRequestType: ["topology"],
@@ -1497,6 +1570,13 @@ const typeMap: { [index: string]: any } = {
   AWSAccountCreateResponse: AWSAccountCreateResponse,
   AWSAccountDeleteRequest: AWSAccountDeleteRequest,
   AWSAccountListResponse: AWSAccountListResponse,
+  AWSEventBridgeAccountConfiguration: AWSEventBridgeAccountConfiguration,
+  AWSEventBridgeCreateRequest: AWSEventBridgeCreateRequest,
+  AWSEventBridgeCreateResponse: AWSEventBridgeCreateResponse,
+  AWSEventBridgeDeleteRequest: AWSEventBridgeDeleteRequest,
+  AWSEventBridgeDeleteResponse: AWSEventBridgeDeleteResponse,
+  AWSEventBridgeListResponse: AWSEventBridgeListResponse,
+  AWSEventBridgeSource: AWSEventBridgeSource,
   AWSLogsAsyncError: AWSLogsAsyncError,
   AWSLogsAsyncResponse: AWSLogsAsyncResponse,
   AWSLogsLambda: AWSLogsLambda,
@@ -1999,7 +2079,10 @@ const typeMap: { [index: string]: any } = {
   TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,
   ToplistWidgetDefinition: ToplistWidgetDefinition,
+  ToplistWidgetFlat: ToplistWidgetFlat,
   ToplistWidgetRequest: ToplistWidgetRequest,
+  ToplistWidgetStacked: ToplistWidgetStacked,
+  ToplistWidgetStyle: ToplistWidgetStyle,
   TopologyMapWidgetDefinition: TopologyMapWidgetDefinition,
   TopologyQuery: TopologyQuery,
   TopologyRequest: TopologyRequest,
@@ -2216,6 +2299,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthOauthClient",
     "SyntheticsBasicAuthOauthROP",
   ],
+  ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
     "AlertValueWidgetDefinition",
