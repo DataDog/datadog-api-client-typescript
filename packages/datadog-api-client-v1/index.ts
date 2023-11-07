@@ -990,7 +990,15 @@ export { TimeseriesWidgetLegendLayout } from "./models/TimeseriesWidgetLegendLay
 export { TimeseriesWidgetRequest } from "./models/TimeseriesWidgetRequest";
 export { ToplistWidgetDefinition } from "./models/ToplistWidgetDefinition";
 export { ToplistWidgetDefinitionType } from "./models/ToplistWidgetDefinitionType";
+export { ToplistWidgetDisplay } from "./models/ToplistWidgetDisplay";
+export { ToplistWidgetFlat } from "./models/ToplistWidgetFlat";
+export { ToplistWidgetFlatType } from "./models/ToplistWidgetFlatType";
+export { ToplistWidgetLegend } from "./models/ToplistWidgetLegend";
 export { ToplistWidgetRequest } from "./models/ToplistWidgetRequest";
+export { ToplistWidgetScaling } from "./models/ToplistWidgetScaling";
+export { ToplistWidgetStacked } from "./models/ToplistWidgetStacked";
+export { ToplistWidgetStackedType } from "./models/ToplistWidgetStackedType";
+export { ToplistWidgetStyle } from "./models/ToplistWidgetStyle";
 export { TopologyMapWidgetDefinition } from "./models/TopologyMapWidgetDefinition";
 export { TopologyMapWidgetDefinitionType } from "./models/TopologyMapWidgetDefinitionType";
 export { TopologyQuery } from "./models/TopologyQuery";

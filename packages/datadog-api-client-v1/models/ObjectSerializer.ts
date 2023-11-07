@@ -478,7 +478,10 @@ import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
 import { TimeseriesWidgetExpressionAlias } from "./TimeseriesWidgetExpressionAlias";
 import { TimeseriesWidgetRequest } from "./TimeseriesWidgetRequest";
 import { ToplistWidgetDefinition } from "./ToplistWidgetDefinition";
+import { ToplistWidgetFlat } from "./ToplistWidgetFlat";
 import { ToplistWidgetRequest } from "./ToplistWidgetRequest";
+import { ToplistWidgetStacked } from "./ToplistWidgetStacked";
+import { ToplistWidgetStyle } from "./ToplistWidgetStyle";
 import { TopologyMapWidgetDefinition } from "./TopologyMapWidgetDefinition";
 import { TopologyQuery } from "./TopologyQuery";
 import { TopologyRequest } from "./TopologyRequest";
@@ -1348,6 +1351,10 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesWidgetLegendColumn: ["value", "avg", "sum", "min", "max"],
   TimeseriesWidgetLegendLayout: ["auto", "horizontal", "vertical"],
   ToplistWidgetDefinitionType: ["toplist"],
+  ToplistWidgetFlatType: ["flat"],
+  ToplistWidgetLegend: ["automatic", "inline", "none"],
+  ToplistWidgetScaling: ["absolute", "relative"],
+  ToplistWidgetStackedType: ["stacked"],
   TopologyMapWidgetDefinitionType: ["topology_map"],
   TopologyQueryDataSource: ["data_streams", "service_map"],
   TopologyRequestType: ["topology"],
@@ -2072,7 +2079,10 @@ const typeMap: { [index: string]: any } = {
   TimeseriesWidgetExpressionAlias: TimeseriesWidgetExpressionAlias,
   TimeseriesWidgetRequest: TimeseriesWidgetRequest,
   ToplistWidgetDefinition: ToplistWidgetDefinition,
+  ToplistWidgetFlat: ToplistWidgetFlat,
   ToplistWidgetRequest: ToplistWidgetRequest,
+  ToplistWidgetStacked: ToplistWidgetStacked,
+  ToplistWidgetStyle: ToplistWidgetStyle,
   TopologyMapWidgetDefinition: TopologyMapWidgetDefinition,
   TopologyQuery: TopologyQuery,
   TopologyRequest: TopologyRequest,
@@ -2289,6 +2299,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthOauthClient",
     "SyntheticsBasicAuthOauthROP",
   ],
+  ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
     "AlertValueWidgetDefinition",
