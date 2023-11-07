@@ -42,7 +42,7 @@ export class ServiceDefinitionV2Dot2 {
   /**
    * The service's programming language. Datadog recognizes the following languages: `dotnet`, `go`, `java`, `js`, `php`, `python`, `ruby`, and `c++`.
    */
-  "langauges"?: Array<string>;
+  "languages"?: Array<string>;
   /**
    * The current life cycle phase of the service.
    */
@@ -106,8 +106,8 @@ export class ServiceDefinitionV2Dot2 {
       baseName: "integrations",
       type: "ServiceDefinitionV2Dot2Integrations",
     },
-    langauges: {
-      baseName: "langauges",
+    languages: {
+      baseName: "languages",
       type: "Array<string>",
     },
     lifecycle: {
