@@ -121,7 +121,7 @@ for (const apiVersion of Versions) {
       // register undo method
       if (undoAction.undo.type == "unsafe") {
         this.undo.push(
-          buildUndoFor(apiVersion, undoAction, operationName, result)
+          buildUndoFor(apiVersion, undoAction, operationName, result, opts)
         );
       }
 
