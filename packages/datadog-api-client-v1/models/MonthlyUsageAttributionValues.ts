@@ -235,6 +235,14 @@ export class MonthlyUsageAttributionValues {
    */
   "invocationsUsage"?: number;
   /**
+   * The percentage of Serverless APM usage by tag(s).
+   */
+  "lambdaTracedInvocationsPercentage"?: number;
+  /**
+   * The Serverless APM usage by tag(s).
+   */
+  "lambdaTracedInvocationsUsage"?: number;
+  /**
    * The percentage of Synthetic mobile application test usage by tag(s).
    */
   "mobileAppTestingPercentage"?: number;
@@ -617,6 +625,16 @@ export class MonthlyUsageAttributionValues {
     },
     invocationsUsage: {
       baseName: "invocations_usage",
+      type: "number",
+      format: "double",
+    },
+    lambdaTracedInvocationsPercentage: {
+      baseName: "lambda_traced_invocations_percentage",
+      type: "number",
+      format: "double",
+    },
+    lambdaTracedInvocationsUsage: {
+      baseName: "lambda_traced_invocations_usage",
       type: "number",
       format: "double",
     },

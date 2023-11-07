@@ -39,6 +39,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof FUNCTIONS_USAGE
   | typeof INFRA_HOST_USAGE
   | typeof INVOCATIONS_USAGE
+  | typeof LAMBDA_TRACED_INVOCATIONS_USAGE
   | typeof MOBILE_APP_TESTING_USAGE
   | typeof NDM_NETFLOW_USAGE
   | typeof NPM_HOST_USAGE
@@ -81,6 +82,8 @@ export const FARGATE_USAGE = "fargate_usage";
 export const FUNCTIONS_USAGE = "functions_usage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INVOCATIONS_USAGE = "invocations_usage";
+export const LAMBDA_TRACED_INVOCATIONS_USAGE =
+  "lambda_traced_invocations_usage";
 export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage";
 export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";
 export const NPM_HOST_USAGE = "npm_host_usage";
