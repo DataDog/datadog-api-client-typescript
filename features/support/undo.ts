@@ -88,10 +88,10 @@ function buildUndoFor(
     const opts: { [key: string]: any } = {};
     for (const p of operationUndo.undo.parameters) {
       var dataSource: { [key: string]: any; };
-      if (p.origin == undefined) {
+      if (p.origin === undefined) {
          dataSource = response;
       } else if (p.origin === "request") {
-         dataSource =request.body;
+         dataSource = request.body;
       } else {
         dataSource = response;
       }
