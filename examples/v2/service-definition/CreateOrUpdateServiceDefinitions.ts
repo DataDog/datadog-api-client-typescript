@@ -32,7 +32,7 @@ const params: v2.ServiceDefinitionApiCreateOrUpdateServiceDefinitionsRequest = {
         serviceUrl: "https://my-org.pagerduty.com/service-directory/PMyService",
       },
     },
-    langauges: ["dotnet", "go", "java", "js", "php", "python", "ruby", "c++"],
+    languages: ["dotnet", "go", "java", "js", "php", "python", "ruby", "c++"],
     lifecycle: "sandbox",
     links: [
       {
