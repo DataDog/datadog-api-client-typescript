@@ -24,6 +24,10 @@ export class SecurityMonitoringStandardRuleQuery {
    */
   "groupByFields"?: Array<string>;
   /**
+   * When false, events without a group-by value are ignored by the rule. When true, events with missing group-by fields are processed with `N/A`, replacing the missing values.
+   */
+  "hasOptionalGroupByFields"?: boolean;
+  /**
    * (Deprecated) The target field to aggregate over when using the sum or max
    * aggregations. `metrics` field should be used instead.
    */
@@ -61,6 +65,10 @@ export class SecurityMonitoringStandardRuleQuery {
     groupByFields: {
       baseName: "groupByFields",
       type: "Array<string>",
+    },
+    hasOptionalGroupByFields: {
+      baseName: "hasOptionalGroupByFields",
+      type: "boolean",
     },
     metric: {
       baseName: "metric",
