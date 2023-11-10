@@ -239,6 +239,14 @@ export {
 } from "./apis/MonitorsApi";
 
 export {
+  OktaIntegrationApiCreateOktaAccountRequest,
+  OktaIntegrationApiDeleteOktaAccountRequest,
+  OktaIntegrationApiGetOktaAccountRequest,
+  OktaIntegrationApiUpdateOktaAccountRequest,
+  OktaIntegrationApi,
+} from "./apis/OktaIntegrationApi";
+
+export {
   OpsgenieIntegrationApiCreateOpsgenieServiceRequest,
   OpsgenieIntegrationApiDeleteOpsgenieServiceRequest,
   OpsgenieIntegrationApiGetOpsgenieServiceRequest,
@@ -1081,6 +1089,12 @@ export { MonitorDowntimeMatchResponseData } from "./models/MonitorDowntimeMatchR
 export { MonitorType } from "./models/MonitorType";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
+export { OktaAccount } from "./models/OktaAccount";
+export { OktaAccountAttributes } from "./models/OktaAccountAttributes";
+export { OktaAccountRequest } from "./models/OktaAccountRequest";
+export { OktaAccountResponse } from "./models/OktaAccountResponse";
+export { OktaAccountsResponse } from "./models/OktaAccountsResponse";
+export { OktaAccountType } from "./models/OktaAccountType";
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
 export { OnDemandConcurrencyCapAttributes } from "./models/OnDemandConcurrencyCapAttributes";
 export { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapResponse";

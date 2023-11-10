@@ -497,6 +497,11 @@ import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponse
 import { MonitorType } from "./MonitorType";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
+import { OktaAccount } from "./OktaAccount";
+import { OktaAccountAttributes } from "./OktaAccountAttributes";
+import { OktaAccountRequest } from "./OktaAccountRequest";
+import { OktaAccountResponse } from "./OktaAccountResponse";
+import { OktaAccountsResponse } from "./OktaAccountsResponse";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
@@ -1201,6 +1206,7 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
+  OktaAccountType: ["okta-accounts"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
@@ -2014,6 +2020,11 @@ const typeMap: { [index: string]: any } = {
   MonitorType: MonitorType,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
+  OktaAccount: OktaAccount,
+  OktaAccountAttributes: OktaAccountAttributes,
+  OktaAccountRequest: OktaAccountRequest,
+  OktaAccountResponse: OktaAccountResponse,
+  OktaAccountsResponse: OktaAccountsResponse,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
