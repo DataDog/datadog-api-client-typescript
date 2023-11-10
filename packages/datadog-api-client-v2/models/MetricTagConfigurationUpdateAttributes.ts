@@ -31,6 +31,12 @@ export class MetricTagConfigurationUpdateAttributes {
    */
   "aggregations"?: Array<MetricCustomAggregation>;
   /**
+   * When set to true, the configuration will exclude the configured tags and include any other submitted tags.
+   * When set to false, the configuration will include the configured tags and exclude any other submitted tags.
+   * Defaults to false. Requires `tags` property.
+   */
+  "excludeTagsMode"?: boolean;
+  /**
    * Toggle to include/exclude percentiles for a distribution metric.
    * Defaults to false. Can only be applied to metrics that have a `metric_type` of `distribution`.
    */
@@ -52,6 +58,10 @@ export class MetricTagConfigurationUpdateAttributes {
     aggregations: {
       baseName: "aggregations",
       type: "Array<MetricCustomAggregation>",
+    },
+    excludeTagsMode: {
+      baseName: "exclude_tags_mode",
+      type: "boolean",
     },
     includePercentiles: {
       baseName: "include_percentiles",
