@@ -1,5 +1,5 @@
 /**
- * List security filters returns "OK" response
+ * List notification rules returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -8,8 +8,8 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.SecurityMonitoringApi(configuration);
 
 apiInstance
-  .listSecurityFilters()
-  .then((data: v2.SecurityFiltersResponse) => {
+  .listSecurityMonitoringNotificationRules()
+  .then((data: v2.SecurityMonitoringNotificationRuleListResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
