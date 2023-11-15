@@ -301,14 +301,18 @@ export {
 
 export {
   SecurityMonitoringApiCreateSecurityFilterRequest,
+  SecurityMonitoringApiCreateSecurityMonitoringNotificationRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
+  SecurityMonitoringApiDeleteSecurityMonitoringNotificationRuleRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiEditSecurityMonitoringNotificationRuleRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
   SecurityMonitoringApiGetFindingRequest,
   SecurityMonitoringApiGetSecurityFilterRequest,
+  SecurityMonitoringApiGetSecurityMonitoringNotificationRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
   SecurityMonitoringApiListFindingsRequest,
@@ -1301,9 +1305,22 @@ export { SecurityFilterType } from "./models/SecurityFilterType";
 export { SecurityFilterUpdateAttributes } from "./models/SecurityFilterUpdateAttributes";
 export { SecurityFilterUpdateData } from "./models/SecurityFilterUpdateData";
 export { SecurityFilterUpdateRequest } from "./models/SecurityFilterUpdateRequest";
+export { SecurityMonitoringCreator } from "./models/SecurityMonitoringCreator";
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
+export { SecurityMonitoringNotificationRuleCreateAttributes } from "./models/SecurityMonitoringNotificationRuleCreateAttributes";
+export { SecurityMonitoringNotificationRuleCreateData } from "./models/SecurityMonitoringNotificationRuleCreateData";
+export { SecurityMonitoringNotificationRuleCreateRequest } from "./models/SecurityMonitoringNotificationRuleCreateRequest";
+export { SecurityMonitoringNotificationRuleListResponse } from "./models/SecurityMonitoringNotificationRuleListResponse";
+export { SecurityMonitoringNotificationRuleResponse } from "./models/SecurityMonitoringNotificationRuleResponse";
+export { SecurityMonitoringNotificationRuleResponseAttributes } from "./models/SecurityMonitoringNotificationRuleResponseAttributes";
+export { SecurityMonitoringNotificationRuleResponseData } from "./models/SecurityMonitoringNotificationRuleResponseData";
+export { SecurityMonitoringNotificationRuleSelectors } from "./models/SecurityMonitoringNotificationRuleSelectors";
+export { SecurityMonitoringNotificationRuleType } from "./models/SecurityMonitoringNotificationRuleType";
+export { SecurityMonitoringNotificationRuleUpdateAttributes } from "./models/SecurityMonitoringNotificationRuleUpdateAttributes";
+export { SecurityMonitoringNotificationRuleUpdateData } from "./models/SecurityMonitoringNotificationRuleUpdateData";
+export { SecurityMonitoringNotificationRuleUpdateRequest } from "./models/SecurityMonitoringNotificationRuleUpdateRequest";
 export { SecurityMonitoringRuleCase } from "./models/SecurityMonitoringRuleCase";
 export { SecurityMonitoringRuleCaseCreate } from "./models/SecurityMonitoringRuleCaseCreate";
 export { SecurityMonitoringRuleCreatePayload } from "./models/SecurityMonitoringRuleCreatePayload";
@@ -1325,6 +1342,7 @@ export { SecurityMonitoringRuleResponse } from "./models/SecurityMonitoringRuleR
 export { SecurityMonitoringRuleSeverity } from "./models/SecurityMonitoringRuleSeverity";
 export { SecurityMonitoringRuleTypeCreate } from "./models/SecurityMonitoringRuleTypeCreate";
 export { SecurityMonitoringRuleTypeRead } from "./models/SecurityMonitoringRuleTypeRead";
+export { SecurityMonitoringRuleTypes } from "./models/SecurityMonitoringRuleTypes";
 export { SecurityMonitoringRuleUpdatePayload } from "./models/SecurityMonitoringRuleUpdatePayload";
 export { SecurityMonitoringSignal } from "./models/SecurityMonitoringSignal";
 export { SecurityMonitoringSignalArchiveReason } from "./models/SecurityMonitoringSignalArchiveReason";
@@ -1362,6 +1380,7 @@ export { SecurityMonitoringStandardRuleCreatePayload } from "./models/SecurityMo
 export { SecurityMonitoringStandardRuleQuery } from "./models/SecurityMonitoringStandardRuleQuery";
 export { SecurityMonitoringStandardRuleResponse } from "./models/SecurityMonitoringStandardRuleResponse";
 export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageUser";
+export { SecurityMonitoringUpdater } from "./models/SecurityMonitoringUpdater";
 export { SensitiveDataScannerConfigRequest } from "./models/SensitiveDataScannerConfigRequest";
 export { SensitiveDataScannerConfiguration } from "./models/SensitiveDataScannerConfiguration";
 export { SensitiveDataScannerConfigurationData } from "./models/SensitiveDataScannerConfigurationData";
