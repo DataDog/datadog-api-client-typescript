@@ -26,20 +26,20 @@ import { MonitorDowntimeMatchResponse } from "../models/MonitorDowntimeMatchResp
 
 export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   public async cancelDowntime(
-    downtimeId: string,
+    downtimeUuid: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    // verify required parameter 'downtimeId' is not null or undefined
-    if (downtimeId === null || downtimeId === undefined) {
-      throw new RequiredError("downtimeId", "cancelDowntime");
+    // verify required parameter 'downtimeUuid' is not null or undefined
+    if (downtimeUuid === null || downtimeUuid === undefined) {
+      throw new RequiredError("downtimeUuid", "cancelDowntime");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/downtime/{downtime_id}".replace(
-      "{downtime_id}",
-      encodeURIComponent(String(downtimeId))
+    const localVarPath = "/api/v2/downtime/{downtime_uuid}".replace(
+      "{downtime_uuid}",
+      encodeURIComponent(String(downtimeUuid))
     );
 
     // Make Request Context
@@ -102,21 +102,21 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async getDowntime(
-    downtimeId: string,
+    downtimeUuid: string,
     include?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    // verify required parameter 'downtimeId' is not null or undefined
-    if (downtimeId === null || downtimeId === undefined) {
-      throw new RequiredError("downtimeId", "getDowntime");
+    // verify required parameter 'downtimeUuid' is not null or undefined
+    if (downtimeUuid === null || downtimeUuid === undefined) {
+      throw new RequiredError("downtimeUuid", "getDowntime");
     }
 
     // Path Params
-    const localVarPath = "/api/v2/downtime/{downtime_id}".replace(
-      "{downtime_id}",
-      encodeURIComponent(String(downtimeId))
+    const localVarPath = "/api/v2/downtime/{downtime_uuid}".replace(
+      "{downtime_uuid}",
+      encodeURIComponent(String(downtimeUuid))
     );
 
     // Make Request Context
@@ -235,15 +235,15 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async updateDowntime(
-    downtimeId: string,
+    downtimeUuid: string,
     body: DowntimeUpdateRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    // verify required parameter 'downtimeId' is not null or undefined
-    if (downtimeId === null || downtimeId === undefined) {
-      throw new RequiredError("downtimeId", "updateDowntime");
+    // verify required parameter 'downtimeUuid' is not null or undefined
+    if (downtimeUuid === null || downtimeUuid === undefined) {
+      throw new RequiredError("downtimeUuid", "updateDowntime");
     }
 
     // verify required parameter 'body' is not null or undefined
@@ -252,9 +252,9 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     // Path Params
-    const localVarPath = "/api/v2/downtime/{downtime_id}".replace(
-      "{downtime_id}",
-      encodeURIComponent(String(downtimeId))
+    const localVarPath = "/api/v2/downtime/{downtime_uuid}".replace(
+      "{downtime_uuid}",
+      encodeURIComponent(String(downtimeUuid))
     );
 
     // Make Request Context
@@ -653,7 +653,7 @@ export interface DowntimesApiCancelDowntimeRequest {
    * ID of the downtime to cancel.
    * @type string
    */
-  downtimeId: string;
+  downtimeUuid: string;
 }
 
 export interface DowntimesApiCreateDowntimeRequest {
@@ -669,7 +669,7 @@ export interface DowntimesApiGetDowntimeRequest {
    * ID of the downtime to fetch.
    * @type string
    */
-  downtimeId: string;
+  downtimeUuid: string;
   /**
    * Comma-separated list of resource paths for related resources to include in the response. Supported resource
    * paths are `created_by` and `monitor`.
@@ -715,7 +715,7 @@ export interface DowntimesApiUpdateDowntimeRequest {
    * ID of the downtime to update.
    * @type string
    */
-  downtimeId: string;
+  downtimeUuid: string;
   /**
    * Update a downtime request body.
    * @type DowntimeUpdateRequest
@@ -749,7 +749,7 @@ export class DowntimesApi {
     options?: Configuration
   ): Promise<void> {
     const requestContextPromise = this.requestFactory.cancelDowntime(
-      param.downtimeId,
+      param.downtimeUuid,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -783,7 +783,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Get downtime detail by `downtime_id`.
+   * Get downtime detail by `downtime_uuid`.
    * @param param The request object
    */
   public getDowntime(
@@ -791,7 +791,7 @@ export class DowntimesApi {
     options?: Configuration
   ): Promise<DowntimeResponse> {
     const requestContextPromise = this.requestFactory.getDowntime(
-      param.downtimeId,
+      param.downtimeUuid,
       param.include,
       options
     );
@@ -896,7 +896,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Update a downtime by `downtime_id`.
+   * Update a downtime by `downtime_uuid`.
    * @param param The request object
    */
   public updateDowntime(
@@ -904,7 +904,7 @@ export class DowntimesApi {
     options?: Configuration
   ): Promise<DowntimeResponse> {
     const requestContextPromise = this.requestFactory.updateDowntime(
-      param.downtimeId,
+      param.downtimeUuid,
       param.body,
       options
     );

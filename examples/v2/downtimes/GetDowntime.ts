@@ -11,7 +11,7 @@ const apiInstance = new v2.DowntimesApi(configuration);
 const DOWNTIME_V2_DATA_ID = process.env.DOWNTIME_V2_DATA_ID as string;
 
 const params: v2.DowntimesApiGetDowntimeRequest = {
-  downtimeId: DOWNTIME_V2_DATA_ID,
+  downtimeUuid: DOWNTIME_V2_DATA_ID,
 };
 
 apiInstance

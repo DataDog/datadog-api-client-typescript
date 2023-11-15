@@ -20,7 +20,7 @@ const params: v2.DowntimesApiUpdateDowntimeRequest = {
       type: "downtime",
     },
   },
-  downtimeId: DOWNTIME_V2_DATA_ID,
+  downtimeUuid: DOWNTIME_V2_DATA_ID,
 };
 
 apiInstance

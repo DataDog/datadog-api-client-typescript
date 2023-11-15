@@ -2860,14 +2860,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "DowntimeResponse",
     },
     "v2.CancelDowntime": {
-        "downtimeId": {
+        "downtimeUuid": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "void",
     },
     "v2.GetDowntime": {
-        "downtimeId": {
+        "downtimeUuid": {
             "type": "string",
             "format": "",
             },
@@ -2878,7 +2878,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "operationResponseType": "DowntimeResponse",
     },
     "v2.UpdateDowntime": {
-        "downtimeId": {
+        "downtimeUuid": {
             "type": "string",
             "format": "",
             },
