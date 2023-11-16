@@ -552,6 +552,9 @@ import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { ProjectedCost } from "./ProjectedCost";
+import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
+import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
@@ -1209,6 +1212,7 @@ const enumsMap: { [key: string]: any[] } = {
   OutcomesBatchType: ["batched-outcome"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
+  ProjectedCostType: ["projected_cost"],
   QuerySortOrder: ["asc", "desc"],
   RUMAggregateSortType: ["alphabetical", "measure"],
   RUMAggregationFunction: [
@@ -2070,6 +2074,9 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
+  ProjectedCost: ProjectedCost,
+  ProjectedCostAttributes: ProjectedCostAttributes,
+  ProjectedCostResponse: ProjectedCostResponse,
   QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
