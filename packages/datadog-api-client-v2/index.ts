@@ -405,6 +405,7 @@ export {
   UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetHistoricalCostByOrgRequest,
   UsageMeteringApiGetHourlyUsageRequest,
+  UsageMeteringApiGetProjectedCostRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
   UsageMeteringApiGetUsageObservabilityPipelinesRequest,
@@ -1144,6 +1145,10 @@ export { ProcessSummariesResponse } from "./models/ProcessSummariesResponse";
 export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
+export { ProjectedCost } from "./models/ProjectedCost";
+export { ProjectedCostAttributes } from "./models/ProjectedCostAttributes";
+export { ProjectedCostResponse } from "./models/ProjectedCostResponse";
+export { ProjectedCostType } from "./models/ProjectedCostType";
 export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
