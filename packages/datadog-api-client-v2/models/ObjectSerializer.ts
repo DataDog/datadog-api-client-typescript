@@ -8,6 +8,9 @@ import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 import { APIKeyUpdateData } from "./APIKeyUpdateData";
 import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
+import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
+import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
+import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
@@ -973,6 +976,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
     "created_at",
@@ -1494,6 +1498,9 @@ const typeMap: { [index: string]: any } = {
   APIKeyUpdateData: APIKeyUpdateData,
   APIKeyUpdateRequest: APIKeyUpdateRequest,
   APIKeysResponse: APIKeysResponse,
+  ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
+  ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
+  ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
   ApplicationKeyCreateData: ApplicationKeyCreateData,
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,

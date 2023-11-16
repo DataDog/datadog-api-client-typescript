@@ -16,6 +16,7 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
+import { ActiveBillingDimensionsResponse } from "../models/ActiveBillingDimensionsResponse";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CostByOrgResponse } from "../models/CostByOrgResponse";
 import { HourlyUsageResponse } from "../models/HourlyUsageResponse";
@@ -25,6 +26,41 @@ import { UsageLambdaTracedInvocationsResponse } from "../models/UsageLambdaTrace
 import { UsageObservabilityPipelinesResponse } from "../models/UsageObservabilityPipelinesResponse";
 
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
+  public async getActiveBillingDimensions(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getActiveBillingDimensions'");
+    if (!_config.unstableOperations["v2.getActiveBillingDimensions"]) {
+      throw new Error(
+        "Unstable operation 'getActiveBillingDimensions' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.getActiveBillingDimensions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCostByOrg(
     startMonth: Date,
     endMonth?: Date,
@@ -480,6 +516,70 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class UsageMeteringApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getActiveBillingDimensions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getActiveBillingDimensions(
+    response: ResponseContext
+  ): Promise<ActiveBillingDimensionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: ActiveBillingDimensionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ActiveBillingDimensionsResponse"
+        ) as ActiveBillingDimensionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ActiveBillingDimensionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ActiveBillingDimensionsResponse",
+          ""
+        ) as ActiveBillingDimensionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -1159,6 +1259,26 @@ export class UsageMeteringApi {
       requestFactory || new UsageMeteringApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new UsageMeteringApiResponseProcessor();
+  }
+
+  /**
+   * Get active billing dimensions for cost attribution. Cost data for a given month becomes available no later than the 17th of the following month.
+   * @param param The request object
+   */
+  public getActiveBillingDimensions(
+    options?: Configuration
+  ): Promise<ActiveBillingDimensionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getActiveBillingDimensions(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getActiveBillingDimensions(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
