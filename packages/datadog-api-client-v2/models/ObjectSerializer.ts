@@ -165,6 +165,7 @@ import { ContainerMeta } from "./ContainerMeta";
 import { ContainerMetaPage } from "./ContainerMetaPage";
 import { ContainersResponse } from "./ContainersResponse";
 import { ContainersResponseLinks } from "./ContainersResponseLinks";
+import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
@@ -501,6 +502,11 @@ import { MonitorDowntimeMatchResponse } from "./MonitorDowntimeMatchResponse";
 import { MonitorDowntimeMatchResponseAttributes } from "./MonitorDowntimeMatchResponseAttributes";
 import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
 import { MonitorType } from "./MonitorType";
+import { MonthlyCostAttributionAttributes } from "./MonthlyCostAttributionAttributes";
+import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
+import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
+import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
+import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
@@ -1060,6 +1066,7 @@ const enumsMap: { [key: string]: any[] } = {
   ContainerMetaPageType: ["cursor_limit"],
   ContainerType: ["container"],
   ContentEncoding: ["identity", "gzip", "deflate"],
+  CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
   DashboardType: [
     "custom_timeboard",
@@ -1405,6 +1412,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  SortDirection: ["desc", "asc"],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
   SpansAggregateResponseStatus: ["done", "timeout"],
@@ -1677,6 +1685,7 @@ const typeMap: { [index: string]: any } = {
   ContainerMetaPage: ContainerMetaPage,
   ContainersResponse: ContainersResponse,
   ContainersResponseLinks: ContainersResponseLinks,
+  CostAttributionAggregatesBody: CostAttributionAggregatesBody,
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
@@ -2039,6 +2048,11 @@ const typeMap: { [index: string]: any } = {
     MonitorDowntimeMatchResponseAttributes,
   MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
   MonitorType: MonitorType,
+  MonthlyCostAttributionAttributes: MonthlyCostAttributionAttributes,
+  MonthlyCostAttributionBody: MonthlyCostAttributionBody,
+  MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
+  MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
+  MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,

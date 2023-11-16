@@ -218,6 +218,7 @@ export function createConfiguration(
       "v2.listContainerImages": false,
       "v2.listContainers": false,
       "v2.getActiveBillingDimensions": false,
+      "v2.getMonthlyCostAttribution": false,
       "v2.listEvents": false,
       "v2.searchEvents": false,
       "v2.createIncident": false,

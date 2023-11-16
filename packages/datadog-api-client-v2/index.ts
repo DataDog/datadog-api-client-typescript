@@ -405,6 +405,7 @@ export {
   UsageMeteringApiGetEstimatedCostByOrgRequest,
   UsageMeteringApiGetHistoricalCostByOrgRequest,
   UsageMeteringApiGetHourlyUsageRequest,
+  UsageMeteringApiGetMonthlyCostAttributionRequest,
   UsageMeteringApiGetProjectedCostRequest,
   UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest,
   UsageMeteringApiGetUsageLambdaTracedInvocationsRequest,
@@ -644,6 +645,8 @@ export { ContainersResponse } from "./models/ContainersResponse";
 export { ContainersResponseLinks } from "./models/ContainersResponseLinks";
 export { ContainerType } from "./models/ContainerType";
 export { ContentEncoding } from "./models/ContentEncoding";
+export { CostAttributionAggregatesBody } from "./models/CostAttributionAggregatesBody";
+export { CostAttributionType } from "./models/CostAttributionType";
 export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
@@ -1091,6 +1094,11 @@ export { MonitorDowntimeMatchResponse } from "./models/MonitorDowntimeMatchRespo
 export { MonitorDowntimeMatchResponseAttributes } from "./models/MonitorDowntimeMatchResponseAttributes";
 export { MonitorDowntimeMatchResponseData } from "./models/MonitorDowntimeMatchResponseData";
 export { MonitorType } from "./models/MonitorType";
+export { MonthlyCostAttributionAttributes } from "./models/MonthlyCostAttributionAttributes";
+export { MonthlyCostAttributionBody } from "./models/MonthlyCostAttributionBody";
+export { MonthlyCostAttributionMeta } from "./models/MonthlyCostAttributionMeta";
+export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributionPagination";
+export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
@@ -1501,6 +1509,7 @@ export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackT
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
+export { SortDirection } from "./models/SortDirection";
 export { Span } from "./models/Span";
 export { SpansAggregateBucket } from "./models/SpansAggregateBucket";
 export { SpansAggregateBucketAttributes } from "./models/SpansAggregateBucketAttributes";
