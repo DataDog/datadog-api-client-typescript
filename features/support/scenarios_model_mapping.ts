@@ -2793,6 +2793,133 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ContainersResponse",
     },
+    "v2.GetActiveBillingDimensions": {
+        "operationResponseType": "ActiveBillingDimensionsResponse",
+    },
+    "v2.GetUsageApplicationSecurityMonitoring": {
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageApplicationSecurityMonitoringResponse",
+    },
+    "v2.GetCostByOrg": {
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "CostByOrgResponse",
+    },
+    "v2.GetEstimatedCostByOrg": {
+        "view": {
+            "type": "string",
+            "format": "",
+            },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "startDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "CostByOrgResponse",
+    },
+    "v2.GetHistoricalCostByOrg": {
+        "view": {
+            "type": "string",
+            "format": "",
+            },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "CostByOrgResponse",
+    },
+    "v2.GetHourlyUsage": {
+        "filterTimestampStart": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTimestampEnd": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterProductFamilies": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIncludeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterIncludeBreakdown": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterVersions": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageNextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HourlyUsageResponse",
+    },
+    "v2.GetUsageLambdaTracedInvocations": {
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageLambdaTracedInvocationsResponse",
+    },
+    "v2.GetUsageObservabilityPipelines": {
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageObservabilityPipelinesResponse",
+    },
+    "v2.GetProjectedCost": {
+        "view": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProjectedCostResponse",
+    },
     "v2.DeleteDashboardListItems": {
         "dashboardListId": {
             "type": "number",
@@ -5062,130 +5189,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTeamResponse",
-    },
-    "v2.GetUsageApplicationSecurityMonitoring": {
-        "startHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "UsageApplicationSecurityMonitoringResponse",
-    },
-    "v2.GetCostByOrg": {
-        "startMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "CostByOrgResponse",
-    },
-    "v2.GetEstimatedCostByOrg": {
-        "view": {
-            "type": "string",
-            "format": "",
-            },
-        "startMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "startDate": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endDate": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "CostByOrgResponse",
-    },
-    "v2.GetHistoricalCostByOrg": {
-        "view": {
-            "type": "string",
-            "format": "",
-            },
-        "startMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "CostByOrgResponse",
-    },
-    "v2.GetHourlyUsage": {
-        "filterTimestampStart": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "filterTimestampEnd": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "filterProductFamilies": {
-            "type": "string",
-            "format": "",
-            },
-        "filterIncludeDescendants": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterIncludeBreakdown": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterVersions": {
-            "type": "string",
-            "format": "",
-            },
-        "pageLimit": {
-            "type": "number",
-            "format": "int32",
-            },
-        "pageNextRecordId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "HourlyUsageResponse",
-    },
-    "v2.GetUsageLambdaTracedInvocations": {
-        "startHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "UsageLambdaTracedInvocationsResponse",
-    },
-    "v2.GetUsageObservabilityPipelines": {
-        "startHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "UsageObservabilityPipelinesResponse",
-    },
-    "v2.GetProjectedCost": {
-        "view": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ProjectedCostResponse",
     },
     "v2.SendInvitations": {
         "body": {
