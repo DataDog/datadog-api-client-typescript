@@ -2796,6 +2796,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetActiveBillingDimensions": {
         "operationResponseType": "ActiveBillingDimensionsResponse",
     },
+    "v2.GetMonthlyCostAttribution": {
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "fields": {
+            "type": "string",
+            "format": "",
+            },
+        "sortDirection": {
+            "type": "SortDirection",
+            "format": "",
+            },
+        "sortName": {
+            "type": "string",
+            "format": "",
+            },
+        "tagBreakdownKeys": {
+            "type": "string",
+            "format": "",
+            },
+        "nextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "MonthlyCostAttributionResponse",
+    },
     "v2.GetUsageApplicationSecurityMonitoring": {
         "startHr": {
             "type": "Date",
