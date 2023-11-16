@@ -312,6 +312,8 @@ import { IncidentIntegrationMetadataPatchData } from "./IncidentIntegrationMetad
 import { IncidentIntegrationMetadataPatchRequest } from "./IncidentIntegrationMetadataPatchRequest";
 import { IncidentIntegrationMetadataResponse } from "./IncidentIntegrationMetadataResponse";
 import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMetadataResponseData";
+import { IncidentIntegrationRelationships } from "./IncidentIntegrationRelationships";
+import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
@@ -361,6 +363,7 @@ import { IncidentTodoCreateRequest } from "./IncidentTodoCreateRequest";
 import { IncidentTodoListResponse } from "./IncidentTodoListResponse";
 import { IncidentTodoPatchData } from "./IncidentTodoPatchData";
 import { IncidentTodoPatchRequest } from "./IncidentTodoPatchRequest";
+import { IncidentTodoRelationships } from "./IncidentTodoRelationships";
 import { IncidentTodoResponse } from "./IncidentTodoResponse";
 import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
 import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
@@ -590,10 +593,16 @@ import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
+import { RelationshipToIncidentImpactData } from "./RelationshipToIncidentImpactData";
+import { RelationshipToIncidentImpacts } from "./RelationshipToIncidentImpacts";
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
+import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
+import { RelationshipToIncidentResponders } from "./RelationshipToIncidentResponders";
+import { RelationshipToIncidentUserDefinedFieldData } from "./RelationshipToIncidentUserDefinedFieldData";
+import { RelationshipToIncidentUserDefinedFields } from "./RelationshipToIncidentUserDefinedFields";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
@@ -1134,17 +1143,21 @@ const enumsMap: { [key: string]: any[] } = {
     "metrictag",
     "autocomplete",
   ],
+  IncidentImpactsType: ["incident_impacts"],
   IncidentIntegrationMetadataType: ["incident_integrations"],
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
+  IncidentRespondersType: ["incident_responders"],
   IncidentSearchResultsType: ["incidents_search_results"],
   IncidentSearchSortOrder: ["created", "-created"],
   IncidentServiceType: ["services"],
+  IncidentSeverity: ["UNKNOWN", "SEV-1", "SEV-2", "SEV-3", "SEV-4", "SEV-5"],
   IncidentTeamType: ["teams"],
   IncidentTimelineCellMarkdownContentType: ["markdown"],
   IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
   IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
+  IncidentUserDefinedFieldType: ["user_defined_field"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
@@ -1819,6 +1832,8 @@ const typeMap: { [index: string]: any } = {
   IncidentIntegrationMetadataResponse: IncidentIntegrationMetadataResponse,
   IncidentIntegrationMetadataResponseData:
     IncidentIntegrationMetadataResponseData,
+  IncidentIntegrationRelationships: IncidentIntegrationRelationships,
+  IncidentNonDatadogCreator: IncidentNonDatadogCreator,
   IncidentNotificationHandle: IncidentNotificationHandle,
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
@@ -1873,6 +1888,7 @@ const typeMap: { [index: string]: any } = {
   IncidentTodoListResponse: IncidentTodoListResponse,
   IncidentTodoPatchData: IncidentTodoPatchData,
   IncidentTodoPatchRequest: IncidentTodoPatchRequest,
+  IncidentTodoRelationships: IncidentTodoRelationships,
   IncidentTodoResponse: IncidentTodoResponse,
   IncidentTodoResponseData: IncidentTodoResponseData,
   IncidentUpdateAttributes: IncidentUpdateAttributes,
@@ -2113,12 +2129,20 @@ const typeMap: { [index: string]: any } = {
   RUMWarning: RUMWarning,
   RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
   RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
+  RelationshipToIncidentImpactData: RelationshipToIncidentImpactData,
+  RelationshipToIncidentImpacts: RelationshipToIncidentImpacts,
   RelationshipToIncidentIntegrationMetadataData:
     RelationshipToIncidentIntegrationMetadataData,
   RelationshipToIncidentIntegrationMetadatas:
     RelationshipToIncidentIntegrationMetadatas,
   RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
   RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
+  RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
+  RelationshipToIncidentResponders: RelationshipToIncidentResponders,
+  RelationshipToIncidentUserDefinedFieldData:
+    RelationshipToIncidentUserDefinedFieldData,
+  RelationshipToIncidentUserDefinedFields:
+    RelationshipToIncidentUserDefinedFields,
   RelationshipToOrganization: RelationshipToOrganization,
   RelationshipToOrganizationData: RelationshipToOrganizationData,
   RelationshipToOrganizations: RelationshipToOrganizations,
