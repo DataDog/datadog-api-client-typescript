@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
+import { RelationshipToIncidentUserDefinedFieldData } from "./RelationshipToIncidentUserDefinedFieldData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The relationships the incident will have with other resources once created.
+ * Relationship to incident user defined fields.
  */
-export class IncidentCreateRelationships {
+export class RelationshipToIncidentUserDefinedFields {
   /**
-   * Relationship to user.
+   * An array of user defined fields.
    */
-  "commanderUser": NullableRelationshipToUser | null;
+  "data": Array<RelationshipToIncidentUserDefinedFieldData>;
 
   /**
    * @ignore
@@ -25,9 +25,9 @@ export class IncidentCreateRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    commanderUser: {
-      baseName: "commander_user",
-      type: "NullableRelationshipToUser",
+    data: {
+      baseName: "data",
+      type: "Array<RelationshipToIncidentUserDefinedFieldData>",
       required: true,
     },
   };
@@ -36,7 +36,7 @@ export class IncidentCreateRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentCreateRelationships.attributeTypeMap;
+    return RelationshipToIncidentUserDefinedFields.attributeTypeMap;
   }
 
   public constructor() {}
