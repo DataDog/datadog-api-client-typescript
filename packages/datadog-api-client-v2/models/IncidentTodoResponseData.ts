@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { IncidentTodoAttributes } from "./IncidentTodoAttributes";
+import { IncidentTodoRelationships } from "./IncidentTodoRelationships";
 import { IncidentTodoType } from "./IncidentTodoType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,6 +21,10 @@ export class IncidentTodoResponseData {
    * The incident todo's ID.
    */
   "id": string;
+  /**
+   * The incident's relationships from a response.
+   */
+  "relationships"?: IncidentTodoRelationships;
   /**
    * Todo resource type.
    */
@@ -42,6 +47,10 @@ export class IncidentTodoResponseData {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentTodoRelationships",
     },
     type: {
       baseName: "type",

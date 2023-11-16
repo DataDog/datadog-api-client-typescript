@@ -14,7 +14,7 @@ export class IncidentCreateRelationships {
   /**
    * Relationship to user.
    */
-  "commanderUser": NullableRelationshipToUser;
+  "commanderUser": NullableRelationshipToUser | null;
 
   /**
    * @ignore

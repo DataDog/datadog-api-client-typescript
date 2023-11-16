@@ -19,6 +19,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CostByOrgResponse } from "../models/CostByOrgResponse";
 import { HourlyUsageResponse } from "../models/HourlyUsageResponse";
+import { ProjectedCostResponse } from "../models/ProjectedCostResponse";
 import { UsageApplicationSecurityMonitoringResponse } from "../models/UsageApplicationSecurityMonitoringResponse";
 import { UsageLambdaTracedInvocationsResponse } from "../models/UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "../models/UsageObservabilityPipelinesResponse";
@@ -277,6 +278,43 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[next_record_id]",
         ObjectSerializer.serialize(pageNextRecordId, "string", "")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getProjectedCost(
+    view?: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/usage/projected_cost";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.getProjectedCost")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (view !== undefined) {
+      requestContext.setQueryParam(
+        "view",
+        ObjectSerializer.serialize(view, "string", "")
       );
     }
 
@@ -694,6 +732,68 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getProjectedCost
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getProjectedCost(
+    response: ResponseContext
+  ): Promise<ProjectedCostResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: ProjectedCostResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ProjectedCostResponse"
+      ) as ProjectedCostResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ProjectedCostResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ProjectedCostResponse",
+        ""
+      ) as ProjectedCostResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getUsageApplicationSecurityMonitoring
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -994,6 +1094,14 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
   pageNextRecordId?: string;
 }
 
+export interface UsageMeteringApiGetProjectedCostRequest {
+  /**
+   * String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`. Defaults to `summary`.
+   * @type string
+   */
+  view?: string;
+}
+
 export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
@@ -1155,6 +1263,29 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getHourlyUsage(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get projected cost across multi-org and single root-org accounts.
+   * Projected cost data is only available for the current month and becomes available around the 12th of the month.
+   * This endpoint requires the usage_read authorization scope.
+   * @param param The request object
+   */
+  public getProjectedCost(
+    param: UsageMeteringApiGetProjectedCostRequest = {},
+    options?: Configuration
+  ): Promise<ProjectedCostResponse> {
+    const requestContextPromise = this.requestFactory.getProjectedCost(
+      param.view,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getProjectedCost(responseContext);
         });
     });
   }

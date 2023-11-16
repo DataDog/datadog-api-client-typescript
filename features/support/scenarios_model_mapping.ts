@@ -5180,6 +5180,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsageObservabilityPipelinesResponse",
     },
+    "v2.GetProjectedCost": {
+        "view": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProjectedCostResponse",
+    },
     "v2.SendInvitations": {
         "body": {
             "type": "UserInvitationsRequest",

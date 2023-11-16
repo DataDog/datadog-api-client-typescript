@@ -20,6 +20,10 @@ export class IncidentAttachmentLinkAttributes {
    * The type of link attachment attributes.
    */
   "attachmentType": IncidentAttachmentLinkAttachmentType;
+  /**
+   * Timestamp when the incident attachment link was last modified.
+   */
+  "modified"?: Date;
 
   /**
    * @ignore
@@ -39,6 +43,11 @@ export class IncidentAttachmentLinkAttributes {
       baseName: "attachment_type",
       type: "IncidentAttachmentLinkAttachmentType",
       required: true,
+    },
+    modified: {
+      baseName: "modified",
+      type: "Date",
+      format: "date-time",
     },
   };
 
