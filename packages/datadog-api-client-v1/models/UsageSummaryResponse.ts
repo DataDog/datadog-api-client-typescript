@@ -197,6 +197,14 @@ export class UsageSummaryResponse {
    */
   "cspmHostTop99pSum"?: number;
   /**
+   * Shows the average number of distinct historical custom metrics over all hours in the current months for all organizations.
+   */
+  "customHistoricalTsSum"?: number;
+  /**
+   * Shows the average number of distinct live custom metrics over all hours in the current months for all organizations.
+   */
+  "customLiveTsSum"?: number;
+  /**
    * Shows the average number of distinct custom metrics over all hours in the current months for all organizations.
    */
   "customTsSum"?: number;
@@ -693,6 +701,16 @@ export class UsageSummaryResponse {
     },
     cspmHostTop99pSum: {
       baseName: "cspm_host_top99p_sum",
+      type: "number",
+      format: "int64",
+    },
+    customHistoricalTsSum: {
+      baseName: "custom_historical_ts_sum",
+      type: "number",
+      format: "int64",
+    },
+    customLiveTsSum: {
+      baseName: "custom_live_ts_sum",
       type: "number",
       format: "int64",
     },

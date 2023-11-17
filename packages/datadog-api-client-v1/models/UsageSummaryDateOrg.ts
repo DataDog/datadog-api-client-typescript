@@ -191,6 +191,14 @@ export class UsageSummaryDateOrg {
    */
   "cspmHostTop99p"?: number;
   /**
+   * Shows the average number of distinct historical custom metrics over all hours in the current date for the given org.
+   */
+  "customHistoricalTsAvg"?: number;
+  /**
+   * Shows the average number of distinct live custom metrics over all hours in the current date for the given org.
+   */
+  "customLiveTsAvg"?: number;
+  /**
    * Shows the average number of distinct custom metrics over all hours in the current date for the given org.
    */
   "customTsAvg"?: number;
@@ -658,6 +666,16 @@ export class UsageSummaryDateOrg {
     },
     cspmHostTop99p: {
       baseName: "cspm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    customHistoricalTsAvg: {
+      baseName: "custom_historical_ts_avg",
+      type: "number",
+      format: "int64",
+    },
+    customLiveTsAvg: {
+      baseName: "custom_live_ts_avg",
       type: "number",
       format: "int64",
     },
