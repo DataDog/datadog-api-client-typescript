@@ -8,6 +8,8 @@ import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 import { APIKeyUpdateData } from "./APIKeyUpdateData";
 import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
+import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
+import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -16,6 +18,8 @@ import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
 import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
 import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
+import { ApplicationKeyResponseMeta } from "./ApplicationKeyResponseMeta";
+import { ApplicationKeyResponseMetaPage } from "./ApplicationKeyResponseMetaPage";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
@@ -1519,6 +1523,8 @@ const typeMap: { [index: string]: any } = {
   APIKeyUpdateData: APIKeyUpdateData,
   APIKeyUpdateRequest: APIKeyUpdateRequest,
   APIKeysResponse: APIKeysResponse,
+  APIKeysResponseMeta: APIKeysResponseMeta,
+  APIKeysResponseMetaPage: APIKeysResponseMetaPage,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
@@ -1527,6 +1533,8 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
   ApplicationKeyRelationships: ApplicationKeyRelationships,
   ApplicationKeyResponse: ApplicationKeyResponse,
+  ApplicationKeyResponseMeta: ApplicationKeyResponseMeta,
+  ApplicationKeyResponseMetaPage: ApplicationKeyResponseMetaPage,
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
