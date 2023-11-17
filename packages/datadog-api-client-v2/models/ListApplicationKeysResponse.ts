@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
+import { ApplicationKeyResponseMeta } from "./ApplicationKeyResponseMeta";
 import { PartialApplicationKey } from "./PartialApplicationKey";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -20,6 +21,10 @@ export class ListApplicationKeysResponse {
    * Array of objects related to the application key.
    */
   "included"?: Array<ApplicationKeyResponseIncludedItem>;
+  /**
+   * Additional information related to the application key response.
+   */
+  "meta"?: ApplicationKeyResponseMeta;
 
   /**
    * @ignore
@@ -37,6 +42,10 @@ export class ListApplicationKeysResponse {
     included: {
       baseName: "included",
       type: "Array<ApplicationKeyResponseIncludedItem>",
+    },
+    meta: {
+      baseName: "meta",
+      type: "ApplicationKeyResponseMeta",
     },
   };
 
