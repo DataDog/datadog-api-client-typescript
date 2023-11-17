@@ -49,6 +49,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    */
   "expression"?: string;
   /**
+   * The platforms the Agent rule is supported on.
+   */
+  "filters"?: Array<string>;
+  /**
    * The name of the Agent rule.
    */
   "name"?: string;
@@ -118,6 +122,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
     expression: {
       baseName: "expression",
       type: "string",
+    },
+    filters: {
+      baseName: "filters",
+      type: "Array<string>",
     },
     name: {
       baseName: "name",
