@@ -16,15 +16,53 @@ import { logger } from "../../../logger";
 import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
+import { ActiveBillingDimensionsResponse } from "../models/ActiveBillingDimensionsResponse";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CostByOrgResponse } from "../models/CostByOrgResponse";
 import { HourlyUsageResponse } from "../models/HourlyUsageResponse";
+import { MonthlyCostAttributionResponse } from "../models/MonthlyCostAttributionResponse";
 import { ProjectedCostResponse } from "../models/ProjectedCostResponse";
+import { SortDirection } from "../models/SortDirection";
 import { UsageApplicationSecurityMonitoringResponse } from "../models/UsageApplicationSecurityMonitoringResponse";
 import { UsageLambdaTracedInvocationsResponse } from "../models/UsageLambdaTracedInvocationsResponse";
 import { UsageObservabilityPipelinesResponse } from "../models/UsageObservabilityPipelinesResponse";
 
 export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
+  public async getActiveBillingDimensions(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getActiveBillingDimensions'");
+    if (!_config.unstableOperations["v2.getActiveBillingDimensions"]) {
+      throw new Error(
+        "Unstable operation 'getActiveBillingDimensions' is disabled"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost_by_tag/active_billing_dimensions";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.getActiveBillingDimensions")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCostByOrg(
     startMonth: Date,
     endMonth?: Date,
@@ -291,6 +329,114 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getMonthlyCostAttribution(
+    startMonth: Date,
+    endMonth: Date,
+    fields: string,
+    sortDirection?: SortDirection,
+    sortName?: string,
+    tagBreakdownKeys?: string,
+    nextRecordId?: string,
+    includeDescendants?: boolean,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'getMonthlyCostAttribution'");
+    if (!_config.unstableOperations["v2.getMonthlyCostAttribution"]) {
+      throw new Error(
+        "Unstable operation 'getMonthlyCostAttribution' is disabled"
+      );
+    }
+
+    // verify required parameter 'startMonth' is not null or undefined
+    if (startMonth === null || startMonth === undefined) {
+      throw new RequiredError("startMonth", "getMonthlyCostAttribution");
+    }
+
+    // verify required parameter 'endMonth' is not null or undefined
+    if (endMonth === null || endMonth === undefined) {
+      throw new RequiredError("endMonth", "getMonthlyCostAttribution");
+    }
+
+    // verify required parameter 'fields' is not null or undefined
+    if (fields === null || fields === undefined) {
+      throw new RequiredError("fields", "getMonthlyCostAttribution");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost_by_tag/monthly_cost_attribution";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.UsageMeteringApi.getMonthlyCostAttribution")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam(
+      "Accept",
+      "application/json;datetime-format=rfc3339"
+    );
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (startMonth !== undefined) {
+      requestContext.setQueryParam(
+        "start_month",
+        ObjectSerializer.serialize(startMonth, "Date", "date-time")
+      );
+    }
+    if (endMonth !== undefined) {
+      requestContext.setQueryParam(
+        "end_month",
+        ObjectSerializer.serialize(endMonth, "Date", "date-time")
+      );
+    }
+    if (fields !== undefined) {
+      requestContext.setQueryParam(
+        "fields",
+        ObjectSerializer.serialize(fields, "string", "")
+      );
+    }
+    if (sortDirection !== undefined) {
+      requestContext.setQueryParam(
+        "sort_direction",
+        ObjectSerializer.serialize(sortDirection, "SortDirection", "")
+      );
+    }
+    if (sortName !== undefined) {
+      requestContext.setQueryParam(
+        "sort_name",
+        ObjectSerializer.serialize(sortName, "string", "")
+      );
+    }
+    if (tagBreakdownKeys !== undefined) {
+      requestContext.setQueryParam(
+        "tag_breakdown_keys",
+        ObjectSerializer.serialize(tagBreakdownKeys, "string", "")
+      );
+    }
+    if (nextRecordId !== undefined) {
+      requestContext.setQueryParam(
+        "next_record_id",
+        ObjectSerializer.serialize(nextRecordId, "string", "")
+      );
+    }
+    if (includeDescendants !== undefined) {
+      requestContext.setQueryParam(
+        "include_descendants",
+        ObjectSerializer.serialize(includeDescendants, "boolean", "")
+      );
+    }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getProjectedCost(
     view?: string,
     _options?: Configuration
@@ -480,6 +626,70 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class UsageMeteringApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getActiveBillingDimensions
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getActiveBillingDimensions(
+    response: ResponseContext
+  ): Promise<ActiveBillingDimensionsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: ActiveBillingDimensionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ActiveBillingDimensionsResponse"
+        ) as ActiveBillingDimensionsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ActiveBillingDimensionsResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "ActiveBillingDimensionsResponse",
+          ""
+        ) as ActiveBillingDimensionsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -718,6 +928,68 @@ export class UsageMeteringApiResponseProcessor {
         "HourlyUsageResponse",
         ""
       ) as HourlyUsageResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getMonthlyCostAttribution
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getMonthlyCostAttribution(
+    response: ResponseContext
+  ): Promise<MonthlyCostAttributionResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: MonthlyCostAttributionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MonthlyCostAttributionResponse"
+      ) as MonthlyCostAttributionResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MonthlyCostAttributionResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MonthlyCostAttributionResponse",
+        ""
+      ) as MonthlyCostAttributionResponse;
       return body;
     }
 
@@ -1094,6 +1366,54 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
   pageNextRecordId?: string;
 }
 
+export interface UsageMeteringApiGetMonthlyCostAttributionRequest {
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost beginning in this month.
+   * @type Date
+   */
+  startMonth: Date;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
+   * @type Date
+   */
+  endMonth: Date;
+  /**
+   * Comma-separated list specifying cost types (e.g., `<billing_dimension>_on_demand_cost`, `<billing_dimension>_committed_cost`, `<billing_dimension>_total_cost`) and the
+   * proportions (`<billing_dimension>_percentage_in_org`, `<billing_dimension>_percentage_in_account`). Use `*` to retrieve all fields.
+   * Example: `infra_host_on_demand_cost,infra_host_percentage_in_account`
+   * To obtain the complete list of active billing dimensions that can be used to replace
+   * `<billing_dimension>` in the field names, make a request to the [Get active billing dimensions API](https://docs.datadoghq.com/api/latest/usage-metering/#get-active-billing-dimensions-for-cost-attribution).
+   * @type string
+   */
+  fields: string;
+  /**
+   * The direction to sort by: `[desc, asc]`.
+   * @type SortDirection
+   */
+  sortDirection?: SortDirection;
+  /**
+   * The billing dimension to sort by. Always sorted by total cost. Example: `infra_host`.
+   * @type string
+   */
+  sortName?: string;
+  /**
+   * Comma separated list of tag keys used to group cost. If no value is provided the cost will not be broken down by tags.
+   * To see which tags are available, look for the value of `tag_config_source` in the API response.
+   * @type string
+   */
+  tagBreakdownKeys?: string;
+  /**
+   * List following results with a next_record_id provided in the previous query.
+   * @type string
+   */
+  nextRecordId?: string;
+  /**
+   * Include child org cost in the response. Defaults to `true`.
+   * @type boolean
+   */
+  includeDescendants?: boolean;
+}
+
 export interface UsageMeteringApiGetProjectedCostRequest {
   /**
    * String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are `summary` and `sub-org`. Defaults to `summary`.
@@ -1159,6 +1479,26 @@ export class UsageMeteringApi {
       requestFactory || new UsageMeteringApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new UsageMeteringApiResponseProcessor();
+  }
+
+  /**
+   * Get active billing dimensions for cost attribution. Cost data for a given month becomes available no later than the 17th of the following month.
+   * @param param The request object
+   */
+  public getActiveBillingDimensions(
+    options?: Configuration
+  ): Promise<ActiveBillingDimensionsResponse> {
+    const requestContextPromise =
+      this.requestFactory.getActiveBillingDimensions(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getActiveBillingDimensions(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
@@ -1263,6 +1603,49 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getHourlyUsage(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get monthly cost attribution by tag across multi-org and single root-org accounts.
+   * Cost Attribution data for a given month becomes available no later than the 17th of the following month.
+   * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
+   * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
+   * Pseudo code example:
+   * ```
+   * response := GetMonthlyCostAttribution(start_month, end_month)
+   * cursor := response.metadata.pagination.next_record_id
+   * WHILE cursor != null BEGIN
+   *   sleep(5 seconds)  # Avoid running into rate limit
+   *   response := GetMonthlyCostAttribution(start_month, end_month, next_record_id=cursor)
+   *   cursor := response.metadata.pagination.next_record_id
+   * END
+   * ```
+   * @param param The request object
+   */
+  public getMonthlyCostAttribution(
+    param: UsageMeteringApiGetMonthlyCostAttributionRequest,
+    options?: Configuration
+  ): Promise<MonthlyCostAttributionResponse> {
+    const requestContextPromise = this.requestFactory.getMonthlyCostAttribution(
+      param.startMonth,
+      param.endMonth,
+      param.fields,
+      param.sortDirection,
+      param.sortName,
+      param.tagBreakdownKeys,
+      param.nextRecordId,
+      param.includeDescendants,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getMonthlyCostAttribution(
+            responseContext
+          );
         });
     });
   }

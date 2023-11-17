@@ -8,6 +8,9 @@ import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 import { APIKeyUpdateData } from "./APIKeyUpdateData";
 import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
+import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
+import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
+import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
@@ -162,6 +165,7 @@ import { ContainerMeta } from "./ContainerMeta";
 import { ContainerMetaPage } from "./ContainerMetaPage";
 import { ContainersResponse } from "./ContainersResponse";
 import { ContainersResponseLinks } from "./ContainersResponseLinks";
+import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
@@ -170,6 +174,17 @@ import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
 import { CreateRuleResponseData } from "./CreateRuleResponseData";
 import { Creator } from "./Creator";
+import { DORADeploymentRequest } from "./DORADeploymentRequest";
+import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
+import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
+import { DORADeploymentResponse } from "./DORADeploymentResponse";
+import { DORADeploymentResponseData } from "./DORADeploymentResponseData";
+import { DORAGitInfo } from "./DORAGitInfo";
+import { DORAIncidentRequest } from "./DORAIncidentRequest";
+import { DORAIncidentRequestAttributes } from "./DORAIncidentRequestAttributes";
+import { DORAIncidentRequestData } from "./DORAIncidentRequestData";
+import { DORAIncidentResponse } from "./DORAIncidentResponse";
+import { DORAIncidentResponseData } from "./DORAIncidentResponseData";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
 import { DashboardListDeleteItemsRequest } from "./DashboardListDeleteItemsRequest";
@@ -498,6 +513,11 @@ import { MonitorDowntimeMatchResponse } from "./MonitorDowntimeMatchResponse";
 import { MonitorDowntimeMatchResponseAttributes } from "./MonitorDowntimeMatchResponseAttributes";
 import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
 import { MonitorType } from "./MonitorType";
+import { MonthlyCostAttributionAttributes } from "./MonthlyCostAttributionAttributes";
+import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
+import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
+import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
+import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
@@ -973,6 +993,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
     "created_at",
@@ -1056,7 +1077,10 @@ const enumsMap: { [key: string]: any[] } = {
   ContainerMetaPageType: ["cursor_limit"],
   ContainerType: ["container"],
   ContentEncoding: ["identity", "gzip", "deflate"],
+  CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  DORADeploymentType: ["dora_deployment"],
+  DORAIncidentType: ["dora_incident"],
   DashboardType: [
     "custom_timeboard",
     "custom_screenboard",
@@ -1401,6 +1425,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  SortDirection: ["desc", "asc"],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
   SpansAggregateResponseStatus: ["done", "timeout"],
@@ -1494,6 +1519,9 @@ const typeMap: { [index: string]: any } = {
   APIKeyUpdateData: APIKeyUpdateData,
   APIKeyUpdateRequest: APIKeyUpdateRequest,
   APIKeysResponse: APIKeysResponse,
+  ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
+  ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
+  ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
   ApplicationKeyCreateData: ApplicationKeyCreateData,
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
@@ -1670,6 +1698,7 @@ const typeMap: { [index: string]: any } = {
   ContainerMetaPage: ContainerMetaPage,
   ContainersResponse: ContainersResponse,
   ContainersResponseLinks: ContainersResponseLinks,
+  CostAttributionAggregatesBody: CostAttributionAggregatesBody,
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
@@ -1678,6 +1707,17 @@ const typeMap: { [index: string]: any } = {
   CreateRuleResponse: CreateRuleResponse,
   CreateRuleResponseData: CreateRuleResponseData,
   Creator: Creator,
+  DORADeploymentRequest: DORADeploymentRequest,
+  DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
+  DORADeploymentRequestData: DORADeploymentRequestData,
+  DORADeploymentResponse: DORADeploymentResponse,
+  DORADeploymentResponseData: DORADeploymentResponseData,
+  DORAGitInfo: DORAGitInfo,
+  DORAIncidentRequest: DORAIncidentRequest,
+  DORAIncidentRequestAttributes: DORAIncidentRequestAttributes,
+  DORAIncidentRequestData: DORAIncidentRequestData,
+  DORAIncidentResponse: DORAIncidentResponse,
+  DORAIncidentResponseData: DORAIncidentResponseData,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
   DashboardListDeleteItemsRequest: DashboardListDeleteItemsRequest,
@@ -2032,6 +2072,11 @@ const typeMap: { [index: string]: any } = {
     MonitorDowntimeMatchResponseAttributes,
   MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
   MonitorType: MonitorType,
+  MonthlyCostAttributionAttributes: MonthlyCostAttributionAttributes,
+  MonthlyCostAttributionBody: MonthlyCostAttributionBody,
+  MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
+  MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
+  MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
