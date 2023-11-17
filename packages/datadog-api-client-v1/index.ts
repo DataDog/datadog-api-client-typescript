@@ -247,6 +247,7 @@ export {
   SyntheticsApiGetSyntheticsCIBatchRequest,
   SyntheticsApiGetTestRequest,
   SyntheticsApiListTestsRequest,
+  SyntheticsApiPatchTestRequest,
   SyntheticsApiTriggerCITestsRequest,
   SyntheticsApiTriggerTestsRequest,
   SyntheticsApiUpdateAPITestRequest,
@@ -927,6 +928,9 @@ export { SyntheticsListTestsResponse } from "./models/SyntheticsListTestsRespons
 export { SyntheticsLocation } from "./models/SyntheticsLocation";
 export { SyntheticsLocations } from "./models/SyntheticsLocations";
 export { SyntheticsParsingOptions } from "./models/SyntheticsParsingOptions";
+export { SyntheticsPatchTestBody } from "./models/SyntheticsPatchTestBody";
+export { SyntheticsPatchTestOperation } from "./models/SyntheticsPatchTestOperation";
+export { SyntheticsPatchTestOperationName } from "./models/SyntheticsPatchTestOperationName";
 export { SyntheticsPlayingTab } from "./models/SyntheticsPlayingTab";
 export { SyntheticsPrivateLocation } from "./models/SyntheticsPrivateLocation";
 export { SyntheticsPrivateLocationCreationResponse } from "./models/SyntheticsPrivateLocationCreationResponse";
