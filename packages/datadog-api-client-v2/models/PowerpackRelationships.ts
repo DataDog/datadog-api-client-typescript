@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { Creator } from "./Creator";
+import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,9 +12,9 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class PowerpackRelationships {
   /**
-   * Creator of the object.
+   * Relationship to user.
    */
-  "author"?: Creator;
+  "author"?: RelationshipToUser;
 
   /**
    * @ignore
@@ -27,7 +27,7 @@ export class PowerpackRelationships {
   static readonly attributeTypeMap: AttributeTypeMap = {
     author: {
       baseName: "author",
-      type: "Creator",
+      type: "RelationshipToUser",
     },
   };
 
