@@ -77,6 +77,12 @@ export {
 } from "./apis/ContainersApi";
 
 export {
+  DORAMetricsApiCreateDORADeploymentRequest,
+  DORAMetricsApiCreateDORAIncidentRequest,
+  DORAMetricsApi,
+} from "./apis/DORAMetricsApi";
+
+export {
   DashboardListsApiCreateDashboardListItemsRequest,
   DashboardListsApiDeleteDashboardListItemsRequest,
   DashboardListsApiGetDashboardListItemsRequest,
@@ -671,6 +677,19 @@ export { DataScalarColumn } from "./models/DataScalarColumn";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
+export { DORADeploymentRequest } from "./models/DORADeploymentRequest";
+export { DORADeploymentRequestAttributes } from "./models/DORADeploymentRequestAttributes";
+export { DORADeploymentRequestData } from "./models/DORADeploymentRequestData";
+export { DORADeploymentResponse } from "./models/DORADeploymentResponse";
+export { DORADeploymentResponseData } from "./models/DORADeploymentResponseData";
+export { DORADeploymentType } from "./models/DORADeploymentType";
+export { DORAGitInfo } from "./models/DORAGitInfo";
+export { DORAIncidentRequest } from "./models/DORAIncidentRequest";
+export { DORAIncidentRequestAttributes } from "./models/DORAIncidentRequestAttributes";
+export { DORAIncidentRequestData } from "./models/DORAIncidentRequestData";
+export { DORAIncidentResponse } from "./models/DORAIncidentResponse";
+export { DORAIncidentResponseData } from "./models/DORAIncidentResponseData";
+export { DORAIncidentType } from "./models/DORAIncidentType";
 export { DowntimeCreateRequest } from "./models/DowntimeCreateRequest";
 export { DowntimeCreateRequestAttributes } from "./models/DowntimeCreateRequestAttributes";
 export { DowntimeCreateRequestData } from "./models/DowntimeCreateRequestData";

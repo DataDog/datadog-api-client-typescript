@@ -174,6 +174,17 @@ import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
 import { CreateRuleResponseData } from "./CreateRuleResponseData";
 import { Creator } from "./Creator";
+import { DORADeploymentRequest } from "./DORADeploymentRequest";
+import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
+import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
+import { DORADeploymentResponse } from "./DORADeploymentResponse";
+import { DORADeploymentResponseData } from "./DORADeploymentResponseData";
+import { DORAGitInfo } from "./DORAGitInfo";
+import { DORAIncidentRequest } from "./DORAIncidentRequest";
+import { DORAIncidentRequestAttributes } from "./DORAIncidentRequestAttributes";
+import { DORAIncidentRequestData } from "./DORAIncidentRequestData";
+import { DORAIncidentResponse } from "./DORAIncidentResponse";
+import { DORAIncidentResponseData } from "./DORAIncidentResponseData";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
 import { DashboardListDeleteItemsRequest } from "./DashboardListDeleteItemsRequest";
@@ -1068,6 +1079,8 @@ const enumsMap: { [key: string]: any[] } = {
   ContentEncoding: ["identity", "gzip", "deflate"],
   CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  DORADeploymentType: ["dora_deployment"],
+  DORAIncidentType: ["dora_incident"],
   DashboardType: [
     "custom_timeboard",
     "custom_screenboard",
@@ -1694,6 +1707,17 @@ const typeMap: { [index: string]: any } = {
   CreateRuleResponse: CreateRuleResponse,
   CreateRuleResponseData: CreateRuleResponseData,
   Creator: Creator,
+  DORADeploymentRequest: DORADeploymentRequest,
+  DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
+  DORADeploymentRequestData: DORADeploymentRequestData,
+  DORADeploymentResponse: DORADeploymentResponse,
+  DORADeploymentResponseData: DORADeploymentResponseData,
+  DORAGitInfo: DORAGitInfo,
+  DORAIncidentRequest: DORAIncidentRequest,
+  DORAIncidentRequestAttributes: DORAIncidentRequestAttributes,
+  DORAIncidentRequestData: DORAIncidentRequestData,
+  DORAIncidentResponse: DORAIncidentResponse,
+  DORAIncidentResponseData: DORAIncidentResponseData,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
   DashboardListDeleteItemsRequest: DashboardListDeleteItemsRequest,
