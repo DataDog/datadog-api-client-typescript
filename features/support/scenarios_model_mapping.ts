@@ -2995,6 +2995,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "DashboardListUpdateItemsResponse",
     },
+    "v2.CreateDORADeployment": {
+        "body": {
+            "type": "DORADeploymentRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORADeploymentResponse",
+    },
+    "v2.CreateDORAIncident": {
+        "body": {
+            "type": "DORAIncidentRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAIncidentResponse",
+    },
     "v2.ListDowntimes": {
         "currentOnly": {
             "type": "boolean",
