@@ -437,6 +437,8 @@ import { SyntheticsListTestsResponse } from "./SyntheticsListTestsResponse";
 import { SyntheticsLocation } from "./SyntheticsLocation";
 import { SyntheticsLocations } from "./SyntheticsLocations";
 import { SyntheticsParsingOptions } from "./SyntheticsParsingOptions";
+import { SyntheticsPatchTestBody } from "./SyntheticsPatchTestBody";
+import { SyntheticsPatchTestOperation } from "./SyntheticsPatchTestOperation";
 import { SyntheticsPrivateLocation } from "./SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "./SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsPrivateLocationCreationResponseResultEncryption } from "./SyntheticsPrivateLocationCreationResponseResultEncryption";
@@ -1281,6 +1283,14 @@ const enumsMap: { [key: string]: any[] } = {
     "local_variable",
   ],
   SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
+  SyntheticsPatchTestOperationName: [
+    "add",
+    "remove",
+    "replace",
+    "move",
+    "copy",
+    "test",
+  ],
   SyntheticsPlayingTab: [-1, 0, 1, 2, 3],
   SyntheticsStatus: ["passed", "skipped", "failed"],
   SyntheticsStepType: [
@@ -2032,6 +2042,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsLocation: SyntheticsLocation,
   SyntheticsLocations: SyntheticsLocations,
   SyntheticsParsingOptions: SyntheticsParsingOptions,
+  SyntheticsPatchTestBody: SyntheticsPatchTestBody,
+  SyntheticsPatchTestOperation: SyntheticsPatchTestOperation,
   SyntheticsPrivateLocation: SyntheticsPrivateLocation,
   SyntheticsPrivateLocationCreationResponse:
     SyntheticsPrivateLocationCreationResponse,
