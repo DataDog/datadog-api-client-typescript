@@ -2117,6 +2117,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsTestDetails",
     },
+    "v1.PatchTest": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsPatchTestBody",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsTestDetails",
+    },
     "v1.GetAPITestLatestResults": {
         "publicId": {
             "type": "string",
