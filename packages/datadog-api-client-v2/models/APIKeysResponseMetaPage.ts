@@ -3,18 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Powerpack relationship object.
+ * Additional information related to the API keys response.
  */
-export class PowerpackRelationships {
+export class APIKeysResponseMetaPage {
   /**
-   * Relationship to user.
+   * Total filtered application key count.
    */
-  "author"?: RelationshipToUser;
+  "totalFilteredCount"?: number;
 
   /**
    * @ignore
@@ -25,9 +24,10 @@ export class PowerpackRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    author: {
-      baseName: "author",
-      type: "RelationshipToUser",
+    totalFilteredCount: {
+      baseName: "total_filtered_count",
+      type: "number",
+      format: "int64",
     },
   };
 
@@ -35,7 +35,7 @@ export class PowerpackRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return PowerpackRelationships.attributeTypeMap;
+    return APIKeysResponseMetaPage.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,18 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToUser } from "./RelationshipToUser";
+import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Powerpack relationship object.
+ * Additional information related to api keys response.
  */
-export class PowerpackRelationships {
+export class APIKeysResponseMeta {
   /**
-   * Relationship to user.
+   * Max allowed number of API keys.
    */
-  "author"?: RelationshipToUser;
+  "maxAllowed"?: number;
+  /**
+   * Additional information related to the API keys response.
+   */
+  "page"?: APIKeysResponseMetaPage;
 
   /**
    * @ignore
@@ -25,9 +29,14 @@ export class PowerpackRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    author: {
-      baseName: "author",
-      type: "RelationshipToUser",
+    maxAllowed: {
+      baseName: "max_allowed",
+      type: "number",
+      format: "int64",
+    },
+    page: {
+      baseName: "page",
+      type: "APIKeysResponseMetaPage",
     },
   };
 
@@ -35,7 +44,7 @@ export class PowerpackRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return PowerpackRelationships.attributeTypeMap;
+    return APIKeysResponseMeta.attributeTypeMap;
   }
 
   public constructor() {}
