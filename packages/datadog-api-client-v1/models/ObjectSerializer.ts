@@ -1500,6 +1500,8 @@ const enumsMap: { [key: string]: any[] } = {
     "1mo",
     "3mo",
     "6mo",
+    "week_to_date",
+    "month_to_date",
     "1y",
     "alert",
   ],

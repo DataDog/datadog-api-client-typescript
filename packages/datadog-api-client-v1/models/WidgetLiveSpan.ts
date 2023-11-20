@@ -24,6 +24,8 @@ export type WidgetLiveSpan =
   | typeof PAST_ONE_MONTH
   | typeof PAST_THREE_MONTHS
   | typeof PAST_SIX_MONTHS
+  | typeof WEEK_TO_DATE
+  | typeof MONTH_TO_DATE
   | typeof PAST_ONE_YEAR
   | typeof ALERT
   | UnparsedObject;
@@ -40,5 +42,7 @@ export const PAST_ONE_WEEK = "1w";
 export const PAST_ONE_MONTH = "1mo";
 export const PAST_THREE_MONTHS = "3mo";
 export const PAST_SIX_MONTHS = "6mo";
+export const WEEK_TO_DATE = "week_to_date";
+export const MONTH_TO_DATE = "month_to_date";
 export const PAST_ONE_YEAR = "1y";
 export const ALERT = "alert";
