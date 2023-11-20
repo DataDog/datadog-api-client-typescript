@@ -33,7 +33,6 @@ export class Configuration {
   unstableOperations: { [name: string]: boolean };
   servers: BaseServerConfiguration[];
   operationServers: { [endpoint: string]: BaseServerConfiguration[] };
-
   public constructor(
     baseServer: BaseServerConfiguration | undefined,
     serverIndex: number,
