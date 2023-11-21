@@ -28,11 +28,6 @@ export class ContainersApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listContainers'");
-    if (!_config.unstableOperations["v2.listContainers"]) {
-      throw new Error("Unstable operation 'listContainers' is disabled");
-    }
-
     // Path Params
     const localVarPath = "/api/v2/containers";
 

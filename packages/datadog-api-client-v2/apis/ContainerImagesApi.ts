@@ -28,11 +28,6 @@ export class ContainerImagesApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listContainerImages'");
-    if (!_config.unstableOperations["v2.listContainerImages"]) {
-      throw new Error("Unstable operation 'listContainerImages' is disabled");
-    }
-
     // Path Params
     const localVarPath = "/api/v2/container_images";
 

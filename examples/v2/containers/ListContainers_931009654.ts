@@ -5,7 +5,6 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
-configuration.unstableOperations["v2.listContainers"] = true;
 const apiInstance = new v2.ContainersApi(configuration);
 
 const params: v2.ContainersApiListContainersRequest = {
