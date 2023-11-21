@@ -15,6 +15,10 @@ export class SensitiveDataScannerStandardPatternAttributes {
    */
   "description"?: string;
   /**
+   * List of included keywords.
+   */
+  "includedKeywords"?: Array<string>;
+  /**
    * Name of the standard pattern.
    */
   "name"?: string;
@@ -39,6 +43,10 @@ export class SensitiveDataScannerStandardPatternAttributes {
     description: {
       baseName: "description",
       type: "string",
+    },
+    includedKeywords: {
+      baseName: "included_keywords",
+      type: "Array<string>",
     },
     name: {
       baseName: "name",
