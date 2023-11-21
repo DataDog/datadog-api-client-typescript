@@ -215,8 +215,6 @@ export function createConfiguration(
     conf.backoffMultiplier || 2,
     {
       "v2.createCIAppPipelineEvent": false,
-      "v2.listContainerImages": false,
-      "v2.listContainers": false,
       "v2.getActiveBillingDimensions": false,
       "v2.getMonthlyCostAttribution": false,
       "v2.createDORADeployment": false,
