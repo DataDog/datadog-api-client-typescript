@@ -503,6 +503,8 @@ export { BulkMuteFindingsRequestMetaFindings } from "./models/BulkMuteFindingsRe
 export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequestProperties";
 export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
+export { CalendarInterval } from "./models/CalendarInterval";
+export { CalendarIntervalType } from "./models/CalendarIntervalType";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
@@ -1333,7 +1335,7 @@ export { ScalarFormulaQueryResponse } from "./models/ScalarFormulaQueryResponse"
 export { ScalarFormulaRequest } from "./models/ScalarFormulaRequest";
 export { ScalarFormulaRequestAttributes } from "./models/ScalarFormulaRequestAttributes";
 export { ScalarFormulaRequestType } from "./models/ScalarFormulaRequestType";
-export { ScalarFormulaResponseAtrributes } from "./models/ScalarFormulaResponseAtrributes";
+export { ScalarFormulaResponseAttributes } from "./models/ScalarFormulaResponseAttributes";
 export { ScalarFormulaResponseType } from "./models/ScalarFormulaResponseType";
 export { ScalarMeta } from "./models/ScalarMeta";
 export { ScalarQuery } from "./models/ScalarQuery";

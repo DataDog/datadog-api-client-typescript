@@ -371,6 +371,8 @@ export { AWSTagFilterCreateRequest } from "./models/AWSTagFilterCreateRequest";
 export { AWSTagFilterDeleteRequest } from "./models/AWSTagFilterDeleteRequest";
 export { AWSTagFilterListResponse } from "./models/AWSTagFilterListResponse";
 export { AzureAccount } from "./models/AzureAccount";
+export { CalendarInterval } from "./models/CalendarInterval";
+export { CalendarIntervalType } from "./models/CalendarIntervalType";
 export { CancelDowntimesByScopeRequest } from "./models/CancelDowntimesByScopeRequest";
 export { CanceledDowntimesIds } from "./models/CanceledDowntimesIds";
 export { ChangeWidgetDefinition } from "./models/ChangeWidgetDefinition";

@@ -98,6 +98,7 @@ import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 import { CIAppWarning } from "./CIAppWarning";
+import { CalendarInterval } from "./CalendarInterval";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
@@ -698,7 +699,7 @@ import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "./ScalarFormulaQueryResponse";
 import { ScalarFormulaRequest } from "./ScalarFormulaRequest";
 import { ScalarFormulaRequestAttributes } from "./ScalarFormulaRequestAttributes";
-import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
+import { ScalarFormulaResponseAttributes } from "./ScalarFormulaResponseAttributes";
 import { ScalarMeta } from "./ScalarMeta";
 import { ScalarResponse } from "./ScalarResponse";
 import { SecurityFilter } from "./SecurityFilter";
@@ -1069,6 +1070,7 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppSortOrder: ["asc", "desc"],
   CIAppTestEventTypeName: ["citest"],
   CIAppTestLevel: ["session", "module", "suite", "test"],
+  CalendarIntervalType: ["day", "week", "month", "year"],
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   CloudflareAccountType: ["cloudflare-accounts"],
@@ -1617,6 +1619,7 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsGroupBy: CIAppTestsGroupBy,
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
   CIAppWarning: CIAppWarning,
+  CalendarInterval: CalendarInterval,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
@@ -2268,7 +2271,7 @@ const typeMap: { [index: string]: any } = {
   ScalarFormulaQueryResponse: ScalarFormulaQueryResponse,
   ScalarFormulaRequest: ScalarFormulaRequest,
   ScalarFormulaRequestAttributes: ScalarFormulaRequestAttributes,
-  ScalarFormulaResponseAtrributes: ScalarFormulaResponseAtrributes,
+  ScalarFormulaResponseAttributes: ScalarFormulaResponseAttributes,
   ScalarMeta: ScalarMeta,
   ScalarResponse: ScalarResponse,
   SecurityFilter: SecurityFilter,

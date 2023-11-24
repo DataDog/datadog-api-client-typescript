@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ScalarFormulaResponseAtrributes } from "./ScalarFormulaResponseAtrributes";
+import { ScalarFormulaResponseAttributes } from "./ScalarFormulaResponseAttributes";
 import { ScalarFormulaResponseType } from "./ScalarFormulaResponseType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -15,7 +15,7 @@ export class ScalarResponse {
   /**
    * The object describing a scalar response.
    */
-  "attributes"?: ScalarFormulaResponseAtrributes;
+  "attributes"?: ScalarFormulaResponseAttributes;
   /**
    * The type of the resource. The value should always be scalar_response.
    */
@@ -32,7 +32,7 @@ export class ScalarResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "ScalarFormulaResponseAtrributes",
+      type: "ScalarFormulaResponseAttributes",
     },
     type: {
       baseName: "type",
