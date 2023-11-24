@@ -7,8 +7,11 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.GCPIntegrationApi(configuration);
 
+// there is a valid "gcp_sts_account" in the system
+const GCP_STS_ACCOUNT_DATA_ID = process.env.GCP_STS_ACCOUNT_DATA_ID as string;
+
 const params: v2.GCPIntegrationApiDeleteGCPSTSAccountRequest = {
-  accountId: "account_id",
+  accountId: GCP_STS_ACCOUNT_DATA_ID,
 };
 
 apiInstance

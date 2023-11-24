@@ -7,8 +7,12 @@ import { client, v1 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
+// there is a valid "synthetics_api_test" in the system
+const SYNTHETICS_API_TEST_PUBLIC_ID = process.env
+  .SYNTHETICS_API_TEST_PUBLIC_ID as string;
+
 const params: v1.SyntheticsApiGetAPITestRequest = {
-  publicId: "public_id",
+  publicId: SYNTHETICS_API_TEST_PUBLIC_ID,
 };
 
 apiInstance

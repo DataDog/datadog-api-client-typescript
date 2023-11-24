@@ -7,30 +7,30 @@ import { client, v1 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v1.SyntheticsApi(configuration);
 
+// there is a valid "synthetics_global_variable" in the system
+const SYNTHETICS_GLOBAL_VARIABLE_ID = process.env
+  .SYNTHETICS_GLOBAL_VARIABLE_ID as string;
+
+// there is a valid "synthetics_api_test_multi_step" in the system
+const SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID = process.env
+  .SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID as string;
+
 const params: v1.SyntheticsApiEditGlobalVariableRequest = {
   body: {
-    attributes: {
-      restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
-    },
-    description: "Example description",
-    name: "MY_VARIABLE",
+    description: "Updated description.",
+    name: "GLOBAL_VARIABLE_PAYLOAD_EXAMPLESYNTHETIC",
     parseTestOptions: {
-      field: "content-type",
-      localVariableName: "LOCAL_VARIABLE",
-      parser: {
-        type: "regex",
-        value: ".*",
-      },
-      type: "http_body",
+      type: "local_variable",
+      localVariableName: "EXTRACTED_VALUE",
     },
-    parseTestPublicId: "abc-def-123",
-    tags: ["team:front", "test:workflow-1"],
+    parseTestPublicId: SYNTHETICS_API_TEST_MULTI_STEP_PUBLIC_ID,
     value: {
-      secure: true,
-      value: "value",
+      secure: false,
+      value: "",
     },
+    tags: ["test:mytag"],
   },
-  variableId: "variable_id",
+  variableId: SYNTHETICS_GLOBAL_VARIABLE_ID,
 };
 
 apiInstance
