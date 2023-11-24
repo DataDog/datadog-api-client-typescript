@@ -7,8 +7,11 @@ import { client, v1 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v1.DashboardsApi(configuration);
 
+// there is a valid "shared_dashboard" in the system
+const SHARED_DASHBOARD_TOKEN = process.env.SHARED_DASHBOARD_TOKEN as string;
+
 const params: v1.DashboardsApiDeletePublicDashboardRequest = {
-  token: "token",
+  token: SHARED_DASHBOARD_TOKEN,
 };
 
 apiInstance
