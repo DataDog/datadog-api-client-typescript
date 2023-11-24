@@ -10,7 +10,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 /**
  * The object describing a scalar response.
  */
-export class ScalarFormulaResponseAtrributes {
+export class ScalarFormulaResponseAttributes {
   /**
    * List of response columns, each corresponding to an individual formula or query in the request and with values in parallel arrays matching the series list.
    */
@@ -35,7 +35,7 @@ export class ScalarFormulaResponseAtrributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ScalarFormulaResponseAtrributes.attributeTypeMap;
+    return ScalarFormulaResponseAttributes.attributeTypeMap;
   }
 
   public constructor() {}

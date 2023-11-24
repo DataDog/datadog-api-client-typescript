@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CalendarInterval } from "./CalendarInterval";
 import { FormulaAndFunctionEventAggregation } from "./FormulaAndFunctionEventAggregation";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,13 +17,25 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
    */
   "aggregation": FormulaAndFunctionEventAggregation;
   /**
-   * A time interval in milliseconds.
+   * Fixed numeric interval for compute (in milliseconds).
+   * Fields `interval` (numeric interval) and `rollup` (calendar interval) are mutually exclusive.
    */
   "interval"?: number;
   /**
    * Measurable attribute to compute.
    */
   "metric"?: string;
+  /**
+   * Calendar interval options for compute.
+   * Fields `interval` (numeric interval) and `rollup` (calendar interval) are mutually exclusive.
+   *
+   * For instance:
+   * - { type: 'day', alignment: '1pm', timezone: 'Europe/Paris' }
+   * - { type: 'week', alignment: 'tuesday', quantity: 2 }
+   * - { type: 'month', alignment: '15th' }
+   * - { type: 'year', alignment: 'april' }
+   */
+  "rollup"?: CalendarInterval;
 
   /**
    * @ignore
@@ -46,6 +59,10 @@ export class FormulaAndFunctionEventQueryDefinitionCompute {
     metric: {
       baseName: "metric",
       type: "string",
+    },
+    rollup: {
+      baseName: "rollup",
+      type: "CalendarInterval",
     },
   };
 

@@ -34,6 +34,7 @@ import { ApplicationKeyListResponse } from "./ApplicationKeyListResponse";
 import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { AuthenticationValidationResponse } from "./AuthenticationValidationResponse";
 import { AzureAccount } from "./AzureAccount";
+import { CalendarInterval } from "./CalendarInterval";
 import { CancelDowntimesByScopeRequest } from "./CancelDowntimesByScopeRequest";
 import { CanceledDowntimesIds } from "./CanceledDowntimesIds";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
@@ -638,6 +639,7 @@ const enumsMap: { [key: string]: any[] } = {
   AlertGraphWidgetDefinitionType: ["alert_graph"],
   AlertValueWidgetDefinitionType: ["alert_value"],
   ApmStatsQueryRowType: ["service", "resource", "span"],
+  CalendarIntervalType: ["day", "week", "month", "year"],
   ChangeWidgetDefinitionType: ["change"],
   CheckStatusWidgetDefinitionType: ["check_status"],
   ContentEncoding: ["gzip", "deflate"],
@@ -1612,6 +1614,7 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyResponse: ApplicationKeyResponse,
   AuthenticationValidationResponse: AuthenticationValidationResponse,
   AzureAccount: AzureAccount,
+  CalendarInterval: CalendarInterval,
   CancelDowntimesByScopeRequest: CancelDowntimesByScopeRequest,
   CanceledDowntimesIds: CanceledDowntimesIds,
   ChangeWidgetDefinition: ChangeWidgetDefinition,

@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CalendarInterval } from "./CalendarInterval";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -19,9 +20,21 @@ export class LogsQueryCompute {
    */
   "facet"?: string;
   /**
-   * Define a time interval in seconds.
+   * Fixed numeric interval for compute (in milliseconds).
+   * Fields `interval` (numeric interval) and `rollup` (calendar interval) are mutually exclusive.
    */
   "interval"?: number;
+  /**
+   * Calendar interval options for compute.
+   * Fields `interval` (numeric interval) and `rollup` (calendar interval) are mutually exclusive.
+   *
+   * For instance:
+   * - { type: 'day', alignment: '1pm', timezone: 'Europe/Paris' }
+   * - { type: 'week', alignment: 'tuesday', quantity: 2 }
+   * - { type: 'month', alignment: '15th' }
+   * - { type: 'year', alignment: 'april' }
+   */
+  "rollup"?: CalendarInterval;
 
   /**
    * @ignore
@@ -45,6 +58,10 @@ export class LogsQueryCompute {
       baseName: "interval",
       type: "number",
       format: "int64",
+    },
+    rollup: {
+      baseName: "rollup",
+      type: "CalendarInterval",
     },
   };
 
