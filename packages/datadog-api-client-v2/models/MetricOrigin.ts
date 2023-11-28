@@ -11,15 +11,19 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricOrigin {
   /**
-   * The origin metric type code
+   * The origin metric type code.
    */
   "metricType"?: number;
   /**
-   * The origin product code
+   * The origin product code.
+   */
+  "originProduct"?: number;
+  /**
+   * The product code.
    */
   "product"?: number;
   /**
-   * The origin service code
+   * The service code.
    */
   "service"?: number;
 
@@ -34,6 +38,11 @@ export class MetricOrigin {
   static readonly attributeTypeMap: AttributeTypeMap = {
     metricType: {
       baseName: "metric_type",
+      type: "number",
+      format: "int32",
+    },
+    originProduct: {
+      baseName: "origin_product",
       type: "number",
       format: "int32",
     },
