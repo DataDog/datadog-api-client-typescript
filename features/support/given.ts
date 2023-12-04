@@ -14,6 +14,7 @@ interface IOperationParameter {
   name: string;
   source?: string;
   value?: string;
+  origin?: string;
 }
 
 interface IGivenStep {
@@ -97,6 +98,13 @@ for (const apiVersion of Versions) {
               this.fixtures,
               p.source
             );
+          }
+          if (p.origin === "request"){
+            for (const key in opts[p.name]){
+              if (opts[p.name].hasOwnProperty(key)){
+                this.fixtures[key] = opts[p.name][key];
+              }
+            }
           }
         }
       }
