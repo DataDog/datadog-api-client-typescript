@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DORAIncidentRequestAttributes {
   /**
-   * Unix timestamp in nanoseconds when the deployment finished. It should not be older than 3 hours.
+   * Unix timestamp in nanoseconds when the incident finished. It should not be older than 3 hours.
    */
   "finishedAt"?: number;
   /**
@@ -36,7 +36,7 @@ export class DORAIncidentRequestAttributes {
    */
   "severity"?: string;
   /**
-   * Unix timestamp in nanoseconds when the deployment started.
+   * Unix timestamp in nanoseconds when the incident started.
    */
   "startedAt": number;
   /**
