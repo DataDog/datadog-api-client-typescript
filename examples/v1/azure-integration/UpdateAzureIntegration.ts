@@ -20,6 +20,7 @@ const params: v1.AzureIntegrationApiUpdateAzureIntegrationRequest = {
     hostFilters: "key:value,filter:example",
     newClientId: "new1c7f6-1234-5678-9101-3fcbf464test",
     newTenantName: "new1c44-1234-5678-9101-cc00736ftest",
+    resourceCollectionEnabled: true,
     tenantName: "testc44-1234-5678-9101-cc00736ftest",
   },
 };
