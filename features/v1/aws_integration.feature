@@ -180,7 +180,7 @@ Feature: AWS Integration
     When the request is sent
     Then the response status is 409 Conflict Error
 
-  @skip-typescript @team:DataDog/cloud-integrations
+  @team:DataDog/cloud-integrations
   Scenario: Update an AWS integration returns "OK" response
     Given there is a valid "aws_account" in the system
     And new "UpdateAWSAccount" request
