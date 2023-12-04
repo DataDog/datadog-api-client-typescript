@@ -33,7 +33,8 @@ export class AzureAccount {
    */
   "containerAppFilters"?: string;
   /**
-   * Enable Cloud Security Management Misconfigurations for your organization.
+   * When enabled, Datadog’s Cloud Security Management product will scan resource configurations monitored by this app registration.
+   * Note: This requires resource_collection_enabled to be set to true.
    */
   "cspmEnabled"?: boolean;
   /**
@@ -57,6 +58,10 @@ export class AzureAccount {
    * Your New Azure Active Directory ID.
    */
   "newTenantName"?: string;
+  /**
+   * When enabled, Datadog collects metadata and configuration info from cloud resources (compute instances, databases, load balancers, etc.) monitored by this app registration.
+   */
+  "resourceCollectionEnabled"?: boolean;
   /**
    * Your Azure Active Directory ID.
    */
@@ -114,6 +119,10 @@ export class AzureAccount {
     newTenantName: {
       baseName: "new_tenant_name",
       type: "string",
+    },
+    resourceCollectionEnabled: {
+      baseName: "resource_collection_enabled",
+      type: "boolean",
     },
     tenantName: {
       baseName: "tenant_name",
