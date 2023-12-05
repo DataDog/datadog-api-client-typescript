@@ -795,6 +795,7 @@ export { FindingType } from "./models/FindingType";
 export { FormulaLimit } from "./models/FormulaLimit";
 export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";
+export { FullAPIKeyLastUsedDate } from "./models/FullAPIKeyLastUsedDate";
 export { FullApplicationKey } from "./models/FullApplicationKey";
 export { FullApplicationKeyAttributes } from "./models/FullApplicationKeyAttributes";
 export { GCPServiceAccountMeta } from "./models/GCPServiceAccountMeta";

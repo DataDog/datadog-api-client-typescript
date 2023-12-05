@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { FullAPIKeyLastUsedDate } from "./FullAPIKeyLastUsedDate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -19,6 +20,10 @@ export class FullAPIKeyAttributes {
    */
   "createdAt"?: string;
   /**
+   * The date and time the API key was last used.
+   */
+  "dateLastUsed"?: string;
+  /**
    * The API key.
    */
   "key"?: string;
@@ -26,6 +31,10 @@ export class FullAPIKeyAttributes {
    * The last four characters of the API key.
    */
   "last4"?: string;
+  /**
+   * Attributes for the last time the specific API key was used.
+   */
+  "lastUsedDate"?: FullAPIKeyLastUsedDate;
   /**
    * Date the API key was last modified.
    */
@@ -38,6 +47,10 @@ export class FullAPIKeyAttributes {
    * The remote config read enabled status.
    */
   "remoteConfigReadEnabled"?: boolean;
+  /**
+   * If the API key was used within the last 24 hours.
+   */
+  "usedInLast24Hours"?: boolean;
 
   /**
    * @ignore
@@ -56,6 +69,10 @@ export class FullAPIKeyAttributes {
       baseName: "created_at",
       type: "string",
     },
+    dateLastUsed: {
+      baseName: "date_last_used",
+      type: "string",
+    },
     key: {
       baseName: "key",
       type: "string",
@@ -63,6 +80,10 @@ export class FullAPIKeyAttributes {
     last4: {
       baseName: "last4",
       type: "string",
+    },
+    lastUsedDate: {
+      baseName: "last_used_date",
+      type: "FullAPIKeyLastUsedDate",
     },
     modifiedAt: {
       baseName: "modified_at",
@@ -74,6 +95,10 @@ export class FullAPIKeyAttributes {
     },
     remoteConfigReadEnabled: {
       baseName: "remote_config_read_enabled",
+      type: "boolean",
+    },
+    usedInLast24Hours: {
+      baseName: "used_in_last_24_hours",
       type: "boolean",
     },
   };

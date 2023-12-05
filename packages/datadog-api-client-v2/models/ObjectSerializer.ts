@@ -272,6 +272,7 @@ import { FindingRule } from "./FindingRule";
 import { FormulaLimit } from "./FormulaLimit";
 import { FullAPIKey } from "./FullAPIKey";
 import { FullAPIKeyAttributes } from "./FullAPIKeyAttributes";
+import { FullAPIKeyLastUsedDate } from "./FullAPIKeyLastUsedDate";
 import { FullApplicationKey } from "./FullApplicationKey";
 import { FullApplicationKeyAttributes } from "./FullApplicationKeyAttributes";
 import { GCPSTSDelegateAccount } from "./GCPSTSDelegateAccount";
@@ -1828,6 +1829,7 @@ const typeMap: { [index: string]: any } = {
   FormulaLimit: FormulaLimit,
   FullAPIKey: FullAPIKey,
   FullAPIKeyAttributes: FullAPIKeyAttributes,
+  FullAPIKeyLastUsedDate: FullAPIKeyLastUsedDate,
   FullApplicationKey: FullApplicationKey,
   FullApplicationKeyAttributes: FullApplicationKeyAttributes,
   GCPSTSDelegateAccount: GCPSTSDelegateAccount,
