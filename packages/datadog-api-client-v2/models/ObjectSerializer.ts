@@ -524,6 +524,15 @@ import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagina
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
+import { OktaAccount } from "./OktaAccount";
+import { OktaAccountAttributes } from "./OktaAccountAttributes";
+import { OktaAccountRequest } from "./OktaAccountRequest";
+import { OktaAccountResponse } from "./OktaAccountResponse";
+import { OktaAccountResponseData } from "./OktaAccountResponseData";
+import { OktaAccountUpdateRequest } from "./OktaAccountUpdateRequest";
+import { OktaAccountUpdateRequestAttributes } from "./OktaAccountUpdateRequestAttributes";
+import { OktaAccountUpdateRequestData } from "./OktaAccountUpdateRequestData";
+import { OktaAccountsResponse } from "./OktaAccountsResponse";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
@@ -1245,6 +1254,7 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
+  OktaAccountType: ["okta-accounts"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
@@ -2091,6 +2101,15 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
+  OktaAccount: OktaAccount,
+  OktaAccountAttributes: OktaAccountAttributes,
+  OktaAccountRequest: OktaAccountRequest,
+  OktaAccountResponse: OktaAccountResponse,
+  OktaAccountResponseData: OktaAccountResponseData,
+  OktaAccountUpdateRequest: OktaAccountUpdateRequest,
+  OktaAccountUpdateRequestAttributes: OktaAccountUpdateRequestAttributes,
+  OktaAccountUpdateRequestData: OktaAccountUpdateRequestData,
+  OktaAccountsResponse: OktaAccountsResponse,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
