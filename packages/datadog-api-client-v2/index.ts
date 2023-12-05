@@ -245,6 +245,14 @@ export {
 } from "./apis/MonitorsApi";
 
 export {
+  OktaIntegrationApiCreateOktaAccountRequest,
+  OktaIntegrationApiDeleteOktaAccountRequest,
+  OktaIntegrationApiGetOktaAccountRequest,
+  OktaIntegrationApiUpdateOktaAccountRequest,
+  OktaIntegrationApi,
+} from "./apis/OktaIntegrationApi";
+
+export {
   OpsgenieIntegrationApiCreateOpsgenieServiceRequest,
   OpsgenieIntegrationApiDeleteOpsgenieServiceRequest,
   OpsgenieIntegrationApiGetOpsgenieServiceRequest,
@@ -1124,6 +1132,16 @@ export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributio
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
+export { OktaAccount } from "./models/OktaAccount";
+export { OktaAccountAttributes } from "./models/OktaAccountAttributes";
+export { OktaAccountRequest } from "./models/OktaAccountRequest";
+export { OktaAccountResponse } from "./models/OktaAccountResponse";
+export { OktaAccountResponseData } from "./models/OktaAccountResponseData";
+export { OktaAccountsResponse } from "./models/OktaAccountsResponse";
+export { OktaAccountType } from "./models/OktaAccountType";
+export { OktaAccountUpdateRequest } from "./models/OktaAccountUpdateRequest";
+export { OktaAccountUpdateRequestAttributes } from "./models/OktaAccountUpdateRequestAttributes";
+export { OktaAccountUpdateRequestData } from "./models/OktaAccountUpdateRequestData";
 export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
 export { OnDemandConcurrencyCapAttributes } from "./models/OnDemandConcurrencyCapAttributes";
 export { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapResponse";

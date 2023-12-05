@@ -3622,6 +3622,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FastlyServiceResponse",
     },
+    "v2.ListOktaAccounts": {
+        "operationResponseType": "OktaAccountsResponse",
+    },
+    "v2.CreateOktaAccount": {
+        "body": {
+            "type": "OktaAccountRequest",
+            "format": "",
+            },
+        "operationResponseType": "OktaAccountResponse",
+    },
+    "v2.DeleteOktaAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetOktaAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OktaAccountResponse",
+    },
+    "v2.UpdateOktaAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OktaAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OktaAccountResponse",
+    },
     "v2.GetIPAllowlist": {
         "operationResponseType": "IPAllowlistResponse",
     },
