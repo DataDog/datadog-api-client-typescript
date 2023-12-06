@@ -219,8 +219,6 @@ export function createConfiguration(
       "v2.getMonthlyCostAttribution": false,
       "v2.createDORADeployment": false,
       "v2.createDORAIncident": false,
-      "v2.listEvents": false,
-      "v2.searchEvents": false,
       "v2.createIncident": false,
       "v2.createIncidentIntegration": false,
       "v2.createIncidentTodo": false,
