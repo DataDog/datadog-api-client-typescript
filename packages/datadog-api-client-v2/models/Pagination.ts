@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class Pagination {
   /**
+   * The maximum element count allowed per page.
+   */
+  "maxPageSize"?: number;
+  /**
    * Total count.
    */
   "totalCount"?: number;
@@ -28,6 +32,11 @@ export class Pagination {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    maxPageSize: {
+      baseName: "max_page_size",
+      type: "number",
+      format: "int64",
+    },
     totalCount: {
       baseName: "total_count",
       type: "number",
