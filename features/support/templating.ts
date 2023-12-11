@@ -15,7 +15,15 @@ interface IIndexable<T = any> {
 const templateFunctions: { [key: string]: any } = {
   timeISO: relativeTime(true),
   timestamp: relativeTime(false),
+  unique_id: generateUuid(),
 };
+
+function generateUuid(): any {
+  return (data: any, arg: string): string => {
+    const timestring = Math.floor(new Date(data["now"]).getTime() / 1000).toString();
+    return timestring.slice(0,8) + "-0000-0000-0000-"+timestring.slice(0,10)+"00";
+  }
+}
 
 function relativeTime(iso: boolean): any {
   const timeRE = /now( *([+-]) *(\d+)([smhdMy]))?/;
