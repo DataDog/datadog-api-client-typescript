@@ -33,7 +33,7 @@ export class AzureAccount {
    */
   "containerAppFilters"?: string;
   /**
-   * When enabled, Datadog’s Cloud Security Management product will scan resource configurations monitored by this app registration.
+   * When enabled, Datadog’s Cloud Security Management product scans resource configurations monitored by this app registration.
    * Note: This requires resource_collection_enabled to be set to true.
    */
   "cspmEnabled"?: boolean;
