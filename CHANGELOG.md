@@ -15,7 +15,6 @@
 * Document new field `filters` for `CloudWorkloadSecurityAgentRule` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1426
 * Live and historical custom timeseries docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1416
 * Add week_to_date and month_to_date to widget livespan by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1419
-* Use request data for undo operations in tests when response empty by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1396
 * Document `included_keywords` in `ListStandardPatterns` response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1429
 * Document fields `remote_config_read_enabled` and `category` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1427
 * Update Azure Spec to include Resource Collection by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1434
