@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 1.20.0 / 2023-12-12
+
+### Fixed
+* Fix Powerpack schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1402
+### Added
+* Add support for projected-cost endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1386
+* Document missing incident fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1406
+* Add active billing dimensions to usage metering by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1425
+* Add Cost Attribution To Usage Metering Public Beta Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1410
+* Update spec to include new DORA API endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1424
+* Add support to patch Synthetics test with partial data using JSON Patch by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1418
+* Document new api/app key schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1405
+* Document new field `filters` for `CloudWorkloadSecurityAgentRule` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1426
+* Live and historical custom timeseries docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1416
+* Add week_to_date and month_to_date to widget livespan by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1419
+* Use request data for undo operations in tests when response empty by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1396
+* Document `included_keywords` in `ListStandardPatterns` response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1429
+* Document fields `remote_config_read_enabled` and `category` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1427
+* Update Azure Spec to include Resource Collection by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1434
+* Allow creation of Application Security detection rules from the v2 API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1436
+* Add Okta Integration APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1417
+* Remove unstable flag for Events v2 api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1441
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.19.0...v1.20.0
+
 ## 1.19.0 / 2023-11-15
 
 ### Fixed
