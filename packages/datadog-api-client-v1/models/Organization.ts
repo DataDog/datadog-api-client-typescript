@@ -26,7 +26,7 @@ export class Organization {
    */
   "description"?: string;
   /**
-   * The name of the new child-organization, limited to 32 characters.
+   * The name of the child organization, limited to 32 characters.
    */
   "name"?: string;
   /**
