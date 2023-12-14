@@ -27,6 +27,10 @@ export class SensitiveDataScannerStandardPatternAttributes {
    */
   "pattern"?: string;
   /**
+   * Integer from 1 (high) to 5 (low) indicating standard pattern issue severity.
+   */
+  "priority"?: number;
+  /**
    * List of tags.
    */
   "tags"?: Array<string>;
@@ -55,6 +59,11 @@ export class SensitiveDataScannerStandardPatternAttributes {
     pattern: {
       baseName: "pattern",
       type: "string",
+    },
+    priority: {
+      baseName: "priority",
+      type: "number",
+      format: "int64",
     },
     tags: {
       baseName: "tags",
