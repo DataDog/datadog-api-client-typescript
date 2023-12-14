@@ -25,6 +25,7 @@ const params: v2.SensitiveDataScannerApiCreateScanningRuleRequest = {
         },
         tags: ["sensitive_data:true"],
         isEnabled: true,
+        priority: 1,
       },
       relationships: {
         group: {
