@@ -45,9 +45,13 @@ export class GCPAccount {
    */
   "hostFilters"?: string;
   /**
-   * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+   * When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
    */
   "isCspmEnabled"?: boolean;
+  /**
+   * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
+   */
+  "isSecurityCommandCenterEnabled"?: boolean;
   /**
    * Your private key name found in your JSON service account key.
    */
@@ -60,6 +64,10 @@ export class GCPAccount {
    * Your Google Cloud project ID found in your JSON service account key.
    */
   "projectId"?: string;
+  /**
+   * When enabled, Datadog scans for all resources in your GCP environment.
+   */
+  "resourceCollectionEnabled"?: boolean;
   /**
    * Should be `https://accounts.google.com/o/oauth2/token`.
    */
@@ -114,6 +122,10 @@ export class GCPAccount {
       baseName: "is_cspm_enabled",
       type: "boolean",
     },
+    isSecurityCommandCenterEnabled: {
+      baseName: "is_security_command_center_enabled",
+      type: "boolean",
+    },
     privateKey: {
       baseName: "private_key",
       type: "string",
@@ -125,6 +137,10 @@ export class GCPAccount {
     projectId: {
       baseName: "project_id",
       type: "string",
+    },
+    resourceCollectionEnabled: {
+      baseName: "resource_collection_enabled",
+      type: "boolean",
     },
     tokenUri: {
       baseName: "token_uri",
