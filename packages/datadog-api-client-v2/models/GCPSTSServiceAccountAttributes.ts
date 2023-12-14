@@ -27,9 +27,17 @@ export class GCPSTSServiceAccountAttributes {
    */
   "hostFilters"?: Array<string>;
   /**
-   * When enabled, Datadog performs configuration checks across your Google Cloud environment by continuously scanning every resource.
+   * When enabled, Datadog will activate the Cloud Security Monitoring product for this service account. Note: This requires resource_collection_enabled to be set to true.
    */
   "isCspmEnabled"?: boolean;
+  /**
+   * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
+   */
+  "isSecurityCommandCenterEnabled"?: boolean;
+  /**
+   * When enabled, Datadog scans for all resources in your GCP environment.
+   */
+  "resourceCollectionEnabled"?: boolean;
 
   /**
    * @ignore
@@ -58,6 +66,14 @@ export class GCPSTSServiceAccountAttributes {
     },
     isCspmEnabled: {
       baseName: "is_cspm_enabled",
+      type: "boolean",
+    },
+    isSecurityCommandCenterEnabled: {
+      baseName: "is_security_command_center_enabled",
+      type: "boolean",
+    },
+    resourceCollectionEnabled: {
+      baseName: "resource_collection_enabled",
       type: "boolean",
     },
   };
