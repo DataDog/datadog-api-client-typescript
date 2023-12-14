@@ -39,7 +39,7 @@ function matchHeaders(input: Headers, req: Request): Headers {
 }
 
 function generateUuid(data: any): any {
-    const timestring = Math.floor(new Date(data["now"]).getTime() / 1000).toString();
+    const timestring = data.toString();
     return timestring.slice(0,8) + "-0000-0000-0000-"+timestring.slice(0,10)+"00";
 }
 
@@ -121,7 +121,7 @@ Before(function (
   ].toUpperCase();
   this.fixtures["unique_hash"] = uniqueHash;
   this.fixtures["now"] = date;
-  this.fixtures["uuid"] = generateUuid(date);
+  this.fixtures["uuid"] = generateUuid(now);
 
   // make sure that we are not recording APM traces
   if ((tracer as any)._tracer._url !== undefined) {
