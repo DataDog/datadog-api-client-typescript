@@ -14,6 +14,40 @@ Feature: Usage Metering
     And a valid "appKeyAuth" key in the system
     And an instance of "UsageMetering" API
 
+  @replay-only @team:DataDog/red-zone-revenue-query
+  Scenario: Get Monthly Cost Attribution returns "Bad Request" response
+    Given operation "GetMonthlyCostAttribution" enabled
+    And new "GetMonthlyCostAttribution" request
+    And request contains "start_month" parameter with value "{{ timeISO('now - 5d') }}"
+    And request contains "end_month" parameter with value "{{ timeISO('now - 3d') }}"
+    And request contains "fields" parameter with value "not_a_product"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @replay-only @team:DataDog/red-zone-revenue-query
+  Scenario: Get Monthly Cost Attribution returns "OK" response
+    Given operation "GetMonthlyCostAttribution" enabled
+    And new "GetMonthlyCostAttribution" request
+    And request contains "start_month" parameter with value "{{ timeISO('now - 5d') }}"
+    And request contains "end_month" parameter with value "{{ timeISO('now - 3d') }}"
+    And request contains "fields" parameter with value "infra_host_total_cost"
+    When the request is sent
+    Then the response status is 200 OK
+
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get active billing dimensions for cost attribution returns "Bad Request" response
+    Given operation "GetActiveBillingDimensions" enabled
+    And new "GetActiveBillingDimensions" request
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @team:DataDog/red-zone-revenue-query
+  Scenario: Get active billing dimensions for cost attribution returns "OK" response
+    Given operation "GetActiveBillingDimensions" enabled
+    And new "GetActiveBillingDimensions" request
+    When the request is sent
+    Then the response status is 200 OK
+
   @generated @skip @team:DataDog/red-zone-revenue-query
   Scenario: Get cost across multi-org account returns "Bad Request" response
     Given new "GetCostByOrg" request
@@ -83,32 +117,12 @@ Feature: Usage Metering
     Then the response status is 400 Bad Request
 
   @team:DataDog/red-zone-revenue-query
-  Scenario: Get hourly usage for Application Security returns "OK" response
-    Given new "GetUsageApplicationSecurityMonitoring" request
-    And request contains "start_hr" parameter with value "{{ timeISO('now - 5d') }}"
-    And request contains "end_hr" parameter with value "{{ timeISO('now - 3d') }}"
-    When the request is sent
-    Then the response status is 200 OK
-    And the response "data[0].type" is equal to "usage_timeseries"
-    And the response "data[0].attributes.product_family" is equal to "app-sec"
-
-  @team:DataDog/red-zone-revenue-query
   Scenario: Get hourly usage for Lambda Traced Invocations returns "Bad Request" response
     Given new "GetUsageLambdaTracedInvocations" request
     And request contains "start_hr" parameter with value "{{ timeISO('now - 3d') }}"
     And request contains "end_hr" parameter with value "{{ timeISO('now - 5d') }}"
     When the request is sent
     Then the response status is 400 Bad Request
-
-  @team:DataDog/red-zone-revenue-query
-  Scenario: Get hourly usage for Lambda Traced Invocations returns "OK" response
-    Given new "GetUsageLambdaTracedInvocations" request
-    And request contains "start_hr" parameter with value "{{ timeISO('now - 5d') }}"
-    And request contains "end_hr" parameter with value "{{ timeISO('now - 3d') }}"
-    When the request is sent
-    Then the response status is 200 OK
-    And the response "data[0].type" is equal to "usage_timeseries"
-    And the response "data[0].attributes.product_family" is equal to "lambda-traced-invocations"
 
   @team:DataDog/red-zone-revenue-query
   Scenario: Get hourly usage for Observability Pipelines returns "Bad Request" response
@@ -118,8 +132,49 @@ Feature: Usage Metering
     When the request is sent
     Then the response status is 400 Bad Request
 
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for application security returns "Bad Request" response
+    Given new "GetUsageApplicationSecurityMonitoring" request
+    And request contains "start_hr" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
   @team:DataDog/red-zone-revenue-query
-  Scenario: Get hourly usage for Observability Pipelines returns "OK" response
+  Scenario: Get hourly usage for application security returns "OK" response
+    Given new "GetUsageApplicationSecurityMonitoring" request
+    And request contains "start_hr" parameter with value "{{ timeISO('now - 5d') }}"
+    And request contains "end_hr" parameter with value "{{ timeISO('now - 3d') }}"
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "data[0].type" is equal to "usage_timeseries"
+    And the response "data[0].attributes.product_family" is equal to "app-sec"
+
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for lambda traced invocations returns "Bad Request" response
+    Given new "GetUsageLambdaTracedInvocations" request
+    And request contains "start_hr" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for lambda traced invocations returns "OK" response
+    Given new "GetUsageLambdaTracedInvocations" request
+    And request contains "start_hr" parameter with value "{{ timeISO('now - 5d') }}"
+    And request contains "end_hr" parameter with value "{{ timeISO('now - 3d') }}"
+    When the request is sent
+    Then the response status is 200 OK
+    And the response "data[0].type" is equal to "usage_timeseries"
+    And the response "data[0].attributes.product_family" is equal to "lambda-traced-invocations"
+
+  @generated @skip @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for observability pipelines returns "Bad Request" response
+    Given new "GetUsageObservabilityPipelines" request
+    And request contains "start_hr" parameter from "REPLACE.ME"
+    When the request is sent
+    Then the response status is 400 Bad Request
+
+  @team:DataDog/red-zone-revenue-query
+  Scenario: Get hourly usage for observability pipelines returns "OK" response
     Given new "GetUsageObservabilityPipelines" request
     And request contains "start_hr" parameter with value "{{ timeISO('now - 5d') }}"
     And request contains "end_hr" parameter with value "{{ timeISO('now - 3d') }}"
@@ -129,44 +184,15 @@ Feature: Usage Metering
     And the response "data[0].attributes.product_family" is equal to "observability-pipelines"
 
   @generated @skip @team:DataDog/red-zone-revenue-query
-  Scenario: Get hourly usage for application security returns "Bad Request" response
-    Given new "GetUsageApplicationSecurityMonitoring" request
-    And request contains "start_hr" parameter from "REPLACE.ME"
+  Scenario: Get projected cost across your account returns "Bad Request" response
+    Given new "GetProjectedCost" request
     When the request is sent
     Then the response status is 400 Bad Request
 
-  @generated @skip @team:DataDog/red-zone-revenue-query
-  Scenario: Get hourly usage for application security returns "OK" response
-    Given new "GetUsageApplicationSecurityMonitoring" request
-    And request contains "start_hr" parameter from "REPLACE.ME"
-    When the request is sent
-    Then the response status is 200 OK
-
-  @generated @skip @team:DataDog/red-zone-revenue-query
-  Scenario: Get hourly usage for lambda traced invocations returns "Bad Request" response
-    Given new "GetUsageLambdaTracedInvocations" request
-    And request contains "start_hr" parameter from "REPLACE.ME"
-    When the request is sent
-    Then the response status is 400 Bad Request
-
-  @generated @skip @team:DataDog/red-zone-revenue-query
-  Scenario: Get hourly usage for lambda traced invocations returns "OK" response
-    Given new "GetUsageLambdaTracedInvocations" request
-    And request contains "start_hr" parameter from "REPLACE.ME"
-    When the request is sent
-    Then the response status is 200 OK
-
-  @generated @skip @team:DataDog/red-zone-revenue-query
-  Scenario: Get hourly usage for observability pipelines returns "Bad Request" response
-    Given new "GetUsageObservabilityPipelines" request
-    And request contains "start_hr" parameter from "REPLACE.ME"
-    When the request is sent
-    Then the response status is 400 Bad Request
-
-  @generated @skip @team:DataDog/red-zone-revenue-query
-  Scenario: Get hourly usage for observability pipelines returns "OK" response
-    Given new "GetUsageObservabilityPipelines" request
-    And request contains "start_hr" parameter from "REPLACE.ME"
+  @replay-only @team:DataDog/red-zone-revenue-query
+  Scenario: Get projected cost across your account returns "OK" response
+    Given new "GetProjectedCost" request
+    And request contains "view" parameter with value "sub-org"
     When the request is sent
     Then the response status is 200 OK
 

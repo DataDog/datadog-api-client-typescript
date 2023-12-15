@@ -5,7 +5,10 @@
  */
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
+import { RelationshipToIncidentImpacts } from "./RelationshipToIncidentImpacts";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
+import { RelationshipToIncidentResponders } from "./RelationshipToIncidentResponders";
+import { RelationshipToIncidentUserDefinedFields } from "./RelationshipToIncidentUserDefinedFields";
 import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -27,6 +30,10 @@ export class IncidentResponseRelationships {
    */
   "createdByUser"?: RelationshipToUser;
   /**
+   * Relationship to impacts.
+   */
+  "impacts"?: RelationshipToIncidentImpacts;
+  /**
    * A relationship reference for multiple integration metadata objects.
    */
   "integrations"?: RelationshipToIncidentIntegrationMetadatas;
@@ -34,6 +41,14 @@ export class IncidentResponseRelationships {
    * Relationship to user.
    */
   "lastModifiedByUser"?: RelationshipToUser;
+  /**
+   * Relationship to incident responders.
+   */
+  "responders"?: RelationshipToIncidentResponders;
+  /**
+   * Relationship to incident user defined fields.
+   */
+  "userDefinedFields"?: RelationshipToIncidentUserDefinedFields;
 
   /**
    * @ignore
@@ -56,6 +71,10 @@ export class IncidentResponseRelationships {
       baseName: "created_by_user",
       type: "RelationshipToUser",
     },
+    impacts: {
+      baseName: "impacts",
+      type: "RelationshipToIncidentImpacts",
+    },
     integrations: {
       baseName: "integrations",
       type: "RelationshipToIncidentIntegrationMetadatas",
@@ -63,6 +82,14 @@ export class IncidentResponseRelationships {
     lastModifiedByUser: {
       baseName: "last_modified_by_user",
       type: "RelationshipToUser",
+    },
+    responders: {
+      baseName: "responders",
+      type: "RelationshipToIncidentResponders",
+    },
+    userDefinedFields: {
+      baseName: "user_defined_fields",
+      type: "RelationshipToIncidentUserDefinedFields",
     },
   };
 

@@ -5,6 +5,7 @@
  */
 import { PowerpackGroupWidgetDefinition } from "./PowerpackGroupWidgetDefinition";
 import { PowerpackGroupWidgetLayout } from "./PowerpackGroupWidgetLayout";
+import { WidgetLiveSpan } from "./WidgetLiveSpan";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -20,6 +21,10 @@ export class PowerpackGroupWidget {
    * Powerpack group widget layout.
    */
   "layout"?: PowerpackGroupWidgetLayout;
+  /**
+   * The available timeframes depend on the widget you are using.
+   */
+  "liveSpan"?: WidgetLiveSpan;
 
   /**
    * @ignore
@@ -38,6 +43,10 @@ export class PowerpackGroupWidget {
     layout: {
       baseName: "layout",
       type: "PowerpackGroupWidgetLayout",
+    },
+    liveSpan: {
+      baseName: "live_span",
+      type: "WidgetLiveSpan",
     },
   };
 

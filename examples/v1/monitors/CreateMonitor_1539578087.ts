@@ -18,7 +18,6 @@ const params: v1.MonitorsApiCreateMonitorRequest = {
         critical: 0.5,
       },
       notifyAudit: false,
-      onMissingData: "default",
       includeTags: false,
       schedulingOptions: {
         evaluationWindow: {

@@ -1418,7 +1418,9 @@ export class MonitorsApi {
    * - error-tracking: `error-tracking alert`
    * - database-monitoring: `database-monitoring alert`
    *
-   * **Note**: Synthetic monitors are created through the Synthetics API. See the [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more information.
+   * **Notes**:
+   * - Synthetic monitors are created through the Synthetics API. See the [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more information.
+   * - Log monitors require an unscoped App Key.
    *
    * #### Query Types
    *
@@ -1801,6 +1803,8 @@ export class MonitorsApi {
 
   /**
    * Validate the monitor provided in the request.
+   *
+   * **Note**: Log monitors require an unscoped App Key.
    * @param param The request object
    */
   public validateMonitor(

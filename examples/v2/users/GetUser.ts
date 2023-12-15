@@ -1,5 +1,5 @@
 /**
- * Get user details returns "OK for get user" response
+ * Get user details returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -7,8 +7,11 @@ import { client, v2 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v2.UsersApi(configuration);
 
+// there is a valid "user" in the system
+const USER_DATA_ID = process.env.USER_DATA_ID as string;
+
 const params: v2.UsersApiGetUserRequest = {
-  userId: "00000000-0000-9999-0000-000000000000",
+  userId: USER_DATA_ID,
 };
 
 apiInstance

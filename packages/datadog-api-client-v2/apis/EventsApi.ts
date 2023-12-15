@@ -32,11 +32,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn("Using unstable operation 'listEvents'");
-    if (!_config.unstableOperations["v2.listEvents"]) {
-      throw new Error("Unstable operation 'listEvents' is disabled");
-    }
-
     // Path Params
     const localVarPath = "/api/v2/events";
 
@@ -100,11 +95,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn("Using unstable operation 'searchEvents'");
-    if (!_config.unstableOperations["v2.searchEvents"]) {
-      throw new Error("Unstable operation 'searchEvents' is disabled");
-    }
 
     // Path Params
     const localVarPath = "/api/v2/events/search";

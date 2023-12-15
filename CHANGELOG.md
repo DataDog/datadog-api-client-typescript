@@ -1,5 +1,56 @@
 # CHANGELOG
 
+## 1.20.0 / 2023-12-12
+
+### Fixed
+* Fix Powerpack schema by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1402
+### Added
+* Add support for projected-cost endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1386
+* Document missing incident fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1406
+* Add active billing dimensions to usage metering by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1425
+* Add Cost Attribution To Usage Metering Public Beta Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1410
+* Update spec to include new DORA API endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1424
+* Add support to patch Synthetics test with partial data using JSON Patch by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1418
+* Document new api/app key schemas by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1405
+* Document new field `filters` for `CloudWorkloadSecurityAgentRule` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1426
+* Live and historical custom timeseries docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1416
+* Add week_to_date and month_to_date to widget livespan by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1419
+* Document `included_keywords` in `ListStandardPatterns` response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1429
+* Document fields `remote_config_read_enabled` and `category` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1427
+* Update Azure Spec to include Resource Collection by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1434
+* Allow creation of Application Security detection rules from the v2 API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1436
+* Add Okta Integration APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1417
+* Remove unstable flag for Events v2 api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1441
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.19.0...v1.20.0
+
+## 1.19.0 / 2023-11-15
+
+### Fixed
+* Remove notify_no_data default by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1383
+* Fix SecurityMonitoringSignalAttribute field name by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1391
+* Fix typo in service definition field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1404
+### Added
+* Update documentation for Cloud SIEM by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1374
+* Add containers API spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1375
+* Add serverless apm to usage attribution api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1381
+* Document missing parameters by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1339
+* Powerpack Live Span Support by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1389
+* Add Amazon EventBridge endpoints to AWS Integration API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1376
+* Add Container App filters to Azure API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1359
+* Add UUID format support  by @HantingZhang2 in https://github.com/DataDog/datadog-api-client-typescript/pull/1388
+* Add new UA products to usage metering docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1393
+* Add scorecards endpoints  by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1398
+* Document top list widget style by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1384
+* Add optional group-bys support to security signals by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1399
+### Changed
+* Add Beta Banner to Send Pipeline Events Endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1390
+* Remove endpoint for mute or unmute a finding and add support for bulk mute findings endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1385
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.18.0...v1.19.0
+
 ## 1.18.0 / 2023-10-16
 
 ### Fixed

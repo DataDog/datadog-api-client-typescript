@@ -356,7 +356,13 @@
     "tag": "AWS Integration",
     "undo": {
       "operationId": "DeleteAWSAccount",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "body",
+          "origin": "request",
+          "template": "{\"account_id\": \"{{account_id}}\", \"role_name\": \"{{role_name}}\"}"
+        }
+      ],
       "type": "unsafe"
     }
   },
@@ -370,6 +376,26 @@
     "tag": "AWS Integration",
     "undo": {
       "type": "safe"
+    }
+  },
+  "DeleteAWSEventBridgeSource": {
+    "tag": "AWS Integration",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListAWSEventBridgeSources": {
+    "tag": "AWS Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateAWSEventBridgeSource": {
+    "tag": "AWS Integration",
+    "undo": {
+      "operationId": "DeleteAWSEventBridgeSource",
+      "parameters": [],
+      "type": "unsafe"
     }
   },
   "DeleteAWSTagFilter": {
@@ -1174,6 +1200,12 @@
     "tag": "Synthetics",
     "undo": {
       "type": "safe"
+    }
+  },
+  "PatchTest": {
+    "tag": "Synthetics",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "GetAPITestLatestResults": {

@@ -36,6 +36,12 @@ export class MetricTagConfigurationAttributes {
    */
   "createdAt"?: Date;
   /**
+   * When set to true, the configuration will exclude the configured tags and include any other submitted tags.
+   * When set to false, the configuration will include the configured tags and exclude any other submitted tags.
+   * Defaults to false. Requires `tags` property.
+   */
+  "excludeTagsMode"?: boolean;
+  /**
    * Toggle to include or exclude percentile aggregations for distribution metrics.
    * Only present when the `metric_type` is `distribution`.
    */
@@ -70,6 +76,10 @@ export class MetricTagConfigurationAttributes {
       baseName: "created_at",
       type: "Date",
       format: "date-time",
+    },
+    excludeTagsMode: {
+      baseName: "exclude_tags_mode",
+      type: "boolean",
     },
     includePercentiles: {
       baseName: "include_percentiles",

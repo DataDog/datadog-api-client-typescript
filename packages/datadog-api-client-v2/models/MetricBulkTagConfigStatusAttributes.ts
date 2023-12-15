@@ -15,6 +15,11 @@ export class MetricBulkTagConfigStatusAttributes {
    */
   "emails"?: Array<string>;
   /**
+   * When set to true, the configuration will exclude the configured tags and include any other submitted tags.
+   * When set to false, the configuration will include the configured tags and exclude any other submitted tags.
+   */
+  "excludeTagsMode"?: boolean;
+  /**
    * The status of the request.
    */
   "status"?: string;
@@ -36,6 +41,10 @@ export class MetricBulkTagConfigStatusAttributes {
       baseName: "emails",
       type: "Array<string>",
       format: "email",
+    },
+    excludeTagsMode: {
+      baseName: "exclude_tags_mode",
+      type: "boolean",
     },
     status: {
       baseName: "status",

@@ -4,7 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { IncidentFieldAttributes } from "./IncidentFieldAttributes";
+import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
+import { IncidentSeverity } from "./IncidentSeverity";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -12,6 +14,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * The incident's attributes from a response.
  */
 export class IncidentResponseAttributes {
+  /**
+   * Timestamp of when the incident was archived.
+   */
+  "archived"?: Date;
+  /**
+   * The incident case id.
+   */
+  "caseId"?: number;
   /**
    * Timestamp when the incident was created.
    */
@@ -50,6 +60,10 @@ export class IncidentResponseAttributes {
    */
   "modified"?: Date;
   /**
+   * Incident's non Datadog creator.
+   */
+  "nonDatadogCreator"?: IncidentNonDatadogCreator;
+  /**
    * Notification handles that will be notified of the incident during update.
    */
   "notificationHandles"?: Array<IncidentNotificationHandle>;
@@ -61,6 +75,14 @@ export class IncidentResponseAttributes {
    * Timestamp when the incident's state was last changed from active or stable to resolved or completed.
    */
   "resolved"?: Date;
+  /**
+   * The incident severity.
+   */
+  "severity"?: IncidentSeverity;
+  /**
+   * The state incident.
+   */
+  "state"?: string;
   /**
    * The amount of time in seconds to detect the incident.
    * Equals the difference between `customer_impact_start` and `detected`.
@@ -82,6 +104,10 @@ export class IncidentResponseAttributes {
    * The title of the incident, which summarizes what happened.
    */
   "title": string;
+  /**
+   * The incident visibility status.
+   */
+  "visibility"?: string;
 
   /**
    * @ignore
@@ -92,6 +118,16 @@ export class IncidentResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    archived: {
+      baseName: "archived",
+      type: "Date",
+      format: "date-time",
+    },
+    caseId: {
+      baseName: "case_id",
+      type: "number",
+      format: "int64",
+    },
     created: {
       baseName: "created",
       type: "Date",
@@ -134,6 +170,10 @@ export class IncidentResponseAttributes {
       type: "Date",
       format: "date-time",
     },
+    nonDatadogCreator: {
+      baseName: "non_datadog_creator",
+      type: "IncidentNonDatadogCreator",
+    },
     notificationHandles: {
       baseName: "notification_handles",
       type: "Array<IncidentNotificationHandle>",
@@ -147,6 +187,14 @@ export class IncidentResponseAttributes {
       baseName: "resolved",
       type: "Date",
       format: "date-time",
+    },
+    severity: {
+      baseName: "severity",
+      type: "IncidentSeverity",
+    },
+    state: {
+      baseName: "state",
+      type: "string",
     },
     timeToDetect: {
       baseName: "time_to_detect",
@@ -172,6 +220,10 @@ export class IncidentResponseAttributes {
       baseName: "title",
       type: "string",
       required: true,
+    },
+    visibility: {
+      baseName: "visibility",
+      type: "string",
     },
   };
 

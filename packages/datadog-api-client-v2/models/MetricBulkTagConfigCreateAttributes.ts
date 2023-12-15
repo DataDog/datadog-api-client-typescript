@@ -15,6 +15,12 @@ export class MetricBulkTagConfigCreateAttributes {
    */
   "emails"?: Array<string>;
   /**
+   * When set to true, the configuration will exclude the configured tags and include any other submitted tags.
+   * When set to false, the configuration will include the configured tags and exclude any other submitted tags.
+   * Defaults to false.
+   */
+  "excludeTagsMode"?: boolean;
+  /**
    * A list of tag names to apply to the configuration.
    */
   "tags"?: Array<string>;
@@ -32,6 +38,10 @@ export class MetricBulkTagConfigCreateAttributes {
       baseName: "emails",
       type: "Array<string>",
       format: "email",
+    },
+    excludeTagsMode: {
+      baseName: "exclude_tags_mode",
+      type: "boolean",
     },
     tags: {
       baseName: "tags",

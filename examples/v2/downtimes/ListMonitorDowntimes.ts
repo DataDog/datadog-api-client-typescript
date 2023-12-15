@@ -8,7 +8,7 @@ const configuration = client.createConfiguration();
 const apiInstance = new v2.DowntimesApi(configuration);
 
 const params: v2.DowntimesApiListMonitorDowntimesRequest = {
-  monitorId: 9223372036854775807,
+  monitorId: 35534610,
 };
 
 apiInstance

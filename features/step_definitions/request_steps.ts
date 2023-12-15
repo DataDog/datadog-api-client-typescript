@@ -143,7 +143,8 @@ When("the request is sent", async function (this: World) {
           this.apiVersion,
           undoAction,
           this.operationId,
-          this.response
+          this.response,
+          this.opts,
         )
       );
     }

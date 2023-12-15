@@ -14,7 +14,7 @@ export class SecurityMonitoringSignalAttributes {
   /**
    * A JSON object of attributes in the security signal.
    */
-  "attributes"?: { [key: string]: any };
+  "custom"?: { [key: string]: any };
   /**
    * The message in the security signal defined by the rule that generated the signal.
    */
@@ -37,8 +37,8 @@ export class SecurityMonitoringSignalAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
+    custom: {
+      baseName: "custom",
       type: "{ [key: string]: any; }",
     },
     message: {
