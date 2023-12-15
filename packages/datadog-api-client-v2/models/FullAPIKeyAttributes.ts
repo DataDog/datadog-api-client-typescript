@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FullAPIKeyAttributes {
   /**
+   * The category of the API key.
+   */
+  "category"?: string;
+  /**
    * Creation date of the API key.
    */
   "createdAt"?: string;
@@ -30,6 +34,10 @@ export class FullAPIKeyAttributes {
    * Name of the API key.
    */
   "name"?: string;
+  /**
+   * The remote config read enabled status.
+   */
+  "remoteConfigReadEnabled"?: boolean;
 
   /**
    * @ignore
@@ -40,6 +48,10 @@ export class FullAPIKeyAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    category: {
+      baseName: "category",
+      type: "string",
+    },
     createdAt: {
       baseName: "created_at",
       type: "string",
@@ -59,6 +71,10 @@ export class FullAPIKeyAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    remoteConfigReadEnabled: {
+      baseName: "remote_config_read_enabled",
+      type: "boolean",
     },
   };
 

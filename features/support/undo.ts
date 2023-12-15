@@ -10,6 +10,7 @@ logger.setLevel(process.env.DEBUG ? logger.levels.DEBUG : logger.levels.INFO);
 
 interface iOperationParameter {
   name: string;
+  origin: string;
   source: string;
   template: string;
 }
@@ -42,7 +43,8 @@ function buildUndoFor(
   apiVersion: string,
   operationUndo: iUndoAction,
   operationOrig: string,
-  response: any
+  response: any,
+  request: any
 ): { (): void } {
   return async function () {
     var apiName = operationUndo.tag.replace(/\s/g, "");
@@ -85,10 +87,18 @@ function buildUndoFor(
     // perform operation
     const opts: { [key: string]: any } = {};
     for (const p of operationUndo.undo.parameters) {
+      var dataSource: { [key: string]: any; };
+      if (p.origin === undefined) {
+         dataSource = response;
+      } else if (p.origin === "request") {
+         dataSource = request.body;
+      } else {
+        dataSource = response;
+      }
       if (p.source !== undefined) {
-        opts[p.name.toAttributeName()] = pathLookup(response, p.source);
+        opts[p.name.toAttributeName()] = pathLookup(dataSource, p.source);
       } else if (p.template !== undefined) {
-        const data = JSON.parse(p.template.templated(response));
+        const data = JSON.parse(p.template.templated(dataSource));
         const param: { [key: string]: any } = {};
         for (const [key, value] of Object.entries(data)) {
           param[key.toAttributeName()] = value;

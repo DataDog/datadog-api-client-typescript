@@ -237,6 +237,24 @@
       "type": "safe"
     }
   },
+  "ListContainers": {
+    "tag": "Containers",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetActiveBillingDimensions": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetMonthlyCostAttribution": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "ListCurrentUserApplicationKeys": {
     "tag": "Key Management",
     "undo": {
@@ -296,6 +314,18 @@
     "tag": "Dashboard Lists",
     "undo": {
       "type": "safe"
+    }
+  },
+  "CreateDORADeployment": {
+    "tag": "DORA Metrics",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "CreateDORAIncident": {
+    "tag": "DORA Metrics",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "ListDowntimes": {
@@ -742,6 +772,43 @@
       "type": "safe"
     }
   },
+  "ListOktaAccounts": {
+    "tag": "Okta Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateOktaAccount": {
+    "tag": "Okta Integration",
+    "undo": {
+      "operationId": "DeleteOktaAccount",
+      "parameters": [
+        {
+          "name": "account_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteOktaAccount": {
+    "tag": "Okta Integration",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "GetOktaAccount": {
+    "tag": "Okta Integration",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateOktaAccount": {
+    "tag": "Okta Integration",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
   "GetIPAllowlist": {
     "tag": "IP Allowlist",
     "undo": {
@@ -901,7 +968,7 @@
       "parameters": [
         {
           "name": "body",
-          "source": ""
+          "template": "{\n  \"data\": {\n    \"id\":\"{{ data.id }}\",\n    \"type\":\"metric_bulk_configure_tags\",\n    \"attributes\": {\n      \"emails\": [\"{{ data.attributes.emails[0] }}\"]\n    }\n  }\n}"
         }
       ],
       "type": "unsafe"
@@ -1017,13 +1084,13 @@
       "type": "safe"
     }
   },
-  "GetFinding": {
+  "MuteFindings": {
     "tag": "Security Monitoring",
     "undo": {
       "type": "safe"
     }
   },
-  "UpdateFinding": {
+  "GetFinding": {
     "tag": "Security Monitoring",
     "undo": {
       "type": "safe"
@@ -1245,6 +1312,43 @@
   },
   "UploadIdPMetadata": {
     "tag": "Organizations",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListScorecardOutcomes": {
+    "tag": "Service Scorecards",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateScorecardOutcomesBatch": {
+    "tag": "Service Scorecards",
+    "undo": {
+      "type": "idempotent"
+    }
+  },
+  "ListScorecardRules": {
+    "tag": "Service Scorecards",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "CreateScorecardRule": {
+    "tag": "Service Scorecards",
+    "undo": {
+      "operationId": "DeleteScorecardRule",
+      "parameters": [
+        {
+          "name": "rule_id",
+          "source": "data.id"
+        }
+      ],
+      "type": "unsafe"
+    }
+  },
+  "DeleteScorecardRule": {
+    "tag": "Service Scorecards",
     "undo": {
       "type": "idempotent"
     }
@@ -1836,6 +1940,12 @@
     }
   },
   "GetUsageObservabilityPipelines": {
+    "tag": "Usage Metering",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetProjectedCost": {
     "tag": "Usage Metering",
     "undo": {
       "type": "safe"

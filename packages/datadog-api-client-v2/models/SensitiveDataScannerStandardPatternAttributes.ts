@@ -15,6 +15,10 @@ export class SensitiveDataScannerStandardPatternAttributes {
    */
   "description"?: string;
   /**
+   * List of included keywords.
+   */
+  "includedKeywords"?: Array<string>;
+  /**
    * Name of the standard pattern.
    */
   "name"?: string;
@@ -22,6 +26,10 @@ export class SensitiveDataScannerStandardPatternAttributes {
    * Regex to match.
    */
   "pattern"?: string;
+  /**
+   * Integer from 1 (high) to 5 (low) indicating standard pattern issue severity.
+   */
+  "priority"?: number;
   /**
    * List of tags.
    */
@@ -40,6 +48,10 @@ export class SensitiveDataScannerStandardPatternAttributes {
       baseName: "description",
       type: "string",
     },
+    includedKeywords: {
+      baseName: "included_keywords",
+      type: "Array<string>",
+    },
     name: {
       baseName: "name",
       type: "string",
@@ -47,6 +59,11 @@ export class SensitiveDataScannerStandardPatternAttributes {
     pattern: {
       baseName: "pattern",
       type: "string",
+    },
+    priority: {
+      baseName: "priority",
+      type: "number",
+      format: "int64",
     },
     tags: {
       baseName: "tags",

@@ -1087,6 +1087,23 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.ListAvailableAWSNamespaces": {
         "operationResponseType": "Array<string>",
     },
+    "v1.DeleteAWSEventBridgeSource": {
+        "body": {
+            "type": "AWSEventBridgeDeleteRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSEventBridgeDeleteResponse",
+    },
+    "v1.ListAWSEventBridgeSources": {
+        "operationResponseType": "AWSEventBridgeListResponse",
+    },
+    "v1.CreateAWSEventBridgeSource": {
+        "body": {
+            "type": "AWSEventBridgeCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSEventBridgeCreateResponse",
+    },
     "v1.DeleteAWSTagFilter": {
         "body": {
             "type": "AWSTagFilterDeleteRequest",
@@ -2100,6 +2117,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsTestDetails",
     },
+    "v1.PatchTest": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsPatchTestBody",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsTestDetails",
+    },
     "v1.GetAPITestLatestResults": {
         "publicId": {
             "type": "string",
@@ -2310,6 +2338,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterRemoteConfigReadEnabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterCategory": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "APIKeysResponse",
     },
     "v2.CreateAPIKey": {
@@ -2373,6 +2409,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "ListApplicationKeysResponse",
     },
     "v2.DeleteApplicationKey": {
@@ -2426,6 +2466,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterCreatedAtEnd": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
             "type": "string",
             "format": "",
             },
@@ -2737,6 +2781,191 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ContainerImagesResponse",
     },
+    "v2.ListContainers": {
+        "filterTags": {
+            "type": "string",
+            "format": "",
+            },
+        "groupBy": {
+            "type": "string",
+            "format": "",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageCursor": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ContainersResponse",
+    },
+    "v2.GetActiveBillingDimensions": {
+        "operationResponseType": "ActiveBillingDimensionsResponse",
+    },
+    "v2.GetMonthlyCostAttribution": {
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "fields": {
+            "type": "string",
+            "format": "",
+            },
+        "sortDirection": {
+            "type": "SortDirection",
+            "format": "",
+            },
+        "sortName": {
+            "type": "string",
+            "format": "",
+            },
+        "tagBreakdownKeys": {
+            "type": "string",
+            "format": "",
+            },
+        "nextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "includeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "MonthlyCostAttributionResponse",
+    },
+    "v2.GetUsageApplicationSecurityMonitoring": {
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageApplicationSecurityMonitoringResponse",
+    },
+    "v2.GetCostByOrg": {
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "CostByOrgResponse",
+    },
+    "v2.GetEstimatedCostByOrg": {
+        "view": {
+            "type": "string",
+            "format": "",
+            },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "startDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endDate": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "CostByOrgResponse",
+    },
+    "v2.GetHistoricalCostByOrg": {
+        "view": {
+            "type": "string",
+            "format": "",
+            },
+        "startMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "CostByOrgResponse",
+    },
+    "v2.GetHourlyUsage": {
+        "filterTimestampStart": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterTimestampEnd": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterProductFamilies": {
+            "type": "string",
+            "format": "",
+            },
+        "filterIncludeDescendants": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterIncludeBreakdown": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterVersions": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int32",
+            },
+        "pageNextRecordId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "HourlyUsageResponse",
+    },
+    "v2.GetUsageLambdaTracedInvocations": {
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageLambdaTracedInvocationsResponse",
+    },
+    "v2.GetUsageObservabilityPipelines": {
+        "startHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "endHr": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "operationResponseType": "UsageObservabilityPipelinesResponse",
+    },
+    "v2.GetProjectedCost": {
+        "view": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProjectedCostResponse",
+    },
     "v2.DeleteDashboardListItems": {
         "dashboardListId": {
             "type": "number",
@@ -2776,6 +3005,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "DashboardListUpdateItemsResponse",
+    },
+    "v2.CreateDORADeployment": {
+        "body": {
+            "type": "DORADeploymentRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORADeploymentResponse",
+    },
+    "v2.CreateDORAIncident": {
+        "body": {
+            "type": "DORAIncidentRequest",
+            "format": "",
+            },
+        "operationResponseType": "DORAIncidentResponse",
     },
     "v2.ListDowntimes": {
         "currentOnly": {
@@ -3379,6 +3622,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "FastlyServiceResponse",
     },
+    "v2.ListOktaAccounts": {
+        "operationResponseType": "OktaAccountsResponse",
+    },
+    "v2.CreateOktaAccount": {
+        "body": {
+            "type": "OktaAccountRequest",
+            "format": "",
+            },
+        "operationResponseType": "OktaAccountResponse",
+    },
+    "v2.DeleteOktaAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetOktaAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OktaAccountResponse",
+    },
+    "v2.UpdateOktaAccount": {
+        "accountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OktaAccountUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "OktaAccountResponse",
+    },
     "v2.GetIPAllowlist": {
         "operationResponseType": "IPAllowlistResponse",
     },
@@ -3775,6 +4053,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterId": {
+            "type": "string",
+            "format": "",
+            },
         "operationResponseType": "RolesResponse",
     },
     "v2.CreateRole": {
@@ -3945,6 +4227,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ListFindingsResponse",
     },
+    "v2.MuteFindings": {
+        "body": {
+            "type": "BulkMuteFindingsRequest",
+            "format": "",
+            },
+        "operationResponseType": "BulkMuteFindingsResponse",
+    },
     "v2.GetFinding": {
         "findingId": {
             "type": "string",
@@ -3955,17 +4244,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "int64",
             },
         "operationResponseType": "GetFindingResponse",
-    },
-    "v2.UpdateFinding": {
-        "findingId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "MuteFindingRequest",
-            "format": "",
-            },
-        "operationResponseType": "MuteFindingResponse",
     },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",
@@ -4294,6 +4572,113 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "idpFile": {
             "type": "HttpFile",
             "format": "binary",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.ListScorecardOutcomes": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "fieldsOutcome": {
+            "type": "string",
+            "format": "",
+            },
+        "fieldsRule": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOutcomeServiceName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterOutcomeState": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleEnabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OutcomesResponse",
+    },
+    "v2.CreateScorecardOutcomesBatch": {
+        "body": {
+            "type": "OutcomesBatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "OutcomesBatchResponse",
+    },
+    "v2.ListScorecardRules": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "include": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleEnabled": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRuleCustom": {
+            "type": "boolean",
+            "format": "",
+            },
+        "filterRuleName": {
+            "type": "string",
+            "format": "",
+            },
+        "filterRuleDescription": {
+            "type": "string",
+            "format": "",
+            },
+        "fieldsRule": {
+            "type": "string",
+            "format": "",
+            },
+        "fieldsScorecard": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListRulesResponse",
+    },
+    "v2.CreateScorecardRule": {
+        "body": {
+            "type": "CreateRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "CreateRuleResponse",
+    },
+    "v2.DeleteScorecardRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
             },
         "operationResponseType": "void",
     },
@@ -4663,6 +5048,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "fieldsTeam": {
+            "type": "Array<TeamsField>",
+            "format": "",
+            },
         "operationResponseType": "TeamsResponse",
     },
     "v2.CreateTeam": {
@@ -4895,123 +5284,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "IncidentTeamResponse",
-    },
-    "v2.GetUsageApplicationSecurityMonitoring": {
-        "startHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "UsageApplicationSecurityMonitoringResponse",
-    },
-    "v2.GetCostByOrg": {
-        "startMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "CostByOrgResponse",
-    },
-    "v2.GetEstimatedCostByOrg": {
-        "view": {
-            "type": "string",
-            "format": "",
-            },
-        "startMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "startDate": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endDate": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "CostByOrgResponse",
-    },
-    "v2.GetHistoricalCostByOrg": {
-        "view": {
-            "type": "string",
-            "format": "",
-            },
-        "startMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "CostByOrgResponse",
-    },
-    "v2.GetHourlyUsage": {
-        "filterTimestampStart": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "filterTimestampEnd": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "filterProductFamilies": {
-            "type": "string",
-            "format": "",
-            },
-        "filterIncludeDescendants": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterIncludeBreakdown": {
-            "type": "boolean",
-            "format": "",
-            },
-        "filterVersions": {
-            "type": "string",
-            "format": "",
-            },
-        "pageLimit": {
-            "type": "number",
-            "format": "int32",
-            },
-        "pageNextRecordId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "HourlyUsageResponse",
-    },
-    "v2.GetUsageLambdaTracedInvocations": {
-        "startHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "UsageLambdaTracedInvocationsResponse",
-    },
-    "v2.GetUsageObservabilityPipelines": {
-        "startHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "endHr": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "operationResponseType": "UsageObservabilityPipelinesResponse",
     },
     "v2.SendInvitations": {
         "body": {

@@ -24,6 +24,13 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
           titleSize: "16",
           titleAlign: "left",
           time: {},
+          style: {
+            display: {
+              type: "stacked",
+              legend: "inline",
+            },
+            scaling: "relative",
+          },
           type: "toplist",
           requests: [
             {

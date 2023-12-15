@@ -107,6 +107,10 @@ export class UsageSummaryDateOrg {
    */
   "cloudCostManagementHostCountAvg"?: number;
   /**
+   * Shows the sum of all Cloud Security Information and Event Management events over all hours in the current date for the given org.
+   */
+  "cloudSiemEventsSum"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current date for the given org.
    */
   "containerAvg"?: number;
@@ -186,6 +190,14 @@ export class UsageSummaryDateOrg {
    * Shows the 99th percentile of all Cloud Security Management Pro hosts over all hours in the current date for the given org.
    */
   "cspmHostTop99p"?: number;
+  /**
+   * Shows the average number of distinct historical custom metrics over all hours in the current date for the given org.
+   */
+  "customHistoricalTsAvg"?: number;
+  /**
+   * Shows the average number of distinct live custom metrics over all hours in the current date for the given org.
+   */
+  "customLiveTsAvg"?: number;
   /**
    * Shows the average number of distinct custom metrics over all hours in the current date for the given org.
    */
@@ -552,6 +564,11 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    cloudSiemEventsSum: {
+      baseName: "cloud_siem_events_sum",
+      type: "number",
+      format: "int64",
+    },
     containerAvg: {
       baseName: "container_avg",
       type: "number",
@@ -649,6 +666,16 @@ export class UsageSummaryDateOrg {
     },
     cspmHostTop99p: {
       baseName: "cspm_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    customHistoricalTsAvg: {
+      baseName: "custom_historical_ts_avg",
+      type: "number",
+      format: "int64",
+    },
+    customLiveTsAvg: {
+      baseName: "custom_live_ts_avg",
       type: "number",
       format: "int64",
     },

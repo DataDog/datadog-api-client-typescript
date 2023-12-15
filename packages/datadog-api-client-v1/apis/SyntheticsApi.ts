@@ -31,6 +31,7 @@ import { SyntheticsGlobalVariable } from "../models/SyntheticsGlobalVariable";
 import { SyntheticsListGlobalVariablesResponse } from "../models/SyntheticsListGlobalVariablesResponse";
 import { SyntheticsListTestsResponse } from "../models/SyntheticsListTestsResponse";
 import { SyntheticsLocations } from "../models/SyntheticsLocations";
+import { SyntheticsPatchTestBody } from "../models/SyntheticsPatchTestBody";
 import { SyntheticsPrivateLocation } from "../models/SyntheticsPrivateLocation";
 import { SyntheticsPrivateLocationCreationResponse } from "../models/SyntheticsPrivateLocationCreationResponse";
 import { SyntheticsTestDetails } from "../models/SyntheticsTestDetails";
@@ -873,6 +874,57 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(pageNumber, "number", "int64")
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async patchTest(
+    publicId: string,
+    body: SyntheticsPatchTestBody,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'publicId' is not null or undefined
+    if (publicId === null || publicId === undefined) {
+      throw new RequiredError("publicId", "patchTest");
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "patchTest");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/synthetics/tests/{public_id}".replace(
+      "{public_id}",
+      encodeURIComponent(String(publicId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v1.SyntheticsApi.patchTest")
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SyntheticsPatchTestBody", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -2525,6 +2577,69 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to patchTest
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async patchTest(
+    response: ResponseContext
+  ): Promise<SyntheticsTestDetails> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode == 200) {
+      const body: SyntheticsTestDetails = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsTestDetails"
+      ) as SyntheticsTestDetails;
+      return body;
+    }
+    if (
+      response.httpStatusCode == 400 ||
+      response.httpStatusCode == 403 ||
+      response.httpStatusCode == 404 ||
+      response.httpStatusCode == 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.info(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SyntheticsTestDetails = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "SyntheticsTestDetails",
+        ""
+      ) as SyntheticsTestDetails;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to triggerCITests
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3093,6 +3208,19 @@ export interface SyntheticsApiListTestsRequest {
   pageNumber?: number;
 }
 
+export interface SyntheticsApiPatchTestRequest {
+  /**
+   * The public ID of the test to patch.
+   * @type string
+   */
+  publicId: string;
+  /**
+   * [JSON Patch](https://jsonpatch.com/) compliant list of operations
+   * @type SyntheticsPatchTestBody
+   */
+  body: SyntheticsPatchTestBody;
+}
+
 export interface SyntheticsApiTriggerCITestsRequest {
   /**
    * Details of the test to trigger.
@@ -3124,7 +3252,7 @@ export interface SyntheticsApiUpdateAPITestRequest {
 
 export interface SyntheticsApiUpdateBrowserTestRequest {
   /**
-   * The public ID of the test to get details from.
+   * The public ID of the test to edit.
    * @type string
    */
   publicId: string;
@@ -3687,6 +3815,28 @@ export class SyntheticsApi {
       }
       param.pageNumber = param.pageNumber + 1;
     }
+  }
+
+  /**
+   * Patch the configuration of a Synthetic test with partial data.
+   * @param param The request object
+   */
+  public patchTest(
+    param: SyntheticsApiPatchTestRequest,
+    options?: Configuration
+  ): Promise<SyntheticsTestDetails> {
+    const requestContextPromise = this.requestFactory.patchTest(
+      param.publicId,
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.patchTest(responseContext);
+        });
+    });
   }
 
   /**

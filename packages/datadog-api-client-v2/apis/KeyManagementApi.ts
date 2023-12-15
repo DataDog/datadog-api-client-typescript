@@ -339,6 +339,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     filterModifiedAtStart?: string,
     filterModifiedAtEnd?: string,
     include?: string,
+    filterRemoteConfigReadEnabled?: boolean,
+    filterCategory?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -408,6 +410,18 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(include, "string", "")
       );
     }
+    if (filterRemoteConfigReadEnabled !== undefined) {
+      requestContext.setQueryParam(
+        "filter[remote_config_read_enabled]",
+        ObjectSerializer.serialize(filterRemoteConfigReadEnabled, "boolean", "")
+      );
+    }
+    if (filterCategory !== undefined) {
+      requestContext.setQueryParam(
+        "filter[category]",
+        ObjectSerializer.serialize(filterCategory, "string", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -425,6 +439,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     filter?: string,
     filterCreatedAtStart?: string,
     filterCreatedAtEnd?: string,
+    include?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -476,6 +491,12 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
       );
     }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", "")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -493,6 +514,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     filter?: string,
     filterCreatedAtStart?: string,
     filterCreatedAtEnd?: string,
+    include?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -542,6 +564,12 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[created_at][end]",
         ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "string", "")
       );
     }
 
@@ -1684,6 +1712,16 @@ export interface KeyManagementApiListAPIKeysRequest {
    * @type string
    */
   include?: string;
+  /**
+   * Filter API keys by remote config read enabled status.
+   * @type boolean
+   */
+  filterRemoteConfigReadEnabled?: boolean;
+  /**
+   * Filter API keys by category.
+   * @type string
+   */
+  filterCategory?: string;
 }
 
 export interface KeyManagementApiListApplicationKeysRequest {
@@ -1719,6 +1757,11 @@ export interface KeyManagementApiListApplicationKeysRequest {
    * @type string
    */
   filterCreatedAtEnd?: string;
+  /**
+   * Resource path for related resources to include in the response. Only `owned_by` is supported.
+   * @type string
+   */
+  include?: string;
 }
 
 export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
@@ -1754,6 +1797,11 @@ export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
    * @type string
    */
   filterCreatedAtEnd?: string;
+  /**
+   * Resource path for related resources to include in the response. Only `owned_by` is supported.
+   * @type string
+   */
+  include?: string;
 }
 
 export interface KeyManagementApiUpdateAPIKeyRequest {
@@ -2000,6 +2048,8 @@ export class KeyManagementApi {
       param.filterModifiedAtStart,
       param.filterModifiedAtEnd,
       param.include,
+      param.filterRemoteConfigReadEnabled,
+      param.filterCategory,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -2026,6 +2076,7 @@ export class KeyManagementApi {
       param.filter,
       param.filterCreatedAtStart,
       param.filterCreatedAtEnd,
+      param.include,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -2053,6 +2104,7 @@ export class KeyManagementApi {
         param.filter,
         param.filterCreatedAtStart,
         param.filterCreatedAtEnd,
+        param.include,
         options
       );
     return requestContextPromise.then((requestContext) => {

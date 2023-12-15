@@ -29,7 +29,8 @@ export class AWSAccount {
    */
   "cspmResourceCollectionEnabled"?: boolean;
   /**
-   * An array of AWS regions to exclude from metrics collection.
+   * An array of [AWS regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints)
+   * to exclude from metrics collection.
    */
   "excludedRegions"?: Array<string>;
   /**

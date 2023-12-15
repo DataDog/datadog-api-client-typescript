@@ -41,6 +41,9 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
               displayType: "bars",
             },
           ],
+          time: {
+            liveSpan: "week_to_date",
+          },
         },
       },
     ],

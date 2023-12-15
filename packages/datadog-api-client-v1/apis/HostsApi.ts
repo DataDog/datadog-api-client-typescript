@@ -611,7 +611,7 @@ export class HostsApi {
   }
 
   /**
-   * Mute a host.
+   * Mute a host. **Note:** This creates a [Downtime V2](https://docs.datadoghq.com/api/latest/downtimes/#schedule-a-downtime) for the host.
    * @param param The request object
    */
   public muteHost(

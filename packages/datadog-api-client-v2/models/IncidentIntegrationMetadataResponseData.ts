@@ -5,6 +5,7 @@
  */
 import { IncidentIntegrationMetadataAttributes } from "./IncidentIntegrationMetadataAttributes";
 import { IncidentIntegrationMetadataType } from "./IncidentIntegrationMetadataType";
+import { IncidentIntegrationRelationships } from "./IncidentIntegrationRelationships";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -20,6 +21,10 @@ export class IncidentIntegrationMetadataResponseData {
    * The incident integration metadata's ID.
    */
   "id": string;
+  /**
+   * The incident's integration relationships from a response.
+   */
+  "relationships"?: IncidentIntegrationRelationships;
   /**
    * Integration metadata resource type.
    */
@@ -42,6 +47,10 @@ export class IncidentIntegrationMetadataResponseData {
       baseName: "id",
       type: "string",
       required: true,
+    },
+    relationships: {
+      baseName: "relationships",
+      type: "IncidentIntegrationRelationships",
     },
     type: {
       baseName: "type",

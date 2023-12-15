@@ -8,11 +8,18 @@ import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 import { APIKeyUpdateData } from "./APIKeyUpdateData";
 import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
+import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
+import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
+import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
+import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
+import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
 import { ApplicationKeyCreateAttributes } from "./ApplicationKeyCreateAttributes";
 import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
 import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
 import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
+import { ApplicationKeyResponseMeta } from "./ApplicationKeyResponseMeta";
+import { ApplicationKeyResponseMetaPage } from "./ApplicationKeyResponseMetaPage";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
@@ -40,6 +47,14 @@ import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
+import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
+import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
+import { BulkMuteFindingsRequestMeta } from "./BulkMuteFindingsRequestMeta";
+import { BulkMuteFindingsRequestMetaFindings } from "./BulkMuteFindingsRequestMetaFindings";
+import { BulkMuteFindingsRequestProperties } from "./BulkMuteFindingsRequestProperties";
+import { BulkMuteFindingsResponse } from "./BulkMuteFindingsResponse";
+import { BulkMuteFindingsResponseData } from "./BulkMuteFindingsResponseData";
 import { CIAppAggregateBucketValueTimeseriesPoint } from "./CIAppAggregateBucketValueTimeseriesPoint";
 import { CIAppAggregateSort } from "./CIAppAggregateSort";
 import { CIAppCIError } from "./CIAppCIError";
@@ -130,6 +145,13 @@ import { ConfluentResourceResponse } from "./ConfluentResourceResponse";
 import { ConfluentResourceResponseAttributes } from "./ConfluentResourceResponseAttributes";
 import { ConfluentResourceResponseData } from "./ConfluentResourceResponseData";
 import { ConfluentResourcesResponse } from "./ConfluentResourcesResponse";
+import { Container } from "./Container";
+import { ContainerAttributes } from "./ContainerAttributes";
+import { ContainerGroup } from "./ContainerGroup";
+import { ContainerGroupAttributes } from "./ContainerGroupAttributes";
+import { ContainerGroupRelationships } from "./ContainerGroupRelationships";
+import { ContainerGroupRelationshipsLink } from "./ContainerGroupRelationshipsLink";
+import { ContainerGroupRelationshipsLinks } from "./ContainerGroupRelationshipsLinks";
 import { ContainerImage } from "./ContainerImage";
 import { ContainerImageAttributes } from "./ContainerImageAttributes";
 import { ContainerImageFlavor } from "./ContainerImageFlavor";
@@ -143,10 +165,30 @@ import { ContainerImageMetaPage } from "./ContainerImageMetaPage";
 import { ContainerImageVulnerabilities } from "./ContainerImageVulnerabilities";
 import { ContainerImagesResponse } from "./ContainerImagesResponse";
 import { ContainerImagesResponseLinks } from "./ContainerImagesResponseLinks";
+import { ContainerMeta } from "./ContainerMeta";
+import { ContainerMetaPage } from "./ContainerMetaPage";
+import { ContainersResponse } from "./ContainersResponse";
+import { ContainersResponseLinks } from "./ContainersResponseLinks";
+import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CreateRuleRequest } from "./CreateRuleRequest";
+import { CreateRuleRequestData } from "./CreateRuleRequestData";
+import { CreateRuleResponse } from "./CreateRuleResponse";
+import { CreateRuleResponseData } from "./CreateRuleResponseData";
 import { Creator } from "./Creator";
+import { DORADeploymentRequest } from "./DORADeploymentRequest";
+import { DORADeploymentRequestAttributes } from "./DORADeploymentRequestAttributes";
+import { DORADeploymentRequestData } from "./DORADeploymentRequestData";
+import { DORADeploymentResponse } from "./DORADeploymentResponse";
+import { DORADeploymentResponseData } from "./DORADeploymentResponseData";
+import { DORAGitInfo } from "./DORAGitInfo";
+import { DORAIncidentRequest } from "./DORAIncidentRequest";
+import { DORAIncidentRequestAttributes } from "./DORAIncidentRequestAttributes";
+import { DORAIncidentRequestData } from "./DORAIncidentRequestData";
+import { DORAIncidentResponse } from "./DORAIncidentResponse";
+import { DORAIncidentResponseData } from "./DORAIncidentResponseData";
 import { DashboardListAddItemsRequest } from "./DashboardListAddItemsRequest";
 import { DashboardListAddItemsResponse } from "./DashboardListAddItemsResponse";
 import { DashboardListDeleteItemsRequest } from "./DashboardListDeleteItemsRequest";
@@ -289,6 +331,8 @@ import { IncidentIntegrationMetadataPatchData } from "./IncidentIntegrationMetad
 import { IncidentIntegrationMetadataPatchRequest } from "./IncidentIntegrationMetadataPatchRequest";
 import { IncidentIntegrationMetadataResponse } from "./IncidentIntegrationMetadataResponse";
 import { IncidentIntegrationMetadataResponseData } from "./IncidentIntegrationMetadataResponseData";
+import { IncidentIntegrationRelationships } from "./IncidentIntegrationRelationships";
+import { IncidentNonDatadogCreator } from "./IncidentNonDatadogCreator";
 import { IncidentNotificationHandle } from "./IncidentNotificationHandle";
 import { IncidentResponse } from "./IncidentResponse";
 import { IncidentResponseAttributes } from "./IncidentResponseAttributes";
@@ -338,6 +382,7 @@ import { IncidentTodoCreateRequest } from "./IncidentTodoCreateRequest";
 import { IncidentTodoListResponse } from "./IncidentTodoListResponse";
 import { IncidentTodoPatchData } from "./IncidentTodoPatchData";
 import { IncidentTodoPatchRequest } from "./IncidentTodoPatchRequest";
+import { IncidentTodoRelationships } from "./IncidentTodoRelationships";
 import { IncidentTodoResponse } from "./IncidentTodoResponse";
 import { IncidentTodoResponseData } from "./IncidentTodoResponseData";
 import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
@@ -356,6 +401,9 @@ import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
 import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
+import { ListRulesResponse } from "./ListRulesResponse";
+import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
+import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
@@ -469,16 +517,22 @@ import { MonitorDowntimeMatchResponse } from "./MonitorDowntimeMatchResponse";
 import { MonitorDowntimeMatchResponseAttributes } from "./MonitorDowntimeMatchResponseAttributes";
 import { MonitorDowntimeMatchResponseData } from "./MonitorDowntimeMatchResponseData";
 import { MonitorType } from "./MonitorType";
-import { MuteFindingRequest } from "./MuteFindingRequest";
-import { MuteFindingRequestAttributes } from "./MuteFindingRequestAttributes";
-import { MuteFindingRequestData } from "./MuteFindingRequestData";
-import { MuteFindingRequestProperties } from "./MuteFindingRequestProperties";
-import { MuteFindingResponse } from "./MuteFindingResponse";
-import { MuteFindingResponseAttributes } from "./MuteFindingResponseAttributes";
-import { MuteFindingResponseData } from "./MuteFindingResponseData";
-import { MuteFindingResponseProperties } from "./MuteFindingResponseProperties";
+import { MonthlyCostAttributionAttributes } from "./MonthlyCostAttributionAttributes";
+import { MonthlyCostAttributionBody } from "./MonthlyCostAttributionBody";
+import { MonthlyCostAttributionMeta } from "./MonthlyCostAttributionMeta";
+import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagination";
+import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
+import { OktaAccount } from "./OktaAccount";
+import { OktaAccountAttributes } from "./OktaAccountAttributes";
+import { OktaAccountRequest } from "./OktaAccountRequest";
+import { OktaAccountResponse } from "./OktaAccountResponse";
+import { OktaAccountResponseData } from "./OktaAccountResponseData";
+import { OktaAccountUpdateRequest } from "./OktaAccountUpdateRequest";
+import { OktaAccountUpdateRequestAttributes } from "./OktaAccountUpdateRequestAttributes";
+import { OktaAccountUpdateRequestData } from "./OktaAccountUpdateRequestData";
+import { OktaAccountsResponse } from "./OktaAccountsResponse";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
@@ -494,6 +548,18 @@ import { OpsgenieServiceUpdateRequest } from "./OpsgenieServiceUpdateRequest";
 import { OpsgenieServicesResponse } from "./OpsgenieServicesResponse";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
+import { OutcomesBatchAttributes } from "./OutcomesBatchAttributes";
+import { OutcomesBatchRequest } from "./OutcomesBatchRequest";
+import { OutcomesBatchRequestData } from "./OutcomesBatchRequestData";
+import { OutcomesBatchRequestItem } from "./OutcomesBatchRequestItem";
+import { OutcomesBatchResponse } from "./OutcomesBatchResponse";
+import { OutcomesBatchResponseAttributes } from "./OutcomesBatchResponseAttributes";
+import { OutcomesBatchResponseMeta } from "./OutcomesBatchResponseMeta";
+import { OutcomesResponse } from "./OutcomesResponse";
+import { OutcomesResponseDataItem } from "./OutcomesResponseDataItem";
+import { OutcomesResponseIncludedItem } from "./OutcomesResponseIncludedItem";
+import { OutcomesResponseIncludedRuleAttributes } from "./OutcomesResponseIncludedRuleAttributes";
+import { OutcomesResponseLinks } from "./OutcomesResponseLinks";
 import { Pagination } from "./Pagination";
 import { PartialAPIKey } from "./PartialAPIKey";
 import { PartialAPIKeyAttributes } from "./PartialAPIKeyAttributes";
@@ -522,6 +588,9 @@ import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { ProjectedCost } from "./ProjectedCost";
+import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
+import { ProjectedCostResponse } from "./ProjectedCostResponse";
 import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
@@ -557,19 +626,30 @@ import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
+import { RelationshipToIncidentImpactData } from "./RelationshipToIncidentImpactData";
+import { RelationshipToIncidentImpacts } from "./RelationshipToIncidentImpacts";
 import { RelationshipToIncidentIntegrationMetadataData } from "./RelationshipToIncidentIntegrationMetadataData";
 import { RelationshipToIncidentIntegrationMetadatas } from "./RelationshipToIncidentIntegrationMetadatas";
 import { RelationshipToIncidentPostmortem } from "./RelationshipToIncidentPostmortem";
 import { RelationshipToIncidentPostmortemData } from "./RelationshipToIncidentPostmortemData";
+import { RelationshipToIncidentResponderData } from "./RelationshipToIncidentResponderData";
+import { RelationshipToIncidentResponders } from "./RelationshipToIncidentResponders";
+import { RelationshipToIncidentUserDefinedFieldData } from "./RelationshipToIncidentUserDefinedFieldData";
+import { RelationshipToIncidentUserDefinedFields } from "./RelationshipToIncidentUserDefinedFields";
 import { RelationshipToOrganization } from "./RelationshipToOrganization";
 import { RelationshipToOrganizationData } from "./RelationshipToOrganizationData";
 import { RelationshipToOrganizations } from "./RelationshipToOrganizations";
+import { RelationshipToOutcome } from "./RelationshipToOutcome";
+import { RelationshipToOutcomeData } from "./RelationshipToOutcomeData";
 import { RelationshipToPermission } from "./RelationshipToPermission";
 import { RelationshipToPermissionData } from "./RelationshipToPermissionData";
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
 import { RelationshipToRole } from "./RelationshipToRole";
 import { RelationshipToRoleData } from "./RelationshipToRoleData";
 import { RelationshipToRoles } from "./RelationshipToRoles";
+import { RelationshipToRule } from "./RelationshipToRule";
+import { RelationshipToRuleData } from "./RelationshipToRuleData";
+import { RelationshipToRuleDataObject } from "./RelationshipToRuleDataObject";
 import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
 import { RelationshipToSAMLAssertionAttributeData } from "./RelationshipToSAMLAssertionAttributeData";
 import { RelationshipToTeamLinkData } from "./RelationshipToTeamLinkData";
@@ -619,6 +699,8 @@ import { RoleUpdateRequest } from "./RoleUpdateRequest";
 import { RoleUpdateResponse } from "./RoleUpdateResponse";
 import { RoleUpdateResponseData } from "./RoleUpdateResponseData";
 import { RolesResponse } from "./RolesResponse";
+import { RuleAttributes } from "./RuleAttributes";
+import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
 import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
@@ -924,6 +1006,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
     "created_at",
@@ -1000,11 +1083,17 @@ const enumsMap: { [key: string]: any[] } = {
   CloudflareAccountType: ["cloudflare-accounts"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
   ConfluentResourceType: ["confluent-cloud-resources"],
+  ContainerGroupType: ["container_group"],
   ContainerImageGroupType: ["container_image_group"],
   ContainerImageMetaPageType: ["cursor_limit"],
   ContainerImageType: ["container_image"],
+  ContainerMetaPageType: ["cursor_limit"],
+  ContainerType: ["container"],
   ContentEncoding: ["identity", "gzip", "deflate"],
+  CostAttributionType: ["cost_by_tag"],
   CostByOrgType: ["cost_by_org"],
+  DORADeploymentType: ["dora_deployment"],
+  DORAIncidentType: ["dora_incident"],
   DashboardType: [
     "custom_timeboard",
     "custom_screenboard",
@@ -1091,17 +1180,21 @@ const enumsMap: { [key: string]: any[] } = {
     "metrictag",
     "autocomplete",
   ],
+  IncidentImpactsType: ["incident_impacts"],
   IncidentIntegrationMetadataType: ["incident_integrations"],
   IncidentPostmortemType: ["incident_postmortems"],
   IncidentRelatedObject: ["users", "attachments"],
+  IncidentRespondersType: ["incident_responders"],
   IncidentSearchResultsType: ["incidents_search_results"],
   IncidentSearchSortOrder: ["created", "-created"],
   IncidentServiceType: ["services"],
+  IncidentSeverity: ["UNKNOWN", "SEV-1", "SEV-2", "SEV-3", "SEV-4", "SEV-5"],
   IncidentTeamType: ["teams"],
   IncidentTimelineCellMarkdownContentType: ["markdown"],
   IncidentTodoAnonymousAssigneeSource: ["slack", "microsoft_teams"],
   IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
+  IncidentUserDefinedFieldType: ["user_defined_field"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
@@ -1161,12 +1254,16 @@ const enumsMap: { [key: string]: any[] } = {
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
+  OktaAccountType: ["okta-accounts"],
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
   OrganizationsType: ["orgs"],
+  OutcomeType: ["outcome"],
+  OutcomesBatchType: ["batched-outcome"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
+  ProjectedCostType: ["projected_cost"],
   QuerySortOrder: ["asc", "desc"],
   RUMAggregateSortType: ["alphabetical", "measure"],
   RUMAggregationFunction: [
@@ -1208,11 +1305,13 @@ const enumsMap: { [key: string]: any[] } = {
     "-user_count",
   ],
   RolesType: ["roles"],
+  RuleType: ["rule"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
   ScalarColumnTypeGroup: ["group"],
   ScalarColumnTypeNumber: ["number"],
   ScalarFormulaRequestType: ["scalar_request"],
   ScalarFormulaResponseType: ["scalar_response"],
+  ScorecardType: ["scorecard"],
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
@@ -1252,7 +1351,11 @@ const enumsMap: { [key: string]: any[] } = {
     "none",
   ],
   SecurityMonitoringRuleSeverity: ["info", "low", "medium", "high", "critical"],
-  SecurityMonitoringRuleTypeCreate: ["log_detection", "workload_security"],
+  SecurityMonitoringRuleTypeCreate: [
+    "application_security",
+    "log_detection",
+    "workload_security",
+  ],
   SecurityMonitoringRuleTypeRead: [
     "log_detection",
     "infrastructure_configuration",
@@ -1340,6 +1443,7 @@ const enumsMap: { [key: string]: any[] } = {
   ServiceDefinitionV2OpsgenieRegion: ["US", "EU"],
   ServiceDefinitionV2SlackType: ["slack"],
   ServiceDefinitionV2Version: ["v2"],
+  SortDirection: ["desc", "asc"],
   SpansAggregateBucketType: ["bucket"],
   SpansAggregateRequestType: ["aggregate_request"],
   SpansAggregateResponseStatus: ["done", "timeout"],
@@ -1365,6 +1469,7 @@ const enumsMap: { [key: string]: any[] } = {
   SpansSort: ["timestamp", "-timestamp"],
   SpansSortOrder: ["asc", "desc"],
   SpansType: ["spans"],
+  State: ["pass", "fail", "skip"],
   TeamLinkType: ["team_links"],
   TeamPermissionSettingSerializerAction: ["manage_membership", "edit"],
   TeamPermissionSettingType: ["team_permission_settings"],
@@ -1376,6 +1481,23 @@ const enumsMap: { [key: string]: any[] } = {
     "teams_manage",
   ],
   TeamType: ["team"],
+  TeamsField: [
+    "id",
+    "name",
+    "handle",
+    "summary",
+    "description",
+    "avatar",
+    "banner",
+    "visible_modules",
+    "hidden_modules",
+    "created_at",
+    "modified_at",
+    "user_count",
+    "link_count",
+    "team_links",
+    "user_team_permissions",
+  ],
   TimeseriesFormulaRequestType: ["timeseries_request"],
   TimeseriesFormulaResponseType: ["timeseries_response"],
   UsageTimeSeriesType: ["usage_timeseries"],
@@ -1385,6 +1507,23 @@ const enumsMap: { [key: string]: any[] } = {
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
   UsersType: ["users"],
+  WidgetLiveSpan: [
+    "1m",
+    "5m",
+    "10m",
+    "15m",
+    "30m",
+    "1h",
+    "4h",
+    "1d",
+    "2d",
+    "1w",
+    "1mo",
+    "3mo",
+    "6mo",
+    "1y",
+    "alert",
+  ],
 };
 
 const typeMap: { [index: string]: any } = {
@@ -1398,11 +1537,18 @@ const typeMap: { [index: string]: any } = {
   APIKeyUpdateData: APIKeyUpdateData,
   APIKeyUpdateRequest: APIKeyUpdateRequest,
   APIKeysResponse: APIKeysResponse,
+  APIKeysResponseMeta: APIKeysResponseMeta,
+  APIKeysResponseMetaPage: APIKeysResponseMetaPage,
+  ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
+  ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
+  ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
   ApplicationKeyCreateAttributes: ApplicationKeyCreateAttributes,
   ApplicationKeyCreateData: ApplicationKeyCreateData,
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
   ApplicationKeyRelationships: ApplicationKeyRelationships,
   ApplicationKeyResponse: ApplicationKeyResponse,
+  ApplicationKeyResponseMeta: ApplicationKeyResponseMeta,
+  ApplicationKeyResponseMetaPage: ApplicationKeyResponseMetaPage,
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
@@ -1430,6 +1576,14 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  BulkMuteFindingsRequest: BulkMuteFindingsRequest,
+  BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
+  BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
+  BulkMuteFindingsRequestMeta: BulkMuteFindingsRequestMeta,
+  BulkMuteFindingsRequestMetaFindings: BulkMuteFindingsRequestMetaFindings,
+  BulkMuteFindingsRequestProperties: BulkMuteFindingsRequestProperties,
+  BulkMuteFindingsResponse: BulkMuteFindingsResponse,
+  BulkMuteFindingsResponseData: BulkMuteFindingsResponseData,
   CIAppAggregateBucketValueTimeseriesPoint:
     CIAppAggregateBucketValueTimeseriesPoint,
   CIAppAggregateSort: CIAppAggregateSort,
@@ -1541,6 +1695,13 @@ const typeMap: { [index: string]: any } = {
   ConfluentResourceResponseAttributes: ConfluentResourceResponseAttributes,
   ConfluentResourceResponseData: ConfluentResourceResponseData,
   ConfluentResourcesResponse: ConfluentResourcesResponse,
+  Container: Container,
+  ContainerAttributes: ContainerAttributes,
+  ContainerGroup: ContainerGroup,
+  ContainerGroupAttributes: ContainerGroupAttributes,
+  ContainerGroupRelationships: ContainerGroupRelationships,
+  ContainerGroupRelationshipsLink: ContainerGroupRelationshipsLink,
+  ContainerGroupRelationshipsLinks: ContainerGroupRelationshipsLinks,
   ContainerImage: ContainerImage,
   ContainerImageAttributes: ContainerImageAttributes,
   ContainerImageFlavor: ContainerImageFlavor,
@@ -1555,10 +1716,30 @@ const typeMap: { [index: string]: any } = {
   ContainerImageVulnerabilities: ContainerImageVulnerabilities,
   ContainerImagesResponse: ContainerImagesResponse,
   ContainerImagesResponseLinks: ContainerImagesResponseLinks,
+  ContainerMeta: ContainerMeta,
+  ContainerMetaPage: ContainerMetaPage,
+  ContainersResponse: ContainersResponse,
+  ContainersResponseLinks: ContainersResponseLinks,
+  CostAttributionAggregatesBody: CostAttributionAggregatesBody,
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CreateRuleRequest: CreateRuleRequest,
+  CreateRuleRequestData: CreateRuleRequestData,
+  CreateRuleResponse: CreateRuleResponse,
+  CreateRuleResponseData: CreateRuleResponseData,
   Creator: Creator,
+  DORADeploymentRequest: DORADeploymentRequest,
+  DORADeploymentRequestAttributes: DORADeploymentRequestAttributes,
+  DORADeploymentRequestData: DORADeploymentRequestData,
+  DORADeploymentResponse: DORADeploymentResponse,
+  DORADeploymentResponseData: DORADeploymentResponseData,
+  DORAGitInfo: DORAGitInfo,
+  DORAIncidentRequest: DORAIncidentRequest,
+  DORAIncidentRequestAttributes: DORAIncidentRequestAttributes,
+  DORAIncidentRequestData: DORAIncidentRequestData,
+  DORAIncidentResponse: DORAIncidentResponse,
+  DORAIncidentResponseData: DORAIncidentResponseData,
   DashboardListAddItemsRequest: DashboardListAddItemsRequest,
   DashboardListAddItemsResponse: DashboardListAddItemsResponse,
   DashboardListDeleteItemsRequest: DashboardListDeleteItemsRequest,
@@ -1713,6 +1894,8 @@ const typeMap: { [index: string]: any } = {
   IncidentIntegrationMetadataResponse: IncidentIntegrationMetadataResponse,
   IncidentIntegrationMetadataResponseData:
     IncidentIntegrationMetadataResponseData,
+  IncidentIntegrationRelationships: IncidentIntegrationRelationships,
+  IncidentNonDatadogCreator: IncidentNonDatadogCreator,
   IncidentNotificationHandle: IncidentNotificationHandle,
   IncidentResponse: IncidentResponse,
   IncidentResponseAttributes: IncidentResponseAttributes,
@@ -1767,6 +1950,7 @@ const typeMap: { [index: string]: any } = {
   IncidentTodoListResponse: IncidentTodoListResponse,
   IncidentTodoPatchData: IncidentTodoPatchData,
   IncidentTodoPatchRequest: IncidentTodoPatchRequest,
+  IncidentTodoRelationships: IncidentTodoRelationships,
   IncidentTodoResponse: IncidentTodoResponse,
   IncidentTodoResponseData: IncidentTodoResponseData,
   IncidentUpdateAttributes: IncidentUpdateAttributes,
@@ -1785,6 +1969,9 @@ const typeMap: { [index: string]: any } = {
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
   ListPowerpacksResponse: ListPowerpacksResponse,
+  ListRulesResponse: ListRulesResponse,
+  ListRulesResponseDataItem: ListRulesResponseDataItem,
+  ListRulesResponseLinks: ListRulesResponseLinks,
   Log: Log,
   LogAttributes: LogAttributes,
   LogsAggregateBucket: LogsAggregateBucket,
@@ -1907,16 +2094,22 @@ const typeMap: { [index: string]: any } = {
     MonitorDowntimeMatchResponseAttributes,
   MonitorDowntimeMatchResponseData: MonitorDowntimeMatchResponseData,
   MonitorType: MonitorType,
-  MuteFindingRequest: MuteFindingRequest,
-  MuteFindingRequestAttributes: MuteFindingRequestAttributes,
-  MuteFindingRequestData: MuteFindingRequestData,
-  MuteFindingRequestProperties: MuteFindingRequestProperties,
-  MuteFindingResponse: MuteFindingResponse,
-  MuteFindingResponseAttributes: MuteFindingResponseAttributes,
-  MuteFindingResponseData: MuteFindingResponseData,
-  MuteFindingResponseProperties: MuteFindingResponseProperties,
+  MonthlyCostAttributionAttributes: MonthlyCostAttributionAttributes,
+  MonthlyCostAttributionBody: MonthlyCostAttributionBody,
+  MonthlyCostAttributionMeta: MonthlyCostAttributionMeta,
+  MonthlyCostAttributionPagination: MonthlyCostAttributionPagination,
+  MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
+  OktaAccount: OktaAccount,
+  OktaAccountAttributes: OktaAccountAttributes,
+  OktaAccountRequest: OktaAccountRequest,
+  OktaAccountResponse: OktaAccountResponse,
+  OktaAccountResponseData: OktaAccountResponseData,
+  OktaAccountUpdateRequest: OktaAccountUpdateRequest,
+  OktaAccountUpdateRequestAttributes: OktaAccountUpdateRequestAttributes,
+  OktaAccountUpdateRequestData: OktaAccountUpdateRequestData,
+  OktaAccountsResponse: OktaAccountsResponse,
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
@@ -1932,6 +2125,19 @@ const typeMap: { [index: string]: any } = {
   OpsgenieServicesResponse: OpsgenieServicesResponse,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
+  OutcomesBatchAttributes: OutcomesBatchAttributes,
+  OutcomesBatchRequest: OutcomesBatchRequest,
+  OutcomesBatchRequestData: OutcomesBatchRequestData,
+  OutcomesBatchRequestItem: OutcomesBatchRequestItem,
+  OutcomesBatchResponse: OutcomesBatchResponse,
+  OutcomesBatchResponseAttributes: OutcomesBatchResponseAttributes,
+  OutcomesBatchResponseMeta: OutcomesBatchResponseMeta,
+  OutcomesResponse: OutcomesResponse,
+  OutcomesResponseDataItem: OutcomesResponseDataItem,
+  OutcomesResponseIncludedItem: OutcomesResponseIncludedItem,
+  OutcomesResponseIncludedRuleAttributes:
+    OutcomesResponseIncludedRuleAttributes,
+  OutcomesResponseLinks: OutcomesResponseLinks,
   Pagination: Pagination,
   PartialAPIKey: PartialAPIKey,
   PartialAPIKeyAttributes: PartialAPIKeyAttributes,
@@ -1960,6 +2166,9 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
+  ProjectedCost: ProjectedCost,
+  ProjectedCostAttributes: ProjectedCostAttributes,
+  ProjectedCostResponse: ProjectedCostResponse,
   QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
@@ -1996,21 +2205,34 @@ const typeMap: { [index: string]: any } = {
   RUMWarning: RUMWarning,
   RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
   RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
+  RelationshipToIncidentImpactData: RelationshipToIncidentImpactData,
+  RelationshipToIncidentImpacts: RelationshipToIncidentImpacts,
   RelationshipToIncidentIntegrationMetadataData:
     RelationshipToIncidentIntegrationMetadataData,
   RelationshipToIncidentIntegrationMetadatas:
     RelationshipToIncidentIntegrationMetadatas,
   RelationshipToIncidentPostmortem: RelationshipToIncidentPostmortem,
   RelationshipToIncidentPostmortemData: RelationshipToIncidentPostmortemData,
+  RelationshipToIncidentResponderData: RelationshipToIncidentResponderData,
+  RelationshipToIncidentResponders: RelationshipToIncidentResponders,
+  RelationshipToIncidentUserDefinedFieldData:
+    RelationshipToIncidentUserDefinedFieldData,
+  RelationshipToIncidentUserDefinedFields:
+    RelationshipToIncidentUserDefinedFields,
   RelationshipToOrganization: RelationshipToOrganization,
   RelationshipToOrganizationData: RelationshipToOrganizationData,
   RelationshipToOrganizations: RelationshipToOrganizations,
+  RelationshipToOutcome: RelationshipToOutcome,
+  RelationshipToOutcomeData: RelationshipToOutcomeData,
   RelationshipToPermission: RelationshipToPermission,
   RelationshipToPermissionData: RelationshipToPermissionData,
   RelationshipToPermissions: RelationshipToPermissions,
   RelationshipToRole: RelationshipToRole,
   RelationshipToRoleData: RelationshipToRoleData,
   RelationshipToRoles: RelationshipToRoles,
+  RelationshipToRule: RelationshipToRule,
+  RelationshipToRuleData: RelationshipToRuleData,
+  RelationshipToRuleDataObject: RelationshipToRuleDataObject,
   RelationshipToSAMLAssertionAttribute: RelationshipToSAMLAssertionAttribute,
   RelationshipToSAMLAssertionAttributeData:
     RelationshipToSAMLAssertionAttributeData,
@@ -2061,6 +2283,8 @@ const typeMap: { [index: string]: any } = {
   RoleUpdateResponse: RoleUpdateResponse,
   RoleUpdateResponseData: RoleUpdateResponseData,
   RolesResponse: RolesResponse,
+  RuleAttributes: RuleAttributes,
+  RuleOutcomeRelationships: RuleOutcomeRelationships,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
   ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
@@ -2388,6 +2612,7 @@ const oneOfMap: { [index: string]: string[] } = {
   CIAppGroupByMissing: ["string", "number"],
   CIAppGroupByTotal: ["boolean", "string", "number"],
   ContainerImageItem: ["ContainerImage", "ContainerImageGroup"],
+  ContainerItem: ["Container", "ContainerGroup"],
   DowntimeMonitorIdentifier: [
     "DowntimeMonitorIdentifierId",
     "DowntimeMonitorIdentifierTags",

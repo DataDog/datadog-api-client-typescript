@@ -1,8 +1,10 @@
 export {
   AWSIntegrationApiCreateAWSAccountRequest,
+  AWSIntegrationApiCreateAWSEventBridgeSourceRequest,
   AWSIntegrationApiCreateAWSTagFilterRequest,
   AWSIntegrationApiCreateNewAWSExternalIDRequest,
   AWSIntegrationApiDeleteAWSAccountRequest,
+  AWSIntegrationApiDeleteAWSEventBridgeSourceRequest,
   AWSIntegrationApiDeleteAWSTagFilterRequest,
   AWSIntegrationApiListAWSAccountsRequest,
   AWSIntegrationApiListAWSTagFiltersRequest,
@@ -245,6 +247,7 @@ export {
   SyntheticsApiGetSyntheticsCIBatchRequest,
   SyntheticsApiGetTestRequest,
   SyntheticsApiListTestsRequest,
+  SyntheticsApiPatchTestRequest,
   SyntheticsApiTriggerCITestsRequest,
   SyntheticsApiTriggerTestsRequest,
   SyntheticsApiUpdateAPITestRequest,
@@ -347,6 +350,15 @@ export { AWSAccountAndLambdaRequest } from "./models/AWSAccountAndLambdaRequest"
 export { AWSAccountCreateResponse } from "./models/AWSAccountCreateResponse";
 export { AWSAccountDeleteRequest } from "./models/AWSAccountDeleteRequest";
 export { AWSAccountListResponse } from "./models/AWSAccountListResponse";
+export { AWSEventBridgeAccountConfiguration } from "./models/AWSEventBridgeAccountConfiguration";
+export { AWSEventBridgeCreateRequest } from "./models/AWSEventBridgeCreateRequest";
+export { AWSEventBridgeCreateResponse } from "./models/AWSEventBridgeCreateResponse";
+export { AWSEventBridgeCreateStatus } from "./models/AWSEventBridgeCreateStatus";
+export { AWSEventBridgeDeleteRequest } from "./models/AWSEventBridgeDeleteRequest";
+export { AWSEventBridgeDeleteResponse } from "./models/AWSEventBridgeDeleteResponse";
+export { AWSEventBridgeDeleteStatus } from "./models/AWSEventBridgeDeleteStatus";
+export { AWSEventBridgeListResponse } from "./models/AWSEventBridgeListResponse";
+export { AWSEventBridgeSource } from "./models/AWSEventBridgeSource";
 export { AWSLogsAsyncError } from "./models/AWSLogsAsyncError";
 export { AWSLogsAsyncResponse } from "./models/AWSLogsAsyncResponse";
 export { AWSLogsLambda } from "./models/AWSLogsLambda";
@@ -916,6 +928,9 @@ export { SyntheticsListTestsResponse } from "./models/SyntheticsListTestsRespons
 export { SyntheticsLocation } from "./models/SyntheticsLocation";
 export { SyntheticsLocations } from "./models/SyntheticsLocations";
 export { SyntheticsParsingOptions } from "./models/SyntheticsParsingOptions";
+export { SyntheticsPatchTestBody } from "./models/SyntheticsPatchTestBody";
+export { SyntheticsPatchTestOperation } from "./models/SyntheticsPatchTestOperation";
+export { SyntheticsPatchTestOperationName } from "./models/SyntheticsPatchTestOperationName";
 export { SyntheticsPlayingTab } from "./models/SyntheticsPlayingTab";
 export { SyntheticsPrivateLocation } from "./models/SyntheticsPrivateLocation";
 export { SyntheticsPrivateLocationCreationResponse } from "./models/SyntheticsPrivateLocationCreationResponse";
@@ -979,7 +994,15 @@ export { TimeseriesWidgetLegendLayout } from "./models/TimeseriesWidgetLegendLay
 export { TimeseriesWidgetRequest } from "./models/TimeseriesWidgetRequest";
 export { ToplistWidgetDefinition } from "./models/ToplistWidgetDefinition";
 export { ToplistWidgetDefinitionType } from "./models/ToplistWidgetDefinitionType";
+export { ToplistWidgetDisplay } from "./models/ToplistWidgetDisplay";
+export { ToplistWidgetFlat } from "./models/ToplistWidgetFlat";
+export { ToplistWidgetFlatType } from "./models/ToplistWidgetFlatType";
+export { ToplistWidgetLegend } from "./models/ToplistWidgetLegend";
 export { ToplistWidgetRequest } from "./models/ToplistWidgetRequest";
+export { ToplistWidgetScaling } from "./models/ToplistWidgetScaling";
+export { ToplistWidgetStacked } from "./models/ToplistWidgetStacked";
+export { ToplistWidgetStackedType } from "./models/ToplistWidgetStackedType";
+export { ToplistWidgetStyle } from "./models/ToplistWidgetStyle";
 export { TopologyMapWidgetDefinition } from "./models/TopologyMapWidgetDefinition";
 export { TopologyMapWidgetDefinitionType } from "./models/TopologyMapWidgetDefinitionType";
 export { TopologyQuery } from "./models/TopologyQuery";
