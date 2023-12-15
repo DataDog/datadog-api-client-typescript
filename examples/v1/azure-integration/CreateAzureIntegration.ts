@@ -11,17 +11,17 @@ const params: v1.AzureIntegrationApiCreateAzureIntegrationRequest = {
   body: {
     appServicePlanFilters: "key:value,filter:example",
     automute: true,
-    clientId: "testc7f6-1234-5678-9101-3fcbf464test",
+    clientId: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
     clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
     containerAppFilters: "key:value,filter:example",
     cspmEnabled: true,
     customMetricsEnabled: true,
     errors: ["*"],
     hostFilters: "key:value,filter:example",
-    newClientId: "new1c7f6-1234-5678-9101-3fcbf464test",
-    newTenantName: "new1c44-1234-5678-9101-cc00736ftest",
+    newClientId: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
+    newTenantName: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
     resourceCollectionEnabled: true,
-    tenantName: "testc44-1234-5678-9101-cc00736ftest",
+    tenantName: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
   },
 };
 
