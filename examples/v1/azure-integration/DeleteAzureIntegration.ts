@@ -9,18 +9,7 @@ const apiInstance = new v1.AzureIntegrationApi(configuration);
 
 const params: v1.AzureIntegrationApiDeleteAzureIntegrationRequest = {
   body: {
-    appServicePlanFilters: "key:value,filter:example",
-    automute: true,
     clientId: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
-    clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
-    containerAppFilters: "key:value,filter:example",
-    cspmEnabled: true,
-    customMetricsEnabled: true,
-    errors: ["*"],
-    hostFilters: "key:value,filter:example",
-    newClientId: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
-    newTenantName: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
-    resourceCollectionEnabled: true,
     tenantName: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
   },
 };
