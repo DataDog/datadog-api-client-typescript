@@ -1666,7 +1666,7 @@ export interface KeyManagementApiGetCurrentUserApplicationKeyRequest {
 
 export interface KeyManagementApiListAPIKeysRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is `1000`.
    * @type number
    */
   pageSize?: number;
@@ -1726,7 +1726,7 @@ export interface KeyManagementApiListAPIKeysRequest {
 
 export interface KeyManagementApiListApplicationKeysRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is `1000`.
    * @type number
    */
   pageSize?: number;
@@ -1766,7 +1766,7 @@ export interface KeyManagementApiListApplicationKeysRequest {
 
 export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is `1000`.
    * @type number
    */
   pageSize?: number;

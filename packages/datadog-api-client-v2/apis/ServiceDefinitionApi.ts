@@ -480,7 +480,7 @@ export interface ServiceDefinitionApiGetServiceDefinitionRequest {
 
 export interface ServiceDefinitionApiListServiceDefinitionsRequest {
   /**
-   * Size for a given page. The maximum allowed value is 100.
+   * Size for a given page. The maximum allowed value is `1000`.
    * @type number
    */
   pageSize?: number;
