@@ -2287,6 +2287,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   SplitGraphSourceWidgetDefinition: [
     "ChangeWidgetDefinition",
+    "DistributionWidgetDefinition",
     "GeomapWidgetDefinition",
     "QueryValueWidgetDefinition",
     "ScatterPlotWidgetDefinition",

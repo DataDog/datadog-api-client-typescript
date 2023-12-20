@@ -6,6 +6,8 @@
 import { ApmStatsQueryDefinition } from "./ApmStatsQueryDefinition";
 import { DistributionWidgetHistogramRequestQuery } from "./DistributionWidgetHistogramRequestQuery";
 import { DistributionWidgetHistogramRequestType } from "./DistributionWidgetHistogramRequestType";
+import { FormulaAndFunctionQueryDefinition } from "./FormulaAndFunctionQueryDefinition";
+import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFormat";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetStyle } from "./WidgetStyle";
@@ -49,6 +51,10 @@ export class DistributionWidgetRequest {
    */
   "q"?: string;
   /**
+   * List of queries that can be returned directly or used in formulas.
+   */
+  "queries"?: Array<FormulaAndFunctionQueryDefinition>;
+  /**
    * Query definition for Distribution Widget Histogram Request
    */
   "query"?: DistributionWidgetHistogramRequestQuery;
@@ -56,6 +62,10 @@ export class DistributionWidgetRequest {
    * Request type for the histogram request.
    */
   "requestType"?: DistributionWidgetHistogramRequestType;
+  /**
+   * Timeseries, scalar, or event list response. Event list response formats are supported by Geomap widgets.
+   */
+  "responseFormat"?: FormulaAndFunctionResponseFormat;
   /**
    * The log query.
    */
@@ -110,6 +120,10 @@ export class DistributionWidgetRequest {
       baseName: "q",
       type: "string",
     },
+    queries: {
+      baseName: "queries",
+      type: "Array<FormulaAndFunctionQueryDefinition>",
+    },
     query: {
       baseName: "query",
       type: "DistributionWidgetHistogramRequestQuery",
@@ -117,6 +131,10 @@ export class DistributionWidgetRequest {
     requestType: {
       baseName: "request_type",
       type: "DistributionWidgetHistogramRequestType",
+    },
+    responseFormat: {
+      baseName: "response_format",
+      type: "FormulaAndFunctionResponseFormat",
     },
     rumQuery: {
       baseName: "rum_query",

@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
+import { DistributionWidgetDefinition } from "./DistributionWidgetDefinition";
 import { GeomapWidgetDefinition } from "./GeomapWidgetDefinition";
 import { QueryValueWidgetDefinition } from "./QueryValueWidgetDefinition";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
@@ -21,6 +22,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type SplitGraphSourceWidgetDefinition =
   | ChangeWidgetDefinition
+  | DistributionWidgetDefinition
   | GeomapWidgetDefinition
   | QueryValueWidgetDefinition
   | ScatterPlotWidgetDefinition
