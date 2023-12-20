@@ -658,6 +658,8 @@ import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUserTeamPermission } from "./RelationshipToUserTeamPermission";
 import { RelationshipToUserTeamPermissionData } from "./RelationshipToUserTeamPermissionData";
+import { RelationshipToUserTeamTeam } from "./RelationshipToUserTeamTeam";
+import { RelationshipToUserTeamTeamData } from "./RelationshipToUserTeamTeamData";
 import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
 import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
@@ -1504,6 +1506,7 @@ const enumsMap: { [key: string]: any[] } = {
   UserInvitationsType: ["user_invitations"],
   UserTeamPermissionType: ["user_team_permissions"],
   UserTeamRole: ["admin"],
+  UserTeamTeamType: ["team"],
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
   UsersType: ["users"],
@@ -2242,6 +2245,8 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserData: RelationshipToUserData,
   RelationshipToUserTeamPermission: RelationshipToUserTeamPermission,
   RelationshipToUserTeamPermissionData: RelationshipToUserTeamPermissionData,
+  RelationshipToUserTeamTeam: RelationshipToUserTeamTeam,
+  RelationshipToUserTeamTeamData: RelationshipToUserTeamTeamData,
   RelationshipToUserTeamUser: RelationshipToUserTeamUser,
   RelationshipToUserTeamUserData: RelationshipToUserTeamUserData,
   RelationshipToUsers: RelationshipToUsers,
