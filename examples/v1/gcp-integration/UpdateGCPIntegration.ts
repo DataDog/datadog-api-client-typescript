@@ -11,11 +11,10 @@ const params: v1.GCPIntegrationApiUpdateGCPIntegrationRequest = {
   body: {
     authProviderX509CertUrl: "https://www.googleapis.com/oauth2/v1/certs",
     authUri: "https://accounts.google.com/o/oauth2/auth",
-    clientEmail: "api-dev@datadog-sandbox.iam.gserviceaccount.com",
-    clientId: "123456712345671234567",
+    clientEmail: "252bf553ef04b351@example.com",
+    clientId: "163662907116366290710",
     clientX509CertUrl:
       "https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL",
-    errors: ["*"],
     hostFilters: "key:value,filter:example",
     isCspmEnabled: true,
     isSecurityCommandCenterEnabled: true,
