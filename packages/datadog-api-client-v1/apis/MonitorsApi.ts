@@ -1412,7 +1412,7 @@ export class MonitorsApi {
    * - process: `service check`
    * - rum: `rum alert`
    * - SLO: `slo alert`
-   * - watchdog: `event alert`
+   * - watchdog: `event-v2 alert`
    * - event-v2: `event-v2 alert`
    * - audit: `audit alert`
    * - error-tracking: `error-tracking alert`
