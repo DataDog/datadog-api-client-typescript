@@ -807,7 +807,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Cancel a downtime.
+   * Cancel a downtime. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
    * @param param The request object
    */
   public cancelDowntime(
@@ -828,7 +828,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Delete all downtimes that match the scope of `X`.
+   * Delete all downtimes that match the scope of `X`. **Note:** This only interacts with Downtimes created using v1 endpoints. This endpoint has been deprecated and will not be replaced. Please use v2 endpoints to find and cancel downtimes.
    * @param param The request object
    */
   public cancelDowntimesByScope(
@@ -849,7 +849,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Schedule a downtime.
+   * Schedule a downtime. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
    * @param param The request object
    */
   public createDowntime(
@@ -870,7 +870,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Get downtime detail by `downtime_id`.
+   * Get downtime detail by `downtime_id`. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
    * @param param The request object
    */
   public getDowntime(
@@ -891,7 +891,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Get all scheduled downtimes.
+   * Get all scheduled downtimes. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
    * @param param The request object
    */
   public listDowntimes(
@@ -913,7 +913,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Get all active downtimes for the specified monitor.
+   * Get all active v1 downtimes for the specified monitor. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
    * @param param The request object
    */
   public listMonitorDowntimes(
@@ -934,7 +934,7 @@ export class DowntimesApi {
   }
 
   /**
-   * Update a single downtime by `downtime_id`.
+   * Update a single downtime by `downtime_id`. **Note:** This endpoint has been deprecated. Please use v2 endpoints.
    * @param param The request object
    */
   public updateDowntime(
