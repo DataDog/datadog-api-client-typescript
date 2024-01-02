@@ -23,6 +23,7 @@ import { DowntimeResponseData } from "../models/DowntimeResponseData";
 import { DowntimeUpdateRequest } from "../models/DowntimeUpdateRequest";
 import { ListDowntimesResponse } from "../models/ListDowntimesResponse";
 import { MonitorDowntimeMatchResponse } from "../models/MonitorDowntimeMatchResponse";
+import { MonitorDowntimeMatchResponseData } from "../models/MonitorDowntimeMatchResponseData";
 
 export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
   public async cancelDowntime(
@@ -201,6 +202,8 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
 
   public async listMonitorDowntimes(
     monitorId: number,
+    pageOffset?: number,
+    pageLimit?: number,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -223,6 +226,20 @@ export class DowntimesApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64")
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -708,6 +725,16 @@ export interface DowntimesApiListMonitorDowntimesRequest {
    * @type number
    */
   monitorId: number;
+  /**
+   * Specific offset to use as the beginning of the returned page.
+   * @type number
+   */
+  pageOffset?: number;
+  /**
+   * Maximum number of downtimes in the response.
+   * @type number
+   */
+  pageLimit?: number;
 }
 
 export interface DowntimesApiUpdateDowntimeRequest {
@@ -884,6 +911,8 @@ export class DowntimesApi {
   ): Promise<MonitorDowntimeMatchResponse> {
     const requestContextPromise = this.requestFactory.listMonitorDowntimes(
       param.monitorId,
+      param.pageOffset,
+      param.pageLimit,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -893,6 +922,51 @@ export class DowntimesApi {
           return this.responseProcessor.listMonitorDowntimes(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of listMonitorDowntimes returning a generator with all the items.
+   */
+  public async *listMonitorDowntimesWithPagination(
+    param: DowntimesApiListMonitorDowntimesRequest,
+    options?: Configuration
+  ): AsyncGenerator<MonitorDowntimeMatchResponseData> {
+    let pageSize = 30;
+    if (param.pageLimit !== undefined) {
+      pageSize = param.pageLimit;
+    }
+    param.pageLimit = pageSize;
+    while (true) {
+      const requestContext = await this.requestFactory.listMonitorDowntimes(
+        param.monitorId,
+        param.pageOffset,
+        param.pageLimit,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.listMonitorDowntimes(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      if (param.pageOffset === undefined) {
+        param.pageOffset = pageSize;
+      } else {
+        param.pageOffset = param.pageOffset + pageSize;
+      }
+    }
   }
 
   /**
