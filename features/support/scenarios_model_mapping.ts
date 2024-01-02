@@ -3146,6 +3146,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int64",
             },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
         "operationResponseType": "MonitorDowntimeMatchResponse",
     },
     "v2.ListEvents": {
