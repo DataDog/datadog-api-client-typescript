@@ -38,6 +38,17 @@ export {
 } from "./apis/CIVisibilityTestsApi";
 
 export {
+  CloudCostManagementApiCreateCostAWSCURConfigRequest,
+  CloudCostManagementApiCreateCostAzureUCConfigsRequest,
+  CloudCostManagementApiDeleteCostAWSCURConfigRequest,
+  CloudCostManagementApiDeleteCostAzureUCConfigRequest,
+  CloudCostManagementApiListAWSRelatedAccountsRequest,
+  CloudCostManagementApiUpdateCostAWSCURConfigRequest,
+  CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
+  CloudCostManagementApi,
+} from "./apis/CloudCostManagementApi";
+
+export {
   CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
@@ -503,6 +514,38 @@ export { AuthNMappingUpdateAttributes } from "./models/AuthNMappingUpdateAttribu
 export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
+export { AwsCURConfig } from "./models/AwsCURConfig";
+export { AwsCURConfigAttributes } from "./models/AwsCURConfigAttributes";
+export { AwsCURConfigPatchData } from "./models/AwsCURConfigPatchData";
+export { AwsCURConfigPatchRequest } from "./models/AwsCURConfigPatchRequest";
+export { AwsCURConfigPatchRequestAttributes } from "./models/AwsCURConfigPatchRequestAttributes";
+export { AwsCURConfigPatchRequestType } from "./models/AwsCURConfigPatchRequestType";
+export { AwsCURConfigPostData } from "./models/AwsCURConfigPostData";
+export { AwsCURConfigPostRequest } from "./models/AwsCURConfigPostRequest";
+export { AwsCURConfigPostRequestAttributes } from "./models/AwsCURConfigPostRequestAttributes";
+export { AwsCURConfigPostRequestType } from "./models/AwsCURConfigPostRequestType";
+export { AwsCURConfigResponse } from "./models/AwsCURConfigResponse";
+export { AwsCURConfigsResponse } from "./models/AwsCURConfigsResponse";
+export { AwsCURConfigType } from "./models/AwsCURConfigType";
+export { AWSRelatedAccount } from "./models/AWSRelatedAccount";
+export { AWSRelatedAccountAttributes } from "./models/AWSRelatedAccountAttributes";
+export { AWSRelatedAccountsResponse } from "./models/AWSRelatedAccountsResponse";
+export { AWSRelatedAccountType } from "./models/AWSRelatedAccountType";
+export { AzureUCConfig } from "./models/AzureUCConfig";
+export { AzureUCConfigPair } from "./models/AzureUCConfigPair";
+export { AzureUCConfigPairAttributes } from "./models/AzureUCConfigPairAttributes";
+export { AzureUCConfigPairsResponse } from "./models/AzureUCConfigPairsResponse";
+export { AzureUCConfigPairType } from "./models/AzureUCConfigPairType";
+export { AzureUCConfigPatchData } from "./models/AzureUCConfigPatchData";
+export { AzureUCConfigPatchRequest } from "./models/AzureUCConfigPatchRequest";
+export { AzureUCConfigPatchRequestAttributes } from "./models/AzureUCConfigPatchRequestAttributes";
+export { AzureUCConfigPatchRequestType } from "./models/AzureUCConfigPatchRequestType";
+export { AzureUCConfigPostData } from "./models/AzureUCConfigPostData";
+export { AzureUCConfigPostRequest } from "./models/AzureUCConfigPostRequest";
+export { AzureUCConfigPostRequestAttributes } from "./models/AzureUCConfigPostRequestAttributes";
+export { AzureUCConfigPostRequestType } from "./models/AzureUCConfigPostRequestType";
+export { AzureUCConfigsResponse } from "./models/AzureUCConfigsResponse";
+export { BillConfig } from "./models/BillConfig";
 export { BulkMuteFindingsRequest } from "./models/BulkMuteFindingsRequest";
 export { BulkMuteFindingsRequestAttributes } from "./models/BulkMuteFindingsRequestAttributes";
 export { BulkMuteFindingsRequestData } from "./models/BulkMuteFindingsRequestData";
@@ -586,6 +629,10 @@ export { CloudConfigurationRuleComplianceSignalOptions } from "./models/CloudCon
 export { CloudConfigurationRuleCreatePayload } from "./models/CloudConfigurationRuleCreatePayload";
 export { CloudConfigurationRuleOptions } from "./models/CloudConfigurationRuleOptions";
 export { CloudConfigurationRuleType } from "./models/CloudConfigurationRuleType";
+export { CloudCostActivity } from "./models/CloudCostActivity";
+export { CloudCostActivityAttributes } from "./models/CloudCostActivityAttributes";
+export { CloudCostActivityResponse } from "./models/CloudCostActivityResponse";
+export { CloudCostActivityType } from "./models/CloudCostActivityType";
 export { CloudflareAccountCreateRequest } from "./models/CloudflareAccountCreateRequest";
 export { CloudflareAccountCreateRequestAttributes } from "./models/CloudflareAccountCreateRequestAttributes";
 export { CloudflareAccountCreateRequestData } from "./models/CloudflareAccountCreateRequestData";

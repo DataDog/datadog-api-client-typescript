@@ -10,6 +10,9 @@ import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
 import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
+import { AWSRelatedAccount } from "./AWSRelatedAccount";
+import { AWSRelatedAccountAttributes } from "./AWSRelatedAccountAttributes";
+import { AWSRelatedAccountsResponse } from "./AWSRelatedAccountsResponse";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -47,6 +50,28 @@ import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
 import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
+import { AwsCURConfig } from "./AwsCURConfig";
+import { AwsCURConfigAttributes } from "./AwsCURConfigAttributes";
+import { AwsCURConfigPatchData } from "./AwsCURConfigPatchData";
+import { AwsCURConfigPatchRequest } from "./AwsCURConfigPatchRequest";
+import { AwsCURConfigPatchRequestAttributes } from "./AwsCURConfigPatchRequestAttributes";
+import { AwsCURConfigPostData } from "./AwsCURConfigPostData";
+import { AwsCURConfigPostRequest } from "./AwsCURConfigPostRequest";
+import { AwsCURConfigPostRequestAttributes } from "./AwsCURConfigPostRequestAttributes";
+import { AwsCURConfigResponse } from "./AwsCURConfigResponse";
+import { AwsCURConfigsResponse } from "./AwsCURConfigsResponse";
+import { AzureUCConfig } from "./AzureUCConfig";
+import { AzureUCConfigPair } from "./AzureUCConfigPair";
+import { AzureUCConfigPairAttributes } from "./AzureUCConfigPairAttributes";
+import { AzureUCConfigPairsResponse } from "./AzureUCConfigPairsResponse";
+import { AzureUCConfigPatchData } from "./AzureUCConfigPatchData";
+import { AzureUCConfigPatchRequest } from "./AzureUCConfigPatchRequest";
+import { AzureUCConfigPatchRequestAttributes } from "./AzureUCConfigPatchRequestAttributes";
+import { AzureUCConfigPostData } from "./AzureUCConfigPostData";
+import { AzureUCConfigPostRequest } from "./AzureUCConfigPostRequest";
+import { AzureUCConfigPostRequestAttributes } from "./AzureUCConfigPostRequestAttributes";
+import { AzureUCConfigsResponse } from "./AzureUCConfigsResponse";
+import { BillConfig } from "./BillConfig";
 import { BulkMuteFindingsRequest } from "./BulkMuteFindingsRequest";
 import { BulkMuteFindingsRequestAttributes } from "./BulkMuteFindingsRequestAttributes";
 import { BulkMuteFindingsRequestData } from "./BulkMuteFindingsRequestData";
@@ -105,6 +130,9 @@ import { CloudConfigurationRuleCaseCreate } from "./CloudConfigurationRuleCaseCr
 import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurationRuleComplianceSignalOptions";
 import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCreatePayload";
 import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
+import { CloudCostActivity } from "./CloudCostActivity";
+import { CloudCostActivityAttributes } from "./CloudCostActivityAttributes";
+import { CloudCostActivityResponse } from "./CloudCostActivityResponse";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
@@ -1008,6 +1036,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  AWSRelatedAccountType: ["aws_account"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
@@ -1037,6 +1066,12 @@ const enumsMap: { [key: string]: any[] } = {
     "-saml_assertion_attribute.attribute_value",
   ],
   AuthNMappingsType: ["authn_mappings"],
+  AwsCURConfigPatchRequestType: ["aws_cur_config_patch_request"],
+  AwsCURConfigPostRequestType: ["aws_cur_config_post_request"],
+  AwsCURConfigType: ["aws_cur_config"],
+  AzureUCConfigPairType: ["azure_uc_configs"],
+  AzureUCConfigPatchRequestType: ["azure_uc_config_patch_request"],
+  AzureUCConfigPostRequestType: ["azure_uc_config_post_request"],
   CIAppAggregateSortType: ["alphabetical", "measure"],
   CIAppAggregationFunction: [
     "count",
@@ -1081,6 +1116,7 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppTestEventTypeName: ["citest"],
   CIAppTestLevel: ["session", "module", "suite", "test"],
   CloudConfigurationRuleType: ["cloud_configuration"],
+  CloudCostActivityType: ["cloud_cost_activity"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
   CloudflareAccountType: ["cloudflare-accounts"],
   ConfluentAccountType: ["confluent-cloud-accounts"],
@@ -1542,6 +1578,9 @@ const typeMap: { [index: string]: any } = {
   APIKeysResponse: APIKeysResponse,
   APIKeysResponseMeta: APIKeysResponseMeta,
   APIKeysResponseMetaPage: APIKeysResponseMetaPage,
+  AWSRelatedAccount: AWSRelatedAccount,
+  AWSRelatedAccountAttributes: AWSRelatedAccountAttributes,
+  AWSRelatedAccountsResponse: AWSRelatedAccountsResponse,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
@@ -1579,6 +1618,28 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
+  AwsCURConfig: AwsCURConfig,
+  AwsCURConfigAttributes: AwsCURConfigAttributes,
+  AwsCURConfigPatchData: AwsCURConfigPatchData,
+  AwsCURConfigPatchRequest: AwsCURConfigPatchRequest,
+  AwsCURConfigPatchRequestAttributes: AwsCURConfigPatchRequestAttributes,
+  AwsCURConfigPostData: AwsCURConfigPostData,
+  AwsCURConfigPostRequest: AwsCURConfigPostRequest,
+  AwsCURConfigPostRequestAttributes: AwsCURConfigPostRequestAttributes,
+  AwsCURConfigResponse: AwsCURConfigResponse,
+  AwsCURConfigsResponse: AwsCURConfigsResponse,
+  AzureUCConfig: AzureUCConfig,
+  AzureUCConfigPair: AzureUCConfigPair,
+  AzureUCConfigPairAttributes: AzureUCConfigPairAttributes,
+  AzureUCConfigPairsResponse: AzureUCConfigPairsResponse,
+  AzureUCConfigPatchData: AzureUCConfigPatchData,
+  AzureUCConfigPatchRequest: AzureUCConfigPatchRequest,
+  AzureUCConfigPatchRequestAttributes: AzureUCConfigPatchRequestAttributes,
+  AzureUCConfigPostData: AzureUCConfigPostData,
+  AzureUCConfigPostRequest: AzureUCConfigPostRequest,
+  AzureUCConfigPostRequestAttributes: AzureUCConfigPostRequestAttributes,
+  AzureUCConfigsResponse: AzureUCConfigsResponse,
+  BillConfig: BillConfig,
   BulkMuteFindingsRequest: BulkMuteFindingsRequest,
   BulkMuteFindingsRequestAttributes: BulkMuteFindingsRequestAttributes,
   BulkMuteFindingsRequestData: BulkMuteFindingsRequestData,
@@ -1643,6 +1704,9 @@ const typeMap: { [index: string]: any } = {
     CloudConfigurationRuleComplianceSignalOptions,
   CloudConfigurationRuleCreatePayload: CloudConfigurationRuleCreatePayload,
   CloudConfigurationRuleOptions: CloudConfigurationRuleOptions,
+  CloudCostActivity: CloudCostActivity,
+  CloudCostActivityAttributes: CloudCostActivityAttributes,
+  CloudCostActivityResponse: CloudCostActivityResponse,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
   CloudWorkloadSecurityAgentRuleCreateAttributes:

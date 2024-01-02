@@ -2804,6 +2804,72 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ContainersResponse",
     },
+    "v2.ListCostAWSCURConfigs": {
+        "operationResponseType": "AwsCURConfigsResponse",
+    },
+    "v2.CreateCostAWSCURConfig": {
+        "body": {
+            "type": "AwsCURConfigPostRequest",
+            "format": "",
+            },
+        "operationResponseType": "AwsCURConfigResponse",
+    },
+    "v2.DeleteCostAWSCURConfig": {
+        "cloudAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.UpdateCostAWSCURConfig": {
+        "cloudAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AwsCURConfigPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "AwsCURConfigsResponse",
+    },
+    "v2.ListAWSRelatedAccounts": {
+        "filterManagementAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AWSRelatedAccountsResponse",
+    },
+    "v2.ListCostAzureUCConfigs": {
+        "operationResponseType": "AzureUCConfigsResponse",
+    },
+    "v2.CreateCostAzureUCConfigs": {
+        "body": {
+            "type": "AzureUCConfigPostRequest",
+            "format": "",
+            },
+        "operationResponseType": "AzureUCConfigPairsResponse",
+    },
+    "v2.DeleteCostAzureUCConfig": {
+        "cloudAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.UpdateCostAzureUCConfigs": {
+        "cloudAccountId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AzureUCConfigPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "AzureUCConfigPairsResponse",
+    },
+    "v2.GetCloudCostActivity": {
+        "operationResponseType": "CloudCostActivityResponse",
+    },
     "v2.GetActiveBillingDimensions": {
         "operationResponseType": "ActiveBillingDimensionsResponse",
     },
