@@ -31,7 +31,7 @@ export class AwsCURConfigAttributes {
    */
   "errorMessages"?: Array<string>;
   /**
-   * (deprecated) The number of months the report has been backfilled.
+   * The number of months the report has been backfilled.
    */
   "months"?: number;
   /**
