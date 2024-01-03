@@ -1694,7 +1694,7 @@ export interface MetricsApiListTagConfigurationsRequest {
    */
   filterIncludePercentiles?: boolean;
   /**
-   * Filter custom metrics that have or have not been queried in the specified window[seconds].
+   * (Beta) Filter custom metrics that have or have not been queried in the specified window[seconds].
    * If no window is provided or the window is less than 2 hours, a default of 2 hours will be applied.
    * @type boolean
    */
