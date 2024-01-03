@@ -43,7 +43,7 @@ export class AzureUCConfig {
    */
   "id"?: number;
   /**
-   * (deprecated) The number of months the report has been backfilled.
+   * The number of months the report has been backfilled.
    */
   "months"?: number;
   /**
