@@ -1443,6 +1443,7 @@ export { SecurityMonitoringRuleQuery } from "./models/SecurityMonitoringRuleQuer
 export { SecurityMonitoringRuleQueryAggregation } from "./models/SecurityMonitoringRuleQueryAggregation";
 export { SecurityMonitoringRuleResponse } from "./models/SecurityMonitoringRuleResponse";
 export { SecurityMonitoringRuleSeverity } from "./models/SecurityMonitoringRuleSeverity";
+export { SecurityMonitoringRuleThirdPartyOptions } from "./models/SecurityMonitoringRuleThirdPartyOptions";
 export { SecurityMonitoringRuleTypeCreate } from "./models/SecurityMonitoringRuleTypeCreate";
 export { SecurityMonitoringRuleTypeRead } from "./models/SecurityMonitoringRuleTypeRead";
 export { SecurityMonitoringRuleUpdatePayload } from "./models/SecurityMonitoringRuleUpdatePayload";
@@ -1481,6 +1482,9 @@ export { SecurityMonitoringSignalType } from "./models/SecurityMonitoringSignalT
 export { SecurityMonitoringStandardRuleCreatePayload } from "./models/SecurityMonitoringStandardRuleCreatePayload";
 export { SecurityMonitoringStandardRuleQuery } from "./models/SecurityMonitoringStandardRuleQuery";
 export { SecurityMonitoringStandardRuleResponse } from "./models/SecurityMonitoringStandardRuleResponse";
+export { SecurityMonitoringThirdPartyRootQuery } from "./models/SecurityMonitoringThirdPartyRootQuery";
+export { SecurityMonitoringThirdPartyRuleCase } from "./models/SecurityMonitoringThirdPartyRuleCase";
+export { SecurityMonitoringThirdPartyRuleCaseCreate } from "./models/SecurityMonitoringThirdPartyRuleCaseCreate";
 export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageUser";
 export { SensitiveDataScannerConfigRequest } from "./models/SensitiveDataScannerConfigRequest";
 export { SensitiveDataScannerConfiguration } from "./models/SensitiveDataScannerConfiguration";

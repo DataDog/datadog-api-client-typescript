@@ -9,6 +9,7 @@ import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleTypeRead } from "./SecurityMonitoringRuleTypeRead";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
+import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -80,6 +81,10 @@ export class SecurityMonitoringStandardRuleResponse {
    * Tags for generated signals.
    */
   "tags"?: Array<string>;
+  /**
+   * Cases for generating signals from third party rules. Only available for third party rules.
+   */
+  "thirdPartyCases"?: Array<SecurityMonitoringThirdPartyRuleCase>;
   /**
    * The rule type.
    */
@@ -168,6 +173,10 @@ export class SecurityMonitoringStandardRuleResponse {
     tags: {
       baseName: "tags",
       type: "Array<string>",
+    },
+    thirdPartyCases: {
+      baseName: "thirdPartyCases",
+      type: "Array<SecurityMonitoringThirdPartyRuleCase>",
     },
     type: {
       baseName: "type",

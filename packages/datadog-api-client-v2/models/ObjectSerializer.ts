@@ -760,6 +760,7 @@ import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCr
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
+import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
 import { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./SecurityMonitoringSignalAssigneeUpdateAttributes";
@@ -790,6 +791,9 @@ import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitor
 import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitoringStandardRuleCreatePayload";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringStandardRuleResponse } from "./SecurityMonitoringStandardRuleResponse";
+import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThirdPartyRootQuery";
+import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
+import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
@@ -2384,6 +2388,8 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringRuleImpossibleTravelOptions,
   SecurityMonitoringRuleNewValueOptions: SecurityMonitoringRuleNewValueOptions,
   SecurityMonitoringRuleOptions: SecurityMonitoringRuleOptions,
+  SecurityMonitoringRuleThirdPartyOptions:
+    SecurityMonitoringRuleThirdPartyOptions,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
   SecurityMonitoringSignal: SecurityMonitoringSignal,
   SecurityMonitoringSignalAssigneeUpdateAttributes:
@@ -2435,6 +2441,10 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringStandardRuleQuery: SecurityMonitoringStandardRuleQuery,
   SecurityMonitoringStandardRuleResponse:
     SecurityMonitoringStandardRuleResponse,
+  SecurityMonitoringThirdPartyRootQuery: SecurityMonitoringThirdPartyRootQuery,
+  SecurityMonitoringThirdPartyRuleCase: SecurityMonitoringThirdPartyRuleCase,
+  SecurityMonitoringThirdPartyRuleCaseCreate:
+    SecurityMonitoringThirdPartyRuleCaseCreate,
   SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
