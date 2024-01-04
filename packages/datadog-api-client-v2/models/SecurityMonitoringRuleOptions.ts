@@ -11,6 +11,7 @@ import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitor
 import { SecurityMonitoringRuleKeepAlive } from "./SecurityMonitoringRuleKeepAlive";
 import { SecurityMonitoringRuleMaxSignalDuration } from "./SecurityMonitoringRuleMaxSignalDuration";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
+import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -60,6 +61,10 @@ export class SecurityMonitoringRuleOptions {
    * Options on new value rules.
    */
   "newValueOptions"?: SecurityMonitoringRuleNewValueOptions;
+  /**
+   * Options on third party rules.
+   */
+  "thirdPartyRuleOptions"?: SecurityMonitoringRuleThirdPartyOptions;
 
   /**
    * @ignore
@@ -108,6 +113,10 @@ export class SecurityMonitoringRuleOptions {
     newValueOptions: {
       baseName: "newValueOptions",
       type: "SecurityMonitoringRuleNewValueOptions",
+    },
+    thirdPartyRuleOptions: {
+      baseName: "thirdPartyRuleOptions",
+      type: "SecurityMonitoringRuleThirdPartyOptions",
     },
   };
 

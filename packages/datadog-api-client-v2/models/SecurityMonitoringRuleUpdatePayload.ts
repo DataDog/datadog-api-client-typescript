@@ -8,6 +8,7 @@ import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
+import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -55,6 +56,10 @@ export class SecurityMonitoringRuleUpdatePayload {
    * Tags for generated signals.
    */
   "tags"?: Array<string>;
+  /**
+   * Cases for generating signals from third party rules. Only available for third party rules.
+   */
+  "thirdPartyCases"?: Array<SecurityMonitoringThirdPartyRuleCase>;
   /**
    * The version of the rule being updated.
    */
@@ -108,6 +113,10 @@ export class SecurityMonitoringRuleUpdatePayload {
     tags: {
       baseName: "tags",
       type: "Array<string>",
+    },
+    thirdPartyCases: {
+      baseName: "thirdPartyCases",
+      type: "Array<SecurityMonitoringThirdPartyRuleCase>",
     },
     version: {
       baseName: "version",
