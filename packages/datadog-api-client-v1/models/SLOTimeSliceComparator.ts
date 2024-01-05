@@ -7,14 +7,16 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of the service level objective.
+ * The comparator used to compare the SLI value to the threshold.
  */
 
-export type SLOType =
-  | typeof METRIC
-  | typeof MONITOR
-  | typeof TIME_SLICE
+export type SLOTimeSliceComparator =
+  | typeof GREATER
+  | typeof GREATER_EQUAL
+  | typeof LESS
+  | typeof LESS_EQUAL
   | UnparsedObject;
-export const METRIC = "metric";
-export const MONITOR = "monitor";
-export const TIME_SLICE = "time_slice";
+export const GREATER = ">";
+export const GREATER_EQUAL = ">=";
+export const LESS = "<";
+export const LESS_EQUAL = "<=";

@@ -12,6 +12,11 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Ignored in create/update requests.
  */
 
-export type SLOTypeNumeric = typeof MONITOR | typeof METRIC | UnparsedObject;
+export type SLOTypeNumeric =
+  | typeof MONITOR
+  | typeof METRIC
+  | typeof TIME_SLICE
+  | UnparsedObject;
 export const MONITOR = 0;
 export const METRIC = 1;
+export const TIME_SLICE = 2;

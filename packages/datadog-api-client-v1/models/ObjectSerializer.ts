@@ -303,6 +303,7 @@ import { SLOCorrectionUpdateRequest } from "./SLOCorrectionUpdateRequest";
 import { SLOCorrectionUpdateRequestAttributes } from "./SLOCorrectionUpdateRequestAttributes";
 import { SLOCreator } from "./SLOCreator";
 import { SLODeleteResponse } from "./SLODeleteResponse";
+import { SLOFormula } from "./SLOFormula";
 import { SLOHistoryMetrics } from "./SLOHistoryMetrics";
 import { SLOHistoryMetricsSeries } from "./SLOHistoryMetricsSeries";
 import { SLOHistoryMetricsSeriesMetadata } from "./SLOHistoryMetricsSeriesMetadata";
@@ -325,6 +326,9 @@ import { SLOResponse } from "./SLOResponse";
 import { SLOResponseData } from "./SLOResponseData";
 import { SLOStatus } from "./SLOStatus";
 import { SLOThreshold } from "./SLOThreshold";
+import { SLOTimeSliceCondition } from "./SLOTimeSliceCondition";
+import { SLOTimeSliceQuery } from "./SLOTimeSliceQuery";
+import { SLOTimeSliceSpec } from "./SLOTimeSliceSpec";
 import { SLOWidgetDefinition } from "./SLOWidgetDefinition";
 import { ScatterPlotRequest } from "./ScatterPlotRequest";
 import { ScatterPlotWidgetDefinition } from "./ScatterPlotWidgetDefinition";
@@ -1100,9 +1104,10 @@ const enumsMap: { [key: string]: any[] } = {
   SLOListWidgetDefinitionType: ["slo_list"],
   SLOListWidgetRequestType: ["slo_list"],
   SLOState: ["breached", "warning", "ok", "no_data"],
+  SLOTimeSliceComparator: [">", ">=", "<", "<="],
   SLOTimeframe: ["7d", "30d", "90d", "custom"],
-  SLOType: ["metric", "monitor"],
-  SLOTypeNumeric: [0, 1],
+  SLOType: ["metric", "monitor", "time_slice"],
+  SLOTypeNumeric: [0, 1, 2],
   SLOWidgetDefinitionType: ["slo"],
   ScatterPlotWidgetDefinitionType: ["scatterplot"],
   ScatterplotDimension: ["x", "y", "radius", "color"],
@@ -1900,6 +1905,7 @@ const typeMap: { [index: string]: any } = {
   SLOCorrectionUpdateRequestAttributes: SLOCorrectionUpdateRequestAttributes,
   SLOCreator: SLOCreator,
   SLODeleteResponse: SLODeleteResponse,
+  SLOFormula: SLOFormula,
   SLOHistoryMetrics: SLOHistoryMetrics,
   SLOHistoryMetricsSeries: SLOHistoryMetricsSeries,
   SLOHistoryMetricsSeriesMetadata: SLOHistoryMetricsSeriesMetadata,
@@ -1922,6 +1928,9 @@ const typeMap: { [index: string]: any } = {
   SLOResponseData: SLOResponseData,
   SLOStatus: SLOStatus,
   SLOThreshold: SLOThreshold,
+  SLOTimeSliceCondition: SLOTimeSliceCondition,
+  SLOTimeSliceQuery: SLOTimeSliceQuery,
+  SLOTimeSliceSpec: SLOTimeSliceSpec,
   SLOWidgetDefinition: SLOWidgetDefinition,
   ScatterPlotRequest: ScatterPlotRequest,
   ScatterPlotWidgetDefinition: ScatterPlotWidgetDefinition,
@@ -2281,6 +2290,8 @@ const oneOfMap: { [index: string]: string[] } = {
     "NotebookCellCreateRequest",
     "NotebookCellUpdateRequest",
   ],
+  SLODataSourceQueryDefinition: ["FormulaAndFunctionMetricQueryDefinition"],
+  SLOSliSpec: ["SLOTimeSliceSpec"],
   SharedDashboardInvitesData: [
     "SharedDashboardInvitesDataObject",
     "Array<SharedDashboardInvitesDataObject>",
