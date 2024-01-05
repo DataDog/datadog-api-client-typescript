@@ -26,6 +26,10 @@ const params: v2.SensitiveDataScannerApiCreateScanningRuleRequest = {
         tags: ["sensitive_data:true"],
         isEnabled: true,
         priority: 1,
+        includedKeywordConfiguration: {
+          keywords: ["credit card"],
+          characterCount: 35,
+        },
       },
       relationships: {
         group: {
