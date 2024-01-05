@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SensitiveDataScannerIncludedKeywordConfiguration } from "./SensitiveDataScannerIncludedKeywordConfiguration";
 import { SensitiveDataScannerTextReplacement } from "./SensitiveDataScannerTextReplacement";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -19,6 +20,13 @@ export class SensitiveDataScannerRuleAttributes {
    * Attributes excluded from the scan. If namespaces is provided, it has to be a sub-path of the namespaces array.
    */
   "excludedNamespaces"?: Array<string>;
+  /**
+   * Object defining a set of keywords and a number of characters that help reduce noise.
+   * You can provide a list of keywords you would like to check within a defined proximity of the matching pattern.
+   * If any of the keywords are found within the proximity check, the match is kept.
+   * If none are found, the match is discarded.
+   */
+  "includedKeywordConfiguration"?: SensitiveDataScannerIncludedKeywordConfiguration;
   /**
    * Whether or not the rule is enabled.
    */
@@ -65,6 +73,10 @@ export class SensitiveDataScannerRuleAttributes {
     excludedNamespaces: {
       baseName: "excluded_namespaces",
       type: "Array<string>",
+    },
+    includedKeywordConfiguration: {
+      baseName: "included_keyword_configuration",
+      type: "SensitiveDataScannerIncludedKeywordConfiguration",
     },
     isEnabled: {
       baseName: "is_enabled",

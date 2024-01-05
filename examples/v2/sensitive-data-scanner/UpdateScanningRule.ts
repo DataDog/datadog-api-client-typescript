@@ -10,9 +10,6 @@ const apiInstance = new v2.SensitiveDataScannerApi(configuration);
 // the "scanning_group" has a "scanning_rule"
 const RULE_DATA_ID = process.env.RULE_DATA_ID as string;
 
-// there is a valid "scanning_group" in the system
-const GROUP_DATA_ID = process.env.GROUP_DATA_ID as string;
-
 const params: v2.SensitiveDataScannerApiUpdateScanningRuleRequest = {
   body: {
     meta: {},
@@ -28,13 +25,9 @@ const params: v2.SensitiveDataScannerApiUpdateScanningRuleRequest = {
         tags: ["sensitive_data:true"],
         isEnabled: true,
         priority: 5,
-      },
-      relationships: {
-        group: {
-          data: {
-            type: "sensitive_data_scanner_group",
-            id: GROUP_DATA_ID,
-          },
+        includedKeywordConfiguration: {
+          keywords: ["credit card", "cc"],
+          characterCount: 35,
         },
       },
     },
