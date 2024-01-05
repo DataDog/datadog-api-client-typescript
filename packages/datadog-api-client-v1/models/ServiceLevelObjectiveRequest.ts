@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ServiceLevelObjectiveQuery } from "./ServiceLevelObjectiveQuery";
+import { SLOSliSpec } from "./SLOSliSpec";
 import { SLOThreshold } from "./SLOThreshold";
 import { SLOTimeframe } from "./SLOTimeframe";
 import { SLOType } from "./SLOType";
@@ -45,6 +46,10 @@ export class ServiceLevelObjectiveRequest {
    * min of all of those requests.
    */
   "query"?: ServiceLevelObjectiveQuery;
+  /**
+   * A generic SLI specification. This is currently used for time-slice SLOs only.
+   */
+  "sliSpecification"?: SLOSliSpec;
   /**
    * A list of tags associated with this service level objective.
    * Always included in service level objective responses (but may be empty).
@@ -107,6 +112,10 @@ export class ServiceLevelObjectiveRequest {
     query: {
       baseName: "query",
       type: "ServiceLevelObjectiveQuery",
+    },
+    sliSpecification: {
+      baseName: "sli_specification",
+      type: "SLOSliSpec",
     },
     tags: {
       baseName: "tags",

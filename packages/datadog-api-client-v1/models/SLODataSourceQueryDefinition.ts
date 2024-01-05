@@ -3,18 +3,14 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { FormulaAndFunctionMetricQueryDefinition } from "./FormulaAndFunctionMetricQueryDefinition";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The type of the service level objective.
+ * A formula and function query.
  */
 
-export type SLOType =
-  | typeof METRIC
-  | typeof MONITOR
-  | typeof TIME_SLICE
+export type SLODataSourceQueryDefinition =
+  | FormulaAndFunctionMetricQueryDefinition
   | UnparsedObject;
-export const METRIC = "metric";
-export const MONITOR = "monitor";
-export const TIME_SLICE = "time_slice";
