@@ -12,7 +12,7 @@ const params: v2.CloudflareIntegrationApiCreateCloudflareAccountRequest = {
     data: {
       attributes: {
         apiKey: "fakekey",
-        email: "new@email",
+        email: "dev@datadoghq.com",
         name: "examplecloudflareintegration",
       },
       type: "cloudflare-accounts",

@@ -22,6 +22,14 @@ export class CloudflareAccountCreateRequestAttributes {
    * The name of the Cloudflare account.
    */
   "name": string;
+  /**
+   * An allowlist of resources to restrict pulling metrics for.
+   */
+  "resources"?: Array<string>;
+  /**
+   * An allowlist of zones to restrict pulling metrics for.
+   */
+  "zones"?: Array<string>;
 
   /**
    * @ignore
@@ -45,6 +53,14 @@ export class CloudflareAccountCreateRequestAttributes {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    resources: {
+      baseName: "resources",
+      type: "Array<string>",
+    },
+    zones: {
+      baseName: "zones",
+      type: "Array<string>",
     },
   };
 

@@ -16,7 +16,8 @@ const params: v2.CloudflareIntegrationApiUpdateCloudflareAccountRequest = {
     data: {
       attributes: {
         apiKey: "fakekey",
-        email: "new@email",
+        email: "dev@datadoghq.com",
+        zones: ["zone-id-3"],
       },
       type: "cloudflare-accounts",
     },
