@@ -20,6 +20,10 @@ export class UsageSummaryDate {
    */
   "apmAzureAppServiceHostTop99p"?: number;
   /**
+   * Shows the 99th percentile of all APM DevSecOps hosts over all hours in the current date for the given org.
+   */
+  "apmDevsecopsHostTop99p"?: number;
+  /**
    * Shows the average of all APM ECS Fargate tasks over all hours in the current date for all organizations.
    */
   "apmFargateCountAvg"?: number;
@@ -436,6 +440,11 @@ export class UsageSummaryDate {
     },
     apmAzureAppServiceHostTop99p: {
       baseName: "apm_azure_app_service_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    apmDevsecopsHostTop99p: {
+      baseName: "apm_devsecops_host_top99p",
       type: "number",
       format: "int64",
     },
