@@ -18,6 +18,14 @@ export class CloudflareAccountUpdateRequestAttributes {
    * The email associated with the Cloudflare account. If an API key is provided (and not a token), this field is also required.
    */
   "email"?: string;
+  /**
+   * An allowlist of resources to restrict pulling metrics for.
+   */
+  "resources"?: Array<string>;
+  /**
+   * An allowlist of zones to restrict pulling metrics for.
+   */
+  "zones"?: Array<string>;
 
   /**
    * @ignore
@@ -36,6 +44,14 @@ export class CloudflareAccountUpdateRequestAttributes {
     email: {
       baseName: "email",
       type: "string",
+    },
+    resources: {
+      baseName: "resources",
+      type: "Array<string>",
+    },
+    zones: {
+      baseName: "zones",
+      type: "Array<string>",
     },
   };
 
