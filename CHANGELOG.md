@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## 1.21.0 / 2024-01-10
+
+### Fixed
+* Bump get-func-name from 2.0.0 to 2.0.2 by @dependabot in https://github.com/DataDog/datadog-api-client-typescript/pull/1351
+* Bump @babel/traverse from 7.22.5 to 7.23.2 by @dependabot in https://github.com/DataDog/datadog-api-client-typescript/pull/1379
+### Added
+* Add priority field to SDS rule and standard-pattern by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1452
+* Document new `resource_collection` and `is_security_command_center_enabled` fields in GCP APIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1453
+* Add SAML attributes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1445
+* Security Monitoring - Support custom third party rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1470
+* Add public API support for time-slice SLOs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1462
+* Add included_keyword_configuration field to SDS rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1473
+* Update Documentation for APM DevSecOps by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1474
+### Changed
+* Mark v1 downtime endpoints as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1467
+* Adding Cloud Cost Management API Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1336
+* Add support for Cloudflare API `zone` and `resource` fields by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1472
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.20.0...v1.21.0
+
 ## 1.20.0 / 2023-12-12
 
 ### Fixed
