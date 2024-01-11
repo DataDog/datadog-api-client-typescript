@@ -16,7 +16,7 @@ export class Log {
    */
   "content"?: LogContent;
   /**
-   * Unique ID of the Log.
+   * ID of the Log.
    */
   "id"?: string;
 
