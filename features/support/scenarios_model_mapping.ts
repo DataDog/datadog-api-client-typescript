@@ -4354,6 +4354,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityFilterResponse",
     },
+    "v2.ListSecurityMonitoringSuppressions": {
+        "operationResponseType": "SecurityMonitoringSuppressionsResponse",
+    },
+    "v2.CreateSecurityMonitoringSuppression": {
+        "body": {
+            "type": "SecurityMonitoringSuppressionCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionResponse",
+    },
+    "v2.DeleteSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionResponse",
+    },
+    "v2.UpdateSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSuppressionUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionResponse",
+    },
     "v2.ListSecurityMonitoringRules": {
         "pageSize": {
             "type": "number",
