@@ -327,8 +327,10 @@ export {
 export {
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
@@ -336,6 +338,7 @@ export {
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
+  SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
@@ -343,6 +346,7 @@ export {
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApi,
 } from "./apis/SecurityMonitoringApi";
 
@@ -1482,10 +1486,22 @@ export { SecurityMonitoringSignalType } from "./models/SecurityMonitoringSignalT
 export { SecurityMonitoringStandardRuleCreatePayload } from "./models/SecurityMonitoringStandardRuleCreatePayload";
 export { SecurityMonitoringStandardRuleQuery } from "./models/SecurityMonitoringStandardRuleQuery";
 export { SecurityMonitoringStandardRuleResponse } from "./models/SecurityMonitoringStandardRuleResponse";
+export { SecurityMonitoringSuppression } from "./models/SecurityMonitoringSuppression";
+export { SecurityMonitoringSuppressionAttributes } from "./models/SecurityMonitoringSuppressionAttributes";
+export { SecurityMonitoringSuppressionCreateAttributes } from "./models/SecurityMonitoringSuppressionCreateAttributes";
+export { SecurityMonitoringSuppressionCreateData } from "./models/SecurityMonitoringSuppressionCreateData";
+export { SecurityMonitoringSuppressionCreateRequest } from "./models/SecurityMonitoringSuppressionCreateRequest";
+export { SecurityMonitoringSuppressionResponse } from "./models/SecurityMonitoringSuppressionResponse";
+export { SecurityMonitoringSuppressionsResponse } from "./models/SecurityMonitoringSuppressionsResponse";
+export { SecurityMonitoringSuppressionType } from "./models/SecurityMonitoringSuppressionType";
+export { SecurityMonitoringSuppressionUpdateAttributes } from "./models/SecurityMonitoringSuppressionUpdateAttributes";
+export { SecurityMonitoringSuppressionUpdateData } from "./models/SecurityMonitoringSuppressionUpdateData";
+export { SecurityMonitoringSuppressionUpdateRequest } from "./models/SecurityMonitoringSuppressionUpdateRequest";
 export { SecurityMonitoringThirdPartyRootQuery } from "./models/SecurityMonitoringThirdPartyRootQuery";
 export { SecurityMonitoringThirdPartyRuleCase } from "./models/SecurityMonitoringThirdPartyRuleCase";
 export { SecurityMonitoringThirdPartyRuleCaseCreate } from "./models/SecurityMonitoringThirdPartyRuleCaseCreate";
 export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageUser";
+export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { SensitiveDataScannerConfigRequest } from "./models/SensitiveDataScannerConfigRequest";
 export { SensitiveDataScannerConfiguration } from "./models/SensitiveDataScannerConfiguration";
 export { SensitiveDataScannerConfigurationData } from "./models/SensitiveDataScannerConfigurationData";

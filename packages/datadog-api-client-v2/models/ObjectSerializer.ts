@@ -791,10 +791,21 @@ import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitor
 import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitoringStandardRuleCreatePayload";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringStandardRuleResponse } from "./SecurityMonitoringStandardRuleResponse";
+import { SecurityMonitoringSuppression } from "./SecurityMonitoringSuppression";
+import { SecurityMonitoringSuppressionAttributes } from "./SecurityMonitoringSuppressionAttributes";
+import { SecurityMonitoringSuppressionCreateAttributes } from "./SecurityMonitoringSuppressionCreateAttributes";
+import { SecurityMonitoringSuppressionCreateData } from "./SecurityMonitoringSuppressionCreateData";
+import { SecurityMonitoringSuppressionCreateRequest } from "./SecurityMonitoringSuppressionCreateRequest";
+import { SecurityMonitoringSuppressionResponse } from "./SecurityMonitoringSuppressionResponse";
+import { SecurityMonitoringSuppressionUpdateAttributes } from "./SecurityMonitoringSuppressionUpdateAttributes";
+import { SecurityMonitoringSuppressionUpdateData } from "./SecurityMonitoringSuppressionUpdateData";
+import { SecurityMonitoringSuppressionUpdateRequest } from "./SecurityMonitoringSuppressionUpdateRequest";
+import { SecurityMonitoringSuppressionsResponse } from "./SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThirdPartyRootQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
+import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
 import { SensitiveDataScannerConfigurationData } from "./SensitiveDataScannerConfigurationData";
@@ -1418,6 +1429,7 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityMonitoringSignalState: ["open", "archived", "under_review"],
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
+  SecurityMonitoringSuppressionType: ["suppressions"],
   SensitiveDataScannerConfigurationType: [
     "sensitive_data_scanner_configuration",
   ],
@@ -2442,11 +2454,30 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringStandardRuleQuery: SecurityMonitoringStandardRuleQuery,
   SecurityMonitoringStandardRuleResponse:
     SecurityMonitoringStandardRuleResponse,
+  SecurityMonitoringSuppression: SecurityMonitoringSuppression,
+  SecurityMonitoringSuppressionAttributes:
+    SecurityMonitoringSuppressionAttributes,
+  SecurityMonitoringSuppressionCreateAttributes:
+    SecurityMonitoringSuppressionCreateAttributes,
+  SecurityMonitoringSuppressionCreateData:
+    SecurityMonitoringSuppressionCreateData,
+  SecurityMonitoringSuppressionCreateRequest:
+    SecurityMonitoringSuppressionCreateRequest,
+  SecurityMonitoringSuppressionResponse: SecurityMonitoringSuppressionResponse,
+  SecurityMonitoringSuppressionUpdateAttributes:
+    SecurityMonitoringSuppressionUpdateAttributes,
+  SecurityMonitoringSuppressionUpdateData:
+    SecurityMonitoringSuppressionUpdateData,
+  SecurityMonitoringSuppressionUpdateRequest:
+    SecurityMonitoringSuppressionUpdateRequest,
+  SecurityMonitoringSuppressionsResponse:
+    SecurityMonitoringSuppressionsResponse,
   SecurityMonitoringThirdPartyRootQuery: SecurityMonitoringThirdPartyRootQuery,
   SecurityMonitoringThirdPartyRuleCase: SecurityMonitoringThirdPartyRuleCase,
   SecurityMonitoringThirdPartyRuleCaseCreate:
     SecurityMonitoringThirdPartyRuleCaseCreate,
   SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
+  SecurityMonitoringUser: SecurityMonitoringUser,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
   SensitiveDataScannerConfigurationData: SensitiveDataScannerConfigurationData,
