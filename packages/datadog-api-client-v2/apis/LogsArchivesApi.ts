@@ -424,14 +424,14 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -483,7 +483,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: LogsArchive = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchive"
@@ -491,9 +491,9 @@ export class LogsArchivesApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -543,14 +543,14 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -600,7 +600,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: LogsArchive = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchive"
@@ -608,10 +608,10 @@ export class LogsArchivesApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -663,14 +663,14 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: LogsArchiveOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchiveOrder"
       ) as LogsArchiveOrder;
       return body;
     }
-    if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -721,7 +721,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: RolesResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "RolesResponse"
@@ -729,10 +729,10 @@ export class LogsArchivesApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -784,14 +784,14 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: LogsArchives = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchives"
       ) as LogsArchives;
       return body;
     }
-    if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -840,14 +840,14 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -899,7 +899,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: LogsArchive = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchive"
@@ -907,10 +907,10 @@ export class LogsArchivesApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -962,7 +962,7 @@ export class LogsArchivesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: LogsArchiveOrder = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsArchiveOrder"
@@ -970,10 +970,10 @@ export class LogsArchivesApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 422 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 422 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),

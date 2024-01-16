@@ -103,14 +103,14 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: OnDemandConcurrencyCapResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OnDemandConcurrencyCapResponse"
       ) as OnDemandConcurrencyCapResponse;
       return body;
     }
-    if (response.httpStatusCode == 429) {
+    if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -161,14 +161,14 @@ export class SyntheticsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: OnDemandConcurrencyCapResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "OnDemandConcurrencyCapResponse"
       ) as OnDemandConcurrencyCapResponse;
       return body;
     }
-    if (response.httpStatusCode == 429) {
+    if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
