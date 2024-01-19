@@ -48,6 +48,10 @@ export class SyntheticsTestRequest {
    */
   "compressedJsonDescriptor"?: string;
   /**
+   * A protobuf file that needs to be gzipped first then base64 encoded.
+   */
+  "compressedProtoFile"?: string;
+  /**
    * DNS server to use for DNS tests.
    */
   "dnsServer"?: string;
@@ -165,6 +169,10 @@ export class SyntheticsTestRequest {
     },
     compressedJsonDescriptor: {
       baseName: "compressedJsonDescriptor",
+      type: "string",
+    },
+    compressedProtoFile: {
+      baseName: "compressedProtoFile",
       type: "string",
     },
     dnsServer: {
