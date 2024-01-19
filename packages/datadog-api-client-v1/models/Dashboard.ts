@@ -37,7 +37,9 @@ export class Dashboard {
    */
   "id"?: string;
   /**
-   * Whether this dashboard is read-only. If True, only the author and admins can make changes to it. Prefer using `restricted_roles` to manage write authorization.
+   * Whether this dashboard is read-only. If True, only the author and admins can make changes to it.
+   *
+   * This property is deprecated; please use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) instead to manage write authorization for individual dashboards.
    */
   "isReadOnly"?: boolean;
   /**
@@ -60,6 +62,8 @@ export class Dashboard {
   "reflowType"?: DashboardReflowType;
   /**
    * A list of role identifiers. Only the author and users associated with at least one of these roles can edit this dashboard.
+   *
+   * This property is deprecated; please use the [Restriction Policies API](https://docs.datadoghq.com/api/latest/restriction-policies/) instead to manage write authorization for individual dashboards.
    */
   "restrictedRoles"?: Array<string>;
   /**
