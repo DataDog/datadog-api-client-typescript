@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DORADeploymentRequestAttributes {
   /**
+   * Environment name to where the service was deployed.
+   */
+  "env"?: string;
+  /**
    * Unix timestamp in nanoseconds when the deployment finished. It should not be older than 3 hours.
    */
   "finishedAt": number;
@@ -45,6 +49,10 @@ export class DORADeploymentRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    env: {
+      baseName: "env",
+      type: "string",
+    },
     finishedAt: {
       baseName: "finished_at",
       type: "number",

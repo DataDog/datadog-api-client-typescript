@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DORAIncidentRequestAttributes {
   /**
+   * Environment name that was impacted by the incident.
+   */
+  "env"?: string;
+  /**
    * Unix timestamp in nanoseconds when the incident finished. It should not be older than 3 hours.
    */
   "finishedAt"?: number;
@@ -53,6 +57,10 @@ export class DORAIncidentRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    env: {
+      baseName: "env",
+      type: "string",
+    },
     finishedAt: {
       baseName: "finished_at",
       type: "number",
