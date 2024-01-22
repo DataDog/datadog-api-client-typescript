@@ -161,6 +161,7 @@ import { LogsByRetentionOrgUsage } from "./LogsByRetentionOrgUsage";
 import { LogsByRetentionOrgs } from "./LogsByRetentionOrgs";
 import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
+import { LogsDailyLimitReset } from "./LogsDailyLimitReset";
 import { LogsDateRemapper } from "./LogsDateRemapper";
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
@@ -1753,6 +1754,7 @@ const typeMap: { [index: string]: any } = {
   LogsByRetentionOrgs: LogsByRetentionOrgs,
   LogsCategoryProcessor: LogsCategoryProcessor,
   LogsCategoryProcessorCategory: LogsCategoryProcessorCategory,
+  LogsDailyLimitReset: LogsDailyLimitReset,
   LogsDateRemapper: LogsDateRemapper,
   LogsExclusion: LogsExclusion,
   LogsExclusionFilter: LogsExclusionFilter,

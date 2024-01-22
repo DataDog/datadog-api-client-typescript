@@ -552,6 +552,7 @@ export { LogsByRetentionOrgUsage } from "./models/LogsByRetentionOrgUsage";
 export { LogsCategoryProcessor } from "./models/LogsCategoryProcessor";
 export { LogsCategoryProcessorCategory } from "./models/LogsCategoryProcessorCategory";
 export { LogsCategoryProcessorType } from "./models/LogsCategoryProcessorType";
+export { LogsDailyLimitReset } from "./models/LogsDailyLimitReset";
 export { LogsDateRemapper } from "./models/LogsDateRemapper";
 export { LogsDateRemapperType } from "./models/LogsDateRemapperType";
 export { LogsExclusion } from "./models/LogsExclusion";
