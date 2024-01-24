@@ -1700,7 +1700,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda traced invocations.
+   * Get hourly usage for Lambda traced invocations.
    * **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
    * @param param The request object
    */
