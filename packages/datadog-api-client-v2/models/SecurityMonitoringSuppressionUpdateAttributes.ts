@@ -19,7 +19,7 @@ export class SecurityMonitoringSuppressionUpdateAttributes {
    */
   "enabled"?: boolean;
   /**
-   * A Unix millisecond timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore.
+   * A Unix millisecond timestamp giving an expiration date for the suppression rule. After this date, it won't suppress signals anymore. If unset, the expiration date of the suppression rule is left untouched. If set to `null`, the expiration date is removed.
    */
   "expirationDate"?: number;
   /**
