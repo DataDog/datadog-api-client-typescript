@@ -16,7 +16,7 @@ const params: v1.SyntheticsApiTriggerCITestsRequest = {
           type: "web",
           username: "my_username",
         },
-        deviceIds: ["laptop_large"],
+        deviceIds: ["chrome.laptop_large"],
         locations: ["aws:eu-west-3"],
         metadata: {
           ci: {
