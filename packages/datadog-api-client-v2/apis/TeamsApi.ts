@@ -32,6 +32,7 @@ import { TeamResponse } from "../models/TeamResponse";
 import { TeamsField } from "../models/TeamsField";
 import { TeamsResponse } from "../models/TeamsResponse";
 import { TeamUpdateRequest } from "../models/TeamUpdateRequest";
+import { UserTeam } from "../models/UserTeam";
 import { UserTeamRequest } from "../models/UserTeamRequest";
 import { UserTeamResponse } from "../models/UserTeamResponse";
 import { UserTeamsResponse } from "../models/UserTeamsResponse";
@@ -2333,6 +2334,50 @@ export class TeamsApi {
           return this.responseProcessor.getTeamMemberships(responseContext);
         });
     });
+  }
+
+  /**
+   * Provide a paginated version of getTeamMemberships returning a generator with all the items.
+   */
+  public async *getTeamMembershipsWithPagination(
+    param: TeamsApiGetTeamMembershipsRequest,
+    options?: Configuration
+  ): AsyncGenerator<UserTeam> {
+    let pageSize = 10;
+    if (param.pageSize !== undefined) {
+      pageSize = param.pageSize;
+    }
+    param.pageSize = pageSize;
+    param.pageNumber = 0;
+    while (true) {
+      const requestContext = await this.requestFactory.getTeamMemberships(
+        param.teamId,
+        param.pageSize,
+        param.pageNumber,
+        param.sort,
+        param.filterKeyword,
+        options
+      );
+      const responseContext = await this.configuration.httpApi.send(
+        requestContext
+      );
+
+      const response = await this.responseProcessor.getTeamMemberships(
+        responseContext
+      );
+      const responseData = response.data;
+      if (responseData === undefined) {
+        break;
+      }
+      const results = responseData;
+      for (const item of results) {
+        yield item;
+      }
+      if (results.length < pageSize) {
+        break;
+      }
+      param.pageNumber = param.pageNumber + 1;
+    }
   }
 
   /**
