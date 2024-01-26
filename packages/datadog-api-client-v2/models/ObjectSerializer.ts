@@ -201,6 +201,9 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
+import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
+import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
 import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
@@ -564,6 +567,8 @@ import { OktaAccountsResponse } from "./OktaAccountsResponse";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
+import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
+import { OpenAPIFile } from "./OpenAPIFile";
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 import { OpsgenieServiceCreateRequest } from "./OpsgenieServiceCreateRequest";
@@ -977,6 +982,9 @@ import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 import { Unit } from "./Unit";
+import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
+import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
+import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -1808,6 +1816,9 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CreateOpenAPIResponse: CreateOpenAPIResponse,
+  CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
+  CreateOpenAPIResponseData: CreateOpenAPIResponseData,
   CreateRuleRequest: CreateRuleRequest,
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,
@@ -2197,6 +2208,8 @@ const typeMap: { [index: string]: any } = {
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
+  OpenAPIEndpoint: OpenAPIEndpoint,
+  OpenAPIFile: OpenAPIFile,
   OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
   OpsgenieServiceCreateData: OpsgenieServiceCreateData,
   OpsgenieServiceCreateRequest: OpsgenieServiceCreateRequest,
@@ -2668,6 +2681,9 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
   Unit: Unit,
+  UpdateOpenAPIResponse: UpdateOpenAPIResponse,
+  UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
+  UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,

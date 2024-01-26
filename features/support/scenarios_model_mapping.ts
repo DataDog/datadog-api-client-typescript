@@ -2507,6 +2507,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
+    "v2.DeleteOpenAPI": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetOpenAPI": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "HttpFile",
+    },
+    "v2.UpdateOpenAPI": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "openapiSpecFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "UpdateOpenAPIResponse",
+    },
+    "v2.CreateOpenAPI": {
+        "openapiSpecFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "CreateOpenAPIResponse",
+    },
     "v2.ListSpansMetrics": {
         "operationResponseType": "SpansMetricsResponse",
     },

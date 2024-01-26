@@ -214,6 +214,10 @@ export function createConfiguration(
     conf.backoffBase || 2,
     conf.backoffMultiplier || 2,
     {
+      "v2.createOpenAPI": false,
+      "v2.deleteOpenAPI": false,
+      "v2.getOpenAPI": false,
+      "v2.updateOpenAPI": false,
       "v2.getActiveBillingDimensions": false,
       "v2.getMonthlyCostAttribution": false,
       "v2.createDORADeployment": false,
