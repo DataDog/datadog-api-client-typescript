@@ -20,7 +20,7 @@ export class SensitiveDataScannerIncludedKeywordConfiguration {
   "characterCount": number;
   /**
    * Keyword list that will be checked during scanning in order to validate a match.
-   * The number of keywords in the list must be less than or equal to 20.
+   * The number of keywords in the list must be less than or equal to 30.
    */
   "keywords": Array<string>;
 
