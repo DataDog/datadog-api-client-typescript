@@ -189,7 +189,7 @@ export class {{ className }}ResponseProcessor {
           "{{ responseType }}"
         ) as {{ responseType }};
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<{{ responseType }}>(response.httpStatusCode, bodyText);
       } 
       throw new ApiException<{{ responseType }}>(response.httpStatusCode, body);
