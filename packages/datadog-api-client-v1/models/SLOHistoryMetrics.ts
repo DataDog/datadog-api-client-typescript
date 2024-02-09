@@ -14,7 +14,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SLOHistoryMetrics {
   /**
-   * A representation of `metric` based SLO time series for the provided queries.
+   * A representation of `metric` based SLO timeseries for the provided queries.
    * This is the same response type from `batch_query` endpoint.
    */
   "denominator": SLOHistoryMetricsSeries;
@@ -27,7 +27,7 @@ export class SLOHistoryMetrics {
    */
   "message"?: string;
   /**
-   * A representation of `metric` based SLO time series for the provided queries.
+   * A representation of `metric` based SLO timeseries for the provided queries.
    * This is the same response type from `batch_query` endpoint.
    */
   "numerator": SLOHistoryMetricsSeries;

@@ -41,7 +41,7 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
     options: {
       acceptSelfSigned: false,
       allowInsecure: true,
-      deviceIds: ["tablet"],
+      deviceIds: ["chrome.laptop_large"],
       disableCors: true,
       followRedirects: true,
       minFailureDuration: 10,

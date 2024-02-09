@@ -8,7 +8,7 @@ import { SLOHistoryMetricsSeriesMetadata } from "./SLOHistoryMetricsSeriesMetada
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A representation of `metric` based SLO time series for the provided queries.
+ * A representation of `metric` based SLO timeseries for the provided queries.
  * This is the same response type from `batch_query` endpoint.
  */
 export class SLOHistoryMetricsSeries {

@@ -2507,6 +2507,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
+    "v2.DeleteOpenAPI": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetOpenAPI": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "HttpFile",
+    },
+    "v2.UpdateOpenAPI": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "openapiSpecFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "UpdateOpenAPIResponse",
+    },
+    "v2.CreateOpenAPI": {
+        "openapiSpecFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "CreateOpenAPIResponse",
+    },
     "v2.ListSpansMetrics": {
         "operationResponseType": "SpansMetricsResponse",
     },
@@ -4353,6 +4385,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityFilterResponse",
+    },
+    "v2.ListSecurityMonitoringSuppressions": {
+        "operationResponseType": "SecurityMonitoringSuppressionsResponse",
+    },
+    "v2.CreateSecurityMonitoringSuppression": {
+        "body": {
+            "type": "SecurityMonitoringSuppressionCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionResponse",
+    },
+    "v2.DeleteSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionResponse",
+    },
+    "v2.UpdateSecurityMonitoringSuppression": {
+        "suppressionId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringSuppressionUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringSuppressionResponse",
     },
     "v2.ListSecurityMonitoringRules": {
         "pageSize": {

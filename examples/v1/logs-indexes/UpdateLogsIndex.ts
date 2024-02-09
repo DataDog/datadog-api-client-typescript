@@ -10,6 +10,11 @@ const apiInstance = new v1.LogsIndexesApi(configuration);
 const params: v1.LogsIndexesApiUpdateLogsIndexRequest = {
   body: {
     dailyLimit: 300000000,
+    dailyLimitReset: {
+      resetTime: "14:00",
+      resetUtcOffset: "+02:00",
+    },
+    dailyLimitWarningThresholdPercentage: 70,
     disableDailyLimit: false,
     exclusionFilters: [
       {

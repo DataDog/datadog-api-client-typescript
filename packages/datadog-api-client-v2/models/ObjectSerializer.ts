@@ -201,6 +201,9 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
+import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
+import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
 import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
@@ -564,6 +567,8 @@ import { OktaAccountsResponse } from "./OktaAccountsResponse";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
+import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
+import { OpenAPIFile } from "./OpenAPIFile";
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 import { OpsgenieServiceCreateRequest } from "./OpsgenieServiceCreateRequest";
@@ -791,10 +796,21 @@ import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitor
 import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitoringStandardRuleCreatePayload";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringStandardRuleResponse } from "./SecurityMonitoringStandardRuleResponse";
+import { SecurityMonitoringSuppression } from "./SecurityMonitoringSuppression";
+import { SecurityMonitoringSuppressionAttributes } from "./SecurityMonitoringSuppressionAttributes";
+import { SecurityMonitoringSuppressionCreateAttributes } from "./SecurityMonitoringSuppressionCreateAttributes";
+import { SecurityMonitoringSuppressionCreateData } from "./SecurityMonitoringSuppressionCreateData";
+import { SecurityMonitoringSuppressionCreateRequest } from "./SecurityMonitoringSuppressionCreateRequest";
+import { SecurityMonitoringSuppressionResponse } from "./SecurityMonitoringSuppressionResponse";
+import { SecurityMonitoringSuppressionUpdateAttributes } from "./SecurityMonitoringSuppressionUpdateAttributes";
+import { SecurityMonitoringSuppressionUpdateData } from "./SecurityMonitoringSuppressionUpdateData";
+import { SecurityMonitoringSuppressionUpdateRequest } from "./SecurityMonitoringSuppressionUpdateRequest";
+import { SecurityMonitoringSuppressionsResponse } from "./SecurityMonitoringSuppressionsResponse";
 import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThirdPartyRootQuery";
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
+import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
 import { SensitiveDataScannerConfigurationData } from "./SensitiveDataScannerConfigurationData";
@@ -966,6 +982,9 @@ import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 import { Unit } from "./Unit";
+import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
+import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
+import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -1418,6 +1437,7 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityMonitoringSignalState: ["open", "archived", "under_review"],
   SecurityMonitoringSignalType: ["signal"],
   SecurityMonitoringSignalsSort: ["timestamp", "-timestamp"],
+  SecurityMonitoringSuppressionType: ["suppressions"],
   SensitiveDataScannerConfigurationType: [
     "sensitive_data_scanner_configuration",
   ],
@@ -1796,6 +1816,9 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CreateOpenAPIResponse: CreateOpenAPIResponse,
+  CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
+  CreateOpenAPIResponseData: CreateOpenAPIResponseData,
   CreateRuleRequest: CreateRuleRequest,
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,
@@ -2185,6 +2208,8 @@ const typeMap: { [index: string]: any } = {
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
+  OpenAPIEndpoint: OpenAPIEndpoint,
+  OpenAPIFile: OpenAPIFile,
   OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
   OpsgenieServiceCreateData: OpsgenieServiceCreateData,
   OpsgenieServiceCreateRequest: OpsgenieServiceCreateRequest,
@@ -2442,11 +2467,30 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringStandardRuleQuery: SecurityMonitoringStandardRuleQuery,
   SecurityMonitoringStandardRuleResponse:
     SecurityMonitoringStandardRuleResponse,
+  SecurityMonitoringSuppression: SecurityMonitoringSuppression,
+  SecurityMonitoringSuppressionAttributes:
+    SecurityMonitoringSuppressionAttributes,
+  SecurityMonitoringSuppressionCreateAttributes:
+    SecurityMonitoringSuppressionCreateAttributes,
+  SecurityMonitoringSuppressionCreateData:
+    SecurityMonitoringSuppressionCreateData,
+  SecurityMonitoringSuppressionCreateRequest:
+    SecurityMonitoringSuppressionCreateRequest,
+  SecurityMonitoringSuppressionResponse: SecurityMonitoringSuppressionResponse,
+  SecurityMonitoringSuppressionUpdateAttributes:
+    SecurityMonitoringSuppressionUpdateAttributes,
+  SecurityMonitoringSuppressionUpdateData:
+    SecurityMonitoringSuppressionUpdateData,
+  SecurityMonitoringSuppressionUpdateRequest:
+    SecurityMonitoringSuppressionUpdateRequest,
+  SecurityMonitoringSuppressionsResponse:
+    SecurityMonitoringSuppressionsResponse,
   SecurityMonitoringThirdPartyRootQuery: SecurityMonitoringThirdPartyRootQuery,
   SecurityMonitoringThirdPartyRuleCase: SecurityMonitoringThirdPartyRuleCase,
   SecurityMonitoringThirdPartyRuleCaseCreate:
     SecurityMonitoringThirdPartyRuleCaseCreate,
   SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
+  SecurityMonitoringUser: SecurityMonitoringUser,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
   SensitiveDataScannerConfigurationData: SensitiveDataScannerConfigurationData,
@@ -2637,6 +2681,9 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
   Unit: Unit,
+  UpdateOpenAPIResponse: UpdateOpenAPIResponse,
+  UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
+  UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,

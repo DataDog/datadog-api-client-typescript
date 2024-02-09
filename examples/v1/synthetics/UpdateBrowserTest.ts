@@ -51,7 +51,7 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
       ci: {
         executionRule: "blocking",
       },
-      deviceIds: ["laptop_large"],
+      deviceIds: ["chrome.laptop_large"],
       httpVersion: "http1",
       monitorOptions: {},
       restrictedRoles: ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"],
