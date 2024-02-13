@@ -46,6 +46,26 @@ export {
 } from "./apis/CIVisibilityTestsApi";
 
 export {
+  CasesApiArchiveCaseRequest,
+  CasesApiAssignCaseRequest,
+  CasesApiCreateCaseRequest,
+  CasesApiGetCaseRequest,
+  CasesApiSearchCasesRequest,
+  CasesApiUnarchiveCaseRequest,
+  CasesApiUnassignCaseRequest,
+  CasesApiUpdatePriorityRequest,
+  CasesApiUpdateStatusRequest,
+  CasesApi,
+} from "./apis/CasesApi";
+
+export {
+  CasesProjectsApiCreateProjectRequest,
+  CasesProjectsApiDeleteProjectRequest,
+  CasesProjectsApiGetProjectRequest,
+  CasesProjectsApi,
+} from "./apis/CasesProjectsApi";
+
+export {
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
   CloudCostManagementApiCreateCostAzureUCConfigsRequest,
   CloudCostManagementApiDeleteCostAWSCURConfigRequest,
@@ -566,6 +586,34 @@ export { BulkMuteFindingsRequestMetaFindings } from "./models/BulkMuteFindingsRe
 export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequestProperties";
 export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
+export { Case } from "./models/Case";
+export { Case3rdPartyTicketStatus } from "./models/Case3rdPartyTicketStatus";
+export { CaseAssign } from "./models/CaseAssign";
+export { CaseAssignAttributes } from "./models/CaseAssignAttributes";
+export { CaseAssignRequest } from "./models/CaseAssignRequest";
+export { CaseAttributes } from "./models/CaseAttributes";
+export { CaseCreate } from "./models/CaseCreate";
+export { CaseCreateAttributes } from "./models/CaseCreateAttributes";
+export { CaseCreateRelationships } from "./models/CaseCreateRelationships";
+export { CaseCreateRequest } from "./models/CaseCreateRequest";
+export { CaseEmpty } from "./models/CaseEmpty";
+export { CaseEmptyRequest } from "./models/CaseEmptyRequest";
+export { CasePriority } from "./models/CasePriority";
+export { CaseRelationships } from "./models/CaseRelationships";
+export { CaseResourceType } from "./models/CaseResourceType";
+export { CaseResponse } from "./models/CaseResponse";
+export { CaseSortableField } from "./models/CaseSortableField";
+export { CasesResponse } from "./models/CasesResponse";
+export { CasesResponseMeta } from "./models/CasesResponseMeta";
+export { CasesResponseMetaPagination } from "./models/CasesResponseMetaPagination";
+export { CaseStatus } from "./models/CaseStatus";
+export { CaseType } from "./models/CaseType";
+export { CaseUpdatePriority } from "./models/CaseUpdatePriority";
+export { CaseUpdatePriorityAttributes } from "./models/CaseUpdatePriorityAttributes";
+export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
+export { CaseUpdateStatus } from "./models/CaseUpdateStatus";
+export { CaseUpdateStatusAttributes } from "./models/CaseUpdateStatusAttributes";
+export { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
@@ -1018,6 +1066,8 @@ export { IPAllowlistType } from "./models/IPAllowlistType";
 export { IPAllowlistUpdateRequest } from "./models/IPAllowlistUpdateRequest";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
+export { JiraIssue } from "./models/JiraIssue";
+export { JiraIssueResult } from "./models/JiraIssueResult";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
@@ -1194,6 +1244,8 @@ export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributio
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
+export { NullableUserRelationship } from "./models/NullableUserRelationship";
+export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
 export { OktaAccount } from "./models/OktaAccount";
 export { OktaAccountAttributes } from "./models/OktaAccountAttributes";
 export { OktaAccountRequest } from "./models/OktaAccountRequest";
@@ -1269,10 +1321,21 @@ export { ProcessSummariesResponse } from "./models/ProcessSummariesResponse";
 export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
+export { Project } from "./models/Project";
+export { ProjectAttributes } from "./models/ProjectAttributes";
+export { ProjectCreate } from "./models/ProjectCreate";
+export { ProjectCreateAttributes } from "./models/ProjectCreateAttributes";
+export { ProjectCreateRequest } from "./models/ProjectCreateRequest";
 export { ProjectedCost } from "./models/ProjectedCost";
 export { ProjectedCostAttributes } from "./models/ProjectedCostAttributes";
 export { ProjectedCostResponse } from "./models/ProjectedCostResponse";
 export { ProjectedCostType } from "./models/ProjectedCostType";
+export { ProjectRelationship } from "./models/ProjectRelationship";
+export { ProjectRelationshipData } from "./models/ProjectRelationshipData";
+export { ProjectRelationships } from "./models/ProjectRelationships";
+export { ProjectResourceType } from "./models/ProjectResourceType";
+export { ProjectResponse } from "./models/ProjectResponse";
+export { ProjectsResponse } from "./models/ProjectsResponse";
 export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
@@ -1631,6 +1694,8 @@ export { ServiceDefinitionV2Repo } from "./models/ServiceDefinitionV2Repo";
 export { ServiceDefinitionV2Slack } from "./models/ServiceDefinitionV2Slack";
 export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackType";
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
+export { ServiceNowTicket } from "./models/ServiceNowTicket";
+export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { SortDirection } from "./models/SortDirection";
@@ -1765,10 +1830,13 @@ export { UserInvitationResponseData } from "./models/UserInvitationResponseData"
 export { UserInvitationsRequest } from "./models/UserInvitationsRequest";
 export { UserInvitationsResponse } from "./models/UserInvitationsResponse";
 export { UserInvitationsType } from "./models/UserInvitationsType";
+export { UserRelationshipData } from "./models/UserRelationshipData";
 export { UserRelationships } from "./models/UserRelationships";
+export { UserResourceType } from "./models/UserResourceType";
 export { UserResponse } from "./models/UserResponse";
 export { UserResponseIncludedItem } from "./models/UserResponseIncludedItem";
 export { UserResponseRelationships } from "./models/UserResponseRelationships";
+export { UsersRelationship } from "./models/UsersRelationship";
 export { UsersResponse } from "./models/UsersResponse";
 export { UsersType } from "./models/UsersType";
 export { UserTeam } from "./models/UserTeam";
