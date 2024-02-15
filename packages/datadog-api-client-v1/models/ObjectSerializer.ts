@@ -1130,7 +1130,7 @@ const enumsMap: { [key: string]: any[] } = {
   SunburstWidgetDefinitionType: ["sunburst"],
   SunburstWidgetLegendInlineAutomaticType: ["inline", "automatic"],
   SunburstWidgetLegendTableType: ["table", "none"],
-  SyntheticsAPIStepSubtype: ["http"],
+  SyntheticsAPIStepSubtype: ["http", "grpc"],
   SyntheticsAPITestType: ["api"],
   SyntheticsApiTestFailureCode: [
     "BODY_TOO_LARGE",
