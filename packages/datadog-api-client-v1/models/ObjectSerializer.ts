@@ -2466,25 +2466,24 @@ export class ObjectSerializer {
       const attributesMap = typeMap[type].getAttributeTypeMap();
       const instance: { [index: string]: any } = {};
 
-      for (const attributeName in attributesMap) {
+      for (const attributeName in data) {
         const attributeObj = attributesMap[attributeName];
-        if (attributeName == "additionalProperties") {
-          if (data.additionalProperties) {
-            for (const key in data.additionalProperties) {
-              instance[key] = ObjectSerializer.serialize(
-                data.additionalProperties[key],
-                attributeObj.type,
-                attributeObj.format
-              );
-            }
-          }
+        if (
+          attributeName === "_unparsed" ||
+          attributeName === "additionalProperties"
+        ) {
           continue;
+        } else if (attributeObj) {
+          instance[attributeObj.baseName] = ObjectSerializer.serialize(
+            data[attributeName],
+            attributeObj.type,
+            attributeObj.format
+          );
+        } else {
+          throw new Error(
+            "unknown attribute " + attributeName + " of type " + type
+          );
         }
-        instance[attributeObj.baseName] = ObjectSerializer.serialize(
-          data[attributeName],
-          attributeObj.type,
-          attributeObj.format
-        );
         // check for required properties
         if (
           attributeObj?.required &&
@@ -2492,6 +2491,17 @@ export class ObjectSerializer {
         ) {
           throw new Error(
             `missing required property '${attributeObj.baseName}'`
+          );
+        }
+      }
+
+      const additionalProperties = attributesMap["additionalProperties"];
+      if (additionalProperties && data.additionalProperties) {
+        for (const key in data.additionalProperties) {
+          instance[key] = ObjectSerializer.serialize(
+            data.additionalProperties[key],
+            additionalProperties.type,
+            additionalProperties.format
           );
         }
       }
