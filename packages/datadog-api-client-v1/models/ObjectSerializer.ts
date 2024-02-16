@@ -2484,15 +2484,6 @@ export class ObjectSerializer {
             "unknown attribute " + attributeName + " of type " + type
           );
         }
-        // check for required properties
-        if (
-          attributeObj?.required &&
-          instance[attributeObj.baseName] === undefined
-        ) {
-          throw new Error(
-            `missing required property '${attributeObj.baseName}'`
-          );
-        }
       }
 
       const additionalProperties = attributesMap["additionalProperties"];
@@ -2502,6 +2493,19 @@ export class ObjectSerializer {
             data.additionalProperties[key],
             additionalProperties.type,
             additionalProperties.format
+          );
+        }
+      }
+
+      // check for required properties
+      for (const attributeName in attributesMap) {
+        const attributeObj = attributesMap[attributeName];
+        if (
+          attributeObj?.required &&
+          instance[attributeObj.baseName] === undefined
+        ) {
+          throw new Error(
+            `missing required property '${attributeObj.baseName}'`
           );
         }
       }
