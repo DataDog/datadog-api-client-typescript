@@ -23,6 +23,11 @@ export class GCPSTSServiceAccountAttributes {
    */
   "clientEmail"?: string;
   /**
+   * List of filters to limit the Cloud Run revisions that are pulled into Datadog by using tags.
+   * Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+   */
+  "cloudRunRevisionFilters"?: Array<string>;
+  /**
    * Your Host Filters.
    */
   "hostFilters"?: Array<string>;
@@ -59,6 +64,10 @@ export class GCPSTSServiceAccountAttributes {
     clientEmail: {
       baseName: "client_email",
       type: "string",
+    },
+    cloudRunRevisionFilters: {
+      baseName: "cloud_run_revision_filters",
+      type: "Array<string>",
     },
     hostFilters: {
       baseName: "host_filters",
