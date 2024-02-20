@@ -1482,7 +1482,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get active billing dimensions for cost attribution. Cost data for a given month becomes available no later than the 17th of the following month.
+   * Get active billing dimensions for cost attribution. Cost data for a given month becomes available no later than the 19th of the following month.
    * @param param The request object
    */
   public getActiveBillingDimensions(
@@ -1609,7 +1609,7 @@ export class UsageMeteringApi {
 
   /**
    * Get monthly cost attribution by tag across multi-org and single root-org accounts.
-   * Cost Attribution data for a given month becomes available no later than the 17th of the following month.
+   * Cost Attribution data for a given month becomes available no later than the 19th of the following month.
    * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
    * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
    * Pseudo code example:

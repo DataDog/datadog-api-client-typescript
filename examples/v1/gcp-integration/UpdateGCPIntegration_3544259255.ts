@@ -1,5 +1,5 @@
 /**
- * Create a GCP integration returns "OK" response
+ * Update a GCP integration cloud run revision filters returns "OK" response
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -7,7 +7,7 @@ import { client, v1 } from "@datadog/datadog-api-client";
 const configuration = client.createConfiguration();
 const apiInstance = new v1.GCPIntegrationApi(configuration);
 
-const params: v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
+const params: v1.GCPIntegrationApiUpdateGCPIntegrationRequest = {
   body: {
     authProviderX509CertUrl: "https://www.googleapis.com/oauth2/v1/certs",
     authUri: "https://accounts.google.com/o/oauth2/auth",
@@ -16,7 +16,7 @@ const params: v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
     clientX509CertUrl:
       "https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL",
     hostFilters: "key:value,filter:example",
-    cloudRunRevisionFilters: ["dr:dre"],
+    cloudRunRevisionFilters: ["merp:derp"],
     isCspmEnabled: true,
     isSecurityCommandCenterEnabled: true,
     privateKey: "private_key",
@@ -29,7 +29,7 @@ const params: v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
 };
 
 apiInstance
-  .createGCPIntegration(params)
+  .updateGCPIntegration(params)
   .then((data: any) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
