@@ -2731,6 +2731,30 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CaseResponse",
     },
+    "v2.GetProjects": {
+        "operationResponseType": "ProjectsResponse",
+    },
+    "v2.CreateProject": {
+        "body": {
+            "type": "ProjectCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProjectResponse",
+    },
+    "v2.DeleteProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProjectResponse",
+    },
     "v2.GetCase": {
         "caseId": {
             "type": "string",
@@ -2803,30 +2827,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "CaseResponse",
-    },
-    "v2.GetProjects": {
-        "operationResponseType": "ProjectsResponse",
-    },
-    "v2.CreateProject": {
-        "body": {
-            "type": "ProjectCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "ProjectResponse",
-    },
-    "v2.DeleteProject": {
-        "projectId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetProject": {
-        "projectId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "ProjectResponse",
     },
     "v2.CreateCIAppPipelineEvent": {
         "body": {
