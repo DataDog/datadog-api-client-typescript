@@ -46,24 +46,20 @@ export {
 } from "./apis/CIVisibilityTestsApi";
 
 export {
-  CasesApiArchiveCaseRequest,
-  CasesApiAssignCaseRequest,
-  CasesApiCreateCaseRequest,
-  CasesApiGetCaseRequest,
-  CasesApiSearchCasesRequest,
-  CasesApiUnarchiveCaseRequest,
-  CasesApiUnassignCaseRequest,
-  CasesApiUpdatePriorityRequest,
-  CasesApiUpdateStatusRequest,
-  CasesApi,
-} from "./apis/CasesApi";
-
-export {
-  CasesProjectsApiCreateProjectRequest,
-  CasesProjectsApiDeleteProjectRequest,
-  CasesProjectsApiGetProjectRequest,
-  CasesProjectsApi,
-} from "./apis/CasesProjectsApi";
+  CaseManagementApiArchiveCaseRequest,
+  CaseManagementApiAssignCaseRequest,
+  CaseManagementApiCreateCaseRequest,
+  CaseManagementApiCreateProjectRequest,
+  CaseManagementApiDeleteProjectRequest,
+  CaseManagementApiGetCaseRequest,
+  CaseManagementApiGetProjectRequest,
+  CaseManagementApiSearchCasesRequest,
+  CaseManagementApiUnarchiveCaseRequest,
+  CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUpdatePriorityRequest,
+  CaseManagementApiUpdateStatusRequest,
+  CaseManagementApi,
+} from "./apis/CaseManagementApi";
 
 export {
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
