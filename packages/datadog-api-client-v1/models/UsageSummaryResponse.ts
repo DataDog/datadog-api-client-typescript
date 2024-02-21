@@ -37,6 +37,10 @@ export class UsageSummaryResponse {
    */
   "appsecFargateCountAvgSum"?: number;
   /**
+   * Shows the sum of all Application Security Monitoring Serverless invocations over all hours in the current months for all organizations.
+   */
+  "asmServerlessAggSum"?: number;
+  /**
    * Shows the sum of all audit logs lines indexed over all hours in the current months for all organizations.
    */
   "auditLogsLinesIndexedAggSum"?: number;
@@ -505,6 +509,11 @@ export class UsageSummaryResponse {
     },
     appsecFargateCountAvgSum: {
       baseName: "appsec_fargate_count_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    asmServerlessAggSum: {
+      baseName: "asm_serverless_agg_sum",
       type: "number",
       format: "int64",
     },
