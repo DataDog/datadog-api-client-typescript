@@ -10,7 +10,7 @@ import { CIAppSortOrder } from "./CIAppSortOrder";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A sort rule.
+ * A sort rule. The `aggregation` field is required when `type` is `measure`.
  */
 export class CIAppAggregateSort {
   /**
