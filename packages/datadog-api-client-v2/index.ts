@@ -1838,6 +1838,7 @@ export { UsersType } from "./models/UsersType";
 export { UserTeam } from "./models/UserTeam";
 export { UserTeamAttributes } from "./models/UserTeamAttributes";
 export { UserTeamCreate } from "./models/UserTeamCreate";
+export { UserTeamIncluded } from "./models/UserTeamIncluded";
 export { UserTeamPermission } from "./models/UserTeamPermission";
 export { UserTeamPermissionAttributes } from "./models/UserTeamPermissionAttributes";
 export { UserTeamPermissionType } from "./models/UserTeamPermissionType";
