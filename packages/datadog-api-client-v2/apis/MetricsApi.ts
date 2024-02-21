@@ -1628,7 +1628,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterGroups?: string;
   /**
-   * The number of hours of look back (from now) to estimate cardinality with.
+   * The number of hours of look back (from now) to estimate cardinality with. Estimates are based on historical data, and unspecified fields default to the minimum 49 hours.
    * @type number
    */
   filterHoursAgo?: number;
