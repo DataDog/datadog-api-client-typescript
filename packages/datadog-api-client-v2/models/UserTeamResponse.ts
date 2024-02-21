@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { UserTeam } from "./UserTeam";
+import { UserTeamIncluded } from "./UserTeamIncluded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,6 +16,10 @@ export class UserTeamResponse {
    * A user's relationship with a team
    */
   "data"?: UserTeam;
+  /**
+   * Resources related to the team memberships
+   */
+  "included"?: Array<UserTeamIncluded>;
 
   /**
    * @ignore
@@ -28,6 +33,10 @@ export class UserTeamResponse {
     data: {
       baseName: "data",
       type: "UserTeam",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<UserTeamIncluded>",
     },
   };
 
