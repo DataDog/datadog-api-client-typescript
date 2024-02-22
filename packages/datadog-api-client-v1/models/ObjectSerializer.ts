@@ -1415,6 +1415,8 @@ const enumsMap: { [key: string]: any[] } = {
     "appsec_fargate_percentage",
     "estimated_rum_usage_attribution_usage",
     "estimated_rum_usage_attribution_percentage",
+    "asm_serverless_traced_invocations_usage",
+    "asm_serverless_traced_invocations_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1463,6 +1465,8 @@ const enumsMap: { [key: string]: any[] } = {
     "appsec_fargate_percentage",
     "estimated_rum_usage_attribution_usage",
     "estimated_rum_usage_attribution_percentage",
+    "asm_serverless_traced_invocations_usage",
+    "asm_serverless_traced_invocations_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],

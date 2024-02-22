@@ -57,6 +57,8 @@ export type UsageAttributionSupportedMetrics =
   | typeof APPSEC_FARGATE_PERCENTAGE
   | typeof ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE
   | typeof ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE
+  | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE
+  | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE
   | typeof ALL
   | UnparsedObject;
 export const CUSTOM_TIMESERIES_USAGE = "custom_timeseries_usage";
@@ -111,4 +113,8 @@ export const ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE =
   "estimated_rum_usage_attribution_usage";
 export const ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE =
   "estimated_rum_usage_attribution_percentage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
+  "asm_serverless_traced_invocations_usage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
+  "asm_serverless_traced_invocations_percentage";
 export const ALL = "*";
