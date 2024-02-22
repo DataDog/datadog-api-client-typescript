@@ -33,7 +33,7 @@ export class {{ name }} {
 {%- endif %}
   "{{ attr|attribute_name }}"{%- if not isRequired %}?{%- endif %}: {{ type_to_typescript(schema) }}{%- if isRequired and isNullable %}|null{%- endif %};
 {%- endfor %}
-{%- if model.get("additionalProperties", true) %}
+{%- if model.additionalProperties is not false %}
 
   /**
    * A container for additional, undeclared properties.
@@ -65,9 +65,9 @@ export class {{ name }} {
       {%- if format %}
       "format": "{{ format }}",
       {%- endif %}
-    }{%- if loop.nextitem or model.get("additionalProperties", true) %},{%- endif %}
+    }{%- if loop.nextitem or model.additionalProperties is not false %},{%- endif %}
     {%- endfor %}
-    {%- if model.get("additionalProperties", true) %}
+    {%- if model.additionalProperties is not false %}
     {%- set format = get_format_for_schema(model.get("additionalProperties", {})) %}
     "additionalProperties": {
       "baseName": "additionalProperties",
