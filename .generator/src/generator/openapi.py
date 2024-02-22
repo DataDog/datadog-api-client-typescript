@@ -55,6 +55,8 @@ def form_parameter(operation):
 
 def type_to_typescript(schema, alternative_name=None, check_nullable=True):
     """Return Typescript type name for the type."""
+    if schema is True or schema is {}:
+        return "any"
     name = get_name(schema)
     if name and "items" not in schema and not is_primitive(schema):
         if "enum" in schema:

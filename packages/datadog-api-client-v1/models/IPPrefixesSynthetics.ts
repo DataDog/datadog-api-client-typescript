@@ -28,6 +28,13 @@ export class IPPrefixesSynthetics {
   "prefixesIpv6ByLocation"?: { [key: string]: Array<string> };
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -51,6 +58,10 @@ export class IPPrefixesSynthetics {
     prefixesIpv6ByLocation: {
       baseName: "prefixes_ipv6_by_location",
       type: "{ [key: string]: Array<string>; }",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 
