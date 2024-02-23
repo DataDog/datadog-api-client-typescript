@@ -23,6 +23,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof APM_USM_PERCENTAGE
   | typeof APPSEC_USAGE
   | typeof APPSEC_PERCENTAGE
+  | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE
+  | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE
   | typeof BROWSER_USAGE
   | typeof BROWSER_PERCENTAGE
   | typeof CI_VISIBILITY_ITR_USAGE
@@ -49,6 +51,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof DBM_HOSTS_USAGE
   | typeof DBM_QUERIES_PERCENTAGE
   | typeof DBM_QUERIES_USAGE
+  | typeof ERROR_TRACKING_USAGE
+  | typeof ERROR_TRACKING_PERCENTAGE
   | typeof ESTIMATED_INDEXED_LOGS_USAGE
   | typeof ESTIMATED_INDEXED_LOGS_PERCENTAGE
   | typeof ESTIMATED_INGESTED_LOGS_USAGE
@@ -145,6 +149,10 @@ export const APM_USM_USAGE = "apm_usm_usage";
 export const APM_USM_PERCENTAGE = "apm_usm_percentage";
 export const APPSEC_USAGE = "appsec_usage";
 export const APPSEC_PERCENTAGE = "appsec_percentage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
+  "asm_serverless_traced_invocations_usage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
+  "asm_serverless_traced_invocations_percentage";
 export const BROWSER_USAGE = "browser_usage";
 export const BROWSER_PERCENTAGE = "browser_percentage";
 export const CI_VISIBILITY_ITR_USAGE = "ci_visibility_itr_usage";
@@ -174,6 +182,8 @@ export const DBM_HOSTS_PERCENTAGE = "dbm_hosts_percentage";
 export const DBM_HOSTS_USAGE = "dbm_hosts_usage";
 export const DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage";
 export const DBM_QUERIES_USAGE = "dbm_queries_usage";
+export const ERROR_TRACKING_USAGE = "error_tracking_usage";
+export const ERROR_TRACKING_PERCENTAGE = "error_tracking_percentage";
 export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
 export const ESTIMATED_INDEXED_LOGS_PERCENTAGE =
   "estimated_indexed_logs_percentage";
