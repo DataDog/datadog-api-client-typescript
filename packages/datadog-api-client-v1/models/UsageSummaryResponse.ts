@@ -117,6 +117,10 @@ export class UsageSummaryResponse {
    */
   "cloudCostManagementAzureHostCountAvgSum"?: number;
   /**
+   * Sum of the host count average for Cloud Cost Management for GCP.
+   */
+  "cloudCostManagementGcpHostCountAvgSum"?: number;
+  /**
    * Sum of the host count average for Cloud Cost Management for all cloud providers.
    */
   "cloudCostManagementHostCountAvgSum"?: number;
@@ -237,6 +241,10 @@ export class UsageSummaryResponse {
    */
   "endDate"?: Date;
   /**
+   * Shows the sum of all Error Tracking events over all hours in the current months for all organizations.
+   */
+  "errorTrackingEventsAggSum"?: number;
+  /**
    * Shows the average of all Fargate tasks over all hours in the current month for all organizations.
    */
   "fargateTasksCountAvgSum"?: number;
@@ -244,6 +252,26 @@ export class UsageSummaryResponse {
    * Shows the sum of the high-water marks of all Fargate tasks over all hours in the current month for all organizations.
    */
   "fargateTasksCountHwmSum"?: number;
+  /**
+   * Shows the average number of Flex Logs Compute Large Instances over all hours in the current months for all organizations.
+   */
+  "flexLogsComputeLargeAvgSum"?: number;
+  /**
+   * Shows the average number of Flex Logs Compute Medium Instances over all hours in the current months for all organizations.
+   */
+  "flexLogsComputeMediumAvgSum"?: number;
+  /**
+   * Shows the average number of Flex Logs Compute Small Instances over all hours in the current months for all organizations.
+   */
+  "flexLogsComputeSmallAvgSum"?: number;
+  /**
+   * Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current months for all organizations.
+   */
+  "flexLogsComputeXsmallAvgSum"?: number;
+  /**
+   * Shows the average of all Flex Stored Logs over all hours in the current months for all organizations.
+   */
+  "flexStoredLogsAvgSum"?: number;
   /**
    * Shows the sum of all logs forwarding bytes over all hours in the current month for all organizations (data available as of April 1, 2023)
    */
@@ -612,6 +640,11 @@ export class UsageSummaryResponse {
       type: "number",
       format: "int64",
     },
+    cloudCostManagementGcpHostCountAvgSum: {
+      baseName: "cloud_cost_management_gcp_host_count_avg_sum",
+      type: "number",
+      format: "int64",
+    },
     cloudCostManagementHostCountAvgSum: {
       baseName: "cloud_cost_management_host_count_avg_sum",
       type: "number",
@@ -762,6 +795,11 @@ export class UsageSummaryResponse {
       type: "Date",
       format: "date-time",
     },
+    errorTrackingEventsAggSum: {
+      baseName: "error_tracking_events_agg_sum",
+      type: "number",
+      format: "int64",
+    },
     fargateTasksCountAvgSum: {
       baseName: "fargate_tasks_count_avg_sum",
       type: "number",
@@ -769,6 +807,31 @@ export class UsageSummaryResponse {
     },
     fargateTasksCountHwmSum: {
       baseName: "fargate_tasks_count_hwm_sum",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsComputeLargeAvgSum: {
+      baseName: "flex_logs_compute_large_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsComputeMediumAvgSum: {
+      baseName: "flex_logs_compute_medium_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsComputeSmallAvgSum: {
+      baseName: "flex_logs_compute_small_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsComputeXsmallAvgSum: {
+      baseName: "flex_logs_compute_xsmall_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    flexStoredLogsAvgSum: {
+      baseName: "flex_stored_logs_avg_sum",
       type: "number",
       format: "int64",
     },
