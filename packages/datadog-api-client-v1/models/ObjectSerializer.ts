@@ -205,6 +205,7 @@ import { MonitorFormulaAndFunctionEventQueryDefinitionCompute } from "./MonitorF
 import { MonitorFormulaAndFunctionEventQueryDefinitionSearch } from "./MonitorFormulaAndFunctionEventQueryDefinitionSearch";
 import { MonitorFormulaAndFunctionEventQueryGroupBy } from "./MonitorFormulaAndFunctionEventQueryGroupBy";
 import { MonitorFormulaAndFunctionEventQueryGroupBySort } from "./MonitorFormulaAndFunctionEventQueryGroupBySort";
+import { MonitorFreshness } from "./MonitorFreshness";
 import { MonitorGroupSearchResponse } from "./MonitorGroupSearchResponse";
 import { MonitorGroupSearchResponseCounts } from "./MonitorGroupSearchResponseCounts";
 import { MonitorGroupSearchResult } from "./MonitorGroupSearchResult";
@@ -1807,6 +1808,7 @@ const typeMap: { [index: string]: any } = {
     MonitorFormulaAndFunctionEventQueryGroupBy,
   MonitorFormulaAndFunctionEventQueryGroupBySort:
     MonitorFormulaAndFunctionEventQueryGroupBySort,
+  MonitorFreshness: MonitorFreshness,
   MonitorGroupSearchResponse: MonitorGroupSearchResponse,
   MonitorGroupSearchResponseCounts: MonitorGroupSearchResponseCounts,
   MonitorGroupSearchResult: MonitorGroupSearchResult,

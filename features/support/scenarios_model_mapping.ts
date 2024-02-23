@@ -1517,6 +1517,14 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int32",
             },
+        "monitorIds": {
+            "type": "string",
+            "format": "",
+            },
+        "withFreshness": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "Array<Monitor>",
     },
     "v1.CreateMonitor": {

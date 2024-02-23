@@ -208,6 +208,8 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
     idOffset?: number,
     page?: number,
     pageSize?: number,
+    monitorIds?: string,
+    withFreshness?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -269,6 +271,18 @@ export class MonitorsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page_size",
         ObjectSerializer.serialize(pageSize, "number", "int32")
+      );
+    }
+    if (monitorIds !== undefined) {
+      requestContext.setQueryParam(
+        "monitor_ids",
+        ObjectSerializer.serialize(monitorIds, "string", "")
+      );
+    }
+    if (withFreshness !== undefined) {
+      requestContext.setQueryParam(
+        "with_freshness",
+        ObjectSerializer.serialize(withFreshness, "boolean", "")
       );
     }
 
@@ -1247,6 +1261,16 @@ export interface MonitorsApiListMonitorsRequest {
    * @type number
    */
   pageSize?: number;
+  /**
+   * A comma separated list of monitor ids
+   * @type string
+   */
+  monitorIds?: string;
+  /**
+   * If this argument is set to true, then the returned monitors include the monitor freshness, indicating whether the monitor is correctly evaluating
+   * @type boolean
+   */
+  withFreshness?: boolean;
 }
 
 export interface MonitorsApiSearchMonitorGroupsRequest {
@@ -1653,6 +1677,8 @@ export class MonitorsApi {
       param.idOffset,
       param.page,
       param.pageSize,
+      param.monitorIds,
+      param.withFreshness,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -1687,6 +1713,8 @@ export class MonitorsApi {
         param.idOffset,
         param.page,
         param.pageSize,
+        param.monitorIds,
+        param.withFreshness,
         options
       );
       const responseContext = await this.configuration.httpApi.send(

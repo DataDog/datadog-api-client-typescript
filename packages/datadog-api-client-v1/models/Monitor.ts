@@ -5,6 +5,7 @@
  */
 import { Creator } from "./Creator";
 import { MatchingDowntime } from "./MatchingDowntime";
+import { MonitorFreshness } from "./MonitorFreshness";
 import { MonitorOptions } from "./MonitorOptions";
 import { MonitorOverallStates } from "./MonitorOverallStates";
 import { MonitorState } from "./MonitorState";
@@ -28,6 +29,10 @@ export class Monitor {
    * Whether or not the monitor is deleted. (Always `null`)
    */
   "deleted"?: Date;
+  /**
+   * The freshness of the monitor, indicating if the monitor evaluation is up to date. **This feature is currently in private beta.**
+   */
+  "freshness"?: MonitorFreshness;
   /**
    * ID of this monitor.
    */
@@ -107,6 +112,10 @@ export class Monitor {
       baseName: "deleted",
       type: "Date",
       format: "date-time",
+    },
+    freshness: {
+      baseName: "freshness",
+      type: "MonitorFreshness",
     },
     id: {
       baseName: "id",

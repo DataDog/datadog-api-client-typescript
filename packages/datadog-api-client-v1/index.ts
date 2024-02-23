@@ -617,6 +617,7 @@ export { MonitorFormulaAndFunctionEventQueryGroupBy } from "./models/MonitorForm
 export { MonitorFormulaAndFunctionEventQueryGroupBySort } from "./models/MonitorFormulaAndFunctionEventQueryGroupBySort";
 export { MonitorFormulaAndFunctionEventsDataSource } from "./models/MonitorFormulaAndFunctionEventsDataSource";
 export { MonitorFormulaAndFunctionQueryDefinition } from "./models/MonitorFormulaAndFunctionQueryDefinition";
+export { MonitorFreshness } from "./models/MonitorFreshness";
 export { MonitorGroupSearchResponse } from "./models/MonitorGroupSearchResponse";
 export { MonitorGroupSearchResponseCounts } from "./models/MonitorGroupSearchResponseCounts";
 export { MonitorGroupSearchResult } from "./models/MonitorGroupSearchResult";
