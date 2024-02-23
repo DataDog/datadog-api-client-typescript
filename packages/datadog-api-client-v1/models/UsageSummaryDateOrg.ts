@@ -23,7 +23,7 @@ export class UsageSummaryDateOrg {
    */
   "apmDevsecopsHostTop99p"?: number;
   /**
-   * Shows the average of all APM ECS Fargate tasks over all hours in the current months for the given org.
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current month for the given org.
    */
   "apmFargateCountAvg"?: number;
   /**
@@ -31,7 +31,7 @@ export class UsageSummaryDateOrg {
    */
   "apmHostTop99p"?: number;
   /**
-   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current months for the given org.
+   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current month for the given org.
    */
   "appsecFargateCountAvg"?: number;
   /**
