@@ -1212,6 +1212,8 @@ export { MetricTagConfigurationUpdateRequest } from "./models/MetricTagConfigura
 export { MetricType } from "./models/MetricType";
 export { MetricVolumes } from "./models/MetricVolumes";
 export { MetricVolumesResponse } from "./models/MetricVolumesResponse";
+export { MicrosoftTeamsIntegrationMetadata } from "./models/MicrosoftTeamsIntegrationMetadata";
+export { MicrosoftTeamsIntegrationMetadataTeamsItem } from "./models/MicrosoftTeamsIntegrationMetadataTeamsItem";
 export { MonitorConfigPolicyAttributeCreateRequest } from "./models/MonitorConfigPolicyAttributeCreateRequest";
 export { MonitorConfigPolicyAttributeEditRequest } from "./models/MonitorConfigPolicyAttributeEditRequest";
 export { MonitorConfigPolicyAttributeResponse } from "./models/MonitorConfigPolicyAttributeResponse";
