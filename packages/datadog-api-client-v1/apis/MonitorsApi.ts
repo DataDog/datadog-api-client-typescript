@@ -1419,7 +1419,7 @@ export class MonitorsApi {
    * - database-monitoring: `database-monitoring alert`
    *
    * **Notes**:
-   * - Synthetic monitors are created through the Synthetics API. See the [Synthetics API] (https://docs.datadoghq.com/api/latest/synthetics/) documentation for more information.
+   * - Synthetic monitors are created through the Synthetics API. See the [Synthetics API](https://docs.datadoghq.com/api/latest/synthetics/) documentation for more information.
    * - Log monitors require an unscoped App Key.
    *
    * #### Query Types
@@ -1570,8 +1570,6 @@ export class MonitorsApi {
    * - `time_window` #m (between 1 and 2880), #h (between 1 and 48).
    * - `operator` `<`, `<=`, `>`, `>=`, `==`, or `!=`.
    * - `#` an integer or decimal number used to set the threshold.
-   *
-   * **NOTE** Database Monitoring monitors are in alpha on US1.
    * @param param The request object
    */
   public createMonitor(
