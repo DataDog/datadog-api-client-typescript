@@ -556,6 +556,8 @@ import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
 import { MetricsScalarQuery } from "./MetricsScalarQuery";
 import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
+import { MicrosoftTeamsIntegrationMetadata } from "./MicrosoftTeamsIntegrationMetadata";
+import { MicrosoftTeamsIntegrationMetadataTeamsItem } from "./MicrosoftTeamsIntegrationMetadataTeamsItem";
 import { MonitorConfigPolicyAttributeCreateRequest } from "./MonitorConfigPolicyAttributeCreateRequest";
 import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAttributeEditRequest";
 import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
@@ -2241,6 +2243,9 @@ const typeMap: { [index: string]: any } = {
     MetricsAndMetricTagConfigurationsResponse,
   MetricsScalarQuery: MetricsScalarQuery,
   MetricsTimeseriesQuery: MetricsTimeseriesQuery,
+  MicrosoftTeamsIntegrationMetadata: MicrosoftTeamsIntegrationMetadata,
+  MicrosoftTeamsIntegrationMetadataTeamsItem:
+    MicrosoftTeamsIntegrationMetadataTeamsItem,
   MonitorConfigPolicyAttributeCreateRequest:
     MonitorConfigPolicyAttributeCreateRequest,
   MonitorConfigPolicyAttributeEditRequest:
@@ -2863,6 +2868,7 @@ const oneOfMap: { [index: string]: string[] } = {
   IncidentIntegrationMetadataMetadata: [
     "SlackIntegrationMetadata",
     "JiraIntegrationMetadata",
+    "MicrosoftTeamsIntegrationMetadata",
   ],
   IncidentIntegrationMetadataResponseIncludedItem: ["User"],
   IncidentResponseIncludedItem: ["User", "IncidentAttachmentData"],
