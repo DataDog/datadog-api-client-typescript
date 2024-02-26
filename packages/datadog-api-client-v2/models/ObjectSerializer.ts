@@ -123,6 +123,28 @@ import { CIAppTestsBucketResponse } from "./CIAppTestsBucketResponse";
 import { CIAppTestsGroupBy } from "./CIAppTestsGroupBy";
 import { CIAppTestsQueryFilter } from "./CIAppTestsQueryFilter";
 import { CIAppWarning } from "./CIAppWarning";
+import { Case } from "./Case";
+import { CaseAssign } from "./CaseAssign";
+import { CaseAssignAttributes } from "./CaseAssignAttributes";
+import { CaseAssignRequest } from "./CaseAssignRequest";
+import { CaseAttributes } from "./CaseAttributes";
+import { CaseCreate } from "./CaseCreate";
+import { CaseCreateAttributes } from "./CaseCreateAttributes";
+import { CaseCreateRelationships } from "./CaseCreateRelationships";
+import { CaseCreateRequest } from "./CaseCreateRequest";
+import { CaseEmpty } from "./CaseEmpty";
+import { CaseEmptyRequest } from "./CaseEmptyRequest";
+import { CaseRelationships } from "./CaseRelationships";
+import { CaseResponse } from "./CaseResponse";
+import { CaseUpdatePriority } from "./CaseUpdatePriority";
+import { CaseUpdatePriorityAttributes } from "./CaseUpdatePriorityAttributes";
+import { CaseUpdatePriorityRequest } from "./CaseUpdatePriorityRequest";
+import { CaseUpdateStatus } from "./CaseUpdateStatus";
+import { CaseUpdateStatusAttributes } from "./CaseUpdateStatusAttributes";
+import { CaseUpdateStatusRequest } from "./CaseUpdateStatusRequest";
+import { CasesResponse } from "./CasesResponse";
+import { CasesResponseMeta } from "./CasesResponseMeta";
+import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
@@ -201,6 +223,9 @@ import { CostAttributionAggregatesBody } from "./CostAttributionAggregatesBody";
 import { CostByOrg } from "./CostByOrg";
 import { CostByOrgAttributes } from "./CostByOrgAttributes";
 import { CostByOrgResponse } from "./CostByOrgResponse";
+import { CreateOpenAPIResponse } from "./CreateOpenAPIResponse";
+import { CreateOpenAPIResponseAttributes } from "./CreateOpenAPIResponseAttributes";
+import { CreateOpenAPIResponseData } from "./CreateOpenAPIResponseData";
 import { CreateRuleRequest } from "./CreateRuleRequest";
 import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
@@ -423,6 +448,8 @@ import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
+import { JiraIssue } from "./JiraIssue";
+import { JiraIssueResult } from "./JiraIssueResult";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
 import { ListDowntimesResponse } from "./ListDowntimesResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
@@ -552,6 +579,8 @@ import { MonthlyCostAttributionPagination } from "./MonthlyCostAttributionPagina
 import { MonthlyCostAttributionResponse } from "./MonthlyCostAttributionResponse";
 import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { NullableRelationshipToUserData } from "./NullableRelationshipToUserData";
+import { NullableUserRelationship } from "./NullableUserRelationship";
+import { NullableUserRelationshipData } from "./NullableUserRelationshipData";
 import { OktaAccount } from "./OktaAccount";
 import { OktaAccountAttributes } from "./OktaAccountAttributes";
 import { OktaAccountRequest } from "./OktaAccountRequest";
@@ -564,6 +593,8 @@ import { OktaAccountsResponse } from "./OktaAccountsResponse";
 import { OnDemandConcurrencyCap } from "./OnDemandConcurrencyCap";
 import { OnDemandConcurrencyCapAttributes } from "./OnDemandConcurrencyCapAttributes";
 import { OnDemandConcurrencyCapResponse } from "./OnDemandConcurrencyCapResponse";
+import { OpenAPIEndpoint } from "./OpenAPIEndpoint";
+import { OpenAPIFile } from "./OpenAPIFile";
 import { OpsgenieServiceCreateAttributes } from "./OpsgenieServiceCreateAttributes";
 import { OpsgenieServiceCreateData } from "./OpsgenieServiceCreateData";
 import { OpsgenieServiceCreateRequest } from "./OpsgenieServiceCreateRequest";
@@ -616,9 +647,19 @@ import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
+import { Project } from "./Project";
+import { ProjectAttributes } from "./ProjectAttributes";
+import { ProjectCreate } from "./ProjectCreate";
+import { ProjectCreateAttributes } from "./ProjectCreateAttributes";
+import { ProjectCreateRequest } from "./ProjectCreateRequest";
+import { ProjectRelationship } from "./ProjectRelationship";
+import { ProjectRelationshipData } from "./ProjectRelationshipData";
+import { ProjectRelationships } from "./ProjectRelationships";
+import { ProjectResponse } from "./ProjectResponse";
 import { ProjectedCost } from "./ProjectedCost";
 import { ProjectedCostAttributes } from "./ProjectedCostAttributes";
 import { ProjectedCostResponse } from "./ProjectedCostResponse";
+import { ProjectsResponse } from "./ProjectsResponse";
 import { QueryFormula } from "./QueryFormula";
 import { RUMAggregateBucketValueTimeseriesPoint } from "./RUMAggregateBucketValueTimeseriesPoint";
 import { RUMAggregateRequest } from "./RUMAggregateRequest";
@@ -893,6 +934,8 @@ import { ServiceDefinitionV2Opsgenie } from "./ServiceDefinitionV2Opsgenie";
 import { ServiceDefinitionV2Repo } from "./ServiceDefinitionV2Repo";
 import { ServiceDefinitionV2Slack } from "./ServiceDefinitionV2Slack";
 import { ServiceDefinitionsListResponse } from "./ServiceDefinitionsListResponse";
+import { ServiceNowTicket } from "./ServiceNowTicket";
+import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
 import { Span } from "./Span";
@@ -977,6 +1020,9 @@ import { TimeseriesResponse } from "./TimeseriesResponse";
 import { TimeseriesResponseAttributes } from "./TimeseriesResponseAttributes";
 import { TimeseriesResponseSeries } from "./TimeseriesResponseSeries";
 import { Unit } from "./Unit";
+import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
+import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
+import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -995,6 +1041,7 @@ import { UserInvitationResponse } from "./UserInvitationResponse";
 import { UserInvitationResponseData } from "./UserInvitationResponseData";
 import { UserInvitationsRequest } from "./UserInvitationsRequest";
 import { UserInvitationsResponse } from "./UserInvitationsResponse";
+import { UserRelationshipData } from "./UserRelationshipData";
 import { UserRelationships } from "./UserRelationships";
 import { UserResponse } from "./UserResponse";
 import { UserResponseRelationships } from "./UserResponseRelationships";
@@ -1012,6 +1059,7 @@ import { UserTeamsResponse } from "./UserTeamsResponse";
 import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
+import { UsersRelationship } from "./UsersRelationship";
 import { UsersResponse } from "./UsersResponse";
 import {
   dateFromRFC3339String,
@@ -1131,6 +1179,12 @@ const enumsMap: { [key: string]: any[] } = {
   CIAppSortOrder: ["asc", "desc"],
   CIAppTestEventTypeName: ["citest"],
   CIAppTestLevel: ["session", "module", "suite", "test"],
+  Case3rdPartyTicketStatus: ["IN_PROGRESS", "COMPLETED", "FAILED"],
+  CasePriority: ["NOT_DEFINED", "P1", "P2", "P3", "P4", "P5"],
+  CaseResourceType: ["case"],
+  CaseSortableField: ["created_at", "priority", "status"],
+  CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
+  CaseType: ["STANDARD"],
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudCostActivityType: ["cloud_cost_activity"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
@@ -1317,6 +1371,7 @@ const enumsMap: { [key: string]: any[] } = {
   OutcomesBatchType: ["batched-outcome"],
   PermissionsType: ["permissions"],
   ProcessSummaryType: ["process"],
+  ProjectResourceType: ["project"],
   ProjectedCostType: ["projected_cost"],
   QuerySortOrder: ["asc", "desc"],
   RUMAggregateSortType: ["alphabetical", "measure"],
@@ -1557,6 +1612,7 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaResponseType: ["timeseries_response"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
+  UserResourceType: ["user"],
   UserTeamPermissionType: ["user_team_permissions"],
   UserTeamRole: ["admin"],
   UserTeamTeamType: ["team"],
@@ -1712,6 +1768,28 @@ const typeMap: { [index: string]: any } = {
   CIAppTestsGroupBy: CIAppTestsGroupBy,
   CIAppTestsQueryFilter: CIAppTestsQueryFilter,
   CIAppWarning: CIAppWarning,
+  Case: Case,
+  CaseAssign: CaseAssign,
+  CaseAssignAttributes: CaseAssignAttributes,
+  CaseAssignRequest: CaseAssignRequest,
+  CaseAttributes: CaseAttributes,
+  CaseCreate: CaseCreate,
+  CaseCreateAttributes: CaseCreateAttributes,
+  CaseCreateRelationships: CaseCreateRelationships,
+  CaseCreateRequest: CaseCreateRequest,
+  CaseEmpty: CaseEmpty,
+  CaseEmptyRequest: CaseEmptyRequest,
+  CaseRelationships: CaseRelationships,
+  CaseResponse: CaseResponse,
+  CaseUpdatePriority: CaseUpdatePriority,
+  CaseUpdatePriorityAttributes: CaseUpdatePriorityAttributes,
+  CaseUpdatePriorityRequest: CaseUpdatePriorityRequest,
+  CaseUpdateStatus: CaseUpdateStatus,
+  CaseUpdateStatusAttributes: CaseUpdateStatusAttributes,
+  CaseUpdateStatusRequest: CaseUpdateStatusRequest,
+  CasesResponse: CasesResponse,
+  CasesResponseMeta: CasesResponseMeta,
+  CasesResponseMetaPagination: CasesResponseMetaPagination,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
@@ -1808,6 +1886,9 @@ const typeMap: { [index: string]: any } = {
   CostByOrg: CostByOrg,
   CostByOrgAttributes: CostByOrgAttributes,
   CostByOrgResponse: CostByOrgResponse,
+  CreateOpenAPIResponse: CreateOpenAPIResponse,
+  CreateOpenAPIResponseAttributes: CreateOpenAPIResponseAttributes,
+  CreateOpenAPIResponseData: CreateOpenAPIResponseData,
   CreateRuleRequest: CreateRuleRequest,
   CreateRuleRequestData: CreateRuleRequestData,
   CreateRuleResponse: CreateRuleResponse,
@@ -2047,6 +2128,8 @@ const typeMap: { [index: string]: any } = {
   JSONAPIErrorResponse: JSONAPIErrorResponse,
   JiraIntegrationMetadata: JiraIntegrationMetadata,
   JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
+  JiraIssue: JiraIssue,
+  JiraIssueResult: JiraIssueResult,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
   ListDowntimesResponse: ListDowntimesResponse,
   ListFindingsMeta: ListFindingsMeta,
@@ -2185,6 +2268,8 @@ const typeMap: { [index: string]: any } = {
   MonthlyCostAttributionResponse: MonthlyCostAttributionResponse,
   NullableRelationshipToUser: NullableRelationshipToUser,
   NullableRelationshipToUserData: NullableRelationshipToUserData,
+  NullableUserRelationship: NullableUserRelationship,
+  NullableUserRelationshipData: NullableUserRelationshipData,
   OktaAccount: OktaAccount,
   OktaAccountAttributes: OktaAccountAttributes,
   OktaAccountRequest: OktaAccountRequest,
@@ -2197,6 +2282,8 @@ const typeMap: { [index: string]: any } = {
   OnDemandConcurrencyCap: OnDemandConcurrencyCap,
   OnDemandConcurrencyCapAttributes: OnDemandConcurrencyCapAttributes,
   OnDemandConcurrencyCapResponse: OnDemandConcurrencyCapResponse,
+  OpenAPIEndpoint: OpenAPIEndpoint,
+  OpenAPIFile: OpenAPIFile,
   OpsgenieServiceCreateAttributes: OpsgenieServiceCreateAttributes,
   OpsgenieServiceCreateData: OpsgenieServiceCreateData,
   OpsgenieServiceCreateRequest: OpsgenieServiceCreateRequest,
@@ -2250,9 +2337,19 @@ const typeMap: { [index: string]: any } = {
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
+  Project: Project,
+  ProjectAttributes: ProjectAttributes,
+  ProjectCreate: ProjectCreate,
+  ProjectCreateAttributes: ProjectCreateAttributes,
+  ProjectCreateRequest: ProjectCreateRequest,
+  ProjectRelationship: ProjectRelationship,
+  ProjectRelationshipData: ProjectRelationshipData,
+  ProjectRelationships: ProjectRelationships,
+  ProjectResponse: ProjectResponse,
   ProjectedCost: ProjectedCost,
   ProjectedCostAttributes: ProjectedCostAttributes,
   ProjectedCostResponse: ProjectedCostResponse,
+  ProjectsResponse: ProjectsResponse,
   QueryFormula: QueryFormula,
   RUMAggregateBucketValueTimeseriesPoint:
     RUMAggregateBucketValueTimeseriesPoint,
@@ -2583,6 +2680,8 @@ const typeMap: { [index: string]: any } = {
   ServiceDefinitionV2Repo: ServiceDefinitionV2Repo,
   ServiceDefinitionV2Slack: ServiceDefinitionV2Slack,
   ServiceDefinitionsListResponse: ServiceDefinitionsListResponse,
+  ServiceNowTicket: ServiceNowTicket,
+  ServiceNowTicketResult: ServiceNowTicketResult,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
   Span: Span,
@@ -2668,6 +2767,9 @@ const typeMap: { [index: string]: any } = {
   TimeseriesResponseAttributes: TimeseriesResponseAttributes,
   TimeseriesResponseSeries: TimeseriesResponseSeries,
   Unit: Unit,
+  UpdateOpenAPIResponse: UpdateOpenAPIResponse,
+  UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
+  UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
@@ -2687,6 +2789,7 @@ const typeMap: { [index: string]: any } = {
   UserInvitationResponseData: UserInvitationResponseData,
   UserInvitationsRequest: UserInvitationsRequest,
   UserInvitationsResponse: UserInvitationsResponse,
+  UserRelationshipData: UserRelationshipData,
   UserRelationships: UserRelationships,
   UserResponse: UserResponse,
   UserResponseRelationships: UserResponseRelationships,
@@ -2704,6 +2807,7 @@ const typeMap: { [index: string]: any } = {
   UserUpdateAttributes: UserUpdateAttributes,
   UserUpdateData: UserUpdateData,
   UserUpdateRequest: UserUpdateRequest,
+  UsersRelationship: UsersRelationship,
   UsersResponse: UsersResponse,
 };
 
@@ -2850,6 +2954,7 @@ const oneOfMap: { [index: string]: string[] } = {
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
+  UserTeamIncluded: ["User"],
 };
 
 export class ObjectSerializer {

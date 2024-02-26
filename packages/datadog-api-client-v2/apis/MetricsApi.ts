@@ -738,7 +738,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -801,7 +801,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -864,7 +864,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -922,7 +922,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -985,7 +985,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1049,7 +1049,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1112,7 +1112,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1175,7 +1175,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1239,7 +1239,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1302,7 +1302,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1365,7 +1365,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1428,7 +1428,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1492,7 +1492,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1555,7 +1555,7 @@ export class MetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1628,7 +1628,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterGroups?: string;
   /**
-   * The number of hours of look back (from now) to estimate cardinality with.
+   * The number of hours of look back (from now) to estimate cardinality with. Estimates are based on historical data, and unspecified fields default to the minimum 49 hours.
    * @type number
    */
   filterHoursAgo?: number;

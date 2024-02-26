@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class DORAIncidentRequestAttributes {
   /**
+   * Environment name that was impacted by the incident.
+   */
+  "env"?: string;
+  /**
    * Unix timestamp in nanoseconds when the incident finished. It should not be older than 3 hours.
    */
   "finishedAt"?: number;
@@ -20,7 +24,7 @@ export class DORAIncidentRequestAttributes {
    */
   "git"?: DORAGitInfo;
   /**
-   * Incident ID
+   * Incident ID. Required to update a previously sent incident.
    */
   "id"?: string;
   /**
@@ -28,9 +32,9 @@ export class DORAIncidentRequestAttributes {
    */
   "name"?: string;
   /**
-   * Service name from a service available in the Service Catalog.
+   * Service names impacted by the incident. If possible, use names registered in the Service Catalog. Required when the team field is not provided.
    */
-  "service": string;
+  "services"?: Array<string>;
   /**
    * Incident severity.
    */
@@ -39,6 +43,10 @@ export class DORAIncidentRequestAttributes {
    * Unix timestamp in nanoseconds when the incident started.
    */
   "startedAt": number;
+  /**
+   * Name of the team owning the services impacted. If possible, use team handles registered in Datadog. Required when the services field is not provided.
+   */
+  "team"?: string;
   /**
    * Version to correlate with [APM Deployment Tracking](https://docs.datadoghq.com/tracing/services/deployment_tracking/).
    */
@@ -53,6 +61,10 @@ export class DORAIncidentRequestAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    env: {
+      baseName: "env",
+      type: "string",
+    },
     finishedAt: {
       baseName: "finished_at",
       type: "number",
@@ -70,10 +82,9 @@ export class DORAIncidentRequestAttributes {
       baseName: "name",
       type: "string",
     },
-    service: {
-      baseName: "service",
-      type: "string",
-      required: true,
+    services: {
+      baseName: "services",
+      type: "Array<string>",
     },
     severity: {
       baseName: "severity",
@@ -84,6 +95,10 @@ export class DORAIncidentRequestAttributes {
       type: "number",
       required: true,
       format: "int64",
+    },
+    team: {
+      baseName: "team",
+      type: "string",
     },
     version: {
       baseName: "version",

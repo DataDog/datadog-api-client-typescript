@@ -663,7 +663,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -726,7 +726,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -788,7 +788,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -850,7 +850,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -912,7 +912,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -974,7 +974,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1036,7 +1036,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1099,7 +1099,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1163,7 +1163,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1227,7 +1227,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -1323,8 +1323,8 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
   /**
    * Comma separated list of product families to retrieve. Available families are `all`, `analyzed_logs`,
    * `application_security`, `audit_trail`, `serverless`, `ci_app`, `cloud_cost_management`,
-   * `csm_container_enterprise`, `csm_host_enterprise`, `cspm`, `custom_events`, `cws`, `dbm`, `fargate`,
-   * `infra_hosts`, `incident_management`, `indexed_logs`, `indexed_spans`, `ingested_spans`, `iot`,
+   * `csm_container_enterprise`, `csm_host_enterprise`, `cspm`, `custom_events`, `cws`, `dbm`, `error_tracking`,
+   * `fargate`, `infra_hosts`, `incident_management`, `indexed_logs`, `indexed_spans`, `ingested_spans`, `iot`,
    * `lambda_traced_invocations`, `logs`, `network_flows`, `network_hosts`, `netflow_monitoring`, `observability_pipelines`,
    * `online_archive`, `profiling`, `rum`, `rum_browser_sessions`, `rum_mobile_sessions`, `sds`, `snmp`,
    * `synthetics_api`, `synthetics_browser`, `synthetics_mobile`, `synthetics_parallel_testing`, and `timeseries`.
@@ -1482,7 +1482,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get active billing dimensions for cost attribution. Cost data for a given month becomes available no later than the 17th of the following month.
+   * Get active billing dimensions for cost attribution. Cost data for a given month becomes available no later than the 19th of the following month.
    * @param param The request object
    */
   public getActiveBillingDimensions(
@@ -1609,7 +1609,7 @@ export class UsageMeteringApi {
 
   /**
    * Get monthly cost attribution by tag across multi-org and single root-org accounts.
-   * Cost Attribution data for a given month becomes available no later than the 17th of the following month.
+   * Cost Attribution data for a given month becomes available no later than the 19th of the following month.
    * This API endpoint is paginated. To make sure you receive all records, check if the value of `next_record_id` is
    * set in the response. If it is, make another request and pass `next_record_id` as a parameter.
    * Pseudo code example:
@@ -1700,7 +1700,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda traced invocations.
+   * Get hourly usage for Lambda traced invocations.
    * **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
    * @param param The request object
    */

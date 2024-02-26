@@ -16,6 +16,7 @@ const params: v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
     clientX509CertUrl:
       "https://www.googleapis.com/robot/v1/metadata/x509/$CLIENT_EMAIL",
     hostFilters: "key:value,filter:example",
+    cloudRunRevisionFilters: ["dr:dre"],
     isCspmEnabled: true,
     isSecurityCommandCenterEnabled: true,
     privateKey: "private_key",

@@ -285,7 +285,7 @@ export class LogsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -345,7 +345,7 @@ export class LogsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -407,7 +407,7 @@ export class LogsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -472,7 +472,7 @@ export class LogsApiResponseProcessor {
           "HTTPLogErrors"
         ) as HTTPLogErrors;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<HTTPLogErrors>(
           response.httpStatusCode,
           bodyText

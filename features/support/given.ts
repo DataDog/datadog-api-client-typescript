@@ -112,10 +112,21 @@ for (const apiVersion of Versions) {
       // Deserialize obejcts into correct model types
       const objectSerializer = getProperty(datadogApiClient, apiVersion).ObjectSerializer;
       Object.keys(opts).forEach(key => {
-        opts[key] = objectSerializer.deserialize(
-          opts[key],
-          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].type,
-          ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].format)
+        const type = ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].type
+        const format = ScenariosModelMappings[`${apiVersion}.${operation.operationId}`][key].format
+
+        if (type === "HttpFile" && format === "binary") {
+          opts[key] = {
+            data: Buffer.from(fs.readFileSync(path.join(__dirname, `../${apiVersion}`, opts[key]))),
+            name: opts[key],
+          };
+        } else {
+          opts[key] = objectSerializer.deserialize(
+            opts[key],
+            type,
+            format
+          )
+        }
       });
 
       let result: any = {};

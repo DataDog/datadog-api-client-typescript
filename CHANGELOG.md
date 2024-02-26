@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 1.22.0 / 2024-02-06
+
+### Fixed
+* Add test support for file parameters by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1491
+* Security Monitoring Suppressions - Make expiration date nullable in update payload by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1500
+### Added
+* Security Monitoring - Add API support for suppression rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1484
+* Document support for BYDAY in SLO corrections by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1492
+* Add missing optional field env in DORA API endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1493
+* Add compressedProtoFile field to SyntheticsTestRequest by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1490
+* Add daily limit reset options to logs indexes api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1494
+* Add support for API management API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1489
+* Add pagination helper for team memberships by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1502
+* Increase limit on allowed number of graphs in split graph widget by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1507
+### Deprecated
+* Mark dashboard 'is_read_only' and 'restricted_roles' properties as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1476
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.21.0...v1.22.0
+
 ## 1.21.0 / 2024-01-10
 
 ### Fixed

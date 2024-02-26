@@ -2507,6 +2507,38 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
+    "v2.DeleteOpenAPI": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetOpenAPI": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "operationResponseType": "HttpFile",
+    },
+    "v2.UpdateOpenAPI": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            },
+        "openapiSpecFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "UpdateOpenAPIResponse",
+    },
+    "v2.CreateOpenAPI": {
+        "openapiSpecFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "CreateOpenAPIResponse",
+    },
     "v2.ListSpansMetrics": {
         "operationResponseType": "SpansMetricsResponse",
     },
@@ -2668,6 +2700,133 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "AuthNMappingResponse",
+    },
+    "v2.SearchCases": {
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sortField": {
+            "type": "CaseSortableField",
+            "format": "",
+            },
+        "filter": {
+            "type": "string",
+            "format": "",
+            },
+        "sortAsc": {
+            "type": "boolean",
+            "format": "",
+            },
+        "operationResponseType": "CasesResponse",
+    },
+    "v2.CreateCase": {
+        "body": {
+            "type": "CaseCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.GetProjects": {
+        "operationResponseType": "ProjectsResponse",
+    },
+    "v2.CreateProject": {
+        "body": {
+            "type": "ProjectCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ProjectResponse",
+    },
+    "v2.DeleteProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetProject": {
+        "projectId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ProjectResponse",
+    },
+    "v2.GetCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.ArchiveCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseEmptyRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.AssignCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseAssignRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.UpdatePriority": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseUpdatePriorityRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.UpdateStatus": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseUpdateStatusRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.UnarchiveCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseEmptyRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
+    },
+    "v2.UnassignCase": {
+        "caseId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CaseEmptyRequest",
+            "format": "",
+            },
+        "operationResponseType": "CaseResponse",
     },
     "v2.CreateCIAppPipelineEvent": {
         "body": {

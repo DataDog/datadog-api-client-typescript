@@ -36,6 +36,11 @@ export class GCPAccount {
    */
   "clientX509CertUrl"?: string;
   /**
+   * Limit the Cloud Run revisions that are pulled into Datadog by using tags.
+   * Only Cloud Run revision resources that apply to specified filters are imported into Datadog.
+   */
+  "cloudRunRevisionFilters"?: Array<string>;
+  /**
    * An array of errors.
    */
   "errors"?: Array<string>;
@@ -109,6 +114,10 @@ export class GCPAccount {
     clientX509CertUrl: {
       baseName: "client_x509_cert_url",
       type: "string",
+    },
+    cloudRunRevisionFilters: {
+      baseName: "cloud_run_revision_filters",
+      type: "Array<string>",
     },
     errors: {
       baseName: "errors",

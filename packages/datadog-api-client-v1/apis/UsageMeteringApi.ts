@@ -2122,7 +2122,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2180,7 +2180,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2243,7 +2243,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2306,7 +2306,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2364,7 +2364,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2423,7 +2423,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2487,7 +2487,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2552,7 +2552,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2615,7 +2615,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2673,7 +2673,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2735,7 +2735,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2797,7 +2797,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2859,7 +2859,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2922,7 +2922,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -2985,7 +2985,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3047,7 +3047,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3109,7 +3109,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3171,7 +3171,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3233,7 +3233,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3295,7 +3295,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3357,7 +3357,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3419,7 +3419,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3481,7 +3481,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3543,7 +3543,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3605,7 +3605,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3667,7 +3667,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3729,7 +3729,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3791,7 +3791,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3853,7 +3853,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3915,7 +3915,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -3977,7 +3977,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -4039,7 +4039,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -4101,7 +4101,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -4163,7 +4163,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -4225,7 +4225,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -4287,7 +4287,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -4349,7 +4349,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -4411,7 +4411,7 @@ export class UsageMeteringApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -5615,7 +5615,7 @@ export class UsageMeteringApi {
   }
 
   /**
-   * Get hourly usage for lambda.
+   * Get hourly usage for Lambda.
    * **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family). Refer to [Migrating from the V1 Hourly Usage APIs to V2](https://docs.datadoghq.com/account_management/guide/hourly-usage-migration/) for the associated migration guide.
    * @param param The request object
    */

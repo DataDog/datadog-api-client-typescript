@@ -217,7 +217,7 @@ export class SpansApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -280,7 +280,7 @@ export class SpansApiResponseProcessor {
           "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<JSONAPIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -346,7 +346,7 @@ export class SpansApiResponseProcessor {
           "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<JSONAPIErrorResponse>(
           response.httpStatusCode,
           bodyText
