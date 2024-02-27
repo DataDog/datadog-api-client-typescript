@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Number of lambda functions and sum of the invocations of all lambda functions
+ * Number of Lambda functions and sum of the invocations of all Lambda functions
  * for each hour for a given organization.
  */
 export class UsageLambdaHour {

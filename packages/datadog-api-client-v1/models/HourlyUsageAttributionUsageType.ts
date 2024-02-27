@@ -17,6 +17,8 @@ export type HourlyUsageAttributionUsageType =
   | typeof APM_USM_USAGE
   | typeof APPSEC_FARGATE_USAGE
   | typeof APPSEC_USAGE
+  | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE
+  | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE
   | typeof BROWSER_USAGE
   | typeof CI_PIPELINE_INDEXED_SPANS_USAGE
   | typeof CI_TEST_INDEXED_SPANS_USAGE
@@ -33,6 +35,8 @@ export type HourlyUsageAttributionUsageType =
   | typeof CWS_HOSTS_USAGE
   | typeof DBM_HOSTS_USAGE
   | typeof DBM_QUERIES_USAGE
+  | typeof ERROR_TRACKING_USAGE
+  | typeof ERROR_TRACKING_PERCENTAGE
   | typeof ESTIMATED_INDEXED_LOGS_USAGE
   | typeof ESTIMATED_INDEXED_SPANS_USAGE
   | typeof ESTIMATED_INGESTED_LOGS_USAGE
@@ -78,6 +82,10 @@ export const APM_HOST_USAGE = "apm_host_usage";
 export const APM_USM_USAGE = "apm_usm_usage";
 export const APPSEC_FARGATE_USAGE = "appsec_fargate_usage";
 export const APPSEC_USAGE = "appsec_usage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
+  "asm_serverless_traced_invocations_usage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
+  "asm_serverless_traced_invocations_percentage";
 export const BROWSER_USAGE = "browser_usage";
 export const CI_PIPELINE_INDEXED_SPANS_USAGE =
   "ci_pipeline_indexed_spans_usage";
@@ -96,6 +104,8 @@ export const CWS_CONTAINERS_USAGE = "cws_containers_usage";
 export const CWS_HOSTS_USAGE = "cws_hosts_usage";
 export const DBM_HOSTS_USAGE = "dbm_hosts_usage";
 export const DBM_QUERIES_USAGE = "dbm_queries_usage";
+export const ERROR_TRACKING_USAGE = "error_tracking_usage";
+export const ERROR_TRACKING_PERCENTAGE = "error_tracking_percentage";
 export const ESTIMATED_INDEXED_LOGS_USAGE = "estimated_indexed_logs_usage";
 export const ESTIMATED_INDEXED_SPANS_USAGE = "estimated_indexed_spans_usage";
 export const ESTIMATED_INGESTED_LOGS_USAGE = "estimated_ingested_logs_usage";

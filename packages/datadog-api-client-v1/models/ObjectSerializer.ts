@@ -161,6 +161,7 @@ import { LogsByRetentionOrgUsage } from "./LogsByRetentionOrgUsage";
 import { LogsByRetentionOrgs } from "./LogsByRetentionOrgs";
 import { LogsCategoryProcessor } from "./LogsCategoryProcessor";
 import { LogsCategoryProcessorCategory } from "./LogsCategoryProcessorCategory";
+import { LogsDailyLimitReset } from "./LogsDailyLimitReset";
 import { LogsDateRemapper } from "./LogsDateRemapper";
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsExclusionFilter } from "./LogsExclusionFilter";
@@ -767,6 +768,8 @@ const enumsMap: { [key: string]: any[] } = {
     "apm_usm_usage",
     "appsec_fargate_usage",
     "appsec_usage",
+    "asm_serverless_traced_invocations_usage",
+    "asm_serverless_traced_invocations_percentage",
     "browser_usage",
     "ci_pipeline_indexed_spans_usage",
     "ci_test_indexed_spans_usage",
@@ -783,6 +786,8 @@ const enumsMap: { [key: string]: any[] } = {
     "cws_hosts_usage",
     "dbm_hosts_usage",
     "dbm_queries_usage",
+    "error_tracking_usage",
+    "error_tracking_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_spans_usage",
     "estimated_ingested_logs_usage",
@@ -908,6 +913,7 @@ const enumsMap: { [key: string]: any[] } = {
     "events",
     "logs",
     "spans",
+    "database_queries",
   ],
   MonitorOptionsNotificationPresets: [
     "show_all",
@@ -958,6 +964,8 @@ const enumsMap: { [key: string]: any[] } = {
     "apm_usm_percentage",
     "appsec_usage",
     "appsec_percentage",
+    "asm_serverless_traced_invocations_usage",
+    "asm_serverless_traced_invocations_percentage",
     "browser_usage",
     "browser_percentage",
     "ci_visibility_itr_usage",
@@ -984,6 +992,8 @@ const enumsMap: { [key: string]: any[] } = {
     "dbm_hosts_usage",
     "dbm_queries_percentage",
     "dbm_queries_usage",
+    "error_tracking_usage",
+    "error_tracking_percentage",
     "estimated_indexed_logs_usage",
     "estimated_indexed_logs_percentage",
     "estimated_ingested_logs_usage",
@@ -1129,7 +1139,7 @@ const enumsMap: { [key: string]: any[] } = {
   SunburstWidgetDefinitionType: ["sunburst"],
   SunburstWidgetLegendInlineAutomaticType: ["inline", "automatic"],
   SunburstWidgetLegendTableType: ["table", "none"],
-  SyntheticsAPIStepSubtype: ["http"],
+  SyntheticsAPIStepSubtype: ["http", "grpc"],
   SyntheticsAPITestType: ["api"],
   SyntheticsApiTestFailureCode: [
     "BODY_TOO_LARGE",
@@ -1414,6 +1424,8 @@ const enumsMap: { [key: string]: any[] } = {
     "appsec_fargate_percentage",
     "estimated_rum_usage_attribution_usage",
     "estimated_rum_usage_attribution_percentage",
+    "asm_serverless_traced_invocations_usage",
+    "asm_serverless_traced_invocations_percentage",
   ],
   UsageAttributionSupportedMetrics: [
     "custom_timeseries_usage",
@@ -1462,6 +1474,8 @@ const enumsMap: { [key: string]: any[] } = {
     "appsec_fargate_percentage",
     "estimated_rum_usage_attribution_usage",
     "estimated_rum_usage_attribution_percentage",
+    "asm_serverless_traced_invocations_usage",
+    "asm_serverless_traced_invocations_percentage",
     "*",
   ],
   UsageMetricCategory: ["standard", "custom"],
@@ -1753,6 +1767,7 @@ const typeMap: { [index: string]: any } = {
   LogsByRetentionOrgs: LogsByRetentionOrgs,
   LogsCategoryProcessor: LogsCategoryProcessor,
   LogsCategoryProcessorCategory: LogsCategoryProcessorCategory,
+  LogsDailyLimitReset: LogsDailyLimitReset,
   LogsDateRemapper: LogsDateRemapper,
   LogsExclusion: LogsExclusion,
   LogsExclusionFilter: LogsExclusionFilter,

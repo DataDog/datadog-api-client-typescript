@@ -13,7 +13,7 @@ const params: v2.OktaIntegrationApiCreateOktaAccountRequest = {
       attributes: {
         authMethod: "oauth",
         domain: "https://example.okta.com/",
-        name: "Okta_Prod",
+        name: "exampleoktaintegration",
         clientId: "client_id",
         clientSecret: "client_secret",
       },

@@ -166,7 +166,7 @@ export class {{ className }}ResponseProcessor {
     {%- set responseSchema = response|parameter_schema %}
     if (
       {%- for responseCode in responseCodes -%}
-      {%- if not loop.first -%} || {%- endif -%} response.httpStatusCode == {{ responseCode }}
+      {%- if not loop.first -%} || {%- endif -%} response.httpStatusCode === {{ responseCode }}
       {%- endfor -%}
       ) {
       {%- if responseType %}
@@ -189,7 +189,7 @@ export class {{ className }}ResponseProcessor {
           "{{ responseType }}"
         ) as {{ responseType }};
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<{{ responseType }}>(response.httpStatusCode, bodyText);
       } 
       throw new ApiException<{{ responseType }}>(response.httpStatusCode, body);

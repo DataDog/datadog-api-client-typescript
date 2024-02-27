@@ -125,14 +125,14 @@ export class DORAMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200 || response.httpStatusCode == 202) {
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 202) {
       const body: DORADeploymentResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DORADeploymentResponse"
       ) as DORADeploymentResponse;
       return body;
     }
-    if (response.httpStatusCode == 400) {
+    if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -144,7 +144,7 @@ export class DORAMetricsApiResponseProcessor {
           "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<JSONAPIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -155,7 +155,7 @@ export class DORAMetricsApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -167,7 +167,7 @@ export class DORAMetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -206,14 +206,14 @@ export class DORAMetricsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200 || response.httpStatusCode == 202) {
+    if (response.httpStatusCode === 200 || response.httpStatusCode === 202) {
       const body: DORAIncidentResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "DORAIncidentResponse"
       ) as DORAIncidentResponse;
       return body;
     }
-    if (response.httpStatusCode == 400) {
+    if (response.httpStatusCode === 400) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -225,7 +225,7 @@ export class DORAMetricsApiResponseProcessor {
           "JSONAPIErrorResponse"
         ) as JSONAPIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<JSONAPIErrorResponse>(
           response.httpStatusCode,
           bodyText
@@ -236,7 +236,7 @@ export class DORAMetricsApiResponseProcessor {
         body
       );
     }
-    if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -248,7 +248,7 @@ export class DORAMetricsApiResponseProcessor {
           "APIErrorResponse"
         ) as APIErrorResponse;
       } catch (error) {
-        logger.info(`Got error deserializing error: ${error}`);
+        logger.debug(`Got error deserializing error: ${error}`);
         throw new ApiException<APIErrorResponse>(
           response.httpStatusCode,
           bodyText

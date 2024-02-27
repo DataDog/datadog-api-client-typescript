@@ -8,6 +8,7 @@ import { fetch as crossFetch } from "cross-fetch";
 import pako from "pako";
 import bufferFrom from "buffer-from";
 import { isBrowser, isNode } from "../util";
+import { logger } from "../../../logger";
 
 export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public debug = false;
@@ -32,11 +33,11 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     const headers = request.getHeaders();
 
     if (typeof body === "string") {
-      if (headers["Content-Encoding"] == "gzip") {
+      if (headers["Content-Encoding"] === "gzip") {
         body = bufferFrom(pako.gzip(body).buffer);
-      } else if (headers["Content-Encoding"] == "deflate") {
+      } else if (headers["Content-Encoding"] === "deflate") {
         body = bufferFrom(pako.deflate(body).buffer);
-      } else if (headers["Content-Encoding"] == "zstd1") {
+      } else if (headers["Content-Encoding"] === "zstd1") {
         if (this.zstdCompressorCallback) {
           body = this.zstdCompressorCallback(body);
         } else {
@@ -122,7 +123,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       }
       return response;
     } catch (error) {
-      console.error("An error occurred during the HTTP request:", error);
+      logger.error("An error occurred during the HTTP request:", error);
       throw error;
     }
   }
@@ -140,7 +141,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
     responseCode: number
   ): boolean {
     return (
-      (responseCode == 429 || responseCode >= 500) &&
+      (responseCode === 429 || responseCode >= 500) &&
       maxRetries > currentAttempt &&
       enableRetry
     );
@@ -185,7 +186,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       : "";
     const compress = request.getHttpConfig().compress ?? true;
 
-    console.debug(
+    logger.debug(
       "\nrequest: {\n",
       `\turl: ${url}\n`,
       `\tmethod: ${method}\n`,
@@ -201,7 +202,7 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
       /\n/g,
       "\n\t"
     );
-    console.debug(
+    logger.debug(
       "response: {\n",
       `\tstatus: ${httpStatusCode}\n`,
       `\theaders: ${headers}\n`

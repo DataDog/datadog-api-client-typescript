@@ -254,9 +254,9 @@ class HttpLibraryWithProxy implements client.HttpLibrary {
 
         const headers = request.getHeaders();
         if (typeof body === "string") {
-            if (headers["Content-Encoding"] == "gzip") {
+            if (headers["Content-Encoding"] === "gzip") {
                 body = bufferFrom(pako.gzip(body).buffer);
-            } else if (headers["Content-Encoding"] == "deflate") {
+            } else if (headers["Content-Encoding"] === "deflate") {
                 body = bufferFrom(pako.deflate(body).buffer);
             }
         }

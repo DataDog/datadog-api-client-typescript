@@ -32,7 +32,7 @@ export class CIAppPipelinesGroupBy {
    */
   "missing"?: CIAppGroupByMissing;
   /**
-   * A sort rule.
+   * A sort rule. The `aggregation` field is required when `type` is `measure`.
    */
   "sort"?: CIAppAggregateSort;
   /**

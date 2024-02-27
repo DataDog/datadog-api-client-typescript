@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LogsDailyLimitReset } from "./LogsDailyLimitReset";
 import { LogsExclusion } from "./LogsExclusion";
 import { LogsFilter } from "./LogsFilter";
 
@@ -16,6 +17,14 @@ export class LogsIndexUpdateRequest {
    * The number of log events you can send in this index per day before you are rate-limited.
    */
   "dailyLimit"?: number;
+  /**
+   * Object containing options to override the default daily limit reset time.
+   */
+  "dailyLimitReset"?: LogsDailyLimitReset;
+  /**
+   * A percentage threshold of the daily quota at which a Datadog warning event is generated.
+   */
+  "dailyLimitWarningThresholdPercentage"?: number;
   /**
    * If true, sets the `daily_limit` value to null and the index is not limited on a daily basis (any
    * specified `daily_limit` value in the request is ignored). If false or omitted, the index's current
@@ -54,6 +63,15 @@ export class LogsIndexUpdateRequest {
       baseName: "daily_limit",
       type: "number",
       format: "int64",
+    },
+    dailyLimitReset: {
+      baseName: "daily_limit_reset",
+      type: "LogsDailyLimitReset",
+    },
+    dailyLimitWarningThresholdPercentage: {
+      baseName: "daily_limit_warning_threshold_percentage",
+      type: "number",
+      format: "double",
     },
     disableDailyLimit: {
       baseName: "disable_daily_limit",

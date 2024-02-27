@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricsPayload {
   /**
-   * A list of time series to submit to Datadog.
+   * A list of timeseries to submit to Datadog.
    */
   "series": Array<Series>;
 

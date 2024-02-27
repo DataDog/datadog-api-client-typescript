@@ -1,4 +1,12 @@
 export {
+  APIManagementApiCreateOpenAPIRequest,
+  APIManagementApiDeleteOpenAPIRequest,
+  APIManagementApiGetOpenAPIRequest,
+  APIManagementApiUpdateOpenAPIRequest,
+  APIManagementApi,
+} from "./apis/APIManagementApi";
+
+export {
   APMRetentionFiltersApiCreateApmRetentionFilterRequest,
   APMRetentionFiltersApiDeleteApmRetentionFilterRequest,
   APMRetentionFiltersApiGetApmRetentionFilterRequest,
@@ -36,6 +44,22 @@ export {
   CIVisibilityTestsApiSearchCIAppTestEventsRequest,
   CIVisibilityTestsApi,
 } from "./apis/CIVisibilityTestsApi";
+
+export {
+  CaseManagementApiArchiveCaseRequest,
+  CaseManagementApiAssignCaseRequest,
+  CaseManagementApiCreateCaseRequest,
+  CaseManagementApiCreateProjectRequest,
+  CaseManagementApiDeleteProjectRequest,
+  CaseManagementApiGetCaseRequest,
+  CaseManagementApiGetProjectRequest,
+  CaseManagementApiSearchCasesRequest,
+  CaseManagementApiUnarchiveCaseRequest,
+  CaseManagementApiUnassignCaseRequest,
+  CaseManagementApiUpdatePriorityRequest,
+  CaseManagementApiUpdateStatusRequest,
+  CaseManagementApi,
+} from "./apis/CaseManagementApi";
 
 export {
   CloudCostManagementApiCreateCostAWSCURConfigRequest,
@@ -327,8 +351,10 @@ export {
 export {
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiDeleteSecurityFilterRequest,
   SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalIncidentsRequest,
   SecurityMonitoringApiEditSecurityMonitoringSignalStateRequest,
@@ -336,6 +362,7 @@ export {
   SecurityMonitoringApiGetSecurityFilterRequest,
   SecurityMonitoringApiGetSecurityMonitoringRuleRequest,
   SecurityMonitoringApiGetSecurityMonitoringSignalRequest,
+  SecurityMonitoringApiGetSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApiListFindingsRequest,
   SecurityMonitoringApiListSecurityMonitoringRulesRequest,
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
@@ -343,6 +370,7 @@ export {
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
   SecurityMonitoringApi,
 } from "./apis/SecurityMonitoringApi";
 
@@ -554,6 +582,34 @@ export { BulkMuteFindingsRequestMetaFindings } from "./models/BulkMuteFindingsRe
 export { BulkMuteFindingsRequestProperties } from "./models/BulkMuteFindingsRequestProperties";
 export { BulkMuteFindingsResponse } from "./models/BulkMuteFindingsResponse";
 export { BulkMuteFindingsResponseData } from "./models/BulkMuteFindingsResponseData";
+export { Case } from "./models/Case";
+export { Case3rdPartyTicketStatus } from "./models/Case3rdPartyTicketStatus";
+export { CaseAssign } from "./models/CaseAssign";
+export { CaseAssignAttributes } from "./models/CaseAssignAttributes";
+export { CaseAssignRequest } from "./models/CaseAssignRequest";
+export { CaseAttributes } from "./models/CaseAttributes";
+export { CaseCreate } from "./models/CaseCreate";
+export { CaseCreateAttributes } from "./models/CaseCreateAttributes";
+export { CaseCreateRelationships } from "./models/CaseCreateRelationships";
+export { CaseCreateRequest } from "./models/CaseCreateRequest";
+export { CaseEmpty } from "./models/CaseEmpty";
+export { CaseEmptyRequest } from "./models/CaseEmptyRequest";
+export { CasePriority } from "./models/CasePriority";
+export { CaseRelationships } from "./models/CaseRelationships";
+export { CaseResourceType } from "./models/CaseResourceType";
+export { CaseResponse } from "./models/CaseResponse";
+export { CaseSortableField } from "./models/CaseSortableField";
+export { CasesResponse } from "./models/CasesResponse";
+export { CasesResponseMeta } from "./models/CasesResponseMeta";
+export { CasesResponseMetaPagination } from "./models/CasesResponseMetaPagination";
+export { CaseStatus } from "./models/CaseStatus";
+export { CaseType } from "./models/CaseType";
+export { CaseUpdatePriority } from "./models/CaseUpdatePriority";
+export { CaseUpdatePriorityAttributes } from "./models/CaseUpdatePriorityAttributes";
+export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
+export { CaseUpdateStatus } from "./models/CaseUpdateStatus";
+export { CaseUpdateStatusAttributes } from "./models/CaseUpdateStatusAttributes";
+export { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
@@ -716,6 +772,9 @@ export { CostByOrg } from "./models/CostByOrg";
 export { CostByOrgAttributes } from "./models/CostByOrgAttributes";
 export { CostByOrgResponse } from "./models/CostByOrgResponse";
 export { CostByOrgType } from "./models/CostByOrgType";
+export { CreateOpenAPIResponse } from "./models/CreateOpenAPIResponse";
+export { CreateOpenAPIResponseAttributes } from "./models/CreateOpenAPIResponseAttributes";
+export { CreateOpenAPIResponseData } from "./models/CreateOpenAPIResponseData";
 export { CreateRuleRequest } from "./models/CreateRuleRequest";
 export { CreateRuleRequestData } from "./models/CreateRuleRequestData";
 export { CreateRuleResponse } from "./models/CreateRuleResponse";
@@ -1003,6 +1062,8 @@ export { IPAllowlistType } from "./models/IPAllowlistType";
 export { IPAllowlistUpdateRequest } from "./models/IPAllowlistUpdateRequest";
 export { JiraIntegrationMetadata } from "./models/JiraIntegrationMetadata";
 export { JiraIntegrationMetadataIssuesItem } from "./models/JiraIntegrationMetadataIssuesItem";
+export { JiraIssue } from "./models/JiraIssue";
+export { JiraIssueResult } from "./models/JiraIssueResult";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
@@ -1179,6 +1240,8 @@ export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributio
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
+export { NullableUserRelationship } from "./models/NullableUserRelationship";
+export { NullableUserRelationshipData } from "./models/NullableUserRelationshipData";
 export { OktaAccount } from "./models/OktaAccount";
 export { OktaAccountAttributes } from "./models/OktaAccountAttributes";
 export { OktaAccountRequest } from "./models/OktaAccountRequest";
@@ -1193,6 +1256,8 @@ export { OnDemandConcurrencyCap } from "./models/OnDemandConcurrencyCap";
 export { OnDemandConcurrencyCapAttributes } from "./models/OnDemandConcurrencyCapAttributes";
 export { OnDemandConcurrencyCapResponse } from "./models/OnDemandConcurrencyCapResponse";
 export { OnDemandConcurrencyCapType } from "./models/OnDemandConcurrencyCapType";
+export { OpenAPIEndpoint } from "./models/OpenAPIEndpoint";
+export { OpenAPIFile } from "./models/OpenAPIFile";
 export { OpsgenieServiceCreateAttributes } from "./models/OpsgenieServiceCreateAttributes";
 export { OpsgenieServiceCreateData } from "./models/OpsgenieServiceCreateData";
 export { OpsgenieServiceCreateRequest } from "./models/OpsgenieServiceCreateRequest";
@@ -1252,10 +1317,21 @@ export { ProcessSummariesResponse } from "./models/ProcessSummariesResponse";
 export { ProcessSummary } from "./models/ProcessSummary";
 export { ProcessSummaryAttributes } from "./models/ProcessSummaryAttributes";
 export { ProcessSummaryType } from "./models/ProcessSummaryType";
+export { Project } from "./models/Project";
+export { ProjectAttributes } from "./models/ProjectAttributes";
+export { ProjectCreate } from "./models/ProjectCreate";
+export { ProjectCreateAttributes } from "./models/ProjectCreateAttributes";
+export { ProjectCreateRequest } from "./models/ProjectCreateRequest";
 export { ProjectedCost } from "./models/ProjectedCost";
 export { ProjectedCostAttributes } from "./models/ProjectedCostAttributes";
 export { ProjectedCostResponse } from "./models/ProjectedCostResponse";
 export { ProjectedCostType } from "./models/ProjectedCostType";
+export { ProjectRelationship } from "./models/ProjectRelationship";
+export { ProjectRelationshipData } from "./models/ProjectRelationshipData";
+export { ProjectRelationships } from "./models/ProjectRelationships";
+export { ProjectResourceType } from "./models/ProjectResourceType";
+export { ProjectResponse } from "./models/ProjectResponse";
+export { ProjectsResponse } from "./models/ProjectsResponse";
 export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
@@ -1482,10 +1558,22 @@ export { SecurityMonitoringSignalType } from "./models/SecurityMonitoringSignalT
 export { SecurityMonitoringStandardRuleCreatePayload } from "./models/SecurityMonitoringStandardRuleCreatePayload";
 export { SecurityMonitoringStandardRuleQuery } from "./models/SecurityMonitoringStandardRuleQuery";
 export { SecurityMonitoringStandardRuleResponse } from "./models/SecurityMonitoringStandardRuleResponse";
+export { SecurityMonitoringSuppression } from "./models/SecurityMonitoringSuppression";
+export { SecurityMonitoringSuppressionAttributes } from "./models/SecurityMonitoringSuppressionAttributes";
+export { SecurityMonitoringSuppressionCreateAttributes } from "./models/SecurityMonitoringSuppressionCreateAttributes";
+export { SecurityMonitoringSuppressionCreateData } from "./models/SecurityMonitoringSuppressionCreateData";
+export { SecurityMonitoringSuppressionCreateRequest } from "./models/SecurityMonitoringSuppressionCreateRequest";
+export { SecurityMonitoringSuppressionResponse } from "./models/SecurityMonitoringSuppressionResponse";
+export { SecurityMonitoringSuppressionsResponse } from "./models/SecurityMonitoringSuppressionsResponse";
+export { SecurityMonitoringSuppressionType } from "./models/SecurityMonitoringSuppressionType";
+export { SecurityMonitoringSuppressionUpdateAttributes } from "./models/SecurityMonitoringSuppressionUpdateAttributes";
+export { SecurityMonitoringSuppressionUpdateData } from "./models/SecurityMonitoringSuppressionUpdateData";
+export { SecurityMonitoringSuppressionUpdateRequest } from "./models/SecurityMonitoringSuppressionUpdateRequest";
 export { SecurityMonitoringThirdPartyRootQuery } from "./models/SecurityMonitoringThirdPartyRootQuery";
 export { SecurityMonitoringThirdPartyRuleCase } from "./models/SecurityMonitoringThirdPartyRuleCase";
 export { SecurityMonitoringThirdPartyRuleCaseCreate } from "./models/SecurityMonitoringThirdPartyRuleCaseCreate";
 export { SecurityMonitoringTriageUser } from "./models/SecurityMonitoringTriageUser";
+export { SecurityMonitoringUser } from "./models/SecurityMonitoringUser";
 export { SensitiveDataScannerConfigRequest } from "./models/SensitiveDataScannerConfigRequest";
 export { SensitiveDataScannerConfiguration } from "./models/SensitiveDataScannerConfiguration";
 export { SensitiveDataScannerConfigurationData } from "./models/SensitiveDataScannerConfigurationData";
@@ -1602,6 +1690,8 @@ export { ServiceDefinitionV2Repo } from "./models/ServiceDefinitionV2Repo";
 export { ServiceDefinitionV2Slack } from "./models/ServiceDefinitionV2Slack";
 export { ServiceDefinitionV2SlackType } from "./models/ServiceDefinitionV2SlackType";
 export { ServiceDefinitionV2Version } from "./models/ServiceDefinitionV2Version";
+export { ServiceNowTicket } from "./models/ServiceNowTicket";
+export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
 export { SortDirection } from "./models/SortDirection";
@@ -1713,6 +1803,9 @@ export { TimeseriesResponse } from "./models/TimeseriesResponse";
 export { TimeseriesResponseAttributes } from "./models/TimeseriesResponseAttributes";
 export { TimeseriesResponseSeries } from "./models/TimeseriesResponseSeries";
 export { Unit } from "./models/Unit";
+export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
+export { UpdateOpenAPIResponseAttributes } from "./models/UpdateOpenAPIResponseAttributes";
+export { UpdateOpenAPIResponseData } from "./models/UpdateOpenAPIResponseData";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
 export { UsageDataObject } from "./models/UsageDataObject";
@@ -1733,15 +1826,19 @@ export { UserInvitationResponseData } from "./models/UserInvitationResponseData"
 export { UserInvitationsRequest } from "./models/UserInvitationsRequest";
 export { UserInvitationsResponse } from "./models/UserInvitationsResponse";
 export { UserInvitationsType } from "./models/UserInvitationsType";
+export { UserRelationshipData } from "./models/UserRelationshipData";
 export { UserRelationships } from "./models/UserRelationships";
+export { UserResourceType } from "./models/UserResourceType";
 export { UserResponse } from "./models/UserResponse";
 export { UserResponseIncludedItem } from "./models/UserResponseIncludedItem";
 export { UserResponseRelationships } from "./models/UserResponseRelationships";
+export { UsersRelationship } from "./models/UsersRelationship";
 export { UsersResponse } from "./models/UsersResponse";
 export { UsersType } from "./models/UsersType";
 export { UserTeam } from "./models/UserTeam";
 export { UserTeamAttributes } from "./models/UserTeamAttributes";
 export { UserTeamCreate } from "./models/UserTeamCreate";
+export { UserTeamIncluded } from "./models/UserTeamIncluded";
 export { UserTeamPermission } from "./models/UserTeamPermission";
 export { UserTeamPermissionAttributes } from "./models/UserTeamPermissionAttributes";
 export { UserTeamPermissionType } from "./models/UserTeamPermissionType";

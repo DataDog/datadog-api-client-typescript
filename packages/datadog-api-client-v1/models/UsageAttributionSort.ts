@@ -47,6 +47,8 @@ export type UsageAttributionSort =
   | typeof APPSEC_FARGATE_PERCENTAGE
   | typeof ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE
   | typeof ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE
+  | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE
+  | typeof ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE
   | UnparsedObject;
 export const API_PERCENTAGE = "api_percentage";
 export const SNMP_USAGE = "snmp_usage";
@@ -90,3 +92,7 @@ export const ESTIMATED_RUM_USAGE_ATTRIBUTION_USAGE =
   "estimated_rum_usage_attribution_usage";
 export const ESTIMATED_RUM_USAGE_ATTRIBUTION_PERCENTAGE =
   "estimated_rum_usage_attribution_percentage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_USAGE =
+  "asm_serverless_traced_invocations_usage";
+export const ASM_SERVERLESS_TRACED_INVOCATIONS_PERCENTAGE =
+  "asm_serverless_traced_invocations_percentage";
