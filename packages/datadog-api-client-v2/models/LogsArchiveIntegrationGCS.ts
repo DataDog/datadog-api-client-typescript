@@ -17,7 +17,7 @@ export class LogsArchiveIntegrationGCS {
   /**
    * A project ID.
    */
-  "projectId": string;
+  "projectId"?: string;
 
   /**
    * @ignore
@@ -36,7 +36,6 @@ export class LogsArchiveIntegrationGCS {
     projectId: {
       baseName: "project_id",
       type: "string",
-      required: true,
     },
   };
 
