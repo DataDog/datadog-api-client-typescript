@@ -262,7 +262,7 @@ export class LogsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: LogsAggregateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsAggregateResponse"
@@ -270,9 +270,9 @@ export class LogsApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -322,7 +322,7 @@ export class LogsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsListResponse"
@@ -330,9 +330,9 @@ export class LogsApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -384,7 +384,7 @@ export class LogsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: LogsListResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "LogsListResponse"
@@ -392,9 +392,9 @@ export class LogsApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -444,7 +444,7 @@ export class LogsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 202) {
+    if (response.httpStatusCode === 202) {
       const body: any = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "any"
@@ -452,14 +452,14 @@ export class LogsApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 401 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 408 ||
-      response.httpStatusCode == 413 ||
-      response.httpStatusCode == 429 ||
-      response.httpStatusCode == 500 ||
-      response.httpStatusCode == 503
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 408 ||
+      response.httpStatusCode === 413 ||
+      response.httpStatusCode === 429 ||
+      response.httpStatusCode === 500 ||
+      response.httpStatusCode === 503
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),

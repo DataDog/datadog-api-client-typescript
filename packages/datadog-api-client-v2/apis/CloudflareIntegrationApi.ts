@@ -222,7 +222,7 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 201) {
+    if (response.httpStatusCode === 201) {
       const body: CloudflareAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CloudflareAccountResponse"
@@ -230,10 +230,10 @@ export class CloudflareIntegrationApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -285,14 +285,14 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -344,7 +344,7 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: CloudflareAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CloudflareAccountResponse"
@@ -352,10 +352,10 @@ export class CloudflareIntegrationApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -407,7 +407,7 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: CloudflareAccountsResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CloudflareAccountsResponse"
@@ -415,10 +415,10 @@ export class CloudflareIntegrationApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -470,7 +470,7 @@ export class CloudflareIntegrationApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: CloudflareAccountResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "CloudflareAccountResponse"
@@ -478,10 +478,10 @@ export class CloudflareIntegrationApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),

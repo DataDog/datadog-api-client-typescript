@@ -43,14 +43,14 @@ export class IPRangesApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: IPRanges = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "IPRanges"
       ) as IPRanges;
       return body;
     }
-    if (response.httpStatusCode == 429) {
+    if (response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType

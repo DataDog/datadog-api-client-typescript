@@ -95,7 +95,7 @@ export class ContainersApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: ContainersResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "ContainersResponse"
@@ -103,9 +103,9 @@ export class ContainersApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),

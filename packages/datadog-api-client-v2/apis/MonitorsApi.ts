@@ -221,7 +221,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: MonitorConfigPolicyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MonitorConfigPolicyResponse"
@@ -229,9 +229,9 @@ export class MonitorsApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -283,14 +283,14 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 204) {
+    if (response.httpStatusCode === 204) {
       return;
     }
     if (
-      response.httpStatusCode == 400 ||
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -342,7 +342,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: MonitorConfigPolicyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MonitorConfigPolicyResponse"
@@ -350,9 +350,9 @@ export class MonitorsApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
@@ -404,7 +404,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: MonitorConfigPolicyListResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
@@ -412,7 +412,7 @@ export class MonitorsApiResponseProcessor {
         ) as MonitorConfigPolicyListResponse;
       return body;
     }
-    if (response.httpStatusCode == 403 || response.httpStatusCode == 429) {
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
         contentType
@@ -464,7 +464,7 @@ export class MonitorsApiResponseProcessor {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
-    if (response.httpStatusCode == 200) {
+    if (response.httpStatusCode === 200) {
       const body: MonitorConfigPolicyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
         "MonitorConfigPolicyResponse"
@@ -472,10 +472,10 @@ export class MonitorsApiResponseProcessor {
       return body;
     }
     if (
-      response.httpStatusCode == 403 ||
-      response.httpStatusCode == 404 ||
-      response.httpStatusCode == 422 ||
-      response.httpStatusCode == 429
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 422 ||
+      response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
         await response.body.text(),
