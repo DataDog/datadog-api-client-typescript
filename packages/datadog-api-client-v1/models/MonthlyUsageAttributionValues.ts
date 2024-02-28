@@ -59,6 +59,14 @@ export class MonthlyUsageAttributionValues {
    */
   "appsecUsage"?: number;
   /**
+   * The percentage of Application Security Monitoring Serverless traced invocations usage by tag(s).
+   */
+  "asmServerlessTracedInvocationsPercentage"?: number;
+  /**
+   * The Application Security Monitoring Serverless traced invocations usage by tag(s).
+   */
+  "asmServerlessTracedInvocationsUsage"?: number;
+  /**
    * The percentage of synthetic browser test usage by tag(s).
    */
   "browserPercentage"?: number;
@@ -186,6 +194,14 @@ export class MonthlyUsageAttributionValues {
    * The Database Monitoring queries usage by tag(s).
    */
   "dbmQueriesUsage"?: number;
+  /**
+   * The percentage of error tracking events usage by tag(s).
+   */
+  "errorTrackingPercentage"?: number;
+  /**
+   * The error tracking events usage by tag(s).
+   */
+  "errorTrackingUsage"?: number;
   /**
    * The percentage of estimated live indexed logs usage by tag(s).
    */
@@ -567,6 +583,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    asmServerlessTracedInvocationsPercentage: {
+      baseName: "asm_serverless_traced_invocations_percentage",
+      type: "number",
+      format: "double",
+    },
+    asmServerlessTracedInvocationsUsage: {
+      baseName: "asm_serverless_traced_invocations_usage",
+      type: "number",
+      format: "double",
+    },
     browserPercentage: {
       baseName: "browser_percentage",
       type: "number",
@@ -724,6 +750,16 @@ export class MonthlyUsageAttributionValues {
     },
     dbmQueriesUsage: {
       baseName: "dbm_queries_usage",
+      type: "number",
+      format: "double",
+    },
+    errorTrackingPercentage: {
+      baseName: "error_tracking_percentage",
+      type: "number",
+      format: "double",
+    },
+    errorTrackingUsage: {
+      baseName: "error_tracking_usage",
       type: "number",
       format: "double",
     },

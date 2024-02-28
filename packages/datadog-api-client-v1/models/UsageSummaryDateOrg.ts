@@ -23,7 +23,7 @@ export class UsageSummaryDateOrg {
    */
   "apmDevsecopsHostTop99p"?: number;
   /**
-   * Shows the average of all APM ECS Fargate tasks over all hours in the current months for the given org.
+   * Shows the average of all APM ECS Fargate tasks over all hours in the current month for the given org.
    */
   "apmFargateCountAvg"?: number;
   /**
@@ -31,7 +31,7 @@ export class UsageSummaryDateOrg {
    */
   "apmHostTop99p"?: number;
   /**
-   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current months for the given org.
+   * Shows the average of all Application Security Monitoring ECS Fargate tasks over all hours in the current month for the given org.
    */
   "appsecFargateCountAvg"?: number;
   /**
@@ -110,6 +110,10 @@ export class UsageSummaryDateOrg {
    * Host count average of Cloud Cost Management for Azure for the given date and given org.
    */
   "cloudCostManagementAzureHostCountAvg"?: number;
+  /**
+   * Host count average of Cloud Cost Management for GCP for the given date and given org.
+   */
+  "cloudCostManagementGcpHostCountAvg"?: number;
   /**
    * Host count average of Cloud Cost Management for all cloud providers for the given date and given org.
    */
@@ -227,6 +231,10 @@ export class UsageSummaryDateOrg {
    */
   "dbmQueriesAvgSum"?: number;
   /**
+   * Shows the sum of all Error Tracking events over all hours in the current date for the given org.
+   */
+  "errorTrackingEventsSum"?: number;
+  /**
    * The average task count for Fargate.
    */
   "fargateTasksCountAvg"?: number;
@@ -234,6 +242,26 @@ export class UsageSummaryDateOrg {
    * Shows the high-water mark of all Fargate tasks over all hours in the current date for the given org.
    */
   "fargateTasksCountHwm"?: number;
+  /**
+   * Shows the average number of Flex Logs Compute Large Instances over all hours in the current date for the given org.
+   */
+  "flexLogsComputeLargeAvg"?: number;
+  /**
+   * Shows the average number of Flex Logs Compute Medium Instances over all hours in the current date for the given org.
+   */
+  "flexLogsComputeMediumAvg"?: number;
+  /**
+   * Shows the average number of Flex Logs Compute Small Instances over all hours in the current date for the given org.
+   */
+  "flexLogsComputeSmallAvg"?: number;
+  /**
+   * Shows the average number of Flex Logs Compute Extra Small Instances over all hours in the current date for the given org.
+   */
+  "flexLogsComputeXsmallAvg"?: number;
+  /**
+   * Shows the average of all Flex Stored Logs over all hours in the current date for the given org.
+   */
+  "flexStoredLogsAvg"?: number;
   /**
    * Shows the sum of all log bytes forwarded over all hours in the current date for the given org.
    */
@@ -584,6 +612,11 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    cloudCostManagementGcpHostCountAvg: {
+      baseName: "cloud_cost_management_gcp_host_count_avg",
+      type: "number",
+      format: "int64",
+    },
     cloudCostManagementHostCountAvg: {
       baseName: "cloud_cost_management_host_count_avg",
       type: "number",
@@ -729,6 +762,11 @@ export class UsageSummaryDateOrg {
       type: "number",
       format: "int64",
     },
+    errorTrackingEventsSum: {
+      baseName: "error_tracking_events_sum",
+      type: "number",
+      format: "int64",
+    },
     fargateTasksCountAvg: {
       baseName: "fargate_tasks_count_avg",
       type: "number",
@@ -736,6 +774,31 @@ export class UsageSummaryDateOrg {
     },
     fargateTasksCountHwm: {
       baseName: "fargate_tasks_count_hwm",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsComputeLargeAvg: {
+      baseName: "flex_logs_compute_large_avg",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsComputeMediumAvg: {
+      baseName: "flex_logs_compute_medium_avg",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsComputeSmallAvg: {
+      baseName: "flex_logs_compute_small_avg",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsComputeXsmallAvg: {
+      baseName: "flex_logs_compute_xsmall_avg",
+      type: "number",
+      format: "int64",
+    },
+    flexStoredLogsAvg: {
+      baseName: "flex_stored_logs_avg",
       type: "number",
       format: "int64",
     },

@@ -36,7 +36,7 @@ export class UsageAttributionBody {
    */
   "tags"?: { [key: string]: Array<string> };
   /**
-   * Shows the the most recent hour in the current months for all organizations for which all usages were calculated.
+   * Shows the the most recent hour in the current month for all organizations for which all usages were calculated.
    */
   "updatedAt"?: string;
   /**
