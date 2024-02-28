@@ -3058,26 +3058,43 @@ export class ObjectSerializer {
       const attributesMap = typeMap[type].getAttributeTypeMap();
       const instance: { [index: string]: any } = {};
 
+      for (const attributeName in data) {
+        const attributeObj = attributesMap[attributeName];
+        if (
+          attributeName === "_unparsed" ||
+          attributeName === "additionalProperties"
+        ) {
+          continue;
+        } else if (
+          attributeObj === undefined &&
+          !("additionalProperties" in attributesMap)
+        ) {
+          throw new Error(
+            "unexpected attribute " + attributeName + " of type " + type
+          );
+        } else if (attributeObj) {
+          instance[attributeObj.baseName] = ObjectSerializer.serialize(
+            data[attributeName],
+            attributeObj.type,
+            attributeObj.format
+          );
+        }
+      }
+
+      const additionalProperties = attributesMap["additionalProperties"];
+      if (additionalProperties && data.additionalProperties) {
+        for (const key in data.additionalProperties) {
+          instance[key] = ObjectSerializer.serialize(
+            data.additionalProperties[key],
+            additionalProperties.type,
+            additionalProperties.format
+          );
+        }
+      }
+
+      // check for required properties
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
-        if (attributeName == "additionalProperties") {
-          if (data.additionalProperties) {
-            for (const key in data.additionalProperties) {
-              instance[key] = ObjectSerializer.serialize(
-                data.additionalProperties[key],
-                attributeObj.type,
-                attributeObj.format
-              );
-            }
-          }
-          continue;
-        }
-        instance[attributeObj.baseName] = ObjectSerializer.serialize(
-          data[attributeName],
-          attributeObj.type,
-          attributeObj.format
-        );
-        // check for required properties
         if (
           attributeObj?.required &&
           instance[attributeObj.baseName] === undefined

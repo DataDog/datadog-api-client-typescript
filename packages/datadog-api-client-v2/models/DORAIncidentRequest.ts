@@ -17,6 +17,13 @@ export class DORAIncidentRequest {
   "data": DORAIncidentRequestData;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -29,6 +36,10 @@ export class DORAIncidentRequest {
       baseName: "data",
       type: "DORAIncidentRequestData",
       required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

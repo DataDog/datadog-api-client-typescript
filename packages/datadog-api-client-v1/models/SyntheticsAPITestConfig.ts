@@ -32,6 +32,13 @@ export class SyntheticsAPITestConfig {
   "steps"?: Array<SyntheticsAPIStep>;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -55,6 +62,10 @@ export class SyntheticsAPITestConfig {
     steps: {
       baseName: "steps",
       type: "Array<SyntheticsAPIStep>",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

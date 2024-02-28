@@ -17,6 +17,13 @@ export class HourlyUsageMetadata {
   "pagination"?: HourlyUsagePagination;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -28,6 +35,10 @@ export class HourlyUsageMetadata {
     pagination: {
       baseName: "pagination",
       type: "HourlyUsagePagination",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

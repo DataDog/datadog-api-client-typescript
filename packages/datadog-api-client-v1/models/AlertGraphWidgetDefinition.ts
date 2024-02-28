@@ -44,6 +44,13 @@ export class AlertGraphWidgetDefinition {
   "vizType": WidgetVizType;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -82,6 +89,10 @@ export class AlertGraphWidgetDefinition {
       baseName: "viz_type",
       type: "WidgetVizType",
       required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 
