@@ -26,6 +26,13 @@ export class LogsMetricResponseData {
   "type"?: LogsMetricType;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -45,6 +52,10 @@ export class LogsMetricResponseData {
     type: {
       baseName: "type",
       type: "LogsMetricType",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

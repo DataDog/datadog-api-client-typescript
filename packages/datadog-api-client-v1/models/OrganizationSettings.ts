@@ -58,6 +58,13 @@ export class OrganizationSettings {
   "samlStrictMode"?: OrganizationSettingsSamlStrictMode;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -105,6 +112,10 @@ export class OrganizationSettings {
     samlStrictMode: {
       baseName: "saml_strict_mode",
       type: "OrganizationSettingsSamlStrictMode",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

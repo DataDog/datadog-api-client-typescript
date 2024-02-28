@@ -21,6 +21,13 @@ export class LogsAggregateBucket {
   "computes"?: { [key: string]: LogsAggregateBucketValue };
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -36,6 +43,10 @@ export class LogsAggregateBucket {
     computes: {
       baseName: "computes",
       type: "{ [key: string]: LogsAggregateBucketValue; }",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

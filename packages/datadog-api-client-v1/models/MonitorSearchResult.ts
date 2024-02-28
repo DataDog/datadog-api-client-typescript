@@ -71,6 +71,13 @@ export class MonitorSearchResult {
   "type"?: MonitorType;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -133,6 +140,10 @@ export class MonitorSearchResult {
     type: {
       baseName: "type",
       type: "MonitorType",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

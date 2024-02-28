@@ -36,6 +36,13 @@ export class PartialAPIKeyAttributes {
   "remoteConfigReadEnabled"?: boolean;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -67,6 +74,10 @@ export class PartialAPIKeyAttributes {
     remoteConfigReadEnabled: {
       baseName: "remote_config_read_enabled",
       type: "boolean",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

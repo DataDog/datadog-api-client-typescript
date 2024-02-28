@@ -17,6 +17,13 @@ export class TeamsResponseMeta {
   "pagination"?: TeamsResponseMetaPagination;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -28,6 +35,10 @@ export class TeamsResponseMeta {
     pagination: {
       baseName: "pagination",
       type: "TeamsResponseMetaPagination",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

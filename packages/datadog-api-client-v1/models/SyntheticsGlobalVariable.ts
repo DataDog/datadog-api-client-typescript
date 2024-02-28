@@ -47,6 +47,13 @@ export class SyntheticsGlobalVariable {
   "value": SyntheticsGlobalVariableValue;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -90,6 +97,10 @@ export class SyntheticsGlobalVariable {
       baseName: "value",
       type: "SyntheticsGlobalVariableValue",
       required: true,
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

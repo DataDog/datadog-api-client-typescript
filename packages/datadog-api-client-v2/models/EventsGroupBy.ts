@@ -25,6 +25,13 @@ export class EventsGroupBy {
   "sort"?: EventsGroupBySort;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -46,6 +53,10 @@ export class EventsGroupBy {
     sort: {
       baseName: "sort",
       type: "EventsGroupBySort",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 

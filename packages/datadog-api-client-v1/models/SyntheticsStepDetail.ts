@@ -87,6 +87,13 @@ export class SyntheticsStepDetail {
   "warnings"?: Array<SyntheticsStepDetailWarning>;
 
   /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
    * @ignore
    */
   "_unparsed"?: boolean;
@@ -166,6 +173,10 @@ export class SyntheticsStepDetail {
     warnings: {
       baseName: "warnings",
       type: "Array<SyntheticsStepDetailWarning>",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
     },
   };
 
