@@ -517,6 +517,18 @@ import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
 import { MetricAllTagsResponse } from "./MetricAllTagsResponse";
+import { MetricAssetAttributes } from "./MetricAssetAttributes";
+import { MetricAssetDashboardRelationship } from "./MetricAssetDashboardRelationship";
+import { MetricAssetDashboardRelationships } from "./MetricAssetDashboardRelationships";
+import { MetricAssetMonitorRelationship } from "./MetricAssetMonitorRelationship";
+import { MetricAssetMonitorRelationships } from "./MetricAssetMonitorRelationships";
+import { MetricAssetNotebookRelationship } from "./MetricAssetNotebookRelationship";
+import { MetricAssetNotebookRelationships } from "./MetricAssetNotebookRelationships";
+import { MetricAssetResponseData } from "./MetricAssetResponseData";
+import { MetricAssetResponseRelationships } from "./MetricAssetResponseRelationships";
+import { MetricAssetSLORelationship } from "./MetricAssetSLORelationship";
+import { MetricAssetSLORelationships } from "./MetricAssetSLORelationships";
+import { MetricAssetsResponse } from "./MetricAssetsResponse";
 import { MetricBulkTagConfigCreate } from "./MetricBulkTagConfigCreate";
 import { MetricBulkTagConfigCreateAttributes } from "./MetricBulkTagConfigCreateAttributes";
 import { MetricBulkTagConfigCreateRequest } from "./MetricBulkTagConfigCreateRequest";
@@ -527,6 +539,8 @@ import { MetricBulkTagConfigResponse } from "./MetricBulkTagConfigResponse";
 import { MetricBulkTagConfigStatus } from "./MetricBulkTagConfigStatus";
 import { MetricBulkTagConfigStatusAttributes } from "./MetricBulkTagConfigStatusAttributes";
 import { MetricCustomAggregation } from "./MetricCustomAggregation";
+import { MetricDashboardAsset } from "./MetricDashboardAsset";
+import { MetricDashboardAttributes } from "./MetricDashboardAttributes";
 import { MetricDistinctVolume } from "./MetricDistinctVolume";
 import { MetricDistinctVolumeAttributes } from "./MetricDistinctVolumeAttributes";
 import { MetricEstimate } from "./MetricEstimate";
@@ -535,10 +549,13 @@ import { MetricEstimateResponse } from "./MetricEstimateResponse";
 import { MetricIngestedIndexedVolume } from "./MetricIngestedIndexedVolume";
 import { MetricIngestedIndexedVolumeAttributes } from "./MetricIngestedIndexedVolumeAttributes";
 import { MetricMetadata } from "./MetricMetadata";
+import { MetricMonitorAsset } from "./MetricMonitorAsset";
+import { MetricNotebookAsset } from "./MetricNotebookAsset";
 import { MetricOrigin } from "./MetricOrigin";
 import { MetricPayload } from "./MetricPayload";
 import { MetricPoint } from "./MetricPoint";
 import { MetricResource } from "./MetricResource";
+import { MetricSLOAsset } from "./MetricSLOAsset";
 import { MetricSeries } from "./MetricSeries";
 import { MetricSuggestedTagsAndAggregations } from "./MetricSuggestedTagsAndAggregations";
 import { MetricSuggestedTagsAndAggregationsResponse } from "./MetricSuggestedTagsAndAggregationsResponse";
@@ -1339,11 +1356,15 @@ const enumsMap: { [key: string]: any[] } = {
   MetricContentEncoding: ["deflate", "zstd1", "gzip"],
   MetricCustomSpaceAggregation: ["avg", "max", "min", "sum"],
   MetricCustomTimeAggregation: ["avg", "count", "max", "min", "sum"],
+  MetricDashboardType: ["dashboards"],
   MetricDistinctVolumeType: ["distinct_metric_volumes"],
   MetricEstimateResourceType: ["metric_cardinality_estimate"],
   MetricEstimateType: ["count_or_gauge", "distribution", "percentile"],
   MetricIngestedIndexedVolumeType: ["metric_volumes"],
   MetricIntakeType: [0, 1, 2, 3],
+  MetricMonitorType: ["monitors"],
+  MetricNotebookType: ["notebooks"],
+  MetricSLOType: ["slos"],
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
@@ -2198,6 +2219,18 @@ const typeMap: { [index: string]: any } = {
   MetricAllTags: MetricAllTags,
   MetricAllTagsAttributes: MetricAllTagsAttributes,
   MetricAllTagsResponse: MetricAllTagsResponse,
+  MetricAssetAttributes: MetricAssetAttributes,
+  MetricAssetDashboardRelationship: MetricAssetDashboardRelationship,
+  MetricAssetDashboardRelationships: MetricAssetDashboardRelationships,
+  MetricAssetMonitorRelationship: MetricAssetMonitorRelationship,
+  MetricAssetMonitorRelationships: MetricAssetMonitorRelationships,
+  MetricAssetNotebookRelationship: MetricAssetNotebookRelationship,
+  MetricAssetNotebookRelationships: MetricAssetNotebookRelationships,
+  MetricAssetResponseData: MetricAssetResponseData,
+  MetricAssetResponseRelationships: MetricAssetResponseRelationships,
+  MetricAssetSLORelationship: MetricAssetSLORelationship,
+  MetricAssetSLORelationships: MetricAssetSLORelationships,
+  MetricAssetsResponse: MetricAssetsResponse,
   MetricBulkTagConfigCreate: MetricBulkTagConfigCreate,
   MetricBulkTagConfigCreateAttributes: MetricBulkTagConfigCreateAttributes,
   MetricBulkTagConfigCreateRequest: MetricBulkTagConfigCreateRequest,
@@ -2208,6 +2241,8 @@ const typeMap: { [index: string]: any } = {
   MetricBulkTagConfigStatus: MetricBulkTagConfigStatus,
   MetricBulkTagConfigStatusAttributes: MetricBulkTagConfigStatusAttributes,
   MetricCustomAggregation: MetricCustomAggregation,
+  MetricDashboardAsset: MetricDashboardAsset,
+  MetricDashboardAttributes: MetricDashboardAttributes,
   MetricDistinctVolume: MetricDistinctVolume,
   MetricDistinctVolumeAttributes: MetricDistinctVolumeAttributes,
   MetricEstimate: MetricEstimate,
@@ -2216,10 +2251,13 @@ const typeMap: { [index: string]: any } = {
   MetricIngestedIndexedVolume: MetricIngestedIndexedVolume,
   MetricIngestedIndexedVolumeAttributes: MetricIngestedIndexedVolumeAttributes,
   MetricMetadata: MetricMetadata,
+  MetricMonitorAsset: MetricMonitorAsset,
+  MetricNotebookAsset: MetricNotebookAsset,
   MetricOrigin: MetricOrigin,
   MetricPayload: MetricPayload,
   MetricPoint: MetricPoint,
   MetricResource: MetricResource,
+  MetricSLOAsset: MetricSLOAsset,
   MetricSeries: MetricSeries,
   MetricSuggestedTagsAndAggregations: MetricSuggestedTagsAndAggregations,
   MetricSuggestedTagsAndAggregationsResponse:
@@ -2890,6 +2928,12 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   LogsGroupByMissing: ["string", "number"],
   LogsGroupByTotal: ["boolean", "string", "number"],
+  MetricAssetResponseIncluded: [
+    "MetricDashboardAsset",
+    "MetricMonitorAsset",
+    "MetricNotebookAsset",
+    "MetricSLOAsset",
+  ],
   MetricVolumes: ["MetricDistinctVolume", "MetricIngestedIndexedVolume"],
   MetricsAndMetricTagConfigurations: ["Metric", "MetricTagConfiguration"],
   MonitorConfigPolicyPolicy: ["MonitorConfigPolicyTagPolicy"],

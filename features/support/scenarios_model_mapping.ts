@@ -4136,6 +4136,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MetricAllTagsResponse",
     },
+    "v2.ListMetricAssets": {
+        "metricName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MetricAssetsResponse",
+    },
     "v2.EstimateMetricsOutputSeries": {
         "metricName": {
             "type": "string",

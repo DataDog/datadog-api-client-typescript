@@ -260,6 +260,7 @@ export {
   MetricsApiDeleteTagConfigurationRequest,
   MetricsApiEstimateMetricsOutputSeriesRequest,
   MetricsApiListActiveMetricConfigurationsRequest,
+  MetricsApiListMetricAssetsRequest,
   MetricsApiListTagConfigurationByNameRequest,
   MetricsApiListTagConfigurationsRequest,
   MetricsApiListTagsByMetricNameRequest,
@@ -1157,6 +1158,19 @@ export { MetricActiveConfigurationType } from "./models/MetricActiveConfiguratio
 export { MetricAllTags } from "./models/MetricAllTags";
 export { MetricAllTagsAttributes } from "./models/MetricAllTagsAttributes";
 export { MetricAllTagsResponse } from "./models/MetricAllTagsResponse";
+export { MetricAssetAttributes } from "./models/MetricAssetAttributes";
+export { MetricAssetDashboardRelationship } from "./models/MetricAssetDashboardRelationship";
+export { MetricAssetDashboardRelationships } from "./models/MetricAssetDashboardRelationships";
+export { MetricAssetMonitorRelationship } from "./models/MetricAssetMonitorRelationship";
+export { MetricAssetMonitorRelationships } from "./models/MetricAssetMonitorRelationships";
+export { MetricAssetNotebookRelationship } from "./models/MetricAssetNotebookRelationship";
+export { MetricAssetNotebookRelationships } from "./models/MetricAssetNotebookRelationships";
+export { MetricAssetResponseData } from "./models/MetricAssetResponseData";
+export { MetricAssetResponseIncluded } from "./models/MetricAssetResponseIncluded";
+export { MetricAssetResponseRelationships } from "./models/MetricAssetResponseRelationships";
+export { MetricAssetSLORelationship } from "./models/MetricAssetSLORelationship";
+export { MetricAssetSLORelationships } from "./models/MetricAssetSLORelationships";
+export { MetricAssetsResponse } from "./models/MetricAssetsResponse";
 export { MetricBulkConfigureTagsType } from "./models/MetricBulkConfigureTagsType";
 export { MetricBulkTagConfigCreate } from "./models/MetricBulkTagConfigCreate";
 export { MetricBulkTagConfigCreateAttributes } from "./models/MetricBulkTagConfigCreateAttributes";
@@ -1171,6 +1185,9 @@ export { MetricContentEncoding } from "./models/MetricContentEncoding";
 export { MetricCustomAggregation } from "./models/MetricCustomAggregation";
 export { MetricCustomSpaceAggregation } from "./models/MetricCustomSpaceAggregation";
 export { MetricCustomTimeAggregation } from "./models/MetricCustomTimeAggregation";
+export { MetricDashboardAsset } from "./models/MetricDashboardAsset";
+export { MetricDashboardAttributes } from "./models/MetricDashboardAttributes";
+export { MetricDashboardType } from "./models/MetricDashboardType";
 export { MetricDistinctVolume } from "./models/MetricDistinctVolume";
 export { MetricDistinctVolumeAttributes } from "./models/MetricDistinctVolumeAttributes";
 export { MetricDistinctVolumeType } from "./models/MetricDistinctVolumeType";
@@ -1184,6 +1201,10 @@ export { MetricIngestedIndexedVolumeAttributes } from "./models/MetricIngestedIn
 export { MetricIngestedIndexedVolumeType } from "./models/MetricIngestedIndexedVolumeType";
 export { MetricIntakeType } from "./models/MetricIntakeType";
 export { MetricMetadata } from "./models/MetricMetadata";
+export { MetricMonitorAsset } from "./models/MetricMonitorAsset";
+export { MetricMonitorType } from "./models/MetricMonitorType";
+export { MetricNotebookAsset } from "./models/MetricNotebookAsset";
+export { MetricNotebookType } from "./models/MetricNotebookType";
 export { MetricOrigin } from "./models/MetricOrigin";
 export { MetricPayload } from "./models/MetricPayload";
 export { MetricPoint } from "./models/MetricPoint";
@@ -1193,6 +1214,8 @@ export { MetricsAndMetricTagConfigurations } from "./models/MetricsAndMetricTagC
 export { MetricsAndMetricTagConfigurationsResponse } from "./models/MetricsAndMetricTagConfigurationsResponse";
 export { MetricsDataSource } from "./models/MetricsDataSource";
 export { MetricSeries } from "./models/MetricSeries";
+export { MetricSLOAsset } from "./models/MetricSLOAsset";
+export { MetricSLOType } from "./models/MetricSLOType";
 export { MetricsScalarQuery } from "./models/MetricsScalarQuery";
 export { MetricsTimeseriesQuery } from "./models/MetricsTimeseriesQuery";
 export { MetricSuggestedTagsAndAggregations } from "./models/MetricSuggestedTagsAndAggregations";
