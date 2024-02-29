@@ -19,6 +19,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { IntakePayloadAccepted } from "../models/IntakePayloadAccepted";
 import { MetricAllTagsResponse } from "../models/MetricAllTagsResponse";
+import { MetricAssetsResponse } from "../models/MetricAssetsResponse";
 import { MetricBulkTagConfigCreateRequest } from "../models/MetricBulkTagConfigCreateRequest";
 import { MetricBulkTagConfigDeleteRequest } from "../models/MetricBulkTagConfigDeleteRequest";
 import { MetricBulkTagConfigResponse } from "../models/MetricBulkTagConfigResponse";
@@ -311,6 +312,40 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(windowSeconds, "number", "int64")
       );
     }
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listMetricAssets(
+    metricName: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'metricName' is not null or undefined
+    if (metricName === null || metricName === undefined) {
+      throw new RequiredError("metricName", "listMetricAssets");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/metrics/{metric_name}/assets".replace(
+      "{metric_name}",
+      encodeURIComponent(String(metricName))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MetricsApi.listMetricAssets")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -1080,6 +1115,69 @@ export class MetricsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listMetricAssets
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listMetricAssets(
+    response: ResponseContext
+  ): Promise<MetricAssetsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MetricAssetsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricAssetsResponse"
+      ) as MetricAssetsResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MetricAssetsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "MetricAssetsResponse",
+        ""
+      ) as MetricAssetsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to listTagConfigurationByName
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1663,6 +1761,14 @@ export interface MetricsApiListActiveMetricConfigurationsRequest {
   windowSeconds?: number;
 }
 
+export interface MetricsApiListMetricAssetsRequest {
+  /**
+   * The name of the metric.
+   * @type string
+   */
+  metricName: string;
+}
+
 export interface MetricsApiListTagConfigurationByNameRequest {
   /**
    * The name of the metric.
@@ -1939,6 +2045,27 @@ export class MetricsApi {
           return this.responseProcessor.listActiveMetricConfigurations(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Returns dashboards, monitors, notebooks, and SLOs that a metric is stored in, if any.  Updated every 24 hours.
+   * @param param The request object
+   */
+  public listMetricAssets(
+    param: MetricsApiListMetricAssetsRequest,
+    options?: Configuration
+  ): Promise<MetricAssetsResponse> {
+    const requestContextPromise = this.requestFactory.listMetricAssets(
+      param.metricName,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listMetricAssets(responseContext);
         });
     });
   }
