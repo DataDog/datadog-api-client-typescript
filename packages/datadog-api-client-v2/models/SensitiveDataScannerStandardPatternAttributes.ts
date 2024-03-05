@@ -23,7 +23,7 @@ export class SensitiveDataScannerStandardPatternAttributes {
    */
   "name"?: string;
   /**
-   * Regex to match.
+   * (Deprecated) Regex to match, optionally documented for older standard rules. Refer to the `description` field to understand what the rule does.
    */
   "pattern"?: string;
   /**
