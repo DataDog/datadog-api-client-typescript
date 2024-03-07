@@ -64,6 +64,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof NDM_NETFLOW_USAGE
   | typeof NPM_HOST_USAGE
   | typeof OBS_PIPELINE_BYTES_USAGE
+  | typeof OBS_PIPELINE_VCPU_USAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_FARGATE_USAGE
   | typeof PROFILED_HOST_USAGE
@@ -135,6 +136,7 @@ export const MOBILE_APP_TESTING_USAGE = "mobile_app_testing_usage";
 export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";
 export const NPM_HOST_USAGE = "npm_host_usage";
 export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
+export const OBS_PIPELINE_VCPU_USAGE = "obs_pipelines_vcpu_usage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
