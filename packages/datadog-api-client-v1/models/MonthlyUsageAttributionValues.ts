@@ -419,6 +419,14 @@ export class MonthlyUsageAttributionValues {
    */
   "obsPipelineBytesUsage"?: number;
   /**
+   * The percentage of observability pipeline per core usage by tag(s).
+   */
+  "obsPipelinesVcpuPercentage"?: number;
+  /**
+   * The observability pipeline per core usage by tag(s).
+   */
+  "obsPipelinesVcpuUsage"?: number;
+  /**
    * The percentage of profiled container usage by tag(s).
    */
   "profiledContainerPercentage"?: number;
@@ -1030,6 +1038,16 @@ export class MonthlyUsageAttributionValues {
     },
     obsPipelineBytesUsage: {
       baseName: "obs_pipeline_bytes_usage",
+      type: "number",
+      format: "double",
+    },
+    obsPipelinesVcpuPercentage: {
+      baseName: "obs_pipelines_vcpu_percentage",
+      type: "number",
+      format: "double",
+    },
+    obsPipelinesVcpuUsage: {
+      baseName: "obs_pipelines_vcpu_usage",
       type: "number",
       format: "double",
     },
