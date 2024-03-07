@@ -614,6 +614,7 @@ export class ServiceDefinitionApi {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
+    param.pageNumber = 0;
     while (true) {
       const requestContext = await this.requestFactory.listServiceDefinitions(
         param.pageSize,
@@ -639,11 +640,7 @@ export class ServiceDefinitionApi {
       if (results.length < pageSize) {
         break;
       }
-      if (param.pageNumber === undefined) {
-        param.pageNumber = pageSize;
-      } else {
-        param.pageNumber = param.pageNumber + pageSize;
-      }
+      param.pageNumber = param.pageNumber + 1;
     }
   }
 }
