@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
 import { CloudWorkloadSecurityAgentRuleCreatorAttributes } from "./CloudWorkloadSecurityAgentRuleCreatorAttributes";
 import { CloudWorkloadSecurityAgentRuleUpdaterAttributes } from "./CloudWorkloadSecurityAgentRuleUpdaterAttributes";
 
@@ -12,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * A Cloud Workload Security Agent rule returned by the API.
  */
 export class CloudWorkloadSecurityAgentRuleAttributes {
+  /**
+   * The array of actions the rule can perform if triggered.
+   */
+  "actions"?: Array<CloudWorkloadSecurityAgentRuleAction>;
   /**
    * The version of the agent.
    */
@@ -93,6 +98,10 @@ export class CloudWorkloadSecurityAgentRuleAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    actions: {
+      baseName: "actions",
+      type: "Array<CloudWorkloadSecurityAgentRuleAction>",
+    },
     agentConstraint: {
       baseName: "agentConstraint",
       type: "string",

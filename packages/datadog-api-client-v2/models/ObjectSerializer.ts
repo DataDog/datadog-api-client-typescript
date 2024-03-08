@@ -155,12 +155,14 @@ import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
 import { CloudCostActivity } from "./CloudCostActivity";
 import { CloudCostActivityAttributes } from "./CloudCostActivityAttributes";
 import { CloudCostActivityResponse } from "./CloudCostActivityResponse";
+import { CloudWorkloadSecurityAgentRuleAction } from "./CloudWorkloadSecurityAgentRuleAction";
 import { CloudWorkloadSecurityAgentRuleAttributes } from "./CloudWorkloadSecurityAgentRuleAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./CloudWorkloadSecurityAgentRuleCreateAttributes";
 import { CloudWorkloadSecurityAgentRuleCreateData } from "./CloudWorkloadSecurityAgentRuleCreateData";
 import { CloudWorkloadSecurityAgentRuleCreateRequest } from "./CloudWorkloadSecurityAgentRuleCreateRequest";
 import { CloudWorkloadSecurityAgentRuleCreatorAttributes } from "./CloudWorkloadSecurityAgentRuleCreatorAttributes";
 import { CloudWorkloadSecurityAgentRuleData } from "./CloudWorkloadSecurityAgentRuleData";
+import { CloudWorkloadSecurityAgentRuleKill } from "./CloudWorkloadSecurityAgentRuleKill";
 import { CloudWorkloadSecurityAgentRuleResponse } from "./CloudWorkloadSecurityAgentRuleResponse";
 import { CloudWorkloadSecurityAgentRuleUpdateAttributes } from "./CloudWorkloadSecurityAgentRuleUpdateAttributes";
 import { CloudWorkloadSecurityAgentRuleUpdateData } from "./CloudWorkloadSecurityAgentRuleUpdateData";
@@ -1823,6 +1825,7 @@ const typeMap: { [index: string]: any } = {
   CloudCostActivity: CloudCostActivity,
   CloudCostActivityAttributes: CloudCostActivityAttributes,
   CloudCostActivityResponse: CloudCostActivityResponse,
+  CloudWorkloadSecurityAgentRuleAction: CloudWorkloadSecurityAgentRuleAction,
   CloudWorkloadSecurityAgentRuleAttributes:
     CloudWorkloadSecurityAgentRuleAttributes,
   CloudWorkloadSecurityAgentRuleCreateAttributes:
@@ -1834,6 +1837,7 @@ const typeMap: { [index: string]: any } = {
   CloudWorkloadSecurityAgentRuleCreatorAttributes:
     CloudWorkloadSecurityAgentRuleCreatorAttributes,
   CloudWorkloadSecurityAgentRuleData: CloudWorkloadSecurityAgentRuleData,
+  CloudWorkloadSecurityAgentRuleKill: CloudWorkloadSecurityAgentRuleKill,
   CloudWorkloadSecurityAgentRuleResponse:
     CloudWorkloadSecurityAgentRuleResponse,
   CloudWorkloadSecurityAgentRuleUpdateAttributes:
