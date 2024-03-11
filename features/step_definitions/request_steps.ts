@@ -298,6 +298,13 @@ Then(
 );
 
 Then(
+  "the response {string} does not have field {string}",
+  function (this: World, responsePath: string, field: string) {
+    expect(pathLookup(this.response, responsePath)).to.not.have.property(field);
+  }
+);
+
+Then(
   "the response {string} has length {int}",
   function (this: World, responsePath: string, fixtureLength: number) {
     expect(pathLookup(this.response, responsePath).length).to.equal(
