@@ -17,6 +17,10 @@ export class CloudWorkloadSecurityAgentRuleUpdateData {
    */
   "attributes": CloudWorkloadSecurityAgentRuleUpdateAttributes;
   /**
+   * The ID of the agent rule.
+   */
+  "id"?: string;
+  /**
    * The type of the resource. The value should always be `agent_rule`.
    */
   "type": CloudWorkloadSecurityAgentRuleType;
@@ -41,6 +45,10 @@ export class CloudWorkloadSecurityAgentRuleUpdateData {
       baseName: "attributes",
       type: "CloudWorkloadSecurityAgentRuleUpdateAttributes",
       required: true,
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",

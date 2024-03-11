@@ -4742,6 +4742,82 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProcessSummariesResponse",
     },
+    "v2.ListCSMThreatsAgentRules": {
+        "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
+    },
+    "v2.CreateCSMThreatsAgentRule": {
+        "body": {
+            "type": "CloudWorkloadSecurityAgentRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
+    "v2.DeleteCSMThreatsAgentRule": {
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetCSMThreatsAgentRule": {
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
+    "v2.UpdateCSMThreatsAgentRule": {
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CloudWorkloadSecurityAgentRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
+    "v2.DownloadCSMThreatsPolicy": {
+        "operationResponseType": "HttpFile",
+    },
+    "v2.DownloadCloudWorkloadPolicyFile": {
+        "operationResponseType": "HttpFile",
+    },
+    "v2.ListCloudWorkloadSecurityAgentRules": {
+        "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
+    },
+    "v2.CreateCloudWorkloadSecurityAgentRule": {
+        "body": {
+            "type": "CloudWorkloadSecurityAgentRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
+    "v2.DeleteCloudWorkloadSecurityAgentRule": {
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetCloudWorkloadSecurityAgentRule": {
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
+    "v2.UpdateCloudWorkloadSecurityAgentRule": {
+        "agentRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CloudWorkloadSecurityAgentRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
+    },
     "v2.DeleteRestrictionPolicy": {
         "resourceId": {
             "type": "string",
@@ -4956,44 +5032,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "void",
-    },
-    "v2.DownloadCloudWorkloadPolicyFile": {
-        "operationResponseType": "HttpFile",
-    },
-    "v2.ListCloudWorkloadSecurityAgentRules": {
-        "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
-    },
-    "v2.CreateCloudWorkloadSecurityAgentRule": {
-        "body": {
-            "type": "CloudWorkloadSecurityAgentRuleCreateRequest",
-            "format": "",
-            },
-        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
-    },
-    "v2.DeleteCloudWorkloadSecurityAgentRule": {
-        "agentRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "void",
-    },
-    "v2.GetCloudWorkloadSecurityAgentRule": {
-        "agentRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
-    },
-    "v2.UpdateCloudWorkloadSecurityAgentRule": {
-        "agentRuleId": {
-            "type": "string",
-            "format": "",
-            },
-        "body": {
-            "type": "CloudWorkloadSecurityAgentRuleUpdateRequest",
-            "format": "",
-            },
-        "operationResponseType": "CloudWorkloadSecurityAgentRuleResponse",
     },
     "v2.ListScanningGroups": {
         "operationResponseType": "SensitiveDataScannerGetConfigResponse",

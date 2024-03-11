@@ -73,9 +73,13 @@ export {
 } from "./apis/CloudCostManagementApi";
 
 export {
+  CloudWorkloadSecurityApiCreateCSMThreatsAgentRuleRequest,
   CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
+  CloudWorkloadSecurityApiDeleteCSMThreatsAgentRuleRequest,
   CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
+  CloudWorkloadSecurityApiGetCSMThreatsAgentRuleRequest,
   CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
+  CloudWorkloadSecurityApiUpdateCSMThreatsAgentRuleRequest,
   CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleRequest,
   CloudWorkloadSecurityApi,
 } from "./apis/CloudWorkloadSecurityApi";
@@ -701,12 +705,14 @@ export { CloudflareAccountType } from "./models/CloudflareAccountType";
 export { CloudflareAccountUpdateRequest } from "./models/CloudflareAccountUpdateRequest";
 export { CloudflareAccountUpdateRequestAttributes } from "./models/CloudflareAccountUpdateRequestAttributes";
 export { CloudflareAccountUpdateRequestData } from "./models/CloudflareAccountUpdateRequestData";
+export { CloudWorkloadSecurityAgentRuleAction } from "./models/CloudWorkloadSecurityAgentRuleAction";
 export { CloudWorkloadSecurityAgentRuleAttributes } from "./models/CloudWorkloadSecurityAgentRuleAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateAttributes } from "./models/CloudWorkloadSecurityAgentRuleCreateAttributes";
 export { CloudWorkloadSecurityAgentRuleCreateData } from "./models/CloudWorkloadSecurityAgentRuleCreateData";
 export { CloudWorkloadSecurityAgentRuleCreateRequest } from "./models/CloudWorkloadSecurityAgentRuleCreateRequest";
 export { CloudWorkloadSecurityAgentRuleCreatorAttributes } from "./models/CloudWorkloadSecurityAgentRuleCreatorAttributes";
 export { CloudWorkloadSecurityAgentRuleData } from "./models/CloudWorkloadSecurityAgentRuleData";
+export { CloudWorkloadSecurityAgentRuleKill } from "./models/CloudWorkloadSecurityAgentRuleKill";
 export { CloudWorkloadSecurityAgentRuleResponse } from "./models/CloudWorkloadSecurityAgentRuleResponse";
 export { CloudWorkloadSecurityAgentRulesListResponse } from "./models/CloudWorkloadSecurityAgentRulesListResponse";
 export { CloudWorkloadSecurityAgentRuleType } from "./models/CloudWorkloadSecurityAgentRuleType";
