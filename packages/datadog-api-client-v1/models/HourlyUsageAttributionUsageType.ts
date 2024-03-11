@@ -76,6 +76,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof SNMP_USAGE
   | typeof UNIVERSAL_SERVICE_MONITORING_USAGE
   | typeof VULN_MANAGEMENT_HOSTS_USAGE
+  | typeof WORKFLOW_EXECUTIONS_USAGE
   | UnparsedObject;
 export const API_USAGE = "api_usage";
 export const APM_FARGATE_USAGE = "apm_fargate_usage";
@@ -150,3 +151,4 @@ export const SNMP_USAGE = "snmp_usage";
 export const UNIVERSAL_SERVICE_MONITORING_USAGE =
   "universal_service_monitoring_usage";
 export const VULN_MANAGEMENT_HOSTS_USAGE = "vuln_management_hosts_usage";
+export const WORKFLOW_EXECUTIONS_USAGE = "workflow_executions_usage";

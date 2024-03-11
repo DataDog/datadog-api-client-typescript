@@ -514,6 +514,14 @@ export class MonthlyUsageAttributionValues {
    * The Application Vulnerability Management usage by tag(s).
    */
   "vulnManagementHostsUsage"?: number;
+  /**
+   * The percentage of workflow executions usage by tag(s).
+   */
+  "workflowExecutionsPercentage"?: number;
+  /**
+   * The total workflow executions usage by tag(s).
+   */
+  "workflowExecutionsUsage"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -1158,6 +1166,16 @@ export class MonthlyUsageAttributionValues {
     },
     vulnManagementHostsUsage: {
       baseName: "vuln_management_hosts_usage",
+      type: "number",
+      format: "double",
+    },
+    workflowExecutionsPercentage: {
+      baseName: "workflow_executions_percentage",
+      type: "number",
+      format: "double",
+    },
+    workflowExecutionsUsage: {
+      baseName: "workflow_executions_usage",
       type: "number",
       format: "double",
     },
