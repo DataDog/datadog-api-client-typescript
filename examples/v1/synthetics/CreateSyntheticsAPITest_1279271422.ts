@@ -45,6 +45,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
             method: "GET",
             timeout: 10,
             url: "https://datadoghq.com",
+            httpVersion: "http2",
           },
           retry: {
             count: 5,

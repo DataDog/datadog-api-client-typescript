@@ -5,6 +5,7 @@
  */
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsTestCallType } from "./SyntheticsTestCallType";
+import { SyntheticsTestOptionsHTTPVersion } from "./SyntheticsTestOptionsHTTPVersion";
 import { SyntheticsTestRequestBodyType } from "./SyntheticsTestRequestBodyType";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
@@ -71,6 +72,10 @@ export class SyntheticsTestRequest {
    * Host name to perform the test with.
    */
   "host"?: string;
+  /**
+   * HTTP version to use for a Synthetic test.
+   */
+  "httpVersion"?: SyntheticsTestOptionsHTTPVersion;
   /**
    * Message to send for UDP or WebSocket tests.
    */
@@ -202,6 +207,10 @@ export class SyntheticsTestRequest {
     host: {
       baseName: "host",
       type: "string",
+    },
+    httpVersion: {
+      baseName: "httpVersion",
+      type: "SyntheticsTestOptionsHTTPVersion",
     },
     message: {
       baseName: "message",
