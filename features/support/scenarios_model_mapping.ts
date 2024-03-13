@@ -4038,6 +4038,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
+    "v2.ListLogsCustomDestinations": {
+        "operationResponseType": "CustomDestinationsResponse",
+    },
+    "v2.CreateLogsCustomDestination": {
+        "body": {
+            "type": "CustomDestinationCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CustomDestinationResponse",
+    },
+    "v2.DeleteLogsCustomDestination": {
+        "customDestinationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetLogsCustomDestination": {
+        "customDestinationId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CustomDestinationResponse",
+    },
+    "v2.UpdateLogsCustomDestination": {
+        "customDestinationId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "CustomDestinationUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "CustomDestinationResponse",
+    },
     "v2.ListLogsMetrics": {
         "operationResponseType": "LogsMetricsResponse",
     },
