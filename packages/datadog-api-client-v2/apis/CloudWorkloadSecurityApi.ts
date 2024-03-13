@@ -78,6 +78,13 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'createCSMThreatsAgentRule'");
+    if (!_config.unstableOperations["v2.createCSMThreatsAgentRule"]) {
+      throw new Error(
+        "Unstable operation 'createCSMThreatsAgentRule' is disabled"
+      );
+    }
+
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
       throw new RequiredError("body", "createCSMThreatsAgentRule");
@@ -162,6 +169,13 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'deleteCSMThreatsAgentRule'");
+    if (!_config.unstableOperations["v2.deleteCSMThreatsAgentRule"]) {
+      throw new Error(
+        "Unstable operation 'deleteCSMThreatsAgentRule' is disabled"
+      );
+    }
+
     // verify required parameter 'agentRuleId' is not null or undefined
     if (agentRuleId === null || agentRuleId === undefined) {
       throw new RequiredError("agentRuleId", "deleteCSMThreatsAgentRule");
@@ -221,6 +235,13 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'downloadCSMThreatsPolicy'");
+    if (!_config.unstableOperations["v2.downloadCSMThreatsPolicy"]) {
+      throw new Error(
+        "Unstable operation 'downloadCSMThreatsPolicy' is disabled"
+      );
+    }
 
     // Path Params
     const localVarPath = "/api/v2/remote_config/products/cws/policy/download";
@@ -289,6 +310,13 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
+    logger.warn("Using unstable operation 'getCSMThreatsAgentRule'");
+    if (!_config.unstableOperations["v2.getCSMThreatsAgentRule"]) {
+      throw new Error(
+        "Unstable operation 'getCSMThreatsAgentRule' is disabled"
+      );
+    }
+
     // verify required parameter 'agentRuleId' is not null or undefined
     if (agentRuleId === null || agentRuleId === undefined) {
       throw new RequiredError("agentRuleId", "getCSMThreatsAgentRule");
@@ -348,6 +376,13 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listCSMThreatsAgentRules'");
+    if (!_config.unstableOperations["v2.listCSMThreatsAgentRules"]) {
+      throw new Error(
+        "Unstable operation 'listCSMThreatsAgentRules' is disabled"
+      );
+    }
 
     // Path Params
     const localVarPath = "/api/v2/remote_config/products/cws/agent_rules";
@@ -434,6 +469,13 @@ export class CloudWorkloadSecurityApiRequestFactory extends BaseAPIRequestFactor
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'updateCSMThreatsAgentRule'");
+    if (!_config.unstableOperations["v2.updateCSMThreatsAgentRule"]) {
+      throw new Error(
+        "Unstable operation 'updateCSMThreatsAgentRule' is disabled"
+      );
+    }
 
     // verify required parameter 'agentRuleId' is not null or undefined
     if (agentRuleId === null || agentRuleId === undefined) {

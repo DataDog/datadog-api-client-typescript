@@ -5,6 +5,7 @@
 import { client, v2 } from "@datadog/datadog-api-client";
 
 const configuration = client.createConfiguration();
+configuration.unstableOperations["v2.getCSMThreatsAgentRule"] = true;
 const apiInstance = new v2.CloudWorkloadSecurityApi(configuration);
 
 // there is a valid "agent_rule_rc" in the system
