@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## 1.23.0 / 2024-03-13
+
+### Fixed
+* Downgrade noisy deserialization error log to debug by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/1515
+* Move under common tag Case Management by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1520
+* Include user data with team membership resource by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1516
+* Apply static analysis changes by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/1488
+* Disable additionalProperties for Downtime Schedule UpdateRequest oneOfs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1525
+* Fix ListServiceDefinitions pagination information by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1550
+### Added
+* Case Management Public API documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1499
+* Make grpc steps available for synthetics api multisteps tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1519
+* Add cloud run filter to GCP v1 and v2 spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1496
+* add ASM serverless to usage metering API docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1529
+* Add new products to usage API docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1534
+* Implement additionalProperties on all models by default by @nkzou in https://github.com/DataDog/datadog-api-client-typescript/pull/1532
+* Adds support for `ListMetricAssets` endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1531
+* Add support for new CRUD agent rules endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1545
+* Add documentation for workflow usage attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1551
+* Add Custom Destinations Public API by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1555
+### Changed
+* Update spec for DORA Metrics Incident endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1518
+### Deprecated
+* Deprecate the pattern property for SDS Standard Pattern Attributes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1546
+* Deprecate Incident Services endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1557
+
+## New Contributors
+* @antonio-ramadas-dd made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/1554
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.22.0...v1.23.0
+
 ## 1.22.0 / 2024-02-06
 
 ### Fixed
