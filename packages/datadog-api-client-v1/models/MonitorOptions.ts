@@ -148,7 +148,8 @@ export class MonitorOptions {
   /**
    * A Boolean indicating whether this monitor needs a full window of data before it’s evaluated.
    * We highly recommend you set this to `false` for sparse metrics,
-   * otherwise some evaluations are skipped. Default is false.
+   * otherwise some evaluations are skipped. Default is false. This setting only applies to
+   * metric monitors.
    */
   "requireFullWindow"?: boolean;
   /**
