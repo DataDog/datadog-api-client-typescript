@@ -6,6 +6,7 @@
 import { TeamsResponseLinks } from "./TeamsResponseLinks";
 import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { UserTeam } from "./UserTeam";
+import { UserTeamIncluded } from "./UserTeamIncluded";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,6 +18,10 @@ export class UserTeamsResponse {
    * Team memberships response data
    */
   "data"?: Array<UserTeam>;
+  /**
+   * Resources related to the team memberships
+   */
+  "included"?: Array<UserTeamIncluded>;
   /**
    * Teams response links.
    */
@@ -45,6 +50,10 @@ export class UserTeamsResponse {
     data: {
       baseName: "data",
       type: "Array<UserTeam>",
+    },
+    included: {
+      baseName: "included",
+      type: "Array<UserTeamIncluded>",
     },
     links: {
       baseName: "links",
