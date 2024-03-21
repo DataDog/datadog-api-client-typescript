@@ -16,7 +16,7 @@ export class Series {
    */
   "host"?: string;
   /**
-   * If the type of the metric is rate or count, define the corresponding interval.
+   * If the type of the metric is rate or count, define the corresponding interval in seconds.
    */
   "interval"?: number;
   /**
