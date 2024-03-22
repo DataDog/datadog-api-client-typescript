@@ -142,41 +142,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsageAnalyzedLogsResponse",
     },
-    "v1.GetUsageAttribution": {
-        "startMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "fields": {
-            "type": "UsageAttributionSupportedMetrics",
-            "format": "",
-            },
-        "endMonth": {
-            "type": "Date",
-            "format": "date-time",
-            },
-        "sortDirection": {
-            "type": "UsageSortDirection",
-            "format": "",
-            },
-        "sortName": {
-            "type": "UsageAttributionSort",
-            "format": "",
-            },
-        "includeDescendants": {
-            "type": "boolean",
-            "format": "",
-            },
-        "offset": {
-            "type": "number",
-            "format": "int64",
-            },
-        "limit": {
-            "type": "number",
-            "format": "int64",
-            },
-        "operationResponseType": "UsageAttributionResponse",
-    },
     "v1.GetUsageAuditLogs": {
         "startHr": {
             "type": "Date",

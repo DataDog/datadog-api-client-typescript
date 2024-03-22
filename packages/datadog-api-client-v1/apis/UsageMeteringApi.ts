@@ -22,9 +22,6 @@ import { HourlyUsageAttributionUsageType } from "../models/HourlyUsageAttributio
 import { MonthlyUsageAttributionResponse } from "../models/MonthlyUsageAttributionResponse";
 import { MonthlyUsageAttributionSupportedMetrics } from "../models/MonthlyUsageAttributionSupportedMetrics";
 import { UsageAnalyzedLogsResponse } from "../models/UsageAnalyzedLogsResponse";
-import { UsageAttributionResponse } from "../models/UsageAttributionResponse";
-import { UsageAttributionSort } from "../models/UsageAttributionSort";
-import { UsageAttributionSupportedMetrics } from "../models/UsageAttributionSupportedMetrics";
 import { UsageAuditLogsResponse } from "../models/UsageAuditLogsResponse";
 import { UsageBillableSummaryResponse } from "../models/UsageBillableSummaryResponse";
 import { UsageCIVisibilityResponse } from "../models/UsageCIVisibilityResponse";
@@ -575,106 +572,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "end_hr",
         ObjectSerializer.serialize(endHr, "Date", "date-time")
-      );
-    }
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "AuthZ",
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async getUsageAttribution(
-    startMonth: Date,
-    fields: UsageAttributionSupportedMetrics,
-    endMonth?: Date,
-    sortDirection?: UsageSortDirection,
-    sortName?: UsageAttributionSort,
-    includeDescendants?: boolean,
-    offset?: number,
-    limit?: number,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'startMonth' is not null or undefined
-    if (startMonth === null || startMonth === undefined) {
-      throw new RequiredError("startMonth", "getUsageAttribution");
-    }
-
-    // verify required parameter 'fields' is not null or undefined
-    if (fields === null || fields === undefined) {
-      throw new RequiredError("fields", "getUsageAttribution");
-    }
-
-    // Path Params
-    const localVarPath = "/api/v1/usage/attribution";
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v1.UsageMeteringApi.getUsageAttribution")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam(
-      "Accept",
-      "application/json;datetime-format=rfc3339"
-    );
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Query Params
-    if (startMonth !== undefined) {
-      requestContext.setQueryParam(
-        "start_month",
-        ObjectSerializer.serialize(startMonth, "Date", "date-time")
-      );
-    }
-    if (fields !== undefined) {
-      requestContext.setQueryParam(
-        "fields",
-        ObjectSerializer.serialize(
-          fields,
-          "UsageAttributionSupportedMetrics",
-          ""
-        )
-      );
-    }
-    if (endMonth !== undefined) {
-      requestContext.setQueryParam(
-        "end_month",
-        ObjectSerializer.serialize(endMonth, "Date", "date-time")
-      );
-    }
-    if (sortDirection !== undefined) {
-      requestContext.setQueryParam(
-        "sort_direction",
-        ObjectSerializer.serialize(sortDirection, "UsageSortDirection", "")
-      );
-    }
-    if (sortName !== undefined) {
-      requestContext.setQueryParam(
-        "sort_name",
-        ObjectSerializer.serialize(sortName, "UsageAttributionSort", "")
-      );
-    }
-    if (includeDescendants !== undefined) {
-      requestContext.setQueryParam(
-        "include_descendants",
-        ObjectSerializer.serialize(includeDescendants, "boolean", "")
-      );
-    }
-    if (offset !== undefined) {
-      requestContext.setQueryParam(
-        "offset",
-        ObjectSerializer.serialize(offset, "number", "int64")
-      );
-    }
-    if (limit !== undefined) {
-      requestContext.setQueryParam(
-        "limit",
-        ObjectSerializer.serialize(limit, "number", "int64")
       );
     }
 
@@ -2645,64 +2542,6 @@ export class UsageMeteringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to getUsageAttribution
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getUsageAttribution(
-    response: ResponseContext
-  ): Promise<UsageAttributionResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: UsageAttributionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageAttributionResponse"
-      ) as UsageAttributionResponse;
-      return body;
-    }
-    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: UsageAttributionResponse = ObjectSerializer.deserialize(
-        ObjectSerializer.parse(await response.body.text(), contentType),
-        "UsageAttributionResponse",
-        ""
-      ) as UsageAttributionResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
    * @params response Response returned by the server for a request to getUsageAuditLogs
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -4624,50 +4463,6 @@ export interface UsageMeteringApiGetUsageAnalyzedLogsRequest {
   endHr?: Date;
 }
 
-export interface UsageMeteringApiGetUsageAttributionRequest {
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage beginning in this month.
-   * Maximum of 15 months ago.
-   * @type Date
-   */
-  startMonth: Date;
-  /**
-   * Comma-separated list of usage types to return, or `*` for all usage types.
-   * @type UsageAttributionSupportedMetrics
-   */
-  fields: UsageAttributionSupportedMetrics;
-  /**
-   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for usage ending this month.
-   * @type Date
-   */
-  endMonth?: Date;
-  /**
-   * The direction to sort by: `[desc, asc]`.
-   * @type UsageSortDirection
-   */
-  sortDirection?: UsageSortDirection;
-  /**
-   * The field to sort by.
-   * @type UsageAttributionSort
-   */
-  sortName?: UsageAttributionSort;
-  /**
-   * Include child org usage in the response. Defaults to false.
-   * @type boolean
-   */
-  includeDescendants?: boolean;
-  /**
-   * Number of records to skip before beginning to return.
-   * @type number
-   */
-  offset?: number;
-  /**
-   * Maximum number of records to be returned.
-   * @type number
-   */
-  limit?: number;
-}
-
 export interface UsageMeteringApiGetUsageAuditLogsRequest {
   /**
    * Datetime in ISO-8601 format, UTC, precise to hour: `[YYYY-MM-DDThh]` for usage beginning at this hour.
@@ -5345,36 +5140,6 @@ export class UsageMeteringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getUsageAnalyzedLogs(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Get usage attribution.
-   * **Note:** This endpoint will be fully deprecated on December 1, 2022.
-   * Refer to [Migrating from v1 to v2 of the Usage Attribution API](https://docs.datadoghq.com/account_management/guide/usage-attribution-migration/) for the associated migration guide.
-   * @param param The request object
-   */
-  public getUsageAttribution(
-    param: UsageMeteringApiGetUsageAttributionRequest,
-    options?: Configuration
-  ): Promise<UsageAttributionResponse> {
-    const requestContextPromise = this.requestFactory.getUsageAttribution(
-      param.startMonth,
-      param.fields,
-      param.endMonth,
-      param.sortDirection,
-      param.sortName,
-      param.includeDescendants,
-      param.offset,
-      param.limit,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getUsageAttribution(responseContext);
         });
     });
   }
