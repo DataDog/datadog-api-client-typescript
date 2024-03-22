@@ -16,7 +16,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricSeries {
   /**
-   * If the type of the metric is rate or count, define the corresponding interval.
+   * If the type of the metric is rate or count, define the corresponding interval in seconds.
    */
   "interval"?: number;
   /**
