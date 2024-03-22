@@ -276,7 +276,6 @@ export {
   UsageMeteringApiGetSpecifiedDailyCustomReportsRequest,
   UsageMeteringApiGetSpecifiedMonthlyCustomReportsRequest,
   UsageMeteringApiGetUsageAnalyzedLogsRequest,
-  UsageMeteringApiGetUsageAttributionRequest,
   UsageMeteringApiGetUsageAuditLogsRequest,
   UsageMeteringApiGetUsageBillableSummaryRequest,
   UsageMeteringApiGetUsageCIAppRequest,
@@ -1026,13 +1025,6 @@ export { TreeMapWidgetRequest } from "./models/TreeMapWidgetRequest";
 export { UsageAnalyzedLogsHour } from "./models/UsageAnalyzedLogsHour";
 export { UsageAnalyzedLogsResponse } from "./models/UsageAnalyzedLogsResponse";
 export { UsageAttributionAggregatesBody } from "./models/UsageAttributionAggregatesBody";
-export { UsageAttributionBody } from "./models/UsageAttributionBody";
-export { UsageAttributionMetadata } from "./models/UsageAttributionMetadata";
-export { UsageAttributionPagination } from "./models/UsageAttributionPagination";
-export { UsageAttributionResponse } from "./models/UsageAttributionResponse";
-export { UsageAttributionSort } from "./models/UsageAttributionSort";
-export { UsageAttributionSupportedMetrics } from "./models/UsageAttributionSupportedMetrics";
-export { UsageAttributionValues } from "./models/UsageAttributionValues";
 export { UsageAuditLogsHour } from "./models/UsageAuditLogsHour";
 export { UsageAuditLogsResponse } from "./models/UsageAuditLogsResponse";
 export { UsageBillableSummaryBody } from "./models/UsageBillableSummaryBody";
