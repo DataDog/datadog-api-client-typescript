@@ -21,7 +21,7 @@ const params: v2.MetricsApiQueryScalarDataRequest = {
             },
           },
         ],
-        from: 1671612804000,
+        from: 1636625471000,
         queries: [
           {
             aggregator: "avg",
@@ -30,7 +30,7 @@ const params: v2.MetricsApiQueryScalarDataRequest = {
             name: "a",
           },
         ],
-        to: 1671620004000,
+        to: 1636629071000,
       },
       type: "scalar_request",
     },
