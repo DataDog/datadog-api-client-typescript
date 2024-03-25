@@ -143,6 +143,8 @@ export class MonitorOptions {
   "renotifyOccurrences"?: number;
   /**
    * The types of monitor statuses for which re-notification messages are sent.
+   * Default: **null** if `renotify_interval` is **null**.
+   * If `renotify_interval` is set, defaults to renotify on `Alert` and `No Data`.
    */
   "renotifyStatuses"?: Array<MonitorRenotifyStatusType>;
   /**
