@@ -15,7 +15,7 @@ const params: v2.TeamsApiCreateTeamLinkRequest = {
     data: {
       attributes: {
         label: "Link label",
-        url: "https://example.com",
+        url: "https://example.com/one",
         position: 0,
       },
       type: "team_links",

@@ -21,7 +21,7 @@ const params: v2.MetricsApiQueryTimeseriesDataRequest = {
             },
           },
         ],
-        from: 1636625471000,
+        from: 1671612804000,
         interval: 5000,
         queries: [
           {
@@ -30,7 +30,7 @@ const params: v2.MetricsApiQueryTimeseriesDataRequest = {
             name: "a",
           },
         ],
-        to: 1636629071000,
+        to: 1671620004000,
       },
       type: "timeseries_request",
     },
