@@ -35,6 +35,14 @@ const params: v1.SyntheticsApiUpdateAPITestRequest = {
           },
           type: "body",
         },
+        {
+          operator: "validatesJSONSchema",
+          target: {
+            metaSchema: "draft-07",
+            jsonSchema: `{"type": "object", "properties":{"slideshow":{"type":"object"}}}`,
+          },
+          type: "body",
+        },
       ],
       configVariables: [
         {

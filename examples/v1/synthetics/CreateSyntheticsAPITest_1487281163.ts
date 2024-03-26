@@ -33,6 +33,14 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           type: "body",
         },
         {
+          operator: "validatesJSONSchema",
+          target: {
+            metaSchema: "draft-07",
+            jsonSchema: `{"type": "object", "properties":{"slideshow":{"type":"object"}}}`,
+          },
+          type: "body",
+        },
+        {
           operator: "validatesXPath",
           target: {
             xPath: "target-xpath",
