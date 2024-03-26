@@ -417,6 +417,13 @@ export {
 } from "./apis/ServiceDefinitionApi";
 
 export {
+  ServiceLevelObjectivesApiCreateSLOReportJobRequest,
+  ServiceLevelObjectivesApiGetSLOReportRequest,
+  ServiceLevelObjectivesApiGetSLOReportJobStatusRequest,
+  ServiceLevelObjectivesApi,
+} from "./apis/ServiceLevelObjectivesApi";
+
+export {
   ServiceScorecardsApiCreateScorecardOutcomesBatchRequest,
   ServiceScorecardsApiCreateScorecardRuleRequest,
   ServiceScorecardsApiDeleteScorecardRuleRequest,
@@ -1768,6 +1775,16 @@ export { ServiceNowTicket } from "./models/ServiceNowTicket";
 export { ServiceNowTicketResult } from "./models/ServiceNowTicketResult";
 export { SlackIntegrationMetadata } from "./models/SlackIntegrationMetadata";
 export { SlackIntegrationMetadataChannelItem } from "./models/SlackIntegrationMetadataChannelItem";
+export { SLOReportInterval } from "./models/SLOReportInterval";
+export { SLOReportPostRequest } from "./models/SLOReportPostRequest";
+export { SloReportPostRequestAttributes } from "./models/SloReportPostRequestAttributes";
+export { SLOReportPostRequestData } from "./models/SLOReportPostRequestData";
+export { SLOReportPostResponse } from "./models/SLOReportPostResponse";
+export { SLOReportPostResponseData } from "./models/SLOReportPostResponseData";
+export { SLOReportStatus } from "./models/SLOReportStatus";
+export { SLOReportStatusGetResponse } from "./models/SLOReportStatusGetResponse";
+export { SLOReportStatusGetResponseAttributes } from "./models/SLOReportStatusGetResponseAttributes";
+export { SLOReportStatusGetResponseData } from "./models/SLOReportStatusGetResponseData";
 export { SortDirection } from "./models/SortDirection";
 export { Span } from "./models/Span";
 export { SpansAggregateBucket } from "./models/SpansAggregateBucket";
