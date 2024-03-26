@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
+import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 
@@ -17,5 +18,6 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type SyntheticsAssertion =
   | SyntheticsAssertionTarget
   | SyntheticsAssertionJSONPathTarget
+  | SyntheticsAssertionJSONSchemaTarget
   | SyntheticsAssertionXPathTarget
   | UnparsedObject;
