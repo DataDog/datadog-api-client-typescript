@@ -1675,7 +1675,7 @@ export class UsageMeteringApi {
 
   /**
    * Get hourly usage for application security .
-   * **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+   * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
    * @param param The request object
    */
   public getUsageApplicationSecurityMonitoring(
@@ -1701,7 +1701,7 @@ export class UsageMeteringApi {
 
   /**
    * Get hourly usage for Lambda traced invocations.
-   * **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+   * **Note:** This endpoint has been deprecated.. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
    * @param param The request object
    */
   public getUsageLambdaTracedInvocations(
@@ -1727,7 +1727,7 @@ export class UsageMeteringApi {
 
   /**
    * Get hourly usage for observability pipelines.
-   * **Note:** hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
+   * **Note:** This endpoint has been deprecated. Hourly usage data for all products is now available in the [Get hourly usage by product family API](https://docs.datadoghq.com/api/latest/usage-metering/#get-hourly-usage-by-product-family)
    * @param param The request object
    */
   public getUsageObservabilityPipelines(
