@@ -63,7 +63,7 @@ This client includes access to Datadog API endpoints while they are in an unstab
 configuration.unstableOperations["<version>.<operationName>"] = true
 ```
 
-where <operationName> is the name of the method used to interact with that endpoint. For example: `listLogIndexes`, or `getLogsIndex`.
+where `<operationName>` is the name of the method used to interact with that endpoint. For example: `listLogIndexes`, or `getLogsIndex`.
 
 ### Changing Server
 
