@@ -3,28 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToRole } from "./RelationshipToRole";
-import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
-import { RelationshipToTeam } from "./RelationshipToTeam";
+import { RelationshipToTeamData } from "./RelationshipToTeamData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * All relationships associated with AuthN Mapping.
+ * Relationship to team.
  */
-export class AuthNMappingRelationships {
+export class RelationshipToTeam {
   /**
-   * Relationship to role.
+   * Relationship to Team object.
    */
-  "role"?: RelationshipToRole;
-  /**
-   * AuthN Mapping relationship to SAML Assertion Attribute.
-   */
-  "samlAssertionAttribute"?: RelationshipToSAMLAssertionAttribute;
-  /**
-   * Relationship to team.
-   */
-  "team"?: RelationshipToTeam;
+  "data"?: RelationshipToTeamData;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,17 +32,9 @@ export class AuthNMappingRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    role: {
-      baseName: "role",
-      type: "RelationshipToRole",
-    },
-    samlAssertionAttribute: {
-      baseName: "saml_assertion_attribute",
-      type: "RelationshipToSAMLAssertionAttribute",
-    },
-    team: {
-      baseName: "team",
-      type: "RelationshipToTeam",
+    data: {
+      baseName: "data",
+      type: "RelationshipToTeamData",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -64,7 +46,7 @@ export class AuthNMappingRelationships {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingRelationships.attributeTypeMap;
+    return RelationshipToTeam.attributeTypeMap;
   }
 
   public constructor() {}

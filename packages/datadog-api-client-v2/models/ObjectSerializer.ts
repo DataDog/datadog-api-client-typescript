@@ -41,13 +41,15 @@ import { AuthNMapping } from "./AuthNMapping";
 import { AuthNMappingAttributes } from "./AuthNMappingAttributes";
 import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
 import { AuthNMappingCreateData } from "./AuthNMappingCreateData";
-import { AuthNMappingCreateRelationships } from "./AuthNMappingCreateRelationships";
 import { AuthNMappingCreateRequest } from "./AuthNMappingCreateRequest";
+import { AuthNMappingRelationshipToRole } from "./AuthNMappingRelationshipToRole";
+import { AuthNMappingRelationshipToTeam } from "./AuthNMappingRelationshipToTeam";
 import { AuthNMappingRelationships } from "./AuthNMappingRelationships";
 import { AuthNMappingResponse } from "./AuthNMappingResponse";
+import { AuthNMappingTeam } from "./AuthNMappingTeam";
+import { AuthNMappingTeamAttributes } from "./AuthNMappingTeamAttributes";
 import { AuthNMappingUpdateAttributes } from "./AuthNMappingUpdateAttributes";
 import { AuthNMappingUpdateData } from "./AuthNMappingUpdateData";
-import { AuthNMappingUpdateRelationships } from "./AuthNMappingUpdateRelationships";
 import { AuthNMappingUpdateRequest } from "./AuthNMappingUpdateRequest";
 import { AuthNMappingsResponse } from "./AuthNMappingsResponse";
 import { AwsCURConfig } from "./AwsCURConfig";
@@ -761,6 +763,8 @@ import { RelationshipToRuleData } from "./RelationshipToRuleData";
 import { RelationshipToRuleDataObject } from "./RelationshipToRuleDataObject";
 import { RelationshipToSAMLAssertionAttribute } from "./RelationshipToSAMLAssertionAttribute";
 import { RelationshipToSAMLAssertionAttributeData } from "./RelationshipToSAMLAssertionAttributeData";
+import { RelationshipToTeam } from "./RelationshipToTeam";
+import { RelationshipToTeamData } from "./RelationshipToTeamData";
 import { RelationshipToTeamLinkData } from "./RelationshipToTeamLinkData";
 import { RelationshipToTeamLinks } from "./RelationshipToTeamLinks";
 import { RelationshipToUser } from "./RelationshipToUser";
@@ -1745,13 +1749,15 @@ const typeMap: { [index: string]: any } = {
   AuthNMappingAttributes: AuthNMappingAttributes,
   AuthNMappingCreateAttributes: AuthNMappingCreateAttributes,
   AuthNMappingCreateData: AuthNMappingCreateData,
-  AuthNMappingCreateRelationships: AuthNMappingCreateRelationships,
   AuthNMappingCreateRequest: AuthNMappingCreateRequest,
+  AuthNMappingRelationshipToRole: AuthNMappingRelationshipToRole,
+  AuthNMappingRelationshipToTeam: AuthNMappingRelationshipToTeam,
   AuthNMappingRelationships: AuthNMappingRelationships,
   AuthNMappingResponse: AuthNMappingResponse,
+  AuthNMappingTeam: AuthNMappingTeam,
+  AuthNMappingTeamAttributes: AuthNMappingTeamAttributes,
   AuthNMappingUpdateAttributes: AuthNMappingUpdateAttributes,
   AuthNMappingUpdateData: AuthNMappingUpdateData,
-  AuthNMappingUpdateRelationships: AuthNMappingUpdateRelationships,
   AuthNMappingUpdateRequest: AuthNMappingUpdateRequest,
   AuthNMappingsResponse: AuthNMappingsResponse,
   AwsCURConfig: AwsCURConfig,
@@ -2535,6 +2541,8 @@ const typeMap: { [index: string]: any } = {
   RelationshipToSAMLAssertionAttribute: RelationshipToSAMLAssertionAttribute,
   RelationshipToSAMLAssertionAttributeData:
     RelationshipToSAMLAssertionAttributeData,
+  RelationshipToTeam: RelationshipToTeam,
+  RelationshipToTeamData: RelationshipToTeamData,
   RelationshipToTeamLinkData: RelationshipToTeamLinkData,
   RelationshipToTeamLinks: RelationshipToTeamLinks,
   RelationshipToUser: RelationshipToUser,
@@ -2932,7 +2940,15 @@ const typeMap: { [index: string]: any } = {
 const oneOfMap: { [index: string]: string[] } = {
   APIKeyResponseIncludedItem: ["User"],
   ApplicationKeyResponseIncludedItem: ["User", "Role"],
-  AuthNMappingIncluded: ["SAMLAssertionAttribute", "Role"],
+  AuthNMappingCreateRelationships: [
+    "AuthNMappingRelationshipToRole",
+    "AuthNMappingRelationshipToTeam",
+  ],
+  AuthNMappingIncluded: ["SAMLAssertionAttribute", "Role", "AuthNMappingTeam"],
+  AuthNMappingUpdateRelationships: [
+    "AuthNMappingRelationshipToRole",
+    "AuthNMappingRelationshipToTeam",
+  ],
   CIAppAggregateBucketValue: [
     "string",
     "number",

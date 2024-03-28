@@ -3,28 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
-import { AuthNMappingCreateRelationships } from "./AuthNMappingCreateRelationships";
-import { AuthNMappingsType } from "./AuthNMappingsType";
+import { RelationshipToRole } from "./RelationshipToRole";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for creating an AuthN Mapping.
+ * Relationship of AuthN Mapping to a Role.
  */
-export class AuthNMappingCreateData {
+export class AuthNMappingRelationshipToRole {
   /**
-   * Key/Value pair of attributes used for create request.
+   * Relationship to role.
    */
-  "attributes"?: AuthNMappingCreateAttributes;
-  /**
-   * Relationship of AuthN Mapping create object to a Role or Team.
-   */
-  "relationships"?: AuthNMappingCreateRelationships;
-  /**
-   * AuthN Mappings resource type.
-   */
-  "type": AuthNMappingsType;
+  "role": RelationshipToRole;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,17 +32,9 @@ export class AuthNMappingCreateData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "AuthNMappingCreateAttributes",
-    },
-    relationships: {
-      baseName: "relationships",
-      type: "AuthNMappingCreateRelationships",
-    },
-    type: {
-      baseName: "type",
-      type: "AuthNMappingsType",
+    role: {
+      baseName: "role",
+      type: "RelationshipToRole",
       required: true,
     },
     additionalProperties: {
@@ -65,7 +47,7 @@ export class AuthNMappingCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingCreateData.attributeTypeMap;
+    return AuthNMappingRelationshipToRole.attributeTypeMap;
   }
 
   public constructor() {}
