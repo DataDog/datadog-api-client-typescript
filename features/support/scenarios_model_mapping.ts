@@ -4573,6 +4573,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
     },
+    "v2.ValidateSecurityMonitoringRule": {
+        "body": {
+            "type": "SecurityMonitoringRuleCreatePayload",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.DeleteSecurityMonitoringRule": {
         "ruleId": {
             "type": "string",

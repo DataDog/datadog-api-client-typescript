@@ -384,6 +384,7 @@ export {
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
+  SecurityMonitoringApiValidateSecurityMonitoringRuleRequest,
   SecurityMonitoringApi,
 } from "./apis/SecurityMonitoringApi";
 
