@@ -44,6 +44,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof ESTIMATED_RUM_SESSIONS_USAGE
   | typeof FARGATE_USAGE
   | typeof FUNCTIONS_USAGE
+  | typeof INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE
   | typeof INDEXED_SPANS_USAGE
   | typeof INFRA_HOST_USAGE
   | typeof INGESTED_LOGS_BYTES_USAGE
@@ -65,6 +66,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof NPM_HOST_USAGE
   | typeof OBS_PIPELINE_BYTES_USAGE
   | typeof OBS_PIPELINE_VCPU_USAGE
+  | typeof ONLINE_ARCHIVE_USAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_FARGATE_USAGE
   | typeof PROFILED_HOST_USAGE
@@ -115,6 +117,8 @@ export const ESTIMATED_INGESTED_SPANS_USAGE = "estimated_ingested_spans_usage";
 export const ESTIMATED_RUM_SESSIONS_USAGE = "estimated_rum_sessions_usage";
 export const FARGATE_USAGE = "fargate_usage";
 export const FUNCTIONS_USAGE = "functions_usage";
+export const INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =
+  "incident_management_monthly_active_users_usage";
 export const INDEXED_SPANS_USAGE = "indexed_spans_usage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INGESTED_LOGS_BYTES_USAGE = "ingested_logs_bytes_usage";
@@ -138,6 +142,7 @@ export const NDM_NETFLOW_USAGE = "ndm_netflow_usage";
 export const NPM_HOST_USAGE = "npm_host_usage";
 export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
 export const OBS_PIPELINE_VCPU_USAGE = "obs_pipelines_vcpu_usage";
+export const ONLINE_ARCHIVE_USAGE = "online_archive_usage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";
 export const PROFILED_HOST_USAGE = "profiled_host_usage";
