@@ -65,6 +65,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof FARGATE_PERCENTAGE
   | typeof FUNCTIONS_USAGE
   | typeof FUNCTIONS_PERCENTAGE
+  | typeof INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE
+  | typeof INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE
   | typeof INFRA_HOST_USAGE
   | typeof INFRA_HOST_PERCENTAGE
   | typeof INVOCATIONS_USAGE
@@ -81,6 +83,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof OBS_PIPELINE_BYTES_PERCENTAGE
   | typeof OBS_PIPELINES_VCPU_USAGE
   | typeof OBS_PIPELINES_VCPU_PERCENTAGE
+  | typeof ONLINE_ARCHIVE_USAGE
+  | typeof ONLINE_ARCHIVE_PERCENTAGE
   | typeof PROFILED_CONTAINER_USAGE
   | typeof PROFILED_CONTAINER_PERCENTAGE
   | typeof PROFILED_FARGATE_USAGE
@@ -204,6 +208,10 @@ export const FARGATE_USAGE = "fargate_usage";
 export const FARGATE_PERCENTAGE = "fargate_percentage";
 export const FUNCTIONS_USAGE = "functions_usage";
 export const FUNCTIONS_PERCENTAGE = "functions_percentage";
+export const INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_USAGE =
+  "incident_management_monthly_active_users_usage";
+export const INCIDENT_MANAGEMENT_MONTHLY_ACTIVE_USERS_PERCENTAGE =
+  "incident_management_monthly_active_users_percentage";
 export const INFRA_HOST_USAGE = "infra_host_usage";
 export const INFRA_HOST_PERCENTAGE = "infra_host_percentage";
 export const INVOCATIONS_USAGE = "invocations_usage";
@@ -222,6 +230,8 @@ export const OBS_PIPELINE_BYTES_USAGE = "obs_pipeline_bytes_usage";
 export const OBS_PIPELINE_BYTES_PERCENTAGE = "obs_pipeline_bytes_percentage";
 export const OBS_PIPELINES_VCPU_USAGE = "obs_pipelines_vcpu_usage";
 export const OBS_PIPELINES_VCPU_PERCENTAGE = "obs_pipelines_vcpu_percentage";
+export const ONLINE_ARCHIVE_USAGE = "online_archive_usage";
+export const ONLINE_ARCHIVE_PERCENTAGE = "online_archive_percentage";
 export const PROFILED_CONTAINER_USAGE = "profiled_container_usage";
 export const PROFILED_CONTAINER_PERCENTAGE = "profiled_container_percentage";
 export const PROFILED_FARGATE_USAGE = "profiled_fargate_usage";

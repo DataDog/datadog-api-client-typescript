@@ -259,6 +259,14 @@ export class MonthlyUsageAttributionValues {
    */
   "functionsUsage"?: number;
   /**
+   * The percentage of Incident Management monthly active users usage by tag(s).
+   */
+  "incidentManagementMonthlyActiveUsersPercentage"?: number;
+  /**
+   * The Incident Management monthly active users usage by tag(s).
+   */
+  "incidentManagementMonthlyActiveUsersUsage"?: number;
+  /**
    * The percentage of APM Indexed Spans usage by tag(s).
    */
   "indexedSpansPercentage"?: number;
@@ -426,6 +434,14 @@ export class MonthlyUsageAttributionValues {
    * The observability pipeline per core usage by tag(s).
    */
   "obsPipelinesVcpuUsage"?: number;
+  /**
+   * The percentage of online archive usage by tag(s).
+   */
+  "onlineArchivePercentage"?: number;
+  /**
+   * The online archive usage by tag(s).
+   */
+  "onlineArchiveUsage"?: number;
   /**
    * The percentage of profiled container usage by tag(s).
    */
@@ -849,6 +865,16 @@ export class MonthlyUsageAttributionValues {
       type: "number",
       format: "double",
     },
+    incidentManagementMonthlyActiveUsersPercentage: {
+      baseName: "incident_management_monthly_active_users_percentage",
+      type: "number",
+      format: "double",
+    },
+    incidentManagementMonthlyActiveUsersUsage: {
+      baseName: "incident_management_monthly_active_users_usage",
+      type: "number",
+      format: "double",
+    },
     indexedSpansPercentage: {
       baseName: "indexed_spans_percentage",
       type: "number",
@@ -1056,6 +1082,16 @@ export class MonthlyUsageAttributionValues {
     },
     obsPipelinesVcpuUsage: {
       baseName: "obs_pipelines_vcpu_usage",
+      type: "number",
+      format: "double",
+    },
+    onlineArchivePercentage: {
+      baseName: "online_archive_percentage",
+      type: "number",
+      format: "double",
+    },
+    onlineArchiveUsage: {
+      baseName: "online_archive_usage",
       type: "number",
       format: "double",
     },
