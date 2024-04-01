@@ -26,7 +26,7 @@ const params: v2.MetricsApiQueryTimeseriesDataRequest = {
         queries: [
           {
             dataSource: "metrics",
-            query: "avg:system.cpu.user{*}",
+            query: "avg:datadog.estimated_usage.metrics.custom{*}",
             name: "a",
           },
         ],
