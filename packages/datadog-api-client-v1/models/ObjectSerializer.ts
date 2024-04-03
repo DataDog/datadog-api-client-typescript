@@ -1122,6 +1122,7 @@ const enumsMap: { [key: string]: any[] } = {
   SLOListWidgetRequestType: ["slo_list"],
   SLOState: ["breached", "warning", "ok", "no_data"],
   SLOTimeSliceComparator: [">", ">=", "<", "<="],
+  SLOTimeSliceInterval: [60, 300],
   SLOTimeframe: ["7d", "30d", "90d", "custom"],
   SLOType: ["metric", "monitor", "time_slice"],
   SLOTypeNumeric: [0, 1, 2],
