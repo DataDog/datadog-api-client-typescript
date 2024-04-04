@@ -825,6 +825,7 @@ export { SLOThreshold } from "./models/SLOThreshold";
 export { SLOTimeframe } from "./models/SLOTimeframe";
 export { SLOTimeSliceComparator } from "./models/SLOTimeSliceComparator";
 export { SLOTimeSliceCondition } from "./models/SLOTimeSliceCondition";
+export { SLOTimeSliceInterval } from "./models/SLOTimeSliceInterval";
 export { SLOTimeSliceQuery } from "./models/SLOTimeSliceQuery";
 export { SLOTimeSliceSpec } from "./models/SLOTimeSliceSpec";
 export { SLOType } from "./models/SLOType";

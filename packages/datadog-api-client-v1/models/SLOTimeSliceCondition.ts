@@ -4,13 +4,14 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SLOTimeSliceComparator } from "./SLOTimeSliceComparator";
+import { SLOTimeSliceInterval } from "./SLOTimeSliceInterval";
 import { SLOTimeSliceQuery } from "./SLOTimeSliceQuery";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The time-slice condition, composed of 3 parts: 1. the metric timeseries query, 2. the comparator,
- * and 3. the threshold.
+ * and 3. the threshold. Optionally, a fourth part, the query interval, can be provided.
  */
 export class SLOTimeSliceCondition {
   /**
@@ -21,6 +22,12 @@ export class SLOTimeSliceCondition {
    * The queries and formula used to calculate the SLI value.
    */
   "query": SLOTimeSliceQuery;
+  /**
+   * The interval used when querying data, which defines the size of a time slice.
+   * Two values are allowed: 60 (1 minute) and 300 (5 minutes).
+   * If not provided, the value defaults to 300 (5 minutes).
+   */
+  "queryIntervalSeconds"?: SLOTimeSliceInterval;
   /**
    * The threshold value to which each SLI value will be compared.
    */
@@ -51,6 +58,11 @@ export class SLOTimeSliceCondition {
       baseName: "query",
       type: "SLOTimeSliceQuery",
       required: true,
+    },
+    queryIntervalSeconds: {
+      baseName: "query_interval_seconds",
+      type: "SLOTimeSliceInterval",
+      format: "int32",
     },
     threshold: {
       baseName: "threshold",
