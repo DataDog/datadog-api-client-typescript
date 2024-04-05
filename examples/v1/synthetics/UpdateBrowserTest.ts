@@ -31,6 +31,7 @@ const params: v1.SyntheticsApiUpdateBrowserTestRequest = {
           key: {},
         },
         certificateDomains: [],
+        files: [{}],
         httpVersion: "http1",
         proxy: {
           url: "https://example.com",

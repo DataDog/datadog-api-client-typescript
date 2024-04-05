@@ -6,6 +6,7 @@
 import { SyntheticsBasicAuth } from "./SyntheticsBasicAuth";
 import { SyntheticsTestCallType } from "./SyntheticsTestCallType";
 import { SyntheticsTestOptionsHTTPVersion } from "./SyntheticsTestOptionsHTTPVersion";
+import { SyntheticsTestRequestBodyFile } from "./SyntheticsTestRequestBodyFile";
 import { SyntheticsTestRequestBodyType } from "./SyntheticsTestRequestBodyType";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
@@ -60,6 +61,10 @@ export class SyntheticsTestRequest {
    * DNS server port to use for DNS tests.
    */
   "dnsServerPort"?: number;
+  /**
+   * Files to be used as part of the request in the test.
+   */
+  "files"?: Array<SyntheticsTestRequestBodyFile>;
   /**
    * Specifies whether or not the request follows redirects.
    */
@@ -195,6 +200,10 @@ export class SyntheticsTestRequest {
       baseName: "dnsServerPort",
       type: "number",
       format: "int32",
+    },
+    files: {
+      baseName: "files",
+      type: "Array<SyntheticsTestRequestBodyFile>",
     },
     followRedirects: {
       baseName: "follow_redirects",
