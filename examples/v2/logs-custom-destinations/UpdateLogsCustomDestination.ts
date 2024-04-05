@@ -16,6 +16,10 @@ const params: v2.LogsCustomDestinationsApiUpdateLogsCustomDestinationRequest = {
     data: {
       attributes: {
         name: "Nginx logs (Updated)",
+        query: "source:nginx",
+        enabled: false,
+        forwardTags: false,
+        forwardTagsRestrictionListType: "BLOCK_LIST",
       },
       type: "custom_destination",
       id: CUSTOM_DESTINATION_DATA_ID,
