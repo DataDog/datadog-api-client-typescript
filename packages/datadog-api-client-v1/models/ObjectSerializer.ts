@@ -466,6 +466,7 @@ import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
 import { SyntheticsTestOptionsSchedulingTimeframe } from "./SyntheticsTestOptionsSchedulingTimeframe";
 import { SyntheticsTestRequest } from "./SyntheticsTestRequest";
+import { SyntheticsTestRequestBodyFile } from "./SyntheticsTestRequestBodyFile";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
@@ -1373,6 +1374,8 @@ const enumsMap: { [key: string]: any[] } = {
     "text/html",
     "application/x-www-form-urlencoded",
     "graphql",
+    "application/octet-stream",
+    "multipart/form-data",
   ],
   SyntheticsWarningType: ["user_locator"],
   TableWidgetCellDisplayMode: ["number", "bar"],
@@ -2014,6 +2017,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestOptionsSchedulingTimeframe:
     SyntheticsTestOptionsSchedulingTimeframe,
   SyntheticsTestRequest: SyntheticsTestRequest,
+  SyntheticsTestRequestBodyFile: SyntheticsTestRequestBodyFile,
   SyntheticsTestRequestCertificate: SyntheticsTestRequestCertificate,
   SyntheticsTestRequestCertificateItem: SyntheticsTestRequestCertificateItem,
   SyntheticsTestRequestProxy: SyntheticsTestRequestProxy,

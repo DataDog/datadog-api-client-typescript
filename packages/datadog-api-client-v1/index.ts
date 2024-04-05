@@ -972,6 +972,7 @@ export { SyntheticsTestOptionsSchedulingTimeframe } from "./models/SyntheticsTes
 export { SyntheticsTestPauseStatus } from "./models/SyntheticsTestPauseStatus";
 export { SyntheticsTestProcessStatus } from "./models/SyntheticsTestProcessStatus";
 export { SyntheticsTestRequest } from "./models/SyntheticsTestRequest";
+export { SyntheticsTestRequestBodyFile } from "./models/SyntheticsTestRequestBodyFile";
 export { SyntheticsTestRequestBodyType } from "./models/SyntheticsTestRequestBodyType";
 export { SyntheticsTestRequestCertificate } from "./models/SyntheticsTestRequestCertificate";
 export { SyntheticsTestRequestCertificateItem } from "./models/SyntheticsTestRequestCertificateItem";
