@@ -22,7 +22,7 @@ export class AuthNMappingUpdateData {
    */
   "id": string;
   /**
-   * Relationship of AuthN Mapping update object to Role.
+   * Relationship of AuthN Mapping update object to a Role or Team.
    */
   "relationships"?: AuthNMappingUpdateRelationships;
   /**
