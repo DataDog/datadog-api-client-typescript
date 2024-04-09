@@ -3,28 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AuthNMappingCreateAttributes } from "./AuthNMappingCreateAttributes";
-import { AuthNMappingCreateRelationships } from "./AuthNMappingCreateRelationships";
-import { AuthNMappingsType } from "./AuthNMappingsType";
+import { AuthNMappingTeamAttributes } from "./AuthNMappingTeamAttributes";
+import { TeamType } from "./TeamType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data for creating an AuthN Mapping.
+ * Team.
  */
-export class AuthNMappingCreateData {
+export class AuthNMappingTeam {
   /**
-   * Key/Value pair of attributes used for create request.
+   * Team attributes.
    */
-  "attributes"?: AuthNMappingCreateAttributes;
+  "attributes"?: AuthNMappingTeamAttributes;
   /**
-   * Relationship of AuthN Mapping create object to a Role or Team.
+   * The ID of the Team.
    */
-  "relationships"?: AuthNMappingCreateRelationships;
+  "id"?: string;
   /**
-   * AuthN Mappings resource type.
+   * Team type
    */
-  "type": AuthNMappingsType;
+  "type"?: TeamType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,16 +43,15 @@ export class AuthNMappingCreateData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "AuthNMappingCreateAttributes",
+      type: "AuthNMappingTeamAttributes",
     },
-    relationships: {
-      baseName: "relationships",
-      type: "AuthNMappingCreateRelationships",
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
-      type: "AuthNMappingsType",
-      required: true,
+      type: "TeamType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -65,7 +63,7 @@ export class AuthNMappingCreateData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return AuthNMappingCreateData.attributeTypeMap;
+    return AuthNMappingTeam.attributeTypeMap;
   }
 
   public constructor() {}

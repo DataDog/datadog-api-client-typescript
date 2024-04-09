@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AuthNMappingTeam } from "./AuthNMappingTeam";
 import { Role } from "./Role";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type AuthNMappingIncluded =
   | SAMLAssertionAttribute
   | Role
+  | AuthNMappingTeam
   | UnparsedObject;
