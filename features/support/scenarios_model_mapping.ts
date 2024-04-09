@@ -5292,6 +5292,27 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ServiceDefinitionGetResponse",
     },
+    "v2.CreateSLOReportJob": {
+        "body": {
+            "type": "SloReportCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SLOReportPostResponse",
+    },
+    "v2.GetSLOReport": {
+        "reportId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "string",
+    },
+    "v2.GetSLOReportJobStatus": {
+        "reportId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SLOReportStatusGetResponse",
+    },
     "v2.AggregateSpans": {
         "body": {
             "type": "SpansAggregateRequest",

@@ -818,6 +818,11 @@ import { RuleAttributes } from "./RuleAttributes";
 import { RuleOutcomeRelationships } from "./RuleOutcomeRelationships";
 import { SAMLAssertionAttribute } from "./SAMLAssertionAttribute";
 import { SAMLAssertionAttributeAttributes } from "./SAMLAssertionAttributeAttributes";
+import { SLOReportPostResponse } from "./SLOReportPostResponse";
+import { SLOReportPostResponseData } from "./SLOReportPostResponseData";
+import { SLOReportStatusGetResponse } from "./SLOReportStatusGetResponse";
+import { SLOReportStatusGetResponseAttributes } from "./SLOReportStatusGetResponseAttributes";
+import { SLOReportStatusGetResponseData } from "./SLOReportStatusGetResponseData";
 import { ScalarFormulaQueryRequest } from "./ScalarFormulaQueryRequest";
 import { ScalarFormulaQueryResponse } from "./ScalarFormulaQueryResponse";
 import { ScalarFormulaRequest } from "./ScalarFormulaRequest";
@@ -982,6 +987,9 @@ import { ServiceNowTicket } from "./ServiceNowTicket";
 import { ServiceNowTicketResult } from "./ServiceNowTicketResult";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 import { SlackIntegrationMetadataChannelItem } from "./SlackIntegrationMetadataChannelItem";
+import { SloReportCreateRequest } from "./SloReportCreateRequest";
+import { SloReportCreateRequestAttributes } from "./SloReportCreateRequestAttributes";
+import { SloReportCreateRequestData } from "./SloReportCreateRequestData";
 import { Span } from "./Span";
 import { SpansAggregateBucket } from "./SpansAggregateBucket";
 import { SpansAggregateBucketAttributes } from "./SpansAggregateBucketAttributes";
@@ -1483,6 +1491,13 @@ const enumsMap: { [key: string]: any[] } = {
   RolesType: ["roles"],
   RuleType: ["rule"],
   SAMLAssertionAttributesType: ["saml_assertion_attributes"],
+  SLOReportInterval: ["weekly", "monthly"],
+  SLOReportStatus: [
+    "in_progress",
+    "completed",
+    "completed_with_errors",
+    "failed",
+  ],
   ScalarColumnTypeGroup: ["group"],
   ScalarColumnTypeNumber: ["number"],
   ScalarFormulaRequestType: ["scalar_request"],
@@ -2596,6 +2611,11 @@ const typeMap: { [index: string]: any } = {
   RuleOutcomeRelationships: RuleOutcomeRelationships,
   SAMLAssertionAttribute: SAMLAssertionAttribute,
   SAMLAssertionAttributeAttributes: SAMLAssertionAttributeAttributes,
+  SLOReportPostResponse: SLOReportPostResponse,
+  SLOReportPostResponseData: SLOReportPostResponseData,
+  SLOReportStatusGetResponse: SLOReportStatusGetResponse,
+  SLOReportStatusGetResponseAttributes: SLOReportStatusGetResponseAttributes,
+  SLOReportStatusGetResponseData: SLOReportStatusGetResponseData,
   ScalarFormulaQueryRequest: ScalarFormulaQueryRequest,
   ScalarFormulaQueryResponse: ScalarFormulaQueryResponse,
   ScalarFormulaRequest: ScalarFormulaRequest,
@@ -2810,6 +2830,9 @@ const typeMap: { [index: string]: any } = {
   ServiceNowTicketResult: ServiceNowTicketResult,
   SlackIntegrationMetadata: SlackIntegrationMetadata,
   SlackIntegrationMetadataChannelItem: SlackIntegrationMetadataChannelItem,
+  SloReportCreateRequest: SloReportCreateRequest,
+  SloReportCreateRequestAttributes: SloReportCreateRequestAttributes,
+  SloReportCreateRequestData: SloReportCreateRequestData,
   Span: Span,
   SpansAggregateBucket: SpansAggregateBucket,
   SpansAggregateBucketAttributes: SpansAggregateBucketAttributes,
