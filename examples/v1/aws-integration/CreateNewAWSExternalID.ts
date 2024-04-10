@@ -16,6 +16,7 @@ const params: v1.AWSIntegrationApiCreateNewAWSExternalIDRequest = {
     },
     cspmResourceCollectionEnabled: true,
     excludedRegions: ["us-east-1", "us-west-2"],
+    extendedResourceCollectionEnabled: true,
     filterTags: ["$KEY:$VALUE"],
     hostTags: ["$KEY:$VALUE"],
     metricsCollectionEnabled: false,
