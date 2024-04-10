@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SecurityMonitoringSuppressionCreateAttributes {
   /**
+   * An exclusion query on the input data of the security rules, which could be logs, Agent events, or other types of data based on the security rule. Events matching this query are ignored by any detection rules referenced in the suppression rule.
+   */
+  "dataExclusionQuery"?: string;
+  /**
    * A description for the suppression rule.
    */
   "description"?: string;
@@ -31,9 +35,9 @@ export class SecurityMonitoringSuppressionCreateAttributes {
    */
   "ruleQuery": string;
   /**
-   * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered . Same syntax as the queries to search signals in the signal explorer.
+   * The suppression query of the suppression rule. If a signal matches this query, it is suppressed and is not triggered. It uses the same syntax as the queries to search signals in the Signals Explorer.
    */
-  "suppressionQuery": string;
+  "suppressionQuery"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -51,6 +55,10 @@ export class SecurityMonitoringSuppressionCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    dataExclusionQuery: {
+      baseName: "data_exclusion_query",
+      type: "string",
+    },
     description: {
       baseName: "description",
       type: "string",
@@ -78,7 +86,6 @@ export class SecurityMonitoringSuppressionCreateAttributes {
     suppressionQuery: {
       baseName: "suppression_query",
       type: "string",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
