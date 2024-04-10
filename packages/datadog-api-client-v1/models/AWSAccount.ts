@@ -34,6 +34,10 @@ export class AWSAccount {
    */
   "excludedRegions"?: Array<string>;
   /**
+   * Whether Datadog collects additional attributes and configuration information about the resources in your AWS account. Required for `cspm_resource_collection`.
+   */
+  "extendedResourceCollectionEnabled"?: boolean;
+  /**
    * The array of EC2 tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from EC2.
    * Wildcards, such as `?` (for single characters) and `*` (for multiple characters) can also be used.
    * Only hosts that match one of the defined tags
@@ -52,7 +56,7 @@ export class AWSAccount {
    */
   "metricsCollectionEnabled"?: boolean;
   /**
-   * Whether Datadog collects a standard set of resources from your AWS account.
+   * Deprecated in favor of 'extended_resource_collection_enabled'. Whether Datadog collects a standard set of resources from your AWS account.
    */
   "resourceCollectionEnabled"?: boolean;
   /**
@@ -99,6 +103,10 @@ export class AWSAccount {
     excludedRegions: {
       baseName: "excluded_regions",
       type: "Array<string>",
+    },
+    extendedResourceCollectionEnabled: {
+      baseName: "extended_resource_collection_enabled",
+      type: "boolean",
     },
     filterTags: {
       baseName: "filter_tags",
