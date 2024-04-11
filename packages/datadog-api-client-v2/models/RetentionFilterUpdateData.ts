@@ -4,7 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ApmRetentionFilterType } from "./ApmRetentionFilterType";
-import { RetentionFilterCreateAttributes } from "./RetentionFilterCreateAttributes";
+import { RetentionFilterUpdateAttributes } from "./RetentionFilterUpdateAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,7 +15,7 @@ export class RetentionFilterUpdateData {
   /**
    * The object describing the configuration of the retention filter to create/update.
    */
-  "attributes": RetentionFilterCreateAttributes;
+  "attributes": RetentionFilterUpdateAttributes;
   /**
    * The ID of the retention filter.
    */
@@ -43,7 +43,7 @@ export class RetentionFilterUpdateData {
   static readonly attributeTypeMap: AttributeTypeMap = {
     attributes: {
       baseName: "attributes",
-      type: "RetentionFilterCreateAttributes",
+      type: "RetentionFilterUpdateAttributes",
       required: true,
     },
     id: {
