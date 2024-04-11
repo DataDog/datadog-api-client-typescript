@@ -1480,6 +1480,7 @@ export { RetentionFilterCreateRequest } from "./models/RetentionFilterCreateRequ
 export { RetentionFilterResponse } from "./models/RetentionFilterResponse";
 export { RetentionFiltersResponse } from "./models/RetentionFiltersResponse";
 export { RetentionFilterType } from "./models/RetentionFilterType";
+export { RetentionFilterUpdateAttributes } from "./models/RetentionFilterUpdateAttributes";
 export { RetentionFilterUpdateData } from "./models/RetentionFilterUpdateData";
 export { RetentionFilterUpdateRequest } from "./models/RetentionFilterUpdateRequest";
 export { RetentionFilterWithoutAttributes } from "./models/RetentionFilterWithoutAttributes";
