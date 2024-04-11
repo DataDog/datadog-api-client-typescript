@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## 1.24.0 / 2024-04-11
+
+### Fixed
+* Update Cleanup script to use GCP STS endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1556
+* Add include data to get team memberships response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1542
+### Added
+* Add `ci-pipeline-fingerprints` field in v2.2 by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1562
+* Add validation endpoint for Security Monitoring Rules by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1581
+* Add UA documentation for online_archive and incident_management by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1585
+* Mark `unit` as nullable by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1587
+* Add query_interval_seconds to time-slice SLO condition parameters by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1589
+* Support providing files for the file upload feature when creating a Synthetic API test by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1588
+* Adding SLO Reporting API Documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1558
+* Security Monitoring Suppression - Add data_exclusion_query field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1593
+* aws api adding extended and deprecating old resource collection field by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1591
+### Changed
+* Add Team relationship to AuthNMappings by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1517
+### Deprecated
+* Remove deprecated /api/v1/usage/attribution by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1571
+* Deprecate legacy hourly usage metering endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1567
+
+## New Contributors
+* @tim-chaplin-dd made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/1578
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.23.0...v1.24.0
+
 ## 1.23.0 / 2024-03-13
 
 ### Fixed
