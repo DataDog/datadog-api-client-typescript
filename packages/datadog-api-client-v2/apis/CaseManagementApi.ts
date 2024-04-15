@@ -344,7 +344,7 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
 
   public async searchCases(
     pageSize?: number,
-    pageOffset?: number,
+    pageNumber?: number,
     sortField?: CaseSortableField,
     filter?: string,
     sortAsc?: boolean,
@@ -369,10 +369,10 @@ export class CaseManagementApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(pageSize, "number", "int64")
       );
     }
-    if (pageOffset !== undefined) {
+    if (pageNumber !== undefined) {
       requestContext.setQueryParam(
-        "page[offset]",
-        ObjectSerializer.serialize(pageOffset, "number", "int64")
+        "page[number]",
+        ObjectSerializer.serialize(pageNumber, "number", "int64")
       );
     }
     if (sortField !== undefined) {
@@ -1490,10 +1490,10 @@ export interface CaseManagementApiSearchCasesRequest {
    */
   pageSize?: number;
   /**
-   * Specific offset to use as the beginning of the returned page.
+   * Specific page number to return.
    * @type number
    */
-  pageOffset?: number;
+  pageNumber?: number;
   /**
    * Specify which field to sort
    * @type CaseSortableField
@@ -1754,7 +1754,7 @@ export class CaseManagementApi {
   ): Promise<CasesResponse> {
     const requestContextPromise = this.requestFactory.searchCases(
       param.pageSize,
-      param.pageOffset,
+      param.pageNumber,
       param.sortField,
       param.filter,
       param.sortAsc,
@@ -1781,10 +1781,11 @@ export class CaseManagementApi {
       pageSize = param.pageSize;
     }
     param.pageSize = pageSize;
+    param.pageNumber = 0;
     while (true) {
       const requestContext = await this.requestFactory.searchCases(
         param.pageSize,
-        param.pageOffset,
+        param.pageNumber,
         param.sortField,
         param.filter,
         param.sortAsc,
@@ -1808,11 +1809,7 @@ export class CaseManagementApi {
       if (results.length < pageSize) {
         break;
       }
-      if (param.pageOffset === undefined) {
-        param.pageOffset = pageSize;
-      } else {
-        param.pageOffset = param.pageOffset + pageSize;
-      }
+      param.pageNumber = param.pageNumber + 1;
     }
   }
 

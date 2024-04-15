@@ -2671,7 +2671,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int64",
             },
-        "pageOffset": {
+        "pageNumber": {
             "type": "number",
             "format": "int64",
             },
