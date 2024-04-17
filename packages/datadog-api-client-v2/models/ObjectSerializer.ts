@@ -844,8 +844,20 @@ import { SecurityFilterUpdateAttributes } from "./SecurityFilterUpdateAttributes
 import { SecurityFilterUpdateData } from "./SecurityFilterUpdateData";
 import { SecurityFilterUpdateRequest } from "./SecurityFilterUpdateRequest";
 import { SecurityFiltersResponse } from "./SecurityFiltersResponse";
+import { SecurityMonitoringCreator } from "./SecurityMonitoringCreator";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
+import { SecurityMonitoringNotificationRuleCreateAttributes } from "./SecurityMonitoringNotificationRuleCreateAttributes";
+import { SecurityMonitoringNotificationRuleCreateData } from "./SecurityMonitoringNotificationRuleCreateData";
+import { SecurityMonitoringNotificationRuleCreateRequest } from "./SecurityMonitoringNotificationRuleCreateRequest";
+import { SecurityMonitoringNotificationRuleListResponse } from "./SecurityMonitoringNotificationRuleListResponse";
+import { SecurityMonitoringNotificationRuleResponse } from "./SecurityMonitoringNotificationRuleResponse";
+import { SecurityMonitoringNotificationRuleResponseAttributes } from "./SecurityMonitoringNotificationRuleResponseAttributes";
+import { SecurityMonitoringNotificationRuleResponseData } from "./SecurityMonitoringNotificationRuleResponseData";
+import { SecurityMonitoringNotificationRuleSelectors } from "./SecurityMonitoringNotificationRuleSelectors";
+import { SecurityMonitoringNotificationRuleUpdateAttributes } from "./SecurityMonitoringNotificationRuleUpdateAttributes";
+import { SecurityMonitoringNotificationRuleUpdateData } from "./SecurityMonitoringNotificationRuleUpdateData";
+import { SecurityMonitoringNotificationRuleUpdateRequest } from "./SecurityMonitoringNotificationRuleUpdateRequest";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
@@ -896,6 +908,7 @@ import { SecurityMonitoringThirdPartyRootQuery } from "./SecurityMonitoringThird
 import { SecurityMonitoringThirdPartyRuleCase } from "./SecurityMonitoringThirdPartyRuleCase";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 import { SecurityMonitoringTriageUser } from "./SecurityMonitoringTriageUser";
+import { SecurityMonitoringUpdater } from "./SecurityMonitoringUpdater";
 import { SecurityMonitoringUser } from "./SecurityMonitoringUser";
 import { SensitiveDataScannerConfigRequest } from "./SensitiveDataScannerConfigRequest";
 import { SensitiveDataScannerConfiguration } from "./SensitiveDataScannerConfiguration";
@@ -1507,6 +1520,11 @@ const enumsMap: { [key: string]: any[] } = {
   SecurityFilterFilteredDataType: ["logs"],
   SecurityFilterType: ["security_filters"],
   SecurityMonitoringFilterAction: ["require", "suppress"],
+  SecurityMonitoringNotificationRuleTriggerSource: [
+    "security_signals",
+    "security_findings",
+  ],
+  SecurityMonitoringNotificationRuleType: ["notification_rules"],
   SecurityMonitoringRuleDetectionMethod: [
     "threshold",
     "new_value",
@@ -1554,6 +1572,15 @@ const enumsMap: { [key: string]: any[] } = {
     "workload_security",
     "cloud_configuration",
     "application_security",
+  ],
+  SecurityMonitoringRuleTypes: [
+    "application_security",
+    "log_detection",
+    "cloud_configuration",
+    "infrastructure_configuration",
+    "workload_security",
+    "signal_correlation",
+    "vulnerability_management",
   ],
   SecurityMonitoringSignalArchiveReason: [
     "none",
@@ -2638,8 +2665,31 @@ const typeMap: { [index: string]: any } = {
   SecurityFilterUpdateData: SecurityFilterUpdateData,
   SecurityFilterUpdateRequest: SecurityFilterUpdateRequest,
   SecurityFiltersResponse: SecurityFiltersResponse,
+  SecurityMonitoringCreator: SecurityMonitoringCreator,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
+  SecurityMonitoringNotificationRuleCreateAttributes:
+    SecurityMonitoringNotificationRuleCreateAttributes,
+  SecurityMonitoringNotificationRuleCreateData:
+    SecurityMonitoringNotificationRuleCreateData,
+  SecurityMonitoringNotificationRuleCreateRequest:
+    SecurityMonitoringNotificationRuleCreateRequest,
+  SecurityMonitoringNotificationRuleListResponse:
+    SecurityMonitoringNotificationRuleListResponse,
+  SecurityMonitoringNotificationRuleResponse:
+    SecurityMonitoringNotificationRuleResponse,
+  SecurityMonitoringNotificationRuleResponseAttributes:
+    SecurityMonitoringNotificationRuleResponseAttributes,
+  SecurityMonitoringNotificationRuleResponseData:
+    SecurityMonitoringNotificationRuleResponseData,
+  SecurityMonitoringNotificationRuleSelectors:
+    SecurityMonitoringNotificationRuleSelectors,
+  SecurityMonitoringNotificationRuleUpdateAttributes:
+    SecurityMonitoringNotificationRuleUpdateAttributes,
+  SecurityMonitoringNotificationRuleUpdateData:
+    SecurityMonitoringNotificationRuleUpdateData,
+  SecurityMonitoringNotificationRuleUpdateRequest:
+    SecurityMonitoringNotificationRuleUpdateRequest,
   SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
   SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
   SecurityMonitoringRuleImpossibleTravelOptions:
@@ -2722,6 +2772,7 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringThirdPartyRuleCaseCreate:
     SecurityMonitoringThirdPartyRuleCaseCreate,
   SecurityMonitoringTriageUser: SecurityMonitoringTriageUser,
+  SecurityMonitoringUpdater: SecurityMonitoringUpdater,
   SecurityMonitoringUser: SecurityMonitoringUser,
   SensitiveDataScannerConfigRequest: SensitiveDataScannerConfigRequest,
   SensitiveDataScannerConfiguration: SensitiveDataScannerConfiguration,
