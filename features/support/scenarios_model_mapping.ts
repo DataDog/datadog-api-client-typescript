@@ -4485,6 +4485,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetFindingResponse",
     },
+    "v2.ListSecurityMonitoringNotificationRules": {
+        "operationResponseType": "SecurityMonitoringNotificationRuleListResponse",
+    },
+    "v2.CreateSecurityMonitoringNotificationRule": {
+        "body": {
+            "type": "SecurityMonitoringNotificationRuleCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringNotificationRuleResponse",
+    },
+    "v2.DeleteSecurityMonitoringNotificationRule": {
+        "notificationRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetSecurityMonitoringNotificationRule": {
+        "notificationRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringNotificationRuleResponse",
+    },
+    "v2.EditSecurityMonitoringNotificationRule": {
+        "notificationRuleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringNotificationRuleUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringNotificationRuleResponse",
+    },
     "v2.ListSecurityFilters": {
         "operationResponseType": "SecurityFiltersResponse",
     },

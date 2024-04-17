@@ -30,6 +30,10 @@ import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
 import { SecurityFiltersResponse } from "../models/SecurityFiltersResponse";
 import { SecurityFilterUpdateRequest } from "../models/SecurityFilterUpdateRequest";
 import { SecurityMonitoringListRulesResponse } from "../models/SecurityMonitoringListRulesResponse";
+import { SecurityMonitoringNotificationRuleCreateRequest } from "../models/SecurityMonitoringNotificationRuleCreateRequest";
+import { SecurityMonitoringNotificationRuleListResponse } from "../models/SecurityMonitoringNotificationRuleListResponse";
+import { SecurityMonitoringNotificationRuleResponse } from "../models/SecurityMonitoringNotificationRuleResponse";
+import { SecurityMonitoringNotificationRuleUpdateRequest } from "../models/SecurityMonitoringNotificationRuleUpdateRequest";
 import { SecurityMonitoringRuleCreatePayload } from "../models/SecurityMonitoringRuleCreatePayload";
 import { SecurityMonitoringRuleResponse } from "../models/SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "../models/SecurityMonitoringRuleUpdatePayload";
@@ -78,6 +82,58 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SecurityFilterCreateRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async createSecurityMonitoringNotificationRule(
+    body: SecurityMonitoringNotificationRuleCreateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "createSecurityMonitoringNotificationRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/notification_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.createSecurityMonitoringNotificationRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringNotificationRuleCreateRequest",
+        ""
+      ),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -220,6 +276,46 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async deleteSecurityMonitoringNotificationRule(
+    notificationRuleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'notificationRuleId' is not null or undefined
+    if (notificationRuleId === null || notificationRuleId === undefined) {
+      throw new RequiredError(
+        "notificationRuleId",
+        "deleteSecurityMonitoringNotificationRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/notification_rules/{notification_rule_id}".replace(
+        "{notification_rule_id}",
+        encodeURIComponent(String(notificationRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.deleteSecurityMonitoringNotificationRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async deleteSecurityMonitoringRule(
     ruleId: string,
     _options?: Configuration
@@ -281,6 +377,67 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async editSecurityMonitoringNotificationRule(
+    notificationRuleId: string,
+    body: SecurityMonitoringNotificationRuleUpdateRequest,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'notificationRuleId' is not null or undefined
+    if (notificationRuleId === null || notificationRuleId === undefined) {
+      throw new RequiredError(
+        "notificationRuleId",
+        "editSecurityMonitoringNotificationRule"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "editSecurityMonitoringNotificationRule");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/notification_rules/{notification_rule_id}".replace(
+        "{notification_rule_id}",
+        encodeURIComponent(String(notificationRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.editSecurityMonitoringNotificationRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.PATCH);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringNotificationRuleUpdateRequest",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -551,6 +708,46 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     return requestContext;
   }
 
+  public async getSecurityMonitoringNotificationRule(
+    notificationRuleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'notificationRuleId' is not null or undefined
+    if (notificationRuleId === null || notificationRuleId === undefined) {
+      throw new RequiredError(
+        "notificationRuleId",
+        "getSecurityMonitoringNotificationRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/notification_rules/{notification_rule_id}".replace(
+        "{notification_rule_id}",
+        encodeURIComponent(String(notificationRuleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.getSecurityMonitoringNotificationRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getSecurityMonitoringRule(
     ruleId: string,
     _options?: Configuration
@@ -786,6 +983,34 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     // Make Request Context
     const requestContext = _config
       .getServer("v2.SecurityMonitoringApi.listSecurityFilters")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listSecurityMonitoringNotificationRules(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/configuration/notification_rules";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.listSecurityMonitoringNotificationRules"
+      )
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -1304,6 +1529,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to createSecurityMonitoringNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async createSecurityMonitoringNotificationRule(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringNotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringNotificationRuleResponse"
+        ) as SecurityMonitoringNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringNotificationRuleResponse",
+          ""
+        ) as SecurityMonitoringNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to createSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1487,6 +1776,64 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteSecurityMonitoringNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteSecurityMonitoringNotificationRule(
+    response: ResponseContext
+  ): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to deleteSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1589,6 +1936,72 @@ export class SecurityMonitoringApiResponseProcessor {
         "void",
         ""
       ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to editSecurityMonitoringNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async editSecurityMonitoringNotificationRule(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringNotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringNotificationRuleResponse"
+        ) as SecurityMonitoringNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringNotificationRuleResponse",
+          ""
+        ) as SecurityMonitoringNotificationRuleResponse;
       return body;
     }
 
@@ -1926,6 +2339,70 @@ export class SecurityMonitoringApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to getSecurityMonitoringNotificationRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getSecurityMonitoringNotificationRule(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringNotificationRuleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringNotificationRuleResponse"
+        ) as SecurityMonitoringNotificationRuleResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringNotificationRuleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringNotificationRuleResponse",
+          ""
+        ) as SecurityMonitoringNotificationRuleResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getSecurityMonitoringRule
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -2218,6 +2695,70 @@ export class SecurityMonitoringApiResponseProcessor {
         "SecurityFiltersResponse",
         ""
       ) as SecurityFiltersResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to listSecurityMonitoringNotificationRules
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listSecurityMonitoringNotificationRules(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringNotificationRuleListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringNotificationRuleListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringNotificationRuleListResponse"
+        ) as SecurityMonitoringNotificationRuleListResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringNotificationRuleListResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringNotificationRuleListResponse",
+          ""
+        ) as SecurityMonitoringNotificationRuleListResponse;
       return body;
     }
 
@@ -2804,6 +3345,13 @@ export interface SecurityMonitoringApiCreateSecurityFilterRequest {
   body: SecurityFilterCreateRequest;
 }
 
+export interface SecurityMonitoringApiCreateSecurityMonitoringNotificationRuleRequest {
+  /**
+   * @type SecurityMonitoringNotificationRuleCreateRequest
+   */
+  body: SecurityMonitoringNotificationRuleCreateRequest;
+}
+
 export interface SecurityMonitoringApiCreateSecurityMonitoringRuleRequest {
   /**
    * @type SecurityMonitoringRuleCreatePayload
@@ -2827,6 +3375,14 @@ export interface SecurityMonitoringApiDeleteSecurityFilterRequest {
   securityFilterId: string;
 }
 
+export interface SecurityMonitoringApiDeleteSecurityMonitoringNotificationRuleRequest {
+  /**
+   * The ID of the notification rule.
+   * @type string
+   */
+  notificationRuleId: string;
+}
+
 export interface SecurityMonitoringApiDeleteSecurityMonitoringRuleRequest {
   /**
    * The ID of the rule.
@@ -2841,6 +3397,19 @@ export interface SecurityMonitoringApiDeleteSecurityMonitoringSuppressionRequest
    * @type string
    */
   suppressionId: string;
+}
+
+export interface SecurityMonitoringApiEditSecurityMonitoringNotificationRuleRequest {
+  /**
+   * The ID of the notification rule.
+   * @type string
+   */
+  notificationRuleId: string;
+  /**
+   * Attributes describing the signal update.
+   * @type SecurityMonitoringNotificationRuleUpdateRequest
+   */
+  body: SecurityMonitoringNotificationRuleUpdateRequest;
 }
 
 export interface SecurityMonitoringApiEditSecurityMonitoringSignalAssigneeRequest {
@@ -2901,6 +3470,14 @@ export interface SecurityMonitoringApiGetSecurityFilterRequest {
    * @type string
    */
   securityFilterId: string;
+}
+
+export interface SecurityMonitoringApiGetSecurityMonitoringNotificationRuleRequest {
+  /**
+   * The ID of the notification rule.
+   * @type string
+   */
+  notificationRuleId: string;
 }
 
 export interface SecurityMonitoringApiGetSecurityMonitoringRuleRequest {
@@ -3147,6 +3724,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Create a notification rule.
+   * @param param The request object
+   */
+  public createSecurityMonitoringNotificationRule(
+    param: SecurityMonitoringApiCreateSecurityMonitoringNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.createSecurityMonitoringNotificationRule(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.createSecurityMonitoringNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Create a detection rule.
    * @param param The request object
    */
@@ -3213,6 +3814,30 @@ export class SecurityMonitoringApi {
   }
 
   /**
+   * Delete a specific notification rule.
+   * @param param The request object
+   */
+  public deleteSecurityMonitoringNotificationRule(
+    param: SecurityMonitoringApiDeleteSecurityMonitoringNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise =
+      this.requestFactory.deleteSecurityMonitoringNotificationRule(
+        param.notificationRuleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteSecurityMonitoringNotificationRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
    * Delete an existing rule. Default rules cannot be deleted.
    * @param param The request object
    */
@@ -3251,6 +3876,31 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.deleteSecurityMonitoringSuppression(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Update a specific notification rule.
+   * @param param The request object
+   */
+  public editSecurityMonitoringNotificationRule(
+    param: SecurityMonitoringApiEditSecurityMonitoringNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.editSecurityMonitoringNotificationRule(
+        param.notificationRuleId,
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.editSecurityMonitoringNotificationRule(
             responseContext
           );
         });
@@ -3374,6 +4024,30 @@ export class SecurityMonitoringApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getSecurityFilter(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Get notification rule by ID.
+   * @param param The request object
+   */
+  public getSecurityMonitoringNotificationRule(
+    param: SecurityMonitoringApiGetSecurityMonitoringNotificationRuleRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringNotificationRuleResponse> {
+    const requestContextPromise =
+      this.requestFactory.getSecurityMonitoringNotificationRule(
+        param.notificationRuleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getSecurityMonitoringNotificationRule(
+            responseContext
+          );
         });
     });
   }
@@ -3571,7 +4245,7 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * Get the list of configured security filters with their definitions.
+   * List all configured security filters with their definitions.
    * @param param The request object
    */
   public listSecurityFilters(
@@ -3589,7 +4263,27 @@ export class SecurityMonitoringApi {
   }
 
   /**
-   * List rules.
+   * List all notification rules.
+   * @param param The request object
+   */
+  public listSecurityMonitoringNotificationRules(
+    options?: Configuration
+  ): Promise<SecurityMonitoringNotificationRuleListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listSecurityMonitoringNotificationRules(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listSecurityMonitoringNotificationRules(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * List all rules.
    * @param param The request object
    */
   public listSecurityMonitoringRules(
