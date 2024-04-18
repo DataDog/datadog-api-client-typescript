@@ -50,6 +50,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           type: "text",
         },
       ],
+      variablesFromScript: `dd.variable.set("FOO", "foo")`,
       request: {
         certificate: {
           cert: {

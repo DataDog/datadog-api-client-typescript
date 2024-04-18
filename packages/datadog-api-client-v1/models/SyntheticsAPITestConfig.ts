@@ -30,6 +30,10 @@ export class SyntheticsAPITestConfig {
    * When the test subtype is `multi`, the steps of the test.
    */
   "steps"?: Array<SyntheticsAPIStep>;
+  /**
+   * Variables defined from JavaScript code.
+   */
+  "variablesFromScript"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -62,6 +66,10 @@ export class SyntheticsAPITestConfig {
     steps: {
       baseName: "steps",
       type: "Array<SyntheticsAPIStep>",
+    },
+    variablesFromScript: {
+      baseName: "variablesFromScript",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
