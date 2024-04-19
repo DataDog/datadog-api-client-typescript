@@ -5169,6 +5169,8 @@ export class UsageMeteringApi {
 
   /**
    * Get billable usage across your account.
+   *
+   * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
    * @param param The request object
    */
   public getUsageBillableSummary(
@@ -5660,6 +5662,8 @@ export class UsageMeteringApi {
 
   /**
    * Get all usage across your account.
+   *
+   * This endpoint is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
    * @param param The request object
    */
   public getUsageSummary(
