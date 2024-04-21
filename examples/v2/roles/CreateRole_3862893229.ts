@@ -1,5 +1,5 @@
 /**
- * Create role returns "OK" response
+ * Create role with a permission returns "OK" response
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";
@@ -10,22 +10,20 @@ const apiInstance = new v2.RolesApi(configuration);
 const params: v2.RolesApiCreateRoleRequest = {
   body: {
     data: {
+      type: "roles",
       attributes: {
-        name: "developers",
+        name: "Example-Role",
       },
       relationships: {
         permissions: {
           data: [
             {
+              id: "d90f6831-d3d8-11e9-a77a-4fd230ddbc6a",
               type: "permissions",
             },
           ],
         },
-        users: {
-          data: [],
-        },
       },
-      type: "roles",
     },
   },
 };
