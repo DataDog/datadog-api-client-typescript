@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RetentionFilterAll } from "./RetentionFilterAll";
+import { RetentionFilter } from "./RetentionFilter";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
  * The retention filters definition.
  */
-export class RetentionFilterResponse {
+export class RetentionFilterCreateResponse {
   /**
    * The definition of the retention filter.
    */
-  "data"?: RetentionFilterAll;
+  "data"?: RetentionFilter;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class RetentionFilterResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "RetentionFilterAll",
+      type: "RetentionFilter",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -46,7 +46,7 @@ export class RetentionFilterResponse {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RetentionFilterResponse.attributeTypeMap;
+    return RetentionFilterCreateResponse.attributeTypeMap;
   }
 
   public constructor() {}

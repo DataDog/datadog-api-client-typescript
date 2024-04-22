@@ -790,6 +790,7 @@ import { RetentionFilterAttributes } from "./RetentionFilterAttributes";
 import { RetentionFilterCreateAttributes } from "./RetentionFilterCreateAttributes";
 import { RetentionFilterCreateData } from "./RetentionFilterCreateData";
 import { RetentionFilterCreateRequest } from "./RetentionFilterCreateRequest";
+import { RetentionFilterCreateResponse } from "./RetentionFilterCreateResponse";
 import { RetentionFilterResponse } from "./RetentionFilterResponse";
 import { RetentionFilterUpdateAttributes } from "./RetentionFilterUpdateAttributes";
 import { RetentionFilterUpdateData } from "./RetentionFilterUpdateData";
@@ -2584,6 +2585,7 @@ const typeMap: { [index: string]: any } = {
   RetentionFilterCreateAttributes: RetentionFilterCreateAttributes,
   RetentionFilterCreateData: RetentionFilterCreateData,
   RetentionFilterCreateRequest: RetentionFilterCreateRequest,
+  RetentionFilterCreateResponse: RetentionFilterCreateResponse,
   RetentionFilterResponse: RetentionFilterResponse,
   RetentionFilterUpdateAttributes: RetentionFilterUpdateAttributes,
   RetentionFilterUpdateData: RetentionFilterUpdateData,

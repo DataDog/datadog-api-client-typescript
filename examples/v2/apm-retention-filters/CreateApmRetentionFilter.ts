@@ -26,7 +26,7 @@ const params: v2.APMRetentionFiltersApiCreateApmRetentionFilterRequest = {
 
 apiInstance
   .createApmRetentionFilter(params)
-  .then((data: v2.RetentionFilterResponse) => {
+  .then((data: v2.RetentionFilterCreateResponse) => {
     console.log(
       "API called successfully. Returned data: " + JSON.stringify(data)
     );
