@@ -393,6 +393,8 @@ import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultSho
 import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure";
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
+import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
+import { SyntheticsAssertionJSONSchemaTargetTarget } from "./SyntheticsAssertionJSONSchemaTargetTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
@@ -1179,6 +1181,8 @@ const enumsMap: { [key: string]: any[] } = {
     "INTERNAL_ERROR",
   ],
   SyntheticsAssertionJSONPathOperator: ["validatesJSONPath"],
+  SyntheticsAssertionJSONSchemaMetaSchema: ["draft-07", "draft-06"],
+  SyntheticsAssertionJSONSchemaOperator: ["validatesJSONSchema"],
   SyntheticsAssertionOperator: [
     "contains",
     "doesNotContain",
@@ -1934,6 +1938,9 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONPathTarget: SyntheticsAssertionJSONPathTarget,
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
+  SyntheticsAssertionJSONSchemaTarget: SyntheticsAssertionJSONSchemaTarget,
+  SyntheticsAssertionJSONSchemaTargetTarget:
+    SyntheticsAssertionJSONSchemaTargetTarget,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
   SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
   SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
@@ -2245,6 +2252,7 @@ const oneOfMap: { [index: string]: string[] } = {
   SyntheticsAssertion: [
     "SyntheticsAssertionTarget",
     "SyntheticsAssertionJSONPathTarget",
+    "SyntheticsAssertionJSONSchemaTarget",
     "SyntheticsAssertionXPathTarget",
   ],
   SyntheticsBasicAuth: [
