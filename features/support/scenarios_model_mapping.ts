@@ -2547,7 +2547,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "RetentionFilterCreateRequest",
             "format": "",
             },
-        "operationResponseType": "RetentionFilterResponse",
+        "operationResponseType": "RetentionFilterCreateResponse",
     },
     "v2.ReorderApmRetentionFilters": {
         "body": {

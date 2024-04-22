@@ -1477,6 +1477,7 @@ export { RetentionFilterAttributes } from "./models/RetentionFilterAttributes";
 export { RetentionFilterCreateAttributes } from "./models/RetentionFilterCreateAttributes";
 export { RetentionFilterCreateData } from "./models/RetentionFilterCreateData";
 export { RetentionFilterCreateRequest } from "./models/RetentionFilterCreateRequest";
+export { RetentionFilterCreateResponse } from "./models/RetentionFilterCreateResponse";
 export { RetentionFilterResponse } from "./models/RetentionFilterResponse";
 export { RetentionFiltersResponse } from "./models/RetentionFiltersResponse";
 export { RetentionFilterType } from "./models/RetentionFilterType";

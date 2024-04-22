@@ -19,6 +19,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { ReorderRetentionFiltersRequest } from "../models/ReorderRetentionFiltersRequest";
 import { RetentionFilterCreateRequest } from "../models/RetentionFilterCreateRequest";
+import { RetentionFilterCreateResponse } from "../models/RetentionFilterCreateResponse";
 import { RetentionFilterResponse } from "../models/RetentionFilterResponse";
 import { RetentionFiltersResponse } from "../models/RetentionFiltersResponse";
 import { RetentionFilterUpdateRequest } from "../models/RetentionFilterUpdateRequest";
@@ -260,15 +261,15 @@ export class APMRetentionFiltersApiResponseProcessor {
    */
   public async createApmRetentionFilter(
     response: ResponseContext
-  ): Promise<RetentionFilterResponse> {
+  ): Promise<RetentionFilterCreateResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: RetentionFilterResponse = ObjectSerializer.deserialize(
+      const body: RetentionFilterCreateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "RetentionFilterResponse"
-      ) as RetentionFilterResponse;
+        "RetentionFilterCreateResponse"
+      ) as RetentionFilterCreateResponse;
       return body;
     }
     if (
@@ -299,11 +300,11 @@ export class APMRetentionFiltersApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: RetentionFilterResponse = ObjectSerializer.deserialize(
+      const body: RetentionFilterCreateResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "RetentionFilterResponse",
+        "RetentionFilterCreateResponse",
         ""
-      ) as RetentionFilterResponse;
+      ) as RetentionFilterCreateResponse;
       return body;
     }
 
@@ -686,7 +687,7 @@ export class APMRetentionFiltersApi {
   public createApmRetentionFilter(
     param: APMRetentionFiltersApiCreateApmRetentionFilterRequest,
     options?: Configuration
-  ): Promise<RetentionFilterResponse> {
+  ): Promise<RetentionFilterCreateResponse> {
     const requestContextPromise = this.requestFactory.createApmRetentionFilter(
       param.body,
       options
