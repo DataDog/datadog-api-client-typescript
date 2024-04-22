@@ -331,6 +331,14 @@ export class MonthlyUsageAttributionValues {
    */
   "logsIndexed180dayUsage"?: number;
   /**
+   * The percentage of Indexed Logs (1-day Retention) usage by tag(s).
+   */
+  "logsIndexed1dayPercentage"?: number;
+  /**
+   * The total Indexed Logs (1-day Retention) usage by tag(s).
+   */
+  "logsIndexed1dayUsage"?: number;
+  /**
    * The percentage of Indexed Logs (30-day Retention) usage by tag(s).
    */
   "logsIndexed30dayPercentage"?: number;
@@ -952,6 +960,16 @@ export class MonthlyUsageAttributionValues {
     },
     logsIndexed180dayUsage: {
       baseName: "logs_indexed_180day_usage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed1dayPercentage: {
+      baseName: "logs_indexed_1day_percentage",
+      type: "number",
+      format: "double",
+    },
+    logsIndexed1dayUsage: {
+      baseName: "logs_indexed_1day_usage",
       type: "number",
       format: "double",
     },

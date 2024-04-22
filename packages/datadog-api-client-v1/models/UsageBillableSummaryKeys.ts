@@ -222,6 +222,10 @@ export class UsageBillableSummaryKeys {
   /**
    * Response with properties for each aggregated usage type.
    */
+  "logsIndexed1daySum"?: UsageBillableSummaryBody;
+  /**
+   * Response with properties for each aggregated usage type.
+   */
   "logsIndexed30daySum"?: UsageBillableSummaryBody;
   /**
    * Response with properties for each aggregated usage type.
@@ -586,6 +590,10 @@ export class UsageBillableSummaryKeys {
     },
     logsIndexed180daySum: {
       baseName: "logs_indexed_180day_sum",
+      type: "UsageBillableSummaryBody",
+    },
+    logsIndexed1daySum: {
+      baseName: "logs_indexed_1day_sum",
       type: "UsageBillableSummaryBody",
     },
     logsIndexed30daySum: {
