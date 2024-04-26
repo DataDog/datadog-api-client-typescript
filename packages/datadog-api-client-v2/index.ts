@@ -46,6 +46,18 @@ export {
 } from "./apis/CIVisibilityTestsApi";
 
 export {
+  CSMThreatsApiCreateCSMThreatsAgentRuleRequest,
+  CSMThreatsApiCreateCloudWorkloadSecurityAgentRuleRequest,
+  CSMThreatsApiDeleteCSMThreatsAgentRuleRequest,
+  CSMThreatsApiDeleteCloudWorkloadSecurityAgentRuleRequest,
+  CSMThreatsApiGetCSMThreatsAgentRuleRequest,
+  CSMThreatsApiGetCloudWorkloadSecurityAgentRuleRequest,
+  CSMThreatsApiUpdateCSMThreatsAgentRuleRequest,
+  CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest,
+  CSMThreatsApi,
+} from "./apis/CSMThreatsApi";
+
+export {
   CaseManagementApiArchiveCaseRequest,
   CaseManagementApiAssignCaseRequest,
   CaseManagementApiCreateCaseRequest,
@@ -71,18 +83,6 @@ export {
   CloudCostManagementApiUpdateCostAzureUCConfigsRequest,
   CloudCostManagementApi,
 } from "./apis/CloudCostManagementApi";
-
-export {
-  CloudWorkloadSecurityApiCreateCSMThreatsAgentRuleRequest,
-  CloudWorkloadSecurityApiCreateCloudWorkloadSecurityAgentRuleRequest,
-  CloudWorkloadSecurityApiDeleteCSMThreatsAgentRuleRequest,
-  CloudWorkloadSecurityApiDeleteCloudWorkloadSecurityAgentRuleRequest,
-  CloudWorkloadSecurityApiGetCSMThreatsAgentRuleRequest,
-  CloudWorkloadSecurityApiGetCloudWorkloadSecurityAgentRuleRequest,
-  CloudWorkloadSecurityApiUpdateCSMThreatsAgentRuleRequest,
-  CloudWorkloadSecurityApiUpdateCloudWorkloadSecurityAgentRuleRequest,
-  CloudWorkloadSecurityApi,
-} from "./apis/CloudWorkloadSecurityApi";
 
 export {
   CloudflareIntegrationApiCreateCloudflareAccountRequest,
