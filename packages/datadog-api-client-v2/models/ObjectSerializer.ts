@@ -3139,7 +3139,7 @@ const oneOfMap: { [index: string]: string[] } = {
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
-  UserTeamIncluded: ["User"],
+  UserTeamIncluded: ["User", "Team"],
 };
 
 export class ObjectSerializer {
