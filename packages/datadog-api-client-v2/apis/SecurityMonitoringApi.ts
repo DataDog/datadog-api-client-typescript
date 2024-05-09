@@ -3853,7 +3853,8 @@ export class SecurityMonitoringApi {
   /**
    * Update an existing rule. When updating `cases`, `queries` or `options`, the whole field
    * must be included. For example, when modifying a query all queries must be included.
-   * Default rules can only be updated to be enabled and to change notifications.
+   * Default rules can only be updated to be enabled, to change notifications, or to update
+   * the tags (default tags cannot be removed).
    * @param param The request object
    */
   public updateSecurityMonitoringRule(
