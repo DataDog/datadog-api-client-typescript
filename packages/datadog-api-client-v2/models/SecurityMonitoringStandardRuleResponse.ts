@@ -34,6 +34,10 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "creationAuthorId"?: number;
   /**
+   * Default Tags for default rules (included in tags)
+   */
+  "defaultTags"?: Array<string>;
+  /**
    * When the rule will be deprecated, timestamp in milliseconds.
    */
   "deprecationDate"?: number;
@@ -131,6 +135,10 @@ export class SecurityMonitoringStandardRuleResponse {
       baseName: "creationAuthorId",
       type: "number",
       format: "int64",
+    },
+    defaultTags: {
+      baseName: "defaultTags",
+      type: "Array<string>",
     },
     deprecationDate: {
       baseName: "deprecationDate",
