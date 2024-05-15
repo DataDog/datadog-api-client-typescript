@@ -24,7 +24,7 @@ export class LogsQueryFilter {
    */
   "query"?: string;
   /**
-   * Specifies storage type as indexes or online-archives
+   * Specifies storage type as indexes, online-archives or flex
    */
   "storageTier"?: LogsStorageTier;
   /**

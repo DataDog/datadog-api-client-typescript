@@ -1406,7 +1406,7 @@ const enumsMap: { [key: string]: any[] } = {
   LogsMetricType: ["logs_metrics"],
   LogsSort: ["timestamp", "-timestamp"],
   LogsSortOrder: ["asc", "desc"],
-  LogsStorageTier: ["indexes", "online-archives"],
+  LogsStorageTier: ["indexes", "online-archives", "flex"],
   MetricActiveConfigurationType: ["actively_queried_configurations"],
   MetricBulkConfigureTagsType: ["metric_bulk_configure_tags"],
   MetricContentEncoding: ["deflate", "zstd1", "gzip"],
