@@ -7,12 +7,14 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Specifies storage type as indexes or online-archives
+ * Specifies storage type as indexes, online-archives or flex
  */
 
 export type LogsStorageTier =
   | typeof INDEXES
   | typeof ONLINE_ARCHIVES
+  | typeof FLEX
   | UnparsedObject;
 export const INDEXES = "indexes";
 export const ONLINE_ARCHIVES = "online-archives";
+export const FLEX = "flex";
