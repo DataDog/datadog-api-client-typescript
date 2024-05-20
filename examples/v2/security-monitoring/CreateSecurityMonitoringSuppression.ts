@@ -15,7 +15,7 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest
           description:
             "This rule suppresses low-severity signals in staging environments.",
           enabled: true,
-          expirationDate: 1703187336000,
+          expirationDate: 1638443471000,
           name: "Example-Security-Monitoring",
           ruleQuery: "type:log_detection source:cloudtrail",
           suppressionQuery: "env:staging status:low",
