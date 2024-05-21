@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## 1.25.0 / 2024-05-21
+
+### Fixed
+* fix case search documentation by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1598
+### Added
+* Add support variablesFromScript in Synthetics API test by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1600
+* Add JSONSchema assertion support to API and multistep tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1576
+* add 1 day logs to usage api docs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1604
+* Update UserTeamIncluded to include teams by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1609
+* Security Monitoring - Make Default Tags available in the response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1618
+* Add flex logs storage tier by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1620
+### Changed
+* Rename the Cloud Workload Security tag to CSM Threats by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1608
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.24.0...v1.25.0
+
 ## 1.24.0 / 2024-04-11
 
 ### Fixed
