@@ -11,7 +11,7 @@
 * Update UserTeamIncluded to include teams by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1609
 * Security Monitoring - Make Default Tags available in the response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1618
 * Add flex logs storage tier by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1620
-### Changed
+### [**Breaking**] Changed
 * Rename the Cloud Workload Security tag to CSM Threats by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1608
 
 
