@@ -37,12 +37,18 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                   conditionalFormats: [],
                   cellDisplayMode: "bar",
                   formula: "query1",
-                  limit: {
-                    count: 50,
-                    order: "desc",
-                  },
                 },
               ],
+              sort: {
+                count: 50,
+                orderBy: [
+                  {
+                    type: "formula",
+                    index: 0,
+                    order: "desc",
+                  },
+                ],
+              },
               responseFormat: "scalar",
             },
           ],

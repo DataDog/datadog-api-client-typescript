@@ -13,6 +13,7 @@ import { WidgetAggregator } from "./WidgetAggregator";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetSort } from "./WidgetSort";
+import { WidgetSortBy } from "./WidgetSortBy";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -96,6 +97,10 @@ export class TableWidgetRequest {
    * The log query.
    */
   "securityQuery"?: LogQueryDefinition;
+  /**
+   * The controls for sorting the widget.
+   */
+  "sort"?: WidgetSortBy;
 
   /**
    * A container for additional, undeclared properties.
@@ -189,6 +194,10 @@ export class TableWidgetRequest {
     securityQuery: {
       baseName: "security_query",
       type: "LogQueryDefinition",
+    },
+    sort: {
+      baseName: "sort",
+      type: "WidgetSortBy",
     },
     additionalProperties: {
       baseName: "additionalProperties",

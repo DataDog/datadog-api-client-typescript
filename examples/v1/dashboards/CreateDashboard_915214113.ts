@@ -30,10 +30,6 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
               formulas: [
                 {
                   formula: "query1",
-                  limit: {
-                    count: 250,
-                    order: "desc",
-                  },
                 },
               ],
               queries: [
@@ -59,6 +55,16 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
                   ],
                 },
               ],
+              sort: {
+                count: 250,
+                orderBy: [
+                  {
+                    type: "formula",
+                    index: 0,
+                    order: "desc",
+                  },
+                ],
+              },
               responseFormat: "scalar",
             },
           ],

@@ -9,6 +9,7 @@ import { ListStreamColumn } from "./ListStreamColumn";
 import { ListStreamQuery } from "./ListStreamQuery";
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { WidgetFormula } from "./WidgetFormula";
+import { WidgetSortBy } from "./WidgetSortBy";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -52,6 +53,10 @@ export class GeomapWidgetRequest {
    * The log query.
    */
   "securityQuery"?: LogQueryDefinition;
+  /**
+   * The controls for sorting the widget.
+   */
+  "sort"?: WidgetSortBy;
 
   /**
    * A container for additional, undeclared properties.
@@ -104,6 +109,10 @@ export class GeomapWidgetRequest {
     securityQuery: {
       baseName: "security_query",
       type: "LogQueryDefinition",
+    },
+    sort: {
+      baseName: "sort",
+      type: "WidgetSortBy",
     },
     additionalProperties: {
       baseName: "additionalProperties",
