@@ -14,6 +14,7 @@ const params: v2.CSMThreatsApiCreateCSMThreatsAgentRuleRequest = {
         description: "My Agent rule",
         enabled: true,
         expression: `exec.file.name == "sh"`,
+        filters: [`os == "linux"`],
         name: "examplecsmthreat",
       },
       type: "agent_rule",
