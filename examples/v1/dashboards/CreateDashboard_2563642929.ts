@@ -1,5 +1,5 @@
 /**
- * Create a new dashboard with query_table widget
+ * Create a new dashboard with a toplist widget sorted by group
  */
 
 import { client, v1 } from "@datadog/datadog-api-client";
@@ -16,46 +16,50 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
         layout: {
           x: 0,
           y: 0,
-          width: 54,
-          height: 32,
+          width: 47,
+          height: 15,
         },
         definition: {
           title: "",
           titleSize: "16",
           titleAlign: "left",
           time: {},
-          type: "query_table",
+          style: {
+            display: {
+              type: "stacked",
+              legend: "inline",
+            },
+            scaling: "relative",
+          },
+          type: "toplist",
           requests: [
             {
               queries: [
                 {
                   dataSource: "metrics",
                   name: "query1",
-                  query: "avg:system.cpu.user{*} by {host}",
+                  query: "avg:system.cpu.user{*} by {service}",
                   aggregator: "avg",
                 },
               ],
               formulas: [
                 {
                   formula: "query1",
-                  conditionalFormats: [],
-                  cellDisplayMode: "bar",
                 },
               ],
               sort: {
-                count: 500,
+                count: 10,
                 orderBy: [
                   {
-                    type: "formula",
-                    index: 0,
-                    order: "desc",
+                    type: "group",
+                    name: "service",
+                    order: "asc",
                   },
                 ],
               },
               responseFormat: "scalar",
             },
           ],
-          hasSearchBar: "auto",
         },
       },
     ],

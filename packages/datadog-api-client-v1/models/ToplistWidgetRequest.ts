@@ -10,6 +10,7 @@ import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
+import { WidgetSortBy } from "./WidgetSortBy";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -73,6 +74,10 @@ export class ToplistWidgetRequest {
    * The log query.
    */
   "securityQuery"?: LogQueryDefinition;
+  /**
+   * The controls for sorting the widget.
+   */
+  "sort"?: WidgetSortBy;
   /**
    * Define request widget style.
    */
@@ -149,6 +154,10 @@ export class ToplistWidgetRequest {
     securityQuery: {
       baseName: "security_query",
       type: "LogQueryDefinition",
+    },
+    sort: {
+      baseName: "sort",
+      type: "WidgetSortBy",
     },
     style: {
       baseName: "style",

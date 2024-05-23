@@ -592,10 +592,13 @@ import { WidgetEvent } from "./WidgetEvent";
 import { WidgetFieldSort } from "./WidgetFieldSort";
 import { WidgetFormula } from "./WidgetFormula";
 import { WidgetFormulaLimit } from "./WidgetFormulaLimit";
+import { WidgetFormulaSort } from "./WidgetFormulaSort";
 import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
+import { WidgetGroupSort } from "./WidgetGroupSort";
 import { WidgetLayout } from "./WidgetLayout";
 import { WidgetMarker } from "./WidgetMarker";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
+import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
 import { WidgetTime } from "./WidgetTime";
 import {
@@ -751,11 +754,13 @@ const enumsMap: { [key: string]: any[] } = {
     "error_budget_burndown",
   ],
   FormulaAndFunctionSLOQueryType: ["metric"],
+  FormulaType: ["formula"],
   FreeTextWidgetDefinitionType: ["free_text"],
   FunnelRequestType: ["funnel"],
   FunnelSource: ["rum"],
   FunnelWidgetDefinitionType: ["funnel"],
   GeomapWidgetDefinitionType: ["geomap"],
+  GroupType: ["group"],
   GroupWidgetDefinitionType: ["group"],
   HeatMapWidgetDefinitionType: ["heatmap"],
   HostMapWidgetDefinitionType: ["hostmap"],
@@ -2156,10 +2161,13 @@ const typeMap: { [index: string]: any } = {
   WidgetFieldSort: WidgetFieldSort,
   WidgetFormula: WidgetFormula,
   WidgetFormulaLimit: WidgetFormulaLimit,
+  WidgetFormulaSort: WidgetFormulaSort,
   WidgetFormulaStyle: WidgetFormulaStyle,
+  WidgetGroupSort: WidgetGroupSort,
   WidgetLayout: WidgetLayout,
   WidgetMarker: WidgetMarker,
   WidgetRequestStyle: WidgetRequestStyle,
+  WidgetSortBy: WidgetSortBy,
   WidgetStyle: WidgetStyle,
   WidgetTime: WidgetTime,
 };
@@ -2303,6 +2311,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "TopologyMapWidgetDefinition",
     "TreeMapWidgetDefinition",
   ],
+  WidgetSortOrderBy: ["WidgetFormulaSort", "WidgetGroupSort"],
 };
 
 export class ObjectSerializer {
