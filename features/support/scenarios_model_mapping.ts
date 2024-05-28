@@ -4573,6 +4573,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
     },
+    "v2.TestSecurityMonitoringRule": {
+        "body": {
+            "type": "SecurityMonitoringRuleTestRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleTestResponse",
+    },
     "v2.ValidateSecurityMonitoringRule": {
         "body": {
             "type": "SecurityMonitoringRuleCreatePayload",
@@ -4604,6 +4611,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.TestExistingSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SecurityMonitoringRuleTestRequest",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleTestResponse",
     },
     "v2.ListSecurityMonitoringSignals": {
         "filterQuery": {

@@ -852,6 +852,10 @@ import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCr
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
+import { SecurityMonitoringRuleQueryPayload } from "./SecurityMonitoringRuleQueryPayload";
+import { SecurityMonitoringRuleQueryPayloadData } from "./SecurityMonitoringRuleQueryPayloadData";
+import { SecurityMonitoringRuleTestRequest } from "./SecurityMonitoringRuleTestRequest";
+import { SecurityMonitoringRuleTestResponse } from "./SecurityMonitoringRuleTestResponse";
 import { SecurityMonitoringRuleThirdPartyOptions } from "./SecurityMonitoringRuleThirdPartyOptions";
 import { SecurityMonitoringRuleUpdatePayload } from "./SecurityMonitoringRuleUpdatePayload";
 import { SecurityMonitoringSignal } from "./SecurityMonitoringSignal";
@@ -2648,6 +2652,11 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringRuleImpossibleTravelOptions,
   SecurityMonitoringRuleNewValueOptions: SecurityMonitoringRuleNewValueOptions,
   SecurityMonitoringRuleOptions: SecurityMonitoringRuleOptions,
+  SecurityMonitoringRuleQueryPayload: SecurityMonitoringRuleQueryPayload,
+  SecurityMonitoringRuleQueryPayloadData:
+    SecurityMonitoringRuleQueryPayloadData,
+  SecurityMonitoringRuleTestRequest: SecurityMonitoringRuleTestRequest,
+  SecurityMonitoringRuleTestResponse: SecurityMonitoringRuleTestResponse,
   SecurityMonitoringRuleThirdPartyOptions:
     SecurityMonitoringRuleThirdPartyOptions,
   SecurityMonitoringRuleUpdatePayload: SecurityMonitoringRuleUpdatePayload,
