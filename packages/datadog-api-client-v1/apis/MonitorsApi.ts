@@ -1251,14 +1251,13 @@ export interface MonitorsApiListMonitorsRequest {
 
 export interface MonitorsApiSearchMonitorGroupsRequest {
   /**
-   * After entering a search query in your [Manage Monitor page][1] use the query parameter value in the
-   * URL of the page as value for this parameter. Consult the dedicated [manage monitor documentation][2]
-   * page to learn more.
+   * After entering a search query on the [Triggered Monitors page][1], use the query parameter value in the
+   * URL of the page as a value for this parameter. For more information, see the [Manage Monitors documentation][2].
    *
-   * The query can contain any number of space-separated monitor attributes, for instance `query="type:metric status:alert"`.
+   * The query can contain any number of space-separated monitor attributes, for instance: `query="type:metric group_status:alert"`.
    *
-   * [1]: https://app.datadoghq.com/monitors/manage
-   * [2]: /monitors/manage/#find-the-monitors
+   * [1]: https://app.datadoghq.com/monitors/triggered
+   * [2]: /monitors/manage/#triggered-monitors
    * @type string
    */
   query?: string;
