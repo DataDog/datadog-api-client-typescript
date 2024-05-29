@@ -381,6 +381,8 @@ export {
   SecurityMonitoringApiListSecurityMonitoringSignalsRequest,
   SecurityMonitoringApiMuteFindingsRequest,
   SecurityMonitoringApiSearchSecurityMonitoringSignalsRequest,
+  SecurityMonitoringApiTestExistingSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiTestSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityFilterRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest,
@@ -1607,8 +1609,12 @@ export { SecurityMonitoringRuleNewValueOptionsLearningThreshold } from "./models
 export { SecurityMonitoringRuleOptions } from "./models/SecurityMonitoringRuleOptions";
 export { SecurityMonitoringRuleQuery } from "./models/SecurityMonitoringRuleQuery";
 export { SecurityMonitoringRuleQueryAggregation } from "./models/SecurityMonitoringRuleQueryAggregation";
+export { SecurityMonitoringRuleQueryPayload } from "./models/SecurityMonitoringRuleQueryPayload";
+export { SecurityMonitoringRuleQueryPayloadData } from "./models/SecurityMonitoringRuleQueryPayloadData";
 export { SecurityMonitoringRuleResponse } from "./models/SecurityMonitoringRuleResponse";
 export { SecurityMonitoringRuleSeverity } from "./models/SecurityMonitoringRuleSeverity";
+export { SecurityMonitoringRuleTestRequest } from "./models/SecurityMonitoringRuleTestRequest";
+export { SecurityMonitoringRuleTestResponse } from "./models/SecurityMonitoringRuleTestResponse";
 export { SecurityMonitoringRuleThirdPartyOptions } from "./models/SecurityMonitoringRuleThirdPartyOptions";
 export { SecurityMonitoringRuleTypeCreate } from "./models/SecurityMonitoringRuleTypeCreate";
 export { SecurityMonitoringRuleTypeRead } from "./models/SecurityMonitoringRuleTypeRead";
