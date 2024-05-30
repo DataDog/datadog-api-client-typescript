@@ -77,6 +77,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
         files: [
           {
             name: "file name",
+            originalFileName: "image.png",
             content: "file content",
             type: "file type",
           },
