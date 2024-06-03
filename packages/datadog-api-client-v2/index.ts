@@ -711,6 +711,7 @@ export { CloudConfigurationRuleCaseCreate } from "./models/CloudConfigurationRul
 export { CloudConfigurationRuleComplianceSignalOptions } from "./models/CloudConfigurationRuleComplianceSignalOptions";
 export { CloudConfigurationRuleCreatePayload } from "./models/CloudConfigurationRuleCreatePayload";
 export { CloudConfigurationRuleOptions } from "./models/CloudConfigurationRuleOptions";
+export { CloudConfigurationRulePayload } from "./models/CloudConfigurationRulePayload";
 export { CloudConfigurationRuleType } from "./models/CloudConfigurationRuleType";
 export { CloudCostActivity } from "./models/CloudCostActivity";
 export { CloudCostActivityAttributes } from "./models/CloudCostActivityAttributes";
@@ -1613,12 +1614,15 @@ export { SecurityMonitoringRuleQueryPayload } from "./models/SecurityMonitoringR
 export { SecurityMonitoringRuleQueryPayloadData } from "./models/SecurityMonitoringRuleQueryPayloadData";
 export { SecurityMonitoringRuleResponse } from "./models/SecurityMonitoringRuleResponse";
 export { SecurityMonitoringRuleSeverity } from "./models/SecurityMonitoringRuleSeverity";
+export { SecurityMonitoringRuleTestPayload } from "./models/SecurityMonitoringRuleTestPayload";
 export { SecurityMonitoringRuleTestRequest } from "./models/SecurityMonitoringRuleTestRequest";
 export { SecurityMonitoringRuleTestResponse } from "./models/SecurityMonitoringRuleTestResponse";
 export { SecurityMonitoringRuleThirdPartyOptions } from "./models/SecurityMonitoringRuleThirdPartyOptions";
 export { SecurityMonitoringRuleTypeCreate } from "./models/SecurityMonitoringRuleTypeCreate";
 export { SecurityMonitoringRuleTypeRead } from "./models/SecurityMonitoringRuleTypeRead";
+export { SecurityMonitoringRuleTypeTest } from "./models/SecurityMonitoringRuleTypeTest";
 export { SecurityMonitoringRuleUpdatePayload } from "./models/SecurityMonitoringRuleUpdatePayload";
+export { SecurityMonitoringRuleValidatePayload } from "./models/SecurityMonitoringRuleValidatePayload";
 export { SecurityMonitoringSignal } from "./models/SecurityMonitoringSignal";
 export { SecurityMonitoringSignalArchiveReason } from "./models/SecurityMonitoringSignalArchiveReason";
 export { SecurityMonitoringSignalAssigneeUpdateAttributes } from "./models/SecurityMonitoringSignalAssigneeUpdateAttributes";
@@ -1634,6 +1638,7 @@ export { SecurityMonitoringSignalListRequestPage } from "./models/SecurityMonito
 export { SecurityMonitoringSignalMetadataType } from "./models/SecurityMonitoringSignalMetadataType";
 export { SecurityMonitoringSignalResponse } from "./models/SecurityMonitoringSignalResponse";
 export { SecurityMonitoringSignalRuleCreatePayload } from "./models/SecurityMonitoringSignalRuleCreatePayload";
+export { SecurityMonitoringSignalRulePayload } from "./models/SecurityMonitoringSignalRulePayload";
 export { SecurityMonitoringSignalRuleQuery } from "./models/SecurityMonitoringSignalRuleQuery";
 export { SecurityMonitoringSignalRuleResponse } from "./models/SecurityMonitoringSignalRuleResponse";
 export { SecurityMonitoringSignalRuleResponseQuery } from "./models/SecurityMonitoringSignalRuleResponseQuery";
@@ -1652,8 +1657,10 @@ export { SecurityMonitoringSignalTriageUpdateData } from "./models/SecurityMonit
 export { SecurityMonitoringSignalTriageUpdateResponse } from "./models/SecurityMonitoringSignalTriageUpdateResponse";
 export { SecurityMonitoringSignalType } from "./models/SecurityMonitoringSignalType";
 export { SecurityMonitoringStandardRuleCreatePayload } from "./models/SecurityMonitoringStandardRuleCreatePayload";
+export { SecurityMonitoringStandardRulePayload } from "./models/SecurityMonitoringStandardRulePayload";
 export { SecurityMonitoringStandardRuleQuery } from "./models/SecurityMonitoringStandardRuleQuery";
 export { SecurityMonitoringStandardRuleResponse } from "./models/SecurityMonitoringStandardRuleResponse";
+export { SecurityMonitoringStandardRuleTestPayload } from "./models/SecurityMonitoringStandardRuleTestPayload";
 export { SecurityMonitoringSuppression } from "./models/SecurityMonitoringSuppression";
 export { SecurityMonitoringSuppressionAttributes } from "./models/SecurityMonitoringSuppressionAttributes";
 export { SecurityMonitoringSuppressionCreateAttributes } from "./models/SecurityMonitoringSuppressionCreateAttributes";

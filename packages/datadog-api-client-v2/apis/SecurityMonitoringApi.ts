@@ -35,6 +35,7 @@ import { SecurityMonitoringRuleResponse } from "../models/SecurityMonitoringRule
 import { SecurityMonitoringRuleTestRequest } from "../models/SecurityMonitoringRuleTestRequest";
 import { SecurityMonitoringRuleTestResponse } from "../models/SecurityMonitoringRuleTestResponse";
 import { SecurityMonitoringRuleUpdatePayload } from "../models/SecurityMonitoringRuleUpdatePayload";
+import { SecurityMonitoringRuleValidatePayload } from "../models/SecurityMonitoringRuleValidatePayload";
 import { SecurityMonitoringSignal } from "../models/SecurityMonitoringSignal";
 import { SecurityMonitoringSignalAssigneeUpdateRequest } from "../models/SecurityMonitoringSignalAssigneeUpdateRequest";
 import { SecurityMonitoringSignalIncidentsUpdateRequest } from "../models/SecurityMonitoringSignalIncidentsUpdateRequest";
@@ -1286,7 +1287,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   }
 
   public async validateSecurityMonitoringRule(
-    body: SecurityMonitoringRuleCreatePayload,
+    body: SecurityMonitoringRuleValidatePayload,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1314,7 +1315,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
         body,
-        "SecurityMonitoringRuleCreatePayload",
+        "SecurityMonitoringRuleValidatePayload",
         ""
       ),
       contentType
@@ -3347,9 +3348,9 @@ export interface SecurityMonitoringApiUpdateSecurityMonitoringSuppressionRequest
 
 export interface SecurityMonitoringApiValidateSecurityMonitoringRuleRequest {
   /**
-   * @type SecurityMonitoringRuleCreatePayload
+   * @type SecurityMonitoringRuleValidatePayload
    */
-  body: SecurityMonitoringRuleCreatePayload;
+  body: SecurityMonitoringRuleValidatePayload;
 }
 
 export class SecurityMonitoringApi {

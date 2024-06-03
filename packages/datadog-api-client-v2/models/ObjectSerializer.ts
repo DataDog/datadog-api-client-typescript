@@ -154,6 +154,7 @@ import { CloudConfigurationRuleCaseCreate } from "./CloudConfigurationRuleCaseCr
 import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurationRuleComplianceSignalOptions";
 import { CloudConfigurationRuleCreatePayload } from "./CloudConfigurationRuleCreatePayload";
 import { CloudConfigurationRuleOptions } from "./CloudConfigurationRuleOptions";
+import { CloudConfigurationRulePayload } from "./CloudConfigurationRulePayload";
 import { CloudCostActivity } from "./CloudCostActivity";
 import { CloudCostActivityAttributes } from "./CloudCostActivityAttributes";
 import { CloudCostActivityResponse } from "./CloudCostActivityResponse";
@@ -871,6 +872,7 @@ import { SecurityMonitoringSignalListRequestFilter } from "./SecurityMonitoringS
 import { SecurityMonitoringSignalListRequestPage } from "./SecurityMonitoringSignalListRequestPage";
 import { SecurityMonitoringSignalResponse } from "./SecurityMonitoringSignalResponse";
 import { SecurityMonitoringSignalRuleCreatePayload } from "./SecurityMonitoringSignalRuleCreatePayload";
+import { SecurityMonitoringSignalRulePayload } from "./SecurityMonitoringSignalRulePayload";
 import { SecurityMonitoringSignalRuleQuery } from "./SecurityMonitoringSignalRuleQuery";
 import { SecurityMonitoringSignalRuleResponse } from "./SecurityMonitoringSignalRuleResponse";
 import { SecurityMonitoringSignalRuleResponseQuery } from "./SecurityMonitoringSignalRuleResponseQuery";
@@ -885,8 +887,10 @@ import { SecurityMonitoringSignalsListResponseLinks } from "./SecurityMonitoring
 import { SecurityMonitoringSignalsListResponseMeta } from "./SecurityMonitoringSignalsListResponseMeta";
 import { SecurityMonitoringSignalsListResponseMetaPage } from "./SecurityMonitoringSignalsListResponseMetaPage";
 import { SecurityMonitoringStandardRuleCreatePayload } from "./SecurityMonitoringStandardRuleCreatePayload";
+import { SecurityMonitoringStandardRulePayload } from "./SecurityMonitoringStandardRulePayload";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringStandardRuleResponse } from "./SecurityMonitoringStandardRuleResponse";
+import { SecurityMonitoringStandardRuleTestPayload } from "./SecurityMonitoringStandardRuleTestPayload";
 import { SecurityMonitoringSuppression } from "./SecurityMonitoringSuppression";
 import { SecurityMonitoringSuppressionAttributes } from "./SecurityMonitoringSuppressionAttributes";
 import { SecurityMonitoringSuppressionCreateAttributes } from "./SecurityMonitoringSuppressionCreateAttributes";
@@ -1560,6 +1564,7 @@ const enumsMap: { [key: string]: any[] } = {
     "cloud_configuration",
     "application_security",
   ],
+  SecurityMonitoringRuleTypeTest: ["log_detection"],
   SecurityMonitoringSignalArchiveReason: [
     "none",
     "false_positive",
@@ -1889,6 +1894,7 @@ const typeMap: { [index: string]: any } = {
     CloudConfigurationRuleComplianceSignalOptions,
   CloudConfigurationRuleCreatePayload: CloudConfigurationRuleCreatePayload,
   CloudConfigurationRuleOptions: CloudConfigurationRuleOptions,
+  CloudConfigurationRulePayload: CloudConfigurationRulePayload,
   CloudCostActivity: CloudCostActivity,
   CloudCostActivityAttributes: CloudCostActivityAttributes,
   CloudCostActivityResponse: CloudCostActivityResponse,
@@ -2682,6 +2688,7 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringSignalResponse: SecurityMonitoringSignalResponse,
   SecurityMonitoringSignalRuleCreatePayload:
     SecurityMonitoringSignalRuleCreatePayload,
+  SecurityMonitoringSignalRulePayload: SecurityMonitoringSignalRulePayload,
   SecurityMonitoringSignalRuleQuery: SecurityMonitoringSignalRuleQuery,
   SecurityMonitoringSignalRuleResponse: SecurityMonitoringSignalRuleResponse,
   SecurityMonitoringSignalRuleResponseQuery:
@@ -2707,9 +2714,12 @@ const typeMap: { [index: string]: any } = {
     SecurityMonitoringSignalsListResponseMetaPage,
   SecurityMonitoringStandardRuleCreatePayload:
     SecurityMonitoringStandardRuleCreatePayload,
+  SecurityMonitoringStandardRulePayload: SecurityMonitoringStandardRulePayload,
   SecurityMonitoringStandardRuleQuery: SecurityMonitoringStandardRuleQuery,
   SecurityMonitoringStandardRuleResponse:
     SecurityMonitoringStandardRuleResponse,
+  SecurityMonitoringStandardRuleTestPayload:
+    SecurityMonitoringStandardRuleTestPayload,
   SecurityMonitoringSuppression: SecurityMonitoringSuppression,
   SecurityMonitoringSuppressionAttributes:
     SecurityMonitoringSuppressionAttributes,
@@ -3111,6 +3121,14 @@ const oneOfMap: { [index: string]: string[] } = {
   SecurityMonitoringRuleResponse: [
     "SecurityMonitoringStandardRuleResponse",
     "SecurityMonitoringSignalRuleResponse",
+  ],
+  SecurityMonitoringRuleTestPayload: [
+    "SecurityMonitoringStandardRuleTestPayload",
+  ],
+  SecurityMonitoringRuleValidatePayload: [
+    "SecurityMonitoringStandardRulePayload",
+    "SecurityMonitoringSignalRulePayload",
+    "CloudConfigurationRulePayload",
   ],
   SensitiveDataScannerGetConfigIncludedItem: [
     "SensitiveDataScannerRuleIncludedItem",

@@ -13,9 +13,9 @@ import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoring
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Create a new rule.
+ * The payload of a rule.
  */
-export class SecurityMonitoringStandardRuleCreatePayload {
+export class SecurityMonitoringStandardRulePayload {
   /**
    * Cases for generating signals.
    */
@@ -137,7 +137,7 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringStandardRuleCreatePayload.attributeTypeMap;
+    return SecurityMonitoringStandardRulePayload.attributeTypeMap;
   }
 
   public constructor() {}

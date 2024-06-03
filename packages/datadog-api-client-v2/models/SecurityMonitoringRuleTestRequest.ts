@@ -3,19 +3,19 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SecurityMonitoringRuleCreatePayload } from "./SecurityMonitoringRuleCreatePayload";
 import { SecurityMonitoringRuleQueryPayload } from "./SecurityMonitoringRuleQueryPayload";
+import { SecurityMonitoringRuleTestPayload } from "./SecurityMonitoringRuleTestPayload";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Test the rule queries of a rule.
+ * Test the rule queries of a rule (rule property is ignored when applied to an existing rule)
  */
 export class SecurityMonitoringRuleTestRequest {
   /**
-   * Create a new rule.
+   * Test a rule.
    */
-  "rule"?: SecurityMonitoringRuleCreatePayload;
+  "rule"?: SecurityMonitoringRuleTestPayload;
   /**
    * Data payloads used to test rules query with the expected result.
    */
@@ -39,7 +39,7 @@ export class SecurityMonitoringRuleTestRequest {
   static readonly attributeTypeMap: AttributeTypeMap = {
     rule: {
       baseName: "rule",
-      type: "SecurityMonitoringRuleCreatePayload",
+      type: "SecurityMonitoringRuleTestPayload",
     },
     ruleQueryPayloads: {
       baseName: "ruleQueryPayloads",

@@ -6,16 +6,16 @@
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
-import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
+import { SecurityMonitoringRuleTypeTest } from "./SecurityMonitoringRuleTypeTest";
 import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
 import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Create a new rule.
+ * The payload of a rule to test
  */
-export class SecurityMonitoringStandardRuleCreatePayload {
+export class SecurityMonitoringStandardRuleTestPayload {
   /**
    * Cases for generating signals.
    */
@@ -59,7 +59,7 @@ export class SecurityMonitoringStandardRuleCreatePayload {
   /**
    * The rule type.
    */
-  "type"?: SecurityMonitoringRuleTypeCreate;
+  "type"?: SecurityMonitoringRuleTypeTest;
 
   /**
    * A container for additional, undeclared properties.
@@ -125,7 +125,7 @@ export class SecurityMonitoringStandardRuleCreatePayload {
     },
     type: {
       baseName: "type",
-      type: "SecurityMonitoringRuleTypeCreate",
+      type: "SecurityMonitoringRuleTypeTest",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -137,7 +137,7 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringStandardRuleCreatePayload.attributeTypeMap;
+    return SecurityMonitoringStandardRuleTestPayload.attributeTypeMap;
   }
 
   public constructor() {}

@@ -4582,7 +4582,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v2.ValidateSecurityMonitoringRule": {
         "body": {
-            "type": "SecurityMonitoringRuleCreatePayload",
+            "type": "SecurityMonitoringRuleValidatePayload",
             "format": "",
             },
         "operationResponseType": "void",
