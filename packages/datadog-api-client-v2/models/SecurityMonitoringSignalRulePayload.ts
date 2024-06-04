@@ -6,16 +6,15 @@
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
-import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
-import { SecurityMonitoringStandardRuleQuery } from "./SecurityMonitoringStandardRuleQuery";
-import { SecurityMonitoringThirdPartyRuleCaseCreate } from "./SecurityMonitoringThirdPartyRuleCaseCreate";
+import { SecurityMonitoringSignalRuleQuery } from "./SecurityMonitoringSignalRuleQuery";
+import { SecurityMonitoringSignalRuleType } from "./SecurityMonitoringSignalRuleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Create a new rule.
+ * The payload of a signal correlation rule.
  */
-export class SecurityMonitoringStandardRuleCreatePayload {
+export class SecurityMonitoringSignalRulePayload {
   /**
    * Cases for generating signals.
    */
@@ -45,21 +44,17 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    */
   "options": SecurityMonitoringRuleOptions;
   /**
-   * Queries for selecting logs which are part of the rule.
+   * Queries for selecting signals which are part of the rule.
    */
-  "queries": Array<SecurityMonitoringStandardRuleQuery>;
+  "queries": Array<SecurityMonitoringSignalRuleQuery>;
   /**
    * Tags for generated signals.
    */
   "tags"?: Array<string>;
   /**
-   * Cases for generating signals from third-party rules. Only available for third-party rules.
-   */
-  "thirdPartyCases"?: Array<SecurityMonitoringThirdPartyRuleCaseCreate>;
-  /**
    * The rule type.
    */
-  "type"?: SecurityMonitoringRuleTypeCreate;
+  "type"?: SecurityMonitoringSignalRuleType;
 
   /**
    * A container for additional, undeclared properties.
@@ -112,20 +107,16 @@ export class SecurityMonitoringStandardRuleCreatePayload {
     },
     queries: {
       baseName: "queries",
-      type: "Array<SecurityMonitoringStandardRuleQuery>",
+      type: "Array<SecurityMonitoringSignalRuleQuery>",
       required: true,
     },
     tags: {
       baseName: "tags",
       type: "Array<string>",
     },
-    thirdPartyCases: {
-      baseName: "thirdPartyCases",
-      type: "Array<SecurityMonitoringThirdPartyRuleCaseCreate>",
-    },
     type: {
       baseName: "type",
-      type: "SecurityMonitoringRuleTypeCreate",
+      type: "SecurityMonitoringSignalRuleType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -137,7 +128,7 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SecurityMonitoringStandardRuleCreatePayload.attributeTypeMap;
+    return SecurityMonitoringSignalRulePayload.attributeTypeMap;
   }
 
   public constructor() {}

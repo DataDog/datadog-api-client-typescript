@@ -86,7 +86,7 @@ export class SecurityMonitoringStandardRuleResponse {
    */
   "tags"?: Array<string>;
   /**
-   * Cases for generating signals from third party rules. Only available for third party rules.
+   * Cases for generating signals from third-party rules. Only available for third-party rules.
    */
   "thirdPartyCases"?: Array<SecurityMonitoringThirdPartyRuleCase>;
   /**
