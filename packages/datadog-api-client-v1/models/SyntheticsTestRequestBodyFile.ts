@@ -23,6 +23,10 @@ export class SyntheticsTestRequestBodyFile {
    */
   "name"?: string;
   /**
+   * Original name of the file.
+   */
+  "originalFileName"?: string;
+  /**
    * Size of the file.
    */
   "size"?: number;
@@ -57,6 +61,10 @@ export class SyntheticsTestRequestBodyFile {
     },
     name: {
       baseName: "name",
+      type: "string",
+    },
+    originalFileName: {
+      baseName: "originalFileName",
       type: "string",
     },
     size: {
