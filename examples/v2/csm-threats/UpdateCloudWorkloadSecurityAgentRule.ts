@@ -19,6 +19,7 @@ const params: v2.CSMThreatsApiUpdateCloudWorkloadSecurityAgentRuleRequest = {
         expression: `exec.file.name == "sh"`,
       },
       type: "agent_rule",
+      id: AGENT_RULE_DATA_ID,
     },
   },
   agentRuleId: AGENT_RULE_DATA_ID,
