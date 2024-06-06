@@ -18,6 +18,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { AuthNMappingCreateRequest } from "../models/AuthNMappingCreateRequest";
+import { AuthNMappingResourceType } from "../models/AuthNMappingResourceType";
 import { AuthNMappingResponse } from "../models/AuthNMappingResponse";
 import { AuthNMappingsResponse } from "../models/AuthNMappingsResponse";
 import { AuthNMappingsSort } from "../models/AuthNMappingsSort";
@@ -138,6 +139,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     pageNumber?: number,
     sort?: AuthNMappingsSort,
     filter?: string,
+    resourceType?: AuthNMappingResourceType,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -175,6 +177,12 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter",
         ObjectSerializer.serialize(filter, "string", "")
+      );
+    }
+    if (resourceType !== undefined) {
+      requestContext.setQueryParam(
+        "resource_type",
+        ObjectSerializer.serialize(resourceType, "AuthNMappingResourceType", "")
       );
     }
 
@@ -589,6 +597,11 @@ export interface AuthNMappingsApiListAuthNMappingsRequest {
    * @type string
    */
   filter?: string;
+  /**
+   * Filter by mapping resource type. Defaults to "role" if not specified.
+   * @type AuthNMappingResourceType
+   */
+  resourceType?: AuthNMappingResourceType;
 }
 
 export interface AuthNMappingsApiUpdateAuthNMappingRequest {
@@ -696,6 +709,7 @@ export class AuthNMappingsApi {
       param.pageNumber,
       param.sort,
       param.filter,
+      param.resourceType,
       options
     );
     return requestContextPromise.then((requestContext) => {
