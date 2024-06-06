@@ -3532,6 +3532,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "IncidentTodoResponse",
     },
+    "v2.ListAWSAccountsv2": {
+        "operationResponseType": "AWSAccountsResponse",
+    },
+    "v2.CreateAWSAccountv2": {
+        "body": {
+            "type": "AWSAccountCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "AWSAccountResponse",
+    },
+    "v2.DeleteAWSAccountv2": {
+        "awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetAWSAccountv2": {
+        "awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "AWSAccountResponse",
+    },
+    "v2.PatchAWSAccountv2": {
+        "awsAccountConfigId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "AWSAccountPatchRequest",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.ListGCPSTSAccounts": {
         "operationResponseType": "GCPSTSServiceAccountsResponse",
     },

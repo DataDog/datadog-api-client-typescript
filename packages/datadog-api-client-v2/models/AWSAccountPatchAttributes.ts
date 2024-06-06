@@ -1,0 +1,138 @@
+/**
+ * Unless explicitly stated otherwise all files in this repository are licensed under the Apache-2.0 License.
+ * This product includes software developed at Datadog (https://www.datadoghq.com/).
+ * Copyright 2020-Present Datadog, Inc.
+ */
+import { AWSAuthConfig } from "./AWSAuthConfig";
+import { AWSLogs } from "./AWSLogs";
+import { AWSMetrics } from "./AWSMetrics";
+import { AWSRegionsList } from "./AWSRegionsList";
+import { AWSResources } from "./AWSResources";
+import { AWSTraces } from "./AWSTraces";
+
+import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+
+/**
+ * AWS Account attributes for patching
+ */
+export class AWSAccountPatchAttributes {
+  /**
+   * Tags to apply to all metrics in the account
+   */
+  "accountTags"?: Array<string>;
+  /**
+   * AWS Authentication config
+   */
+  "authConfig"?: AWSAuthConfig;
+  /**
+   * AWS Account ID
+   */
+  "awsAccountId"?: string;
+  /**
+   * AWS Account name
+   */
+  "awsAccountName"?: string;
+  /**
+   * AWS Regions to collect data from
+   */
+  "awsRegions"?: AWSRegionsList;
+  /**
+   * Creation date of the account
+   */
+  "createdAt"?: string;
+  /**
+   * AWS Logs config
+   */
+  "logsConfig"?: AWSLogs;
+  /**
+   * AWS Metrics config
+   */
+  "metricsConfig"?: AWSMetrics;
+  /**
+   * Last modification date of the account
+   */
+  "modifiedAt"?: string;
+  /**
+   * AWS Resources config
+   */
+  "resourcesConfig"?: AWSResources;
+  /**
+   * AWS Traces config
+   */
+  "tracesConfig"?: AWSTraces;
+
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  "additionalProperties"?: { [key: string]: any };
+
+  /**
+   * @ignore
+   */
+  "_unparsed"?: boolean;
+
+  /**
+   * @ignore
+   */
+  static readonly attributeTypeMap: AttributeTypeMap = {
+    accountTags: {
+      baseName: "account_tags",
+      type: "Array<string>",
+    },
+    authConfig: {
+      baseName: "auth_config",
+      type: "AWSAuthConfig",
+    },
+    awsAccountId: {
+      baseName: "aws_account_id",
+      type: "string",
+    },
+    awsAccountName: {
+      baseName: "aws_account_name",
+      type: "string",
+    },
+    awsRegions: {
+      baseName: "aws_regions",
+      type: "AWSRegionsList",
+    },
+    createdAt: {
+      baseName: "created_at",
+      type: "string",
+    },
+    logsConfig: {
+      baseName: "logs_config",
+      type: "AWSLogs",
+    },
+    metricsConfig: {
+      baseName: "metrics_config",
+      type: "AWSMetrics",
+    },
+    modifiedAt: {
+      baseName: "modified_at",
+      type: "string",
+    },
+    resourcesConfig: {
+      baseName: "resources_config",
+      type: "AWSResources",
+    },
+    tracesConfig: {
+      baseName: "traces_config",
+      type: "AWSTraces",
+    },
+    additionalProperties: {
+      baseName: "additionalProperties",
+      type: "any",
+    },
+  };
+
+  /**
+   * @ignore
+   */
+  static getAttributeTypeMap(): AttributeTypeMap {
+    return AWSAccountPatchAttributes.attributeTypeMap;
+  }
+
+  public constructor() {}
+}
