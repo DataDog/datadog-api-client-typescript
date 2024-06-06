@@ -10,9 +10,29 @@ import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
 import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
+import { AWSAccount } from "./AWSAccount";
+import { AWSAccountAttributes } from "./AWSAccountAttributes";
+import { AWSAccountCreate } from "./AWSAccountCreate";
+import { AWSAccountCreateAttributes } from "./AWSAccountCreateAttributes";
+import { AWSAccountCreateRequest } from "./AWSAccountCreateRequest";
+import { AWSAccountPatch } from "./AWSAccountPatch";
+import { AWSAccountPatchAttributes } from "./AWSAccountPatchAttributes";
+import { AWSAccountPatchRequest } from "./AWSAccountPatchRequest";
+import { AWSAccountResponse } from "./AWSAccountResponse";
+import { AWSAccountsResponse } from "./AWSAccountsResponse";
+import { AWSAuthConfig } from "./AWSAuthConfig";
+import { AWSLambdaForwarder } from "./AWSLambdaForwarder";
+import { AWSLogs } from "./AWSLogs";
+import { AWSMetrics } from "./AWSMetrics";
+import { AWSNamespaceTagFilter } from "./AWSNamespaceTagFilter";
+import { AWSNamespacesList } from "./AWSNamespacesList";
+import { AWSRegionsList } from "./AWSRegionsList";
 import { AWSRelatedAccount } from "./AWSRelatedAccount";
 import { AWSRelatedAccountAttributes } from "./AWSRelatedAccountAttributes";
 import { AWSRelatedAccountsResponse } from "./AWSRelatedAccountsResponse";
+import { AWSResources } from "./AWSResources";
+import { AWSTraces } from "./AWSTraces";
+import { AWSXRayServicesList } from "./AWSXRayServicesList";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -1162,6 +1182,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  AWSAccountType: ["aws_account"],
   AWSRelatedAccountType: ["aws_account"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
@@ -1744,9 +1765,29 @@ const typeMap: { [index: string]: any } = {
   APIKeysResponse: APIKeysResponse,
   APIKeysResponseMeta: APIKeysResponseMeta,
   APIKeysResponseMetaPage: APIKeysResponseMetaPage,
+  AWSAccount: AWSAccount,
+  AWSAccountAttributes: AWSAccountAttributes,
+  AWSAccountCreate: AWSAccountCreate,
+  AWSAccountCreateAttributes: AWSAccountCreateAttributes,
+  AWSAccountCreateRequest: AWSAccountCreateRequest,
+  AWSAccountPatch: AWSAccountPatch,
+  AWSAccountPatchAttributes: AWSAccountPatchAttributes,
+  AWSAccountPatchRequest: AWSAccountPatchRequest,
+  AWSAccountResponse: AWSAccountResponse,
+  AWSAccountsResponse: AWSAccountsResponse,
+  AWSAuthConfig: AWSAuthConfig,
+  AWSLambdaForwarder: AWSLambdaForwarder,
+  AWSLogs: AWSLogs,
+  AWSMetrics: AWSMetrics,
+  AWSNamespaceTagFilter: AWSNamespaceTagFilter,
+  AWSNamespacesList: AWSNamespacesList,
+  AWSRegionsList: AWSRegionsList,
   AWSRelatedAccount: AWSRelatedAccount,
   AWSRelatedAccountAttributes: AWSRelatedAccountAttributes,
   AWSRelatedAccountsResponse: AWSRelatedAccountsResponse,
+  AWSResources: AWSResources,
+  AWSTraces: AWSTraces,
+  AWSXRayServicesList: AWSXRayServicesList,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,

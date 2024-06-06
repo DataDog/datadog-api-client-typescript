@@ -16,6 +16,14 @@ export {
 } from "./apis/APMRetentionFiltersApi";
 
 export {
+  AWSIntegrationApiCreateAWSAccountv2Request,
+  AWSIntegrationApiDeleteAWSAccountv2Request,
+  AWSIntegrationApiGetAWSAccountv2Request,
+  AWSIntegrationApiPatchAWSAccountv2Request,
+  AWSIntegrationApi,
+} from "./apis/AWSIntegrationApi";
+
+export {
   AuditApiListAuditLogsRequest,
   AuditApiSearchAuditLogsRequest,
   AuditApi,
@@ -569,6 +577,18 @@ export { AuthNMappingUpdateAttributes } from "./models/AuthNMappingUpdateAttribu
 export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
+export { AWSAccount } from "./models/AWSAccount";
+export { AWSAccountAttributes } from "./models/AWSAccountAttributes";
+export { AWSAccountCreate } from "./models/AWSAccountCreate";
+export { AWSAccountCreateAttributes } from "./models/AWSAccountCreateAttributes";
+export { AWSAccountCreateRequest } from "./models/AWSAccountCreateRequest";
+export { AWSAccountPatch } from "./models/AWSAccountPatch";
+export { AWSAccountPatchAttributes } from "./models/AWSAccountPatchAttributes";
+export { AWSAccountPatchRequest } from "./models/AWSAccountPatchRequest";
+export { AWSAccountResponse } from "./models/AWSAccountResponse";
+export { AWSAccountsResponse } from "./models/AWSAccountsResponse";
+export { AWSAccountType } from "./models/AWSAccountType";
+export { AWSAuthConfig } from "./models/AWSAuthConfig";
 export { AwsCURConfig } from "./models/AwsCURConfig";
 export { AwsCURConfigAttributes } from "./models/AwsCURConfigAttributes";
 export { AwsCURConfigPatchData } from "./models/AwsCURConfigPatchData";
@@ -582,10 +602,19 @@ export { AwsCURConfigPostRequestType } from "./models/AwsCURConfigPostRequestTyp
 export { AwsCURConfigResponse } from "./models/AwsCURConfigResponse";
 export { AwsCURConfigsResponse } from "./models/AwsCURConfigsResponse";
 export { AwsCURConfigType } from "./models/AwsCURConfigType";
+export { AWSLambdaForwarder } from "./models/AWSLambdaForwarder";
+export { AWSLogs } from "./models/AWSLogs";
+export { AWSMetrics } from "./models/AWSMetrics";
+export { AWSNamespacesList } from "./models/AWSNamespacesList";
+export { AWSNamespaceTagFilter } from "./models/AWSNamespaceTagFilter";
+export { AWSRegionsList } from "./models/AWSRegionsList";
 export { AWSRelatedAccount } from "./models/AWSRelatedAccount";
 export { AWSRelatedAccountAttributes } from "./models/AWSRelatedAccountAttributes";
 export { AWSRelatedAccountsResponse } from "./models/AWSRelatedAccountsResponse";
 export { AWSRelatedAccountType } from "./models/AWSRelatedAccountType";
+export { AWSResources } from "./models/AWSResources";
+export { AWSTraces } from "./models/AWSTraces";
+export { AWSXRayServicesList } from "./models/AWSXRayServicesList";
 export { AzureUCConfig } from "./models/AzureUCConfig";
 export { AzureUCConfigPair } from "./models/AzureUCConfigPair";
 export { AzureUCConfigPairAttributes } from "./models/AzureUCConfigPairAttributes";
