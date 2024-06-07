@@ -27,6 +27,7 @@ import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
 import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
+import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
 
 export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   public async createAPIKey(
@@ -1098,15 +1099,15 @@ export class KeyManagementApiResponseProcessor {
    */
   public async getApplicationKey(
     response: ResponseContext
-  ): Promise<ApplicationKeyResponse> {
+  ): Promise<PartialApplicationKeyResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
+      const body: PartialApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse"
-      ) as ApplicationKeyResponse;
+        "PartialApplicationKeyResponse"
+      ) as PartialApplicationKeyResponse;
       return body;
     }
     if (
@@ -1137,11 +1138,11 @@ export class KeyManagementApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: ApplicationKeyResponse = ObjectSerializer.deserialize(
+      const body: PartialApplicationKeyResponse = ObjectSerializer.deserialize(
         ObjectSerializer.parse(await response.body.text(), contentType),
-        "ApplicationKeyResponse",
+        "PartialApplicationKeyResponse",
         ""
-      ) as ApplicationKeyResponse;
+      ) as PartialApplicationKeyResponse;
       return body;
     }
 
@@ -1994,7 +1995,7 @@ export class KeyManagementApi {
   public getApplicationKey(
     param: KeyManagementApiGetApplicationKeyRequest,
     options?: Configuration
-  ): Promise<ApplicationKeyResponse> {
+  ): Promise<PartialApplicationKeyResponse> {
     const requestContextPromise = this.requestFactory.getApplicationKey(
       param.appKeyId,
       param.include,

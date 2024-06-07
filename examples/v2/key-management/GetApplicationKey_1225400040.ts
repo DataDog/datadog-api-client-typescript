@@ -1,5 +1,5 @@
 /**
- * Get an application key returns "OK" response
+ * Get an application key returns "OK" response and response does not contain field "key"
  */
 
 import { client, v2 } from "@datadog/datadog-api-client";

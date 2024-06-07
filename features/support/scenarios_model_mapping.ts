@@ -2396,7 +2396,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "ApplicationKeyResponse",
+        "operationResponseType": "PartialApplicationKeyResponse",
     },
     "v2.UpdateApplicationKey": {
         "appKeyId": {
