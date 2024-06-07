@@ -1,3 +1,4 @@
+import type { fetch as crossFetch } from "cross-fetch";
 import { HttpLibrary, HttpConfiguration, RequestContext, ZstdCompressorCallback } from "./http/http";
 import { IsomorphicFetchHttpLibrary as DefaultHttpLibrary } from "./http/isomorphic-fetch";
 import { BaseServerConfiguration, server1, servers, operationServers } from "./servers";
@@ -106,6 +107,10 @@ export interface ConfigurationParameters {
    * Default index of a server to use for an operation from the predefined server operation map
    */
   operationServerIndices?: { [ name: string ]: number };
+  /**
+   * Custom `fetch` function
+   */
+  fetch?: typeof crossFetch;
   /**
    * HTTP library to use e.g. IsomorphicFetch
    */
