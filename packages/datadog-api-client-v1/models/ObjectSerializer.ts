@@ -391,6 +391,7 @@ import { SyntheticsAPITestResultFullCheck } from "./SyntheticsAPITestResultFullC
 import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
 import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
 import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure";
+import { SyntheticsAssertionBodyHashTarget } from "./SyntheticsAssertionBodyHashTarget";
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
@@ -1188,6 +1189,8 @@ const enumsMap: { [key: string]: any[] } = {
     "UNKNOWN",
     "INTERNAL_ERROR",
   ],
+  SyntheticsAssertionBodyHashOperator: ["md5", "sha1", "sha256"],
+  SyntheticsAssertionBodyHashType: ["bodyHash"],
   SyntheticsAssertionJSONPathOperator: ["validatesJSONPath"],
   SyntheticsAssertionJSONSchemaMetaSchema: ["draft-07", "draft-06"],
   SyntheticsAssertionJSONSchemaOperator: ["validatesJSONSchema"],
@@ -1943,6 +1946,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAPITestResultShort: SyntheticsAPITestResultShort,
   SyntheticsAPITestResultShortResult: SyntheticsAPITestResultShortResult,
   SyntheticsApiTestResultFailure: SyntheticsApiTestResultFailure,
+  SyntheticsAssertionBodyHashTarget: SyntheticsAssertionBodyHashTarget,
   SyntheticsAssertionJSONPathTarget: SyntheticsAssertionJSONPathTarget,
   SyntheticsAssertionJSONPathTargetTarget:
     SyntheticsAssertionJSONPathTargetTarget,
@@ -2262,6 +2266,7 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   SyntheticsAssertion: [
     "SyntheticsAssertionTarget",
+    "SyntheticsAssertionBodyHashTarget",
     "SyntheticsAssertionJSONPathTarget",
     "SyntheticsAssertionJSONSchemaTarget",
     "SyntheticsAssertionXPathTarget",
