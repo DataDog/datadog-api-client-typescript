@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsAssertionBodyHashTarget } from "./SyntheticsAssertionBodyHashTarget";
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
@@ -17,6 +18,7 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 export type SyntheticsAssertion =
   | SyntheticsAssertionTarget
+  | SyntheticsAssertionBodyHashTarget
   | SyntheticsAssertionJSONPathTarget
   | SyntheticsAssertionJSONSchemaTarget
   | SyntheticsAssertionXPathTarget

@@ -865,6 +865,9 @@ export { SyntheticsAPITestResultShort } from "./models/SyntheticsAPITestResultSh
 export { SyntheticsAPITestResultShortResult } from "./models/SyntheticsAPITestResultShortResult";
 export { SyntheticsAPITestType } from "./models/SyntheticsAPITestType";
 export { SyntheticsAssertion } from "./models/SyntheticsAssertion";
+export { SyntheticsAssertionBodyHashOperator } from "./models/SyntheticsAssertionBodyHashOperator";
+export { SyntheticsAssertionBodyHashTarget } from "./models/SyntheticsAssertionBodyHashTarget";
+export { SyntheticsAssertionBodyHashType } from "./models/SyntheticsAssertionBodyHashType";
 export { SyntheticsAssertionJSONPathOperator } from "./models/SyntheticsAssertionJSONPathOperator";
 export { SyntheticsAssertionJSONPathTarget } from "./models/SyntheticsAssertionJSONPathTarget";
 export { SyntheticsAssertionJSONPathTargetTarget } from "./models/SyntheticsAssertionJSONPathTargetTarget";
