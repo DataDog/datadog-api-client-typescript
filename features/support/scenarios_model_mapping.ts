@@ -2472,6 +2472,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ApplicationKeyResponse",
     },
+    "v2.ListAPIs": {
+        "query": {
+            "type": "string",
+            "format": "",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "operationResponseType": "ListAPIsResponse",
+    },
     "v2.DeleteOpenAPI": {
         "id": {
             "type": "string",
