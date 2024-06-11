@@ -217,6 +217,7 @@ export function createConfiguration(
       "v2.createOpenAPI": false,
       "v2.deleteOpenAPI": false,
       "v2.getOpenAPI": false,
+      "v2.listAPIs": false,
       "v2.updateOpenAPI": false,
       "v2.getActiveBillingDimensions": false,
       "v2.getMonthlyCostAttribution": false,

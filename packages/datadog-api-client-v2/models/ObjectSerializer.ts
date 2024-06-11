@@ -476,6 +476,10 @@ import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 import { JiraIssue } from "./JiraIssue";
 import { JiraIssueResult } from "./JiraIssueResult";
+import { ListAPIsResponse } from "./ListAPIsResponse";
+import { ListAPIsResponseData } from "./ListAPIsResponseData";
+import { ListAPIsResponseMeta } from "./ListAPIsResponseMeta";
+import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
 import { ListDowntimesResponse } from "./ListDowntimesResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
@@ -2264,6 +2268,10 @@ const typeMap: { [index: string]: any } = {
   JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
   JiraIssue: JiraIssue,
   JiraIssueResult: JiraIssueResult,
+  ListAPIsResponse: ListAPIsResponse,
+  ListAPIsResponseData: ListAPIsResponseData,
+  ListAPIsResponseMeta: ListAPIsResponseMeta,
+  ListAPIsResponseMetaPagination: ListAPIsResponseMetaPagination,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
   ListDowntimesResponse: ListDowntimesResponse,
   ListFindingsMeta: ListFindingsMeta,

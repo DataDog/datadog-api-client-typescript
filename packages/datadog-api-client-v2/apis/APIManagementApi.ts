@@ -22,6 +22,7 @@ import { ApiException } from "../../datadog-api-client-common/exception";
 import { APIErrorResponse } from "../models/APIErrorResponse";
 import { CreateOpenAPIResponse } from "../models/CreateOpenAPIResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
+import { ListAPIsResponse } from "../models/ListAPIsResponse";
 import { UpdateOpenAPIResponse } from "../models/UpdateOpenAPIResponse";
 
 export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
@@ -136,6 +137,58 @@ export class APIManagementApiRequestFactory extends BaseAPIRequestFactory {
       "multipart/form-data, application/json"
     );
     requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listAPIs(
+    query?: string,
+    pageLimit?: number,
+    pageOffset?: number,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn("Using unstable operation 'listAPIs'");
+    if (!_config.unstableOperations["v2.listAPIs"]) {
+      throw new Error("Unstable operation 'listAPIs' is disabled");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/apicatalog/api";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.APIManagementApi.listAPIs")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Query Params
+    if (query !== undefined) {
+      requestContext.setQueryParam(
+        "query",
+        ObjectSerializer.serialize(query, "string", "")
+      );
+    }
+    if (pageLimit !== undefined) {
+      requestContext.setQueryParam(
+        "page[limit]",
+        ObjectSerializer.serialize(pageLimit, "number", "int64")
+      );
+    }
+    if (pageOffset !== undefined) {
+      requestContext.setQueryParam(
+        "page[offset]",
+        ObjectSerializer.serialize(pageOffset, "number", "int64")
+      );
+    }
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
@@ -440,6 +493,85 @@ export class APIManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listAPIs
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listAPIs(response: ResponseContext): Promise<ListAPIsResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: ListAPIsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListAPIsResponse"
+      ) as ListAPIsResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 400 || response.httpStatusCode === 403) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: JSONAPIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "JSONAPIErrorResponse"
+        ) as JSONAPIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<JSONAPIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<JSONAPIErrorResponse>(
+        response.httpStatusCode,
+        body
+      );
+    }
+    if (response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: ListAPIsResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "ListAPIsResponse",
+        ""
+      ) as ListAPIsResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateOpenAPI
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -546,6 +678,24 @@ export interface APIManagementApiGetOpenAPIRequest {
   id: string;
 }
 
+export interface APIManagementApiListAPIsRequest {
+  /**
+   * Filter APIs by name
+   * @type string
+   */
+  query?: string;
+  /**
+   * Number of items per page.
+   * @type number
+   */
+  pageLimit?: number;
+  /**
+   * Offset for pagination.
+   * @type number
+   */
+  pageOffset?: number;
+}
+
 export interface APIManagementApiUpdateOpenAPIRequest {
   /**
    * ID of the API to modify
@@ -638,6 +788,29 @@ export class APIManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getOpenAPI(responseContext);
+        });
+    });
+  }
+
+  /**
+   * List APIs and their IDs.
+   * @param param The request object
+   */
+  public listAPIs(
+    param: APIManagementApiListAPIsRequest = {},
+    options?: Configuration
+  ): Promise<ListAPIsResponse> {
+    const requestContextPromise = this.requestFactory.listAPIs(
+      param.query,
+      param.pageLimit,
+      param.pageOffset,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listAPIs(responseContext);
         });
     });
   }

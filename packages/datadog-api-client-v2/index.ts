@@ -2,6 +2,7 @@ export {
   APIManagementApiCreateOpenAPIRequest,
   APIManagementApiDeleteOpenAPIRequest,
   APIManagementApiGetOpenAPIRequest,
+  APIManagementApiListAPIsRequest,
   APIManagementApiUpdateOpenAPIRequest,
   APIManagementApi,
 } from "./apis/APIManagementApi";
@@ -1133,6 +1134,10 @@ export { JiraIssue } from "./models/JiraIssue";
 export { JiraIssueResult } from "./models/JiraIssueResult";
 export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
+export { ListAPIsResponse } from "./models/ListAPIsResponse";
+export { ListAPIsResponseData } from "./models/ListAPIsResponseData";
+export { ListAPIsResponseMeta } from "./models/ListAPIsResponseMeta";
+export { ListAPIsResponseMetaPagination } from "./models/ListAPIsResponseMetaPagination";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
 export { ListDowntimesResponse } from "./models/ListDowntimesResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
