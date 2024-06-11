@@ -16,7 +16,7 @@ export class DORAIncidentRequestAttributes {
    */
   "env"?: string;
   /**
-   * Unix timestamp in nanoseconds when the incident finished. It should not be older than 3 hours.
+   * Unix timestamp in nanoseconds when the incident finished. It should not be older than 1 hour.
    */
   "finishedAt"?: number;
   /**
