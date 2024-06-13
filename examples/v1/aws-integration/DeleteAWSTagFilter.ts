@@ -10,7 +10,7 @@ const apiInstance = new v1.AWSIntegrationApi(configuration);
 const params: v1.AWSIntegrationApiDeleteAWSTagFilterRequest = {
   body: {
     accountId: "FAKEAC0FAKEAC2FAKEAC",
-    namespace: "elb",
+    namespace: "api_gateway",
   },
 };
 
