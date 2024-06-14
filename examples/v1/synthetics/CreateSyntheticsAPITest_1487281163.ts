@@ -33,6 +33,16 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           type: "body",
         },
         {
+          operator: "validatesJSONPath",
+          target: {
+            elementsOperator: "atLeastOneElementMatches",
+            jsonPath: "topKey",
+            operator: "isNot",
+            targetValue: "0",
+          },
+          type: "body",
+        },
+        {
           operator: "validatesJSONSchema",
           target: {
             metaSchema: "draft-07",
