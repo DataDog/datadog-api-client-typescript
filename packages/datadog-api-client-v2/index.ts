@@ -1136,6 +1136,7 @@ export { JSONAPIErrorItem } from "./models/JSONAPIErrorItem";
 export { JSONAPIErrorResponse } from "./models/JSONAPIErrorResponse";
 export { ListAPIsResponse } from "./models/ListAPIsResponse";
 export { ListAPIsResponseData } from "./models/ListAPIsResponseData";
+export { ListAPIsResponseDataAttributes } from "./models/ListAPIsResponseDataAttributes";
 export { ListAPIsResponseMeta } from "./models/ListAPIsResponseMeta";
 export { ListAPIsResponseMetaPagination } from "./models/ListAPIsResponseMetaPagination";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";

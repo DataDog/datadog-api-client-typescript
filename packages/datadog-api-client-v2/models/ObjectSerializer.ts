@@ -478,6 +478,7 @@ import { JiraIssue } from "./JiraIssue";
 import { JiraIssueResult } from "./JiraIssueResult";
 import { ListAPIsResponse } from "./ListAPIsResponse";
 import { ListAPIsResponseData } from "./ListAPIsResponseData";
+import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes";
 import { ListAPIsResponseMeta } from "./ListAPIsResponseMeta";
 import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
@@ -2270,6 +2271,7 @@ const typeMap: { [index: string]: any } = {
   JiraIssueResult: JiraIssueResult,
   ListAPIsResponse: ListAPIsResponse,
   ListAPIsResponseData: ListAPIsResponseData,
+  ListAPIsResponseDataAttributes: ListAPIsResponseDataAttributes,
   ListAPIsResponseMeta: ListAPIsResponseMeta,
   ListAPIsResponseMetaPagination: ListAPIsResponseMetaPagination,
   ListApplicationKeysResponse: ListApplicationKeysResponse,

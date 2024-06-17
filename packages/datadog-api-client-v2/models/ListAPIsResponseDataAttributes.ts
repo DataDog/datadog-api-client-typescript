@@ -3,22 +3,17 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Data envelope for `ListAPIsResponse`.
+ * Attributes for `ListAPIsResponseData`.
  */
-export class ListAPIsResponseData {
+export class ListAPIsResponseDataAttributes {
   /**
-   * Attributes for `ListAPIsResponseData`.
+   * API name.
    */
-  "attributes"?: ListAPIsResponseDataAttributes;
-  /**
-   * API identifier.
-   */
-  "id"?: string;
+  "name"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +31,9 @@ export class ListAPIsResponseData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    attributes: {
-      baseName: "attributes",
-      type: "ListAPIsResponseDataAttributes",
-    },
-    id: {
-      baseName: "id",
+    name: {
+      baseName: "name",
       type: "string",
-      format: "uuid",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -55,7 +45,7 @@ export class ListAPIsResponseData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ListAPIsResponseData.attributeTypeMap;
+    return ListAPIsResponseDataAttributes.attributeTypeMap;
   }
 
   public constructor() {}
