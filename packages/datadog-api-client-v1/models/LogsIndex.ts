@@ -45,8 +45,16 @@ export class LogsIndex {
    */
   "name": string;
   /**
-   * The number of days before logs are deleted from this index. Available values depend on
-   * retention plans specified in your organization's contract/subscriptions.
+   * The number of days logs are kept in Flex Logs (inclusive of Indexing) before they are deleted.
+   * The values available are 30, 60, 90, 180, 360, and 450 days.
+   *
+   * **Note:**: If using Flex Starter, then only 180, 360, and 450 days options are available.
+   * Flex Logs must be enabled on the account to specify this value.
+   */
+  "numFlexLogsRetentionDays"?: number;
+  /**
+   * The number of days logs are kept in Standard Indexing before they are either deleted or retained in Flex Logs.
+   * Available values depend on retention plans specified in your organization's contract / subscriptions.
    */
   "numRetentionDays"?: number;
 
@@ -97,6 +105,11 @@ export class LogsIndex {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    numFlexLogsRetentionDays: {
+      baseName: "num_flex_logs_retention_days",
+      type: "number",
+      format: "int64",
     },
     numRetentionDays: {
       baseName: "num_retention_days",

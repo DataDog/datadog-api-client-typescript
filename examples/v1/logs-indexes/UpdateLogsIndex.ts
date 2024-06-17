@@ -28,6 +28,7 @@ const params: v1.LogsIndexesApiUpdateLogsIndexRequest = {
     filter: {
       query: "source:python",
     },
+    numFlexLogsRetentionDays: 180,
     numRetentionDays: 15,
   },
   name: "name",
