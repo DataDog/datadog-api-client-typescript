@@ -4288,6 +4288,34 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MonitorConfigPolicyResponse",
     },
+    "v2.ListOrgConfigs": {
+        "operationResponseType": "OrgConfigListResponse",
+    },
+    "v2.GetOrgConfig": {
+        "orgConfigName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "OrgConfigGetResponse",
+    },
+    "v2.UpdateOrgConfig": {
+        "orgConfigName": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "OrgConfigWriteRequest",
+            "format": "",
+            },
+        "operationResponseType": "OrgConfigGetResponse",
+    },
+    "v2.UploadIdPMetadata": {
+        "idpFile": {
+            "type": "HttpFile",
+            "format": "binary",
+            },
+        "operationResponseType": "void",
+    },
     "v2.ListPermissions": {
         "operationResponseType": "PermissionsResponse",
     },
@@ -4958,13 +4986,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "RUMEventsResponse",
-    },
-    "v2.UploadIdPMetadata": {
-        "idpFile": {
-            "type": "HttpFile",
-            "format": "binary",
-            },
-        "operationResponseType": "void",
     },
     "v2.ListScorecardOutcomes": {
         "pageSize": {
