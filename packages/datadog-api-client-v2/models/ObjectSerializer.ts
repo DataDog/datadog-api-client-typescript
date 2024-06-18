@@ -653,6 +653,13 @@ import { OpsgenieServiceUpdateAttributes } from "./OpsgenieServiceUpdateAttribut
 import { OpsgenieServiceUpdateData } from "./OpsgenieServiceUpdateData";
 import { OpsgenieServiceUpdateRequest } from "./OpsgenieServiceUpdateRequest";
 import { OpsgenieServicesResponse } from "./OpsgenieServicesResponse";
+import { OrgConfigGetResponse } from "./OrgConfigGetResponse";
+import { OrgConfigListResponse } from "./OrgConfigListResponse";
+import { OrgConfigRead } from "./OrgConfigRead";
+import { OrgConfigReadAttributes } from "./OrgConfigReadAttributes";
+import { OrgConfigWrite } from "./OrgConfigWrite";
+import { OrgConfigWriteAttributes } from "./OrgConfigWriteAttributes";
+import { OrgConfigWriteRequest } from "./OrgConfigWriteRequest";
 import { Organization } from "./Organization";
 import { OrganizationAttributes } from "./OrganizationAttributes";
 import { OutcomesBatchAttributes } from "./OutcomesBatchAttributes";
@@ -1456,6 +1463,7 @@ const enumsMap: { [key: string]: any[] } = {
   OnDemandConcurrencyCapType: ["on_demand_concurrency_cap"],
   OpsgenieServiceRegionType: ["us", "eu", "custom"],
   OpsgenieServiceType: ["opsgenie-service"],
+  OrgConfigType: ["org_configs"],
   OrganizationsType: ["orgs"],
   OutcomeType: ["outcome"],
   OutcomesBatchType: ["batched-outcome"],
@@ -2455,6 +2463,13 @@ const typeMap: { [index: string]: any } = {
   OpsgenieServiceUpdateData: OpsgenieServiceUpdateData,
   OpsgenieServiceUpdateRequest: OpsgenieServiceUpdateRequest,
   OpsgenieServicesResponse: OpsgenieServicesResponse,
+  OrgConfigGetResponse: OrgConfigGetResponse,
+  OrgConfigListResponse: OrgConfigListResponse,
+  OrgConfigRead: OrgConfigRead,
+  OrgConfigReadAttributes: OrgConfigReadAttributes,
+  OrgConfigWrite: OrgConfigWrite,
+  OrgConfigWriteAttributes: OrgConfigWriteAttributes,
+  OrgConfigWriteRequest: OrgConfigWriteRequest,
   Organization: Organization,
   OrganizationAttributes: OrganizationAttributes,
   OutcomesBatchAttributes: OutcomesBatchAttributes,
