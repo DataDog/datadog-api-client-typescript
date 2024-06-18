@@ -21,7 +21,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">OrganizationsApi</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/262e96e/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L122">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:122</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/dc91729/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L447">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:447</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -39,7 +39,10 @@
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods</h3>
-<div class="tsd-index-list"><a href="v2.OrganizationsApi.html#uploadIdPMetadata" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-2048-path"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)" id="icon-2048-text"></path></svg><span>upload<wbr/>IdPMetadata</span></a>
+<div class="tsd-index-list"><a href="v2.OrganizationsApi.html#getOrgConfig" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF4DB8" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-2048-path"></rect><path d="M9.162 16V7.24H10.578L11.514 10.072C11.602 10.328 11.674 10.584 11.73 10.84C11.794 11.088 11.842 11.28 11.874 11.416C11.906 11.28 11.954 11.088 12.018 10.84C12.082 10.584 12.154 10.324 12.234 10.06L13.122 7.24H14.538V16H13.482V12.82C13.482 12.468 13.49 12.068 13.506 11.62C13.53 11.172 13.558 10.716 13.59 10.252C13.622 9.78 13.654 9.332 13.686 8.908C13.726 8.476 13.762 8.1 13.794 7.78L12.366 12.16H11.334L9.894 7.78C9.934 8.092 9.97 8.456 10.002 8.872C10.042 9.28 10.078 9.716 10.11 10.18C10.142 10.636 10.166 11.092 10.182 11.548C10.206 12.004 10.218 12.428 10.218 12.82V16H9.162Z" fill="var(--color-text)" id="icon-2048-text"></path></svg><span>get<wbr/>Org<wbr/>Config</span></a>
+<a href="v2.OrganizationsApi.html#listOrgConfigs" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>list<wbr/>Org<wbr/>Configs</span></a>
+<a href="v2.OrganizationsApi.html#updateOrgConfig" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>update<wbr/>Org<wbr/>Config</span></a>
+<a href="v2.OrganizationsApi.html#uploadIdPMetadata" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>upload<wbr/>IdPMetadata</span></a>
 </div></section></div></details></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Constructors</h2>
@@ -59,26 +62,79 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> responseProcessor: <span class="tsd-signature-type">OrganizationsApiResponseProcessor</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="../modules/v2.html" class="tsd-signature-type" data-tsd-kind="Namespace">v2</a><span class="tsd-signature-symbol">.</span><a href="v2.OrganizationsApi.html" class="tsd-signature-type" data-tsd-kind="Class">OrganizationsApi</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/262e96e/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L127">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:127</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/dc91729/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L452">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:452</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="configuration" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>configuration</span><a href="#configuration" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">configuration<span class="tsd-signature-symbol">:</span> <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/262e96e/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L125">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:125</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/dc91729/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L450">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:450</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="requestFactory" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>request<wbr/>Factory</span><a href="#requestFactory" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">request<wbr/>Factory<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">OrganizationsApiRequestFactory</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/262e96e/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L123">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:123</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/dc91729/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L448">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:448</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private"><a id="responseProcessor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>response<wbr/>Processor</span><a href="#responseProcessor" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">response<wbr/>Processor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">OrganizationsApiResponseProcessor</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/262e96e/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L124">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:124</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/dc91729/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L449">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:449</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getOrgConfig" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>get<wbr/>Org<wbr/>Config</span><a href="#getOrgConfig" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="getOrgConfig.getOrgConfig-1">get<wbr/>Org<wbr/>Config<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v2.OrganizationsApiGetOrgConfigRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">OrganizationsApiGetOrgConfigRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.OrgConfigGetResponse.html" class="tsd-signature-type" data-tsd-kind="Class">OrgConfigGetResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#getOrgConfig.getOrgConfig-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Return the name, description, and value of a specific Org Config.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v2.OrganizationsApiGetOrgConfigRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">OrganizationsApiGetOrgConfigRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.OrgConfigGetResponse.html" class="tsd-signature-type" data-tsd-kind="Class">OrgConfigGetResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/dc91729/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L468">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:468</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="listOrgConfigs" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>list<wbr/>Org<wbr/>Configs</span><a href="#listOrgConfigs" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="listOrgConfigs.listOrgConfigs-1">list<wbr/>Org<wbr/>Configs<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.OrgConfigListResponse.html" class="tsd-signature-type" data-tsd-kind="Class">OrgConfigListResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#listOrgConfigs.listOrgConfigs-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Returns all Org Configs (name, description, and value).</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.OrgConfigListResponse.html" class="tsd-signature-type" data-tsd-kind="Class">OrgConfigListResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/dc91729/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L489">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:489</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="updateOrgConfig" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>update<wbr/>Org<wbr/>Config</span><a href="#updateOrgConfig" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+<li class="tsd-signature tsd-anchor-link" id="updateOrgConfig.updateOrgConfig-1">update<wbr/>Org<wbr/>Config<span class="tsd-signature-symbol">(</span>param<span class="tsd-signature-symbol">: </span><a href="../interfaces/v2.OrganizationsApiUpdateOrgConfigRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">OrganizationsApiUpdateOrgConfigRequest</a>, options<span class="tsd-signature-symbol">?: </span><a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.OrgConfigGetResponse.html" class="tsd-signature-type" data-tsd-kind="Class">OrgConfigGetResponse</a><span class="tsd-signature-symbol">&gt;</span><a href="#updateOrgConfig.updateOrgConfig-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Update the value of a specific Org Config.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>param: <a href="../interfaces/v2.OrganizationsApiUpdateOrgConfigRequest.html" class="tsd-signature-type" data-tsd-kind="Interface">OrganizationsApiUpdateOrgConfigRequest</a></h5>
+<div class="tsd-comment tsd-typography"><p>The request object</p>
+</div></li>
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="v2.OrgConfigGetResponse.html" class="tsd-signature-type" data-tsd-kind="Class">OrgConfigGetResponse</a><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/dc91729/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L506">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:506</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="uploadIdPMetadata" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>upload<wbr/>IdPMetadata</span><a href="#uploadIdPMetadata" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -98,7 +154,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> options: <a href="client.Configuration.html" class="tsd-signature-type" data-tsd-kind="Class">Configuration</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/262e96e/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L145">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:145</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/dc91729/packages/datadog-api-client-v2/apis/OrganizationsApi.ts#L530">packages/datadog-api-client-v2/apis/OrganizationsApi.ts:530</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -131,6 +187,9 @@
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="v2.OrganizationsApi.html#configuration" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>configuration</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="v2.OrganizationsApi.html#requestFactory" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>request<wbr/>Factory</a></li>
 <li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="v2.OrganizationsApi.html#responseProcessor" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>response<wbr/>Processor</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.OrganizationsApi.html#getOrgConfig" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>get<wbr/>Org<wbr/>Config</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.OrganizationsApi.html#listOrgConfigs" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>list<wbr/>Org<wbr/>Configs</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.OrganizationsApi.html#updateOrgConfig" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>update<wbr/>Org<wbr/>Config</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class"><a href="v2.OrganizationsApi.html#uploadIdPMetadata" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>upload<wbr/>IdPMetadata</a></li></ul></li></ul></nav></div></div>
 <div class="container tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
