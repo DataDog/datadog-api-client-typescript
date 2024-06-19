@@ -16,7 +16,8 @@ export class EventsGroupBy {
    */
   "facet": string;
   /**
-   * The maximum number of groups to return.
+   * The maximum buckets to return for this group by. Note: at most 10000 buckets are allowed.
+   * If grouping by multiple facets, the product of limits must not exceed 10000.
    */
   "limit"?: number;
   /**
