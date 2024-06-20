@@ -632,6 +632,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getUsageBillableSummary(
     month?: Date,
+    includeConnectedAccounts?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -654,6 +655,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "month",
         ObjectSerializer.serialize(month, "Date", "date-time")
+      );
+    }
+    if (includeConnectedAccounts !== undefined) {
+      requestContext.setQueryParam(
+        "include_connected_accounts",
+        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", "")
       );
     }
 
@@ -4479,6 +4486,11 @@ export interface UsageMeteringApiGetUsageBillableSummaryRequest {
    * @type Date
    */
   month?: Date;
+  /**
+   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
+   * @type boolean
+   */
+  includeConnectedAccounts?: boolean;
 }
 
 export interface UsageMeteringApiGetUsageCIAppRequest {
@@ -5175,6 +5187,7 @@ export class UsageMeteringApi {
   ): Promise<UsageBillableSummaryResponse> {
     const requestContextPromise = this.requestFactory.getUsageBillableSummary(
       param.month,
+      param.includeConnectedAccounts,
       options
     );
     return requestContextPromise.then((requestContext) => {
