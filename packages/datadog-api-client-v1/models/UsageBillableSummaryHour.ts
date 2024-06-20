@@ -12,6 +12,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class UsageBillableSummaryHour {
   /**
+   * The account name.
+   */
+  "accountName"?: string;
+  /**
+   * The account public ID.
+   */
+  "accountPublicId"?: string;
+  /**
    * The billing plan.
    */
   "billingPlan"?: string;
@@ -64,6 +72,14 @@ export class UsageBillableSummaryHour {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountName: {
+      baseName: "account_name",
+      type: "string",
+    },
+    accountPublicId: {
+      baseName: "account_public_id",
+      type: "string",
+    },
     billingPlan: {
       baseName: "billing_plan",
       type: "string",

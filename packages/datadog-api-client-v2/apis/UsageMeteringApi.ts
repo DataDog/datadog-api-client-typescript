@@ -118,6 +118,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     endMonth?: Date,
     startDate?: Date,
     endDate?: Date,
+    includeConnectedAccounts?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -164,6 +165,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "end_date",
         ObjectSerializer.serialize(endDate, "Date", "date-time")
+      );
+    }
+    if (includeConnectedAccounts !== undefined) {
+      requestContext.setQueryParam(
+        "include_connected_accounts",
+        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", "")
       );
     }
 
@@ -1294,6 +1301,11 @@ export interface UsageMeteringApiGetEstimatedCostByOrgRequest {
    * @type Date
    */
   endDate?: Date;
+  /**
+   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
+   * @type boolean
+   */
+  includeConnectedAccounts?: boolean;
 }
 
 export interface UsageMeteringApiGetHistoricalCostByOrgRequest {
@@ -1548,6 +1560,7 @@ export class UsageMeteringApi {
       param.endMonth,
       param.startDate,
       param.endDate,
+      param.includeConnectedAccounts,
       options
     );
     return requestContextPromise.then((requestContext) => {
