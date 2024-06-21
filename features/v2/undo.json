@@ -36,6 +36,12 @@
       "type": "idempotent"
     }
   },
+  "ListAPIs": {
+    "tag": "API Management",
+    "undo": {
+      "type": "safe"
+    }
+  },
   "DeleteOpenAPI": {
     "tag": "API Management",
     "undo": {
@@ -1289,6 +1295,24 @@
     "tag": "Downtimes",
     "undo": {
       "type": "safe"
+    }
+  },
+  "ListOrgConfigs": {
+    "tag": "Organizations",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "GetOrgConfig": {
+    "tag": "Organizations",
+    "undo": {
+      "type": "safe"
+    }
+  },
+  "UpdateOrgConfig": {
+    "tag": "Organizations",
+    "undo": {
+      "type": "idempotent"
     }
   },
   "ListPermissions": {
