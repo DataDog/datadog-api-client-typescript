@@ -365,6 +365,8 @@ export {
 } from "./apis/RolesApi";
 
 export {
+  SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
+  SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
   SecurityMonitoringApiCreateSecurityFilterRequest,
   SecurityMonitoringApiCreateSecurityMonitoringRuleRequest,
   SecurityMonitoringApiCreateSecurityMonitoringSuppressionRequest,
@@ -1611,6 +1613,8 @@ export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilte
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
 export { SecurityMonitoringRuleCase } from "./models/SecurityMonitoringRuleCase";
 export { SecurityMonitoringRuleCaseCreate } from "./models/SecurityMonitoringRuleCaseCreate";
+export { SecurityMonitoringRuleConvertPayload } from "./models/SecurityMonitoringRuleConvertPayload";
+export { SecurityMonitoringRuleConvertResponse } from "./models/SecurityMonitoringRuleConvertResponse";
 export { SecurityMonitoringRuleCreatePayload } from "./models/SecurityMonitoringRuleCreatePayload";
 export { SecurityMonitoringRuleDetectionMethod } from "./models/SecurityMonitoringRuleDetectionMethod";
 export { SecurityMonitoringRuleEvaluationWindow } from "./models/SecurityMonitoringRuleEvaluationWindow";

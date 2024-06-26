@@ -4616,6 +4616,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
     },
+    "v2.ConvertSecurityMonitoringRuleFromJSONToTerraform": {
+        "body": {
+            "type": "SecurityMonitoringRuleConvertPayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleConvertResponse",
+    },
     "v2.TestSecurityMonitoringRule": {
         "body": {
             "type": "SecurityMonitoringRuleTestRequest",
@@ -4654,6 +4661,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.ConvertExistingSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleConvertResponse",
     },
     "v2.TestExistingSecurityMonitoringRule": {
         "ruleId": {
