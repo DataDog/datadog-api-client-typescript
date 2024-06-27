@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Number of RUM Sessions recorded for each hour for a given organization.
+ * Number of RUM sessions recorded for each hour for a given organization.
  */
 export class UsageRumSessionsHour {
   /**
@@ -23,27 +23,27 @@ export class UsageRumSessionsHour {
    */
   "publicId"?: string;
   /**
-   * Contains the number of RUM Replay Sessions (data available beginning November 1, 2021).
+   * Contains the number of RUM Session Replay counts (data available beginning November 1, 2021).
    */
   "replaySessionCount"?: number;
   /**
-   * Contains the number of browser RUM Lite Sessions.
+   * Contains the number of browser RUM lite Sessions.
    */
   "sessionCount"?: number;
   /**
-   * Contains the number of mobile RUM Sessions on Android (data available beginning December 1, 2020).
+   * Contains the number of mobile RUM sessions on Android (data available beginning December 1, 2020).
    */
   "sessionCountAndroid"?: number;
   /**
-   * Contains the number of mobile RUM Sessions on Flutter (data available beginning March 1, 2023).
+   * Contains the number of mobile RUM sessions on Flutter (data available beginning March 1, 2023).
    */
   "sessionCountFlutter"?: number;
   /**
-   * Contains the number of mobile RUM Sessions on iOS (data available beginning December 1, 2020).
+   * Contains the number of mobile RUM sessions on iOS (data available beginning December 1, 2020).
    */
   "sessionCountIos"?: number;
   /**
-   * Contains the number of mobile RUM Sessions on React Native (data available beginning May 1, 2022).
+   * Contains the number of mobile RUM sessions on React Native (data available beginning May 1, 2022).
    */
   "sessionCountReactnative"?: number;
 

@@ -39,7 +39,7 @@ export class UsageSummaryDateOrg {
    */
   "asmServerlessSum"?: number;
   /**
-   * Shows the sum of all audit logs lines indexed over all hours in the current date for the given org.
+   * Shows the sum of all audit logs lines indexed over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "auditLogsLinesIndexedSum"?: number;
   /**
@@ -71,15 +71,15 @@ export class UsageSummaryDateOrg {
    */
   "billableIngestedBytesSum"?: number;
   /**
-   * Shows the sum of all browser lite sessions over all hours in the current date for the given org.
+   * Shows the sum of all browser lite sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "browserRumLiteSessionCountSum"?: number;
   /**
-   * Shows the sum of all browser replay sessions over all hours in the current date for the given org.
+   * Shows the sum of all browser replay sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "browserRumReplaySessionCountSum"?: number;
   /**
-   * Shows the sum of all browser RUM units over all hours in the current date for the given org.
+   * Shows the sum of all browser RUM units over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "browserRumUnitsSum"?: number;
   /**
@@ -283,7 +283,7 @@ export class UsageSummaryDateOrg {
    */
   "incidentManagementMonthlyActiveUsersHwm"?: number;
   /**
-   * Shows the sum of all log events indexed over all hours in the current date for the given org.
+   * Shows the sum of all log events indexed over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "indexedEventsCountSum"?: number;
   /**
@@ -303,35 +303,35 @@ export class UsageSummaryDateOrg {
    */
   "iotDeviceTop99pSum"?: number;
   /**
-   * Shows the sum of all mobile lite sessions over all hours in the current date for the given org.
+   * Shows the sum of all mobile lite sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "mobileRumLiteSessionCountSum"?: number;
   /**
-   * Shows the sum of all mobile RUM Sessions on Android over all hours in the current date for the given org.
+   * Shows the sum of all mobile RUM sessions on Android over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "mobileRumSessionCountAndroidSum"?: number;
   /**
-   * Shows the sum of all mobile RUM Sessions on Flutter over all hours in the current date for the given org.
+   * Shows the sum of all mobile RUM sessions on Flutter over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "mobileRumSessionCountFlutterSum"?: number;
   /**
-   * Shows the sum of all mobile RUM Sessions on iOS over all hours in the current date for the given org.
+   * Shows the sum of all mobile RUM sessions on iOS over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "mobileRumSessionCountIosSum"?: number;
   /**
-   * Shows the sum of all mobile RUM Sessions on React Native over all hours in the current date for the given org.
+   * Shows the sum of all mobile RUM sessions on React Native over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "mobileRumSessionCountReactnativeSum"?: number;
   /**
-   * Shows the sum of all mobile RUM Sessions on Roku over all hours in the current date for the given org.
+   * Shows the sum of all mobile RUM sessions on Roku over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "mobileRumSessionCountRokuSum"?: number;
   /**
-   * Shows the sum of all mobile RUM Sessions over all hours in the current date for the given org.
+   * Shows the sum of all mobile RUM sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "mobileRumSessionCountSum"?: number;
   /**
-   * Shows the sum of all mobile RUM units over all hours in the current date for the given org.
+   * Shows the sum of all mobile RUM units over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "mobileRumUnitsSum"?: number;
   /**
@@ -343,7 +343,7 @@ export class UsageSummaryDateOrg {
    */
   "ndmNetflowEventsSum"?: number;
   /**
-   * Shows the sum of all Network flows indexed over all hours in the current date for the given org.
+   * Shows the sum of all Network flows indexed over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "netflowIndexedEventsCountSum"?: number;
   /**
@@ -383,19 +383,79 @@ export class UsageSummaryDateOrg {
    */
   "region"?: string;
   /**
-   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for the given org.
+   * Shows the sum of all mobile sessions and all browser lite and legacy sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "rumBrowserAndMobileSessionCount"?: number;
   /**
-   * Shows the sum of all browser RUM Lite Sessions over all hours in the current date for the given org.
+   * Shows the sum of all browser RUM legacy sessions over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumBrowserLegacySessionCountSum"?: number;
+  /**
+   * Shows the sum of all browser RUM lite sessions over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumBrowserLiteSessionCountSum"?: number;
+  /**
+   * Shows the sum of all browser RUM Session Replay counts over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumBrowserReplaySessionCountSum"?: number;
+  /**
+   * Shows the sum of all RUM lite sessions (browser and mobile) over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumLiteSessionCountSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM legacy sessions on Android over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLegacySessionCountAndroidSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM legacy sessions on Flutter over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLegacySessionCountFlutterSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM legacy sessions on iOS over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLegacySessionCountIosSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM legacy sessions on React Native over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLegacySessionCountReactnativeSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM legacy sessions on Roku over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLegacySessionCountRokuSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM lite sessions on Android over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLiteSessionCountAndroidSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM lite sessions on Flutter over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLiteSessionCountFlutterSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM lite sessions on iOS over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLiteSessionCountIosSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM lite sessions on React Native over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLiteSessionCountReactnativeSum"?: number;
+  /**
+   * Shows the sum of all mobile RUM lite sessions on Roku over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumMobileLiteSessionCountRokuSum"?: number;
+  /**
+   * Shows the sum of all RUM Session Replay counts over all hours in the current date for the given org (To be introduced on October 1st, 2024).
+   */
+  "rumReplaySessionCountSum"?: number;
+  /**
+   * Shows the sum of all browser RUM lite sessions over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "rumSessionCountSum"?: number;
   /**
-   * Shows the sum of RUM Sessions (browser and mobile) over all hours in the current date for the given org.
+   * Shows the sum of RUM sessions (browser and mobile) over all hours in the current date for the given org.
    */
   "rumTotalSessionCountSum"?: number;
   /**
-   * Shows the sum of all browser and mobile RUM units over all hours in the current date for the given org.
+   * Shows the sum of all browser and mobile RUM units over all hours in the current date for the given org (To be deprecated on October 1st, 2024).
    */
   "rumUnitsSum"?: number;
   /**
@@ -950,6 +1010,81 @@ export class UsageSummaryDateOrg {
     },
     rumBrowserAndMobileSessionCount: {
       baseName: "rum_browser_and_mobile_session_count",
+      type: "number",
+      format: "int64",
+    },
+    rumBrowserLegacySessionCountSum: {
+      baseName: "rum_browser_legacy_session_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumBrowserLiteSessionCountSum: {
+      baseName: "rum_browser_lite_session_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumBrowserReplaySessionCountSum: {
+      baseName: "rum_browser_replay_session_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumLiteSessionCountSum: {
+      baseName: "rum_lite_session_count_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLegacySessionCountAndroidSum: {
+      baseName: "rum_mobile_legacy_session_count_android_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLegacySessionCountFlutterSum: {
+      baseName: "rum_mobile_legacy_session_count_flutter_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLegacySessionCountIosSum: {
+      baseName: "rum_mobile_legacy_session_count_ios_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLegacySessionCountReactnativeSum: {
+      baseName: "rum_mobile_legacy_session_count_reactnative_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLegacySessionCountRokuSum: {
+      baseName: "rum_mobile_legacy_session_count_roku_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLiteSessionCountAndroidSum: {
+      baseName: "rum_mobile_lite_session_count_android_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLiteSessionCountFlutterSum: {
+      baseName: "rum_mobile_lite_session_count_flutter_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLiteSessionCountIosSum: {
+      baseName: "rum_mobile_lite_session_count_ios_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLiteSessionCountReactnativeSum: {
+      baseName: "rum_mobile_lite_session_count_reactnative_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumMobileLiteSessionCountRokuSum: {
+      baseName: "rum_mobile_lite_session_count_roku_sum",
+      type: "number",
+      format: "int64",
+    },
+    rumReplaySessionCountSum: {
+      baseName: "rum_replay_session_count_sum",
       type: "number",
       format: "int64",
     },

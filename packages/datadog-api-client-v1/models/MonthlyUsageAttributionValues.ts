@@ -483,11 +483,11 @@ export class MonthlyUsageAttributionValues {
    */
   "rumBrowserMobileSessionsUsage"?: number;
   /**
-   * The percentage of RUM Replay Sessions usage by tag(s).
+   * The percentage of RUM Session Replay usage by tag(s).
    */
   "rumReplaySessionsPercentage"?: number;
   /**
-   * The total RUM Replay Sessions usage by tag(s).
+   * The total RUM Session Replay usage by tag(s).
    */
   "rumReplaySessionsUsage"?: number;
   /**
