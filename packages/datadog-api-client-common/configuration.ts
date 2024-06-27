@@ -1,4 +1,3 @@
-import type { fetch as crossFetch } from "cross-fetch";
 import {
   HttpLibrary,
   HttpConfiguration,
@@ -124,7 +123,7 @@ export interface ConfigurationParameters {
   /**
    * Custom `fetch` function
    */
-  fetch?: typeof crossFetch;
+  fetch?: any;
   /**
    * HTTP library to use e.g. IsomorphicFetch
    */

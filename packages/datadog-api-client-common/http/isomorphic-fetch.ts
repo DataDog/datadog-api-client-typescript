@@ -17,9 +17,9 @@ export class IsomorphicFetchHttpLibrary implements HttpLibrary {
   public maxRetries!: number;
   public backoffBase!: number;
   public backoffMultiplier!: number;
-  #fetch: typeof crossFetch;
+  #fetch: any;
 
-  constructor({ fetch: customFetch }: { fetch?: typeof crossFetch }) {
+  constructor({ fetch: customFetch }: { fetch?: any }) {
     this.#fetch =
       customFetch ||
       // On non-node environments, use native fetch if available.
