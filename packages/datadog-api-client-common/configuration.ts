@@ -121,6 +121,10 @@ export interface ConfigurationParameters {
    */
   operationServerIndices?: { [name: string]: number };
   /**
+   * Custom `fetch` function
+   */
+  fetch?: any;
+  /**
    * HTTP library to use e.g. IsomorphicFetch
    */
   httpApi?: HttpLibrary;
@@ -205,7 +209,7 @@ export function createConfiguration(
     conf.baseServer,
     conf.serverIndex || 0,
     conf.operationServerIndices || {},
-    conf.httpApi || new DefaultHttpLibrary(),
+    conf.httpApi || new DefaultHttpLibrary({ fetch: conf.fetch }),
     configureAuthMethods(authMethods),
     conf.httpConfig || {},
     conf.debug,
