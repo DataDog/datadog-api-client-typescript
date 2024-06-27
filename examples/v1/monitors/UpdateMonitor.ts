@@ -13,6 +13,7 @@ const MONITOR_ID = parseInt(process.env.MONITOR_ID as string);
 const params: v1.MonitorsApiUpdateMonitorRequest = {
   body: {
     name: "My monitor-updated",
+    priority: undefined,
     options: {
       evaluationDelay: undefined,
       newGroupDelay: 600,
