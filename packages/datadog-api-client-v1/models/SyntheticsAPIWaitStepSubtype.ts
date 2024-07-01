@@ -3,16 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsAPITestStep } from "./SyntheticsAPITestStep";
-import { SyntheticsAPIWaitStep } from "./SyntheticsAPIWaitStep";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The steps used in a Synthetic multi-step API test.
+ * The subtype of the Synthetic multi-step API wait step.
  */
 
-export type SyntheticsAPIStep =
-  | SyntheticsAPITestStep
-  | SyntheticsAPIWaitStep
-  | UnparsedObject;
+export type SyntheticsAPIWaitStepSubtype = typeof WAIT | UnparsedObject;
+export const WAIT = "wait";

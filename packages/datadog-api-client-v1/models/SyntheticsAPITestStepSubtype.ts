@@ -7,10 +7,10 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * The subtype of the Synthetic multistep API test step, currently only supporting `http`.
+ * The subtype of the Synthetic multi-step API test step.
  */
 
-export type SyntheticsAPIStepSubtype =
+export type SyntheticsAPITestStepSubtype =
   | typeof HTTP
   | typeof GRPC
   | UnparsedObject;

@@ -382,7 +382,6 @@ import { SunburstWidgetDefinition } from "./SunburstWidgetDefinition";
 import { SunburstWidgetLegendInlineAutomatic } from "./SunburstWidgetLegendInlineAutomatic";
 import { SunburstWidgetLegendTable } from "./SunburstWidgetLegendTable";
 import { SunburstWidgetRequest } from "./SunburstWidgetRequest";
-import { SyntheticsAPIStep } from "./SyntheticsAPIStep";
 import { SyntheticsAPITest } from "./SyntheticsAPITest";
 import { SyntheticsAPITestConfig } from "./SyntheticsAPITestConfig";
 import { SyntheticsAPITestResultData } from "./SyntheticsAPITestResultData";
@@ -390,6 +389,8 @@ import { SyntheticsAPITestResultFull } from "./SyntheticsAPITestResultFull";
 import { SyntheticsAPITestResultFullCheck } from "./SyntheticsAPITestResultFullCheck";
 import { SyntheticsAPITestResultShort } from "./SyntheticsAPITestResultShort";
 import { SyntheticsAPITestResultShortResult } from "./SyntheticsAPITestResultShortResult";
+import { SyntheticsAPITestStep } from "./SyntheticsAPITestStep";
+import { SyntheticsAPIWaitStep } from "./SyntheticsAPIWaitStep";
 import { SyntheticsApiTestResultFailure } from "./SyntheticsApiTestResultFailure";
 import { SyntheticsAssertionBodyHashTarget } from "./SyntheticsAssertionBodyHashTarget";
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
@@ -1159,8 +1160,9 @@ const enumsMap: { [key: string]: any[] } = {
   SunburstWidgetDefinitionType: ["sunburst"],
   SunburstWidgetLegendInlineAutomaticType: ["inline", "automatic"],
   SunburstWidgetLegendTableType: ["table", "none"],
-  SyntheticsAPIStepSubtype: ["http", "grpc"],
+  SyntheticsAPITestStepSubtype: ["http", "grpc"],
   SyntheticsAPITestType: ["api"],
+  SyntheticsAPIWaitStepSubtype: ["wait"],
   SyntheticsApiTestFailureCode: [
     "BODY_TOO_LARGE",
     "DENIED",
@@ -1937,7 +1939,6 @@ const typeMap: { [index: string]: any } = {
   SunburstWidgetLegendInlineAutomatic: SunburstWidgetLegendInlineAutomatic,
   SunburstWidgetLegendTable: SunburstWidgetLegendTable,
   SunburstWidgetRequest: SunburstWidgetRequest,
-  SyntheticsAPIStep: SyntheticsAPIStep,
   SyntheticsAPITest: SyntheticsAPITest,
   SyntheticsAPITestConfig: SyntheticsAPITestConfig,
   SyntheticsAPITestResultData: SyntheticsAPITestResultData,
@@ -1945,6 +1946,8 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAPITestResultFullCheck: SyntheticsAPITestResultFullCheck,
   SyntheticsAPITestResultShort: SyntheticsAPITestResultShort,
   SyntheticsAPITestResultShortResult: SyntheticsAPITestResultShortResult,
+  SyntheticsAPITestStep: SyntheticsAPITestStep,
+  SyntheticsAPIWaitStep: SyntheticsAPIWaitStep,
   SyntheticsApiTestResultFailure: SyntheticsApiTestResultFailure,
   SyntheticsAssertionBodyHashTarget: SyntheticsAssertionBodyHashTarget,
   SyntheticsAssertionJSONPathTarget: SyntheticsAssertionJSONPathTarget,
@@ -2264,6 +2267,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SunburstWidgetLegendTable",
     "SunburstWidgetLegendInlineAutomatic",
   ],
+  SyntheticsAPIStep: ["SyntheticsAPITestStep", "SyntheticsAPIWaitStep"],
   SyntheticsAssertion: [
     "SyntheticsAssertionTarget",
     "SyntheticsAssertionBodyHashTarget",
