@@ -54,6 +54,11 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           subtype: "http",
         },
         {
+          name: "Wait",
+          subtype: "wait",
+          value: 1,
+        },
+        {
           name: "GRPC CALL",
           subtype: "grpc",
           extractedValues: [],
