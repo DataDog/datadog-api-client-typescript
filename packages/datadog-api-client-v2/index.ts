@@ -294,6 +294,11 @@ export {
 } from "./apis/MonitorsApi";
 
 export {
+  NetworkDeviceMonitoringApiListDevicesRequest,
+  NetworkDeviceMonitoringApi,
+} from "./apis/NetworkDeviceMonitoringApi";
+
+export {
   OktaIntegrationApiCreateOktaAccountRequest,
   OktaIntegrationApiDeleteOktaAccountRequest,
   OktaIntegrationApiGetOktaAccountRequest,
