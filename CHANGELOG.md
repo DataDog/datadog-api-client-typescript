@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## 1.26.0 / 2024-07-01
+
+### Fixed
+* Security Monitoring - Define specific payload for rule validation/testing by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1639
+* Remove the maximum limitation for the synthetics renotify_interval monitor option by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1643
+* Add bodyHash as a synthetics assertion type. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1644
+* Add missing attributes envelope in ListAPIs response by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1654
+### Added
+* Allow the usage of the filters field when creating an agent rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1619
+* Add tileDef sort attribute by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1621
+* Add Security Monitoring rule test endpoint by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1634
+* Add originalFileName field to the SyntheticsTestRequestBodyFile definition by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1640
+* Add support for API management ListAPIs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1648
+* Add elementsOperator to json path assertion for synthetic HTTP tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1660
+* Add /api/v2/org_configs specs by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1659
+* Update docs for RU Rollout New and Deprecated Keys planned for Oct 1st by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1672
+* Allow custom `fetch` function to be provided by @iammminzzy in https://github.com/DataDog/datadog-api-client-typescript/pull/1646
+* Add option for wait step in multistep api tests by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1671
+* add cross org uuids to timeseries query by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1664
+### Changed
+* Monitor priority can have custom ranges and be null by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1669
+
+## New Contributors
+* @iammminzzy made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/1646
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.25.0...v1.26.0
+
 ## 1.25.0 / 2024-05-21
 
 ### Fixed
