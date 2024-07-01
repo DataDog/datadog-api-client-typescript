@@ -19,6 +19,10 @@ export class FormulaAndFunctionSLOQueryDefinition {
    */
   "additionalQueryFilters"?: string;
   /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   */
+  "crossOrgUuids"?: Array<string>;
+  /**
    * Data source for SLO measures queries.
    */
   "dataSource": FormulaAndFunctionSLODataSource;
@@ -62,6 +66,10 @@ export class FormulaAndFunctionSLOQueryDefinition {
     additionalQueryFilters: {
       baseName: "additional_query_filters",
       type: "string",
+    },
+    crossOrgUuids: {
+      baseName: "cross_org_uuids",
+      type: "Array<string>",
     },
     dataSource: {
       baseName: "data_source",

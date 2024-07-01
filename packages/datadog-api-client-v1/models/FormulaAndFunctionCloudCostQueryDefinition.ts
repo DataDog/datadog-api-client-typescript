@@ -17,6 +17,10 @@ export class FormulaAndFunctionCloudCostQueryDefinition {
    */
   "aggregator"?: WidgetAggregator;
   /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   */
+  "crossOrgUuids"?: Array<string>;
+  /**
    * Data source for Cloud Cost queries.
    */
   "dataSource": FormulaAndFunctionCloudCostDataSource;
@@ -48,6 +52,10 @@ export class FormulaAndFunctionCloudCostQueryDefinition {
     aggregator: {
       baseName: "aggregator",
       type: "WidgetAggregator",
+    },
+    crossOrgUuids: {
+      baseName: "cross_org_uuids",
+      type: "Array<string>",
     },
     dataSource: {
       baseName: "data_source",

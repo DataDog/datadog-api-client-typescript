@@ -19,6 +19,10 @@ export class FormulaAndFunctionEventQueryDefinition {
    */
   "compute": FormulaAndFunctionEventQueryDefinitionCompute;
   /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   */
+  "crossOrgUuids"?: Array<string>;
+  /**
    * Data source for event platform-based queries.
    */
   "dataSource": FormulaAndFunctionEventsDataSource;
@@ -63,6 +67,10 @@ export class FormulaAndFunctionEventQueryDefinition {
       baseName: "compute",
       type: "FormulaAndFunctionEventQueryDefinitionCompute",
       required: true,
+    },
+    crossOrgUuids: {
+      baseName: "cross_org_uuids",
+      type: "Array<string>",
     },
     dataSource: {
       baseName: "data_source",
