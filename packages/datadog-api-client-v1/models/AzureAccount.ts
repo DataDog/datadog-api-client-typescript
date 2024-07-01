@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AzureAccountMetricsConfig } from "./AzureAccountMetricsConfig";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -50,6 +51,13 @@ export class AzureAccount {
    * Only hosts that match one of the defined tags are imported into Datadog.
    */
   "hostFilters"?: string;
+  /**
+   * Dictionary containing the key `excluded_resource_providers` which has to be a list of Microsoft Azure Resource Provider names.
+   * This feature is currently being beta tested.
+   * In order to enable all resource providers for metric collection, pass:
+   * `metrics_config: {"excluded_resource_providers": []}` (i.e., an empty list for `excluded_resource_providers`).
+   */
+  "metricsConfig"?: AzureAccountMetricsConfig;
   /**
    * Your New Azure web application ID.
    */
@@ -118,6 +126,10 @@ export class AzureAccount {
     hostFilters: {
       baseName: "host_filters",
       type: "string",
+    },
+    metricsConfig: {
+      baseName: "metrics_config",
+      type: "AzureAccountMetricsConfig",
     },
     newClientId: {
       baseName: "new_client_id",

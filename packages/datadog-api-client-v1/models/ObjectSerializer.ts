@@ -34,6 +34,7 @@ import { ApplicationKeyListResponse } from "./ApplicationKeyListResponse";
 import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
 import { AuthenticationValidationResponse } from "./AuthenticationValidationResponse";
 import { AzureAccount } from "./AzureAccount";
+import { AzureAccountMetricsConfig } from "./AzureAccountMetricsConfig";
 import { CancelDowntimesByScopeRequest } from "./CancelDowntimesByScopeRequest";
 import { CanceledDowntimesIds } from "./CanceledDowntimesIds";
 import { ChangeWidgetDefinition } from "./ChangeWidgetDefinition";
@@ -1568,6 +1569,7 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyResponse: ApplicationKeyResponse,
   AuthenticationValidationResponse: AuthenticationValidationResponse,
   AzureAccount: AzureAccount,
+  AzureAccountMetricsConfig: AzureAccountMetricsConfig,
   CancelDowntimesByScopeRequest: CancelDowntimesByScopeRequest,
   CanceledDowntimesIds: CanceledDowntimesIds,
   ChangeWidgetDefinition: ChangeWidgetDefinition,
