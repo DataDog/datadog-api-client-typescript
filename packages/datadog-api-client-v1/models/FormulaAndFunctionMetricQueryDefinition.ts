@@ -17,6 +17,10 @@ export class FormulaAndFunctionMetricQueryDefinition {
    */
   "aggregator"?: FormulaAndFunctionMetricAggregation;
   /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   */
+  "crossOrgUuids"?: Array<string>;
+  /**
    * Data source for metrics queries.
    */
   "dataSource": FormulaAndFunctionMetricDataSource;
@@ -48,6 +52,10 @@ export class FormulaAndFunctionMetricQueryDefinition {
     aggregator: {
       baseName: "aggregator",
       type: "FormulaAndFunctionMetricAggregation",
+    },
+    crossOrgUuids: {
+      baseName: "cross_org_uuids",
+      type: "Array<string>",
     },
     dataSource: {
       baseName: "data_source",
