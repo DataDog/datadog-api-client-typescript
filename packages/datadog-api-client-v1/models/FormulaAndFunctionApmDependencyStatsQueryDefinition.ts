@@ -13,6 +13,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
   /**
+   * The source organization UUID for cross organization queries. Feature in Private Beta.
+   */
+  "crossOrgUuids"?: Array<string>;
+  /**
    * Data source for APM dependency stats queries.
    */
   "dataSource": FormulaAndFunctionApmDependencyStatsDataSource;
@@ -69,6 +73,10 @@ export class FormulaAndFunctionApmDependencyStatsQueryDefinition {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    crossOrgUuids: {
+      baseName: "cross_org_uuids",
+      type: "Array<string>",
+    },
     dataSource: {
       baseName: "data_source",
       type: "FormulaAndFunctionApmDependencyStatsDataSource",
