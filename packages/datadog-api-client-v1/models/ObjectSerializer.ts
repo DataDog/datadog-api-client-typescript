@@ -924,6 +924,7 @@ const enumsMap: { [key: string]: any[] } = {
     "logs",
     "spans",
     "database_queries",
+    "network_performance_queries",
   ],
   MonitorOptionsNotificationPresets: [
     "show_all",
@@ -960,6 +961,7 @@ const enumsMap: { [key: string]: any[] } = {
     "ci-tests alert",
     "error-tracking alert",
     "database-monitoring alert",
+    "network-performance alert",
   ],
   MonthlyUsageAttributionSupportedMetrics: [
     "api_usage",

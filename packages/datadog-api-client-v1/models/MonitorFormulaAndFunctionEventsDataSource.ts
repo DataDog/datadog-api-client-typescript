@@ -19,6 +19,7 @@ export type MonitorFormulaAndFunctionEventsDataSource =
   | typeof LOGS
   | typeof SPANS
   | typeof DATABASE_QUERIES
+  | typeof NETWORK_PERFORMANCE_QUERIES
   | UnparsedObject;
 export const RUM = "rum";
 export const CI_PIPELINES = "ci_pipelines";
@@ -28,3 +29,4 @@ export const EVENTS = "events";
 export const LOGS = "logs";
 export const SPANS = "spans";
 export const DATABASE_QUERIES = "database_queries";
+export const NETWORK_PERFORMANCE_QUERIES = "network_performance_queries";
