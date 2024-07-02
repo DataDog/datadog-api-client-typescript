@@ -12,6 +12,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsDeleteTestsPayload {
   /**
+   * Delete the Synthetic test even if it's referenced by other resources
+   * (for example, SLOs and composite monitors).
+   */
+  "forceDeleteDependencies"?: boolean;
+  /**
    * An array of Synthetic test IDs you want to delete.
    */
   "publicIds"?: Array<string>;
@@ -32,6 +37,10 @@ export class SyntheticsDeleteTestsPayload {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    forceDeleteDependencies: {
+      baseName: "force_delete_dependencies",
+      type: "boolean",
+    },
     publicIds: {
       baseName: "public_ids",
       type: "Array<string>",
