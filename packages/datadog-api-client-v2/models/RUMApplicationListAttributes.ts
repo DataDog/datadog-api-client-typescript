@@ -39,7 +39,7 @@ export class RUMApplicationListAttributes {
    */
   "orgId": number;
   /**
-   * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`.
+   * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`.
    */
   "type": string;
   /**
