@@ -47,6 +47,14 @@ export class SyntheticsTestOptions {
    */
   "disableCsp"?: boolean;
   /**
+   * Enable profiling for browser tests.
+   */
+  "enableProfiling"?: boolean;
+  /**
+   * Enable security testing for browser tests. Security testing is not available anymore. This field is deprecated and won't be used.
+   */
+  "enableSecurityTesting"?: boolean;
+  /**
    * For API HTTP test, whether or not the test should follow redirects.
    */
   "followRedirects"?: boolean;
@@ -161,6 +169,14 @@ export class SyntheticsTestOptions {
     },
     disableCsp: {
       baseName: "disableCsp",
+      type: "boolean",
+    },
+    enableProfiling: {
+      baseName: "enableProfiling",
+      type: "boolean",
+    },
+    enableSecurityTesting: {
+      baseName: "enableSecurityTesting",
       type: "boolean",
     },
     followRedirects: {

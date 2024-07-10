@@ -52,6 +52,8 @@ const params: v1.SyntheticsApiCreateSyntheticsBrowserTestRequest = {
         interval: 10,
       },
       tickEvery: 300,
+      enableProfiling: true,
+      enableSecurityTesting: true,
     },
     tags: ["testing:browser"],
     type: "browser",
