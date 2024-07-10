@@ -493,7 +493,7 @@ export interface HostsApiListHostsRequest {
    */
   sortDir?: string;
   /**
-   * Host result to start search from.
+   * Specify the starting point for the host search results. For example, if you set `count` to 100 and the first 100 results have already been returned, you can set `start` to `101` to get the next 100 results.
    * @type number
    */
   start?: number;
