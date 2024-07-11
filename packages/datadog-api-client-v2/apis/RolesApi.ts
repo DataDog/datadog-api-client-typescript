@@ -420,7 +420,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
     pageSize?: number,
     pageNumber?: number,
     sort?: string,
-    filter?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -460,12 +459,6 @@ export class RolesApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "sort",
         ObjectSerializer.serialize(sort, "string", "")
-      );
-    }
-    if (filter !== undefined) {
-      requestContext.setQueryParam(
-        "filter",
-        ObjectSerializer.serialize(filter, "string", "")
       );
     }
 
@@ -1553,11 +1546,6 @@ export interface RolesApiListRoleUsersRequest {
    * @type string
    */
   sort?: string;
-  /**
-   * Filter all users by the given string. Defaults to no filtering.
-   * @type string
-   */
-  filter?: string;
 }
 
 export interface RolesApiRemovePermissionFromRoleRequest {
@@ -1818,7 +1806,6 @@ export class RolesApi {
       param.pageSize,
       param.pageNumber,
       param.sort,
-      param.filter,
       options
     );
     return requestContextPromise.then((requestContext) => {
