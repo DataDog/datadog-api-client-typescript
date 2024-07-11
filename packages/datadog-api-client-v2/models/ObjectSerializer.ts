@@ -862,6 +862,7 @@ import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
+import { SecurityMonitoringRuleConvertResponse } from "./SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleImpossibleTravelOptions } from "./SecurityMonitoringRuleImpossibleTravelOptions";
 import { SecurityMonitoringRuleNewValueOptions } from "./SecurityMonitoringRuleNewValueOptions";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
@@ -2679,6 +2680,7 @@ const typeMap: { [index: string]: any } = {
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
   SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
   SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
+  SecurityMonitoringRuleConvertResponse: SecurityMonitoringRuleConvertResponse,
   SecurityMonitoringRuleImpossibleTravelOptions:
     SecurityMonitoringRuleImpossibleTravelOptions,
   SecurityMonitoringRuleNewValueOptions: SecurityMonitoringRuleNewValueOptions,
@@ -3134,6 +3136,10 @@ const oneOfMap: { [index: string]: string[] } = {
   RUMGroupByTotal: ["boolean", "string", "number"],
   ScalarColumn: ["GroupScalarColumn", "DataScalarColumn"],
   ScalarQuery: ["MetricsScalarQuery", "EventsScalarQuery"],
+  SecurityMonitoringRuleConvertPayload: [
+    "SecurityMonitoringStandardRulePayload",
+    "SecurityMonitoringSignalRulePayload",
+  ],
   SecurityMonitoringRuleCreatePayload: [
     "SecurityMonitoringStandardRuleCreatePayload",
     "SecurityMonitoringSignalRuleCreatePayload",
