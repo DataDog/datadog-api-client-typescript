@@ -30,6 +30,8 @@ import { SecurityFilterResponse } from "../models/SecurityFilterResponse";
 import { SecurityFiltersResponse } from "../models/SecurityFiltersResponse";
 import { SecurityFilterUpdateRequest } from "../models/SecurityFilterUpdateRequest";
 import { SecurityMonitoringListRulesResponse } from "../models/SecurityMonitoringListRulesResponse";
+import { SecurityMonitoringRuleConvertPayload } from "../models/SecurityMonitoringRuleConvertPayload";
+import { SecurityMonitoringRuleConvertResponse } from "../models/SecurityMonitoringRuleConvertResponse";
 import { SecurityMonitoringRuleCreatePayload } from "../models/SecurityMonitoringRuleCreatePayload";
 import { SecurityMonitoringRuleResponse } from "../models/SecurityMonitoringRuleResponse";
 import { SecurityMonitoringRuleTestRequest } from "../models/SecurityMonitoringRuleTestRequest";
@@ -52,6 +54,121 @@ import { SecurityMonitoringSuppressionsResponse } from "../models/SecurityMonito
 import { SecurityMonitoringSuppressionUpdateRequest } from "../models/SecurityMonitoringSuppressionUpdateRequest";
 
 export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
+  public async convertExistingSecurityMonitoringRule(
+    ruleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'convertExistingSecurityMonitoringRule'"
+    );
+    if (
+      !_config.unstableOperations["v2.convertExistingSecurityMonitoringRule"]
+    ) {
+      throw new Error(
+        "Unstable operation 'convertExistingSecurityMonitoringRule' is disabled"
+      );
+    }
+
+    // verify required parameter 'ruleId' is not null or undefined
+    if (ruleId === null || ruleId === undefined) {
+      throw new RequiredError(
+        "ruleId",
+        "convertExistingSecurityMonitoringRule"
+      );
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/security_monitoring/rules/{rule_id}/convert".replace(
+        "{rule_id}",
+        encodeURIComponent(String(ruleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.convertExistingSecurityMonitoringRule"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async convertSecurityMonitoringRuleFromJSONToTerraform(
+    body: SecurityMonitoringRuleConvertPayload,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    logger.warn(
+      "Using unstable operation 'convertSecurityMonitoringRuleFromJSONToTerraform'"
+    );
+    if (
+      !_config.unstableOperations[
+        "v2.convertSecurityMonitoringRuleFromJSONToTerraform"
+      ]
+    ) {
+      throw new Error(
+        "Unstable operation 'convertSecurityMonitoringRuleFromJSONToTerraform' is disabled"
+      );
+    }
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError(
+        "body",
+        "convertSecurityMonitoringRuleFromJSONToTerraform"
+      );
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/security_monitoring/rules/convert";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer(
+        "v2.SecurityMonitoringApi.convertSecurityMonitoringRuleFromJSONToTerraform"
+      )
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(
+        body,
+        "SecurityMonitoringRuleConvertPayload",
+        ""
+      ),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async createSecurityFilter(
     body: SecurityFilterCreateRequest,
     _options?: Configuration
@@ -1334,6 +1451,137 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
 }
 
 export class SecurityMonitoringApiResponseProcessor {
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to convertExistingSecurityMonitoringRule
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async convertExistingSecurityMonitoringRule(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringRuleConvertResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringRuleConvertResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse"
+        ) as SecurityMonitoringRuleConvertResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringRuleConvertResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse",
+          ""
+        ) as SecurityMonitoringRuleConvertResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to convertSecurityMonitoringRuleFromJSONToTerraform
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async convertSecurityMonitoringRuleFromJSONToTerraform(
+    response: ResponseContext
+  ): Promise<SecurityMonitoringRuleConvertResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: SecurityMonitoringRuleConvertResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse"
+        ) as SecurityMonitoringRuleConvertResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 401 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: SecurityMonitoringRuleConvertResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "SecurityMonitoringRuleConvertResponse",
+          ""
+        ) as SecurityMonitoringRuleConvertResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
   /**
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
@@ -3025,6 +3273,21 @@ export class SecurityMonitoringApiResponseProcessor {
   }
 }
 
+export interface SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest {
+  /**
+   * The ID of the rule.
+   * @type string
+   */
+  ruleId: string;
+}
+
+export interface SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest {
+  /**
+   * @type SecurityMonitoringRuleConvertPayload
+   */
+  body: SecurityMonitoringRuleConvertPayload;
+}
+
 export interface SecurityMonitoringApiCreateSecurityFilterRequest {
   /**
    * The definition of the new security filter.
@@ -3368,6 +3631,56 @@ export class SecurityMonitoringApi {
       requestFactory || new SecurityMonitoringApiRequestFactory(configuration);
     this.responseProcessor =
       responseProcessor || new SecurityMonitoringApiResponseProcessor();
+  }
+
+  /**
+   * Convert an existing rule from JSON to Terraform for datadog provider
+   * resource datadog_security_monitoring_rule.
+   * @param param The request object
+   */
+  public convertExistingSecurityMonitoringRule(
+    param: SecurityMonitoringApiConvertExistingSecurityMonitoringRuleRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringRuleConvertResponse> {
+    const requestContextPromise =
+      this.requestFactory.convertExistingSecurityMonitoringRule(
+        param.ruleId,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.convertExistingSecurityMonitoringRule(
+            responseContext
+          );
+        });
+    });
+  }
+
+  /**
+   * Convert a rule that doesn't (yet) exist from JSON to Terraform for datadog provider
+   * resource datadog_security_monitoring_rule.
+   * @param param The request object
+   */
+  public convertSecurityMonitoringRuleFromJSONToTerraform(
+    param: SecurityMonitoringApiConvertSecurityMonitoringRuleFromJSONToTerraformRequest,
+    options?: Configuration
+  ): Promise<SecurityMonitoringRuleConvertResponse> {
+    const requestContextPromise =
+      this.requestFactory.convertSecurityMonitoringRuleFromJSONToTerraform(
+        param.body,
+        options
+      );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.convertSecurityMonitoringRuleFromJSONToTerraform(
+            responseContext
+          );
+        });
+    });
   }
 
   /**
