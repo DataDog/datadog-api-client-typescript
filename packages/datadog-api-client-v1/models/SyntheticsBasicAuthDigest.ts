@@ -18,7 +18,7 @@ export class SyntheticsBasicAuthDigest {
   /**
    * The type of basic authentication to use when performing the test.
    */
-  "type"?: SyntheticsBasicAuthDigestType;
+  "type": SyntheticsBasicAuthDigestType;
   /**
    * Username to use for the digest authentication.
    */
@@ -48,6 +48,7 @@ export class SyntheticsBasicAuthDigest {
     type: {
       baseName: "type",
       type: "SyntheticsBasicAuthDigestType",
+      required: true,
     },
     username: {
       baseName: "username",
