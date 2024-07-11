@@ -43,7 +43,7 @@ export class SyntheticsBasicAuthOauthClient {
   /**
    * The type of basic authentication to use when performing the test.
    */
-  "type"?: SyntheticsBasicAuthOauthClientType;
+  "type": SyntheticsBasicAuthOauthClientType;
 
   /**
    * A container for additional, undeclared properties.
@@ -96,6 +96,7 @@ export class SyntheticsBasicAuthOauthClient {
     type: {
       baseName: "type",
       type: "SyntheticsBasicAuthOauthClientType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

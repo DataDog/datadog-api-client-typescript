@@ -47,7 +47,7 @@ export class SyntheticsBasicAuthOauthROP {
   /**
    * The type of basic authentication to use when performing the test.
    */
-  "type"?: SyntheticsBasicAuthOauthROPType;
+  "type": SyntheticsBasicAuthOauthROPType;
   /**
    * Username to use when performing the authentication.
    */
@@ -107,6 +107,7 @@ export class SyntheticsBasicAuthOauthROP {
     type: {
       baseName: "type",
       type: "SyntheticsBasicAuthOauthROPType",
+      required: true,
     },
     username: {
       baseName: "username",
