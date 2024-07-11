@@ -4442,10 +4442,6 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
-        "filter": {
-            "type": "string",
-            "format": "",
-            },
         "operationResponseType": "UsersResponse",
     },
     "v2.AddUserToRole": {
