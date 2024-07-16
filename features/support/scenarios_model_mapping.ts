@@ -169,6 +169,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "Date",
             "format": "date-time",
             },
+        "includeConnectedAccounts": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "UsageBillableSummaryResponse",
     },
     "v1.GetUsageCIApp": {
@@ -3090,6 +3094,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "Date",
             "format": "date-time",
             },
+        "includeConnectedAccounts": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "CostByOrgResponse",
     },
     "v2.GetHistoricalCostByOrg": {
@@ -4616,6 +4624,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
     },
+    "v2.ConvertSecurityMonitoringRuleFromJSONToTerraform": {
+        "body": {
+            "type": "SecurityMonitoringRuleConvertPayload",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleConvertResponse",
+    },
     "v2.TestSecurityMonitoringRule": {
         "body": {
             "type": "SecurityMonitoringRuleTestRequest",
@@ -4654,6 +4669,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "operationResponseType": "SecurityMonitoringRuleResponse",
+    },
+    "v2.ConvertExistingSecurityMonitoringRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SecurityMonitoringRuleConvertResponse",
     },
     "v2.TestExistingSecurityMonitoringRule": {
         "ruleId": {
