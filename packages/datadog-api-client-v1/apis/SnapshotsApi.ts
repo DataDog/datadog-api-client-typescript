@@ -21,9 +21,9 @@ import { GraphSnapshot } from "../models/GraphSnapshot";
 
 export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
   public async getGraphSnapshot(
+    metricQuery: string,
     start: number,
     end: number,
-    metricQuery?: string,
     eventQuery?: string,
     graphDef?: string,
     title?: string,
@@ -32,6 +32,11 @@ export class SnapshotsApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
+
+    // verify required parameter 'metricQuery' is not null or undefined
+    if (metricQuery === null || metricQuery === undefined) {
+      throw new RequiredError("metricQuery", "getGraphSnapshot");
+    }
 
     // verify required parameter 'start' is not null or undefined
     if (start === null || start === undefined) {
@@ -180,6 +185,11 @@ export class SnapshotsApiResponseProcessor {
 
 export interface SnapshotsApiGetGraphSnapshotRequest {
   /**
+   * The metric query. Either `metric_query` or `graph_def` is required.
+   * @type string
+   */
+  metricQuery: string;
+  /**
    * The POSIX timestamp of the start of the query in seconds.
    * @type number
    */
@@ -189,11 +199,6 @@ export interface SnapshotsApiGetGraphSnapshotRequest {
    * @type number
    */
   end: number;
-  /**
-   * The metric query.
-   * @type string
-   */
-  metricQuery?: string;
   /**
    * A query that adds event bands to the graph.
    * @type string
@@ -250,9 +255,9 @@ export class SnapshotsApi {
     options?: Configuration
   ): Promise<GraphSnapshot> {
     const requestContextPromise = this.requestFactory.getGraphSnapshot(
+      param.metricQuery,
       param.start,
       param.end,
-      param.metricQuery,
       param.eventQuery,
       param.graphDef,
       param.title,
