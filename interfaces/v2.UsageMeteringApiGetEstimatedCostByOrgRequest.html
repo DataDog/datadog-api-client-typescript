@@ -21,7 +21,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">UsageMeteringApiGetEstimatedCostByOrgRequest</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/3de80fd/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1271">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1271</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/82bfec6/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1278">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1278</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -31,6 +31,7 @@
 <h3 class="tsd-index-heading">Properties</h3>
 <div class="tsd-index-list"><a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#endDate" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-1024-path"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)" id="icon-1024-text"></path></svg><span>end<wbr/>Date?</span></a>
 <a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#endMonth" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>end<wbr/>Month?</span></a>
+<a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#includeConnectedAccounts" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>include<wbr/>Connected<wbr/>Accounts?</span></a>
 <a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#startDate" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>start<wbr/>Date?</span></a>
 <a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#startMonth" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>start<wbr/>Month?</span></a>
 <a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#view" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>view?</span></a>
@@ -43,35 +44,42 @@
 <div class="tsd-comment tsd-typography"><p>Datetime in ISO-8601 format, UTC, precise to day: <code>[YYYY-MM-DD]</code> for cost ending this day.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/3de80fd/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1296">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1296</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/82bfec6/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1303">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1303</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="endMonth" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>end<wbr/>Month</span><a href="#endMonth" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">end<wbr/>Month<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">Date</span></div>
 <div class="tsd-comment tsd-typography"><p>Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for cost ending this month.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/3de80fd/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1286">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1286</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/82bfec6/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1293">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1293</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="includeConnectedAccounts" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>include<wbr/>Connected<wbr/>Accounts</span><a href="#includeConnectedAccounts" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">include<wbr/>Connected<wbr/>Accounts<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">boolean</span></div>
+<div class="tsd-comment tsd-typography"><p>Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to <code>false</code>.</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/82bfec6/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1308">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1308</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="startDate" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>start<wbr/>Date</span><a href="#startDate" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">start<wbr/>Date<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">Date</span></div>
 <div class="tsd-comment tsd-typography"><p>Datetime in ISO-8601 format, UTC, precise to day: <code>[YYYY-MM-DD]</code> for cost beginning this day. Either start_month or start_date should be specified, but not both. (start_date cannot go beyond two months in the past). Provide an <code>end_date</code> to view day-over-day cumulative cost.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/3de80fd/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1291">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1291</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/82bfec6/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1298">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1298</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="startMonth" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>start<wbr/>Month</span><a href="#startMonth" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">start<wbr/>Month<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">Date</span></div>
 <div class="tsd-comment tsd-typography"><p>Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for cost beginning this month. Either start_month or start_date should be specified, but not both. (start_month cannot go beyond two months in the past). Provide an <code>end_month</code> to view month-over-month cost.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/3de80fd/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1281">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1281</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/82bfec6/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1288">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1288</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="view" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>view</span><a href="#view" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">view<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">string</span></div>
 <div class="tsd-comment tsd-typography"><p>String to specify whether cost is broken down at a parent-org level or at the sub-org level. Available views are <code>summary</code> and <code>sub-org</code>. Defaults to <code>summary</code>.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/3de80fd/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1276">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1276</a></li></ul></aside></section></section></div>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/82bfec6/packages/datadog-api-client-v2/apis/UsageMeteringApi.ts#L1283">packages/datadog-api-client-v2/apis/UsageMeteringApi.ts:1283</a></li></ul></aside></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -102,6 +110,7 @@
 <ul>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#endDate" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>end<wbr/>Date?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#endMonth" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>end<wbr/>Month?</a></li>
+<li class="tsd-kind-property tsd-parent-kind-interface"><a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#includeConnectedAccounts" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>include<wbr/>Connected<wbr/>Accounts?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#startDate" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>start<wbr/>Date?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#startMonth" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>start<wbr/>Month?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="v2.UsageMeteringApiGetEstimatedCostByOrgRequest.html#view" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>view?</a></li></ul></li></ul></nav></div></div>
