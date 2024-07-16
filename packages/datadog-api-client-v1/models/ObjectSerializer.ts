@@ -925,7 +925,7 @@ const enumsMap: { [key: string]: any[] } = {
     "logs",
     "spans",
     "database_queries",
-    "network_performance_queries",
+    "network",
   ],
   MonitorOptionsNotificationPresets: [
     "show_all",
