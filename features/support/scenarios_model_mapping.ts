@@ -169,6 +169,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "Date",
             "format": "date-time",
             },
+        "includeConnectedAccounts": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "UsageBillableSummaryResponse",
     },
     "v1.GetUsageCIApp": {
@@ -3089,6 +3093,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
         "endDate": {
             "type": "Date",
             "format": "date-time",
+            },
+        "includeConnectedAccounts": {
+            "type": "boolean",
+            "format": "",
             },
         "operationResponseType": "CostByOrgResponse",
     },

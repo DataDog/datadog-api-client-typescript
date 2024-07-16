@@ -12,6 +12,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CostByOrgAttributes {
   /**
+   * The account name.
+   */
+  "accountName"?: string;
+  /**
+   * The account public ID.
+   */
+  "accountPublicId"?: string;
+  /**
    * List of charges data reported for the requested month.
    */
   "charges"?: Array<ChargebackBreakdown>;
@@ -52,6 +60,14 @@ export class CostByOrgAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountName: {
+      baseName: "account_name",
+      type: "string",
+    },
+    accountPublicId: {
+      baseName: "account_public_id",
+      type: "string",
+    },
     charges: {
       baseName: "charges",
       type: "Array<ChargebackBreakdown>",
