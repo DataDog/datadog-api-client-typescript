@@ -10,5 +10,9 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Name of the query for use in formulas.
  */
 
-export type FormulaAndFunctionSLOQueryType = typeof METRIC | UnparsedObject;
+export type FormulaAndFunctionSLOQueryType =
+  | typeof METRIC
+  | typeof TIME_SLICE
+  | UnparsedObject;
 export const METRIC = "metric";
+export const TIME_SLICE = "time_slice";
