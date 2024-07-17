@@ -4296,6 +4296,39 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MonitorConfigPolicyResponse",
     },
+    "v2.ListDevices": {
+        "pageNumber": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageSize": {
+            "type": "number",
+            "format": "int64",
+            },
+        "sort": {
+            "type": "string",
+            "format": "",
+            },
+        "filterTag": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListDevicesResponse",
+    },
+    "v2.GetDevice": {
+        "deviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetDeviceResponse",
+    },
+    "v2.GetInterfaces": {
+        "deviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "GetInterfacesResponse",
+    },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",
     },
