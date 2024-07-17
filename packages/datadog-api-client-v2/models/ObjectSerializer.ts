@@ -281,6 +281,9 @@ import { DashboardListUpdateItemsResponse } from "./DashboardListUpdateItemsResp
 import { DataScalarColumn } from "./DataScalarColumn";
 import { DetailedFinding } from "./DetailedFinding";
 import { DetailedFindingAttributes } from "./DetailedFindingAttributes";
+import { DeviceAttributes } from "./DeviceAttributes";
+import { DeviceAttributesInterfaceStatuses } from "./DeviceAttributesInterfaceStatuses";
+import { DevicesListData } from "./DevicesListData";
 import { DowntimeCreateRequest } from "./DowntimeCreateRequest";
 import { DowntimeCreateRequestAttributes } from "./DowntimeCreateRequestAttributes";
 import { DowntimeCreateRequestData } from "./DowntimeCreateRequestData";
@@ -365,7 +368,12 @@ import { GCPSTSServiceAccountUpdateRequest } from "./GCPSTSServiceAccountUpdateR
 import { GCPSTSServiceAccountUpdateRequestData } from "./GCPSTSServiceAccountUpdateRequestData";
 import { GCPSTSServiceAccountsResponse } from "./GCPSTSServiceAccountsResponse";
 import { GCPServiceAccountMeta } from "./GCPServiceAccountMeta";
+import { GetDeviceAttributes } from "./GetDeviceAttributes";
+import { GetDeviceData } from "./GetDeviceData";
+import { GetDeviceResponse } from "./GetDeviceResponse";
 import { GetFindingResponse } from "./GetFindingResponse";
+import { GetInterfacesData } from "./GetInterfacesData";
+import { GetInterfacesResponse } from "./GetInterfacesResponse";
 import { GroupScalarColumn } from "./GroupScalarColumn";
 import { HTTPCIAppError } from "./HTTPCIAppError";
 import { HTTPCIAppErrors } from "./HTTPCIAppErrors";
@@ -470,6 +478,7 @@ import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
 import { IncidentsResponse } from "./IncidentsResponse";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
+import { InterfaceAttributes } from "./InterfaceAttributes";
 import { JSONAPIErrorItem } from "./JSONAPIErrorItem";
 import { JSONAPIErrorResponse } from "./JSONAPIErrorResponse";
 import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
@@ -482,6 +491,9 @@ import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes
 import { ListAPIsResponseMeta } from "./ListAPIsResponseMeta";
 import { ListAPIsResponseMetaPagination } from "./ListAPIsResponseMetaPagination";
 import { ListApplicationKeysResponse } from "./ListApplicationKeysResponse";
+import { ListDevicesResponse } from "./ListDevicesResponse";
+import { ListDevicesResponseMetadata } from "./ListDevicesResponseMetadata";
+import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPage";
 import { ListDowntimesResponse } from "./ListDowntimesResponse";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
@@ -1397,6 +1409,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
+  InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
@@ -2066,6 +2079,9 @@ const typeMap: { [index: string]: any } = {
   DataScalarColumn: DataScalarColumn,
   DetailedFinding: DetailedFinding,
   DetailedFindingAttributes: DetailedFindingAttributes,
+  DeviceAttributes: DeviceAttributes,
+  DeviceAttributesInterfaceStatuses: DeviceAttributesInterfaceStatuses,
+  DevicesListData: DevicesListData,
   DowntimeCreateRequest: DowntimeCreateRequest,
   DowntimeCreateRequestAttributes: DowntimeCreateRequestAttributes,
   DowntimeCreateRequestData: DowntimeCreateRequestData,
@@ -2155,7 +2171,12 @@ const typeMap: { [index: string]: any } = {
   GCPSTSServiceAccountUpdateRequestData: GCPSTSServiceAccountUpdateRequestData,
   GCPSTSServiceAccountsResponse: GCPSTSServiceAccountsResponse,
   GCPServiceAccountMeta: GCPServiceAccountMeta,
+  GetDeviceAttributes: GetDeviceAttributes,
+  GetDeviceData: GetDeviceData,
+  GetDeviceResponse: GetDeviceResponse,
   GetFindingResponse: GetFindingResponse,
+  GetInterfacesData: GetInterfacesData,
+  GetInterfacesResponse: GetInterfacesResponse,
   GroupScalarColumn: GroupScalarColumn,
   HTTPCIAppError: HTTPCIAppError,
   HTTPCIAppErrors: HTTPCIAppErrors,
@@ -2272,6 +2293,7 @@ const typeMap: { [index: string]: any } = {
   IncidentUpdateRequest: IncidentUpdateRequest,
   IncidentsResponse: IncidentsResponse,
   IntakePayloadAccepted: IntakePayloadAccepted,
+  InterfaceAttributes: InterfaceAttributes,
   JSONAPIErrorItem: JSONAPIErrorItem,
   JSONAPIErrorResponse: JSONAPIErrorResponse,
   JiraIntegrationMetadata: JiraIntegrationMetadata,
@@ -2284,6 +2306,9 @@ const typeMap: { [index: string]: any } = {
   ListAPIsResponseMeta: ListAPIsResponseMeta,
   ListAPIsResponseMetaPagination: ListAPIsResponseMetaPagination,
   ListApplicationKeysResponse: ListApplicationKeysResponse,
+  ListDevicesResponse: ListDevicesResponse,
+  ListDevicesResponseMetadata: ListDevicesResponseMetadata,
+  ListDevicesResponseMetadataPage: ListDevicesResponseMetadataPage,
   ListDowntimesResponse: ListDowntimesResponse,
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,

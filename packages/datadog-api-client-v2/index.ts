@@ -294,6 +294,13 @@ export {
 } from "./apis/MonitorsApi";
 
 export {
+  NetworkDeviceMonitoringApiGetDeviceRequest,
+  NetworkDeviceMonitoringApiGetInterfacesRequest,
+  NetworkDeviceMonitoringApiListDevicesRequest,
+  NetworkDeviceMonitoringApi,
+} from "./apis/NetworkDeviceMonitoringApi";
+
+export {
   OktaIntegrationApiCreateOktaAccountRequest,
   OktaIntegrationApiDeleteOktaAccountRequest,
   OktaIntegrationApiGetOktaAccountRequest,
@@ -867,6 +874,9 @@ export { DataScalarColumn } from "./models/DataScalarColumn";
 export { DetailedFinding } from "./models/DetailedFinding";
 export { DetailedFindingAttributes } from "./models/DetailedFindingAttributes";
 export { DetailedFindingType } from "./models/DetailedFindingType";
+export { DeviceAttributes } from "./models/DeviceAttributes";
+export { DeviceAttributesInterfaceStatuses } from "./models/DeviceAttributesInterfaceStatuses";
+export { DevicesListData } from "./models/DevicesListData";
 export { DORADeploymentRequest } from "./models/DORADeploymentRequest";
 export { DORADeploymentRequestAttributes } from "./models/DORADeploymentRequestAttributes";
 export { DORADeploymentRequestData } from "./models/DORADeploymentRequestData";
@@ -989,7 +999,12 @@ export { GCPSTSServiceAccountResponse } from "./models/GCPSTSServiceAccountRespo
 export { GCPSTSServiceAccountsResponse } from "./models/GCPSTSServiceAccountsResponse";
 export { GCPSTSServiceAccountUpdateRequest } from "./models/GCPSTSServiceAccountUpdateRequest";
 export { GCPSTSServiceAccountUpdateRequestData } from "./models/GCPSTSServiceAccountUpdateRequestData";
+export { GetDeviceAttributes } from "./models/GetDeviceAttributes";
+export { GetDeviceData } from "./models/GetDeviceData";
+export { GetDeviceResponse } from "./models/GetDeviceResponse";
 export { GetFindingResponse } from "./models/GetFindingResponse";
+export { GetInterfacesData } from "./models/GetInterfacesData";
+export { GetInterfacesResponse } from "./models/GetInterfacesResponse";
 export { GetTeamMembershipsSort } from "./models/GetTeamMembershipsSort";
 export { GroupScalarColumn } from "./models/GroupScalarColumn";
 export { HourlyUsage } from "./models/HourlyUsage";
@@ -1123,6 +1138,8 @@ export { IncidentUpdateRelationships } from "./models/IncidentUpdateRelationship
 export { IncidentUpdateRequest } from "./models/IncidentUpdateRequest";
 export { IncidentUserDefinedFieldType } from "./models/IncidentUserDefinedFieldType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
+export { InterfaceAttributes } from "./models/InterfaceAttributes";
+export { InterfaceAttributesStatus } from "./models/InterfaceAttributesStatus";
 export { IPAllowlistAttributes } from "./models/IPAllowlistAttributes";
 export { IPAllowlistData } from "./models/IPAllowlistData";
 export { IPAllowlistEntry } from "./models/IPAllowlistEntry";
@@ -1144,6 +1161,9 @@ export { ListAPIsResponseDataAttributes } from "./models/ListAPIsResponseDataAtt
 export { ListAPIsResponseMeta } from "./models/ListAPIsResponseMeta";
 export { ListAPIsResponseMetaPagination } from "./models/ListAPIsResponseMetaPagination";
 export { ListApplicationKeysResponse } from "./models/ListApplicationKeysResponse";
+export { ListDevicesResponse } from "./models/ListDevicesResponse";
+export { ListDevicesResponseMetadata } from "./models/ListDevicesResponseMetadata";
+export { ListDevicesResponseMetadataPage } from "./models/ListDevicesResponseMetadataPage";
 export { ListDowntimesResponse } from "./models/ListDowntimesResponse";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
