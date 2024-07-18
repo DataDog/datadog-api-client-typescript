@@ -3132,6 +3132,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "filterIncludeConnectedAccounts": {
+            "type": "boolean",
+            "format": "",
+            },
         "filterIncludeBreakdown": {
             "type": "boolean",
             "format": "",
