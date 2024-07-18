@@ -245,6 +245,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     filterProductFamilies: string,
     filterTimestampEnd?: Date,
     filterIncludeDescendants?: boolean,
+    filterIncludeConnectedAccounts?: boolean,
     filterIncludeBreakdown?: boolean,
     filterVersions?: string,
     pageLimit?: number,
@@ -299,6 +300,16 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[include_descendants]",
         ObjectSerializer.serialize(filterIncludeDescendants, "boolean", "")
+      );
+    }
+    if (filterIncludeConnectedAccounts !== undefined) {
+      requestContext.setQueryParam(
+        "filter[include_connected_accounts]",
+        ObjectSerializer.serialize(
+          filterIncludeConnectedAccounts,
+          "boolean",
+          ""
+        )
       );
     }
     if (filterIncludeBreakdown !== undefined) {
@@ -1355,6 +1366,11 @@ export interface UsageMeteringApiGetHourlyUsageRequest {
    */
   filterIncludeDescendants?: boolean;
   /**
+   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to false.
+   * @type boolean
+   */
+  filterIncludeConnectedAccounts?: boolean;
+  /**
    * Include breakdown of usage by subcategories where applicable (for product family logs only). Defaults to false.
    * @type boolean
    */
@@ -1611,6 +1627,7 @@ export class UsageMeteringApi {
       param.filterProductFamilies,
       param.filterTimestampEnd,
       param.filterIncludeDescendants,
+      param.filterIncludeConnectedAccounts,
       param.filterIncludeBreakdown,
       param.filterVersions,
       param.pageLimit,

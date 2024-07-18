@@ -12,6 +12,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class HourlyUsageAttributes {
   /**
+   * The account name.
+   */
+  "accountName"?: string;
+  /**
+   * The account public ID.
+   */
+  "accountPublicId"?: string;
+  /**
    * List of the measured usage values for the product family for the org for the time period.
    */
   "measurements"?: Array<HourlyUsageMeasurement>;
@@ -52,6 +60,14 @@ export class HourlyUsageAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountName: {
+      baseName: "account_name",
+      type: "string",
+    },
+    accountPublicId: {
+      baseName: "account_public_id",
+      type: "string",
+    },
     measurements: {
       baseName: "measurements",
       type: "Array<HourlyUsageMeasurement>",
