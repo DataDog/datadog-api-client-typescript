@@ -13,12 +13,14 @@ repos:
         entry: yarn run lint:fix
         stages: [manual]
         pass_filenames: false
+        language_version: "21.7.3"
       - id: lint-examples
         name: Lint examples
         language: node
         entry: yarn run lint:fix-examples
         stages: [manual]
         pass_filenames: false
+        language_version: "21.7.3"
       - id: generator
         name: generator
         language: python
