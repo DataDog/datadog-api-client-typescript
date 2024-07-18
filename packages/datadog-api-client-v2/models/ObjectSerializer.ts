@@ -1550,6 +1550,7 @@ const enumsMap: { [key: string]: any[] } = {
     "impossible_travel",
     "hardcoded",
     "third_party",
+    "anomaly_threshold",
   ],
   SecurityMonitoringRuleEvaluationWindow: [
     0, 60, 300, 600, 900, 1800, 3600, 7200,
