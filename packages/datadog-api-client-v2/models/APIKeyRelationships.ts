@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { NullableRelationshipToUser } from "./NullableRelationshipToUser";
 import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -18,7 +19,7 @@ export class APIKeyRelationships {
   /**
    * Relationship to user.
    */
-  "modifiedBy"?: RelationshipToUser;
+  "modifiedBy"?: NullableRelationshipToUser;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,7 +43,7 @@ export class APIKeyRelationships {
     },
     modifiedBy: {
       baseName: "modified_by",
-      type: "RelationshipToUser",
+      type: "NullableRelationshipToUser",
     },
     additionalProperties: {
       baseName: "additionalProperties",
