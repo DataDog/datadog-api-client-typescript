@@ -60,17 +60,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
-    logger.warn(
-      "Using unstable operation 'convertExistingSecurityMonitoringRule'"
-    );
-    if (
-      !_config.unstableOperations["v2.convertExistingSecurityMonitoringRule"]
-    ) {
-      throw new Error(
-        "Unstable operation 'convertExistingSecurityMonitoringRule' is disabled"
-      );
-    }
-
     // verify required parameter 'ruleId' is not null or undefined
     if (ruleId === null || ruleId === undefined) {
       throw new RequiredError(
@@ -110,19 +99,6 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
-
-    logger.warn(
-      "Using unstable operation 'convertSecurityMonitoringRuleFromJSONToTerraform'"
-    );
-    if (
-      !_config.unstableOperations[
-        "v2.convertSecurityMonitoringRuleFromJSONToTerraform"
-      ]
-    ) {
-      throw new Error(
-        "Unstable operation 'convertSecurityMonitoringRuleFromJSONToTerraform' is disabled"
-      );
-    }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
