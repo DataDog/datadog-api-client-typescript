@@ -871,6 +871,7 @@ const enumsMap: { [key: string]: any[] } = {
     "logs_pattern_stream",
     "logs_transaction_stream",
     "event_stream",
+    "rum_stream",
   ],
   ListStreamWidgetDefinitionType: ["list_stream"],
   LogStreamWidgetDefinitionType: ["log_stream"],
