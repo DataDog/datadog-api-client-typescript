@@ -571,6 +571,7 @@ export { AuthNMappingIncluded } from "./models/AuthNMappingIncluded";
 export { AuthNMappingRelationships } from "./models/AuthNMappingRelationships";
 export { AuthNMappingRelationshipToRole } from "./models/AuthNMappingRelationshipToRole";
 export { AuthNMappingRelationshipToTeam } from "./models/AuthNMappingRelationshipToTeam";
+export { AuthNMappingResourceType } from "./models/AuthNMappingResourceType";
 export { AuthNMappingResponse } from "./models/AuthNMappingResponse";
 export { AuthNMappingsResponse } from "./models/AuthNMappingsResponse";
 export { AuthNMappingsSort } from "./models/AuthNMappingsSort";

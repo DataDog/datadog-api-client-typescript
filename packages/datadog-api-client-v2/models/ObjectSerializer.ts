@@ -1202,6 +1202,7 @@ const enumsMap: { [key: string]: any[] } = {
   AuditLogsEventType: ["audit"],
   AuditLogsResponseStatus: ["done", "timeout"],
   AuditLogsSort: ["timestamp", "-timestamp"],
+  AuthNMappingResourceType: ["role", "team"],
   AuthNMappingsSort: [
     "created_at",
     "-created_at",

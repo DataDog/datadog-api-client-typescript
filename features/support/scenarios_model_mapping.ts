@@ -2651,6 +2651,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "resourceType": {
+            "type": "AuthNMappingResourceType",
+            "format": "",
+            },
         "operationResponseType": "AuthNMappingsResponse",
     },
     "v2.CreateAuthNMapping": {
