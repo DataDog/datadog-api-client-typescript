@@ -61,6 +61,7 @@ export class TeamLinkAttributes {
       baseName: "url",
       type: "string",
       required: true,
+      format: "url",
     },
     additionalProperties: {
       baseName: "additionalProperties",
