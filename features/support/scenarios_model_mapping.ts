@@ -489,6 +489,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "boolean",
             "format": "",
             },
+        "includeConnectedAccounts": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "UsageSummaryResponse",
     },
     "v1.GetUsageSynthetics": {
