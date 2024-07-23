@@ -1675,6 +1675,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     startMonth: Date,
     endMonth?: Date,
     includeOrgDetails?: boolean,
+    includeConnectedAccounts?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -1714,6 +1715,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include_org_details",
         ObjectSerializer.serialize(includeOrgDetails, "boolean", "")
+      );
+    }
+    if (includeConnectedAccounts !== undefined) {
+      requestContext.setQueryParam(
+        "include_connected_accounts",
+        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", "")
       );
     }
 
@@ -4791,6 +4798,11 @@ export interface UsageMeteringApiGetUsageSummaryRequest {
    * @type boolean
    */
   includeOrgDetails?: boolean;
+  /**
+   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
+   * @type boolean
+   */
+  includeConnectedAccounts?: boolean;
 }
 
 export interface UsageMeteringApiGetUsageSyntheticsRequest {
@@ -5683,6 +5695,7 @@ export class UsageMeteringApi {
       param.startMonth,
       param.endMonth,
       param.includeOrgDetails,
+      param.includeConnectedAccounts,
       options
     );
     return requestContextPromise.then((requestContext) => {

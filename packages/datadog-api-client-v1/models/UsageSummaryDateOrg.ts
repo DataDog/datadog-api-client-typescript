@@ -11,6 +11,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class UsageSummaryDateOrg {
   /**
+   * The account name.
+   */
+  "accountName"?: string;
+  /**
+   * The account public id.
+   */
+  "accountPublicId"?: string;
+  /**
    * Shows the 99th percentile of all agent hosts over all hours in the current date for the given org.
    */
   "agentHostTop99p"?: number;
@@ -547,6 +555,14 @@ export class UsageSummaryDateOrg {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    accountName: {
+      baseName: "account_name",
+      type: "string",
+    },
+    accountPublicId: {
+      baseName: "account_public_id",
+      type: "string",
+    },
     agentHostTop99p: {
       baseName: "agent_host_top99p",
       type: "number",
