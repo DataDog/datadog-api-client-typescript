@@ -188,6 +188,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     startMonth: Date,
     view?: string,
     endMonth?: Date,
+    includeConnectedAccounts?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -227,6 +228,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "end_month",
         ObjectSerializer.serialize(endMonth, "Date", "date-time")
+      );
+    }
+    if (includeConnectedAccounts !== undefined) {
+      requestContext.setQueryParam(
+        "include_connected_accounts",
+        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", "")
       );
     }
 
@@ -457,6 +464,7 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getProjectedCost(
     view?: string,
+    includeConnectedAccounts?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -479,6 +487,12 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "view",
         ObjectSerializer.serialize(view, "string", "")
+      );
+    }
+    if (includeConnectedAccounts !== undefined) {
+      requestContext.setQueryParam(
+        "include_connected_accounts",
+        ObjectSerializer.serialize(includeConnectedAccounts, "boolean", "")
       );
     }
 
@@ -1335,6 +1349,11 @@ export interface UsageMeteringApiGetHistoricalCostByOrgRequest {
    * @type Date
    */
   endMonth?: Date;
+  /**
+   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
+   * @type boolean
+   */
+  includeConnectedAccounts?: boolean;
 }
 
 export interface UsageMeteringApiGetHourlyUsageRequest {
@@ -1448,6 +1467,11 @@ export interface UsageMeteringApiGetProjectedCostRequest {
    * @type string
    */
   view?: string;
+  /**
+   * Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to `false`.
+   * @type boolean
+   */
+  includeConnectedAccounts?: boolean;
 }
 
 export interface UsageMeteringApiGetUsageApplicationSecurityMonitoringRequest {
@@ -1603,6 +1627,7 @@ export class UsageMeteringApi {
       param.startMonth,
       param.view,
       param.endMonth,
+      param.includeConnectedAccounts,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -1701,6 +1726,7 @@ export class UsageMeteringApi {
   ): Promise<ProjectedCostResponse> {
     const requestContextPromise = this.requestFactory.getProjectedCost(
       param.view,
+      param.includeConnectedAccounts,
       options
     );
     return requestContextPromise.then((requestContext) => {
