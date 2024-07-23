@@ -3121,6 +3121,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "Date",
             "format": "date-time",
             },
+        "includeConnectedAccounts": {
+            "type": "boolean",
+            "format": "",
+            },
         "operationResponseType": "CostByOrgResponse",
     },
     "v2.GetHourlyUsage": {
@@ -3187,6 +3191,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v2.GetProjectedCost": {
         "view": {
             "type": "string",
+            "format": "",
+            },
+        "includeConnectedAccounts": {
+            "type": "boolean",
             "format": "",
             },
         "operationResponseType": "ProjectedCostResponse",
