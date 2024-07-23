@@ -21,7 +21,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">UsageMeteringApiGetUsageSummaryRequest</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/9c57938/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4777">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4777</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/2ef5617/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4784">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4784</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -30,6 +30,7 @@
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Properties</h3>
 <div class="tsd-index-list"><a href="v1.UsageMeteringApiGetUsageSummaryRequest.html#endMonth" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12" id="icon-1024-path"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)" id="icon-1024-text"></path></svg><span>end<wbr/>Month?</span></a>
+<a href="v1.UsageMeteringApiGetUsageSummaryRequest.html#includeConnectedAccounts" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>include<wbr/>Connected<wbr/>Accounts?</span></a>
 <a href="v1.UsageMeteringApiGetUsageSummaryRequest.html#includeOrgDetails" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>include<wbr/>Org<wbr/>Details?</span></a>
 <a href="v1.UsageMeteringApiGetUsageSummaryRequest.html#startMonth" class="tsd-index-link tsd-kind-property tsd-parent-kind-interface"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg><span>start<wbr/>Month</span></a>
 </div></section></div></details></section></section>
@@ -41,14 +42,21 @@
 <div class="tsd-comment tsd-typography"><p>Datetime in ISO-8601 format, UTC, precise to month: <code>[YYYY-MM]</code> for usage ending this month.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/9c57938/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4788">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4788</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/2ef5617/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4795">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4795</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="includeConnectedAccounts" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>include<wbr/>Connected<wbr/>Accounts</span><a href="#includeConnectedAccounts" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<div class="tsd-signature">include<wbr/>Connected<wbr/>Accounts<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">boolean</span></div>
+<div class="tsd-comment tsd-typography"><p>Boolean to specify whether to include accounts connected to the current account as partner customers in the Datadog partner network program. Defaults to <code>false</code>.</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/2ef5617/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4805">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4805</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="includeOrgDetails" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagOptional">Optional</code> <span>include<wbr/>Org<wbr/>Details</span><a href="#includeOrgDetails" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">include<wbr/>Org<wbr/>Details<span class="tsd-signature-symbol">?:</span> <span class="tsd-signature-type">boolean</span></div>
 <div class="tsd-comment tsd-typography"><p>Include usage summaries for each sub-org.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/9c57938/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4793">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4793</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/2ef5617/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4800">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4800</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface"><a id="startMonth" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>start<wbr/>Month</span><a href="#startMonth" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <div class="tsd-signature">start<wbr/>Month<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
@@ -56,7 +64,7 @@
 Maximum of 15 months ago.</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/9c57938/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4783">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4783</a></li></ul></aside></section></section></div>
+<li>Defined in <a href="https://github.com/DataDog/datadog-api-client-typescript/blob/2ef5617/packages/datadog-api-client-v1/apis/UsageMeteringApi.ts#L4790">packages/datadog-api-client-v1/apis/UsageMeteringApi.ts:4790</a></li></ul></aside></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -86,6 +94,7 @@ Maximum of 15 months ago.</p>
 <li class="current tsd-kind-interface tsd-parent-kind-namespace"><a href="v1.UsageMeteringApiGetUsageSummaryRequest.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-interface)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-256-path"></rect><path d="M9.51 16V15.016H11.298V8.224H9.51V7.24H14.19V8.224H12.402V15.016H14.19V16H9.51Z" fill="var(--color-text)" id="icon-256-text"></path></svg><span>Usage<wbr/>Metering<wbr/>Api<wbr/>Get<wbr/>Usage<wbr/>Summary<wbr/>Request</span></a>
 <ul>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="v1.UsageMeteringApiGetUsageSummaryRequest.html#endMonth" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>end<wbr/>Month?</a></li>
+<li class="tsd-kind-property tsd-parent-kind-interface"><a href="v1.UsageMeteringApiGetUsageSummaryRequest.html#includeConnectedAccounts" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>include<wbr/>Connected<wbr/>Accounts?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="v1.UsageMeteringApiGetUsageSummaryRequest.html#includeOrgDetails" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>include<wbr/>Org<wbr/>Details?</a></li>
 <li class="tsd-kind-property tsd-parent-kind-interface"><a href="v1.UsageMeteringApiGetUsageSummaryRequest.html#startMonth" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-1024-path"></use><use href="#icon-1024-text"></use></svg>start<wbr/>Month</a></li></ul></li></ul></nav></div></div>
 <div class="container tsd-generator">
