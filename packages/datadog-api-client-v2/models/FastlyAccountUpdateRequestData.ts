@@ -15,11 +15,11 @@ export class FastlyAccountUpdateRequestData {
   /**
    * Attributes object for updating a Fastly account.
    */
-  "attributes"?: FastlyAccountUpdateRequestAttributes;
+  "attributes": FastlyAccountUpdateRequestAttributes;
   /**
    * The JSON:API type for this API. Should always be `fastly-accounts`.
    */
-  "type"?: FastlyAccountType;
+  "type": FastlyAccountType;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,10 +40,12 @@ export class FastlyAccountUpdateRequestData {
     attributes: {
       baseName: "attributes",
       type: "FastlyAccountUpdateRequestAttributes",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "FastlyAccountType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
