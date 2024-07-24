@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ApplicationKeyResponseIncludedItem } from "./ApplicationKeyResponseIncludedItem";
 import { FullApplicationKey } from "./FullApplicationKey";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,10 +15,6 @@ export class ApplicationKeyResponse {
    * Datadog application key.
    */
   "data"?: FullApplicationKey;
-  /**
-   * Array of objects related to the application key.
-   */
-  "included"?: Array<ApplicationKeyResponseIncludedItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,10 +35,6 @@ export class ApplicationKeyResponse {
     data: {
       baseName: "data",
       type: "FullApplicationKey",
-    },
-    included: {
-      baseName: "included",
-      type: "Array<ApplicationKeyResponseIncludedItem>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -20,7 +20,7 @@ export class FullApplicationKey {
   /**
    * ID of the application key.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Resources related to the application key.
    */
@@ -28,7 +28,7 @@ export class FullApplicationKey {
   /**
    * Application Keys resource type.
    */
-  "type"?: ApplicationKeysType;
+  "type": ApplicationKeysType;
 
   /**
    * A container for additional, undeclared properties.
@@ -53,6 +53,7 @@ export class FullApplicationKey {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     relationships: {
       baseName: "relationships",
@@ -61,6 +62,7 @@ export class FullApplicationKey {
     type: {
       baseName: "type",
       type: "ApplicationKeysType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

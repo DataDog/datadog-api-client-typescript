@@ -15,7 +15,7 @@ export class ApplicationKeyUpdateData {
   /**
    * Attributes used to update an application Key.
    */
-  "attributes": ApplicationKeyUpdateAttributes;
+  "attributes"?: ApplicationKeyUpdateAttributes;
   /**
    * ID of the application key.
    */
@@ -44,7 +44,6 @@ export class ApplicationKeyUpdateData {
     attributes: {
       baseName: "attributes",
       type: "ApplicationKeyUpdateAttributes",
-      required: true,
     },
     id: {
       baseName: "id",
