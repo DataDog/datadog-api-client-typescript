@@ -15,6 +15,7 @@ const params: v2.FastlyIntegrationApiUpdateFastlyAccountRequest = {
     data: {
       attributes: {
         apiKey: "update-secret",
+        name: "test-name",
       },
       type: "fastly-accounts",
     },

@@ -12,6 +12,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class FastlyAccounResponseAttributes {
   /**
+   * The API key for the Fastly account.
+   */
+  "apiKey": string;
+  /**
    * The name of the Fastly account.
    */
   "name": string;
@@ -36,6 +40,11 @@ export class FastlyAccounResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    apiKey: {
+      baseName: "api_key",
+      type: "string",
+      required: true,
+    },
     name: {
       baseName: "name",
       type: "string",
