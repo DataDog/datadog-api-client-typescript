@@ -126,11 +126,13 @@ String.prototype.toOperationName = function (): string {
 };
 
 String.prototype.toAttributeName = function (): string {
-  return String(this)
+  let val = String(this)
     .replace(/[^A-Za-z0-9]+(.)/g, function (...matches) {
       return matches[1].toUpperCase();
     })
     .replace(/[^A-Za-z0-9]+/g, "");
+
+  return val.charAt(0).toLowerCase() + val.slice(1);
 };
 
 function getProperty<T, K extends keyof T>(obj: T, name: string): T[K] {
