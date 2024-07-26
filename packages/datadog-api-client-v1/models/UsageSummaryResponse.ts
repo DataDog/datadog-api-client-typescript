@@ -513,6 +513,10 @@ export class UsageSummaryResponse {
    */
   "serverlessAppsTotalCountAvgSum"?: number;
   /**
+   * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current month for all organizations.
+   */
+  "siemAnalyzedLogsAddOnCountAggSum"?: number;
+  /**
    * Shows the first date of usage in the current month for all organizations.
    */
   "startDate"?: Date;
@@ -1198,6 +1202,11 @@ export class UsageSummaryResponse {
     },
     serverlessAppsTotalCountAvgSum: {
       baseName: "serverless_apps_total_count_avg_sum",
+      type: "number",
+      format: "int64",
+    },
+    siemAnalyzedLogsAddOnCountAggSum: {
+      baseName: "siem_analyzed_logs_add_on_count_agg_sum",
       type: "number",
       format: "int64",
     },

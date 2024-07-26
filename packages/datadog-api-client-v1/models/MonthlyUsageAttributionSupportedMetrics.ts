@@ -141,6 +141,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE
   | typeof INGESTED_SPANS_BYTES_USAGE
   | typeof INGESTED_SPANS_BYTES_PERCENTAGE
+  | typeof SIEM_ANALYZED_LOGS_ADD_ON_USAGE
+  | typeof SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE
   | typeof SIEM_INGESTED_BYTES_USAGE
   | typeof SIEM_INGESTED_BYTES_PERCENTAGE
   | typeof WORKFLOW_EXECUTIONS_USAGE
@@ -302,6 +304,10 @@ export const RUM_BROWSER_MOBILE_SESSIONS_PERCENTAGE =
 export const INGESTED_SPANS_BYTES_USAGE = "ingested_spans_bytes_usage";
 export const INGESTED_SPANS_BYTES_PERCENTAGE =
   "ingested_spans_bytes_percentage";
+export const SIEM_ANALYZED_LOGS_ADD_ON_USAGE =
+  "siem_analyzed_logs_add_on_usage";
+export const SIEM_ANALYZED_LOGS_ADD_ON_PERCENTAGE =
+  "siem_analyzed_logs_add_on_percentage";
 export const SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage";
 export const SIEM_INGESTED_BYTES_PERCENTAGE = "siem_ingested_bytes_percentage";
 export const WORKFLOW_EXECUTIONS_USAGE = "workflow_executions_usage";

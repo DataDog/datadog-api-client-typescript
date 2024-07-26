@@ -75,6 +75,7 @@ export type HourlyUsageAttributionUsageType =
   | typeof RUM_REPLAY_SESSIONS_USAGE
   | typeof SDS_SCANNED_BYTES_USAGE
   | typeof SERVERLESS_APPS_USAGE
+  | typeof SIEM_ANALYZED_LOGS_ADD_ON_USAGE
   | typeof SIEM_INGESTED_BYTES_USAGE
   | typeof SNMP_USAGE
   | typeof UNIVERSAL_SERVICE_MONITORING_USAGE
@@ -153,6 +154,8 @@ export const RUM_BROWSER_MOBILE_SESSIONS_USAGE =
 export const RUM_REPLAY_SESSIONS_USAGE = "rum_replay_sessions_usage";
 export const SDS_SCANNED_BYTES_USAGE = "sds_scanned_bytes_usage";
 export const SERVERLESS_APPS_USAGE = "serverless_apps_usage";
+export const SIEM_ANALYZED_LOGS_ADD_ON_USAGE =
+  "siem_analyzed_logs_add_on_usage";
 export const SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage";
 export const SNMP_USAGE = "snmp_usage";
 export const UNIVERSAL_SERVICE_MONITORING_USAGE =

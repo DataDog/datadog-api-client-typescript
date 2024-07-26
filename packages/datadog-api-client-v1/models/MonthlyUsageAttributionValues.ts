@@ -507,6 +507,14 @@ export class MonthlyUsageAttributionValues {
    */
   "serverlessAppsUsage"?: number;
   /**
+   * The percentage of log events analyzed by Cloud SIEM usage by tag(s).
+   */
+  "siemAnalyzedLogsAddOnPercentage"?: number;
+  /**
+   * The log events analyzed by Cloud SIEM usage by tag(s).
+   */
+  "siemAnalyzedLogsAddOnUsage"?: number;
+  /**
    * The percentage of SIEM usage by tag(s).
    */
   "siemIngestedBytesPercentage"?: number;
@@ -1180,6 +1188,16 @@ export class MonthlyUsageAttributionValues {
     },
     serverlessAppsUsage: {
       baseName: "serverless_apps_usage",
+      type: "number",
+      format: "double",
+    },
+    siemAnalyzedLogsAddOnPercentage: {
+      baseName: "siem_analyzed_logs_add_on_percentage",
+      type: "number",
+      format: "double",
+    },
+    siemAnalyzedLogsAddOnUsage: {
+      baseName: "siem_analyzed_logs_add_on_usage",
       type: "number",
       format: "double",
     },
