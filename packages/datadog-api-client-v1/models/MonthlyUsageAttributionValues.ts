@@ -491,6 +491,14 @@ export class MonthlyUsageAttributionValues {
    */
   "rumReplaySessionsUsage"?: number;
   /**
+   * The percentage of Software Composition Analysis Fargate task usage by tag(s).
+   */
+  "scaFargatePercentage"?: number;
+  /**
+   * The total Software Composition Analysis Fargate task usage by tag(s).
+   */
+  "scaFargateUsage"?: number;
+  /**
    * The percentage of Sensitive Data Scanner usage by tag(s).
    */
   "sdsScannedBytesPercentage"?: number;
@@ -1168,6 +1176,16 @@ export class MonthlyUsageAttributionValues {
     },
     rumReplaySessionsUsage: {
       baseName: "rum_replay_sessions_usage",
+      type: "number",
+      format: "double",
+    },
+    scaFargatePercentage: {
+      baseName: "sca_fargate_percentage",
+      type: "number",
+      format: "double",
+    },
+    scaFargateUsage: {
+      baseName: "sca_fargate_usage",
       type: "number",
       format: "double",
     },
