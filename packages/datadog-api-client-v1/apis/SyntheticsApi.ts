@@ -1254,6 +1254,7 @@ export class SyntheticsApiResponseProcessor {
     if (
       response.httpStatusCode === 400 ||
       response.httpStatusCode === 403 ||
+      response.httpStatusCode === 409 ||
       response.httpStatusCode === 429
     ) {
       const bodyText = ObjectSerializer.parse(
