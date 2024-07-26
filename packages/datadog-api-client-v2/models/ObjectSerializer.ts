@@ -236,6 +236,19 @@ import { CreateRuleRequestData } from "./CreateRuleRequestData";
 import { CreateRuleResponse } from "./CreateRuleResponse";
 import { CreateRuleResponseData } from "./CreateRuleResponseData";
 import { Creator } from "./Creator";
+import { CustomCostGetResponseMeta } from "./CustomCostGetResponseMeta";
+import { CustomCostListResponseMeta } from "./CustomCostListResponseMeta";
+import { CustomCostUploadResponseMeta } from "./CustomCostUploadResponseMeta";
+import { CustomCostsFileGetResponse } from "./CustomCostsFileGetResponse";
+import { CustomCostsFileLineItem } from "./CustomCostsFileLineItem";
+import { CustomCostsFileListResponse } from "./CustomCostsFileListResponse";
+import { CustomCostsFileMetadata } from "./CustomCostsFileMetadata";
+import { CustomCostsFileMetadataHighLevel } from "./CustomCostsFileMetadataHighLevel";
+import { CustomCostsFileMetadataWithContent } from "./CustomCostsFileMetadataWithContent";
+import { CustomCostsFileMetadataWithContentHighLevel } from "./CustomCostsFileMetadataWithContentHighLevel";
+import { CustomCostsFileUploadResponse } from "./CustomCostsFileUploadResponse";
+import { CustomCostsFileUsageChargePeriod } from "./CustomCostsFileUsageChargePeriod";
+import { CustomCostsUser } from "./CustomCostsUser";
 import { CustomDestinationCreateRequest } from "./CustomDestinationCreateRequest";
 import { CustomDestinationCreateRequestAttributes } from "./CustomDestinationCreateRequestAttributes";
 import { CustomDestinationCreateRequestDefinition } from "./CustomDestinationCreateRequestDefinition";
@@ -2021,6 +2034,20 @@ const typeMap: { [index: string]: any } = {
   CreateRuleResponse: CreateRuleResponse,
   CreateRuleResponseData: CreateRuleResponseData,
   Creator: Creator,
+  CustomCostGetResponseMeta: CustomCostGetResponseMeta,
+  CustomCostListResponseMeta: CustomCostListResponseMeta,
+  CustomCostUploadResponseMeta: CustomCostUploadResponseMeta,
+  CustomCostsFileGetResponse: CustomCostsFileGetResponse,
+  CustomCostsFileLineItem: CustomCostsFileLineItem,
+  CustomCostsFileListResponse: CustomCostsFileListResponse,
+  CustomCostsFileMetadata: CustomCostsFileMetadata,
+  CustomCostsFileMetadataHighLevel: CustomCostsFileMetadataHighLevel,
+  CustomCostsFileMetadataWithContent: CustomCostsFileMetadataWithContent,
+  CustomCostsFileMetadataWithContentHighLevel:
+    CustomCostsFileMetadataWithContentHighLevel,
+  CustomCostsFileUploadResponse: CustomCostsFileUploadResponse,
+  CustomCostsFileUsageChargePeriod: CustomCostsFileUsageChargePeriod,
+  CustomCostsUser: CustomCostsUser,
   CustomDestinationCreateRequest: CustomDestinationCreateRequest,
   CustomDestinationCreateRequestAttributes:
     CustomDestinationCreateRequestAttributes,

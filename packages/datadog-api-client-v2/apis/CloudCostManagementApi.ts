@@ -27,6 +27,10 @@ import { AzureUCConfigPatchRequest } from "../models/AzureUCConfigPatchRequest";
 import { AzureUCConfigPostRequest } from "../models/AzureUCConfigPostRequest";
 import { AzureUCConfigsResponse } from "../models/AzureUCConfigsResponse";
 import { CloudCostActivityResponse } from "../models/CloudCostActivityResponse";
+import { CustomCostsFileGetResponse } from "../models/CustomCostsFileGetResponse";
+import { CustomCostsFileLineItem } from "../models/CustomCostsFileLineItem";
+import { CustomCostsFileListResponse } from "../models/CustomCostsFileListResponse";
+import { CustomCostsFileUploadResponse } from "../models/CustomCostsFileUploadResponse";
 
 export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory {
   public async createCostAWSCURConfig(
@@ -183,6 +187,40 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async deleteCustomCostsFile(
+    fileId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'fileId' is not null or undefined
+    if (fileId === null || fileId === undefined) {
+      throw new RequiredError("fileId", "deleteCustomCostsFile");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/custom_costs/{file_id}".replace(
+      "{file_id}",
+      encodeURIComponent(String(fileId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.deleteCustomCostsFile")
+      .makeRequestContext(localVarPath, HttpMethod.DELETE);
+    requestContext.setHeaderParam("Accept", "*/*");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async getCloudCostActivity(
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -194,6 +232,40 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     // Make Request Context
     const requestContext = _config
       .getServer("v2.CloudCostManagementApi.getCloudCostActivity")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async getCustomCostsFile(
+    fileId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'fileId' is not null or undefined
+    if (fileId === null || fileId === undefined) {
+      throw new RequiredError("fileId", "getCustomCostsFile");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/custom_costs/{file_id}".replace(
+      "{file_id}",
+      encodeURIComponent(String(fileId))
+    );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.getCustomCostsFile")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -303,6 +375,31 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     return requestContext;
   }
 
+  public async listCustomCostsFiles(
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/custom_costs";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.listCustomCostsFiles")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
   public async updateCostAWSCURConfig(
     cloudAccountId: string,
     body: AwsCURConfigPatchRequest,
@@ -393,6 +490,48 @@ export class CloudCostManagementApiRequestFactory extends BaseAPIRequestFactory 
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "AzureUCConfigPatchRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async uploadCustomCostsFile(
+    body: Array<CustomCostsFileLineItem>,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "uploadCustomCostsFile");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v2/cost/custom_costs";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.CloudCostManagementApi.uploadCustomCostsFile")
+      .makeRequestContext(localVarPath, HttpMethod.PUT);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "Array<CustomCostsFileLineItem>", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -653,6 +792,58 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to deleteCustomCostsFile
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async deleteCustomCostsFile(response: ResponseContext): Promise<void> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 204) {
+      return;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: void = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "void",
+        ""
+      ) as void;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getCloudCostActivity
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -697,6 +888,64 @@ export class CloudCostManagementApiResponseProcessor {
         "CloudCostActivityResponse",
         ""
       ) as CloudCostActivityResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to getCustomCostsFile
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async getCustomCostsFile(
+    response: ResponseContext
+  ): Promise<CustomCostsFileGetResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CustomCostsFileGetResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomCostsFileGetResponse"
+      ) as CustomCostsFileGetResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CustomCostsFileGetResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomCostsFileGetResponse",
+        ""
+      ) as CustomCostsFileGetResponse;
       return body;
     }
 
@@ -889,6 +1138,64 @@ export class CloudCostManagementApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to listCustomCostsFiles
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async listCustomCostsFiles(
+    response: ResponseContext
+  ): Promise<CustomCostsFileListResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: CustomCostsFileListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomCostsFileListResponse"
+      ) as CustomCostsFileListResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CustomCostsFileListResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomCostsFileListResponse",
+        ""
+      ) as CustomCostsFileListResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to updateCostAWSCURConfig
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -1004,6 +1311,64 @@ export class CloudCostManagementApiResponseProcessor {
       'Unknown API Status Code!\nBody: "' + body + '"'
     );
   }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to uploadCustomCostsFile
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async uploadCustomCostsFile(
+    response: ResponseContext
+  ): Promise<CustomCostsFileUploadResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 202) {
+      const body: CustomCostsFileUploadResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomCostsFileUploadResponse"
+      ) as CustomCostsFileUploadResponse;
+      return body;
+    }
+    if (response.httpStatusCode === 403 || response.httpStatusCode === 429) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: CustomCostsFileUploadResponse = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "CustomCostsFileUploadResponse",
+        ""
+      ) as CustomCostsFileUploadResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
 }
 
 export interface CloudCostManagementApiCreateCostAWSCURConfigRequest {
@@ -1036,6 +1401,22 @@ export interface CloudCostManagementApiDeleteCostAzureUCConfigRequest {
   cloudAccountId: string;
 }
 
+export interface CloudCostManagementApiDeleteCustomCostsFileRequest {
+  /**
+   * File ID.
+   * @type string
+   */
+  fileId: string;
+}
+
+export interface CloudCostManagementApiGetCustomCostsFileRequest {
+  /**
+   * File ID.
+   * @type string
+   */
+  fileId: string;
+}
+
 export interface CloudCostManagementApiListAWSRelatedAccountsRequest {
   /**
    * The ID of the management account to filter by.
@@ -1066,6 +1447,13 @@ export interface CloudCostManagementApiUpdateCostAzureUCConfigsRequest {
    * @type AzureUCConfigPatchRequest
    */
   body: AzureUCConfigPatchRequest;
+}
+
+export interface CloudCostManagementApiUploadCustomCostsFileRequest {
+  /**
+   * @type Array<CustomCostsFileLineItem>
+   */
+  body: Array<CustomCostsFileLineItem>;
 }
 
 export class CloudCostManagementApi {
@@ -1174,6 +1562,27 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * Delete the specified Custom Costs file.
+   * @param param The request object
+   */
+  public deleteCustomCostsFile(
+    param: CloudCostManagementApiDeleteCustomCostsFileRequest,
+    options?: Configuration
+  ): Promise<void> {
+    const requestContextPromise = this.requestFactory.deleteCustomCostsFile(
+      param.fileId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.deleteCustomCostsFile(responseContext);
+        });
+    });
+  }
+
+  /**
    * Get the Cloud Cost Management activity.
    * @param param The request object
    */
@@ -1187,6 +1596,27 @@ export class CloudCostManagementApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.getCloudCostActivity(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Fetch the specified Custom Costs file.
+   * @param param The request object
+   */
+  public getCustomCostsFile(
+    param: CloudCostManagementApiGetCustomCostsFileRequest,
+    options?: Configuration
+  ): Promise<CustomCostsFileGetResponse> {
+    const requestContextPromise = this.requestFactory.getCustomCostsFile(
+      param.fileId,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.getCustomCostsFile(responseContext);
         });
     });
   }
@@ -1249,6 +1679,24 @@ export class CloudCostManagementApi {
   }
 
   /**
+   * List the Custom Costs files.
+   * @param param The request object
+   */
+  public listCustomCostsFiles(
+    options?: Configuration
+  ): Promise<CustomCostsFileListResponse> {
+    const requestContextPromise =
+      this.requestFactory.listCustomCostsFiles(options);
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listCustomCostsFiles(responseContext);
+        });
+    });
+  }
+
+  /**
    * Update the status of an AWS CUR config (active/archived).
    * @param param The request object
    */
@@ -1290,6 +1738,27 @@ export class CloudCostManagementApi {
           return this.responseProcessor.updateCostAzureUCConfigs(
             responseContext
           );
+        });
+    });
+  }
+
+  /**
+   * Upload a Custom Costs file.
+   * @param param The request object
+   */
+  public uploadCustomCostsFile(
+    param: CloudCostManagementApiUploadCustomCostsFileRequest,
+    options?: Configuration
+  ): Promise<CustomCostsFileUploadResponse> {
+    const requestContextPromise = this.requestFactory.uploadCustomCostsFile(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.uploadCustomCostsFile(responseContext);
         });
     });
   }

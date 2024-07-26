@@ -3018,6 +3018,30 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "AzureUCConfigPairsResponse",
     },
+    "v2.ListCustomCostsFiles": {
+        "operationResponseType": "CustomCostsFileListResponse",
+    },
+    "v2.UploadCustomCostsFile": {
+        "body": {
+            "type": "Array<CustomCostsFileLineItem>",
+            "format": "",
+            },
+        "operationResponseType": "CustomCostsFileUploadResponse",
+    },
+    "v2.DeleteCustomCostsFile": {
+        "fileId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetCustomCostsFile": {
+        "fileId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "CustomCostsFileGetResponse",
+    },
     "v2.GetCloudCostActivity": {
         "operationResponseType": "CloudCostActivityResponse",
     },
