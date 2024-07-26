@@ -12,7 +12,7 @@ const params: v1.AzureIntegrationApiUpdateAzureHostFiltersRequest = {
     appServicePlanFilters: "key:value,filter:example",
     automute: true,
     clientId: "testc7f6-1234-5678-9101-3fcbf464test",
-    clientSecret: "testingx./Sw*g/Y33t..R1cH+hScMDt",
+    clientSecret: "TestingRh2nx664kUy5dIApvM54T4AtO",
     containerAppFilters: "key:value,filter:example",
     cspmEnabled: true,
     customMetricsEnabled: true,
