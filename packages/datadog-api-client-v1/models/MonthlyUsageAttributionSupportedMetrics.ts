@@ -147,6 +147,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof SIEM_INGESTED_BYTES_PERCENTAGE
   | typeof WORKFLOW_EXECUTIONS_USAGE
   | typeof WORKFLOW_EXECUTIONS_PERCENTAGE
+  | typeof SCA_FARGATE_USAGE
+  | typeof SCA_FARGATE_PERCENTAGE
   | typeof ALL
   | UnparsedObject;
 export const API_USAGE = "api_usage";
@@ -312,4 +314,6 @@ export const SIEM_INGESTED_BYTES_USAGE = "siem_ingested_bytes_usage";
 export const SIEM_INGESTED_BYTES_PERCENTAGE = "siem_ingested_bytes_percentage";
 export const WORKFLOW_EXECUTIONS_USAGE = "workflow_executions_usage";
 export const WORKFLOW_EXECUTIONS_PERCENTAGE = "workflow_executions_percentage";
+export const SCA_FARGATE_USAGE = "sca_fargate_usage";
+export const SCA_FARGATE_PERCENTAGE = "sca_fargate_percentage";
 export const ALL = "*";

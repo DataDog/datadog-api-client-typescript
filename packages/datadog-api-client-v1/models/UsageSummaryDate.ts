@@ -444,6 +444,14 @@ export class UsageSummaryDate {
    */
   "rumUnitsSum"?: number;
   /**
+   * Shows the average of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.
+   */
+  "scaFargateCountAvg"?: number;
+  /**
+   * Shows the sum of the high-water marks of all Software Composition Analysis Fargate tasks over all hours in the current date for the given org.
+   */
+  "scaFargateCountHwm"?: number;
+  /**
    * Sum of all APM bytes scanned with sensitive data scanner over all hours in the current date for all organizations.
    */
   "sdsApmScannedBytesSum"?: number;
@@ -1072,6 +1080,16 @@ export class UsageSummaryDate {
     },
     rumUnitsSum: {
       baseName: "rum_units_sum",
+      type: "number",
+      format: "int64",
+    },
+    scaFargateCountAvg: {
+      baseName: "sca_fargate_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    scaFargateCountHwm: {
+      baseName: "sca_fargate_count_hwm",
       type: "number",
       format: "int64",
     },
