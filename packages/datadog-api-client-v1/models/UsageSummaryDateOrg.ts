@@ -499,6 +499,10 @@ export class UsageSummaryDateOrg {
    */
   "serverlessAppsTotalCountAvg"?: number;
   /**
+   * Shows the sum of all log events analyzed by Cloud SIEM over all hours in the current date for the given org.
+   */
+  "siemAnalyzedLogsAddOnCountSum"?: number;
+  /**
    * Shows the sum of all Synthetic browser tests over all hours in the current date for the given org.
    */
   "syntheticsBrowserCheckCallsCountSum"?: number;
@@ -1156,6 +1160,11 @@ export class UsageSummaryDateOrg {
     },
     serverlessAppsTotalCountAvg: {
       baseName: "serverless_apps_total_count_avg",
+      type: "number",
+      format: "int64",
+    },
+    siemAnalyzedLogsAddOnCountSum: {
+      baseName: "siem_analyzed_logs_add_on_count_sum",
       type: "number",
       format: "int64",
     },
