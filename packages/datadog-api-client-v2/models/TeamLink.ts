@@ -19,7 +19,7 @@ export class TeamLink {
   /**
    * The team link's identifier
    */
-  "id": string;
+  "id"?: string;
   /**
    * Team link type
    */
@@ -49,7 +49,6 @@ export class TeamLink {
     id: {
       baseName: "id",
       type: "string",
-      required: true,
     },
     type: {
       baseName: "type",
