@@ -14,11 +14,11 @@ export class RelationshipToPermissionData {
   /**
    * ID of the permission.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Permissions resource type.
    */
-  "type"?: PermissionsType;
+  "type": PermissionsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,10 +39,12 @@ export class RelationshipToPermissionData {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",
       type: "PermissionsType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

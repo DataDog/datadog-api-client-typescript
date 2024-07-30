@@ -14,7 +14,7 @@ export class RelationshipToPermission {
   /**
    * Relationship to permission object.
    */
-  "data"?: RelationshipToPermissionData;
+  "data": RelationshipToPermissionData;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +35,7 @@ export class RelationshipToPermission {
     data: {
       baseName: "data",
       type: "RelationshipToPermissionData",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",

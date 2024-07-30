@@ -19,7 +19,7 @@ export class Permission {
   /**
    * ID of the permission.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Permissions resource type.
    */
@@ -48,6 +48,7 @@ export class Permission {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     type: {
       baseName: "type",

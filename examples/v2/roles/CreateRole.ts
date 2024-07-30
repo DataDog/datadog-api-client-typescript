@@ -17,6 +17,7 @@ const params: v2.RolesApiCreateRoleRequest = {
         permissions: {
           data: [
             {
+              id: "219",
               type: "permissions",
             },
           ],
