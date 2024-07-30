@@ -1161,6 +1161,19 @@ import { UserUpdateData } from "./UserUpdateData";
 import { UserUpdateRequest } from "./UserUpdateRequest";
 import { UsersRelationship } from "./UsersRelationship";
 import { UsersResponse } from "./UsersResponse";
+import { WorkflowInstanceCreateMeta } from "./WorkflowInstanceCreateMeta";
+import { WorkflowInstanceCreateRequest } from "./WorkflowInstanceCreateRequest";
+import { WorkflowInstanceCreateResponse } from "./WorkflowInstanceCreateResponse";
+import { WorkflowInstanceCreateResponseData } from "./WorkflowInstanceCreateResponseData";
+import { WorkflowInstanceListItem } from "./WorkflowInstanceListItem";
+import { WorkflowListInstancesResponse } from "./WorkflowListInstancesResponse";
+import { WorkflowListInstancesResponseMeta } from "./WorkflowListInstancesResponseMeta";
+import { WorkflowListInstancesResponseMetaPage } from "./WorkflowListInstancesResponseMetaPage";
+import { WorklflowCancelInstanceResponse } from "./WorklflowCancelInstanceResponse";
+import { WorklflowCancelInstanceResponseData } from "./WorklflowCancelInstanceResponseData";
+import { WorklflowGetInstanceResponse } from "./WorklflowGetInstanceResponse";
+import { WorklflowGetInstanceResponseData } from "./WorklflowGetInstanceResponseData";
+import { WorklflowGetInstanceResponseDataAttributes } from "./WorklflowGetInstanceResponseDataAttributes";
 import {
   dateFromRFC3339String,
   dateToRFC3339String,
@@ -3062,6 +3075,20 @@ const typeMap: { [index: string]: any } = {
   UserUpdateRequest: UserUpdateRequest,
   UsersRelationship: UsersRelationship,
   UsersResponse: UsersResponse,
+  WorkflowInstanceCreateMeta: WorkflowInstanceCreateMeta,
+  WorkflowInstanceCreateRequest: WorkflowInstanceCreateRequest,
+  WorkflowInstanceCreateResponse: WorkflowInstanceCreateResponse,
+  WorkflowInstanceCreateResponseData: WorkflowInstanceCreateResponseData,
+  WorkflowInstanceListItem: WorkflowInstanceListItem,
+  WorkflowListInstancesResponse: WorkflowListInstancesResponse,
+  WorkflowListInstancesResponseMeta: WorkflowListInstancesResponseMeta,
+  WorkflowListInstancesResponseMetaPage: WorkflowListInstancesResponseMetaPage,
+  WorklflowCancelInstanceResponse: WorklflowCancelInstanceResponse,
+  WorklflowCancelInstanceResponseData: WorklflowCancelInstanceResponseData,
+  WorklflowGetInstanceResponse: WorklflowGetInstanceResponse,
+  WorklflowGetInstanceResponseData: WorklflowGetInstanceResponseData,
+  WorklflowGetInstanceResponseDataAttributes:
+    WorklflowGetInstanceResponseDataAttributes,
 };
 
 const oneOfMap: { [index: string]: string[] } = {

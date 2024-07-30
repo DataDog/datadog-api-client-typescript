@@ -517,6 +517,14 @@ export {
   UsersApi,
 } from "./apis/UsersApi";
 
+export {
+  WorkflowAutomationApiCancelWorkflowInstanceRequest,
+  WorkflowAutomationApiCreateWorkflowInstanceRequest,
+  WorkflowAutomationApiGetWorkflowInstanceRequest,
+  WorkflowAutomationApiListWorkflowInstancesRequest,
+  WorkflowAutomationApi,
+} from "./apis/WorkflowAutomationApi";
+
 export { ActiveBillingDimensionsAttributes } from "./models/ActiveBillingDimensionsAttributes";
 export { ActiveBillingDimensionsBody } from "./models/ActiveBillingDimensionsBody";
 export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimensionsResponse";
@@ -2026,5 +2034,18 @@ export { UserUpdateAttributes } from "./models/UserUpdateAttributes";
 export { UserUpdateData } from "./models/UserUpdateData";
 export { UserUpdateRequest } from "./models/UserUpdateRequest";
 export { WidgetLiveSpan } from "./models/WidgetLiveSpan";
+export { WorkflowInstanceCreateMeta } from "./models/WorkflowInstanceCreateMeta";
+export { WorkflowInstanceCreateRequest } from "./models/WorkflowInstanceCreateRequest";
+export { WorkflowInstanceCreateResponse } from "./models/WorkflowInstanceCreateResponse";
+export { WorkflowInstanceCreateResponseData } from "./models/WorkflowInstanceCreateResponseData";
+export { WorkflowInstanceListItem } from "./models/WorkflowInstanceListItem";
+export { WorkflowListInstancesResponse } from "./models/WorkflowListInstancesResponse";
+export { WorkflowListInstancesResponseMeta } from "./models/WorkflowListInstancesResponseMeta";
+export { WorkflowListInstancesResponseMetaPage } from "./models/WorkflowListInstancesResponseMetaPage";
+export { WorklflowCancelInstanceResponse } from "./models/WorklflowCancelInstanceResponse";
+export { WorklflowCancelInstanceResponseData } from "./models/WorklflowCancelInstanceResponseData";
+export { WorklflowGetInstanceResponse } from "./models/WorklflowGetInstanceResponse";
+export { WorklflowGetInstanceResponseData } from "./models/WorklflowGetInstanceResponseData";
+export { WorklflowGetInstanceResponseDataAttributes } from "./models/WorklflowGetInstanceResponseDataAttributes";
 
 export { ObjectSerializer } from "./models/ObjectSerializer";
