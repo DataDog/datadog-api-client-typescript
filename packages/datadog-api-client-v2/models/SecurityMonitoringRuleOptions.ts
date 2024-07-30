@@ -36,7 +36,7 @@ export class SecurityMonitoringRuleOptions {
   "detectionMethod"?: SecurityMonitoringRuleDetectionMethod;
   /**
    * A time window is specified to match when at least one of the cases matches true. This is a sliding window
-   * and evaluates in real time.
+   * and evaluates in real time. For third party rules, it should equal max signal duration.
    */
   "evaluationWindow"?: SecurityMonitoringRuleEvaluationWindow;
   /**
@@ -49,7 +49,7 @@ export class SecurityMonitoringRuleOptions {
   "impossibleTravelOptions"?: SecurityMonitoringRuleImpossibleTravelOptions;
   /**
    * Once a signal is generated, the signal will remain “open” if a case is matched at least once within
-   * this keep alive window.
+   * this keep alive window. For third party rules, it should equal max signal duration.
    */
   "keepAlive"?: SecurityMonitoringRuleKeepAlive;
   /**
