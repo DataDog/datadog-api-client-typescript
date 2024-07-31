@@ -530,7 +530,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Cancels a specific execution of a given workflow.
+   * Cancels a specific execution of a given workflow. This API requires an application key scoped with the workflows_run permission.
    * @param param The request object
    */
   public cancelWorkflowInstance(
@@ -552,7 +552,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Execute the given workflow
+   * Execute the given workflow. This API requires an application key scoped with the workflows_run permission.
    * @param param The request object
    */
   public createWorkflowInstance(
@@ -574,7 +574,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Get a specific execution of a given workflow.
+   * Get a specific execution of a given workflow. This API requires an application key scoped with the workflows_read permission.
    * @param param The request object
    */
   public getWorkflowInstance(
@@ -596,7 +596,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * List all instances of a given workflow.
+   * List all instances of a given workflow. This API requires an application key scoped with the workflows_read permission.
    * @param param The request object
    */
   public listWorkflowInstances(
