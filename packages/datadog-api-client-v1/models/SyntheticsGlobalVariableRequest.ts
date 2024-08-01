@@ -10,9 +10,9 @@ import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Synthetic global variable.
+ * Details of the global variable to create.
  */
-export class SyntheticsGlobalVariable {
+export class SyntheticsGlobalVariableRequest {
   /**
    * Attributes of the global variable.
    */
@@ -52,7 +52,7 @@ export class SyntheticsGlobalVariable {
   /**
    * Value of the global variable.
    */
-  "value": SyntheticsGlobalVariableValue;
+  "value"?: SyntheticsGlobalVariableValue;
 
   /**
    * A container for additional, undeclared properties.
@@ -112,7 +112,6 @@ export class SyntheticsGlobalVariable {
     value: {
       baseName: "value",
       type: "SyntheticsGlobalVariableValue",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -124,7 +123,7 @@ export class SyntheticsGlobalVariable {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsGlobalVariable.attributeTypeMap;
+    return SyntheticsGlobalVariableRequest.attributeTypeMap;
   }
 
   public constructor() {}
