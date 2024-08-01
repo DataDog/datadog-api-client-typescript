@@ -1123,6 +1123,10 @@ import { Unit } from "./Unit";
 import { UpdateOpenAPIResponse } from "./UpdateOpenAPIResponse";
 import { UpdateOpenAPIResponseAttributes } from "./UpdateOpenAPIResponseAttributes";
 import { UpdateOpenAPIResponseData } from "./UpdateOpenAPIResponseData";
+import { UpdateRuleRequest } from "./UpdateRuleRequest";
+import { UpdateRuleRequestData } from "./UpdateRuleRequestData";
+import { UpdateRuleResponse } from "./UpdateRuleResponse";
+import { UpdateRuleResponseData } from "./UpdateRuleResponseData";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -3036,6 +3040,10 @@ const typeMap: { [index: string]: any } = {
   UpdateOpenAPIResponse: UpdateOpenAPIResponse,
   UpdateOpenAPIResponseAttributes: UpdateOpenAPIResponseAttributes,
   UpdateOpenAPIResponseData: UpdateOpenAPIResponseData,
+  UpdateRuleRequest: UpdateRuleRequest,
+  UpdateRuleRequestData: UpdateRuleRequestData,
+  UpdateRuleResponse: UpdateRuleResponse,
+  UpdateRuleResponseData: UpdateRuleResponseData,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,

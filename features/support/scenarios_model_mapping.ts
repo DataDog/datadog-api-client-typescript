@@ -5193,6 +5193,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "void",
     },
+    "v2.UpdateScorecardRule": {
+        "ruleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "UpdateRuleRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpdateRuleResponse",
+    },
     "v2.ListScanningGroups": {
         "operationResponseType": "SensitiveDataScannerGetConfigResponse",
     },
