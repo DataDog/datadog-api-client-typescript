@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsGlobalVariableParseTestOptionsType } from "./SyntheticsGlobalVariableParseTestOptionsType";
+import { SyntheticsLocalVariableParsingOptionsType } from "./SyntheticsLocalVariableParsingOptionsType";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsParsingOptions {
   /**
-   * When type is `http_header`, name of the header to use to extract the value.
+   * When type is `http_header` or `grpc_metadata`, name of the header or metadatum to extract.
    */
   "field"?: string;
   /**
@@ -29,9 +29,9 @@ export class SyntheticsParsingOptions {
    */
   "secure"?: boolean;
   /**
-   * Property of the Synthetic Test Response to use for a Synthetic global variable.
+   * Property of the Synthetic Test Response to extract into a local variable.
    */
-  "type"?: SyntheticsGlobalVariableParseTestOptionsType;
+  "type"?: SyntheticsLocalVariableParsingOptionsType;
 
   /**
    * A container for additional, undeclared properties.
@@ -67,7 +67,7 @@ export class SyntheticsParsingOptions {
     },
     type: {
       baseName: "type",
-      type: "SyntheticsGlobalVariableParseTestOptionsType",
+      type: "SyntheticsLocalVariableParsingOptionsType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
