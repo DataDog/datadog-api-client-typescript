@@ -942,6 +942,7 @@ export { SyntheticsGlobalVariableOptions } from "./models/SyntheticsGlobalVariab
 export { SyntheticsGlobalVariableParserType } from "./models/SyntheticsGlobalVariableParserType";
 export { SyntheticsGlobalVariableParseTestOptions } from "./models/SyntheticsGlobalVariableParseTestOptions";
 export { SyntheticsGlobalVariableParseTestOptionsType } from "./models/SyntheticsGlobalVariableParseTestOptionsType";
+export { SyntheticsGlobalVariableRequest } from "./models/SyntheticsGlobalVariableRequest";
 export { SyntheticsGlobalVariableTOTPParameters } from "./models/SyntheticsGlobalVariableTOTPParameters";
 export { SyntheticsGlobalVariableValue } from "./models/SyntheticsGlobalVariableValue";
 export { SyntheticsListGlobalVariablesResponse } from "./models/SyntheticsListGlobalVariablesResponse";

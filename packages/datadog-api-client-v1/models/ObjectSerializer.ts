@@ -440,6 +440,7 @@ import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
 import { SyntheticsGlobalVariableAttributes } from "./SyntheticsGlobalVariableAttributes";
 import { SyntheticsGlobalVariableOptions } from "./SyntheticsGlobalVariableOptions";
 import { SyntheticsGlobalVariableParseTestOptions } from "./SyntheticsGlobalVariableParseTestOptions";
+import { SyntheticsGlobalVariableRequest } from "./SyntheticsGlobalVariableRequest";
 import { SyntheticsGlobalVariableTOTPParameters } from "./SyntheticsGlobalVariableTOTPParameters";
 import { SyntheticsGlobalVariableValue } from "./SyntheticsGlobalVariableValue";
 import { SyntheticsListGlobalVariablesResponse } from "./SyntheticsListGlobalVariablesResponse";
@@ -2014,6 +2015,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsGlobalVariableOptions: SyntheticsGlobalVariableOptions,
   SyntheticsGlobalVariableParseTestOptions:
     SyntheticsGlobalVariableParseTestOptions,
+  SyntheticsGlobalVariableRequest: SyntheticsGlobalVariableRequest,
   SyntheticsGlobalVariableTOTPParameters:
     SyntheticsGlobalVariableTOTPParameters,
   SyntheticsGlobalVariableValue: SyntheticsGlobalVariableValue,
