@@ -447,6 +447,7 @@ export {
   ServiceScorecardsApiDeleteScorecardRuleRequest,
   ServiceScorecardsApiListScorecardOutcomesRequest,
   ServiceScorecardsApiListScorecardRulesRequest,
+  ServiceScorecardsApiUpdateScorecardRuleRequest,
   ServiceScorecardsApi,
 } from "./apis/ServiceScorecardsApi";
 
@@ -1984,6 +1985,10 @@ export { Unit } from "./models/Unit";
 export { UpdateOpenAPIResponse } from "./models/UpdateOpenAPIResponse";
 export { UpdateOpenAPIResponseAttributes } from "./models/UpdateOpenAPIResponseAttributes";
 export { UpdateOpenAPIResponseData } from "./models/UpdateOpenAPIResponseData";
+export { UpdateRuleRequest } from "./models/UpdateRuleRequest";
+export { UpdateRuleRequestData } from "./models/UpdateRuleRequestData";
+export { UpdateRuleResponse } from "./models/UpdateRuleResponse";
+export { UpdateRuleResponseData } from "./models/UpdateRuleResponseData";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
 export { UsageDataObject } from "./models/UsageDataObject";
