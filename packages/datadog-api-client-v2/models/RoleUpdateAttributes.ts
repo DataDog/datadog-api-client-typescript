@@ -22,6 +22,10 @@ export class RoleUpdateAttributes {
    * Name of the role.
    */
   "name"?: string;
+  /**
+   * The user count.
+   */
+  "userCount"?: number;
 
   /**
    * A container for additional, undeclared properties.
@@ -52,6 +56,11 @@ export class RoleUpdateAttributes {
     name: {
       baseName: "name",
       type: "string",
+    },
+    userCount: {
+      baseName: "user_count",
+      type: "number",
+      format: "int32",
     },
     additionalProperties: {
       baseName: "additionalProperties",
