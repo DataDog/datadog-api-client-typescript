@@ -20,7 +20,7 @@ export class Role {
   /**
    * The unique identifier of the role.
    */
-  "id"?: string;
+  "id": string;
   /**
    * Relationships of the role object returned by the API.
    */
@@ -53,6 +53,7 @@ export class Role {
     id: {
       baseName: "id",
       type: "string",
+      required: true,
     },
     relationships: {
       baseName: "relationships",
