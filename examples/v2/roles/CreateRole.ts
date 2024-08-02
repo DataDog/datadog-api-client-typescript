@@ -21,9 +21,6 @@ const params: v2.RolesApiCreateRoleRequest = {
             },
           ],
         },
-        users: {
-          data: [],
-        },
       },
       type: "roles",
     },

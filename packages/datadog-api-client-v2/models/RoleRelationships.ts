@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { RelationshipToPermissions } from "./RelationshipToPermissions";
-import { RelationshipToUsers } from "./RelationshipToUsers";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -16,10 +15,6 @@ export class RoleRelationships {
    * Relationship to multiple permissions objects.
    */
   "permissions"?: RelationshipToPermissions;
-  /**
-   * Relationship to users.
-   */
-  "users"?: RelationshipToUsers;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,10 +35,6 @@ export class RoleRelationships {
     permissions: {
       baseName: "permissions",
       type: "RelationshipToPermissions",
-    },
-    users: {
-      baseName: "users",
-      type: "RelationshipToUsers",
     },
     additionalProperties: {
       baseName: "additionalProperties",
