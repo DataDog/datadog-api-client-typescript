@@ -194,6 +194,7 @@ export class WorkflowAutomationApiRequestFactory extends BaseAPIRequestFactory {
 
     // Apply auth methods
     applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
       "apiKeyAuth",
       "appKeyAuth",
     ]);
@@ -530,7 +531,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Cancels a specific execution of a given workflow. This API requires an application key scoped with the workflows_run permission.
+   * Cancels a specific execution of a given workflow.
    * @param param The request object
    */
   public cancelWorkflowInstance(
@@ -552,7 +553,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Execute the given workflow. This API requires an application key scoped with the workflows_run permission.
+   * Execute the given workflow
    * @param param The request object
    */
   public createWorkflowInstance(
@@ -574,7 +575,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * Get a specific execution of a given workflow. This API requires an application key scoped with the workflows_read permission.
+   * Get a specific execution of a given workflow.
    * @param param The request object
    */
   public getWorkflowInstance(
@@ -596,7 +597,7 @@ export class WorkflowAutomationApi {
   }
 
   /**
-   * List all instances of a given workflow. This API requires an application key scoped with the workflows_read permission.
+   * List all instances of a given workflow.
    * @param param The request object
    */
   public listWorkflowInstances(
