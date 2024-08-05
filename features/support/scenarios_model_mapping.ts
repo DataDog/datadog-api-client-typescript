@@ -4373,6 +4373,24 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GetInterfacesResponse",
     },
+    "v2.ListDeviceUserTags": {
+        "deviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ListTagsResponse",
+    },
+    "v2.UpdateDeviceUserTags": {
+        "deviceId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ListTagsResponse",
+            "format": "",
+            },
+        "operationResponseType": "ListTagsResponse",
+    },
     "v2.ListOrgConfigs": {
         "operationResponseType": "OrgConfigListResponse",
     },
