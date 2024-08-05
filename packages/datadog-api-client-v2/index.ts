@@ -299,7 +299,9 @@ export {
 export {
   NetworkDeviceMonitoringApiGetDeviceRequest,
   NetworkDeviceMonitoringApiGetInterfacesRequest,
+  NetworkDeviceMonitoringApiListDeviceUserTagsRequest,
   NetworkDeviceMonitoringApiListDevicesRequest,
+  NetworkDeviceMonitoringApiUpdateDeviceUserTagsRequest,
   NetworkDeviceMonitoringApi,
 } from "./apis/NetworkDeviceMonitoringApi";
 
@@ -1198,6 +1200,9 @@ export { ListPowerpacksResponse } from "./models/ListPowerpacksResponse";
 export { ListRulesResponse } from "./models/ListRulesResponse";
 export { ListRulesResponseDataItem } from "./models/ListRulesResponseDataItem";
 export { ListRulesResponseLinks } from "./models/ListRulesResponseLinks";
+export { ListTagsResponse } from "./models/ListTagsResponse";
+export { ListTagsResponseData } from "./models/ListTagsResponseData";
+export { ListTagsResponseDataAttributes } from "./models/ListTagsResponseDataAttributes";
 export { ListTeamsInclude } from "./models/ListTeamsInclude";
 export { ListTeamsSort } from "./models/ListTeamsSort";
 export { Log } from "./models/Log";

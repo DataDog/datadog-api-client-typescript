@@ -515,6 +515,9 @@ import { ListPowerpacksResponse } from "./ListPowerpacksResponse";
 import { ListRulesResponse } from "./ListRulesResponse";
 import { ListRulesResponseDataItem } from "./ListRulesResponseDataItem";
 import { ListRulesResponseLinks } from "./ListRulesResponseLinks";
+import { ListTagsResponse } from "./ListTagsResponse";
+import { ListTagsResponseData } from "./ListTagsResponseData";
+import { ListTagsResponseDataAttributes } from "./ListTagsResponseDataAttributes";
 import { Log } from "./Log";
 import { LogAttributes } from "./LogAttributes";
 import { LogsAggregateBucket } from "./LogsAggregateBucket";
@@ -2363,6 +2366,9 @@ const typeMap: { [index: string]: any } = {
   ListRulesResponse: ListRulesResponse,
   ListRulesResponseDataItem: ListRulesResponseDataItem,
   ListRulesResponseLinks: ListRulesResponseLinks,
+  ListTagsResponse: ListTagsResponse,
+  ListTagsResponseData: ListTagsResponseData,
+  ListTagsResponseDataAttributes: ListTagsResponseDataAttributes,
   Log: Log,
   LogAttributes: LogAttributes,
   LogsAggregateBucket: LogsAggregateBucket,
