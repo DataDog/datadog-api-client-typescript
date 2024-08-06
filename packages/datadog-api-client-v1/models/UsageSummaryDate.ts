@@ -256,6 +256,18 @@ export class UsageSummaryDate {
    */
   "flexLogsComputeXsmallAvg"?: number;
   /**
+   * Shows the average number of Flex Logs Starter Instances over all hours in the current date for the given org.
+   */
+  "flexLogsStarterAvg"?: number;
+  /**
+   * Shows the average number of Flex Logs Starter Storage Index Instances over all hours in the current date for the given org.
+   */
+  "flexLogsStarterStorageIndexAvg"?: number;
+  /**
+   * Shows the average number of Flex Logs Starter Storage Retention Adjustment Instances over all hours in the current date for the given org.
+   */
+  "flexLogsStarterStorageRetentionAdjustmentAvg"?: number;
+  /**
    * Shows the average of all Flex Stored Logs over all hours in the current date for the given org.
    */
   "flexStoredLogsAvg"?: number;
@@ -846,6 +858,21 @@ export class UsageSummaryDate {
     },
     flexLogsComputeXsmallAvg: {
       baseName: "flex_logs_compute_xsmall_avg",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsStarterAvg: {
+      baseName: "flex_logs_starter_avg",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsStarterStorageIndexAvg: {
+      baseName: "flex_logs_starter_storage_index_avg",
+      type: "number",
+      format: "int64",
+    },
+    flexLogsStarterStorageRetentionAdjustmentAvg: {
+      baseName: "flex_logs_starter_storage_retention_adjustment_avg",
       type: "number",
       format: "int64",
     },
