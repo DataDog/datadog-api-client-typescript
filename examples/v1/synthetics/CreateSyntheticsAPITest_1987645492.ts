@@ -64,6 +64,10 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
           target: "a",
           type: "bodyHash",
         },
+        {
+          code: "const hello = 'world';",
+          type: "javascript",
+        },
       ],
       configVariables: [
         {

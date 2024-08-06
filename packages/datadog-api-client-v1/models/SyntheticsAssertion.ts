@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsAssertionBodyHashTarget } from "./SyntheticsAssertionBodyHashTarget";
+import { SyntheticsAssertionJavascript } from "./SyntheticsAssertionJavascript";
 import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPathTarget";
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
@@ -22,4 +23,5 @@ export type SyntheticsAssertion =
   | SyntheticsAssertionJSONPathTarget
   | SyntheticsAssertionJSONSchemaTarget
   | SyntheticsAssertionXPathTarget
+  | SyntheticsAssertionJavascript
   | UnparsedObject;

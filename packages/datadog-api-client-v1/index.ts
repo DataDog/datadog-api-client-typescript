@@ -872,6 +872,7 @@ export { SyntheticsAssertion } from "./models/SyntheticsAssertion";
 export { SyntheticsAssertionBodyHashOperator } from "./models/SyntheticsAssertionBodyHashOperator";
 export { SyntheticsAssertionBodyHashTarget } from "./models/SyntheticsAssertionBodyHashTarget";
 export { SyntheticsAssertionBodyHashType } from "./models/SyntheticsAssertionBodyHashType";
+export { SyntheticsAssertionJavascript } from "./models/SyntheticsAssertionJavascript";
 export { SyntheticsAssertionJSONPathOperator } from "./models/SyntheticsAssertionJSONPathOperator";
 export { SyntheticsAssertionJSONPathTarget } from "./models/SyntheticsAssertionJSONPathTarget";
 export { SyntheticsAssertionJSONPathTargetTarget } from "./models/SyntheticsAssertionJSONPathTargetTarget";

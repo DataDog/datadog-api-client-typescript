@@ -30,6 +30,7 @@ export type SyntheticsAssertionType =
   | typeof GRPC_METADATA
   | typeof GRPC_PROTO
   | typeof CONNECTION
+  | typeof JAVASCRIPT
   | UnparsedObject;
 export const BODY = "body";
 export const HEADER = "header";
@@ -50,3 +51,4 @@ export const GRPC_HEALTHCHECK_STATUS = "grpcHealthcheckStatus";
 export const GRPC_METADATA = "grpcMetadata";
 export const GRPC_PROTO = "grpcProto";
 export const CONNECTION = "connection";
+export const JAVASCRIPT = "javascript";

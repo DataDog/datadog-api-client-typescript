@@ -398,6 +398,7 @@ import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPath
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
 import { SyntheticsAssertionJSONSchemaTargetTarget } from "./SyntheticsAssertionJSONSchemaTargetTarget";
+import { SyntheticsAssertionJavascript } from "./SyntheticsAssertionJavascript";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
@@ -1245,6 +1246,7 @@ const enumsMap: { [key: string]: any[] } = {
     "grpcMetadata",
     "grpcProto",
     "connection",
+    "javascript",
   ],
   SyntheticsAssertionXPathOperator: ["validatesXPath"],
   SyntheticsBasicAuthDigestType: ["digest"],
@@ -1968,6 +1970,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONSchemaTarget: SyntheticsAssertionJSONSchemaTarget,
   SyntheticsAssertionJSONSchemaTargetTarget:
     SyntheticsAssertionJSONSchemaTargetTarget,
+  SyntheticsAssertionJavascript: SyntheticsAssertionJavascript,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
   SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
   SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
@@ -2286,6 +2289,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsAssertionJSONPathTarget",
     "SyntheticsAssertionJSONSchemaTarget",
     "SyntheticsAssertionXPathTarget",
+    "SyntheticsAssertionJavascript",
   ],
   SyntheticsBasicAuth: [
     "SyntheticsBasicAuthWeb",
