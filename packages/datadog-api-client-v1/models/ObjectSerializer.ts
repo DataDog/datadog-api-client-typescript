@@ -1469,6 +1469,7 @@ const enumsMap: { [key: string]: any[] } = {
     "6mo",
     "week_to_date",
     "month_to_date",
+    "last_month",
     "1y",
     "alert",
   ],
