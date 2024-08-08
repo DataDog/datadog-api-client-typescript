@@ -19,10 +19,6 @@ export class TeamUpdateAttributes {
    */
   "banner"?: number;
   /**
-   * An identifier for the color representing the team
-   */
-  "color"?: number;
-  /**
    * Free-form markdown description/content for the team's homepage
    */
   "description"?: string;
@@ -31,13 +27,25 @@ export class TeamUpdateAttributes {
    */
   "handle": string;
   /**
+   * The TeamUpdateAttributes handles.
+   */
+  "handles"?: string;
+  /**
    * Collection of hidden modules for the team
    */
   "hiddenModules"?: Array<string>;
   /**
+   * The number of links belonging to the team
+   */
+  "linkCount"?: number;
+  /**
    * The name of the team
    */
   "name": string;
+  /**
+   * A brief summary of the team
+   */
+  "summary"?: string;
   /**
    * Collection of visible modules for the team
    */
@@ -68,11 +76,6 @@ export class TeamUpdateAttributes {
       type: "number",
       format: "int64",
     },
-    color: {
-      baseName: "color",
-      type: "number",
-      format: "int32",
-    },
     description: {
       baseName: "description",
       type: "string",
@@ -82,14 +85,27 @@ export class TeamUpdateAttributes {
       type: "string",
       required: true,
     },
+    handles: {
+      baseName: "handles",
+      type: "string",
+    },
     hiddenModules: {
       baseName: "hidden_modules",
       type: "Array<string>",
+    },
+    linkCount: {
+      baseName: "link_count",
+      type: "number",
+      format: "int32",
     },
     name: {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    summary: {
+      baseName: "summary",
+      type: "string",
     },
     visibleModules: {
       baseName: "visible_modules",

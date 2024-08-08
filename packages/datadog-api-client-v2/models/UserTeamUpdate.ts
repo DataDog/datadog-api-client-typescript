@@ -17,6 +17,10 @@ export class UserTeamUpdate {
    */
   "attributes"?: UserTeamAttributes;
   /**
+   * ID of user team
+   */
+  "id"?: string;
+  /**
    * Team membership type
    */
   "type": UserTeamType;
@@ -40,6 +44,10 @@ export class UserTeamUpdate {
     attributes: {
       baseName: "attributes",
       type: "UserTeamAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",

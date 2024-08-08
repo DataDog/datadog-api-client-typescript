@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
 import { ProcessSummary } from "./ProcessSummary";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -16,10 +15,6 @@ export class ProcessSummariesResponse {
    * Array of process summary objects.
    */
   "data"?: Array<ProcessSummary>;
-  /**
-   * Response metadata object.
-   */
-  "meta"?: ProcessSummariesMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,10 +35,6 @@ export class ProcessSummariesResponse {
     data: {
       baseName: "data",
       type: "Array<ProcessSummary>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ProcessSummariesMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

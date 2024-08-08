@@ -19,6 +19,10 @@ export class ConfluentAccountUpdateRequestAttributes {
    */
   "apiSecret": string;
   /**
+   * The ConfluentAccountUpdateRequestAttributes resources.
+   */
+  "resources"?: string;
+  /**
    * A list of strings representing tags. Can be a single key, or key-value pairs separated by a colon.
    */
   "tags"?: Array<string>;
@@ -48,6 +52,10 @@ export class ConfluentAccountUpdateRequestAttributes {
       baseName: "api_secret",
       type: "string",
       required: true,
+    },
+    resources: {
+      baseName: "resources",
+      type: "string",
     },
     tags: {
       baseName: "tags",

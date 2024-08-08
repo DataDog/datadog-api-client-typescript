@@ -3,8 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { TeamsResponseLinks } from "./TeamsResponseLinks";
-import { TeamsResponseMeta } from "./TeamsResponseMeta";
 import { UserTeam } from "./UserTeam";
 import { UserTeamIncluded } from "./UserTeamIncluded";
 
@@ -22,14 +20,6 @@ export class UserTeamsResponse {
    * Resources related to the team memberships
    */
   "included"?: Array<UserTeamIncluded>;
-  /**
-   * Teams response links.
-   */
-  "links"?: TeamsResponseLinks;
-  /**
-   * Teams response metadata.
-   */
-  "meta"?: TeamsResponseMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -54,14 +44,6 @@ export class UserTeamsResponse {
     included: {
       baseName: "included",
       type: "Array<UserTeamIncluded>",
-    },
-    links: {
-      baseName: "links",
-      type: "TeamsResponseLinks",
-    },
-    meta: {
-      baseName: "meta",
-      type: "TeamsResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

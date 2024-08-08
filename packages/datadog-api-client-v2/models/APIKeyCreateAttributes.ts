@@ -11,9 +11,17 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class APIKeyCreateAttributes {
   /**
+   * The APIKeyCreateAttributes category.
+   */
+  "category"?: string;
+  /**
    * Name of the API key.
    */
   "name": string;
+  /**
+   * The APIKeyCreateAttributes remote_config_read_enabled.
+   */
+  "remoteConfigReadEnabled"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,10 +39,18 @@ export class APIKeyCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    category: {
+      baseName: "category",
+      type: "string",
+    },
     name: {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    remoteConfigReadEnabled: {
+      baseName: "remote_config_read_enabled",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
