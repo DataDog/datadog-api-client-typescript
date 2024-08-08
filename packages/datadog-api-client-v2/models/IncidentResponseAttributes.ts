@@ -15,6 +15,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class IncidentResponseAttributes {
   /**
+   * The IncidentResponseAttributes additional_notifications.
+   */
+  "additionalNotifications"?: string;
+  /**
    * Timestamp of when the incident was archived.
    */
   "archived"?: Date;
@@ -26,6 +30,14 @@ export class IncidentResponseAttributes {
    * Timestamp when the incident was created.
    */
   "created"?: Date;
+  /**
+   * The IncidentResponseAttributes created_by_uuid.
+   */
+  "createdByUuid"?: string;
+  /**
+   * The IncidentResponseAttributes creation_idempotency_key.
+   */
+  "creationIdempotencyKey"?: string;
   /**
    * Length of the incident's customer impact in seconds.
    * Equals the difference between `customer_impact_start` and `customer_impact_end`.
@@ -52,9 +64,21 @@ export class IncidentResponseAttributes {
    */
   "detected"?: Date;
   /**
+   * The IncidentResponseAttributes duration.
+   */
+  "duration"?: number;
+  /**
    * A condensed view of the user-defined fields attached to incidents.
    */
   "fields"?: { [key: string]: IncidentFieldAttributes };
+  /**
+   * The IncidentResponseAttributes incident_type_uuid.
+   */
+  "incidentTypeUuid"?: string;
+  /**
+   * The IncidentResponseAttributes last_modified_by_uuid.
+   */
+  "lastModifiedByUuid"?: string;
   /**
    * Timestamp when the incident was last modified.
    */
@@ -125,6 +149,10 @@ export class IncidentResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    additionalNotifications: {
+      baseName: "additional_notifications",
+      type: "string",
+    },
     archived: {
       baseName: "archived",
       type: "Date",
@@ -139,6 +167,14 @@ export class IncidentResponseAttributes {
       baseName: "created",
       type: "Date",
       format: "date-time",
+    },
+    createdByUuid: {
+      baseName: "created_by_uuid",
+      type: "string",
+    },
+    creationIdempotencyKey: {
+      baseName: "creation_idempotency_key",
+      type: "string",
     },
     customerImpactDuration: {
       baseName: "customer_impact_duration",
@@ -168,9 +204,22 @@ export class IncidentResponseAttributes {
       type: "Date",
       format: "date-time",
     },
+    duration: {
+      baseName: "duration",
+      type: "number",
+      format: "int32",
+    },
     fields: {
       baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
+    },
+    incidentTypeUuid: {
+      baseName: "incident_type_uuid",
+      type: "string",
+    },
+    lastModifiedByUuid: {
+      baseName: "last_modified_by_uuid",
+      type: "string",
     },
     modified: {
       baseName: "modified",

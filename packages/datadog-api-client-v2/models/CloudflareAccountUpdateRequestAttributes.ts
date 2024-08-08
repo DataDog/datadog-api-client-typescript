@@ -19,6 +19,10 @@ export class CloudflareAccountUpdateRequestAttributes {
    */
   "email"?: string;
   /**
+   * The CloudflareAccountUpdateRequestAttributes name.
+   */
+  "name"?: string;
+  /**
    * An allowlist of resources to restrict pulling metrics for.
    */
   "resources"?: Array<string>;
@@ -50,6 +54,10 @@ export class CloudflareAccountUpdateRequestAttributes {
     },
     email: {
       baseName: "email",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
       type: "string",
     },
     resources: {

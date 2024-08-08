@@ -22,6 +22,7 @@ import { ApplicationKeyResponse } from "../models/ApplicationKeyResponse";
 import { ApplicationKeysSort } from "../models/ApplicationKeysSort";
 import { ApplicationKeyUpdateRequest } from "../models/ApplicationKeyUpdateRequest";
 import { ListApplicationKeysResponse } from "../models/ListApplicationKeysResponse";
+import { ListServiceAccountApplicationKeysInclude } from "../models/ListServiceAccountApplicationKeysInclude";
 import { PartialApplicationKeyResponse } from "../models/PartialApplicationKeyResponse";
 import { ServiceAccountCreateRequest } from "../models/ServiceAccountCreateRequest";
 import { UserResponse } from "../models/UserResponse";
@@ -218,8 +219,9 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     pageNumber?: number,
     sort?: ApplicationKeysSort,
     filter?: string,
-    filterCreatedAtStart?: string,
-    filterCreatedAtEnd?: string,
+    filterCreatedAtStart?: Date,
+    filterCreatedAtEnd?: Date,
+    include?: Array<ListServiceAccountApplicationKeysInclude>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -274,13 +276,23 @@ export class ServiceAccountsApiRequestFactory extends BaseAPIRequestFactory {
     if (filterCreatedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][start]",
-        ObjectSerializer.serialize(filterCreatedAtStart, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtStart, "Date", "date-time")
       );
     }
     if (filterCreatedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][end]",
-        ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtEnd, "Date", "date-time")
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(
+          include,
+          "Array<ListServiceAccountApplicationKeysInclude>",
+          ""
+        )
       );
     }
 
@@ -803,14 +815,19 @@ export interface ServiceAccountsApiListServiceAccountApplicationKeysRequest {
   filter?: string;
   /**
    * Only include application keys created on or after the specified date.
-   * @type string
+   * @type Date
    */
-  filterCreatedAtStart?: string;
+  filterCreatedAtStart?: Date;
   /**
    * Only include application keys created on or before the specified date.
-   * @type string
+   * @type Date
    */
-  filterCreatedAtEnd?: string;
+  filterCreatedAtEnd?: Date;
+  /**
+   * service account id
+   * @type Array<ListServiceAccountApplicationKeysInclude>
+   */
+  include?: Array<ListServiceAccountApplicationKeysInclude>;
 }
 
 export interface ServiceAccountsApiUpdateServiceAccountApplicationKeyRequest {
@@ -960,6 +977,7 @@ export class ServiceAccountsApi {
         param.filter,
         param.filterCreatedAtStart,
         param.filterCreatedAtEnd,
+        param.include,
         options
       );
     return requestContextPromise.then((requestContext) => {

@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { RelationshipToTeamLinkData } from "./RelationshipToTeamLinkData";
-import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -16,10 +15,6 @@ export class RelationshipToTeamLinks {
    * Related team links
    */
   "data"?: Array<RelationshipToTeamLinkData>;
-  /**
-   * Links attributes.
-   */
-  "links"?: TeamRelationshipsLinks;
 
   /**
    * A container for additional, undeclared properties.
@@ -40,10 +35,6 @@ export class RelationshipToTeamLinks {
     data: {
       baseName: "data",
       type: "Array<RelationshipToTeamLinkData>",
-    },
-    links: {
-      baseName: "links",
-      type: "TeamRelationshipsLinks",
     },
     additionalProperties: {
       baseName: "additionalProperties",

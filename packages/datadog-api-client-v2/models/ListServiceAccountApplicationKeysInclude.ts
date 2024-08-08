@@ -7,8 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of Container Image pagination.
+ * The definition of ListServiceAccountApplicationKeysInclude object.
  */
 
-export type ContainerImageMetaPageType = typeof CURSOR_LIMIT | UnparsedObject;
-export const CURSOR_LIMIT = "cursor_limit";
+export type ListServiceAccountApplicationKeysInclude =
+  | typeof LEAK_INFORMATION
+  | typeof OWNED_BY
+  | UnparsedObject;
+export const LEAK_INFORMATION = "leak_information";
+export const OWNED_BY = "owned_by";

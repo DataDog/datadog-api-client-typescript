@@ -20,6 +20,10 @@ export class OpsgenieServiceResponseAttributes {
    */
   "name"?: string;
   /**
+   * The OpsgenieServiceResponseAttributes opsgenie_api_key.
+   */
+  "opsgenieApiKey"?: string;
+  /**
    * The region for the Opsgenie service.
    */
   "region"?: OpsgenieServiceRegionType;
@@ -43,9 +47,14 @@ export class OpsgenieServiceResponseAttributes {
     customUrl: {
       baseName: "custom_url",
       type: "string",
+      format: "url",
     },
     name: {
       baseName: "name",
+      type: "string",
+    },
+    opsgenieApiKey: {
+      baseName: "opsgenie_api_key",
       type: "string",
     },
     region: {

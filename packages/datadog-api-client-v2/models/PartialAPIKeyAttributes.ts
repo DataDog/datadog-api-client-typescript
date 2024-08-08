@@ -17,7 +17,7 @@ export class PartialAPIKeyAttributes {
   /**
    * Creation date of the API key.
    */
-  "createdAt"?: string;
+  "createdAt"?: Date;
   /**
    * The last four characters of the API key.
    */
@@ -25,7 +25,7 @@ export class PartialAPIKeyAttributes {
   /**
    * Date the API key was last modified.
    */
-  "modifiedAt"?: string;
+  "modifiedAt"?: Date;
   /**
    * Name of the API key.
    */
@@ -57,7 +57,8 @@ export class PartialAPIKeyAttributes {
     },
     createdAt: {
       baseName: "created_at",
-      type: "string",
+      type: "Date",
+      format: "date-time",
     },
     last4: {
       baseName: "last4",
@@ -65,7 +66,8 @@ export class PartialAPIKeyAttributes {
     },
     modifiedAt: {
       baseName: "modified_at",
-      type: "string",
+      type: "Date",
+      format: "date-time",
     },
     name: {
       baseName: "name",

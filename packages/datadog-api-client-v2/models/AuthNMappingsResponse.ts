@@ -5,7 +5,6 @@
  */
 import { AuthNMapping } from "./AuthNMapping";
 import { AuthNMappingIncluded } from "./AuthNMappingIncluded";
-import { ResponseMetaAttributes } from "./ResponseMetaAttributes";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -21,10 +20,6 @@ export class AuthNMappingsResponse {
    * Included data in the AuthN Mapping response.
    */
   "included"?: Array<AuthNMappingIncluded>;
-  /**
-   * Object describing meta attributes of response.
-   */
-  "meta"?: ResponseMetaAttributes;
 
   /**
    * A container for additional, undeclared properties.
@@ -49,10 +44,6 @@ export class AuthNMappingsResponse {
     included: {
       baseName: "included",
       type: "Array<AuthNMappingIncluded>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ResponseMetaAttributes",
     },
     additionalProperties: {
       baseName: "additionalProperties",

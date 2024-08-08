@@ -15,10 +15,6 @@ export class ConfluentResourceResponseAttributes {
    */
   "enableCustomMetrics"?: boolean;
   /**
-   * The ID associated with the Confluent resource.
-   */
-  "id"?: string;
-  /**
    * The resource type of the Resource. Can be `kafka`, `connector`, `ksql`, or `schema_registry`.
    */
   "resourceType": string;
@@ -46,10 +42,6 @@ export class ConfluentResourceResponseAttributes {
     enableCustomMetrics: {
       baseName: "enable_custom_metrics",
       type: "boolean",
-    },
-    id: {
-      baseName: "id",
-      type: "string",
     },
     resourceType: {
       baseName: "resource_type",

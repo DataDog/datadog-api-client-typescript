@@ -140,6 +140,7 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
     sort?: AuthNMappingsSort,
     filter?: string,
     resourceType?: AuthNMappingResourceType,
+    include?: Array<string>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -183,6 +184,12 @@ export class AuthNMappingsApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "resource_type",
         ObjectSerializer.serialize(resourceType, "AuthNMappingResourceType", "")
+      );
+    }
+    if (include !== undefined) {
+      requestContext.setQueryParam(
+        "include",
+        ObjectSerializer.serialize(include, "Array<string>", "")
       );
     }
 
@@ -602,6 +609,11 @@ export interface AuthNMappingsApiListAuthNMappingsRequest {
    * @type AuthNMappingResourceType
    */
   resourceType?: AuthNMappingResourceType;
+  /**
+   * include mapping
+   * @type Array<string>
+   */
+  include?: Array<string>;
 }
 
 export interface AuthNMappingsApiUpdateAuthNMappingRequest {
@@ -710,6 +722,7 @@ export class AuthNMappingsApi {
       param.sort,
       param.filter,
       param.resourceType,
+      param.include,
       options
     );
     return requestContextPromise.then((requestContext) => {

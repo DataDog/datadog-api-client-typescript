@@ -31,6 +31,10 @@ export class TeamAttributes {
    */
   "handle": string;
   /**
+   * The TeamAttributes handles.
+   */
+  "handles"?: string;
+  /**
    * Collection of hidden modules for the team
    */
   "hiddenModules"?: Array<string>;
@@ -97,6 +101,10 @@ export class TeamAttributes {
       baseName: "handle",
       type: "string",
       required: true,
+    },
+    handles: {
+      baseName: "handles",
+      type: "string",
     },
     hiddenModules: {
       baseName: "hidden_modules",

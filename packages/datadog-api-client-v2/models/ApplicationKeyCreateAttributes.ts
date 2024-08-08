@@ -11,6 +11,14 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ApplicationKeyCreateAttributes {
   /**
+   * The ApplicationKeyCreateAttributes created_at.
+   */
+  "createdAt"?: Date;
+  /**
+   * The ApplicationKeyCreateAttributes last4.
+   */
+  "last4"?: string;
+  /**
    * Name of the application key.
    */
   "name": string;
@@ -35,6 +43,15 @@ export class ApplicationKeyCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
+    last4: {
+      baseName: "last4",
+      type: "string",
+    },
     name: {
       baseName: "name",
       type: "string",

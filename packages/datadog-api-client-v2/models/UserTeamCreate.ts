@@ -18,6 +18,10 @@ export class UserTeamCreate {
    */
   "attributes"?: UserTeamAttributes;
   /**
+   * ID of user team
+   */
+  "id"?: string;
+  /**
    * Relationship between membership and a user
    */
   "relationships"?: UserTeamRelationships;
@@ -45,6 +49,10 @@ export class UserTeamCreate {
     attributes: {
       baseName: "attributes",
       type: "UserTeamAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     relationships: {
       baseName: "relationships",

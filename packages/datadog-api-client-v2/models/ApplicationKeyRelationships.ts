@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToUser } from "./RelationshipToUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -11,11 +10,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Resources related to the application key.
  */
 export class ApplicationKeyRelationships {
-  /**
-   * Relationship to user.
-   */
-  "ownedBy"?: RelationshipToUser;
-
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -32,10 +26,6 @@ export class ApplicationKeyRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    ownedBy: {
-      baseName: "owned_by",
-      type: "RelationshipToUser",
-    },
     additionalProperties: {
       baseName: "additionalProperties",
       type: "any",

@@ -17,9 +17,9 @@ export class ConfluentResourceRequestData {
    */
   "attributes": ConfluentResourceRequestAttributes;
   /**
-   * The ID associated with a Confluent resource.
+   * The ConfluentResourceRequestData id.
    */
-  "id": string;
+  "id": string | null;
   /**
    * The JSON:API type for this request.
    */

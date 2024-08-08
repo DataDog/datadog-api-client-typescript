@@ -2292,20 +2292,20 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterCreatedAtStart": {
-            "type": "string",
-            "format": "",
+            "type": "Date",
+            "format": "date-time",
             },
         "filterCreatedAtEnd": {
-            "type": "string",
-            "format": "",
+            "type": "Date",
+            "format": "date-time",
             },
         "filterModifiedAtStart": {
-            "type": "string",
-            "format": "",
+            "type": "Date",
+            "format": "date-time",
             },
         "filterModifiedAtEnd": {
-            "type": "string",
-            "format": "",
+            "type": "Date",
+            "format": "date-time",
             },
         "include": {
             "type": "string",
@@ -2375,12 +2375,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterCreatedAtStart": {
-            "type": "string",
-            "format": "",
+            "type": "Date",
+            "format": "date-time",
             },
         "filterCreatedAtEnd": {
-            "type": "string",
-            "format": "",
+            "type": "Date",
+            "format": "date-time",
             },
         "include": {
             "type": "string",
@@ -2402,6 +2402,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "include": {
             "type": "string",
+            "format": "",
+            },
+        "hideKey": {
+            "type": "boolean",
             "format": "",
             },
         "operationResponseType": "ApplicationKeyResponse",
@@ -2435,12 +2439,12 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterCreatedAtStart": {
-            "type": "string",
-            "format": "",
+            "type": "Date",
+            "format": "date-time",
             },
         "filterCreatedAtEnd": {
-            "type": "string",
-            "format": "",
+            "type": "Date",
+            "format": "date-time",
             },
         "include": {
             "type": "string",
@@ -2657,6 +2661,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "resourceType": {
             "type": "AuthNMappingResourceType",
+            "format": "",
+            },
+        "include": {
+            "type": "Array<string>",
             "format": "",
             },
         "operationResponseType": "AuthNMappingsResponse",
@@ -5322,11 +5330,15 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterCreatedAtStart": {
-            "type": "string",
-            "format": "",
+            "type": "Date",
+            "format": "date-time",
             },
         "filterCreatedAtEnd": {
-            "type": "string",
+            "type": "Date",
+            "format": "date-time",
+            },
+        "include": {
+            "type": "Array<ListServiceAccountApplicationKeysInclude>",
             "format": "",
             },
         "operationResponseType": "ListApplicationKeysResponse",

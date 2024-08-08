@@ -13,11 +13,7 @@ export class FullApplicationKeyAttributes {
   /**
    * Creation date of the application key.
    */
-  "createdAt"?: string;
-  /**
-   * The application key.
-   */
-  "key"?: string;
+  "createdAt"?: Date;
   /**
    * The last four characters of the application key.
    */
@@ -49,11 +45,8 @@ export class FullApplicationKeyAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     createdAt: {
       baseName: "created_at",
-      type: "string",
-    },
-    key: {
-      baseName: "key",
-      type: "string",
+      type: "Date",
+      format: "date-time",
     },
     last4: {
       baseName: "last4",

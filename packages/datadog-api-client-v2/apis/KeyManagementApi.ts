@@ -256,6 +256,7 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
   public async getApplicationKey(
     appKeyId: string,
     include?: string,
+    hideKey?: boolean,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -283,6 +284,12 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "include",
         ObjectSerializer.serialize(include, "string", "")
+      );
+    }
+    if (hideKey !== undefined) {
+      requestContext.setQueryParam(
+        "hide_key",
+        ObjectSerializer.serialize(hideKey, "boolean", "")
       );
     }
 
@@ -334,10 +341,10 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     pageNumber?: number,
     sort?: APIKeysSort,
     filter?: string,
-    filterCreatedAtStart?: string,
-    filterCreatedAtEnd?: string,
-    filterModifiedAtStart?: string,
-    filterModifiedAtEnd?: string,
+    filterCreatedAtStart?: Date,
+    filterCreatedAtEnd?: Date,
+    filterModifiedAtStart?: Date,
+    filterModifiedAtEnd?: Date,
     include?: string,
     filterRemoteConfigReadEnabled?: boolean,
     filterCategory?: string,
@@ -383,25 +390,25 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (filterCreatedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][start]",
-        ObjectSerializer.serialize(filterCreatedAtStart, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtStart, "Date", "date-time")
       );
     }
     if (filterCreatedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][end]",
-        ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtEnd, "Date", "date-time")
       );
     }
     if (filterModifiedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[modified_at][start]",
-        ObjectSerializer.serialize(filterModifiedAtStart, "string", "")
+        ObjectSerializer.serialize(filterModifiedAtStart, "Date", "date-time")
       );
     }
     if (filterModifiedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[modified_at][end]",
-        ObjectSerializer.serialize(filterModifiedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterModifiedAtEnd, "Date", "date-time")
       );
     }
     if (include !== undefined) {
@@ -437,8 +444,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     pageNumber?: number,
     sort?: ApplicationKeysSort,
     filter?: string,
-    filterCreatedAtStart?: string,
-    filterCreatedAtEnd?: string,
+    filterCreatedAtStart?: Date,
+    filterCreatedAtEnd?: Date,
     include?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -482,13 +489,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (filterCreatedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][start]",
-        ObjectSerializer.serialize(filterCreatedAtStart, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtStart, "Date", "date-time")
       );
     }
     if (filterCreatedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][end]",
-        ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtEnd, "Date", "date-time")
       );
     }
     if (include !== undefined) {
@@ -512,8 +519,8 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     pageNumber?: number,
     sort?: ApplicationKeysSort,
     filter?: string,
-    filterCreatedAtStart?: string,
-    filterCreatedAtEnd?: string,
+    filterCreatedAtStart?: Date,
+    filterCreatedAtEnd?: Date,
     include?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -557,13 +564,13 @@ export class KeyManagementApiRequestFactory extends BaseAPIRequestFactory {
     if (filterCreatedAtStart !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][start]",
-        ObjectSerializer.serialize(filterCreatedAtStart, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtStart, "Date", "date-time")
       );
     }
     if (filterCreatedAtEnd !== undefined) {
       requestContext.setQueryParam(
         "filter[created_at][end]",
-        ObjectSerializer.serialize(filterCreatedAtEnd, "string", "")
+        ObjectSerializer.serialize(filterCreatedAtEnd, "Date", "date-time")
       );
     }
     if (include !== undefined) {
@@ -1654,6 +1661,11 @@ export interface KeyManagementApiGetApplicationKeyRequest {
    * @type string
    */
   include?: string;
+  /**
+   * app key id
+   * @type boolean
+   */
+  hideKey?: boolean;
 }
 
 export interface KeyManagementApiGetCurrentUserApplicationKeyRequest {
@@ -1689,24 +1701,24 @@ export interface KeyManagementApiListAPIKeysRequest {
   filter?: string;
   /**
    * Only include API keys created on or after the specified date.
-   * @type string
+   * @type Date
    */
-  filterCreatedAtStart?: string;
+  filterCreatedAtStart?: Date;
   /**
    * Only include API keys created on or before the specified date.
-   * @type string
+   * @type Date
    */
-  filterCreatedAtEnd?: string;
+  filterCreatedAtEnd?: Date;
   /**
    * Only include API keys modified on or after the specified date.
-   * @type string
+   * @type Date
    */
-  filterModifiedAtStart?: string;
+  filterModifiedAtStart?: Date;
   /**
    * Only include API keys modified on or before the specified date.
-   * @type string
+   * @type Date
    */
-  filterModifiedAtEnd?: string;
+  filterModifiedAtEnd?: Date;
   /**
    * Comma separated list of resource paths for related resources to include in the response. Supported resource paths are `created_by` and `modified_by`.
    * @type string
@@ -1749,14 +1761,14 @@ export interface KeyManagementApiListApplicationKeysRequest {
   filter?: string;
   /**
    * Only include application keys created on or after the specified date.
-   * @type string
+   * @type Date
    */
-  filterCreatedAtStart?: string;
+  filterCreatedAtStart?: Date;
   /**
    * Only include application keys created on or before the specified date.
-   * @type string
+   * @type Date
    */
-  filterCreatedAtEnd?: string;
+  filterCreatedAtEnd?: Date;
   /**
    * Resource path for related resources to include in the response. Only `owned_by` is supported.
    * @type string
@@ -1789,14 +1801,14 @@ export interface KeyManagementApiListCurrentUserApplicationKeysRequest {
   filter?: string;
   /**
    * Only include application keys created on or after the specified date.
-   * @type string
+   * @type Date
    */
-  filterCreatedAtStart?: string;
+  filterCreatedAtStart?: Date;
   /**
    * Only include application keys created on or before the specified date.
-   * @type string
+   * @type Date
    */
-  filterCreatedAtEnd?: string;
+  filterCreatedAtEnd?: Date;
   /**
    * Resource path for related resources to include in the response. Only `owned_by` is supported.
    * @type string
@@ -1998,6 +2010,7 @@ export class KeyManagementApi {
     const requestContextPromise = this.requestFactory.getApplicationKey(
       param.appKeyId,
       param.include,
+      param.hideKey,
       options
     );
     return requestContextPromise.then((requestContext) => {

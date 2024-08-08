@@ -4,8 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { ContainerImageItem } from "./ContainerImageItem";
-import { ContainerImageMeta } from "./ContainerImageMeta";
-import { ContainerImagesResponseLinks } from "./ContainerImagesResponseLinks";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -17,14 +15,6 @@ export class ContainerImagesResponse {
    * Array of Container Image objects.
    */
   "data"?: Array<ContainerImageItem>;
-  /**
-   * Pagination links.
-   */
-  "links"?: ContainerImagesResponseLinks;
-  /**
-   * Response metadata object.
-   */
-  "meta"?: ContainerImageMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -45,14 +35,6 @@ export class ContainerImagesResponse {
     data: {
       baseName: "data",
       type: "Array<ContainerImageItem>",
-    },
-    links: {
-      baseName: "links",
-      type: "ContainerImagesResponseLinks",
-    },
-    meta: {
-      baseName: "meta",
-      type: "ContainerImageMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { APIKeyResponseIncludedItem } from "./APIKeyResponseIncludedItem";
-import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { PartialAPIKey } from "./PartialAPIKey";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -21,10 +20,6 @@ export class APIKeysResponse {
    * Array of objects related to the API key.
    */
   "included"?: Array<APIKeyResponseIncludedItem>;
-  /**
-   * Additional information related to api keys response.
-   */
-  "meta"?: APIKeysResponseMeta;
 
   /**
    * A container for additional, undeclared properties.
@@ -49,10 +44,6 @@ export class APIKeysResponse {
     included: {
       baseName: "included",
       type: "Array<APIKeyResponseIncludedItem>",
-    },
-    meta: {
-      baseName: "meta",
-      type: "APIKeysResponseMeta",
     },
     additionalProperties: {
       baseName: "additionalProperties",

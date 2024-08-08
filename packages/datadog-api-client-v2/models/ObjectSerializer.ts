@@ -8,8 +8,6 @@ import { APIKeyUpdateAttributes } from "./APIKeyUpdateAttributes";
 import { APIKeyUpdateData } from "./APIKeyUpdateData";
 import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
-import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
-import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
 import { AWSRelatedAccount } from "./AWSRelatedAccount";
 import { AWSRelatedAccountAttributes } from "./AWSRelatedAccountAttributes";
 import { AWSRelatedAccountsResponse } from "./AWSRelatedAccountsResponse";
@@ -21,8 +19,6 @@ import { ApplicationKeyCreateData } from "./ApplicationKeyCreateData";
 import { ApplicationKeyCreateRequest } from "./ApplicationKeyCreateRequest";
 import { ApplicationKeyRelationships } from "./ApplicationKeyRelationships";
 import { ApplicationKeyResponse } from "./ApplicationKeyResponse";
-import { ApplicationKeyResponseMeta } from "./ApplicationKeyResponseMeta";
-import { ApplicationKeyResponseMetaPage } from "./ApplicationKeyResponseMetaPage";
 import { ApplicationKeyUpdateAttributes } from "./ApplicationKeyUpdateAttributes";
 import { ApplicationKeyUpdateData } from "./ApplicationKeyUpdateData";
 import { ApplicationKeyUpdateRequest } from "./ApplicationKeyUpdateRequest";
@@ -215,11 +211,8 @@ import { ContainerImageGroupAttributes } from "./ContainerImageGroupAttributes";
 import { ContainerImageGroupImagesRelationshipsLink } from "./ContainerImageGroupImagesRelationshipsLink";
 import { ContainerImageGroupRelationships } from "./ContainerImageGroupRelationships";
 import { ContainerImageGroupRelationshipsLinks } from "./ContainerImageGroupRelationshipsLinks";
-import { ContainerImageMeta } from "./ContainerImageMeta";
-import { ContainerImageMetaPage } from "./ContainerImageMetaPage";
 import { ContainerImageVulnerabilities } from "./ContainerImageVulnerabilities";
 import { ContainerImagesResponse } from "./ContainerImagesResponse";
-import { ContainerImagesResponseLinks } from "./ContainerImagesResponseLinks";
 import { ContainerMeta } from "./ContainerMeta";
 import { ContainerMetaPage } from "./ContainerMetaPage";
 import { ContainersResponse } from "./ContainersResponse";
@@ -725,8 +718,6 @@ import { PowerpackResponseLinks } from "./PowerpackResponseLinks";
 import { PowerpackTemplateVariable } from "./PowerpackTemplateVariable";
 import { PowerpacksResponseMeta } from "./PowerpacksResponseMeta";
 import { PowerpacksResponseMetaPagination } from "./PowerpacksResponseMetaPagination";
-import { ProcessSummariesMeta } from "./ProcessSummariesMeta";
-import { ProcessSummariesMetaPage } from "./ProcessSummariesMetaPage";
 import { ProcessSummariesResponse } from "./ProcessSummariesResponse";
 import { ProcessSummary } from "./ProcessSummary";
 import { ProcessSummaryAttributes } from "./ProcessSummaryAttributes";
@@ -812,8 +803,6 @@ import { RelationshipToUser } from "./RelationshipToUser";
 import { RelationshipToUserData } from "./RelationshipToUserData";
 import { RelationshipToUserTeamPermission } from "./RelationshipToUserTeamPermission";
 import { RelationshipToUserTeamPermissionData } from "./RelationshipToUserTeamPermissionData";
-import { RelationshipToUserTeamTeam } from "./RelationshipToUserTeamTeam";
-import { RelationshipToUserTeamTeamData } from "./RelationshipToUserTeamTeamData";
 import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
 import { RelationshipToUserTeamUserData } from "./RelationshipToUserTeamUserData";
 import { RelationshipToUsers } from "./RelationshipToUsers";
@@ -1105,16 +1094,12 @@ import { TeamPermissionSettingUpdateAttributes } from "./TeamPermissionSettingUp
 import { TeamPermissionSettingUpdateRequest } from "./TeamPermissionSettingUpdateRequest";
 import { TeamPermissionSettingsResponse } from "./TeamPermissionSettingsResponse";
 import { TeamRelationships } from "./TeamRelationships";
-import { TeamRelationshipsLinks } from "./TeamRelationshipsLinks";
 import { TeamResponse } from "./TeamResponse";
 import { TeamUpdate } from "./TeamUpdate";
 import { TeamUpdateAttributes } from "./TeamUpdateAttributes";
 import { TeamUpdateRelationships } from "./TeamUpdateRelationships";
 import { TeamUpdateRequest } from "./TeamUpdateRequest";
 import { TeamsResponse } from "./TeamsResponse";
-import { TeamsResponseLinks } from "./TeamsResponseLinks";
-import { TeamsResponseMeta } from "./TeamsResponseMeta";
-import { TeamsResponseMetaPagination } from "./TeamsResponseMetaPagination";
 import { TimeseriesFormulaQueryRequest } from "./TimeseriesFormulaQueryRequest";
 import { TimeseriesFormulaQueryResponse } from "./TimeseriesFormulaQueryResponse";
 import { TimeseriesFormulaRequest } from "./TimeseriesFormulaRequest";
@@ -1314,7 +1299,6 @@ const enumsMap: { [key: string]: any[] } = {
   ConfluentResourceType: ["confluent-cloud-resources"],
   ContainerGroupType: ["container_group"],
   ContainerImageGroupType: ["container_image_group"],
-  ContainerImageMetaPageType: ["cursor_limit"],
   ContainerImageType: ["container_image"],
   ContainerMetaPageType: ["cursor_limit"],
   ContainerType: ["container"],
@@ -1444,6 +1428,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentType: ["incidents"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
+  ListServiceAccountApplicationKeysInclude: ["leak_information", "owned_by"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
@@ -1770,7 +1755,6 @@ const enumsMap: { [key: string]: any[] } = {
   UserResourceType: ["user"],
   UserTeamPermissionType: ["user_team_permissions"],
   UserTeamRole: ["admin"],
-  UserTeamTeamType: ["team"],
   UserTeamType: ["team_memberships"],
   UserTeamUserType: ["users"],
   UsersType: ["users"],
@@ -1804,8 +1788,6 @@ const typeMap: { [index: string]: any } = {
   APIKeyUpdateData: APIKeyUpdateData,
   APIKeyUpdateRequest: APIKeyUpdateRequest,
   APIKeysResponse: APIKeysResponse,
-  APIKeysResponseMeta: APIKeysResponseMeta,
-  APIKeysResponseMetaPage: APIKeysResponseMetaPage,
   AWSRelatedAccount: AWSRelatedAccount,
   AWSRelatedAccountAttributes: AWSRelatedAccountAttributes,
   AWSRelatedAccountsResponse: AWSRelatedAccountsResponse,
@@ -1817,8 +1799,6 @@ const typeMap: { [index: string]: any } = {
   ApplicationKeyCreateRequest: ApplicationKeyCreateRequest,
   ApplicationKeyRelationships: ApplicationKeyRelationships,
   ApplicationKeyResponse: ApplicationKeyResponse,
-  ApplicationKeyResponseMeta: ApplicationKeyResponseMeta,
-  ApplicationKeyResponseMetaPage: ApplicationKeyResponseMetaPage,
   ApplicationKeyUpdateAttributes: ApplicationKeyUpdateAttributes,
   ApplicationKeyUpdateData: ApplicationKeyUpdateData,
   ApplicationKeyUpdateRequest: ApplicationKeyUpdateRequest,
@@ -2033,11 +2013,8 @@ const typeMap: { [index: string]: any } = {
     ContainerImageGroupImagesRelationshipsLink,
   ContainerImageGroupRelationships: ContainerImageGroupRelationships,
   ContainerImageGroupRelationshipsLinks: ContainerImageGroupRelationshipsLinks,
-  ContainerImageMeta: ContainerImageMeta,
-  ContainerImageMetaPage: ContainerImageMetaPage,
   ContainerImageVulnerabilities: ContainerImageVulnerabilities,
   ContainerImagesResponse: ContainerImagesResponse,
-  ContainerImagesResponseLinks: ContainerImagesResponseLinks,
   ContainerMeta: ContainerMeta,
   ContainerMetaPage: ContainerMetaPage,
   ContainersResponse: ContainersResponse,
@@ -2586,8 +2563,6 @@ const typeMap: { [index: string]: any } = {
   PowerpackTemplateVariable: PowerpackTemplateVariable,
   PowerpacksResponseMeta: PowerpacksResponseMeta,
   PowerpacksResponseMetaPagination: PowerpacksResponseMetaPagination,
-  ProcessSummariesMeta: ProcessSummariesMeta,
-  ProcessSummariesMetaPage: ProcessSummariesMetaPage,
   ProcessSummariesResponse: ProcessSummariesResponse,
   ProcessSummary: ProcessSummary,
   ProcessSummaryAttributes: ProcessSummaryAttributes,
@@ -2679,8 +2654,6 @@ const typeMap: { [index: string]: any } = {
   RelationshipToUserData: RelationshipToUserData,
   RelationshipToUserTeamPermission: RelationshipToUserTeamPermission,
   RelationshipToUserTeamPermissionData: RelationshipToUserTeamPermissionData,
-  RelationshipToUserTeamTeam: RelationshipToUserTeamTeam,
-  RelationshipToUserTeamTeamData: RelationshipToUserTeamTeamData,
   RelationshipToUserTeamUser: RelationshipToUserTeamUser,
   RelationshipToUserTeamUserData: RelationshipToUserTeamUserData,
   RelationshipToUsers: RelationshipToUsers,
@@ -3025,16 +2998,12 @@ const typeMap: { [index: string]: any } = {
   TeamPermissionSettingUpdateRequest: TeamPermissionSettingUpdateRequest,
   TeamPermissionSettingsResponse: TeamPermissionSettingsResponse,
   TeamRelationships: TeamRelationships,
-  TeamRelationshipsLinks: TeamRelationshipsLinks,
   TeamResponse: TeamResponse,
   TeamUpdate: TeamUpdate,
   TeamUpdateAttributes: TeamUpdateAttributes,
   TeamUpdateRelationships: TeamUpdateRelationships,
   TeamUpdateRequest: TeamUpdateRequest,
   TeamsResponse: TeamsResponse,
-  TeamsResponseLinks: TeamsResponseLinks,
-  TeamsResponseMeta: TeamsResponseMeta,
-  TeamsResponseMetaPagination: TeamsResponseMetaPagination,
   TimeseriesFormulaQueryRequest: TimeseriesFormulaQueryRequest,
   TimeseriesFormulaQueryResponse: TimeseriesFormulaQueryResponse,
   TimeseriesFormulaRequest: TimeseriesFormulaRequest,
