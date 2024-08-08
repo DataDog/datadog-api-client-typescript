@@ -3,18 +3,24 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
-import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
-import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Time setting for the widget.
+ * Unit of the time span.
  */
 
-export type WidgetTime =
-  | WidgetLegacyLiveSpan
-  | WidgetNewLiveSpan
-  | WidgetNewFixedSpan
+export type WidgetLiveSpanUnit =
+  | typeof MINUTE
+  | typeof HOUR
+  | typeof DAY
+  | typeof WEEK
+  | typeof MONTH
+  | typeof YEAR
   | UnparsedObject;
+export const MINUTE = "minute";
+export const HOUR = "hour";
+export const DAY = "day";
+export const WEEK = "week";
+export const MONTH = "month";
+export const YEAR = "year";
