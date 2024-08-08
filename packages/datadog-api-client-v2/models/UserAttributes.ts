@@ -31,6 +31,10 @@ export class UserAttributes {
    */
   "icon"?: string;
   /**
+   * If user has MFA enabled.
+   */
+  "mfaEnabled"?: boolean;
+  /**
    * Time that the user was last modified.
    */
   "modifiedAt"?: Date;
@@ -91,6 +95,10 @@ export class UserAttributes {
     icon: {
       baseName: "icon",
       type: "string",
+    },
+    mfaEnabled: {
+      baseName: "mfa_enabled",
+      type: "boolean",
     },
     modifiedAt: {
       baseName: "modified_at",
