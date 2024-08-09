@@ -30,7 +30,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       ],
       request: {
         host: "localhost",
-        port: 50051,
+        port: "50051",
         service: "Hello",
         method: "GET",
         message: "",

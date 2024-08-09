@@ -60,7 +60,7 @@ export class SyntheticsTestRequest {
   /**
    * DNS server port to use for DNS tests.
    */
-  "dnsServerPort"?: number;
+  "dnsServerPort"?: string;
   /**
    * Files to be used as part of the request in the test.
    */
@@ -108,7 +108,7 @@ export class SyntheticsTestRequest {
   /**
    * Port to use when performing the test.
    */
-  "port"?: number;
+  "port"?: string;
   /**
    * The proxy to perform the test.
    */
@@ -198,8 +198,7 @@ export class SyntheticsTestRequest {
     },
     dnsServerPort: {
       baseName: "dnsServerPort",
-      type: "number",
-      format: "int32",
+      type: "string",
     },
     files: {
       baseName: "files",
@@ -248,8 +247,7 @@ export class SyntheticsTestRequest {
     },
     port: {
       baseName: "port",
-      type: "number",
-      format: "int64",
+      type: "string",
     },
     proxy: {
       baseName: "proxy",
