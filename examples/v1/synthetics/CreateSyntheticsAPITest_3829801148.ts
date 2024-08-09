@@ -26,7 +26,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       request: {
         host: "https://datadoghq.com",
         message: "message",
-        port: 443,
+        port: "443",
       },
     },
     locations: ["aws:us-east-2"],
