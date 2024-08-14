@@ -47,6 +47,7 @@ export class OpsgenieServiceCreateAttributes {
     customUrl: {
       baseName: "custom_url",
       type: "string",
+      format: "url",
     },
     name: {
       baseName: "name",
