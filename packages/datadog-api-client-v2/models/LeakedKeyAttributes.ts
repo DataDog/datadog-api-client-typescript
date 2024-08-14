@@ -7,21 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes used to update an API Key.
+ * The definition of LeakedKeyAttributes object.
  */
-export class APIKeyUpdateAttributes {
+export class LeakedKeyAttributes {
   /**
-   * The APIKeyUpdateAttributes category.
+   * The LeakedKeyAttributes date.
    */
-  "category"?: string;
+  "date": Date;
   /**
-   * Name of the API key.
+   * The LeakedKeyAttributes leak_source.
    */
-  "name": string;
-  /**
-   * The APIKeyUpdateAttributes remote_config_read_enabled.
-   */
-  "remoteConfigReadEnabled"?: boolean;
+  "leakSource"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,18 +35,15 @@ export class APIKeyUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
+    date: {
+      baseName: "date",
+      type: "Date",
       required: true,
+      format: "date-time",
     },
-    remoteConfigReadEnabled: {
-      baseName: "remote_config_read_enabled",
-      type: "boolean",
+    leakSource: {
+      baseName: "leak_source",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,7 +55,7 @@ export class APIKeyUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyUpdateAttributes.attributeTypeMap;
+    return LeakedKeyAttributes.attributeTypeMap;
   }
 
   public constructor() {}

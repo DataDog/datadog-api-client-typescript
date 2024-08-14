@@ -17,7 +17,7 @@ export class FullAPIKeyAttributes {
   /**
    * Creation date of the API key.
    */
-  "createdAt"?: string;
+  "createdAt"?: Date;
   /**
    * The API key.
    */
@@ -29,7 +29,7 @@ export class FullAPIKeyAttributes {
   /**
    * Date the API key was last modified.
    */
-  "modifiedAt"?: string;
+  "modifiedAt"?: Date;
   /**
    * Name of the API key.
    */
@@ -61,7 +61,8 @@ export class FullAPIKeyAttributes {
     },
     createdAt: {
       baseName: "created_at",
-      type: "string",
+      type: "Date",
+      format: "date-time",
     },
     key: {
       baseName: "key",
@@ -73,7 +74,8 @@ export class FullAPIKeyAttributes {
     },
     modifiedAt: {
       baseName: "modified_at",
-      type: "string",
+      type: "Date",
+      format: "date-time",
     },
     name: {
       baseName: "name",
