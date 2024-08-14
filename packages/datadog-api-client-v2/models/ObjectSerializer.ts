@@ -498,6 +498,8 @@ import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
 import { JiraIntegrationMetadataIssuesItem } from "./JiraIntegrationMetadataIssuesItem";
 import { JiraIssue } from "./JiraIssue";
 import { JiraIssueResult } from "./JiraIssueResult";
+import { LeakedKey } from "./LeakedKey";
+import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
 import { ListAPIsResponse } from "./ListAPIsResponse";
 import { ListAPIsResponseData } from "./ListAPIsResponseData";
 import { ListAPIsResponseDataAttributes } from "./ListAPIsResponseDataAttributes";
@@ -1444,6 +1446,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentType: ["incidents"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
+  LeakedKeyType: ["leaked_keys"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
   ListTeamsSort: ["name", "-name", "user_count", "-user_count"],
   LogType: ["log"],
@@ -2349,6 +2352,8 @@ const typeMap: { [index: string]: any } = {
   JiraIntegrationMetadataIssuesItem: JiraIntegrationMetadataIssuesItem,
   JiraIssue: JiraIssue,
   JiraIssueResult: JiraIssueResult,
+  LeakedKey: LeakedKey,
+  LeakedKeyAttributes: LeakedKeyAttributes,
   ListAPIsResponse: ListAPIsResponse,
   ListAPIsResponseData: ListAPIsResponseData,
   ListAPIsResponseDataAttributes: ListAPIsResponseDataAttributes,
@@ -3106,8 +3111,8 @@ const typeMap: { [index: string]: any } = {
 };
 
 const oneOfMap: { [index: string]: string[] } = {
-  APIKeyResponseIncludedItem: ["User"],
-  ApplicationKeyResponseIncludedItem: ["User", "Role"],
+  APIKeyResponseIncludedItem: ["User", "LeakedKey"],
+  ApplicationKeyResponseIncludedItem: ["User", "Role", "LeakedKey"],
   AuthNMappingCreateRelationships: [
     "AuthNMappingRelationshipToRole",
     "AuthNMappingRelationshipToTeam",
