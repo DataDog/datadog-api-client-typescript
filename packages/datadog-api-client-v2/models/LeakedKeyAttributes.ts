@@ -3,30 +3,21 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { OpsgenieServiceRegionType } from "./OpsgenieServiceRegionType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Opsgenie service attributes for a create request.
+ * The definition of LeakedKeyAttributes object.
  */
-export class OpsgenieServiceCreateAttributes {
+export class LeakedKeyAttributes {
   /**
-   * The custom URL for a custom region.
+   * The LeakedKeyAttributes date.
    */
-  "customUrl"?: string;
+  "date": Date;
   /**
-   * The name for the Opsgenie service.
+   * The LeakedKeyAttributes leak_source.
    */
-  "name": string;
-  /**
-   * The Opsgenie API key for your Opsgenie service.
-   */
-  "opsgenieApiKey": string;
-  /**
-   * The region for the Opsgenie service.
-   */
-  "region": OpsgenieServiceRegionType;
+  "leakSource"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,25 +35,15 @@ export class OpsgenieServiceCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customUrl: {
-      baseName: "custom_url",
-      type: "string",
-      format: "url",
-    },
-    name: {
-      baseName: "name",
-      type: "string",
+    date: {
+      baseName: "date",
+      type: "Date",
       required: true,
+      format: "date-time",
     },
-    opsgenieApiKey: {
-      baseName: "opsgenie_api_key",
+    leakSource: {
+      baseName: "leak_source",
       type: "string",
-      required: true,
-    },
-    region: {
-      baseName: "region",
-      type: "OpsgenieServiceRegionType",
-      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -74,7 +55,7 @@ export class OpsgenieServiceCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return OpsgenieServiceCreateAttributes.attributeTypeMap;
+    return LeakedKeyAttributes.attributeTypeMap;
   }
 
   public constructor() {}

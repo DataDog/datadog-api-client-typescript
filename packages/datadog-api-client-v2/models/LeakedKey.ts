@@ -3,30 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { OpsgenieServiceRegionType } from "./OpsgenieServiceRegionType";
+import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
+import { LeakedKeyType } from "./LeakedKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The Opsgenie service attributes for a create request.
+ * The definition of LeakedKey object.
  */
-export class OpsgenieServiceCreateAttributes {
+export class LeakedKey {
   /**
-   * The custom URL for a custom region.
+   * The definition of LeakedKeyAttributes object.
    */
-  "customUrl"?: string;
+  "attributes": LeakedKeyAttributes;
   /**
-   * The name for the Opsgenie service.
+   * The LeakedKey id.
    */
-  "name": string;
+  "id": string;
   /**
-   * The Opsgenie API key for your Opsgenie service.
+   * The definition of LeakedKeyType object.
    */
-  "opsgenieApiKey": string;
-  /**
-   * The region for the Opsgenie service.
-   */
-  "region": OpsgenieServiceRegionType;
+  "type": LeakedKeyType;
 
   /**
    * A container for additional, undeclared properties.
@@ -44,24 +41,19 @@ export class OpsgenieServiceCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    customUrl: {
-      baseName: "custom_url",
-      type: "string",
-      format: "url",
+    attributes: {
+      baseName: "attributes",
+      type: "LeakedKeyAttributes",
+      required: true,
     },
-    name: {
-      baseName: "name",
+    id: {
+      baseName: "id",
       type: "string",
       required: true,
     },
-    opsgenieApiKey: {
-      baseName: "opsgenie_api_key",
-      type: "string",
-      required: true,
-    },
-    region: {
-      baseName: "region",
-      type: "OpsgenieServiceRegionType",
+    type: {
+      baseName: "type",
+      type: "LeakedKeyType",
       required: true,
     },
     additionalProperties: {
@@ -74,7 +66,7 @@ export class OpsgenieServiceCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return OpsgenieServiceCreateAttributes.attributeTypeMap;
+    return LeakedKey.attributeTypeMap;
   }
 
   public constructor() {}
