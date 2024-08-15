@@ -150,8 +150,8 @@ export class ObjectSerializer {
         }
       }
 
-      const additionalPropertiesMap = attributesMap["additionalProperties"];
       if (data.additionalProperties) {
+        const additionalPropertiesMap = attributesMap["additionalProperties"];
         if (additionalPropertiesMap) {
           for (const key in data.additionalProperties) {
             instance[key] = ObjectSerializer.serialize(
@@ -161,9 +161,7 @@ export class ObjectSerializer {
             );
           }
         } else {
-          throw new Error(
-            `additionalProperties found in ${type}`
-          );
+          throw new Error(`additionalProperties found in ${type}`);
         }
       }
 
@@ -275,7 +273,7 @@ export class ObjectSerializer {
                 );
             }
         } else {
-          throw new Error(`found extra attributes '${extraAttributes}'`);
+          throw new Error(`found extra attributes '${extraAttributes}' in ${type}`);
         }
       }
 
