@@ -3,18 +3,12 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { LeakedKey } from "./LeakedKey";
-import { Role } from "./Role";
-import { User } from "./User";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * An object related to an application key.
+ * The definition of LeakedKeyType object.
  */
 
-export type ApplicationKeyResponseIncludedItem =
-  | User
-  | Role
-  | LeakedKey
-  | UnparsedObject;
+export type LeakedKeyType = typeof LEAKED_KEYS | UnparsedObject;
+export const LEAKED_KEYS = "leaked_keys";

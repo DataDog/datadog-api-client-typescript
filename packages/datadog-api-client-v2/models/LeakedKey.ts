@@ -3,25 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { LeakedKeyAttributes } from "./LeakedKeyAttributes";
+import { LeakedKeyType } from "./LeakedKeyType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes used to update an API Key.
+ * The definition of LeakedKey object.
  */
-export class APIKeyUpdateAttributes {
+export class LeakedKey {
   /**
-   * The APIKeyUpdateAttributes category.
+   * The definition of LeakedKeyAttributes object.
    */
-  "category"?: string;
+  "attributes": LeakedKeyAttributes;
   /**
-   * Name of the API key.
+   * The LeakedKey id.
    */
-  "name": string;
+  "id": string;
   /**
-   * The APIKeyUpdateAttributes remote_config_read_enabled.
+   * The definition of LeakedKeyType object.
    */
-  "remoteConfigReadEnabled"?: boolean;
+  "type": LeakedKeyType;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,18 +41,20 @@ export class APIKeyUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    category: {
-      baseName: "category",
-      type: "string",
+    attributes: {
+      baseName: "attributes",
+      type: "LeakedKeyAttributes",
+      required: true,
     },
-    name: {
-      baseName: "name",
+    id: {
+      baseName: "id",
       type: "string",
       required: true,
     },
-    remoteConfigReadEnabled: {
-      baseName: "remote_config_read_enabled",
-      type: "boolean",
+    type: {
+      baseName: "type",
+      type: "LeakedKeyType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -62,7 +66,7 @@ export class APIKeyUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return APIKeyUpdateAttributes.attributeTypeMap;
+    return LeakedKey.attributeTypeMap;
   }
 
   public constructor() {}
