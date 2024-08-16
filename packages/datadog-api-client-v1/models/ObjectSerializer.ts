@@ -2461,14 +2461,18 @@ export class ObjectSerializer {
         }
       }
 
-      const additionalProperties = attributesMap["additionalProperties"];
-      if (additionalProperties && data.additionalProperties) {
-        for (const key in data.additionalProperties) {
-          instance[key] = ObjectSerializer.serialize(
-            data.additionalProperties[key],
-            additionalProperties.type,
-            additionalProperties.format
-          );
+      if (data.additionalProperties) {
+        const additionalPropertiesMap = attributesMap["additionalProperties"];
+        if (additionalPropertiesMap) {
+          for (const key in data.additionalProperties) {
+            instance[key] = ObjectSerializer.serialize(
+              data.additionalProperties[key],
+              additionalPropertiesMap.type,
+              additionalPropertiesMap.format
+            );
+          }
+        } else {
+          throw new Error(`additionalProperties found in ${type}`);
         }
       }
 
@@ -2579,35 +2583,39 @@ export class ObjectSerializer {
 
       const instance = new typeMap[type]();
       const attributesMap = typeMap[type].getAttributeTypeMap();
-      let extraAttributes: any = [];
-      if ("additionalProperties" in attributesMap) {
-        const attributesBaseNames = Object.keys(attributesMap).reduce(
-          (o, key) => Object.assign(o, { [attributesMap[key].baseName]: "" }),
-          {}
-        );
-        extraAttributes = Object.keys(data).filter(
-          (key) =>
-            !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
-        );
+      const attributesBaseNames = Object.keys(attributesMap).reduce(
+        (o, key) => Object.assign(o, { [attributesMap[key].baseName]: "" }),
+        {}
+      );
+      const extraAttributes = Object.keys(data).filter(
+        (key) => !Object.prototype.hasOwnProperty.call(attributesBaseNames, key)
+      );
+
+      if (extraAttributes.length > 0) {
+        if ("additionalProperties" in attributesMap) {
+          if (!instance.additionalProperties) {
+            instance.additionalProperties = {};
+          }
+
+          const attributeObj = attributesMap["additionalProperties"];
+          for (const key in extraAttributes) {
+            instance.additionalProperties[extraAttributes[key]] =
+              ObjectSerializer.deserialize(
+                data[extraAttributes[key]],
+                attributeObj.type,
+                attributeObj.format
+              );
+          }
+        } else {
+          throw new Error(
+            `found extra attributes '${extraAttributes}' in ${type}`
+          );
+        }
       }
 
       for (const attributeName in attributesMap) {
         const attributeObj = attributesMap[attributeName];
-        if (attributeName == "additionalProperties") {
-          if (extraAttributes.length > 0) {
-            if (!instance.additionalProperties) {
-              instance.additionalProperties = {};
-            }
-
-            for (const key in extraAttributes) {
-              instance.additionalProperties[extraAttributes[key]] =
-                ObjectSerializer.deserialize(
-                  data[extraAttributes[key]],
-                  attributeObj.type,
-                  attributeObj.format
-                );
-            }
-          }
+        if (attributeName === "additionalProperties") {
           continue;
         }
 
