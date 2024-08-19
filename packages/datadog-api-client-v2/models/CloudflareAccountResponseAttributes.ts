@@ -11,10 +11,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class CloudflareAccountResponseAttributes {
   /**
-   * The CloudflareAccountResponseAttributes api_key.
-   */
-  "apiKey"?: string;
-  /**
    * The email associated with the Cloudflare account.
    */
   "email"?: string;
@@ -47,10 +43,6 @@ export class CloudflareAccountResponseAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    apiKey: {
-      baseName: "api_key",
-      type: "string",
-    },
     email: {
       baseName: "email",
       type: "string",
