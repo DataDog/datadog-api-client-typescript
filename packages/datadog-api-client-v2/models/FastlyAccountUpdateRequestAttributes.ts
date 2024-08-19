@@ -14,10 +14,6 @@ export class FastlyAccountUpdateRequestAttributes {
    * The API key of the Fastly account.
    */
   "apiKey"?: string;
-  /**
-   * The FastlyAccountUpdateRequestAttributes name.
-   */
-  "name"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,10 +33,6 @@ export class FastlyAccountUpdateRequestAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     apiKey: {
       baseName: "api_key",
-      type: "string",
-    },
-    name: {
-      baseName: "name",
       type: "string",
     },
     additionalProperties: {
