@@ -2147,7 +2147,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     },
     "v1.CreateGlobalVariable": {
         "body": {
-            "type": "SyntheticsGlobalVariable",
+            "type": "SyntheticsGlobalVariableRequest",
             "format": "",
             },
         "operationResponseType": "SyntheticsGlobalVariable",
@@ -2172,7 +2172,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "body": {
-            "type": "SyntheticsGlobalVariable",
+            "type": "SyntheticsGlobalVariableRequest",
             "format": "",
             },
         "operationResponseType": "SyntheticsGlobalVariable",

@@ -28,6 +28,7 @@ import { SyntheticsDeleteTestsResponse } from "../models/SyntheticsDeleteTestsRe
 import { SyntheticsGetAPITestLatestResultsResponse } from "../models/SyntheticsGetAPITestLatestResultsResponse";
 import { SyntheticsGetBrowserTestLatestResultsResponse } from "../models/SyntheticsGetBrowserTestLatestResultsResponse";
 import { SyntheticsGlobalVariable } from "../models/SyntheticsGlobalVariable";
+import { SyntheticsGlobalVariableRequest } from "../models/SyntheticsGlobalVariableRequest";
 import { SyntheticsListGlobalVariablesResponse } from "../models/SyntheticsListGlobalVariablesResponse";
 import { SyntheticsListTestsResponse } from "../models/SyntheticsListTestsResponse";
 import { SyntheticsLocations } from "../models/SyntheticsLocations";
@@ -41,7 +42,7 @@ import { SyntheticsUpdateTestPauseStatusPayload } from "../models/SyntheticsUpda
 
 export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
   public async createGlobalVariable(
-    body: SyntheticsGlobalVariable,
+    body: SyntheticsGlobalVariableRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -67,7 +68,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SyntheticsGlobalVariable", ""),
+      ObjectSerializer.serialize(body, "SyntheticsGlobalVariableRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -321,7 +322,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
 
   public async editGlobalVariable(
     variableId: string,
-    body: SyntheticsGlobalVariable,
+    body: SyntheticsGlobalVariableRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -355,7 +356,7 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     ]);
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
-      ObjectSerializer.serialize(body, "SyntheticsGlobalVariable", ""),
+      ObjectSerializer.serialize(body, "SyntheticsGlobalVariableRequest", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -3008,9 +3009,9 @@ export class SyntheticsApiResponseProcessor {
 export interface SyntheticsApiCreateGlobalVariableRequest {
   /**
    * Details of the global variable to create.
-   * @type SyntheticsGlobalVariable
+   * @type SyntheticsGlobalVariableRequest
    */
-  body: SyntheticsGlobalVariable;
+  body: SyntheticsGlobalVariableRequest;
 }
 
 export interface SyntheticsApiCreatePrivateLocationRequest {
@@ -3069,9 +3070,9 @@ export interface SyntheticsApiEditGlobalVariableRequest {
   variableId: string;
   /**
    * Details of the global variable to update.
-   * @type SyntheticsGlobalVariable
+   * @type SyntheticsGlobalVariableRequest
    */
-  body: SyntheticsGlobalVariable;
+  body: SyntheticsGlobalVariableRequest;
 }
 
 export interface SyntheticsApiGetAPITestRequest {
