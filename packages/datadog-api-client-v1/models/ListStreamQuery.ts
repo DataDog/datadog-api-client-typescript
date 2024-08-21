@@ -28,7 +28,7 @@ export class ListStreamQuery {
    */
   "eventSize"?: WidgetEventSize;
   /**
-   * Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 3 items) or logs_transaction_stream (one group by item is required) list stream source.
+   * Group by configuration for the List Stream Widget. Group by can be used only with logs_pattern_stream (up to 4 items) or logs_transaction_stream (one group by item is required) list stream source.
    */
   "groupBy"?: Array<ListStreamGroupByItems>;
   /**
