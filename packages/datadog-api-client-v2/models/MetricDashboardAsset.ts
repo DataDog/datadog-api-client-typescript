@@ -13,7 +13,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class MetricDashboardAsset {
   /**
-   * Attributes related to the dashboard, including title and popularity.
+   * Attributes related to the dashboard, including title, popularity, and url.
    */
   "attributes"?: MetricDashboardAttributes;
   /**

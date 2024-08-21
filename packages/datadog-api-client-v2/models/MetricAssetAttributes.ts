@@ -7,13 +7,17 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Assets where only included attribute is its title
+ * Assets related to the object, including title and url.
  */
 export class MetricAssetAttributes {
   /**
    * Title of the asset.
    */
   "title"?: string;
+  /**
+   * URL path of the asset.
+   */
+  "url"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -33,6 +37,10 @@ export class MetricAssetAttributes {
   static readonly attributeTypeMap: AttributeTypeMap = {
     title: {
       baseName: "title",
+      type: "string",
+    },
+    url: {
+      baseName: "url",
       type: "string",
     },
     additionalProperties: {
