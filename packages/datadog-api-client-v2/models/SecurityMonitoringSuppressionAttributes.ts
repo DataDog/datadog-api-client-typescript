@@ -28,6 +28,10 @@ export class SecurityMonitoringSuppressionAttributes {
    */
   "description"?: string;
   /**
+   * Whether the suppression rule is editable.
+   */
+  "editable"?: boolean;
+  /**
    * Whether the suppression rule is enabled.
    */
   "enabled"?: boolean;
@@ -92,6 +96,10 @@ export class SecurityMonitoringSuppressionAttributes {
     description: {
       baseName: "description",
       type: "string",
+    },
+    editable: {
+      baseName: "editable",
+      type: "boolean",
     },
     enabled: {
       baseName: "enabled",
