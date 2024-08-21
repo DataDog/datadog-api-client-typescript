@@ -38,7 +38,6 @@ export class ServiceDefinitionV1Contact {
     email: {
       baseName: "email",
       type: "string",
-      format: "email",
     },
     slack: {
       baseName: "slack",

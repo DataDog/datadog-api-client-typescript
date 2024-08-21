@@ -114,7 +114,6 @@ export class SharedDashboard {
     shareList: {
       baseName: "share_list",
       type: "Array<string>",
-      format: "email",
     },
     shareType: {
       baseName: "share_type",
