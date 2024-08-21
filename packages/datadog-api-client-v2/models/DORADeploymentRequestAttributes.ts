@@ -28,7 +28,7 @@ export class DORADeploymentRequestAttributes {
    */
   "id"?: string;
   /**
-   * Service name from a service available in the Service Catalog.
+   * Service name.
    */
   "service": string;
   /**
