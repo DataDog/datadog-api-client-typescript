@@ -44,7 +44,6 @@ export class ServiceDefinitionV2Email {
       baseName: "contact",
       type: "string",
       required: true,
-      format: "email",
     },
     name: {
       baseName: "name",

@@ -47,7 +47,6 @@ export class MetricBulkTagConfigStatusAttributes {
     emails: {
       baseName: "emails",
       type: "Array<string>",
-      format: "email",
     },
     excludeTagsMode: {
       baseName: "exclude_tags_mode",
