@@ -2,7 +2,7 @@
 Feature: IP Allowlist
   The IP allowlist API is used to manage the IP addresses that can access
   the Datadog API and web UI. It does not block access to intake APIs or
-  public dashboards.  This is an enterprise-only feature. Request access by
+  public dashboards. IP allowlist is available only on the pro+ and enterprise plans. Request access by
   contacting Datadog support, or see the [IP Allowlist page](https://docs.da
   tadoghq.com/account_management/org_settings/ip_allowlist/) for more
   information.
