@@ -25,6 +25,7 @@ import { SyntheticsBrowserTestResultFull } from "../models/SyntheticsBrowserTest
 import { SyntheticsCITestBody } from "../models/SyntheticsCITestBody";
 import { SyntheticsDeleteTestsPayload } from "../models/SyntheticsDeleteTestsPayload";
 import { SyntheticsDeleteTestsResponse } from "../models/SyntheticsDeleteTestsResponse";
+import { SyntheticsFetchUptimesPayload } from "../models/SyntheticsFetchUptimesPayload";
 import { SyntheticsGetAPITestLatestResultsResponse } from "../models/SyntheticsGetAPITestLatestResultsResponse";
 import { SyntheticsGetBrowserTestLatestResultsResponse } from "../models/SyntheticsGetBrowserTestLatestResultsResponse";
 import { SyntheticsGlobalVariable } from "../models/SyntheticsGlobalVariable";
@@ -357,6 +358,48 @@ export class SyntheticsApiRequestFactory extends BaseAPIRequestFactory {
     requestContext.setHeaderParam("Content-Type", contentType);
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(body, "SyntheticsGlobalVariableRequest", ""),
+      contentType
+    );
+    requestContext.setBody(serializedBody);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "AuthZ",
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async fetchUptimes(
+    body: SyntheticsFetchUptimesPayload,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'body' is not null or undefined
+    if (body === null || body === undefined) {
+      throw new RequiredError("body", "fetchUptimes");
+    }
+
+    // Path Params
+    const localVarPath = "/api/v1/synthetics/tests/uptimes";
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v1.SyntheticsApi.fetchUptimes")
+      .makeRequestContext(localVarPath, HttpMethod.POST);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Body Params
+    const contentType = ObjectSerializer.getPreferredMediaType([
+      "application/json",
+    ]);
+    requestContext.setHeaderParam("Content-Type", contentType);
+    const serializedBody = ObjectSerializer.stringify(
+      ObjectSerializer.serialize(body, "SyntheticsFetchUptimesPayload", ""),
       contentType
     );
     requestContext.setBody(serializedBody);
@@ -1723,6 +1766,68 @@ export class SyntheticsApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
+   * @params response Response returned by the server for a request to fetchUptimes
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async fetchUptimes(
+    response: ResponseContext
+  ): Promise<Array<SyntheticsTestUptime>> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: Array<SyntheticsTestUptime> = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Array<SyntheticsTestUptime>"
+      ) as Array<SyntheticsTestUptime>;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: Array<SyntheticsTestUptime> = ObjectSerializer.deserialize(
+        ObjectSerializer.parse(await response.body.text(), contentType),
+        "Array<SyntheticsTestUptime>",
+        ""
+      ) as Array<SyntheticsTestUptime>;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
    * @params response Response returned by the server for a request to getAPITest
    * @throws ApiException if the response code was not in [200, 299]
    */
@@ -3075,6 +3180,14 @@ export interface SyntheticsApiEditGlobalVariableRequest {
   body: SyntheticsGlobalVariableRequest;
 }
 
+export interface SyntheticsApiFetchUptimesRequest {
+  /**
+   * Public ID list of the Synthetic tests and timeframe.
+   * @type SyntheticsFetchUptimesPayload
+   */
+  body: SyntheticsFetchUptimesPayload;
+}
+
 export interface SyntheticsApiGetAPITestRequest {
   /**
    * The public ID of the test to get details from.
@@ -3475,6 +3588,27 @@ export class SyntheticsApi {
         .send(requestContext)
         .then((responseContext) => {
           return this.responseProcessor.editGlobalVariable(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Fetch uptime for multiple Synthetic tests by ID.
+   * @param param The request object
+   */
+  public fetchUptimes(
+    param: SyntheticsApiFetchUptimesRequest,
+    options?: Configuration
+  ): Promise<Array<SyntheticsTestUptime>> {
+    const requestContextPromise = this.requestFactory.fetchUptimes(
+      param.body,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.fetchUptimes(responseContext);
         });
     });
   }

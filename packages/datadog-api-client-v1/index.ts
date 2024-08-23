@@ -236,6 +236,7 @@ export {
   SyntheticsApiDeletePrivateLocationRequest,
   SyntheticsApiDeleteTestsRequest,
   SyntheticsApiEditGlobalVariableRequest,
+  SyntheticsApiFetchUptimesRequest,
   SyntheticsApiGetAPITestRequest,
   SyntheticsApiGetAPITestLatestResultsRequest,
   SyntheticsApiGetAPITestResultRequest,
@@ -934,6 +935,7 @@ export { SyntheticsDeleteTestsPayload } from "./models/SyntheticsDeleteTestsPayl
 export { SyntheticsDeleteTestsResponse } from "./models/SyntheticsDeleteTestsResponse";
 export { SyntheticsDevice } from "./models/SyntheticsDevice";
 export { SyntheticsDeviceID } from "./models/SyntheticsDeviceID";
+export { SyntheticsFetchUptimesPayload } from "./models/SyntheticsFetchUptimesPayload";
 export { SyntheticsGetAPITestLatestResultsResponse } from "./models/SyntheticsGetAPITestLatestResultsResponse";
 export { SyntheticsGetBrowserTestLatestResultsResponse } from "./models/SyntheticsGetBrowserTestLatestResultsResponse";
 export { SyntheticsGlobalVariable } from "./models/SyntheticsGlobalVariable";
@@ -991,6 +993,7 @@ export { SyntheticsTestRequestBodyType } from "./models/SyntheticsTestRequestBod
 export { SyntheticsTestRequestCertificate } from "./models/SyntheticsTestRequestCertificate";
 export { SyntheticsTestRequestCertificateItem } from "./models/SyntheticsTestRequestCertificateItem";
 export { SyntheticsTestRequestProxy } from "./models/SyntheticsTestRequestProxy";
+export { SyntheticsTestUptime } from "./models/SyntheticsTestUptime";
 export { SyntheticsTiming } from "./models/SyntheticsTiming";
 export { SyntheticsTriggerBody } from "./models/SyntheticsTriggerBody";
 export { SyntheticsTriggerCITestLocation } from "./models/SyntheticsTriggerCITestLocation";
@@ -998,6 +1001,7 @@ export { SyntheticsTriggerCITestRunResult } from "./models/SyntheticsTriggerCITe
 export { SyntheticsTriggerCITestsResponse } from "./models/SyntheticsTriggerCITestsResponse";
 export { SyntheticsTriggerTest } from "./models/SyntheticsTriggerTest";
 export { SyntheticsUpdateTestPauseStatusPayload } from "./models/SyntheticsUpdateTestPauseStatusPayload";
+export { SyntheticsUptime } from "./models/SyntheticsUptime";
 export { SyntheticsVariableParser } from "./models/SyntheticsVariableParser";
 export { SyntheticsWarningType } from "./models/SyntheticsWarningType";
 export { TableWidgetCellDisplayMode } from "./models/TableWidgetCellDisplayMode";

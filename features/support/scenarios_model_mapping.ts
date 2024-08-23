@@ -2083,6 +2083,13 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsTriggerCITestsResponse",
     },
+    "v1.FetchUptimes": {
+        "body": {
+            "type": "SyntheticsFetchUptimesPayload",
+            "format": "",
+            },
+        "operationResponseType": "Array<SyntheticsTestUptime>",
+    },
     "v1.GetTest": {
         "publicId": {
             "type": "string",
