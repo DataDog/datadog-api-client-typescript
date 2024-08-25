@@ -42,7 +42,7 @@ export class Configuration {
     this.httpConfig = httpConfig;
     this.debug = debug;
     this.enableRetry= enableRetry;
-    this.maxRetries = maxRetries; 
+    this.maxRetries = maxRetries;
     this.backoffBase = backoffBase;
     this.backoffMultiplier = backoffMultiplier;
     this.unstableOperations = unstableOperations;
@@ -72,7 +72,11 @@ export class Configuration {
     this.servers[index].setVariables(serverVariables);
 
     for (const op in this.operationServers) {
-      this.operationServers[op][0].setVariables(serverVariables);
+      const index =
+        op in this.operationServerIndices
+          ? this.operationServerIndices[op]
+          : this.serverIndex;
+      this.operationServers[op][index].setVariables(serverVariables);
     }
   }
 
@@ -131,7 +135,7 @@ export interface ConfigurationParameters {
    */
   zstdCompressorCallback?: ZstdCompressorCallback
   /**
-   * Maximum of retry attempts allowed 
+   * Maximum of retry attempts allowed
    */
   maxRetries?: number;
   /**
@@ -190,7 +194,7 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
     conf.debug,
     conf.enableRetry || false,
     conf.maxRetries || 3,
-    conf.backoffBase || 2, 
+    conf.backoffBase || 2,
     conf.backoffMultiplier || 2,
     {
     {%- for version, api in apis.items() %}
@@ -207,8 +211,8 @@ export function createConfiguration(conf: ConfigurationParameters = {}): Configu
   configuration.httpApi.zstdCompressorCallback = conf.zstdCompressorCallback
   configuration.httpApi.debug = configuration.debug;
   configuration.httpApi.enableRetry = configuration.enableRetry;
-  configuration.httpApi.maxRetries = configuration.maxRetries; 
-  configuration.httpApi.backoffBase =  configuration.backoffBase; 
+  configuration.httpApi.maxRetries = configuration.maxRetries;
+  configuration.httpApi.backoffBase =  configuration.backoffBase;
   configuration.httpApi.backoffMultiplier = configuration.backoffMultiplier;
   return configuration;
 }
