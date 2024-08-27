@@ -324,7 +324,7 @@ export class RestrictionPoliciesApiResponseProcessor {
 
 export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`, `suppression-rule`.
    * @type string
    */
   resourceId: string;
@@ -332,7 +332,7 @@ export interface RestrictionPoliciesApiDeleteRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`, `suppression-rule`.
    * @type string
    */
   resourceId: string;
@@ -340,7 +340,7 @@ export interface RestrictionPoliciesApiGetRestrictionPolicyRequest {
 
 export interface RestrictionPoliciesApiUpdateRestrictionPolicyRequest {
   /**
-   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`.
+   * Identifier, formatted as `type:id`. Supported types: `connection`, `dashboard`, `notebook`, `security-rule`, `slo`, `suppression-rule`.
    * @type string
    */
   resourceId: string;
@@ -426,6 +426,7 @@ export class RestrictionPoliciesApi {
    * - Synthetic Tests: `synthetics-test`
    * - Synthetic Private Locations: `synthetics-private-location`
    * - Monitors: `monitor`
+   * - Suppression Rules: `suppression-rule`
    *
    * #### Supported relations for resources
    * Resource Type               | Supported Relations
@@ -439,6 +440,7 @@ export class RestrictionPoliciesApi {
    * Synthetic Tests             | `viewer`, `editor`
    * Synthetic Private Locations | `viewer`, `editor`
    * Monitors                    | `viewer`, `editor`
+   * Suppression Rules        | `viewer`, `editor`
    * @param param The request object
    */
   public updateRestrictionPolicy(
