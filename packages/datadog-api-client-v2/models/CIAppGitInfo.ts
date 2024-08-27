@@ -80,7 +80,6 @@ export class CIAppGitInfo {
       baseName: "author_email",
       type: "string",
       required: true,
-      format: "email",
     },
     authorName: {
       baseName: "author_name",
@@ -101,7 +100,6 @@ export class CIAppGitInfo {
     committerEmail: {
       baseName: "committer_email",
       type: "string",
-      format: "email",
     },
     committerName: {
       baseName: "committer_name",

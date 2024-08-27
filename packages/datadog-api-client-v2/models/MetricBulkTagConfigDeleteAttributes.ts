@@ -34,7 +34,6 @@ export class MetricBulkTagConfigDeleteAttributes {
     emails: {
       baseName: "emails",
       type: "Array<string>",
-      format: "email",
     },
     additionalProperties: {
       baseName: "additionalProperties",

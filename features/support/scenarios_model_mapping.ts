@@ -2249,21 +2249,21 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
     "v1.DisableUser": {
         "userHandle": {
             "type": "string",
-            "format": "email",
+            "format": "",
             },
         "operationResponseType": "UserDisableResponse",
     },
     "v1.GetUser": {
         "userHandle": {
             "type": "string",
-            "format": "email",
+            "format": "",
             },
         "operationResponseType": "UserResponse",
     },
     "v1.UpdateUser": {
         "userHandle": {
             "type": "string",
-            "format": "email",
+            "format": "",
             },
         "body": {
             "type": "User",

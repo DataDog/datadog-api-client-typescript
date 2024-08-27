@@ -28,6 +28,7 @@ const params: v1.LogsIndexesApiCreateLogsIndexRequest = {
       query: "source:python",
     },
     name: "main",
+    numFlexLogsRetentionDays: 360,
     numRetentionDays: 15,
   },
 };

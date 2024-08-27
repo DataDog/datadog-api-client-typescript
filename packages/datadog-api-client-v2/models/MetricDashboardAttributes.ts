@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes related to the dashboard, including title and popularity.
+ * Attributes related to the dashboard, including title, popularity, and url.
  */
 export class MetricDashboardAttributes {
   /**
@@ -18,6 +18,10 @@ export class MetricDashboardAttributes {
    * Title of the asset.
    */
   "title"?: string;
+  /**
+   * URL path of the asset.
+   */
+  "url"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -42,6 +46,10 @@ export class MetricDashboardAttributes {
     },
     title: {
       baseName: "title",
+      type: "string",
+    },
+    url: {
+      baseName: "url",
       type: "string",
     },
     additionalProperties: {
