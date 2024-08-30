@@ -17,6 +17,14 @@ export {
 } from "./apis/APMRetentionFiltersApi";
 
 export {
+  AWSIntegrationApiCreateAWSAccountRequest,
+  AWSIntegrationApiDeleteAWSAccountRequest,
+  AWSIntegrationApiGetAWSAccountRequest,
+  AWSIntegrationApiUpdateAWSAccountRequest,
+  AWSIntegrationApi,
+} from "./apis/AWSIntegrationApi";
+
+export {
   AuditApiListAuditLogsRequest,
   AuditApiSearchAuditLogsRequest,
   AuditApi,
@@ -596,6 +604,20 @@ export { AuthNMappingUpdateAttributes } from "./models/AuthNMappingUpdateAttribu
 export { AuthNMappingUpdateData } from "./models/AuthNMappingUpdateData";
 export { AuthNMappingUpdateRelationships } from "./models/AuthNMappingUpdateRelationships";
 export { AuthNMappingUpdateRequest } from "./models/AuthNMappingUpdateRequest";
+export { AWSAccountCreateRequest } from "./models/AWSAccountCreateRequest";
+export { AWSAccountCreateRequestAttributes } from "./models/AWSAccountCreateRequestAttributes";
+export { AWSAccountCreateRequestData } from "./models/AWSAccountCreateRequestData";
+export { AWSAccountPartition } from "./models/AWSAccountPartition";
+export { AWSAccountPatchRequest } from "./models/AWSAccountPatchRequest";
+export { AWSAccountPatchRequestAttributes } from "./models/AWSAccountPatchRequestAttributes";
+export { AWSAccountPatchRequestData } from "./models/AWSAccountPatchRequestData";
+export { AWSAccountResponse } from "./models/AWSAccountResponse";
+export { AWSAccountResponseAttributes } from "./models/AWSAccountResponseAttributes";
+export { AWSAccountResponseData } from "./models/AWSAccountResponseData";
+export { AWSAccountsResponse } from "./models/AWSAccountsResponse";
+export { AWSAuthConfig } from "./models/AWSAuthConfig";
+export { AWSAuthConfigKeys } from "./models/AWSAuthConfigKeys";
+export { AWSAuthConfigRole } from "./models/AWSAuthConfigRole";
 export { AwsCURConfig } from "./models/AwsCURConfig";
 export { AwsCURConfigAttributes } from "./models/AwsCURConfigAttributes";
 export { AwsCURConfigPatchData } from "./models/AwsCURConfigPatchData";
@@ -609,10 +631,24 @@ export { AwsCURConfigPostRequestType } from "./models/AwsCURConfigPostRequestTyp
 export { AwsCURConfigResponse } from "./models/AwsCURConfigResponse";
 export { AwsCURConfigsResponse } from "./models/AwsCURConfigsResponse";
 export { AwsCURConfigType } from "./models/AwsCURConfigType";
+export { AWSLambdaForwarderConfig } from "./models/AWSLambdaForwarderConfig";
+export { AWSLogsConfig } from "./models/AWSLogsConfig";
+export { AWSMetricsConfig } from "./models/AWSMetricsConfig";
+export { AWSNamespaceFilters } from "./models/AWSNamespaceFilters";
+export { AWSNamespaceFiltersExcludeAll } from "./models/AWSNamespaceFiltersExcludeAll";
+export { AWSNamespaceFiltersExcludeOnly } from "./models/AWSNamespaceFiltersExcludeOnly";
+export { AWSNamespaceFiltersIncludeAll } from "./models/AWSNamespaceFiltersIncludeAll";
+export { AWSNamespaceFiltersIncludeOnly } from "./models/AWSNamespaceFiltersIncludeOnly";
+export { AWSNamespaceTagFilter } from "./models/AWSNamespaceTagFilter";
+export { AWSRegions } from "./models/AWSRegions";
+export { AWSRegionsIncludeAll } from "./models/AWSRegionsIncludeAll";
+export { AWSRegionsIncludeOnly } from "./models/AWSRegionsIncludeOnly";
 export { AWSRelatedAccount } from "./models/AWSRelatedAccount";
 export { AWSRelatedAccountAttributes } from "./models/AWSRelatedAccountAttributes";
 export { AWSRelatedAccountsResponse } from "./models/AWSRelatedAccountsResponse";
 export { AWSRelatedAccountType } from "./models/AWSRelatedAccountType";
+export { AWSResourcesConfig } from "./models/AWSResourcesConfig";
+export { AWSTracesConfig } from "./models/AWSTracesConfig";
 export { AzureUCConfig } from "./models/AzureUCConfig";
 export { AzureUCConfigPair } from "./models/AzureUCConfigPair";
 export { AzureUCConfigPairAttributes } from "./models/AzureUCConfigPairAttributes";
@@ -2060,5 +2096,8 @@ export { WorklflowCancelInstanceResponseData } from "./models/WorklflowCancelIns
 export { WorklflowGetInstanceResponse } from "./models/WorklflowGetInstanceResponse";
 export { WorklflowGetInstanceResponseData } from "./models/WorklflowGetInstanceResponseData";
 export { WorklflowGetInstanceResponseDataAttributes } from "./models/WorklflowGetInstanceResponseDataAttributes";
+export { XRayServicesIncludeAll } from "./models/XRayServicesIncludeAll";
+export { XRayServicesIncludeOnly } from "./models/XRayServicesIncludeOnly";
+export { XRayServicesList } from "./models/XRayServicesList";
 
 export { ObjectSerializer } from "./models/ObjectSerializer";
