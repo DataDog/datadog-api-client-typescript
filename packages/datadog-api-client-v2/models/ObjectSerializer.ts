@@ -325,6 +325,53 @@ import { DowntimeScheduleRecurrencesUpdateRequest } from "./DowntimeScheduleRecu
 import { DowntimeUpdateRequest } from "./DowntimeUpdateRequest";
 import { DowntimeUpdateRequestAttributes } from "./DowntimeUpdateRequestAttributes";
 import { DowntimeUpdateRequestData } from "./DowntimeUpdateRequestData";
+import { EntityAttributes } from "./EntityAttributes";
+import { EntityData } from "./EntityData";
+import { EntityMeta } from "./EntityMeta";
+import { EntityRelationships } from "./EntityRelationships";
+import { EntityResponseIncludedIncident } from "./EntityResponseIncludedIncident";
+import { EntityResponseIncludedOncall } from "./EntityResponseIncludedOncall";
+import { EntityResponseIncludedRawSchema } from "./EntityResponseIncludedRawSchema";
+import { EntityResponseIncludedRawSchemaAttributes } from "./EntityResponseIncludedRawSchemaAttributes";
+import { EntityResponseIncludedRelatedEntity } from "./EntityResponseIncludedRelatedEntity";
+import { EntityResponseIncludedRelatedEntityAttributes } from "./EntityResponseIncludedRelatedEntityAttributes";
+import { EntityResponseIncludedRelatedEntityMeta } from "./EntityResponseIncludedRelatedEntityMeta";
+import { EntityResponseIncludedRelatedIncidentAttributes } from "./EntityResponseIncludedRelatedIncidentAttributes";
+import { EntityResponseIncludedRelatedOncallAttributes } from "./EntityResponseIncludedRelatedOncallAttributes";
+import { EntityResponseIncludedRelatedOncallEscalationItem } from "./EntityResponseIncludedRelatedOncallEscalationItem";
+import { EntityResponseIncludedSchema } from "./EntityResponseIncludedSchema";
+import { EntityResponseIncludedSchemaAttributes } from "./EntityResponseIncludedSchemaAttributes";
+import { EntityResponseMeta } from "./EntityResponseMeta";
+import { EntityToIncidents } from "./EntityToIncidents";
+import { EntityToOncalls } from "./EntityToOncalls";
+import { EntityToRawSchema } from "./EntityToRawSchema";
+import { EntityToRelatedEntities } from "./EntityToRelatedEntities";
+import { EntityToSchema } from "./EntityToSchema";
+import { EntityV3DatadogCodeLocationItem } from "./EntityV3DatadogCodeLocationItem";
+import { EntityV3DatadogEventItem } from "./EntityV3DatadogEventItem";
+import { EntityV3DatadogIntegrationOpsgenie } from "./EntityV3DatadogIntegrationOpsgenie";
+import { EntityV3DatadogIntegrationPagerduty } from "./EntityV3DatadogIntegrationPagerduty";
+import { EntityV3DatadogLogItem } from "./EntityV3DatadogLogItem";
+import { EntityV3DatadogPerformance } from "./EntityV3DatadogPerformance";
+import { EntityV3DatadogPipelines } from "./EntityV3DatadogPipelines";
+import { EntityV3Datastore } from "./EntityV3Datastore";
+import { EntityV3DatastoreDatadog } from "./EntityV3DatastoreDatadog";
+import { EntityV3DatastoreSpec } from "./EntityV3DatastoreSpec";
+import { EntityV3Integrations } from "./EntityV3Integrations";
+import { EntityV3Metadata } from "./EntityV3Metadata";
+import { EntityV3MetadataAdditionalOwnersItems } from "./EntityV3MetadataAdditionalOwnersItems";
+import { EntityV3MetadataContactsItems } from "./EntityV3MetadataContactsItems";
+import { EntityV3MetadataLinksItems } from "./EntityV3MetadataLinksItems";
+import { EntityV3MetadataOwner } from "./EntityV3MetadataOwner";
+import { EntityV3Queue } from "./EntityV3Queue";
+import { EntityV3QueueDatadog } from "./EntityV3QueueDatadog";
+import { EntityV3QueueSpec } from "./EntityV3QueueSpec";
+import { EntityV3Service } from "./EntityV3Service";
+import { EntityV3ServiceDatadog } from "./EntityV3ServiceDatadog";
+import { EntityV3ServiceSpec } from "./EntityV3ServiceSpec";
+import { EntityV3System } from "./EntityV3System";
+import { EntityV3SystemDatadog } from "./EntityV3SystemDatadog";
+import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { Event } from "./Event";
 import { EventAttributes } from "./EventAttributes";
 import { EventResponse } from "./EventResponse";
@@ -510,6 +557,8 @@ import { ListDevicesResponse } from "./ListDevicesResponse";
 import { ListDevicesResponseMetadata } from "./ListDevicesResponseMetadata";
 import { ListDevicesResponseMetadataPage } from "./ListDevicesResponseMetadataPage";
 import { ListDowntimesResponse } from "./ListDowntimesResponse";
+import { ListEntityCatalogResponse } from "./ListEntityCatalogResponse";
+import { ListEntityCatalogResponseLinks } from "./ListEntityCatalogResponseLinks";
 import { ListFindingsMeta } from "./ListFindingsMeta";
 import { ListFindingsPage } from "./ListFindingsPage";
 import { ListFindingsResponse } from "./ListFindingsResponse";
@@ -778,6 +827,7 @@ import { RUMResponseMetadata } from "./RUMResponseMetadata";
 import { RUMResponsePage } from "./RUMResponsePage";
 import { RUMSearchEventsRequest } from "./RUMSearchEventsRequest";
 import { RUMWarning } from "./RUMWarning";
+import { RelationshipItem } from "./RelationshipItem";
 import { RelationshipToIncidentAttachment } from "./RelationshipToIncidentAttachment";
 import { RelationshipToIncidentAttachmentData } from "./RelationshipToIncidentAttachmentData";
 import { RelationshipToIncidentImpactData } from "./RelationshipToIncidentImpactData";
@@ -1132,6 +1182,7 @@ import { UpdateRuleRequest } from "./UpdateRuleRequest";
 import { UpdateRuleRequestData } from "./UpdateRuleRequestData";
 import { UpdateRuleResponse } from "./UpdateRuleResponse";
 import { UpdateRuleResponseData } from "./UpdateRuleResponseData";
+import { UpsertCatalogEntityResponse } from "./UpsertCatalogEntityResponse";
 import { UsageApplicationSecurityMonitoringResponse } from "./UsageApplicationSecurityMonitoringResponse";
 import { UsageAttributesObject } from "./UsageAttributesObject";
 import { UsageDataObject } from "./UsageDataObject";
@@ -1357,6 +1408,11 @@ const enumsMap: { [key: string]: any[] } = {
   DowntimeNotifyEndStateTypes: ["alert", "no data", "warn"],
   DowntimeResourceType: ["downtime"],
   DowntimeStatus: ["active", "canceled", "ended", "scheduled"],
+  EntityV3APIVersion: ["v3"],
+  EntityV3DatastoreKind: ["datastore"],
+  EntityV3QueueKind: ["queue"],
+  EntityV3ServiceKind: ["service"],
+  EntityV3SystemKind: ["system"],
   EventPriority: ["normal", "low"],
   EventStatusType: [
     "failure",
@@ -1445,6 +1501,7 @@ const enumsMap: { [key: string]: any[] } = {
   IncidentTodoType: ["incident_todos"],
   IncidentType: ["incidents"],
   IncidentUserDefinedFieldType: ["user_defined_field"],
+  IncludeType: ["schema", "raw_schema", "oncall", "incident", "relation"],
   InterfaceAttributesStatus: ["up", "down", "warning", "off"],
   LeakedKeyType: ["leaked_keys"],
   ListTeamsInclude: ["team_links", "user_team_permissions"],
@@ -1547,6 +1604,18 @@ const enumsMap: { [key: string]: any[] } = {
   RUMResponseStatus: ["done", "timeout"],
   RUMSort: ["timestamp", "-timestamp"],
   RUMSortOrder: ["asc", "desc"],
+  RelationType: [
+    "RelationTypeOwns",
+    "RelationTypeOwnedBy",
+    "RelationTypeDependsOn",
+    "RelationTypeDependencyOf",
+    "RelationTypePartsOf",
+    "RelationTypeHasPart",
+    "RelationTypeOtherOwns",
+    "RelationTypeOtherOwnedBy",
+    "RelationTypeImplementedBy",
+    "RelationTypeImplements",
+  ],
   RestrictionPolicyType: ["restriction_policy"],
   RetentionFilterAllType: [
     "spans-sampling-processor",
@@ -2167,6 +2236,60 @@ const typeMap: { [index: string]: any } = {
   DowntimeUpdateRequest: DowntimeUpdateRequest,
   DowntimeUpdateRequestAttributes: DowntimeUpdateRequestAttributes,
   DowntimeUpdateRequestData: DowntimeUpdateRequestData,
+  EntityAttributes: EntityAttributes,
+  EntityData: EntityData,
+  EntityMeta: EntityMeta,
+  EntityRelationships: EntityRelationships,
+  EntityResponseIncludedIncident: EntityResponseIncludedIncident,
+  EntityResponseIncludedOncall: EntityResponseIncludedOncall,
+  EntityResponseIncludedRawSchema: EntityResponseIncludedRawSchema,
+  EntityResponseIncludedRawSchemaAttributes:
+    EntityResponseIncludedRawSchemaAttributes,
+  EntityResponseIncludedRelatedEntity: EntityResponseIncludedRelatedEntity,
+  EntityResponseIncludedRelatedEntityAttributes:
+    EntityResponseIncludedRelatedEntityAttributes,
+  EntityResponseIncludedRelatedEntityMeta:
+    EntityResponseIncludedRelatedEntityMeta,
+  EntityResponseIncludedRelatedIncidentAttributes:
+    EntityResponseIncludedRelatedIncidentAttributes,
+  EntityResponseIncludedRelatedOncallAttributes:
+    EntityResponseIncludedRelatedOncallAttributes,
+  EntityResponseIncludedRelatedOncallEscalationItem:
+    EntityResponseIncludedRelatedOncallEscalationItem,
+  EntityResponseIncludedSchema: EntityResponseIncludedSchema,
+  EntityResponseIncludedSchemaAttributes:
+    EntityResponseIncludedSchemaAttributes,
+  EntityResponseMeta: EntityResponseMeta,
+  EntityToIncidents: EntityToIncidents,
+  EntityToOncalls: EntityToOncalls,
+  EntityToRawSchema: EntityToRawSchema,
+  EntityToRelatedEntities: EntityToRelatedEntities,
+  EntityToSchema: EntityToSchema,
+  EntityV3DatadogCodeLocationItem: EntityV3DatadogCodeLocationItem,
+  EntityV3DatadogEventItem: EntityV3DatadogEventItem,
+  EntityV3DatadogIntegrationOpsgenie: EntityV3DatadogIntegrationOpsgenie,
+  EntityV3DatadogIntegrationPagerduty: EntityV3DatadogIntegrationPagerduty,
+  EntityV3DatadogLogItem: EntityV3DatadogLogItem,
+  EntityV3DatadogPerformance: EntityV3DatadogPerformance,
+  EntityV3DatadogPipelines: EntityV3DatadogPipelines,
+  EntityV3Datastore: EntityV3Datastore,
+  EntityV3DatastoreDatadog: EntityV3DatastoreDatadog,
+  EntityV3DatastoreSpec: EntityV3DatastoreSpec,
+  EntityV3Integrations: EntityV3Integrations,
+  EntityV3Metadata: EntityV3Metadata,
+  EntityV3MetadataAdditionalOwnersItems: EntityV3MetadataAdditionalOwnersItems,
+  EntityV3MetadataContactsItems: EntityV3MetadataContactsItems,
+  EntityV3MetadataLinksItems: EntityV3MetadataLinksItems,
+  EntityV3MetadataOwner: EntityV3MetadataOwner,
+  EntityV3Queue: EntityV3Queue,
+  EntityV3QueueDatadog: EntityV3QueueDatadog,
+  EntityV3QueueSpec: EntityV3QueueSpec,
+  EntityV3Service: EntityV3Service,
+  EntityV3ServiceDatadog: EntityV3ServiceDatadog,
+  EntityV3ServiceSpec: EntityV3ServiceSpec,
+  EntityV3System: EntityV3System,
+  EntityV3SystemDatadog: EntityV3SystemDatadog,
+  EntityV3SystemSpec: EntityV3SystemSpec,
   Event: Event,
   EventAttributes: EventAttributes,
   EventResponse: EventResponse,
@@ -2364,6 +2487,8 @@ const typeMap: { [index: string]: any } = {
   ListDevicesResponseMetadata: ListDevicesResponseMetadata,
   ListDevicesResponseMetadataPage: ListDevicesResponseMetadataPage,
   ListDowntimesResponse: ListDowntimesResponse,
+  ListEntityCatalogResponse: ListEntityCatalogResponse,
+  ListEntityCatalogResponseLinks: ListEntityCatalogResponseLinks,
   ListFindingsMeta: ListFindingsMeta,
   ListFindingsPage: ListFindingsPage,
   ListFindingsResponse: ListFindingsResponse,
@@ -2643,6 +2768,7 @@ const typeMap: { [index: string]: any } = {
   RUMResponsePage: RUMResponsePage,
   RUMSearchEventsRequest: RUMSearchEventsRequest,
   RUMWarning: RUMWarning,
+  RelationshipItem: RelationshipItem,
   RelationshipToIncidentAttachment: RelationshipToIncidentAttachment,
   RelationshipToIncidentAttachmentData: RelationshipToIncidentAttachmentData,
   RelationshipToIncidentImpactData: RelationshipToIncidentImpactData,
@@ -3055,6 +3181,7 @@ const typeMap: { [index: string]: any } = {
   UpdateRuleRequestData: UpdateRuleRequestData,
   UpdateRuleResponse: UpdateRuleResponse,
   UpdateRuleResponseData: UpdateRuleResponseData,
+  UpsertCatalogEntityResponse: UpsertCatalogEntityResponse,
   UsageApplicationSecurityMonitoringResponse:
     UsageApplicationSecurityMonitoringResponse,
   UsageAttributesObject: UsageAttributesObject,
@@ -3172,6 +3299,12 @@ const oneOfMap: { [index: string]: string[] } = {
     "DowntimeScheduleRecurrencesUpdateRequest",
     "DowntimeScheduleOneTimeCreateUpdateRequest",
   ],
+  EntityV3: [
+    "EntityV3Service",
+    "EntityV3Datastore",
+    "EntityV3Queue",
+    "EntityV3System",
+  ],
   IncidentAttachmentAttributes: [
     "IncidentAttachmentPostmortemAttributes",
     "IncidentAttachmentLinkAttributes",
@@ -3198,6 +3331,13 @@ const oneOfMap: { [index: string]: string[] } = {
   ],
   IncidentTodoAssignee: ["string", "IncidentTodoAnonymousAssignee"],
   IncidentTodoResponseIncludedItem: ["User"],
+  ListEntityCatalogResponseIncludedItem: [
+    "EntityResponseIncludedSchema",
+    "EntityResponseIncludedRawSchema",
+    "EntityResponseIncludedRelatedEntity",
+    "EntityResponseIncludedOncall",
+    "EntityResponseIncludedIncident",
+  ],
   LogsAggregateBucketValue: [
     "string",
     "number",
@@ -3296,6 +3436,8 @@ const oneOfMap: { [index: string]: string[] } = {
   SpansGroupByTotal: ["boolean", "string", "number"],
   TeamIncluded: ["User", "TeamLink", "UserTeamPermission"],
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
+  UpsertCatalogEntityRequest: ["EntityV3", "string"],
+  UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
   UserTeamIncluded: ["User", "Team"],
 };
