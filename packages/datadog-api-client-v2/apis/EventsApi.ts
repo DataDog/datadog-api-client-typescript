@@ -260,12 +260,12 @@ export interface EventsApiListEventsRequest {
    */
   filterQuery?: string;
   /**
-   * Minimum timestamp for requested events.
+   * Minimum timestamp for requested events, in milliseconds.
    * @type string
    */
   filterFrom?: string;
   /**
-   * Maximum timestamp for requested events.
+   * Maximum timestamp for requested events, in milliseconds.
    * @type string
    */
   filterTo?: string;
