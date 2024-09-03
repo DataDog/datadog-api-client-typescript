@@ -2820,6 +2820,63 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "CaseResponse",
     },
+    "v2.ListCatalogEntity": {
+        "pageOffset": {
+            "type": "number",
+            "format": "int64",
+            },
+        "pageLimit": {
+            "type": "number",
+            "format": "int64",
+            },
+        "fitlerId": {
+            "type": "string",
+            "format": "",
+            },
+        "fitlerRef": {
+            "type": "string",
+            "format": "",
+            },
+        "fitlerName": {
+            "type": "string",
+            "format": "",
+            },
+        "fitlerKind": {
+            "type": "string",
+            "format": "",
+            },
+        "fitlerOwner": {
+            "type": "string",
+            "format": "",
+            },
+        "fitlerRelationType": {
+            "type": "RelationType",
+            "format": "",
+            },
+        "fitlerExcludeSnapshot": {
+            "type": "string",
+            "format": "",
+            },
+        "include": {
+            "type": "IncludeType",
+            "format": "",
+            },
+        "operationResponseType": "ListEntityCatalogResponse",
+    },
+    "v2.UpsertCatalogEntity": {
+        "body": {
+            "type": "UpsertCatalogEntityRequest",
+            "format": "",
+            },
+        "operationResponseType": "UpsertCatalogEntityResponse",
+    },
+    "v2.DeleteCatalogEntity": {
+        "entityId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
     "v2.CreateCIAppPipelineEvent": {
         "body": {
             "type": "CIAppCreatePipelineEventRequest",
