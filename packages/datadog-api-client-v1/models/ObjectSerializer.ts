@@ -600,11 +600,13 @@ import { WidgetFormulaSort } from "./WidgetFormulaSort";
 import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
 import { WidgetGroupSort } from "./WidgetGroupSort";
 import { WidgetLayout } from "./WidgetLayout";
+import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
 import { WidgetMarker } from "./WidgetMarker";
+import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
+import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
-import { WidgetTime } from "./WidgetTime";
 import {
   dateFromRFC3339String,
   dateToRFC3339String,
@@ -1481,6 +1483,7 @@ const enumsMap: { [key: string]: any[] } = {
     "1y",
     "alert",
   ],
+  WidgetLiveSpanUnit: ["minute", "hour", "day", "week", "month", "year"],
   WidgetMargin: ["sm", "md", "lg", "small", "large"],
   WidgetMessageDisplay: ["inline", "expanded-md", "expanded-lg"],
   WidgetMonitorSummaryDisplayFormat: ["counts", "countsAndList", "list"],
@@ -1503,6 +1506,8 @@ const enumsMap: { [key: string]: any[] } = {
     "priority,asc",
     "priority,desc",
   ],
+  WidgetNewFixedSpanType: ["fixed"],
+  WidgetNewLiveSpanType: ["live"],
   WidgetNodeType: ["host", "container"],
   WidgetOrderBy: ["change", "name", "present", "past"],
   WidgetPalette: [
@@ -2194,11 +2199,13 @@ const typeMap: { [index: string]: any } = {
   WidgetFormulaStyle: WidgetFormulaStyle,
   WidgetGroupSort: WidgetGroupSort,
   WidgetLayout: WidgetLayout,
+  WidgetLegacyLiveSpan: WidgetLegacyLiveSpan,
   WidgetMarker: WidgetMarker,
+  WidgetNewFixedSpan: WidgetNewFixedSpan,
+  WidgetNewLiveSpan: WidgetNewLiveSpan,
   WidgetRequestStyle: WidgetRequestStyle,
   WidgetSortBy: WidgetSortBy,
   WidgetStyle: WidgetStyle,
-  WidgetTime: WidgetTime,
 };
 
 const oneOfMap: { [index: string]: string[] } = {
@@ -2343,6 +2350,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "TreeMapWidgetDefinition",
   ],
   WidgetSortOrderBy: ["WidgetFormulaSort", "WidgetGroupSort"],
+  WidgetTime: [
+    "WidgetLegacyLiveSpan",
+    "WidgetNewLiveSpan",
+    "WidgetNewFixedSpan",
+  ],
 };
 
 export class ObjectSerializer {
