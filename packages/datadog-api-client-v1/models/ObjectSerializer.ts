@@ -1333,9 +1333,17 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsGlobalVariableParseTestOptionsType: [
     "http_body",
     "http_header",
+    "http_status_code",
     "local_variable",
   ],
   SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
+  SyntheticsLocalVariableParsingOptionsType: [
+    "grpc_message",
+    "grpc_metadata",
+    "http_body",
+    "http_header",
+    "http_status_code",
+  ],
   SyntheticsPatchTestOperationName: [
     "add",
     "remove",
