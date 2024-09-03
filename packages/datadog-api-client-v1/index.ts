@@ -947,6 +947,7 @@ export { SyntheticsGlobalVariableTOTPParameters } from "./models/SyntheticsGloba
 export { SyntheticsGlobalVariableValue } from "./models/SyntheticsGlobalVariableValue";
 export { SyntheticsListGlobalVariablesResponse } from "./models/SyntheticsListGlobalVariablesResponse";
 export { SyntheticsListTestsResponse } from "./models/SyntheticsListTestsResponse";
+export { SyntheticsLocalVariableParsingOptionsType } from "./models/SyntheticsLocalVariableParsingOptionsType";
 export { SyntheticsLocation } from "./models/SyntheticsLocation";
 export { SyntheticsLocations } from "./models/SyntheticsLocations";
 export { SyntheticsParsingOptions } from "./models/SyntheticsParsingOptions";
