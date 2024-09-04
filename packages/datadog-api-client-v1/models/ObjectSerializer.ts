@@ -398,6 +398,7 @@ import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPath
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
 import { SyntheticsAssertionJSONSchemaTargetTarget } from "./SyntheticsAssertionJSONSchemaTargetTarget";
+import { SyntheticsAssertionJavascript } from "./SyntheticsAssertionJavascript";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
@@ -1210,6 +1211,7 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsAssertionJSONPathOperator: ["validatesJSONPath"],
   SyntheticsAssertionJSONSchemaMetaSchema: ["draft-07", "draft-06"],
   SyntheticsAssertionJSONSchemaOperator: ["validatesJSONSchema"],
+  SyntheticsAssertionJavascriptType: ["javascript"],
   SyntheticsAssertionOperator: [
     "contains",
     "doesNotContain",
@@ -1982,6 +1984,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONSchemaTarget: SyntheticsAssertionJSONSchemaTarget,
   SyntheticsAssertionJSONSchemaTargetTarget:
     SyntheticsAssertionJSONSchemaTargetTarget,
+  SyntheticsAssertionJavascript: SyntheticsAssertionJavascript,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
   SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
   SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
@@ -2303,6 +2306,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsAssertionJSONPathTarget",
     "SyntheticsAssertionJSONSchemaTarget",
     "SyntheticsAssertionXPathTarget",
+    "SyntheticsAssertionJavascript",
   ],
   SyntheticsBasicAuth: [
     "SyntheticsBasicAuthWeb",
