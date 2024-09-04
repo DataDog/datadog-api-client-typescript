@@ -30,7 +30,7 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
     options: {
       detectionMethod: "third_party",
       keepAlive: 0,
-      maxSignalDuration: 0,
+      maxSignalDuration: 600,
       thirdPartyRuleOptions: {
         defaultStatus: "info",
         rootQueries: [
