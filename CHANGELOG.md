@@ -1,5 +1,30 @@
 # CHANGELOG
 
+## 1.28.0 / 2024-09-04
+
+### Fixed
+* Handle `additionalProperties` set to false by @skarimo in https://github.com/DataDog/datadog-api-client-typescript/pull/1763
+* Add `is_totp` and `is_fido` to Synthetic global variables by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1728
+### Added
+* Enable automerging for cloudflare routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1758
+* Enable automerging for Fastly routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1759
+* Enable automerging for opsgenie routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1760
+* Enable auto-merging for keys routes. by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1761
+* Allow 4 group-bys for pattern viz by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1768
+* add url attribute to metrics assets v2 api by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1770
+* Add editable field to suppression rule by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1673
+* Add `num_flex_logs_retention_days` field to logs_indexes api spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1771
+* Software catalog openapi spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1778
+### Changed
+* allow variables in port by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1753
+* Fix VFTs and extracted local variables enum types by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1731
+* Extend Widget time schema with support for new fixed_span and live_span object by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1749
+### Deprecated
+* mark groupby_simple_monitor as deprecated by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1789
+
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.27.0...v1.28.0
+
 ## 1.27.0 / 2024-08-12
 
 ### Fixed
