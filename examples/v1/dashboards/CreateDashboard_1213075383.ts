@@ -30,6 +30,7 @@ const params: v1.DashboardsApiCreateDashboardRequest = {
               legend: "inline",
             },
             scaling: "relative",
+            palette: "dog_classic",
           },
           type: "toplist",
           requests: [
