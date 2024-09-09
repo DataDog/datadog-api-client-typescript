@@ -270,6 +270,10 @@ def get_references_for_model(model, model_name):
                 result.append(get_name(definition) + "Item")
             if "items" in definition["items"]:
                 name = get_name(definition["items"])
+                if definition["items"]["items"]:
+                    nested_name = get_name(definition["items"]["items"])
+                    if nested_name:
+                        result.append(nested_name)
                 if name:
                     result.append(name + "Item")
         elif definition.get("properties") and top_name:
