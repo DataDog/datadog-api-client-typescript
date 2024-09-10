@@ -10,6 +10,20 @@ import { APIKeyUpdateRequest } from "./APIKeyUpdateRequest";
 import { APIKeysResponse } from "./APIKeysResponse";
 import { APIKeysResponseMeta } from "./APIKeysResponseMeta";
 import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
+import { ASMExclusionFilterAttributes } from "./ASMExclusionFilterAttributes";
+import { ASMExclusionFilterCreateAttributes } from "./ASMExclusionFilterCreateAttributes";
+import { ASMExclusionFilterCreateData } from "./ASMExclusionFilterCreateData";
+import { ASMExclusionFilterCreateRequest } from "./ASMExclusionFilterCreateRequest";
+import { ASMExclusionFilterData } from "./ASMExclusionFilterData";
+import { ASMExclusionFilterListResponse } from "./ASMExclusionFilterListResponse";
+import { ASMExclusionFilterMetadata } from "./ASMExclusionFilterMetadata";
+import { ASMExclusionFilterResponse } from "./ASMExclusionFilterResponse";
+import { ASMExclusionFilterRuleTarget } from "./ASMExclusionFilterRuleTarget";
+import { ASMExclusionFilterRuleTargetTags } from "./ASMExclusionFilterRuleTargetTags";
+import { ASMExclusionFilterScope } from "./ASMExclusionFilterScope";
+import { ASMExclusionFilterUpdateAttributes } from "./ASMExclusionFilterUpdateAttributes";
+import { ASMExclusionFilterUpdateData } from "./ASMExclusionFilterUpdateData";
+import { ASMExclusionFilterUpdateRequest } from "./ASMExclusionFilterUpdateRequest";
 import { AWSRelatedAccount } from "./AWSRelatedAccount";
 import { AWSRelatedAccountAttributes } from "./AWSRelatedAccountAttributes";
 import { AWSRelatedAccountsResponse } from "./AWSRelatedAccountsResponse";
@@ -1273,6 +1287,7 @@ const enumsMap: { [key: string]: any[] } = {
     "-name",
   ],
   APIKeysType: ["api_keys"],
+  ASMExclusionFilterType: ["exclusion_filter"],
   AWSRelatedAccountType: ["aws_account"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
@@ -1878,6 +1893,20 @@ const typeMap: { [index: string]: any } = {
   APIKeysResponse: APIKeysResponse,
   APIKeysResponseMeta: APIKeysResponseMeta,
   APIKeysResponseMetaPage: APIKeysResponseMetaPage,
+  ASMExclusionFilterAttributes: ASMExclusionFilterAttributes,
+  ASMExclusionFilterCreateAttributes: ASMExclusionFilterCreateAttributes,
+  ASMExclusionFilterCreateData: ASMExclusionFilterCreateData,
+  ASMExclusionFilterCreateRequest: ASMExclusionFilterCreateRequest,
+  ASMExclusionFilterData: ASMExclusionFilterData,
+  ASMExclusionFilterListResponse: ASMExclusionFilterListResponse,
+  ASMExclusionFilterMetadata: ASMExclusionFilterMetadata,
+  ASMExclusionFilterResponse: ASMExclusionFilterResponse,
+  ASMExclusionFilterRuleTarget: ASMExclusionFilterRuleTarget,
+  ASMExclusionFilterRuleTargetTags: ASMExclusionFilterRuleTargetTags,
+  ASMExclusionFilterScope: ASMExclusionFilterScope,
+  ASMExclusionFilterUpdateAttributes: ASMExclusionFilterUpdateAttributes,
+  ASMExclusionFilterUpdateData: ASMExclusionFilterUpdateData,
+  ASMExclusionFilterUpdateRequest: ASMExclusionFilterUpdateRequest,
   AWSRelatedAccount: AWSRelatedAccount,
   AWSRelatedAccountAttributes: AWSRelatedAccountAttributes,
   AWSRelatedAccountsResponse: AWSRelatedAccountsResponse,
