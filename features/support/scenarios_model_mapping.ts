@@ -4984,6 +4984,41 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "ProcessSummariesResponse",
     },
+    "v2.ListASMExclusionFilters": {
+        "operationResponseType": "ASMExclusionFilterListResponse",
+    },
+    "v2.CreateASMExclusionFilter": {
+        "body": {
+            "type": "ASMExclusionFilterCreateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ASMExclusionFilterResponse",
+    },
+    "v2.DeleteASMExclusionFilter": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetASMExclusionFilters": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "ASMExclusionFilterResponse",
+    },
+    "v2.UpdateASMExclusionFilter": {
+        "exclusionFilterId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "ASMExclusionFilterUpdateRequest",
+            "format": "",
+            },
+        "operationResponseType": "ASMExclusionFilterResponse",
+    },
     "v2.ListCSMThreatsAgentRules": {
         "operationResponseType": "CloudWorkloadSecurityAgentRulesListResponse",
     },

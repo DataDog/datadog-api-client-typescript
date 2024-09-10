@@ -17,6 +17,14 @@ export {
 } from "./apis/APMRetentionFiltersApi";
 
 export {
+  ASMExclusionFiltersApiCreateASMExclusionFilterRequest,
+  ASMExclusionFiltersApiDeleteASMExclusionFilterRequest,
+  ASMExclusionFiltersApiGetASMExclusionFiltersRequest,
+  ASMExclusionFiltersApiUpdateASMExclusionFilterRequest,
+  ASMExclusionFiltersApi,
+} from "./apis/ASMExclusionFiltersApi";
+
+export {
   AuditApiListAuditLogsRequest,
   AuditApiSearchAuditLogsRequest,
   AuditApi,
@@ -568,6 +576,21 @@ export { ApplicationKeysType } from "./models/ApplicationKeysType";
 export { ApplicationKeyUpdateAttributes } from "./models/ApplicationKeyUpdateAttributes";
 export { ApplicationKeyUpdateData } from "./models/ApplicationKeyUpdateData";
 export { ApplicationKeyUpdateRequest } from "./models/ApplicationKeyUpdateRequest";
+export { ASMExclusionFilterAttributes } from "./models/ASMExclusionFilterAttributes";
+export { ASMExclusionFilterCreateAttributes } from "./models/ASMExclusionFilterCreateAttributes";
+export { ASMExclusionFilterCreateData } from "./models/ASMExclusionFilterCreateData";
+export { ASMExclusionFilterCreateRequest } from "./models/ASMExclusionFilterCreateRequest";
+export { ASMExclusionFilterData } from "./models/ASMExclusionFilterData";
+export { ASMExclusionFilterListResponse } from "./models/ASMExclusionFilterListResponse";
+export { ASMExclusionFilterMetadata } from "./models/ASMExclusionFilterMetadata";
+export { ASMExclusionFilterResponse } from "./models/ASMExclusionFilterResponse";
+export { ASMExclusionFilterRuleTarget } from "./models/ASMExclusionFilterRuleTarget";
+export { ASMExclusionFilterRuleTargetTags } from "./models/ASMExclusionFilterRuleTargetTags";
+export { ASMExclusionFilterScope } from "./models/ASMExclusionFilterScope";
+export { ASMExclusionFilterType } from "./models/ASMExclusionFilterType";
+export { ASMExclusionFilterUpdateAttributes } from "./models/ASMExclusionFilterUpdateAttributes";
+export { ASMExclusionFilterUpdateData } from "./models/ASMExclusionFilterUpdateData";
+export { ASMExclusionFilterUpdateRequest } from "./models/ASMExclusionFilterUpdateRequest";
 export { AuditLogsEvent } from "./models/AuditLogsEvent";
 export { AuditLogsEventAttributes } from "./models/AuditLogsEventAttributes";
 export { AuditLogsEventsResponse } from "./models/AuditLogsEventsResponse";
