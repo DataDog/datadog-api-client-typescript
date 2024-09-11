@@ -993,6 +993,7 @@ export { SyntheticsTestRequestBodyFile } from "./models/SyntheticsTestRequestBod
 export { SyntheticsTestRequestBodyType } from "./models/SyntheticsTestRequestBodyType";
 export { SyntheticsTestRequestCertificate } from "./models/SyntheticsTestRequestCertificate";
 export { SyntheticsTestRequestCertificateItem } from "./models/SyntheticsTestRequestCertificateItem";
+export { SyntheticsTestRequestPort } from "./models/SyntheticsTestRequestPort";
 export { SyntheticsTestRequestProxy } from "./models/SyntheticsTestRequestProxy";
 export { SyntheticsTiming } from "./models/SyntheticsTiming";
 export { SyntheticsTriggerBody } from "./models/SyntheticsTriggerBody";
