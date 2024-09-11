@@ -2316,6 +2316,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthOauthClient",
     "SyntheticsBasicAuthOauthROP",
   ],
+  SyntheticsTestRequestPort: ["number", "string"],
   ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
