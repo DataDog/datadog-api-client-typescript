@@ -125,6 +125,9 @@ function pathLookup(data: any, dottedPath: string): any {
       continue;
     }
     for (const part of dotPath.split("[")) {
+      if (part === "") {
+        continue;
+      }
       if (part.includes("]")) {
         const results = result as any[];
         result = results[parseInt(part)];
