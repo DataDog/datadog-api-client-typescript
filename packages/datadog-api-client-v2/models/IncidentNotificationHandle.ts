@@ -15,7 +15,7 @@ export class IncidentNotificationHandle {
    */
   "displayName"?: string;
   /**
-   * The email address used for the notification.
+   * The handle used for the notification. This includes an email address, Slack channel, or workflow.
    */
   "handle"?: string;
 
