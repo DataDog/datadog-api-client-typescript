@@ -7,37 +7,33 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Team update attributes
+ * The definition of `UserTeamUserAttributes` object.
  */
-export class TeamUpdateAttributes {
+export class UserTeamUserAttributes {
   /**
-   * Unicode representation of the avatar for the team, limited to a single grapheme
+   * The `UserTeamUserAttributes` `disabled`.
    */
-  "avatar"?: string;
+  "disabled"?: boolean;
   /**
-   * Banner selection for the team
+   * The `UserTeamUserAttributes` `email`.
    */
-  "banner"?: number;
+  "email"?: string;
   /**
-   * Free-form markdown description/content for the team's homepage
+   * The `UserTeamUserAttributes` `handle`.
    */
-  "description"?: string;
+  "handle"?: string;
   /**
-   * The team's identifier
+   * The `UserTeamUserAttributes` `icon`.
    */
-  "handle": string;
+  "icon"?: string;
   /**
-   * Collection of hidden modules for the team
+   * The `UserTeamUserAttributes` `name`.
    */
-  "hiddenModules"?: Array<string>;
+  "name"?: string;
   /**
-   * The name of the team
+   * The `UserTeamUserAttributes` `service_account`.
    */
-  "name": string;
-  /**
-   * Collection of visible modules for the team
-   */
-  "visibleModules"?: Array<string>;
+  "serviceAccount"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -55,36 +51,29 @@ export class TeamUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    avatar: {
-      baseName: "avatar",
-      type: "string",
+    disabled: {
+      baseName: "disabled",
+      type: "boolean",
     },
-    banner: {
-      baseName: "banner",
-      type: "number",
-      format: "int64",
-    },
-    description: {
-      baseName: "description",
+    email: {
+      baseName: "email",
       type: "string",
     },
     handle: {
       baseName: "handle",
       type: "string",
-      required: true,
     },
-    hiddenModules: {
-      baseName: "hidden_modules",
-      type: "Array<string>",
+    icon: {
+      baseName: "icon",
+      type: "string",
     },
     name: {
       baseName: "name",
       type: "string",
-      required: true,
     },
-    visibleModules: {
-      baseName: "visible_modules",
-      type: "Array<string>",
+    serviceAccount: {
+      baseName: "service_account",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -96,7 +85,7 @@ export class TeamUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamUpdateAttributes.attributeTypeMap;
+    return UserTeamUserAttributes.attributeTypeMap;
   }
 
   public constructor() {}
