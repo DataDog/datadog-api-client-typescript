@@ -487,6 +487,10 @@ import { SyntheticsUpdateTestPauseStatusPayload } from "./SyntheticsUpdateTestPa
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TableWidgetRequest } from "./TableWidgetRequest";
+import { TableWidgetTextFormatMatch } from "./TableWidgetTextFormatMatch";
+import { TableWidgetTextFormatReplaceAll } from "./TableWidgetTextFormatReplaceAll";
+import { TableWidgetTextFormatReplaceSubstring } from "./TableWidgetTextFormatReplaceSubstring";
+import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
 import { TagToHosts } from "./TagToHosts";
 import { TimeseriesBackground } from "./TimeseriesBackground";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
@@ -1422,6 +1426,29 @@ const enumsMap: { [key: string]: any[] } = {
   TableWidgetCellDisplayMode: ["number", "bar"],
   TableWidgetDefinitionType: ["query_table"],
   TableWidgetHasSearchBar: ["always", "never", "auto"],
+  TableWidgetTextFormatMatchType: [
+    "is",
+    "is_not",
+    "contains",
+    "does_not_contain",
+    "starts_with",
+    "ends_with",
+  ],
+  TableWidgetTextFormatPalette: [
+    "white_on_red",
+    "white_on_yellow",
+    "white_on_green",
+    "black_on_light_red",
+    "black_on_light_yellow",
+    "black_on_light_green",
+    "red_on_white",
+    "yellow_on_white",
+    "green_on_white",
+    "custom_bg",
+    "custom_text",
+  ],
+  TableWidgetTextFormatReplaceAllType: ["all"],
+  TableWidgetTextFormatReplaceSubstringType: ["substring"],
   TargetFormatType: ["auto", "string", "integer", "double"],
   TimeseriesBackgroundType: ["bars", "area"],
   TimeseriesWidgetDefinitionType: ["timeseries"],
@@ -2084,6 +2111,10 @@ const typeMap: { [index: string]: any } = {
   SyntheticsVariableParser: SyntheticsVariableParser,
   TableWidgetDefinition: TableWidgetDefinition,
   TableWidgetRequest: TableWidgetRequest,
+  TableWidgetTextFormatMatch: TableWidgetTextFormatMatch,
+  TableWidgetTextFormatReplaceAll: TableWidgetTextFormatReplaceAll,
+  TableWidgetTextFormatReplaceSubstring: TableWidgetTextFormatReplaceSubstring,
+  TableWidgetTextFormatRule: TableWidgetTextFormatRule,
   TagToHosts: TagToHosts,
   TimeseriesBackground: TimeseriesBackground,
   TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
@@ -2317,6 +2348,10 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthOauthROP",
   ],
   SyntheticsTestRequestPort: ["number", "string"],
+  TableWidgetTextFormatReplace: [
+    "TableWidgetTextFormatReplaceAll",
+    "TableWidgetTextFormatReplaceSubstring",
+  ],
   ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
   WidgetDefinition: [
     "AlertGraphWidgetDefinition",
