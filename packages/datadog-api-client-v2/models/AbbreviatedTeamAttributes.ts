@@ -7,9 +7,9 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Team update attributes
+ * The definition of `AbbreviatedTeamAttributes` object.
  */
-export class TeamUpdateAttributes {
+export class AbbreviatedTeamAttributes {
   /**
    * Unicode representation of the avatar for the team, limited to a single grapheme
    */
@@ -19,25 +19,25 @@ export class TeamUpdateAttributes {
    */
   "banner"?: number;
   /**
-   * Free-form markdown description/content for the team's homepage
-   */
-  "description"?: string;
-  /**
    * The team's identifier
    */
   "handle": string;
   /**
-   * Collection of hidden modules for the team
+   * The `AbbreviatedTeamAttributes` `handles`.
    */
-  "hiddenModules"?: Array<string>;
+  "handles"?: string;
+  /**
+   * The `AbbreviatedTeamAttributes` `is_open_membership`.
+   */
+  "isOpenMembership"?: boolean;
   /**
    * The name of the team
    */
   "name": string;
   /**
-   * Collection of visible modules for the team
+   * A brief summary of the team
    */
-  "visibleModules"?: Array<string>;
+  "summary"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -64,27 +64,27 @@ export class TeamUpdateAttributes {
       type: "number",
       format: "int64",
     },
-    description: {
-      baseName: "description",
-      type: "string",
-    },
     handle: {
       baseName: "handle",
       type: "string",
       required: true,
     },
-    hiddenModules: {
-      baseName: "hidden_modules",
-      type: "Array<string>",
+    handles: {
+      baseName: "handles",
+      type: "string",
+    },
+    isOpenMembership: {
+      baseName: "is_open_membership",
+      type: "boolean",
     },
     name: {
       baseName: "name",
       type: "string",
       required: true,
     },
-    visibleModules: {
-      baseName: "visible_modules",
-      type: "Array<string>",
+    summary: {
+      baseName: "summary",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -96,7 +96,7 @@ export class TeamUpdateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return TeamUpdateAttributes.attributeTypeMap;
+    return AbbreviatedTeamAttributes.attributeTypeMap;
   }
 
   public constructor() {}

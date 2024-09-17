@@ -3,21 +3,26 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { TableWidgetTextFormatReplaceSubstringType } from "./TableWidgetTextFormatReplaceSubstringType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A notification handle that will be notified at incident creation.
+ * Match Sub-string definition.
  */
-export class IncidentNotificationHandle {
+export class TableWidgetTextFormatReplaceSubstring {
   /**
-   * The name of the notified handle.
+   * Text that will be replaced.
    */
-  "displayName"?: string;
+  "substring": string;
   /**
-   * The handle used for the notification. This includes an email address, Slack channel, or workflow.
+   * Table widget text format replace sub-string type.
    */
-  "handle"?: string;
+  "type": TableWidgetTextFormatReplaceSubstringType;
+  /**
+   * Text that will replace original sub-string.
+   */
+  "_with": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +40,20 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
+    substring: {
+      baseName: "substring",
       type: "string",
+      required: true,
     },
-    handle: {
-      baseName: "handle",
+    type: {
+      baseName: "type",
+      type: "TableWidgetTextFormatReplaceSubstringType",
+      required: true,
+    },
+    _with: {
+      baseName: "with",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +65,7 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentNotificationHandle.attributeTypeMap;
+    return TableWidgetTextFormatReplaceSubstring.attributeTypeMap;
   }
 
   public constructor() {}

@@ -9,6 +9,7 @@ import { FormulaAndFunctionResponseFormat } from "./FormulaAndFunctionResponseFo
 import { LogQueryDefinition } from "./LogQueryDefinition";
 import { ProcessQueryDefinition } from "./ProcessQueryDefinition";
 import { TableWidgetCellDisplayMode } from "./TableWidgetCellDisplayMode";
+import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
 import { WidgetAggregator } from "./WidgetAggregator";
 import { WidgetConditionalFormat } from "./WidgetConditionalFormat";
 import { WidgetFormula } from "./WidgetFormula";
@@ -101,6 +102,10 @@ export class TableWidgetRequest {
    * The controls for sorting the widget.
    */
   "sort"?: WidgetSortBy;
+  /**
+   * List of text formats for columns produced by tags.
+   */
+  "textFormats"?: Array<Array<TableWidgetTextFormatRule>>;
 
   /**
    * A container for additional, undeclared properties.
@@ -198,6 +203,10 @@ export class TableWidgetRequest {
     sort: {
       baseName: "sort",
       type: "WidgetSortBy",
+    },
+    textFormats: {
+      baseName: "text_formats",
+      type: "Array<Array<TableWidgetTextFormatRule>>",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -3,21 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { TableWidgetTextFormatMatchType } from "./TableWidgetTextFormatMatchType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A notification handle that will be notified at incident creation.
+ * Match rule for the table widget text format.
  */
-export class IncidentNotificationHandle {
+export class TableWidgetTextFormatMatch {
   /**
-   * The name of the notified handle.
+   * Match or compare option.
    */
-  "displayName"?: string;
+  "type": TableWidgetTextFormatMatchType;
   /**
-   * The handle used for the notification. This includes an email address, Slack channel, or workflow.
+   * Table Widget Match String.
    */
-  "handle"?: string;
+  "value": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +36,15 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "TableWidgetTextFormatMatchType",
+      required: true,
     },
-    handle: {
-      baseName: "handle",
+    value: {
+      baseName: "value",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +56,7 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentNotificationHandle.attributeTypeMap;
+    return TableWidgetTextFormatMatch.attributeTypeMap;
   }
 
   public constructor() {}

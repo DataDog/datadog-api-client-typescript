@@ -3,21 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { UserTeamUserAttributes } from "./UserTeamUserAttributes";
+import { UserTeamUserType } from "./UserTeamUserType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A notification handle that will be notified at incident creation.
+ * The definition of `UserTeamUser` object.
  */
-export class IncidentNotificationHandle {
+export class UserTeamUser {
   /**
-   * The name of the notified handle.
+   * The definition of `UserTeamUserAttributes` object.
    */
-  "displayName"?: string;
+  "attributes"?: UserTeamUserAttributes;
   /**
-   * The handle used for the notification. This includes an email address, Slack channel, or workflow.
+   * The `UserTeamUser` ID.
    */
-  "handle"?: string;
+  "id"?: string;
+  /**
+   * User team user type
+   */
+  "type": UserTeamUserType;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +41,18 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
+    attributes: {
+      baseName: "attributes",
+      type: "UserTeamUserAttributes",
+    },
+    id: {
+      baseName: "id",
       type: "string",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "UserTeamUserType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +64,7 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentNotificationHandle.attributeTypeMap;
+    return UserTeamUser.attributeTypeMap;
   }
 
   public constructor() {}

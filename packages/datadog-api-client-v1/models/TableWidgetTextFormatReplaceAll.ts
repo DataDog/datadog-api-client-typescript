@@ -3,21 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { TableWidgetTextFormatReplaceAllType } from "./TableWidgetTextFormatReplaceAllType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A notification handle that will be notified at incident creation.
+ * Match All definition.
  */
-export class IncidentNotificationHandle {
+export class TableWidgetTextFormatReplaceAll {
   /**
-   * The name of the notified handle.
+   * Table widget text format replace all type.
    */
-  "displayName"?: string;
+  "type": TableWidgetTextFormatReplaceAllType;
   /**
-   * The handle used for the notification. This includes an email address, Slack channel, or workflow.
+   * Replace All type.
    */
-  "handle"?: string;
+  "_with": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +36,15 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "TableWidgetTextFormatReplaceAllType",
+      required: true,
     },
-    handle: {
-      baseName: "handle",
+    _with: {
+      baseName: "with",
       type: "string",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +56,7 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentNotificationHandle.attributeTypeMap;
+    return TableWidgetTextFormatReplaceAll.attributeTypeMap;
   }
 
   public constructor() {}

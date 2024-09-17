@@ -3,21 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { AbbreviatedTeamAttributes } from "./AbbreviatedTeamAttributes";
+import { AbbreviatedTeamType } from "./AbbreviatedTeamType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A notification handle that will be notified at incident creation.
+ * The definition of `AbbreviatedTeam` object.
  */
-export class IncidentNotificationHandle {
+export class AbbreviatedTeam {
   /**
-   * The name of the notified handle.
+   * The definition of `AbbreviatedTeamAttributes` object.
    */
-  "displayName"?: string;
+  "attributes": AbbreviatedTeamAttributes;
   /**
-   * The handle used for the notification. This includes an email address, Slack channel, or workflow.
+   * ID of the team
    */
-  "handle"?: string;
+  "id"?: string;
+  /**
+   * The definition of `AbbreviatedTeamType` object.
+   */
+  "type": AbbreviatedTeamType;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +41,19 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
+    attributes: {
+      baseName: "attributes",
+      type: "AbbreviatedTeamAttributes",
+      required: true,
+    },
+    id: {
+      baseName: "id",
       type: "string",
     },
-    handle: {
-      baseName: "handle",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "AbbreviatedTeamType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +65,7 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentNotificationHandle.attributeTypeMap;
+    return AbbreviatedTeam.attributeTypeMap;
   }
 
   public constructor() {}

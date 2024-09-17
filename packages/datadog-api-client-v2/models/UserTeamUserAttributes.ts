@@ -7,17 +7,33 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A notification handle that will be notified at incident creation.
+ * The definition of `UserTeamUserAttributes` object.
  */
-export class IncidentNotificationHandle {
+export class UserTeamUserAttributes {
   /**
-   * The name of the notified handle.
+   * The `UserTeamUserAttributes` `disabled`.
    */
-  "displayName"?: string;
+  "disabled"?: boolean;
   /**
-   * The handle used for the notification. This includes an email address, Slack channel, or workflow.
+   * The `UserTeamUserAttributes` `email`.
+   */
+  "email"?: string;
+  /**
+   * The `UserTeamUserAttributes` `handle`.
    */
   "handle"?: string;
+  /**
+   * The `UserTeamUserAttributes` `icon`.
+   */
+  "icon"?: string;
+  /**
+   * The `UserTeamUserAttributes` `name`.
+   */
+  "name"?: string;
+  /**
+   * The `UserTeamUserAttributes` `service_account`.
+   */
+  "serviceAccount"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,13 +51,29 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    displayName: {
-      baseName: "display_name",
+    disabled: {
+      baseName: "disabled",
+      type: "boolean",
+    },
+    email: {
+      baseName: "email",
       type: "string",
     },
     handle: {
       baseName: "handle",
       type: "string",
+    },
+    icon: {
+      baseName: "icon",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+    },
+    serviceAccount: {
+      baseName: "service_account",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -53,7 +85,7 @@ export class IncidentNotificationHandle {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return IncidentNotificationHandle.attributeTypeMap;
+    return UserTeamUserAttributes.attributeTypeMap;
   }
 
   public constructor() {}
