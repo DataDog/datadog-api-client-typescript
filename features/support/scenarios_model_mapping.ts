@@ -3151,6 +3151,17 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "UsageApplicationSecurityMonitoringResponse",
     },
+    "v2.GetBillingDimensionMapping": {
+        "filterMonth": {
+            "type": "Date",
+            "format": "date-time",
+            },
+        "filterView": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "BillingDimensionsMappingResponse",
+    },
     "v2.GetCostByOrg": {
         "startMonth": {
             "type": "Date",
