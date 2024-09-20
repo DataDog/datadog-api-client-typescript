@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class PowerpackTemplateVariable {
   /**
+   * The list of values that the template variable drop-down is limited to.
+   */
+  "availableValues"?: Array<string>;
+  /**
    * One or many template variable default values within the saved view, which are unioned together using `OR` if more than one is specified.
    */
   "defaults"?: Array<string>;
@@ -18,6 +22,10 @@ export class PowerpackTemplateVariable {
    * The name of the variable.
    */
   "name": string;
+  /**
+   * The tag prefix associated with the variable. Only tags with this prefix appear in the variable drop-down.
+   */
+  "prefix"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -35,6 +43,10 @@ export class PowerpackTemplateVariable {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    availableValues: {
+      baseName: "available_values",
+      type: "Array<string>",
+    },
     defaults: {
       baseName: "defaults",
       type: "Array<string>",
@@ -43,6 +55,10 @@ export class PowerpackTemplateVariable {
       baseName: "name",
       type: "string",
       required: true,
+    },
+    prefix: {
+      baseName: "prefix",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
