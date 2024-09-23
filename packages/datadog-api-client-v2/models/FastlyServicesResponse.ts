@@ -3,7 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { FastlyServiceResponse } from "./FastlyServiceResponse";
+import { FastlyServiceData } from "./FastlyServiceData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -14,7 +14,7 @@ export class FastlyServicesResponse {
   /**
    * The JSON:API data schema.
    */
-  "data"?: Array<FastlyServiceResponse>;
+  "data"?: Array<FastlyServiceData>;
 
   /**
    * A container for additional, undeclared properties.
@@ -34,7 +34,7 @@ export class FastlyServicesResponse {
   static readonly attributeTypeMap: AttributeTypeMap = {
     data: {
       baseName: "data",
-      type: "Array<FastlyServiceResponse>",
+      type: "Array<FastlyServiceData>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
