@@ -216,6 +216,10 @@ export class UsageSummaryDate {
    */
   "cwsHostTop99p"?: number;
   /**
+   * Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for the given org.
+   */
+  "dataJobsMonitoringHostHrSum"?: number;
+  /**
    * The date for the usage.
    */
   "date"?: Date;
@@ -808,6 +812,11 @@ export class UsageSummaryDate {
     },
     cwsHostTop99p: {
       baseName: "cws_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    dataJobsMonitoringHostHrSum: {
+      baseName: "data_jobs_monitoring_host_hr_sum",
       type: "number",
       format: "int64",
     },
