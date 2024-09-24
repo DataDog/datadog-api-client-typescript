@@ -6,6 +6,8 @@
 import { Organization } from "./Organization";
 import { Permission } from "./Permission";
 import { Role } from "./Role";
+import { UserOrgsSerializable } from "./UserOrgsSerializable";
+import { UserOverrideIdentityProvider } from "./UserOverrideIdentityProvider";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -17,4 +19,6 @@ export type UserResponseIncludedItem =
   | Organization
   | Permission
   | Role
+  | UserOverrideIdentityProvider
+  | UserOrgsSerializable
   | UnparsedObject;

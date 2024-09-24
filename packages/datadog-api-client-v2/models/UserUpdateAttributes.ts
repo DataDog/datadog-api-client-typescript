@@ -11,6 +11,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class UserUpdateAttributes {
   /**
+   * The `UserUpdateAttributes` `created_at`.
+   */
+  "createdAt"?: Date;
+  /**
    * If the user is enabled or disabled.
    */
   "disabled"?: boolean;
@@ -19,9 +23,29 @@ export class UserUpdateAttributes {
    */
   "email"?: string;
   /**
+   * The `UserUpdateAttributes` `handle`.
+   */
+  "handle"?: string;
+  /**
+   * The `UserUpdateAttributes` `modified_at`.
+   */
+  "modifiedAt"?: Date;
+  /**
    * The name of the user.
    */
   "name"?: string;
+  /**
+   * The `UserUpdateAttributes` `service_account`.
+   */
+  "serviceAccount"?: boolean;
+  /**
+   * The `UserUpdateAttributes` `title`.
+   */
+  "title"?: string;
+  /**
+   * The `UserUpdateAttributes` `verified`.
+   */
+  "verified"?: boolean;
 
   /**
    * A container for additional, undeclared properties.
@@ -39,6 +63,11 @@ export class UserUpdateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    createdAt: {
+      baseName: "created_at",
+      type: "Date",
+      format: "date-time",
+    },
     disabled: {
       baseName: "disabled",
       type: "boolean",
@@ -47,9 +76,30 @@ export class UserUpdateAttributes {
       baseName: "email",
       type: "string",
     },
+    handle: {
+      baseName: "handle",
+      type: "string",
+    },
+    modifiedAt: {
+      baseName: "modified_at",
+      type: "Date",
+      format: "date-time",
+    },
     name: {
       baseName: "name",
       type: "string",
+    },
+    serviceAccount: {
+      baseName: "service_account",
+      type: "boolean",
+    },
+    title: {
+      baseName: "title",
+      type: "string",
+    },
+    verified: {
+      baseName: "verified",
+      type: "boolean",
     },
     additionalProperties: {
       baseName: "additionalProperties",
