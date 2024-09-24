@@ -1203,6 +1203,10 @@ import { UserInvitationResponse } from "./UserInvitationResponse";
 import { UserInvitationResponseData } from "./UserInvitationResponseData";
 import { UserInvitationsRequest } from "./UserInvitationsRequest";
 import { UserInvitationsResponse } from "./UserInvitationsResponse";
+import { UserOrgsSerializable } from "./UserOrgsSerializable";
+import { UserOrgsSerializableAttributes } from "./UserOrgsSerializableAttributes";
+import { UserOverrideIdentityProvider } from "./UserOverrideIdentityProvider";
+import { UserOverrideIdentityProviderAttributes } from "./UserOverrideIdentityProviderAttributes";
 import { UserRelationshipData } from "./UserRelationshipData";
 import { UserRelationships } from "./UserRelationships";
 import { UserResponse } from "./UserResponse";
@@ -1844,6 +1848,8 @@ const enumsMap: { [key: string]: any[] } = {
   TimeseriesFormulaResponseType: ["timeseries_response"],
   UsageTimeSeriesType: ["usage_timeseries"],
   UserInvitationsType: ["user_invitations"],
+  UserOrgsSerializableType: ["users"],
+  UserOverrideIdentityProviderType: ["identity_providers"],
   UserResourceType: ["user"],
   UserTeamPermissionType: ["user_team_permissions"],
   UserTeamRole: ["admin"],
@@ -3208,6 +3214,11 @@ const typeMap: { [index: string]: any } = {
   UserInvitationResponseData: UserInvitationResponseData,
   UserInvitationsRequest: UserInvitationsRequest,
   UserInvitationsResponse: UserInvitationsResponse,
+  UserOrgsSerializable: UserOrgsSerializable,
+  UserOrgsSerializableAttributes: UserOrgsSerializableAttributes,
+  UserOverrideIdentityProvider: UserOverrideIdentityProvider,
+  UserOverrideIdentityProviderAttributes:
+    UserOverrideIdentityProviderAttributes,
   UserRelationshipData: UserRelationshipData,
   UserRelationships: UserRelationships,
   UserResponse: UserResponse,
@@ -3447,7 +3458,13 @@ const oneOfMap: { [index: string]: string[] } = {
   TimeseriesQuery: ["MetricsTimeseriesQuery", "EventsTimeseriesQuery"],
   UpsertCatalogEntityRequest: ["EntityV3", "string"],
   UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
-  UserResponseIncludedItem: ["Organization", "Permission", "Role"],
+  UserResponseIncludedItem: [
+    "Organization",
+    "Permission",
+    "Role",
+    "UserOverrideIdentityProvider",
+    "UserOrgsSerializable",
+  ],
   UserTeamIncluded: ["User", "Team", "AbbreviatedTeam", "UserTeamUser"],
 };
 

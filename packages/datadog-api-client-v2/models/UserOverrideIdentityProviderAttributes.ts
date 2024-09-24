@@ -7,29 +7,13 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a user invitation.
+ * The definition of `UserOverrideIdentityProviderAttributes` object.
  */
-export class UserInvitationDataAttributes {
+export class UserOverrideIdentityProviderAttributes {
   /**
-   * Creation time of the user invitation.
+   * The `UserOverrideIdentityProviderAttributes` `authentication_method`.
    */
-  "createdAt"?: Date;
-  /**
-   * Time of invitation expiration.
-   */
-  "expiresAt"?: Date;
-  /**
-   * Type of invitation.
-   */
-  "inviteType"?: string;
-  /**
-   * The `UserInvitationDataAttributes` `login_method`.
-   */
-  "loginMethod"?: string;
-  /**
-   * UUID of the user invitation.
-   */
-  "uuid"?: string;
+  "authenticationMethod"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,26 +31,8 @@ export class UserInvitationDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
-    },
-    expiresAt: {
-      baseName: "expires_at",
-      type: "Date",
-      format: "date-time",
-    },
-    inviteType: {
-      baseName: "invite_type",
-      type: "string",
-    },
-    loginMethod: {
-      baseName: "login_method",
-      type: "string",
-    },
-    uuid: {
-      baseName: "uuid",
+    authenticationMethod: {
+      baseName: "authentication_method",
       type: "string",
     },
     additionalProperties: {
@@ -79,7 +45,7 @@ export class UserInvitationDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationDataAttributes.attributeTypeMap;
+    return UserOverrideIdentityProviderAttributes.attributeTypeMap;
   }
 
   public constructor() {}

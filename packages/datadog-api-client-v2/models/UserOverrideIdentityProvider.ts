@@ -3,33 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { UserOverrideIdentityProviderAttributes } from "./UserOverrideIdentityProviderAttributes";
+import { UserOverrideIdentityProviderType } from "./UserOverrideIdentityProviderType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of a user invitation.
+ * The definition of `UserOverrideIdentityProvider` object.
  */
-export class UserInvitationDataAttributes {
+export class UserOverrideIdentityProvider {
   /**
-   * Creation time of the user invitation.
+   * The definition of `UserOverrideIdentityProviderAttributes` object.
    */
-  "createdAt"?: Date;
+  "attributes"?: UserOverrideIdentityProviderAttributes;
   /**
-   * Time of invitation expiration.
+   * The `UserOverrideIdentityProvider` `id`.
    */
-  "expiresAt"?: Date;
+  "id"?: string;
   /**
-   * Type of invitation.
+   * The definition of `UserOverrideIdentityProviderType` object.
    */
-  "inviteType"?: string;
-  /**
-   * The `UserInvitationDataAttributes` `login_method`.
-   */
-  "loginMethod"?: string;
-  /**
-   * UUID of the user invitation.
-   */
-  "uuid"?: string;
+  "type": UserOverrideIdentityProviderType;
 
   /**
    * A container for additional, undeclared properties.
@@ -47,27 +41,18 @@ export class UserInvitationDataAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
+    attributes: {
+      baseName: "attributes",
+      type: "UserOverrideIdentityProviderAttributes",
     },
-    expiresAt: {
-      baseName: "expires_at",
-      type: "Date",
-      format: "date-time",
-    },
-    inviteType: {
-      baseName: "invite_type",
+    id: {
+      baseName: "id",
       type: "string",
     },
-    loginMethod: {
-      baseName: "login_method",
-      type: "string",
-    },
-    uuid: {
-      baseName: "uuid",
-      type: "string",
+    type: {
+      baseName: "type",
+      type: "UserOverrideIdentityProviderType",
+      required: true,
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -79,7 +64,7 @@ export class UserInvitationDataAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UserInvitationDataAttributes.attributeTypeMap;
+    return UserOverrideIdentityProvider.attributeTypeMap;
   }
 
   public constructor() {}

@@ -7,43 +7,31 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Attributes of the created user.
+ * The definition of `UserOrgsSerializableAttributes` object.
  */
-export class UserCreateAttributes {
+export class UserOrgsSerializableAttributes {
   /**
-   * The `UserCreateAttributes` `created_at`.
-   */
-  "createdAt"?: Date;
-  /**
-   * The `UserCreateAttributes` `disabled`.
+   * The `UserOrgsSerializableAttributes` `disabled`.
    */
   "disabled"?: boolean;
   /**
-   * The email of the user.
+   * The `UserOrgsSerializableAttributes` `email`.
    */
-  "email": string;
+  "email"?: string;
   /**
-   * The `UserCreateAttributes` `handle`.
-   */
-  "handle"?: string;
-  /**
-   * The `UserCreateAttributes` `modified_at`.
-   */
-  "modifiedAt"?: Date;
-  /**
-   * The name of the user.
+   * The `UserOrgsSerializableAttributes` `name`.
    */
   "name"?: string;
   /**
-   * The `UserCreateAttributes` `service_account`.
+   * The `UserOrgsSerializableAttributes` `org_id`.
    */
-  "serviceAccount"?: boolean;
+  "orgId"?: string;
   /**
-   * The title of the user.
+   * The `UserOrgsSerializableAttributes` `title`.
    */
   "title"?: string;
   /**
-   * The `UserCreateAttributes` `verified`.
+   * The `UserOrgsSerializableAttributes` `verified`.
    */
   "verified"?: boolean;
 
@@ -63,11 +51,6 @@ export class UserCreateAttributes {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    createdAt: {
-      baseName: "created_at",
-      type: "Date",
-      format: "date-time",
-    },
     disabled: {
       baseName: "disabled",
       type: "boolean",
@@ -75,24 +58,14 @@ export class UserCreateAttributes {
     email: {
       baseName: "email",
       type: "string",
-      required: true,
-    },
-    handle: {
-      baseName: "handle",
-      type: "string",
-    },
-    modifiedAt: {
-      baseName: "modified_at",
-      type: "Date",
-      format: "date-time",
     },
     name: {
       baseName: "name",
       type: "string",
     },
-    serviceAccount: {
-      baseName: "service_account",
-      type: "boolean",
+    orgId: {
+      baseName: "org_id",
+      type: "string",
     },
     title: {
       baseName: "title",
@@ -112,7 +85,7 @@ export class UserCreateAttributes {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return UserCreateAttributes.attributeTypeMap;
+    return UserOrgsSerializableAttributes.attributeTypeMap;
   }
 
   public constructor() {}

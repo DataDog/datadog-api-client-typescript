@@ -2089,6 +2089,12 @@ export { UserInvitationResponseData } from "./models/UserInvitationResponseData"
 export { UserInvitationsRequest } from "./models/UserInvitationsRequest";
 export { UserInvitationsResponse } from "./models/UserInvitationsResponse";
 export { UserInvitationsType } from "./models/UserInvitationsType";
+export { UserOrgsSerializable } from "./models/UserOrgsSerializable";
+export { UserOrgsSerializableAttributes } from "./models/UserOrgsSerializableAttributes";
+export { UserOrgsSerializableType } from "./models/UserOrgsSerializableType";
+export { UserOverrideIdentityProvider } from "./models/UserOverrideIdentityProvider";
+export { UserOverrideIdentityProviderAttributes } from "./models/UserOverrideIdentityProviderAttributes";
+export { UserOverrideIdentityProviderType } from "./models/UserOverrideIdentityProviderType";
 export { UserRelationshipData } from "./models/UserRelationshipData";
 export { UserRelationships } from "./models/UserRelationships";
 export { UserResourceType } from "./models/UserResourceType";
