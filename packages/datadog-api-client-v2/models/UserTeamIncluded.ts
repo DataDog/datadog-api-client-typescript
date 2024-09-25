@@ -3,10 +3,8 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { AbbreviatedTeam } from "./AbbreviatedTeam";
 import { Team } from "./Team";
 import { User } from "./User";
-import { UserTeamUser } from "./UserTeamUser";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
@@ -14,9 +12,4 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
  * Included resources related to the team membership
  */
 
-export type UserTeamIncluded =
-  | User
-  | Team
-  | AbbreviatedTeam
-  | UserTeamUser
-  | UnparsedObject;
+export type UserTeamIncluded = User | Team | UnparsedObject;

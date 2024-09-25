@@ -13,8 +13,6 @@ import { APIKeysResponseMetaPage } from "./APIKeysResponseMetaPage";
 import { AWSRelatedAccount } from "./AWSRelatedAccount";
 import { AWSRelatedAccountAttributes } from "./AWSRelatedAccountAttributes";
 import { AWSRelatedAccountsResponse } from "./AWSRelatedAccountsResponse";
-import { AbbreviatedTeam } from "./AbbreviatedTeam";
-import { AbbreviatedTeamAttributes } from "./AbbreviatedTeamAttributes";
 import { ActiveBillingDimensionsAttributes } from "./ActiveBillingDimensionsAttributes";
 import { ActiveBillingDimensionsBody } from "./ActiveBillingDimensionsBody";
 import { ActiveBillingDimensionsResponse } from "./ActiveBillingDimensionsResponse";
@@ -1217,8 +1215,6 @@ import { UserTeamRequest } from "./UserTeamRequest";
 import { UserTeamResponse } from "./UserTeamResponse";
 import { UserTeamUpdate } from "./UserTeamUpdate";
 import { UserTeamUpdateRequest } from "./UserTeamUpdateRequest";
-import { UserTeamUser } from "./UserTeamUser";
-import { UserTeamUserAttributes } from "./UserTeamUserAttributes";
 import { UserTeamsResponse } from "./UserTeamsResponse";
 import { UserUpdateAttributes } from "./UserUpdateAttributes";
 import { UserUpdateData } from "./UserUpdateData";
@@ -1278,7 +1274,6 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   APIKeysType: ["api_keys"],
   AWSRelatedAccountType: ["aws_account"],
-  AbbreviatedTeamType: ["team"],
   ActiveBillingDimensionsType: ["billing_dimensions"],
   ApmRetentionFilterType: ["apm_retention_filter"],
   ApplicationKeysSort: [
@@ -1886,8 +1881,6 @@ const typeMap: { [index: string]: any } = {
   AWSRelatedAccount: AWSRelatedAccount,
   AWSRelatedAccountAttributes: AWSRelatedAccountAttributes,
   AWSRelatedAccountsResponse: AWSRelatedAccountsResponse,
-  AbbreviatedTeam: AbbreviatedTeam,
-  AbbreviatedTeamAttributes: AbbreviatedTeamAttributes,
   ActiveBillingDimensionsAttributes: ActiveBillingDimensionsAttributes,
   ActiveBillingDimensionsBody: ActiveBillingDimensionsBody,
   ActiveBillingDimensionsResponse: ActiveBillingDimensionsResponse,
@@ -3222,8 +3215,6 @@ const typeMap: { [index: string]: any } = {
   UserTeamResponse: UserTeamResponse,
   UserTeamUpdate: UserTeamUpdate,
   UserTeamUpdateRequest: UserTeamUpdateRequest,
-  UserTeamUser: UserTeamUser,
-  UserTeamUserAttributes: UserTeamUserAttributes,
   UserTeamsResponse: UserTeamsResponse,
   UserUpdateAttributes: UserUpdateAttributes,
   UserUpdateData: UserUpdateData,
@@ -3448,7 +3439,7 @@ const oneOfMap: { [index: string]: string[] } = {
   UpsertCatalogEntityRequest: ["EntityV3", "string"],
   UpsertCatalogEntityResponseIncludedItem: ["EntityResponseIncludedSchema"],
   UserResponseIncludedItem: ["Organization", "Permission", "Role"],
-  UserTeamIncluded: ["User", "Team", "AbbreviatedTeam", "UserTeamUser"],
+  UserTeamIncluded: ["User", "Team"],
 };
 
 export class ObjectSerializer {
