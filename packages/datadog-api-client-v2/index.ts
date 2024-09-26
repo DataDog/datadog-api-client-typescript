@@ -1062,6 +1062,7 @@ export { FastlyServicesResponse } from "./models/FastlyServicesResponse";
 export { FastlyServiceType } from "./models/FastlyServiceType";
 export { Finding } from "./models/Finding";
 export { FindingAttributes } from "./models/FindingAttributes";
+export { FindingDetectionType } from "./models/FindingDetectionType";
 export { FindingEvaluation } from "./models/FindingEvaluation";
 export { FindingMute } from "./models/FindingMute";
 export { FindingMuteReason } from "./models/FindingMuteReason";

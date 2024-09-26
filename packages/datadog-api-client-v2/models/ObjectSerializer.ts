@@ -1443,6 +1443,12 @@ const enumsMap: { [key: string]: any[] } = {
   EventsSortType: ["alphabetical", "measure"],
   FastlyAccountType: ["fastly-accounts"],
   FastlyServiceType: ["fastly-services"],
+  FindingDetectionType: [
+    "misconfiguration",
+    "attack_path",
+    "identity_risk",
+    "api_security",
+  ],
   FindingEvaluation: ["pass", "fail"],
   FindingMuteReason: [
     "PENDING_FIX",
