@@ -20,6 +20,7 @@ import { APIErrorResponse } from "../models/APIErrorResponse";
 import { BulkMuteFindingsRequest } from "../models/BulkMuteFindingsRequest";
 import { BulkMuteFindingsResponse } from "../models/BulkMuteFindingsResponse";
 import { Finding } from "../models/Finding";
+import { FindingDetectionType } from "../models/FindingDetectionType";
 import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
 import { GetFindingResponse } from "../models/GetFindingResponse";
@@ -758,6 +759,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     pageLimit?: number,
     snapshotTimestamp?: number,
     pageCursor?: string,
+    filterDetectionType?: Array<FindingDetectionType>,
     filterTags?: string,
     filterEvaluationChangedAt?: string,
     filterMuted?: boolean,
@@ -803,6 +805,16 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "page[cursor]",
         ObjectSerializer.serialize(pageCursor, "string", "")
+      );
+    }
+    if (filterDetectionType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[detection_type]",
+        ObjectSerializer.serialize(
+          filterDetectionType,
+          "Array<FindingDetectionType>",
+          ""
+        )
       );
     }
     if (filterTags !== undefined) {
@@ -3412,6 +3424,11 @@ export interface SecurityMonitoringApiListFindingsRequest {
    */
   pageCursor?: string;
   /**
+   * Return findings that match the selected detection types (repeatable).
+   * @type Array<FindingDetectionType>
+   */
+  filterDetectionType?: Array<FindingDetectionType>;
+  /**
    * Return findings that have these associated tags (repeatable).
    * @type string
    */
@@ -4024,6 +4041,7 @@ export class SecurityMonitoringApi {
       param.pageLimit,
       param.snapshotTimestamp,
       param.pageCursor,
+      param.filterDetectionType,
       param.filterTags,
       param.filterEvaluationChangedAt,
       param.filterMuted,
@@ -4061,6 +4079,7 @@ export class SecurityMonitoringApi {
         param.pageLimit,
         param.snapshotTimestamp,
         param.pageCursor,
+        param.filterDetectionType,
         param.filterTags,
         param.filterEvaluationChangedAt,
         param.filterMuted,
