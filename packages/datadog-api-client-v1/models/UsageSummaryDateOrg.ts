@@ -231,6 +231,10 @@ export class UsageSummaryDateOrg {
    */
   "cwsHostTop99p"?: number;
   /**
+   * Shows the sum of all Data Jobs Monitoring hosts over all hours in the current date for the given org.
+   */
+  "dataJobsMonitoringHostHrSum"?: number;
+  /**
    * Shows the 99th percentile of all Database Monitoring hosts over all hours in the current month for the given org.
    */
   "dbmHostTop99pSum"?: number;
@@ -849,6 +853,11 @@ export class UsageSummaryDateOrg {
     },
     cwsHostTop99p: {
       baseName: "cws_host_top99p",
+      type: "number",
+      format: "int64",
+    },
+    dataJobsMonitoringHostHrSum: {
+      baseName: "data_jobs_monitoring_host_hr_sum",
       type: "number",
       format: "int64",
     },
