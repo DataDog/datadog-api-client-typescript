@@ -4207,7 +4207,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterMetricType": {
-            "type": "MetricTagConfigurationMetricTypes",
+            "type": "MetricTagConfigurationMetricTypeCategory",
             "format": "",
             },
         "filterIncludePercentiles": {

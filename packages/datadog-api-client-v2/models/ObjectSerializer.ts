@@ -1549,6 +1549,10 @@ const enumsMap: { [key: string]: any[] } = {
   MetricMonitorType: ["monitors"],
   MetricNotebookType: ["notebooks"],
   MetricSLOType: ["slos"],
+  MetricTagConfigurationMetricTypeCategory: [
+    "non_distribution",
+    "distribution",
+  ],
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
