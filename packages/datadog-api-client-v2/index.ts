@@ -1420,6 +1420,7 @@ export { MetricTagConfigurationAttributes } from "./models/MetricTagConfiguratio
 export { MetricTagConfigurationCreateAttributes } from "./models/MetricTagConfigurationCreateAttributes";
 export { MetricTagConfigurationCreateData } from "./models/MetricTagConfigurationCreateData";
 export { MetricTagConfigurationCreateRequest } from "./models/MetricTagConfigurationCreateRequest";
+export { MetricTagConfigurationMetricTypeCategory } from "./models/MetricTagConfigurationMetricTypeCategory";
 export { MetricTagConfigurationMetricTypes } from "./models/MetricTagConfigurationMetricTypes";
 export { MetricTagConfigurationResponse } from "./models/MetricTagConfigurationResponse";
 export { MetricTagConfigurationType } from "./models/MetricTagConfigurationType";

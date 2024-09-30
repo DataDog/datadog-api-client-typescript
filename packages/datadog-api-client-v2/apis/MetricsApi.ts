@@ -29,7 +29,7 @@ import { MetricPayload } from "../models/MetricPayload";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 import { MetricSuggestedTagsAndAggregationsResponse } from "../models/MetricSuggestedTagsAndAggregationsResponse";
 import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigurationCreateRequest";
-import { MetricTagConfigurationMetricTypes } from "../models/MetricTagConfigurationMetricTypes";
+import { MetricTagConfigurationMetricTypeCategory } from "../models/MetricTagConfigurationMetricTypeCategory";
 import { MetricTagConfigurationResponse } from "../models/MetricTagConfigurationResponse";
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
@@ -392,7 +392,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   public async listTagConfigurations(
     filterConfigured?: boolean,
     filterTagsConfigured?: string,
-    filterMetricType?: MetricTagConfigurationMetricTypes,
+    filterMetricType?: MetricTagConfigurationMetricTypeCategory,
     filterIncludePercentiles?: boolean,
     filterQueried?: boolean,
     filterTags?: string,
@@ -429,7 +429,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         "filter[metric_type]",
         ObjectSerializer.serialize(
           filterMetricType,
-          "MetricTagConfigurationMetricTypes",
+          "MetricTagConfigurationMetricTypeCategory",
           ""
         )
       );
@@ -1787,9 +1787,9 @@ export interface MetricsApiListTagConfigurationsRequest {
   filterTagsConfigured?: string;
   /**
    * Filter metrics by metric type.
-   * @type MetricTagConfigurationMetricTypes
+   * @type MetricTagConfigurationMetricTypeCategory
    */
-  filterMetricType?: MetricTagConfigurationMetricTypes;
+  filterMetricType?: MetricTagConfigurationMetricTypeCategory;
   /**
    * Filter distributions with additional percentile
    * aggregations enabled or disabled.
