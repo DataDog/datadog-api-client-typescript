@@ -14,12 +14,6 @@ const params: v2.TeamsApiCreateTeamMembershipRequest = {
         role: "admin",
       },
       relationships: {
-        team: {
-          data: {
-            id: "d7e15d9d-d346-43da-81d8-3d9e71d9a5e9",
-            type: "team",
-          },
-        },
         user: {
           data: {
             id: "b8626d7e-cedd-11eb-abf5-da7ad0900001",

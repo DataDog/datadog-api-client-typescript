@@ -535,6 +535,9 @@ export {
   WorkflowAutomationApi,
 } from "./apis/WorkflowAutomationApi";
 
+export { AbbreviatedTeam } from "./models/AbbreviatedTeam";
+export { AbbreviatedTeamAttributes } from "./models/AbbreviatedTeamAttributes";
+export { AbbreviatedTeamType } from "./models/AbbreviatedTeamType";
 export { ActiveBillingDimensionsAttributes } from "./models/ActiveBillingDimensionsAttributes";
 export { ActiveBillingDimensionsBody } from "./models/ActiveBillingDimensionsBody";
 export { ActiveBillingDimensionsResponse } from "./models/ActiveBillingDimensionsResponse";
@@ -1598,8 +1601,6 @@ export { RelationshipToUserData } from "./models/RelationshipToUserData";
 export { RelationshipToUsers } from "./models/RelationshipToUsers";
 export { RelationshipToUserTeamPermission } from "./models/RelationshipToUserTeamPermission";
 export { RelationshipToUserTeamPermissionData } from "./models/RelationshipToUserTeamPermissionData";
-export { RelationshipToUserTeamTeam } from "./models/RelationshipToUserTeamTeam";
-export { RelationshipToUserTeamTeamData } from "./models/RelationshipToUserTeamTeamData";
 export { RelationshipToUserTeamUser } from "./models/RelationshipToUserTeamUser";
 export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamUserData";
 export { RelationType } from "./models/RelationType";
@@ -2108,10 +2109,11 @@ export { UserTeamRequest } from "./models/UserTeamRequest";
 export { UserTeamResponse } from "./models/UserTeamResponse";
 export { UserTeamRole } from "./models/UserTeamRole";
 export { UserTeamsResponse } from "./models/UserTeamsResponse";
-export { UserTeamTeamType } from "./models/UserTeamTeamType";
 export { UserTeamType } from "./models/UserTeamType";
 export { UserTeamUpdate } from "./models/UserTeamUpdate";
 export { UserTeamUpdateRequest } from "./models/UserTeamUpdateRequest";
+export { UserTeamUser } from "./models/UserTeamUser";
+export { UserTeamUserAttributes } from "./models/UserTeamUserAttributes";
 export { UserTeamUserType } from "./models/UserTeamUserType";
 export { UserUpdateAttributes } from "./models/UserUpdateAttributes";
 export { UserUpdateData } from "./models/UserUpdateData";
