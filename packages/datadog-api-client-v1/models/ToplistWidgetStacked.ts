@@ -15,7 +15,7 @@ export class ToplistWidgetStacked {
   /**
    * Top list widget stacked legend behavior.
    */
-  "legend": ToplistWidgetLegend;
+  "legend"?: ToplistWidgetLegend;
   /**
    * Top list widget stacked display type.
    */
@@ -40,7 +40,6 @@ export class ToplistWidgetStacked {
     legend: {
       baseName: "legend",
       type: "ToplistWidgetLegend",
-      required: true,
     },
     type: {
       baseName: "type",
