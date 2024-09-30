@@ -37,15 +37,6 @@ const params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
     tags: [],
     isEnabled: true,
     type: "log_detection",
-    referenceTables: [
-      {
-        tableName: "synthetics_test_reference_table_dont_delete",
-        columnName: "value",
-        logFieldPath: "testtag",
-        checkPresence: true,
-        ruleQueryName: "a",
-      },
-    ],
   },
 };
 

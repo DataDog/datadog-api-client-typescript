@@ -5,7 +5,6 @@
  */
 import { CloudConfigurationRuleComplianceSignalOptions } from "./CloudConfigurationRuleComplianceSignalOptions";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
-import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleQuery } from "./SecurityMonitoringRuleQuery";
@@ -53,10 +52,6 @@ export class SecurityMonitoringRuleUpdatePayload {
    * Queries for selecting logs which are part of the rule.
    */
   "queries"?: Array<SecurityMonitoringRuleQuery>;
-  /**
-   * Reference tables for the rule.
-   */
-  "referenceTables"?: Array<SecurityMonitoringReferenceTable>;
   /**
    * Tags for generated signals.
    */
@@ -121,10 +116,6 @@ export class SecurityMonitoringRuleUpdatePayload {
     queries: {
       baseName: "queries",
       type: "Array<SecurityMonitoringRuleQuery>",
-    },
-    referenceTables: {
-      baseName: "referenceTables",
-      type: "Array<SecurityMonitoringReferenceTable>",
     },
     tags: {
       baseName: "tags",

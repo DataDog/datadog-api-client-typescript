@@ -940,7 +940,6 @@ import { SecurityFilterUpdateRequest } from "./SecurityFilterUpdateRequest";
 import { SecurityFiltersResponse } from "./SecurityFiltersResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
-import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleConvertResponse } from "./SecurityMonitoringRuleConvertResponse";
@@ -2891,7 +2890,6 @@ const typeMap: { [index: string]: any } = {
   SecurityFiltersResponse: SecurityFiltersResponse,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
-  SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
   SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
   SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
   SecurityMonitoringRuleConvertResponse: SecurityMonitoringRuleConvertResponse,

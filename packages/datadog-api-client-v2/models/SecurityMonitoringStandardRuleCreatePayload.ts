@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
-import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleOptions } from "./SecurityMonitoringRuleOptions";
 import { SecurityMonitoringRuleTypeCreate } from "./SecurityMonitoringRuleTypeCreate";
@@ -49,10 +48,6 @@ export class SecurityMonitoringStandardRuleCreatePayload {
    * Queries for selecting logs which are part of the rule.
    */
   "queries": Array<SecurityMonitoringStandardRuleQuery>;
-  /**
-   * Reference tables for the rule.
-   */
-  "referenceTables"?: Array<SecurityMonitoringReferenceTable>;
   /**
    * Tags for generated signals.
    */
@@ -119,10 +114,6 @@ export class SecurityMonitoringStandardRuleCreatePayload {
       baseName: "queries",
       type: "Array<SecurityMonitoringStandardRuleQuery>",
       required: true,
-    },
-    referenceTables: {
-      baseName: "referenceTables",
-      type: "Array<SecurityMonitoringReferenceTable>",
     },
     tags: {
       baseName: "tags",
