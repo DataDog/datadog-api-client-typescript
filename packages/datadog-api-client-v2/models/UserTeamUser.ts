@@ -3,18 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToUserTeamTeamData } from "./RelationshipToUserTeamTeamData";
+import { UserTeamUserAttributes } from "./UserTeamUserAttributes";
+import { UserTeamUserType } from "./UserTeamUserType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Relationship between team membership and team
+ * The definition of `UserTeamUser` object.
  */
-export class RelationshipToUserTeamTeam {
+export class UserTeamUser {
   /**
-   * The team associated with the membership
+   * The definition of `UserTeamUserAttributes` object.
    */
-  "data": RelationshipToUserTeamTeamData;
+  "attributes"?: UserTeamUserAttributes;
+  /**
+   * The `UserTeamUser` ID.
+   */
+  "id"?: string;
+  /**
+   * User team user type
+   */
+  "type": UserTeamUserType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,9 +41,17 @@ export class RelationshipToUserTeamTeam {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    data: {
-      baseName: "data",
-      type: "RelationshipToUserTeamTeamData",
+    attributes: {
+      baseName: "attributes",
+      type: "UserTeamUserAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
+    },
+    type: {
+      baseName: "type",
+      type: "UserTeamUserType",
       required: true,
     },
     additionalProperties: {
@@ -47,7 +64,7 @@ export class RelationshipToUserTeamTeam {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToUserTeamTeam.attributeTypeMap;
+    return UserTeamUser.attributeTypeMap;
   }
 
   public constructor() {}

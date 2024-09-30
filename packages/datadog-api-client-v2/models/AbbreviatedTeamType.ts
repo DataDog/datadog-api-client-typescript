@@ -7,8 +7,8 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * User team team type
+ * The definition of `AbbreviatedTeamType` object.
  */
 
-export type UserTeamTeamType = typeof TEAM | UnparsedObject;
+export type AbbreviatedTeamType = typeof TEAM | UnparsedObject;
 export const TEAM = "team";

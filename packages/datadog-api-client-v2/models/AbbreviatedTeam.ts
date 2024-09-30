@@ -3,22 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { UserTeamTeamType } from "./UserTeamTeamType";
+import { AbbreviatedTeamAttributes } from "./AbbreviatedTeamAttributes";
+import { AbbreviatedTeamType } from "./AbbreviatedTeamType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The team associated with the membership
+ * The definition of `AbbreviatedTeam` object.
  */
-export class RelationshipToUserTeamTeamData {
+export class AbbreviatedTeam {
   /**
-   * The ID of the team associated with the membership
+   * The definition of `AbbreviatedTeamAttributes` object.
    */
-  "id": string;
+  "attributes": AbbreviatedTeamAttributes;
   /**
-   * User team team type
+   * ID of the team
    */
-  "type": UserTeamTeamType;
+  "id"?: string;
+  /**
+   * The definition of `AbbreviatedTeamType` object.
+   */
+  "type": AbbreviatedTeamType;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,14 +41,18 @@ export class RelationshipToUserTeamTeamData {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    attributes: {
+      baseName: "attributes",
+      type: "AbbreviatedTeamAttributes",
+      required: true,
+    },
     id: {
       baseName: "id",
       type: "string",
-      required: true,
     },
     type: {
       baseName: "type",
-      type: "UserTeamTeamType",
+      type: "AbbreviatedTeamType",
       required: true,
     },
     additionalProperties: {
@@ -56,7 +65,7 @@ export class RelationshipToUserTeamTeamData {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return RelationshipToUserTeamTeamData.attributeTypeMap;
+    return AbbreviatedTeam.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { RelationshipToUserTeamTeam } from "./RelationshipToUserTeamTeam";
 import { RelationshipToUserTeamUser } from "./RelationshipToUserTeamUser";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -12,10 +11,6 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Relationship between membership and a user
  */
 export class UserTeamRelationships {
-  /**
-   * Relationship between team membership and team
-   */
-  "team"?: RelationshipToUserTeamTeam;
   /**
    * Relationship between team membership and user
    */
@@ -37,10 +32,6 @@ export class UserTeamRelationships {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    team: {
-      baseName: "team",
-      type: "RelationshipToUserTeamTeam",
-    },
     user: {
       baseName: "user",
       type: "RelationshipToUserTeamUser",
