@@ -289,6 +289,17 @@ export {
 } from "./apis/MetricsApi";
 
 export {
+  MicrosoftTeamsIntegrationApiCreateApiHandleRequest,
+  MicrosoftTeamsIntegrationApiDeleteApiHandleRequest,
+  MicrosoftTeamsIntegrationApiGetApiHandleRequest,
+  MicrosoftTeamsIntegrationApiGetApiHandleByNameRequest,
+  MicrosoftTeamsIntegrationApiGetChannelByNameRequest,
+  MicrosoftTeamsIntegrationApiListApiHandlesRequest,
+  MicrosoftTeamsIntegrationApiUpdateApiHandleRequest,
+  MicrosoftTeamsIntegrationApi,
+} from "./apis/MicrosoftTeamsIntegrationApi";
+
+export {
   MonitorsApiCreateMonitorConfigPolicyRequest,
   MonitorsApiDeleteMonitorConfigPolicyRequest,
   MonitorsApiGetMonitorConfigPolicyRequest,
@@ -452,6 +463,13 @@ export {
   ServiceScorecardsApiUpdateScorecardRuleRequest,
   ServiceScorecardsApi,
 } from "./apis/ServiceScorecardsApi";
+
+export {
+  SoftwareCatalogApiDeleteCatalogEntityRequest,
+  SoftwareCatalogApiListCatalogEntityRequest,
+  SoftwareCatalogApiUpsertCatalogEntityRequest,
+  SoftwareCatalogApi,
+} from "./apis/SoftwareCatalogApi";
 
 export {
   SpansApiAggregateSpansRequest,
@@ -956,6 +974,59 @@ export { DowntimeStatus } from "./models/DowntimeStatus";
 export { DowntimeUpdateRequest } from "./models/DowntimeUpdateRequest";
 export { DowntimeUpdateRequestAttributes } from "./models/DowntimeUpdateRequestAttributes";
 export { DowntimeUpdateRequestData } from "./models/DowntimeUpdateRequestData";
+export { EntityAttributes } from "./models/EntityAttributes";
+export { EntityData } from "./models/EntityData";
+export { EntityMeta } from "./models/EntityMeta";
+export { EntityRelationships } from "./models/EntityRelationships";
+export { EntityResponseIncludedIncident } from "./models/EntityResponseIncludedIncident";
+export { EntityResponseIncludedOncall } from "./models/EntityResponseIncludedOncall";
+export { EntityResponseIncludedRawSchema } from "./models/EntityResponseIncludedRawSchema";
+export { EntityResponseIncludedRawSchemaAttributes } from "./models/EntityResponseIncludedRawSchemaAttributes";
+export { EntityResponseIncludedRelatedEntity } from "./models/EntityResponseIncludedRelatedEntity";
+export { EntityResponseIncludedRelatedEntityAttributes } from "./models/EntityResponseIncludedRelatedEntityAttributes";
+export { EntityResponseIncludedRelatedEntityMeta } from "./models/EntityResponseIncludedRelatedEntityMeta";
+export { EntityResponseIncludedRelatedIncidentAttributes } from "./models/EntityResponseIncludedRelatedIncidentAttributes";
+export { EntityResponseIncludedRelatedOncallAttributes } from "./models/EntityResponseIncludedRelatedOncallAttributes";
+export { EntityResponseIncludedRelatedOncallEscalationItem } from "./models/EntityResponseIncludedRelatedOncallEscalationItem";
+export { EntityResponseIncludedSchema } from "./models/EntityResponseIncludedSchema";
+export { EntityResponseIncludedSchemaAttributes } from "./models/EntityResponseIncludedSchemaAttributes";
+export { EntityResponseMeta } from "./models/EntityResponseMeta";
+export { EntityToIncidents } from "./models/EntityToIncidents";
+export { EntityToOncalls } from "./models/EntityToOncalls";
+export { EntityToRawSchema } from "./models/EntityToRawSchema";
+export { EntityToRelatedEntities } from "./models/EntityToRelatedEntities";
+export { EntityToSchema } from "./models/EntityToSchema";
+export { EntityV3 } from "./models/EntityV3";
+export { EntityV3APIVersion } from "./models/EntityV3APIVersion";
+export { EntityV3DatadogCodeLocationItem } from "./models/EntityV3DatadogCodeLocationItem";
+export { EntityV3DatadogEventItem } from "./models/EntityV3DatadogEventItem";
+export { EntityV3DatadogIntegrationOpsgenie } from "./models/EntityV3DatadogIntegrationOpsgenie";
+export { EntityV3DatadogIntegrationPagerduty } from "./models/EntityV3DatadogIntegrationPagerduty";
+export { EntityV3DatadogLogItem } from "./models/EntityV3DatadogLogItem";
+export { EntityV3DatadogPerformance } from "./models/EntityV3DatadogPerformance";
+export { EntityV3DatadogPipelines } from "./models/EntityV3DatadogPipelines";
+export { EntityV3Datastore } from "./models/EntityV3Datastore";
+export { EntityV3DatastoreDatadog } from "./models/EntityV3DatastoreDatadog";
+export { EntityV3DatastoreKind } from "./models/EntityV3DatastoreKind";
+export { EntityV3DatastoreSpec } from "./models/EntityV3DatastoreSpec";
+export { EntityV3Integrations } from "./models/EntityV3Integrations";
+export { EntityV3Metadata } from "./models/EntityV3Metadata";
+export { EntityV3MetadataAdditionalOwnersItems } from "./models/EntityV3MetadataAdditionalOwnersItems";
+export { EntityV3MetadataContactsItems } from "./models/EntityV3MetadataContactsItems";
+export { EntityV3MetadataLinksItems } from "./models/EntityV3MetadataLinksItems";
+export { EntityV3MetadataOwner } from "./models/EntityV3MetadataOwner";
+export { EntityV3Queue } from "./models/EntityV3Queue";
+export { EntityV3QueueDatadog } from "./models/EntityV3QueueDatadog";
+export { EntityV3QueueKind } from "./models/EntityV3QueueKind";
+export { EntityV3QueueSpec } from "./models/EntityV3QueueSpec";
+export { EntityV3Service } from "./models/EntityV3Service";
+export { EntityV3ServiceDatadog } from "./models/EntityV3ServiceDatadog";
+export { EntityV3ServiceKind } from "./models/EntityV3ServiceKind";
+export { EntityV3ServiceSpec } from "./models/EntityV3ServiceSpec";
+export { EntityV3System } from "./models/EntityV3System";
+export { EntityV3SystemDatadog } from "./models/EntityV3SystemDatadog";
+export { EntityV3SystemKind } from "./models/EntityV3SystemKind";
+export { EntityV3SystemSpec } from "./models/EntityV3SystemSpec";
 export { Event } from "./models/Event";
 export { EventAttributes } from "./models/EventAttributes";
 export { EventPriority } from "./models/EventPriority";
@@ -1165,6 +1236,7 @@ export { IncidentUpdateData } from "./models/IncidentUpdateData";
 export { IncidentUpdateRelationships } from "./models/IncidentUpdateRelationships";
 export { IncidentUpdateRequest } from "./models/IncidentUpdateRequest";
 export { IncidentUserDefinedFieldType } from "./models/IncidentUserDefinedFieldType";
+export { IncludeType } from "./models/IncludeType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
 export { InterfaceAttributes } from "./models/InterfaceAttributes";
 export { InterfaceAttributesStatus } from "./models/InterfaceAttributesStatus";
@@ -1196,6 +1268,9 @@ export { ListDevicesResponse } from "./models/ListDevicesResponse";
 export { ListDevicesResponseMetadata } from "./models/ListDevicesResponseMetadata";
 export { ListDevicesResponseMetadataPage } from "./models/ListDevicesResponseMetadataPage";
 export { ListDowntimesResponse } from "./models/ListDowntimesResponse";
+export { ListEntityCatalogResponse } from "./models/ListEntityCatalogResponse";
+export { ListEntityCatalogResponseIncludedItem } from "./models/ListEntityCatalogResponseIncludedItem";
+export { ListEntityCatalogResponseLinks } from "./models/ListEntityCatalogResponseLinks";
 export { ListFindingsMeta } from "./models/ListFindingsMeta";
 export { ListFindingsPage } from "./models/ListFindingsPage";
 export { ListFindingsResponse } from "./models/ListFindingsResponse";
@@ -1356,6 +1431,7 @@ export { MetricTagConfigurationAttributes } from "./models/MetricTagConfiguratio
 export { MetricTagConfigurationCreateAttributes } from "./models/MetricTagConfigurationCreateAttributes";
 export { MetricTagConfigurationCreateData } from "./models/MetricTagConfigurationCreateData";
 export { MetricTagConfigurationCreateRequest } from "./models/MetricTagConfigurationCreateRequest";
+export { MetricTagConfigurationMetricTypeCategory } from "./models/MetricTagConfigurationMetricTypeCategory";
 export { MetricTagConfigurationMetricTypes } from "./models/MetricTagConfigurationMetricTypes";
 export { MetricTagConfigurationResponse } from "./models/MetricTagConfigurationResponse";
 export { MetricTagConfigurationType } from "./models/MetricTagConfigurationType";
@@ -1365,6 +1441,24 @@ export { MetricTagConfigurationUpdateRequest } from "./models/MetricTagConfigura
 export { MetricType } from "./models/MetricType";
 export { MetricVolumes } from "./models/MetricVolumes";
 export { MetricVolumesResponse } from "./models/MetricVolumesResponse";
+export { MicrosoftTeamsApiHandleAttributes } from "./models/MicrosoftTeamsApiHandleAttributes";
+export { MicrosoftTeamsApiHandleInfoResponse } from "./models/MicrosoftTeamsApiHandleInfoResponse";
+export { MicrosoftTeamsApiHandleInfoResponseAttributes } from "./models/MicrosoftTeamsApiHandleInfoResponseAttributes";
+export { MicrosoftTeamsApiHandleInfoResponseData } from "./models/MicrosoftTeamsApiHandleInfoResponseData";
+export { MicrosoftTeamsApiHandleInfoType } from "./models/MicrosoftTeamsApiHandleInfoType";
+export { MicrosoftTeamsApiHandleRequestAttributes } from "./models/MicrosoftTeamsApiHandleRequestAttributes";
+export { MicrosoftTeamsApiHandleRequestData } from "./models/MicrosoftTeamsApiHandleRequestData";
+export { MicrosoftTeamsApiHandleResponseData } from "./models/MicrosoftTeamsApiHandleResponseData";
+export { MicrosoftTeamsApiHandlesResponse } from "./models/MicrosoftTeamsApiHandlesResponse";
+export { MicrosoftTeamsApiHandleType } from "./models/MicrosoftTeamsApiHandleType";
+export { MicrosoftTeamsChannelInfoResponseAttributes } from "./models/MicrosoftTeamsChannelInfoResponseAttributes";
+export { MicrosoftTeamsChannelInfoResponseData } from "./models/MicrosoftTeamsChannelInfoResponseData";
+export { MicrosoftTeamsChannelInfoType } from "./models/MicrosoftTeamsChannelInfoType";
+export { MicrosoftTeamsCreateApiHandleRequest } from "./models/MicrosoftTeamsCreateApiHandleRequest";
+export { MicrosoftTeamsCreateApiHandleResponse } from "./models/MicrosoftTeamsCreateApiHandleResponse";
+export { MicrosoftTeamsGetChannelByNameResponse } from "./models/MicrosoftTeamsGetChannelByNameResponse";
+export { MicrosoftTeamsUpdateApiHandleRequest } from "./models/MicrosoftTeamsUpdateApiHandleRequest";
+export { MicrosoftTeamsUpdateApiHandleRequestData } from "./models/MicrosoftTeamsUpdateApiHandleRequestData";
 export { MonitorConfigPolicyAttributeCreateRequest } from "./models/MonitorConfigPolicyAttributeCreateRequest";
 export { MonitorConfigPolicyAttributeEditRequest } from "./models/MonitorConfigPolicyAttributeEditRequest";
 export { MonitorConfigPolicyAttributeResponse } from "./models/MonitorConfigPolicyAttributeResponse";
@@ -1495,6 +1589,7 @@ export { ProjectResponse } from "./models/ProjectResponse";
 export { ProjectsResponse } from "./models/ProjectsResponse";
 export { QueryFormula } from "./models/QueryFormula";
 export { QuerySortOrder } from "./models/QuerySortOrder";
+export { RelationshipItem } from "./models/RelationshipItem";
 export { RelationshipToIncidentAttachment } from "./models/RelationshipToIncidentAttachment";
 export { RelationshipToIncidentAttachmentData } from "./models/RelationshipToIncidentAttachmentData";
 export { RelationshipToIncidentImpactData } from "./models/RelationshipToIncidentImpactData";
@@ -1536,6 +1631,7 @@ export { RelationshipToUserTeamTeam } from "./models/RelationshipToUserTeamTeam"
 export { RelationshipToUserTeamTeamData } from "./models/RelationshipToUserTeamTeamData";
 export { RelationshipToUserTeamUser } from "./models/RelationshipToUserTeamUser";
 export { RelationshipToUserTeamUserData } from "./models/RelationshipToUserTeamUserData";
+export { RelationType } from "./models/RelationType";
 export { ReorderRetentionFiltersRequest } from "./models/ReorderRetentionFiltersRequest";
 export { ResponseMetaAttributes } from "./models/ResponseMetaAttributes";
 export { RestrictionPolicy } from "./models/RestrictionPolicy";
@@ -1665,6 +1761,7 @@ export { SecurityFilterUpdateRequest } from "./models/SecurityFilterUpdateReques
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
+export { SecurityMonitoringReferenceTable } from "./models/SecurityMonitoringReferenceTable";
 export { SecurityMonitoringRuleCase } from "./models/SecurityMonitoringRuleCase";
 export { SecurityMonitoringRuleCaseCreate } from "./models/SecurityMonitoringRuleCaseCreate";
 export { SecurityMonitoringRuleConvertPayload } from "./models/SecurityMonitoringRuleConvertPayload";
@@ -1997,6 +2094,9 @@ export { UpdateRuleRequest } from "./models/UpdateRuleRequest";
 export { UpdateRuleRequestData } from "./models/UpdateRuleRequestData";
 export { UpdateRuleResponse } from "./models/UpdateRuleResponse";
 export { UpdateRuleResponseData } from "./models/UpdateRuleResponseData";
+export { UpsertCatalogEntityRequest } from "./models/UpsertCatalogEntityRequest";
+export { UpsertCatalogEntityResponse } from "./models/UpsertCatalogEntityResponse";
+export { UpsertCatalogEntityResponseIncludedItem } from "./models/UpsertCatalogEntityResponseIncludedItem";
 export { UsageApplicationSecurityMonitoringResponse } from "./models/UsageApplicationSecurityMonitoringResponse";
 export { UsageAttributesObject } from "./models/UsageAttributesObject";
 export { UsageDataObject } from "./models/UsageDataObject";

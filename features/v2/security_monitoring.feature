@@ -123,17 +123,18 @@ Feature: Security Monitoring
   @skip-validation @team:DataDog/k9-cloud-security-platform
   Scenario: Create a detection rule returns "OK" response
     Given new "CreateSecurityMonitoringRule" request
-    And body with value {"name":"{{ unique }}", "queries":[{"query":"@test:true","aggregation":"count","groupByFields":[],"distinctFields":[],"metric":""}],"filters":[],"cases":[{"name":"","status":"info","condition":"a > 0","notifications":[]}],"options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"message":"Test rule","tags":[],"isEnabled":true, "type":"log_detection"}
+    And body with value {"name":"{{ unique }}", "queries":[{"query":"@test:true","aggregation":"count","groupByFields":[],"distinctFields":[],"metric":""}],"filters":[],"cases":[{"name":"","status":"info","condition":"a > 0","notifications":[]}],"options":{"evaluationWindow":900,"keepAlive":3600,"maxSignalDuration":86400},"message":"Test rule","tags":[],"isEnabled":true, "type":"log_detection", "referenceTables":[{"tableName": "synthetics_test_reference_table_dont_delete", "columnName": "value", "logFieldPath":"testtag", "checkPresence":true, "ruleQueryName":"a"}]}
     When the request is sent
     Then the response status is 200 OK
     And the response "name" is equal to "{{ unique }}"
     And the response "type" is equal to "log_detection"
     And the response "message" is equal to "Test rule"
+    And the response "referenceTables" is equal to [{"tableName": "synthetics_test_reference_table_dont_delete", "columnName": "value", "logFieldPath":"testtag", "checkPresence":true, "ruleQueryName":"a"}]
 
   @team:DataDog/k9-cloud-security-platform
   Scenario: Create a detection rule with detection method 'third_party' returns "OK" response
     Given new "CreateSecurityMonitoringRule" request
-    And body with value {"name":"{{ unique }}","type":"log_detection","isEnabled":true,"thirdPartyCases":[{"query":"status:error","name":"high","status":"high"},{"query":"status:info","name":"low","status":"low"}],"queries":[],"cases":[],"message":"This is a third party rule","options":{"detectionMethod":"third_party","keepAlive":0,"maxSignalDuration":0,"thirdPartyRuleOptions":{"defaultStatus":"info","rootQueries":[{"query":"source:guardduty @details.alertType:*EC2*", "groupByFields":["instance-id"]},{"query":"source:guardduty", "groupByFields":[]}]}}}
+    And body with value {"name":"{{ unique }}","type":"log_detection","isEnabled":true,"thirdPartyCases":[{"query":"status:error","name":"high","status":"high"},{"query":"status:info","name":"low","status":"low"}],"queries":[],"cases":[],"message":"This is a third party rule","options":{"detectionMethod":"third_party","keepAlive":0,"maxSignalDuration":600,"thirdPartyRuleOptions":{"defaultStatus":"info","rootQueries":[{"query":"source:guardduty @details.alertType:*EC2*", "groupByFields":["instance-id"]},{"query":"source:guardduty", "groupByFields":[]}]}}}
     When the request is sent
     Then the response status is 200 OK
     And the response "name" is equal to "{{ unique }}"

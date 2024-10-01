@@ -1,5 +1,69 @@
 import { UnparsedObject } from "../../packages/datadog-api-client-common/util";
 
+const RESERVED_KEYWORDS = [
+  "abstract",
+  "await",
+  "boolean",
+  "break",
+  "byte",
+  "case",
+  "catch",
+  "char",
+  "class",
+  "const",
+  "continue",
+  "debugger",
+  "default",
+  "delete",
+  "do",
+  "double",
+  "else",
+  "enum",
+  "export",
+  "extends",
+  "false",
+  "final",
+  "finally",
+  "float",
+  "for",
+  "function",
+  "goto",
+  "if",
+  "implements",
+  "import",
+  "in",
+  "instanceof",
+  "int",
+  "interface",
+  "let",
+  "long",
+  "native",
+  "new",
+  "null",
+  "package",
+  "private",
+  "protected",
+  "public",
+  "return",
+  "short",
+  "static",
+  "super",
+  "switch",
+  "synchronized",
+  "this",
+  "throw",
+  "transient",
+  "true",
+  "try",
+  "typeof",
+  "var",
+  "void",
+  "volatile",
+  "while",
+  "with",
+  "yield",
+]
+
 declare global {
   interface String {
     templated(data: { [key: string]: any }): string;
@@ -72,6 +136,8 @@ function pathLookup(data: any, dottedPath: string): any {
           result = value[part.toAttributeName()];
         } else if (value instanceof UnparsedObject && part in value["_data"]) {
           result = value["_data"][part];
+        } else if (RESERVED_KEYWORDS.includes(part) && "_"+part in value) {
+          result = value["_"+part];
         } else {
           throw new Error(
             `${part} not found in ${JSON.stringify(

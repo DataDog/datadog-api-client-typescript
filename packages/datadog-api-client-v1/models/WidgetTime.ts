@@ -3,51 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { WidgetLiveSpan } from "./WidgetLiveSpan";
+import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
+import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
+import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
 
-import { AttributeTypeMap } from "../../datadog-api-client-common/util";
+import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
  * Time setting for the widget.
  */
-export class WidgetTime {
-  /**
-   * The available timeframes depend on the widget you are using.
-   */
-  "liveSpan"?: WidgetLiveSpan;
 
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  "additionalProperties"?: { [key: string]: any };
-
-  /**
-   * @ignore
-   */
-  "_unparsed"?: boolean;
-
-  /**
-   * @ignore
-   */
-  static readonly attributeTypeMap: AttributeTypeMap = {
-    liveSpan: {
-      baseName: "live_span",
-      type: "WidgetLiveSpan",
-    },
-    additionalProperties: {
-      baseName: "additionalProperties",
-      type: "any",
-    },
-  };
-
-  /**
-   * @ignore
-   */
-  static getAttributeTypeMap(): AttributeTypeMap {
-    return WidgetTime.attributeTypeMap;
-  }
-
-  public constructor() {}
-}
+export type WidgetTime =
+  | WidgetLegacyLiveSpan
+  | WidgetNewLiveSpan
+  | WidgetNewFixedSpan
+  | UnparsedObject;

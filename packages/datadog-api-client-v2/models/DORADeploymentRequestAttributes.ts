@@ -36,6 +36,10 @@ export class DORADeploymentRequestAttributes {
    */
   "startedAt": number;
   /**
+   * Name of the team owning the deployed service. If not provided, this is automatically populated with the team associated with the service in the Service Catalog.
+   */
+  "team"?: string;
+  /**
    * Version to correlate with [APM Deployment Tracking](https://docs.datadoghq.com/tracing/services/deployment_tracking/).
    */
   "version"?: string;
@@ -84,6 +88,10 @@ export class DORADeploymentRequestAttributes {
       type: "number",
       required: true,
       format: "int64",
+    },
+    team: {
+      baseName: "team",
+      type: "string",
     },
     version: {
       baseName: "version",

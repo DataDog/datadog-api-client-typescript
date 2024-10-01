@@ -56,7 +56,7 @@ export class MonitorOptions {
    */
   "groupRetentionDuration"?: string;
   /**
-   * Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold.
+   * Whether the log alert monitor triggers a single alert or multiple alerts when any group breaches a threshold. Use `notify_by` instead.
    */
   "groupbySimpleMonitor"?: boolean;
   /**

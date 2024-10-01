@@ -12,8 +12,10 @@ const params: v2.ServiceLevelObjectivesApiCreateSLOReportJobRequest = {
   body: {
     data: {
       attributes: {
-        fromTs: 1690901870,
-        toTs: 1706803070,
+        fromTs: Math.round(
+          new Date(new Date().getTime() + -40 * 86400 * 1000).getTime() / 1000
+        ),
+        toTs: Math.round(new Date().getTime() / 1000),
         query: `slo_type:metric "SLO Reporting Test"`,
         interval: "monthly",
         timezone: "America/New_York",

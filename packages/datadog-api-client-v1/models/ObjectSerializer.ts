@@ -398,6 +398,7 @@ import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPath
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
 import { SyntheticsAssertionJSONSchemaTargetTarget } from "./SyntheticsAssertionJSONSchemaTargetTarget";
+import { SyntheticsAssertionJavascript } from "./SyntheticsAssertionJavascript";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
@@ -486,6 +487,10 @@ import { SyntheticsUpdateTestPauseStatusPayload } from "./SyntheticsUpdateTestPa
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TableWidgetRequest } from "./TableWidgetRequest";
+import { TableWidgetTextFormatMatch } from "./TableWidgetTextFormatMatch";
+import { TableWidgetTextFormatReplaceAll } from "./TableWidgetTextFormatReplaceAll";
+import { TableWidgetTextFormatReplaceSubstring } from "./TableWidgetTextFormatReplaceSubstring";
+import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
 import { TagToHosts } from "./TagToHosts";
 import { TimeseriesBackground } from "./TimeseriesBackground";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
@@ -600,11 +605,13 @@ import { WidgetFormulaSort } from "./WidgetFormulaSort";
 import { WidgetFormulaStyle } from "./WidgetFormulaStyle";
 import { WidgetGroupSort } from "./WidgetGroupSort";
 import { WidgetLayout } from "./WidgetLayout";
+import { WidgetLegacyLiveSpan } from "./WidgetLegacyLiveSpan";
 import { WidgetMarker } from "./WidgetMarker";
+import { WidgetNewFixedSpan } from "./WidgetNewFixedSpan";
+import { WidgetNewLiveSpan } from "./WidgetNewLiveSpan";
 import { WidgetRequestStyle } from "./WidgetRequestStyle";
 import { WidgetSortBy } from "./WidgetSortBy";
 import { WidgetStyle } from "./WidgetStyle";
-import { WidgetTime } from "./WidgetTime";
 import {
   dateFromRFC3339String,
   dateToRFC3339String,
@@ -792,6 +799,7 @@ const enumsMap: { [key: string]: any[] } = {
     "custom_timeseries_usage",
     "cws_containers_usage",
     "cws_hosts_usage",
+    "data_jobs_monitoring_usage",
     "dbm_hosts_usage",
     "dbm_queries_usage",
     "error_tracking_usage",
@@ -1006,6 +1014,8 @@ const enumsMap: { [key: string]: any[] } = {
     "cws_containers_usage",
     "cws_hosts_percentage",
     "cws_hosts_usage",
+    "data_jobs_monitoring_usage",
+    "data_jobs_monitoring_percentage",
     "dbm_hosts_percentage",
     "dbm_hosts_usage",
     "dbm_queries_percentage",
@@ -1208,6 +1218,7 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsAssertionJSONPathOperator: ["validatesJSONPath"],
   SyntheticsAssertionJSONSchemaMetaSchema: ["draft-07", "draft-06"],
   SyntheticsAssertionJSONSchemaOperator: ["validatesJSONSchema"],
+  SyntheticsAssertionJavascriptType: ["javascript"],
   SyntheticsAssertionOperator: [
     "contains",
     "doesNotContain",
@@ -1333,9 +1344,17 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsGlobalVariableParseTestOptionsType: [
     "http_body",
     "http_header",
+    "http_status_code",
     "local_variable",
   ],
   SyntheticsGlobalVariableParserType: ["raw", "json_path", "regex", "x_path"],
+  SyntheticsLocalVariableParsingOptionsType: [
+    "grpc_message",
+    "grpc_metadata",
+    "http_body",
+    "http_header",
+    "http_status_code",
+  ],
   SyntheticsPatchTestOperationName: [
     "add",
     "remove",
@@ -1410,6 +1429,29 @@ const enumsMap: { [key: string]: any[] } = {
   TableWidgetCellDisplayMode: ["number", "bar"],
   TableWidgetDefinitionType: ["query_table"],
   TableWidgetHasSearchBar: ["always", "never", "auto"],
+  TableWidgetTextFormatMatchType: [
+    "is",
+    "is_not",
+    "contains",
+    "does_not_contain",
+    "starts_with",
+    "ends_with",
+  ],
+  TableWidgetTextFormatPalette: [
+    "white_on_red",
+    "white_on_yellow",
+    "white_on_green",
+    "black_on_light_red",
+    "black_on_light_yellow",
+    "black_on_light_green",
+    "red_on_white",
+    "yellow_on_white",
+    "green_on_white",
+    "custom_bg",
+    "custom_text",
+  ],
+  TableWidgetTextFormatReplaceAllType: ["all"],
+  TableWidgetTextFormatReplaceSubstringType: ["substring"],
   TargetFormatType: ["auto", "string", "integer", "double"],
   TimeseriesBackgroundType: ["bars", "area"],
   TimeseriesWidgetDefinitionType: ["timeseries"],
@@ -1473,6 +1515,7 @@ const enumsMap: { [key: string]: any[] } = {
     "1y",
     "alert",
   ],
+  WidgetLiveSpanUnit: ["minute", "hour", "day", "week", "month", "year"],
   WidgetMargin: ["sm", "md", "lg", "small", "large"],
   WidgetMessageDisplay: ["inline", "expanded-md", "expanded-lg"],
   WidgetMonitorSummaryDisplayFormat: ["counts", "countsAndList", "list"],
@@ -1495,6 +1538,8 @@ const enumsMap: { [key: string]: any[] } = {
     "priority,asc",
     "priority,desc",
   ],
+  WidgetNewFixedSpanType: ["fixed"],
+  WidgetNewLiveSpanType: ["live"],
   WidgetNodeType: ["host", "container"],
   WidgetOrderBy: ["change", "name", "present", "past"],
   WidgetPalette: [
@@ -1969,6 +2014,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONSchemaTarget: SyntheticsAssertionJSONSchemaTarget,
   SyntheticsAssertionJSONSchemaTargetTarget:
     SyntheticsAssertionJSONSchemaTargetTarget,
+  SyntheticsAssertionJavascript: SyntheticsAssertionJavascript,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
   SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
   SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
@@ -2068,6 +2114,10 @@ const typeMap: { [index: string]: any } = {
   SyntheticsVariableParser: SyntheticsVariableParser,
   TableWidgetDefinition: TableWidgetDefinition,
   TableWidgetRequest: TableWidgetRequest,
+  TableWidgetTextFormatMatch: TableWidgetTextFormatMatch,
+  TableWidgetTextFormatReplaceAll: TableWidgetTextFormatReplaceAll,
+  TableWidgetTextFormatReplaceSubstring: TableWidgetTextFormatReplaceSubstring,
+  TableWidgetTextFormatRule: TableWidgetTextFormatRule,
   TagToHosts: TagToHosts,
   TimeseriesBackground: TimeseriesBackground,
   TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
@@ -2186,11 +2236,13 @@ const typeMap: { [index: string]: any } = {
   WidgetFormulaStyle: WidgetFormulaStyle,
   WidgetGroupSort: WidgetGroupSort,
   WidgetLayout: WidgetLayout,
+  WidgetLegacyLiveSpan: WidgetLegacyLiveSpan,
   WidgetMarker: WidgetMarker,
+  WidgetNewFixedSpan: WidgetNewFixedSpan,
+  WidgetNewLiveSpan: WidgetNewLiveSpan,
   WidgetRequestStyle: WidgetRequestStyle,
   WidgetSortBy: WidgetSortBy,
   WidgetStyle: WidgetStyle,
-  WidgetTime: WidgetTime,
 };
 
 const oneOfMap: { [index: string]: string[] } = {
@@ -2288,6 +2340,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsAssertionJSONPathTarget",
     "SyntheticsAssertionJSONSchemaTarget",
     "SyntheticsAssertionXPathTarget",
+    "SyntheticsAssertionJavascript",
   ],
   SyntheticsBasicAuth: [
     "SyntheticsBasicAuthWeb",
@@ -2296,6 +2349,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthDigest",
     "SyntheticsBasicAuthOauthClient",
     "SyntheticsBasicAuthOauthROP",
+  ],
+  SyntheticsTestRequestPort: ["number", "string"],
+  TableWidgetTextFormatReplace: [
+    "TableWidgetTextFormatReplaceAll",
+    "TableWidgetTextFormatReplaceSubstring",
   ],
   ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
   WidgetDefinition: [
@@ -2335,6 +2393,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "TreeMapWidgetDefinition",
   ],
   WidgetSortOrderBy: ["WidgetFormulaSort", "WidgetGroupSort"],
+  WidgetTime: [
+    "WidgetLegacyLiveSpan",
+    "WidgetNewLiveSpan",
+    "WidgetNewFixedSpan",
+  ],
 };
 
 export class ObjectSerializer {

@@ -9,6 +9,7 @@ import { SyntheticsTestOptionsHTTPVersion } from "./SyntheticsTestOptionsHTTPVer
 import { SyntheticsTestRequestBodyFile } from "./SyntheticsTestRequestBodyFile";
 import { SyntheticsTestRequestBodyType } from "./SyntheticsTestRequestBodyType";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
+import { SyntheticsTestRequestPort } from "./SyntheticsTestRequestPort";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -108,7 +109,7 @@ export class SyntheticsTestRequest {
   /**
    * Port to use when performing the test.
    */
-  "port"?: string;
+  "port"?: SyntheticsTestRequestPort;
   /**
    * The proxy to perform the test.
    */
@@ -247,7 +248,7 @@ export class SyntheticsTestRequest {
     },
     port: {
       baseName: "port",
-      type: "string",
+      type: "SyntheticsTestRequestPort",
     },
     proxy: {
       baseName: "proxy",
