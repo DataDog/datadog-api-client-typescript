@@ -47,6 +47,8 @@ export type MonthlyUsageAttributionSupportedMetrics =
   | typeof CWS_CONTAINERS_USAGE
   | typeof CWS_HOSTS_PERCENTAGE
   | typeof CWS_HOSTS_USAGE
+  | typeof DATA_JOBS_MONITORING_USAGE
+  | typeof DATA_JOBS_MONITORING_PERCENTAGE
   | typeof DBM_HOSTS_PERCENTAGE
   | typeof DBM_HOSTS_USAGE
   | typeof DBM_QUERIES_PERCENTAGE
@@ -192,6 +194,9 @@ export const CWS_CONTAINERS_PERCENTAGE = "cws_containers_percentage";
 export const CWS_CONTAINERS_USAGE = "cws_containers_usage";
 export const CWS_HOSTS_PERCENTAGE = "cws_hosts_percentage";
 export const CWS_HOSTS_USAGE = "cws_hosts_usage";
+export const DATA_JOBS_MONITORING_USAGE = "data_jobs_monitoring_usage";
+export const DATA_JOBS_MONITORING_PERCENTAGE =
+  "data_jobs_monitoring_percentage";
 export const DBM_HOSTS_PERCENTAGE = "dbm_hosts_percentage";
 export const DBM_HOSTS_USAGE = "dbm_hosts_usage";
 export const DBM_QUERIES_PERCENTAGE = "dbm_queries_percentage";
