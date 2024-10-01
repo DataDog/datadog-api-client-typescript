@@ -683,6 +683,21 @@ import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
 import { MetricsScalarQuery } from "./MetricsScalarQuery";
 import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
+import { MicrosoftTeamsApiHandleAttributes } from "./MicrosoftTeamsApiHandleAttributes";
+import { MicrosoftTeamsApiHandleInfoResponse } from "./MicrosoftTeamsApiHandleInfoResponse";
+import { MicrosoftTeamsApiHandleInfoResponseAttributes } from "./MicrosoftTeamsApiHandleInfoResponseAttributes";
+import { MicrosoftTeamsApiHandleInfoResponseData } from "./MicrosoftTeamsApiHandleInfoResponseData";
+import { MicrosoftTeamsApiHandleRequestAttributes } from "./MicrosoftTeamsApiHandleRequestAttributes";
+import { MicrosoftTeamsApiHandleRequestData } from "./MicrosoftTeamsApiHandleRequestData";
+import { MicrosoftTeamsApiHandleResponseData } from "./MicrosoftTeamsApiHandleResponseData";
+import { MicrosoftTeamsApiHandlesResponse } from "./MicrosoftTeamsApiHandlesResponse";
+import { MicrosoftTeamsChannelInfoResponseAttributes } from "./MicrosoftTeamsChannelInfoResponseAttributes";
+import { MicrosoftTeamsChannelInfoResponseData } from "./MicrosoftTeamsChannelInfoResponseData";
+import { MicrosoftTeamsCreateApiHandleRequest } from "./MicrosoftTeamsCreateApiHandleRequest";
+import { MicrosoftTeamsCreateApiHandleResponse } from "./MicrosoftTeamsCreateApiHandleResponse";
+import { MicrosoftTeamsGetChannelByNameResponse } from "./MicrosoftTeamsGetChannelByNameResponse";
+import { MicrosoftTeamsUpdateApiHandleRequest } from "./MicrosoftTeamsUpdateApiHandleRequest";
+import { MicrosoftTeamsUpdateApiHandleRequestData } from "./MicrosoftTeamsUpdateApiHandleRequestData";
 import { MonitorConfigPolicyAttributeCreateRequest } from "./MonitorConfigPolicyAttributeCreateRequest";
 import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAttributeEditRequest";
 import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
@@ -1569,6 +1584,9 @@ const enumsMap: { [key: string]: any[] } = {
     "area",
   ],
   MetricsDataSource: ["metrics", "cloud_cost"],
+  MicrosoftTeamsApiHandleInfoType: ["ms-teams-handle-info"],
+  MicrosoftTeamsApiHandleType: ["handle"],
+  MicrosoftTeamsChannelInfoType: ["ms-teams-channel-info"],
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
@@ -2623,6 +2641,27 @@ const typeMap: { [index: string]: any } = {
     MetricsAndMetricTagConfigurationsResponse,
   MetricsScalarQuery: MetricsScalarQuery,
   MetricsTimeseriesQuery: MetricsTimeseriesQuery,
+  MicrosoftTeamsApiHandleAttributes: MicrosoftTeamsApiHandleAttributes,
+  MicrosoftTeamsApiHandleInfoResponse: MicrosoftTeamsApiHandleInfoResponse,
+  MicrosoftTeamsApiHandleInfoResponseAttributes:
+    MicrosoftTeamsApiHandleInfoResponseAttributes,
+  MicrosoftTeamsApiHandleInfoResponseData:
+    MicrosoftTeamsApiHandleInfoResponseData,
+  MicrosoftTeamsApiHandleRequestAttributes:
+    MicrosoftTeamsApiHandleRequestAttributes,
+  MicrosoftTeamsApiHandleRequestData: MicrosoftTeamsApiHandleRequestData,
+  MicrosoftTeamsApiHandleResponseData: MicrosoftTeamsApiHandleResponseData,
+  MicrosoftTeamsApiHandlesResponse: MicrosoftTeamsApiHandlesResponse,
+  MicrosoftTeamsChannelInfoResponseAttributes:
+    MicrosoftTeamsChannelInfoResponseAttributes,
+  MicrosoftTeamsChannelInfoResponseData: MicrosoftTeamsChannelInfoResponseData,
+  MicrosoftTeamsCreateApiHandleRequest: MicrosoftTeamsCreateApiHandleRequest,
+  MicrosoftTeamsCreateApiHandleResponse: MicrosoftTeamsCreateApiHandleResponse,
+  MicrosoftTeamsGetChannelByNameResponse:
+    MicrosoftTeamsGetChannelByNameResponse,
+  MicrosoftTeamsUpdateApiHandleRequest: MicrosoftTeamsUpdateApiHandleRequest,
+  MicrosoftTeamsUpdateApiHandleRequestData:
+    MicrosoftTeamsUpdateApiHandleRequestData,
   MonitorConfigPolicyAttributeCreateRequest:
     MonitorConfigPolicyAttributeCreateRequest,
   MonitorConfigPolicyAttributeEditRequest:
