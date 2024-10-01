@@ -398,6 +398,7 @@ import { SyntheticsAssertionJSONPathTarget } from "./SyntheticsAssertionJSONPath
 import { SyntheticsAssertionJSONPathTargetTarget } from "./SyntheticsAssertionJSONPathTargetTarget";
 import { SyntheticsAssertionJSONSchemaTarget } from "./SyntheticsAssertionJSONSchemaTarget";
 import { SyntheticsAssertionJSONSchemaTargetTarget } from "./SyntheticsAssertionJSONSchemaTargetTarget";
+import { SyntheticsAssertionJavascript } from "./SyntheticsAssertionJavascript";
 import { SyntheticsAssertionTarget } from "./SyntheticsAssertionTarget";
 import { SyntheticsAssertionXPathTarget } from "./SyntheticsAssertionXPathTarget";
 import { SyntheticsAssertionXPathTargetTarget } from "./SyntheticsAssertionXPathTargetTarget";
@@ -486,6 +487,10 @@ import { SyntheticsUpdateTestPauseStatusPayload } from "./SyntheticsUpdateTestPa
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TableWidgetRequest } from "./TableWidgetRequest";
+import { TableWidgetTextFormatMatch } from "./TableWidgetTextFormatMatch";
+import { TableWidgetTextFormatReplaceAll } from "./TableWidgetTextFormatReplaceAll";
+import { TableWidgetTextFormatReplaceSubstring } from "./TableWidgetTextFormatReplaceSubstring";
+import { TableWidgetTextFormatRule } from "./TableWidgetTextFormatRule";
 import { TagToHosts } from "./TagToHosts";
 import { TimeseriesBackground } from "./TimeseriesBackground";
 import { TimeseriesWidgetDefinition } from "./TimeseriesWidgetDefinition";
@@ -794,6 +799,7 @@ const enumsMap: { [key: string]: any[] } = {
     "custom_timeseries_usage",
     "cws_containers_usage",
     "cws_hosts_usage",
+    "data_jobs_monitoring_usage",
     "dbm_hosts_usage",
     "dbm_queries_usage",
     "error_tracking_usage",
@@ -1008,6 +1014,8 @@ const enumsMap: { [key: string]: any[] } = {
     "cws_containers_usage",
     "cws_hosts_percentage",
     "cws_hosts_usage",
+    "data_jobs_monitoring_usage",
+    "data_jobs_monitoring_percentage",
     "dbm_hosts_percentage",
     "dbm_hosts_usage",
     "dbm_queries_percentage",
@@ -1210,6 +1218,7 @@ const enumsMap: { [key: string]: any[] } = {
   SyntheticsAssertionJSONPathOperator: ["validatesJSONPath"],
   SyntheticsAssertionJSONSchemaMetaSchema: ["draft-07", "draft-06"],
   SyntheticsAssertionJSONSchemaOperator: ["validatesJSONSchema"],
+  SyntheticsAssertionJavascriptType: ["javascript"],
   SyntheticsAssertionOperator: [
     "contains",
     "doesNotContain",
@@ -1420,6 +1429,29 @@ const enumsMap: { [key: string]: any[] } = {
   TableWidgetCellDisplayMode: ["number", "bar"],
   TableWidgetDefinitionType: ["query_table"],
   TableWidgetHasSearchBar: ["always", "never", "auto"],
+  TableWidgetTextFormatMatchType: [
+    "is",
+    "is_not",
+    "contains",
+    "does_not_contain",
+    "starts_with",
+    "ends_with",
+  ],
+  TableWidgetTextFormatPalette: [
+    "white_on_red",
+    "white_on_yellow",
+    "white_on_green",
+    "black_on_light_red",
+    "black_on_light_yellow",
+    "black_on_light_green",
+    "red_on_white",
+    "yellow_on_white",
+    "green_on_white",
+    "custom_bg",
+    "custom_text",
+  ],
+  TableWidgetTextFormatReplaceAllType: ["all"],
+  TableWidgetTextFormatReplaceSubstringType: ["substring"],
   TargetFormatType: ["auto", "string", "integer", "double"],
   TimeseriesBackgroundType: ["bars", "area"],
   TimeseriesWidgetDefinitionType: ["timeseries"],
@@ -1982,6 +2014,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsAssertionJSONSchemaTarget: SyntheticsAssertionJSONSchemaTarget,
   SyntheticsAssertionJSONSchemaTargetTarget:
     SyntheticsAssertionJSONSchemaTargetTarget,
+  SyntheticsAssertionJavascript: SyntheticsAssertionJavascript,
   SyntheticsAssertionTarget: SyntheticsAssertionTarget,
   SyntheticsAssertionXPathTarget: SyntheticsAssertionXPathTarget,
   SyntheticsAssertionXPathTargetTarget: SyntheticsAssertionXPathTargetTarget,
@@ -2081,6 +2114,10 @@ const typeMap: { [index: string]: any } = {
   SyntheticsVariableParser: SyntheticsVariableParser,
   TableWidgetDefinition: TableWidgetDefinition,
   TableWidgetRequest: TableWidgetRequest,
+  TableWidgetTextFormatMatch: TableWidgetTextFormatMatch,
+  TableWidgetTextFormatReplaceAll: TableWidgetTextFormatReplaceAll,
+  TableWidgetTextFormatReplaceSubstring: TableWidgetTextFormatReplaceSubstring,
+  TableWidgetTextFormatRule: TableWidgetTextFormatRule,
   TagToHosts: TagToHosts,
   TimeseriesBackground: TimeseriesBackground,
   TimeseriesWidgetDefinition: TimeseriesWidgetDefinition,
@@ -2303,6 +2340,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsAssertionJSONPathTarget",
     "SyntheticsAssertionJSONSchemaTarget",
     "SyntheticsAssertionXPathTarget",
+    "SyntheticsAssertionJavascript",
   ],
   SyntheticsBasicAuth: [
     "SyntheticsBasicAuthWeb",
@@ -2311,6 +2349,11 @@ const oneOfMap: { [index: string]: string[] } = {
     "SyntheticsBasicAuthDigest",
     "SyntheticsBasicAuthOauthClient",
     "SyntheticsBasicAuthOauthROP",
+  ],
+  SyntheticsTestRequestPort: ["number", "string"],
+  TableWidgetTextFormatReplace: [
+    "TableWidgetTextFormatReplaceAll",
+    "TableWidgetTextFormatReplaceSubstring",
   ],
   ToplistWidgetDisplay: ["ToplistWidgetStacked", "ToplistWidgetFlat"],
   WidgetDefinition: [

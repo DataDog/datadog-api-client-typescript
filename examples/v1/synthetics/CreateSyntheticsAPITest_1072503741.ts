@@ -19,7 +19,7 @@ const params: v1.SyntheticsApiCreateSyntheticsAPITestRequest = {
       ],
       request: {
         host: "datadoghq.com",
-        port: "443",
+        port: "{{ DATADOG_PORT }}",
       },
     },
     locations: ["aws:us-east-2"],

@@ -179,6 +179,10 @@ export class MonthlyUsageAttributionValues {
    */
   "cwsHostsUsage"?: number;
   /**
+   * The Data Jobs Monitoring usage by tag(s).
+   */
+  "dataJobsMonitoringUsage"?: number;
+  /**
    * The percentage of Database Monitoring host usage by tag(s).
    */
   "dbmHostsPercentage"?: number;
@@ -786,6 +790,11 @@ export class MonthlyUsageAttributionValues {
     },
     cwsHostsUsage: {
       baseName: "cws_hosts_usage",
+      type: "number",
+      format: "double",
+    },
+    dataJobsMonitoringUsage: {
+      baseName: "data_jobs_monitoring_usage",
       type: "number",
       format: "double",
     },

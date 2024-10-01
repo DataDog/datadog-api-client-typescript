@@ -289,6 +289,17 @@ export {
 } from "./apis/MetricsApi";
 
 export {
+  MicrosoftTeamsIntegrationApiCreateApiHandleRequest,
+  MicrosoftTeamsIntegrationApiDeleteApiHandleRequest,
+  MicrosoftTeamsIntegrationApiGetApiHandleRequest,
+  MicrosoftTeamsIntegrationApiGetApiHandleByNameRequest,
+  MicrosoftTeamsIntegrationApiGetChannelByNameRequest,
+  MicrosoftTeamsIntegrationApiListApiHandlesRequest,
+  MicrosoftTeamsIntegrationApiUpdateApiHandleRequest,
+  MicrosoftTeamsIntegrationApi,
+} from "./apis/MicrosoftTeamsIntegrationApi";
+
+export {
   MonitorsApiCreateMonitorConfigPolicyRequest,
   MonitorsApiDeleteMonitorConfigPolicyRequest,
   MonitorsApiGetMonitorConfigPolicyRequest,
@@ -1420,6 +1431,7 @@ export { MetricTagConfigurationAttributes } from "./models/MetricTagConfiguratio
 export { MetricTagConfigurationCreateAttributes } from "./models/MetricTagConfigurationCreateAttributes";
 export { MetricTagConfigurationCreateData } from "./models/MetricTagConfigurationCreateData";
 export { MetricTagConfigurationCreateRequest } from "./models/MetricTagConfigurationCreateRequest";
+export { MetricTagConfigurationMetricTypeCategory } from "./models/MetricTagConfigurationMetricTypeCategory";
 export { MetricTagConfigurationMetricTypes } from "./models/MetricTagConfigurationMetricTypes";
 export { MetricTagConfigurationResponse } from "./models/MetricTagConfigurationResponse";
 export { MetricTagConfigurationType } from "./models/MetricTagConfigurationType";
@@ -1429,6 +1441,24 @@ export { MetricTagConfigurationUpdateRequest } from "./models/MetricTagConfigura
 export { MetricType } from "./models/MetricType";
 export { MetricVolumes } from "./models/MetricVolumes";
 export { MetricVolumesResponse } from "./models/MetricVolumesResponse";
+export { MicrosoftTeamsApiHandleAttributes } from "./models/MicrosoftTeamsApiHandleAttributes";
+export { MicrosoftTeamsApiHandleInfoResponse } from "./models/MicrosoftTeamsApiHandleInfoResponse";
+export { MicrosoftTeamsApiHandleInfoResponseAttributes } from "./models/MicrosoftTeamsApiHandleInfoResponseAttributes";
+export { MicrosoftTeamsApiHandleInfoResponseData } from "./models/MicrosoftTeamsApiHandleInfoResponseData";
+export { MicrosoftTeamsApiHandleInfoType } from "./models/MicrosoftTeamsApiHandleInfoType";
+export { MicrosoftTeamsApiHandleRequestAttributes } from "./models/MicrosoftTeamsApiHandleRequestAttributes";
+export { MicrosoftTeamsApiHandleRequestData } from "./models/MicrosoftTeamsApiHandleRequestData";
+export { MicrosoftTeamsApiHandleResponseData } from "./models/MicrosoftTeamsApiHandleResponseData";
+export { MicrosoftTeamsApiHandlesResponse } from "./models/MicrosoftTeamsApiHandlesResponse";
+export { MicrosoftTeamsApiHandleType } from "./models/MicrosoftTeamsApiHandleType";
+export { MicrosoftTeamsChannelInfoResponseAttributes } from "./models/MicrosoftTeamsChannelInfoResponseAttributes";
+export { MicrosoftTeamsChannelInfoResponseData } from "./models/MicrosoftTeamsChannelInfoResponseData";
+export { MicrosoftTeamsChannelInfoType } from "./models/MicrosoftTeamsChannelInfoType";
+export { MicrosoftTeamsCreateApiHandleRequest } from "./models/MicrosoftTeamsCreateApiHandleRequest";
+export { MicrosoftTeamsCreateApiHandleResponse } from "./models/MicrosoftTeamsCreateApiHandleResponse";
+export { MicrosoftTeamsGetChannelByNameResponse } from "./models/MicrosoftTeamsGetChannelByNameResponse";
+export { MicrosoftTeamsUpdateApiHandleRequest } from "./models/MicrosoftTeamsUpdateApiHandleRequest";
+export { MicrosoftTeamsUpdateApiHandleRequestData } from "./models/MicrosoftTeamsUpdateApiHandleRequestData";
 export { MonitorConfigPolicyAttributeCreateRequest } from "./models/MonitorConfigPolicyAttributeCreateRequest";
 export { MonitorConfigPolicyAttributeEditRequest } from "./models/MonitorConfigPolicyAttributeEditRequest";
 export { MonitorConfigPolicyAttributeResponse } from "./models/MonitorConfigPolicyAttributeResponse";
@@ -1731,6 +1761,7 @@ export { SecurityFilterUpdateRequest } from "./models/SecurityFilterUpdateReques
 export { SecurityMonitoringFilter } from "./models/SecurityMonitoringFilter";
 export { SecurityMonitoringFilterAction } from "./models/SecurityMonitoringFilterAction";
 export { SecurityMonitoringListRulesResponse } from "./models/SecurityMonitoringListRulesResponse";
+export { SecurityMonitoringReferenceTable } from "./models/SecurityMonitoringReferenceTable";
 export { SecurityMonitoringRuleCase } from "./models/SecurityMonitoringRuleCase";
 export { SecurityMonitoringRuleCaseCreate } from "./models/SecurityMonitoringRuleCaseCreate";
 export { SecurityMonitoringRuleConvertPayload } from "./models/SecurityMonitoringRuleConvertPayload";

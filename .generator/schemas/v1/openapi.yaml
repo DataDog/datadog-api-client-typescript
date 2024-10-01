@@ -4182,6 +4182,7 @@ components:
       - custom_timeseries_usage
       - cws_containers_usage
       - cws_hosts_usage
+      - data_jobs_monitoring_usage
       - dbm_hosts_usage
       - dbm_queries_usage
       - error_tracking_usage
@@ -4255,6 +4256,7 @@ components:
       - CUSTOM_TIMESERIES_USAGE
       - CWS_CONTAINERS_USAGE
       - CWS_HOSTS_USAGE
+      - DATA_JOBS_MONITORING_USAGE
       - DBM_HOSTS_USAGE
       - DBM_QUERIES_USAGE
       - ERROR_TRACKING_USAGE
@@ -7935,6 +7937,8 @@ components:
       - cws_containers_usage
       - cws_hosts_percentage
       - cws_hosts_usage
+      - data_jobs_monitoring_usage
+      - data_jobs_monitoring_percentage
       - dbm_hosts_percentage
       - dbm_hosts_usage
       - dbm_queries_percentage
@@ -8076,6 +8080,8 @@ components:
       - CWS_CONTAINERS_USAGE
       - CWS_HOSTS_PERCENTAGE
       - CWS_HOSTS_USAGE
+      - DATA_JOBS_MONITORING_USAGE
+      - DATA_JOBS_MONITORING_PERCENTAGE
       - DBM_HOSTS_PERCENTAGE
       - DBM_HOSTS_USAGE
       - DBM_QUERIES_PERCENTAGE
@@ -8361,6 +8367,10 @@ components:
           type: number
         cws_hosts_usage:
           description: The Cloud Workload Security host usage by tag(s).
+          format: double
+          type: number
+        data_jobs_monitoring_usage:
+          description: The Data Jobs Monitoring usage by tag(s).
           format: double
           type: number
         dbm_hosts_percentage:
@@ -13873,6 +13883,7 @@ components:
       - $ref: '#/components/schemas/SyntheticsAssertionJSONPathTarget'
       - $ref: '#/components/schemas/SyntheticsAssertionJSONSchemaTarget'
       - $ref: '#/components/schemas/SyntheticsAssertionXPathTarget'
+      - $ref: '#/components/schemas/SyntheticsAssertionJavascript'
     SyntheticsAssertionBodyHashOperator:
       description: Assertion operator to apply.
       enum:
@@ -13989,6 +14000,27 @@ components:
         metaSchema:
           $ref: '#/components/schemas/SyntheticsAssertionJSONSchemaMetaSchema'
       type: object
+    SyntheticsAssertionJavascript:
+      description: A JavaScript assertion.
+      properties:
+        code:
+          description: The JavaScript code that performs the assertions.
+          example: dd.expect(dd.response.statusCode).to.equal(200);
+          type: string
+        type:
+          $ref: '#/components/schemas/SyntheticsAssertionJavascriptType'
+      required:
+      - type
+      - code
+      type: object
+    SyntheticsAssertionJavascriptType:
+      description: Type of the assertion.
+      enum:
+      - javascript
+      example: javascript
+      type: string
+      x-enum-varnames:
+      - JAVASCRIPT
     SyntheticsAssertionOperator:
       description: Assertion operator to apply.
       enum:
@@ -16330,8 +16362,7 @@ components:
           description: Persist cookies across redirects.
           type: boolean
         port:
-          description: Port to use when performing the test.
-          type: string
+          $ref: '#/components/schemas/SyntheticsTestRequestPort'
         proxy:
           $ref: '#/components/schemas/SyntheticsTestRequestProxy'
         query:
@@ -16435,6 +16466,15 @@ components:
           description: Date of update of the certificate or key, ISO format.
           type: string
       type: object
+    SyntheticsTestRequestNumericalPort:
+      description: Integer Port number to use when performing the test.
+      format: int64
+      type: integer
+    SyntheticsTestRequestPort:
+      description: Port to use when performing the test.
+      oneOf:
+      - $ref: '#/components/schemas/SyntheticsTestRequestNumericalPort'
+      - $ref: '#/components/schemas/SyntheticsTestRequestVariablePort'
     SyntheticsTestRequestProxy:
       description: The proxy to perform the test.
       properties:
@@ -16447,6 +16487,10 @@ components:
       required:
       - url
       type: object
+    SyntheticsTestRequestVariablePort:
+      description: String Port number to use when performing the test. Supports templated
+        variables.
+      type: string
     SyntheticsTiming:
       description: 'Object containing all metrics and their values collected for a
         Synthetic API test.
@@ -16718,6 +16762,181 @@ components:
           $ref: '#/components/schemas/LogQueryDefinition'
         sort:
           $ref: '#/components/schemas/WidgetSortBy'
+        text_formats:
+          description: List of text formats for columns produced by tags.
+          items:
+            $ref: '#/components/schemas/TableWidgetTextFormat'
+          type: array
+      type: object
+    TableWidgetTextFormat:
+      description: Text format rules for a tag-based column within a table widget.
+      example:
+      - match:
+          type: is
+          value: fruit
+        replace:
+          type: all
+          with: vegetable
+      - match:
+          type: is
+          value: cake
+        palette: white_on_green
+      items:
+        $ref: '#/components/schemas/TableWidgetTextFormatRule'
+      minItems: 1
+      type: array
+    TableWidgetTextFormatMatch:
+      description: Match rule for the table widget text format.
+      example:
+        type: is
+        value: fruit
+      properties:
+        type:
+          $ref: '#/components/schemas/TableWidgetTextFormatMatchType'
+        value:
+          description: Table Widget Match String.
+          example: Match Value
+          type: string
+      required:
+      - type
+      - value
+      type: object
+    TableWidgetTextFormatMatchType:
+      description: Match or compare option.
+      enum:
+      - is
+      - is_not
+      - contains
+      - does_not_contain
+      - starts_with
+      - ends_with
+      example: is
+      type: string
+      x-enum-varnames:
+      - IS
+      - IS_NOT
+      - CONTAINS
+      - DOES_NOT_CONTAIN
+      - STARTS_WITH
+      - ENDS_WITH
+    TableWidgetTextFormatPalette:
+      default: white_on_green
+      description: Color-on-color palette to highlight replaced text.
+      enum:
+      - white_on_red
+      - white_on_yellow
+      - white_on_green
+      - black_on_light_red
+      - black_on_light_yellow
+      - black_on_light_green
+      - red_on_white
+      - yellow_on_white
+      - green_on_white
+      - custom_bg
+      - custom_text
+      type: string
+      x-enum-varnames:
+      - WHITE_ON_RED
+      - WHITE_ON_YELLOW
+      - WHITE_ON_GREEN
+      - BLACK_ON_LIGHT_RED
+      - BLACK_ON_LIGHT_YELLOW
+      - BLACK_ON_LIGHT_GREEN
+      - RED_ON_WHITE
+      - YELLOW_ON_WHITE
+      - GREEN_ON_WHITE
+      - CUSTOM_BG
+      - CUSTOM_TEXT
+    TableWidgetTextFormatReplace:
+      description: Replace rule for the table widget text format.
+      example:
+        type: all
+        with: vegetable
+      oneOf:
+      - $ref: '#/components/schemas/TableWidgetTextFormatReplaceAll'
+      - $ref: '#/components/schemas/TableWidgetTextFormatReplaceSubstring'
+    TableWidgetTextFormatReplaceAll:
+      description: Match All definition.
+      example:
+        type: all
+        with: vegetable
+      properties:
+        type:
+          $ref: '#/components/schemas/TableWidgetTextFormatReplaceAllType'
+        with:
+          description: Replace All type.
+          example: all
+          type: string
+      required:
+      - type
+      - with
+      type: object
+    TableWidgetTextFormatReplaceAllType:
+      description: Table widget text format replace all type.
+      enum:
+      - all
+      example: all
+      type: string
+      x-enum-varnames:
+      - ALL
+    TableWidgetTextFormatReplaceSubstring:
+      description: Match Sub-string definition.
+      example:
+        substring: fruit
+        type: substring
+        with: vegetable
+      properties:
+        substring:
+          description: Text that will be replaced.
+          example: string to replace
+          type: string
+        type:
+          $ref: '#/components/schemas/TableWidgetTextFormatReplaceSubstringType'
+        with:
+          description: Text that will replace original sub-string.
+          example: replacement
+          type: string
+      required:
+      - type
+      - with
+      - substring
+      type: object
+    TableWidgetTextFormatReplaceSubstringType:
+      description: Table widget text format replace sub-string type.
+      enum:
+      - substring
+      example: substring
+      type: string
+      x-enum-varnames:
+      - SUBSTRING
+    TableWidgetTextFormatRule:
+      description: Text format rules.
+      example:
+        match:
+          type: is
+          value: apple
+        replace:
+          type: all
+          with: vegetable
+      properties:
+        custom_bg_color:
+          description: Hex representation of the custom background color. Used with
+            custom background palette option.
+          example: '#632ca6'
+          type: string
+        custom_fg_color:
+          description: Hex representation of the custom text color. Used with custom
+            text palette option.
+          example: '#632ca6'
+          type: string
+        match:
+          $ref: '#/components/schemas/TableWidgetTextFormatMatch'
+        palette:
+          $ref: '#/components/schemas/TableWidgetTextFormatPalette'
+        replace:
+          $ref: '#/components/schemas/TableWidgetTextFormatReplace'
+      required:
+      - match
       type: object
     TagToHosts:
       description: In this object, the key is the tag, the value is a list of host
@@ -17093,6 +17312,9 @@ components:
       properties:
         display:
           $ref: '#/components/schemas/ToplistWidgetDisplay'
+        palette:
+          description: Color palette to apply to the widget.
+          type: string
         scaling:
           $ref: '#/components/schemas/ToplistWidgetScaling'
       type: object
@@ -19071,6 +19293,11 @@ components:
             over all hours in the current date for all organizations.
           format: int64
           type: integer
+        data_jobs_monitoring_host_hr_sum:
+          description: Shows the sum of all Data Jobs Monitoring hosts over all hours
+            in the current date for the given org.
+          format: int64
+          type: integer
         date:
           description: The date for the usage.
           format: date-time
@@ -19806,6 +20033,11 @@ components:
             over all hours in the current date for the given org.
           format: int64
           type: integer
+        data_jobs_monitoring_host_hr_sum:
+          description: Shows the sum of all Data Jobs Monitoring hosts over all hours
+            in the current date for the given org.
+          format: int64
+          type: integer
         dbm_host_top99p_sum:
           description: Shows the 99th percentile of all Database Monitoring hosts
             over all hours in the current month for the given org.
@@ -20538,6 +20770,11 @@ components:
         cws_host_top99p_sum:
           description: Shows the 99th percentile of all Cloud Workload Security hosts
             over all hours in the current month for all organizations.
+          format: int64
+          type: integer
+        data_jobs_monitoring_host_hr_agg_sum:
+          description: Shows the sum of Data Jobs Monitoring hosts over all hours
+            in the current months for all organizations
           format: int64
           type: integer
         dbm_host_top99p_sum:
@@ -22370,6 +22607,7 @@ components:
               access to the cloud cost data source in dashboards and notebooks.
             cloud_cost_management_write: Configure cloud cost accounts and global
               customizations.
+            code_analysis_read: View Code Analysis.
             continuous_profiler_pgo_read: Read and query Continuous Profiler data
               for Profile-Guided Optimization (PGO).
             create_webhooks: Create webhooks integrations.
@@ -22405,6 +22643,8 @@ components:
             security_monitoring_signals_read: View Security Signals.
             security_monitoring_suppressions_read: Read Rule Suppressions.
             security_monitoring_suppressions_write: Write Rule Suppressions.
+            security_pipelines_read: View Security Pipelines.
+            security_pipelines_write: Create, edit, and delete CSM Security Pipelines.
             slos_corrections: Apply, edit, and delete SLO status corrections. A user
               with this permission can make status corrections, even if they do not
               have permission to edit those SLOs.
@@ -22540,6 +22780,10 @@ paths:
       summary: Get all API keys
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_read
     post:
       description: Creates an API key with a given name.
       operationId: CreateAPIKey
@@ -22574,6 +22818,10 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_write
   /api/v1/api_key/{key}:
     delete:
       description: Delete a given API key.
@@ -22615,6 +22863,10 @@ paths:
       summary: Delete an API key
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_delete
     get:
       description: Get a given API key.
       operationId: GetAPIKey
@@ -22649,6 +22901,10 @@ paths:
       summary: Get API key
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_read
     put:
       description: Edit an API key name.
       operationId: UpdateAPIKey
@@ -22696,6 +22952,10 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - api_keys_write
   /api/v1/application_key:
     get:
       description: Get all application keys available for your Datadog account.
@@ -22718,6 +22978,11 @@ paths:
       summary: Get all application keys
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - org_app_keys_read
+        - user_app_keys
     post:
       description: Create an application key with a given name.
       operationId: CreateApplicationKey
@@ -22758,6 +23023,10 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_app_keys
   /api/v1/application_key/{key}:
     delete:
       description: Delete a given application key.
@@ -22793,6 +23062,11 @@ paths:
       summary: Delete an application key
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - org_app_keys_write
+        - user_app_keys
     get:
       description: Get a given application key.
       operationId: GetApplicationKey
@@ -22827,6 +23101,11 @@ paths:
       summary: Get an application key
       tags:
       - Key Management
+      x-permission:
+        operator: OR
+        permissions:
+        - org_app_keys_read
+        - user_app_keys
     put:
       description: Edit an application key name.
       operationId: UpdateApplicationKey
@@ -22880,6 +23159,11 @@ paths:
       tags:
       - Key Management
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - org_app_keys_write
+        - user_app_keys
   /api/v1/check_run:
     post:
       description: 'Submit a list of Service Checks.
@@ -22997,6 +23281,10 @@ paths:
       summary: Get the list of available daily custom reports
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/daily_custom_reports/{report_id}:
     get:
       deprecated: true
@@ -23042,6 +23330,10 @@ paths:
       summary: Get specified daily custom reports
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/dashboard:
     delete:
       description: Delete dashboards using the specified IDs. If there are any failures,
@@ -23094,6 +23386,10 @@ paths:
       tags:
       - Dashboards
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
     get:
       description: 'Get all dashboards.
 
@@ -23161,6 +23457,10 @@ paths:
         limitParam: count
         pageOffsetParam: start
         resultsPath: dashboards
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_read
     patch:
       description: Restore dashboards using the specified IDs. If there are any failures,
         no dashboards will be restored (partial success is not allowed).
@@ -23212,6 +23512,10 @@ paths:
       tags:
       - Dashboards
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
     post:
       description: 'Create a dashboard using the specified options. When defining
         queries in your widgets, take note of which queries should have the `as_count()`
@@ -23257,6 +23561,10 @@ paths:
       tags:
       - Dashboards
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
   /api/v1/dashboard/lists/manual:
     get:
       description: Fetch all of your existing dashboard list definitions.
@@ -23284,6 +23592,10 @@ paths:
       summary: Get all dashboard lists
       tags:
       - Dashboard Lists
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_read
     post:
       description: Create an empty dashboard list.
       operationId: CreateDashboardList
@@ -23324,6 +23636,10 @@ paths:
       tags:
       - Dashboard Lists
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
   /api/v1/dashboard/lists/manual/{list_id}:
     delete:
       description: Delete a dashboard list.
@@ -23365,6 +23681,10 @@ paths:
       summary: Delete a dashboard list
       tags:
       - Dashboard Lists
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
     get:
       description: Fetch an existing dashboard list's definition.
       operationId: GetDashboardList
@@ -23405,6 +23725,10 @@ paths:
       summary: Get a dashboard list
       tags:
       - Dashboard Lists
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_read
     put:
       description: Update the name of a dashboard list.
       operationId: UpdateDashboardList
@@ -23459,6 +23783,10 @@ paths:
       tags:
       - Dashboard Lists
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
   /api/v1/dashboard/public:
     post:
       description: Share a specified private dashboard, generating a URL at which
@@ -23513,6 +23841,10 @@ paths:
       tags:
       - Dashboards
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_public_share
   /api/v1/dashboard/public/{token}:
     delete:
       description: Revoke the public URL for a dashboard (rendering it private) associated
@@ -23554,6 +23886,10 @@ paths:
       summary: Revoke a shared dashboard URL
       tags:
       - Dashboards
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_public_share
     get:
       description: Fetch an existing shared dashboard's sharing metadata associated
         with the specified token.
@@ -23595,6 +23931,10 @@ paths:
       summary: Get a shared dashboard
       tags:
       - Dashboards
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_read
     put:
       description: Update a shared dashboard associated with the specified token.
       operationId: UpdatePublicDashboard
@@ -23664,6 +24004,10 @@ paths:
       tags:
       - Dashboards
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_public_share
   /api/v1/dashboard/public/{token}/invitation:
     delete:
       description: Revoke previously sent invitation emails and active sessions used
@@ -23716,6 +24060,10 @@ paths:
       tags:
       - Dashboards
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_public_share
     get:
       description: Describe the invitations that exist for the given shared dashboard
         (paginated).
@@ -23770,6 +24118,10 @@ paths:
       summary: Get all invitations for a shared dashboard
       tags:
       - Dashboards
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_public_share
     post:
       description: Send emails to specified email addresses containing links to access
         a given authenticated shared dashboard. Email addresses must already belong
@@ -23832,6 +24184,10 @@ paths:
       tags:
       - Dashboards
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_public_share
   /api/v1/dashboard/{dashboard_id}:
     delete:
       description: Delete a dashboard using the specified ID.
@@ -23872,6 +24228,10 @@ paths:
       summary: Delete a dashboard
       tags:
       - Dashboards
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
     get:
       description: Get a dashboard using the specified ID.
       operationId: GetDashboard
@@ -23911,6 +24271,10 @@ paths:
       summary: Get a dashboard
       tags:
       - Dashboards
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_read
     put:
       description: Update a dashboard using the specified ID.
       operationId: UpdateDashboard
@@ -23964,6 +24328,10 @@ paths:
       tags:
       - Dashboards
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - dashboards_write
   /api/v1/distribution_points:
     post:
       description: "The distribution points end-point allows you to post distribution
@@ -24073,6 +24441,10 @@ paths:
       summary: Get all downtimes
       tags:
       - Downtimes
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
     post:
       deprecated: true
       description: Schedule a downtime. **Note:** This endpoint has been deprecated.
@@ -24115,6 +24487,10 @@ paths:
       tags:
       - Downtimes
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
   /api/v1/downtime/cancel/by_scope:
     post:
       deprecated: true
@@ -24166,6 +24542,10 @@ paths:
       tags:
       - Downtimes
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
   /api/v1/downtime/{downtime_id}:
     delete:
       deprecated: true
@@ -24206,6 +24586,10 @@ paths:
       summary: Cancel a downtime
       tags:
       - Downtimes
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
     get:
       deprecated: true
       description: Get downtime detail by `downtime_id`. **Note:** This endpoint has
@@ -24249,6 +24633,10 @@ paths:
       summary: Get a downtime
       tags:
       - Downtimes
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
     put:
       deprecated: true
       description: Update a single downtime by `downtime_id`. **Note:** This endpoint
@@ -24307,6 +24695,10 @@ paths:
       tags:
       - Downtimes
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_downtime
   /api/v1/events:
     get:
       description: "The event stream can be queried and filtered by time, priority,
@@ -24417,6 +24809,10 @@ paths:
       summary: Get a list of events
       tags:
       - Events
+      x-permission:
+        operator: OR
+        permissions:
+        - events_read
     post:
       description: 'This endpoint allows you to post events to the stream.
 
@@ -24493,6 +24889,10 @@ paths:
       summary: Get an event
       tags:
       - Events
+      x-permission:
+        operator: OR
+        permissions:
+        - events_read
   /api/v1/graph/snapshot:
     get:
       description: 'Take graph snapshots.
@@ -24588,6 +24988,9 @@ paths:
       summary: Take graph snapshots
       tags:
       - Snapshots
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v1/host/{host_name}/mute:
     post:
       description: Mute a host. **Note:** This creates a [Downtime V2](https://docs.datadoghq.com/api/latest/downtimes/#schedule-a-downtime)
@@ -24764,6 +25167,10 @@ paths:
       summary: Get all hosts for your organization
       tags:
       - Hosts
+      x-permission:
+        operator: OR
+        permissions:
+        - hosts_read
   /api/v1/hosts/totals:
     get:
       description: 'This endpoint returns the total number of active and up hosts
@@ -24810,6 +25217,10 @@ paths:
       summary: Get the total number of active hosts
       tags:
       - Hosts
+      x-permission:
+        operator: OR
+        permissions:
+        - hosts_read
   /api/v1/integration/aws:
     delete:
       description: Delete a Datadog-AWS integration matching the specified `account_id`
@@ -24853,6 +25264,10 @@ paths:
       tags:
       - AWS Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configurations_manage
     get:
       description: List all Datadog-AWS integrations available in your Datadog organization.
       operationId: ListAWSAccounts
@@ -24899,6 +25314,10 @@ paths:
       summary: List all AWS integrations
       tags:
       - AWS Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_read
     post:
       description: 'Create a Datadog-Amazon Web Services integration.
 
@@ -24946,6 +25365,10 @@ paths:
       tags:
       - AWS Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configurations_manage
     put:
       description: Update a Datadog-Amazon Web Services integration.
       operationId: UpdateAWSAccount
@@ -25010,6 +25433,10 @@ paths:
       tags:
       - AWS Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_edit
   /api/v1/integration/aws/available_namespace_rules:
     get:
       description: List all namespace rules for a given Datadog-AWS integration. This
@@ -25039,6 +25466,10 @@ paths:
       summary: List namespace rules
       tags:
       - AWS Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_read
   /api/v1/integration/aws/event_bridge:
     delete:
       description: Delete an Amazon EventBridge source.
@@ -25076,6 +25507,10 @@ paths:
       tags:
       - AWS Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get all Amazon EventBridge sources.
       operationId: ListAWSEventBridgeSources
@@ -25104,6 +25539,9 @@ paths:
       summary: Get all Amazon EventBridge sources
       tags:
       - AWS Integration
+      x-permission:
+        operator: OPEN
+        permissions: []
     post:
       description: Create an Amazon EventBridge source.
       operationId: CreateAWSEventBridgeSource
@@ -25140,6 +25578,10 @@ paths:
       tags:
       - AWS Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v1/integration/aws/filtering:
     delete:
       description: Delete a tag filtering entry.
@@ -25178,6 +25620,10 @@ paths:
       tags:
       - AWS Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_edit
     get:
       description: Get all AWS tag filters.
       operationId: ListAWSTagFilters
@@ -25212,6 +25658,10 @@ paths:
       summary: Get all AWS tag filters
       tags:
       - AWS Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_read
     post:
       description: Set an AWS tag filter.
       operationId: CreateAWSTagFilter
@@ -25252,6 +25702,10 @@ paths:
       tags:
       - AWS Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_edit
   /api/v1/integration/aws/generate_new_external_id:
     put:
       description: Generate a new AWS external ID for a given AWS account ID and role
@@ -25293,6 +25747,10 @@ paths:
       tags:
       - AWS Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_edit
   /api/v1/integration/aws/logs:
     delete:
       description: Delete a Datadog-AWS logs configuration by removing the specific
@@ -25330,6 +25788,10 @@ paths:
       tags:
       - AWS Logs Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_edit
     get:
       description: List all Datadog-AWS Logs integrations configured in your Datadog
         account.
@@ -25370,6 +25832,10 @@ paths:
       summary: List all AWS Logs integrations
       tags:
       - AWS Logs Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_read
     post:
       description: Attach the Lambda ARN of the Lambda created for the Datadog-AWS
         log collection to your AWS account ID to enable log collection.
@@ -25406,6 +25872,10 @@ paths:
       tags:
       - AWS Logs Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_edit
   /api/v1/integration/aws/logs/check_async:
     post:
       description: 'Test if permissions are present to add a log-forwarding triggers
@@ -25458,6 +25928,10 @@ paths:
       tags:
       - AWS Logs Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_read
   /api/v1/integration/aws/logs/services:
     get:
       description: Get the list of current AWS services that Datadog offers automatic
@@ -25497,6 +25971,10 @@ paths:
       summary: Get list of AWS log ready services
       tags:
       - AWS Logs Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_read
     post:
       description: Enable automatic log collection for a list of services. This should
         be run after running `CreateAWSLambdaARN` to save the configuration.
@@ -25533,6 +26011,10 @@ paths:
       tags:
       - AWS Logs Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_edit
   /api/v1/integration/aws/logs/services_async:
     post:
       description: "Test if permissions are present to add log-forwarding triggers
@@ -25575,6 +26057,10 @@ paths:
       tags:
       - AWS Logs Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - aws_configuration_read
   /api/v1/integration/azure:
     delete:
       description: Delete a given Datadog-Azure integration from your Datadog account.
@@ -25612,6 +26098,10 @@ paths:
       tags:
       - Azure Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - azure_configurations_manage
     get:
       description: List all Datadog-Azure integrations configured in your Datadog
         account.
@@ -25640,6 +26130,10 @@ paths:
       summary: List all Azure integrations
       tags:
       - Azure Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - azure_configuration_read
     post:
       description: 'Create a Datadog-Azure integration.
 
@@ -25689,6 +26183,10 @@ paths:
       tags:
       - Azure Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - azure_configurations_manage
     put:
       description: 'Update a Datadog-Azure integration. Requires an existing `tenant_name`
         and `client_id`.
@@ -25732,6 +26230,10 @@ paths:
       tags:
       - Azure Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - azure_configuration_edit
   /api/v1/integration/azure/host_filters:
     post:
       description: Update the defined list of host filters for a given Datadog-Azure
@@ -25770,6 +26272,10 @@ paths:
       tags:
       - Azure Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - azure_configuration_edit
   /api/v1/integration/gcp:
     delete:
       deprecated: true
@@ -25809,6 +26315,10 @@ paths:
       tags:
       - GCP Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configurations_manage
     get:
       deprecated: true
       description: "This endpoint is deprecated \u2013 use the V2 endpoints instead.
@@ -25838,6 +26348,10 @@ paths:
       summary: List all GCP integrations
       tags:
       - GCP Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configuration_read
     post:
       deprecated: true
       description: "This endpoint is deprecated \u2013 use the V2 endpoints instead.
@@ -25876,6 +26390,10 @@ paths:
       tags:
       - GCP Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configurations_manage
     put:
       deprecated: true
       description: "This endpoint is deprecated \u2013 use the V2 endpoints instead.
@@ -25917,6 +26435,10 @@ paths:
       tags:
       - GCP Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - gcp_configuration_edit
   /api/v1/integration/pagerduty/configuration/services:
     post:
       description: Create a new service object in the PagerDuty integration.
@@ -25953,6 +26475,10 @@ paths:
       tags:
       - PagerDuty Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v1/integration/pagerduty/configuration/services/{service_name}:
     delete:
       description: Delete a single service object in the Datadog-PagerDuty integration.
@@ -25984,6 +26510,10 @@ paths:
       summary: Delete a single service object
       tags:
       - PagerDuty Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get service name in the Datadog-PagerDuty integration.
       operationId: GetPagerDutyIntegrationService
@@ -26018,6 +26548,10 @@ paths:
       summary: Get a single service object
       tags:
       - PagerDuty Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     put:
       description: Update a single service object in the Datadog-PagerDuty integration.
       operationId: UpdatePagerDutyIntegrationService
@@ -26062,6 +26596,10 @@ paths:
       tags:
       - PagerDuty Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v1/integration/slack/configuration/accounts/{account_name}/channels:
     get:
       description: Get a list of all channels configured for your Datadog-Slack integration.
@@ -26098,6 +26636,10 @@ paths:
       summary: Get all channels in a Slack integration
       tags:
       - Slack Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     post:
       description: Add a channel to your Datadog-Slack integration.
       operationId: CreateSlackIntegrationChannel
@@ -26141,6 +26683,10 @@ paths:
       tags:
       - Slack Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v1/integration/slack/configuration/accounts/{account_name}/channels/{channel_name}:
     delete:
       description: Remove a channel from your Datadog-Slack integration.
@@ -26174,6 +26720,10 @@ paths:
       summary: Remove a Slack integration channel
       tags:
       - Slack Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Get a channel configured for your Datadog-Slack integration.
       operationId: GetSlackIntegrationChannel
@@ -26210,6 +26760,10 @@ paths:
       summary: Get a Slack integration channel
       tags:
       - Slack Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     patch:
       description: Update a channel used in your Datadog-Slack integration.
       operationId: UpdateSlackIntegrationChannel
@@ -26254,6 +26808,10 @@ paths:
       tags:
       - Slack Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v1/integration/webhooks/configuration/custom-variables:
     post:
       description: Creates an endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
@@ -26290,6 +26848,10 @@ paths:
       tags:
       - Webhooks Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v1/integration/webhooks/configuration/custom-variables/{custom_variable_name}:
     delete:
       description: Deletes the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
@@ -26321,6 +26883,10 @@ paths:
       summary: Delete a custom variable
       tags:
       - Webhooks Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: 'Shows the content of the custom variable with the name `<CUSTOM_VARIABLE_NAME>`.
 
@@ -26366,6 +26932,10 @@ paths:
       summary: Get a custom variable
       tags:
       - Webhooks Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     put:
       description: Updates the endpoint with the name `<CUSTOM_VARIABLE_NAME>`.
       operationId: UpdateWebhooksIntegrationCustomVariable
@@ -26414,6 +26984,10 @@ paths:
       tags:
       - Webhooks Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v1/integration/webhooks/configuration/webhooks:
     post:
       description: Creates an endpoint with the name `<WEBHOOK_NAME>`.
@@ -26455,6 +27029,10 @@ paths:
       tags:
       - Webhooks Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - create_webhooks
   /api/v1/integration/webhooks/configuration/webhooks/{webhook_name}:
     delete:
       description: Deletes the endpoint with the name `<WEBHOOK NAME>`.
@@ -26486,6 +27064,10 @@ paths:
       summary: Delete a webhook
       tags:
       - Webhooks Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
     get:
       description: Gets the content of the webhook with the name `<WEBHOOK_NAME>`.
       operationId: GetWebhooksIntegration
@@ -26526,6 +27108,10 @@ paths:
       summary: Get a webhook integration
       tags:
       - Webhooks Integration
+      x-permission:
+        operator: OR
+        permissions:
+        - integrations_read
     put:
       description: Updates the endpoint with the name `<WEBHOOK_NAME>`.
       operationId: UpdateWebhooksIntegration
@@ -26574,6 +27160,10 @@ paths:
       tags:
       - Webhooks Integration
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - manage_integrations
   /api/v1/logs-queries/list:
     post:
       description: 'List endpoint returns logs that match a log search query.
@@ -26624,6 +27214,10 @@ paths:
       tags:
       - Logs
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_read_data
   /api/v1/logs/config/index-order:
     get:
       description: Get the current order of your log indexes. This endpoint takes
@@ -26647,6 +27241,9 @@ paths:
       summary: Get indexes order
       tags:
       - Logs Indexes
+      x-permission:
+        operator: OPEN
+        permissions: []
     put:
       description: 'This endpoint updates the index order of your organization.
 
@@ -26685,6 +27282,10 @@ paths:
       tags:
       - Logs Indexes
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_modify_indexes
   /api/v1/logs/config/indexes:
     get:
       description: 'The Index object describes the configuration of a log index.
@@ -26713,6 +27314,9 @@ paths:
       summary: Get all indexes
       tags:
       - Logs Indexes
+      x-permission:
+        operator: OPEN
+        permissions: []
     post:
       description: Creates a new index. Returns the Index object passed in the request
         body when the request is successful.
@@ -26749,6 +27353,10 @@ paths:
       tags:
       - Logs Indexes
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_modify_indexes
   /api/v1/logs/config/indexes/{name}:
     get:
       description: Get one log index from your organization. This endpoint takes no
@@ -26858,6 +27466,9 @@ paths:
       summary: Get pipeline order
       tags:
       - Logs Pipelines
+      x-permission:
+        operator: OPEN
+        permissions: []
     put:
       description: 'Update the order of your pipelines. Since logs are processed sequentially,
         reordering a pipeline may change
@@ -26909,6 +27520,10 @@ paths:
       tags:
       - Logs Pipelines
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_pipelines
   /api/v1/logs/config/pipelines:
     get:
       description: 'Get all pipelines from your organization.
@@ -26933,6 +27548,9 @@ paths:
       summary: Get all pipelines
       tags:
       - Logs Pipelines
+      x-permission:
+        operator: OPEN
+        permissions: []
     post:
       description: Create a pipeline in your organization.
       operationId: CreateLogsPipeline
@@ -26968,6 +27586,10 @@ paths:
       tags:
       - Logs Pipelines
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_pipelines
   /api/v1/logs/config/pipelines/{pipeline_id}:
     delete:
       description: 'Delete a given pipeline from your organization.
@@ -27001,6 +27623,10 @@ paths:
       summary: Delete a pipeline
       tags:
       - Logs Pipelines
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_pipelines
     get:
       description: 'Get a specific pipeline from your organization.
 
@@ -27037,6 +27663,9 @@ paths:
       summary: Get a pipeline
       tags:
       - Logs Pipelines
+      x-permission:
+        operator: OPEN
+        permissions: []
     put:
       description: "Update a given pipeline configuration to change it\u2019s processors
         or their order.\n\n**Note**: Using this method updates your pipeline configuration
@@ -27082,6 +27711,10 @@ paths:
       tags:
       - Logs Pipelines
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - logs_write_pipelines
   /api/v1/metrics:
     get:
       description: Get the list of actively reporting metrics from a given time until
@@ -27142,6 +27775,10 @@ paths:
       summary: Get active metrics list
       tags:
       - Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - metrics_read
   /api/v1/metrics/{metric_name}:
     get:
       description: Get metadata about a specific metric.
@@ -27182,6 +27819,10 @@ paths:
       summary: Get metric metadata
       tags:
       - Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - metrics_read
     put:
       description: Edit metadata of a specific metric. Find out more about [supported
         types](https://docs.datadoghq.com/developers/metrics).
@@ -27231,6 +27872,10 @@ paths:
       tags:
       - Metrics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - metrics_metadata_write
   /api/v1/monitor:
     get:
       description: Get details about the specified monitor from your organization.
@@ -27345,6 +27990,10 @@ paths:
       x-pagination:
         limitParam: page_size
         pageParam: page
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
     post:
       description: 'Create a monitor using the specified options.
 
@@ -27782,6 +28431,10 @@ paths:
       tags:
       - Monitors
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_write
   /api/v1/monitor/can_delete:
     get:
       description: Check if the given monitors can be deleted.
@@ -27834,6 +28487,10 @@ paths:
       summary: Check if a monitor can be deleted
       tags:
       - Monitors
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
   /api/v1/monitor/groups/search:
     get:
       description: Search and filter your monitor groups details.
@@ -27918,6 +28575,10 @@ paths:
       summary: Monitors group search
       tags:
       - Monitors
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
   /api/v1/monitor/search:
     get:
       description: Search and filter your monitors details.
@@ -28004,6 +28665,10 @@ paths:
       summary: Monitors search
       tags:
       - Monitors
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
   /api/v1/monitor/validate:
     post:
       description: 'Validate the monitor provided in the request.
@@ -28049,6 +28714,10 @@ paths:
       tags:
       - Monitors
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_write
   /api/v1/monitor/{monitor_id}:
     delete:
       description: Delete the specified monitor
@@ -28111,6 +28780,10 @@ paths:
       summary: Delete a monitor
       tags:
       - Monitors
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_write
     get:
       description: Get details about the specified monitor from your organization.
       operationId: GetMonitor
@@ -28172,6 +28845,10 @@ paths:
       summary: Get a monitor's details
       tags:
       - Monitors
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
     put:
       description: Edit the specified monitor.
       operationId: UpdateMonitor
@@ -28233,6 +28910,10 @@ paths:
       tags:
       - Monitors
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_write
   /api/v1/monitor/{monitor_id}/downtimes:
     get:
       deprecated: true
@@ -28279,6 +28960,10 @@ paths:
       tags:
       - Downtimes
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_read
   /api/v1/monitor/{monitor_id}/validate:
     post:
       description: Validate the monitor provided in the request.
@@ -28330,6 +29015,10 @@ paths:
       tags:
       - Monitors
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - monitors_write
   /api/v1/monthly_custom_reports:
     get:
       deprecated: true
@@ -28390,6 +29079,10 @@ paths:
       summary: Get the list of available monthly custom reports
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/monthly_custom_reports/{report_id}:
     get:
       deprecated: true
@@ -28441,6 +29134,10 @@ paths:
       summary: Get specified monthly custom reports
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/notebooks:
     get:
       description: 'Get all notebooks. This can also be used to search for notebooks
@@ -28568,6 +29265,10 @@ paths:
         limitParam: count
         pageOffsetParam: start
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - notebooks_read
     post:
       description: Create a notebook using the specified options.
       operationId: CreateNotebook
@@ -28640,6 +29341,10 @@ paths:
       tags:
       - Notebooks
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - notebooks_write
   /api/v1/notebooks/{notebook_id}:
     delete:
       description: Delete a notebook using the specified ID.
@@ -28678,6 +29383,10 @@ paths:
       summary: Delete a notebook
       tags:
       - Notebooks
+      x-permission:
+        operator: OR
+        permissions:
+        - notebooks_write
     get:
       description: Get a notebook using the specified notebook ID.
       operationId: GetNotebook
@@ -28719,6 +29428,10 @@ paths:
       summary: Get a notebook
       tags:
       - Notebooks
+      x-permission:
+        operator: OR
+        permissions:
+        - notebooks_read
     put:
       description: Update a notebook using the specified ID.
       operationId: UpdateNotebook
@@ -28812,6 +29525,10 @@ paths:
       tags:
       - Notebooks
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - notebooks_write
   /api/v1/org:
     get:
       description: This endpoint returns data on your top-level organization.
@@ -28834,6 +29551,10 @@ paths:
       summary: List your managed organizations
       tags:
       - Organizations
+      x-permission:
+        operator: OR
+        permissions:
+        - org_management
     post:
       description: 'Create a child organization.
 
@@ -28885,6 +29606,10 @@ paths:
       tags:
       - Organizations
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - org_management
   /api/v1/org/{public_id}:
     get:
       description: Get organization information.
@@ -29113,6 +29838,10 @@ paths:
       summary: Query timeseries points
       tags:
       - Metrics
+      x-permission:
+        operator: OR
+        permissions:
+        - timeseries_query
   /api/v1/search:
     get:
       description: Search for metrics from the last 24 hours in Datadog.
@@ -29153,6 +29882,9 @@ paths:
       summary: Search metrics
       tags:
       - Metrics
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v1/security_analytics/signals/{signal_id}/add_to_incident:
     patch:
       description: Add a security signal to an incident. This makes it possible to
@@ -29199,6 +29931,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_signals_write
   /api/v1/security_analytics/signals/{signal_id}/assignee:
     patch:
       description: Modify the triage assignee of a security signal.
@@ -29243,6 +29979,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_signals_write
   /api/v1/security_analytics/signals/{signal_id}/state:
     patch:
       description: Change the triage state of a security signal.
@@ -29287,6 +30027,10 @@ paths:
       tags:
       - Security Monitoring
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - security_monitoring_signals_write
   /api/v1/series:
     post:
       description: "The metrics end-point allows you to post time-series data that
@@ -29448,6 +30192,10 @@ paths:
         limitParam: limit
         pageOffsetParam: offset
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_read
     post:
       description: Create a service level objective object.
       operationId: CreateSLO
@@ -29488,6 +30236,10 @@ paths:
       tags:
       - Service Level Objectives
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_write
   /api/v1/slo/bulk_delete:
     post:
       description: 'Delete (or partially delete) multiple service level objective
@@ -29538,6 +30290,10 @@ paths:
       tags:
       - Service Level Objectives
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_write
   /api/v1/slo/can_delete:
     get:
       description: 'Check if an SLO can be safely deleted. For example,
@@ -29588,6 +30344,10 @@ paths:
       summary: Check if SLOs can be safely deleted
       tags:
       - Service Level Objectives
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_read
   /api/v1/slo/correction:
     get:
       description: Get all Service Level Objective corrections.
@@ -29636,6 +30396,10 @@ paths:
         limitParam: limit
         pageOffsetParam: offset
         resultsPath: data
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_read
     post:
       description: Create an SLO Correction.
       operationId: CreateSLOCorrection
@@ -29682,6 +30446,10 @@ paths:
       tags:
       - Service Level Objective Corrections
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_corrections
   /api/v1/slo/correction/{slo_correction_id}:
     delete:
       description: Permanently delete the specified SLO correction object.
@@ -29860,6 +30628,10 @@ paths:
       summary: Search for SLOs
       tags:
       - Service Level Objectives
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_read
   /api/v1/slo/{slo_id}:
     delete:
       description: 'Permanently delete the specified service level objective object.
@@ -29918,6 +30690,10 @@ paths:
       summary: Delete an SLO
       tags:
       - Service Level Objectives
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_write
     get:
       description: Get a service level objective object.
       operationId: GetSLO
@@ -29964,6 +30740,10 @@ paths:
       summary: Get an SLO's details
       tags:
       - Service Level Objectives
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_read
     put:
       description: Update the specified service level objective object.
       operationId: UpdateSLO
@@ -30017,6 +30797,10 @@ paths:
       tags:
       - Service Level Objectives
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_write
   /api/v1/slo/{slo_id}/corrections:
     get:
       description: Get corrections applied to an SLO
@@ -30063,6 +30847,10 @@ paths:
       summary: Get Corrections For an SLO
       tags:
       - Service Level Objectives
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_read
   /api/v1/slo/{slo_id}/history:
     get:
       description: "Get a specific SLO\u2019s history, regardless of its SLO type.\n\nThe
@@ -30149,6 +30937,10 @@ paths:
       summary: Get an SLO's history
       tags:
       - Service Level Objectives
+      x-permission:
+        operator: OR
+        permissions:
+        - slos_read
   /api/v1/synthetics/ci/batch/{batch_id}:
     get:
       description: Get a batch's updated details.
@@ -30183,6 +30975,10 @@ paths:
       summary: Get details of batch
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_read
   /api/v1/synthetics/locations:
     get:
       description: 'Get the list of public and private locations available for Synthetic
@@ -30206,6 +31002,10 @@ paths:
       summary: Get all locations (public and private)
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_private_location_read
   /api/v1/synthetics/private-locations:
     post:
       description: Create a new Synthetic private location.
@@ -30247,6 +31047,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_private_location_write
   /api/v1/synthetics/private-locations/{location_id}:
     delete:
       description: Delete a Synthetic private location.
@@ -30279,6 +31083,10 @@ paths:
       summary: Delete a private location
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_private_location_write
     get:
       description: Get a Synthetic private location.
       operationId: GetPrivateLocation
@@ -30314,6 +31122,10 @@ paths:
       summary: Get a private location
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_private_location_read
     put:
       description: Edit a Synthetic private location.
       operationId: UpdatePrivateLocation
@@ -30357,6 +31169,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_private_location_write
   /api/v1/synthetics/settings/default_locations:
     get:
       description: Get the default locations settings.
@@ -30373,6 +31189,10 @@ paths:
       summary: Get the default locations
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_default_settings_read
   /api/v1/synthetics/tests:
     get:
       description: Get the list of all Synthetic tests.
@@ -30427,6 +31247,10 @@ paths:
         limitParam: page_size
         pageParam: page_number
         resultsPath: tests
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_read
   /api/v1/synthetics/tests/api:
     post:
       description: Create a Synthetic API test.
@@ -30595,6 +31419,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_write
   /api/v1/synthetics/tests/api/{public_id}:
     get:
       description: 'Get the detailed configuration associated with
@@ -30639,6 +31467,10 @@ paths:
       summary: Get an API test
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_read
     put:
       description: Edit the configuration of a Synthetic API test.
       operationId: UpdateAPITest
@@ -30698,6 +31530,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_write
   /api/v1/synthetics/tests/browser:
     post:
       description: Create a Synthetic browser test.
@@ -30747,6 +31583,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_write
   /api/v1/synthetics/tests/browser/{public_id}:
     get:
       description: 'Get the detailed configuration (including steps) associated with
@@ -30791,6 +31631,10 @@ paths:
       summary: Get a browser test
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_read
     put:
       description: Edit the configuration of a Synthetic browser test.
       operationId: UpdateBrowserTest
@@ -30850,6 +31694,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_write
   /api/v1/synthetics/tests/browser/{public_id}/results:
     get:
       description: Get the last 150 test results summaries for a given Synthetic browser
@@ -30918,6 +31766,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_read
   /api/v1/synthetics/tests/browser/{public_id}/results/{result_id}:
     get:
       description: Get a specific full result from a given Synthetic browser test.
@@ -30968,6 +31820,10 @@ paths:
       summary: Get a browser test result
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_read
   /api/v1/synthetics/tests/delete:
     post:
       description: Delete multiple Synthetic tests by ID.
@@ -31022,6 +31878,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_write
   /api/v1/synthetics/tests/trigger:
     post:
       description: Trigger a set of Synthetic tests.
@@ -31057,6 +31917,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_write
   /api/v1/synthetics/tests/trigger/ci:
     post:
       description: Trigger a set of Synthetic tests for continuous integration.
@@ -31092,6 +31956,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_write
   /api/v1/synthetics/tests/{public_id}:
     get:
       description: Get the detailed configuration associated with a Synthetic test.
@@ -31134,6 +32002,10 @@ paths:
       summary: Get a test configuration
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_read
     patch:
       description: Patch the configuration of a Synthetic test with partial data.
       operationId: PatchTest
@@ -31193,6 +32065,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_write
   /api/v1/synthetics/tests/{public_id}/results:
     get:
       description: Get the last 150 test results summaries for a given Synthetic API
@@ -31259,6 +32135,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_read
   /api/v1/synthetics/tests/{public_id}/results/{result_id}:
     get:
       description: Get a specific full result from a given Synthetic API test.
@@ -31307,6 +32187,10 @@ paths:
       summary: Get an API test result
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_read
   /api/v1/synthetics/tests/{public_id}/status:
     put:
       description: Pause or start a Synthetic test by changing the status.
@@ -31363,6 +32247,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_write
   /api/v1/synthetics/variables:
     get:
       description: Get the list of all Synthetic global variables.
@@ -31390,6 +32278,10 @@ paths:
       summary: Get all global variables
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_global_variable_read
     post:
       description: Create a Synthetic global variable.
       operationId: CreateGlobalVariable
@@ -31436,6 +32328,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_global_variable_write
   /api/v1/synthetics/variables/{variable_id}:
     delete:
       description: Delete a Synthetic global variable.
@@ -31478,6 +32374,10 @@ paths:
       summary: Delete a global variable
       tags:
       - Synthetics
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_global_variable_write
     get:
       description: Get the detailed configuration of a global variable.
       operationId: GetGlobalVariable
@@ -31564,6 +32464,10 @@ paths:
       tags:
       - Synthetics
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - synthetics_global_variable_write
   /api/v1/tags/hosts:
     get:
       description: Return a mapping of tags to hosts for your whole infrastructure.
@@ -31604,6 +32508,9 @@ paths:
       summary: Get Tags
       tags:
       - Tags
+      x-permission:
+        operator: OPEN
+        permissions: []
   /api/v1/tags/hosts/{host_name}:
     delete:
       description: 'This endpoint allows you to remove all user-assigned tags
@@ -31856,6 +32763,10 @@ paths:
       summary: Get hourly usage for analyzed logs
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/audit_logs:
     get:
       deprecated: true
@@ -31915,6 +32826,10 @@ paths:
       summary: Get hourly usage for audit logs
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/aws_lambda:
     get:
       deprecated: true
@@ -31975,6 +32890,10 @@ paths:
       summary: Get hourly usage for Lambda
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/billable-summary:
     get:
       description: 'Get billable usage across your account.
@@ -32033,6 +32952,10 @@ paths:
       summary: Get billable usage across your account
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/ci-app:
     get:
       deprecated: true
@@ -32095,6 +33018,10 @@ paths:
       summary: Get hourly usage for CI visibility
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/cspm:
     get:
       deprecated: true
@@ -32157,6 +33084,10 @@ paths:
       summary: Get hourly usage for CSM Pro
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/cws:
     get:
       deprecated: true
@@ -32219,6 +33150,10 @@ paths:
       summary: Get hourly usage for cloud workload security
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/dbm:
     get:
       deprecated: true
@@ -32281,6 +33216,10 @@ paths:
       summary: Get hourly usage for database monitoring
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/fargate:
     get:
       deprecated: true
@@ -32341,6 +33280,10 @@ paths:
       summary: Get hourly usage for Fargate
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/hosts:
     get:
       deprecated: true
@@ -32401,6 +33344,10 @@ paths:
       summary: Get hourly usage for hosts and containers
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/hourly-attribution:
     get:
       description: "Get hourly usage attribution. Multi-region data is available starting
@@ -32489,6 +33436,10 @@ paths:
       summary: Get hourly usage attribution
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/incident-management:
     get:
       deprecated: true
@@ -32551,6 +33502,10 @@ paths:
       summary: Get hourly usage for incident management
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/indexed-spans:
     get:
       deprecated: true
@@ -32611,6 +33566,10 @@ paths:
       summary: Get hourly usage for indexed spans
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/ingested-spans:
     get:
       deprecated: true
@@ -32673,6 +33632,10 @@ paths:
       summary: Get hourly usage for ingested spans
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/iot:
     get:
       deprecated: true
@@ -32735,6 +33698,10 @@ paths:
       summary: Get hourly usage for IoT
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/logs:
     get:
       deprecated: true
@@ -32795,6 +33762,10 @@ paths:
       summary: Get hourly usage for logs
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/logs-by-retention:
     get:
       deprecated: true
@@ -32857,6 +33828,10 @@ paths:
       summary: Get hourly logs usage by retention
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/logs_by_index:
     get:
       description: Get hourly usage for logs by index.
@@ -32919,6 +33894,10 @@ paths:
       summary: Get hourly usage for logs by index
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/monthly-attribution:
     get:
       description: "Get monthly usage attribution. Multi-region data is available
@@ -33020,6 +33999,10 @@ paths:
       summary: Get monthly usage attribution
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/network_flows:
     get:
       deprecated: true
@@ -33082,6 +34065,10 @@ paths:
       summary: get hourly usage for network flows
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/network_hosts:
     get:
       deprecated: true
@@ -33142,6 +34129,10 @@ paths:
       summary: Get hourly usage for network hosts
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/online-archive:
     get:
       deprecated: true
@@ -33204,6 +34195,10 @@ paths:
       summary: Get hourly usage for online archive
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/profiling:
     get:
       deprecated: true
@@ -33266,6 +34261,10 @@ paths:
       summary: Get hourly usage for profiled hosts
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/rum:
     get:
       deprecated: true
@@ -33327,6 +34326,10 @@ paths:
       summary: Get hourly usage for RUM units
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/rum_sessions:
     get:
       deprecated: true
@@ -33394,6 +34397,10 @@ paths:
       summary: Get hourly usage for RUM sessions
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/sds:
     get:
       deprecated: true
@@ -33456,6 +34463,10 @@ paths:
       summary: Get hourly usage for sensitive data scanner
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/snmp:
     get:
       deprecated: true
@@ -33518,6 +34529,10 @@ paths:
       summary: Get hourly usage for SNMP devices
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/summary:
     get:
       description: 'Get all usage across your account.
@@ -33592,6 +34607,10 @@ paths:
       summary: Get usage across your account
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/synthetics:
     get:
       deprecated: true
@@ -33652,6 +34671,10 @@ paths:
       summary: Get hourly usage for synthetics checks
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/synthetics_api:
     get:
       deprecated: true
@@ -33712,6 +34735,10 @@ paths:
       summary: Get hourly usage for synthetics API checks
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/synthetics_browser:
     get:
       deprecated: true
@@ -33772,6 +34799,10 @@ paths:
       summary: Get hourly usage for synthetics browser checks
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/timeseries:
     get:
       deprecated: true
@@ -33832,6 +34863,10 @@ paths:
       summary: Get hourly usage for custom metrics
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/usage/top_avg_metrics:
     get:
       description: Get all [custom metrics](https://docs.datadoghq.com/developers/metrics/custom_metrics/)
@@ -33915,6 +34950,10 @@ paths:
       summary: Get all custom metrics by hourly average
       tags:
       - Usage Metering
+      x-permission:
+        operator: OR
+        permissions:
+        - usage_read
   /api/v1/user:
     get:
       description: List all users for your organization.
@@ -33942,6 +34981,10 @@ paths:
       summary: List all users
       tags:
       - Users
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_read
     post:
       description: 'Create a user for your organization.
 
@@ -33988,6 +35031,10 @@ paths:
       tags:
       - Users
       x-codegen-request-body-name: body
+      x-permission:
+        operator: OR
+        permissions:
+        - user_access_invite
   /api/v1/user/{user_handle}:
     delete:
       description: 'Delete a user from an organization.
@@ -34147,6 +35194,9 @@ paths:
       summary: Validate API key
       tags:
       - Authentication
+      x-permission:
+        operator: OPEN
+        permissions: []
   /v1/input:
     post:
       deprecated: true

@@ -86,7 +86,11 @@ export class Configuration {
     this.servers[index].setVariables(serverVariables);
 
     for (const op in this.operationServers) {
-      this.operationServers[op][0].setVariables(serverVariables);
+      const index =
+        op in this.operationServerIndices
+          ? this.operationServerIndices[op]
+          : this.serverIndex;
+      this.operationServers[op][index].setVariables(serverVariables);
     }
   }
 

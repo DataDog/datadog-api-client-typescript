@@ -19,10 +19,6 @@ export class TeamUpdateAttributes {
    */
   "banner"?: number;
   /**
-   * An identifier for the color representing the team
-   */
-  "color"?: number;
-  /**
    * Free-form markdown description/content for the team's homepage
    */
   "description"?: string;
@@ -67,11 +63,6 @@ export class TeamUpdateAttributes {
       baseName: "banner",
       type: "number",
       format: "int64",
-    },
-    color: {
-      baseName: "color",
-      type: "number",
-      format: "int32",
     },
     description: {
       baseName: "description",

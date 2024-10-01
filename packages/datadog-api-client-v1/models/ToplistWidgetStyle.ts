@@ -17,6 +17,10 @@ export class ToplistWidgetStyle {
    */
   "display"?: ToplistWidgetDisplay;
   /**
+   * Color palette to apply to the widget.
+   */
+  "palette"?: string;
+  /**
    * Top list widget scaling definition.
    */
   "scaling"?: ToplistWidgetScaling;
@@ -40,6 +44,10 @@ export class ToplistWidgetStyle {
     display: {
       baseName: "display",
       type: "ToplistWidgetDisplay",
+    },
+    palette: {
+      baseName: "palette",
+      type: "string",
     },
     scaling: {
       baseName: "scaling",

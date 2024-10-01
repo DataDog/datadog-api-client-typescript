@@ -29,7 +29,7 @@ import { MetricPayload } from "../models/MetricPayload";
 import { MetricsAndMetricTagConfigurationsResponse } from "../models/MetricsAndMetricTagConfigurationsResponse";
 import { MetricSuggestedTagsAndAggregationsResponse } from "../models/MetricSuggestedTagsAndAggregationsResponse";
 import { MetricTagConfigurationCreateRequest } from "../models/MetricTagConfigurationCreateRequest";
-import { MetricTagConfigurationMetricTypes } from "../models/MetricTagConfigurationMetricTypes";
+import { MetricTagConfigurationMetricTypeCategory } from "../models/MetricTagConfigurationMetricTypeCategory";
 import { MetricTagConfigurationResponse } from "../models/MetricTagConfigurationResponse";
 import { MetricTagConfigurationUpdateRequest } from "../models/MetricTagConfigurationUpdateRequest";
 import { MetricVolumesResponse } from "../models/MetricVolumesResponse";
@@ -392,7 +392,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
   public async listTagConfigurations(
     filterConfigured?: boolean,
     filterTagsConfigured?: string,
-    filterMetricType?: MetricTagConfigurationMetricTypes,
+    filterMetricType?: MetricTagConfigurationMetricTypeCategory,
     filterIncludePercentiles?: boolean,
     filterQueried?: boolean,
     filterTags?: string,
@@ -429,7 +429,7 @@ export class MetricsApiRequestFactory extends BaseAPIRequestFactory {
         "filter[metric_type]",
         ObjectSerializer.serialize(
           filterMetricType,
-          "MetricTagConfigurationMetricTypes",
+          "MetricTagConfigurationMetricTypeCategory",
           ""
         )
       );
@@ -1723,7 +1723,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterGroups?: string;
   /**
-   * The number of hours of look back (from now) to estimate cardinality with. Estimates are based on historical data, and unspecified fields default to the minimum 49 hours.
+   * The number of hours of look back (from now) to estimate cardinality with. If unspecified, it defaults to 0 hours.
    * @type number
    */
   filterHoursAgo?: number;
@@ -1738,7 +1738,7 @@ export interface MetricsApiEstimateMetricsOutputSeriesRequest {
    */
   filterPct?: boolean;
   /**
-   * A window, in hours, from the look back to estimate cardinality with.
+   * A window, in hours, from the look back to estimate cardinality with. The minimum and default is 1 hour.
    * @type number
    */
   filterTimespanH?: number;
@@ -1787,9 +1787,9 @@ export interface MetricsApiListTagConfigurationsRequest {
   filterTagsConfigured?: string;
   /**
    * Filter metrics by metric type.
-   * @type MetricTagConfigurationMetricTypes
+   * @type MetricTagConfigurationMetricTypeCategory
    */
-  filterMetricType?: MetricTagConfigurationMetricTypes;
+  filterMetricType?: MetricTagConfigurationMetricTypeCategory;
   /**
    * Filter distributions with additional percentile
    * aggregations enabled or disabled.
