@@ -4725,6 +4725,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "string",
             "format": "",
             },
+        "filterDetectionType": {
+            "type": "Array<FindingDetectionType>",
+            "format": "",
+            },
         "filterTags": {
             "type": "string",
             "format": "",
