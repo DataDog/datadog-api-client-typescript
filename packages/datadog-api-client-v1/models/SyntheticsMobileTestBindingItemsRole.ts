@@ -7,14 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the configuration variable.
+ * The definition of `SyntheticsMobileTestBindingItemsRole` object.
  */
 
-export type SyntheticsConfigVariableType =
-  | typeof GLOBAL
-  | typeof TEXT
-  | typeof EMAIL
+export type SyntheticsMobileTestBindingItemsRole =
+  | typeof EDITOR
+  | typeof VIEWER
   | UnparsedObject;
-export const GLOBAL = "global";
-export const TEXT = "text";
-export const EMAIL = "email";
+export const EDITOR = "editor";
+export const VIEWER = "viewer";

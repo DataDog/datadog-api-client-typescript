@@ -2069,6 +2069,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsDeleteTestsResponse",
     },
+    "v1.CreateSyntheticsMobileTest": {
+        "body": {
+            "type": "SyntheticsMobileTest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsMobileTest",
+    },
+    "v1.GetMobileTest": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsMobileTest",
+    },
+    "v1.UpdateMobileTest": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsMobileTest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsMobileTest",
+    },
     "v1.TriggerTests": {
         "body": {
             "type": "SyntheticsTriggerBody",

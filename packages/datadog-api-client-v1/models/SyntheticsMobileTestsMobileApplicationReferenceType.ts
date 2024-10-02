@@ -7,14 +7,12 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the configuration variable.
+ * Reference type for the mobile application for a mobile synthetics test.
  */
 
-export type SyntheticsConfigVariableType =
-  | typeof GLOBAL
-  | typeof TEXT
-  | typeof EMAIL
+export type SyntheticsMobileTestsMobileApplicationReferenceType =
+  | typeof LATEST
+  | typeof VERSION
   | UnparsedObject;
-export const GLOBAL = "global";
-export const TEXT = "text";
-export const EMAIL = "email";
+export const LATEST = "latest";
+export const VERSION = "version";
