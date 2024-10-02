@@ -232,6 +232,7 @@ export {
   SyntheticsApiCreatePrivateLocationRequest,
   SyntheticsApiCreateSyntheticsAPITestRequest,
   SyntheticsApiCreateSyntheticsBrowserTestRequest,
+  SyntheticsApiCreateSyntheticsMobileTestRequest,
   SyntheticsApiDeleteGlobalVariableRequest,
   SyntheticsApiDeletePrivateLocationRequest,
   SyntheticsApiDeleteTestsRequest,
@@ -243,6 +244,7 @@ export {
   SyntheticsApiGetBrowserTestLatestResultsRequest,
   SyntheticsApiGetBrowserTestResultRequest,
   SyntheticsApiGetGlobalVariableRequest,
+  SyntheticsApiGetMobileTestRequest,
   SyntheticsApiGetPrivateLocationRequest,
   SyntheticsApiGetSyntheticsCIBatchRequest,
   SyntheticsApiGetTestRequest,
@@ -252,6 +254,7 @@ export {
   SyntheticsApiTriggerTestsRequest,
   SyntheticsApiUpdateAPITestRequest,
   SyntheticsApiUpdateBrowserTestRequest,
+  SyntheticsApiUpdateMobileTestRequest,
   SyntheticsApiUpdatePrivateLocationRequest,
   SyntheticsApiUpdateTestPauseStatusRequest,
   SyntheticsApi,
@@ -952,6 +955,23 @@ export { SyntheticsListTestsResponse } from "./models/SyntheticsListTestsRespons
 export { SyntheticsLocalVariableParsingOptionsType } from "./models/SyntheticsLocalVariableParsingOptionsType";
 export { SyntheticsLocation } from "./models/SyntheticsLocation";
 export { SyntheticsLocations } from "./models/SyntheticsLocations";
+export { SyntheticsMobileDeviceID } from "./models/SyntheticsMobileDeviceID";
+export { SyntheticsMobileStep } from "./models/SyntheticsMobileStep";
+export { SyntheticsMobileStepType } from "./models/SyntheticsMobileStepType";
+export { SyntheticsMobileTest } from "./models/SyntheticsMobileTest";
+export { SyntheticsMobileTestBinding } from "./models/SyntheticsMobileTestBinding";
+export { SyntheticsMobileTestBindingItems } from "./models/SyntheticsMobileTestBindingItems";
+export { SyntheticsMobileTestBindingItemsRole } from "./models/SyntheticsMobileTestBindingItemsRole";
+export { SyntheticsMobileTestCiOptions } from "./models/SyntheticsMobileTestCiOptions";
+export { SyntheticsMobileTestConfig } from "./models/SyntheticsMobileTestConfig";
+export { SyntheticsMobileTestInitialApplicationArguments } from "./models/SyntheticsMobileTestInitialApplicationArguments";
+export { SyntheticsMobileTestInitialApplicationArgumentsPropertyNames } from "./models/SyntheticsMobileTestInitialApplicationArgumentsPropertyNames";
+export { SyntheticsMobileTestOptions } from "./models/SyntheticsMobileTestOptions";
+export { SyntheticsMobileTestOptionsMonitorOptions } from "./models/SyntheticsMobileTestOptionsMonitorOptions";
+export { SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName } from "./models/SyntheticsMobileTestOptionsMonitorOptionsNotificationPresetName";
+export { SyntheticsMobileTestsMobileApplication } from "./models/SyntheticsMobileTestsMobileApplication";
+export { SyntheticsMobileTestsMobileApplicationReferenceType } from "./models/SyntheticsMobileTestsMobileApplicationReferenceType";
+export { SyntheticsMobileTestType } from "./models/SyntheticsMobileTestType";
 export { SyntheticsParsingOptions } from "./models/SyntheticsParsingOptions";
 export { SyntheticsPatchTestBody } from "./models/SyntheticsPatchTestBody";
 export { SyntheticsPatchTestOperation } from "./models/SyntheticsPatchTestOperation";
