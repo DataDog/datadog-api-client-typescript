@@ -13,6 +13,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type SyntheticsConfigVariableType =
   | typeof GLOBAL
   | typeof TEXT
+  | typeof EMAIL
   | UnparsedObject;
 export const GLOBAL = "global";
 export const TEXT = "text";
+export const EMAIL = "email";

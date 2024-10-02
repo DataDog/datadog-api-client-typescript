@@ -683,6 +683,21 @@ import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
 import { MetricsScalarQuery } from "./MetricsScalarQuery";
 import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
+import { MicrosoftTeamsApiHandleAttributes } from "./MicrosoftTeamsApiHandleAttributes";
+import { MicrosoftTeamsApiHandleInfoResponse } from "./MicrosoftTeamsApiHandleInfoResponse";
+import { MicrosoftTeamsApiHandleInfoResponseAttributes } from "./MicrosoftTeamsApiHandleInfoResponseAttributes";
+import { MicrosoftTeamsApiHandleInfoResponseData } from "./MicrosoftTeamsApiHandleInfoResponseData";
+import { MicrosoftTeamsApiHandleRequestAttributes } from "./MicrosoftTeamsApiHandleRequestAttributes";
+import { MicrosoftTeamsApiHandleRequestData } from "./MicrosoftTeamsApiHandleRequestData";
+import { MicrosoftTeamsApiHandleResponseData } from "./MicrosoftTeamsApiHandleResponseData";
+import { MicrosoftTeamsApiHandlesResponse } from "./MicrosoftTeamsApiHandlesResponse";
+import { MicrosoftTeamsChannelInfoResponseAttributes } from "./MicrosoftTeamsChannelInfoResponseAttributes";
+import { MicrosoftTeamsChannelInfoResponseData } from "./MicrosoftTeamsChannelInfoResponseData";
+import { MicrosoftTeamsCreateApiHandleRequest } from "./MicrosoftTeamsCreateApiHandleRequest";
+import { MicrosoftTeamsCreateApiHandleResponse } from "./MicrosoftTeamsCreateApiHandleResponse";
+import { MicrosoftTeamsGetChannelByNameResponse } from "./MicrosoftTeamsGetChannelByNameResponse";
+import { MicrosoftTeamsUpdateApiHandleRequest } from "./MicrosoftTeamsUpdateApiHandleRequest";
+import { MicrosoftTeamsUpdateApiHandleRequestData } from "./MicrosoftTeamsUpdateApiHandleRequestData";
 import { MonitorConfigPolicyAttributeCreateRequest } from "./MonitorConfigPolicyAttributeCreateRequest";
 import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAttributeEditRequest";
 import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
@@ -940,6 +955,7 @@ import { SecurityFilterUpdateRequest } from "./SecurityFilterUpdateRequest";
 import { SecurityFiltersResponse } from "./SecurityFiltersResponse";
 import { SecurityMonitoringFilter } from "./SecurityMonitoringFilter";
 import { SecurityMonitoringListRulesResponse } from "./SecurityMonitoringListRulesResponse";
+import { SecurityMonitoringReferenceTable } from "./SecurityMonitoringReferenceTable";
 import { SecurityMonitoringRuleCase } from "./SecurityMonitoringRuleCase";
 import { SecurityMonitoringRuleCaseCreate } from "./SecurityMonitoringRuleCaseCreate";
 import { SecurityMonitoringRuleConvertResponse } from "./SecurityMonitoringRuleConvertResponse";
@@ -1549,6 +1565,10 @@ const enumsMap: { [key: string]: any[] } = {
   MetricMonitorType: ["monitors"],
   MetricNotebookType: ["notebooks"],
   MetricSLOType: ["slos"],
+  MetricTagConfigurationMetricTypeCategory: [
+    "non_distribution",
+    "distribution",
+  ],
   MetricTagConfigurationMetricTypes: ["gauge", "count", "rate", "distribution"],
   MetricTagConfigurationType: ["manage_tags"],
   MetricType: ["metrics"],
@@ -1564,6 +1584,9 @@ const enumsMap: { [key: string]: any[] } = {
     "area",
   ],
   MetricsDataSource: ["metrics", "cloud_cost"],
+  MicrosoftTeamsApiHandleInfoType: ["ms-teams-handle-info"],
+  MicrosoftTeamsApiHandleType: ["handle"],
+  MicrosoftTeamsChannelInfoType: ["ms-teams-channel-info"],
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
@@ -2618,6 +2641,27 @@ const typeMap: { [index: string]: any } = {
     MetricsAndMetricTagConfigurationsResponse,
   MetricsScalarQuery: MetricsScalarQuery,
   MetricsTimeseriesQuery: MetricsTimeseriesQuery,
+  MicrosoftTeamsApiHandleAttributes: MicrosoftTeamsApiHandleAttributes,
+  MicrosoftTeamsApiHandleInfoResponse: MicrosoftTeamsApiHandleInfoResponse,
+  MicrosoftTeamsApiHandleInfoResponseAttributes:
+    MicrosoftTeamsApiHandleInfoResponseAttributes,
+  MicrosoftTeamsApiHandleInfoResponseData:
+    MicrosoftTeamsApiHandleInfoResponseData,
+  MicrosoftTeamsApiHandleRequestAttributes:
+    MicrosoftTeamsApiHandleRequestAttributes,
+  MicrosoftTeamsApiHandleRequestData: MicrosoftTeamsApiHandleRequestData,
+  MicrosoftTeamsApiHandleResponseData: MicrosoftTeamsApiHandleResponseData,
+  MicrosoftTeamsApiHandlesResponse: MicrosoftTeamsApiHandlesResponse,
+  MicrosoftTeamsChannelInfoResponseAttributes:
+    MicrosoftTeamsChannelInfoResponseAttributes,
+  MicrosoftTeamsChannelInfoResponseData: MicrosoftTeamsChannelInfoResponseData,
+  MicrosoftTeamsCreateApiHandleRequest: MicrosoftTeamsCreateApiHandleRequest,
+  MicrosoftTeamsCreateApiHandleResponse: MicrosoftTeamsCreateApiHandleResponse,
+  MicrosoftTeamsGetChannelByNameResponse:
+    MicrosoftTeamsGetChannelByNameResponse,
+  MicrosoftTeamsUpdateApiHandleRequest: MicrosoftTeamsUpdateApiHandleRequest,
+  MicrosoftTeamsUpdateApiHandleRequestData:
+    MicrosoftTeamsUpdateApiHandleRequestData,
   MonitorConfigPolicyAttributeCreateRequest:
     MonitorConfigPolicyAttributeCreateRequest,
   MonitorConfigPolicyAttributeEditRequest:
@@ -2886,6 +2930,7 @@ const typeMap: { [index: string]: any } = {
   SecurityFiltersResponse: SecurityFiltersResponse,
   SecurityMonitoringFilter: SecurityMonitoringFilter,
   SecurityMonitoringListRulesResponse: SecurityMonitoringListRulesResponse,
+  SecurityMonitoringReferenceTable: SecurityMonitoringReferenceTable,
   SecurityMonitoringRuleCase: SecurityMonitoringRuleCase,
   SecurityMonitoringRuleCaseCreate: SecurityMonitoringRuleCaseCreate,
   SecurityMonitoringRuleConvertResponse: SecurityMonitoringRuleConvertResponse,

@@ -360,6 +360,14 @@ export class UsageSummaryDate {
    */
   "observabilityPipelinesBytesProcessedSum"?: number;
   /**
+   * Shows the sum of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.
+   */
+  "ociHostSum"?: number;
+  /**
+   * Shows the 99th percentile of all Oracle Cloud Infrastructure hosts over all hours in the current date for the given org.
+   */
+  "ociHostTop99p"?: number;
+  /**
    * Sum of all online archived events over all hours in the current date for all organizations.
    */
   "onlineArchiveEventsCountSum"?: number;
@@ -992,6 +1000,16 @@ export class UsageSummaryDate {
     },
     observabilityPipelinesBytesProcessedSum: {
       baseName: "observability_pipelines_bytes_processed_sum",
+      type: "number",
+      format: "int64",
+    },
+    ociHostSum: {
+      baseName: "oci_host_sum",
+      type: "number",
+      format: "int64",
+    },
+    ociHostTop99p: {
+      baseName: "oci_host_top99p",
       type: "number",
       format: "int64",
     },

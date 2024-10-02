@@ -2069,6 +2069,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "SyntheticsDeleteTestsResponse",
     },
+    "v1.CreateSyntheticsMobileTest": {
+        "body": {
+            "type": "SyntheticsMobileTest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsMobileTest",
+    },
+    "v1.GetMobileTest": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsMobileTest",
+    },
+    "v1.UpdateMobileTest": {
+        "publicId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "SyntheticsMobileTest",
+            "format": "",
+            },
+        "operationResponseType": "SyntheticsMobileTest",
+    },
     "v1.TriggerTests": {
         "body": {
             "type": "SyntheticsTriggerBody",
@@ -3694,6 +3719,67 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "GCPSTSDelegateAccountResponse",
     },
+    "v2.GetChannelByName": {
+        "tenantName": {
+            "type": "string",
+            "format": "",
+            },
+        "teamName": {
+            "type": "string",
+            "format": "",
+            },
+        "channelName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsGetChannelByNameResponse",
+    },
+    "v2.ListApiHandles": {
+        "tenantId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsApiHandlesResponse",
+    },
+    "v2.CreateApiHandle": {
+        "body": {
+            "type": "MicrosoftTeamsCreateApiHandleRequest",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsCreateApiHandleResponse",
+    },
+    "v2.GetApiHandleByName": {
+        "handleName": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsApiHandleInfoResponse",
+    },
+    "v2.DeleteApiHandle": {
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "void",
+    },
+    "v2.GetApiHandle": {
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsApiHandleInfoResponse",
+    },
+    "v2.UpdateApiHandle": {
+        "handleId": {
+            "type": "string",
+            "format": "",
+            },
+        "body": {
+            "type": "MicrosoftTeamsUpdateApiHandleRequest",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsApiHandleInfoResponse",
+    },
     "v2.ListOpsgenieServices": {
         "operationResponseType": "OpsgenieServicesResponse",
     },
@@ -4207,7 +4293,7 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "format": "",
             },
         "filterMetricType": {
-            "type": "MetricTagConfigurationMetricTypes",
+            "type": "MetricTagConfigurationMetricTypeCategory",
             "format": "",
             },
         "filterIncludePercentiles": {

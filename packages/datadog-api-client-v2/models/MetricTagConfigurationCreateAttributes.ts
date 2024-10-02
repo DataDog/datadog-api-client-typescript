@@ -28,7 +28,7 @@ export class MetricTagConfigurationCreateAttributes {
    * - time: sum, space: avg
    * - time: sum, space: sum
    *
-   * Can only be applied to metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
+   * Can only be applied to non_distribution metrics that have a `metric_type` of `count`, `rate`, or `gauge`.
    */
   "aggregations"?: Array<MetricCustomAggregation>;
   /**
