@@ -435,6 +435,7 @@ import { SyntheticsDeleteTestsPayload } from "./SyntheticsDeleteTestsPayload";
 import { SyntheticsDeleteTestsResponse } from "./SyntheticsDeleteTestsResponse";
 import { SyntheticsDeletedTest } from "./SyntheticsDeletedTest";
 import { SyntheticsDevice } from "./SyntheticsDevice";
+import { SyntheticsFetchUptimesPayload } from "./SyntheticsFetchUptimesPayload";
 import { SyntheticsGetAPITestLatestResultsResponse } from "./SyntheticsGetAPITestLatestResultsResponse";
 import { SyntheticsGetBrowserTestLatestResultsResponse } from "./SyntheticsGetBrowserTestLatestResultsResponse";
 import { SyntheticsGlobalVariable } from "./SyntheticsGlobalVariable";
@@ -488,6 +489,7 @@ import { SyntheticsTestRequestBodyFile } from "./SyntheticsTestRequestBodyFile";
 import { SyntheticsTestRequestCertificate } from "./SyntheticsTestRequestCertificate";
 import { SyntheticsTestRequestCertificateItem } from "./SyntheticsTestRequestCertificateItem";
 import { SyntheticsTestRequestProxy } from "./SyntheticsTestRequestProxy";
+import { SyntheticsTestUptime } from "./SyntheticsTestUptime";
 import { SyntheticsTiming } from "./SyntheticsTiming";
 import { SyntheticsTriggerBody } from "./SyntheticsTriggerBody";
 import { SyntheticsTriggerCITestLocation } from "./SyntheticsTriggerCITestLocation";
@@ -495,6 +497,7 @@ import { SyntheticsTriggerCITestRunResult } from "./SyntheticsTriggerCITestRunRe
 import { SyntheticsTriggerCITestsResponse } from "./SyntheticsTriggerCITestsResponse";
 import { SyntheticsTriggerTest } from "./SyntheticsTriggerTest";
 import { SyntheticsUpdateTestPauseStatusPayload } from "./SyntheticsUpdateTestPauseStatusPayload";
+import { SyntheticsUptime } from "./SyntheticsUptime";
 import { SyntheticsVariableParser } from "./SyntheticsVariableParser";
 import { TableWidgetDefinition } from "./TableWidgetDefinition";
 import { TableWidgetRequest } from "./TableWidgetRequest";
@@ -2319,6 +2322,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsDeleteTestsResponse: SyntheticsDeleteTestsResponse,
   SyntheticsDeletedTest: SyntheticsDeletedTest,
   SyntheticsDevice: SyntheticsDevice,
+  SyntheticsFetchUptimesPayload: SyntheticsFetchUptimesPayload,
   SyntheticsGetAPITestLatestResultsResponse:
     SyntheticsGetAPITestLatestResultsResponse,
   SyntheticsGetBrowserTestLatestResultsResponse:
@@ -2385,6 +2389,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTestRequestCertificate: SyntheticsTestRequestCertificate,
   SyntheticsTestRequestCertificateItem: SyntheticsTestRequestCertificateItem,
   SyntheticsTestRequestProxy: SyntheticsTestRequestProxy,
+  SyntheticsTestUptime: SyntheticsTestUptime,
   SyntheticsTiming: SyntheticsTiming,
   SyntheticsTriggerBody: SyntheticsTriggerBody,
   SyntheticsTriggerCITestLocation: SyntheticsTriggerCITestLocation,
@@ -2393,6 +2398,7 @@ const typeMap: { [index: string]: any } = {
   SyntheticsTriggerTest: SyntheticsTriggerTest,
   SyntheticsUpdateTestPauseStatusPayload:
     SyntheticsUpdateTestPauseStatusPayload,
+  SyntheticsUptime: SyntheticsUptime,
   SyntheticsVariableParser: SyntheticsVariableParser,
   TableWidgetDefinition: TableWidgetDefinition,
   TableWidgetRequest: TableWidgetRequest,
