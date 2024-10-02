@@ -1,5 +1,35 @@
 # CHANGELOG
 
+## 1.29.0 / 2024-10-02
+
+### Fixed
+* change schema used in FastlyServicesResponse by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1828
+### Added
+* Add new synthetics HTTP javascript assertion by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1744
+* Dashboards - Toplist widget style - Add palette by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1802
+* Allow Table Widget requests to specify text replace formatting in dashboards by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1803
+* Add documentation for Data Jobs Monitoring summary keys by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1808
+* Update estimate docs with realtime changes by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1832
+* Ensure clients can handle empty oneOf objects by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1830
+* Add referenceTables field to security monitoring endpoints by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1825
+* Add UA documentation for new DJM usage_type by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1826
+* Add v2 endpoints for MS Teams Integration by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1835
+* Add schema for mobile test by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1818
+* Add Synthetics endpoint to fetch uptimes in API spec by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1792
+### Changed
+* Split the synthetics request port field into a oneOf by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1811
+* Remove unused field `color` in `TeamUpdateAttributes` by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1809
+* Powerpack add support for prefix and available values by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1819
+* Update v2 metrics list endpoint filter by metric type to use metric type category by @api-clients-generation-pipeline in https://github.com/DataDog/datadog-api-client-typescript/pull/1833
+### Security
+* Bump micromatch from 4.0.5 to 4.0.8 by @dependabot in https://github.com/DataDog/datadog-api-client-typescript/pull/1795
+* Bump express from 4.18.2 to 4.21.0 by @dependabot in https://github.com/DataDog/datadog-api-client-typescript/pull/1815
+
+## New Contributors
+* @segevfiner made their first contribution in https://github.com/DataDog/datadog-api-client-typescript/pull/1786
+
+**Full Changelog**: https://github.com/DataDog/datadog-api-client-typescript/compare/v1.28.0...v1.29.0
+
 ## 1.28.0 / 2024-09-04
 
 ### Fixed
