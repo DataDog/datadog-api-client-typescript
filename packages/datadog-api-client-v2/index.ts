@@ -289,13 +289,12 @@ export {
 } from "./apis/MetricsApi";
 
 export {
-  MicrosoftTeamsIntegrationApiCreateApiHandleRequest,
-  MicrosoftTeamsIntegrationApiDeleteApiHandleRequest,
-  MicrosoftTeamsIntegrationApiGetApiHandleRequest,
-  MicrosoftTeamsIntegrationApiGetApiHandleByNameRequest,
+  MicrosoftTeamsIntegrationApiCreateTenantBasedHandleRequest,
+  MicrosoftTeamsIntegrationApiDeleteTenantBasedHandleRequest,
   MicrosoftTeamsIntegrationApiGetChannelByNameRequest,
-  MicrosoftTeamsIntegrationApiListApiHandlesRequest,
-  MicrosoftTeamsIntegrationApiUpdateApiHandleRequest,
+  MicrosoftTeamsIntegrationApiGetTenantBasedHandleRequest,
+  MicrosoftTeamsIntegrationApiListTenantBasedHandlesRequest,
+  MicrosoftTeamsIntegrationApiUpdateTenantBasedHandleRequest,
   MicrosoftTeamsIntegrationApi,
 } from "./apis/MicrosoftTeamsIntegrationApi";
 
@@ -1443,24 +1442,23 @@ export { MetricTagConfigurationUpdateRequest } from "./models/MetricTagConfigura
 export { MetricType } from "./models/MetricType";
 export { MetricVolumes } from "./models/MetricVolumes";
 export { MetricVolumesResponse } from "./models/MetricVolumesResponse";
-export { MicrosoftTeamsApiHandleAttributes } from "./models/MicrosoftTeamsApiHandleAttributes";
-export { MicrosoftTeamsApiHandleInfoResponse } from "./models/MicrosoftTeamsApiHandleInfoResponse";
-export { MicrosoftTeamsApiHandleInfoResponseAttributes } from "./models/MicrosoftTeamsApiHandleInfoResponseAttributes";
-export { MicrosoftTeamsApiHandleInfoResponseData } from "./models/MicrosoftTeamsApiHandleInfoResponseData";
-export { MicrosoftTeamsApiHandleInfoType } from "./models/MicrosoftTeamsApiHandleInfoType";
-export { MicrosoftTeamsApiHandleRequestAttributes } from "./models/MicrosoftTeamsApiHandleRequestAttributes";
-export { MicrosoftTeamsApiHandleRequestData } from "./models/MicrosoftTeamsApiHandleRequestData";
-export { MicrosoftTeamsApiHandleResponseData } from "./models/MicrosoftTeamsApiHandleResponseData";
-export { MicrosoftTeamsApiHandlesResponse } from "./models/MicrosoftTeamsApiHandlesResponse";
-export { MicrosoftTeamsApiHandleType } from "./models/MicrosoftTeamsApiHandleType";
 export { MicrosoftTeamsChannelInfoResponseAttributes } from "./models/MicrosoftTeamsChannelInfoResponseAttributes";
 export { MicrosoftTeamsChannelInfoResponseData } from "./models/MicrosoftTeamsChannelInfoResponseData";
 export { MicrosoftTeamsChannelInfoType } from "./models/MicrosoftTeamsChannelInfoType";
-export { MicrosoftTeamsCreateApiHandleRequest } from "./models/MicrosoftTeamsCreateApiHandleRequest";
-export { MicrosoftTeamsCreateApiHandleResponse } from "./models/MicrosoftTeamsCreateApiHandleResponse";
+export { MicrosoftTeamsCreateTenantBasedHandleRequest } from "./models/MicrosoftTeamsCreateTenantBasedHandleRequest";
 export { MicrosoftTeamsGetChannelByNameResponse } from "./models/MicrosoftTeamsGetChannelByNameResponse";
-export { MicrosoftTeamsUpdateApiHandleRequest } from "./models/MicrosoftTeamsUpdateApiHandleRequest";
-export { MicrosoftTeamsUpdateApiHandleRequestData } from "./models/MicrosoftTeamsUpdateApiHandleRequestData";
+export { MicrosoftTeamsTenantBasedHandleAttributes } from "./models/MicrosoftTeamsTenantBasedHandleAttributes";
+export { MicrosoftTeamsTenantBasedHandleInfoResponseAttributes } from "./models/MicrosoftTeamsTenantBasedHandleInfoResponseAttributes";
+export { MicrosoftTeamsTenantBasedHandleInfoResponseData } from "./models/MicrosoftTeamsTenantBasedHandleInfoResponseData";
+export { MicrosoftTeamsTenantBasedHandleInfoType } from "./models/MicrosoftTeamsTenantBasedHandleInfoType";
+export { MicrosoftTeamsTenantBasedHandleRequestAttributes } from "./models/MicrosoftTeamsTenantBasedHandleRequestAttributes";
+export { MicrosoftTeamsTenantBasedHandleRequestData } from "./models/MicrosoftTeamsTenantBasedHandleRequestData";
+export { MicrosoftTeamsTenantBasedHandleResponse } from "./models/MicrosoftTeamsTenantBasedHandleResponse";
+export { MicrosoftTeamsTenantBasedHandleResponseData } from "./models/MicrosoftTeamsTenantBasedHandleResponseData";
+export { MicrosoftTeamsTenantBasedHandlesResponse } from "./models/MicrosoftTeamsTenantBasedHandlesResponse";
+export { MicrosoftTeamsTenantBasedHandleType } from "./models/MicrosoftTeamsTenantBasedHandleType";
+export { MicrosoftTeamsUpdateTenantBasedHandleRequest } from "./models/MicrosoftTeamsUpdateTenantBasedHandleRequest";
+export { MicrosoftTeamsUpdateTenantBasedHandleRequestData } from "./models/MicrosoftTeamsUpdateTenantBasedHandleRequestData";
 export { MonitorConfigPolicyAttributeCreateRequest } from "./models/MonitorConfigPolicyAttributeCreateRequest";
 export { MonitorConfigPolicyAttributeEditRequest } from "./models/MonitorConfigPolicyAttributeEditRequest";
 export { MonitorConfigPolicyAttributeResponse } from "./models/MonitorConfigPolicyAttributeResponse";
