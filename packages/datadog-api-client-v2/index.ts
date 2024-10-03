@@ -1235,6 +1235,8 @@ export { IncidentUpdateAttributes } from "./models/IncidentUpdateAttributes";
 export { IncidentUpdateData } from "./models/IncidentUpdateData";
 export { IncidentUpdateRelationships } from "./models/IncidentUpdateRelationships";
 export { IncidentUpdateRequest } from "./models/IncidentUpdateRequest";
+export { IncidentUserAttributes } from "./models/IncidentUserAttributes";
+export { IncidentUserData } from "./models/IncidentUserData";
 export { IncidentUserDefinedFieldType } from "./models/IncidentUserDefinedFieldType";
 export { IncludeType } from "./models/IncludeType";
 export { IntakePayloadAccepted } from "./models/IntakePayloadAccepted";
