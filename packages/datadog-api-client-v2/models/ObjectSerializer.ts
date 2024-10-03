@@ -536,6 +536,8 @@ import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
 import { IncidentUpdateData } from "./IncidentUpdateData";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
+import { IncidentUserAttributes } from "./IncidentUserAttributes";
+import { IncidentUserData } from "./IncidentUserData";
 import { IncidentsResponse } from "./IncidentsResponse";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { InterfaceAttributes } from "./InterfaceAttributes";
@@ -2489,6 +2491,8 @@ const typeMap: { [index: string]: any } = {
   IncidentUpdateData: IncidentUpdateData,
   IncidentUpdateRelationships: IncidentUpdateRelationships,
   IncidentUpdateRequest: IncidentUpdateRequest,
+  IncidentUserAttributes: IncidentUserAttributes,
+  IncidentUserData: IncidentUserData,
   IncidentsResponse: IncidentsResponse,
   IntakePayloadAccepted: IntakePayloadAccepted,
   InterfaceAttributes: InterfaceAttributes,
@@ -3368,7 +3372,7 @@ const oneOfMap: { [index: string]: string[] } = {
     "JiraIntegrationMetadata",
   ],
   IncidentIntegrationMetadataResponseIncludedItem: ["User"],
-  IncidentResponseIncludedItem: ["User", "IncidentAttachmentData"],
+  IncidentResponseIncludedItem: ["IncidentUserData", "IncidentAttachmentData"],
   IncidentServiceIncludedItems: ["User"],
   IncidentTeamIncludedItems: ["User"],
   IncidentTimelineCellCreateAttributes: [
