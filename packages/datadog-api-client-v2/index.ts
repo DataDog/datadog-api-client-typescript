@@ -1485,6 +1485,8 @@ export { MonthlyCostAttributionBody } from "./models/MonthlyCostAttributionBody"
 export { MonthlyCostAttributionMeta } from "./models/MonthlyCostAttributionMeta";
 export { MonthlyCostAttributionPagination } from "./models/MonthlyCostAttributionPagination";
 export { MonthlyCostAttributionResponse } from "./models/MonthlyCostAttributionResponse";
+export { MSTeamsIntegrationMetadata } from "./models/MSTeamsIntegrationMetadata";
+export { MSTeamsIntegrationMetadataTeamsItem } from "./models/MSTeamsIntegrationMetadataTeamsItem";
 export { NullableRelationshipToUser } from "./models/NullableRelationshipToUser";
 export { NullableRelationshipToUserData } from "./models/NullableRelationshipToUserData";
 export { NullableUserRelationship } from "./models/NullableUserRelationship";

@@ -625,6 +625,8 @@ import { LogsQueryOptions } from "./LogsQueryOptions";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
 import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
+import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
+import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
 import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
@@ -2582,6 +2584,8 @@ const typeMap: { [index: string]: any } = {
   LogsResponseMetadata: LogsResponseMetadata,
   LogsResponseMetadataPage: LogsResponseMetadataPage,
   LogsWarning: LogsWarning,
+  MSTeamsIntegrationMetadata: MSTeamsIntegrationMetadata,
+  MSTeamsIntegrationMetadataTeamsItem: MSTeamsIntegrationMetadataTeamsItem,
   Metric: Metric,
   MetricAllTags: MetricAllTags,
   MetricAllTagsAttributes: MetricAllTagsAttributes,
@@ -3377,6 +3381,7 @@ const oneOfMap: { [index: string]: string[] } = {
   IncidentIntegrationMetadataMetadata: [
     "SlackIntegrationMetadata",
     "JiraIntegrationMetadata",
+    "MSTeamsIntegrationMetadata",
   ],
   IncidentIntegrationMetadataResponseIncludedItem: ["User"],
   IncidentResponseIncludedItem: ["IncidentUserData", "IncidentAttachmentData"],
