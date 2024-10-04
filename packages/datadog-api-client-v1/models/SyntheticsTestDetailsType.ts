@@ -13,6 +13,8 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type SyntheticsTestDetailsType =
   | typeof API
   | typeof BROWSER
+  | typeof MOBILE
   | UnparsedObject;
 export const API = "api";
 export const BROWSER = "browser";
+export const MOBILE = "mobile";
