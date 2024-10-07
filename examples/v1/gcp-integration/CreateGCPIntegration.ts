@@ -19,6 +19,7 @@ const params: v1.GCPIntegrationApiCreateGCPIntegrationRequest = {
     cloudRunRevisionFilters: ["dr:dre"],
     isCspmEnabled: true,
     isSecurityCommandCenterEnabled: true,
+    isResourceChangeCollectionEnabled: true,
     privateKey: "private_key",
     privateKeyId: "123456789abcdefghi123456789abcdefghijklm",
     projectId: "datadog-apitest",
