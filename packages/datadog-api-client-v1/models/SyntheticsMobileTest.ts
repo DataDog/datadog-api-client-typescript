@@ -3,7 +3,6 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsMobileDeviceID } from "./SyntheticsMobileDeviceID";
 import { SyntheticsMobileStep } from "./SyntheticsMobileStep";
 import { SyntheticsMobileTestConfig } from "./SyntheticsMobileTestConfig";
 import { SyntheticsMobileTestOptions } from "./SyntheticsMobileTestOptions";
@@ -23,7 +22,7 @@ export class SyntheticsMobileTest {
   /**
    * The `SyntheticsMobileTest` `device_ids`.
    */
-  "deviceIds"?: Array<SyntheticsMobileDeviceID>;
+  "deviceIds"?: Array<string>;
   /**
    * Notification message associated with the test.
    */
@@ -85,7 +84,7 @@ export class SyntheticsMobileTest {
     },
     deviceIds: {
       baseName: "device_ids",
-      type: "Array<SyntheticsMobileDeviceID>",
+      type: "Array<string>",
     },
     message: {
       baseName: "message",

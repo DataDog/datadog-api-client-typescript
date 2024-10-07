@@ -3,23 +3,33 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ToplistWidgetLegend } from "./ToplistWidgetLegend";
-import { ToplistWidgetStackedType } from "./ToplistWidgetStackedType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Top list widget stacked display options.
+ * Attributes of user object returned by the API.
  */
-export class ToplistWidgetStacked {
+export class IncidentUserAttributes {
   /**
-   * Top list widget stacked legend behavior.
+   * Email of the user.
    */
-  "legend"?: ToplistWidgetLegend;
+  "email"?: string;
   /**
-   * Top list widget stacked display type.
+   * Handle of the user.
    */
-  "type": ToplistWidgetStackedType;
+  "handle"?: string;
+  /**
+   * URL of the user's icon.
+   */
+  "icon"?: string;
+  /**
+   * Name of the user.
+   */
+  "name"?: string;
+  /**
+   * UUID of the user.
+   */
+  "uuid"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +47,25 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    legend: {
-      baseName: "legend",
-      type: "ToplistWidgetLegend",
+    email: {
+      baseName: "email",
+      type: "string",
     },
-    type: {
-      baseName: "type",
-      type: "ToplistWidgetStackedType",
-      required: true,
+    handle: {
+      baseName: "handle",
+      type: "string",
+    },
+    icon: {
+      baseName: "icon",
+      type: "string",
+    },
+    name: {
+      baseName: "name",
+      type: "string",
+    },
+    uuid: {
+      baseName: "uuid",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +77,7 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetStacked.attributeTypeMap;
+    return IncidentUserAttributes.attributeTypeMap;
   }
 
   public constructor() {}

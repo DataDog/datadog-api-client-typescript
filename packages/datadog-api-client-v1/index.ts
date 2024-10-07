@@ -957,7 +957,6 @@ export { SyntheticsListTestsResponse } from "./models/SyntheticsListTestsRespons
 export { SyntheticsLocalVariableParsingOptionsType } from "./models/SyntheticsLocalVariableParsingOptionsType";
 export { SyntheticsLocation } from "./models/SyntheticsLocation";
 export { SyntheticsLocations } from "./models/SyntheticsLocations";
-export { SyntheticsMobileDeviceID } from "./models/SyntheticsMobileDeviceID";
 export { SyntheticsMobileStep } from "./models/SyntheticsMobileStep";
 export { SyntheticsMobileStepType } from "./models/SyntheticsMobileStepType";
 export { SyntheticsMobileTest } from "./models/SyntheticsMobileTest";

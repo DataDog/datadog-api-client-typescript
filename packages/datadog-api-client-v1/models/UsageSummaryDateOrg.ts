@@ -131,6 +131,14 @@ export class UsageSummaryDateOrg {
    */
   "cloudSiemEventsSum"?: number;
   /**
+   * Shows the high-water mark of all Static Analysis committers over all hours in the current date for the given org.
+   */
+  "codeAnalysisSaCommittersHwm"?: number;
+  /**
+   * Shows the high-water mark of all static Software Composition Analysis committers over all hours in the current date for the given org.
+   */
+  "codeAnalysisScaCommittersHwm"?: number;
+  /**
    * Shows the average of all distinct containers over all hours in the current date for the given org.
    */
   "containerAvg"?: number;
@@ -736,6 +744,16 @@ export class UsageSummaryDateOrg {
     },
     cloudSiemEventsSum: {
       baseName: "cloud_siem_events_sum",
+      type: "number",
+      format: "int64",
+    },
+    codeAnalysisSaCommittersHwm: {
+      baseName: "code_analysis_sa_committers_hwm",
+      type: "number",
+      format: "int64",
+    },
+    codeAnalysisScaCommittersHwm: {
+      baseName: "code_analysis_sca_committers_hwm",
       type: "number",
       format: "int64",
     },

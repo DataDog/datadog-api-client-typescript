@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { JiraIntegrationMetadata } from "./JiraIntegrationMetadata";
+import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
 import { SlackIntegrationMetadata } from "./SlackIntegrationMetadata";
 
 import { UnparsedObject } from "../../datadog-api-client-common/util";
@@ -15,4 +16,5 @@ import { UnparsedObject } from "../../datadog-api-client-common/util";
 export type IncidentIntegrationMetadataMetadata =
   | SlackIntegrationMetadata
   | JiraIntegrationMetadata
+  | MSTeamsIntegrationMetadata
   | UnparsedObject;

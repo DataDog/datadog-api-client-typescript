@@ -536,6 +536,8 @@ import { IncidentUpdateAttributes } from "./IncidentUpdateAttributes";
 import { IncidentUpdateData } from "./IncidentUpdateData";
 import { IncidentUpdateRelationships } from "./IncidentUpdateRelationships";
 import { IncidentUpdateRequest } from "./IncidentUpdateRequest";
+import { IncidentUserAttributes } from "./IncidentUserAttributes";
+import { IncidentUserData } from "./IncidentUserData";
 import { IncidentsResponse } from "./IncidentsResponse";
 import { IntakePayloadAccepted } from "./IntakePayloadAccepted";
 import { InterfaceAttributes } from "./InterfaceAttributes";
@@ -623,6 +625,8 @@ import { LogsQueryOptions } from "./LogsQueryOptions";
 import { LogsResponseMetadata } from "./LogsResponseMetadata";
 import { LogsResponseMetadataPage } from "./LogsResponseMetadataPage";
 import { LogsWarning } from "./LogsWarning";
+import { MSTeamsIntegrationMetadata } from "./MSTeamsIntegrationMetadata";
+import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
 import { Metric } from "./Metric";
 import { MetricAllTags } from "./MetricAllTags";
 import { MetricAllTagsAttributes } from "./MetricAllTagsAttributes";
@@ -683,21 +687,20 @@ import { MetricVolumesResponse } from "./MetricVolumesResponse";
 import { MetricsAndMetricTagConfigurationsResponse } from "./MetricsAndMetricTagConfigurationsResponse";
 import { MetricsScalarQuery } from "./MetricsScalarQuery";
 import { MetricsTimeseriesQuery } from "./MetricsTimeseriesQuery";
-import { MicrosoftTeamsApiHandleAttributes } from "./MicrosoftTeamsApiHandleAttributes";
-import { MicrosoftTeamsApiHandleInfoResponse } from "./MicrosoftTeamsApiHandleInfoResponse";
-import { MicrosoftTeamsApiHandleInfoResponseAttributes } from "./MicrosoftTeamsApiHandleInfoResponseAttributes";
-import { MicrosoftTeamsApiHandleInfoResponseData } from "./MicrosoftTeamsApiHandleInfoResponseData";
-import { MicrosoftTeamsApiHandleRequestAttributes } from "./MicrosoftTeamsApiHandleRequestAttributes";
-import { MicrosoftTeamsApiHandleRequestData } from "./MicrosoftTeamsApiHandleRequestData";
-import { MicrosoftTeamsApiHandleResponseData } from "./MicrosoftTeamsApiHandleResponseData";
-import { MicrosoftTeamsApiHandlesResponse } from "./MicrosoftTeamsApiHandlesResponse";
 import { MicrosoftTeamsChannelInfoResponseAttributes } from "./MicrosoftTeamsChannelInfoResponseAttributes";
 import { MicrosoftTeamsChannelInfoResponseData } from "./MicrosoftTeamsChannelInfoResponseData";
-import { MicrosoftTeamsCreateApiHandleRequest } from "./MicrosoftTeamsCreateApiHandleRequest";
-import { MicrosoftTeamsCreateApiHandleResponse } from "./MicrosoftTeamsCreateApiHandleResponse";
+import { MicrosoftTeamsCreateTenantBasedHandleRequest } from "./MicrosoftTeamsCreateTenantBasedHandleRequest";
 import { MicrosoftTeamsGetChannelByNameResponse } from "./MicrosoftTeamsGetChannelByNameResponse";
-import { MicrosoftTeamsUpdateApiHandleRequest } from "./MicrosoftTeamsUpdateApiHandleRequest";
-import { MicrosoftTeamsUpdateApiHandleRequestData } from "./MicrosoftTeamsUpdateApiHandleRequestData";
+import { MicrosoftTeamsTenantBasedHandleAttributes } from "./MicrosoftTeamsTenantBasedHandleAttributes";
+import { MicrosoftTeamsTenantBasedHandleInfoResponseAttributes } from "./MicrosoftTeamsTenantBasedHandleInfoResponseAttributes";
+import { MicrosoftTeamsTenantBasedHandleInfoResponseData } from "./MicrosoftTeamsTenantBasedHandleInfoResponseData";
+import { MicrosoftTeamsTenantBasedHandleRequestAttributes } from "./MicrosoftTeamsTenantBasedHandleRequestAttributes";
+import { MicrosoftTeamsTenantBasedHandleRequestData } from "./MicrosoftTeamsTenantBasedHandleRequestData";
+import { MicrosoftTeamsTenantBasedHandleResponse } from "./MicrosoftTeamsTenantBasedHandleResponse";
+import { MicrosoftTeamsTenantBasedHandleResponseData } from "./MicrosoftTeamsTenantBasedHandleResponseData";
+import { MicrosoftTeamsTenantBasedHandlesResponse } from "./MicrosoftTeamsTenantBasedHandlesResponse";
+import { MicrosoftTeamsUpdateTenantBasedHandleRequest } from "./MicrosoftTeamsUpdateTenantBasedHandleRequest";
+import { MicrosoftTeamsUpdateTenantBasedHandleRequestData } from "./MicrosoftTeamsUpdateTenantBasedHandleRequestData";
 import { MonitorConfigPolicyAttributeCreateRequest } from "./MonitorConfigPolicyAttributeCreateRequest";
 import { MonitorConfigPolicyAttributeEditRequest } from "./MonitorConfigPolicyAttributeEditRequest";
 import { MonitorConfigPolicyAttributeResponse } from "./MonitorConfigPolicyAttributeResponse";
@@ -1590,9 +1593,11 @@ const enumsMap: { [key: string]: any[] } = {
     "area",
   ],
   MetricsDataSource: ["metrics", "cloud_cost"],
-  MicrosoftTeamsApiHandleInfoType: ["ms-teams-handle-info"],
-  MicrosoftTeamsApiHandleType: ["handle"],
   MicrosoftTeamsChannelInfoType: ["ms-teams-channel-info"],
+  MicrosoftTeamsTenantBasedHandleInfoType: [
+    "ms-teams-tenant-based-handle-info",
+  ],
+  MicrosoftTeamsTenantBasedHandleType: ["tenant-based-handle"],
   MonitorConfigPolicyResourceType: ["monitor-config-policy"],
   MonitorConfigPolicyType: ["tag"],
   MonitorDowntimeMatchResourceType: ["downtime_match"],
@@ -2495,6 +2500,8 @@ const typeMap: { [index: string]: any } = {
   IncidentUpdateData: IncidentUpdateData,
   IncidentUpdateRelationships: IncidentUpdateRelationships,
   IncidentUpdateRequest: IncidentUpdateRequest,
+  IncidentUserAttributes: IncidentUserAttributes,
+  IncidentUserData: IncidentUserData,
   IncidentsResponse: IncidentsResponse,
   IntakePayloadAccepted: IntakePayloadAccepted,
   InterfaceAttributes: InterfaceAttributes,
@@ -2583,6 +2590,8 @@ const typeMap: { [index: string]: any } = {
   LogsResponseMetadata: LogsResponseMetadata,
   LogsResponseMetadataPage: LogsResponseMetadataPage,
   LogsWarning: LogsWarning,
+  MSTeamsIntegrationMetadata: MSTeamsIntegrationMetadata,
+  MSTeamsIntegrationMetadataTeamsItem: MSTeamsIntegrationMetadataTeamsItem,
   Metric: Metric,
   MetricAllTags: MetricAllTags,
   MetricAllTagsAttributes: MetricAllTagsAttributes,
@@ -2647,27 +2656,33 @@ const typeMap: { [index: string]: any } = {
     MetricsAndMetricTagConfigurationsResponse,
   MetricsScalarQuery: MetricsScalarQuery,
   MetricsTimeseriesQuery: MetricsTimeseriesQuery,
-  MicrosoftTeamsApiHandleAttributes: MicrosoftTeamsApiHandleAttributes,
-  MicrosoftTeamsApiHandleInfoResponse: MicrosoftTeamsApiHandleInfoResponse,
-  MicrosoftTeamsApiHandleInfoResponseAttributes:
-    MicrosoftTeamsApiHandleInfoResponseAttributes,
-  MicrosoftTeamsApiHandleInfoResponseData:
-    MicrosoftTeamsApiHandleInfoResponseData,
-  MicrosoftTeamsApiHandleRequestAttributes:
-    MicrosoftTeamsApiHandleRequestAttributes,
-  MicrosoftTeamsApiHandleRequestData: MicrosoftTeamsApiHandleRequestData,
-  MicrosoftTeamsApiHandleResponseData: MicrosoftTeamsApiHandleResponseData,
-  MicrosoftTeamsApiHandlesResponse: MicrosoftTeamsApiHandlesResponse,
   MicrosoftTeamsChannelInfoResponseAttributes:
     MicrosoftTeamsChannelInfoResponseAttributes,
   MicrosoftTeamsChannelInfoResponseData: MicrosoftTeamsChannelInfoResponseData,
-  MicrosoftTeamsCreateApiHandleRequest: MicrosoftTeamsCreateApiHandleRequest,
-  MicrosoftTeamsCreateApiHandleResponse: MicrosoftTeamsCreateApiHandleResponse,
+  MicrosoftTeamsCreateTenantBasedHandleRequest:
+    MicrosoftTeamsCreateTenantBasedHandleRequest,
   MicrosoftTeamsGetChannelByNameResponse:
     MicrosoftTeamsGetChannelByNameResponse,
-  MicrosoftTeamsUpdateApiHandleRequest: MicrosoftTeamsUpdateApiHandleRequest,
-  MicrosoftTeamsUpdateApiHandleRequestData:
-    MicrosoftTeamsUpdateApiHandleRequestData,
+  MicrosoftTeamsTenantBasedHandleAttributes:
+    MicrosoftTeamsTenantBasedHandleAttributes,
+  MicrosoftTeamsTenantBasedHandleInfoResponseAttributes:
+    MicrosoftTeamsTenantBasedHandleInfoResponseAttributes,
+  MicrosoftTeamsTenantBasedHandleInfoResponseData:
+    MicrosoftTeamsTenantBasedHandleInfoResponseData,
+  MicrosoftTeamsTenantBasedHandleRequestAttributes:
+    MicrosoftTeamsTenantBasedHandleRequestAttributes,
+  MicrosoftTeamsTenantBasedHandleRequestData:
+    MicrosoftTeamsTenantBasedHandleRequestData,
+  MicrosoftTeamsTenantBasedHandleResponse:
+    MicrosoftTeamsTenantBasedHandleResponse,
+  MicrosoftTeamsTenantBasedHandleResponseData:
+    MicrosoftTeamsTenantBasedHandleResponseData,
+  MicrosoftTeamsTenantBasedHandlesResponse:
+    MicrosoftTeamsTenantBasedHandlesResponse,
+  MicrosoftTeamsUpdateTenantBasedHandleRequest:
+    MicrosoftTeamsUpdateTenantBasedHandleRequest,
+  MicrosoftTeamsUpdateTenantBasedHandleRequestData:
+    MicrosoftTeamsUpdateTenantBasedHandleRequestData,
   MonitorConfigPolicyAttributeCreateRequest:
     MonitorConfigPolicyAttributeCreateRequest,
   MonitorConfigPolicyAttributeEditRequest:
@@ -3372,9 +3387,10 @@ const oneOfMap: { [index: string]: string[] } = {
   IncidentIntegrationMetadataMetadata: [
     "SlackIntegrationMetadata",
     "JiraIntegrationMetadata",
+    "MSTeamsIntegrationMetadata",
   ],
   IncidentIntegrationMetadataResponseIncludedItem: ["User"],
-  IncidentResponseIncludedItem: ["User", "IncidentAttachmentData"],
+  IncidentResponseIncludedItem: ["IncidentUserData", "IncidentAttachmentData"],
   IncidentServiceIncludedItems: ["User"],
   IncidentTeamIncludedItems: ["User"],
   IncidentTimelineCellCreateAttributes: [

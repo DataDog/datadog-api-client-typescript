@@ -3,23 +3,29 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ToplistWidgetLegend } from "./ToplistWidgetLegend";
-import { ToplistWidgetStackedType } from "./ToplistWidgetStackedType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Top list widget stacked display options.
+ * Item in the Microsoft Teams integration metadata teams array.
  */
-export class ToplistWidgetStacked {
+export class MSTeamsIntegrationMetadataTeamsItem {
   /**
-   * Top list widget stacked legend behavior.
+   * Microsoft Teams channel ID.
    */
-  "legend"?: ToplistWidgetLegend;
+  "msChannelId": string;
   /**
-   * Top list widget stacked display type.
+   * Microsoft Teams channel name.
    */
-  "type": ToplistWidgetStackedType;
+  "msChannelName": string;
+  /**
+   * Microsoft Teams tenant ID.
+   */
+  "msTenantId": string;
+  /**
+   * URL redirecting to the Microsoft Teams channel.
+   */
+  "redirectUrl": string;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +43,24 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    legend: {
-      baseName: "legend",
-      type: "ToplistWidgetLegend",
+    msChannelId: {
+      baseName: "ms_channel_id",
+      type: "string",
+      required: true,
     },
-    type: {
-      baseName: "type",
-      type: "ToplistWidgetStackedType",
+    msChannelName: {
+      baseName: "ms_channel_name",
+      type: "string",
+      required: true,
+    },
+    msTenantId: {
+      baseName: "ms_tenant_id",
+      type: "string",
+      required: true,
+    },
+    redirectUrl: {
+      baseName: "redirect_url",
+      type: "string",
       required: true,
     },
     additionalProperties: {
@@ -56,7 +73,7 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetStacked.attributeTypeMap;
+    return MSTeamsIntegrationMetadataTeamsItem.attributeTypeMap;
   }
 
   public constructor() {}

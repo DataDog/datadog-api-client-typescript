@@ -3741,51 +3741,48 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             },
         "operationResponseType": "MicrosoftTeamsGetChannelByNameResponse",
     },
-    "v2.ListApiHandles": {
+    "v2.ListTenantBasedHandles": {
         "tenantId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "MicrosoftTeamsApiHandlesResponse",
-    },
-    "v2.CreateApiHandle": {
-        "body": {
-            "type": "MicrosoftTeamsCreateApiHandleRequest",
-            "format": "",
-            },
-        "operationResponseType": "MicrosoftTeamsCreateApiHandleResponse",
-    },
-    "v2.GetApiHandleByName": {
-        "handleName": {
+        "name": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "MicrosoftTeamsApiHandleInfoResponse",
+        "operationResponseType": "MicrosoftTeamsTenantBasedHandlesResponse",
     },
-    "v2.DeleteApiHandle": {
+    "v2.CreateTenantBasedHandle": {
+        "body": {
+            "type": "MicrosoftTeamsCreateTenantBasedHandleRequest",
+            "format": "",
+            },
+        "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
+    },
+    "v2.DeleteTenantBasedHandle": {
         "handleId": {
             "type": "string",
             "format": "",
             },
         "operationResponseType": "void",
     },
-    "v2.GetApiHandle": {
+    "v2.GetTenantBasedHandle": {
         "handleId": {
             "type": "string",
             "format": "",
             },
-        "operationResponseType": "MicrosoftTeamsApiHandleInfoResponse",
+        "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
     },
-    "v2.UpdateApiHandle": {
+    "v2.UpdateTenantBasedHandle": {
         "handleId": {
             "type": "string",
             "format": "",
             },
         "body": {
-            "type": "MicrosoftTeamsUpdateApiHandleRequest",
+            "type": "MicrosoftTeamsUpdateTenantBasedHandleRequest",
             "format": "",
             },
-        "operationResponseType": "MicrosoftTeamsApiHandleInfoResponse",
+        "operationResponseType": "MicrosoftTeamsTenantBasedHandleResponse",
     },
     "v2.ListOpsgenieServices": {
         "operationResponseType": "OpsgenieServicesResponse",

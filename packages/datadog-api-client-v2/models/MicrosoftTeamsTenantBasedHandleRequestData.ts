@@ -3,23 +3,23 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ToplistWidgetLegend } from "./ToplistWidgetLegend";
-import { ToplistWidgetStackedType } from "./ToplistWidgetStackedType";
+import { MicrosoftTeamsTenantBasedHandleRequestAttributes } from "./MicrosoftTeamsTenantBasedHandleRequestAttributes";
+import { MicrosoftTeamsTenantBasedHandleType } from "./MicrosoftTeamsTenantBasedHandleType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Top list widget stacked display options.
+ * Tenant-based handle data from a response.
  */
-export class ToplistWidgetStacked {
+export class MicrosoftTeamsTenantBasedHandleRequestData {
   /**
-   * Top list widget stacked legend behavior.
+   * Tenant-based handle attributes.
    */
-  "legend"?: ToplistWidgetLegend;
+  "attributes": MicrosoftTeamsTenantBasedHandleRequestAttributes;
   /**
-   * Top list widget stacked display type.
+   * Specifies the tenant-based handle resource type.
    */
-  "type": ToplistWidgetStackedType;
+  "type": MicrosoftTeamsTenantBasedHandleType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +37,14 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    legend: {
-      baseName: "legend",
-      type: "ToplistWidgetLegend",
+    attributes: {
+      baseName: "attributes",
+      type: "MicrosoftTeamsTenantBasedHandleRequestAttributes",
+      required: true,
     },
     type: {
       baseName: "type",
-      type: "ToplistWidgetStackedType",
+      type: "MicrosoftTeamsTenantBasedHandleType",
       required: true,
     },
     additionalProperties: {
@@ -56,7 +57,7 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetStacked.attributeTypeMap;
+    return MicrosoftTeamsTenantBasedHandleRequestData.attributeTypeMap;
   }
 
   public constructor() {}

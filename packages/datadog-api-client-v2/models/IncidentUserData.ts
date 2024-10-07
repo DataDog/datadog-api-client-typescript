@@ -3,23 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ToplistWidgetLegend } from "./ToplistWidgetLegend";
-import { ToplistWidgetStackedType } from "./ToplistWidgetStackedType";
+import { IncidentUserAttributes } from "./IncidentUserAttributes";
+import { UsersType } from "./UsersType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Top list widget stacked display options.
+ * User object returned by the API.
  */
-export class ToplistWidgetStacked {
+export class IncidentUserData {
   /**
-   * Top list widget stacked legend behavior.
+   * Attributes of user object returned by the API.
    */
-  "legend"?: ToplistWidgetLegend;
+  "attributes"?: IncidentUserAttributes;
   /**
-   * Top list widget stacked display type.
+   * ID of the user.
    */
-  "type": ToplistWidgetStackedType;
+  "id"?: string;
+  /**
+   * Users resource type.
+   */
+  "type"?: UsersType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +41,17 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    legend: {
-      baseName: "legend",
-      type: "ToplistWidgetLegend",
+    attributes: {
+      baseName: "attributes",
+      type: "IncidentUserAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
-      type: "ToplistWidgetStackedType",
-      required: true,
+      type: "UsersType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +63,7 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetStacked.attributeTypeMap;
+    return IncidentUserData.attributeTypeMap;
   }
 
   public constructor() {}

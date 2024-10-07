@@ -3,23 +3,27 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ToplistWidgetLegend } from "./ToplistWidgetLegend";
-import { ToplistWidgetStackedType } from "./ToplistWidgetStackedType";
+import { MicrosoftTeamsTenantBasedHandleInfoResponseAttributes } from "./MicrosoftTeamsTenantBasedHandleInfoResponseAttributes";
+import { MicrosoftTeamsTenantBasedHandleInfoType } from "./MicrosoftTeamsTenantBasedHandleInfoType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Top list widget stacked display options.
+ * Tenant-based handle data from a response.
  */
-export class ToplistWidgetStacked {
+export class MicrosoftTeamsTenantBasedHandleInfoResponseData {
   /**
-   * Top list widget stacked legend behavior.
+   * Tenant-based handle attributes.
    */
-  "legend"?: ToplistWidgetLegend;
+  "attributes"?: MicrosoftTeamsTenantBasedHandleInfoResponseAttributes;
   /**
-   * Top list widget stacked display type.
+   * The ID of the tenant-based handle.
    */
-  "type": ToplistWidgetStackedType;
+  "id"?: string;
+  /**
+   * Tenant-based handle resource type.
+   */
+  "type"?: MicrosoftTeamsTenantBasedHandleInfoType;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,14 +41,17 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    legend: {
-      baseName: "legend",
-      type: "ToplistWidgetLegend",
+    attributes: {
+      baseName: "attributes",
+      type: "MicrosoftTeamsTenantBasedHandleInfoResponseAttributes",
+    },
+    id: {
+      baseName: "id",
+      type: "string",
     },
     type: {
       baseName: "type",
-      type: "ToplistWidgetStackedType",
-      required: true,
+      type: "MicrosoftTeamsTenantBasedHandleInfoType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -56,7 +63,7 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetStacked.attributeTypeMap;
+    return MicrosoftTeamsTenantBasedHandleInfoResponseData.attributeTypeMap;
   }
 
   public constructor() {}

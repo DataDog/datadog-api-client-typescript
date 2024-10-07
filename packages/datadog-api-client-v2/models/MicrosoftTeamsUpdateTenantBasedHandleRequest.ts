@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ToplistWidgetLegend } from "./ToplistWidgetLegend";
-import { ToplistWidgetStackedType } from "./ToplistWidgetStackedType";
+import { MicrosoftTeamsUpdateTenantBasedHandleRequestData } from "./MicrosoftTeamsUpdateTenantBasedHandleRequestData";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Top list widget stacked display options.
+ * Update tenant-based handle request.
  */
-export class ToplistWidgetStacked {
+export class MicrosoftTeamsUpdateTenantBasedHandleRequest {
   /**
-   * Top list widget stacked legend behavior.
+   * Tenant-based handle data from a response.
    */
-  "legend"?: ToplistWidgetLegend;
-  /**
-   * Top list widget stacked display type.
-   */
-  "type": ToplistWidgetStackedType;
+  "data": MicrosoftTeamsUpdateTenantBasedHandleRequestData;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +32,9 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    legend: {
-      baseName: "legend",
-      type: "ToplistWidgetLegend",
-    },
-    type: {
-      baseName: "type",
-      type: "ToplistWidgetStackedType",
+    data: {
+      baseName: "data",
+      type: "MicrosoftTeamsUpdateTenantBasedHandleRequestData",
       required: true,
     },
     additionalProperties: {
@@ -56,7 +47,7 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetStacked.attributeTypeMap;
+    return MicrosoftTeamsUpdateTenantBasedHandleRequest.attributeTypeMap;
   }
 
   public constructor() {}

@@ -3,23 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { ToplistWidgetLegend } from "./ToplistWidgetLegend";
-import { ToplistWidgetStackedType } from "./ToplistWidgetStackedType";
+import { MSTeamsIntegrationMetadataTeamsItem } from "./MSTeamsIntegrationMetadataTeamsItem";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Top list widget stacked display options.
+ * Incident integration metadata for the Microsoft Teams integration.
  */
-export class ToplistWidgetStacked {
+export class MSTeamsIntegrationMetadata {
   /**
-   * Top list widget stacked legend behavior.
+   * Array of Microsoft Teams in this integration metadata.
    */
-  "legend"?: ToplistWidgetLegend;
-  /**
-   * Top list widget stacked display type.
-   */
-  "type": ToplistWidgetStackedType;
+  "teams": Array<MSTeamsIntegrationMetadataTeamsItem>;
 
   /**
    * A container for additional, undeclared properties.
@@ -37,13 +32,9 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    legend: {
-      baseName: "legend",
-      type: "ToplistWidgetLegend",
-    },
-    type: {
-      baseName: "type",
-      type: "ToplistWidgetStackedType",
+    teams: {
+      baseName: "teams",
+      type: "Array<MSTeamsIntegrationMetadataTeamsItem>",
       required: true,
     },
     additionalProperties: {
@@ -56,7 +47,7 @@ export class ToplistWidgetStacked {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return ToplistWidgetStacked.attributeTypeMap;
+    return MSTeamsIntegrationMetadata.attributeTypeMap;
   }
 
   public constructor() {}

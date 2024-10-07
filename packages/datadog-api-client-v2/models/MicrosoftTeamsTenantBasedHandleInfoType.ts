@@ -7,14 +7,11 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Type of the Synthetic test, either `api` or `browser`.
+ * Tenant-based handle resource type.
  */
 
-export type SyntheticsTestDetailsType =
-  | typeof API
-  | typeof BROWSER
-  | typeof MOBILE
+export type MicrosoftTeamsTenantBasedHandleInfoType =
+  | typeof MS_TEAMS_TENANT_BASED_HANDLE_INFO
   | UnparsedObject;
-export const API = "api";
-export const BROWSER = "browser";
-export const MOBILE = "mobile";
+export const MS_TEAMS_TENANT_BASED_HANDLE_INFO =
+  "ms-teams-tenant-based-handle-info";

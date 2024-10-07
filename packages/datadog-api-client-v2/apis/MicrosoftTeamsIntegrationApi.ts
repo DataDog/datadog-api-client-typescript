@@ -17,23 +17,22 @@ import { ObjectSerializer } from "../models/ObjectSerializer";
 import { ApiException } from "../../datadog-api-client-common/exception";
 
 import { APIErrorResponse } from "../models/APIErrorResponse";
-import { MicrosoftTeamsApiHandleInfoResponse } from "../models/MicrosoftTeamsApiHandleInfoResponse";
-import { MicrosoftTeamsApiHandlesResponse } from "../models/MicrosoftTeamsApiHandlesResponse";
-import { MicrosoftTeamsCreateApiHandleRequest } from "../models/MicrosoftTeamsCreateApiHandleRequest";
-import { MicrosoftTeamsCreateApiHandleResponse } from "../models/MicrosoftTeamsCreateApiHandleResponse";
+import { MicrosoftTeamsCreateTenantBasedHandleRequest } from "../models/MicrosoftTeamsCreateTenantBasedHandleRequest";
 import { MicrosoftTeamsGetChannelByNameResponse } from "../models/MicrosoftTeamsGetChannelByNameResponse";
-import { MicrosoftTeamsUpdateApiHandleRequest } from "../models/MicrosoftTeamsUpdateApiHandleRequest";
+import { MicrosoftTeamsTenantBasedHandleResponse } from "../models/MicrosoftTeamsTenantBasedHandleResponse";
+import { MicrosoftTeamsTenantBasedHandlesResponse } from "../models/MicrosoftTeamsTenantBasedHandlesResponse";
+import { MicrosoftTeamsUpdateTenantBasedHandleRequest } from "../models/MicrosoftTeamsUpdateTenantBasedHandleRequest";
 
 export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFactory {
-  public async createApiHandle(
-    body: MicrosoftTeamsCreateApiHandleRequest,
+  public async createTenantBasedHandle(
+    body: MicrosoftTeamsCreateTenantBasedHandleRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "createApiHandle");
+      throw new RequiredError("body", "createTenantBasedHandle");
     }
 
     // Path Params
@@ -42,7 +41,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MicrosoftTeamsIntegrationApi.createApiHandle")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.createTenantBasedHandle")
       .makeRequestContext(localVarPath, HttpMethod.POST);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -55,7 +54,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
         body,
-        "MicrosoftTeamsCreateApiHandleRequest",
+        "MicrosoftTeamsCreateTenantBasedHandleRequest",
         ""
       ),
       contentType
@@ -71,7 +70,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     return requestContext;
   }
 
-  public async deleteApiHandle(
+  public async deleteTenantBasedHandle(
     handleId: string,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -79,7 +78,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // verify required parameter 'handleId' is not null or undefined
     if (handleId === null || handleId === undefined) {
-      throw new RequiredError("handleId", "deleteApiHandle");
+      throw new RequiredError("handleId", "deleteTenantBasedHandle");
     }
 
     // Path Params
@@ -91,77 +90,9 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MicrosoftTeamsIntegrationApi.deleteApiHandle")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.deleteTenantBasedHandle")
       .makeRequestContext(localVarPath, HttpMethod.DELETE);
     requestContext.setHeaderParam("Accept", "*/*");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async getApiHandle(
-    handleId: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'handleId' is not null or undefined
-    if (handleId === null || handleId === undefined) {
-      throw new RequiredError("handleId", "getApiHandle");
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}".replace(
-        "{handle_id}",
-        encodeURIComponent(String(handleId))
-      );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.MicrosoftTeamsIntegrationApi.getApiHandle")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
-    requestContext.setHttpConfig(_config.httpConfig);
-
-    // Apply auth methods
-    applySecurityAuthentication(_config, requestContext, [
-      "apiKeyAuth",
-      "appKeyAuth",
-    ]);
-
-    return requestContext;
-  }
-
-  public async getApiHandleByName(
-    handleName: string,
-    _options?: Configuration
-  ): Promise<RequestContext> {
-    const _config = _options || this.configuration;
-
-    // verify required parameter 'handleName' is not null or undefined
-    if (handleName === null || handleName === undefined) {
-      throw new RequiredError("handleName", "getApiHandleByName");
-    }
-
-    // Path Params
-    const localVarPath =
-      "/api/v2/integration/ms-teams/configuration/tenant-based-handles/name/{handle_name}".replace(
-        "{handle_name}",
-        encodeURIComponent(String(handleName))
-      );
-
-    // Make Request Context
-    const requestContext = _config
-      .getServer("v2.MicrosoftTeamsIntegrationApi.getApiHandleByName")
-      .makeRequestContext(localVarPath, HttpMethod.GET);
-    requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
 
     // Apply auth methods
@@ -219,8 +150,43 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     return requestContext;
   }
 
-  public async listApiHandles(
+  public async getTenantBasedHandle(
+    handleId: string,
+    _options?: Configuration
+  ): Promise<RequestContext> {
+    const _config = _options || this.configuration;
+
+    // verify required parameter 'handleId' is not null or undefined
+    if (handleId === null || handleId === undefined) {
+      throw new RequiredError("handleId", "getTenantBasedHandle");
+    }
+
+    // Path Params
+    const localVarPath =
+      "/api/v2/integration/ms-teams/configuration/tenant-based-handles/{handle_id}".replace(
+        "{handle_id}",
+        encodeURIComponent(String(handleId))
+      );
+
+    // Make Request Context
+    const requestContext = _config
+      .getServer("v2.MicrosoftTeamsIntegrationApi.getTenantBasedHandle")
+      .makeRequestContext(localVarPath, HttpMethod.GET);
+    requestContext.setHeaderParam("Accept", "application/json");
+    requestContext.setHttpConfig(_config.httpConfig);
+
+    // Apply auth methods
+    applySecurityAuthentication(_config, requestContext, [
+      "apiKeyAuth",
+      "appKeyAuth",
+    ]);
+
+    return requestContext;
+  }
+
+  public async listTenantBasedHandles(
     tenantId?: string,
+    name?: string,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -231,7 +197,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MicrosoftTeamsIntegrationApi.listApiHandles")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.listTenantBasedHandles")
       .makeRequestContext(localVarPath, HttpMethod.GET);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -241,6 +207,12 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
       requestContext.setQueryParam(
         "tenant_id",
         ObjectSerializer.serialize(tenantId, "string", "")
+      );
+    }
+    if (name !== undefined) {
+      requestContext.setQueryParam(
+        "name",
+        ObjectSerializer.serialize(name, "string", "")
       );
     }
 
@@ -253,21 +225,21 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     return requestContext;
   }
 
-  public async updateApiHandle(
+  public async updateTenantBasedHandle(
     handleId: string,
-    body: MicrosoftTeamsUpdateApiHandleRequest,
+    body: MicrosoftTeamsUpdateTenantBasedHandleRequest,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
 
     // verify required parameter 'handleId' is not null or undefined
     if (handleId === null || handleId === undefined) {
-      throw new RequiredError("handleId", "updateApiHandle");
+      throw new RequiredError("handleId", "updateTenantBasedHandle");
     }
 
     // verify required parameter 'body' is not null or undefined
     if (body === null || body === undefined) {
-      throw new RequiredError("body", "updateApiHandle");
+      throw new RequiredError("body", "updateTenantBasedHandle");
     }
 
     // Path Params
@@ -279,7 +251,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
 
     // Make Request Context
     const requestContext = _config
-      .getServer("v2.MicrosoftTeamsIntegrationApi.updateApiHandle")
+      .getServer("v2.MicrosoftTeamsIntegrationApi.updateTenantBasedHandle")
       .makeRequestContext(localVarPath, HttpMethod.PATCH);
     requestContext.setHeaderParam("Accept", "application/json");
     requestContext.setHttpConfig(_config.httpConfig);
@@ -292,7 +264,7 @@ export class MicrosoftTeamsIntegrationApiRequestFactory extends BaseAPIRequestFa
     const serializedBody = ObjectSerializer.stringify(
       ObjectSerializer.serialize(
         body,
-        "MicrosoftTeamsUpdateApiHandleRequest",
+        "MicrosoftTeamsUpdateTenantBasedHandleRequest",
         ""
       ),
       contentType
@@ -314,21 +286,21 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to createApiHandle
+   * @params response Response returned by the server for a request to createTenantBasedHandle
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async createApiHandle(
+  public async createTenantBasedHandle(
     response: ResponseContext
-  ): Promise<MicrosoftTeamsCreateApiHandleResponse> {
+  ): Promise<MicrosoftTeamsTenantBasedHandleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 201) {
-      const body: MicrosoftTeamsCreateApiHandleResponse =
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsCreateApiHandleResponse"
-        ) as MicrosoftTeamsCreateApiHandleResponse;
+          "MicrosoftTeamsTenantBasedHandleResponse"
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
     if (
@@ -361,12 +333,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsCreateApiHandleResponse =
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsCreateApiHandleResponse",
+          "MicrosoftTeamsTenantBasedHandleResponse",
           ""
-        ) as MicrosoftTeamsCreateApiHandleResponse;
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
 
@@ -381,10 +353,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to deleteApiHandle
+   * @params response Response returned by the server for a request to deleteTenantBasedHandle
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async deleteApiHandle(response: ResponseContext): Promise<void> {
+  public async deleteTenantBasedHandle(
+    response: ResponseContext
+  ): Promise<void> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
@@ -424,138 +398,6 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
         "void",
         ""
       ) as void;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to getApiHandle
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getApiHandle(
-    response: ResponseContext
-  ): Promise<MicrosoftTeamsApiHandleInfoResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsApiHandleInfoResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsApiHandleInfoResponse"
-        ) as MicrosoftTeamsApiHandleInfoResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 412 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsApiHandleInfoResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsApiHandleInfoResponse",
-          ""
-        ) as MicrosoftTeamsApiHandleInfoResponse;
-      return body;
-    }
-
-    const body = (await response.body.text()) || "";
-    throw new ApiException<string>(
-      response.httpStatusCode,
-      'Unknown API Status Code!\nBody: "' + body + '"'
-    );
-  }
-
-  /**
-   * Unwraps the actual response sent by the server from the response context and deserializes the response content
-   * to the expected objects
-   *
-   * @params response Response returned by the server for a request to getApiHandleByName
-   * @throws ApiException if the response code was not in [200, 299]
-   */
-  public async getApiHandleByName(
-    response: ResponseContext
-  ): Promise<MicrosoftTeamsApiHandleInfoResponse> {
-    const contentType = ObjectSerializer.normalizeMediaType(
-      response.headers["content-type"]
-    );
-    if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsApiHandleInfoResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsApiHandleInfoResponse"
-        ) as MicrosoftTeamsApiHandleInfoResponse;
-      return body;
-    }
-    if (
-      response.httpStatusCode === 400 ||
-      response.httpStatusCode === 403 ||
-      response.httpStatusCode === 404 ||
-      response.httpStatusCode === 412 ||
-      response.httpStatusCode === 429
-    ) {
-      const bodyText = ObjectSerializer.parse(
-        await response.body.text(),
-        contentType
-      );
-      let body: APIErrorResponse;
-      try {
-        body = ObjectSerializer.deserialize(
-          bodyText,
-          "APIErrorResponse"
-        ) as APIErrorResponse;
-      } catch (error) {
-        logger.debug(`Got error deserializing error: ${error}`);
-        throw new ApiException<APIErrorResponse>(
-          response.httpStatusCode,
-          bodyText
-        );
-      }
-      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
-    }
-
-    // Work around for missing responses in specification, e.g. for petstore.yaml
-    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsApiHandleInfoResponse =
-        ObjectSerializer.deserialize(
-          ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsApiHandleInfoResponse",
-          ""
-        ) as MicrosoftTeamsApiHandleInfoResponse;
       return body;
     }
 
@@ -635,21 +477,21 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to listApiHandles
+   * @params response Response returned by the server for a request to getTenantBasedHandle
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async listApiHandles(
+  public async getTenantBasedHandle(
     response: ResponseContext
-  ): Promise<MicrosoftTeamsApiHandlesResponse> {
+  ): Promise<MicrosoftTeamsTenantBasedHandleResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsApiHandlesResponse =
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsApiHandlesResponse"
-        ) as MicrosoftTeamsApiHandlesResponse;
+          "MicrosoftTeamsTenantBasedHandleResponse"
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
     if (
@@ -681,12 +523,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsApiHandlesResponse =
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsApiHandlesResponse",
+          "MicrosoftTeamsTenantBasedHandleResponse",
           ""
-        ) as MicrosoftTeamsApiHandlesResponse;
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
 
@@ -701,21 +543,87 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
    * Unwraps the actual response sent by the server from the response context and deserializes the response content
    * to the expected objects
    *
-   * @params response Response returned by the server for a request to updateApiHandle
+   * @params response Response returned by the server for a request to listTenantBasedHandles
    * @throws ApiException if the response code was not in [200, 299]
    */
-  public async updateApiHandle(
+  public async listTenantBasedHandles(
     response: ResponseContext
-  ): Promise<MicrosoftTeamsApiHandleInfoResponse> {
+  ): Promise<MicrosoftTeamsTenantBasedHandlesResponse> {
     const contentType = ObjectSerializer.normalizeMediaType(
       response.headers["content-type"]
     );
     if (response.httpStatusCode === 200) {
-      const body: MicrosoftTeamsApiHandleInfoResponse =
+      const body: MicrosoftTeamsTenantBasedHandlesResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsApiHandleInfoResponse"
-        ) as MicrosoftTeamsApiHandleInfoResponse;
+          "MicrosoftTeamsTenantBasedHandlesResponse"
+        ) as MicrosoftTeamsTenantBasedHandlesResponse;
+      return body;
+    }
+    if (
+      response.httpStatusCode === 400 ||
+      response.httpStatusCode === 403 ||
+      response.httpStatusCode === 404 ||
+      response.httpStatusCode === 412 ||
+      response.httpStatusCode === 429
+    ) {
+      const bodyText = ObjectSerializer.parse(
+        await response.body.text(),
+        contentType
+      );
+      let body: APIErrorResponse;
+      try {
+        body = ObjectSerializer.deserialize(
+          bodyText,
+          "APIErrorResponse"
+        ) as APIErrorResponse;
+      } catch (error) {
+        logger.debug(`Got error deserializing error: ${error}`);
+        throw new ApiException<APIErrorResponse>(
+          response.httpStatusCode,
+          bodyText
+        );
+      }
+      throw new ApiException<APIErrorResponse>(response.httpStatusCode, body);
+    }
+
+    // Work around for missing responses in specification, e.g. for petstore.yaml
+    if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+      const body: MicrosoftTeamsTenantBasedHandlesResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandlesResponse",
+          ""
+        ) as MicrosoftTeamsTenantBasedHandlesResponse;
+      return body;
+    }
+
+    const body = (await response.body.text()) || "";
+    throw new ApiException<string>(
+      response.httpStatusCode,
+      'Unknown API Status Code!\nBody: "' + body + '"'
+    );
+  }
+
+  /**
+   * Unwraps the actual response sent by the server from the response context and deserializes the response content
+   * to the expected objects
+   *
+   * @params response Response returned by the server for a request to updateTenantBasedHandle
+   * @throws ApiException if the response code was not in [200, 299]
+   */
+  public async updateTenantBasedHandle(
+    response: ResponseContext
+  ): Promise<MicrosoftTeamsTenantBasedHandleResponse> {
+    const contentType = ObjectSerializer.normalizeMediaType(
+      response.headers["content-type"]
+    );
+    if (response.httpStatusCode === 200) {
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
+        ObjectSerializer.deserialize(
+          ObjectSerializer.parse(await response.body.text(), contentType),
+          "MicrosoftTeamsTenantBasedHandleResponse"
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
     if (
@@ -748,12 +656,12 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
 
     // Work around for missing responses in specification, e.g. for petstore.yaml
     if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-      const body: MicrosoftTeamsApiHandleInfoResponse =
+      const body: MicrosoftTeamsTenantBasedHandleResponse =
         ObjectSerializer.deserialize(
           ObjectSerializer.parse(await response.body.text(), contentType),
-          "MicrosoftTeamsApiHandleInfoResponse",
+          "MicrosoftTeamsTenantBasedHandleResponse",
           ""
-        ) as MicrosoftTeamsApiHandleInfoResponse;
+        ) as MicrosoftTeamsTenantBasedHandleResponse;
       return body;
     }
 
@@ -765,36 +673,20 @@ export class MicrosoftTeamsIntegrationApiResponseProcessor {
   }
 }
 
-export interface MicrosoftTeamsIntegrationApiCreateApiHandleRequest {
+export interface MicrosoftTeamsIntegrationApiCreateTenantBasedHandleRequest {
   /**
-   * Handle payload.
-   * @type MicrosoftTeamsCreateApiHandleRequest
+   * Tenant-based handle payload.
+   * @type MicrosoftTeamsCreateTenantBasedHandleRequest
    */
-  body: MicrosoftTeamsCreateApiHandleRequest;
+  body: MicrosoftTeamsCreateTenantBasedHandleRequest;
 }
 
-export interface MicrosoftTeamsIntegrationApiDeleteApiHandleRequest {
+export interface MicrosoftTeamsIntegrationApiDeleteTenantBasedHandleRequest {
   /**
-   * Your handle id.
+   * Your tenant-based handle id.
    * @type string
    */
   handleId: string;
-}
-
-export interface MicrosoftTeamsIntegrationApiGetApiHandleRequest {
-  /**
-   * Your handle id.
-   * @type string
-   */
-  handleId: string;
-}
-
-export interface MicrosoftTeamsIntegrationApiGetApiHandleByNameRequest {
-  /**
-   * Your handle name.
-   * @type string
-   */
-  handleName: string;
 }
 
 export interface MicrosoftTeamsIntegrationApiGetChannelByNameRequest {
@@ -815,25 +707,38 @@ export interface MicrosoftTeamsIntegrationApiGetChannelByNameRequest {
   channelName: string;
 }
 
-export interface MicrosoftTeamsIntegrationApiListApiHandlesRequest {
+export interface MicrosoftTeamsIntegrationApiGetTenantBasedHandleRequest {
+  /**
+   * Your tenant-based handle id.
+   * @type string
+   */
+  handleId: string;
+}
+
+export interface MicrosoftTeamsIntegrationApiListTenantBasedHandlesRequest {
   /**
    * Your tenant id.
    * @type string
    */
   tenantId?: string;
+  /**
+   * Your tenant-based handle name.
+   * @type string
+   */
+  name?: string;
 }
 
-export interface MicrosoftTeamsIntegrationApiUpdateApiHandleRequest {
+export interface MicrosoftTeamsIntegrationApiUpdateTenantBasedHandleRequest {
   /**
-   * Your handle id.
+   * Your tenant-based handle id.
    * @type string
    */
   handleId: string;
   /**
-   * Opsgenie service payload.
-   * @type MicrosoftTeamsUpdateApiHandleRequest
+   * Tenant-based handle payload.
+   * @type MicrosoftTeamsUpdateTenantBasedHandleRequest
    */
-  body: MicrosoftTeamsUpdateApiHandleRequest;
+  body: MicrosoftTeamsUpdateTenantBasedHandleRequest;
 }
 
 export class MicrosoftTeamsIntegrationApi {
@@ -855,14 +760,14 @@ export class MicrosoftTeamsIntegrationApi {
   }
 
   /**
-   * Create a handle in the Datadog Microsoft Teams integration.
+   * Create a tenant-based handle in the Datadog Microsoft Teams integration.
    * @param param The request object
    */
-  public createApiHandle(
-    param: MicrosoftTeamsIntegrationApiCreateApiHandleRequest,
+  public createTenantBasedHandle(
+    param: MicrosoftTeamsIntegrationApiCreateTenantBasedHandleRequest,
     options?: Configuration
-  ): Promise<MicrosoftTeamsCreateApiHandleResponse> {
-    const requestContextPromise = this.requestFactory.createApiHandle(
+  ): Promise<MicrosoftTeamsTenantBasedHandleResponse> {
+    const requestContextPromise = this.requestFactory.createTenantBasedHandle(
       param.body,
       options
     );
@@ -870,20 +775,22 @@ export class MicrosoftTeamsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.createApiHandle(responseContext);
+          return this.responseProcessor.createTenantBasedHandle(
+            responseContext
+          );
         });
     });
   }
 
   /**
-   * Delete a handle from the Datadog Microsoft Teams integration.
+   * Delete a tenant-based handle from the Datadog Microsoft Teams integration.
    * @param param The request object
    */
-  public deleteApiHandle(
-    param: MicrosoftTeamsIntegrationApiDeleteApiHandleRequest,
+  public deleteTenantBasedHandle(
+    param: MicrosoftTeamsIntegrationApiDeleteTenantBasedHandleRequest,
     options?: Configuration
   ): Promise<void> {
-    const requestContextPromise = this.requestFactory.deleteApiHandle(
+    const requestContextPromise = this.requestFactory.deleteTenantBasedHandle(
       param.handleId,
       options
     );
@@ -891,49 +798,9 @@ export class MicrosoftTeamsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.deleteApiHandle(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Get the tenant, team, and channel information of a handle from the Datadog Microsoft Teams integration.
-   * @param param The request object
-   */
-  public getApiHandle(
-    param: MicrosoftTeamsIntegrationApiGetApiHandleRequest,
-    options?: Configuration
-  ): Promise<MicrosoftTeamsApiHandleInfoResponse> {
-    const requestContextPromise = this.requestFactory.getApiHandle(
-      param.handleId,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getApiHandle(responseContext);
-        });
-    });
-  }
-
-  /**
-   * Get the tenant, team, and channel information of a handle by name from the Datadog Microsoft Teams integration.
-   * @param param The request object
-   */
-  public getApiHandleByName(
-    param: MicrosoftTeamsIntegrationApiGetApiHandleByNameRequest,
-    options?: Configuration
-  ): Promise<MicrosoftTeamsApiHandleInfoResponse> {
-    const requestContextPromise = this.requestFactory.getApiHandleByName(
-      param.handleName,
-      options
-    );
-    return requestContextPromise.then((requestContext) => {
-      return this.configuration.httpApi
-        .send(requestContext)
-        .then((responseContext) => {
-          return this.responseProcessor.getApiHandleByName(responseContext);
+          return this.responseProcessor.deleteTenantBasedHandle(
+            responseContext
+          );
         });
     });
   }
@@ -962,35 +829,57 @@ export class MicrosoftTeamsIntegrationApi {
   }
 
   /**
-   * Get a list of all handles from the Datadog Microsoft Teams integration.
+   * Get the tenant, team, and channel information of a tenant-based handle from the Datadog Microsoft Teams integration.
    * @param param The request object
    */
-  public listApiHandles(
-    param: MicrosoftTeamsIntegrationApiListApiHandlesRequest = {},
+  public getTenantBasedHandle(
+    param: MicrosoftTeamsIntegrationApiGetTenantBasedHandleRequest,
     options?: Configuration
-  ): Promise<MicrosoftTeamsApiHandlesResponse> {
-    const requestContextPromise = this.requestFactory.listApiHandles(
-      param.tenantId,
+  ): Promise<MicrosoftTeamsTenantBasedHandleResponse> {
+    const requestContextPromise = this.requestFactory.getTenantBasedHandle(
+      param.handleId,
       options
     );
     return requestContextPromise.then((requestContext) => {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.listApiHandles(responseContext);
+          return this.responseProcessor.getTenantBasedHandle(responseContext);
         });
     });
   }
 
   /**
-   * Update a handle from the Datadog Microsoft Teams integration.
+   * Get a list of all tenant-based handles from the Datadog Microsoft Teams integration.
    * @param param The request object
    */
-  public updateApiHandle(
-    param: MicrosoftTeamsIntegrationApiUpdateApiHandleRequest,
+  public listTenantBasedHandles(
+    param: MicrosoftTeamsIntegrationApiListTenantBasedHandlesRequest = {},
     options?: Configuration
-  ): Promise<MicrosoftTeamsApiHandleInfoResponse> {
-    const requestContextPromise = this.requestFactory.updateApiHandle(
+  ): Promise<MicrosoftTeamsTenantBasedHandlesResponse> {
+    const requestContextPromise = this.requestFactory.listTenantBasedHandles(
+      param.tenantId,
+      param.name,
+      options
+    );
+    return requestContextPromise.then((requestContext) => {
+      return this.configuration.httpApi
+        .send(requestContext)
+        .then((responseContext) => {
+          return this.responseProcessor.listTenantBasedHandles(responseContext);
+        });
+    });
+  }
+
+  /**
+   * Update a tenant-based handle from the Datadog Microsoft Teams integration.
+   * @param param The request object
+   */
+  public updateTenantBasedHandle(
+    param: MicrosoftTeamsIntegrationApiUpdateTenantBasedHandleRequest,
+    options?: Configuration
+  ): Promise<MicrosoftTeamsTenantBasedHandleResponse> {
+    const requestContextPromise = this.requestFactory.updateTenantBasedHandle(
       param.handleId,
       param.body,
       options
@@ -999,7 +888,9 @@ export class MicrosoftTeamsIntegrationApi {
       return this.configuration.httpApi
         .send(requestContext)
         .then((responseContext) => {
-          return this.responseProcessor.updateApiHandle(responseContext);
+          return this.responseProcessor.updateTenantBasedHandle(
+            responseContext
+          );
         });
     });
   }
