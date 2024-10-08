@@ -54,6 +54,10 @@ export class GCPAccount {
    */
   "isCspmEnabled"?: boolean;
   /**
+   * When enabled, Datadog scans for all resource change data in your Google Cloud environment.
+   */
+  "isResourceChangeCollectionEnabled"?: boolean;
+  /**
    * When enabled, Datadog will attempt to collect Security Command Center Findings. Note: This requires additional permissions on the service account.
    */
   "isSecurityCommandCenterEnabled"?: boolean;
@@ -136,6 +140,10 @@ export class GCPAccount {
     },
     isCspmEnabled: {
       baseName: "is_cspm_enabled",
+      type: "boolean",
+    },
+    isResourceChangeCollectionEnabled: {
+      baseName: "is_resource_change_collection_enabled",
       type: "boolean",
     },
     isSecurityCommandCenterEnabled: {
