@@ -1078,6 +1078,7 @@ export { FindingMuteReason } from "./models/FindingMuteReason";
 export { FindingRule } from "./models/FindingRule";
 export { FindingStatus } from "./models/FindingStatus";
 export { FindingType } from "./models/FindingType";
+export { FindingVulnerabilityType } from "./models/FindingVulnerabilityType";
 export { FormulaLimit } from "./models/FormulaLimit";
 export { FullAPIKey } from "./models/FullAPIKey";
 export { FullAPIKeyAttributes } from "./models/FullAPIKeyAttributes";

@@ -22,6 +22,7 @@ import { BulkMuteFindingsResponse } from "../models/BulkMuteFindingsResponse";
 import { Finding } from "../models/Finding";
 import { FindingEvaluation } from "../models/FindingEvaluation";
 import { FindingStatus } from "../models/FindingStatus";
+import { FindingVulnerabilityType } from "../models/FindingVulnerabilityType";
 import { GetFindingResponse } from "../models/GetFindingResponse";
 import { JSONAPIErrorResponse } from "../models/JSONAPIErrorResponse";
 import { ListFindingsResponse } from "../models/ListFindingsResponse";
@@ -767,6 +768,7 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
     filterDiscoveryTimestamp?: string,
     filterEvaluation?: FindingEvaluation,
     filterStatus?: FindingStatus,
+    filterVulnerabilityType?: Array<FindingVulnerabilityType>,
     _options?: Configuration
   ): Promise<RequestContext> {
     const _config = _options || this.configuration;
@@ -857,6 +859,16 @@ export class SecurityMonitoringApiRequestFactory extends BaseAPIRequestFactory {
       requestContext.setQueryParam(
         "filter[status]",
         ObjectSerializer.serialize(filterStatus, "FindingStatus", "")
+      );
+    }
+    if (filterVulnerabilityType !== undefined) {
+      requestContext.setQueryParam(
+        "filter[vulnerability_type]",
+        ObjectSerializer.serialize(
+          filterVulnerabilityType,
+          "Array<FindingVulnerabilityType>",
+          ""
+        )
       );
     }
 
@@ -3456,6 +3468,11 @@ export interface SecurityMonitoringApiListFindingsRequest {
    * @type FindingStatus
    */
   filterStatus?: FindingStatus;
+  /**
+   * Return findings that match the selected vulnerability types (repeatable).
+   * @type Array<FindingVulnerabilityType>
+   */
+  filterVulnerabilityType?: Array<FindingVulnerabilityType>;
 }
 
 export interface SecurityMonitoringApiListSecurityMonitoringRulesRequest {
@@ -4033,6 +4050,7 @@ export class SecurityMonitoringApi {
       param.filterDiscoveryTimestamp,
       param.filterEvaluation,
       param.filterStatus,
+      param.filterVulnerabilityType,
       options
     );
     return requestContextPromise.then((requestContext) => {
@@ -4070,6 +4088,7 @@ export class SecurityMonitoringApi {
         param.filterDiscoveryTimestamp,
         param.filterEvaluation,
         param.filterStatus,
+        param.filterVulnerabilityType,
         options
       );
       const responseContext = await this.configuration.httpApi.send(

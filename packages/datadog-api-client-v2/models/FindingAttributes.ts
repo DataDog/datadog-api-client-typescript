@@ -7,6 +7,7 @@ import { FindingEvaluation } from "./FindingEvaluation";
 import { FindingMute } from "./FindingMute";
 import { FindingRule } from "./FindingRule";
 import { FindingStatus } from "./FindingStatus";
+import { FindingVulnerabilityType } from "./FindingVulnerabilityType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -50,6 +51,10 @@ export class FindingAttributes {
    * The tags associated with this finding.
    */
   "tags"?: Array<string>;
+  /**
+   * The vulnerability type of the finding.
+   */
+  "vulnerabilityType"?: FindingVulnerabilityType;
 
   /**
    * A container for additional, undeclared properties.
@@ -104,6 +109,10 @@ export class FindingAttributes {
     tags: {
       baseName: "tags",
       type: "Array<string>",
+    },
+    vulnerabilityType: {
+      baseName: "vulnerability_type",
+      type: "FindingVulnerabilityType",
     },
     additionalProperties: {
       baseName: "additionalProperties",

@@ -4758,6 +4758,10 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "FindingStatus",
             "format": "",
             },
+        "filterVulnerabilityType": {
+            "type": "Array<FindingVulnerabilityType>",
+            "format": "",
+            },
         "operationResponseType": "ListFindingsResponse",
     },
     "v2.MuteFindings": {
