@@ -19,7 +19,6 @@ const params: v1.MonitorsApiValidateMonitorRequest = {
       enableLogsSample: true,
       escalationMessage: "the situation has escalated",
       evaluationDelay: 700,
-      groupbySimpleMonitor: true,
       includeTags: true,
       locked: false,
       newHostDelay: 600,
