@@ -20,7 +20,6 @@ const params: v1.MonitorsApiValidateMonitorRequest = {
       escalationMessage: "the situation has escalated",
       evaluationDelay: 700,
       groupRetentionDuration: "2d",
-      groupbySimpleMonitor: false,
       includeTags: true,
       locked: false,
       newHostDelay: 600,
