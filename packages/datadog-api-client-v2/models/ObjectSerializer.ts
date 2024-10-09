@@ -1474,6 +1474,12 @@ const enumsMap: { [key: string]: any[] } = {
   ],
   FindingStatus: ["critical", "high", "medium", "low", "info"],
   FindingType: ["finding"],
+  FindingVulnerabilityType: [
+    "misconfiguration",
+    "attack_path",
+    "identity_risk",
+    "api_security",
+  ],
   GCPSTSDelegateAccountType: ["gcp_sts_delegate"],
   GCPServiceAccountType: ["gcp_service_account"],
   GetTeamMembershipsSort: [
