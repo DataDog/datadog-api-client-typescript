@@ -2116,7 +2116,7 @@ export class MetricsApi {
   }
 
   /**
-   * View indexed tag key-value pairs for a given metric name.
+   * View indexed tag key-value pairs for a given metric name over the previous hour.
    * @param param The request object
    */
   public listTagsByMetricName(
