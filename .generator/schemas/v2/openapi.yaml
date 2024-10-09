@@ -3951,6 +3951,168 @@ components:
           format: int64
           type: integer
       type: object
+    ChangeEvent:
+      description: Object representing a change event.
+      properties:
+        aggregation_key:
+          description: 'An arbitrary string to use for aggregation. Limited to 100
+            characters.
+
+            If you specify a key, all events using that key are grouped together in
+            the Event Stream.'
+          maxLength: 100
+          type: string
+        attributes:
+          $ref: '#/components/schemas/ChangeEventCustomAttributes'
+        category:
+          $ref: '#/components/schemas/ChangeEventCategory'
+        message:
+          description: The body of the event. Limited to 4000 characters. The text
+            supports markdown.
+          example: payment_processed feature flag has been enabled
+          maxLength: 4000
+          type: string
+        tags:
+          description: A list of tags to apply to the event.
+          example:
+          - environment:test
+          items:
+            description: A tag.
+            type: string
+          type: array
+        timestamp:
+          description: 'Timestamp in which the event occurred. Must follow [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html)
+            format.
+
+            Defaults to now. Limited to events no older than 18 hours.'
+          example: '2017-01-15T01:30:15.010000Z'
+          type: string
+        title:
+          description: The event title. Limited to 500 characters.
+          example: payment_processed feature flag updated
+          maxLength: 500
+          type: string
+      required:
+      - title
+      - category
+      - attributes
+      type: object
+    ChangeEventCategory:
+      description: Event category to identify the type of event. Currently only `change`
+        value is supported.
+      enum:
+      - change
+      example: change
+      type: string
+      x-enum-varnames:
+      - CHANGE
+    ChangeEventCreateRequest:
+      description: The definition of `ChangeEventCreateRequest` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ChangeEvent'
+        type:
+          $ref: '#/components/schemas/ChangeEventCreateRequestType'
+      type: object
+    ChangeEventCreateRequestType:
+      description: Event type
+      enum:
+      - event
+      type: string
+      x-enum-varnames:
+      - EVENT
+    ChangeEventCreateResponse:
+      description: Object containing an event response.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ChangeEventCreateResponseAttributes'
+        type:
+          description: Event type
+          type: string
+      type: object
+    ChangeEventCreateResponseAttributes:
+      description: The definition of `ChangeEventCreateResponseAttributes` object.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/ChangeEventCreateResponseAttributesAttributes'
+      type: object
+    ChangeEventCreateResponseAttributesAttributes:
+      description: The definition of `ChangeEventCreateResponseAttributesAttributes`
+        object.
+      properties:
+        evt:
+          $ref: '#/components/schemas/ChangeEventCreateResponseAttributesAttributesEvt'
+      type: object
+    ChangeEventCreateResponseAttributesAttributesEvt:
+      description: The definition of `ChangeEventCreateResponseAttributesAttributesEvt`
+        object.
+      properties:
+        id:
+          description: Event id
+          type: string
+      type: object
+    ChangeEventCustomAttributes:
+      description: Object representing custom event attributes required for Change
+        events. The overall object
+      properties:
+        author:
+          $ref: '#/components/schemas/ChangeEventCustomAttributesAuthor'
+        changed_resource:
+          $ref: '#/components/schemas/ChangeEventCustomAttributesChangedResource'
+      required:
+      - changed_resource
+      type: object
+    ChangeEventCustomAttributesAuthor:
+      description: 'JSON Object representing the entity which made the change. Currently
+        it only supports
+
+        `user` and `system` author type.'
+      properties:
+        name:
+          description: Author's name. Limited to 128 characters.
+          example: ''
+          maxLength: 128.0
+          type: string
+        type:
+          $ref: '#/components/schemas/ChangeEventCustomAttributesAuthorType'
+      required:
+      - name
+      - type
+      type: object
+    ChangeEventCustomAttributesAuthorType:
+      description: Author's type.
+      enum:
+      - user
+      - system
+      example: user
+      type: string
+      x-enum-varnames:
+      - USER
+      - SYSTEM
+    ChangeEventCustomAttributesChangedResource:
+      description: 'Required JSON Object representing a resource. A resource is defined
+        by `type` and `name`. Currently it only
+
+        supports `feature_flag` resource type.'
+      properties:
+        name:
+          $ref: '#/components/schemas/ChangeEventCustomAttributesChangedResourceName'
+        type:
+          description: Resource's name.
+          example: ''
+          type: string
+      required:
+      - type
+      - name
+      type: object
+    ChangeEventCustomAttributesChangedResourceName:
+      description: Resource's type.
+      enum:
+      - feature_flag
+      example: feature_flag
+      type: string
+      x-enum-varnames:
+      - FEATURE_FLAG
     ChargebackBreakdown:
       description: Charges breakdown.
       properties:
@@ -29648,6 +29810,34 @@ paths:
         operator: OR
         permissions:
         - events_read
+    post:
+      description: 'This endpoint allows you to post events. Currently it only supports
+        "change" category events.
+
+        Tag them, set priority and event aggregate them with other events.'
+      operationId: CreateEvent
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeEventCreateRequest'
+        description: Event request object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChangeEventCreateResponse'
+          description: OK
+        '429':
+          $ref: '#/components/responses/TooManyRequestsResponse'
+      security:
+      - apiKeyAuth: []
+      summary: Post a change event
+      tags:
+      - Events
+      x-codegen-request-body-name: body
   /api/v2/events/search:
     post:
       description: 'List endpoint returns events that match an events search query.

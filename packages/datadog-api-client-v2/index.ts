@@ -144,6 +144,7 @@ export {
 } from "./apis/DowntimesApi";
 
 export {
+  EventsApiCreateEventRequest,
   EventsApiListEventsRequest,
   EventsApiSearchEventsRequest,
   EventsApi,
@@ -681,6 +682,19 @@ export { CaseUpdatePriorityRequest } from "./models/CaseUpdatePriorityRequest";
 export { CaseUpdateStatus } from "./models/CaseUpdateStatus";
 export { CaseUpdateStatusAttributes } from "./models/CaseUpdateStatusAttributes";
 export { CaseUpdateStatusRequest } from "./models/CaseUpdateStatusRequest";
+export { ChangeEvent } from "./models/ChangeEvent";
+export { ChangeEventCategory } from "./models/ChangeEventCategory";
+export { ChangeEventCreateRequest } from "./models/ChangeEventCreateRequest";
+export { ChangeEventCreateRequestType } from "./models/ChangeEventCreateRequestType";
+export { ChangeEventCreateResponse } from "./models/ChangeEventCreateResponse";
+export { ChangeEventCreateResponseAttributes } from "./models/ChangeEventCreateResponseAttributes";
+export { ChangeEventCreateResponseAttributesAttributes } from "./models/ChangeEventCreateResponseAttributesAttributes";
+export { ChangeEventCreateResponseAttributesAttributesEvt } from "./models/ChangeEventCreateResponseAttributesAttributesEvt";
+export { ChangeEventCustomAttributes } from "./models/ChangeEventCustomAttributes";
+export { ChangeEventCustomAttributesAuthor } from "./models/ChangeEventCustomAttributesAuthor";
+export { ChangeEventCustomAttributesAuthorType } from "./models/ChangeEventCustomAttributesAuthorType";
+export { ChangeEventCustomAttributesChangedResource } from "./models/ChangeEventCustomAttributesChangedResource";
+export { ChangeEventCustomAttributesChangedResourceName } from "./models/ChangeEventCustomAttributesChangedResourceName";
 export { ChargebackBreakdown } from "./models/ChargebackBreakdown";
 export { CIAppAggregateBucketValue } from "./models/CIAppAggregateBucketValue";
 export { CIAppAggregateBucketValueTimeseriesPoint } from "./models/CIAppAggregateBucketValueTimeseriesPoint";
