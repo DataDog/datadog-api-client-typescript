@@ -183,6 +183,10 @@ export class MonthlyUsageAttributionValues {
    */
   "dataJobsMonitoringUsage"?: number;
   /**
+   * The Data Stream Monitoring usage by tag(s).
+   */
+  "dataStreamMonitoringUsage"?: number;
+  /**
    * The percentage of Database Monitoring host usage by tag(s).
    */
   "dbmHostsPercentage"?: number;
@@ -795,6 +799,11 @@ export class MonthlyUsageAttributionValues {
     },
     dataJobsMonitoringUsage: {
       baseName: "data_jobs_monitoring_usage",
+      type: "number",
+      format: "double",
+    },
+    dataStreamMonitoringUsage: {
+      baseName: "data_stream_monitoring_usage",
       type: "number",
       format: "double",
     },
