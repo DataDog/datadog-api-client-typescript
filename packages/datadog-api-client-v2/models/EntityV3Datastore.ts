@@ -13,15 +13,15 @@ import { EntityV3Metadata } from "./EntityV3Metadata";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Schema for datastore entities
+ * Schema for datastore entities.
  */
 export class EntityV3Datastore {
   /**
-   * The schema version of entity type. The field is known as schema-version in the previous version
+   * The schema version of entity type. The field is known as schema-version in the previous version.
    */
   "apiVersion": EntityV3APIVersion;
   /**
-   * Datadog product integrations for the datastore entity
+   * Datadog product integrations for the datastore entity.
    */
   "datadog"?: EntityV3DatastoreDatadog;
   /**
@@ -29,7 +29,7 @@ export class EntityV3Datastore {
    */
   "extensions"?: { [key: string]: any };
   /**
-   * A base schema for defining third party integrations
+   * A base schema for defining third-party integrations.
    */
   "integrations"?: EntityV3Integrations;
   /**

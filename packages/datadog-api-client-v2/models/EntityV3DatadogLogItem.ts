@@ -7,15 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * log association item.
+ * Log association item.
  */
 export class EntityV3DatadogLogItem {
   /**
-   * The name of the query
+   * The name of the query.
    */
   "name"?: string;
   /**
-   * The query to run
+   * The query to run.
    */
   "query"?: string;
 

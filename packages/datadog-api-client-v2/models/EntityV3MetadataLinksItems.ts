@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EntityV3MetadataLinksItems {
   /**
-   * Link name
+   * Link name.
    */
   "name": string;
   /**
@@ -23,7 +23,7 @@ export class EntityV3MetadataLinksItems {
    */
   "type": string;
   /**
-   * Link url
+   * Link URL.
    */
   "url": string;
 

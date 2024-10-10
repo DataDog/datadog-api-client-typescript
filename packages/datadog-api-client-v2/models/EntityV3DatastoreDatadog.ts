@@ -10,19 +10,19 @@ import { EntityV3DatadogPerformance } from "./EntityV3DatadogPerformance";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Datadog product integrations for the datastore entity
+ * Datadog product integrations for the datastore entity.
  */
 export class EntityV3DatastoreDatadog {
   /**
-   * Events associations
+   * Events associations.
    */
   "events"?: Array<EntityV3DatadogEventItem>;
   /**
-   * Logs association
+   * Logs association.
    */
   "logs"?: Array<EntityV3DatadogLogItem>;
   /**
-   * Performance stats association
+   * Performance stats association.
    */
   "performanceData"?: EntityV3DatadogPerformance;
 

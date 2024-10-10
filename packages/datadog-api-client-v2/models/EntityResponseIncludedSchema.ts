@@ -16,7 +16,7 @@ export class EntityResponseIncludedSchema {
    */
   "attributes"?: EntityResponseIncludedSchemaAttributes;
   /**
-   * Entity id.
+   * Entity ID.
    */
   "id"?: string;
   /**

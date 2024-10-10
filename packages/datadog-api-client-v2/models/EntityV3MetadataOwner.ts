@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * The owner of the entity, usually a team
+ * The owner of the entity, usually a team.
  */
 export class EntityV3MetadataOwner {
   /**
-   * Team name
+   * Team name.
    */
   "name"?: string;
 

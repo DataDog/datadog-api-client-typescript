@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Performance stats association
+ * Performance stats association.
  */
 export class EntityV3DatadogPerformance {
   /**
-   * A list of APM entity tags that associates the APM Stats data with the entity
+   * A list of APM entity tags that associates the APM Stats data with the entity.
    */
   "tags"?: Array<string>;
 

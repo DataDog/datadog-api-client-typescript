@@ -15,11 +15,11 @@ export class EntityV3QueueSpec {
    */
   "lifecycle"?: string;
   /**
-   * The importance of the queue
+   * The importance of the queue.
    */
   "tier"?: string;
   /**
-   * The type of queue
+   * The type of queue.
    */
   "type"?: string;
 

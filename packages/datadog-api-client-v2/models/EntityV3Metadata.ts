@@ -15,19 +15,19 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EntityV3Metadata {
   /**
-   * The additional owners of the entity, usually a team
+   * The additional owners of the entity, usually a team.
    */
   "additionalOwners"?: Array<EntityV3MetadataAdditionalOwnersItems>;
   /**
-   * A list of contacts for the entity
+   * A list of contacts for the entity.
    */
   "contacts"?: Array<EntityV3MetadataContactsItems>;
   /**
-   * Short description of the entity. The UI can leverage the description for display
+   * Short description of the entity. The UI can leverage the description for display.
    */
   "description"?: string;
   /**
-   * User friendly name of the entity. The UI can leverage the display name for display
+   * User friendly name of the entity. The UI can leverage the display name for display.
    */
   "displayName"?: string;
   /**
@@ -39,7 +39,7 @@ export class EntityV3Metadata {
    */
   "inheritFrom"?: string;
   /**
-   * A list of links for the entity
+   * A list of links for the entity.
    */
   "links"?: Array<EntityV3MetadataLinksItems>;
   /**
@@ -47,19 +47,19 @@ export class EntityV3Metadata {
    */
   "managed"?: { [key: string]: any };
   /**
-   * Unique name given to an entity under the kind/namespace
+   * Unique name given to an entity under the kind/namespace.
    */
   "name": string;
   /**
-   * Namespace is a part of unique identifier. It has a default value of 'default'
+   * Namespace is a part of unique identifier. It has a default value of 'default'.
    */
   "namespace"?: string;
   /**
-   * The owner of the entity, usually a team
+   * The owner of the entity, usually a team.
    */
   "owner"?: EntityV3MetadataOwner;
   /**
-   * A set of custom tags
+   * A set of custom tags.
    */
   "tags"?: Array<string>;
 

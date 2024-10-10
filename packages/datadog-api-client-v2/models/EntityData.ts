@@ -18,7 +18,7 @@ export class EntityData {
    */
   "attributes"?: EntityAttributes;
   /**
-   * Entity id.
+   * Entity ID.
    */
   "id"?: string;
   /**

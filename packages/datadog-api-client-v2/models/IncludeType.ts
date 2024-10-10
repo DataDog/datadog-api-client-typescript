@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * supported include types.
+ * Supported include types.
  */
 
 export type IncludeType =

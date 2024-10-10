@@ -11,11 +11,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EntityV3MetadataContactsItems {
   /**
-   * Contact value
+   * Contact value.
    */
   "contact": string;
   /**
-   * Contact name
+   * Contact name.
    */
   "name"?: string;
   /**

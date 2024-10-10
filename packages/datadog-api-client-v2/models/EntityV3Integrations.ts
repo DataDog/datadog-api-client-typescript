@@ -9,15 +9,15 @@ import { EntityV3DatadogIntegrationPagerduty } from "./EntityV3DatadogIntegratio
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * A base schema for defining third party integrations
+ * A base schema for defining third-party integrations.
  */
 export class EntityV3Integrations {
   /**
-   * An Opsgenie integration schema
+   * An Opsgenie integration schema.
    */
   "opsgenie"?: EntityV3DatadogIntegrationOpsgenie;
   /**
-   * An PagerDuty integration schema
+   * A PagerDuty integration schema.
    */
   "pagerduty"?: EntityV3DatadogIntegrationPagerduty;
 

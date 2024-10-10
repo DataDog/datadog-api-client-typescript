@@ -12,27 +12,27 @@ import { EntityV3DatadogPipelines } from "./EntityV3DatadogPipelines";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Datadog product integrations for the service entity
+ * Datadog product integrations for the service entity.
  */
 export class EntityV3ServiceDatadog {
   /**
-   * Schema for mapping source code locations to an entity
+   * Schema for mapping source code locations to an entity.
    */
   "codeLocations"?: Array<EntityV3DatadogCodeLocationItem>;
   /**
-   * Events associations
+   * Events associations.
    */
   "events"?: Array<EntityV3DatadogEventItem>;
   /**
-   * Logs association
+   * Logs association.
    */
   "logs"?: Array<EntityV3DatadogLogItem>;
   /**
-   * Performance stats association
+   * Performance stats association.
    */
   "performanceData"?: EntityV3DatadogPerformance;
   /**
-   * CI Pipelines association
+   * CI Pipelines association.
    */
   "pipelines"?: EntityV3DatadogPipelines;
 

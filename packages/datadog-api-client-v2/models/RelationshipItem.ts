@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class RelationshipItem {
   /**
-   * Associated data id.
+   * Associated data ID.
    */
   "id"?: string;
   /**

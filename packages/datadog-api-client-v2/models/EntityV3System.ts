@@ -13,23 +13,23 @@ import { EntityV3SystemSpec } from "./EntityV3SystemSpec";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Schema for system entities
+ * Schema for system entities.
  */
 export class EntityV3System {
   /**
-   * The schema version of entity type. The field is known as schema-version in the previous version
+   * The schema version of entity type. The field is known as schema-version in the previous version.
    */
   "apiVersion": EntityV3APIVersion;
   /**
-   * Datadog product integrations for the service entity
+   * Datadog product integrations for the service entity.
    */
   "datadog"?: EntityV3SystemDatadog;
   /**
-   * Custom extensions. This is the free-formed field to send client side metadata. No Datadog features are affected by this field.
+   * Custom extensions. This is the free-formed field to send client-side metadata. No Datadog features are affected by this field.
    */
   "extensions"?: { [key: string]: any };
   /**
-   * A base schema for defining third party integrations
+   * A base schema for defining third-party integrations.
    */
   "integrations"?: EntityV3Integrations;
   /**

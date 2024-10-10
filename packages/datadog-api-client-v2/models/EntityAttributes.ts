@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EntityAttributes {
   /**
-   * The api version.
+   * The API version.
    */
   "apiVersion"?: string;
   /**

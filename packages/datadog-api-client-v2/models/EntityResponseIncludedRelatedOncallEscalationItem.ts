@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Oncall escalation
+ * Oncall escalation.
  */
 export class EntityResponseIncludedRelatedOncallEscalationItem {
   /**
