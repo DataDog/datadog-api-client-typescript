@@ -147,6 +147,16 @@ import { CaseUpdateStatusRequest } from "./CaseUpdateStatusRequest";
 import { CasesResponse } from "./CasesResponse";
 import { CasesResponseMeta } from "./CasesResponseMeta";
 import { CasesResponseMetaPagination } from "./CasesResponseMetaPagination";
+import { ChangeEvent } from "./ChangeEvent";
+import { ChangeEventCreateRequest } from "./ChangeEventCreateRequest";
+import { ChangeEventCreateResponse } from "./ChangeEventCreateResponse";
+import { ChangeEventCreateResponseAttributes } from "./ChangeEventCreateResponseAttributes";
+import { ChangeEventCreateResponseAttributesAttributes } from "./ChangeEventCreateResponseAttributesAttributes";
+import { ChangeEventCreateResponseAttributesAttributesEvt } from "./ChangeEventCreateResponseAttributesAttributesEvt";
+import { ChangeEventCustomAttributes } from "./ChangeEventCustomAttributes";
+import { ChangeEventCustomAttributesAuthor } from "./ChangeEventCustomAttributesAuthor";
+import { ChangeEventCustomAttributesChangedResource } from "./ChangeEventCustomAttributesChangedResource";
+import { ChangeEventCustomAttributesImpactedResourcesItems } from "./ChangeEventCustomAttributesImpactedResourcesItems";
 import { ChargebackBreakdown } from "./ChargebackBreakdown";
 import { CloudConfigurationComplianceRuleOptions } from "./CloudConfigurationComplianceRuleOptions";
 import { CloudConfigurationRegoRule } from "./CloudConfigurationRegoRule";
@@ -1378,6 +1388,11 @@ const enumsMap: { [key: string]: any[] } = {
   CaseSortableField: ["created_at", "priority", "status"],
   CaseStatus: ["OPEN", "IN_PROGRESS", "CLOSED"],
   CaseType: ["STANDARD"],
+  ChangeEventCategory: ["change"],
+  ChangeEventCreateRequestType: ["event"],
+  ChangeEventCustomAttributesAuthorType: ["user", "system"],
+  ChangeEventCustomAttributesChangedResourceType: ["feature_flag"],
+  ChangeEventCustomAttributesImpactedResourcesItemsType: ["service"],
   CloudConfigurationRuleType: ["cloud_configuration"],
   CloudCostActivityType: ["cloud_cost_activity"],
   CloudWorkloadSecurityAgentRuleType: ["agent_rule"],
@@ -2053,6 +2068,20 @@ const typeMap: { [index: string]: any } = {
   CasesResponse: CasesResponse,
   CasesResponseMeta: CasesResponseMeta,
   CasesResponseMetaPagination: CasesResponseMetaPagination,
+  ChangeEvent: ChangeEvent,
+  ChangeEventCreateRequest: ChangeEventCreateRequest,
+  ChangeEventCreateResponse: ChangeEventCreateResponse,
+  ChangeEventCreateResponseAttributes: ChangeEventCreateResponseAttributes,
+  ChangeEventCreateResponseAttributesAttributes:
+    ChangeEventCreateResponseAttributesAttributes,
+  ChangeEventCreateResponseAttributesAttributesEvt:
+    ChangeEventCreateResponseAttributesAttributesEvt,
+  ChangeEventCustomAttributes: ChangeEventCustomAttributes,
+  ChangeEventCustomAttributesAuthor: ChangeEventCustomAttributesAuthor,
+  ChangeEventCustomAttributesChangedResource:
+    ChangeEventCustomAttributesChangedResource,
+  ChangeEventCustomAttributesImpactedResourcesItems:
+    ChangeEventCustomAttributesImpactedResourcesItems,
   ChargebackBreakdown: ChargebackBreakdown,
   CloudConfigurationComplianceRuleOptions:
     CloudConfigurationComplianceRuleOptions,
