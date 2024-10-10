@@ -11,11 +11,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EntityV3MetadataAdditionalOwnersItems {
   /**
-   * Team name
+   * Team name.
    */
   "name": string;
   /**
-   * Team type
+   * Team type.
    */
   "type"?: string;
 

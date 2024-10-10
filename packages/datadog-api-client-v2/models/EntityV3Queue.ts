@@ -13,23 +13,23 @@ import { EntityV3QueueSpec } from "./EntityV3QueueSpec";
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Schema for queue entities
+ * Schema for queue entities.
  */
 export class EntityV3Queue {
   /**
-   * The schema version of entity type. The field is known as schema-version in the previous version
+   * The schema version of entity type. The field is known as schema-version in the previous version.
    */
   "apiVersion": EntityV3APIVersion;
   /**
-   * Datadog product integrations for the datastore entity
+   * Datadog product integrations for the datastore entity.
    */
   "datadog"?: EntityV3QueueDatadog;
   /**
-   * Custom extensions. This is the free-formed field to send client side metadata. No Datadog features are affected by this field.
+   * Custom extensions. This is the free-formed field to send client-side metadata. No Datadog features are affected by this field.
    */
   "extensions"?: { [key: string]: any };
   /**
-   * A base schema for defining third party integrations
+   * A base schema for defining third-party integrations.
    */
   "integrations"?: EntityV3Integrations;
   /**

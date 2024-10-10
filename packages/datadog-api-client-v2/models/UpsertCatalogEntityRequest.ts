@@ -8,7 +8,7 @@ import { EntityV3 } from "./EntityV3";
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * Create / Update entity request.
+ * Create or update entity request.
  */
 
 export type UpsertCatalogEntityRequest = EntityV3 | string | UnparsedObject;

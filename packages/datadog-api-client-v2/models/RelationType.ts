@@ -7,7 +7,7 @@
 import { UnparsedObject } from "../../datadog-api-client-common/util";
 
 /**
- * supported relation types
+ * Supported relation types.
  */
 
 export type RelationType =

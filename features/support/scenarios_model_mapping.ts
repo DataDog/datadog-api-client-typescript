@@ -2861,31 +2861,31 @@ export const ScenariosModelMappings: {[key: string]: {[key: string]: any}} = {
             "type": "number",
             "format": "int64",
             },
-        "fitlerId": {
+        "filterId": {
             "type": "string",
             "format": "",
             },
-        "fitlerRef": {
+        "filterRef": {
             "type": "string",
             "format": "",
             },
-        "fitlerName": {
+        "filterName": {
             "type": "string",
             "format": "",
             },
-        "fitlerKind": {
+        "filterKind": {
             "type": "string",
             "format": "",
             },
-        "fitlerOwner": {
+        "filterOwner": {
             "type": "string",
             "format": "",
             },
-        "fitlerRelationType": {
+        "filterRelationType": {
             "type": "RelationType",
             "format": "",
             },
-        "fitlerExcludeSnapshot": {
+        "filterExcludeSnapshot": {
             "type": "string",
             "format": "",
             },

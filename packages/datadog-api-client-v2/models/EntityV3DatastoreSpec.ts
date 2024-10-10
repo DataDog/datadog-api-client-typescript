@@ -15,11 +15,11 @@ export class EntityV3DatastoreSpec {
    */
   "lifecycle"?: string;
   /**
-   * The importance of the datastore
+   * The importance of the datastore.
    */
   "tier"?: string;
   /**
-   * The type of datastore
+   * The type of datastore.
    */
   "type"?: string;
 

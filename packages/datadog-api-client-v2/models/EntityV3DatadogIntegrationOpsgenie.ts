@@ -7,7 +7,7 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * An Opsgenie integration schema
+ * An Opsgenie integration schema.
  */
 export class EntityV3DatadogIntegrationOpsgenie {
   /**
@@ -15,7 +15,7 @@ export class EntityV3DatadogIntegrationOpsgenie {
    */
   "region"?: string;
   /**
-   * The service url for the Opsgenie integration.
+   * The service URL for the Opsgenie integration.
    */
   "serviceUrl": string;
 

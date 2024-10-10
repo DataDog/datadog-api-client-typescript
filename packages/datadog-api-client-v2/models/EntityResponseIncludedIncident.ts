@@ -16,7 +16,7 @@ export class EntityResponseIncludedIncident {
    */
   "attributes"?: EntityResponseIncludedRelatedIncidentAttributes;
   /**
-   * Incident id.
+   * Incident ID.
    */
   "id"?: string;
   /**

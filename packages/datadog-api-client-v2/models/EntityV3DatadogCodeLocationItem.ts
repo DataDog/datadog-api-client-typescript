@@ -7,15 +7,15 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * code location item.
+ * Code location item.
  */
 export class EntityV3DatadogCodeLocationItem {
   /**
-   * The paths (glob) to the source code of the service
+   * The paths (glob) to the source code of the service.
    */
   "paths"?: Array<string>;
   /**
-   * The repository path of the source code of the entity
+   * The repository path of the source code of the entity.
    */
   "repositoryUrl"?: string;
 

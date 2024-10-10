@@ -11,15 +11,15 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class ListEntityCatalogResponseLinks {
   /**
-   * next link.
+   * Next link.
    */
   "next"?: string;
   /**
-   * previous link.
+   * Previous link.
    */
   "previous"?: string;
   /**
-   * current link.
+   * Current link.
    */
   "self"?: string;
 

@@ -11,7 +11,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EntityV3ServiceSpec {
   /**
-   * A list of components the service depends on
+   * A list of components the service depends on.
    */
   "dependsOn"?: Array<string>;
   /**
@@ -23,11 +23,11 @@ export class EntityV3ServiceSpec {
    */
   "lifecycle"?: string;
   /**
-   * The importance of the component
+   * The importance of the component.
    */
   "tier"?: string;
   /**
-   * The type of service
+   * The type of service.
    */
   "type"?: string;
 

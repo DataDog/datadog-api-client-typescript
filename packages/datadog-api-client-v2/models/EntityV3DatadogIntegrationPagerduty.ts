@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * An PagerDuty integration schema
+ * A PagerDuty integration schema.
  */
 export class EntityV3DatadogIntegrationPagerduty {
   /**
-   * The service url for the PagerDuty integration.
+   * The service URL for the PagerDuty integration.
    */
   "serviceUrl": string;
 

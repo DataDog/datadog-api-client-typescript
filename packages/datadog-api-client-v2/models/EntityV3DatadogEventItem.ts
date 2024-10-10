@@ -11,11 +11,11 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class EntityV3DatadogEventItem {
   /**
-   * The name of the query
+   * The name of the query.
    */
   "name"?: string;
   /**
-   * The query to run
+   * The query to run.
    */
   "query"?: string;
 

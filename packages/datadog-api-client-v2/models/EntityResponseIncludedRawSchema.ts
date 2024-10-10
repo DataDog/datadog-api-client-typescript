@@ -16,7 +16,7 @@ export class EntityResponseIncludedRawSchema {
    */
   "attributes"?: EntityResponseIncludedRawSchemaAttributes;
   /**
-   * Raw schema id.
+   * Raw schema ID.
    */
   "id"?: string;
   /**

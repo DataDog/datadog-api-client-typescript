@@ -62,13 +62,13 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
   public async listCatalogEntity(
     pageOffset?: number,
     pageLimit?: number,
-    fitlerId?: string,
-    fitlerRef?: string,
-    fitlerName?: string,
-    fitlerKind?: string,
-    fitlerOwner?: string,
-    fitlerRelationType?: RelationType,
-    fitlerExcludeSnapshot?: string,
+    filterId?: string,
+    filterRef?: string,
+    filterName?: string,
+    filterKind?: string,
+    filterOwner?: string,
+    filterRelationType?: RelationType,
+    filterExcludeSnapshot?: string,
     include?: IncludeType,
     _options?: Configuration
   ): Promise<RequestContext> {
@@ -97,46 +97,46 @@ export class SoftwareCatalogApiRequestFactory extends BaseAPIRequestFactory {
         ObjectSerializer.serialize(pageLimit, "number", "int64")
       );
     }
-    if (fitlerId !== undefined) {
+    if (filterId !== undefined) {
       requestContext.setQueryParam(
-        "fitler[id]",
-        ObjectSerializer.serialize(fitlerId, "string", "")
+        "filter[id]",
+        ObjectSerializer.serialize(filterId, "string", "")
       );
     }
-    if (fitlerRef !== undefined) {
+    if (filterRef !== undefined) {
       requestContext.setQueryParam(
-        "fitler[ref]",
-        ObjectSerializer.serialize(fitlerRef, "string", "")
+        "filter[ref]",
+        ObjectSerializer.serialize(filterRef, "string", "")
       );
     }
-    if (fitlerName !== undefined) {
+    if (filterName !== undefined) {
       requestContext.setQueryParam(
-        "fitler[name]",
-        ObjectSerializer.serialize(fitlerName, "string", "")
+        "filter[name]",
+        ObjectSerializer.serialize(filterName, "string", "")
       );
     }
-    if (fitlerKind !== undefined) {
+    if (filterKind !== undefined) {
       requestContext.setQueryParam(
-        "fitler[kind]",
-        ObjectSerializer.serialize(fitlerKind, "string", "")
+        "filter[kind]",
+        ObjectSerializer.serialize(filterKind, "string", "")
       );
     }
-    if (fitlerOwner !== undefined) {
+    if (filterOwner !== undefined) {
       requestContext.setQueryParam(
-        "fitler[owner]",
-        ObjectSerializer.serialize(fitlerOwner, "string", "")
+        "filter[owner]",
+        ObjectSerializer.serialize(filterOwner, "string", "")
       );
     }
-    if (fitlerRelationType !== undefined) {
+    if (filterRelationType !== undefined) {
       requestContext.setQueryParam(
-        "fitler[relation][type]",
-        ObjectSerializer.serialize(fitlerRelationType, "RelationType", "")
+        "filter[relation][type]",
+        ObjectSerializer.serialize(filterRelationType, "RelationType", "")
       );
     }
-    if (fitlerExcludeSnapshot !== undefined) {
+    if (filterExcludeSnapshot !== undefined) {
       requestContext.setQueryParam(
-        "fitler[exclude_snapshot]",
-        ObjectSerializer.serialize(fitlerExcludeSnapshot, "string", "")
+        "filter[exclude_snapshot]",
+        ObjectSerializer.serialize(filterExcludeSnapshot, "string", "")
       );
     }
     if (include !== undefined) {
@@ -380,7 +380,7 @@ export class SoftwareCatalogApiResponseProcessor {
 
 export interface SoftwareCatalogApiDeleteCatalogEntityRequest {
   /**
-   * UUID or Entity Ref
+   * UUID or Entity Ref.
    * @type string
    */
   entityId: string;
@@ -398,42 +398,42 @@ export interface SoftwareCatalogApiListCatalogEntityRequest {
    */
   pageLimit?: number;
   /**
-   * Filter entities by UUID
+   * Filter entities by UUID.
    * @type string
    */
-  fitlerId?: string;
+  filterId?: string;
   /**
    * Filter entities by reference
    * @type string
    */
-  fitlerRef?: string;
+  filterRef?: string;
   /**
-   * Filter entities by name
+   * Filter entities by name.
    * @type string
    */
-  fitlerName?: string;
+  filterName?: string;
   /**
-   * Filter entities by kind
+   * Filter entities by kind.
    * @type string
    */
-  fitlerKind?: string;
+  filterKind?: string;
   /**
-   * Filter entities by owner
+   * Filter entities by owner.
    * @type string
    */
-  fitlerOwner?: string;
+  filterOwner?: string;
   /**
-   * Filter entities by relation type
+   * Filter entities by relation type.
    * @type RelationType
    */
-  fitlerRelationType?: RelationType;
+  filterRelationType?: RelationType;
   /**
-   * Filter entities by excluding snapshotted entities
+   * Filter entities by excluding snapshotted entities.
    * @type string
    */
-  fitlerExcludeSnapshot?: string;
+  filterExcludeSnapshot?: string;
   /**
-   * include relationship data
+   * Include relationship data.
    * @type IncludeType
    */
   include?: IncludeType;
@@ -441,7 +441,7 @@ export interface SoftwareCatalogApiListCatalogEntityRequest {
 
 export interface SoftwareCatalogApiUpsertCatalogEntityRequest {
   /**
-   * Entity YAML/JSON.
+   * Entity YAML or JSON.
    * @type UpsertCatalogEntityRequest
    */
   body: UpsertCatalogEntityRequest;
@@ -496,13 +496,13 @@ export class SoftwareCatalogApi {
     const requestContextPromise = this.requestFactory.listCatalogEntity(
       param.pageOffset,
       param.pageLimit,
-      param.fitlerId,
-      param.fitlerRef,
-      param.fitlerName,
-      param.fitlerKind,
-      param.fitlerOwner,
-      param.fitlerRelationType,
-      param.fitlerExcludeSnapshot,
+      param.filterId,
+      param.filterRef,
+      param.filterName,
+      param.filterKind,
+      param.filterOwner,
+      param.filterRelationType,
+      param.filterExcludeSnapshot,
       param.include,
       options
     );
@@ -532,13 +532,13 @@ export class SoftwareCatalogApi {
       const requestContext = await this.requestFactory.listCatalogEntity(
         param.pageOffset,
         param.pageLimit,
-        param.fitlerId,
-        param.fitlerRef,
-        param.fitlerName,
-        param.fitlerKind,
-        param.fitlerOwner,
-        param.fitlerRelationType,
-        param.fitlerExcludeSnapshot,
+        param.filterId,
+        param.filterRef,
+        param.filterName,
+        param.filterKind,
+        param.filterOwner,
+        param.filterRelationType,
+        param.filterExcludeSnapshot,
         param.include,
         options
       );

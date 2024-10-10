@@ -7,11 +7,11 @@
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * CI Pipelines association
+ * CI Pipelines association.
  */
 export class EntityV3DatadogPipelines {
   /**
-   * A list of CI Fingerprints that associate CI Pipelines with the entity
+   * A list of CI Fingerprints that associate CI Pipelines with the entity.
    */
   "fingerprints"?: Array<string>;
 
