@@ -12,7 +12,7 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  */
 export class SyntheticsCITestBody {
   /**
-   * Individual synthetics test.
+   * List of individual synthetic tests.
    */
   "tests"?: Array<SyntheticsCITest>;
 
