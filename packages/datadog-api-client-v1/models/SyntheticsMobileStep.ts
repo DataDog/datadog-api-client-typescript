@@ -3,6 +3,7 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsMobileStepParams } from "./SyntheticsMobileStepParams";
 import { SyntheticsMobileStepType } from "./SyntheticsMobileStepType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
@@ -32,9 +33,9 @@ export class SyntheticsMobileStep {
    */
   "noScreenshot"?: boolean;
   /**
-   * The parameters of the mobile step.
+   * The parameters of a mobile step.
    */
-  "params"?: any;
+  "params"?: SyntheticsMobileStepParams;
   /**
    * The public ID of the step.
    */
@@ -86,7 +87,7 @@ export class SyntheticsMobileStep {
     },
     params: {
       baseName: "params",
-      type: "any",
+      type: "SyntheticsMobileStepParams",
     },
     publicId: {
       baseName: "publicId",

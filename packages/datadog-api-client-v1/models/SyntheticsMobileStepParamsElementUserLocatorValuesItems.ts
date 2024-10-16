@@ -3,22 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsMobileTestBindingRelation } from "./SyntheticsMobileTestBindingRelation";
+import { SyntheticsMobileStepParamsElementUserLocatorValuesItemsType } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItemsType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Objects describing the binding used for a mobile test.
+ * The definition of `SyntheticsMobileStepParamsElementUserLocatorValuesItems` object.
  */
-export class SyntheticsMobileTestBinding {
+export class SyntheticsMobileStepParamsElementUserLocatorValuesItems {
   /**
-   * List of principals for a mobile test binding.
+   * The definition of `SyntheticsMobileStepParamsElementUserLocatorValuesItemsType` object.
    */
-  "principals"?: Array<string>;
+  "type"?: SyntheticsMobileStepParamsElementUserLocatorValuesItemsType;
   /**
-   * The definition of `SyntheticsMobileTestBindingRelation` object.
+   * The `SyntheticsMobileStepParamsElementUserLocatorValuesItems` `value`.
    */
-  "relation"?: SyntheticsMobileTestBindingRelation;
+  "value"?: string;
 
   /**
    * A container for additional, undeclared properties.
@@ -36,13 +36,13 @@ export class SyntheticsMobileTestBinding {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    principals: {
-      baseName: "principals",
-      type: "Array<string>",
+    type: {
+      baseName: "type",
+      type: "SyntheticsMobileStepParamsElementUserLocatorValuesItemsType",
     },
-    relation: {
-      baseName: "relation",
-      type: "SyntheticsMobileTestBindingRelation",
+    value: {
+      baseName: "value",
+      type: "string",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -54,7 +54,7 @@ export class SyntheticsMobileTestBinding {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestBinding.attributeTypeMap;
+    return SyntheticsMobileStepParamsElementUserLocatorValuesItems.attributeTypeMap;
   }
 
   public constructor() {}
