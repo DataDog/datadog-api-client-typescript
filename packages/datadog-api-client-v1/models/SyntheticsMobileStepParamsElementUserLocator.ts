@@ -3,17 +3,22 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
+import { SyntheticsMobileStepParamsElementUserLocatorValuesItems } from "./SyntheticsMobileStepParamsElementUserLocatorValuesItems";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * Name of the property.
+ * The definition of `SyntheticsMobileStepParamsElementUserLocator` object.
  */
-export class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
+export class SyntheticsMobileStepParamsElementUserLocator {
   /**
-   * The `propertyNames` `pattern`.
+   * The `userLocator` `failTestOnCannotLocate`.
    */
-  "pattern"?: string;
+  "failTestOnCannotLocate"?: boolean;
+  /**
+   * The `userLocator` `values`.
+   */
+  "values"?: Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>;
 
   /**
    * A container for additional, undeclared properties.
@@ -31,9 +36,13 @@ export class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    pattern: {
-      baseName: "pattern",
-      type: "string",
+    failTestOnCannotLocate: {
+      baseName: "failTestOnCannotLocate",
+      type: "boolean",
+    },
+    values: {
+      baseName: "values",
+      type: "Array<SyntheticsMobileStepParamsElementUserLocatorValuesItems>",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -45,7 +54,7 @@ export class SyntheticsMobileTestInitialApplicationArgumentsPropertyNames {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestInitialApplicationArgumentsPropertyNames.attributeTypeMap;
+    return SyntheticsMobileStepParamsElementUserLocator.attributeTypeMap;
   }
 
   public constructor() {}

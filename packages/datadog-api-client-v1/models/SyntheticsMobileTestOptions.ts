@@ -4,9 +4,9 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsMobileTestBinding } from "./SyntheticsMobileTestBinding";
-import { SyntheticsMobileTestCiOptions } from "./SyntheticsMobileTestCiOptions";
 import { SyntheticsMobileTestOptionsMonitorOptions } from "./SyntheticsMobileTestOptionsMonitorOptions";
 import { SyntheticsMobileTestsMobileApplication } from "./SyntheticsMobileTestsMobileApplication";
+import { SyntheticsTestCiOptions } from "./SyntheticsTestCiOptions";
 import { SyntheticsTestOptionsRetry } from "./SyntheticsTestOptionsRetry";
 import { SyntheticsTestOptionsScheduling } from "./SyntheticsTestOptionsScheduling";
 
@@ -27,7 +27,7 @@ export class SyntheticsMobileTestOptions {
   /**
    * CI/CD options for a Synthetic test.
    */
-  "ci"?: SyntheticsMobileTestCiOptions;
+  "ci"?: SyntheticsTestCiOptions;
   /**
    * The `SyntheticsMobileTestOptions` `defaultStepTimeout`.
    */
@@ -112,7 +112,7 @@ export class SyntheticsMobileTestOptions {
     },
     ci: {
       baseName: "ci",
-      type: "SyntheticsMobileTestCiOptions",
+      type: "SyntheticsTestCiOptions",
     },
     defaultStepTimeout: {
       baseName: "defaultStepTimeout",

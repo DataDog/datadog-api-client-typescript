@@ -4,7 +4,6 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsConfigVariable } from "./SyntheticsConfigVariable";
-import { SyntheticsMobileTestInitialApplicationArguments } from "./SyntheticsMobileTestInitialApplicationArguments";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
@@ -15,7 +14,7 @@ export class SyntheticsMobileTestConfig {
   /**
    * Initial application arguments for a mobile test.
    */
-  "initialApplicationArguments"?: SyntheticsMobileTestInitialApplicationArguments;
+  "initialApplicationArguments"?: { [key: string]: string };
   /**
    * Array of variables used for the test steps.
    */
@@ -39,7 +38,7 @@ export class SyntheticsMobileTestConfig {
   static readonly attributeTypeMap: AttributeTypeMap = {
     initialApplicationArguments: {
       baseName: "initialApplicationArguments",
-      type: "SyntheticsMobileTestInitialApplicationArguments",
+      type: "{ [key: string]: string; }",
     },
     variables: {
       baseName: "variables",

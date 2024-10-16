@@ -3,18 +3,18 @@
  * This product includes software developed at Datadog (https://www.datadoghq.com/).
  * Copyright 2020-Present Datadog, Inc.
  */
-import { SyntheticsTestExecutionRule } from "./SyntheticsTestExecutionRule";
+import { SyntheticsCheckType } from "./SyntheticsCheckType";
 
 import { AttributeTypeMap } from "../../datadog-api-client-common/util";
 
 /**
- * CI/CD options for a Synthetic test.
+ * The definition of `SyntheticsMobileStepParamsCheck` object.
  */
-export class SyntheticsMobileTestCiOptions {
+export class SyntheticsMobileStepParamsCheck {
   /**
-   * Execution rule for a Synthetic test.
+   * Type of assertion to apply in an API test.
    */
-  "executionRule": SyntheticsTestExecutionRule;
+  "type"?: SyntheticsCheckType;
 
   /**
    * A container for additional, undeclared properties.
@@ -32,10 +32,9 @@ export class SyntheticsMobileTestCiOptions {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
-    executionRule: {
-      baseName: "executionRule",
-      type: "SyntheticsTestExecutionRule",
-      required: true,
+    type: {
+      baseName: "type",
+      type: "SyntheticsCheckType",
     },
     additionalProperties: {
       baseName: "additionalProperties",
@@ -47,7 +46,7 @@ export class SyntheticsMobileTestCiOptions {
    * @ignore
    */
   static getAttributeTypeMap(): AttributeTypeMap {
-    return SyntheticsMobileTestCiOptions.attributeTypeMap;
+    return SyntheticsMobileStepParamsCheck.attributeTypeMap;
   }
 
   public constructor() {}
