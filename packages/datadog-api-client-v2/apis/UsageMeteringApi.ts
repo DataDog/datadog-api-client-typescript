@@ -356,8 +356,8 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
 
   public async getMonthlyCostAttribution(
     startMonth: Date,
-    endMonth: Date,
     fields: string,
+    endMonth?: Date,
     sortDirection?: SortDirection,
     sortName?: string,
     tagBreakdownKeys?: string,
@@ -377,11 +377,6 @@ export class UsageMeteringApiRequestFactory extends BaseAPIRequestFactory {
     // verify required parameter 'startMonth' is not null or undefined
     if (startMonth === null || startMonth === undefined) {
       throw new RequiredError("startMonth", "getMonthlyCostAttribution");
-    }
-
-    // verify required parameter 'endMonth' is not null or undefined
-    if (endMonth === null || endMonth === undefined) {
-      throw new RequiredError("endMonth", "getMonthlyCostAttribution");
     }
 
     // verify required parameter 'fields' is not null or undefined
@@ -1421,11 +1416,6 @@ export interface UsageMeteringApiGetMonthlyCostAttributionRequest {
    */
   startMonth: Date;
   /**
-   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
-   * @type Date
-   */
-  endMonth: Date;
-  /**
    * Comma-separated list specifying cost types (e.g., `<billing_dimension>_on_demand_cost`, `<billing_dimension>_committed_cost`, `<billing_dimension>_total_cost`) and the
    * proportions (`<billing_dimension>_percentage_in_org`, `<billing_dimension>_percentage_in_account`). Use `*` to retrieve all fields.
    * Example: `infra_host_on_demand_cost,infra_host_percentage_in_account`
@@ -1434,6 +1424,11 @@ export interface UsageMeteringApiGetMonthlyCostAttributionRequest {
    * @type string
    */
   fields: string;
+  /**
+   * Datetime in ISO-8601 format, UTC, precise to month: `[YYYY-MM]` for cost ending this month.
+   * @type Date
+   */
+  endMonth?: Date;
   /**
    * The direction to sort by: `[desc, asc]`.
    * @type SortDirection
@@ -1694,8 +1689,8 @@ export class UsageMeteringApi {
   ): Promise<MonthlyCostAttributionResponse> {
     const requestContextPromise = this.requestFactory.getMonthlyCostAttribution(
       param.startMonth,
-      param.endMonth,
       param.fields,
+      param.endMonth,
       param.sortDirection,
       param.sortName,
       param.tagBreakdownKeys,
