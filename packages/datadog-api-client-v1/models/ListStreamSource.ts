@@ -23,6 +23,7 @@ export type ListStreamSource =
   | typeof LOGS_TRANSACTION_STREAM
   | typeof EVENT_STREAM
   | typeof RUM_STREAM
+  | typeof LLM_OBSERVABILITY_STREAM
   | UnparsedObject;
 export const LOGS_STREAM = "logs_stream";
 export const AUDIT_STREAM = "audit_stream";
@@ -36,3 +37,4 @@ export const LOGS_PATTERN_STREAM = "logs_pattern_stream";
 export const LOGS_TRANSACTION_STREAM = "logs_transaction_stream";
 export const EVENT_STREAM = "event_stream";
 export const RUM_STREAM = "rum_stream";
+export const LLM_OBSERVABILITY_STREAM = "llm_observability_stream";
