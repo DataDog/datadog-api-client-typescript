@@ -4,6 +4,7 @@
  * Copyright 2020-Present Datadog, Inc.
  */
 import { SyntheticsBrowserError } from "./SyntheticsBrowserError";
+import { SyntheticsBrowserTestResultFailure } from "./SyntheticsBrowserTestResultFailure";
 import { SyntheticsCheckType } from "./SyntheticsCheckType";
 import { SyntheticsCoreWebVitals } from "./SyntheticsCoreWebVitals";
 import { SyntheticsPlayingTab } from "./SyntheticsPlayingTab";
@@ -16,6 +17,10 @@ import { AttributeTypeMap } from "../../datadog-api-client-common/util";
  * Object describing a step for a Synthetic test.
  */
 export class SyntheticsStepDetail {
+  /**
+   * Whether or not the step was allowed to fail.
+   */
+  "allowFailure"?: boolean;
   /**
    * Array of errors collected for a browser test.
    */
@@ -36,6 +41,10 @@ export class SyntheticsStepDetail {
    * Error returned by the test.
    */
   "error"?: string;
+  /**
+   * The browser test failure details.
+   */
+  "failure"?: SyntheticsBrowserTestResultFailure;
   /**
    * Navigate between different tabs for your browser test.
    */
@@ -102,6 +111,10 @@ export class SyntheticsStepDetail {
    * @ignore
    */
   static readonly attributeTypeMap: AttributeTypeMap = {
+    allowFailure: {
+      baseName: "allowFailure",
+      type: "boolean",
+    },
     browserErrors: {
       baseName: "browserErrors",
       type: "Array<SyntheticsBrowserError>",
@@ -122,6 +135,10 @@ export class SyntheticsStepDetail {
     error: {
       baseName: "error",
       type: "string",
+    },
+    failure: {
+      baseName: "failure",
+      type: "SyntheticsBrowserTestResultFailure",
     },
     playingTab: {
       baseName: "playingTab",
