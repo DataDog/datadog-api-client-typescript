@@ -26,6 +26,10 @@ export class IncidentCreateAttributes {
    */
   "fields"?: { [key: string]: IncidentFieldAttributes };
   /**
+   * A unique identifier that represents an incident type. The default incident type will be used if this property is not provided.
+   */
+  "incidentTypeUuid"?: string;
+  /**
    * An array of initial timeline cells to be placed at the beginning of the incident timeline.
    */
   "initialCells"?: Array<IncidentTimelineCellCreateAttributes>;
@@ -66,6 +70,10 @@ export class IncidentCreateAttributes {
     fields: {
       baseName: "fields",
       type: "{ [key: string]: IncidentFieldAttributes; }",
+    },
+    incidentTypeUuid: {
+      baseName: "incident_type_uuid",
+      type: "string",
     },
     initialCells: {
       baseName: "initial_cells",
